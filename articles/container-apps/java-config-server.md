@@ -187,7 +187,7 @@ Now that you have an existing environment and config server client container app
 | Java component type | *Config Server for Spring* |
 | Java component name | *configserver* |
 
-  :::image type="content" source="media/java-components/create-config-server-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/create-config-server-java-component.png":::
+  :::image type="content" source="media/java-components/create-config-server-java-component.png" alt-text="Screenshot of how to create Config Server Java component."  lightbox="media/java-components/create-config-server-java-component.png":::
 
 1. Select *Add* under *Git repositories*, Enter *URI* value *https://github.com/Azure-Samples/azure-spring-cloud-config-java-aca.git* under Add Git repository, select *Add*
   
@@ -244,23 +244,23 @@ Now that you have an existing environment and config server client container app
 ---
 
 
-    Once the container app and the Config Server component are bound together, configuration changes are automatically synchronized to the container app.
+Once the container app and the Config Server component are bound together, configuration changes are automatically synchronized to the container app.
 
-    When you visit the app's URL again, the value of `connectTimeout` is now `10000`. This value comes from the git repo set in the `$URI` variable originally set as the source of the configuration component. Specifically, this value is drawn from the `connectionTimeout` property in the repo's *application.yml* file.
+When you visit the app's URL again, the value of `connectTimeout` is now `10000`. This value comes from the git repo set in the `$URI` variable originally set as the source of the configuration component. Specifically, this value is drawn from the `connectionTimeout` property in the repo's *application.yml* file.
 
-    The bind request injects configuration setting into the application as environment variables. These values are now available to the application code to use when fetching configuration settings from the config server.
+The bind request injects configuration setting into the application as environment variables. These values are now available to the application code to use when fetching configuration settings from the config server.
 
-    In this case, the following environment variables are available to the application:
+In this case, the following environment variables are available to the application:
 
-    ```bash
-    SPRING_CLOUD_CONFIG_URI=http://$JAVA_COMPONENT_NAME:80
-    SPRING_CLOUD_CONFIG_COMPONENT_URI=http://$JAVA_COMPONENT_NAME:80
-    SPRING_CONFIG_IMPORT=optional:configserver:$SPRING_CLOUD_CONFIG_URI
-    ```
+```bash
+SPRING_CLOUD_CONFIG_URI=http://$JAVA_COMPONENT_NAME:80
+SPRING_CLOUD_CONFIG_COMPONENT_URI=http://$JAVA_COMPONENT_NAME:80
+SPRING_CONFIG_IMPORT=optional:configserver:$SPRING_CLOUD_CONFIG_URI
+```
 
-    If you want to customize your own `SPRING_CONFIG_IMPORT`, you can refer to the environment variable `SPRING_CLOUD_CONFIG_COMPONENT_URI`, for example, you can override by command line arguments, like `Java -Dspring.config.import=optional:configserver:${SPRING_CLOUD_CONFIG_COMPONENT_URI}?fail-fast=true`.
+If you want to customize your own `SPRING_CONFIG_IMPORT`, you can refer to the environment variable `SPRING_CLOUD_CONFIG_COMPONENT_URI`, for example, you can override by command line arguments, like `Java -Dspring.config.import=optional:configserver:${SPRING_CLOUD_CONFIG_COMPONENT_URI}?fail-fast=true`.
 
-    You can also remove a binding from your application.
+You can also remove a binding from your application.
 
 ## Unbind your container app from the Config Server for Spring Java component
 # [Azure CLI](#tab/azure-cli)
