@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: article
-ms.date: 12/12/2022
+ms.date: 08/07/2024
 ms.author: normesta
 ms.reviewer: ozgun
 ms.devlang: csharp
@@ -154,7 +154,8 @@ BlobClientOptions options = new SpecializedBlobClientOptions() { ClientSideEncry
 // and from container clients to blob clients.
 // Attempting to construct a BlockBlobClient, PageBlobClient, or AppendBlobClient from a BlobContainerClient
 // with client-side encryption options present will throw, as this functionality is only supported with BlobClient.
-BlobClient blob = new BlobServiceClient(connectionString, options).GetBlobContainerClient("my-container").GetBlobClient("myBlob");
+BlobClient blob = new BlobServiceClient
+(new Uri($"https://{accountName}.blob.core.windows.net"), new DefaultAzureCredential(), options).GetBlobContainerClient("my-container").GetBlobClient("myBlob");
 
 // Upload the encrypted contents to the blob.
 blob.Upload(stream);
