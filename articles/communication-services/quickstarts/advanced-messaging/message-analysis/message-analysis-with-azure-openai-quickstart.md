@@ -75,7 +75,7 @@ Azure Communication Services enables you to receive Message Analysis results usi
       :::image type="content" source="./media/get-started/send-a-message.png" lightbox="./media/get-started/send-a-message.png" alt-text="Screenshot that shows sending a message from Customer to Contoso.":::
 
 6. **Receive the Message Analysis event**
-   Receive the Message Analysis event in the Event Grid Viewer that you set up in Step **3**.
+   Receive the Message Analysis event in the Event Grid Viewer that you set up in Step **3**. Details on the AdvancedMessageAnalysisCompleted event schema can be found at [Azure Communication Services - Advanced Messaging events](../../../../../articles/event-grid/communication-services-advanced-messaging-events.md#microsoftcommunicationadvancedmessageanalysiscompletedpreview-event)
 
       :::image type="content" source="./media/get-started/event-grid-viewer.png" lightbox="./media/get-started/event-grid-viewer.png" alt-text="Screenshot that shows Message Analysis event being received at Event Grid Viewer.":::
 

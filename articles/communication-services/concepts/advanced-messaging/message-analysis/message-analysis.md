@@ -14,7 +14,7 @@ services: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-document.md)]
 
-Azure Communication Services Advanced Messaging empowers developers to create essential workflows for incoming messages within Azure Communication Services using event triggers. These triggers can initiate actions rooted in tailored business logic. Developers can analyze and gain insights from inbound messages to enhance customer service experience. With the integration of our AI-driven event trigger, Developers can utilize AI analysis to bolster customer support. Content analysis is streamlined using Azure OpenAI Services, which also supports various AI model preferences.
+Azure Communication Services Advanced Messaging enables developers to create workflows for incoming messages within Azure Communication Services using event triggers. These triggers can initiate actions rooted in tailored business logic. Developers can analyze and gain insights from inbound messages to enhance customer service experience. With the integration of the AI-driven event trigger, developers can utilize AI analysis to bolster customer support. Content analysis is streamlined using Azure OpenAI Services, which also supports various AI model preferences.
 In addition, there's no need for developers and businesses to handle credentials themselves. When linking your Azure AI services, managed identities are utilized to access resources owned by you. 
 
 Developers can also use managed identities to authenticate with any service that accepts Microsoft Entra authentication.
