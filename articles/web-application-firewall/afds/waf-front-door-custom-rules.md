@@ -199,6 +199,33 @@ Here's an example JSON description of the custom rule:
   "action": "Block"
 }
 ```
+
+### Match based on request URI
+
+Suppose you need to allow requests where the URI contains 'login'.
+
+Here's an example JSON description of the custom rule:
+
+```json
+{
+  "name": "URIContainsLogin",
+  "priority": 5,
+  "ruleType": "MatchRule",
+  "matchConditions": [
+    {
+      "matchVariable": "RequestUri",
+      "selector": null,
+      "operator": "Contains",
+      "negateCondition": false,
+      "matchValue": [
+        "login"
+      ]
+    }
+  ],
+  "action": "Allow"
+}
+```
+
 ## Copying and duplicating custom rules
 
 Custom rules can be duplicated within a given policy. When duplicating a rule, you need to specify a unique name for the rule and a unique priority value. Additionally, custom rules can be copied from one Azure Front Door WAF policy to another as long as the policies are both in the same subscription. When copying a rule from one policy to another, you need to select the Azure Front Door WAF policy you wish to copy the rule into. Once you select the WAF policy you need to give the rule a unique name, and assign a priority rank.
