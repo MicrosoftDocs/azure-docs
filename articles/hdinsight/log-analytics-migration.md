@@ -166,11 +166,12 @@ Creating new clusters with classic Azure Monitor integration is not available af
 
 ## Release and support timeline
 
-- Classic Azure Monitoring integration will be unavailable after October 15, 2021. You can't enable classic Azure Monitoring integration after that date.
-- Existing classic Azure monitoring integrations will continue to work. There will be limited support for the classic Azure Monitoring integration. 
-  - Issues will be investigated once customers submit the support ticket.
-  - If solution requires image change, customers should move to the new integration.
-  - We won't patch the classic Azure Monitoring integration clusters except for critical security issues.
+* Classic Azure Monitoring integration isn't unavailable after October 15, 2021. You can't enable classic Azure Monitoring integration after that date.
+* Classic Azure Monitoring integration ingestion will not be working after August 31, 2024.
+* HDInsight clusters with Azure Monitor integration (preview) will not be supported beyond February 1, 2025.
+* Existing Azure Monitor integration(preview) will continue to work, until January 31, 2025. There will be limited support for the Azure Monitor integration(preview).
+  * If solution requires image change, customers should move to the new integration.
+  * Microsoft will not patch the Azure Monitor integration (preview) clusters except for critical security issues.
 
 ## Appendix: Table mapping
 
