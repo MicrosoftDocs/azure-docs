@@ -274,10 +274,6 @@ mssparkutils.fs.unmount("/test")
 
 + Mounting a Data Lake Storage Gen1 storage account is not supported for now. 
 
-## Known issues:
-
-+ In Spark 3.4, the mount points might be unavailable when there are multiple active sessions running in parallel in the same cluster. You can mount with `workspace` scope to avoid this issue.
-
 ## Next steps
 
 - [Get started with Azure Synapse Analytics](../get-started.md)

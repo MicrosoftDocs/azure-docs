@@ -8,7 +8,7 @@ ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-ms.custom: mvc, mode-other, devx-track-java
+ms.custom: mvc, devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 

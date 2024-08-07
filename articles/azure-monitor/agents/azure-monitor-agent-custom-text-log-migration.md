@@ -35,7 +35,7 @@ You should follow the steps only if the following criteria are true:
 POST
 https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}/migrate?api-version=2021-12-01-preview
 ```
-3. Discontinue MMA custom text log collection and start using the AMA custom text log. MMA and AMA can both write to the table as you migrate your agents from MMA to AMA.
+3. Discontinue MMA custom text log collection and start using the AMA custom text log.
 
 ## Next steps
 - [Walk through a tutorial sending custom logs using the Azure portal.](data-collection-log-text.md)

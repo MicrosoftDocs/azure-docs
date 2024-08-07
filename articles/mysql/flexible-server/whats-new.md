@@ -29,7 +29,18 @@ This article summarizes new releases and features in the Azure Database for MySQ
 - **Major version upgrade support for Burstable compute tier**
   
   Azure Database for MySQL now offers major version upgrades for Burstable SKU compute tiers. This support automatically upgrades the compute tier to General Purpose SKU before performing the upgrade, ensuring sufficient resources. Customers can choose to revert back to Burstable SKU after the upgrade. Additional costs may apply. [Learn more](how-to-upgrade.md#perform-a-planned-major-version-upgrade-from-mysql-57-to-mysql-80-using-the-azure-portal-for-burstable-sku-servers)
+
+
+- **Deprecated Metrics Announcement**
+
+  We would like to inform you about the deprecation of the following metrics in Azure Database for MySQL Flexible Server.
+  - Storage Throttle Count (deprecated)
+  - Available Memory Bytes (deprecated)
+  - MySQL Lock Row Lock Waits (deprecated)
   
+  These metrics will no longer be supported and will be removed from the monitoring by the end of August 2024. We recommend updating your monitoring and alerting configurations to exclude these metrics and use alternative metrics that provide similar insights. For more information and guidance on alternative metrics, please refer to [azure monitoring documentation](./concepts-monitoring.md)
+  
+
 ## July 2024
 
 - **Move from private access (virtual network integrated) network to public access or private link**

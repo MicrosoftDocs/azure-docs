@@ -230,7 +230,6 @@ The following data sources are free with Microsoft Sentinel:
 - Azure Activity Logs
 - Microsoft Sentinel Health 
 - Office 365 Audit Logs, including all SharePoint activity, Exchange admin activity, and Teams
-- Microsoft Entra ID sign-in logs
 - Security alerts, including alerts from the following sources:
   - Microsoft Defender XDR
   - Microsoft Defender for Cloud

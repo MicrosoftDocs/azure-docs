@@ -273,7 +273,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     az ml workspace update --name myworkspace --resource-group myresourcegroup --image-build-compute mycomputecluster
     ```
 
-    You can switch back to serverless compute by executing the same command and referencing the compute as an empty space: `--image-build-compute ' '`.
+    You can switch back to serverless compute by executing the same command and referencing the compute as an empty space: `--image-build-compute ''`.
 
     # [Python SDK](#tab/python)
 
