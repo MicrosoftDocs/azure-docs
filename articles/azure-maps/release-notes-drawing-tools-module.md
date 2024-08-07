@@ -14,7 +14,7 @@ services: azure-maps
 
 This document contains information about new features and other changes to the Azure Maps Drawing Tools Module.
 
-## [1.0.4]
+## [1.0.4] (Aug 8, 2024)
 
 ### Bug fixes (1.0.4)
 
