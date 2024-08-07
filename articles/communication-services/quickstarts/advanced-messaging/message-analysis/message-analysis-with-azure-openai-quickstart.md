@@ -29,7 +29,9 @@ Azure Communication Services enables you to receive Message Analysis results usi
 1. **Connect Azure Communication Services with Azure OpenAI Services:**
 
    a. Open your Azure Communication Services resource and click the **Cognitive Services** tab.
+
    b. If system-assigned managed identity isn't enabled, you'll need to enable it.
+
    c. In the Cognitive Services tab, click **Enable Managed Identity**.
    
       :::image type="content" source="./media/get-started/enabled-identity.png" lightbox="./media/get-started/enabled-identity.png" alt-text="Screenshot of Enable Managed Identity button.":::
@@ -48,6 +50,7 @@ Azure Communication Services enables you to receive Message Analysis results usi
       :::image type="content" source="./media/get-started/choose-options.png" lightbox="./media/get-started/choose-options.png" alt-text="Screenshot of Subscription, Resource Group, and Resource in pane.":::
 
 2. **Enable Message Analysis:**
+
    a. Go to the **Channels** page of the **Advanced Messaging** tab in your Azure Communication Services resource.
 
      :::image type="content" source="./media/get-started/channels-page.png" lightbox="./media/get-started/channels-page.png" alt-text="Screenshot that shows the channels page.":::
@@ -69,12 +72,14 @@ Azure Communication Services enables you to receive Message Analysis results usi
 
       :::image type="content" source="./media/get-started/create-event-subscription-message-analysis.png" lightbox="./media/get-started/create-event-subscription-message-analysis.png" alt-text="Screenshot that shows how to create Message Analysis event subscription properties.":::
       
-5. **See Message Analysis in action**
+4. **See Message Analysis in action**
+
    Send a message from WhatsApp Customer to Contoso business phone number.
    
       :::image type="content" source="./media/get-started/send-a-message.png" lightbox="./media/get-started/send-a-message.png" alt-text="Screenshot that shows sending a message from Customer to Contoso.":::
 
-6. **Receive the Message Analysis event**
+5. **Receive the Message Analysis event**
+
    Receive the Message Analysis event in the Event Grid Viewer that you set up in Step **3**. Details on the AdvancedMessageAnalysisCompleted event schema can be found at [Azure Communication Services - Advanced Messaging events](../../../../../articles/event-grid/communication-services-advanced-messaging-events.md#microsoftcommunicationadvancedmessageanalysiscompletedpreview-event)
 
       :::image type="content" source="./media/get-started/event-grid-viewer.png" lightbox="./media/get-started/event-grid-viewer.png" alt-text="Screenshot that shows Message Analysis event being received at Event Grid Viewer.":::
