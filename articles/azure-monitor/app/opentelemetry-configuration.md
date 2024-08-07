@@ -627,23 +627,58 @@ useAzureMonitor(options);
 
 ### [Python](#tab/python)
 
-We support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credential-classes).
+Azure Monitor OpenTelemetry Distro for Python support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
 
+- We recommend `DefaultAzureCredential` for local development.
+- We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
+  - For system-assigned, use the default constructor without parameters.
+  - For user-assigned, provide the client ID to the constructor.
+- We recommend `ClientSecretCredential` for service principals.
+  - Provide the tenant ID, client ID, and client secret to the constructor.
+
+If using `ManagedIdentityCredential`
 ```python
-# Import the `ManagedIdentityCredential` class from the `azure.identity` package.
+import os
+# You will need to install azure-identity
 from azure.identity import ManagedIdentityCredential
-# Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
 
-# Configure the Distro to authenticate with Azure Monitor using a managed identity credential.
+credential = ManagedIdentityCredential(client_id="<client_id>")
 configure_azure_monitor(
-    connection_string="your-connection-string",
-    credential=ManagedIdentityCredential(),
+  connection_string=os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"],
+  credential=credential,
 )
 
-```
-You can find more details [here](./azure-ad-authentication?tabs=python).
+tracer = trace.get_tracer(__name__)
 
+with tracer.start_as_current_span("hello with aad managed identity"):
+    print("Hello, World!")
+
+```
+
+If using `ClientSecretCredential`
+```python
+import os
+# You will need to install azure-identity
+from azure.identity import ClientSecretCredential
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
+
+credential = ClientSecretCredential(
+    tenant_id="<tenant_id",
+    client_id="<client_id>",
+    client_secret="<client_secret>",
+)
+configure_azure_monitor(
+  connection_string=os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"],
+  credential=credential,
+)
+
+with tracer.start_as_current_span("hello with aad client identity"):
+    print("Hello, World!")
+
+```
 ---
 
 ## Offline Storage and Automatic Retries
