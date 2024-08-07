@@ -15,7 +15,9 @@ ms.collection: usx-security
 
 # Ingest custom-format syslog messages to Microsoft Sentinel with the Azure Monitor Agent
 
-This article describes how to use the **Custom Logs via AMA** connector to quickly filter and ingest custom-format syslog messages from Linux machines and from network and security devices and appliances. To learn more about this and other similar data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
+This article describes how to use the **Custom Logs via AMA** connector to quickly filter and ingest custom-format syslog messages from Linux machines and from network and security devices and appliances. To learn more about this and other similar data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md).
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 

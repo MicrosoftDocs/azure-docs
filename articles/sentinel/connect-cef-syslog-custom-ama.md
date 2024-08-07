@@ -15,10 +15,20 @@ ms.collection: usx-security
 
 # Ingest syslog, CEF, and custom-format messages to Microsoft Sentinel with the Azure Monitor Agent
 
-This article describes how to use the **Azure Monitor Agent**-based connectors&mdash;**Syslog via AMA**, **Common Event Format (CEF) via AMA**, and **Custom Logs via AMA**&mdash;to quickly filter and ingest syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
+This article describes how to configure the ingestion of syslog messages, including messages in Common Event Format (CEF) and other custom formats, from Linux machines and from network and security devices and appliances, into Microsoft Sentinel. This ingestion uses data connectors based on the **Azure Monitor Agent** (AMA):
+
+- **Syslog via AMA**, for any device whose logs are ingested into the *Syslog* table in Log Analytics.
+
+- **Common Event Format (CEF) via AMA**, for any device whose logs are ingested into the *CommonSecurityLog* table in Log Analytics.
+
+- **Custom Logs via AMA**, for any of 16 device types, or any unlisted device, whose logs are ingested into custom tables with names ending in *_CL* in Log Analytics.
+
+To learn more about these data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
 
 > [!NOTE]
 > Container Insights now supports the automatic collection of Syslog events from Linux nodes in your AKS clusters. To learn more, see [Syslog collection with Container Insights](../azure-monitor/containers/container-insights-syslog.md).
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 
@@ -26,20 +36,25 @@ Before you begin, you must have the resources configured and the appropriate per
 
 ### Microsoft Sentinel prerequisites
 
-Install the appropriate Microsoft Sentinel solution and make sure you have the permissions to complete the steps in this article.
+- **Install the Microsoft Sentinel solution** that matches your device or appliance. You can find these solutions in the **Content hub** in Microsoft Sentinel. Each solution now includes the appropriate connector from among the three connectors listed at the top of this article. Consult the following articles to find your device or appliance.
 
-- Install the appropriate solution from the **Content hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
-
-- Identify which data connector the Microsoft Sentinel solution requires &mdash; **Syslog via AMA** or **Common Event Format (CEF) via AMA** and whether you need to install the **Syslog** or **Common Event Format** solution. To fulfill this prerequisite, 
-
-  - In the **Content hub**, select **Manage** on the installed solution and review the data connector listed. 
-
-  - If either **Syslog via AMA** or **Common Event Format (CEF) via AMA** isn't installed with the solution, identify whether you need to install the **Syslog** or **Common Event Format** solution by finding your appliance or device from one of the following articles:
-
-    - [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
     - [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+    - [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+    - [Custom Logs via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-custom-device.md)
 
-    Then install either the **Syslog** or **Common Event Format** solution from the content hub to get the related AMA data connector.
+    > [!NOTE]
+    > As of August 2024, network and security devices and appliances that produce these kinds of log messages **no longer** use their own data connectors. These per-device connectors are all now labeled as "Deprecated" in the connectors gallery, and they have all been replaced by one of these three general-purpose connectors.
+    >
+    > The data ingestion graphs that were previously found in each device's connector page can now be found in device-specific workbooks packaged with each device's solution.
+
+    For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
+- If your device type doesn't have its own solution, identify which data connector the Microsoft Sentinel solution requires, based on the type of log message it produces. See the list of connectors and their log types at the beginning of this article.
+
+    Install the generic solution for the appropriate connector type: **Syslog via AMA**, **Common Event Format (CEF) via AMA**, or **Custom Logs via AMA**.
+
+and make sure you have the permissions to complete the steps in this article.
+
 
 - Have an Azure account with the following Azure role-based access control (Azure RBAC) roles:
 
