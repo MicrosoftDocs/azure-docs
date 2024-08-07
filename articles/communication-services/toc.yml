@@ -66,6 +66,8 @@ items:
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-communication-services-security-baseline?toc=/azure/communication-services/toc.json
+  - name: Artificial intelligence (AI)
+    href: concepts/ai.md
   - name: Service limits
     href: concepts/service-limits.md
   - name: Troubleshooting
@@ -520,6 +522,8 @@ items:
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
+      - name: Get Real-time Transcription of call audio
+        href: how-tos/call-automation/real-time-transcription-tutorial.md  
       - name: How to secure webhook endpoint
         href: how-tos/call-automation/secure-webhook-endpoint.md
       - name: Handling Call Automation Events with EventProcessor
@@ -787,6 +791,9 @@ items:
       - name: End of Call Survey
         href: concepts/voice-video-calling/end-of-call-survey-concept.md
         displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+      - name: Troubleshooting PSTN call failures
+        href: concepts/telephony/troubleshooting-pstn-call-failures.md
+        displayName: diagnostics, Survey, feedback, quality, reliability, call, voip, troubleshooting
       - name: Troubleshooting VoIP call quality
         href: concepts/voice-video-calling/troubleshoot-web-voip-quality.md
         displayName: diagnostics, Survey, feedback, quality, reliability, call, voip, troubleshooting
@@ -941,6 +948,8 @@ items:
         href: concepts/call-automation/play-action.md
       - name: Gather user input 
         href: concepts/call-automation/recognize-action.md
+      - name: Get Real-Time Audio Insights using Transcriptions
+        href: concepts/call-automation/real-time-transcription.md     
       - name: Ring Microsoft Teams users
         href: concepts/call-automation/call-automation-teams-interop.md
     - name: Call recording
@@ -1061,6 +1070,10 @@ items:
           href: ../event-grid/communication-services-advanced-messaging-events.md
       - name: Templates
         href: concepts/advanced-messaging/whatsapp/template-messages.md
+      - name: Message Analysis
+        items:
+        - name: Overview
+          href: concepts/advanced-messaging/message-analysis.md
   - name: Azure Advisor
     items:
       - name: Overview
@@ -1075,6 +1088,10 @@ items:
     href: resources/learn-modules.md
   - name: Troubleshooting Guides
     items:
+    - name: Troubleshooting in Azure Communication Services
+      href: concepts/troubleshooting-info.md
+    - name: Troubleshooting response codes
+      href: concepts/troubleshooting-codes.md
     - name: Voice and Video
       items:
       - name: General troubleshooting strategies

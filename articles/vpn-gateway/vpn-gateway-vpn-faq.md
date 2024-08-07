@@ -2,7 +2,7 @@
 title: Azure VPN Gateway FAQ
 description: Get answers to frequently asked questions about VPN Gateway connections and configuration settings.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: conceptual
 ms.date: 07/10/2024
 ms.author: cherylmc
@@ -191,7 +191,7 @@ A virtual network gateway is fundamentally a multihomed device. One network adap
 
 ### <a name="vpn-basic"></a>Can I create a VPN gateway by using the Basic SKU in the portal?
 
-No. The Basic SKU isn't available in the portal. You can create a Basic SKU VPN gateway by using the Azure CLI or Azure PowerShell.
+No. The Basic SKU isn't available in the portal. You can create a Basic SKU VPN gateway by using the Azure CLI or the [Azure PowerShell](create-gateway-basic-sku-powershell.md) steps.
 
 ### Where can I find information about gateway types, requirements, and throughput?
 

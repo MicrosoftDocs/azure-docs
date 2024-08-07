@@ -5,7 +5,7 @@ author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
 ms.date: 05/21/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.custom:
   - build-2024

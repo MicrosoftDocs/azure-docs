@@ -2,7 +2,7 @@
 title: Introduction to file APIs in Azure Synapse Analytics
 description: This tutorial describes how to use the file mount and file unmount APIs in Azure Synapse Analytics, for both Azure Data Lake Storage Gen2 and Azure Blob Storage.
 author: JeneZhang 
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 07/27/2022
@@ -273,10 +273,6 @@ mssparkutils.fs.unmount("/test")
 + The unmount mechanism is not automatic. When the application run finishes, to unmount the mount point to release the disk space, you need to explicitly call an unmount API in your code. Otherwise, the mount point will still exist in the node after the application run finishes. 
 
 + Mounting a Data Lake Storage Gen1 storage account is not supported for now. 
-
-## Known issues:
-
-+ In Spark 3.4, the mount points might be unavailable when there are multiple active sessions running in parallel in the same cluster. You can mount with `workspace` scope to avoid this issue.
 
 ## Next steps
 

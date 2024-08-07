@@ -2,7 +2,7 @@
 title: What is Basic Azure Load Balancer?
 description: Overview of Basic Azure Load Balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.author: mbender
 ms.topic: overview
 ms.date: 03/12/2024

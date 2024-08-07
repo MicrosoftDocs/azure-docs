@@ -3,7 +3,7 @@ title: Data protection in Azure Stream Analytics
 description: This article explains how to encrypt your private data used by an Azure Stream Analytics job.
 author: AliciaLiMicrosoft 
 ms.author: ali
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 07/19/2024
 ---

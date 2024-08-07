@@ -5,7 +5,7 @@ description: The scalar expression syntax in Azure Cosmos DB for NoSQL evaluates
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql

@@ -5,7 +5,7 @@ description: Assess an existing MongoDB installation to determine if it's suitab
 author: sandnair
 ms.author: sandnair
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
   - ignite-2023

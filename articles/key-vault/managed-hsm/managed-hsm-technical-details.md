@@ -1,7 +1,7 @@
 ---
 title: Key sovereignty, availability, performance, and scalability in Managed HSM
 description: Read a technical description of how customer-managed key is implemented cryptographically by using Azure Key Vault Managed HSM.
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
 author: davinune

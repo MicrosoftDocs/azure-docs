@@ -5,7 +5,7 @@ description: Learn how to efficiently query a base container by using predefined
 author: AbhinavTrips
 ms.author: abtripathi
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: how-to
@@ -42,6 +42,9 @@ The benefits of using Azure Cosmos DB Materiliazed Views include, but aren't lim
 - Materialized views improve write performance (compared to a multi-container-write strategy) because write operations need to be written only to the base container.
 - The Azure Cosmos DB implementation of materialized views is based on a pull model. This implementation doesn't affect write performance.
 - Azure Cosmos DB materialized views for NoSQL API caters to the Global Secondary Index use cases as well. Global Secondary Indexes are also used to maintain secondary data views and help in reducing cross-partition queries.
+
+> [!NOTE]
+> The "id" field in the materialized view is auto populated with "_rid" from source document. This is done to maintain the one-to-one relationship between materialized view and source container documents.
 
 ## Prerequisites
 

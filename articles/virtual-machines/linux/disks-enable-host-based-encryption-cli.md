@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.date: 11/02/2023
 ms.author: rogarana
 ms.custom:
-  - references_regions
   - devx-track-azurecli
   - linux-related-content
   - ignite-2023
@@ -22,10 +21,6 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 ## Restrictions
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
-
-## Regional availability
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### Supported VM sizes
 

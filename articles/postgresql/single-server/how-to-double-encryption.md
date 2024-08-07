@@ -1,7 +1,7 @@
 ---
 title: Infrastructure double encryption - Azure portal - Azure Database for PostgreSQL
 description: Learn how to set up and manage Infrastructure double encryption for your Azure Database for PostgreSQL.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila

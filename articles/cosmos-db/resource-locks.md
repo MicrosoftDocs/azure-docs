@@ -5,7 +5,7 @@ description: Use Azure resource locks to prevent Azure Cosmos DB resources from 
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.devlang: azurecli

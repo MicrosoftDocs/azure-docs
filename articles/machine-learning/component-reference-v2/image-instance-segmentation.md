@@ -3,7 +3,7 @@ title:  "AutoML Image Instance Segmentation Component in Microsoft Azure Machine
 titleSuffix: Azure Machine Learning
 description: Learn how to use the AutoML Image Instance Segmentation component in Azure Machine Learning to create a classifier using ML Table data.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.author: rasavage

@@ -123,7 +123,7 @@ If you're not familiar with the REST client for Visual Studio Code, this section
    @apiKey = PUT-YOUR-SEARCH-SERVICE-API-KEY-HERE
     
     ### List existing indexes by name
-    GET  {{baseUrl}}/indexes?api-version=2023-11-01&$select=name  HTTP/1.1
+    GET  {{baseUrl}}/indexes?api-version=2024-07-01&$select=name  HTTP/1.1
       Content-Type: application/json
       api-key: {{apiKey}}
     ```
@@ -135,7 +135,7 @@ If you're not familiar with the REST client for Visual Studio Code, this section
    @token = PUT-YOUR-PERSONAL-IDENTITY-TOKEN-HERE
     
     ### List existing indexes by name
-    GET  {{baseUrl}}/indexes?api-version=2023-11-01&$select=name  HTTP/1.1
+    GET  {{baseUrl}}/indexes?api-version=2024-07-01&$select=name  HTTP/1.1
       Content-Type: application/json
       Authorization: Bearer {{token}}
     ```
@@ -158,7 +158,7 @@ Add a second request to your `.rest` file. [Create Index (REST)](/rest/api/searc
 
     ```http
     ### Create a new index
-    POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
+    POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
       Content-Type: application/json
       Authorization: Bearer {{token}}
     
@@ -235,7 +235,7 @@ The URI is extended to include the `docs` collections and `index` operation.
 
     ```http
     ### Upload documents
-    POST {{baseUrl}}/indexes/hotels-quickstart/docs/index?api-version=2023-11-01  HTTP/1.1
+    POST {{baseUrl}}/indexes/hotels-quickstart/docs/index?api-version=2024-07-01  HTTP/1.1
       Content-Type: application/json
       Authorization: Bearer {{token}}
     
@@ -335,7 +335,7 @@ The URI is extended to include a query expression, which is specified by using t
 
     ```http
     ### Run a query
-    POST {{baseUrl}}/indexes/hotels-quickstart/docs/search?api-version=2023-11-01  HTTP/1.1
+    POST {{baseUrl}}/indexes/hotels-quickstart/docs/search?api-version=2024-07-01  HTTP/1.1
       Content-Type: application/json
       Authorization: Bearer {{token}}
       
@@ -377,7 +377,7 @@ You can also use [Get Statistics](/rest/api/searchservice/indexes/get-statistics
 
     ```http
     ### Get index statistics
-    GET {{baseUrl}}/indexes/hotels-quickstart/stats?api-version=2023-11-01  HTTP/1.1
+    GET {{baseUrl}}/indexes/hotels-quickstart/stats?api-version=2024-07-01  HTTP/1.1
       Content-Type: application/json
       Authorization: Bearer {{token}}
     ```
@@ -403,7 +403,7 @@ You can also try this `DELETE` command:
 
 ```http
 ### Delete an index
-DELETE  {{baseUrl}}/indexes/hotels-quickstart?api-version=2023-11-01 HTTP/1.1
+DELETE  {{baseUrl}}/indexes/hotels-quickstart?api-version=2024-07-01 HTTP/1.1
     Content-Type: application/json
     api-key: {{apiKey}}
 ```

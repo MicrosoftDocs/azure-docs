@@ -3,7 +3,7 @@ title: Import certificates from Azure Key Vault to Azure Container Apps
 description: Learn to managing secure certificates in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 05/09/2024
 ms.author: cshoe

@@ -16,7 +16,7 @@ This article summarizes plans for agent retirement.
 
 The Defender for Servers plan uses the Log Analytics agent in general availability (GA) and in AMA for [some features](plan-defender-for-servers-agents.md) (in preview). Here's what's happening with these features going forward:
 
-To simplify onboarding, all Defender for Servers security features and capabilities will be provided with a single agent ([Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)), complemented by [agentless machine scanning](concept-agentless-data-collection.md), without any dependency on Log Analytics agent or AMA. Note that:  
+To simplify onboarding, all Defender for Servers security features and capabilities will be provided with a single agent ([Microsoft Defender for Endpoint](integration-defender-for-endpoint.md)), complemented by [agentless machine scanning](concept-agentless-data-collection.md), without any dependency on Log Analytics agent or AMA.
 
 - Defender for Servers features, which are based on AMA, are currently in preview and won’t be released in GA.  
 - Features in preview that rely on AMA remain supported until an alternate version of the feature is provided, which will rely on the Defender for Endpoint integration or the agentless machine scanning feature.
@@ -53,6 +53,18 @@ To preserve the 500 MB of free data ingestion allowance for the [supported data 
 Learn more about how to [deploy AMA](/azure/azure-monitor/vm/monitor-virtual-machine-agent).
 
 For SQL servers on machines, we recommend to [migrate to SQL server-targeted Azure Monitoring Agent's (AMA) autoprovisioning process](defender-for-sql-autoprovisioning.md).
+
+### Changes to legacy Defender for Servers Plan 2 onboarding via Log Analytics agent
+
+The legacy approach to onboard servers to Defender for Servers Plan 2 based on the Log Analytics agent and using Log analytics workspaces is set for retirement as well:
+
+- The onboarding experience for [onboarding new non-Azure machines](quickstart-onboard-machines.md) to Defender for Servers using Log Analytics agents and workspaces is removed from the **Inventory** and **Getting started** blades in the Defender for Cloud portal.
+
+- To avoid losing security coverage with the Agent retirement:
+
+  - If you onboarded on-premises servers using the [legacy approach](quickstart-onboard-machines.md), you should now connect these machines via Azure Arc-enabled servers to Defender for Servers Plan 2 Azure subscriptions.
+
+  - If you used the legacy approach to enable Defender for Servers Plan 2 on selected Azure VMs, we recommend enabling Defender for Servers Plan 2 on the Azure subscriptions for these machines. You can then exclude individual machines from the Defender for Servers coverage using the Defender for Servers [per-resource configuration](tutorial-enable-servers-plan.md).
 
 ### Endpoint protection recommendations experience - changes and migration guidance
 
@@ -144,13 +156,13 @@ Alternatively, you can remove the related file change tracking Data collection r
 After you disable the file events collection using one of the methods above:
 
 - New events will stop being collected on the selected scope.
-- The historical events which already were collected remain stored in the relevant workspace under the *ConfigurationChange* table in the **Change Tracking** section. These events will remain available in the relevant workspace according to the retention period defined in this workspace. For more information, see [How retention and archiving work](/azure/azure-monitor/logs/data-retention-archive#how-retention-and-archiving-work).
+- The historical events that already were collected remain stored in the relevant workspace under the *ConfigurationChange* table in the **Change Tracking** section. These events will remain available in the relevant workspace according to the retention period defined in this workspace. For more information, see [How retention and archiving work](/azure/azure-monitor/logs/data-retention-archive#how-retention-and-archiving-work).
 
 #### Migration from FIM over Log Analytics Agent (MMA)
 
 If you currently use FIM over the Log Analytics Agent (MMA):
 
-- File Integrity Monitoring based on Log Analytics Agent (MMA) will be deprecated at he end of November 2024.
+- File Integrity Monitoring based on Log Analytics Agent (MMA) will be deprecated at the end of November 2024.
 
 - Microsoft Defender for Cloud recommends disabling FIM over MMA, and onboarding your environment to the new FIM version based on Defender for Endpoint upon release.
 

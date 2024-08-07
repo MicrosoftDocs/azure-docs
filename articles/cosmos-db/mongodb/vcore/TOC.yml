@@ -40,6 +40,8 @@
           href: rag.md
     - name: MongoDB feature support
       href: compatibility.md
+    - name: Support for Geospatial Queries
+      href: geospatial-support.md
     - name: High availability (HA)
       href: high-availability.md
     - name: Cross-region replication
@@ -52,6 +54,8 @@
       items: 
        - name: Scalability overview
          href: scalability-overview.md
+       - name: Sharding
+         href: partitioning.md
        - name: Compute and storage
          href: compute-storage.md 
     - name: Migration options
@@ -92,6 +96,8 @@
           href: background-indexing.md
         - name: Indexing best practices
           href: how-to-create-indexes.md
+        - name: Indexing scenarios
+          href: how-to-index.md
         - name: Working with wildcard
           href: how-to-create-wildcard-indexes.md
         - name: Search and query text

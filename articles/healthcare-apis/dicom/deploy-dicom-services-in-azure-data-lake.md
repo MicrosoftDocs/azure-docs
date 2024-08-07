@@ -2,8 +2,8 @@
 title: Deploy the DICOM service with Azure Data Lake Storage
 description: Learn how to deploy the DICOM service and store all your DICOM data in its native format with a data lake in Azure Health Data Services.
 author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: mmitrik

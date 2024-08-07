@@ -5,7 +5,7 @@ metadata:
   keywords: azure container apps, frequently asked questions
   author: craigshoemaker
   ms.topic: faq
-  ms.service: container-apps
+  ms.service: azure-container-apps
   ms.custom:
     - ignite-2023
   ms.date: 05/15/2024
@@ -38,7 +38,10 @@ sections:
           Can I set up GitHub Actions to automatically build and deploy my code to Azure Container Apps?
         answer:
           Yes. Using Azure CLI, run `az containerapp github-action -h` to see the options. Using Azure portal, go to the "Continuous deployment" window under your container app.
-
+      - question: |
+          Do Consumption only environments support custom user-defined routes?
+        answer:
+          For Consumption only environments, express routes are unsupported, and limited UDR when configured as follows is supported. The UDR configuration must have a route configured for `Azure.<REGION_NAME>` Service tag with Next Hop = "Internet". In addition, the rules in the [NSG documentation](./firewall-integration.md?tabs=consumption-only) must be configured for the Consumption only environment to be operational. These limitations do not apply for workload profiles, and for full featured UDR and Express Route support, use workload profile environments.
   - name: Data management
     questions:
       - question: |
@@ -65,7 +68,7 @@ sections:
 
           - **Business reasoning for scaling**: You might be eligible for a quota increase request if the platform limits are blocking your workload demands. Scale limits overrides are evaluated on a per-case basis.
 
-  - name: Dapr
+  - name: Microservice APIs powered by Dapr
     questions:
       - question: |
           What Dapr features and APIs are available in Azure Container Apps?
@@ -82,12 +85,12 @@ sections:
       - question: |
           What is the Dapr version release cadence in Azure Container Apps?
         answer: |
-          Dapr's typical release timeline is up to six weeks after [the Dapr OSS release](https://docs.dapr.io/operations/support/support-release-policy/). The latest Dapr version is made available in Azure Container Apps after rigorous testing. Rolling out to all regions can take roughly up to two weeks.
+          Dapr's typical release timeline is up to six weeks after [the Dapr OSS release](https://docs.dapr.io/operations/support/support-release-policy/). The latest Dapr version is made available in Azure Container Apps after rigorous testing. Rolling out to all regions can take roughly up to two weeks. 
 
       - question: |
           How can I request a Dapr feature enhancement for Azure Container Apps?
         answer:
-          You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
+
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
   
   - name: Dockerless deployments

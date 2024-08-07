@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > - Use values from App Configuration when deploying an application to Kubernetes using Helm.
 > - Create a Kubernetes Secret based on a Key Vault reference in App Configuration.
 
-This tutorial assumes basic understanding of managing Kubernetes with Helm. Learn more about installing applications with Helm in [Azure Kubernetes Service](../aks/kubernetes-helm.md).
+This tutorial assumes basic understanding of managing Kubernetes with Helm. Learn more about installing applications with Helm in [Azure Kubernetes Service](/azure/aks/kubernetes-helm).
 
 ## Prerequisites
 
@@ -227,7 +227,7 @@ else{
 
 ```
 
-Verify that configurations and secrets were set successfully by accessing the [Kubernetes Dashboard](../aks/kubernetes-dashboard.md). You'll see that the **color** and **message** values from App Configuration were populated into the container's environment variables.
+Verify that configurations and secrets were set successfully by accessing the [Kubernetes Dashboard](/azure/aks/kubernetes-dashboard). You'll see that the **color** and **message** values from App Configuration were populated into the container's environment variables.
 
 ![Quickstart app launch local](./media/kubernetes-dashboard-env-variables.png)
 

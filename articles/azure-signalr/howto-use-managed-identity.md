@@ -2,7 +2,7 @@
 title: Managed identities in Azure SignalR Service
 description: Learn how managed identities work in Azure SignalR Service, and how to use a managed identity in serverless scenarios.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 12/09/2022
 ms.author: lianwei

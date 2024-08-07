@@ -254,8 +254,8 @@
         href: backup-create-recovery-services-vault.md
       - name: Delete
         href: backup-azure-delete-vault.md
-      - name: Move
-        href: backup-azure-move-recovery-services-vault.md
+      - name: Relocate
+        href: ../operational-excellence/relocation-backup.md?toc=/azure/backup/toc.json
       - name: Manage
         href: backup-azure-manage-windows-server.md
     - name: Backup vault

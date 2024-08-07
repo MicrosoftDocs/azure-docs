@@ -4,7 +4,7 @@ description: A how-to guide for migrating to TLS version 1.3 for classic and man
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 03/29/2024
 ---

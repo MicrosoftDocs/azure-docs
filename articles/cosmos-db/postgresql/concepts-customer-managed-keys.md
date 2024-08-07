@@ -3,7 +3,7 @@ title: Concepts of customer-managed keys in Azure Cosmos DB for PostgreSQL.
 description: Concepts of customer-managed keys.
 ms.author: akashrao
 author: akashraokm
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 04/06/2023

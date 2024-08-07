@@ -6,6 +6,7 @@ ms.subservice: shared-capabilities
 ms.date: 07/17/2024
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell, devx-track-python
+ms.service: azure-automation
 ---
 
 # Manage modules in Azure Automation

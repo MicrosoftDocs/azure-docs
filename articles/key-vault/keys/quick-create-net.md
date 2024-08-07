@@ -4,7 +4,7 @@ description: Learn how to create, retrieve, and delete keys from an Azure key va
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/04/2023
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.devlang: csharp

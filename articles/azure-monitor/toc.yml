@@ -230,24 +230,7 @@ items:
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
       - name: Usage (user behavior analytics)
-        items:
-        - name: Overview
-          displayName: user behavior analytics, user behavior, usage, behavioral analytics
-          href: app/usage-overview.md
-        - name: Users, Sessions, Events
-          href: app/usage-segmentation.md
-        - name: Funnels
-          href: app/usage-funnels.md
-        - name: Cohorts
-          href: app/usage-cohorts.md
-        - name: Impact
-          href: app/usage-impact.md
-        - name: Retention
-          href: app/usage-retention.md
-        - name: User Flows
-          href: app/usage-flows.md
-        - name: HEART Framework
-          href: app/usage-heart.md
+        href: app/usage.md
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
       - name: Transaction Search and Diagnostics
@@ -613,21 +596,20 @@ items:
         displayName: data collection rule, dcr, Azure Monitor pipeline
         href: essentials/data-collection-rule-overview.md
       - name: Best practices
-        displayName: data collection, data collection rules
+        displayName: data collection rules, DCR
         href: essentials/data-collection-rule-best-practices.md
-      - name: View DCRs
+      - name: View and associate
+        displayName: data collection rules, DCR
         href: essentials/data-collection-rule-view.md
-      - name: Create and edit DCRs
-        items:
-        - name: Create
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-create-edit.md
-        - name: Edit tutorial
-          displayName: data collection rules
-          href: essentials/data-collection-rule-edit.md
-        - name: Structure
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-structure.md
+      - name: Create and edit
+        displayName: Data collection rules, DCR
+        href: essentials/data-collection-rule-create-edit.md
+      - name: Edit DCR tutorial
+        displayName: data collection rules
+        href: essentials/data-collection-rule-edit.md
+      - name: Structure
+        displayName: Data collection rules, DCR
+        href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
@@ -726,7 +708,7 @@ items:
           - name: SNMP traps
             displayName: data collection rule,Azure Monitor agent
             href: agents/data-collection-snmp-data.md
-          - name: Collect Windows Firewall logs
+          - name: Windows Firewall logs
             displayName: data collection rule,Azure Monitor Agent,firewall logs
             href: agents/data-sources-firewall-logs.md
           - name: Configure a syslog forwarder
@@ -956,6 +938,8 @@ items:
         - name: Manage
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-manage.md
+        - name: Best practices for scaling Azure Monitor workspaces  
+          href: essentials/azure-monitor-workspace-scaling-best-practice.md
         - name: Private endpoints for Azure Monitor workspaces
           href: essentials/azure-monitor-workspace-private-endpoint.md
         - name: Private link for Prometheus data ingestion
@@ -1630,3 +1614,4 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor
+

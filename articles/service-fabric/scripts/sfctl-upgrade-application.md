@@ -4,7 +4,7 @@ description: Service Fabric CLI Script Sample - Update an application with a new
 services: service-fabric
 author: athinanthny
 manager: chackdan
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 12/06/2017
 ms.author: atsenthi

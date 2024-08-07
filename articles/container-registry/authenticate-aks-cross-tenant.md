@@ -4,7 +4,7 @@ description: Configure an AKS cluster's service principal with permissions to ac
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.date: 10/31/2023
 ---
 
@@ -20,7 +20,7 @@ In some cases, you might have your Azure AKS cluster in one Microsoft Entra tena
 Assumptions for this example:
 
 * The AKS cluster is in **Tenant A** and the Azure container registry is in **Tenant B**. 
-* The AKS cluster is configured with service principal authentication in **Tenant A**. Learn more about how to create and use a [service principal for your AKS cluster](../aks/kubernetes-service-principal.md).
+* The AKS cluster is configured with service principal authentication in **Tenant A**. Learn more about how to create and use a [service principal for your AKS cluster](/azure/aks/kubernetes-service-principal).
 
 You need at least the Contributor role in the AKS cluster's subscription and the Owner role in the container registry's subscription.
 
@@ -74,7 +74,7 @@ In **Tenant B**, assign the AcrPull role to the service principal, scoped to the
 
 ### Step 4: Update AKS with the Microsoft Entra application secret
 
-Use the multitenant application (client) ID and client secret collected in Step 1 to [update the AKS service principal credential](../aks/update-credentials.md#update-aks-cluster-with-service-principal-credentials).
+Use the multitenant application (client) ID and client secret collected in Step 1 to [update the AKS service principal credential](/azure/aks/update-credentials#update-aks-cluster-with-service-principal-credentials).
 
 Updating the service principal can take several minutes.
 

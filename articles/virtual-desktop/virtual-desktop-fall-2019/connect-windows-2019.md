@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 08/08/2022
 ms.author: helohr
-manager: femila
 ---
 # Connect with the Windows Desktop (classic) client
 

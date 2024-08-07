@@ -3,7 +3,7 @@ title: Azure Attestation claim rule functions
 description: Learn about claim rule concepts for Azure Attestation policy and the improvements made to the policy language.
 services: attestation
 author: prsriva
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/05/2022
 ms.author: prsriva

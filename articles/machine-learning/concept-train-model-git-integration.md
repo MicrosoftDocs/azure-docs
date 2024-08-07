@@ -3,7 +3,7 @@ title: Git integration
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning integrates with a local Git repository to track repository, branch, and current commit information as part of a training job.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
 author: Blackmist
