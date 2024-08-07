@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door supports URL redirection for their routing rules.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 06/17/2024
 ms.author: duau

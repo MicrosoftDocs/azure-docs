@@ -38,6 +38,17 @@ This recommendation replaces the old recommendation *Cognitive Services accounts
 **Severity**: Medium
 
 
+### [Azure AI Services resources should use Azure Private Link](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/54f53ddf-6ebd-461e-a247-394c542bc5d1)
+
+**Description**: Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform reduces data leakage risks by handling the connectivity between the consumer and services over the Azure backbone network.
+
+Learn more about private links at: [https://aka.ms/AzurePrivateLink/Overview](https://aka.ms/AzurePrivateLink/Overview)
+
+This recommendation replaces the old recommendation *Cognitive Services should use private link*. It was formerly in category Data recommendations, and was updated to comply with the Azure AI Services naming format and align with the relevant resources.
+
+**Severity**: Medium
+
+
 ### [(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/18bf29b3-a844-e170-2826-4e95d0ba4dc9/showSecurityCenterCommandBar~/false)
 
 **Description**: Using customer-managed keys to encrypt data at rest provides more control over the key lifecycle, including rotation and management. This is particularly relevant for organizations with related compliance requirements.
@@ -45,6 +56,14 @@ This recommendation replaces the old recommendation *Cognitive Services accounts
 This is not assessed by default and should only be applied when required by compliance or restrictive policy requirements. If not enabled, the data will be encrypted using platform-managed keys. To implement this, update the 'Effect' parameter in the Security Policy for the applicable scope. (Related policy: [Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/ai-services/openai/how-to/use-your-data-securely))
 
 This recommendation replaces the old recommendation *Cognitive services accounts should enable data encryption using customer keys*. It was formerly in category Data recommendations, and was updated to comply with the Azure AI Services naming format and align with the relevant resources. 
+
+**Severity**: Low
+
+### [Diagnostic logs in Azure AI services resources should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e)
+
+**Description**: Enable logs for Azure AI services resources. This enables you to recreate activity trails for investigation purposes, when a security incident occurs or your network is compromised. 
+
+This recommendation replaces the old recommendation *Diagnostic logs in Search services should be enabled*. It was formerly in the category Cognitive Services and Cognitive Search, and was updated to comply with the Azure AI Services naming format and align with the relevant resources. 
 
 **Severity**: Low
 
@@ -77,14 +96,6 @@ This recommendation replaces the old recommendation *Cognitive services accounts
 **Description & related policy**: Ensure Azure Machine Learning compute instances run on the latest available operating system. Security is improved and vulnerabilities reduced by running with the latest security patches. For more information, see [Vulnerability management for Azure Machine Learning](../machine-learning/concept-vulnerability-management.md#compute-instance).
 
 **Severity**: Medium
-
-### [Diagnostic logs in Azure AI services resources should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dea5192e-1bb3-101b-b70c-4646546f5e1e)
-
-**Description**: Enable logs for Azure AI services resources. This enables you to recreate activity trails for investigation purposes, when a security incident occurs or your network is compromised. 
-
-This recommendation replaces the old recommendation *Diagnostic logs in Search services should be enabled*. It was formerly in the category Cognitive Services and Cognitive Search, and was updated to comply with the Azure AI Services naming format and align with the relevant resources. 
-
-**Severity**: Low
 
 ### Resource logs in Azure Databricks Workspaces should be enabled (Preview)
 

@@ -4,7 +4,7 @@ description: Learn how to use security features in Azure Backup to make backups 
 ms.topic: how-to
 ms.date: 02/08/2024
 ms.custom: devx-track-azurepowershell, engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

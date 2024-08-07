@@ -73,6 +73,12 @@ The `appcat` CLI is available for download as a ZIP file from [aka.ms/appcat/azu
 
  - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip)
 
+#### Known issues
+
+Certain rules might not be triggered when parsing specific Lambda expressions. For more information, see [the GitHub issue](https://github.com/konveyor/rulesets/issues/102).
+
+Running `appcat` in a non-unicode environment with complex double-byte characters will cause corruption. For workarounds, see [the GitHub issue](https://github.com/Azure/appcat-rulesets/issues/183).
+
 ### Get started with appcat
 
 Unzip the zip file in a folder of your choice. You then get the following directory structure:

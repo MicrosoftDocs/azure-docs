@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python

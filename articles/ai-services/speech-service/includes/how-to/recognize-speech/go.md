@@ -12,7 +12,7 @@ ms.author: eur
 
 ## Recognize speech to text from a microphone
 
-Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal). Running the script starts a recognition session on your default microphone and output text:
+Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).  Running the script starts a recognition session on your default microphone and output text:
 
 ```go
 package main
@@ -103,7 +103,7 @@ For detailed information, see the [reference content for the `SpeechConfig` clas
 
 ## Recognize speech to text from an audio file
 
-Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal). Additionally, replace the variable `file` with a path to a *.wav* file. When you run the script, it recognizes speech from the file and output the text result:
+Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. Create a Speech resource on the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).  Additionally, replace the variable `file` with a path to a *.wav* file. When you run the script, it recognizes speech from the file and output the text result:
 
 ```go
 package main

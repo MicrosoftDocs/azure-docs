@@ -2,7 +2,7 @@
 title: Store and use certificates in Azure Cloud Services (extended support)
 description: Processes for storing and using certificates in Azure Cloud Services (extended support)
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

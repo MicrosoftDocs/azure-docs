@@ -6,7 +6,7 @@ ms.custom: horz-monitor, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ---
 

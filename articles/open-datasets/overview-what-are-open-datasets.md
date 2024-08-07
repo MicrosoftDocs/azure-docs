@@ -1,7 +1,7 @@
 ---
 title: What are open datasets? Curated public datasets
 description: Learn about Azure Open Datasets, curated datasets from the public domain such as weather, census, holidays, and location to enrich predictive solutions.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: overview
 author: fbsolo-ms1
 ms.author: franksolomon

@@ -3,7 +3,7 @@ title: OpenAI GPT-4V (preview)
 titleSuffix: Azure Machine Learning
 description: The prompt flow OpenAI GPT-4V tool enables you to use OpenAI's GPT-4 with vision, also referred to as GPT-4V or gpt-4-vision-preview in the API, to take images as input and answer questions about them.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.topic: reference
 author: lgayhardt

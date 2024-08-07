@@ -1,7 +1,7 @@
 ---
 title: Customize Azure HDInsight clusters by using script actions
 description: Add custom components to HDInsight clusters by using script actions. Script actions are Bash scripts that can be used to customize the cluster configuration. Or add additional services and utilities like Hue, Solr, or R.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.topic: how-to
 ms.date: 07/12/2024

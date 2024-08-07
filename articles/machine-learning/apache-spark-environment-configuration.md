@@ -5,7 +5,7 @@ description: Learn how to configure your Apache Spark environment for interactiv
 author: fbsolo-ms1 
 ms.author: franksolomon
 ms.reviewer:  yogipandey
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 04/19/2024

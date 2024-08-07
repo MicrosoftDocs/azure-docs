@@ -115,4 +115,4 @@ For an example, see [Bicep extensibility Kubernetes provider](./bicep-extensibil
 - To learn about the Bicep data types, see [Data types](./data-types.md).
 - To learn about the Bicep functions, see [Bicep functions](./bicep-functions.md).
 - To learn about how to use the Kubernetes provider, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
-- To go through a Kubernetes provider tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes provider.](../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md).
+- To go through a Kubernetes provider tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes provider.](/azure/aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider).

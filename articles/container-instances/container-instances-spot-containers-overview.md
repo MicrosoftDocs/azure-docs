@@ -4,7 +4,7 @@ description: Learn more about Spot container groups
 ms.topic: conceptual
 ms.author: atsenthi
 author: athinanthny
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 05/14/2023
 ---

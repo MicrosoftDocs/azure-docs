@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: overview
-ms.date: 06/30/2024
+ms.date: 08/06/2024
 ms.custom: build-2023, build-2023-dataai
 recommendations: false
 ---
@@ -72,7 +72,7 @@ Azure OpenAI processes text by breaking it down into tokens. Tokens can be words
 
 The total number of tokens processed in a given request depends on the length of your input, output and request parameters. The quantity of tokens being processed will also affect your response latency and throughput for the models.
  
-#### Image tokens (GPT-4 Turbo with Vision)
+#### Image tokens (GPT-4 Turbo with Vision and GPT-4o)
 
 The token cost of an input image depends on two main factors: the size of the image and the detail setting (low or high) used for each image. Here's a breakdown of how it works:
 

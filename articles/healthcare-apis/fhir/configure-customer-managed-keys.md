@@ -2,7 +2,7 @@
 title: Configure customer-managed keys (CMK) for the FHIR service in Azure Health Data Services
 description: Use customer-managed keys (CMK) to encrypt data in the FHIR service. Create and manage CMK in Azure Key Vault and update the encryption key with a managed identity.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 11/20/2023

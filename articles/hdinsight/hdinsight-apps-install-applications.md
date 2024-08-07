@@ -1,7 +1,7 @@
 ---
 title: Install third-party applications on Azure HDInsight 
 description: Learn how to install third-party Apache Hadoop applications on Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/08/2023
@@ -20,7 +20,7 @@ The following list shows the published applications:
 |[AtScale Intelligence Platform](https://aws.amazon.com/marketplace/pp/AtScale-AtScale-Intelligence-Platform/B07BWWHH18) |Hadoop |AtScale turns your HDInsight cluster into a scale-out OLAP server, allowing you to query billions of rows of data interactively using the BI tools you already know, own, and love – from Microsoft Excel, Power BI, Tableau Software to QlikView. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop |Datameer's self-service scalable platform for preparing, exploring, and governing your data for analytics accelerates turning complex multisource data into valuable business-ready information, delivering faster, smarter insights at an enterprise-scale. |
 |[Dataiku DSS on HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dataiku-data-science-studio) |Hadoop, Spark |Dataiku DSS in an enterprise data science platform that lets data scientists and data analysts collaborate to design and run new data products and services more efficiently, turning raw data into impactful predictions. |
-|[WANdisco Fusion HDI App](https://community.wandisco.com/s/article/Use-WANdisco-Fusion-for-parallel-operation-of-ADLS-Gen1-and-Gen2) |Hadoop, Spark, HBase, Kafka |Keeping data consistent in a distributed environment is a massive data operations challenge. WANdisco Fusion, an enterprise-class software platform, solves this problem by enabling unstructured data consistency across any environment. |
+|[WANdisco Fusion HDI App](https://docs.wandisco.com/bigdata/wdfusion/adls/) |Hadoop, Spark, HBase, Kafka |Keeping data consistent in a distributed environment is a massive data operations challenge. WANdisco Fusion, an enterprise-class software platform, solves this problem by enabling unstructured data consistency across any environment. |
 |H2O SparklingWater for HDInsight |Spark |H2O Sparkling Water supports the following distributed algorithms: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection, Autoencoders. |
 |[Striim for Real-Time Data Integration to HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Spark, Kafka |Striim (pronounced "stream") is an end-to-end streaming data integration + intelligence platform, enabling continuous ingestion, processing, and analytics of disparate data streams. |
 |[Jumbune Enterprise-Accelerating BigData Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |At a high level, Jumbune assists enterprises by, 1. Accelerating Tez, MapReduce & Spark engine based Hive, Java, Scala workload performance. 2. Proactive Hadoop Cluster Monitoring, 3. Establishing Data Quality management on distributed file system. |

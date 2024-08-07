@@ -5,7 +5,7 @@ description: Learn how to use Apache Spark to wrangle data with Azure Machine Le
 author: fbsolo-ms1
 ms.author: franksolomon
 ms.reviewer: yogipandey
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 10/05/2023

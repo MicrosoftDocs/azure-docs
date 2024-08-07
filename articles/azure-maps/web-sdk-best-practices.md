@@ -5,7 +5,7 @@ description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK.
 author: sinnypan
 ms.author: sipa
 ms.date: 06/23/2023
-ms.topic: how-to
+ms.topic: best-practice
 ms.service: azure-maps
 services: azure-maps
 ---

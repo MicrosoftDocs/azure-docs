@@ -3,7 +3,7 @@ title: Create, change, or delete a Peering Service connection - Azure portal
 description: Learn how to create, change, or delete a Peering Service connection using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: peering-service
+ms.service: azure-peering-service
 ms.topic: how-to
 ms.date: 03/07/2024
 

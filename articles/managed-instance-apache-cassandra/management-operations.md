@@ -3,7 +3,7 @@ title: Management operations in Azure Managed Instance for Apache Cassandra
 description: Learn about the management operations supported by Azure Managed Instance for Apache Cassandra. It also explains separation of responsibilities between the Azure support team and customers when maintaining standalone and hybrid clusters.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 11/02/2021
 ---

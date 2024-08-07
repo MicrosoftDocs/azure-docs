@@ -3,7 +3,7 @@ title: 'Quickstart: Set up Azure Attestation by using the Azure portal'
 description: In this quickstart, you'll learn how to set up and configure an attestation provider by using the Azure portal.
 services: attestation
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: quickstart
 ms.date: 01/30/2024
 ms.author: mbaldwin

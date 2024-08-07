@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: femila
 ---
 # Use Log Analytics for the diagnostics feature in Azure Virtual Desktop (classic)
 

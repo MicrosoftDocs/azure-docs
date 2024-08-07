@@ -4,7 +4,7 @@ description: Learn how to manually stop or start a container group in Azure Cont
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ---

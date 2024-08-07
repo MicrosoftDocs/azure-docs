@@ -5,7 +5,7 @@ author: hariramt
 ms.author: hariramt
 ms.reviewer: shriramm
 ms.date: 06/04/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:
@@ -29,7 +29,7 @@ The automigration provides a highly resilient and self-healing offline migration
 
 - The **migrated Flexible Server is online** and can now be managed via Azure portal/CLI.
 
-- The **updated connection strings** to connect to your old single server are shared with you by email. The connection strings can be used to log in to the Single server if you want to copy any settings to your new Flexible server.
+- The **updated connection strings** to connect to your old single server are shared with you by email if you have enabled Service health notifications on the Azure portal. Alternatively, you can find the connection strings in the Single server portal page under **Settings->Connection strings**. The connection strings can be used to log in to the Single server if you want to copy any settings to your new Flexible server.
 
 - The **legacy Single Server** is deleted **seven days** after the migration.
 

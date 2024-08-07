@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: spelluru
 ms.author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ---
 
 # Azure Stream Analytics monitoring data reference

@@ -3,7 +3,7 @@ title: Restore - Azure Cosmos DB for PostgreSQL - Azure portal
 description: See how to perform restore operations in the same or another region in Azure Cosmos DB for PostgreSQL through the Azure portal.
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: references_regions
 ms.topic: how-to

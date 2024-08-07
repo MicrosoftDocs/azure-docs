@@ -3,7 +3,7 @@ title: Deploy a flow in prompt flow to online endpoint for real-time inference w
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy your flow to a managed online endpoint or Kubernetes online endpoint in Azure Machine Learning prompt flow.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - devx-track-azurecli

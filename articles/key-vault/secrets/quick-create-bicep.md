@@ -3,7 +3,7 @@ title: Azure Quickstart - Create an Azure key vault and a secret using Bicep | M
 description: Quickstart showing how to create Azure key vaults, and add secrets to the vaults using Bicep.
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep

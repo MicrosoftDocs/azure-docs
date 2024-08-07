@@ -4,7 +4,7 @@ description: Use this article to automate common tasks in Key Vault by using the
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 02/20/2024

@@ -4,7 +4,7 @@ description: Learn about the architecture of Azure Operator Insights and how you
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: duncanarcher
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.date: 04/05/2024
 ms.topic: concept-article
 

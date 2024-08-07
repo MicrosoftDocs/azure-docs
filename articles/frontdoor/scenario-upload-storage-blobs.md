@@ -3,7 +3,7 @@ title: Reliable file upload to Azure Storage Blob through Azure Front Door
 description: Learn how to use Azure Front Door with Azure Storage Blob for the upload of mission critical content to enable a secure, reliable, and scalable architecture.
 services: front-door
 author: kostinams
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 05/10/2024
 ms.author: irkostin

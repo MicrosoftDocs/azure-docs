@@ -5,7 +5,7 @@ description: Create and manage environments for model training and deployment wi
 author: Blackmist
 ms.author: larryfr
 ms.reviewer: osiotugo
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 04/19/2022
 ms.topic: how-to

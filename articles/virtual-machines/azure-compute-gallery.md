@@ -3,7 +3,7 @@ title: Overview of Azure Compute Gallery
 description: Learn about the Azure Compute Gallery and how to share Azure resources.
 author: ju-shim
 ms.author: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: overview
 ms.date: 09/20/2023

@@ -257,12 +257,20 @@ items:
         href: ./hdinsight-config-for-vscode.md
     - name: Monitoring
       items:
-      - name: Monitor
+      - name: Monitor Azure HDInsight
         href: monitor-hdinsight.md
-      - name: Use Azure Monitor logs
-        href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
-      - name: Use selective logging to monitor logs
-        href: ./selective-logging-analysis.md
+      - name: Use Azure Monitor logs  
+        items:
+        - name: New Azure Monitor experience Migration
+          href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+        - name: Selective Logging
+          href: ./selective-logging-analysis-azure-logs.md    
+      - name: Use Azure Monitor Agent  
+        items:    
+        - name: Azure Monitor Agent Migration
+          href: ./azure-monitor-agent.md
+        - name: Selective Logging
+          href: ./selective-logging-analysis.md
       - name: Use queries with Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
       - name: Monitor cluster performance

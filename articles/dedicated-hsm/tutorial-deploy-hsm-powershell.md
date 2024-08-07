@@ -5,7 +5,7 @@ services: dedicated-hsm
 author: msmbaldwin
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurepowershell
-ms.service: dedicated-hsm
+ms.service: azure-dedicated-hsm
 ms.date: 02/20/2024
 ms.author: mbaldwin
 ---

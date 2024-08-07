@@ -2,7 +2,7 @@
 title: Azure Disk Encryption with Microsoft Entra App Linux IaaS VMs (previous release)
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux IaaS VMs.
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.collection: linux
 ms.topic: conceptual

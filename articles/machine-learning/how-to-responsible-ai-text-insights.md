@@ -3,8 +3,8 @@ title: Generate responsible AI text insights with YAML and Python
 titleSuffix: Azure Machine Learning
 description: Learn how the Azure Machine Learning Responsible AI (RAI) text insights component generates a RAI text dashboard by using a pipeline in Python or YAML.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: rai
+ms.service: azure-machine-learning
+ms.subservice: responsible-ai
 ms.topic:  how-to
 ms.reviewer: None
 ms.author: lagayhar

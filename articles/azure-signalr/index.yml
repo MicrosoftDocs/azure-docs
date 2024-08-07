@@ -6,7 +6,7 @@ summary: Azure SignalR Service is an Azure-managed service that helps developers
 metadata:
   title: Azure SignalR Service documentation
   description: Build and scale real-time web app easily in serverless or server mode. Based on WebSocket supporting broad range of languages and frameworks.
-  ms.service: signalr
+  ms.service: azure-signalr-service
   ms.topic: landing-page
   author: vicancy
   ms.author: lianwei

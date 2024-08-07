@@ -41,13 +41,24 @@ To learn more about specific timelines for the language support policy, see the 
 - [PHP](https://aka.ms/phprelease)
 - [Go](https://aka.ms/gorelease)
 
+## Support status
+
+App Service supports languages on both Linux and Windows operating systems. See the following resources for the list of OS support for each language:
+
+- [.NET](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/dot_net_core.md#support-timeline)
+- [Java](#jdk-versions-and-maintenance)
+- [Node](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md#support-timeline)
+- [Python](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/python_support.md#support-timeline)
+- [PHP](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#support-timeline)
+
+
 ## Configure language versions
 
 To learn more about how to update language versions for your App Service applications, see the following resources:
 
 - [.NET](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/dot_net_core.md#how-to-update-your-app-to-target-a-different-version-of-net-or-net-core)
-- [Node](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md#node-on-linux-app-service)
 - [Java](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/java_support.md#java-on-app-service)
+- [Node](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md#node-on-linux-app-service)
 - [Python](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/python_support.md#how-to-update-your-app-to-target-a-different-version-of-python)
 - [PHP](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#how-to-update-your-app-to-target-a-different-version-of-php)
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: In this quickstart, create a new Azure Cosmos DB for MongoDB vCore cluster replica in another region for disaster recovery (DR) and read scaling purposes in the Azure portal.
 author: niklarin
 ms.author: nlarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: quickstart
 ms.date: 06/12/2024

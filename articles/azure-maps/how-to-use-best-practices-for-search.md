@@ -5,7 +5,7 @@ description: Learn how to apply the best practices when using the Search service
 author: FarazGIS
 ms.author: fsiddiqui
 ms.date: 10/28/2021
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-maps
 services: azure-maps
 
