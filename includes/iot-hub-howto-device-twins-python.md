@@ -13,6 +13,8 @@ ms.custom: mqtt, devx-track-python, py-fresh-zinc
 
 ## Create a device application
 
+The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class contains methods that can be use to work with device twins.
+
 This section describes how to create a device application that:
 
 * Retrieves a device twin and examine a reported property

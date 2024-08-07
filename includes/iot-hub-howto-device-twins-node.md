@@ -27,11 +27,11 @@ npm init --yes
 npm install azure-iot-device azure-iot-device-mqtt --save
 ```
 
-The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. This section describes `Client` class code that is used to read and write device twin data.
+The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. The [Twin](/javascript/api/azure-iot-device/twin) class includes twin-specific objects. This section describes `Client` class code that is used to read and write device twin data.
 
 ### Create modules
 
-Create Client, Protocol, errors, and path modules using the installed packages.
+Create Client and Protocol modules using the installed packages.
 
 ```javascript
 const Client = require('azure-iot-device').Client;

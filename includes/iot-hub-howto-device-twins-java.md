@@ -22,40 +22,41 @@ The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) cl
 
 ### Import statements
 
-Use the following import statements.
+Use the following import statements to access the IoT Hub device SDK.
 
 ```java
 import com.microsoft.azure.sdk.iot.device.*;
 import com.microsoft.azure.sdk.iot.device.DeviceTwin.*;
-
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.Scanner;
 ```
 
 ### Connect to the device
 
 To connect to the device:
 
-Use [IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol) to choose a transport protocol. For example:
+* Use [IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol) to choose a transport protocol. For example:
 
-```java
-IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
-```
+  ```java
+  IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
+  ```
 
-Use the `DeviceClient` constructor to add the device hub primary connection string and protocol. See the prerequisites section for how to look up the device primary connection string.
+* Use the `DeviceClient` constructor to add the device hub primary connection string and protocol. See the prerequisites section for how to look up the device primary connection string.
 
-Use [open](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?#com-microsoft-azure-sdk-iot-device-deviceclient-open()) to connect the device to IoT hub.
+  ```java
+  String connString = "{device connection string}";
+  DeviceClient client = new DeviceClient(connString, protocol);
+  ```
 
-```java
-String connString = "{device connection string}";
-DeviceClient client = new DeviceClient(connString, protocol);
-client.open(true);
-```
+* Use [open](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?#com-microsoft-azure-sdk-iot-device-deviceclient-open()) to connect the device to IoT hub. If the client is already open, the method does nothing.
+
+  ```java
+  client.open(true);
+  ```
 
 ### Retrieve a device twin and examine reported properties
 
 Use [getTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-gettwin(com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice)) to retrieve the current twin reported properties.
+
+For example:
 
 ```java
 System.out.println("Getting current twin");
@@ -68,11 +69,15 @@ System.out.println(twin);
 
 After getting the current twin, you can begin sending reported property updates. You can send reported property updates without getting the current twin as long as you have the correct reported properties version. If you send reported properties and receive a "precondition failed" error, then your reported properties version is out of date. Get the latest version by calling `getTwin` again.
 
-Call [getReportedProperties](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-getreportedproperties()) to fetch the twin reported properties into a [TwinCollection](/java/api/com.microsoft.azure.sdk.iot.deps.twin.twincollection) object.
+To update reported properties:
 
-Use [put](/java/api/com.microsoft.azure.sdk.iot.deps.twin.twincollection?#com-microsoft-azure-sdk-iot-deps-twin-twincollection-put(java-lang-string-java-lang-object)) to update a reported property. Call `put` for each reported property update.
+* Call [getReportedProperties](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-getreportedproperties()) to fetch the twin reported properties into a [TwinCollection](/java/api/com.microsoft.azure.sdk.iot.deps.twin.twincollection) object.
 
-Use [updateReportedProperties](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-device-devicetwin-devicetwin-updatereportedproperties(java-util-set(com-microsoft-azure-sdk-iot-device-devicetwin-property))) to update the group of reported properties that were updated using the `put` method.
+* Use [put](/java/api/com.microsoft.azure.sdk.iot.deps.twin.twincollection?#com-microsoft-azure-sdk-iot-deps-twin-twincollection-put(java-lang-string-java-lang-object)) to update a reported property. Call `put` for each reported property update.
+
+* Use [updateReportedProperties](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-device-devicetwin-devicetwin-updatereportedproperties(java-util-set(com-microsoft-azure-sdk-iot-device-devicetwin-property))) to update the group of reported properties that were updated using the `put` method.
+
+For example:
 
 ```java
 TwinCollection reportedProperties = twin.getReportedProperties();
@@ -169,15 +174,19 @@ System.out.println(device);
 
 ### Create a device twin query
 
+This section demonstrates two device twin queries. Device twin queries are SQL queries that return a result set of device twins.
+
 The [Query](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.query) class contains methods that can be used to create SQL-style queries to IoT Hub for twins, jobs, device jobs or raw data.
 
-Use [createSqlQuery](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.sqlquery?#com-microsoft-azure-sdk-iot-service-devicetwin-sqlquery-createsqlquery(java-lang-string-com-microsoft-azure-sdk-iot-service-devicetwin-sqlquery-fromtype-java-lang-string-java-lang-string)) to build the twins SQL query.
+To create a device query:
 
-Use [queryTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-querytwin(java-lang-string-java-lang-integer)) to execute the query.
+* Use [createSqlQuery](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.sqlquery?#com-microsoft-azure-sdk-iot-service-devicetwin-sqlquery-createsqlquery(java-lang-string-com-microsoft-azure-sdk-iot-service-devicetwin-sqlquery-fromtype-java-lang-string-java-lang-string)) to build the twins SQL query.
 
-Use [hasNextDeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-hasnextdevicetwin(com-microsoft-azure-sdk-iot-service-devicetwin-query)) to check if there's another device twin in the result set.
+* Use [queryTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-querytwin(java-lang-string-java-lang-integer)) to execute the query.
 
-Use [getNextDeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-getnextdevicetwin(com-microsoft-azure-sdk-iot-service-devicetwin-query)) to retrieve the next device twin from the result set.
+* Use [hasNextDeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-hasnextdevicetwin(com-microsoft-azure-sdk-iot-service-devicetwin-query)) to check if there's another device twin in the result set.
+
+* Use [getNextDeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-getnextdevicetwin(com-microsoft-azure-sdk-iot-service-devicetwin-query)) to retrieve the next device twin from the result set.
 
 This example queries two IoT hub queries. Each query returns a maximum of 100 devices.
 

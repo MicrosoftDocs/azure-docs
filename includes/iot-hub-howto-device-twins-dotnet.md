@@ -125,7 +125,7 @@ The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class
 
 ### Connect to IoT hub
 
-First, connect to the device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)).
+Connect to the device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)).
 
 ```csharp
 using Microsoft.Azure.Devices;
