@@ -167,10 +167,14 @@ In the same virtual network, you can create multiple endpoints. Each end point w
 
 ### Know which endpoint the resource is connected to
 1. Go to any of the private endpoints, to the DNS configuration, and to Private DNS Zone associated with ADME resource.
+
 [![Screenshot that shows DNS Config.](media/how-to-manage-private-links/private-links-17-dns-config.png)](media/how-to-manage-private-links/private-links-17-dns-config.png#lightbox)
 
+
 2. In the private DNS zone, check the IP associated with the entry for your Azure Data Manager for Energy instance.
+
 [![Screenshot that shows DNS Zone.](media/how-to-manage-private-links/private-links-18-dns-zone.png)](media/how-to-manage-private-links/private-links-18-dns-zone.png#lightbox)
+
 
 3. This is the IP to which your resource is connected.
 
