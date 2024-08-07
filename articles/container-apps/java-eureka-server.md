@@ -48,6 +48,8 @@ When running in Eureka Server for Spring in Azure Container Apps, be aware of th
 
 Before you begin to work with the Eureka Server for Spring, you first need to create the required resources.
 
+# [Azure CLI](#tab/azure-cli)
+
 Execute the following commands to create your resource group, container apps environment.
 
 1. Create variables to support your application configuration. These values are provided for you for the purposes of this lesson.
@@ -89,8 +91,54 @@ Execute the following commands to create your resource group, container apps env
       --resource-group $RESOURCE_GROUP \
       --location $LOCATION
     ```
+# [Azure portal](#tab/azure-portal)
+
+Follow the following steps to create the resource group, client container app and container apps environment.
+
+1. Search for *Container Apps* in the Azure portal and select *Create*
+2. Enter the following values to *Basics* tab. You need to select *Create new* in *Resource group* and *Container Apps Environment* to create the new resource. 
+| Setting | Value |
+|---|---|
+| Subscription | *Your own subscription* |
+| Resource group | *my-services-resource-group* |
+| Container app name | *sample-service-eureka-client* |
+| Deployment source | *Container image* |
+| Region | *East US* |
+| Container Apps Environment | *my-environment* |
+---
+
+    :::image type="content" source="media/java-components/create-containerapp-eureka.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-eureka.png":::
+
+1. In Container tab, select or enter the following values and leave others be the default.
+| Setting | Value |
+|---|---|
+| Name | *sample-service-eureka-client* |
+| Image source | *Docker Hub or other registeries* |
+| Image type | *Public* |
+| Registry login server | *mcr.microsoft.com* |
+| Image and tag | *javacomponents/samples/sample-service-eureka-client:latest* |
+---
+
+  :::image type="content" source="media/java-components/select-eureka-image.png" alt-text="Screenshot of select image when create container apps."  lightbox="media/java-components/select-eureka-image.png":::
+
+1. In Ingress tab, select or enter the following values and leave others be the default, then click *Review + create*
+| Setting | Value |
+|---|---|
+| Ingress | *Enabled* |
+| Ingress traffic | *Accepting traffic from anywhere* |
+| Ingress type | *HTTP* |
+| Transport | *Auto* |
+| Target port | *8080* |
+   
+    :::image type="content" source="media/java-components/config-ingress.png" alt-text="Screenshot of config ingress when create container apps."  lightbox="media/java-components/config-ingress.png":::
+
+1. Click *Create* after validation passed
+
+---
 
 ## Create the Eureka Server for Spring Java component
+
+# [Azure CLI](#tab/azure-cli)
 
 Now that you have an existing environment, you can create your container app and bind it to a Java component instance of Eureka Server for Spring.
 
@@ -113,7 +161,26 @@ Now that you have an existing environment, you can create your container app and
       --configuration eureka.server.renewal-percent-threshold=0.85 eureka.server.eviction-interval-timer-in-ms=10000
     ```
 
+# [Azure portal](#tab/azure-portal)
+
+Now that you have an existing environment and eureka client container app, create a Java component instance of Eureka Server for Spring.
+
+1. Go to your container app environment page, select *Service* on the left panel, and then select *Configure*, *Java component*
+   
+       :::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
+
+1. In new *Configure Java component* panel, select or enter the following values and leave others be the default, and then select *Next*
+| Setting | Value |
+|---|---|
+| Java component type | *Eureka Server for Spring* |
+| Java component name | *eureka* |
+---
+       :::image type="content" source="media/java-components/create-eureka-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/create-eureka-java-component.png":::
+1. Click *Configure* on *Review* page
+---
+
 ## Bind your container app to the Eureka Server for Spring Java component
+# [Azure CLI](#tab/azure-cli)
 
 1. Create the container app and bind to the Eureka Server for Spring.
 
@@ -130,8 +197,17 @@ Now that you have an existing environment, you can create your container app and
       --bind $EUREKA_COMPONENT_NAME \
       --query properties.configuration.ingress.fqdn
     ```
+# [Azure portal](#tab/azure-portal)
+1.  Go to your container app environment page, select *Service* on the left panel
+2.  Select *eureka* in Service list
+3.  Under bindings, select app *sample-service-eureka-client*, Click *Next*
+4.  Click *Configure*
+  
+    :::image type="content" source="media/java-components/app-bind-eureka.png" alt-text="Screenshot of container app bind with eureka."  lightbox="media/java-components/app-bind-eureka.png":::
 
-    This command returns the URL of your container app that consumes registers with the Eureka server component. Copy the URL to a text editor so you can use it in a coming step.
+5. Go to your container app *sample-service-eureka-client* page, get the *Application URL* of the container app
+---
+    After you get the URL of the container app. Copy the URL to a text editor so you can use it in a coming step.
 
     Navigate to the `/allRegistrationStatus` route to view all applications registered with the Eureka Server for Spring.
 
@@ -148,7 +224,26 @@ Now that you have an existing environment, you can create your container app and
 
     The `eureka.instance.prefer-ip-address` is set to `true` due to the specific DNS resolution rule in the container app environment. Don't modify this value so you don't break the binding.
 
-    You can also [remove a binding](java-eureka-server-usage.md#unbind) from your application.
+## Unbind your container app from the Eureka Server for Spring Java component
+
+# [Azure CLI](#tab/azure-cli)
+To remove a binding from a container app, use the `--unbind` option.
+
+  ``` azurecli
+    az containerapp update \
+      --name $APP_NAME \
+      --unbind $JAVA_COMPONENT_NAME \
+      --resource-group $RESOURCE_GROUP
+  ```
+# [Azure portal](#tab/azure-portal)
+1.  Go to your container app environment page, select *Service* on the left panel
+2.  Select *eureka* in Service list
+3.  Under bindings, select Delete after app *sample-service-eureka-client*, Click *Next*
+4.  Click *Configure*
+  
+    :::image type="content" source="media/java-components/app-unbind-eureka.png" alt-text="Screenshot of container app unbind with eureka."  lightbox="media/java-components/app-unbind-eureka.png":::
+
+---
 
 ## View the application through a dashboard
 
