@@ -254,6 +254,8 @@ Azure national clouds are isolated from each other and from the Azure public clo
 | **China Unicom** | &check; | &cross; | Beijing2<br/>Shanghai2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |&check; |&cross; |Beijing2<br/>Shanghai2 |
 
+---
+
 To learn more, see [ExpressRoute in China](https://www.azure.cn/home/features/expressroute/).
 
 ## Connectivity through Exchange providers
