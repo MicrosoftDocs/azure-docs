@@ -118,12 +118,12 @@ You can now seamlessly upgrade to the dedicated SQL pool (formerly SQL DW) Compu
    The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process. This process slowly moves columnar data from the old storage architecture to the new storage architecture using a local SSD cache. During this time, your dedicated SQL pool (formerly SQL DW) will be online for querying and loading. Your data will be available to query regardless of whether it has been migrated or not. The data migration happens at varying rates depending on your data size, your performance level, and the number of your columnstore segments.
 
 1. **Optional Recommendation:**
-  Once the scaling operation is complete, you can speed up the data migration background process. You can force data movement by running [Alter Index rebuild](sql-data-warehouse-tables-index.md) on all primary columnstore tables you'd be querying at a larger SLO and resource class. This operation is **offline** compared to the trickle background process, which can take hours to complete depending on the number and sizes of your tables. However, once complete, data migration will be much quicker due to the new enhanced storage architecture with high-quality rowgroups.
+  Once the scaling operation is complete, you can speed up the data migration background process. You can force data movement by running [ALTER INDEX ... REBUILD](sql-data-warehouse-tables-index.md) on all primary columnstore tables you'd be querying at a larger SLO and resource class. This operation is offline, it will degrade or block other queries, but will finish faster compared to the trickle background process, which can take hours to complete depending on the number and sizes of your tables. However, once complete, data migration will be much quicker due to the new enhanced storage architecture with high-quality rowgroups.
 
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
 
-The following query generates the required Alter Index Rebuild commands to expedite data migration:
+The following query generates the required `ALTER INDEX ... REBUILD` commands to expedite data migration:
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON ['
@@ -170,31 +170,23 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## Upgrade from an Azure geographical region using restore through the Azure portal
 
-## Create a user-defined restore point using the Azure portal
+### Create a user-defined restore point using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-
 1. Navigate to the dedicated SQL pool (formerly SQL DW) that you want to create a restore point for.
-
-1. At the top of the Overview section, select **+New Restore Point**.
-
- :::image type="content" source="media/upgrade-to-latest-generation/create-restore-point.png" alt-text="Screenshot from the Azure portal showing the New Restore Point button in the toolbar.":::
-
+1. In the toolbar of the **Overview** page, select **+ New Restore Point**.
 1. Specify a name for your restore point.
 
-## Restore an active or paused database using the Azure portal
+### Restore an active or paused database using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to the dedicated SQL pool (formerly SQL DW) that you want to restore from.
-1. At the top of the Overview section, select **Restore**.
-
- :::image type="content" source="media/upgrade-to-latest-generation/restoring.png" alt-text="Screenshot from the Azure portal showing the Restore button." lightbox="media/upgrade-to-latest-generation/restoring.png":::
-
+1. In the toolbar of the **Overview** section, select **Restore**.
 1. Select either **Automatic restore points** or **user-defined restore points**. For user-defined restore points, **select a user-defined restore point** or **Create a new user-defined restore point**. For the server, select **Create new** and choose a server in a Gen2 supported geographic region.
 
- :::image type="content" source="media/upgrade-to-latest-generation/restore-points.png" alt-text="Screenshot from the Azure portal showing restore points to choose from.":::
+   :::image type="content" source="media/upgrade-to-latest-generation/restore-points.png" alt-text="Screenshot from the Azure portal showing restore points to choose from.":::
 
-## Restore from an Azure geographical region using PowerShell
+### Restore from an Azure geographical region using PowerShell
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
