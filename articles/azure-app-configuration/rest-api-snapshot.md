@@ -9,6 +9,12 @@ ms.date: 08/02/2024
 zone_pivot_groups: data-plane-api-version
 
 ---
+
+:::zone target="docs" pivot="v1"
+
+Snapshot resource is not available in API version 1.0.
+
+:::zone-end
 :::zone target="docs" pivot="v23-10,v23-11"
 
 # Snapshot
