@@ -5,7 +5,7 @@ author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 zone_pivot_groups: postgresql-server-version

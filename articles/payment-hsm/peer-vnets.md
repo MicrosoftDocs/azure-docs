@@ -4,7 +4,7 @@ description: How to peer Azure Payment HSM virtual networks
 services: payment-hsm
 author: msmbaldwin
 
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: article
 ms.date: 01/30/2024

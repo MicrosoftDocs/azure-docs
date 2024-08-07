@@ -1,48 +1,38 @@
 ---
-title: Monitoring Azure Key Vault data reference 
-description: Important reference material needed when you monitor Key Vault 
-author: msmbaldwin  
+title: Monitoring data reference for Azure Key Vault
+description: This article contains important reference material you need when you monitor Azure Key Vault by using Azure Monitor.
+ms.date: 07/09/2024
+ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
+author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
-ms.subservice: general
-ms.custom: subject-monitoring
-ms.date: 02/20/2024
 ---
+# Azure Key Vault monitoring data reference
 
-# Monitoring Key Vault data reference
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitoring Key Vault](monitor-key-vault.md) for details on collecting and analyzing monitoring data for Key Vault.
+See [Monitor Azure Key Vault](monitor-key-vault.md) for details on the data you can collect for Key Vault and how to use it.
 
-## Metrics
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
+### Supported metrics for microsoft.keyvault/managedhsms
 
-This section lists all the automatically collected platform metrics collected for Key Vault.  
+The following table lists the metrics available for the microsoft.keyvault/managedhsms resource type.
 
-|Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Key Vault | [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/metrics-supported.md#microsoftkeyvaultvaults) |
-| Managed HSM | [Microsoft.KeyVault/managedhsms](../../azure-monitor/essentials/resource-logs-categories.md#microsoftkeyvaultmanagedhsms) 
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [microsoft.keyvault/managedhsms](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-keyvault-managedhsms-metrics-include.md)]
 
-### Key Vault metrics
+### Supported metrics for Microsoft.KeyVault/vaults
 
-Resource Provider and Type: [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/metrics-supported.md#microsoftkeyvaultvaults)
+The following table lists the metrics available for the Microsoft.KeyVault/vaults resource type.
 
-| Name | Metric | Unit | Type | Description |
-|:-------|:-----|:------------|:------------------|
-| Overall Vault Availability | Availability      | Percent    | Average | Vault requests availability            | 
-| Overall Vault Saturation | SaturationShoebox | Percent | Average| Vault capacity used | 
-| Total Service Api Hits | ServiceApiHit | Count | Count | Number of total service API hits |
-| Overall Service Api Latency | ServiceApiLatency | MilliSeconds | Average | Overall latency of service API requests |
-| Total Service Api Results | ServiceApiResult | Count | Count | Number of total service API results |
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.KeyVault/vaults](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-keyvault-vaults-metrics-include.md)]
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](../../azure-monitor/essentials/metrics-supported.md).
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-## Metric dimensions
-
-For more information on what metric dimensions are, see [Multi-dimensional metrics](../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
-
-Key Vault has the following dimensions associated with its metrics:
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
 - ActivityType
 - ActivityName
@@ -50,26 +40,35 @@ Key Vault has the following dimensions associated with its metrics:
 - StatusCode
 - StatusCodeClass
 
-## Resource logs
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-This section lists the types of resource logs you can collect for Key Vault.
+### Supported resource logs for microsoft.keyvault/managedhsms
 
-For reference, see a list of [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/resource-logs-categories.md#microsoftkeyvaultvaults).  For full details, see [Azure Key Vault logging](logging.md).
+[!INCLUDE [microsoft.keyvault/managedhsms](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-keyvault-managedhsms-logs-include.md)]
 
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Key Vault | [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/resource-logs-categories.md#microsoftkeyvaultmanagedhsms) |
-| Managed HSM | [Microsoft.KeyVault/managedhsms](../../azure-monitor/essentials/resource-logs-categories.md#microsoftkeyvaultvaults) 
+### Supported resource logs for Microsoft.KeyVault/vaults
 
-## Azure Monitor Logs tables
+[!INCLUDE [Microsoft.KeyVault/vaults](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-keyvault-vaults-logs-include.md)]
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Key Vault and available for query by Log Analytics. 
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-|Resource Type | Notes |
-|-------|-----|
-| [Key Vault](/azure/azure-monitor/reference/tables/tables-resourcetype#key-vaults) | |
+### Key Vault microsoft.keyvault/managedhsms
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [AZKVAuditLogs](/azure/azure-monitor/reference/tables/azkvauditlogs#columns)
+
+### Key Vault Microsoft.KeyVault/vaults
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [AZKVAuditLogs](/azure/azure-monitor/reference/tables/azkvauditlogs#columns)
+- [AZKVPolicyEvaluationDetailsLogs](/azure/azure-monitor/reference/tables/azkvpolicyevaluationdetailslogs#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
+
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+
+- [Security resource provider operations](/azure/role-based-access-control/resource-provider-operations#security)
 
 ### Diagnostics tables
 
@@ -79,21 +78,21 @@ Key Vault uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azu
 
 | Property | Description |
 |:--- |:---|
-| _ResourceId | A unique identifier for the resource that the record is associated with |
-| CallerIPAddress | IP address of the user who has performed the operation UPN claim or SPN claim based on availability. |
+| _ResourceId | A unique identifier for the resource that the record is associated with. |
+| CallerIPAddress | IP address of the user who performed the operation UPN claim or SPN claim based on availability. |
 | DurationMs | The duration of the operation in milliseconds. |
-| httpStatusCode_d | HTTP status code returned by the request (for example, *200*) |
+| httpStatusCode_d | HTTP status code returned by the request, for example, *200*. |
 | Level | Level of the event. One of the following values: Critical, Error, Warning, Informational and Verbose. |
-| OperationName | Name of the operation, for example, Alert |
+| OperationName | Name of the operation, for example, Alert. |
 | properties_s |  |
 | Region_s | |
 | requestUri_s | The URI of the client request. |
 | Resource | |
 | ResourceProvider | Resource provider of the Azure resource reporting the metric. |
 | ResultSignature | |
-| TimeGenerated | Date and time the record was created |
+| TimeGenerated | Date and time the record was created. |
 
-## See also
+## Related content
 
-- See [Monitoring Azure Key Vault](monitor-key-vault.md) for a description of monitoring Azure Key Vault.
-- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitor Azure Key Vault](monitor-key-vault.md) for a description of monitoring Key Vault.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

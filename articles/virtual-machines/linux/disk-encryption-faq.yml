@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Azure Disk Encryption for Linux VMs
   description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Linux IaaS VMs.
   author: msmbaldwin
-  ms.service: virtual-machines
+  ms.service: azure-virtual-machines
   ms.collection: linux
   ms.subservice: security
   ms.topic: faq

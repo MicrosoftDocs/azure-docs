@@ -3,7 +3,7 @@ title: Move an Azure Load testing resource to another region
 titleSuffix: Azure Load Testing
 description: Learn how to move an Azure Load testing resource to another region.
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.custom: subject-moving-resources
 ms.author: ninallam
 author: ninallam

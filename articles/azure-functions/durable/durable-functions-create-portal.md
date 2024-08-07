@@ -15,7 +15,7 @@ The [Durable Functions](durable-functions-overview.md) extension for Azure Funct
 
 > [!NOTE]
 > 
-> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-create-first-csharp.md).
+> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-isolated-create-first-csharp.md).
 > * If you are developing durable functions in JavaScript, you should instead consider [Visual Studio Code development](./quickstart-js-vscode.md).
 
 ## Create a function app

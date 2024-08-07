@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
 ms.topic: reference
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.custom: horz-monitor
 ms.date: 12/15/2023
 ---

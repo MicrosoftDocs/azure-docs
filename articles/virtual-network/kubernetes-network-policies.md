@@ -28,7 +28,7 @@ Azure Network Policy Manager can be used in the following ways to provide micro-
 
 Network Policy Manager is available natively in AKS and can be enabled at the time of cluster creation. 
 
-For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)](../aks/use-network-policies.md).
+For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)](/azure/aks/use-network-policies).
 
 ### Do it yourself (DIY) Kubernetes clusters in Azure
 
@@ -302,7 +302,7 @@ Following are some sample dashboard for Network Policy Manager metrics in contai
 
 ## Next steps
 
-- Learn about [Azure Kubernetes Service](../aks/intro-kubernetes.md).
+- Learn about [Azure Kubernetes Service](/azure/aks/intro-kubernetes).
 
 - Learn about [container networking](container-networking-overview.md).
 

@@ -4,7 +4,7 @@ description: full attestation of container groups in confidential containers on 
 ms.topic: conceptual
 ms.author: tomcassidy
 author: pkhandavilli
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 05/23/2023
 ---

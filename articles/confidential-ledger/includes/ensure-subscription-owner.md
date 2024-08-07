@@ -1,6 +1,6 @@
 ---
 author: tachou
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: include
 ms.date: 11/28/2023
 ms.author: tachou

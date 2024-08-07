@@ -2,7 +2,7 @@
 title: Azure Firewall Premium certificates
 description: To properly configure TLS inspection on Azure Firewall Premium, you must configure and install Intermediate CA certificates.
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: conceptual
 ms.date: 12/11/2022

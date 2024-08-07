@@ -3,7 +3,7 @@ title: About Azure ExpressRoute FastPath
 description: Learn about Azure ExpressRoute FastPath to send network traffic by bypassing the gateway.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/25/2024
 ms.author: duau

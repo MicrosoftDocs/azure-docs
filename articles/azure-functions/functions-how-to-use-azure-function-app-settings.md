@@ -474,7 +474,7 @@ You can't currently update CORS settings using Azure PowerShell.
 
 ### <a name="auth"></a>Authentication
 
-When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Microsoft Entra authentication and sign-in with social providers, such as Facebook, Microsoft, and Twitter. For information about configuring specific authentication providers, see [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md).
+When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Microsoft Entra authentication and sign-in with social providers, such as Facebook, Microsoft, and X. For information about configuring specific authentication providers, see [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md).
 
 ![Screenshot that shows how to configure authentication for a function app.](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

@@ -17,7 +17,7 @@
   items:
   - name: Use with Azure Disks
     href: use-container-storage-with-managed-disks.md
-  - name: Use with Azure Elastic SAN
+  - name: Use with Azure Elastic SAN (Preview)
     href: use-container-storage-with-elastic-san.md
   - name: Use with Ephemeral Disk
     items:
@@ -40,9 +40,13 @@
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
   - name: Troubleshoot Azure Container Storage
-    href: troubleshoot-container-storage.md    
+    href: troubleshoot-container-storage.md
+  - name: Install Azure Container Storage using Azure Arc (optional)
+    href: install-container-storage-azure-arc.md    
 - name: Concepts
   items:
+  - name: Understand billing
+    href: container-storage-billing.md 
   - name: FAQ
     href: container-storage-faq.md
 - name: Reference

@@ -4,7 +4,7 @@ description: Learn what to do if there's an Azure service disruption that affect
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial

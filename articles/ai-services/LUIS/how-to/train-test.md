@@ -41,8 +41,8 @@ To train your app in the LUIS portal, you only need to select the **Train** butt
 
 Training with the REST APIs is a two-step process.
 
-1. Send an HTTP POST [request for training](/rest/api/cognitiveservices-luis/authoring/train/train-version?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true).
-2. Request the [training status](/rest/api/cognitiveservices-luis/authoring/train/get-status?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) with an HTTP GET request.
+1. Send an HTTP POST [request for training](/rest/api/luis/train/train-version).
+2. Request the [training status](/rest/api/luis/train/get-status) with an HTTP GET request.
 
 In order to know when training is complete, you must poll the status until all models are successfully trained.
 
@@ -87,7 +87,7 @@ Inspect the test result details in the  **Inspect**  panel.
 
 ## Change deterministic training settings using the version settings API
 
-Use the [Version settings API](/rest/api/cognitiveservices-luis/authoring/settings/update?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) with the UseAllTrainingData set to *true* to turn off deterministic training.
+Use the [Version settings API](/rest/api/luis/settings/update) with the UseAllTrainingData set to *true* to turn off deterministic training.
 
 ## Change deterministic training settings using the LUIS portal
 

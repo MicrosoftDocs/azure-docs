@@ -46,7 +46,7 @@ For App Service on Windows, you can also restrict IP addresses dynamically by co
 
 Azure App Service provides turn-key authentication and authorization of users or client apps. When enabled, it can sign in users and client apps with little or no application code. You may implement your own authentication and authorization solution, or allow App Service to handle it for you instead. The authentication and authorization module handles web requests before handing them off to your application code, and it denies unauthorized requests before they reach your code.
 
-App Service authentication and authorization support multiple authentication providers, including Microsoft Entra ID, Microsoft accounts, Facebook, Google, and Twitter. For more information, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md).
+App Service authentication and authorization support multiple authentication providers, including Microsoft Entra ID, Microsoft accounts, Facebook, Google, and X. For more information, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md).
 
 ## Service-to-service authentication
 

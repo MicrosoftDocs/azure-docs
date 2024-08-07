@@ -2,10 +2,10 @@
 title: HBv4-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs
 description: Learn about the HBv4-series VM size in Azure.
 services: virtual-machines
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 06/10/2024
+ms.date: 07/25/2024
 ms.reviewer: cynthn
 ms.author: padmalathas
 author: padmalathas

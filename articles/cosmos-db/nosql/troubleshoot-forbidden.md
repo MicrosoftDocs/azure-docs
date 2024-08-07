@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Cosmos DB forbidden exceptions
 description: Learn how to diagnose and fix forbidden exceptions.
 author: ealsur
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.date: 04/14/2022
 ms.author: maquaran

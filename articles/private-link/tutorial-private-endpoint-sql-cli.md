@@ -4,7 +4,7 @@ description: Use this tutorial to learn how to create an Azure SQL server with a
 services: private-link
 author: abell
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: abell

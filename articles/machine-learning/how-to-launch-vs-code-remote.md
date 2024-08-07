@@ -3,7 +3,7 @@ title: 'Launch Visual Studio Code integrated with Azure Machine Learning (previe
 titleSuffix: Azure Machine Learning
 description: Connect to an Azure Machine Learning compute instance in Visual Studio Code to run interactive Jupyter Notebook and remote development workloads.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: build-2023
 ms.topic: how-to

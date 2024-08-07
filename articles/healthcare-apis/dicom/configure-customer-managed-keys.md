@@ -2,7 +2,7 @@
 title: Configure customer-managed keys (CMK) for the DICOM service in Azure Health Data Services
 description: Use customer-managed keys (CMK) to encrypt data in the DICOM service. Create and manage CMK in Azure Key Vault and update the encryption key with a managed identity.
 author: mmitrik
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 11/20/2023

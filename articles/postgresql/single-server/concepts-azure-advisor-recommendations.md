@@ -1,7 +1,7 @@
 ---
 title: Azure Advisor for PostgreSQL
 description: Learn about Azure Advisor recommendations for PostgreSQL.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: conceptual
 ms.author: sunila

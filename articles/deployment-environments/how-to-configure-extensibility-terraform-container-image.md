@@ -2,7 +2,7 @@
 title: ADE extensibility model for custom Terraform images
 titleSuffix: Azure Deployment Environments
 description: Learn how to use the ADE extensibility model to build and utilize custom Terraform images within your environment definitions for deployment environments.
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-terraform
 author: RoseHJM
 ms.author: rosemalcolm

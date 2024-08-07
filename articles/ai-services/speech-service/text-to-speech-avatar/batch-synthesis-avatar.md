@@ -11,11 +11,9 @@ ms.author: eur
 author: eric-urban
 ---
 
-# How to use batch synthesis for text to speech avatar (preview)
+# How to use batch synthesis for text to speech avatar
 
-[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
-
-The batch synthesis API for text to speech avatar (preview) allows for the asynchronous synthesis of text into a talking avatar as a video file. Publishers and video content platforms can utilize this API to create avatar video content in a batch. That approach can be suitable for various use cases such as training materials, presentations, or advertisements.
+The batch synthesis API for text to speech avatar allows for the asynchronous synthesis of text into a talking avatar as a video file. Publishers and video content platforms can utilize this API to create avatar video content in a batch. That approach can be suitable for various use cases such as training materials, presentations, or advertisements.
 
 The synthetic avatar video will be generated asynchronously after the system receives text input. The generated video output can be downloaded in batch mode synthesis. You submit text for synthesis, poll for the synthesis status, and download the video output when the status indicates success. The text input formats must be plain text or Speech Synthesis Markup Language (SSML) text. 
 
@@ -27,10 +25,10 @@ To perform batch synthesis, you can use the following REST API operations.
 
 | Operation            | Method  | REST API call                                      |
 |----------------------|---------|---------------------------------------------------|
-| [Create batch synthesis](#create-a-batch-synthesis-request) | PUT    | avatar/batchsyntheses/{SynthesisId}?api-version=2024-04-15-preview |
-| [Get batch synthesis](#get-batch-synthesis)    | GET     | avatar/batchsyntheses/{SynthesisId}?api-version=2024-04-15-preview |
-| [List batch synthesis](#list-batch-synthesis)   | GET     | avatar/batchsyntheses/?api-version=2024-04-15-preview |
-| [Delete batch synthesis](#delete-batch-synthesis) | DELETE  | avatar/batchsyntheses/{SynthesisId}?api-version=2024-04-15-preview |
+| [Create batch synthesis](#create-a-batch-synthesis-request) | PUT    | avatar/batchsyntheses/{SynthesisId}?api-version=2024-08-01 |
+| [Get batch synthesis](#get-batch-synthesis)    | GET     | avatar/batchsyntheses/{SynthesisId}?api-version=2024-08-01 |
+| [List batch synthesis](#list-batch-synthesis)   | GET     | avatar/batchsyntheses/?api-version=2024-08-01 |
+| [Delete batch synthesis](#delete-batch-synthesis) | DELETE  | avatar/batchsyntheses/{SynthesisId}?api-version=2024-08-01 |
 
 You can refer to the code samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch-avatar).
 
@@ -67,7 +65,7 @@ curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourSpeechKey" -H "Content-Type: a
         "talkingAvatarCharacter": "lisa",
         "talkingAvatarStyle": "graceful-sitting"
     }
-}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/avatar/batchsyntheses/my-job-01?api-version=2024-04-15-preview"
+}'  "https://YourSpeechRegion.api.cognitive.microsoft.com/avatar/batchsyntheses/my-job-01?api-version=2024-08-01"
 ```
 
 You should receive a response body in the following format:
@@ -106,7 +104,7 @@ To retrieve the status of a batch synthesis job, make an HTTP GET request using 
 Replace `YourSynthesisId` with your batch synthesis ID, `YourSpeechKey` with your Speech resource key, and `YourSpeechRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/avatar/batchsyntheses/YourSynthesisId?api-version=2024-04-15-preview" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/avatar/batchsyntheses/YourSynthesisId?api-version=2024-08-01" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
 You should receive a response body in the following format:
@@ -157,7 +155,7 @@ To list all batch synthesis jobs for your Speech resource, make an HTTP GET requ
 Replace `YourSpeechKey` with your Speech resource key and `YourSpeechRegion` with your Speech resource region. Optionally, you can set the `skip` and `top` (page size) query parameters in the URL. The default value for `skip` is 0, and the default value for `maxpagesize` is 100.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/avatar/batchsyntheses?skip=0&maxpagesize=2&api-version=2024-04-15-preview" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X GET "https://YourSpeechRegion.api.cognitive.microsoft.com/avatar/batchsyntheses?skip=0&maxpagesize=2&api-version=2024-08-01" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
 You receive a response body in the following format:
@@ -232,7 +230,7 @@ You receive a response body in the following format:
             }
         }
     ],
-    "nextLink": "https://YourSpeechRegion.api.cognitive.microsoft.com/avatar/batchsyntheses/?api-version=2024-04-15-preview&skip=2&maxpagesize=2"
+    "nextLink": "https://YourSpeechRegion.api.cognitive.microsoft.com/avatar/batchsyntheses/?api-version=2024-08-01&skip=2&maxpagesize=2"
 }
 ```
 
@@ -283,7 +281,7 @@ After you have retrieved the audio output results and no longer need the batch s
 To delete a batch synthesis job, make an HTTP DELETE request using the following URI format. Replace `YourSynthesisId` with your batch synthesis ID, `YourSpeechKey` with your Speech resource key, and `YourSpeechRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X DELETE "https://YourSpeechRegion.api.cognitive.microsoft.com/avatar/batchsyntheses/YourSynthesisId?api-version=2024-04-15-preview" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
+curl -v -X DELETE "https://YourSpeechRegion.api.cognitive.microsoft.com/avatar/batchsyntheses/YourSynthesisId?api-version=2024-08-01" -H "Ocp-Apim-Subscription-Key: YourSpeechKey"
 ```
 
 The response headers include `HTTP/1.1 204 No Content` if the delete request was successful.

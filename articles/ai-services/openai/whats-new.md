@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 07/18/2024
+ms.date: 08/05/2024
 recommendations: false
 ---
 
@@ -18,17 +18,49 @@ recommendations: false
 
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
+## August 2024
+
+### Global batch deployments are now available
+
+The Azure OpenAI Batch API is designed to handle large-scale and high-volume processing tasks efficiently. Process asynchronous groups of requests with separate quota, with 24-hour target turnaround, at [50% less cost than global standard](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/). With batch processing, rather than send one request at a time you send a large number of requests in a single file. Global batch requests have a separate enqueued token quota avoiding any disruption of your online workloads.  
+
+Key use cases include:
+
+* **Large-Scale Data Processing:** Quickly analyze extensive datasets in parallel.
+
+* **Content Generation:** Create large volumes of text, such as product descriptions or articles.
+
+* **Document Review and Summarization:** Automate the review and summarization of lengthy documents.
+
+* **Customer Support Automation:** Handle numerous queries simultaneously for faster responses.
+
+* **Data Extraction and Analysis:** Extract and analyze information from vast amounts of unstructured data.
+
+* **Natural Language Processing (NLP) Tasks:** Perform tasks like sentiment analysis or translation on large datasets.
+
+* **Marketing and Personalization:** Generate personalized content and recommendations at scale.
+
+For more information on [getting started with global batch deployments](./how-to/batch.md).
+
 ## July 2024
 
-### GPT-4o mini preview model available for early access
+### GPT-4o mini is now available for fine-tuning
 
-GPT-4o mini is the latest model from OpenAI [launched on July 18, 2024](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/).
+GPT-4o mini fine-tuning is [now available in public preview](./concepts/models.md#fine-tuning-models) in Sweden Central and in North Central US.
 
-From OpenAI:
+### Assistants File Search tool is now billed
 
-*"GPT-4o mini surpasses GPT-3.5 Turbo and other small models on academic benchmarks across both textual intelligence and multimodal reasoning, and supports the same range of languages as GPT-4o. It also demonstrates strong performance in function calling, which can enable developers to build applications that fetch data or take actions with external systems, and improved long-context performance compared to GPT-3.5 Turbo."*
+The [file search](./how-to/file-search.md) tool for Assistants now has additional charges for usage. See the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for more information.
 
-To start testing out the model today in Azure OpenAI, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).
+### GPT-4o mini model available for deployment
+
+GPT-4o mini is the latest Azure OpenAI model first [announced on July 18, 2024](https://azure.microsoft.com/blog/openais-fastest-model-gpt-4o-mini-is-now-available-on-azure-ai/):
+
+*"GPT-4o mini allows customers to deliver stunning applications at a lower cost with blazing speed. GPT-4o mini is significantly smarter than GPT-3.5 Turbo—scoring 82% on Measuring Massive Multitask Language Understanding (MMLU) compared to 70%—and is more than 60% cheaper.1 The model delivers an expanded 128K context window and integrates the improved multilingual capabilities of GPT-4o, bringing greater quality to languages from around the world."*
+
+The model is currently available for both [standard and global standard deployment](./how-to/deployment-types.md) in the East US region.
+
+For information on model quota, consult the [quota and limits page](./quotas-limits.md) and for the latest info on model availability refer to the [models page](./concepts/models.md).
 
 ### New Responsible AI default content filtering policy 
 
@@ -159,7 +191,7 @@ For more information, see the [deployment types guide](https://aka.ms/aoai/docs/
 
 ### DALL-E and GPT-4 Turbo Vision GA configurable content filters
 
-Create custom content filters for your DALL-E 2 and 3, GPT-4 Turbo with Vision GA (gpt-4-turbo-2024-04-09) and GPT-4o deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
+Create custom content filters for your DALL-E 2 and 3, GPT-4 Turbo with Vision GA (`turbo-2024-04-09`), and GPT-4o deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
 
 ### Asynchronous Filter available for all Azure OpenAI customers
 
@@ -506,7 +538,7 @@ If you are currently using the `2023-03-15-preview` API, we recommend migrating 
 
 ## April 2023
 
-- **DALL-E 2 public preview**. Azure OpenAI Service now supports image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md). To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/access).
+- **DALL-E 2 public preview**. Azure OpenAI Service now supports image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md).
 
 - **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio#deploy-a-custom-model).
 

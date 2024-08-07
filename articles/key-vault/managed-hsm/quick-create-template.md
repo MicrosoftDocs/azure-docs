@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 02/20/2024
 ms.topic: quickstart
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 tags: azure-resource-manager
 ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli

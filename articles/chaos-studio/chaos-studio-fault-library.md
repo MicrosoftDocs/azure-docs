@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 01/02/2024
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: linux-related-content
 ---
 
@@ -58,7 +58,7 @@ This section applies to the `Microsoft.Insights/autoscaleSettings` resource type
 
 ## Azure Kubernetes Service
 
-This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](../aks/intro-kubernetes.md).
+This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](/azure/aks/intro-kubernetes).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|

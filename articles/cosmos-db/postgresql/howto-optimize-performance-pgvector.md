@@ -3,7 +3,7 @@ title: How to optimize performance when using pgvector - Azure Cosmos DB for Pos
 description: How to optimize performance when using pgvector - Azure Cosmos DB for PostgreSQL
 ms.author: adamwolk
 author: mulander
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023
 ms.topic: how-to

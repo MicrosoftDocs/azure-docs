@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: reference
 author: ntrogh
 ms.author: nicktrog
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Lab Services

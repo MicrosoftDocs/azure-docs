@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Describes the sample app used in this series of quickstarts for deployment to the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 06/27/2024
 ms.custom: devx-track-java

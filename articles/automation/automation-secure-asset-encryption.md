@@ -2,7 +2,7 @@
 title: Encryption of secure assets in Azure Automation
 description: This article provides concepts for configuring the Automation account to use encryption.
 services: automation
-ms.service: automation
+ms.service: azure-automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
 author: snehithm

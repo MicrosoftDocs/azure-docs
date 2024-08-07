@@ -3,7 +3,7 @@ title: Troubleshooting guide - Azure DNS
 description: In this learning path, get started troubleshooting common issues with Azure DNS
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: troubleshooting
 ms.date: 11/30/2023
 ms.author: greglin

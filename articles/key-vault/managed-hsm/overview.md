@@ -3,7 +3,7 @@ title: Azure Managed HSM Overview - Azure Managed HSM | Microsoft Docs
 description: Azure Managed HSM is a cloud service that safeguards your cryptographic keys for cloud applications.
 services: key-vault
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.date: 01/30/2024

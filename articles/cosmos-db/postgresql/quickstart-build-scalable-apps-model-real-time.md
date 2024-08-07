@@ -3,7 +3,7 @@ title: Model real-time apps - Azure Cosmos DB for PostgreSQL
 description: Techniques for scalable real-time analytical apps
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
