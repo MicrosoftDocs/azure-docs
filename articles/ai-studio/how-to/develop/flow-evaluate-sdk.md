@@ -188,7 +188,7 @@ The result:
 ```JSON
 {"answer_length":27}
 ```
-#### Log your custom prompt-based evaluator to your AI Studio project
+#### Log your custom code-based evaluator to your AI Studio project
 ```python
 # First we need to save evaluator into separate file in its own directory:
 def answer_len(answer):
