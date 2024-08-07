@@ -112,7 +112,6 @@ Follow the following steps to create the resource group, client container app an
 | Deployment source | *Container image* |
 | Region | *East US* |
 | Container Apps Environment | *my-environment* |
----
 
   :::image type="content" source="media/java-components/create-containerapp-config.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-config.png":::
 
@@ -124,7 +123,6 @@ Follow the following steps to create the resource group, client container app an
 | Image type | *Public* |
 | Registry login server | *mcr.microsoft.com* |
 | Image and tag | *javacomponents/samples/sample-service-config-client:latest* |
----
 
   :::image type="content" source="media/java-components/select-config-image.png" alt-text="Screenshot of select image when create container apps."  lightbox="media/java-components/select-config-image.png":::
 
@@ -184,13 +182,13 @@ Now that you have an existing environment and config server client container app
 |---|---|
 | Java component type | *Config Server for Spring* |
 | Java component name | *configserver* |
----
+
        :::image type="content" source="media/java-components/create-config-server-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/create-config-server-java-component.png":::
 1. Select *Add* under *Git repositories*, Enter *URI* value *https://github.com/Azure-Samples/azure-spring-cloud-config-java-aca.git* under Add Git repository, select *Add*
   
        :::image type="content" source="media/java-components/configure-git-uri.png" alt-text="Screenshot of how to configure config server git uri."  lightbox="media/java-components/configure-git-uri.png":::
 
-1. Click *Configure* on *Review* page
+2. Click *Configure* on *Review* page
 ---
 
 ## Bind your container app to the Config Server for Spring Java component

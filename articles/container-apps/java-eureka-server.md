@@ -105,7 +105,6 @@ Follow the following steps to create the resource group, client container app an
 | Deployment source | *Container image* |
 | Region | *East US* |
 | Container Apps Environment | *my-environment* |
----
 
     :::image type="content" source="media/java-components/create-containerapp-eureka.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-eureka.png":::
 
@@ -117,7 +116,6 @@ Follow the following steps to create the resource group, client container app an
 | Image type | *Public* |
 | Registry login server | *mcr.microsoft.com* |
 | Image and tag | *javacomponents/samples/sample-service-eureka-client:latest* |
----
 
   :::image type="content" source="media/java-components/select-eureka-image.png" alt-text="Screenshot of select image when create container apps."  lightbox="media/java-components/select-eureka-image.png":::
 
@@ -174,7 +172,6 @@ Now that you have an existing environment and eureka client container app, creat
 |---|---|
 | Java component type | *Eureka Server for Spring* |
 | Java component name | *eureka* |
----
        :::image type="content" source="media/java-components/create-eureka-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/create-eureka-java-component.png":::
 1. Click *Configure* on *Review* page
 ---
