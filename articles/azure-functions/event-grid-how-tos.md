@@ -103,7 +103,7 @@ For more information about how to create subscriptions by using the Azure portal
 
 To create a subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) command. Examples use the v2.x+ version of the URL and are written to run in [Azure Cloud Shell](../cloud-shell/overview.md). You'll need to modify the examples to run from a Windows command prompt.
 
-This example creates a subscription to a blob storage account, with a placeholder for the [system key](#system-key):
+This example creates a subscription to a blob storage account, with a placeholder for the [system key](#obtain-the-system-key):
 
 ```azurecli-interactive
 az eventgrid resource event-subscription create -g myResourceGroup \
