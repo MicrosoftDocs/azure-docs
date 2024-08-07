@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Guest Management Issues
-description: Learn about how to troubleshoot the guest management issues for Arc-enabled VMware vSphere.
+description: Learn how to troubleshoot the guest management issues for Arc-enabled VMware vSphere.
 ms.topic: reference
 ms.date: 08/06/2024
 ms.service: azure-arc
@@ -57,16 +57,7 @@ Default: The default set of PAM service names includes:
 
 # [A RHEL-based Linux VM](#tab/rhel)
 
-Applies to:
-
-- heavy_check_mark: RedHat Linux
-- heavy_check_mark: CentOS
-- heavy_check_mark: Rocky Linux
-- heavy_check_mark: Oracle Linux
-- heavy_check_mark: SUSE Linux
-- heavy_check_mark: SUSE Linux Enterprise Server
-- heavy_check_mark: Alma Linux
-- heavy_check_mark: Fedora
+**Applies to**:heavy_check_mark: RedHat Linux :heavy_check_mark: CentOS :heavy_check_mark: Rocky Linux :heavy_check_mark: Oracle Linux :heavy_check_mark: SUSE Linux :heavy_check_mark: SUSE Linux Enterprise Server :heavy_check_mark: Alma Linux :heavy_check_mark: Fedora
 
 
 **Error message**: Provisioning of the resource failed with Code: `AZCM0143`; Message: `install_linux_azcmagent.sh: installation error`.
