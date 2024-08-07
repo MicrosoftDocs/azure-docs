@@ -3,9 +3,9 @@ title: What's happening to Azure Database for MySQL single server?
 description: The Azure Database for MySQL - Single Server service is being deprecated.
 author: adig
 ms.author: adig
-ms.reviewer: talawren, magha
+ms.reviewer: talawren, maghan
 ms.date: 05/21/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: single-server
 ms.topic: overview
 ms.custom:
@@ -41,7 +41,7 @@ Learn how to migrate from Azure Database for MySQL - Single Server to Azure Data
 For more information on migrating from Single Server to Flexible Server using other migration tools, visit [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md).
 
 > [!NOTE]  
-> In-place auto-migration from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for select Single Server database workloads. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details. If you own a Single Server workload with data storage used <= 100 GiB and no complex features (CMK, Microsoft Entra ID, Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u). All other Single Server workloads are recommended to use user-initiated migration tooling offered by Azure - Azure DMS, Azure Database for MySQL Import to migrate. Learn more about in-place auto-migration [here](../migrate/migrate-single-flexible-in-place-auto-migration.md).
+> In-place auto-migration from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for select Single Server database workloads. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details. If you own a Single Server workload with no complex features (Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u). All other Single Server workloads are recommended to use user-initiated migration tooling offered by Azure - Azure DMS, Azure Database for MySQL Import to migrate. Learn more about in-place auto-migration [here](../migrate/migrate-single-flexible-in-place-auto-migration.md).
 
 ## Prerequisite checks when migration from Single to Flexible Server
 
@@ -97,9 +97,9 @@ When you migrate from Azure Database for MySQL - Single Server to Flexible Serve
 
 | **Property** | **Configuration** |
 | --- | --- |
-| Suppress specific alert types | Disable specific alert types with the Microsoft Defender for Cloud platform. For more information, visit [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md). <br /><br /> Single Server users can use the API property: <br /> `properties.disabledAlerts` |
-| Email notifications | Define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, visit [Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md). <br /><br /> Single Server users can use the API properties: <br /> `properties.emailAccountAdmins`, <br /> `properties.emailAddresses` |
-| Export alerts for further processing and/or archiving | Alerts are stored in the Microsoft Defender for Cloud platform and exposed through the Azure Resource Graph. <br /> You can export alerts to a different store and manage retention separately. For more information, visit [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md). <br /><br /> Single Server users can use the API properties: <br /> `properties.retentionDays`, <br /> `properties.storageAccountAccessKey`, <br /> `properties.storageEndpoint` |
+| Suppress specific alert types | Disable specific alert types with the Microsoft Defender for Cloud platform. For more information, visit [Suppress alerts from Microsoft Defender for Cloud guide](/azure/defender-for-cloud/alerts-suppression-rules). <br /><br /> Single Server users can use the API property: <br /> `properties.disabledAlerts` |
+| Email notifications | Define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, visit [Configure email notifications for security alerts](/azure/defender-for-cloud/configure-email-notifications). <br /><br /> Single Server users can use the API properties: <br /> `properties.emailAccountAdmins`, <br /> `properties.emailAddresses` |
+| Export alerts for further processing and/or archiving | Alerts are stored in the Microsoft Defender for Cloud platform and exposed through the Azure Resource Graph. <br /> You can export alerts to a different store and manage retention separately. For more information, visit [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](/azure/defender-for-cloud/continuous-export). <br /><br /> Single Server users can use the API properties: <br /> `properties.retentionDays`, <br /> `properties.storageAccountAccessKey`, <br /> `properties.storageEndpoint` |
  
 
 ## Frequently Asked Questions (FAQs)

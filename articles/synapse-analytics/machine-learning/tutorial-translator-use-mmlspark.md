@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Translator with Azure AI services'
 description: Learn how to use translator in Azure Synapse Analytics.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 11/02/2021

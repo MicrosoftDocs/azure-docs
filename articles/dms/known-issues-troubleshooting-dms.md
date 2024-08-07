@@ -1,20 +1,20 @@
 ---
 title: "Common issues - Azure Database Migration Service"
-description: Learn about how to troubleshoot common known issues/errors associated with using Azure Database Migration Service.
+description: Learn about how to troubleshoot common known issues/errors associated with using Azure Database Migration Service(classic).
 author: abhims14
 ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 02/20/2020
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: troubleshooting
 ms.custom:
   - has-azure-ad-ps-ref
   - sql-migration-content
 ---
 
-# Troubleshoot common Azure Database Migration Service issues and errors
+# Troubleshoot common Azure Database Migration Service (classic) issues and errors
 
-This article describes some common issues and errors that Azure Database Migration Service users can come across. The article also includes information about how to resolve these issues and errors.
+This article describes some common issues and errors that Azure Database Migration Service(classic) users can come across. The article also includes information about how to resolve these issues and errors.
 
 ## Migration activity in queued state
 

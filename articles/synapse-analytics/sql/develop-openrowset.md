@@ -2,7 +2,7 @@
 title: How to use OPENROWSET in serverless SQL pool
 description: This article describes syntax of OPENROWSET in serverless SQL pool and explains how to use arguments.
 author: filippopovic
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 03/23/2022

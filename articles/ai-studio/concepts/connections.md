@@ -26,9 +26,9 @@ You can [create connections](../how-to/connections-add.md) to Azure AI services 
 
 :::image type="content" source="../media/prompt-flow/llm-tool-connection.png" alt-text="Screenshot of a connection used by the LLM tool in prompt flow." lightbox="../media/prompt-flow/llm-tool-connection.png":::
 
-As another example, you can [create a connection](../how-to/connections-add.md) to an Azure AI Search resource. The connection can then be used by prompt flow tools such as the Vector DB Lookup tool.
+As another example, you can [create a connection](../how-to/connections-add.md) to an Azure AI Search resource. The connection can then be used by prompt flow tools such as the Index Lookup tool.
 
-:::image type="content" source="../media/prompt-flow/vector-db-lookup-tool-connection.png" alt-text="Screenshot of a connection used by the Vector DB Lookup tool in prompt flow." lightbox="../media/prompt-flow/vector-db-lookup-tool-connection.png":::
+:::image type="content" source="../media/prompt-flow/index-lookup-tool-connection.png" alt-text="Screenshot of a connection used by the Index Lookup tool in prompt flow." lightbox="../media/prompt-flow/index-lookup-tool-connection.png":::
 
 ## Connections to non-Microsoft services
 

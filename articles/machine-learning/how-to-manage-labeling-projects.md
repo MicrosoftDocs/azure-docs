@@ -5,7 +5,7 @@ description: Tasks for the project manager to administer a labeling project in A
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: vkann
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 02/01/2024

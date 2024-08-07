@@ -356,7 +356,7 @@ N/A
 
 ---
 
-## Configure
+## Configure (Preview)
 
 [Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md) serve as a management tool for Azure Monitor Agent (AMA) on your machine. The AgentSettings DCR can be used to configure AMA parameters like `DisQuotaInMb`, ensuring your agent is tailored to your specific monitoring needs.
 
@@ -373,7 +373,7 @@ The AgentSettings DCR currently supports configuring the following parameters:
 
 | Parameter | Description | Valid values |
 | --------- | ----------- | ----------- |
-| `DiscQuotaInMb` | Defines the amount of disk space used by the Azure Monitor Agent log files and cache. | 1000-5000 (in MB) |
+| `DiscQuotaInMb` | Defines the amount of disk space used by the Azure Monitor Agent log files and cache. | 1-50 (in GB) |
 | `TimeReceivedForForwardedEvents` | Changes WEF column in the Sentinel WEF table to use TimeReceived instead of TimeGenerated data | 0 or 1 |
 
 ### Setting up AgentSettings DCR

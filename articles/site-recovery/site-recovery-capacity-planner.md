@@ -2,7 +2,7 @@
 title: Plan capacity for Hyper-V disaster recovery with Azure Site Recovery
 description: Use this article to estimate capacity when setting up disaster recovery with the Azure Site Recovery service.
 services: site-recovery
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 12/14/2023
 ms.author: ankitadutta

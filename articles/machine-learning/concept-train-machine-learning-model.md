@@ -3,7 +3,7 @@ title: 'Build & train models'
 titleSuffix: Azure Machine Learning
 description: Learn how to train models with Azure Machine Learning. Explore the different training methods and choose the right one for your project.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: manashg

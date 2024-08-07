@@ -3,7 +3,7 @@ title: Azure Key Vault VM Extension for Linux
 description: Deploy an agent performing automatic refresh of Key Vault certificates on virtual machines using a virtual machine extension.
 services: virtual-machines
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: linux
 ms.topic: article
@@ -41,7 +41,7 @@ Version 3.0+ of the Key Vault VM extension for Linux adds support for the follow
 
 
 ## Prerequisites
-  - Key Vault instance with certificate. See [Create a Key Vault](../../key-vault/general/quick-create-portal.md)
+  - Key Vault instance with certificate. See [Create a Key Vault](/azure/key-vault/general/quick-create-portal)
   - Assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) on VM/VMSS
   - The **Key Vault Secrets User** role at the Key Vault scope level for VMs and Azure Virtual Machine Scale Sets managed identity. This role retrieves a secret's portion of a certificate. For more information, see the following articles:
     - [Authentication in Azure Key Vault](/azure/key-vault/general/authentication)
@@ -188,7 +188,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > [!NOTE]
 > Your observed certificates URLs should be of the form `https://myVaultName.vault.azure.net/secrets/myCertName`.
 >
-> This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path doesn't. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
+> This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path doesn't. More information about certificates can be found here: [Key Vault Certificates](/azure/key-vault/general/about-keys-secrets-certificates)
 
 > [!IMPORTANT]
 > The 'authenticationSettings' property is **required** for VMs with any **user assigned identities**. Even if you want to use a system assigned identity this is still required otherwise the VM extension doesn't know which identity to use. Without this section, a VM with user assigned identities will result in the Key Vault extension failing and being unable to download certificates.

@@ -2,7 +2,7 @@
 title: Export your FHIR data by invoking the $export command on the FHIR service
 description: This article describes how to export FHIR data by using the bulk $export operation.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2022

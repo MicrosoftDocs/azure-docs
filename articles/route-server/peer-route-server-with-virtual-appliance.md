@@ -3,7 +3,7 @@ title: 'Tutorial: Configure BGP peering between Azure Route Server and NVA'
 description: This tutorial shows you how to configure an Azure Route Server and peer it with a Network Virtual Appliance (NVA) using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: tutorial
 ms.date: 07/11/2024
 ---
@@ -218,6 +218,9 @@ In this section, you configure BGP settings on the VM so it acts as an NVA and c
 1. Once you add the NVA as a peer, the **Peers** page shows the **myNVA** as a peer:
 
     :::image type="content" source="./media/peer-route-server-with-virtual-appliance/route-server-peers.png" alt-text="Screenshot that shows the peers of a Route Server." lightbox="./media/peer-route-server-with-virtual-appliance/route-server-peers.png":::
+
+ > [!NOTE]
+ > - Azure Route Server supports BGP peering with NVAs that are deployed in the same VNet or a directly peered VNet. Configuring BGP peering between an on-premises NVA and Azure Route Server is not supported. 
     
 ## Check learned routes
 

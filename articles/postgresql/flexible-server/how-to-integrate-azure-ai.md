@@ -5,9 +5,10 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: maghan, carols
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
 ---

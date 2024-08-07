@@ -103,8 +103,8 @@
       href: how-to-query-graph.md
   - name: Develop client apps
     items:
-    - name: Call Azure Digital Twins APIs with Postman
-      href: how-to-use-postman-with-digital-twins.md
+    - name: Call Azure Digital Twins APIs
+      href: how-to-use-apis.md
     - name: Use 3D Scenes Studio
       href: how-to-use-3d-scenes-studio.md
     - name: Write app authentication code
@@ -283,8 +283,6 @@
       href: https://explorer.digitaltwins.azure.net
     - name: 3D Scenes Studio
       href: https://explorer.digitaltwins.azure.net/3dscenes
-    - name: Azure Digital Twins Postman Collection
-      href: https://github.com/microsoft/azure-digital-twins-postman-samples
     - name: Sample for ingesting OPC UA data into Azure Digital Twins
       href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
     - name: DTDL parser sample

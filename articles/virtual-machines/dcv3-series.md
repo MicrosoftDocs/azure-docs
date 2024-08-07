@@ -2,7 +2,7 @@
 title: DCsv3 and DCdsv3-series
 description: Specifications for the DCsv3 and DCdsv3-series Azure Virtual Machines.
 author: linuxelf001
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 05/24/2022
@@ -33,7 +33,7 @@ DCsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processo
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported
 - [Ephemeral OS Disks](ephemeral-os-disks.md): Supported for DCdsv3-series
 - [Ultra-Disk Storage](disks-enable-ultra-ssd.md): Supported
-- [Azure Kubernetes Service](../aks/intro-kubernetes.md): Supported (CLI provisioning only)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes): Supported (CLI provisioning only)
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported 
 - [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not supported
 - [Trusted Launch](trusted-launch.md): Supported

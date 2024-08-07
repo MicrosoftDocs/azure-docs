@@ -3,7 +3,7 @@ title: 'Troubleshoot Point-to-Site VPN clients - Microsoft Entra authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot VPN Gateway Point-to-Site clients that use Microsoft Entra authentication.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 04/29/2021
 ms.author: cherylmc

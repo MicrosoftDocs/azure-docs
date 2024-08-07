@@ -3,7 +3,7 @@ title: Prebuilt Docker image Python extensibility
 titleSuffix: Azure Machine Learning
 description: 'Extend prebuilt docker images with Python package extensibility solution.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.author: larryfr
 author: Blackmist

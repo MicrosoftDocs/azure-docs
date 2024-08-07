@@ -69,7 +69,7 @@ You can also configure the graph to see the number of skill invocations over the
 You can retrieve the status and execution history of an indexer using the [Get Indexer Status command](/rest/api/searchservice/indexers/get-status):
 
 ```http
-GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2023-11-01
+GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2024-07-01
 api-key: [Search service admin key]
 ```
 

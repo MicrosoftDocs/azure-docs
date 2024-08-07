@@ -393,7 +393,7 @@ This system is able to interpret the intent of the query "how much does it cost?
 
 If you navigate to the trace from this flow run, you see this in action. The local traces link shows in the console output before the result of the flow test run.
 
-:::image type="content" source="../media/tutorials/develop-rag-copilot-sdk/trace-for-chat-history.png" alt-text="Screenshot shows the console output for the pf flow.":::
+:::image type="content" source="../media/tutorials/develop-rag-copilot-sdk/trace-for-chat-history.png" alt-text="Screenshot shows the console output for the pf flow." lightbox="../media/tutorials/develop-rag-copilot-sdk/trace-for-chat-history.png" :::
 
 ## Clean up resources
 

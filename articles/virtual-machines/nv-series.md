@@ -2,7 +2,7 @@
 title: NV-series - Azure Virtual Machines
 description: Specifications for the NV-series VMs.
 author: vikancha-MSFT
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/29/2022

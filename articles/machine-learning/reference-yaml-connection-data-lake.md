@@ -3,7 +3,7 @@ title: 'CLI (v2) Data Lake Store Gen 2 connection YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Azure Data Lake Store Gen 2 connections YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom:
   - build-2024

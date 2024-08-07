@@ -3,7 +3,7 @@ title: Connect to server - Azure Cosmos DB for PostgreSQL
 description: See how to connect to and query an Azure Cosmos DB for PostgreSQL cluster.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 06/05/2023

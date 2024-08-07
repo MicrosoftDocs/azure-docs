@@ -2,7 +2,7 @@
 title: What is Designer (v2)?
 titleSuffix: Azure Machine Learning
 description: Learn about the drag-and-drop Designer UI in Machine Learning studio, and how it uses Designer v2 custom components to build and edit machine learning pipelines.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lagayhar

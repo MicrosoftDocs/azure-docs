@@ -1,11 +1,7 @@
 ---
 title: Configure single sign-on for Azure Virtual Desktop using AD FS - Azure
 description: How to configure single sign-on for an Azure Virtual Desktop environment using Active Directory Federation Services.
-services: virtual-desktop
 author: Heidilohr
-manager: lizross
-
-ms.service: virtual-desktop
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/30/2021
@@ -149,7 +145,7 @@ When configuring AD FS single sign-on you must choose shared key or certificate:
 * If you have a single AD FS server, you can choose shared key or certificate.
 * If you have multiple AD FS servers,  it's required to choose certificate.
 
-The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](../key-vault/general/overview.md). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Azure Virtual Desktop service can access it.
+The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](/azure/key-vault/general/overview). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Azure Virtual Desktop service can access it.
 
 When using a certificate, you can use any general purpose certificate and there is no requirement on the subject name or Subject Alternative Name (SAN). While not required, it's recommended to create a certificate issued by a valid Certificate Authority. This certificate can be created directly in Azure Key Vault and needs to have an exportable private key. The public key can be exported and used to configure the AD FS server using the script below. Note that this certificate is different from the AD FS SSL certificate that must have a proper subject name and valid Certificate Authority.
 
