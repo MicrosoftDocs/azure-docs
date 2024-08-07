@@ -29,7 +29,7 @@ In this QuickStart guide, you set up:
 ## Prerequisites
 
 - You must have an active Log Analytics Workspace in order to ingest into Microsoft Sentinel.
-- You must have an active Microsoft Sentinel Contributor permission at subscription and resource group levels.
+- You must have an active Microsoft Sentinel Contributor permission at resource group level.
 
 ## Enable Sentinel for Log Analytics Workspace
 
