@@ -343,6 +343,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 #### [N-Z](#tab/n-z)
 
 | Connectivity provider | Exchange | Locations |
+| --- | --- | --- |
 | **[NexGen Networks](https://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | London |
 | **[Nianet](https://www.globalconnect.dk/)** |Equinix | Amsterdam<br/>Frankfurt |
 | **[Oncore Cloud Service Inc](https://www.oncore.cloud/services/ue-for-expressroute)**| Equinix | Montreal<br/>Toronto |
