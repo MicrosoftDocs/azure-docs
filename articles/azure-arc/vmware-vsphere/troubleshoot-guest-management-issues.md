@@ -18,7 +18,11 @@ manager: jsuri
 
 This article provides information on how to troubleshoot and resolve the issues that can occur when you enable guest management on Arc-enabled VMware vSphere virtual machines.
 
-## Troubleshoot issues while enabling Guest Management on a domain-joined Linux VM
+## Troubleshoot issues while enabling Guest Management
+
+**Troubleshoot issues while enabling Guest Management on:**
+
+# [A domain-joined Linux VM](#tab/linux)
 
 **Error message**: Enabling Guest Management on a domain-joined Linux VM fails with the error message **InvalidGuestLogin: Failed to authenticate to the system with the credentials**.
 
@@ -49,21 +53,20 @@ Default: The default set of PAM service names includes:
 
 #### References
 
-- [Invoke-VMScript to an domain joined Ubuntu VM](https://communities.vmware.com/t5/VMware-PowerCLI-Discussions/Invoke-VMScript-to-an-domain-joined-Ubuntu-VM/td-p/2257554).
+- [Invoke VMScript to a domain-joined Ubuntu VM](https://communities.vmware.com/t5/VMware-PowerCLI-Discussions/Invoke-VMScript-to-an-domain-joined-Ubuntu-VM/td-p/2257554).
 
-
-## Troubleshoot issues while enabling Guest Management on RHEL-based Linux VMs
+# [A RHEL-based Linux VM](#tab/rhel)
 
 Applies to:
 
-- RedHat Linux
-- CentOS
-- Rocky Linux
-- Oracle Linux
-- SUSE Linux
-- SUSE Linux Enterprise Server
-- Alma Linux
-- Fedora
+- heavy_check_mark: RedHat Linux
+- heavy_check_mark: CentOS
+- heavy_check_mark: Rocky Linux
+- heavy_check_mark: Oracle Linux
+- heavy_check_mark: SUSE Linux
+- heavy_check_mark: SUSE Linux Enterprise Server
+- heavy_check_mark: Alma Linux
+- heavy_check_mark: Fedora
 
 
 **Error message**: Provisioning of the resource failed with Code: `AZCM0143`; Message: `install_linux_azcmagent.sh: installation error`.
@@ -107,6 +110,8 @@ Upon `yum` or `rpm` executing scriptlets, the context is changed to `rpm_script_
 #### References
 
 - [Executing yum/rpm commands using VMware tools facility (vmrun) fails in error when packages have scriptlets](https://access.redhat.com/solutions/5347781).
+
+---
 
 ## Next steps
 
