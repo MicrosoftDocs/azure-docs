@@ -24,8 +24,9 @@ This is an example for configuring `System-assigned managed identity` on a `Virt
 1. Open [Azure portal](https://portal.azure.com/), Search for and select a Virtual Machine.
 1. Under **Settings** section, select **Identity**.
 1. On the **System assigned** tab, toggle the **Status** to **On**.
+
    ![Screenshot of virtual machine - identity.](./media/howto-authorize-from-managed-identity/identity-virtual-machine.png)
-1. Click the **Save** button to confirm the change.
+1. Select the **Save** button to confirm the change.
 
 ### How to create user-assigned managed identities
 
@@ -50,41 +51,41 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a system-as
 > [!Note]
 > A role can be assigned to any scope, including management group, subscription, resource group or a single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md)
 
-1. Open [Azure portal](https://portal.azure.com/), navigate to your Web PubSub resource.
+1. Open [Azure portal](https://portal.azure.com/), go to your Web PubSub resource.
 
-1. Click **Access Control (IAM)** to display access control settings for the Azure Web PubSub.
+1. Select **Access Control (IAM)** to display access control settings for the Azure Web PubSub.
 
    The following shows an example of the Access control (IAM) page for a resource group.
 
-1. Click the **Role assignments** tab to view the role assignments at this scope.
+1. Select the **Role assignments** tab to view the role assignments at this scope.
 
    The following screenshot shows an example of the Access control (IAM) page for a Web PubSub resource.
 
    ![Screenshot of access control.](./media/howto-authorize-from-managed-identity/access-control.png)
 
-1. Click **Add > Add role assignment**.
+1. Select **Add > Add role assignment**.
 
 1. On the **Roles** tab, select `Web PubSub Service Owner`.
 
-1. Click **Next**.
+1. Select **Next**.
 
    ![Screenshot of adding role assignment.](./media/howto-authorize-from-managed-identity/add-role-assignment.png)
 
 1. On the **Members** tab, under **Assign access to** section, select **Managed identity**.
 
-1. Click **Select Members**.
+1. Select **Select Members**.
 
 1. In the **Select managed identities** pane, select **System-assigned managed identity > Virtual machine**
 
 1. Search for and select the virtual machine that you would like to assign the role to.
 
-1. Click **Select** to confirm the selection.
+1. Select **Select** to confirm the selection.
 
-1. Click **Next**.
+1. Select **Next**.
 
    ![Screenshot of assigning role to managed identities.](./media/howto-authorize-from-managed-identity/assign-role-to-managed-identities.png)
 
-1. Click **Review + assign** to confirm the change.
+1. Select **Review + assign** to confirm the change.
 
 > [!IMPORTANT]
 > Azure role assignments may take up to 30 minutes to propagate.
@@ -105,9 +106,7 @@ We officially support 4 programming languages:
 - [Java](./howto-create-serviceclient-with-java-and-azure-identity.md)
 - [JavaScript](./howto-create-serviceclient-with-javascript-and-azure-identity.md)
 
-## Next steps
-
-See the following related articles:
+## Related content
 
 - [Overview of Microsoft Entra ID for Web PubSub](concept-azure-ad-authorization.md)
 - [Authorize request to Web PubSub resources with Microsoft Entra ID from Azure applications](howto-authorize-from-application.md)

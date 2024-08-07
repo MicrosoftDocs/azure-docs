@@ -1,6 +1,6 @@
 ---
-title: How to rotate access key for Azure Web PubSub service
-description: An overview on why the customer needs to routinely rotate the access keys and how to do it.
+title: Rotate access keys for Azure Web PubSub
+description: Learn how and when to rotate Azure Web PubSub access keys by regenerating one key at a time.
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
@@ -8,36 +8,40 @@ ms.topic: how-to
 ms.date: 11/08/2021
 ---
 
-# How to rotate access key for Azure Web PubSub service
+# Rotate access keys for Azure Web PubSub
 
-Each Azure Web PubSub service instance has a pair of access keys called Primary and Secondary keys. They're used to authenticate clients when requests are made to the service. The keys are associated with the instance endpoint URL. Keep your keys secure, and rotate them regularly. You're provided with two access keys, so you can maintain connections by using one key while regenerating the other.
+Each Azure Web PubSub instance has a pair of access keys that helps you authenticate clients when requests are made to the service. Both keys are associated with the instance endpoint URL.
 
-## Why rotate access keys?
+Each instance has a primary access key and a secondary access key. Rotate one access key at a time by regenerating a new key of that type, either primary or secondary. Update one access key while the other access key maintains existing authenticated connections.
 
-For security reasons and compliance requirements, routinely rotate your access keys.
+## When to rotate access keys
 
-## Regenerate access keys
+For security reasons and to meet compliance requirements, we recommend that you routinely rotate your access keys.
 
-1. Go to the [Azure portal](https://portal.azure.com/), and sign in with your credentials.
+To regenerate an access key, complete the steps that are described in the following sections.
 
-1. Find the **Keys** section in the Azure Web PubSub service instance with the keys that you want to regenerate.
+### Enforced access key rotation
 
-1. Select **Keys** on the navigation menu.
+In some scenarios, Azure Web PubSub might enforce a mandatory access key rotation. The service sends notifications via email and in the portal. If you receive this kind of notification or if you encounter service failure due to an access key, regenerate your access keys to rotate the keys.
+
+## Regenerate an access key
+
+1. In the [Azure portal](https://portal.azure.com/), sign in with your credentials.
+
+1. Go to the Azure Web PubSub instance that has keys you want to rotate.
+
+1. On the resource menu, select **Keys**.
 
 1. Select **Regenerate Primary Key** or **Regenerate Secondary Key**.
 
-   A new key and corresponding connection string are created and displayed.
+   A new key and a corresponding connection string are created and shown.
 
-You also can regenerate keys by using the Azure CLI, once the Azure Web PubSub service is GA.
+You also can regenerate a key by using the Azure CLI when the Azure Web PubSub service is generally available.
 
-## Update configurations with new connection strings
+## Update configurations with the new connection string
 
-1. Copy the newly generated connection string.
+1. Copy the new connection string.
 
 1. Update all configurations to use the new connection string.
 
-1. Restart the application as needed.
-
-## Forced access key regeneration
-
-Azure Web PubSub service might enforce a mandatory access key regeneration under certain situations. The service notifies customers via email and portal notification. If you receive this communication or encounter service failure due to an access key, rotate the keys by following the instructions in this guide.
+1. Close the application, and then reopen it.

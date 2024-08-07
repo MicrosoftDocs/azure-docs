@@ -1,5 +1,5 @@
 ---
-title: How to secure and control network access to the Azure Web PubSub service endpoint
+title: How to secure and control network access to the Azure Web PubSub endpoint
 description: Overview of how to control the network access of Azure Web PubSub service
 author: yjin81
 ms.author: yajin1
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/08/2021
 ---
 
-# Configure network access control for Azure Web PubSub service
+# Configure network access control for Azure Web PubSub
 
 Azure Web PubSub service enables you to secure and control the level of access to your service endpoint, based on the request type and subset of networks used. When network rules are configured, only applications requesting data over the specified set of networks can access your Azure Web PubSub service.
 
@@ -18,11 +18,11 @@ Optionally, you can choose to allow or deny certain types of requests for public
 
 An application that accesses an Azure Web PubSub service when network access control rules are in effect still requires proper authorization for the request.
 
-## Scenario A - No public traffic
+## Scenario A: No public traffic
 
-To completely deny all public traffic, you should first configure the public network rule to allow no request type. Then, you should configure rules that grant access to traffic from specific VNets. This configuration enables you to build a secure network boundary for your applications.
+To completely deny all public traffic, you should first configure the public network rule to allow no request type. Then, you should configure rules that grant access to traffic from specific virtual networks. This configuration enables you to build a secure network boundary for your applications.
 
-## Scenario B - Only client connections from public network
+## Scenario B: Only client connections from a public network
 
 In this scenario, you can configure the public network rule to only allow Client Connections from public network. You can then configure private network rules to allow other types of requests originating from a specific VNet. This configuration hides your app servers from public network and establishes secure connections between your app servers and Azure Web PubSub service.
 
@@ -41,7 +41,7 @@ You can manage network access control for Azure Web PubSub service through the A
 1. To edit default action, toggle the **Allow/Deny** button.
 
     > [!TIP]
-    > Default action is the action we take when there is no ACL rule matches. For example, if the default action is **Deny**, then request types that are not explicitly approved below will be denied.
+    > The default action is the action that you take when no ACL rules match. For example, if the default action is **Deny**, request types that are not explicitly approved are denied.
 
 1. To edit public network rule, select allowed types of requests under **Public network**.
 

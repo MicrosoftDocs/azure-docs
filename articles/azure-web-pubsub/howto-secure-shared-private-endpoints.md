@@ -199,8 +199,6 @@ Once the private endpoint is set up, you can verify incoming calls are from a pr
 
 :::image type="content" alt-text="Screenshot of the Azure portal, showing incoming requests are from a private IP." source="media\howto-secure-shared-private-endpoints\portal-function-log.png" :::
 
-## Next steps
-
-Learn more about private endpoints:
+## Related content
 
 [What are private endpoints?](../private-link/private-endpoint-overview.md)
