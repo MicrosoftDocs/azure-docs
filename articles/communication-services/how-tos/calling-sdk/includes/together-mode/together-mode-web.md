@@ -14,7 +14,7 @@ ms.author: cnwankwo
 |----------------------------------------------|--------|--------|--------|--------|
 | start | ✔️ | ✔️  | ✔️ | |
 
-TogetherMode is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
+`TogetherMode` is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
 ```js
 import { Features} from "@azure/communication-calling";
