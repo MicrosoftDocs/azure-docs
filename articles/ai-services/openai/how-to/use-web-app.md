@@ -171,7 +171,7 @@ Follow [this tutorial on integrating Azure AI Search with AI Studio](https://lea
 
 ### Using Azure OpenAI Studio
 
-Follow [this tutorial on integrating Azure AI Search with OpenAI Studio](https://learn.microsoft.com/azure/ai-services/openai/use-your-data-quickstart#add-your-data-using-azure-openai-studio) and redeploy your application.
+Follow [this tutorial on integrating Azure AI Search with OpenAI Studio](/azure/ai-services/openai/use-your-data-quickstart#add-your-data-using-azure-openai-studio) and redeploy your application.
 
 ### Using environment variables
 
