@@ -22,7 +22,7 @@ Returns a boolean indicating whether the first string expression matches the sec
 ## Syntax
 
 ```nosql
-STRINGEQUALS(<string_expr_1>, <string_expr_2> [, <boolean_expr>])  
+StringEquals(<string_expr_1>, <string_expr_2> [, <boolean_expr>])  
 ```
 
 ## Arguments
