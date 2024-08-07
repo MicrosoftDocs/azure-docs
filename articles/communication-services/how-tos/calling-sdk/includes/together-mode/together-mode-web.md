@@ -77,7 +77,7 @@ The property `togetherModeSeatingMap` provides coordinates for individual partic
 const seatingMap = togetherModeFeature.togetherModeSeatingMap;
 ```
 
-### Set and Get Scene Size
+### Manage scene size
 The Scene Size refers to the width and height of the HTML container that holds the Together Mode video stream. The seating positions of participants are calculated based on the dimensions of the scene size. If this information isn't provided, the calculation defaults to a width of 1,280 pixels and a height of 720 pixels.
 
 ```js
