@@ -1,4 +1,8 @@
-items:
+        {
+            "source_path": "articles/communication-services/concepts/voice-video-calling/media-streaming.md",
+            "redirect_url": "articles/communication-services/concepts/call-automation/audio-streaming-concept.md",
+            "redirect_document_id": true
+        }items:
 - name: Azure Communication Services documentation
   href: index.yml
 - name: Overview
@@ -524,6 +528,8 @@ items:
         href: how-tos/call-automation/handle-events-with-event-processor.md
       - name: How to pass call contextual data in Call Automation
         href: how-tos/call-automation/custom-context.md
+      - name: How to use Audio Streaming
+        href: how-tos/call-automation/audio-streaming-quickstart.md
     - name: Call recording
       items:
       - name: Record a call
@@ -941,6 +947,8 @@ items:
         href: concepts/call-automation/recognize-action.md
       - name: Ring Microsoft Teams users
         href: concepts/call-automation/call-automation-teams-interop.md
+      - name: Get Audio Streams from a call
+        href: concepts/call-automation/audio-streaming-concept.md
     - name: Call recording
       href: concepts/voice-video-calling/call-recording.md
     - name: Events
