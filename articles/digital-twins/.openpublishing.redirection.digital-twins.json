@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "how-to-use-postman-with-digital-twins.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-apis",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "how-to-manage-routes.md",
       "redirect_url": "/azure/digital-twins/how-to-create-routes",
       "redirect_document_id": false
@@ -187,12 +192,12 @@
     },
     {
       "source_path": "how-to-configure-postman.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-postman-with-digital-twins",
+      "redirect_url": "/azure/digital-twins/how-to-use-apis",
       "redirect_document_id": false
     },
     {
       "source_path": "how-to-use-postman.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-postman-with-digital-twins",
+      "redirect_url": "/azure/digital-twins/how-to-use-apis",
       "redirect_document_id": true
     },
     {
