@@ -343,7 +343,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 **Description**: Kubernetes audit log analysis detected a new role with high privileges. A binding to a role with high privileges gives the user\group high privileges in the cluster. Unnecessary privileges might cause privilege escalation in the cluster.
 
-**[MITRE tactics](alerts-reference.md#mitre-attck-tactics)**: Persistence
+**[MITRE tactics](alerts-reference.md#mitre-attck-tactics)**: Persistence, Privilege Escalation
 
 **Severity**: Informational
 
