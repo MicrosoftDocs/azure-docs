@@ -74,7 +74,7 @@ A check is a secure way to transfer amount from payee's account to receiver's ac
 
 ## Supported locales
 
-The **`prebuilt-check.us`** version 2027-07-31-preview supports the **en-us** locale.
+The **`prebuilt-check.us`** version 2024-07-31-preview supports the **en-us** locale.
 
 ## Next steps
 
