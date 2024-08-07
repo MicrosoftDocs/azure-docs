@@ -41,7 +41,7 @@ CallInvite callInvite = new CallInvite(target, caller); 
             return result.getValue().getCallConnectionProperties().getCallConnectionId();  
 ```
 
-## Start Audio Streaming
+## Start audio streaming
 
 How to start audio streaming:
 ``` Java 
@@ -69,7 +69,7 @@ The metadata packet will look like this:
 ```
 
 
-## Stop Audio Streaming
+## Stop audio streaming
 How to stop audio streaming
 ``` Java
 StopMediaStreamingOptions stopOptions = new StopMediaStreamingOptions()  
