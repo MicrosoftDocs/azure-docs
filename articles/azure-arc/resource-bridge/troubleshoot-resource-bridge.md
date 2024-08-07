@@ -311,9 +311,9 @@ When Arc resource bridge is deployed, you specify where the appliance VM will be
 ```
 You have three options to move the Arc resource bridge VM: 
 
-1. You can move the appliance VM back to its original location and ensure RBAC credentials are updated for the location change
-1. [Run the Arc-enabled VMware disaster recovery script](../vmware-vsphere/disaster-recovery.md). The script will delete the appliance, deploy a new appliance and reconnect the appliance with the previously deployed custom location, cluster extension and Arc-enabled VMs.
-1. Delete and [redeploy the Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md).
+- You can move the appliance VM back to its original location and ensure RBAC credentials are updated for the location change
+- If you are using Arc-enabled Vmware, [run the Arc-enabled VMware disaster recovery script](../vmware-vsphere/disaster-recovery.md). The script will delete the appliance, deploy a new appliance and reconnect the appliance with the previously deployed custom location, cluster extension and Arc-enabled VMs.
+- Delete and [redeploy the Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md).
 
 ### Insufficient permissions
 
