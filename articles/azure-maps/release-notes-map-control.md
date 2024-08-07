@@ -16,12 +16,12 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.3.0] (Aug 5, 2024)
+### [3.3.0] (Aug 8, 2024)
 
 #### New features (3.3.0)
 - Update the Copyright control
   - Make the copyright text smaller and ensure it fits on one line.
-  - Use different Microsoft logos for different CSS themes to improve visibility.
+  - Use different types of Microsoft logos for different CSS themes to improve visibility.
   - Implement RWD to hide part of the component (MS logo) when the map canvas is relatively small.
 - Enhance base layer class by adding abstract `getOptions` and `setOptions` functions.
 
