@@ -56,7 +56,7 @@ To migrate your data to Azure Files, follow these steps.
 
 1. [Create a project](../../storage-mover/project-manage.md) to collate the shares that need to be migrated together.
 
-1. [Create an Azure Key Vault](../../key-vault/general/quick-create-portal.md) and place two secrets in it: one for the username and one for the password the agent can use to access the source SMB share.
+1. [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) and place two secrets in it: one for the username and one for the password the agent can use to access the source SMB share.
 
 1. [Define your first migration job](../../storage-mover/job-definition-create.md) in your Storage Mover project, using the source and target pair you've created. For the first migration job, it's best to use the Azure portal. You'll create multiple resources within your Storage Mover resource. There will be a source endpoint and a target endpoint, as well as a few migration settings you should review carefully. In addition, you'll reference the Azure Key Vault secrets when creating your migration job.
 

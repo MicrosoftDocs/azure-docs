@@ -16,11 +16,11 @@ ExpressRoute supports a couple of encryption technologies to ensure confidential
 
 ## Point-to-point encryption by MACsec FAQ
 
-MACsec is an [IEEE standard](https://1.ieee802.org/security/802-1ae/). It encrypts data at the Media Access control (MAC) level or Network Layer 2. You can use MACsec to encrypt the physical links between your network devices and Microsoft's network devices when you connect to Microsoft via [ExpressRoute Direct](expressroute-erdirect-about.md). MACsec is disabled on ExpressRoute Direct ports by default. You bring your own MACsec key for encryption and store it in [Azure Key Vault](../key-vault/general/overview.md). You decide when to rotate the key.
+MACsec is an [IEEE standard](https://1.ieee802.org/security/802-1ae/). It encrypts data at the Media Access control (MAC) level or Network Layer 2. You can use MACsec to encrypt the physical links between your network devices and Microsoft's network devices when you connect to Microsoft via [ExpressRoute Direct](expressroute-erdirect-about.md). MACsec is disabled on ExpressRoute Direct ports by default. You bring your own MACsec key for encryption and store it in [Azure Key Vault](/azure/key-vault/general/overview). You decide when to rotate the key.
 
 ### Can I enable Azure Key Vault firewall policies when storing MACsec keys?
  
-Yes, ExpressRoute is a trusted Microsoft service. You can configure Azure Key Vault firewall policies and allow trusted services to bypass the firewall. For more information, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md).
+Yes, ExpressRoute is a trusted Microsoft service. You can configure Azure Key Vault firewall policies and allow trusted services to bypass the firewall. For more information, see [Configure Azure Key Vault firewalls and virtual networks](/azure/key-vault/general/network-security).
 
 ### Can I enable MACsec on my ExpressRoute circuit provisioned by an ExpressRoute provider?
 

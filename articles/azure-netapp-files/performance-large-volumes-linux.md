@@ -24,13 +24,13 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
 * The Azure NetApp Files large volumes feature offers three service levels, each with throughput limits. The service levels can be scaled up or down nondisruptively as your performance needs change.  
 
-    * Ultra service level: 10,240 MiB/s
+    * Ultra service level: 12,800 MiB/s
     * Premium service level: 6,400 MiB/s
     * Standard service level: 1,600 MiB/s
 
     The Ultra service level was used in these tests. 
 
-* Sequential I/O: 100% sequential writes max out at 8,500 MiB/second, while a single large volume is capable of 10 GiB/second (10,240 MiB/second) throughput. 
+* Sequential I/O: 100% sequential writes max out at 8,500 MiB/second, while a single large volume is capable of 10 GiB/second (12,800 MiB/second) throughput. 
 
 * Random I/O: The same single large volume delivers over 700,000 operations per second. 
 
@@ -50,7 +50,7 @@ Tests observed performance thresholds of a single large volume on scale-out and 
 | Azure VM size | E32s_v5 |
 | Azure VM egress bandwidth limit | 2000MiB/s (2GiB/s) |
 | Operating system | RHEL 8.4 |
-| Large volume size | 101 TiB Ultra (10,240 MiB/s throughput) |
+| Large volume size | 101 TiB Ultra (12,800 MiB/s throughput) |
 | Mount options | `hard,rsize=65536,wsize=65536,vers=3`  <br /> **NOTE:** Use of both 262144 and 65536 had similar performance results. |
 
 ### 256-KiB sequential workloads (MiB/s) 
@@ -77,7 +77,7 @@ The tests in this section were run with the following configuration:
 | Azure VM size | E104id_v5  |
 | Azure VM egress bandwidth limit | 12,500MiB/s (12.2GiB/s)  |
 | Operating system | RHEL 8.4 |
-| Large volume size | 101 TiB Ultra (10,240 MiB/s throughput) |
+| Large volume size | 101 TiB Ultra (12,800 MiB/s throughput) |
 | Mount options | `hard,rsize=65536,wsize=65536,vers=3` <br /> **NOTE:** Use of both 262144 and 65536 had similar performance results |
 
 The graphs in this section show the results for the client-side mount option of `nconnect` with NFSv3. For more information, see [Linux NFS mount options best practices for Azure NetApp File](performance-linux-mount-options.md#nconnect).
