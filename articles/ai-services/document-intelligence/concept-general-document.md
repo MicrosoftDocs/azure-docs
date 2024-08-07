@@ -100,7 +100,7 @@ You need the following resources:
 > [!NOTE]
 > Document Intelligence Studio and the general document model are available with the v3.0 API.
 
-1. On the Document Intelligence Studio home page, select **General documents**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **General documents**.
 
 1. You can analyze the sample document or upload your own files.
 

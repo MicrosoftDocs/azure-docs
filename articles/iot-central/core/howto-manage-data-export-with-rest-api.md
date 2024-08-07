@@ -19,8 +19,6 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
-
 To learn how to manage data export by using the IoT Central UI, see [Export IoT data to Blob Storage.](../core/howto-export-to-blob-storage.md)
 
 ## Data export

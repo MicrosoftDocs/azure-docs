@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the model deprecations and retirements in Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 08/01/2024
+ms.date: 08/07/2024
 ms.custom: 
 manager: nitinme
 author: mrbullwinkle
@@ -82,6 +82,8 @@ For more information, see [How to upgrade to a new model or version](./model-ver
 
 > [!NOTE]
 > Not all models go through a deprecation period prior to retirement. Some models/versions only have a retirement date.
+>
+> **Fine-tuned models** are subject to the same deprecation and retirement schedule as their equivalent base model.
 
 These models are currently available for use in Azure OpenAI Service.
 
