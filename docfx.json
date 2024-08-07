@@ -1266,7 +1266,7 @@
         "articles/industry/**/*.md": "azure-industry",
         "articles/iot-operations/**/*.md": "iot-operations",
         "articles/iot-operations/**/*.yml": "iot-operations",
-        "articles/integration-environments/*.md": "integration-environments",
+        "articles/integration-environments/*.md": "azure-integration-environments",
         "articles/jenkins/**/*.md": "jenkins",
         "articles/lab-services/**/*.md": "azure-lab-services",
         "articles/playwright-testing/**/*.md": "playwright-testing",
