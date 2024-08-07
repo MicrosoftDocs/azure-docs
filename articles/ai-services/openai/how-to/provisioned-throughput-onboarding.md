@@ -61,7 +61,7 @@ Azure OpenAI Provisioned is purchased on-demand at an hourly basis based on the 
 The hourly model is useful for short-term deployment needs, such as validating new models or acquiring capacity for a hackathon.  However, the discounts provided by the Azure Reservation for Azure OpenAI Provisioned are considerable and most customers with consistent long-term usage will find a reserved model to be a better value proposition. 
 
 > [!NOTE]
-> Azure OpenAI Provisioned customers onboarded prior to the August self-service update use a purchase model called the Commitment model.  These customers may continue to use this older purchase model alongside the Hourly/reservation purchase model.  The Commitment model is not available for new customers.  For details on the Commitment purchase model and options for coexistence and migration, please see the [Azure OpenAI Provisioned August Update](../provisioned-migration.md).
+> Azure OpenAI Provisioned customers onboarded prior to the August self-service update use a purchase model called the Commitment model.  These customers may continue to use this older purchase model alongside the Hourly/reservation purchase model.  The Commitment model is not available for new customers.  For details on the Commitment purchase model and options for coexistence and migration, please see the [Azure OpenAI Provisioned August Update](./provisioned-migration.md).
 
 ## Hourly Usage  
 

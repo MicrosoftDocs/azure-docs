@@ -16,7 +16,7 @@ recommendations: false
 
 On August 12, 2024, Microsoft launched improvements to its Provisioned Throughput offering that address customer feedback on usability and operational agility, and that open new payment options and deployment scenarios.
 
-This article is intended for existing users of the provisioned throughput offering. New customers should refer to the [Azure OpenAI provisioned onboarding guide](./how-to/provisioned-throughput-onboarding.md).
+This article is intended for existing users of the provisioned throughput offering. New customers should refer to the [Azure OpenAI provisioned onboarding guide](../how-to/provisioned-throughput-onboarding.md).
 
 ## What's changing?
 
@@ -52,7 +52,7 @@ Starting August 12, 2024, existing customers will have their current, model-spec
 
 <!--:::image type="content" source="./media/provisioned/model-independent-quota.png" alt-text="Diagram of model independent quota with one pool of PTUs available to multiple Azure OpenAI models." lightbox="./media/provisioned/model-independent-quota.png":::-->
 
-:::image type="content" source="./media/provisioned/consolidation.png" alt-text="Diagram showing quota consolidation." lightbox="./media/provisioned/consolidation.png":::
+:::image type="content" source="../media/provisioned/consolidation.png" alt-text="Diagram showing quota consolidation." lightbox="../media/provisioned/consolidation.png":::
 
 The new model-independent quota will show up as a quota item named **Provisioned Managed Throughput Unit**, with model and version no longer included in the name. In the Studio Quota pane, expanding the quota item will still show all of the deployments that contribute to the quota item. 
 
@@ -70,7 +70,7 @@ Customers will no longer obtain quota by contacting their sales teams. Instead, 
 
 The Quota screenshot below shows model-independent quota being used by deployments of different types, as well as the link for requesting additional quota. 
 
-:::image type="content" source="./media/provisioned/quota-request-type.png" alt-text="Screenshot of new request type UI for Azure OpenAI provisioned for requesting more quota." lightbox="./media/provisioned/quota-request-type.png":::
+:::image type="content" source="../media/provisioned/quota-request-type.png" alt-text="Screenshot of new request type UI for Azure OpenAI provisioned for requesting more quota." lightbox="./media/provisioned/quota-request-type.png":::
 
 
 ## New hourly reservation payment model
@@ -110,7 +110,7 @@ Microsoft has introduced a new “Hourly/reservation” payment model for provis
 
 ## Hourly reservation model details
 
-Details on the hourly/reservation model can be found in the [Azure OpenAI Provisioned Onboarding Guide](./how-to/provisioned-throughput-onboarding.md)
+Details on the hourly/reservation model can be found in the [Azure OpenAI Provisioned Onboarding Guide](../how-to/provisioned-throughput-onboarding.md)
 
 ### Commitment and hourly reservation coexistence
 
