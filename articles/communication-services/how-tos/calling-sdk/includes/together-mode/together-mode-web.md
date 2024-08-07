@@ -61,7 +61,7 @@ togetherModeFeature.start();
 ### End together mode
 
 Together mode automatically ends for everyone when nobody subscribes to the video for 5 minutes. There is no API to end together mode.
-### Get Participants Seating Positions
+### Get coordinates of participants in together mode
 The property `togetherModeSeatingMap` provides coordinates for individual participants in the stream. Developers can use these coordinates to provide an overlay on top of the stream with additional information about participants such as display name or render visual features such as spotlight, hand raised or reactions. 
 
 ```js
