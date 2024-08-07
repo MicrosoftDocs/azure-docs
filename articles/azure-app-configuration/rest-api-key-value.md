@@ -112,22 +112,7 @@ Optional: ``key`` (If not specified, it implies any key.)
 Optional: ``label`` (If not specified, it implies any label.)
 
 :::zone-end
-:::zone target="docs" pivot="v23-11"
-
-Optional: ``tags`` (If not specified, it implies any tags.)
-
-```http
-GET /kv?key=Test*&tags=tag1=value1&tags=tag2=value2&api-version={api-version} HTTP/1.1
-```
-
-**Response:**
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
-```
-:::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11"
+:::zone target="docs" pivot="v1,v23-10"
 
 ```http
 GET /kv?label=*&api-version={api-version} HTTP/1.1
@@ -139,6 +124,24 @@ GET /kv?label=*&api-version={api-version} HTTP/1.1
 HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+
+Optional: ``tags`` (If not specified, it implies any tags.)
+
+```http
+GET /kv?key=Test*&label=*&tags=tag1=value1&tags=tag2=value2&api-version={api-version} HTTP/1.1
+```
+
+**Response:**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
+```
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11"
 
 For additional options, see the "Filtering" section later in this article.
 
@@ -219,13 +222,22 @@ Link: <{relative uri}>; rel="next"
 
 ## Filtering
 
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10"
+
 A combination of `key` and `label` filtering is supported.
 Use the optional `key` and `label` query string parameters.
+
+```http
+GET /kv?key={key}&label={label}&api-version={api-version}
+```
 
 :::zone-end
 :::zone target="docs" pivot="v23-11"
 
-For API Versions greater than `2023-11-01`, filtering by `tags` is also supported. Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
+A combination of `key`, `label` and `tags` filtering is supported.
+Use the optional `key`, `label` and `tags` query string parameters.
+Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
 
 ```http
 GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version={api-version}
@@ -234,9 +246,6 @@ GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version=
 :::zone-end
 :::zone target="docs" pivot="v1,v23-10,v23-11"
 
-```http
-GET /kv?key={key}&label={label}&api-version={api-version}
-```
 
 ### Supported filters
 
@@ -262,7 +271,7 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |--|--|
 |`tags` is omitted or `tags=` |Matches **any** tag|
 |`tags=group=app1`|Matches KV where the tag name is `group` and tag value is `app1`|
-|`tags=group=app1&tags=env=prod`|Matches KV which contain at least 2 tags, where the tag names are `group` and `env` and tag values are `app1` and `prod` respectively (limited to 5 tag filters)|
+|`tags=group=app1&tags=env=prod`|Matches KV that have a tag named `group` with value `app1` and a tag named `env` with value `prod`(limited to 5 tag filters)|
 |`tags=tag1=%00`|Matches KV where the tag name is `tag1` and tag value is `null`|
 |`tags=tag1=`|Matches KV where the tag name is `tag1` and tag value is empty|
 

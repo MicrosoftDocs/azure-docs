@@ -365,19 +365,19 @@ Content-Type: application/vnd.microsoft.appconfig.snapshot+json
 
 ```json
 {
-  "filters": [                        // required
+  "filters": [                                // required
     {
-      "key": "app1/*",                // required
-      "label": "prod",                 // optional
-      "tags": ["group=g1", "default=true"]   // optional
+      "key": "app1/*",                        // required
+      "label": "prod",                        // optional
+      "tags": ["group=g1", "default=true"]    // optional
     }
   ],
-  "tags": {                           // optional
+  "tags": {                                   // optional
     "tag1": "value1",
     "tag2": "value2",
   },
-  "composition_type": "key",          // optional
-  "retention_period": 2592000         // optional
+  "composition_type": "key",                  // optional
+  "retention_period": 2592000                 // optional
 }
 ```
 
