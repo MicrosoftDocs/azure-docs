@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 08/07/2024
 ms.reviewer: dantaylo
 ms.author: eur
 author: eric-urban
@@ -162,9 +162,11 @@ chat_evaluator = ChatEvaluator(
 ```
 
 ## Custom evaluators
+
 Built-in evaluators are great out of the box to start evaluating your application's generations. However you might want to build your own code-based or prompt-based evaluator to cater to your specific evaluation needs.
 
 ### Code-based evaluators
+
 Sometimes a large language model isn't needed for certain evaluation metrics. This is when code-based evaluators can give you the flexibility to define metrics based on functions or callable class.  Given a simple Python class in an example `answer_length.py` that calculates the length of an answer:
 ```python
 class AnswerLengthEvaluator:
@@ -218,8 +220,11 @@ retrieved_eval = ml_client.evaluators.get("answer_len_uploaded", version=1)
 ml_client.evaluators.download("answer_len_uploaded", version=1, download_path=".")
 evaluator = load_flow(os.path.join("answer_len_uploaded", flex_flow_path))
 ```
-After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/evaluate-generative-ai-app#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
+
+After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](../evaluate-generative-ai-ap.md#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
+
 ### Prompt-based evaluators
+
 To build your own prompt-based large language model evaluator, you can create a custom evaluator based on a **Prompty** file. Prompty is a file with `.prompty` extension for developing prompt template. The Prompty asset is a markdown file with a modified front matter. The front matter is in YAML format that contains many metadata fields that define model configuration and expected inputs of the Prompty. Given an example `apology.prompty` file that looks like the following:
 
 ```markdown
@@ -281,7 +286,7 @@ apology_score = apology_eval(
 print(apology_score)
 ```
 
-Here is the result:
+Here's the result:
 ```JSON
 {"apology": 0}
 ```
@@ -301,9 +306,13 @@ retrieved_eval = ml_client.evaluators.get("prompty_uploaded", version=1)
 ml_client.evaluators.download("prompty_uploaded", version=1, download_path=".")
 evaluator = load_flow(os.path.join("prompty_uploaded", "apology.prompty"))
 ```
-After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/evaluate-generative-ai-app#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
+
+After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](../evaluate-generative-ai-app.md#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
+
 ## Evaluate on test dataset using `evaluate()`
-After you spot-check your built-in or custom evaluators on a single row of data, you can combine multiple evaluators with the `evaluate()` API on an entire test dataset. In order to ensure the `evaluate()` can correctly parse the data, you must specify column mapping to map the column from the dataset to key words that are accepted by the evaluators. In this case, we specify the data mapping for `ground_truth`. 
+
+After you spot-check your built-in or custom evaluators on a single row of data, you can combine multiple evaluators with the `evaluate()` API on an entire test dataset. In order to ensure the `evaluate()` can correctly parse the data, you must specify column mapping to map the column from the dataset to key words that are accepted by the evaluators. In this case, we specify the data mapping for `ground_truth`.
+
 ```python
 from promptflow.evals.evaluate import evaluate
 
@@ -325,9 +334,11 @@ result = evaluate(
     output_path="./myevalresults.json"
 )
 ```
+
 > [!TIP]
 > Get the contents of the `result.studio_url` property for a link to view your logged evaluation results in Azure AI Studio.
 The evaluator outputs results in a dictionary which contains aggregate `metrics` and row-level data and metrics. An example of an output:
+
 ```python
 {'metrics': {'answer_length.value': 49.333333333333336,
              'relevance.gpt_relevance': 5.0},
@@ -360,11 +371,17 @@ The evaluator outputs results in a dictionary which contains aggregate `metrics`
            'outputs.answer_length.value': 66,
            'outputs.relevance.gpt_relevance': 5}],
  'traces': {}}
+
 ```
+
 ### Requirements for `evaluate()`
+
 The `evaluate()` API has a few requirements for the data format that it accepts and how it handles evaluator parameter key names so that the charts in your AI Studio evaluation results show up properly.
+
 #### Data format
-The `evaluate()` API only accepts data in the JSONLines format. For all built-in evaluators, except for `ChatEvaluator` or `ContentSafetyChatEvaluator`, `evaluate()` requires data in the following format with required input fields. See the [previous section on required data input for built-in evaluators](#required-data-input-for-built-in-evaluators).
+
+The `evaluate()` API only accepts data in the JSONLines format. For all built-in evaluators, except for `ChatEvaluator` or `ContentSafetyChatEvaluator`, `evaluate()` requires data in the following format with required input fields. See the [previous section on required data input for built-in evaluators](#data-requirements-for built-in evaluators).
+
 ```json
 {
   "question":"What is the capital of France?",
@@ -373,7 +390,9 @@ The `evaluate()` API only accepts data in the JSONLines format. For all built-in
   "ground_truth": "Paris"
 }
 ```
+
 For the composite evaluator class, `ChatEvaluator` and `ContentSafetyChatEvaluator`, we require an array of messages that adheres to OpenAI's messages protocol that can be found [here](https://platform.openai.com/docs/api-reference/messages/object#messages/object-content). The messages protocol contains a role-based list of messages with the following:
+
 - `content`: The content of that turn of the interaction between user and application or assistant.
 - `role`: Either the user or application/assistant.
 - `"citations"` (within `"context"`): Provides the documents and its ID as key value pairs from the retrieval-augmented generation model. 
@@ -421,8 +440,11 @@ result = evaluate(
     }
 )
 ```
+
 #### Evaluator parameter format
-When passing in your built-in evaluators, it is important to specify the right keyword mapping in the `evaluators` parameter list. The following is the keyword mapping required for the results from your built-in evaluators to show up in the UI when logged to Azure AI Studio.
+
+When passing in your built-in evaluators, it's important to specify the right keyword mapping in the `evaluators` parameter list. The following is the keyword mapping required for the results from your built-in evaluators to show up in the UI when logged to Azure AI Studio.
+
 | Evaluator                    | keyword param         |
 |------------------------------|-----------------------|
 | `RelevanceEvaluator`         | "relevance"           |
@@ -439,6 +461,7 @@ When passing in your built-in evaluators, it is important to specify the right k
 | `ChatEvaluator`              | "chat"                |
 | `ContentSafetyEvaluator`     | "content_safety"      |
 | `ContentSafetyChatEvaluator` | "content_safety_chat" |
+
 Here's an example of setting the `evaluators` parameters:
 ```python
 result = evaluate(
@@ -451,6 +474,7 @@ result = evaluate(
     }
 )
 ```
+
 ## Evaluate on a target
 
 If you have a list of queries that you'd like to run then evaluate, the `evaluate()` also supports a `target` parameter, which can send queries to an application to collect answers then run your evaluators on the resulting question and answers. 
