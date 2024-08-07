@@ -250,6 +250,7 @@ from azure.identity import ManagedIdentityCredential
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
+credential = ManagedIdentityCredential(client_id="<client_id>")
 configure_azure_monitor(
   connection_string=os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"],
   credential=credential,
