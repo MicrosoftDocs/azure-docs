@@ -153,7 +153,7 @@ When the storage pool is created, Azure Container Storage will create a storage 
 
 All data in an Azure storage account is encrypted at rest. By default, data is encrypted with Microsoft-managed keys. For more control over encryption keys, you can supply customer-managed keys (CMK) when you create your storage pool to encrypt the persistent volumes that you'll create.
 
-To use your own key for server-side encryption, you must have an [Azure Key Vault](../../key-vault/general/overview.md) with a key. The Key Vault should have purge protection enabled, and it must use the Azure RBAC permission model. Learn more about [customer-managed keys on Linux](../../virtual-machines/disk-encryption.md#customer-managed-keys).
+To use your own key for server-side encryption, you must have an [Azure Key Vault](/azure/key-vault/general/overview) with a key. The Key Vault should have purge protection enabled, and it must use the Azure RBAC permission model. Learn more about [customer-managed keys on Linux](../../virtual-machines/disk-encryption.md#customer-managed-keys).
 
 When creating your storage pool, you must define the CMK parameters. The required CMK encryption parameters are:
 

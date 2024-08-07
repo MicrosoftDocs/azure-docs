@@ -42,7 +42,7 @@ Use the following steps to create a managed identity, add it to your Azure Maps 
 Create a system assigned managed identity:
 
 1. Go to your Azure Maps account in the [Azure portal].
-1. Select **Identity** from the left menu.
+1. Select **Identity** from the **Settings** section in the left menu.
 1. Toggle the **Status** to **On**.
 
 # [user-assigned](#tab/User-assigned)

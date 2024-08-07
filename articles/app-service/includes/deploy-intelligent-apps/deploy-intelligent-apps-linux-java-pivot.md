@@ -44,7 +44,7 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 - `apiKey`
 - `modelName`
 
-Since we're deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](../../../key-vault/secrets/quick-create-cli.md#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+Since we're deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 
