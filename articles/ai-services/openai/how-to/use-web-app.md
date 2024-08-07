@@ -299,7 +299,7 @@ The JSON to paste in the Advanced edit JSON editor is:
 
 ### Creating and deploying your prompt flow in Azure AI Studio
 
-Follow [this tutorial]("https://learn.microsoft.com/azure/ai-studio/tutorials/deploy-copilot-ai-studio") to create, test, and deploy an inferencing endpoint for your prompt flow in Azure AI Studio.
+Follow [this tutorial](/azure/ai-studio/tutorials/deploy-copilot-ai-studio) to create, test, and deploy an inferencing endpoint for your prompt flow in Azure AI Studio.
 
 ### Enable underlying citations from your prompt flow
 
