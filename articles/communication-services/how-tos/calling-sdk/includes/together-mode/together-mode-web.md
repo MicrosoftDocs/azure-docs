@@ -27,7 +27,7 @@ const togetherModeFeature = call.feature(Features.TogetherMode);
 ```
 
 ### Receive events when together mode stream is started or updated
-To access the new video stream of participants in Together Mode, each participant must subscribe to the `togetherModeStreamsUpdated` event. This event provides a new video stream, which can then be rendered.
+You can subscribe to the event `togetherModeStreamsUpdated` to receive notifications when together mode is started or updated. The event contains information about added video stream that can be rendered. 
 
 ```js
 // event : { added: TogetherModeVideoStream[]; removed: TogetherModeVideoStream[] }
