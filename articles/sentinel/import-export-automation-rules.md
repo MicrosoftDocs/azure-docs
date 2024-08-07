@@ -4,22 +4,28 @@ description: Export and import automation rules to and from ARM templates to aid
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 06/18/2023
+ms.date: 08/07/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Export and import automation rules to and from ARM templates
-
-> [!IMPORTANT]
->
-> - Exporting and importing rules is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-## Introduction
 
 Manage your Microsoft Sentinel automation rules as code! You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of your program to manage and control your Microsoft Sentinel deployments as code. The export action creates a JSON file in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
 
 The exported JSON file is workspace-independent, so it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
 
 The file includes all the parameters defined in the automation rule. Rules of any trigger type can be exported to a JSON file.
+
+This article shows you how to export and import automation rules.
+
+> [!IMPORTANT]
+>
+> - Exporting and importing rules is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> - [!INCLUDE [unified-soc-preview](includes/unified-soc-preview-without-alert.md)]
 
 ## Export rules
 
