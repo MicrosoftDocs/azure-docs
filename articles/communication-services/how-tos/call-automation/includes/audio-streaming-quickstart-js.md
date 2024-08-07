@@ -39,7 +39,7 @@ const options: CreateCallOptions = {
 }; 
 ```
 
-## Start Audio Streaming
+## Start audio streaming
 How to start audio streaming:
 ``` JS
 const streamingOptions: StartMediaStreamingOptions = { 
@@ -65,7 +65,7 @@ The metadata packet will look like this:
 ```
 
 
-## Stop Audio Streaming
+## Stop audio streaming
 How to stop audio streaming
 ``` JS
 const stopMediaStreamingOptions: StopMediaStreamingOptions = { 
