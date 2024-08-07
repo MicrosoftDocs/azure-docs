@@ -8,7 +8,7 @@ ms.custom: openai
 ms.topic: how-to
 author: ChrisHMSFT
 ms.author: chrhoder
-ms.date: 12/15/2023
+ms.date: 08/07/2024
 recommendations: false
 ---
 

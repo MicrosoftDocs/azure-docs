@@ -115,7 +115,7 @@ The best practice is to always purchase a reservation after deployments have bee
  
 To assist customers with purchasing the correct reservation amounts. The total number of PTUs in a subscription and region that can be covered by a reservation are listed on the Quotas page of Azure OpenAI Studio. See the message "PTUs Available for reservation." 
 
-:::image type="content" source="../media/provisioned/available-quota.png" alt-text="A screenshot showing avilable PTU quota." lightbox="../media/provisioned/available-quota.png":::
+:::image type="content" source="../media/provisioned/available-quota.png" alt-text="A screenshot showing available PTU quota." lightbox="../media/provisioned/available-quota.png":::
 
 
 ## Next steps

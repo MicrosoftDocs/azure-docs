@@ -77,6 +77,8 @@ items:
     - name: Provisioned throughput units (PTU)
       href: ./concepts/provisioned-throughput.md
       displayName: PTU, provisioned, provisioned throughput units
+    - name: Azure OpenAI provisioned update
+      href: ./concepts/provisioned-migration.md
     - name: System message templates
       href: ./concepts/system-message.md
     - name: Legacy models
