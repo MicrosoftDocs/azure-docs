@@ -13,19 +13,20 @@ ms.custom: template-reference
 
 The Azure Operator Nexus Kubernetes cluster VMs are grouped into node pools, which are collections of VMs that have the same configuration. The VMs in a node pool are used to run your Kubernetes workloads. The Azure Operator Nexus Kubernetes cluster supports the following VM SKUs. These SKUs are available in all Azure regions where the Azure Operator Nexus Kubernetes cluster is available.
 
-There are two types of VM SKUs:
+There are three types of VM SKUs:
 
 * General purpose
 * Performance optimized
+* Memory optimized
 
-The primary difference between the two types of VMs is their approach to emulator thread isolation. VM SKUs optimized for performance have dedicated emulator threads, which allow each VM to operate at maximum efficiency. Conversely, general-purpose VM SKUs have emulator threads that run on the same processors as applications running inside the VM. For application workloads that cannot tolerate other workloads sharing their processors, we recommend using the performance-optimized SKUs.
+The primary difference between general-purpose and performance-optimized types of VMs is their approach to emulator thread isolation. VM SKUs optimized for performance have dedicated emulator threads, which allow each VM to operate at maximum efficiency. Conversely, general-purpose VM SKUs have emulator threads that run on the same processors as applications running inside the VM. For application workloads that cannot tolerate other workloads sharing their processors, we recommend using the performance-optimized SKUs. Memory-optimized SKUs allow application workloads with very large memory or CPU requirements to access resources from both NUMA cells within the physical machine. As these SKUs are highly resource intensive, it is recommended to use a smaller SKU if suitable for the application workload. Additionally, memory-optimized SKUs require a runtime version of 3.11.0 or greater.
 
 All these SKUs are having the following characteristics:
 
-- Dedicated host-to-VM CPU mapping
-- Reserved CPUs for Kubelet are 0 and 1, except for NC_G2_8_v1 and NC_P4_28_v1
+* Dedicated host-to-VM CPU mapping
+* Reserved CPUs for Kubelet are 0 and 1, except for NC_G2_8_v1 and NC_P4_28_v1
 
-These VM SKUs can be used for both worker and control plane nodes within the Azure Operator Nexus Kubernetes cluster.
+The general purpose and performance optimized VM SKUs can be used for both worker and control plane nodes within the Azure Operator Nexus Kubernetes cluster. Memory optimized VM SKUs can only be used for worker nodes.
 
 ## General purpose VM SKUs
 
@@ -47,6 +48,13 @@ These VM SKUs can be used for both worker and control plane nodes within the Azu
 | NC_P22_112_v1 | 22             | 112        | 300              |
 | NC_P10_56_v1  | 10             | 56         | 300              |
 | NC_P4_28_v1   | 4              | 28         | 300              |
+
+## Memory optimized VM SKUs
+
+| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) |
+|---------------|----------------|------------|------------------|
+| NC_E94_448_v1 | 94             | 448        | 300              |
+| NC_E70_336_v1 | 70             | 336        | 300              |
 
 ## Next steps
 
