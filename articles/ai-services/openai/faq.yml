@@ -23,9 +23,9 @@ sections:
   - name: General
     questions:
       - question: |
-          Does Azure OpenAI support custom API headers? We append additional custom headers to our API requests and are seeing failures occur.
+          Does Azure OpenAI support custom API headers? We append additional custom headers to our API requests and are seeing HTTP 431 failure errors.
         answer: |
-          Azure OpenAI currently only supports a maximum of 10 custom API headers.
+          Our current APIs allow up to 10 custom headers, which are passed through the pipeline, and returned. We have noticed some customers now exceed this header count resulting in HTTP 431 errors. There is no solution for this error, other than to reduce header volume. In future API versions we will no longer pass through custom headers**. We recommend customers not depend on custom headers in future system architectures.
       - question: |
           Does Azure OpenAI work with the latest Python library released by OpenAI (version>=1.0)?
         answer: |
