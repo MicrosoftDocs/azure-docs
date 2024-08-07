@@ -23,9 +23,9 @@ Depending on how you enabled the Snapshot Debugger, you can follow two primary u
 # [Site extension](#tab/site-ext)
 
 > [!IMPORTANT]
-> Older versions of Application Insights used a private site extension called *Application Insights extension for Azure App Service*. 
-> The current Application Insights experience is enabled by setting App Settings to light up a preinstalled site extension.
-> To avoid conflicts, which might cause your site to stop working, delete the private site extension first. See step 4 in the following procedure.
+> Older versions of Application Insights used a private site extension called *Application Insights extension for Azure App Service*. The current Application Insights experience is enabled by setting App Settings to light up a preinstalled site extension.
+>
+> To avoid conflicts, which might cause your site to stop working, delete the private site extension first. See **step 4** in the following procedure.
 
 If you enabled the Snapshot Debugger by using the site extension, you can upgrade by following these steps:
 
