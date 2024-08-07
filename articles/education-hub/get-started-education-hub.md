@@ -11,11 +11,9 @@ ms.custom: mode-other
 
 # Getting started with the Azure Education Hub
 
-The first time you open the Azure Education Hub (such as by selecting the **Get Started** link in the invitation email), the **Get Started** page appears. There, you can find information about how to set up your course, learn about services, or easily deploy your first services through Azure quickstart templates.
+Before you access the Azure Education Hub you must complete signup by clicking the **signup here** link in the invitation email. After you complete the signup you can navigate to the Azure Education Hub to begin allocating this credit to students via labs.
 
 :::image type="content" source="media/get-started-education-hub/get-started-page.png" alt-text="Screenshot that shows an email message with a Get Started link to the Azure Education Hub." border="false":::
-
-At subsequent sign-ins, the **Overview** page appears by default.
 
 ## Related content
 
