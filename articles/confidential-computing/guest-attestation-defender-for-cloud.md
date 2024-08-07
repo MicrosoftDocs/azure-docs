@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Microsoft Defender for Cloud integration
 
-Azure *confidential virtual machines (confidential VMs)* are integrated with [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md). Defender for Cloud continuously checks that your confidential VM is set up correctly and provides relevant recommendations and alerts.
+Azure *confidential virtual machines (confidential VMs)* are integrated with [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction). Defender for Cloud continuously checks that your confidential VM is set up correctly and provides relevant recommendations and alerts.
 
 To use Defender for Cloud with your confidential VM, you must have the [*guest attestation* feature](guest-attestation-confidential-vms.md) installed on the VM. For more information, see the [sample application for guest attestation](guest-attestation-example.md) to learn how to install the feature extension.
 

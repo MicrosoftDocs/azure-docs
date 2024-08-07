@@ -723,7 +723,7 @@ Learn more about [Database Instance - NetworkConfigForSap (Azure Center for SAP 
 
 Create a periodic HSM backup to prevent data loss and have ability to recover the HSM in case of a disaster.
 
-Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](../key-vault/managed-hsm/best-practices.md#create-backups).
+Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](/azure/key-vault/managed-hsm/best-practices#create-backups).
 
 ### Application Volume Group SDK Recommendation
 

@@ -12,15 +12,15 @@ ms.custom: "include file"
 
 ## Configure the key vault
 
-You can use a new or existing key vault to store customer-managed keys. The storage account and key vault may be in different regions or subscriptions in the same tenant. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../articles/key-vault/general/overview.md) and [What is Azure Key Vault?](../articles/key-vault/general/basic-concepts.md).
+You can use a new or existing key vault to store customer-managed keys. The storage account and key vault may be in different regions or subscriptions in the same tenant. To learn more about Azure Key Vault, see [Azure Key Vault Overview](/azure/key-vault/general/overview) and [What is Azure Key Vault?](/azure/key-vault/general/basic-concepts).
 
 Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 
-Azure Key Vault supports authorization with Azure RBAC via an Azure RBAC permission model. Microsoft recommends using the Azure RBAC permission model over key vault access policies. For more information, see [Grant permission to applications to access an Azure key vault using Azure RBAC](../articles/key-vault/general/rbac-guide.md).
+Azure Key Vault supports authorization with Azure RBAC via an Azure RBAC permission model. Microsoft recommends using the Azure RBAC permission model over key vault access policies. For more information, see [Grant permission to applications to access an Azure key vault using Azure RBAC](/azure/key-vault/general/rbac-guide).
 
 # [Azure portal](#tab/azure-portal)
 
-To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../articles/key-vault/general/quick-create-portal.md). When you create the key vault, select **Enable purge protection**, as shown in the following image.
+To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). When you create the key vault, select **Enable purge protection**, as shown in the following image.
 
 :::image type="content" source="media/storage-customer-managed-keys-key-vault-include/configure-key-vault-portal.png" alt-text="Screenshot showing how to enable purge protection when creating a key vault.":::
 
@@ -48,7 +48,7 @@ $keyVault = New-AzKeyVault -Name $kvName `
     -EnableRbacAuthorization
 ```
 
-To learn how to enable purge protection on an existing key vault with PowerShell, see [Azure Key Vault recovery overview](../articles/key-vault/general/key-vault-recovery.md?tabs=azure-powershell).
+To learn how to enable purge protection on an existing key vault with PowerShell, see [Azure Key Vault recovery overview](/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell).
 
 After you have created the key vault, you'll need to assign the **Key Vault Crypto Officer** role to yourself. This role enables you to create a key in the key vault. The following example assigns this role to a user, scoped to the key vault:
 
@@ -77,7 +77,7 @@ az keyvault create \
     --enable-rbac-authorization
 ```
 
-To learn how to enable purge protection on an existing key vault with Azure CLI, see [Azure Key Vault recovery overview](../articles/key-vault/general/key-vault-recovery.md?tabs=azure-cli).
+To learn how to enable purge protection on an existing key vault with Azure CLI, see [Azure Key Vault recovery overview](/azure/key-vault/general/key-vault-recovery?tabs=azure-cli).
 
 After you have created the key vault, you'll need to assign the **Key Vault Crypto Officer** role to yourself. This role enables you to create a key in the key vault. The following example assigns this role to a user, scoped to the key vault:
 

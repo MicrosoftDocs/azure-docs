@@ -313,7 +313,7 @@ API Management is a trusted Microsoft service to the following resources. This a
 
 |Azure Service | Link|
 |---|---|
-|Azure Key Vault | [Trusted-access-to-azure-key-vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)|
+|Azure Key Vault | [Trusted-access-to-azure-key-vault](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)|
 |Azure Storage | [Trusted-access-to-azure-storage](../storage/common/storage-network-security.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)|
 |Azure Service Bus | [Trusted-access-to-azure-service-bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)|
 |Azure Event Hubs | [Trusted-access-to-azure-event-hub](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)|
@@ -448,7 +448,7 @@ The `principalId` property is a unique identifier for the identity that's used f
 You can use a user-assigned identity to establish trust between an API Management instance and Azure Key Vault. This trust can then be used to retrieve custom TLS/SSL certificates stored in Azure Key Vault. You can then assign these certificates to custom domains in the API Management instance.
 
 > [!IMPORTANT]
-> If [Key Vault firewall](../key-vault/general/network-security.md) is enabled on your key vault, you can't use a user-assigned identity for access from API Management. You can use the system-assigned identity instead. In Key Vault firewall, the **Allow Trusted Microsoft Services to bypass this firewall** option must also be enabled.
+> If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on your key vault, you can't use a user-assigned identity for access from API Management. You can use the system-assigned identity instead. In Key Vault firewall, the **Allow Trusted Microsoft Services to bypass this firewall** option must also be enabled.
 
 Keep these considerations in mind:
 
@@ -464,7 +464,7 @@ Keep these considerations in mind:
 You can use a user-assigned managed identity to access Azure Key Vault to store and manage secrets for use in API Management policies. For more information, see [Use named values in Azure API Management policies](api-management-howto-properties.md). 
 
 > [!NOTE]
-> If [Key Vault firewall](../key-vault/general/network-security.md) is enabled on your key vault, you can't use a user-assigned identity for access from API Management. You can use the system-assigned identity instead. In Key Vault firewall, the **Allow Trusted Microsoft Services to bypass this firewall** option must also be enabled.
+> If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on your key vault, you can't use a user-assigned identity for access from API Management. You can use the system-assigned identity instead. In Key Vault firewall, the **Allow Trusted Microsoft Services to bypass this firewall** option must also be enabled.
 
 ### Authenticate to a backend by using a user-assigned identity
 
