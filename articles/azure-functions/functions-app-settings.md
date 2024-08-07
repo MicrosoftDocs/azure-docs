@@ -58,11 +58,16 @@ Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECT
 
 ## APPLICATIONINSIGHTS_AUTHENTICATION_STRING
 
-The connection string for Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. The string contains the client ID of either a system-assigned or a user-assigned managed identity that is authorized to publish telemetry to your Application Insights workspace. For more information, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).
+Enables access to Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. For more information, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).
 
-|Key|Sample value|
-|---|------------|
-|APPLICATIONINSIGHTS_AUTHENTICATION_STRING|`ClientId=<YOUR_CLIENT_ID>;Authorization=AAD`|
+When you use `APPLICATIONINSIGHTS_AUTHENTICATION_STRING`, the specific value that you set depends on the type of managed identity:
+
+| Managed identity | Setting value |
+| ----- | ----- |
+| System-assigned | `Authorization=AAD` |  
+| User-assigned | `Authorization=AAD;ClientId=<USER_ASSIGNED_CLIENT_ID>` |
+
+This authentication requirement is applied to connections from the Functions host, snapshot debugger, profiler, and any language-specific agents. To use this setting, the managed identity must already be available to the function app, with an assigned role equivalent to [Monitoring Metrics Publisher](/azure/role-based-access-control/built-in-roles/monitor#monitoring-metrics-publisher). 
 
 [!INCLUDE [functions-app-insights-disable-local-note](../../includes/functions-app-insights-disable-local-note.md)]
 
@@ -79,7 +84,7 @@ For more information, see [Connection strings](../azure-monitor/app/sdk-connecti
 |---|------------|
 |APPLICATIONINSIGHTS_CONNECTION_STRING|`InstrumentationKey=...`|
 
-To connect to Application Insights with Microsoft Entra authentication, you should instead use [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](#applicationinsights_authentication_string).
+To connect to Application Insights with Microsoft Entra authentication, you should use [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](#applicationinsights_authentication_string).
 
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
