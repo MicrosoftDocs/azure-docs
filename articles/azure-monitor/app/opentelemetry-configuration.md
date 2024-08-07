@@ -644,6 +644,7 @@ from azure.identity import ManagedIdentityCredential
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
+# Configure the Distro to authenticate with Azure Monitor using a managed identity credential.
 credential = ManagedIdentityCredential(client_id="<client_id>")
 configure_azure_monitor(
     connection_string="your-connection-string",
@@ -665,6 +666,7 @@ from azure.identity import ClientSecretCredential
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
+# Configure the Distro to authenticate with Azure Monitor using a client secret credential.
 credential = ClientSecretCredential(
     tenant_id="<tenant_id",
     client_id="<client_id>",
@@ -675,7 +677,7 @@ configure_azure_monitor(
     credential=credential,
 )
 
-with tracer.start_as_current_span("hello with aad client identity"):
+with tracer.start_as_current_span("hello with aad client secret identity"):
     print("Hello, World!")
 
 ```
