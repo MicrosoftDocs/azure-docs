@@ -39,7 +39,7 @@ For Azure OpenAI beginners aspiring to chat with their data through the web appl
 
     1. Select Microsoft as the identity provider. The default settings on this page restrict the app to your tenant only, so you don't need to change anything else here. Select **Add**.
 
-    Now users will be asked to sign in with their Microsoft Entra account to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's sign-in information in any way other than verifying that the user is a member of your tenant. For more information on managing authentication, view this [quickstart on authentication for web apps on Azure App Service.](https://learn.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service)
+Now users will be asked to sign in with their Microsoft Entra account to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's sign-in information in any way other than verifying that the user is a member of your tenant. For more information on managing authentication, view this [quickstart on authentication for web apps on Azure App Service.](/azure/app-service/scenario-secure-app-authentication-app-service)
 
 ## Customizing the application using environment variables
 
