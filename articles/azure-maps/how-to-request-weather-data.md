@@ -41,7 +41,7 @@ This video provides examples for making REST calls to Azure Maps Weather service
 >
 > - In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
-This tutorial uses the [bruno] application, but you may choose a different API development environment.
+This tutorial uses the [bruno] application, but you can choose a different API development environment.
 
 ## Request real-time weather data
 
@@ -238,7 +238,7 @@ In this example, you use the [Get Current Conditions API] to retrieve current we
 
 ## Request severe weather alerts
 
-Azure Maps [Get Severe Weather Alerts API] returns the severe weather alerts that are available worldwide from both official Government Meteorological Agencies and leading global to regional weather alert providers. The service returns details like alert type, category, level. The service also returns detailed descriptions about the active severe alerts for the requested location, such as hurricanes, thunderstorms, lightning, heat waves or forest fires. As an example, logistics managers can visualize severe weather conditions on a map, along with business locations and planned routes, and coordinate further with drivers and local workers.
+Azure Maps [Get Severe Weather Alerts API] returns the severe weather alerts that are available worldwide from both official Government Meteorological Agencies and leading global to regional weather alert providers. The service returns details like alert type, category, level. The service also returns detailed descriptions about the active severe alerts for the requested location, such as hurricanes, thunderstorms, lightning, heat waves, or forest fires. As an example, logistics managers can visualize severe weather conditions on a map, along with business locations and planned routes, and coordinate further with drivers and local workers.
 
 In this example, you use the [Get Severe Weather Alerts API] to retrieve current weather conditions at coordinates located in Cheyenne, WY.
 
@@ -296,7 +296,7 @@ In this example, you use the [Get Severe Weather Alerts API] to retrieve current
 
 ## Request daily weather forecast data
 
-The [Get Daily Forecast API] returns detailed daily weather forecast such as temperature and wind. The request can specify how many days to return: 1, 5, 10, 15, 25, or 45 days for a given coordinate location. The response includes details such as temperature, wind, precipitation, air quality, and UV index.  In this example, we request for five days by setting `duration=5`.
+The [Get Daily Forecast API] returns detailed daily weather forecast such as temperature and wind. The request can specify how many days to return: 1, 5, 10, 15, 25, or 45 days for a given coordinate location. The response includes details such as temperature, wind, precipitation, air quality, and UV index. In this example, we request for five days by setting `duration=5`.
 
 >[!IMPORTANT]
 >In the S0 pricing tier, you can request daily forecast for the next 1, 5, 10, and 15 days. In either Gen1 (S1) or Gen2 pricing tier, you can request daily forecast for the next 25 days, and 45 days.
