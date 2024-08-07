@@ -233,7 +233,7 @@ After setting it, restart your application. It now sends telemetry to Applicatio
 
 ### [Python](#tab/python)
 
-Azure Monitor OpenTelemetry Distro and Azure monitor OpenTelemery exporters for Python support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
+To configure a secure connection to Azure using OpenTelemetry, see [Enable Microsoft Entra ID (formerly Azure AD) authentication](./opentelemetry-configuration.md?tabs=python#enable-microsoft-entra-id-formerly-azure-ad-authentication).
 
 To configure using OpenCensus (deprecated), see [Configure and enable Microsoft Entra ID-based authentication](/previous-versions/azure/azure-monitor/app/opencensus-python#configure-and-enable-microsoft-entra-id-based-authentication).
 
