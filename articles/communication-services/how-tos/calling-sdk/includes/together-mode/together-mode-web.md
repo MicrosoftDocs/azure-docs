@@ -26,7 +26,7 @@ Then you can get the feature API object from the call instance:
 const togetherModeFeature = call.feature(Features.TogetherMode);
 ```
 
-### Together Mode Stream Updated Event
+### Receive events when together mode stream is started or updated
 To access the new video stream of participants in Together Mode, each participant must subscribe to the `togetherModeStreamsUpdated` event. This event provides a new video stream, which can then be rendered.
 
 ```js
