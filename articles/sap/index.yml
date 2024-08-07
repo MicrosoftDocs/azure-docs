@@ -138,6 +138,8 @@ landingContent:
             url: ./workloads/rise-integration.md
       - linkListType: how-to-guide
         links:
+          - text: Enable SAP Principal Propagation and SSO for Power Platform
+            url: ./workloads/expose-sap-odata-to-power-platform.md
           - text: How to configure M365 Exchange Online for SAP
             url: ./workloads/exchange-online-integration-sap-email-outbound.md
           - text: How to expose SAP Process Orchestration on Azure securely

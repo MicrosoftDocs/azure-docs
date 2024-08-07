@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 02/08/2024
 ms.author: mapankra
 ---
-# Enable SAP Principal Propagation and SSO for Power Platform
+# Enable SAP Principal Propagation and SSO for Power Platform 
 
 Working with SAP datasets in low code solutions is a common requirement for customers.
 
