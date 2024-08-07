@@ -4,7 +4,7 @@ description: List of devices that have passed the Edge Secured-core certificatio
 author: sufenfong
 ms.author: sufon
 ms.topic: conceptual 
-ms.date: 07/22/2024 
+ms.date: 07/22/2024  
 ms.custom: Edge Secured-core certified devices
 ms.service: azure-certified-device
 ---
