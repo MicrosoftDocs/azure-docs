@@ -52,7 +52,8 @@ sections:
         answer: |
           **Yes.**
 
-          You can use a document generative AI solution to chat with your documents, generate captivating content from those documents, and access Azure OpenAI Service models on your data.
+          Document Intelligence now includes [custom generative](concept-custom.md) a new type of extraction model that uses Generative AI and large language models (LLMs) to extract fields from documents. In the past you've had to use a RAG (retrieval augmented generation) pattern to extract fields. The new model provides high quality results with a single API call.
+          You can also use a document generative AI solution to chat with your documents (RAG), generate captivating content from those documents, and access Azure OpenAI Service models on your data.
 
           - With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents by using natural languages. You can easily find answers, gain valuable insights, and generate new and engaging content from existing documents.
 
