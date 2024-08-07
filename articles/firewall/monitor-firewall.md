@@ -43,6 +43,13 @@ If your service uses any non-Azure Monitor based metrics, add the following incl
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for Azure Firewall, see [Azure Firewall monitoring data reference](monitor-firewall-reference.md#resource-logs).
 
+[Azure Firewall Workbook](firewall-workbook.md) provides a flexible canvas for Azure Firewall data analysis. You can use it to create rich visual reports within the Azure portal. You can tap into multiple Firewalls deployed across Azure, and combine them into unified interactive experiences.
+
+You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
+
+> [!TIP]
+> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
+
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
 ## Structured logs
@@ -100,12 +107,7 @@ Next, create an alert for missing metrics over a time period of 60 minutes. To s
 
 ### Azure Firewall alert rules
 
-The following table lists some suggested alert rules for Azure Firewall. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Firewall monitoring data reference](monitor-firewall-reference.md).
-
-| Alert type | Condition | Description  |
-|:---|:---|:---|
-| | | |
-| | | |
+You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Firewall monitoring data reference](monitor-firewall-reference.md).
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 

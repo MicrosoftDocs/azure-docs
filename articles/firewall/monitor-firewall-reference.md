@@ -77,6 +77,96 @@ The *AZFW Latency Probe* metric measures the overall or average latency of Azure
 
 [!INCLUDE [Microsoft.Network/azureFirewalls](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-azurefirewalls-logs-include.md)]
 
+Azure Firewall has two new diagnostics logs you can use to help monitor your firewall:
+
+- Top flows
+- Flow trace
+
+## Top flows
+
+The top flows log, known in the industry and in the preceding table as *Azure Firewall Fat Flow Log*, shows the top connections that are contributing to the highest throughput through the firewall.
+
+> [!TIP]
+> Activate Top flows logs only when troubleshooting a specific issue to avoid excessive CPU usage of Azure Firewall.
+>
+
+The flow rate is defined as the data transmission rate in megabits per second units. It's a measure of the amount of digital data that can be transmitted over a network in a period of time through the firewall. The Top Flows protocol runs periodically every three minutes. The minimum threshold to be considered a Top Flow is 1 Mbps.
+
+Enable the Top flows log using the following Azure PowerShell commands:
+
+```azurepowershell
+Set-AzContext -SubscriptionName <SubscriptionName>
+$firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
+$firewall.EnableFatFlowLogging = $true
+Set-AzFirewall -AzureFirewall $firewall
+```
+
+To disable the logs, use the same previous Azure PowerShell command and set the value to *False*. 
+
+For example:
+
+```azurepowershell
+Set-AzContext -SubscriptionName <SubscriptionName>
+$firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
+$firewall.EnableFatFlowLogging = $false
+Set-AzFirewall -AzureFirewall $firewall
+```
+
+There are a few ways to verify the update was successful, but you can navigate to firewall **Overview** and select **JSON view** on the top right corner. Here’s an example:
+
+:::image type="content" source="media/enable-top-ten-and-flow-trace/firewall-log-verification.png" alt-text="Screenshot of JSON showing additional log verification.":::
+
+To create a diagnostic setting and enable Resource Specific Table, see [Create diagnostic settings in Azure Monitor](../azure-monitor/essentials/create-diagnostic-settings.md).
+
+The firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *SYN* packet. However, this doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped, or asymmetric routing occurred. The Azure Firewall Flow Trace Log addresses this concern.
+
+> [!TIP]
+> To avoid excessive disk usage caused by Flow trace logs in Azure Firewall with many short-lived connections, activate the logs only when troubleshooting a specific issue for diagnostic purposes.
+
+The following additional properties can be added:
+
+- SYN-ACK: ACK flag that indicates acknowledgment of SYN packet.
+
+- FIN: Finished flag of the original packet flow. No more data is transmitted in the TCP flow.
+
+- FIN-ACK: ACK flag that indicates acknowledgment of FIN packet.
+
+- RST: The Reset the flag indicates the original sender doesn't receive more data.
+
+- INVALID (flows): Indicates packet can’t be identified or don't have any state.
+
+  For example:
+
+  - A TCP packet lands on a Virtual Machine Scale Sets instance, which doesn't have any prior history for this packet
+  - Bad CheckSum packets
+  - Connection Tracking table entry is full and new connections can't be accepted
+  - Overly delayed ACK packets
+
+Enable the Flow trace log using the following Azure PowerShell commands or navigate in the portal and search for **Enable TCP Connection Logging**:
+
+```powershell
+Connect-AzAccount 
+Select-AzSubscription -Subscription <subscription_id> or <subscription_name>
+Register-AzProviderFeature -FeatureName AFWEnableTcpConnectionLogging -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+It can take several minutes for this to take effect. Once the feature is registered, consider performing an update on Azure Firewall for the change to take effect immediately.
+
+To check the status of the AzResourceProvider registration, you can run the Azure PowerShell command:
+
+```powershell
+Get-AzProviderFeature -FeatureName "AFWEnableTcpConnectionLogging" -ProviderNamespace "Microsoft.Network"
+```
+
+To disable the log, you can unregister it using the following command or select unregister in the previous portal example.
+
+```powershell
+Unregister-AzProviderFeature -FeatureName AFWEnableTcpConnectionLogging -ProviderNamespace Microsoft.Network
+```
+
+To create a diagnostic setting and enable Resource Specific Table, see [Create diagnostic settings in Azure Monitor](../azure-monitor/essentials/create-diagnostic-settings.md).
+
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 ### Azure Firewall Microsoft.Network/azureFirewalls 
