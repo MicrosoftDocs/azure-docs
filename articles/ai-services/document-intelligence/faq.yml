@@ -55,20 +55,20 @@ sections:
           Document Intelligence now includes [custom generative](concept-custom.md) a new type of extraction model that uses Generative AI and large language models (LLMs) to extract fields from documents. In the past you've had to use a RAG (retrieval augmented generation) pattern to extract fields. The new model provides high quality results with a single API call.
           You can also use a document generative AI solution to chat with your documents (RAG), generate captivating content from those documents, and access Azure OpenAI Service models on your data.
 
-          - With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents by using natural languages. You can easily find answers, gain valuable insights, and generate new and engaging content from existing documents.
+          - With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents using natural language. You can easily find answers, gain valuable insights, and generate new and engaging content from existing documents.
 
-          - You can find more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
+          - You can find more details on the [retrieval augmented generation pattern here](concept-retrieval-augmented-generation.md).
 
       - question: |
          Can Document Intelligence help with semantic chunking within documents for retrieval-augmented generation?
         answer: |
           **Yes.**
           
-          Document Intelligence can provide the building blocks to enable semantic chunking. Semantic chunking is a key step in retrieval-augmented generation (RAG) to ensure its efficient storage and retrieval.
+          Document Intelligence can provide the building blocks to enable semantic chunking. Semantic chunking is a key step in retrieval-augmented generation (RAG) to ensure context dense chunks and relevence improvement.
 
-          - Document Intelligence provides a layout model that segments documents into coherent units based on their semantic content.
+          - Document Intelligence provides a layout model that provides an visual decomposition of the document into lines, paragraphs, sections, headers and footers.
 
-          - You can then export the obtained information to Markdown format, so that you can customize your semantic segmentation strategy based on the available building blocks.
+          - You can then choose to retrieve the results in markdown format, to further chunk the document on section or paragraph boundaries.
 
           For more information, see [overview of RAG in Document Intelligence](concept-retrieval-augmented-generation.md)
 
@@ -289,11 +289,11 @@ sections:
         The copy operation is limited to copying models within the specific cloud environment where you trained the model. For instance, copying models from the public cloud to the Azure Government cloud isn't supported.
 
     - question: |
-        Am I charged when training a custom neural model?
+        Am I charged when training a custom  models?
       answer: |
-        **Yes for the first 10 hours only.**
+        Training is free for all custom generative and custom template models. Creating the training dataset for all models requires running the Layout model on the training documents. Customers are responsible for this cost. Custom generative also relies on the auto label feature to speed up the generation of the labeled dataset. There is a cost associated with this action. While the build operation for template and generative models is free, creating the labeled dataset can result in some minimal costs.
 
-        If training hours exceed 10 hours, charges are incurred for further custom neural model training.
+ Custom neural models have a limit on the number of models/the amount of time that models can be trained for free. The first 10 hours of training are free. If training a single model for longer than 10 hours or training multiple models that exceed the 10 hour limit, you will need to enable paid training by setting a training budget. See [training a custom neural model](/concept-custom-neural.md) for details. For v3.0 or v3.1 models the paid training tier only applies to additional models, the training time per model is not configurable.
 
   - name: Storage account
     questions:
