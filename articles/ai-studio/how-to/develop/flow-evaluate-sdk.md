@@ -12,7 +12,6 @@ ms.reviewer: dantaylo
 ms.author: eur
 author: eric-urban
 ---
-
 # Evaluate with the prompt flow SDK
 
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
@@ -51,7 +50,10 @@ Built-in composite evaluators are composed of individual evaluators.
 - `ContentSafetyEvaluator` combines all the safety evaluators for a single output of combined metrics for question and answer pairs
 - `ContentSafetyChatEvaluator` combines all the safety evaluators for a single output of combined metrics for chat messages following the OpenAI message protocol that can be found [here](https://platform.openai.com/docs/api-reference/messages/object#messages/object-content).
 
-### Required data input for built-in evaluators
+> [!TIP]
+> For more information about inputs and outputs, see the [Prompt flow Python reference documentation](https://microsoft.github.io/promptflow/reference/python-library-reference/promptflow-evals/promptflow.evals.evaluators.html).
+
+### Data requirements for built-in evaluators
 We require question and answer pairs in `.jsonl` format with the required inputs, and column mapping for evaluating datasets, as follows:
 
 | Evaluator         | `question`      | `answer`      | `context`       | `ground_truth`  |
@@ -186,6 +188,37 @@ The result:
 ```JSON
 {"answer_length":27}
 ```
+#### Log your custom code-based evaluator to your AI Studio project
+```python
+# First we need to save evaluator into separate file in its own directory:
+def answer_len(answer):
+    return len(answer)
+
+# Note, we create temporary directory to store our python file
+target_dir_tmp = "flex_flow_tmp"
+os.makedirs(target_dir_tmp, exist_ok=True)
+lines = inspect.getsource(answer_len)
+with open(os.path.join("flex_flow_tmp", "answer.py"), "w") as fp:
+    fp.write(lines)
+
+from flex_flow_tmp.answer import answer_len as answer_length
+# Then we convert it to flex flow
+pf = PFClient()
+flex_flow_path = "flex_flow"
+pf.flows.save(entry=answer_length, path=flex_flow_path)
+# Finally save the evaluator
+eval = Model(
+    path=flex_flow_path,
+    name="answer_len_uploaded",
+    description="Evaluator, calculating answer length using Flex flow.",
+)
+flex_model = ml_client.evaluators.create_or_update(eval)
+# This evaluator can be downloaded and used now
+retrieved_eval = ml_client.evaluators.get("answer_len_uploaded", version=1)
+ml_client.evaluators.download("answer_len_uploaded", version=1, download_path=".")
+evaluator = load_flow(os.path.join("answer_len_uploaded", flex_flow_path))
+```
+After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/evaluate-generative-ai-app#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
 ### Prompt-based evaluators
 To build your own prompt-based large language model evaluator, you can create a custom evaluator based on a **Prompty** file. Prompty is a file with `.prompty` extension for developing prompt template. The Prompty asset is a markdown file with a modified front matter. The front matter is in YAML format that contains many metadata fields that define model configuration and expected inputs of the Prompty. Given an example `apology.prompty` file that looks like the following:
 
@@ -252,7 +285,23 @@ Here is the result:
 ```JSON
 {"apology": 0}
 ```
-
+#### Log your custom prompt-based evaluator to your AI Studio project
+```python
+# Define the path to prompty file.
+prompty_path = os.path.join("apology-prompty", "apology.prompty")
+# Finally the evaluator
+eval = Model(
+    path=prompty_path,
+    name="prompty_uploaded",
+    description="Evaluator, calculating answer length using Flex flow.",
+)
+flex_model = ml_client.evaluators.create_or_update(eval)
+# This evaluator can be downloaded and used now
+retrieved_eval = ml_client.evaluators.get("prompty_uploaded", version=1)
+ml_client.evaluators.download("prompty_uploaded", version=1, download_path=".")
+evaluator = load_flow(os.path.join("prompty_uploaded", "apology.prompty"))
+```
+After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/evaluate-generative-ai-app#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
 ## Evaluate on test dataset using `evaluate()`
 After you spot-check your built-in or custom evaluators on a single row of data, you can combine multiple evaluators with the `evaluate()` API on an entire test dataset. In order to ensure the `evaluate()` can correctly parse the data, you must specify column mapping to map the column from the dataset to key words that are accepted by the evaluators. In this case, we specify the data mapping for `ground_truth`. 
 ```python
@@ -312,7 +361,9 @@ The evaluator outputs results in a dictionary which contains aggregate `metrics`
            'outputs.relevance.gpt_relevance': 5}],
  'traces': {}}
 ```
-### Supported data formats for `evaluate()`
+### Requirements for `evaluate()`
+The `evaluate()` API has a few requirements for the data format that it accepts and how it handles evaluator parameter key names so that the charts in your AI Studio evaluation results show up properly.
+#### Data format
 The `evaluate()` API only accepts data in the JSONLines format. For all built-in evaluators, except for `ChatEvaluator` or `ContentSafetyChatEvaluator`, `evaluate()` requires data in the following format with required input fields. See the [previous section on required data input for built-in evaluators](#required-data-input-for-built-in-evaluators).
 ```json
 {
@@ -360,7 +411,7 @@ To `evaluate()` with either the `ChatEvaluator` or `ContentSafetyChatEvaluator`,
 result = evaluate(
     data="data.jsonl",
     evaluators={
-        "chatevaluator": chat_evaluator
+        "chat": chat_evaluator
     },
     # column mapping for messages
     evaluator_config={
@@ -370,7 +421,36 @@ result = evaluate(
     }
 )
 ```
-
+#### Evaluator parameter format
+When passing in your built-in evaluators, it is important to specify the right keyword mapping in the `evaluators` parameter list. The following is the keyword mapping required for the results from your built-in evaluators to show up in the UI when logged to Azure AI Studio.
+| Evaluator                    | keyword param         |
+|------------------------------|-----------------------|
+| `RelevanceEvaluator`         | "relevance"           |
+| `CoherenceEvaluator`         | "coherence"           |
+| `GroundednessEvaluator`      | "groundedness"        |
+| `FluencyEvaluator`           | "fluency"             |
+| `SimilarityEvaluator`        | "similarity"          |
+| `F1ScoreEvaluator`           | "f1_score"            |
+| `ViolenceEvaluator`          | "violence"            |
+| `SexualEvaluator`            | "sexual"              |
+| `SelfHarmEvaluator`          | "self_harm"           |
+| `HateUnfairnessEvaluator`    | "hate_unfairness"     |
+| `QAEvaluator`                | "qa"                  |
+| `ChatEvaluator`              | "chat"                |
+| `ContentSafetyEvaluator`     | "content_safety"      |
+| `ContentSafetyChatEvaluator` | "content_safety_chat" |
+Here's an example of setting the `evaluators` parameters:
+```python
+result = evaluate(
+    data="data.jsonl",
+    evaluators={
+        "sexual":sexual_evaluator
+        "self_harm":self_harm_evaluator
+        "hate_unfairness":hate_unfairness_evaluator
+        "violence":violence_evaluator
+    }
+)
+```
 ## Evaluate on a target
 
 If you have a list of queries that you'd like to run then evaluate, the `evaluate()` also supports a `target` parameter, which can send queries to an application to collect answers then run your evaluators on the resulting question and answers. 
@@ -399,4 +479,6 @@ result = evaluate(
 ## Related content
 
 - [Get started building a chat app using the prompt flow SDK](../../quickstarts/get-started-code.md)
-- [Work with projects in VS Code](vscode.md)
+- [Prompt flow Python reference documentation](https://microsoft.github.io/promptflow/reference/python-library-reference/promptflow-evals/promptflow.evals.evaluators.html)
+- [Learn more about the evaluation metrics](../../concepts/evaluation-metrics-built-in.md)
+- [View your evaluation results in Azure AI Studio](../../how-to/evaluate-flow-results.md)
