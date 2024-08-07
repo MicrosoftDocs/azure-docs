@@ -1,17 +1,17 @@
 ---
-title: Bicep extensibility Kubernetes provider
-description: Learn how to Bicep Kubernetes provider  to deploy .NET applications to Azure Kubernetes Service clusters.
+title: Bicep Kubernetes extension
+description: Learn how to Bicep Kubernetes extension to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-dotnet
-ms.date: 07/11/2024
+ms.date: 08/07/2024
 ---
 
-# Bicep extensibility Kubernetes provider (Preview)
+# Bicep Kubernetes extension (Preview)
 
-The Kubernetes provider allows you to create Kubernetes resources directly with Bicep. Bicep can deploy anything that can be deployed with the [Kubernetes command-line client (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/) and a [Kubernetes manifest file](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests).
+The Kubernetes extension allows you to create Kubernetes resources directly with Bicep. Bicep can deploy anything that can be deployed with the [Kubernetes command-line client (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/) and a [Kubernetes manifest file](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests).
 
 > [!NOTE]
-> Kubernetes provider is not currently supported for private clusters:
+> The Kubernetes extension is not currently supported for private clusters:
 > 
 > ```bicep
 > resource AKS 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
@@ -38,12 +38,12 @@ This preview feature can be enabled by configuring the [bicepconfig.json](./bice
 }
 ```
 
-## Import Kubernetes provider
+## Import Kubernetes extension
 
 To safely pass secrets for the Kubernetes deployment, you must invoke the Kubernetes code with a Bicep module and pass the parameter as a secret.
-To import the Kubernetes provider, use the [import statement](./bicep-import-providers.md). After importing the provider, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, the Kubernetes manifest in YML doesn't include any programmability support.
+To import the Kubernetes extension, use the [import statement](./bicep-import.md). After importing the extension, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, the Kubernetes manifest in YML doesn't include any programmability support.
 
-The following sample imports the Kubernetes provider:
+The following sample imports the Kubernetes extension:
 
 ```bicep
 @secure()
@@ -55,7 +55,7 @@ import 'kubernetes@1.0.0' with {
 } as k8s
 ```
 
-- **namespace**: Specify the namespace of the provider.
+- **namespace**: Specify the namespace of the extension.
 - **KubeConfig**: Specify a base64 encoded value of the [Kubernetes cluster admin credentials](/rest/api/aks/managed-clusters/list-cluster-admin-credentials).
 
 The following sample shows how to pass `kubeConfig` value from a parent Bicep file:
@@ -81,4 +81,4 @@ From Visual Studio Code, you can import Kubernetes manifest files to create Bice
 
 ## Next steps
 
-- [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep extensibility Kubernetes provider](/azure/aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider)
+- [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension)
