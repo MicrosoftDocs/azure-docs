@@ -601,7 +601,7 @@ Follow these steps to ingest log messages from Zscaler Private Access (ZPA):
 1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
 1. Configure and connect the ZPA receiver.
-    1. Follow the [instructions provided by ZPA](link). Select JSON as the log template.
+    1. Follow the [instructions provided by ZPA](https://help.zscaler.com/zpa/configuring-log-receiver). Select JSON as the log template.
     1. Select Settings > System Settings > Controller Configuration > Remote Logging and enable syslog. 
 
 [Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
