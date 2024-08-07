@@ -42,7 +42,7 @@ call_connection_properties = call_automation_client.create_call(target_participa
 ) 
 ```
 
-## Start Audio Streaming
+## Start audio streaming
 How to start audio streaming:
 ``` Python
 call_connection_client.start_media_streaming() 
@@ -65,7 +65,7 @@ The metadata packet will look like this:
 ```
 
 
-## Stop Audio Streaming
+## Stop audio streaming
 How to stop audio streaming
 ``` Python
 call_connection_client.stop_media_streaming() 
