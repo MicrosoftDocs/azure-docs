@@ -48,7 +48,7 @@ This document outlines the changes to the Azure Monitor integration and provides
 
 ## Customer scenarios
 
-The following sections describe how customers can use the new Azure Monitor integration in different scenarios. The [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section outlines how to activate and use the new Azure Monitor integration. The [Migrating from Azure Monitor Classic to the new Azure Monitor Integration](#migrate-to-the-new-azure-monitor-integration) section includes additional information for users that depend on the old Azure Monitor integration.
+The following sections describe how customers can use the new Azure Monitor integration in different scenarios. The [Activate a new Azure Monitor integration](./azure-monitor-agent.md#activate-a-new-azure-monitor-agent-integration) section outlines how to activate and use the new Azure Monitor integration. The [Migrating from Azure Monitor Classic to the new Azure Monitor Integration](#migrate-to-the-new-azure-monitor-integration) section includes additional information for users that depend on the old Azure Monitor integration.
 
 > [!NOTE]
 > Only clusters created in late-September 2020 and after are eligible for the new Azure Monitoring integration.
