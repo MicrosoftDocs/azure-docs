@@ -295,7 +295,7 @@ The JSON to paste in the Advanced edit JSON editor is:
 
 ## Connecting to Prompt Flow as a data source
 
-[Prompt flows](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-develop) allow you to define highly customizable RAG and processing logic on a user's queries. 
+[Prompt flows](/azure/ai-studio/how-to/flow-develop) allow you to define highly customizable RAG and processing logic on a user's queries. 
 
 ### Creating and deploying your prompt flow in Azure AI Studio
 
