@@ -9,6 +9,9 @@ ms.date: 08/02/2024
 zone_pivot_groups: data-plane-api-version
 
 ---
+:::zone target="docs" pivot="v1,v23-10,v23-11"
+# Snapshot
+:::zone-end
 
 :::zone target="docs" pivot="v1"
 
@@ -16,8 +19,6 @@ Snapshot resource is not available in API version 1.0.
 
 :::zone-end
 :::zone target="docs" pivot="v23-10,v23-11"
-
-# Snapshot
 
 A snapshot is a resource identified uniquely by its name. See details for each operation.
 
