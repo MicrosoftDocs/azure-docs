@@ -2007,7 +2007,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/bicep/bicep-extensibility-kubernetes-provider.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/bicep-kubernetes-extensions",
+      "redirect_url": "/azure/azure-resource-manager/bicep/bicep-kubernetes-extension",
       "redirect_document_id": false
     }    
   ]

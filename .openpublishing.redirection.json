@@ -412,7 +412,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-portal/tutorial-azureportal-devops.md",
-      "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&tabs=new-nav",
+      "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json\u0026bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json\u0026tabs=new-nav",
       "redirect_document_id": false
     },
     {
@@ -1233,11 +1233,6 @@
     {
       "source_path_from_root": "/articles/cloudfoundry/use-osba-pcf-app.md",
       "redirect_url": "/azure/cloudfoundry",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/confidential-ledger/register-ledger-service-principal.md",
-      "redirect_url": "/azure/confidential-ledger/overview",
       "redirect_document_id": false
     },
     {
@@ -2323,11 +2318,6 @@
     {
       "source_path_from_root": "/articles/jenkins/tutorial-jenkins-github-docker-cicd.md",
       "redirect_url": "/azure/developer/jenkins/pipeline-with-github-and-docker",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/key-vault/general/move-region.md",
-      "redirect_url": "/azure/operational-excellence/relocation-key-vault",
       "redirect_document_id": false
     },
     {
@@ -4617,7 +4607,7 @@
     },
     {
       "source_path_from_root": "/articles/virtual-desktop/partners.md",
-      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1\u0026search=azure%20virtual%20desktop",
       "redirect_document_id": false
     },
     {

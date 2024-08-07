@@ -105,7 +105,7 @@ pg_dumpall -r --no-role-passwords --host=mySourceServer --port=5432 --username=m
 ```
 
 > [!IMPORTANT]
-> In Azure Database for PostgreSQL - Flexible Server users are not allowed to access pg_authid table which contains information about database authorization identifiers together with user's passwords. Therefore retrieving passwords for users is not possible. Please consider using [Azure Key Vault](../../key-vault/secrets/about-secrets.md) to securely store your secrets.  
+> In Azure Database for PostgreSQL - Flexible Server users are not allowed to access pg_authid table which contains information about database authorization identifiers together with user's passwords. Therefore retrieving passwords for users is not possible. Please consider using [Azure Key Vault](/azure/key-vault/secrets/about-secrets) to securely store your secrets.  
 
 Edit the `roles.sql` and remove references of `NOSUPERUSER` and `NOBYPASSRLS` before restoring the content using psql in the target server:
 
