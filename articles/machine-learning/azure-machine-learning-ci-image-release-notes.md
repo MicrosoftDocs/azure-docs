@@ -20,6 +20,22 @@ Azure Machine Learning checks and validates any machine learning packages that m
 
 Main updates provided with each image version are described in the below sections.
 
+## August 2, 2024
+
+Image version: 24.07.01
+ 
+Release Notes:
+ 
+Ray: `2.31.0`
+
+nvidia-docker2
+
+Tensorflow: `2.15.0`
+
+pandas: `1.3.5`
+
+libcurl: `8.4.0`
+
 ## July 3, 2024
 
 Image Version: `24.06.10`

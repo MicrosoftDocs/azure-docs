@@ -60,7 +60,11 @@ When you create a DCR in the Azure portal, you're walked through a series of pag
 
 ## Create data collection rule
 
-On the **Monitor** menu, select **Data Collection Rules** > **Create** to open the DCR creation page.
+> [!IMPORTANT]
+> Create your data collection rule in the same region as your destination Log Analytics workspace or Azure Monitor workspace. You can associate the data collection rule to machines or containers from any subscription or resource group in the tenant. To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
+
+
+On the **Monitor** menu in the Azure portal, select **Data Collection Rules** > **Create** to open the DCR creation page.
 
 :::image type="content" source="media/azure-monitor-agent-data-collection/create-data-collection-rule.png" lightbox="media/azure-monitor-agent-data-collection/create-data-collection-rule.png" alt-text="Screenshot that shows Create button for a new data collection rule.":::
 
@@ -101,6 +105,9 @@ The **Collect and deliver** page allows you to add and configure data sources fo
 | **Destination** | Add one or more destinations for each data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming. See the details for each data type for the different destinations they support. |
 
 A DCR can contain multiple different data sources up to a limit of 10 data sources in a single DCR. You can combine different data sources in the same DCR, but you will typically want to create different DCRs for different data collection scenarios. See [Best practices for data collection rule creation and management in Azure Monitor](../essentials/data-collection-rule-best-practices.md) for recommendations on how to organize your DCRs.
+
+> [!NOTE]
+> It can take up to 5 minutes for data to be sent to the destinations when you create a data collection rule using the data collection rule wizard.
 
 ## Verify operation
 Once you've created a DCR and associated it with a machine, you can verify that the agent is operational and that data is being collected by running queries in the Log Analytics workspace.
