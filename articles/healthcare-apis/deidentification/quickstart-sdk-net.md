@@ -40,16 +40,16 @@ An Azure De-identification Service provides you with an endpoint URL. This endpo
 ### Create an Azure Storage Account
 
 1. Install [Azure CLI](/cli/azure/install-azure-cli)
-2. Create an Azure Storage Account
+1. Create an Azure Storage Account
 
     ```bash
     STORAGE_ACCOUNT_NAME="<NewStorageAccountName>"
     az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --location $REGION
     ```
 
-### Authorize De-identification Service on Storage Account
+### Authorize De-identification Service on storage account
 
-3. Give De-identification Service access to your storage account
+-  Give De-identification Service access to your storage account
    
    ```bash
     STORAGE_ACCOUNT_ID=$(az storage account show --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --query id --output tsv)
@@ -82,17 +82,17 @@ The client library is available through NuGet, as the `Azure.Health.Deidentifica
 
 
 ## Code examples
-- [Create a DeidentificationClient](#create-a-deidentificationclient)
+- [Create a Deidentification Client](#create-a-deidentification-client)
 - [De-identify a string](#de-identify-a-string)
 - [Tag a string](#tag-a-string)
 - [Create a Deidentification Job](#create-a-deidentification-job)
 - [Get the status of a Deidentification Job](#get-the-status-of-a-deidentification-job)
 
-### Create a DeidentificationClient
+### Create a Deidentification Client
 
 Before you can create the client, you need to find your **Deidentification Service Endpoint Url**.
 
-You can do find the endpoint url with the Azure CLI
+You can find the endpoint url with the Azure CLI
 
 ```bash
 az resource show -n $DEID_SERVICE_NAME -g $RESOURCE_GROUP_NAME  --resource-type microsoft.healthdataaiservices/deidservices --query properties.serviceUrl --output tsv
