@@ -3,7 +3,7 @@ title: Bicep spread operator
 description: Describes Bicep spread operator.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/05/2024
+ms.date: 08/07/2024
 ---
 
 # Bicep spread operator
@@ -74,7 +74,7 @@ In this usage, comma isn't used between the two lines.  Output from the example:
 |------|------|-------|
 | `objCombined` | object | { color: 'white', shape: 'circle' } |
 
-The spread operation can be used to avoid setting an optional property. In the following example, _accessTier_ is set only if the paramemter _tier_ is not an empty string.
+The spread operation can be used to avoid setting an optional property. In the following example, _accessTier_ is set only if the parameter _tier_ isn't an empty string.
 
 ```bicep
 param location string = resourceGroup().location
@@ -117,16 +117,16 @@ resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 }
 ```
 
-The spread operator can be used to override existing properties. In the following example, because _tier_ is set to _Hot_, the _accessTier_ is also set to _Hot_. If _tier_ is set to an empty string, the _accessTier_ will not be overridden.
+The spread operator can be used to override existing properties. 
 
 ```bicep
 param location string = resourceGroup().location
-param tier string = 'Hot'
-
-var storageAccountName = uniqueString(resourceGroup().id)
+param storageProperties {
+  accessTier: string?
+}
 
 resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
-  name: storageAccountName
+  name: uniqueString(resourceGroup().id)
   location: location
   sku: {
     name: 'Standard_LRS'
@@ -134,8 +134,8 @@ resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   kind: 'StorageV2'
   properties: {
     accessTier: 'Cold'
-    ...(tier != '' ? {accessTier: tier} : {})
-  } 
+    ...storageProperties
+  }
 }
 ```
 
