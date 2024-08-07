@@ -138,13 +138,13 @@ Follow the following steps to create the resource group, client container app an
 | Transport | *Auto* |
 | Target port | *8080* |
    
-    :::image type="content" source="media/java-components/config-ingress.png" alt-text="Screenshot of config ingress when create container apps."  lightbox="media/java-components/config-ingress.png":::
+  :::image type="content" source="media/java-components/config-ingress.png" alt-text="Screenshot of config ingress when create container apps."  lightbox="media/java-components/config-ingress.png":::
 
 1. Click *Create* after validation passed
 
 ---
 
-    This environment is used to host both the Config Server for Spring component and your container app.
+This environment is used to host both the Config Server for Spring component and your container app.
 
 ## Create the Config Server for Spring Java component
 
@@ -178,7 +178,7 @@ Now that you have an existing environment and config server client container app
 
 1. Go to your container app environment page, select *Service* on the left panel, and then select *Configure*, *Java component*
 
-       :::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
+  :::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
 
 1. In new *Configure Java component* panel, select or enter the following values and leave others be the default, and then select *Next*
 
@@ -187,10 +187,11 @@ Now that you have an existing environment and config server client container app
 | Java component type | *Config Server for Spring* |
 | Java component name | *configserver* |
 
-       :::image type="content" source="media/java-components/create-config-server-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/create-config-server-java-component.png":::
+  :::image type="content" source="media/java-components/create-config-server-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/create-config-server-java-component.png":::
+
 1. Select *Add* under *Git repositories*, Enter *URI* value *https://github.com/Azure-Samples/azure-spring-cloud-config-java-aca.git* under Add Git repository, select *Add*
   
-       :::image type="content" source="media/java-components/configure-git-uri.png" alt-text="Screenshot of how to configure config server git uri."  lightbox="media/java-components/configure-git-uri.png":::
+  :::image type="content" source="media/java-components/configure-git-uri.png" alt-text="Screenshot of how to configure config server git uri."  lightbox="media/java-components/configure-git-uri.png":::
 
 2. Click *Configure* on *Review* page
 ---
@@ -237,7 +238,7 @@ Now that you have an existing environment and config server client container app
 3.  Under bindings, select app *my-config-client*, Click *Next*
 4.  Click *Configure*
   
-    :::image type="content" source="media/java-components/app-bind-configserver.png" alt-text="Screenshot of container app bind with config server."  lightbox="media/java-components/app-bind-configserver.png":::
+  :::image type="content" source="media/java-components/app-bind-configserver.png" alt-text="Screenshot of container app bind with config server."  lightbox="media/java-components/app-bind-configserver.png":::
 
 5. Go to your container app *my-config-client* page, get the *Application URL* of the container app
 ---
@@ -263,24 +264,23 @@ Now that you have an existing environment and config server client container app
 
 ## Unbind your container app from the Config Server for Spring Java component
 # [Azure CLI](#tab/azure-cli)
-    To remove a binding from a container app, use the `--unbind` option.
+  To remove a binding from a container app, use the `--unbind` option.
 
-    ``` azurecli
-    az containerapp update \
-      --name $APP_NAME \
-      --unbind $JAVA_COMPONENT_NAME \
-      --resource-group $RESOURCE_GROUP
-    ```
+  ``` azurecli
+  az containerapp update \
+    --name $APP_NAME \
+    --unbind $JAVA_COMPONENT_NAME \
+    --resource-group $RESOURCE_GROUP
+  ```
 # [Azure portal](#tab/azure-portal)
 1.  Go to your container app environment page, select *Service* on the left panel
 2.  Select *configserver* in Service list
 3.  Under bindings, select app *my-config-client*, Click *Next*
 4.  Click *Configure*
   
-    :::image type="content" source="media/java-components/app-unbind-configserver.png" alt-text="Screenshot of container app unbind with config server."  lightbox="media/java-components/app-unbind-configserver.png":::
-
+  :::image type="content" source="media/java-components/app-unbind-configserver.png" alt-text="Screenshot of container app unbind with config server."  lightbox="media/java-components/app-unbind-configserver.png":::
 ---
-    When you visit the app's URL again, the value of `connectTimeout` changes to back to `0`.
+When you visit the app's URL again, the value of `connectTimeout` changes to back to `0`.
 
 ## Clean up resources
 

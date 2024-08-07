@@ -107,9 +107,9 @@ Follow the following steps to create the resource group, client container app an
 | Region | *East US* |
 | Container Apps Environment | *my-environment* |
 
-    :::image type="content" source="media/java-components/create-containerapp-eureka.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-eureka.png":::
+  :::image type="content" source="media/java-components/create-containerapp-eureka.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-eureka.png":::
 
-1. In Container tab, select or enter the following values and leave others be the default.
+1. In *Container* tab, select or enter the following values and leave others be the default.
 
 | Setting | Value |
 |---|---|
@@ -131,7 +131,7 @@ Follow the following steps to create the resource group, client container app an
 | Transport | *Auto* |
 | Target port | *8080* |
    
-:::image type="content" source="media/java-components/config-ingress.png" alt-text="Screenshot of config ingress when create container apps."  lightbox="media/java-components/config-ingress.png":::
+  :::image type="content" source="media/java-components/config-ingress.png" alt-text="Screenshot of config ingress when create container apps."  lightbox="media/java-components/config-ingress.png":::
 
 1. Click *Create* after validation passed
 
@@ -168,7 +168,7 @@ Now that you have an existing environment and eureka client container app, creat
 
 1. Go to your container app environment page, select *Service* on the left panel, and then select *Configure*, *Java component*
    
-:::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
+  :::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
 
 1. In new *Configure Java component* panel, select or enter the following values and leave others be the default, and then select *Next*
 
@@ -177,8 +177,8 @@ Now that you have an existing environment and eureka client container app, creat
 | Java component type | *Eureka Server for Spring* |
 | Java component name | *eureka* |
 
-  :::image type="content" source="media/java-components/create-eureka-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/create-eureka-java-component.png":::
-  
+  :::image type="content" source="media/java-components/create-eureka-java-component.png" alt-text="Screenshot of how to create Eureka Java component."  lightbox="media/java-components/create-eureka-java-component.png":::
+
 1. Click *Configure* on *Review* page
 ---
 
@@ -206,27 +206,27 @@ Now that you have an existing environment and eureka client container app, creat
 3.  Under bindings, select app *sample-service-eureka-client*, Click *Next*
 4.  Click *Configure*
   
-:::image type="content" source="media/java-components/app-bind-eureka.png" alt-text="Screenshot of container app bind with eureka."  lightbox="media/java-components/app-bind-eureka.png":::
+  :::image type="content" source="media/java-components/app-bind-eureka.png" alt-text="Screenshot of container app bind with eureka."  lightbox="media/java-components/app-bind-eureka.png":::
 
 5. Go to your container app *sample-service-eureka-client* page, get the *Application URL* of the container app
 ---
 
-    After you get the URL of the container app. Copy the URL to a text editor so you can use it in a coming step.
+After you get the URL of the container app. Copy the URL to a text editor so you can use it in a coming step.
 
-    Navigate to the `/allRegistrationStatus` route to view all applications registered with the Eureka Server for Spring.
+Navigate to the `/allRegistrationStatus` route to view all applications registered with the Eureka Server for Spring.
 
-    The binding injects several configurations into the application as environment variables, primarily the `eureka.client.service-url.defaultZone` property. This property indicates the internal endpoint of the Eureka Server Java component.
+The binding injects several configurations into the application as environment variables, primarily the `eureka.client.service-url.defaultZone` property. This property indicates the internal endpoint of the Eureka Server Java component.
 
-    The binding also injects the following properties:
+The binding also injects the following properties:
 
-    ```bash
-    "eureka.client.register-with-eureka":    "true"
-    "eureka.instance.prefer-ip-address":     "true"
-    ```
+```bash
+"eureka.client.register-with-eureka":    "true"
+"eureka.instance.prefer-ip-address":     "true"
+```
 
-    The `eureka.client.register-with-eureka` property is set to `true` to enforce registration with the Eureka server. This registration overwrites the local setting in `application.properties`, from the config server and so on. If you want to set it to `false`, you can overwrite it by setting an environment variable in your container app.
+The `eureka.client.register-with-eureka` property is set to `true` to enforce registration with the Eureka server. This registration overwrites the local setting in `application.properties`, from the config server and so on. If you want to set it to `false`, you can overwrite it by setting an environment variable in your container app.
 
-    The `eureka.instance.prefer-ip-address` is set to `true` due to the specific DNS resolution rule in the container app environment. Don't modify this value so you don't break the binding.
+The `eureka.instance.prefer-ip-address` is set to `true` due to the specific DNS resolution rule in the container app environment. Don't modify this value so you don't break the binding.
 
 ## Unbind your container app from the Eureka Server for Spring Java component
 
@@ -245,7 +245,7 @@ To remove a binding from a container app, use the `--unbind` option.
 3.  Under bindings, select Delete after app *sample-service-eureka-client*, Click *Next*
 4.  Click *Configure*
   
-    :::image type="content" source="media/java-components/app-unbind-eureka.png" alt-text="Screenshot of container app unbind with eureka."  lightbox="media/java-components/app-unbind-eureka.png":::
+  :::image type="content" source="media/java-components/app-unbind-eureka.png" alt-text="Screenshot of container app unbind with eureka."  lightbox="media/java-components/app-unbind-eureka.png":::
 
 ---
 
@@ -306,7 +306,7 @@ To remove a binding from a container app, use the `--unbind` option.
 
     This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, your container app is also to you as shown in the following screenshot.
 
-    :::image type="content" source="media/java-components/eureka-alone.png" alt-text="Screenshot of the Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka-alone.png":::
+  :::image type="content" source="media/java-components/eureka-alone.png" alt-text="Screenshot of the Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka-alone.png":::
 
 ## Optional: Integrate the Eureka Server for Spring and Admin for Spring Java components
 
