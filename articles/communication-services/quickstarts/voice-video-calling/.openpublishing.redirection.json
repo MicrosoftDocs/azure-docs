@@ -1,8 +1,0 @@
-{
-    "redirections": [
-        {
-            "source_path": "articles/communication-services/quickstarts/voice-video-calling/media-streaming.md",
-            "redirect_url": "articles/communication-services/how-tos/call-automation/audio-streaming-quickstart.md",
-            "redirect_document_id": true
-        },
-}
