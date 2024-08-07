@@ -77,8 +77,8 @@ One flow binds to one compute session. You can start a compute session on a flow
         |---|---|
         |Azure Machine Learning workspace|Contributor|
         |Azure Storage|Contributor (control plane) + Storage Blob Data Contributor + Storage File Data Privileged Contributor (data plane, consume flow draft in fileshare and data in blob)|
-        |Azure Key Vault (when using [access policies permission model](../../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations, this is **default mode** for linked Azure Key Vault.|
-        |Azure Key Vault (when using [RBAC permission model](../../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
+        |Azure Key Vault (when using [access policies permission model](/azure/key-vault/general/assign-access-policy))|Contributor + any access policy permissions besides **purge** operations, this is **default mode** for linked Azure Key Vault.|
+        |Azure Key Vault (when using [RBAC permission model](/azure/key-vault/general/rbac-guide))|Contributor (control plane) + Key Vault Administrator (data plane)|
         |Azure Container Registry|Contributor|
         |Azure Application Insights|Contributor|
         

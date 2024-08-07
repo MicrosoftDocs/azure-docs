@@ -85,7 +85,7 @@ sections:
       - question: |
           What is the Dapr version release cadence in Azure Container Apps?
         answer: |
-          Dapr's typical release timeline is up to six weeks after [the Dapr OSS release](https://docs.dapr.io/operations/support/support-release-policy/). The latest Dapr version is made available in Azure Container Apps after rigorous testing. Rolling out to all regions can take roughly up to two weeks. 
+          Dapr's typical release timeline is up to six weeks after [the Dapr OSS release](https://docs.dapr.io/operations/support/support-release-policy/). The latest Dapr version is made available in Azure Container Apps only after rigorous testing. Rolling out to all regions can take up to two weeks or longer. 
 
       - question: |
           How can I request a Dapr feature enhancement for Azure Container Apps?

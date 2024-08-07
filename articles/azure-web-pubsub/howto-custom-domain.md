@@ -195,7 +195,7 @@ If you've configured a [Private Endpoint](../private-link/private-endpoint-overv
 
 After you create a shared private endpoint, you can create a custom certificate as usual. **You don't have to change the domain in Key Vault URI**. For example, if your Key Vault base URI is `https://contoso.vault.azure.net`, you still use this URI to configure custom certificate.
 
-You don't have to explicitly allow Azure Web PubSub Service IPs in Key Vault firewall settings. For more info, see [Key Vault private link diagnostics](../key-vault/general/private-link-diagnostics.md).
+You don't have to explicitly allow Azure Web PubSub Service IPs in Key Vault firewall settings. For more info, see [Key Vault private link diagnostics](/azure/key-vault/general/private-link-diagnostics).
 
 ## Certificate rotation
 
@@ -206,5 +206,5 @@ Alternatively, you can also pin custom certificate to a specific secret version 
 ## Next steps
 
 * [How to enable managed identity for Azure Web PubSub Service](howto-use-managed-identity.md)
-* [Get started with Key Vault certificates](../key-vault/certificates/certificate-scenarios.md)
+* [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios)
 * [What is Azure DNS](../dns/dns-overview.md)
