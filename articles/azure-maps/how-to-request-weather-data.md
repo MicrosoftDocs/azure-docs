@@ -120,7 +120,7 @@ In this example, you use the [Get Current Conditions API] to retrieve current we
                 "unit": "km",
                 "unitType": 6
             },
-            "obstructionsToVisibility": "",
+            "obstructionsToVisibility": ",
             "cloudCover": 100,
             "ceiling": {
                 "value": 1494.0,
@@ -574,7 +574,7 @@ In this example, you use the [Get Hourly Forecast API] to retrieve the hourly we
 
 1. Select the run button.
 
-   :::image type="content" source="./media/weather-service/bruno-run-request-hourly-weather-forecast-data.png" alt-text=""A screenshot showing the Request hourly weather forecast data URL with the run button highlighted in the bruno app."":::
+   :::image type="content" source="./media/weather-service/bruno-run-request-hourly-weather-forecast-data.png" alt-text="A screenshot showing the Request hourly weather forecast data URL with the run button highlighted in the bruno app.":::
 
     The response body contains weather forecast data for the next 12 hours. For the sake of brevity, the following JSON response shows the forecast for the first hour.
 
@@ -688,7 +688,7 @@ In this example, you use the [Get Minute Forecast API] to retrieve the minute-by
 
 1. Select the run button.
 
-   :::image type="content" source="./media/weather-service/bruno-run-request-minute-by-minute-weather-forecast-data.png" alt-text=""A screenshot showing the Request minute-by-minute weather forecast data URL with the run button highlighted in the bruno app."":::
+   :::image type="content" source="./media/weather-service/bruno-run-request-minute-by-minute-weather-forecast-data.png" alt-text="A screenshot showing the Request minute-by-minute weather forecast data URL with the run button highlighted in the bruno app.":::
 
     The response body contains weather forecast data for the next 120 minutes, in 15-minute intervals.
 
