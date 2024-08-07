@@ -264,7 +264,9 @@ items:
         - name: New Azure Monitor experience Migration
           href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
         - name: Selective Logging
-          href: ./selective-logging-analysis-azure-logs.md    
+          href: ./selective-logging-analysis-azure-logs.md
+        - name: Enable new Azure Monitor integration
+          href: ./log-analytics-migration.md  
       - name: Use Azure Monitor Agent  
         items:    
         - name: Azure Monitor Agent Migration
@@ -279,8 +281,6 @@ items:
         href: ./hdinsight-cluster-availability.md
       - name: Cluster availability - Azure Monitor logs
         href: ./cluster-availability-monitor-logs.md
-      - name: Enable new Azure Monitor integration
-        href: ./log-analytics-migration.md
       - name: Monitoring data reference
         href: monitor-hdinsight-reference.md
     - name: Troubleshoot
