@@ -58,8 +58,8 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP049     | Error | The array index must be of type "{LanguageConstants.String}" or "{LanguageConstants.Int}" but the provided index was of type "{wrongType}". |
 | BCP050     | Error | The specified path is empty. |
 | BCP051     | Error | The specified path begins with "/". Files must be referenced using relative paths. |
-| <a id='BCP052' />[BCP052](./diagnostics/bcp052.md)     | Error/Warning | The type <type-name> does not contain property <property-name>. |
-| <a id='BCP053' />[BCP053](./diagnostics/bcp053.md) | Error/Warning | The type <type-name> does not contain property <property-name>. Available properties include <property-names>. |
+| <a id='BCP052' />[BCP052](./diagnostics/bcp052.md)     | Error/Warning | The type \<type-name> does not contain property \<property-name>. |
+| <a id='BCP053' />[BCP053](./diagnostics/bcp053.md) | Error/Warning | The type \<type-name> does not contain property \<property-name>. Available properties include \<property-names>. |
 | BCP054     | Error | The type "{type}" does not contain any properties. |
 | BCP055     | Error | Cannot access properties of type "{wrongType}". An "{LanguageConstants.Object}" type is required. |
 | BCP056     | Error | The reference to name "{name}" is ambiguous because it exists in namespaces {ToQuotedString(namespaces)}. The reference must be fully qualified. |
@@ -82,19 +82,19 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP074     | Error | Indexing over arrays requires an index of type "{LanguageConstants.Int}" but the provided index was of type "{wrongType}". |
 | BCP075     | Error | Indexing over objects requires an index of type "{LanguageConstants.String}" but the provided index was of type "{wrongType}". |
 | BCP076     | Error | Cannot index over expression of type "{wrongType}". Arrays or objects are required. |
-| <a id='BCP077' />[BCP077](./diagnostics/bcp077.md) | Error/Warning | The property <property-name> on type <type-name> is write-only. Write-only properties cannot be accessed. |
-| BCP078     | Error/Warning | The property "{propertyName}" requires a value of type "{expectedType}", but none was supplied. |
+| <a id='BCP077' />[BCP077](./diagnostics/bcp077.md) | Error/Warning | The property \<property-name> on type \<type-name> is write-only. Write-only properties cannot be accessed. |
+| <a id='BCP078' />[BCP078](./diagnostics/bcp078.md) | Error/Warning | The property \<property-name> requires a value of type \<type-name>, but none was supplied. |
 | BCP079     | Error | This expression is referencing its own declaration, which is not allowed. |
 | BCP080     | Error | The expression is involved in a cycle ("{string.Join("\" -> \"", cycle)}"). |
 | BCP081     | Warning | Resource type "{resourceTypeReference.FormatName()}" does not have types available. Bicep is unable to validate resource properties prior to deployment, but this will not block the resource from being deployed. |
 | BCP082     | Error | The name "{name}" does not exist in the current context. Did you mean "{suggestedName}"? |
-| BCP083     | Error/Warning | The type "{type}" does not contain property "{badProperty}". Did you mean "{suggestedProperty}"? |
+| <a id='BCP083' />[BCP083](./diagnostics/bcp083.md) | Error/Warning | The type \<type-definition> does not contain property \<property-name>. Did you mean \<property-name>? |
 | BCP084     | Error | The symbolic name "{name}" is reserved. Please use a different symbolic name. Reserved namespaces are {ToQuotedString(namespaces.OrderBy(ns => ns))}. |
 | BCP085     | Error | The specified file path contains one ore more invalid path characters. The following are not permitted: {ToQuotedString(forbiddenChars.OrderBy(x => x).Select(x => x.ToString()))}. |
 | BCP086     | Error | The specified file path ends with an invalid character. The following are not permitted: {ToQuotedString(forbiddenPathTerminatorChars.OrderBy(x => x).Select(x => x.ToString()))}. |
 | BCP087     | Error | Array and object literals are not allowed here. |
-| BCP088     | Error/Warning | The property "{property}" expected a value of type "{expectedType}" but the provided value is of type "{actualStringLiteral}". Did you mean "{suggestedStringLiteral}"? |
-| BCP089     | Error/Warning | The property "{property}" is not allowed on objects of type "{type}". Did you mean "{suggestedProperty}"? |
+| <a id='BCP088' />[BCP088](./diagnostics/bcp088.md) | Error/Warning | The property \<property-name> expected a value of type \<type-name> but the provided value is of type \<type-name>. Did you mean \<type-name>? |
+| <a id='BCP089' />[BCP089](./diagnostics/bcp089.md) | Error/Warning | The property \<property-name> is not allowed on objects of type \<resource-type>. Did you mean \<property-name>? |
 | BCP090     | Error | This module declaration is missing a file path reference. |
 | BCP091     | Error | An error occurred reading file. {failureMessage} |
 | BCP092     | Error | String interpolation is not supported in file paths. |
