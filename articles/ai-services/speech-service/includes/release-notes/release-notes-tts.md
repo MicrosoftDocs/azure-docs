@@ -15,7 +15,7 @@ Text to speech avatar is now generally available. For more information, see [tex
 
 #### Prebuilt neural voice
 
-- Introduce 2 turbo version of Azure OpenAI voices in public preview: `en-US-AlloyTurboMultilingualNeural` and `en-US-NovaTurboMultilingualNeural`. Turbo version of Azure OpenAI voices has the similar voice persona as Azure OpenAI voices but supports extra features. Turbo voices are available in East Asia, East US, Southeast Asia, and West US. Turbo voices support the full set of SSML elements and more features like word boundary, just like other Azure AI Speech voices. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+- Introduce 2 turbo version of Azure OpenAI voices in public preview: `en-US-AlloyTurboMultilingualNeural` and `en-US-NovaTurboMultilingualNeural`. Turbo version of Azure OpenAI voices has the similar voice persona as Azure OpenAI voices but supports extra features. Turbo voices support the full set of SSML elements and more features like word boundary, just like other Azure AI Speech voices. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
   
 - Introduce 2 new multilingual voices in public preview: `zh-CN-YunfanMultilingualNeural` and `zh-CN-YunxiaoMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
