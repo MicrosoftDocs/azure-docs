@@ -92,7 +92,7 @@ console.log(`Current scene has the following size: ${JSON.stringify(togetherMode
 
 ### Receive events when scene or seatings is updated
 > [!NOTE]
-> Scene Change and Seat reassignment can only be done on Teams Client. 
+> Only Microsoft 365 users with role organizer, co-organizer and presenter can change scene or assignment of participants in the together mode. These changes can only be done from Teams Client. 
 
 In the event of a scene change or seat reassignment, the `togetherModeSceneUpdated` or `togetherModeSeatingUpdated` events are raised respectively, providing an updated calculation of the participants’ seating positions.
 
