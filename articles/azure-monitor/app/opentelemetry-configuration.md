@@ -627,6 +627,8 @@ useAzureMonitor(options);
 
 ### [Python](#tab/python)
 
+We support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credential-classes).
+
 ```python
 # Import the `ManagedIdentityCredential` class from the `azure.identity` package.
 from azure.identity import ManagedIdentityCredential
@@ -640,6 +642,7 @@ configure_azure_monitor(
 )
 
 ```
+You can find more details [here](./azure-ad-authentication?tabs=python).
 
 ---
 
