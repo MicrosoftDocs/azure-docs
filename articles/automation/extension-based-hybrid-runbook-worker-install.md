@@ -32,7 +32,10 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 - 4 GB of RAM
 - **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers. See [Install Arc agent for Arc-enabled VMware VMs](../azure-arc/vmware-vsphere/enable-guest-management-at-scale.md) to enable guest management for Arc-enabled VMware vSphere VMs and install [Arc agent for Arc-enabled SCVMM](../azure-arc/system-center-virtual-machine-manager/enable-guest-management-at-scale.md) to enable guest management for Arc-enabled SCVMM VMs.
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server, Arc-enabled VMware vSphere VM or Arc-enabled SCVMM VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
- 
+
+> [!NOTE]
+> A hybrid worker should **NOT BE a domain controller**. When running code to your hybrid worker group with default credentials, every piece of code will be executed without any checks of the system. This way an attacker, who has access to azure automation accounts could easily run commands like `Add-ADGroupMembership -Identity "Domain Admins" -Members "john.doe"` to elevate himself and gain domain admin access on your local active directory.
+
 ### Supported operating systems
 
 | Windows (x64)  | Linux (x64) |
