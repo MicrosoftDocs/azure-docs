@@ -61,4 +61,4 @@ However, as the QnA Maker portal service is hosted in West-US, it is still not i
 
 * [Encryption in Azure Search using CMKs in Azure Key Vault](../../search/search-security-manage-encryption-keys.md)
 * [Data encryption at rest](../../security/fundamentals/encryption-atrest.md)
-* [Learn more about Azure Key Vault](../../key-vault/general/overview.md)
+* [Learn more about Azure Key Vault](/azure/key-vault/general/overview)
