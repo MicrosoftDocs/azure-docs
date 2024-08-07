@@ -143,7 +143,7 @@ ms.custom: references_regions
 | `ta-SG` | Tamil (Singapore) | `ta-SG-VenbaNeural` (Female)<br/>`ta-SG-AnbuNeural` (Male) |
 | `te-IN` | Telugu (India) | `te-IN-ShrutiNeural` (Female)<br/>`te-IN-MohanNeural` (Male) |
 | `th-TH` | Thai (Thailand) | `th-TH-PremwadeeNeural` (Female)<br/>`th-TH-NiwatNeural` (Male)<br/>`th-TH-AcharaNeural` (Female) |
-| `tr-TR` | Turkish (Türkiye) | `tr-TR-EmelNeural` (Female)<br/>`tr-TR-AhmetNeural` (Male) |
+| `tr-TR` | Turkish (Turkey) | `tr-TR-EmelNeural` (Female)<br/>`tr-TR-AhmetNeural` (Male) |
 | `uk-UA` | Ukrainian (Ukraine) | `uk-UA-PolinaNeural` (Female)<br/>`uk-UA-OstapNeural` (Male) |
 | `ur-IN` | Urdu (India) | `ur-IN-GulNeural` (Female)<br/>`ur-IN-SalmanNeural` (Male) |
 | `ur-PK` | Urdu (Pakistan) | `ur-PK-UzmaNeural` (Female)<br/>`ur-PK-AsadNeural` (Male) |
