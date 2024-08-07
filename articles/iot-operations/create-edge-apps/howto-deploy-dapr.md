@@ -44,15 +44,15 @@ To create the yaml file, use the following component definitions:
 > [!div class="mx-tdBreakAll"]
 > | Component | Description |
 > |-|-|
-> | `metadata.name` | The component name is important and is how a Dapr application references the component. |
-> | `metadata.annotations` | Component annotations used by Dapr sidecar injector, defining the image location and required volume mounts
-> | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which needs to be declared exactly as shown |
-> | `spec.metadata.keyPrefix` | Defines the key prefix used when communicating to the statestore backend. See the [Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-share-state) for more information |
-> | `spec.metadata.hostname` | The MQTT broker hostname. Defaults to `aio-mq-dmqtt-frontend` |
-> | `spec.metadata.tcpPort` | The MQTT broker port number. Default is `8883` |
-> | `spec.metadata.useTls` |  Define if TLS is used by the MQTT broker. Defaults to `true` |
-> | `spec.metadata.caFile` | The certificate chain path for validating the MQTT broker. Required if `useTls` is `true`. This file must be mounted in the pod with the specified volume name |
-> | `spec.metadata.satAuthFile ` | The Service Account Token (SAT) file is used to authenticate the Dapr components with the MQTT broker.  This file must be mounted in the pod with the specified volume name |
+> | `metadata:name` | The component name is important and is how a Dapr application references the component. |
+> | `metadata:annotations:dapr.io/component-container` | Component annotations used by Dapr sidecar injector, defining the image location, volume mounts and logging configuration |
+> | `spec:type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which needs to be declared exactly as shown |
+> | `spec:metadata:keyPrefix` | Defines the key prefix used when communicating to the statestore backend. See the [Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-share-state) for more information |
+> | `spec:metadata:hostname` | The MQTT broker hostname. Default is `aio-mq-dmqtt-frontend` |
+> | `spec:metadata:tcpPort` | The MQTT broker port number. Default is `8883` |
+> | `spec:metadata:useTls` |  Define if TLS is used by the MQTT broker. Default is `true` |
+> | `spec:metadata:caFile` | The certificate chain path for validating the MQTT broker. Required if `useTls` is `true`. This file must be mounted in the pod with the specified volume name |
+> | `spec:metadata:satAuthFile ` | The Service Account Token (SAT) file is used to authenticate the Dapr components with the MQTT broker.  This file must be mounted in the pod with the specified volume name |
 
 1. Save the following yaml, which contains the Azure IoT Operations component definitions, to a file named `components.yaml`:
 
@@ -70,6 +70,10 @@ To create the yaml file, use the following component definitions:
             "volumeMounts": [
               { "name": "mqtt-client-token", "mountPath": "/var/run/secrets/tokens" },
               { "name": "aio-ca-trust-bundle", "mountPath": "/var/run/certs/aio-mq-ca-cert" }
+            ],
+            "env": [
+                { "name": "pubSubLogLevel", "value": "Information" },
+                { "name": "stateStoreLogLevel", "value": "Information" }
             ]
           }
     spec:

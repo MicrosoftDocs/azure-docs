@@ -106,26 +106,19 @@ To start, create a yaml file that uses the following definitions:
 1. Confirm that the application deployed successfully. The pod should report all containers are ready after a short interval, as shown with the following command:
 
     ```bash
-    kubectl get pods -n azure-iot-operations
+    kubectl get pods -l app=mq-event-driven-dapr -n azure-iot-operations
     ```
 
     With the following output:
 
     ```output
-    NAME                          READY   STATUS              RESTARTS   AGE
-    ...
-    mq-event-driven-dapr          3/3     Running             0          30s
+    NAME                         READY   STATUS              RESTARTS   AGE
+    mq-event-driven-dapr         3/3     Running             0          30s
     ```
 
 ## Deploy the simulator
 
 Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQTT broker using an MQTT client on the `sensor/data` topic.
-
-1. Patch BrokerListener to allow unauthenticated connection, to simplify injection of simulated data:
-
-    ```bash
-    kubectl patch BrokerListener listener -n azure-iot-operations --type=json -p='[{ "op": "add", "path": "/spec/ports/1", "value": {"port":1883} }]'
-    ```
 
 1. Deploy the simulator from the Explore IoT Operations repository:
 
@@ -274,7 +267,7 @@ The above tutorial uses a prebuilt container of the Dapr application. If you wou
     git clone https://github.com/Azure-Samples/explore-iot-operations
     ```
 
-1. Change to the Dapr tutorial directory in the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository:
+1. Change to the Dapr tutorial directory:
 
     ```bash
     cd explore-iot-operations/tutorials/mq-event-driven-dapr/src
@@ -297,12 +290,12 @@ The above tutorial uses a prebuilt container of the Dapr application. If you wou
 
 ## Troubleshooting
 
-If the application doesn't start or you see the pods in `CrashLoopBackoff`, the logs for `daprd` are most helpful. The `daprd` is a container that is automatically deployed with your Dapr application.
+If the application doesn't start or you see the containers in `CrashLoopBackoff`, the logs for the `daprd` container often contains useful information.
 
-Run the following command to view the logs:
+Run the following command to view the logs for the daprd component:
 
 ```bash
-kubectl logs dapr-workload daprd
+kubectl logs -l app=mq-event-driven-dapr -n azure-iot-operations -c daprd
 ```
 
 ## Next steps
