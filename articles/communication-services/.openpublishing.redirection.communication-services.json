@@ -442,13 +442,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/communication-services/quickstarts/voice-video-calling/media-streaming.md",
-            "redirect_url": "articles/communication-services/how-tos/call-automation/audio-streaming-quickstart",
+            "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/media-streaming.md",
+            "redirect_url": "/articles/communication-services/how-tos/call-automation/audio-streaming-quickstart",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/communication-services/concepts/voice-video-calling/media-streaming.md",
-            "redirect_url": "articles/communication-services/concepts/call-automation/audio-streaming-concept",
+            "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/media-streaming.md",
+            "redirect_url": "/articles/communication-services/concepts/call-automation/audio-streaming-concept",
             "redirect_document_id": false
         }
     ]
