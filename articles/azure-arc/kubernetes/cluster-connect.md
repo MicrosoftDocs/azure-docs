@@ -24,8 +24,6 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 - An existing Azure Arc-enabled Kubernetes connected cluster.
   - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
-
-- The machine running the Az CLI commands must have internet access to `https://<region>.obo.arc.azure.com:8084/`.
   
 - Enable the [network requirements for Arc-enabled Kubernetes](network-requirements.md)
   
