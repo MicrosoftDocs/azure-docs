@@ -8,7 +8,7 @@ ms.reviewer: gahllevy
 ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: release-notes
-ms.date: 07/02/2024
+ms.date: 08/05/2024
 #Customer intent: As a database administrator, I want to review the release notes, so I can understand what new features are released for the service.
 ---
 
@@ -16,29 +16,54 @@ ms.date: 07/02/2024
 
 This article contains release notes for the API for MongoDB vCore. These release notes are composed of feature release dates, and feature updates.
 
-## Latest release: July 02, 2024
+## Latest release: Aug 05, 2024
 
-- Metrics added
-    - Customer Activity.
-    - Requests.
+- [Geospatial support](geospatial-support.md) is now GA.
 
-(Preview feature list)
-- Support for accumulators
-    - $mergeObjects.
-- Support for aggregation operator
-    - $let.
-- Geospatial query operators
-    - $minDistance.
-    - $maxDistance.
+- Support for TLS1.3 for mongo connections.
+
+- Support for accumulators [GA]
+  - $mergeObjects.
+
+- Support for aggregation operators [GA]
+  - $bitAnd.
+  - $bitOr.
+  - $bitXor.
+  - $bitNot.
+
+- Support for stage [GA]
+  - $bucket.
+  - $setWindowFields (Only with $sum window accumulator).
+
+- Geospatial query operators [GA]
+  - $minDistance.
+  - $maxDistance.
+  - $near.
+  - $nearSphere.
 
 ## Previous releases
+
+## July 02, 2024
+
+- Metrics added
+  - Customer Activity.
+  - Requests.
+
+- Support for accumulators [Preview]
+  - $mergeObjects.
+
+- Support for aggregation operator [Preview]
+  - $let.
+
+- Geospatial query operators [Preview]
+  - $minDistance.
+  - $maxDistance.
 
 ### May 06, 2024
 
 - Query operator enhancements.
-  - $geoNear aggregation. This can be enabled through Flag - `Geospatial support for vcore "MongoDB for CosmosDB"` 
+  - $geoNear aggregation. This can be enabled through Flag - `Geospatial support for vCore "MongoDB for CosmosDB"`  (Preview feature list)
   
-(Preview feature list)
   - Support for accumulators
     - $push.
     - $addToSet.
@@ -48,6 +73,11 @@ This article contains release notes for the API for MongoDB vCore. These release
     - $dateAdd.
     - $dateSubtract.
     - $dateDiff.
+  - Support for aggregation operators
+    - $maxN/minN.
+    - $sortArray.
+    - $zip.
+
 - Creating indexes with large index keys: values larger than 2.7 KB.
 - Geo replicas enabling cross-region disaster recovery and reads scaling.
 - Improved performance of group and distinct.
@@ -68,12 +98,12 @@ This article contains release notes for the API for MongoDB vCore. These release
 
 - [Private Endpoint](how-to-private-link.md) support enabled on Portal. (GA)
 - [HNSW](vector-search.md) vector index on M40 & larger cluster tiers. (GA)
-- Enable Geo-spatial queries. (Public Preview)
+- Enable Geo-spatial queries. (Preview)
 - Query operator enhancements.
   - $centerSphere with index pushdown.
   - $min & $max operator with $project.
   - $binarySize aggregation operator.
-- Ability to build indexes in background (except Unique indexes). (Public Preview)
+- Ability to build indexes in background (except Unique indexes). (Preview)
 
 ### March 03, 2024
 
