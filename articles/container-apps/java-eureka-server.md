@@ -97,6 +97,7 @@ Follow the following steps to create the resource group, client container app an
 
 1. Search for *Container Apps* in the Azure portal and select *Create*
 2. Enter the following values to *Basics* tab. You need to select *Create new* in *Resource group* and *Container Apps Environment* to create the new resource. 
+
 | Setting | Value |
 |---|---|
 | Subscription | *Your own subscription* |
@@ -109,6 +110,7 @@ Follow the following steps to create the resource group, client container app an
     :::image type="content" source="media/java-components/create-containerapp-eureka.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-eureka.png":::
 
 1. In Container tab, select or enter the following values and leave others be the default.
+
 | Setting | Value |
 |---|---|
 | Name | *sample-service-eureka-client* |
@@ -120,6 +122,7 @@ Follow the following steps to create the resource group, client container app an
   :::image type="content" source="media/java-components/select-eureka-image.png" alt-text="Screenshot of select image when create container apps."  lightbox="media/java-components/select-eureka-image.png":::
 
 1. In Ingress tab, select or enter the following values and leave others be the default, then click *Review + create*
+  
 | Setting | Value |
 |---|---|
 | Ingress | *Enabled* |
@@ -128,7 +131,7 @@ Follow the following steps to create the resource group, client container app an
 | Transport | *Auto* |
 | Target port | *8080* |
    
-    :::image type="content" source="media/java-components/config-ingress.png" alt-text="Screenshot of config ingress when create container apps."  lightbox="media/java-components/config-ingress.png":::
+:::image type="content" source="media/java-components/config-ingress.png" alt-text="Screenshot of config ingress when create container apps."  lightbox="media/java-components/config-ingress.png":::
 
 1. Click *Create* after validation passed
 
@@ -165,14 +168,17 @@ Now that you have an existing environment and eureka client container app, creat
 
 1. Go to your container app environment page, select *Service* on the left panel, and then select *Configure*, *Java component*
    
-       :::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
+:::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
 
 1. In new *Configure Java component* panel, select or enter the following values and leave others be the default, and then select *Next*
+
 | Setting | Value |
 |---|---|
 | Java component type | *Eureka Server for Spring* |
 | Java component name | *eureka* |
-       :::image type="content" source="media/java-components/create-eureka-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/create-eureka-java-component.png":::
+
+  :::image type="content" source="media/java-components/create-eureka-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/create-eureka-java-component.png":::
+  
 1. Click *Configure* on *Review* page
 ---
 
@@ -200,10 +206,11 @@ Now that you have an existing environment and eureka client container app, creat
 3.  Under bindings, select app *sample-service-eureka-client*, Click *Next*
 4.  Click *Configure*
   
-    :::image type="content" source="media/java-components/app-bind-eureka.png" alt-text="Screenshot of container app bind with eureka."  lightbox="media/java-components/app-bind-eureka.png":::
+:::image type="content" source="media/java-components/app-bind-eureka.png" alt-text="Screenshot of container app bind with eureka."  lightbox="media/java-components/app-bind-eureka.png":::
 
 5. Go to your container app *sample-service-eureka-client* page, get the *Application URL* of the container app
 ---
+
     After you get the URL of the container app. Copy the URL to a text editor so you can use it in a coming step.
 
     Navigate to the `/allRegistrationStatus` route to view all applications registered with the Eureka Server for Spring.

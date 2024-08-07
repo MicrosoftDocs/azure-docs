@@ -104,6 +104,7 @@ Follow the following steps to create the resource group, client container app an
 
 1. Search for *Container Apps* in the Azure portal and select *Create*
 2. Enter the following values to *Basics* tab. You need to select *Create new* in *Resource group* and *Container Apps Environment* to create the new resource. 
+
 | Setting | Value |
 |---|---|
 | Subscription | *Your own subscription* |
@@ -116,6 +117,7 @@ Follow the following steps to create the resource group, client container app an
   :::image type="content" source="media/java-components/create-containerapp-config.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-config.png":::
 
 1. In Container tab, select or enter the following values and leave others be the default.
+
 | Setting | Value |
 |---|---|
 | Name | *my-config-client* |
@@ -127,6 +129,7 @@ Follow the following steps to create the resource group, client container app an
   :::image type="content" source="media/java-components/select-config-image.png" alt-text="Screenshot of select image when create container apps."  lightbox="media/java-components/select-config-image.png":::
 
 1. In Ingress tab, select or enter the following values and leave others be the default, then click *Review + create*
+
 | Setting | Value |
 |---|---|
 | Ingress | *Enabled* |
@@ -178,6 +181,7 @@ Now that you have an existing environment and config server client container app
        :::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
 
 1. In new *Configure Java component* panel, select or enter the following values and leave others be the default, and then select *Next*
+
 | Setting | Value |
 |---|---|
 | Java component type | *Config Server for Spring* |
