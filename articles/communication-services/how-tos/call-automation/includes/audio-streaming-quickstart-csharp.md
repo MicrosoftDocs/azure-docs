@@ -42,7 +42,7 @@ MediaStreamingOptions mediaStreamingOptions = new MediaStreamingOptions(
  CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(createCallOptions); 
 ```
 
-## Start Audio Streaming
+## Start audio streaming
 How to start audio streaming:
 ``` C#
 StartMediaStreamingOptions options = new StartMediaStreamingOptions() 
@@ -69,7 +69,7 @@ The metadata packet will look like this:
 ```
 
 
-## Stop Audio Streaming
+## Stop audio streaming
 How to stop audio streaming
 ``` C#
 StopMediaStreamingOptions stopOptions = new StopMediaStreamingOptions() 
