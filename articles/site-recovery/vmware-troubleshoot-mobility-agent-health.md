@@ -2,7 +2,7 @@
 title: Troubleshoot VMware mobility agent health errors in Azure Site Recovery 
 description: This article describes troubleshooting mobility agent health errors in Azure Site Recovery. 
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 07/11/2024
@@ -108,18 +108,21 @@ Follow these recommendations:
 
 If you get the following error in the `svagents_curr<>.log` file:
 
-| Error |
-|-------|
-| #~> (07-01-2024 13:13:34):   ERROR  2952 5016 19 Could not perform curl. Curl error: (6) Couldn't resolve host name <br>
-#~> (07-01-2024 13:13:34):   ERROR  2952 5016 20 Curl internal error: Could not resolve host: <> <br>
-#~> (07-01-2024 13:13:34):   ERROR  2952 5016 21 Curl operation failed with error (6) Couldn't resolve host name <br>
-#~> (07-01-2024 13:13:34):   ERROR  2952 5016 22 RcmClientLib::RcmClientProxyImpl::GetServerCert: Request failed for URI https://WIN-PK3OA9GH55Q:443, ErrorCode: 6 <br>
-#~> (07-01-2024 13:13:34):   ERROR  2952 5016 23 RcmClientLib::RcmClientProxyImpl::GetServerCert: Failed to get SSL Server cert and fingerprint <br>
-#~> (07-01-2024 13:13:34):   ERROR  2952 5016 24 Failed to get SSL Server cert and fingerprint for RCM Proxy <>:443 <br>
-#~> (07-01-2024 13:13:34):   ERROR  2952 5016 25 <span style="background-color: #FFFF00">Mismatch of fingerprints between received</span>: <> and in source config: <> <br>
-#~> (07-01-2024 13:13:34):   ERROR  2952 5016 26 Get server cert failed for all rcm proxy address <br>
-#~> (07-01-2024 13:13:34):   ERROR  2952 5016 27 VxService::StartWork: Verify client auth failed with error 4. Waiting for 120 sec before retry. <br> |
+# [Error message](#tab/error-message)
 
+```md
+#~> (07-01-2024 13:13:34):   ERROR  2952 5016 19 Could not perform curl. Curl error: (6) Couldn't resolve host name 
+#~> (07-01-2024 13:13:34):   ERROR  2952 5016 20 Curl internal error: Could not resolve host: <> 
+#~> (07-01-2024 13:13:34):   ERROR  2952 5016 21 Curl operation failed with error (6) Couldn't resolve host name 
+#~> (07-01-2024 13:13:34):   ERROR  2952 5016 22 RcmClientLib::RcmClientProxyImpl::GetServerCert: Request failed for URI https://WIN-PK3OA9GH55Q:443, ErrorCode: 6
+#~> (07-01-2024 13:13:34):   ERROR  2952 5016 23 RcmClientLib::RcmClientProxyImpl::GetServerCert: Failed to get SSL Server cert and fingerprint 
+#~> (07-01-2024 13:13:34):   ERROR  2952 5016 24 Failed to get SSL Server cert and fingerprint for RCM Proxy <>:443 
+#~> (07-01-2024 13:13:34):   ERROR  2952 5016 25 **Mismatch of fingerprints between received:** <> and in source config: <> 
+#~> (07-01-2024 13:13:34):   ERROR  2952 5016 26 Get server cert failed for all rcm proxy address 
+#~> (07-01-2024 13:13:34):   ERROR  2952 5016 27 VxService::StartWork: Verify client auth failed with error 4. Waiting for 120 sec before retry.
+```
+
+----
 
 #### Resolution
 

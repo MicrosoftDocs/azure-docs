@@ -2,7 +2,7 @@
 title: Troubleshoot VMware replication appliance health issues in Azure Site Recovery 
 description: This article describes troubleshooting replication appliance health issues in Azure Site Recovery. 
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 07/11/2024
@@ -40,13 +40,13 @@ To troubleshoot these issues, follow these steps:
 2. Open the Microsoft Appliance configuration manager and ensure to upgrade all the appliance components to the latest version. Find the latest versions [here](./site-recovery-whats-new.md#supported-updates) and follow the upgrade steps [here](./upgrade-mobility-service-modernized.md#upgrade-appliance).
 3. Navigate to the **Certificate renewal** section and select **Renew certificate**. This triggers the certificate renewal operation. Wait for it to complete.
 
-:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/certificate.png" alt-text="Screenshot of aplliance health error.:::
+:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/certificate.png" alt-text="Screenshot of aplliance health error.":::
    
 #### Error
 
 **If you see the following for your web app in replication appliance:**
 
-:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png" alt-text="Screenshot of aplliance health error excel.:::
+:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png" alt-text="Screenshot of aplliance health error excel.":::
     
 Follow these steps:
 
