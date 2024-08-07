@@ -340,15 +340,15 @@ When you're done, your complete logic app file structure appears similar to the 
 MyLogicApp
 -- execute_powershell_script.ps1
 -- mytestworkflow.json
-- Modules
+Modules
 -- MyPrivateModule
 --- MyPrivateModule.psd1
 --- MyPrivateModule.psm1
 -- MyPrivateModule2
 --- MyPrivateModule2.psd1
 --- MyPrivateModule2.psm1
-- requirements.psd1
-- host.json
+requirements.psd1
+host.json
 ```
 
 ## Compilation errors
