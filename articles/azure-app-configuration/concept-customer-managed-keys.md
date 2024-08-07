@@ -37,8 +37,8 @@ After these resources are configured, use the following steps so that the Azure 
 
 1. Assign a managed identity to the Azure App Configuration instance.
 1. Grant permissions to the identity to be able to access the Key Vault key.
-  * For Key Vault's with [Azure RBAC](../key-vault/general/rbac-guide.md) enabled, assign the identity the `Key Vault Crypto Service Encryption User` role on the target Key Vault.
-  * For Key Vault's using access policy authorization, grant the identity `GET`, `WRAP`, and `UNWRAP` permissions in the target Key Vault's access policy.
+    * For Key Vault's with [Azure RBAC](../key-vault/general/rbac-guide.md) enabled, assign the identity the `Key Vault Crypto Service Encryption User` role on the target Key Vault.
+    * For Key Vault's using access policy authorization, grant the identity `GET`, `WRAP`, and `UNWRAP` permissions in the target Key Vault's access policy.
 
 ## Enable customer-managed key encryption for your App Configuration store
 
@@ -78,7 +78,7 @@ After these resources are configured, use the following steps so that the Azure 
     }
     ```
 
-1. The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption, and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys. These permissions can be granted by assigning the `Key Vault Crypto Service Encryption User` role. Granting access requires the principal ID of the App Configuration instance's managed identity. Replace the value shown below as `contoso-principalId` with the principal ID obtained in the previous step. Grant permission to the managed key by using the command line:
+1. The managed identity of the Azure App Configuration instance needs access to the key to perform key validation, encryption, and decryption. The specific set of actions to which it needs access includes: `GET`, `WRAP`, and `UNWRAP` for keys. These permissions can be granted by assigning the `Key Vault Crypto Service Encryption User` role for Azure RBAC enabled Key Vaults. For Key Vaults using access policy authorization, set the policy for the aforementioned key permissions. Granting access requires the principal ID of the App Configuration instance's managed identity. Replace the value shown below as `contoso-principalId` with the principal ID obtained in the previous step. Grant permission to the managed key by using the command line:
 
     ### [Azure RBAC](#tab/azurerbac)
 
