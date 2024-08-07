@@ -16,7 +16,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-gpu-pro2-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
-GPU-accelerated workloads on an Azure Stack Edge Pro GPU device require a GPU virtual machine. This article provides an overview of GPU VMs, including supported OSs, GPU drivers, and VM sizes. Deployment options for GPU VMs used with Kubernetes clusters also are discussed.
+GPU-accelerated workloads on an Azure Stack Edge Pro GPU device require a GPU VM (virtual machine). This article provides an overview of GPU VMs, including supported OSs, GPU drivers, and VM sizes. Deployment options for GPU VMs used with Kubernetes clusters also are discussed.
 
 ## About GPU VMs
 
@@ -26,7 +26,7 @@ To take advantage of the GPU capabilities of Azure N-series VMs, Nvidia GPU driv
 
 You can [install and manage the extension using the Azure Resource Manager templates](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md) after VM deployment. In the Azure portal, you can install the GPU extension during or after you deploy a VM; for instructions, see [Deploy GPU VMs on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
-If your device will have a Kubernetes cluster configured, be sure to review [deployment considerations for Kubernetes clusters](#gpu-vms-and-kubernetes) before you deploy GPU VMs.
+If your device has a Kubernetes cluster configured, be sure to review [deployment considerations for Kubernetes clusters](#gpu-vms-and-kubernetes) before you deploy GPU VMs.
 
 ## Supported OS and GPU drivers 
 
@@ -34,7 +34,7 @@ The Nvidia GPU driver extensions for Windows and Linux support the following OS 
 
 ### Supported OS for GPU extension for Windows
 
-This extension supports the following operating systems (OSs). Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge devices.
+This extension supports the following operating systems (OSs). Other versions may work but haven't been tested in-house on GPU VMs running on Azure Stack Edge devices.
 
 | Distribution | Version |
 |---|---|
@@ -43,7 +43,7 @@ This extension supports the following operating systems (OSs). Other versions ma
 
 ### Supported OS for GPU extension for Linux
 
-This extension supports the following OS distro, depending on the driver support for specific OS version. Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge devices.
+This extension supports the following OS distro, depending on the driver support for specific OS version. Other versions may work but haven't been tested in-house on GPU VMs running on Azure Stack Edge devices.
 
 | Distribution | Version |
 |---|---|
@@ -67,7 +67,7 @@ Before you deploy GPU VMs on your device, review the following considerations if
 
 #### For 1-GPU device: 
 
-- **Create a GPU VM followed by Kubernetes configuration on your device**: In this scenario, the GPU VM creation and Kubernetes configuration will both be successful. Kubernetes will not have access to the GPU in this case.
+- **Create a GPU VM followed by Kubernetes configuration on your device**: In this scenario, the GPU VM creation and Kubernetes configuration will both be successful. Kubernetes won't have access to the GPU in this case.
 
 - **Configure Kubernetes on your device followed by creation of a GPU VM**: In this scenario, the Kubernetes will claim the GPU on your device and the VM creation will fail as there are no GPU resources available.
 
