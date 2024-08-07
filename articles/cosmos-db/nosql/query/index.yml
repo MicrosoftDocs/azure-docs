@@ -1,12 +1,12 @@
 ### YamlMime:Landing
 
 title: Queries in Azure Cosmos DB for NoSQL
-summary: Azure Cosmos DB for NoSQL provides the ability to query data by writing queries using the Structured Query Language (SQL) as a JSON query language.
+summary: Azure Cosmos DB for NoSQL has the ability to query data by writing queries using the Structured Query Language (SQL) as a JSON query language.
 
 metadata:
   title: NoSQL queries
   titleSuffix: Azure Cosmos DB for NoSQL
-  description: Azure Cosmos DB for NoSQL provides the ability to query data by writing queries using the Structured Query Language (SQL) as a JSON query language.
+  description: Azure Cosmos DB for NoSQL has the ability to query data by writing queries using the Structured Query Language (SQL) as a JSON query language.
   author: jcodella
   ms.author: jacodel
   ms.reviewer: sidandrews
@@ -44,9 +44,9 @@ landingContent:
             url: average.md
           - text: COUNT
             url: count.md
-          - text: MAX
+          - text: Maximum
             url: max.md
-          - text: MIN
+          - text: Minimum
             url: min.md
           - text: SUM
             url: sum.md

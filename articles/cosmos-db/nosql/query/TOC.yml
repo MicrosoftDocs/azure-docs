@@ -78,10 +78,10 @@
     - name: COUNT
       displayName: functions, aggregate, count
       href: count.md
-    - name: MAX
+    - name: Maximum
       displayName: functions, aggregate, max, maximum
       href: max.md
-    - name: MIN
+    - name: Minimum
       displayName: functions, aggregate, min, minimum
       href: min.md
     - name: SUM
@@ -126,7 +126,7 @@
           href: setunion.md
     - name: Conditional functions
       items:
-        - name: IIF
+        - name: Ternary conditional operator
           displayName: IIF, ternary, ternary conditional operator
           href: iif.md
     - name: Date and time functions
@@ -438,6 +438,6 @@
 - name: Pagination
   displayName: continuation tokens, paging, pagination
   href: pagination.md
-- name: LINQ to NoSQL
+- name: Linq to NoSQL
   displayName: linq, .NET
   href: linq-to-sql.md
