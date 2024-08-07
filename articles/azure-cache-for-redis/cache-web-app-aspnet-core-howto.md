@@ -41,16 +41,18 @@ Deployment instructions are in the README.md.
 
 ## Create a cache
 
-[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create-entra-id.md)]
 
 [!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
 
-## Add a local secret for the connection string
+[!INCLUDE [redis-access-policy](includes/redis-access-policy.md)]
 
-In your command window, execute the following command to store a new secret named *CacheHostName*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
+## Add a local secret for the host name
+
+In your command window, execute the following command to store a new secret named *RedisHostName*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
 
 ```dos
-dotnet user-secrets set CacheHostName "<cache-name>.redis.cache.windows.net"
+dotnet user-secrets set RedisHostName "<cache-name>.redis.cache.windows.net"
 ```
 
 ## Connect to the cache with RedisConnection
