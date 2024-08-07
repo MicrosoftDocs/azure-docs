@@ -21,10 +21,10 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [Resource provider source IP address updates][bc1] | March 31, 2023 |
 | [Metrics retirements][metrics2023] | August 31, 2023 |
 | [Resource provider source IP address updates][rp2023] | September 30, 2023 |
-| [API version retirements][api2023] | June 1, 2024 |
 | [Deprecated (legacy) portal retirement][devportal2023] | October 31, 2023 |
 | [Self-hosted gateway v0/v1 retirement][shgwv0v1] | October 1, 2023 |
 | [Workspaces preview breaking changes][workspaces2024] | June 14, 2024 |
+| [API version retirements][api2023] | June 1, 2024 |
 | [stv1 platform retirement][stv12024] | August 31, 2024 |
 | [Workspaces preview breaking changes, part 2][workspaces2025march] | March 31, 2025 |
 | [Git repository retirement][git2025] | March 15, 2025 |
