@@ -12,7 +12,7 @@ ms.date: 08/07/2024
 
 # Migrate to Azure Monitor Agent
 
-[Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) replaces the Log Analytics agent, also known as Microsoft Monitor Agent (MMA) and OMS, for Windows and Linux machines, in Azure and non-Azure environments, on-premises and other clouds. This article describes the impact on agent-based dependency analysis in lieu of Azure Monitor Agent (AMA) replacing the Log Analytics agent (also known as Microsoft Monitor agent (MMA) and provides guidance to migrate from the Log Analytics agent to Azure Monitor Agent.
+[Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) replaces the Log Analytics agent, also known as Microsoft Monitor Agent (MMA) and OMS, for Windows and Linux machines, in Azure and non-Azure environments, on-premises and other clouds. This article describes the impact on agent-based dependency analysis in lieu of Azure Monitor Agent (AMA) replacing the Log Analytics agent (also known as Microsoft Monitor agent (MMA)) and provides guidance to migrate from the Log Analytics agent to Azure Monitor Agent.
 
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). You can expect the following when you use the MMA or OMS agent after this date.
@@ -52,4 +52,4 @@ let AzureMigrateDataTables = dynamic(["ServiceMapProcess_CL","ServiceMapComputer
 Currently, you can download the MMA agent through the Azure Migrate portal. Support for downloading the AMA agent will be added shortly.
 
 ## Next steps
-[Learn](how-to create-group-machine-dependencies.md) how to create dependencies for a group.
+[Learn](how-to-create-group-machine-dependencies.md) how to create dependencies for a group.
