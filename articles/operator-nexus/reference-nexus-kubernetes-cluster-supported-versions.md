@@ -183,7 +183,7 @@ During the extended availability period for unsupported Kubernetes versions (tha
 > [!NOTE]
 > Operator Nexus relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Operator Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Operator Nexus can either leave those versions unpatched or fork. Due to this limitation, extended availability doesn't support anything from relying on kubernetes upstream.
 
-## Abandoned Nexus Kubernetes cluster
+### Abandoned Nexus Kubernetes clusters
 
 After the end of the extended availability period (determined by the endOfExtendedAvailabilityDate field in the Version Bundle), the Version Bundle is completely removed from the nc-aks-operator. At this point any existing Nexus Kubernetes clusters which are based on this Version Bundle will become abandoned. The only supported operation on abandoned clusters is deletion. Importantly, once a cluster is abandoned, upgrading to a later Version Bundle version will not work. Customers with clusters using Version Bundles which are past the extended availability period will be informed before the Version Bundles are removed.
 
