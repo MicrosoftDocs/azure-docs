@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 3/22/2024
-ms.custom: engagement-fy23
+ms.date: 08/07/2024
+ms.custom: engagement-fy25
 ---
 
 # Assessment overview (migrate to Azure VMware Solution)

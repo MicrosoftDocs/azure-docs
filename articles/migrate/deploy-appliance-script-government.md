@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 07/02/2024
-ms.custom: engagement-fy24
+ms.date: 08/07/2024
+ms.custom: engagement-fy25
 ---
 
 
