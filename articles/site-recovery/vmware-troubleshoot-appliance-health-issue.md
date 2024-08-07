@@ -46,7 +46,7 @@ To troubleshoot these issues, follow these steps:
 
 **If you see the following for your web app in replication appliance:**
 
-:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png" alt-text="Screenshot of aplliance health error."lightbox="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png":::
+:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png" alt-text="Screenshot of aplliance health error excel."lightbox="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png":::
     
 Follow these steps:
 
