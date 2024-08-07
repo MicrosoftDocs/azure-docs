@@ -1,7 +1,7 @@
 ---
 title: How to work with Event Grid triggers and bindings in Azure Functions
 description: Contains various procedures for integrating Azure Event Grid and Azure Functions using triggers and bindings. 
-ms.date: 10/12/2021
+ms.date: 08/07/2024
 ms.topic: how-to
 ms.service: azure-functions
 
@@ -15,21 +15,21 @@ Azure Functions provides built-in integration with Azure Event Grid by using [tr
 + [Azure Event Grid trigger for Azure Functions](functions-bindings-event-grid-trigger.md) 
 + [Azure Event Grid output binding for Azure Functions](functions-bindings-event-grid-output.md)  
 
-## Event subscriptions
+## Create an event subscription
 
 To start receiving Event Grid HTTP requests, you need a subscription to events raised by Event Grid. Event subscriptions specify the endpoint URL that invokes the function. When you create an event subscription from your function's **Integration** tab in the [Azure portal](https://portal.azure.com), the URL is supplied for you. When you programmatically create an event subscription or when you create the event subscription from Event Grid, you'll need to provide the endpoint. The endpoint URL contains a system key, which you must obtain from Functions administrator REST APIs. 
 
-### Webhook endpoint URL
+## Get the webhook endpoint URL
 
 The URL endpoint for your Event Grid triggered function depends on the version of the Functions runtime. The following example shows the version-specific URL pattern:
 
-#### [v2.x+](#tab/v2)
+### [v2.x+](#tab/v2)
 
 ```http
 https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 ```
 
-#### [v1.x](#tab/v1) 
+### [v1.x](#tab/v1) 
 
 ```http
 https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
@@ -39,19 +39,26 @@ https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionC
 >[!NOTE]  
 >There is a version of the Blob storage trigger that also uses event subscriptions. The endpoint URL for this kind of Blob storage trigger has a path of `/runtime/webhooks/blobs`, whereas the path for an Event Grid trigger would be `/runtime/webhooks/EventGrid`. For a comparison of options for processing blobs, see [Trigger on a blob container](storage-considerations.md#trigger-on-a-blob-container).
 
-### System key
+## Obtain the system key
 
-The URL endpoint you construct includes the system key value. The system key is an authorization key that has to be included in the endpoint URL for an Event Grid trigger. The following section explains how to get the system key.
+The URL endpoint you construct includes a system key value. The system key is an authorization key, specific to the Event Grid webhook, that must be included in a request to the endpoint URL for an Event Grid trigger. The following section explains how to get the system key.
 
-You can get the system key by using the following API (HTTP GET):
+You can also get the master key for your function app from **Functions** > **App keys** in the portal.
 
-#### [v2.x+](#tab/v2)
+> [!CAUTION]
+> The master key provides administrator access to your function app. Don't share this key with third parties or distribute it in native client applications.
+
+For more information, see [Work with access keys in Azure Functions](function-keys-how-to.md).
+
+You can get the system key from your function app by using the following administrator APIs (HTTP GET):
+
+### [v2.x+](#tab/v2)
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
 
-#### [v1.x](#tab/v1) 
+### [v1.x](#tab/v1) 
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
@@ -59,7 +66,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 ---
 
-This REST API is an administrator API, so it requires your function app [master key](function-keys-how-to.md). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
+This REST API is an administrator API, so it requires your function app [master key](function-keys-how-to.md). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key. 
 
 Here's an example of the response that provides the system key:
 
@@ -76,18 +83,11 @@ Here's an example of the response that provides the system key:
 }
 ```
 
-You can get the master key for your function app from the **Function app settings** tab in the portal.
-
-> [!IMPORTANT]
-> The master key provides administrator access to your function app. Don't share this key with third parties or distribute it in native client applications.
-
-For more information, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys) in the HTTP trigger reference article.
-
-### <a name="create-a-subscription"></a>Create an event subscription
+## <a name="create-a-subscription"></a>Create an event subscription
 
 You can create an event subscription either from the [Azure portal](https://portal.azure.com) or by using the Azure CLI. 
 
-#### [Portal](#tab/portal)
+### [Portal](#tab/portal)
 
 For functions that you develop in the Azure portal with the Event Grid trigger, select **Integration** then choose the **Event Grid Trigger** and select **Create Event Grid subscription**.
 
@@ -99,7 +99,7 @@ When you select this link, the portal opens the **Create Event Subscription** pa
 
 For more information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
 
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To create a subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) command. Examples use the v2.x+ version of the URL and are written to run in [Azure Cloud Shell](../cloud-shell/overview.md). You'll need to modify the examples to run from a Windows command prompt.
 
@@ -133,7 +133,7 @@ To send an HTTP post request, you need an HTTP test tool, like one of these:
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [`az eventgrid event-subscription update`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) Azure CLI command.
 
-### Create a viewer web app
+## Create a viewer web app
 
 To simplify capturing event messages, you can deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
@@ -148,13 +148,13 @@ You see the site but no events have been posted to it yet.
 
 ![View new site](media/functions-bindings-event-grid/view-site.png)
 
-### Create an Event Grid subscription
+## Create an Event Grid subscription
 
 Create an Event Grid subscription of the type you want to test, and give it the URL from your web app as the endpoint for event notification. The endpoint for your web app must include the suffix `/api/updates/`. So, the full URL is `https://<your-site-name>.azurewebsites.net/api/updates`
 
 For information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
 
-### Generate a request
+## Generate a request
 
 Trigger an event that will generate HTTP traffic to your web app endpoint.  For example, if you created a blob storage subscription, upload or delete a blob. When a request shows up in your web app, copy the request body.
 
@@ -162,7 +162,7 @@ The subscription validation request will be received first; ignore any validatio
 
 ![Copy request body from web app](media/functions-bindings-event-grid/view-results.png)
 
-### Manually post the request
+## Manually post the request
 
 Run your Event Grid function locally. The `Content-Type` and `aeg-event-type` headers are required to be manually set, while and all other values can be left as default.
 
@@ -173,13 +173,13 @@ Use your HTTP test tool to create an HTTP POST request:
 * Paste the RequestBin data into the request body.
 * Send an HTTP POST request to the endpoint that manually starts the Event Grid trigger.
   
-    #### [v2.x+](#tab/v2)
+    ### [v2.x+](#tab/v2)
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-    #### [v1.x](#tab/v1)
+    ### [v1.x](#tab/v1)
   
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
