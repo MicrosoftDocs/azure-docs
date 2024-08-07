@@ -1,0 +1,7 @@
+{
+    "redirections": [
+        {
+            "source_path": "articles/communication-services/concepts/voice-video-calling/media-streaming.md",
+            "redirect_url": "articles/communication-services/concepts/call-automation/audio-streaming-concept.md",
+            "redirect_document_id": true
+        },
