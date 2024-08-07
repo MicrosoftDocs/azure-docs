@@ -14,7 +14,7 @@ Your main landing page in the Azure Education Hub is the **Overview** page. This
 
 ## Overview page
 
-:::image type="content" source="media/hub-overview-page/nceoverview.png" alt-text="Screenshot that shows the Overview page of the Azure Education Hub." border="false":::
+[ ![Screenshot of Overview page of Education Hub.](media/hub-overview-page/nce-overview.png)](media/hub-overview-page/nce-overview.png#lightbox)
 
 Spending limit shows how much monetary cap you can allocate to students in the labs you create.
 Lab details shows the labs that you have created with details such as how much students have spent and the expiration date.
