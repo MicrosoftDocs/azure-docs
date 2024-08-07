@@ -50,4 +50,4 @@ The table below describes information that will help developers convert the audi
 - Public string data is a base64 string that should be converted into a byte array to create raw PCM file.
 
 ## Next Steps
-Check out the [Audio Streaming quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md) to learn more.
+Check out the [audio streaming quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md) to learn more.
