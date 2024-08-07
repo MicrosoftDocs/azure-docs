@@ -83,7 +83,7 @@ Here's an example of the response that provides the system key:
 }
 ```
 
-## <a name="create-a-subscription"></a>Create an event subscription
+## <a name="create-a-subscription"></a>Create the subscription
 
 You can create an event subscription either from the [Azure portal](https://portal.azure.com) or by using the Azure CLI. 
 
