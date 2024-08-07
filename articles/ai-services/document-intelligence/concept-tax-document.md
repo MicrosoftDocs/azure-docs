@@ -27,15 +27,15 @@ monikerRange: ">=doc-intel-3.0.0"
 
 The Document Intelligence contract model uses powerful Optical Character Recognition (OCR) capabilities to analyze and extract key fields and line items from a select group of tax documents. Tax documents can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes document text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports certain English tax document formats.
 
-**Supported document types:**
+**Supported tax form types:**
 
-* `Unified tax US`
+* Unified tax US
 * W-2
 * 1098
 * 1098-E
 * 1098-T
-* 1099 and variations (A, B, C, CAP, `Combo`, DIV, G, H, INT, K, LS, LTC, MISC,  NEC, OID, PATR, Q, QA, R, S, SA, SB​)
-* 1040 and variations (`Schedule 1, Schedule 2, Schedule 3, Schedule 8812, Schedule A, Schedule B, Schedule C, Schedule D, Schedule E, Schedule EIC, Schedule F, Schedule H, Schedule J, Schedule R, Schedule SE, and Schedule Senior`)
+* 1099 and variations (A, B, C, CAP, Combo, DIV, G, H, INT, K, LS, LTC, MISC,  NEC, OID, PATR, Q, QA, R, S, SA, SB​)
+* 1040 and variations (Schedule 1, Schedule 2, Schedule 3, Schedule 8812, Schedule A, Schedule B, Schedule C, Schedule D, Schedule E, Schedule EIC, Schedule F, Schedule H, Schedule J, Schedule R, Schedule SE, and Schedule Senior)
 
 ## Automated tax document processing
 
@@ -43,7 +43,7 @@ Automated tax document processing is the process of extracting key fields from t
 
 ## Unified Tax US
 
-This preview introduces the `Unified US Tax` prebuilt model, which automatically detects and extracts data from `W2`, `1098`, 1`040`, and `1099`  tax forms in submitted documents. These documents can be composed of many tax or non-tax-related documents. The model only processes the forms it supports.
+This preview introduces the `Unified US Tax` prebuilt model, which automatically detects and extracts data from `W2`, `1098`, `1040`, and `1099`  tax forms in submitted documents. These documents can be composed of many tax or non-tax-related documents. The model only processes the forms it supports.
 
 :::image type="content" source="media/us-unified-tax-diagram.png" alt-text="Screenshot of a Unified Tax processing diagram.":::
 
