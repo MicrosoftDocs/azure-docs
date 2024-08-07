@@ -233,7 +233,65 @@ After setting it, restart your application. It now sends telemetry to Applicatio
 
 ### [Python](#tab/python)
 
-To configure a secure connection to Azure using OpenTelemetry, see [Enable Microsoft Entra ID (formerly Azure AD) authentication](./opentelemetry-configuration.md?tabs=python#enable-microsoft-entra-id-formerly-azure-ad-authentication).
+Azure Monitor OpenTelemetry Distro and Azure monitor OpenTelemery exporters for Python support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
+
+- We recommend `DefaultAzureCredential` for local development.
+- We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
+  - For system-assigned, use the default constructor without parameters.
+  - For user-assigned, provide the client ID to the constructor.
+- We recommend `ClientSecretCredential` for service principals.
+  - Provide the tenant ID, client ID, and client secret to the constructor.
+
+If using `azure-monitor-opentelemetry`
+```python
+import os
+# You will need to install azure-identity
+from azure.identity import ManagedIdentityCredential
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
+
+configure_azure_monitor(
+  connection_string=os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"],
+  credential=credential,
+)
+
+tracer = trace.get_tracer(__name__)
+
+with tracer.start_as_current_span("hello"):
+    print("Hello, World!")
+
+```
+
+If using `azure-monitor-opentelemetry-exporter`
+```python
+import os
+# You will need to install azure-identity
+from azure.identity import ClientSecretCredential
+from opentelemetry import trace
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
+
+credential = ClientSecretCredential(
+    tenant_id="<tenant_id",
+    client_id="<client_id>",
+    client_secret="<client_secret>",
+)
+exporter = AzureMonitorTraceExporter.from_connection_string(
+    os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"],
+    credential=credential
+)
+
+trace.set_tracer_provider(TracerProvider())
+tracer = trace.get_tracer(__name__)
+span_processor = BatchSpanProcessor(exporter)
+trace.get_tracer_provider().add_span_processor(span_processor)
+
+with tracer.start_as_current_span("hello with aad managed identity"):
+    print("Hello, World!")
+
+```
 
 To configure using OpenCensus (deprecated), see [Configure and enable Microsoft Entra ID-based authentication](/previous-versions/azure/azure-monitor/app/opencensus-python#configure-and-enable-microsoft-entra-id-based-authentication).
 
