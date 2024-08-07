@@ -807,21 +807,21 @@ Indicates whether the `/home` directory is shared across scaled instances, with 
 
 Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are managed in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
 
-### alwaysOn
+## alwaysOn
 
 On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the Functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP trigger _wakes up_ your function app. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger functions, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
 
-### functionsRuntimeAdminIsolationEnabled
+## functionsRuntimeAdminIsolationEnabled
 
-Determines if the `/admin` endpoints are exposed for the function app. When "false", the app will serve these endpoints, and they can only be accessed using the master key for the function app. When "true", these endpoints are not served by the app.
+Determines whether the built-in administrator (`/admin`) endpoints in your function app can be accessed. When set to `false` (the default), the app allows requests to endpoints under `/admin` when those requests present a [master key](function-keys-how-to.md#understand-keys) in the request. When `true`, `/admin` endpoints can't be accessed, even with a master key.
 
-### linuxFxVersion 
+## linuxFxVersion 
 
 For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a predefined value or a custom image URI.
 
 This value is set for you when you create your Linux function app. You might need to set it for ARM template and Bicep deployments and in certain upgrade scenarios. 
 
-#### Valid linuxFxVersion values
+### Valid linuxFxVersion values
 
 You can use the following Azure CLI command to see a table of current `linuxFxVersion` values, by supported Functions runtime version:
 
@@ -831,7 +831,7 @@ az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, v
 
 The previous command requires you to upgrade to version 2.40 of the Azure CLI.  
 
-#### Custom images
+### Custom images
 
 When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is instead in the format `DOCKER|<IMAGE_URI>`, as in the following example:
 
@@ -842,17 +842,17 @@ This indicates the registry source of the deployed container. For more informati
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
-### netFrameworkVersion
+## netFrameworkVersion
 
 Sets the specific version of .NET for C# functions. For more information, see [Update your function app in Azure](migrate-version-3-version-4.md?pivots=programming-language-csharp#update-your-function-app-in-azure). 
 
-### powerShellVersion 
+## powerShellVersion 
 
 Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). 
 
 When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
-### vnetContentShareEnabled
+## vnetContentShareEnabled
 
 Apps running in a Premium plan use a file share to store content. The name of this content share is stored in the [`WEBSITE_CONTENTSHARE`](#website_contentshare) app setting and its connection string is stored in [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](#website_contentazurefileconnectionstring). To route traffic between your function app and content share through a virtual network, you must also set `vnetContentShareEnabled` to `true`. Enabling this site property is a requirement when [restricting your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) in the Elastic Premium and Dedicated hosting plans.
 
@@ -860,11 +860,11 @@ Apps running in a Premium plan use a file share to store content. The name of th
 
 This site property replaces the legacy [`WEBSITE_CONTENTOVERVNET`](#website_contentovervnet) setting.
 
-### vnetImagePullEnabled
+## vnetImagePullEnabled
 
 Functions [supports function apps running in Linux containers](functions-how-to-custom-container.md). To connect and pull from a container registry inside a virtual network, you must set `vnetImagePullEnabled` to `true`. This site property is supported in the Elastic Premium and Dedicated hosting plans. The Flex Consumption plan doesn't rely on site properties or app settings to configure Networking. For more information, see [Flex Consumption plan deprecations](#flex-consumption-plan-deprecations).
 
-### vnetRouteAllEnabled
+## vnetRouteAllEnabled
 
 Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `true` indicates that all application traffic is routed through the virtual network. Use this setting when configuring [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration) in the Elastic Premium and Dedicated plans. It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
 
