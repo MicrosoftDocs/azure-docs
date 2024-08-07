@@ -8,8 +8,8 @@ author: flang-msft
 
 ### Retrieve the host name from the Azure portal
 
-To connect your Azure Cache for Redis server, the cache client needs the host name and port for the cache. Some clients might refer to these items by slightly different names. You can get the host name, ports, and keys from the [Azure portal](https://portal.azure.com).
+The cache client needs the host name and port for the cache to connect to your Azure Cache for Redis server. Some clients might refer to these items by slightly different names. You can get the host name and ports from the [Azure portal](https://portal.azure.com).
 
-- To get the host name and ports for your cache, select **Overview** from the Resource menu. The host name is of the form `<DNS-name>.redis.cache.windows.net`.
+- Select **Overview** from the Resource menu. The host name is of the form `<DNS-name>.redis.cache.windows.net`.
 
   ![Azure Cache for Redis properties](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
