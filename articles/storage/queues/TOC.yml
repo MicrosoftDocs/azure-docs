@@ -270,7 +270,7 @@
       href: /python/api/overview/azure/storage#management
     - name: JavaScript SDK
       href: /javascript/api/overview/azure/storage#management
-  - name: Monitoring Queue storage data reference
+  - name: Monitoring Queue Storage data reference
     href: monitor-queue-storage-reference.md
   - name: Spring Integration with Azure Storage Queue
     href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/queues/TOC.json#spring-integration-with-azure-storage-queue

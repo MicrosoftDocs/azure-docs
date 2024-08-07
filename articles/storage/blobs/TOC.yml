@@ -1208,7 +1208,7 @@ items:
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
-    - name: Monitoring Blob storage data reference
+    - name: Monitoring Blob Storage data reference
       href: monitor-blob-storage-reference.md
     - name: Host keys (SFTP) support
       href: secure-file-transfer-protocol-host-keys.md
