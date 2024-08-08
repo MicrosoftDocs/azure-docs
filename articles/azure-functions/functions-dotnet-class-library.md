@@ -87,6 +87,8 @@ If your app uses [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https:
 
 You might need to make other changes to your app based on the version support of its other dependencies.
 
+Version 4.x of the Functions runtime provides equivalent functionality for .NET 6 and .NET 8. The in-process model does not include additional features or updates that integrate with new .NET 8 capabilities. For example, the runtime doesn't support keyed services. To take full advantage of the latest .NET 8 capabilities and enhancements, you must [migrate to the isolated worker model](./migrate-dotnet-to-isolated-model.md).
+
 ## Functions class library project
 
 In Visual Studio, the **Azure Functions** project template creates a C# class library project that contains the following files:

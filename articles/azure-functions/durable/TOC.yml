@@ -39,8 +39,8 @@
     href: quickstart-netherite.md
   - name: Configure a storage provider - MSSQL
     href: quickstart-mssql.md
-  - name: Authenticate a Durable Functions app
-    href: durable-functions-configure-durable-functions-with-credentials.md   
+  - name: Configure Durable Functions app with managed identity
+    href: durable-functions-configure-managed-identity.md   
 - name: Tutorials
   items:
   - name: Function chaining
@@ -195,8 +195,8 @@
     href: /answers/topics/azure-functions.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-functions
-  - name: Twitter
-    href: https://twitter.com/hashtag/DurableFunctions?src=hash
+  - name: X
+    href: https://x.com/hashtag/DurableFunctions?src=hash
   - name: Provide product feedback
     href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
   - name: Durable Functions GitHub repository

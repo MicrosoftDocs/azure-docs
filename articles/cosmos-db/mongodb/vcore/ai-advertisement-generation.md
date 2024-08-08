@@ -5,7 +5,7 @@ description: Demonstrates the use of Azure Cosmos DB for MongoDB vCore's vector 
 author: khelanmodi
 ms.author: khelanmodi
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: concept-article
 ms.date: 03/12/2024

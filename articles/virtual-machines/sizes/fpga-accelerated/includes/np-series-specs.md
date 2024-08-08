@@ -1,19 +1,20 @@
 ---
-title: NP-series specs include
+title: NP series specs include
 description: Include file containing specifications of NP-series VM sizes.
-services: virtual-machines
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
-ms.date: 04/18/2024
+ms.date: 07/31/2024
 ms.author: mattmcinnes
+ms.reviewer: mattmcinnes
 ms.custom: include file
 ---
-| Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
+| Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor        | 10 - 40<sup>vCores   | Intel® Xeon® 8171M (Skylake)                   |
-| Memory           | 168 - 672<sup>GiB    |                                                |
-| Data Disks       | 8 - 32<sup>Disks     |                                                |
-| Network          | 1 - 4<sup>NICs       | 7500 - 30000<sup>Mbps                          |
-| Accelerators     | 1 - 4<sup>FPGAs</sup>  | [Xilinx U250](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) 64<sup>GiB </sup> <br> 64 - 256<sup>GiB</sup> per VM |
+| Processor      | 10 - 40 vCPUs     | Intel Xeon 8171M (Skylake) [x86-64] |
+| Memory         | 168 - 672 GiB        |    |
+| Local Storage  | 1 Disk         | 736 - 2948 GiB  |
+| Remote Storage | 8 - 32 Disks        |  |
+| Network        | 1 - 4 NICs        | 7500 - 30000 Mbps |
+| Accelerators   | 1 - 4 FPGAs            | AMD Alveo U250 FPGA (64GB)    |

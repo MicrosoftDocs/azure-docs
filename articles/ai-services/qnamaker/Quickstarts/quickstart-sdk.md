@@ -46,7 +46,7 @@ Get started with the QnA Maker client library. Follow these steps to install the
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

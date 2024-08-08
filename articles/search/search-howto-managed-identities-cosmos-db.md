@@ -95,7 +95,7 @@ When you're connecting with a system-assigned managed identity, the only change 
 Here's an example of how to create a data source to index data from a Cosmos DB account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 {
     "name": "my-cosmosdb-ds",
     "type": "cosmosdb",
@@ -125,7 +125,7 @@ When you're connecting with a user-assigned managed identity, there are two chan
 Here's an example of how to create an indexer data source object using the REST API.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 
 {
     "name": "[my-cosmosdb-ds]",

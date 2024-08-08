@@ -5,7 +5,7 @@ description: Learn about the Conversion errors and warnings you may meet while y
 author: faterceros
 ms.author: aterceros
 ms.date: 05/21/2021
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 

@@ -5,7 +5,7 @@ description:  Set up MLflow with Azure Machine Learning to log metrics and artif
 services: machine-learning
 author: msakande
 ms.author: mopeakande
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.reviewer: fasantia
 ms.date: 07/01/2022

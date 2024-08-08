@@ -5,8 +5,7 @@ ms.date: 07/26/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: cherylmc
-ms.author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ---
 
 # Azure VPN Gateway monitoring data reference

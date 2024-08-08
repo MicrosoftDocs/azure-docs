@@ -3,7 +3,7 @@ title: Security in Azure Managed Instance for Apache Cassandra - overview
 description: Learn about database security best practices and key features offered by Azure Managed Instance for Apache Cassandra. These help you prevent, detect, and respond to database breaches.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: references_regions

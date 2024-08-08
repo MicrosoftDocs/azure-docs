@@ -1,7 +1,7 @@
 ---
 title: 'Microsoft Defender for Azure Cosmos DB'
 description: Learn how Microsoft Defender provides advanced threat protection on Azure Cosmos DB.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 06/21/2022
@@ -35,7 +35,7 @@ Microsoft Defender for Azure Cosmos DB detects anomalous activities indicating u
 
 ## Configure Microsoft Defender for Azure Cosmos DB
 
-See [Enable Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/defender-for-databases-enable-cosmos-protections.md).
+See [Enable Microsoft Defender for Azure Cosmos DB](/azure/defender-for-cloud/defender-for-databases-enable-cosmos-protections).
 
 ## Manage security alerts
 
@@ -49,5 +49,5 @@ When Azure Cosmos DB activity anomalies occur, a security alert is triggered wit
 
 ## Next steps
 
-* Learn more about [Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/concept-defender-for-cosmos.md)
+* Learn more about [Microsoft Defender for Azure Cosmos DB](/azure/defender-for-cloud/concept-defender-for-cosmos)
 * Learn more about [Diagnostic logging in Azure Cosmos DB](../monitor-resource-logs.md)

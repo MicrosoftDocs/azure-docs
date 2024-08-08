@@ -1,6 +1,6 @@
 ---
 author: alexwolfmsft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.topic: include
 ms.date: 07/08/2022

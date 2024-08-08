@@ -5,7 +5,7 @@ description: Scale an Azure Cosmos DB for MongoDB vCore cluster by changing the 
 author: avijitgupta
 ms.author: avijitgupta
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
 ms.date: 07/01/2024

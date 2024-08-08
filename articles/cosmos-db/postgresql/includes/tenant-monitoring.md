@@ -3,7 +3,7 @@ title: Multi-tenant monitoring - Azure Cosmos DB for PostgreSQL
 description: Multi-tenant metrics tracking summary
 ms.author: avijitgupta
 author: AvijitkGupta
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: include
 ms.date: 06/05/2023

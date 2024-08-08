@@ -4,7 +4,7 @@ description: An overview of how to securely run microservices applications on Se
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -117,7 +117,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 * [Learn about cluster security](service-fabric-cluster-security.md)
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/general/overview.md
+[key-vault-get-started]:/azure/key-vault/general/overview
 [config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 

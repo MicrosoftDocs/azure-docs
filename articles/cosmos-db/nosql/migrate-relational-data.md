@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn how to perform a complex data migration for one-to-few relationships from a relational database into Azure Cosmos DB for NoSQL.
 ms.author: thvankra
 author: TheovanKraay
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.devlang: python

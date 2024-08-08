@@ -3,7 +3,7 @@ title: Monitor statistics with multi-tenant monitoring on Azure Cosmos DB for Po
 description: how to monitor multi-tenant stats on Azure Cosmos DB for PostgreSQL
 ms.author: avijitgupta
 author: AvijitkGupta
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
 ms.date: 06/05/2023

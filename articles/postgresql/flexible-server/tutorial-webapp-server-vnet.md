@@ -5,7 +5,7 @@ author: gbowerman
 ms.author: guybo
 ms.reviewer: maghan
 ms.date: 05/09/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
 ms.custom:

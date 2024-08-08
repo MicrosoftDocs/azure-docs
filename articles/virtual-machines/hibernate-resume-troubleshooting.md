@@ -2,7 +2,7 @@
 title: Troubleshoot hibernation in Azure
 description: Learn how to troubleshoot VM hibernation.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 05/16/2024
 ms.author: jainan

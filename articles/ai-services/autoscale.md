@@ -67,7 +67,6 @@ Yes, you can disable the autoscale feature through Azure portal or CLI and retur
 
 Autoscale feature is available for the following services:
 
-* [Azure AI services multi-key](./multi-service-resource.md?pivots=azportal)
 * [Azure AI Vision](computer-vision/index.yml)
 * [Language](language-service/overview.md) (only available for sentiment analysis, key phrase extraction, named entity recognition, and text analytics for health)
 * [Anomaly Detector](anomaly-detector/overview.md)
