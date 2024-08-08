@@ -48,7 +48,7 @@ Scheduled Events provides events in the following use cases:
 
 ## The Basics  
 
-The [Instance Metadata Service (IMDS)](../instance-metadata-service.md) exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP and isn't exposed outside the VM.
+The [Instance Metadata Service (IMDS)](instance-metadata-service.md) exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP and isn't exposed outside the VM.
 
 ### Scope
 Scheduled events are delivered to and can be acknowledged by:
