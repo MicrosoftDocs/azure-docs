@@ -98,42 +98,17 @@ Follow the following steps to create the resource group, client container app an
 1. Search for **Container Apps** in the Azure portal and select **Create**
 2. Enter the following values to **Basics** tab. You need to select **Create new** in **Resource group** and **Container Apps Environment** to create the new resource. 
 
-| Setting | Value |
-|---|---|
-| Subscription | Your own subscription |
-| Resource group | my-services-resource-group |
-| Container app name | sample-service-eureka-client |
-| Deployment source | Container image |
-| Region | East US |
-| Container Apps Environment | my-environment |
-
   :::image type="content" source="media/java-components/create-containerapp-eureka.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-eureka.png":::
 
-1. In **Container** tab, select or enter the following values and leave others be the default.
-
-| Setting | Value |
-|---|---|
-| Name | sample-service-eureka-client |
-| Image source | Docker Hub or other registeries |
-| Image type | Public |
-| Registry login server | mcr.microsoft.com |
-| Image and tag | javacomponents/samples/sample-service-eureka-client:latest |
+3. In **Container** tab, select or enter the following values and leave others be the default.
 
   :::image type="content" source="media/java-components/select-eureka-image.png" alt-text="Screenshot of select image when create container apps."  lightbox="media/java-components/select-eureka-image.png":::
 
-1. In Ingress tab, select or enter the following values and leave others be the default, then click **Review + create**
-  
-| Setting | Value |
-|---|---|
-| Ingress | Enabled |
-| Ingress traffic | Accepting traffic from anywhere |
-| Ingress type | HTTP |
-| Transport | Auto |
-| Target port | 8080 |
+4. In Ingress tab, select or enter the following values and leave others be the default, then click **Review + create**
    
   :::image type="content" source="media/java-components/config-ingress.png" alt-text="Screenshot of config ingress when create container apps."  lightbox="media/java-components/config-ingress.png":::
 
-1. Click **Create** after validation passed
+5. Click **Create** after validation passed
 
 ---
 
@@ -170,16 +145,12 @@ Now that you have an existing environment and eureka client container app, creat
    
   :::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
 
-1. In new **Configure Java component** panel, select or enter the following values and leave others be the default, and then select **Next**
-
-| Setting | Value |
-|---|---|
-| Java component type | Eureka Server for Spring |
-| Java component name | eureka |
+2. In new **Configure Java component** panel, select or enter the following values and leave others be the default, and then select **Next**
 
   :::image type="content" source="media/java-components/create-eureka-java-component.png" alt-text="Screenshot of how to create Eureka Java component."  lightbox="media/java-components/create-eureka-java-component.png":::
 
-1. Click **Configure** on **Review** page
+3. Click **Configure** on **Review** page
+
 ---
 
 ## Bind your container app to the Eureka Server for Spring Java component
@@ -204,7 +175,7 @@ Now that you have an existing environment and eureka client container app, creat
 1.  Go to your container app environment page, select **Service** on the left panel
 2.  Select **eureka** in Service list
 3.  Under bindings, select app **sample-service-eureka-client**, Click **Next**
-4.  Click **Configure**
+4.  Click **Configure** on **Review** page
   
   :::image type="content" source="media/java-components/app-bind-eureka.png" alt-text="Screenshot of container app bind with eureka."  lightbox="media/java-components/app-bind-eureka.png":::
 
@@ -243,7 +214,7 @@ To remove a binding from a container app, use the `--unbind` option.
 1.  Go to your container app environment page, select **Service** on the left panel
 2.  Select **eureka** in Service list
 3.  Under bindings, select Delete after app **sample-service-eureka-client**, Click **Next**
-4.  Click **Configure**
+4.  Click **Configure** on **Review** page
   
   :::image type="content" source="media/java-components/app-unbind-eureka.png" alt-text="Screenshot of container app unbind with eureka."  lightbox="media/java-components/app-unbind-eureka.png":::
 

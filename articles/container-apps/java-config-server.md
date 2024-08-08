@@ -102,45 +102,20 @@ Execute the following commands to create your resource group and Container Apps 
 
 Follow the following steps to create the resource group, client container app and container apps environment.
 
-1. Search for *Container Apps* in the Azure portal and select *Create*
-2. Enter the following values to *Basics* tab. You need to select *Create new* in *Resource group* and *Container Apps Environment* to create the new resource. 
-
-| Setting | Value |
-|---|---|
-| Subscription | *Your own subscription* |
-| Resource group | *my-services-resource-group* |
-| Container app name | *my-config-client* |
-| Deployment source | *Container image* |
-| Region | *East US* |
-| Container Apps Environment | *my-environment* |
+1. Search for **Container Apps** in the Azure portal and select **Create**
+2. Enter the following values to **Basics** tab. You need to select **Create new** in **Resource group** and **Container Apps Environment** to create the new resource. 
 
   :::image type="content" source="media/java-components/create-containerapp-config.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-config.png":::
 
-1. In Container tab, select or enter the following values and leave others be the default.
-
-| Setting | Value |
-|---|---|
-| Name | *my-config-client* |
-| Image source | *Docker Hub or other registeries* |
-| Image type | *Public* |
-| Registry login server | *mcr.microsoft.com* |
-| Image and tag | *javacomponents/samples/sample-service-config-client:latest* |
+3. In Container tab, select or enter the following values and leave others be the default.
 
   :::image type="content" source="media/java-components/select-config-image.png" alt-text="Screenshot of select image when create container apps."  lightbox="media/java-components/select-config-image.png":::
 
-1. In Ingress tab, select or enter the following values and leave others be the default, then click *Review + create*
-
-| Setting | Value |
-|---|---|
-| Ingress | *Enabled* |
-| Ingress traffic | *Accepting traffic from anywhere* |
-| Ingress type | *HTTP* |
-| Transport | *Auto* |
-| Target port | *8080* |
+4. In Ingress tab, select or enter the following values and leave others be the default, then click **Review + create**
    
   :::image type="content" source="media/java-components/config-ingress.png" alt-text="Screenshot of config ingress when create container apps."  lightbox="media/java-components/config-ingress.png":::
 
-1. Click *Create* after validation passed
+5. Click **Create** after validation passed
 
 ---
 
@@ -176,24 +151,19 @@ Now that you have a Container Apps environment, you can create your container ap
 
 Now that you have an existing environment and config server client container app, create a Java component instance of Config Server for Spring.
 
-1. Go to your container app environment page, select *Service* on the left panel, and then select *Configure*, *Java component*
+1. Go to your container app environment page, select **Service** on the left panel, and then select **Configure**, **Java component**
 
   :::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
 
-1. In new *Configure Java component* panel, select or enter the following values and leave others be the default, and then select *Next*
-
-| Setting | Value |
-|---|---|
-| Java component type | *Config Server for Spring* |
-| Java component name | *configserver* |
+2. In new **Configure Java component** panel, select or enter the following values and leave others be the default, and then select **Next**
 
   :::image type="content" source="media/java-components/create-config-server-java-component.png" alt-text="Screenshot of how to create Config Server Java component."  lightbox="media/java-components/create-config-server-java-component.png":::
 
-1. Select *Add* under *Git repositories*, Enter *URI* value *https://github.com/Azure-Samples/azure-spring-cloud-config-java-aca.git* under Add Git repository, select *Add*
+3. Select **Add** under **Git repositories**, Enter **URI** value `https://github.com/Azure-Samples/azure-spring-cloud-config-java-aca.git` under Add Git repository, select **Add**
   
   :::image type="content" source="media/java-components/configure-git-uri.png" alt-text="Screenshot of how to configure config server git uri."  lightbox="media/java-components/configure-git-uri.png":::
 
-2. Click *Configure* on *Review* page
+4. Click **Configure** on **Review** page
 ---
 
 ## Bind your container app to the Config Server for Spring Java component
@@ -233,14 +203,14 @@ Now that you have an existing environment and config server client container app
 
 ### [Azure portal](#tab/azure-portal)
 
-1.  Go to your container app environment page, select *Service* on the left panel
-2.  Select *configserver* in Service list
-3.  Under bindings, select app *my-config-client*, Click *Next*
-4.  Click *Configure*
+1.  Go to your container app environment page, select **Service** on the left panel
+2.  Select **configserver** in Service list
+3.  Under bindings, select app **my-config-client**, Click **Next**
+4.  Click Click **Configure** on **Review** page
   
   :::image type="content" source="media/java-components/app-bind-configserver.png" alt-text="Screenshot of container app bind with config server."  lightbox="media/java-components/app-bind-configserver.png":::
 
-5. Go to your container app *my-config-client* page, get the *Application URL* of the container app
+5. Go to your container app **my-config-client** page, get the **Application URL** of the container app
 ---
 
 
@@ -273,10 +243,10 @@ You can also remove a binding from your application.
     --resource-group $RESOURCE_GROUP
   ```
 ### [Azure portal](#tab/azure-portal)
-1.  Go to your container app environment page, select *Service* on the left panel
-2.  Select *configserver* in Service list
-3.  Under bindings, select app *my-config-client*, Click *Next*
-4.  Click *Configure*
+1.  Go to your container app environment page, **Service** on the left panel
+2.  Select **configserver** in Service list
+3.  Under bindings, select app **my-config-client**, Click **Next**
+4.  Click **Configure** on **Review** page
   
   :::image type="content" source="media/java-components/app-unbind-configserver.png" alt-text="Screenshot of container app unbind with config server."  lightbox="media/java-components/app-unbind-configserver.png":::
 ---
