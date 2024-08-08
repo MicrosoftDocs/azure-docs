@@ -4,7 +4,7 @@ ms.service: azure-functions
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 06/18/2024
+ms.date: 08/08/2024
 ms.author: glenga
 ---
 | Resource |[Consumption plan](/azure/azure-functions/consumption-plan)|[Flex Consumption plan](/azure/azure-functions/flex-consumption-plan)<sup>13</sup>|[Premium plan](/azure/azure-functions/functions-premium-plan)|[Dedicated plan](/azure/azure-functions/dedicated-plan)/[ASE](/azure/app-service/environment/intro)| [Container Apps](/azure/azure-functions/functions-container-apps-hosting)|
@@ -22,7 +22,7 @@ ms.author: glenga
 | [App Service plans](/azure/app-service/overview-hosting-plans) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) | n/a | 100 per resource group |100 per resource group | n/a |
 | [Deployment slots](/azure/azure-functions/functions-deployment-slots) per app<sup>11</sup> | 2 | n/a | 3 | 1-20<sup>10</sup> | not supported |
 | Storage (temporary)<sup>5</sup> | 0.5 GB | 0.8 GB | 21-140 GB |11-140 GB | n/a |
-| Storage (persisted) | 1 GB<sup>6</sup> | 0 GB | 250 GB |10-1000 GB<sup>10</sup> | n/a |
+| Storage (persisted) | 1 GB<sup>6</sup> | 0 GB<sup>6</sup> | 250 GB |10-1000 GB<sup>10</sup> | n/a |
 | Custom domains per app</a> |500<sup>7</sup> | 500 | 500 | 500 | not supported |
 | Custom domain [SSL support](/azure/app-service/configure-ssl-bindings) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | not supported |
 
