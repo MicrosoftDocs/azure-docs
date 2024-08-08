@@ -5,6 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
+ms.collection: ce-skilling-ai-copilot
 ms.custom: mvc
 ms.date: 08/07/2024
 ---
