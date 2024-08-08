@@ -225,25 +225,28 @@ Updating computed properties on an existing container is not supported in Python
 > [!TIP]
 > Every time you update container properties, the old values are overwritten. If you have existing computed properties and want to add new ones, be sure that you add both new and existing computed properties to the collection.
 
-### Create computed properties using azure data explorer in azure portal
- 
-You can create computed properties in azure data explorer in azure portal also. 
+### Create computed properties by using the Data Explorer
 
-- Click the *Scale & Settings* under the container name.
-- Click the *computed properties* tab.
-- Create and define the compute property. Below is the sample computed property.
+You can use the Data Explorer to create a computed property for a container.
 
-```json
-[
-    {
-        "name": "cp_lowerName",
-        "query": "SELECT VALUE LOWER(c.name) FROM c"
-    }
-]
-```
-- Click *Save* to save the computed property.
+1. Open your existing container in the Data Explorer.
 
-![create_computed_property_using_data_explorer](https://i.imgur.com/47aQNsw.png)
+1. Navigate to the **Settings** section for you container. Then, navigate to the **Computed Properties* sub-section.
+
+1. Edit the computed properties definition JSON for your container. In this example, this JSON is used to define a computed property to split the `SKU` string for a retail product using the `-` delimeter.
+
+    ```json
+    [
+      {
+        "name": "cp_splitSku",
+        "query": "SELECT VALUE StringSplit(p.sku, \"-\") FROM products p"
+      }
+    ]
+    ```
+
+    :::image type="content" source="media/computed-properties/data-explorer.png" alt-text="Screenshot of the computed properties JSON editor in the Data Explorer interface.":::
+
+1. **Save** the computed property.
 
 ## Use computed properties in queries
 
