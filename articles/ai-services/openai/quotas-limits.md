@@ -104,6 +104,7 @@ The Usage Limit determines the level of usage above which customers might see la
 #### GPT-4 standard
 
 |Model| Usage Tiers per month|
+|---|---|
 | `gpt-4` + `gpt-4-32k`  (all versions) | 4 Billion |
 
 
