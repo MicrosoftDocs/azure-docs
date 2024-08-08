@@ -52,7 +52,7 @@ sections:
         answer: |
           **Yes.**
 
-          Document Intelligence now includes [custom generative](concept-custom.md) a new type of extraction model that uses Generative AI and large language models (LLMs) to extract fields from documents. In the past, you may have used a RAG (retrieval augmented generation) pattern to extract fields. The new model provides high quality results with a single API call.
+          Document Intelligence now includes [custom generative](concept-custom.md) a new type of extraction model that uses Generative AI and large language models (LLMs) to extract fields from documents. In the past, you used a RAG (retrieval augmented generation) pattern to extract fields. The new model provides high quality results with a single API call.
           You can also use a document generative AI solution to chat with your documents (RAG), generate captivating content from those documents, and access Azure OpenAI Service models on your data.
 
           - With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents using natural language. You can easily find answers, gain valuable insights, and generate new and engaging content from existing documents.
@@ -299,7 +299,7 @@ sections:
 
         Custom neural models have a limit on the number of models/the amount of time that models can be trained for free. The first 10 hours of training are free. If training a single model for longer than 10 hours or training multiple models that exceed the 10 hour limit, you need to enable paid training by setting a training budget. See [training a custom neural model](concept-custom-neural.md) for details. 
         
-        For v3.0 or v3.1 models the paid training tier only applies to additional models, the training time per model is not configurable.
+        For v3.0 or v3.1 models the paid training tier only applies to added models, the training time per model isn't configurable.
 
   - name: Storage account
     questions:
