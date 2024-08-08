@@ -7,7 +7,7 @@ metadata:
   ms.service: azure-ai-document-intelligence
   ms.custom: references_regions
   ms.topic: faq
-  ms.date: 07/09/2024
+  ms.date: 08/08/2024
   ms.author: lajanuar
 title: Frequently asked questions
 summary: |
@@ -289,11 +289,17 @@ sections:
         The copy operation is limited to copying models within the specific cloud environment where you trained the model. For instance, copying models from the public cloud to the Azure Government cloud isn't supported.
 
     - question: |
-        Am I charged when training a custom  models?
+        Am I charged when training a custom models?
       answer: |
-        Training is free for all custom generative and custom template models. Creating the training dataset for all models requires running the Layout model on the training documents. Customers are responsible for this cost. Custom generative also relies on the auto label feature to speed up the generation of the labeled dataset. There is a cost associated with this action. While the build operation for template and generative models is free, creating the labeled dataset can result in some minimal costs.
+        **Yes**
 
- Custom neural models have a limit on the number of models/the amount of time that models can be trained for free. The first 10 hours of training are free. If training a single model for longer than 10 hours or training multiple models that exceed the 10 hour limit, you will need to enable paid training by setting a training budget. See [training a custom neural model](/concept-custom-neural.md) for details. For v3.0 or v3.1 models the paid training tier only applies to additional models, the training time per model is not configurable.
+        Although training is free for all custom generative and custom template models, creating the training dataset for all models requires running the Layout model on the training documents. Customers are responsible for this cost. 
+        
+        Custom generative models also rely on the auto label feature to speed up the generation of the labeled dataset. There is a cost associated with this action. While the build operation for template and generative models is free, creating the labeled dataset can result in some minimal costs.
+
+        Custom neural models have a limit on the number of models/the amount of time that models can be trained for free. The first 10 hours of training are free. If training a single model for longer than 10 hours or training multiple models that exceed the 10 hour limit, you will need to enable paid training by setting a training budget. See [training a custom neural model](concept-custom-neural.md) for details. 
+        
+        For v3.0 or v3.1 models the paid training tier only applies to additional models, the training time per model is not configurable.
 
   - name: Storage account
     questions:
