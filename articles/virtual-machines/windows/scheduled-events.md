@@ -20,7 +20,7 @@ Scheduled Events is an Azure Metadata Service that gives your application time t
 
 For information about Scheduled Events on Linux, see [Scheduled Events for Linux VMs](../linux/scheduled-events.md).
 
-Scheduled Events provide proactive notifications about upcoming events. For reactive information about events that have already happened, see [VM availability information in Azure Resource Graph](../resource-graph-availability.md) and [Create availability alert rule for Azure virtual machine](../../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md). 
+Scheduled events provide proactive notifications about upcoming events. For reactive information about events that have already happened, see [VM availability information in Azure Resource Graph](../resource-graph-availability.md) and [Create availability alert rule for Azure virtual machine](../../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md). 
 
 > [!Note] 
 > Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
@@ -124,9 +124,9 @@ previous_list_of_scheduled_events = current_list_of_scheduled_events
 ```
 As scheduled events are often used for applications with high availability requirements, there are a few exceptional cases that should be considered:
 
-1. Once a scheduled event is completed and removed from the array, there will be no further impacts without a new event including another EventStatus:"Scheduled" event
+1. Once a scheduled event is completed and removed from the array, there will be no further impacts without a new event including another EventStatus:"Scheduled" event.
 2. Azure monitors maintenance operations across the entire fleet and in rare circumstances determines that a maintenance operation too high risk to apply. In that case the scheduled event goes directly from “Scheduled” to being removed from the events array.
-3. In the case of hardware failure, Azure bypasses the “Scheduled” state and immediately moves to the EventStatus:"Started" state. 
+3. In the case of hardware failure, Azure bypasses the “Scheduled” state and immediately moves to the EventStatus:"Started" state.
 4. While the event is still in EventStatus:"Started" state, there may be another impact of a shorter duration than what was listed in the scheduled event.
 
 As part of Azure’s availability guarantee, VMs in different fault domains won't be impacted by routine maintenance operations at the same time. However, they may have operations serialized one after another. VMs in one fault domain can receive scheduled events with EventStatus:"Scheduled" shortly after another fault domain’s maintenance is completed. Regardless of what architecture you chose, always keep checking for new events pending against your VMs.
