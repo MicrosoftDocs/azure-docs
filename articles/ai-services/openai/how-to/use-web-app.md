@@ -167,7 +167,7 @@ This can be accomplished using the Advanced edit or simple Edit options as previ
 
 ### Using Azure AI Studio
 
-Follow [this tutorial on integrating Azure AI Search with AI Studio](https://learn.microsoft.com/azure/ai-studio/tutorials/deploy-chat-web-app#add-your-data-and-try-the-chat-model-again) and redeploy your application.
+Follow [this tutorial on integrating Azure AI Search with AI Studio](/azure/ai-studio/tutorials/deploy-chat-web-app#add-your-data-and-try-the-chat-model-again) and redeploy your application.
 
 ### Using Azure OpenAI Studio
 
