@@ -31,9 +31,10 @@ Select the appropriate link to download the latest version.
 
 ## What's new
 
-This release contains the following bug fixes:
+Lorem ipsum odor amet, consectetuer adipiscing elit. Luctus dis neque et amet pharetra consequat quis. Est senectus ligula purus massa facilisis lectus fames est. Aliquam praesent dui lobortis phasellus, ex turpis eget ut. Cubilia dapibus tempor viverra placerat ridiculus congue hac diam. Odio porta et nec molestie; sociosqu gravida erat.
 
 ## Bug Fixes
+This release contains the following bug fixes:
 
 - **web UI certificate format** - Implemented bug fixes pertaining to the web UI certificate format, potentially causing compatibility issues when using web-UI.
 
