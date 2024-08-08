@@ -5,7 +5,7 @@ description: Evaluate and deploy a RAG-based copilot with the prompt flow SDK. T
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 7/18/2024
+ms.date: 8/6/2024
 ms.reviewer: lebaro
 ms.author: sgilley
 author: sdgilley
@@ -17,9 +17,6 @@ author: sdgilley
 In this [Azure AI Studio](https://ai.azure.com) tutorial, you use the prompt flow SDK (and other libraries) to  evaluate and deploy the copilot you built in [Part 1 of the tutorial series](copilot-sdk-build-rag.md).
 
 This tutorial is part two of a two-part tutorial.
-
-> [!TIP]
-> This tutorial is based on code in the sample repo for a [copilot application that implements RAG](https://github.com/Azure-Samples/rag-data-openai-python-promptflow).
 
 In this part two, you learn how to:
 
@@ -69,7 +66,7 @@ Now define an evaluation script that will:
 - Load the sample `.jsonl` dataset.
 - Generate a target function wrapper around our copilot logic.
 - Run the evaluation, which takes the target function, and merges the evaluation dataset with the responses from the copilot.
-- Generate a set of GPT-assisted metrics (Relevance, Groundedness, and Coherence) to evaluate the quality of the copilot responses.
+- Generate a set of GPT-assisted metrics (relevance, groundedness, and coherence) to evaluate the quality of the copilot responses.
 - Output the results locally, and logs the results to the cloud project.
 
 The script allows you to review the results locally, by outputting the results in the command line, and to a json file.
@@ -327,5 +324,5 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 
 ## Related content
 
-> [!div class="nextstepaction"]
-> [Learn more about prompt flow](../how-to/prompt-flow.md)
+- [Learn more about prompt flow](../how-to/prompt-flow.md)
+- For a sample copilot application that implements RAG, see [Azure-Samples/rag-data-openai-python-promptflow](https://github.com/Azure-Samples/rag-data-openai-python-promptflow)

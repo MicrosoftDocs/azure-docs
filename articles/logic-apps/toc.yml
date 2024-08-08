@@ -456,9 +456,11 @@ items:
       - name: Monitor workflows
         href: monitor-logic-apps-overview.md
       - name: View workflow status and run history
-        href: monitor-logic-apps.md
+        href: view-workflow-status-run-history.md
       - name: View health and performance metrics
         href: view-workflow-metrics.md
+      - name: Enable Health Check for Standard workflows
+        href: monitor-health-standard-workflows.md
       - name: Enable and view enhanced telemetry for Standard workflows
         href: enable-enhanced-telemetry-standard-workflows.md
       - name: Monitor and collect diagnostic data for workflows
