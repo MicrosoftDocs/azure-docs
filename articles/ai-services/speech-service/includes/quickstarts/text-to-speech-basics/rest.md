@@ -18,7 +18,7 @@ ms.author: eur
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Synthesize to a file
+## Synthesize speech to a file
 
 At a command prompt, run the following cURL command. Optionally, you can rename *output.mp3* to another output file name.
 
@@ -72,15 +72,15 @@ The provided text should be output to an audio file named *output.mp3*.
 
 To change the speech synthesis language, replace `en-US-AvaMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is *I'm excited to try text to speech* and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 For more information, see [Text to speech REST API](../../../rest-text-to-speech.md).
 
 ## Remarks
 
-### OpenAI text to speech voices in Azure AI Speech
+### OpenAI text-to-speech voices in Azure AI Speech
 
-OpenAI text to speech voices are also supported. See [OpenAI text to speech voices in Azure AI Speech](../../../openai-voices.md) and [multilingual voices](../../../language-support.md?tabs=tts#multilingual-voices). You can replace `en-US-AvaMultilingualNeural` with a supported OpenAI voice name such as `en-US-FableMultilingualNeural`.
+OpenAI text-to-speech voices are also supported. See [OpenAI text to speech voices in Azure AI Speech](../../../openai-voices.md) and [multilingual voices](../../../language-support.md?tabs=tts#multilingual-voices). You can replace `en-US-AvaMultilingualNeural` with a supported OpenAI voice name such as `en-US-FableMultilingualNeural`.
 
 ## Clean up resources
 
