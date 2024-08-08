@@ -5,8 +5,6 @@ description: Extract print and handwritten text from scanned and digital documen
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/07/2024
 ms.author: lajanuar
@@ -135,7 +133,7 @@ POST /documentModels/prebuilt-read:analyze?output=pdf
 202
 ```
 
-Poll for completion of the `Analyze` operation. Once the operation is complete, issue a `GET` request to retrieve the PDF format of the `Analyze` operation results .
+Poll for completion of the `Analyze` operation. Once the operation is complete, issue a `GET` request to retrieve the PDF format of the `Analyze` operation results.
 
 Upon successful completion, the PDF can be retrieved and downloaded as `application/pdf`. This operation allows direct downloading of the embedded text form of PDF instead of Base64-encoded JSON.
 
