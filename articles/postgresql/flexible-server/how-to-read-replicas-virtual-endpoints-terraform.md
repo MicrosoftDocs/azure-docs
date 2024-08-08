@@ -111,9 +111,12 @@ Initialize Terraform and apply the configuration.
 
 Confirm the apply action when prompted. Terraform provisions the resources and configure the virtual endpoints as specified.
 
+
+For additional info about Virtual endpoints, refer to [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints)
+
 ## Related content
 
-- [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints)
+- [Create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints)
 - [Read replicas - overview](concepts-read-replicas.md)
 - [Geo-replication](concepts-read-replicas-geo.md)
 - [Promote read replicas](concepts-read-replicas-promote.md)
