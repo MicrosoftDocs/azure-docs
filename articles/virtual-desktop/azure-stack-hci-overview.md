@@ -38,7 +38,7 @@ Using Azure Virtual Desktop on Azure Stack HCI, you can:
 
 Your Azure Stack HCI clusters need to be running a minimum of [version 23H2](/azure-stack/hci/release-information) and [registered with Azure](/azure-stack/hci/deploy/register-with-azure).
 
-Once you're cluster is ready, you can use the following 64-bit operating system images for your session hosts that are in support:
+Once your cluster is ready, you can use the following 64-bit operating system images for your session hosts that are in support:
 
 - Windows 11 Enterprise multi-session
 - Windows 11 Enterprise
