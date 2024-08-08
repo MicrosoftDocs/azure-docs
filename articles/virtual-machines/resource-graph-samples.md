@@ -5,7 +5,7 @@ ms.date: 07/07/2022
 ms.topic: sample
 author: ju-shim
 ms.author: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom: subject-resourcegraph-sample, devx-track-azurepowershell, devx-track-azurecli
 ---
 
