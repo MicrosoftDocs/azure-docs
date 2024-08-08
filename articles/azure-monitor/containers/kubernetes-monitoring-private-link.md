@@ -127,7 +127,7 @@ Use the following procedures to enable network isolation by connecting your clus
 4. Enable monitoring for the AKS cluster.
 
     ```cli
-    az aks enable-addons -a monitoring --resource-group <AKSClusterResourceGorup> --name <AKSClusterName> --workspace-resource-id <workspace-resource-id>
+    az aks enable-addons -a monitoring --resource-group <AKSClusterResourceGorup> --name <AKSClusterName> --workspace-resource-id <workspace-resource-id> --enable-msi-auth-for-monitoring false
     ```
 
 

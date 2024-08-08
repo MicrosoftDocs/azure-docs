@@ -80,7 +80,7 @@ Use one of the following methods to enable scraping of Prometheus metrics from y
 > If you have a single Azure Monitor Resource that is private-linked, then Prometheus enablement won't work if the AKS cluster and Azure Monitor Workspace are in different regions.
 > The configuration needed for the Prometheus add-on isn't available cross region because of the private link constraint.
 > To resolve this, create a new DCE in the AKS cluster location and a new DCRA (association) in the same AKS cluster region. Associate the new DCE with the AKS cluster and name the new association (DCRA) as configurationAccessEndpoint.
-> For full instructions on how to configure the DCEs associated with your Azure Monitor workspace to use a Private Link for data ingestion, see [Use a private link for Managed Prometheus data ingestion](../essentials/private-link-data-ingestion.md).
+> For full instructions on how to configure the DCEs associated with your Azure Monitor workspace to use a Private Link for data ingestion, see [Enable private link for Kubernetes monitoring in Azure Monitor](./kubernetes-monitoring-private-link.md).
 
 ### [CLI](#tab/cli)
 
