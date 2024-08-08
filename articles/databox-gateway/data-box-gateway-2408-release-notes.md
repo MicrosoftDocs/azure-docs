@@ -42,13 +42,12 @@ This release contains the following bug fixes:
 
 This release contains the following updates:
 
-1. Migration to a newer OS version, providing better long term security and vulnerability management.
-1. Defense in depth:
+1. **Migration to a newer OS version** - Provides better long term security and vulnerability management.
+1. **Defense in depth.**
     - Malware protection on OS disk
     - Device Guard Siging Service support for more stringent checks on the binary signing.
     - Utilizing a newer .NET framework for better security.
-1. 
-1. Hypervisor support for Hyper-V 2022.
+1. **Improved Hypervisor support** - Support added for Hyper-V 2022.
 
 ## Known issues in this release
 
