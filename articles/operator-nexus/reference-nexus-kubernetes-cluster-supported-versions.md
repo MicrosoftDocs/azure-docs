@@ -185,7 +185,7 @@ During the extended availability period for unsupported Kubernetes versions (tha
 
 ### Abandoned Nexus Kubernetes clusters
 
-After the end of the extended availability period, the K8s version is completely removed from Nexus. At this point any existing Nexus Kubernetes clusters which are based on this K8s version will become abandoned. The only supported operation on abandoned clusters is deletion. Importantly, once a cluster is abandoned, upgrading to a later K8s version will not work. Customers with clusters using K8s versions which are past the extended availability period will be informed before they are removed.
+After the end of the extended availability period, the K8s version is completely removed from Nexus. At this point any existing Nexus Kubernetes clusters which are based on this K8s version will become abandoned. The only supported operation on abandoned clusters is deletion. Importantly, once a cluster is abandoned, upgrading to a later K8s version will not work.
 
 ## Supported `kubectl` versions
 
