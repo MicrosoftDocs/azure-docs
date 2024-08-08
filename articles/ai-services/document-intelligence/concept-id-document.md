@@ -6,11 +6,10 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ms.custom:
   - references.regions
-  - ignite-2023
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -87,11 +86,11 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2024-02-29-preview, 2023-10-31-preview) supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-07-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**ID document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-idDocument**|
+|**ID document model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-idDocument**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
@@ -154,7 +153,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 > [!NOTE]
 > Document Intelligence Studio is available with v3.1 and v3.0 APIs and later versions.
 
-1. On the Document Intelligence Studio home page, select **Identity documents**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Identity documents**.
 
 1. You can analyze the sample invoice or upload your own files.
 
@@ -265,13 +264,15 @@ The following are the fields extracted per document type. The Document Intellige
 |`DateOfBirth`|`date`|Date of birth|01/06/1958|
 |`DateOfExpiration`|`date`|Date of expiration|08/12/2020|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
-|`EyeColor`|`string`|Eye color|Blue|
-|`HairColor`|`string`|Hair color|Brown|
+|`EyeColor`|`string`|Eye color|BLU|
+|`HairColor`|`string`|Hair color|BRO|
 |`Height`|`string`|Height|5'11"|
 |`Weight`|`string`|Weight|185LB|
 |`Sex`|`string`|Sex|M|
 |`Endorsements`|`string`|Endorsements|L|
 |`Restrictions`|`string`|Restrictions|B|
+|`PersonalNumber`|`string`|Personal Id. No.|A234567893|
+|`PlaceOfBirth`|`string`|Place of birth|MASSACHUSETTS, U.S.A.|
 |`VehicleClassifications`|`string`|Vehicle classification|D|
 
 ### `idDocument.passport`
@@ -324,6 +325,8 @@ The following are the fields extracted per document type. The Document Intellige
 |`Height`|`string`|Height|5'11"|
 |`Weight`|`string`|Weight|185LB|
 |`Sex`|`string`|Sex|M|
+|`PersonalNumber`|`string`|Personal Id. No.|A234567893|
+|`PlaceOfBirth`|`string`|Place of birth|MASSACHUSETTS, U.S.A.|
 
 ### `idDocument.residencePermit`
 
@@ -337,6 +340,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`DateOfExpiration`|`date`|Date of expiration|08/12/2020|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 |`Sex`|`string`|Sex|M|
+|`PersonalNumber`|`string`|Personal Id. No.|A234567893|
 |`PlaceOfBirth`|`string`|Place of birth|Germany|
 |`Category`|`string`|Permit category|DV2|
 |`Address`|`string`|Address|123 STREET ADDRESS YOUR CITY WA 99999-1234|
@@ -405,11 +409,15 @@ The following are the fields extracted per document type. The Document Intellige
 ::: moniker-end
 
 ::: moniker range="doc-intel-4.0.0"
+
 * [Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Prebuilt_model)
+
 :::moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
+
 * [Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model)
+
 :::moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

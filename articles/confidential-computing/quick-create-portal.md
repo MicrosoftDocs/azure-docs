@@ -143,4 +143,4 @@ Discover how you can build confidential computing applications, by continuing to
 > [!div class="nextstepaction"]
 > [Building Open Enclave SDK Samples](https://github.com/openenclave/openenclave/blob/master/samples/README.md)
 
-Microsoft Azure Attestation is free and ECDSA-based attestation framework, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it. Learn [more](../attestation/overview.md)
+Microsoft Azure Attestation is free and ECDSA-based attestation framework, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it. Learn [more](/azure/attestation/overview)

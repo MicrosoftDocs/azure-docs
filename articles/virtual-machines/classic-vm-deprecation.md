@@ -3,7 +3,7 @@ title: We're retiring Azure VMs (classic) on September 6, 2023
 description: This article provides a high-level overview of the retirement of VMs created using the classic deployment model.
 author: tanmaygore
 manager: vashan
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
