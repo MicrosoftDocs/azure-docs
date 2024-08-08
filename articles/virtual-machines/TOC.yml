@@ -190,8 +190,6 @@
         - name: Overview
           displayName: A-series, sizes, size, vm size
           href: ./sizes/general-purpose/a-family.md
-        - name: Av1-series retirement
-          href: av1-series-retirement.md
         - name: Av2-series
           href: ./sizes/general-purpose/av2-series.md
       - name: B family (burstable)
@@ -207,8 +205,6 @@
           href: ./sizes/general-purpose/basv2-series.md
         - name: Bpsv2 series
           href: ./sizes/general-purpose/bpsv2-series.md
-        - name: B series V1
-          href: ./sizes/general-purpose/bv1-series.md
       - name: D family
         items:
         - name: Overview
@@ -274,37 +270,29 @@
           href: ./sizes/general-purpose/ddv4-series.md   
         - name: Ddsv4 series
           href: ./sizes/general-purpose/ddsv4-series.md       
-        - name: Dv3 series
-          href: ./sizes/general-purpose/dv3-series.md
-        - name: Dsv3 series
-          href: ./sizes/general-purpose/dsv3-series.md
-        - name: Dv2 series
-          href: ./sizes/general-purpose/dv2-series.md
-        - name: Dsv2 series
-          href: ./sizes/general-purpose/dsv2-series.md
       - name: DC family (confidential)
         items:
         - name: Overview
           displayName: DC-series, sizes, size, vm size
           href: ./sizes/general-purpose/dc-family.md
         - name: DCasv5 series
-          href: dcasv5-dcadsv5-series.md
+          href: ./sizes/general-purpose/dcasv5-series.md
         - name: DCadsv5 series
-          href: dcasv5-dcadsv5-series.md
+          href: ./sizes/general-purpose/dcadsv5-series.md
         - name: DCas_cc_v5 series
-          href: dcasccv5-dcadsccv5-series.md
+          href: ./sizes/general-purpose/dcasccv5-series.md
         - name: DCads_cc_v5 series
-          href: dcasccv5-dcadsccv5-series.md
+          href: ./sizes/general-purpose/dcadsccv5-series.md
         - name: DCesv5 series
-          href: dcesv5-dcedsv5-series.md  
+          href: ./sizes/general-purpose/dcesv5-series.md  
         - name: DCedsv5 series
-          href: dcesv5-dcedsv5-series.md 
+          href: ./sizes/general-purpose/dcedsv5-series.md 
         - name: DCsv3 series
-          href: dcv3-series.md
+          href: ./sizes/general-purpose/dcsv3-series.md
         - name: DCdsv3 series
-          href: dcv3-series.md
+          href: ./sizes/general-purpose/dcdsv3-series.md
         - name: DCsv2 series
-          href: dcv2-series.md
+          href: ./sizes/general-purpose/dcsv2-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -315,10 +303,12 @@
         - name: Overview
           displayName: F-series, sizes, size, vm size
           href: ./sizes/compute-optimized/f-family.md
-        - name: Fasv6 and Falsv6 series
-          href: fasv6-falsv6-series.md
+        - name: Fasv6-series
+          href: ./sizes/compute-optimized/fasv6-series.md
+        - name: Falsv6 series
+          href: ./sizes/compute-optimized/falsv6-series.md
         - name: Fsv2 series
-          href: fsv2-series.md
+          href: ./sizes/compute-optimized/fsv2-series.md
       - name: FX family
         items:
         - name: Overview
@@ -336,30 +326,46 @@
         - name: Overview
           displayName: E-series, sizes, size, vm size
           href: ./sizes/memory-optimized/e-family.md
-        - name: Esv6 and Edsv6 series
-          href: esv6-edsv6-series.md
+        - name: Esv6 series
+          href: ./sizes/memory-optimized/esv6-series.md
+        - name: Edsv6 series
+          href: ./sizes/memory-optimized/edsv6-series.md
         - name: Epsv6 series
           href: ./sizes/memory-optimized/epsv6-series.md
         - name: Epdsv6 series
           href: ./sizes/memory-optimized/epdsv6-series.md
-        - name: Easv6 and Eadsv6 series
-          href: easv6-eadsv6-series.md
-        - name: Ev5 and Esv5 series
-          href: ev5-esv5-series.md
-        - name: Edv5 and Edsv5 series
-          href: edv5-edsv5-series.md
-        - name: Easv5 and Eadsv5 series
-          href: easv5-eadsv5-series.md
-        - name: Epsv5 and Epdsv5 series
-          href: epsv5-epdsv5-series.md
-        - name: Edv4 and Edsv4 series
-          href: edv4-edsv4-series.md
-        - name: Eav4 and Easv4 series
-          href: eav4-easv4-series.md
-        - name: Ev4 and Esv4 series
-          href: ev4-esv4-series.md
-        - name: Ev3 and Esv3 series
-          href: ev3-esv3-series.md
+        - name: Easv6 series
+          href: ./sizes/memory-optimized/easv6-series.md
+        - name: Eadsv6 series
+          href: ./sizes/memory-optimized/eadsv6-series.md
+        - name: Ev5 series
+          href: ./sizes/memory-optimized/ev5-series.md
+        - name: Esv5 series
+          href: ./sizes/memory-optimized/esv5-series.md
+        - name: Edv5 series
+          href: ./sizes/memory-optimized/edv5-series.md
+        - name: Edsv5 series
+          href: ./sizes/memory-optimized/edsv5-series.md
+        - name: Easv5 series
+          href: ./sizes/memory-optimized/easv5-series.md
+        - name: Eadsv5 series
+          href: ./sizes/memory-optimized/eadsv5-series.md
+        - name: Epsv5 series
+          href: ./sizes/memory-optimized/epsv5-series.md
+        - name: Epdsv5 series
+          href: ./sizes/memory-optimized/epdsv5-series.md
+        - name: Edv4 series
+          href: ./sizes/memory-optimized/edv4-series.md
+        - name: Edsv4 series
+          href: ./sizes/memory-optimized/edsv4-series.md
+        - name: Eav4 series
+          href: ./sizes/memory-optimized/eav4-series.md
+        - name: Easv4 series
+          href: ./sizes/memory-optimized/easv4-series.md
+        - name: Ev4 series
+          href: ./sizes/memory-optimized/ev4-series.md
+        - name: Esv4 series
+          href: ./sizes/memory-optimized/esv4-series.md
       - name: Eb family
         items:
         - name: Overview
@@ -395,13 +401,6 @@
           href: mv2-series.md
         - name: Msv3 and Mdsv3 Medium Memory series
           href: msv3-mdsv3-medium-series.md
-      - name: D family (memory optimized)
-        items:
-        - name: Overview
-          displayName: D-series, sizes, size, vm size
-          href: ./sizes/memory-optimized/d-family.md
-        - name: Dv2 and DSv2 series (11-15)
-          href: dv2-dsv2-series-memory.md
       - name: Constrained vCPUs
         href: constrained-vcpu.md
     - name: Storage optimized
@@ -414,12 +413,10 @@
         - name: Overview
           displayName: L-series, sizes, size, vm size
           href: ./sizes/storage-optimized/l-family.md
-        - name: Lsv2 series
-          href: lsv2-series.md
         - name: Lsv3 series
-          href: lsv3-series.md
+          href: ./sizes/storage-optimized/lsv3-series.md
         - name: Lasv3 series
-          href: lasv3-series.md
+          href: ./sizes/storage-optimized/lasv3-series.md
       - name: Optimize performance
         items:
         - name: Linux
@@ -439,68 +436,68 @@
           displayName: NC-series, sizes, size, vm size
           href: ./sizes/gpu-accelerated/nc-family.md
         - name: NC series
-          href: nc-series.md
+          href: ./sizes/gpu-accelerated/nc-series.md
         - name: NC series retirement
           href: nc-series-retirement.md
         - name: NCads_H100_v5 series
-          href: ncads-h100-v5.md
+          href: ./sizes/gpu-accelerated/ncadsh100v5-series.md
         - name: NCv2 series
-          href: ncv2-series.md
+          href: ./sizes/gpu-accelerated/ncv2-series.md
         - name: NCv2 series retirement
           href: ncv2-series-retirement.md
         - name: NCv3 series
-          href: ncv3-series.md
+          href: ./sizes/gpu-accelerated/ncv3-series.md
         - name: Ncv3 Nc24rs retirement
           href: ncv3-nc24rs-retirement.md
         - name: Ncv3 NC6s NC12s NC24s retirement
           href: ncv3-nc6s-nc12s-nc24s-retirement.md
         - name: NCasT4_v3 series
-          href: nct4-v3-series.md
+          href: ./sizes/gpu-accelerated/ncast4v3-series.md
         - name: NC_A100_v4 series
-          href: nc-a100-v4-series.md
+          href: ./sizes/gpu-accelerated/nca100v4-series.md
       - name: ND family
         items:
         - name: Overview
           displayName: ND-series, sizes, size, vm size
           href: ./sizes/gpu-accelerated/nd-family.md
         - name: NDasrA100_v4 series
-          href: nda100-v4-series.md
+          href: ./sizes/gpu-accelerated/ndasra100v4-series.md
         - name: NDm_A100_v4 series
-          href: ndm-a100-v4-series.md
+          href: ./sizes/gpu-accelerated/ndma100v4-series.md
         - name: ND series
-          href: nd-series.md
+          href: ./sizes/gpu-accelerated/nd-series.md
         - name: ND series retirement
           href: nd-series-retirement.md
         - name: NDv2 series
-          href: ndv2-series.md
+          href: ./sizes/gpu-accelerated/ndv2-series.md
         - name: ND-H100-v5 series
-          href: nd-h100-v5-series.md
+          href: ./sizes/gpu-accelerated/ndh100v5-series.md
         - name: ND-MI300X-v5 series
-          href: ./sizes/gpu-accelerated/nd-mi300x-v5-series.md
+          href: ./sizes/gpu-accelerated/ndmi300xv5-series.md
       - name: NG family
         items:
         - name: Overview
           displayName: NG-series, sizes, size, vm size
           href: ./sizes/gpu-accelerated/ng-family.md
         - name: NGads V620 series
-          href: ngads-v-620-series.md
+          href: ./sizes/gpu-accelerated/ngadsv620-series.md
       - name: NV family
         items:
         - name: Overview
           displayName: NV-series, sizes, size, vm size
           href: ./sizes/gpu-accelerated/nv-family.md
         - name: NV series
-          href: nv-series.md
+          href: ./sizes/gpu-accelerated/nv-series.md
         - name: NV series retirement
           href: nv-series-retirement.md
         - name: NV series migration guide
           href: nv-series-migration-guide.md
         - name: NVv3 series
-          href: nvv3-series.md
+          href: ./sizes/gpu-accelerated/nvv3-series.md
         - name: NVv4 series
-          href: nvv4-series.md
+          href: ./sizes/gpu-accelerated/nvv4-series.md
         - name: NVadsA10_v5 series
-          href: nva10v5-series.md
+          href: ./sizes/gpu-accelerated/nvadsa10v5-series.md
       - name: Setup NVIDIA GPU drivers
         items:
         - name: Linux
@@ -526,7 +523,7 @@
           displayName: NP-series, sizes, size, vm size
           href: ./sizes/fpga-accelerated/np-family.md
         - name: NP series
-          href: np-series.md
+          href: ./sizes/fpga-accelerated/np-series.md
       - name: FPGA Attestation Service
         href: field-programmable-gate-arrays-attestation.md
     - name: High performance compute
@@ -540,19 +537,21 @@
           displayName: HB-series, sizes, size, vm size
           href: ./sizes/high-performance-compute/hb-family.md
         - name: HB series
-          href: hb-series.md
           items:
           - name: Overview
             href: hb-series-overview.md
+          - name: HB series
+            href: ./sizes/high-performance-compute/hb-series.md
           - name: Performance
             href: hb-series-performance.md
           - name: HB series retirement
             href: hb-series-retirement.md
         - name: HBv2 series
-          href: hbv2-series.md
           items:
           - name: Overview
             href: hbv2-series-overview.md
+          - name: HBv2 series
+            href: ./sizes/high-performance-compute/hbv2-series.md
           - name: Performance
             href: hbv2-performance.md
         - name: HBv3 series
@@ -560,7 +559,7 @@
           - name: Overview
             href: hbv3-series-overview.md
           - name: HBv3 series
-            href: hbv3-series.md
+            href: ./sizes/high-performance-compute/hbv3-series.md
           - name: Performance
             href: hbv3-performance.md
         - name: HBv4 series
@@ -568,7 +567,7 @@
           - name: Overview
             href: hbv4-series-overview.md
           - name: HBv4 series
-            href: hbv4-series.md
+            href: ./sizes/high-performance-compute/hbv4-series.md
           - name: Performance
             href: hbv4-performance.md
       - name: HC family
@@ -581,7 +580,7 @@
           - name: Overview
             href: hc-series-overview.md
           - name: HC series
-            href: hc-series.md
+            href: ./sizes/high-performance-compute/hc-series.md
           - name: Performance
             href: hc-series-performance.md
       - name: HX family
@@ -594,7 +593,7 @@
           - name: Overview
             href: hx-series-overview.md
           - name: HX series
-            href: hx-series.md
+            href: ./sizes/high-performance-compute/hx-series.md
           - name: Performance
             href: hx-performance.md
       - name: Set up Azure HPC or AI VMs
@@ -616,20 +615,52 @@
         href: compiling-scaling-applications.md
     - name: Enable NVMe
       items:
-      - name: Enable NVMe FAQ
-        href: enable-nvme-faqs.yml
+      - name: NVMe Overview
+        href: nvme-overview.md
       - name: Temp NVMe Disks FAQ
         href: enable-nvme-temp-faqs.yml
       - name: Remote NVMe Disks FAQ
         href: enable-nvme-remote-faqs.yml
       - name: OS Images Supported
         href: enable-nvme-interface.md
+      - name: SCSI to NVMe for Linux VMs
+        href: nvme-linux.md
     - name: Previous generation and retired sizes
       items:
       - name: Overview
         href: ./sizes/retirement-overview.md
-      - name: Previous-gen sizes
+      - name: Previous-gen sizes list
         href: ./sizes/previous-gen-sizes-list.md
+      - name: Previous-gen size pages
+        items:
+        - name: A-family
+          items:
+          - name: Av1-series retirement
+            href: av1-series-retirement.md
+        - name: B-family
+          items:
+          - name: B series V1
+            href: ./sizes/general-purpose/bv1-series.md
+        - name: D-family
+          items:
+          - name: Dv3 series
+            href: ./sizes/general-purpose/dv3-series.md
+          - name: Dsv3 series
+            href: ./sizes/general-purpose/dsv3-series.md
+          - name: Dv2 series
+            href: ./sizes/general-purpose/dv2-series.md
+          - name: Dsv2 series
+            href: ./sizes/general-purpose/dsv2-series.md
+          - name: Dv2 and DSv2 series (11-15)
+            href: dv2-dsv2-series-memory.md
+        - name: E-family
+          items:
+          - name: Ev3 and Esv3 series
+            href: ev3-esv3-series.md
+        - name: L-family
+          items:
+          - name: Lsv2 series
+            href: ./sizes/storage-optimized/lsv2-series.md
       - name: Retired sizes
         href: ./sizes/retired-sizes-list.md
     - name: Generation 2 VMs
@@ -910,6 +941,9 @@
       - name: Best practices
         displayName: Image builder, images, building, best practices
         href: image-builder-best-practices.md
+      - name: Connecting to Build VM
+        displayName: Image builder, images, building, connecting, build VM
+        href: ./linux/image-builder-connect-to-build-vm.md
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
         href: /azure/reliability/reliability-image-builder?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json

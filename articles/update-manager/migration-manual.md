@@ -4,7 +4,7 @@ description: Guidance on manual migration while migrating from Automation Update
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 05/09/2024
+ms.date: 08/01/2024
 ms.author: sudhirsneha
 ---
 

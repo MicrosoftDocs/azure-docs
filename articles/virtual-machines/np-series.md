@@ -55,7 +55,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** What shell version is supported and how can I get the development files?
 
-**A:** The FPGAs in Azure NP VMs support Xilinx Shell 2.1 (gen3x16-xdma-shell_2.1). See Xilinx Page [Xilinx/Azure with Alveo U250](https://www.xilinx.com/microsoft-azure.html) to get the development shell files.
+**A:** The FPGAs in Azure NP VMs support Xilinx Shell 2.1 (gen3x16-xdma-shell_2.1). See Xilinx Page [Xilinx/Azure with Alveo U250](https://www.amd.com/en/where-to-buy/accelerators/alveo/cloud-solutions/microsoft-azure.html) to get the development shell files.
 
 **Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
 
@@ -63,7 +63,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** Where should I get all the XRT / Platform files?
 
-**A:** Visit Xilinx's [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) site for all files.
+**A:** Visit Xilinx's [Microsoft-Azure](https://www.amd.com/en/where-to-buy/accelerators/alveo/cloud-solutions/microsoft-azure.html) site for all files.
 
 **Q:** What Version of XRT should I use?
 

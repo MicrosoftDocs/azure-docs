@@ -34,7 +34,7 @@ To get started using Azure Container Storage, see [Use Azure Container Storage w
 
 Azure Container Storage utilizes existing Azure Storage offerings for actual data storage and offers a volume orchestration and management solution purposely built for containers. You can choose any of the supported backing storage options to create a storage pool for your persistent volumes.
 
-Azure Container Storage offers persistent volume support with ReadWriteOnce access mode to Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters. Supported backing storage options include block storage offerings only: Azure Disks, Ephemeral Disks (local NVMe or temp SSD), and Azure Elastic SAN (Preview). The following table summarizes the supported storage types, recommended workloads, and provisioning models.
+Azure Container Storage offers persistent volume support with ReadWriteOnce access mode to Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) clusters. Supported backing storage options include block storage offerings only: Azure Disks, Ephemeral Disks (local NVMe or temp SSD), and Azure Elastic SAN (Preview). The following table summarizes the supported storage types, recommended workloads, and provisioning models.
 
 | **Storage type** | **Description** | **Workloads** | **Offerings** | **Provisioning model** |
 |------------------|-----------------|---------------|---------------|------------------------|
@@ -120,7 +120,7 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
 -  **Azure Kubernetes Service (AKS)**
 
-    [Azure Kubernetes Service](../../aks/intro-kubernetes.md) is a hosted Kubernetes service that simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. Azure handles critical tasks, like health monitoring and maintenance.
+    [Azure Kubernetes Service](/azure/aks/intro-kubernetes) is a hosted Kubernetes service that simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. Azure handles critical tasks, like health monitoring and maintenance.
 
 -   **Storage pool**
 

@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: rboucher
 ms.author: robb
-ms.service: cache
+ms.service: azure-cache-redis
 ---
 
 # Azure Cache for Redis monitoring data reference

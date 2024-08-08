@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the model deprecations and retirements in Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 07/30/2024
+ms.date: 08/08/2024
 ms.custom: 
 manager: nitinme
 author: mrbullwinkle
@@ -31,7 +31,7 @@ Azure OpenAI notifies customers of active Azure OpenAI Service deployments for m
 
 1. At model launch, we programmatically designate a "not sooner than" retirement date (typically six months to one year out).
 2. At least 60 days notice before model retirement for Generally Available (GA) models.
-3. At least 14 days notice before preview model version upgrades.  
+3. At least 30 days notice before preview model version upgrades.  
 
 Retirements are done on a rolling basis, region by region.
 
@@ -82,13 +82,15 @@ For more information, see [How to upgrade to a new model or version](./model-ver
 
 > [!NOTE]
 > Not all models go through a deprecation period prior to retirement. Some models/versions only have a retirement date.
+>
+> **Fine-tuned models** are subject to the same deprecation and retirement schedule as their equivalent base model.
 
 These models are currently available for use in Azure OpenAI Service.
 
 | Model | Version | Retirement date |
 | ---- | ---- | ---- |
 | `gpt-35-turbo` | 0301 | No earlier than October 1, 2024 |
-| `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | October 1, 2024 |
+| `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | November 1, 2024 |
 | `gpt-35-turbo` | 1106 | No earlier than Nov 17, 2024 |
 | `gpt-35-turbo` | 0125 | No earlier than Feb 22, 2025 |
 | `gpt-4`<br>`gpt-4-32k` | 0314 | **Deprecation:** October 1, 2024 <br> **Retirement:** June 6, 2025 |
@@ -102,7 +104,7 @@ These models are currently available for use in Azure OpenAI Service.
 | `text-embedding-3-small` | | No earlier than Feb 2, 2025 |
 | `text-embedding-3-large` | | No earlier than Feb 2, 2025 |
 
- **<sup>1</sup>** We will notify all customers with these preview deployments at least two weeks before the start of the upgrades. We will publish an upgrade schedule detailing the order of regions and model versions that we will follow during the upgrades, and link to that schedule from here.
+ **<sup>1</sup>** We will notify all customers with these preview deployments at least 30 days before the start of the upgrades. We will publish an upgrade schedule detailing the order of regions and model versions that we will follow during the upgrades, and link to that schedule from here.
 
 
 ## Deprecated models
@@ -142,6 +144,10 @@ If you're an existing customer looking for information about these models, see [
 | code-search-babbage-text-001 | July 6, 2023 | June 14, 2024 | text-embedding-3-small |
 
 ## Retirement and deprecation history
+
+### August 8, 2024
+
+* Updated `gpt-35-turbo` & `gpt-35-turbo-16k` (0613) model's retirement date to November 1, 2024.
 
 ### July 30, 2024
 

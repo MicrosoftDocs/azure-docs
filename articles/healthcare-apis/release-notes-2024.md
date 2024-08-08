@@ -27,6 +27,21 @@ It's possible for dates supplied within JSON data to be returned in a different 
 
 The coercion of strings to .NET DateTime objects can be disabled using the boolean parameter `jsonDeserializationTreatDatesAsStrings`. When set to `true`, the supplied data is treated as a string and won't be modified before being supplied to the Liquid engine.
 
+#### Import Operation enhancement
+The FHIR service now allows ingestion of data without specifying a version at the resource level. The order of resources is maintained using the lastUpdated value. This enhancement introduces the "allowNegativeVersions" flag. Setting flag true allows the FHIR service to assign negative versions for resource records with an explicit lastUpdated value and no version specified.
+
+#### Bug Fixes
+- **Fixed inclusion of soft deleted resources when using _security:not search parameter**
+When using the _security:not search parameter in search operations, IDs for soft-deleted resources were being included in the search results. We have fixed the issue so that soft-deleted resources are now excluded from search results.
+- **Exporting Data as SMART User**
+Exporting data as a SMART user no longer requires write scopes. Previously, it was necessary to grant "write" privileges to a SMART user for exporting data, which implied higher privilege levels. To initiate an export job as a SMART user, ensure the user is a member of the FHIR export role in RBAC and requests the "read" SMART clinical scope. 
+Updating Status Code from HTTP 500 to HTTP 400
+- **Updating Status Code from HTTP 500 to HTTP 400**
+During a patch operation, if the payload requested an update for a resource type other than parameter, an internal server error (HTTP 500) was initially thrown. This has been updated to throw an HTTP 400 error instead.
+
+#### Performance enhancement
+Query optimization is added when searching FHIR resources with a data range. This query optimization will help with efficient querying as one combined CTE is generated.
+
 ## May 2024
 
 ### Azure Health Data Services

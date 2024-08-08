@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article provides an overview of the Azure Front Door Rule sets feature.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ms.date: 05/15/2023

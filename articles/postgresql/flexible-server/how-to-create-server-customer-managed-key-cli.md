@@ -1,11 +1,11 @@
 ---
 title: Create and manage with data encrypted by customer managed keys using the Azure CLI
 description: Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using the Azure CLI.
-author: gennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ms.custom:
@@ -56,7 +56,7 @@ az postgres flexible-server create -g <resource_group> -n <postgres_server_name>
 
 Prerequisites:
 - You must have an Azure subscription and be an administrator on that subscription.
-- Key Vault with key in region where the Azure Database for PostgreSQL flexible server instance will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
+- Key Vault with key in region where the Azure Database for PostgreSQL flexible server instance will be created. Follow this [tutorial](/azure/key-vault/general/quick-create-portal) to create Key Vault and generate key. 
 
 Follow the steps below to change\rotate key or identity after creation of server with data encryption. 
 1. Change key/identity  for data encryption for existing server. First the get new key identifier:

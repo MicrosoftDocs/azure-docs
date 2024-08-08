@@ -5,7 +5,7 @@ description: Learn about what an Azure custom IP address prefix is and how it en
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 08/24/2023

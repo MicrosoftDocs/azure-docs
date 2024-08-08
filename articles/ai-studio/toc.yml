@@ -80,59 +80,66 @@ items:
       href: how-to/concept-data-privacy.md
     - name: Model benchmarks
       href: how-to/model-benchmarks.md
-    - name: Deployments overview
-      href: concepts/deployments-overview.md
-      displayName: endpoint
     - name: Fine-tune models
       href: concepts/fine-tuning-overview.md
     - name: Distillation
       href: concepts/concept-model-distillation.md
-    - name: Serverless API models
-      items:
-      - name: Deploy models as serverless API
-        href: how-to/deploy-models-serverless.md
-        displayName: maas, paygo, models-as-a-service
-      - name: Consume serverless API models from a different project or hub
-        href: how-to/deploy-models-serverless-connect.md
-        displayName: maas, paygo, models-as-a-service
-      - name: Model and region availability for Serverless API deployments
-        href: how-to/deploy-models-serverless-availability.md
     - name: Azure OpenAI models
       items:
-      - name: Deploy Azure OpenAI models
+      - name: Azure OpenAI models
         href: how-to/deploy-models-openai.md
       - name: Fine-tune Azure OpenAI models
         href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
+    - name: Phi-3 models
+      items:
+      - name: Phi-3 chat models
+        href: how-to/deploy-models-phi-3.md
+      - name: Phi-3 chat models with vision
+        href: how-to/deploy-models-phi-3-vision.md
+      - name: Fine-tune Phi-3 chat models
+        href: how-to/fine-tune-phi-3.md
     - name: Cohere models
       items:
-      - name: Deploy Cohere Command models
+      - name: Cohere Command models
         href: how-to/deploy-models-cohere-command.md
-      - name: Deploy Cohere Embed models
+      - name: Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
-      - name: Deploy Cohere Rerank models
-        href: how-to/deploy-models-cohere-rerank.md
     - name: Meta Llama models
       items:
-      - name: Deploy Meta Llama family models
+      - name: Meta Llama family models
         href: how-to/deploy-models-llama.md
       - name: Fine-tune Meta Llama family models
         href: how-to/fine-tune-model-llama.md
-    - name: Deploy JAIS models
-      href: how-to/deploy-jais-models.md
-    - name: Deploy Jamba Instruct model
-      href: how-to/deploy-models-jamba.md
-    - name: Deploy Mistral family models
-      href: how-to/deploy-models-mistral.md
+    - name: Mistral family models
+      items:
+        - name: Mistral premium models
+          href: how-to/deploy-models-mistral.md
+        - name: Mistral Nemo model
+          href: how-to/deploy-models-mistral-nemo.md
+        - name: Mistral-7B and Mixtral models
+          href: how-to/deploy-models-mistral-open.md
       displayName: maas
-    - name: Deploy Phi-3 models
-      href: how-to/deploy-models-phi-3.md
-    - name: Fine-tune Phi-3 models
-      href: how-to/fine-tune-phi-3.md
-    - name: Deploy TimeGEN-1 model
+    - name: JAIS model
+      href: how-to/deploy-models-jais.md
+    - name: Jamba instruct model
+      href: how-to/deploy-models-jamba.md
+    - name: TimeGEN-1 model
       href: how-to/deploy-models-timegen-1.md
-    - name: Deploy open models
-      href: how-to/deploy-models-open.md
-      displayName: oss, open source
+    - name: Deploy models
+      items:
+        - name: Deployments overview
+          href: concepts/deployments-overview.md
+          displayName: endpoint
+        - name: Serverless API models
+          items:
+          - name: Deploy models as serverless API
+            href: how-to/deploy-models-serverless.md
+            displayName: maas, paygo, models-as-a-service
+          - name: Consume serverless API models from a different project or hub
+            href: how-to/deploy-models-serverless-connect.md
+            displayName: maas, paygo, models-as-a-service
+          - name: Model and region availability for Serverless API deployments
+            href: how-to/deploy-models-serverless-availability.md
   - name: Data for your generative AI app
     items:
     - name: Overview of retrieval augmented generation (RAG)
@@ -186,6 +193,8 @@ items:
               href: how-to/prompt-flow-tools/embedding-tool.md
             - name: Serp API tool
               href: how-to/prompt-flow-tools/serp-api-tool.md
+        - name: Troubleshoot prompt flow
+          href: how-to/prompt-flow-troubleshoot.md
     - name: Develop generative AI apps using code
       items:
       - name: Overview of SDKs

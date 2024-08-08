@@ -5,7 +5,7 @@ author: olmoloce
 ms.author: olmoloce
 ms.reviewer: maghan
 ms.date: 05/17/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---

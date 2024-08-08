@@ -4,7 +4,7 @@ description: Learn how to configure routes and enforce security rules and global
 services: static-web-apps
 ms.custom: engagement-fy23
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 05/24/2024
 ms.author: cshoe

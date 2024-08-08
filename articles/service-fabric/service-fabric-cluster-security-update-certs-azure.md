@@ -4,7 +4,7 @@ description: Describes how to add new certificates, rollover certificate, and re
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 07/14/2022

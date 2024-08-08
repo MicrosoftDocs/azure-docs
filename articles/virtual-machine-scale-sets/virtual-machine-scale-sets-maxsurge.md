@@ -27,6 +27,8 @@ Before configuring a rolling upgrade policy on a Virtual Machine Scale Set with 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName VMSSFlexRollingUpgrade -ProviderNameSpace Microsoft.Compute
 
+Register-AzProviderFeature -FeatureName ImageReferenceUpgradeForVmoVMs -ProviderNamespace Microsoft.Compute
+
 Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute
 ```
 

@@ -6,7 +6,7 @@ author: charithcaldera
 ms.author: ccaldera
 ms.reviewer: wiassaf, joanpo
 ms.date: 04/08/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
 ---

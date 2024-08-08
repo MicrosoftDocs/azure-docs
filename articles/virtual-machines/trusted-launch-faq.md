@@ -4,7 +4,7 @@ description: Get answers to the most frequently asked questions about Azure Trus
 author: howie425
 ms.author: howieasmerom
 ms.reviewer: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: trusted-launch
 ms.topic: faq
 ms.date: 01/29/2024

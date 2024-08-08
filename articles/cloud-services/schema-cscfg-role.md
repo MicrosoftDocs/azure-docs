@@ -2,8 +2,8 @@
 title: Azure Cloud Services (classic) Role Schema | Microsoft Docs
 description: The Role element of a service configuration file specifies how many role instances to deploy for each role, configuration values, and certificate thumbprints.
 ms.topic: article
-ms.service: cloud-services
-ms.subservice: deployment-files
+ms.service: azure-cloud-services-classic
+ms.subservice: config-package-files
 ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah

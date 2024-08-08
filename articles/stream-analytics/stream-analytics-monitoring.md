@@ -3,7 +3,7 @@ title: Monitor Stream Analytics job with Azure portal
 description: This article describes how to monitor Azure Stream Analytics jobs in the Azure portal.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 12/21/2022
 ---

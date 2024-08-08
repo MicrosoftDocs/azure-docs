@@ -3,7 +3,7 @@ title:  "Edit Metadata: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Edit Metadata component in the Azure Machine Learning to change metadata that's associated with columns in a dataset.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

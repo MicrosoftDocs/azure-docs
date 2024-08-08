@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 05/07/2024
 ms.author: abbyweisberg
 ms.reviewer: nikhilkaul
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: none, devx-track-azurecli
 ---
 
@@ -50,7 +50,6 @@ Azure Kubernetes Service (AKS) - Network Delay
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -112,7 +111,6 @@ Azure Kubernetes Service (AKS) - Pod Failure
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -175,7 +173,6 @@ Azure Kubernetes Service (AKS) - Memory Stress
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -238,7 +235,6 @@ Azure Kubernetes Service (AKS) - CPU Stress
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -299,7 +295,6 @@ Azure Kubernetes Service (AKS) - Network Emulation
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -361,7 +356,6 @@ Azure Kubernetes Service (AKS) - Network Partition
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -423,7 +417,6 @@ Azure Kubernetes Service (AKS) - Network Bandwidth Limitation
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -485,7 +478,6 @@ Azure Kubernetes Service (AKS) - Network Packet Re-order
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -547,7 +539,6 @@ Azure Kubernetes Service (AKS) - Network Packet Loss
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -609,7 +600,6 @@ Azure Kubernetes Service (AKS) - Network Packet Duplication
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -671,7 +661,6 @@ Azure Kubernetes Service (AKS) - Network Packet Corruption
     "tags": {},
     "location": "westus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",
@@ -734,7 +723,6 @@ Azure Load Test - Start/Stop Load Test (With Delay)
     "tags": {},
     "location": "eastus",
     "properties": {
-        "provisioningState": "Succeeded",
         "selectors": [
             {
                 "type": "List",

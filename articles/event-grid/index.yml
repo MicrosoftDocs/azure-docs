@@ -6,7 +6,6 @@ summary: Learn how to use Azure Event Grid to react to relevant events across bo
 metadata:
   title: Azure Event Grid documentation
   description: Learn how to use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion.
-  ms.service: event-grid
   ms.custom:
     - build-2023
     - ignite-2023

@@ -3,7 +3,7 @@ title: Use pipeline parameters to retrain models in the designer
 titleSuffix: Azure Machine Learning
 description: Retrain models with published pipelines and pipeline parameters in Azure Machine Learning designer.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: lagayhar
 author: lgayhardt

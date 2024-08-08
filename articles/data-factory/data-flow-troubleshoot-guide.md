@@ -4,7 +4,6 @@ description: Learn how to troubleshoot data flow problems in Azure Data Factory.
 ms.author: makromer
 author: kromerm
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
 ms.date: 01/05/2024

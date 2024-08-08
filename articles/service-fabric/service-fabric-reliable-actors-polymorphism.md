@@ -4,7 +4,7 @@ description: Build hierarchies of .NET interfaces and types in the Reliable Acto
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-dotnet
 services: service-fabric
 ms.date: 07/11/2022

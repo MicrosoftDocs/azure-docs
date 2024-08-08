@@ -2,7 +2,7 @@
 title: Get started with Azure API for FHIR
 description: This document describes how to get started with Azure API for FHIR.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 09/27/2023

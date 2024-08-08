@@ -776,6 +776,8 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-rest-api
@@ -914,6 +916,17 @@ groups:
     title: Swift
   - id: programming-language-cli
     title: CLI
+- id: programming-languages-portal-cli-ps
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language or tool
+  pivots:
+  - id: azportal
+    title: Azure portal
+  - id: azcli
+    title: Azure CLI
+  - id: azpowershell
+    title: Azure PowerShell
 - id: programming-languages-portal-cli-sdk
 # Owner: eur
   title: Programming languages
@@ -1056,6 +1069,30 @@ groups:
     title: AI Studio
   - id: rest-api
     title: REST
+- id: azure-ai-model-catalog-samples-chat
+# Owner: santiagxf
+  title: Programing languages
+  prompt: Choose a tool or API
+  pivots:
+    - id: programming-language-python
+      title: Python
+    - id: programming-language-javascript
+      title: JavaScript
+    - id: programming-language-csharp
+      title: C#
+    - id: programming-language-rest
+      title: REST
+- id: azure-ai-model-catalog-samples-embeddings
+# Owner: santiagxf
+  title: Programing languages
+  prompt: Choose a tool or API
+  pivots:
+    - id: programming-language-python
+      title: Python
+    - id: programming-language-javascript
+      title: JavaScript
+    - id: programming-language-rest
+      title: REST
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages
@@ -2071,7 +2108,17 @@ groups:
     title: Python
   - id: rest-api
     title: REST
-
+# Owner: mbullwin
+- id: openai-fine-tuning-batch
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-ai-studio
+    title: AI Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 # Owner: mbullwin
 - id: openai-embeddings
   title: Programming languages
@@ -2486,6 +2533,23 @@ groups:
     title: PowerShell
   - id: client-clitier
     title: CLI
+# Owner: slpavkov
+- id: acs-calling-automation-pstn
+  title: Communication Services Response Codes
+  prompt: Choose a Communication Service
+  pivots:
+  - id: calling
+    title: Calling SDK
+  - id: callend
+    title: Call end
+  - id: automation
+    title: Call Automation SDK
+  - id: pstn
+    title: PSTN
+  - id: chat
+    title: Chat SDK
+  - id: sms
+    title: SMS SDK
 # Owner: prakulka
 - id: acs-tollfree-shortcode-alphanumeric
   title: Number Type

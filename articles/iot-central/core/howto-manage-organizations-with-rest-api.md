@@ -20,8 +20,6 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 To learn more about organizations in IoT Central Application, see [Manage IoT Central organizations](howto-create-organizations.md).
 
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
-
 ## Organizations REST API
 
 The IoT Central REST API lets you:
