@@ -373,7 +373,7 @@ The AgentSettings DCR currently supports configuring the following parameters:
 
 | Parameter | Description | Valid values |
 | --------- | ----------- | ----------- |
-| `DiscQuotaInMb` | Defines the amount of disk space used by the Azure Monitor Agent log files and cache. | 1-50 (in GB) |
+| `DiscQuotaInMb` | Defines the amount of disk space used by the Azure Monitor Agent log files and cache. | 1-50 (in MB) |
 | `TimeReceivedForForwardedEvents` | Changes WEF column in the Sentinel WEF table to use TimeReceived instead of TimeGenerated data | 0 or 1 |
 
 ### Setting up AgentSettings DCR
