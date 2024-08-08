@@ -73,7 +73,7 @@ Either:
 - Select **Pick an existing app registration in this directory** and select an app registration from the drop-down.
 - Select **Provide the details of an existing app registration** and provide:
     - Application (client) ID.
-    - Client secret (recommended). A secret value that the application uses to prove its identity when requesting a token. This value is saved in your app's configuration as a slot-sticky application setting named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If the client secret isn't set, sign-in operations from the service use the OAuth 2.0 implicit grant flow, which isn't* recommended.
+    - Client secret (recommended). A secret value that the application uses to prove its identity when requesting a token. This value is saved in your app's configuration as a slot-sticky application setting named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If the client secret isn't set, sign-in operations from the service use the OAuth 2.0 implicit grant flow, which *isn't* recommended.
     - Issuer URL, which takes the form `<authentication-endpoint>/<tenant-id>/v2.0`. Replace `<authentication-endpoint>` with the authentication endpoint [value specific to the cloud environment](/entra/identity-platform/authentication-national-cloud#azure-ad-authentication-endpoints).  For example, a workforce tenant in global Azure would use "https://login.microsoftonline.com" as its authentication endpoint.
 
 If you need to manually create an app registration in a workforce tenant, follow the [register an application](/entra/identity-platform/quickstart-register-app) quickstart.  As you go through the registration process, be sure to note the application (client) ID and client secret values.
