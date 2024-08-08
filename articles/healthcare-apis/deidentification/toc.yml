@@ -20,3 +20,13 @@ items:
         href: managed-identities.md
       - name: Use Azure role-based access control
         href: manage-access-rbac.md
+  - name: Reference
+    items:
+      - name: .NET SDK
+        href: /dotnet/api/overview/azure/healthdeidentification
+      - name: Python SDK
+        href: /python/api/overview/azure/health-deidentification
+      - name: Java SDK
+        href: /java/api/overview/azure/health-deidentification
+      - name: JavaScript SDK
+        href: /javascript/api/overview/azure/health-deidentification
