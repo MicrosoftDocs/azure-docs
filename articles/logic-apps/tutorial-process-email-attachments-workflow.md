@@ -596,9 +596,7 @@ Next, add an action in your workflow that sends email to review the attachments.
 
 The following steps add an action so that your workflow sends email to review the attachments.
 
-1. Return to the workflow designer. In the **True** branch, collapse the **For each email attachment** loop.
-
-1. Under the loop, select **Add an action**.
+1. Return to the workflow designer. In the **True** branch, under the **For each email attachment** loop, select **Add an action**.
 
 1. [Follow these general steps to add the **Office 365 Outlook** action named **Send an email**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
@@ -612,15 +610,14 @@ The following steps add an action so that your workflow sends email to review th
 
    > [!TIP]
    >
-   > * To add blank lines in an edit box, press Shift + Enter.
-   > * If you can't find a specified output in the dynamic content list, 
+   > If you can't find a specified output in the dynamic content list, 
    > select **See more** next to the operation name.
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
    | **To** | Yes | <*recipient-email-address*> | For testing purposes, use your own email address. |
    | **Subject** | Yes | <*email-subject*> | The email subject to include. <br><br>This example uses **ASAP - Review applicant for position:**, and the **Subject** output from the trigger. <br><br>1. In the **Subject** box, enter the example text with a trailing space. <br><br>2. Select inside the **Subject** box, and then select the dynamic content list option (lightning icon). <br><br>3. In the list, under **When a new email arrives**, select **Subject**. |
-   | **Body** | Yes | <*email-body*> | The email body to include. <br><br>The examle uses **Please review new applicant:**, the trigger output named **From**, the **Path** output from the **Create blob for email body** action, and the **Body** output from your **Call RemoveHTMLFunction** action. <br><br>1. In the **Body** box, enter the example text: **Please review new applicant:** <br><br>2. Add a new line, enter the example text, **Applicant name:**, and add the **From** output from the trigger. <br><br>3. Add a new line, enter the example text, **Application file location:**, and add the **Path** output from the **Create blob for email body** action. <br><br>4. Add a new line, enter the example text, **Application email content:**, and add the **Body** output from the  | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** |
+   | **Body** | Yes | <*email-body*> | The email body to include. <br><br>The examle uses **Please review new applicant:**, the trigger output named **From**, the **Path** output from the **Create blob for email body** action, and the **Body** output from your **Call RemoveHTMLFunction** action. <br><br>1. In the **Body** box, enter the example text, **Please review new applicant:**. <br><br>2. On a new line, enter the example text, **Applicant name:**, and add the **From** output from the trigger. <br><br>3. On a new line, enter the example text, **Application file location:**, and add the **Path** output from the **Create blob for email body** action. <br><br>4. On a new line, enter the example text, **Application email content:**, and add the **Body** output from the **Call RemoveHTMLFunction** action. |
 
    > [!NOTE]
    >
@@ -629,15 +626,15 @@ The following steps add an action so that your workflow sends email to review th
    > that references that output. That way, your workflow can perform that action on each array item.
    > To remove loop, move the action that references the output to outside the loop, and delete the loop.
 
-   The following screenshot shows the outputs to select for the **Send an email** action:
+   The following screenshot shows the finished **Send an email** action:
 
-   :::image type="content" source="media/tutorial-process-email-attachments-workflow/send-email-notification.png" alt-text="Screenshot shows sample email to send." lightbox="media/tutorial-process-email-attachments-workflow/send-email-notification.png":::
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/send-email-done.png" alt-text="Screenshot shows sample email to send." lightbox="media/tutorial-process-email-attachments-workflow/send-email-done.png":::
 
 1. Save your workflow.
 
 Your finished workflow now looks like the following example:
 
-![Screenshot showing the finished workflow.](./media/tutorial-process-email-attachments-workflow/complete.png)
+:::image type="content" source="media/tutorial-process-email-attachments-workflow/complete.png" alt-text="Screenshot shows finished workflow." lightbox="media/tutorial-process-email-attachments-workflow/complete.png":::
 
 ## Test your workflow
 
@@ -680,17 +677,17 @@ Your finished workflow now looks like the following example:
 
 1. Run your workflow. If successful, your workflow sends you an email that looks like the following example:
 
-   ![Screenshot showing example email sent by logic app workflow.](./media/tutorial-process-email-attachments-workflow/email-notification.png)
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/email-notification.png" alt-text="Screenshot shows example email sent by logic app workflow." lightbox="media/tutorial-process-email-attachments-workflow/email-notification.png":::
 
-   If you don't get any emails, check your email's junk folder. Your email junk filter might redirect these kinds of mails. Otherwise, if you're unsure that your workflow ran correctly, see [Troubleshoot your logic app workflow](logic-apps-diagnosing-failures.md).
+   If you don't get any emails, check your email's junk folder. Otherwise, if you're unsure that your workflow ran correctly, see [Troubleshoot your logic app workflow](logic-apps-diagnosing-failures.md).
 
-Congratulations, you've now created and run a workflow that automates tasks across different Azure services and calls some custom code.
+Congratulations, you created and ran a workflow that automates tasks across different Azure services and calls some custom code.
 
 ## Clean up resources
 
 When you no longer need this sample, delete the resource group that contains your logic app workflow and related resources.
 
-1. In the Azure portal's top-level search box, enter **resource groups**, and select **Resource groups**.
+1. In the Azure portal search box, enter **resource groups**, and select **Resource groups**.
 
 1. From the **Resource groups** list, select the resource group for this tutorial. 
 
