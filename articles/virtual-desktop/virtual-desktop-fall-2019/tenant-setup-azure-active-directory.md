@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
-manager: femila
 ---
 # Tutorial: Create a tenant in Azure Virtual Desktop (classic)
 
@@ -82,9 +81,6 @@ To assign the TenantCreator application role:
 4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** tab.
 5. Search for a user account that will create your Azure Virtual Desktop tenant. For simplicity, this can be the global administrator account.
    - If you're using a Microsoft Identity Provider like contosoadmin@live.com or contosoadmin@outlook.com, you might not be able to sign in to Azure Virtual Desktop. We recommend using a domain-specific account like admin@contoso.com or admin@contoso.onmicrosoft.com instead.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of selecting a user to add as "TenantCreator."](../media/tenant-assign-user.png)
 
    > [!NOTE]
    > You must select a user (or a group that contains a user) that's sourced from this Microsoft Entra instance. You can't choose a guest (B2B) user or a service principal.

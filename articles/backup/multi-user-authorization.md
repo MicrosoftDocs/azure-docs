@@ -3,8 +3,8 @@ title: Configure Multi-user authorization using Resource Guard
 description: This article explains how to configure Multi-user authorization using Resource Guard.
 ms.topic: how-to
 zone_pivot_groups: backup-vaults-recovery-services-vault-backup-vault
-ms.date: 09/25/2023
-ms.service: backup
+ms.date: 06/11/2024
+ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -27,14 +27,14 @@ This article demonstrates Resource Guard creation in a different tenant that off
 ## Before you start
 
 -  Ensure the Resource Guard and the Recovery Services vault are in the same Azure region.
--  Ensure the Backup admin does **not** have **Contributor** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
+-  Ensure the Backup admin does **not** have **Contributor**, **Backup MUA Admin**, or **Backup MUA Operator** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
 - Ensure that your subscriptions containing the Recovery Services vault as well as the Resource Guard (in different subscriptions or tenants) are registered to use the providers - **Microsoft.RecoveryServices** and **Microsoft.DataProtection** . For more information, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
 
 Learn about various [MUA usage scenarios](./multi-user-authorization-concept.md?tabs=recovery-services-vault#usage-scenarios).
 
 ## Create a Resource Guard
 
-The **Security admin** creates the Resource Guard. We recommend that you create it in a **different subscription** or a **different tenant** as the vault. However, it should be in the **same region** as the vault. The Backup admin must **NOT** have *contributor* access on the Resource Guard or the subscription that contains it.
+The **Security admin** creates the Resource Guard. We recommend that you create it in a **different subscription** or a **different tenant** as the vault. However, it should be in the **same region** as the vault. The Backup admin must **NOT** have **Contributor**, **Backup MUA Admin**, or **Backup MUA Operator** access on the Resource Guard or the subscription that contains it.
 
 **Choose a client**
 
@@ -234,7 +234,7 @@ The tenant ID is required if the resource guard exists in a different tenant.
 
 ## Protected operations using MUA
 
-Once you have enabled MUA, the operations in scope will be restricted on the vault, if the Backup admin tries to perform them without having the required role (that is, Contributor role) on the Resource Guard.
+Once you have enabled MUA, the operations in scope will be restricted on the vault, if the Backup admin tries to perform them without having the required role (that is, **Backup MUA Operator** role) on the Resource Guard.
 
  >[!NOTE]
  >We highly recommend that you test your setup after enabling MUA to ensure that protected operations are blocked as expected and to ensure that MUA is correctly configured.
@@ -252,19 +252,19 @@ Depicted below is an illustration of what happens when the Backup admin tries to
 
 ## Authorize critical (protected) operations using Microsoft Entra Privileged Identity Management
 
-The following sections discuss authorizing these requests using PIM. There are cases where you may need to perform critical operations on your backups and MUA can help you ensure that these are performed only when the right approvals or permissions exist. As discussed earlier, the Backup admin needs to have a Contributor role on the Resource Guard to perform critical operations that are in the Resource Guard scope. One of the ways to allow just-in-time for such operations is through the use of [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
+The following sections discuss authorizing these requests using PIM. There are cases where you may need to perform critical operations on your backups and MUA can help you ensure that these are performed only when the right approvals or permissions exist. As discussed earlier, the Backup admin needs to have a **Backup MUA Operator** role on the Resource Guard to perform critical operations that are in the Resource Guard scope. One of the ways to allow just-in-time for such operations is through the use of [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 
 >[!NOTE]
->Though using Microsoft Entra PIM is the recommended approach, you can use manual or custom methods to manage access for the Backup admin on the Resource Guard. For managing access to the Resource Guard manually, use the ‘Access control (IAM)’ setting on the left navigation bar of the Resource Guard and grant the **Contributor** role to the Backup admin.
+>Though using Microsoft Entra PIM is the recommended approach, you can use manual or custom methods to manage access for the Backup admin on the Resource Guard. For managing access to the Resource Guard manually, use the ‘Access control (IAM)’ setting on the left navigation bar of the Resource Guard and grant the **Backup MUA Operator** role to the Backup admin.
 
 <a name='create-an-eligible-assignment-for-the-backup-admin-if-using-azure-active-directory-privileged-identity-management'></a>
 
 ### Create an eligible assignment for the Backup admin (if using Microsoft Entra Privileged Identity Management)
 
-The Security admin can use PIM to create an eligible assignment for the Backup admin as a Contributor to the Resource Guard. This enables the Backup admin to raise a request (for the Contributor role) when they need to perform a protected operation. To do so, the **security admin** performs the following:
+The Security admin can use PIM to create an eligible assignment for the Backup admin and provide **Backup MUA Operator** role to the Resource Guard. This enables the Backup admin to raise a request (for the **Backup MUA Operator** role) when they need to perform a protected operation. To do so, the **security admin** performs the following:
 
 1. In the security tenant (which contains the Resource Guard), go to **Privileged Identity Management** (search for this in the search bar in the Azure portal) and then go to  **Azure Resources** (under **Manage** on the left menu).
-1. Select the resource (the Resource Guard or the containing subscription/RG) to which you want to assign the **Contributor** role.
+1. Select the resource (the Resource Guard or the containing subscription/RG) to which you want to assign the **Backup MUA Operator** role.
 
       If you don’t see the corresponding resource in the list of resources, ensure you add the containing subscription to be managed by PIM.
 
@@ -273,7 +273,7 @@ The Security admin can use PIM to create an eligible assignment for the Backup a
     :::image type="content" source="./media/multi-user-authorization/add-assignments.png" alt-text="Screenshot showing how to add assignments.":::
 
 1. In the Add assignments:
-   1. Select the role as Contributor.
+   1. Select the role as **Backup MUA Operator**.
    1. Go to **Select members** and add the username (or email IDs) of the Backup admin.
    1. Select **Next**.
 
@@ -286,54 +286,61 @@ The Security admin can use PIM to create an eligible assignment for the Backup a
 
    :::image type="content" source="./media/multi-user-authorization/add-assignments-setting.png" alt-text="Screenshot showing how to add assignments-setting.":::
 
-### Set up approvers for activating Contributor role
+### Set up approvers for activating Backup MUA Operator role
 
-By default, the setup above may not have an approver (and an approval flow requirement) configured in PIM. To ensure that approvers are required for allowing only authorized requests to go through, the security admin must perform the following steps.
+By default, the above setup may not have an approver (and an approval flow requirement) configured in PIM. To ensure that approvers have the **Backup MUA Operator** role for request approval, the Security admin must follow these steps:
+ 
+
 
 > [!Note]
 > If this isn't configured, any requests will be automatically approved without going through the security admins or a designated approver’s review. More details on this can be found [here](../active-directory/privileged-identity-management/pim-resource-roles-configure-role-settings.md)
 
 1. In Microsoft Entra PIM, select **Azure Resources** on the left navigation bar and select your Resource Guard.
 
-1. Go to **Settings** and then go to the **Contributor** role.
+1. Go to **Settings** and then go to the **Backup MUA Operator** role.
 
    :::image type="content" source="./media/multi-user-authorization/add-contributor.png" alt-text="Screenshot showing how to add contributor.":::
 
-1. If the setting named **Approvers** shows *None* or display incorrect approver(s), select **Edit** to add the reviewers who would need to review and approve the activation request for the Contributor role.
+1. Select **Edit** to add the reviewers who must review and approve the activation request for the **Backup MUA Operator** role in case you find that Approvers show None or display incorrect approver(s).
 
-1. On the **Activation** tab, select **Require approval to activate** and add the approver(s) who need to approve each request. You can also select other security options like using MFA and mandating ticket options to activate the Contributor role. Optionally, select relevant settings on the **Assignment** and **Notification** tabs as per your requirements.
+1. On the **Activation** tab, select **Require approval to activate** and add the approver(s) who need to approve each request.
+1. Select security options, such as multifactor authentication (MFA), Mandating ticket to activate **Backup MUA Operator** role.
+1. Select the appropriate options on the **Assignment** and **Notification** tabs as required.
 
    :::image type="content" source="./media/multi-user-authorization/edit-role-settings.png" alt-text="Screenshot showing how to edit role setting.":::
 
-1. Select **Update** once done.
+1. Select **Update** to complete the setup of approvers to activate the **Backup MUA Operator** role.
 
 ### Request activation of an eligible assignment to perform critical operations
 
-After the security admin creates an eligible assignment, the Backup admin needs to activate the assignment for the Contributor role to be able to perform protected actions. The following actions are performed by the **Backup admin** to activate the role assignment.
+After the security admin creates an eligible assignment, the Backup admin needs to activate the assignment for the **Backup MUA Operator** role to be able to perform protected actions. 
+
+To activate the role assignment, follow these steps:
 
 1. Go to [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md). If the Resource Guard is in another directory, switch to that directory and then go to [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 1. Go to **My roles** > **Azure resources** on the left menu.
-1. The Backup admin can see an Eligible assignment for the contributor role. Select **Activate** to activate it.
-1. The Backup admin is informed via portal notification that the request is sent for approval.
+1. Select **Activate** to activate the eligible assignment for **Backup MUA Operator** role.
+
+   A notification appears notifying that the request is sent for approval.
 
    :::image type="content" source="./media/multi-user-authorization/identity-management-myroles-inline.png" alt-text="Screenshot showing to activate eligible assignments." lightbox="./media/multi-user-authorization/identity-management-myroles-expanded.png":::
 
 ### Approve activation of requests to perform critical operations
 
-Once the Backup admin raises a request for activating the Contributor role, the request is to be reviewed and approved by the **security admin**.
+Once the Backup admin raises a request for activating the **Backup MUA Operator** role, the request is to be reviewed and approved by the **security admin**.
 1. In the security tenant, go to [Microsoft Entra Privileged Identity Management.](../active-directory/privileged-identity-management/pim-configure.md)
 1. Go to **Approve Requests**.
-1. Under **Azure resources**, the request raised by the Backup admin requesting activation as a **Contributor** can be seen.
+1. Under **Azure resources**, the request raised by the Backup admin requesting activation as a **Backup MUA Operator** can be seen.
 1. Review the request. If genuine, select the request and select **Approve** to approve it.
 1. The Backup admin is informed by email (or other organizational alerting mechanisms) that their request is now approved.
 1. Once approved, the Backup admin can perform protected operations for the requested period.
 
 ## Performing a protected operation after approval
 
-Once the Backup admin’s request for the Contributor role on the Resource Guard is approved, they can perform protected operations on the associated vault. If the Resource Guard is in another directory, the Backup admin would need to authenticate themselves.
+Once the Backup admin’s request for the **Backup MUA Operator** role on the Resource Guard is approved, they can perform protected operations on the associated vault. If the Resource Guard is in another directory, the Backup admin would need to authenticate themselves.
 
 >[!NOTE]
-> If the access was assigned using a JIT mechanism, the Contributor role is retracted at the end of the approved period. Else, the Security admin manually removes the **Contributor** role assigned to the Backup admin to perform the critical operation.
+> If the access was assigned using a JIT mechanism, the **Backup MUA Operator** role is retracted at the end of the approved period. Else, the Security admin manually removes the **Backup MUA Operator** role assigned to the Backup admin to perform the critical operation.
 
 The following screenshot shows an example of disabling soft delete for an MUA-enabled vault.
 
@@ -341,7 +348,7 @@ The following screenshot shows an example of disabling soft delete for an MUA-en
 
 ## Disable MUA on a Recovery Services vault
 
-Disabling MUA is a protected operation, so, so, vaults are protected using MUA. If you (the Backup admin) want to disable MUA, you must have the required Contributor role in the Resource Guard.
+Disabling MUA is a protected operation, so, so, vaults are protected using MUA. If you (the Backup admin) want to disable MUA, you must have the required **Backup MUA Operator** role in the Resource Guard.
 
 **Choose a client**
 
@@ -349,8 +356,8 @@ Disabling MUA is a protected operation, so, so, vaults are protected using MUA. 
 
 To disable MUA on a vault, follow these steps:
 
-1. The Backup admin requests the Security admin for **Contributor** role on the Resource Guard. They can request this to use the methods approved by the organization such as JIT procedures, like [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), or other internal tools and procedures. 
-1. The Security admin approves the request (if they find it worthy of being approved) and informs the Backup admin. Now the Backup admin has the ‘Contributor’ role on the Resource Guard.
+1. The Backup admin requests the Security admin for **Backup MUA Operator** role on the Resource Guard. They can request this to use the methods approved by the organization such as JIT procedures, like [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), or other internal tools and procedures. 
+1. The Security admin approves the request (if they find it worthy of being approved) and informs the Backup admin. Now the Backup admin has the **Backup MUA Operator** role on the Resource Guard.
 1. The Backup admin goes to the vault > **Properties** > **Multi-user Authorization**.
 1. Select **Update**.
    1. Clear the **Protect with Resource Guard** checkbox.
@@ -416,7 +423,7 @@ This article demonstrates Resource Guard creation in a different tenant that off
 ## Before you start
 
 -  Ensure the Resource Guard and the Backup vault are in the same Azure region.
--  Ensure the Backup admin does **not** have **Contributor** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
+-  Ensure the Backup admin does **not** have **Contributor**, **Backup MUA Admin**, or **Backup MUA Operator** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
 - Ensure that your subscriptions contain the Backup vault as well as the Resource Guard (in different subscriptions or tenants) are registered to use the provider - **Microsoft.DataProtection**4. For more information, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
 
 Learn about various [MUA usage scenarios](./multi-user-authorization-concept.md?tabs=backup-vault#usage-scenarios).
@@ -425,7 +432,7 @@ Learn about various [MUA usage scenarios](./multi-user-authorization-concept.md?
 
 The **Security admin** creates the Resource Guard. We recommend that you create it in a **different subscription** or a **different tenant** as the vault. However, it should be in the **same region** as the vault.
 
-The Backup admin must **NOT** have *contributor* access on the Resource Guard or the subscription that contains it.
+The Backup admin must **NOT** have **contributor**, **Backup MUA Admin**, or **Backup MUA Operator** access on the Resource Guard or the subscription that contains it.
 
 To create the Resource Guard in a tenant different from the vault tenant as a Security admin, follow these steps:
 
@@ -522,7 +529,7 @@ Once the Backup admin has the Reader role on the Resource Guard, they can enable
 
 ## Protected operations using MUA
 
-Once the Backup admin enables MUA, the operations in scope will be restricted on the vault, and the operations fail if the Backup admin tries to perform them without having the **Contributor** role on the Resource Guard.
+Once the Backup admin enables MUA, the operations in scope will be restricted on the vault, and the operations fail if the Backup admin tries to perform them without having the **Backup MUA Operator** role on the Resource Guard.
 
 >[!NOTE]
 >We highly recommend you to test your setup after enabling MUA to ensure that:
@@ -552,23 +559,23 @@ To perform a protected operation (disabling MUA), follow these steps:
 
 There are scenarios where you may need to perform critical operations on your backups and you can perform them with the right approvals or permissions with MUA. The following sections explain how to authorize the critical operation requests using Privileged Identity Management (PIM).
 
-The Backup admin must have a Contributor role on the Resource Guard to perform critical operations in the Resource Guard scope. One of the ways to allow just-in-time (JIT) operations is through the use of [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
+The Backup admin must have a **Backup MUA Operator** role on the Resource Guard to perform critical operations in the Resource Guard scope. One of the ways to allow just-in-time (JIT) operations is through the use of [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 
 >[!NOTE]
->We recommend that you use the Microsoft Entra PIM. However, you can also use manual or custom methods to manage access for the Backup admin on the Resource Guard. To manually manage access to the Resource Guard, use the *Access control (IAM)* setting on the left pane of the Resource Guard and grant the **Contributor** role to the Backup admin.
+>We recommend that you use the Microsoft Entra PIM. However, you can also use manual or custom methods to manage access for the Backup admin on the Resource Guard. To manually manage access to the Resource Guard, use the *Access control (IAM)* setting on the left pane of the Resource Guard and grant the **Backup MUA Operator** role to the Backup admin.
 
 <a name='create-an-eligible-assignment-for-the-backup-admin-using-azure-active-directory-privileged-identity-management'></a>
 
 ### Create an eligible assignment for the Backup admin using Microsoft Entra Privileged Identity Management
 
-The **Security admin** can use PIM to create an eligible assignment for the Backup admin as a Contributor to the Resource Guard. This enables the Backup admin to raise a request (for the Contributor role) when they need to perform a protected operation.
+The **Security admin** can use PIM to create an eligible assignment for the Backup admin as a **Backup MUA Operator** to the Resource Guard. This enables the Backup admin to raise a request (for the **Backup MUA Operator** role) when they need to perform a protected operation.
 
 To create an eligible assignment, follow the steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to security tenant of Resource Guard, and in the search, enter **Privileged Identity Management**.
 1. In the left pane, select **Manage and go to Azure Resources**.
-1. Select the resource (the Resource Guard or the containing subscription/RG) to which you want to assign the Contributor role.
+1. Select the resource (the Resource Guard or the containing subscription/RG) to which you want to assign the **Backup MUA Operator** role.
    
    If you don't find any corresponding resources, then add the containing subscription that is managed by PIM.
 
@@ -577,7 +584,7 @@ To create an eligible assignment, follow the steps:
    :::image type="content" source="./media/multi-user-authorization/add-assignments.png" alt-text="Screenshot showing how to add assignments to protect a Backup vault.":::
 
 1. In the Add assignments:
-   1. Select the role as Contributor.
+   1. Select the role as **Backup MUA Operator**.
    1. Go to **Select members** and add the username (or email IDs) of the Backup admin.
    1. Select **Next**.
 
@@ -604,7 +611,7 @@ By default, the above setup may not have an approver (and an approval flow requi
 1. Select **Edit** to add the reviewers who must review and approve the activation request for the *Contributor* role in case you find that Approvers show *None* or display incorrect approver(s).
 
 1. On the **Activation** tab, select **Require approval to activate** to add the approver(s) who must approve each request. 
-1. Select security options, such as Multi-Factor Authentication (MFA), Mandating ticket to activate *Contributor* role.
+1. Select security options, such as multifactor authentication (MFA), Mandating ticket to activate *Contributor* role.
 1. Select the appropriate options on **Assignment** and **Notification** tabs as per your requirement.
 
    :::image type="content" source="./media/multi-user-authorization/edit-role-settings.png" alt-text="Screenshot showing how to edit the role setting.":::
@@ -641,10 +648,10 @@ After the approval, the Backup admin receives a notification, via email or other
 
 ## Perform a protected operation after approval
 
-Once the Security admin approves the Backup admin's request for the Contributor role on the Resource Guard, they can perform protected operations on the associated vault. If the Resource Guard is in another directory, the Backup admin must authenticate themselves.
+Once the Security admin approves the Backup admin's request for the **Backup MUA Operator** role on the Resource Guard, they can perform protected operations on the associated vault. If the Resource Guard is in another directory, the Backup admin must authenticate themselves.
 
 >[!NOTE]
->If the access was assigned using a JIT mechanism, the Contributor role is retracted at the end of the approved period. Otherwise, the Security admin manually removes the **Contributor** role assigned to the Backup admin to perform the critical operation.
+>If the access was assigned using a JIT mechanism, the **Backup MUA Operator** role is retracted at the end of the approved period. Otherwise, the Security admin manually removes the **Backup MUA Operator** role assigned to the Backup admin to perform the critical operation.
 
 The following screenshot shows an example of [disabling soft delete](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) for an MUA-enabled vault.
 
@@ -652,9 +659,9 @@ The following screenshot shows an example of [disabling soft delete](backup-azur
 
 ## Disable MUA on a Backup vault
 
-Disabling the MUA is a protected operation that must be done by the Backup admin only. To do this, the Backup admin must have the required *Contributor* role in the Resource Guard. To obtain this permission, the Backup admin must first request the Security admin for the Contributor role on the Resource Guard using the just-in-time (JIT) procedure, such as [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) or internal tools.
+Disabling the MUA is a protected operation that must be done by the Backup admin only. To do this, the Backup admin must have the required **Backup MUA Operator** role in the Resource Guard. To obtain this permission, the Backup admin must first request the Security admin for the **Backup MUA Operator** role on the Resource Guard using the just-in-time (JIT) procedure, such as [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) or internal tools.
 
-Then the Security admin approves the request if it's genuine and updates the Backup admin who now has Contributor role on the Resource guard. Learn more on [how to get this role](?pivots=vaults-backup-vault#assign-permissions-to-the-backup-admin-on-the-resource-guard-to-enable-mua).
+Then the Security admin approves the request if it's genuine and updates the Backup admin who now has **Backup MUA Operator** role on the Resource guard. Learn more on [how to get this role](?pivots=vaults-backup-vault#assign-permissions-to-the-backup-admin-on-the-resource-guard-to-enable-mua).
 
 To disable the MUA, the Backup admins must follow these steps:
 

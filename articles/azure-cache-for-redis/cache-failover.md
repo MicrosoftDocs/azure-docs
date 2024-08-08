@@ -4,7 +4,7 @@ description: Learn about failover, patching, and the update process for Azure Ca
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 04/30/2024
 ms.custom: engagement-fy23

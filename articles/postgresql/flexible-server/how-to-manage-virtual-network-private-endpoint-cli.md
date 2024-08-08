@@ -1,21 +1,20 @@
 ---
 title: Manage virtual networks with Private Link - CLI
 description: Create an Azure Database for PostgreSQL - Flexible Server instance with public access by using the Azure CLI, and add private networking to the server based on Azure Private Link.
-author: gennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ---
 
 
 # Create and manage virtual networks with Private Link for Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server supports two types of mutually exclusive network connectivity methods to connect to your Azure Database for PostgreSQL flexible server instance. The two options are:
 
@@ -77,5 +76,3 @@ To add an Azure Database for PostgreSQL flexible server instance to a virtual ne
 
 * Learn more about [networking in Azure Database for PostgreSQL flexible server with Private Link](./concepts-networking-private-link.md).
 * Understand more about [virtual network integration in Azure Database for PostgreSQL flexible server](./concepts-networking-private.md).
-
-

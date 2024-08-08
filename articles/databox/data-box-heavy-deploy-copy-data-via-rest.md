@@ -16,7 +16,7 @@ ms.author: shaas
 # Tutorial: Copy data to Azure Data Box Blob storage via REST APIs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This tutorial describes procedures to connect to Azure Data Box Blob storage via REST APIs over *http* or *https*. Once connected, the steps required to copy the data to Data Box Blob storage are described.
 
@@ -37,7 +37,7 @@ Before you begin, make sure that:
 4. You've access to a host computer that has the data that you want to copy over to Data Box Heavy. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. For fastest copy speeds, two 40-GbE connections (one per node) can be utilized in parallel. If you do not have 40-GbE connection available, we recommend that you have at least two 10-GbE connections (one per node).
-5. [Download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) on your host computer. You'll use AzCopy to copy data to Azure Data Box Blob storage from your host computer.
+5. [Download AzCopy 7.1.0](/previous-versions/azure/storage/storage-use-azcopy-linux#installation-steps-for-azcopy-71-and-earlier-versions) on your host computer. You'll use AzCopy to copy data to Azure Data Box Blob storage from your host computer.
 
 
 ## Connect via http or https

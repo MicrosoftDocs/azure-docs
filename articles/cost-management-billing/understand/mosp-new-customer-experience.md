@@ -222,7 +222,7 @@ After your Azure billing account is updated, you'll get an email from Microsoft 
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Next steps
+## Related content
 
 See the following articles to learn more about your billing account.
 

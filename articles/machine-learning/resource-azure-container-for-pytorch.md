@@ -3,14 +3,14 @@ title: Azure Container for PyTorch
 titleSuffix: Azure Machine Learning
 description: Azure Container for PyTorch (ACPT), a curated environment that includes the best of Microsoft technologies for training with PyTorch on Azure.
 services: machine-learning
-author: sheetalarkadam
-ms.author: parinitarahi
-ms.reviewer: ssalgado
-ms.service: machine-learning
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: parinitarahi
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: build-2023, build-2023-dataai
 ms.topic: reference
-ms.date: 03/20/2023
+ms.date: 05/13/2024
 ---
 
 # Azure Container for PyTorch (ACPT)
@@ -42,9 +42,10 @@ The following configurations are supported:
 
 | Environment Name | OS | GPU Version| Python Version | PyTorch Version | ORT-training Version | DeepSpeed Version | torch-ort Version | Nebula Version | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|acpt-pytorch-2.1-cuda12.1|Ubuntu 20.04|cu121|3.8|2.1.2|1.17.1|0.13.1|1.17.0|0.16.10|
-|acpt-pytorch-2.0-cuda11.7|Ubuntu 20.04|cu117|3.8|2.0.1|1.17.1|0.13.1|1.17.0|0.16.10|
-|acpt-pytorch-1.13-cuda11.7|Ubuntu 20.04|cu117|3.8|1.13.1|1.17.1|0.13.1|1.17.0|0.16.10|
+|acpt-pytorch-2.2-cuda12.1|Ubuntu 20.04|cu121|3.10|2.2.2|1.17.3|0.13.1|1.17.3|0.16.11|
+|acpt-pytorch-2.1-cuda12.1|Ubuntu 20.04|cu121|3.10|2.1.2|1.17.3|0.13.1|1.17.3|0.16.11|
+|acpt-pytorch-2.0-cuda11.7|Ubuntu 20.04|cu117|3.10|2.0.1|1.17.3|0.13.1|1.17.3|0.16.11|
+|acpt-pytorch-1.13-cuda11.7|Ubuntu 20.04|cu117|3.10|1.13.1|1.17.3|0.13.1|1.17.3|0.16.11|
 
 Other packages like fairscale, horovod, msccl, protobuf, pyspark, pytest, pytorch-lightning, tensorboard, NebulaML, torchvision, and torchmetrics are provided to support all training needs.
 

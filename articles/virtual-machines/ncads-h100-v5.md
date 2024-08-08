@@ -3,7 +3,7 @@ title: NCads H100 v5-series
 description: Specifications for the NCads H100 v5-series Azure VMs. These VMs include Linux, Windows, Flexible scale sets, and uniform scale sets.```
 author: sherrywangms
 ms.author: sherrywang
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.custom: ignite-2023, linux-related-content
 ms.topic: conceptual

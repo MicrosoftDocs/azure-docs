@@ -5,7 +5,7 @@ metadata:
   author: rcdun
   ms.author: rdunstan
   ms.reviewer: rathishr
-  ms.service: operator-insights
+  ms.service: azure-operator-insights
   ms.topic: faq
   ms.date: 04/02/2024
   ms.custom: references_regions
@@ -20,7 +20,7 @@ sections:
           Azure Operator Insights doesn't move or store customer data out of the region it's deployed in.
           
           The only exceptions to this are:
-          - Data processing for the Azure Operator Insights Copilot feature (currently in preview). This is because the Azure Open AI service used by the Copilot feature is not available in all regions yet. Data processing may happen cross region but within the same geo.
+          - Data processing for the Azure Operator Insights Copilot feature (currently in preview). This is because Azure OpenAI Service used by the Copilot feature is not available in all regions yet. Data processing may happen cross region but within the same geo.
           - Data storage for the West Central US or South Central US regions. If you deploy to these regions, the data is stored in the East US region.
       - question: Does Azure Operator Insights support CMK-based encryption?
         answer: |
@@ -44,6 +44,7 @@ sections:
           - UK South
           - North Europe 
           - West Europe
-          - Australia East 
+          - Australia East
+          - UAE North
 
           We'll be enabling other regions. If your region isn't in the list, contact your local Microsoft representative.

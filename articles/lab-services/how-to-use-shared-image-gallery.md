@@ -9,6 +9,8 @@ ms.author: nicktrog
 
 # Use an Azure compute gallery in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 An image contains the operating system, software applications, files, and settings that are installed on a VM. This article shows how educators or lab admins can create and save a custom image from a template virtual machine to a [compute gallery](../virtual-machines/shared-image-galleries.md) for others to create new labs.
 
 You can use two types of images to set up a new lab:

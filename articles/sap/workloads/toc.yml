@@ -230,7 +230,7 @@ items:
     - name: Disaster recovery
       items: 
       - name: Add HSR third site to HANA Pacemaker cluster
-        href: disaster-recovery-sap-hana-suse.md
+        href: disaster-recovery-sap-hana.md
     - name: Integration with Microsoft services
       items:
       - name: Outbound E-Mail from SAP to Exchange Online

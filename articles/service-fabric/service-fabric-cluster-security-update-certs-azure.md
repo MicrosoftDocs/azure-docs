@@ -4,7 +4,7 @@ description: Describes how to add new certificates, rollover certificate, and re
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 07/14/2022
@@ -23,7 +23,7 @@ Service fabric lets you specify two cluster certificates, a primary and a second
 > 
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Add a secondary cluster certificate using the portal
 Secondary cluster certificate cannot be added through the Azure portal; use [Azure Resource Manager](#add-a-secondary-certificate-using-azure-resource-manager).

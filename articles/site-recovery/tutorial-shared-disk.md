@@ -2,8 +2,8 @@
 title: Shared disks in Azure Site Recovery (preview)
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: conceptual
-ms.service: site-recovery
-ms.date: 05/01/2024
+ms.service: azure-site-recovery
+ms.date: 05/08/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -87,11 +87,11 @@ To enable replication for shared disks, follow these steps:
     1. Under the **Manage** tab, do the following:
         1. In the **Shared disk clusters** section, assign a **Cluster name** for the group, which is used to represent the group throughout their disaster recovery lifecycle. 
         
-            This name is used to trigger any operations, monitor, or operate via PowerShell/REST. 
-    
+            **Note**: The cluster name shouldn't contain special characters (for example, \/""[]:|<>+=;,?*@&), whitespace, or begin with `_` or end with `.` or `-`. 
+
             :::image type="content" source="media/tutorial-shared-disk/shared-disk-cluster.png" alt-text="Screenshot showing cluster name.":::
 
-        We recommend that you use the same name as your cluster.
+        We recommend that you use the same name as your cluster for the ease of tracking.
     1. Under **Replication policy** section, select an appropriate replication policy and extension update settings.
     1. Review the information and select **Enable replication**.  
  

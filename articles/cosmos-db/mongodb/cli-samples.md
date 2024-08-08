@@ -2,7 +2,7 @@
 title: Azure CLI Samples for Azure Cosmos DB for MongoDB
 description: Azure CLI Samples for Azure Cosmos DB for MongoDB
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: sample
 ms.date: 08/18/2022
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Azure CLI samples for Azure Cosmos DB for MongoDB
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 The following tables include links to sample Azure CLI scripts for the Azure Cosmos DB for MongoDB  and to sample Azure CLI scripts that apply to all Azure Cosmos DB APIs. Common samples are the same across all APIs.
 

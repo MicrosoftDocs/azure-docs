@@ -222,7 +222,7 @@ Publish the LUIS app using the [app.publish](/javascript/api/@azure/cognitiveser
 
 ## Authenticate the prediction runtime client
 
-Use an msRest.ApiKeyCredentials object with your key, and use it with your endpoint to create an [LUIS.LUISRuntimeClient](/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient) object.
+Use an `msRest.ApiKeyCredentials` object with your key, and use it with your endpoint to create an [LUIS.LUISRuntimeClient](/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient) object.
 
 [!INCLUDE [Caution about using authoring key](caution-authoring-key.md)]
 

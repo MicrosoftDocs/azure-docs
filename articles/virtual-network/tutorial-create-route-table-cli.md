@@ -4,7 +4,7 @@ description: In this article, learn how to route network traffic with a route ta
 services: virtual-network
 author: asudbring
 manager: mtillman
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
@@ -26,7 +26,7 @@ Azure automatically routes traffic between all subnets within a virtual network,
 * Deploy virtual machines (VM) into different subnets
 * Route traffic from one subnet to another through an NVA
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

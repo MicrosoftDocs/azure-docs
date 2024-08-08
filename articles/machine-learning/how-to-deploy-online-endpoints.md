@@ -3,15 +3,14 @@ title: Deploy machine learning models to online endpoints for inference
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your machine learning model as an online endpoint in Azure.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 04/30/2024
-reviewer: msakande
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2, sdkv2, update-code
+ms.custom: how-to, devplatv2, cliv2, sdkv2, update-code, devx-track-azurecli
 ---
 
 # Deploy and score a machine learning model by using an online endpoint
@@ -1215,12 +1214,11 @@ There currently isn't an option to update the deployment using an ARM template.
 
 ---
 
-
-The update to the deployment in this section is an example of an in-place rolling update.
-
-* For a managed online endpoint, the deployment is updated to the new configuration with 20% nodes at a time. That is, if the deployment has 10 nodes, 2 nodes at a time are updated.
-* For a Kubernetes online endpoint, the system iteratively creates a new deployment instance with the new configuration and deletes the old one.
-* For production usage, you should consider [blue-green deployment](how-to-safely-rollout-online-endpoints.md), which offers a safer alternative for updating a web service.
+> [!NOTE]
+> The update to the deployment in this section is an example of an in-place rolling update.
+> * For a managed online endpoint, the deployment is updated to the new configuration with 20% nodes at a time. That is, if the deployment has 10 nodes, 2 nodes at a time are updated.
+> * For a Kubernetes online endpoint, the system iteratively creates a new deployment instance with the new configuration and deletes the old one.
+> * For production usage, you should consider [blue-green deployment](how-to-safely-rollout-online-endpoints.md), which offers a safer alternative for updating a web service.
 
 ### (Optional) Configure autoscaling
 

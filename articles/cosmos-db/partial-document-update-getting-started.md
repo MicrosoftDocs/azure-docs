@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn how to use the partial document update feature with the .NET, Java, and Node SDKs for Azure Cosmos DB for NoSQL.
 author: AbhinavTrips
 ms.author: abtripathi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.custom: devx-track-dotnet, devx-track-extended-java
@@ -291,7 +291,7 @@ Support for Partial Document Update (Patch API) in the [Azure Cosmos DB Python S
     ```python
     operations =
     [
-        { op: 'replace', path: '/price', value: 355.45 }
+        { 'op': 'replace', 'path': '/price', 'value': 355.45 }
     ]
     
     response = container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations)
@@ -303,8 +303,8 @@ Support for Partial Document Update (Patch API) in the [Azure Cosmos DB Python S
     ```python
     operations =
     [
-        { op: 'add', path: '/color', value: 'silver' },
-        { op: 'remove', path: '/used' }
+        { 'op': 'add', 'path': '/color', 'value': 'silver' },
+        { 'op': 'remove', 'path': '/used' }
     ]
     
     response = container.patch_item(item='e379aea5-63f5-4623-9a9b-4cd9b33b91d5', partition_key='road-bikes', patch_operations=operations)
@@ -318,7 +318,7 @@ Support for Partial Document Update (Patch API) in the [Azure Cosmos DB Python S
 
     operations =
     [
-        { op: 'replace', path: '/price', value: 100.00 }
+        { 'op': 'replace', 'path': '/price', 'value': 100.00 }
     ]
 
     try:

@@ -3,10 +3,10 @@ title: Migrate an Azure Cosmos DB account from periodic to continuous backup mod
 description: Azure Cosmos DB currently supports a one-way migration from periodic to continuous mode and it’s irreversible. After migrating from periodic to continuous mode, you can apply the benefits of continuous mode.
 author: kanshiG
 ms.author: govindk
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: build-2023, devx-track-azurecli
-ms.date: 03/31/2023
+ms.date: 05/08/2024
 ms.topic: how-to
 ms.reviewer: mjbrown
 ---
@@ -32,7 +32,8 @@ The following are the key reasons to migrate into continuous mode:
 >
 > * If the account is of type API for NoSQL,API for Table, Gremlin or API for MongoDB.
 > * If the account has a single write region.
-> * If the account isn't enabled with analytical store.
+> * If the account never had Synapse Link disabled for a container.
+
 >
 > If the account is using [customer-managed keys](./how-to-setup-cmk.md), a managed identity (System-assigned or User-assigned) must be declared in the Key Vault access policy and must be set as the default identity on the account.
 
@@ -221,7 +222,9 @@ Yes.
 
 Currently, API for NoSQL, API for Table, Gremlin API and API for MongoDB accounts with single write region that have shared, provisioned, or autoscale provisioned throughput support migration.  
 
-Accounts enabled with analytical storage and multiple-write regions aren't supported for migration.
+Accounts enabled with multiple-write regions aren't supported for migration.
+
+Currently, accounts with Synapse Link enabled, that had Synapse Link disabled for one or more collections, can't migrate to continuous backup.
 
 ### Does the migration take time? What is the typical time?
 

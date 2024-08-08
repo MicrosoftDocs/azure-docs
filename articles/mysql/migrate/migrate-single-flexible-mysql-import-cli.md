@@ -4,8 +4,8 @@ description: This tutorial describes how to use the Azure Database for MySQL Imp
 author: adig
 ms.author: adig
 ms.reviewer: maghan
-ms.date: 07/03/2023
-ms.service: mysql
+ms.date: 05/21/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom:
@@ -16,11 +16,11 @@ ms.devlang: azurecli
 ---
 # Migrate Azure Database for MySQL - Single Server to Flexible Server using Azure Database for MySQL Import CLI
 
-[!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+[!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL Import CLI (Generally Available) enables you to migrate your Azure Database for MySQL seamlessly - Single Server to Flexible Server. It uses snapshot backup and restores technology to offer a simple and fast migration path to restore the source server's physical data files to the target server. Post import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
 
- Based on user-inputs, it takes up the responsibility of provisioning your target Flexible Server and then taking the backup of the source server and restoring the target. It copies the data files, server parameters, compatible firewall rules and server properties - tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password from Single to Flexible Server instance.
+Based on user-inputs, it takes up the responsibility of provisioning your target Flexible Server and then taking the backup of the source server and restoring the target. It copies the data files, server parameters, compatible firewall rules and server properties - tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password from Single to Flexible Server instance.
 
 Azure Database for MySQL Import CLI supports a near-zero downtime migration by first performing an offline import operation and consequently users can set up data-in replication between source and target to perform an online migration.
 
@@ -34,7 +34,7 @@ This tutorial shows how to use the Azure Database for MySQL Import CLI command t
 
 The [Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-To open the Cloud Shell, select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
+To open the Cloud Shell, select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://portal.azure.com/#cloudshell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
 If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.54.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
@@ -64,9 +64,10 @@ az account set --subscription <subscription id>
 - If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with Azure Database for MySQL Import CLI input parameters or post migration as well.
 - If the Single Server instance has 'Query Store' enabled, enabling slow query logs on target Flexible Server instance is recommended to support similar functionality. You can configure slow query logs on the target flexible server by following steps [here](/azure/mysql/flexible-server/tutorial-query-performance-insights#configure-slow-query-logs-by-using-the-azure-portal). You can then view query insights by using [workbooks template](/azure/mysql/flexible-server/tutorial-query-performance-insights#view-query-insights-by-using-workbooks).
 - If your Single Server instance has Legacy Storage architecture (General Purpose storage V1), you need to set the parameter log_bin=ON for your Single Server instance before initiating the import operation. In order to do so, create a read replica for your Single Server instance and then delete it. This operation will set the parameter log_bin to ON and you can then trigger an import operation to migrate to Flexible Server.
+- If your Single Server instance has Advanced Threat Protection enabled, you need to enable Advanced Threat Protection on the migrated Flexible Server instance post migration by following steps [here] (/azure/mysql/flexible-server/advanced-threat-protection-setting?view=azure-cli-latest).
 - If your Single Server instance has engine version v8.0, consider performing the following actions to avoid any breaking changes due to community minor version differences between the Single and Flexible Server instance :
 
-  - Run the following statement to check if your instance could be impacted by erroneous histogram information. If the corresponding tables are output, we recommend that you refer to [https://dev.mysql.com/blog-archive/histogram-statistics-in-mysql/](https://dev.mysql.com/blog-archive/histogram-statistics-in-mysql/) to delete the histogram information, and then recreate it on the Flexible Server. It's worth noting that the histogram inf` is only statistical information about the columns, and this information only exists in system tables, so deleting the histogram info will not affect the table data.
+  - Run the following statement to check if your instance could be affected by erroneous histogram information. If the corresponding tables are output, we recommend that you refer to [https://dev.mysql.com/blog-archive/histogram-statistics-in-mysql/](https://dev.mysql.com/blog-archive/histogram-statistics-in-mysql/) to delete the histogram information, and then recreate it on the Flexible Server. It's worth noting that the histogram inf` is only statistical information about the columns, and this information only exists in system tables, so deleting the histogram info will not affect the table data.
 
     ```sql
         SELECT DISTINCT SCHEMA_NAME, TABLE_NAME FROM `information_schema`.`column_statistics`;
@@ -126,7 +127,7 @@ az mysql flexible-server import create --data-source-type
                                 [--zone]
 ```
 
-The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of the source Single Server) and performs an import from source to target. Azure Database MySQL Import command maps over the corresponding tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password  properties from Single Server to Flexible Server as smart defaults if no inputs are provided to the CLI command. You can choose to override the smart defaults by providing inputs for these optional parameters.
+The following example takes in the data source information for Single Server named 'test-single-server' and target Flexible Server information, creates a target Flexible Server named `test-flexible-server` in the `westus` location (same location as that of the source Single Server) and performs an import from source to target. Azure Database MySQL Import command maps over the corresponding tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password properties from Single Server to Flexible Server as smart defaults if no inputs are provided to the CLI command. You can choose to override the smart defaults by providing inputs for these optional parameters.
 
 ```azurecli-interactive
 az mysql flexible-server import create --data-source-type "mysql_single" --data-source "test-single-server" --resource-group "test-rg"  --name "test-flexible-server"
@@ -186,8 +187,8 @@ admin-password | *password* | The administrator user's password for your target 
 sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration for your target Azure Database for MySQL Flexible Server. Follows the convention {pricing tier}*{compute generation}*{vCores} in shorthand. See the [pricing tiers](../flexible-server/concepts-service-tiers-storage.md#service-tiers-size-and-server-types) for more information.
 tier | Burstable | Compute tier of the target Azure Database for MySQL Flexible Server. Accepted values: Burstable, GeneralPurpose, MemoryOptimized; Default value: Burstable.
 public-access | 0.0.0.0 | Determines the public access for the target Azure Database for MySQL Flexible Server. Enter single or range of IP addresses to be included in the allowed list of IPs. IP address ranges must be dash-separated and not contain any spaces. Specifying 0.0.0.0 allows public access from any resources deployed within Azure to access your server. Setting it to "None" sets the server in public access mode but doesn't create a firewall rule.
-vnet | myVnet | Name or ID of a new or existing virtual network. If you want to use a vnet from different resource group or subscription, please provide a resource ID. The name must be between 2 to 64 characters. The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.
-subnet | mySubnet | Name or resource ID of a new or existing subnet. If you want to use a subnet from different resource group or subscription, please provide resource ID instead of name. Please note that the subnet will be delegated to flexibleServers. After delegation, this subnet cannot be used for any other type of Azure resources.
+vnet | myVnet | Name or ID of a new or existing virtual network. If you want to use a vnet from different resource group or subscription, please provide a resource ID. The name must be between 2 to 64 characters. The name must begin with a letter or number, end with a letter, number or underscore, and might contain only letters, numbers, underscores, periods, or hyphens.
+subnet | mySubnet | Name or resource ID of a new or existing subnet. If you want to use a subnet from different resource group or subscription, please provide resource ID instead of name. The subnet will be delegated to flexibleServers. After delegation, this subnet cannot be used for any other type of Azure resources.
 private-dns-zone | myserver.private.contoso.com | The name or ID of new or existing private dns zone. You can use the private dns zone from same resource group, different resource group, or different subscription. If you want to use a zone from different resource group or subscription, please provide resource ID. CLI creates a new private dns zone within the same resource group as virtual network if not provided by users.
 key | key identifier of testKey | The resource ID of the primary keyvault key for data encryption.
 identity | testIdentity | The name or resource ID of the user assigned identity for data encryption.
@@ -214,14 +215,14 @@ CALL mysql.az_show_binlog_file_and_pos_for_mysql_import();
 
 ## Best practices for configuring Azure Database for MySQL Import CLI command parameters
 
- Before you trigger the Azure Database for MySQL Import CLI command, consider the following parameter configuration guidance to help ensure faster data loads using Azure Database for MySQL Import CLI.
+Before you trigger the Azure Database for MySQL Import CLI command, consider the following parameter configuration guidance to help ensure faster data loads using Azure Database for MySQL Import CLI.
 
-- If you want to override smart defaults, select the compute tier and SKU name for the target flexible server based on the source single server’s pricing tier and VCores based on the detail in the following table.
+- If you want to override smart defaults, select the compute tier and SKU name for the target flexible server based on the source single server's pricing tier and VCores based on the detail in the following table.
 
     | Single Server Pricing Tier | Single Server VCores | Flexible Server Tier | Flexible Server SKU Name |
-    | ------------- | ------------- |:-------------:|:-------------:|
-    | Basic | 1 | Burstable | Standard_B1s |
-    | Basic | 2 | Burstable | Standard_B2s |
+    | --- | --- | :---: | :---: |
+    | Basic | 1 | Burstable | Standard_B2ms |
+    | Basic | 2 | Burstable | Standard_B2ms |
     | General Purpose | 4 | GeneralPurpose | Standard_D4ds_v4 |
     | General Purpose | 8 | GeneralPurpose | Standard_D8ds_v4 |
     | General Purpose | 16 | GeneralPurpose | Standard_D16ds_v4 |
@@ -238,31 +239,31 @@ CALL mysql.az_show_binlog_file_and_pos_for_mysql_import();
 
 ## How long does Azure Database for MySQL Import take to migrate my Single Server instance?
 
-Below is the benchmarked performance based on storage size.
+Below is the benchmarked performance based on storage size for General Purpose V2 storage architecture. (Servers with General purpose V1 storage will take longer time to migrate as it involves upgrading the storage architecture as well)
 
   | Single Server Storage Size | Import time |
-  | ------------- |:-------------:|
+  | --- | :---: |
   | 1 GiB | 0 min 23 secs |
   | 10 GiB | 4 min 24 secs |
   | 100 GiB | 10 min 29 secs |
   | 500 GiB | 13 min 15 secs |
   | 1 TB | 22 min 56 secs |
   | 10 TB | 2 hrs 5 min 30 secs |
-  
-From the table above, as the storage size increases, the time required for data copying also increases, almost in a linear relationship. However, it's important to note that copy speed can be significantly impacted by network fluctuations. Therefore, the data provided here should be taken as a reference only.
+
+From the table above, as the storage size increases, the time required for data copying also increases, almost in a linear relationship. However, it's important to note that copy speed can be significantly affected by network fluctuations. Therefore, the data provided here should be taken as a reference only.
 
 Below is the benchmarked performance based on varying number of tables for 10 GiB storage size.
 
   | Number of tables in Single Server instance | Import time |
-  | ------------- | :-------------: |
+  | --- | :---: |
   | 100 | 4 min 24 secs |
   | 200 | 4 min 40 secs |
   | 800 | 4 min 52 secs |
   | 14,400 | 17 min 41 secs |
   | 28,800 | 19 min 18 secs |
   | 38,400 | 22 min 50 secs |
-  
- As the number of files increases, each file/table in the database may become very small. This will result in a consistent amount of data being transferred, but there will be more frequent file-related operations, which may impact the performance of Azure Database for Mysql Import.
+
+As the number of files increases, each file/table in the database might become very small. This will result in a consistent amount of data being transferred, but there will be more frequent file-related operations, which might affect the performance of Azure Database for Mysql Import.
 
 ## Post-import steps
 
@@ -272,6 +273,7 @@ Below is the benchmarked performance based on varying number of tables for 10 Gi
   - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
   - Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
 
-## Next steps
+## Next step
 
-- [Manage an Azure Database for MySQL - Flexible Server using the Azure portal](../flexible-server/how-to-manage-server-portal.md)
+> [!div class="nextstepaction"]
+> [Manage an Azure Database for MySQL - Flexible Server using the Azure portal](../flexible-server/how-to-manage-server-portal.md)

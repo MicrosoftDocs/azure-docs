@@ -3,7 +3,7 @@ title: Connect a Go application to Azure Cosmos DB for MongoDB
 description: This quickstart demonstrates how to connect an existing Go application to Azure Cosmos DB for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: golang
 ms.topic: quickstart
@@ -11,7 +11,7 @@ ms.date: 04/26/2022
 ms.custom: mode-api, devx-track-azurecli, devx-track-go
 ---
 # Quickstart: Connect a Go application to Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 >

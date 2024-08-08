@@ -199,7 +199,7 @@ sections:
         answer: |
           Azure Disk (Premium_LRS) is configured as the default storage class. For additional storage providers, and for configuration details (including Azure File), see the Red Hat documentation on [persistent storage](https://docs.openshift.com/container-platform/4.6/storage/understanding-persistent-storage.html).
           
-          ## Does ARO store any customer data outside of the cluster's region?
-          
+      - question: Does ARO store any customer data outside of the cluster's region?
+        answer: |  
           No. All data created in an ARO cluster is maintained within the cluster's region.
           

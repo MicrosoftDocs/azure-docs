@@ -1,7 +1,6 @@
 ---
 title: Self-hosted integration runtime auto-update and expire notification
 description: Learn about self-hosted integration runtime auto-update and expire notification.
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
@@ -47,6 +46,9 @@ If you have multiple nodes, and for some reasons that some of them aren't auto-u
 
 ## Self-hosted Integration Runtime Expire Notification
 If you want to manually control which version of self-hosted integration runtime, you can disable the setting of auto-update and install it manually. Each version of self-hosted integration runtime expires in one year. The expiring message is shown in ADF portal and self-hosted integration runtime client **90 days** before expired.
+
+> [!WARNING]
+> If the self-hosted integration runtime becomes expired, it will display an offline status and no longer work properly.
 
 When you receive the expired notification, you can use below PowerShell command to find all expired and expiring self-hosted integration runtime in your environment. Then you can upgrade them accordingly.
 

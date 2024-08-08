@@ -2,7 +2,7 @@
 title: Configure multi-region writes in your Azure Cosmos DB for MongoDB database
 description: Learn how to configure multi-region writes in Azure Cosmos DB for MongoDB
 author: gahl-levy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: gahllevy
@@ -10,7 +10,7 @@ ms.subservice: mongodb
 ---
 
 # Configure multi-region writes in Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Multi-region writes in Azure Cosmos DB for MongoDB enable your clients to write to multiple regions. This results in lower latency and better availability for your writes. It's important to note that unlike other MongoDB services, Azure Cosmos DB for MongoDB enables you to write data from the same shard to multiple regions. Multi-region writes is a true active-active setup.
 
@@ -36,8 +36,8 @@ MongoDB connection strings supports the “appName” parameter, which is a mean
 The appName parameter can be in one of the following formats​:
 
 ```powershell
-appName=<user-workload-name>​
-appName=<user-workload-name>@<preferred-write-region>​
+appName=<user-workload-name>
+appName=<user-workload-name>@<preferred-write-region>
 appName=<user-workload-name>@<cosmosdb-account-name>@<preferred-write-region>
 ```
 

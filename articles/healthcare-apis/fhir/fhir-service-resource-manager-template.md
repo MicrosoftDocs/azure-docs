@@ -274,7 +274,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ```
 # [CLI](#tab/CLI)
 ```azurecli-interactive
-resourceGroupName = “your resource group name”
+resourceGroupName = "your resource group name"
 az group delete --name $resourceGroupName
 ```
 ---

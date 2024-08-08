@@ -5,9 +5,9 @@ description: Include file
 services: api-center
 author: dlepow
 
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: include
-ms.date: 04/03/2024
+ms.date: 05/14/2024
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -25,5 +25,5 @@ ms.custom: Include file
 | Maximum requests per minute (data plane) | 3,000 | 6,000  |
 
 <sup>1</sup> To increase a limit in the Standard plan, contact [support](https://azure.microsoft.com/support/options/).<br/>
-<sup>2</sup> In the Free plan, use of full service features including API analysis and access through the data plane API is limited to the first 5 APIs.<br/>
+<sup>2</sup> In the Free plan, use of full service features including API analysis and access through the data plane API is limited to 5 APIs.<br/>
 <sup>3</sup> Custom metadata properties assigned to APIs, deployments, and environments.

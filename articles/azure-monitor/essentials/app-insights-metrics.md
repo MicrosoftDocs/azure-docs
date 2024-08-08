@@ -13,9 +13,9 @@ ms.reviewer: vitalyg
 Application Insights log-based metrics let you analyze the health of your monitored apps, create powerful dashboards, and configure alerts. There are two kinds of metrics:
 
 * [Log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) behind the scene are translated into [Kusto queries](/azure/kusto/query/) from stored events.
-* [Standard metrics](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) are stored as pre-aggregated time series.
+* [Standard metrics](../app/pre-aggregated-metrics-log-metrics.md#preaggregated-metrics) are stored as preaggregated time series.
 
-Since *standard metrics* are pre-aggregated during collection, they have better performance at query time. This makes them a better choice for dashboarding and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](./metrics-store-custom-rest-api.md#namespace) to switch between log-based and standard metrics in [metrics explorer](./analyze-metrics.md).
+Since *standard metrics* are preaggregated during collection, they have better performance at query time. This makes them a better choice for dashboarding and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](./metrics-store-custom-rest-api.md#namespace) to switch between log-based and standard metrics in [metrics explorer](./analyze-metrics.md).
 
 ## Interpret and use queries from this article
 
@@ -92,7 +92,7 @@ Browser metrics are collected by the Application Insights JavaScript SDK from re
 
 Time from user request until DOM, stylesheets, scripts and images are loaded.
 
-|Unit of measure|Supported aggregations|Pre-aggregated dimensions|
+|Unit of measure|Supported aggregations|Preaggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
 
@@ -110,7 +110,7 @@ browserTimings
 
 Time between receiving the last byte of a document until the DOM is loaded. Async requests may still be processing.
 
-|Unit of measure|Supported aggregations|Pre-aggregated dimensions|
+|Unit of measure|Supported aggregations|Preaggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
 
@@ -128,7 +128,7 @@ browserTimings
 
 Time between user request and network connection. Includes DNS lookup and transport connection.
 
-|Unit of measure|Supported aggregations|Pre-aggregated dimensions|
+|Unit of measure|Supported aggregations|Preaggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
 
@@ -146,7 +146,7 @@ browserTimings
 
 Time between the first and last bytes, or until disconnection.
 
-|Unit of measure|Supported aggregations|Pre-aggregated dimensions|
+|Unit of measure|Supported aggregations|Preaggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
 
@@ -164,7 +164,7 @@ browserTimings
 
 Time between network connection and receiving the first byte.
 
-|Unit of measure|Supported aggregations|Pre-aggregated dimensions|
+|Unit of measure|Supported aggregations|Preaggregated dimensions|
 |---|---|---|
 |Milliseconds|Average, Min, Max|None|
 
@@ -186,7 +186,7 @@ The metrics in **Failures** show problems with processing requests, dependency c
 
 This metric reflects the number of thrown exceptions from your application code running in browser. Only exceptions that are tracked with a ```trackException()``` Application Insights API call are included in the metric.
 
-|Unit of measure|Supported aggregations|Pre-aggregated dimensions|Notes|
+|Unit of measure|Supported aggregations|Preaggregated dimensions|Notes|
 |---|---|---|---|
 |Count|Count|None|Log-based version uses **Sum** aggregation|
 
@@ -201,7 +201,7 @@ exceptions
 
 The number of failed dependency calls.
 
-|Unit of measure|Supported aggregations|Pre-aggregated dimensions|Notes|
+|Unit of measure|Supported aggregations|Preaggregated dimensions|Notes|
 |---|---|---|---|
 |Count|Count|None|Log-based version uses **Sum** aggregation|
 
@@ -216,7 +216,7 @@ dependencies
 
 Each time when you log an exception to Application Insights, there is a call to the [trackException() method](../app/api-custom-events-metrics.md#trackexception) of the SDK. The Exceptions metric shows the number of logged exceptions.
 
-|Unit of measure|Supported aggregations|Pre-aggregated dimensions|Notes|
+|Unit of measure|Supported aggregations|Preaggregated dimensions|Notes|
 |---|---|---|---|
 |Count|Count|Cloud role name, Cloud role instance, Device type|Log-based version uses **Sum** aggregation|
 
@@ -230,7 +230,7 @@ exceptions
 
 The count of tracked server requests that were marked as *failed*. By default, the Application Insights SDK automatically marks each server request that returned HTTP response code 5xx or 4xx as a failed request. You can customize this logic by modifying  *success* property of request telemetry item in a [custom telemetry initializer](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-|Unit of measure|Supported aggregations|Pre-aggregated dimensions|Notes|
+|Unit of measure|Supported aggregations|Preaggregated dimensions|Notes|
 |---|---|---|---|
 |Count|Count|Cloud role instance, Cloud role name, Real or synthetic traffic, Request performance, Response code|Log-based version uses **Sum** aggregation|
 
@@ -245,7 +245,7 @@ requests
 
 This metric shows the number of server exceptions.
 
-|Unit of measure|Supported aggregations|Pre-aggregated dimensions|Notes|
+|Unit of measure|Supported aggregations|Preaggregated dimensions|Notes|
 |---|---|---|---|
 |Count|Count|Cloud role name, Cloud role instance|Log-based version uses **Sum** aggregation|
 
@@ -316,7 +316,7 @@ The metric shows how much of the total processor capacity is consumed by the pro
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-|Percentage|Average, Min, Max|Cloud role instance
+|Percentage|Average, Min, Max|Cloud role instance|
 
 ```Kusto
 performanceCounters
@@ -333,7 +333,7 @@ performanceCounters
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-|Bytes per second|Average, Min, Max|Cloud role instance
+|Bytes per second|Average, Min, Max|Cloud role instance|
 
 ```Kusto
 performanceCounters
@@ -349,7 +349,7 @@ Amount of non-shared memory that the monitored process allocated for its data.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-|Bytes|Average, Min, Max|Cloud role instance
+|Bytes|Average, Min, Max|Cloud role instance|
 
 ```Kusto
 performanceCounters
@@ -365,7 +365,7 @@ CPU consumption by *all* processes running on the monitored server instance.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-|Percentage|Average, Min, Max|Cloud role instance
+|Percentage|Average, Min, Max|Cloud role instance|
 
 >[!NOTE]
 > The processor time metric is not available for the applications hosted in Azure App Services. Use the  [Process CPU](#process-cpu-performancecountersprocesscpupercentage) metric to track CPU utilization of the web applications hosted in App Services.
@@ -498,4 +498,30 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | where notempty(user_AuthenticatedId)
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
+```
+
+## Access all your data directly with the Application Insights REST API
+
+The Application Insights REST API enables programmatic retrieval of log-based metrics. It also features an optional parameter “ai.include-query-payload” that when added to a query string, prompts the API to return not only the timeseries data, but also the Kusto Query Language (KQL) statement used to fetch it. This parameter can be particularly beneficial for users aiming to comprehend the connection between raw events in Log Analytics and the resulting log-based metric.
+
+To access your data directly, pass the parameter “ai.include-query-payload” to the Application Insights API in a query using KQL.
+
+```Kusto
+api.applicationinsights.io/v1/apps/DEMO_APP/metrics/users/authenticated?api_key=DEMO_KEY&prefer=ai.include-query-payload
+```
+
+The following is an example of a return KQL statement for the metric "Authenticated Users.” (In this example, "users/authenticated" is the metric id.) 
+
+```Kusto
+output
+{
+    "value": {
+        "start": "2024-06-21T09:14:25.450Z",
+        "end": "2024-06-21T21:14:25.450Z",
+        "users/authenticated": {
+            "unique": 0
+        }
+    },
+    "@ai.query": "union (traces | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (requests | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (pageViews | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (dependencies | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (customEvents | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (availabilityResults | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (exceptions | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (customMetrics | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (browserTimings | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)) | where notempty(user_AuthenticatedId) | summarize ['users/authenticated_unique'] = dcount(user_AuthenticatedId)"
+}
 ```

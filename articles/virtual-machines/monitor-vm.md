@@ -4,7 +4,7 @@ description: Start here to learn how to monitor Azure Virtual Machines and Virtu
 ms.date: 03/27/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 
 #customer intent: As a cloud administrator, I want to understand how to monitor Azure virtual machines so that I can ensure the health and performance of my virtual machines and applications.
 ---
@@ -20,7 +20,10 @@ This article provides an overview of how to monitor the health and performance o
 
 ## Overview: Monitor VM host and guest metrics and logs
 
-You can collect metrics and logs from the **VM host**, which is the physical server and hypervisor that creates and manages the VM, and from the **VM guest**, which includes the operating system and applications that run inside the VM. 
+You can collect metrics and logs from: 
+
+- The **VM host** - This data relates to the Hyper-V session managing the guest operating systems, and includes information about CPU, network, and disk utilization.
+- The **VM guest** - This data relates to the operating system and applications running inside the virtual machine.
 
 Host-level data gives you an understanding of the VM's overall performance and load, while the guest-level data gives you visibility into the applications, components, and processes running on the machine and their performance and health. For example, if you’re troubleshooting a performance issue, you might start with host metrics to see which VM is under heavy load, and then use guest metrics to drill down into the details of the operating system and application performance.
 
@@ -61,6 +64,8 @@ VM insights monitors your Azure and hybrid virtual machines in a single interfac
 For a tutorial on enabling VM insights for a virtual machine, see [Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights). For general information about enabling insights and a variety of methods for onboarding VMs, see [Enable VM insights overview](/azure/azure-monitor/vm/vminsights-enable-overview).
 
 If you enable VM insights, the Azure Monitor agent is installed and starts sending a predefined set of performance data to Azure Monitor Logs. You can create other data collection rules to collect events and other performance data. To learn how to install the Azure Monitor agent and create a data collection rule (DCR) that defines the data to collect, see [Tutorial: Collect guest logs and metrics from an Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest).
+
+In VM insights, you can use the Azure Monitor Map feature to view application components that run in Azure or your environment. The Dependency agent VM extension is available for [Windows](extensions/agent-dependency-windows.md) and [Linux](extensions/agent-dependency-linux.md).
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 

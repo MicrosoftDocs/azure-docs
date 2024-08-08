@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 04/18/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ms.custom: references_regions
 ---
@@ -66,11 +66,11 @@ Automated invoice processing is the process of extracting key accounts payable f
 
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2024-02-29-preview, 2023-10-31-preview) supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-07-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Invoice model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-invoice**|
+|**Invoice model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-invoice**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
@@ -88,7 +88,7 @@ Document Intelligence v3.0 supports the following tools, applications, and libra
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Invoice model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-invoice**|
+|**Invoice model**|&bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-invoice**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -128,7 +128,7 @@ See how data, including customer information, vendor details, and line items, is
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-1. On the Document Intelligence Studio home page, select **Invoices**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Invoices**.
 
 1. You can analyze the sample invoice or upload your own files.
 
@@ -186,6 +186,21 @@ See how data, including customer information, vendor details, and line items, is
 *See* our [Language Support—prebuilt models](language-support-prebuilt.md) page for a complete list of supported languages.
 
 ## Field extraction
+The Document Intelligence invoice model `prebuilt-invoice` extracts the following fields.
+
+::: moniker range="doc-intel-3.1.0"
+
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model/sample_analyze_invoices.py)
+
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_invoices.py)
+
+::: moniker-end
 
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:----|
@@ -195,14 +210,14 @@ See how data, including customer information, vendor details, and line items, is
 | InvoiceId |string | ID for this specific invoice (often Invoice Number) |INV-100 |
 | InvoiceDate |date |date the invoice was issued | mm-dd-yyyy|
 | DueDate |date |date payment for this invoice is due |mm-dd-yyyy|
-| VendorName |string | Vendor who created this invoice |CONTOSO LTD.|
+| VendorName |string | Vendor who created this invoice |CONTOSO|
 | VendorAddress |address|  Vendor mailing address| 123 456th St, New York, NY 10001 |
 | VendorAddressRecipient |string | Name associated with the VendorAddress |Contoso Headquarters  |
-| CustomerAddress |address | Mailing address for the Customer | 123 Other St, Redmond WA, 98052|
+| CustomerAddress |address | Mailing address for the Customer | 123 Other St, Redmond, WA, 98052|
 | CustomerAddressRecipient |string | Name associated with the CustomerAddress |Microsoft Corp |
-| BillingAddress |address | Explicit billing address for the customer | 123 Bill St, Redmond WA, 98052 |
+| BillingAddress |address | Explicit billing address for the customer | 123 Bill St., Redmond, WA, 98052 |
 | BillingAddressRecipient |string | Name associated with the BillingAddress |Microsoft Services |
-| ShippingAddress |address | Explicit shipping address for the customer | 123 Ship St, Redmond WA, 98052|
+| ShippingAddress |address | Explicit shipping address for the customer | 123 Ship St., Redmond, WA, 98052|
 | ShippingAddressRecipient |string | Name associated with the ShippingAddress |Microsoft Delivery  |
 |Sub&#8203;Total| currency| Subtotal field identified on this invoice | $100.00 |
 | TotalDiscount | currency | The total discount applied to an invoice | $5.00 |
@@ -212,13 +227,13 @@ See how data, including customer information, vendor details, and line items, is
 | PreviousUnpaidBalance | currency| Explicit previously unpaid balance | $500.00 |
 | RemittanceAddress |address| Explicit remittance or payment address for the customer |123 Remit St New York, NY, 10001   |
 | RemittanceAddressRecipient |string | Name associated with the RemittanceAddress |Contoso Billing |
-| ServiceAddress |address | Explicit service address or property address for the customer |123 Service St, Redmond WA, 98052 |
+| ServiceAddress |address | Explicit service address or property address for the customer |123 Service St., Redmond WA, 98052 |
 | ServiceAddressRecipient |string | Name associated with the ServiceAddress |Microsoft Services  |
 | ServiceStartDate |date | First date for the service period (for example, a utility bill service period) | mm-dd-yyyy |
 | ServiceEndDate |date | End date for the service period (for example, a utility bill service period) | mm-dd-yyyy|
 | VendorTaxId |string | The taxpayer number associated with the vendor |123456-7 |
 |CustomerTaxId|string|The taxpayer number associated with the customer|765432-1|
-| PaymentTerm |string | The terms of payment for the invoice |Net90 |
+| PaymentTerm |string | The terms of payment for the invoice |Net 90 |
 | KVKNumber |string | A unique identifier for businesses registered in the Netherlands (NL-only)|12345678|
 | CurrencyCode |string | The currency code associated with the extracted amount | |
 | PaymentDetails | array | An array that holds Payment Option details such as `IBAN`,`SWIFT`, `BPayBillerCode(AU)`, `BPayReference(AU)` |  |
@@ -304,7 +319,8 @@ The following are the line items extracted from an invoice in the JSON output re
 The following are complex fields extracted from an invoice in the JSON output response:
 
 ### TaxDetails
-Tax details aims at breaking down the different taxes applied to the invoice total.
+
+Tax details define specific taxes applied to the invoice total.
 
 |Name| Type | Description | Text (line item #1) | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
@@ -313,15 +329,16 @@ Tax details aims at breaking down the different taxes applied to the invoice tot
 | Rate | string | The tax rate of the tax item | 15% | |
 
 ### PaymentDetails
+
 List all the detected payment options detected on the field. 
 
 |Name| Type | Description | Text (line item #1) | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
 | IBAN | string | Internal Bank Account Number | GB33BUKB20201555555555 | |
 | SWIFT | string | SWIFT code | BUKBGB22 | |
+| BankAccountNumber | string | Bank account number, a unique identifier for a bank account | 123456 | |
 | BPayBillerCode | string | Australian B-Pay Biller Code | 12345 | |
 | BPayReference | string | Australian B-Pay Reference Code | 98765432100 | |
-
 
 ### JSON output
 
@@ -346,6 +363,14 @@ The JSON output has three parts:
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+* [Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Prebuilt_model)
+:::moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+* [Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model)
+:::moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 

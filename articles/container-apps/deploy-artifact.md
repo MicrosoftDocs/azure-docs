@@ -4,10 +4,10 @@ description: Use a prebuilt artifact file to deploy to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: quickstart
 ms.date: 02/27/2024
-ms.custom: ignite-2023, devx-track-azurecli
+ms.custom: ignite-2023
 ---
 
 # Quickstart: Deploy an artifact file to Azure Container Apps
@@ -181,7 +181,7 @@ Copy the FQDN to a web browser. From your web browser, go to the `/albums` endpo
 
 ## Deploy a WAR file
 
-You can also deploy your container app from a [WAR file](java-deploy-war-file.md).
+You can also deploy your container app from a [WAR file](java-get-started.md?tabs=war).
 
 ## Clean up resources
 

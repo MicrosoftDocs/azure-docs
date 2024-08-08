@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
-ms.date: 08/29/2022
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
+ms.date: 07/26/2024
 ms.custom: UpdateFrequency5, tracking-python, references_regions, build-2023
 ---
 

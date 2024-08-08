@@ -2,7 +2,7 @@
 title: Troubleshoot problems with Maintenance Configurations
 description: This article provides details on known and fixed issues and how to troubleshoot problems with Maintenance Configurations.
 author: ApnaLakshay
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
 ms.date: 10/13/2023
@@ -33,7 +33,7 @@ A maintenance configuration doesn't install a scheduled patch on the VMs and giv
 
 #### Resolution
 
-In a static scope, it's crucial to avoid relying on outdated VM configurations. Instead, prioritize reassigning configurations after you re-create instances.
+In a static scope, it's crucial to avoid relying on outdated VM configurations. So, you have to ensure that the VM is up and running while the patch is getting installed. If the VM instance is recreated with the same name then prioritize reassigning configuration after you re-create VM instance.
 
 ### Scheduled patching times out or fails
 
@@ -68,22 +68,33 @@ If you move a resource to a different resource group or subscription, scheduled 
 
 #### Resolution
 
-The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move.
+The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a pre requisite, first remove the assignment before following the steps.** 
 
 If you're using a `static` scope:
 
-1. Remove the resource assignment.
 1. Move the resource to a different resource group or subscription.
 1. Re-create the resource assignment.
 
 If you're using a `dynamic` scope:
 
-1. Remove the resource assignment.
 1. Initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, so you can proceed with the next steps.
 1. Move the resource to a different resource group or subscription.
 1. Re-create the resource assignment.
 
-If you miss any of the preceding steps, please reach out to the support team for mitigation.
+If any of the steps are missed, please move the resource to the previous resource group or subscription ID and reattempt the steps.
+
+> [!NOTE]
+> If the resource group is deleted, recreate it with the same name. If the subscription ID is deleted, reach out to the support team for mitigation.
+
+### Maintenance Configuration didn't trigger on the configured date time
+
+#### Problem
+
+After creating a Maintenance Configuration with a repeat value of either week or month, you expect the schedule to start at the specified date and time and then recur based on the chosen interval. However, the schedule didn't trigger at the start date and time.
+
+#### Resolution
+
+The Maintenance Configuration first run occurs on the first recurrence value following the specified start date, not necessarily on the start date itself. For example, if the maintenance configuration starts on January 17th (Wednesday) and is set to recur every Monday, the first run of the schedule will be on the first Monday after January 17th, which is January 22nd.
 
 ### Creation of a dynamic scope fails
 
@@ -93,7 +104,14 @@ You can't create a dynamic scope because of role-based access control (RBAC).
 
 #### Resolution
 
-To create a dynamic scope, you must have the permission at the subscription level or at the resource group level. For more information, see the [list of permissions list for various resources](../update-manager/overview.md#permissions).
+To create a dynamic scope, you must have the permission at the subscription level or at the resource group level. Specifically, following are the requirements you need to take care of.
+
+1. The subscription under which dynamic scope is getting created should be registered to Maintenance RP.
+1. It is recommended to have the 'Scheduled Patching Contributor' role to be assigned to the following scopes:
+    1. The subscription/resource group at which the dynamic scope is being created.
+    1. The maintenance configuration scope.
+
+For more information, see the [list of permissions list for various resources here](../update-manager/roles-permissions.md#permissions).
 
 ### An update is stuck and not progressing
 

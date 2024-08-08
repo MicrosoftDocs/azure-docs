@@ -4,7 +4,7 @@ description: Learn about what happens when you move an Azure ExpressRoute circui
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 06/30/2023
@@ -71,9 +71,9 @@ The ExpressRoute circuit acts like a bridge between the classic and the Resource
 
 Aggregate throughput is limited by the throughput capacity of the virtual network gateway. Traffic doesn't enter the connectivity provider's networks or your networks in such cases. Traffic flow between the virtual networks is fully contained within the Microsoft network.
 
-## Access to Azure public and Microsoft peering resources
+## Access to Microsoft peering resources
 
-You can continue to access resources that are typically accessible through Azure public peering and Microsoft peering without any disruption.  
+You can continue to access resources that are typically accessible through Microsoft peering without any disruption.  
 
 ## What's supported
 

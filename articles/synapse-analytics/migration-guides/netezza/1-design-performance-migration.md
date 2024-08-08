@@ -1,7 +1,7 @@
 ---
 title: "Design and performance for Netezza migrations"
 description: Learn how Netezza and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
@@ -373,7 +373,7 @@ You should ensure that statistics on data tables are up to date by building in a
 
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
 
-- [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) (ADLS) and Azure Blob Storage.
+- [Azure Data Lake Storage (ADLS)](../../../storage/blobs/data-lake-storage-introduction.md) and Azure Blob Storage.
 
 - CSV, PARQUET, and ORC file formats.
 

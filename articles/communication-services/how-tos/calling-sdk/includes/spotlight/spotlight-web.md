@@ -104,3 +104,8 @@ To get information about all participants that are spotlighted on the current ca
 ```js
 let spotlightedParticipants = spotLightFeature.getSpotlightedParticipants();
 ```
+### Get the maximum supported spotlight:
+The following API can be used to get the maximum number of participants that can be spotlighted using the Calling SDK
+```js
+spotLightFeature.maxParticipantsToSpotlight;
+```

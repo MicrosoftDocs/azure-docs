@@ -3,7 +3,7 @@ title: Guest updates and host maintenance overview
 description: Learn about the updates and maintenance options available with virtual machines in Azure
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: overview
 ms.date: 03/20/2024
 ms.reviewer: cynthn
@@ -19,7 +19,7 @@ Azure periodically updates its infrastructure to improve reliability, performanc
 
 Azure infrastructure updates can range from upgrading network components, decommissioning hardware on network, patching software components in hosting environment or updating guest OS/ software’s on VMs. Each of these updates are performed using different tools available in Azure.
 
-Maintenance platform aims to provide customers with *unified maintenance experience* for all Azure resources that are impacted during maintenance. Maintenance experience is available for a variety of Azure resources, including host ([Azure Dedicated Host](dedicated-hosts.md) and [Isolated](isolation.md) VMs), guest (VMs and Arc VMs), AKS, SFMC, Network Gateways (VPN Gateway, ExpressRoute, Virtual Network Gateway) resources either via Azure Portal, PowerShell or CLI. [Maintenance control](maintenance-configurations.md) provides customers with an option to skip or defer certain updates and schedule them only during their preferred maintenance window.
+Maintenance platform aims to provide customers with *unified maintenance experience* for all Azure resources that are impacted during maintenance. Maintenance experience is available for a variety of Azure resources, including host ([Azure Dedicated Host](dedicated-hosts.md) and [Isolated](isolation.md) VMs), guest (VMs and Arc VMs), AKS, SFMC, Network Gateways (VPN Gateway, ExpressRoute, Virtual Network Gateway) resources either via Azure Portal, PowerShell or CLI. [Maintenance control](maintenance-configurations.md) provides customers with an option to skip or defer certain updates and schedule them only during their preferred maintenance window. However, in exceptional circumstances where a high-severity security issue arises that could potentially compromise customer services, Azure reserves the right to bypass these schedules to implement urgent changes. This measure is taken solely to ensure the safety and integrity of customer services and is employed only when the updates have no impact on customer resources. Such instances are infrequent and are invoked only as a last resort to safeguard resources.
 
 ## Host maintenance
 

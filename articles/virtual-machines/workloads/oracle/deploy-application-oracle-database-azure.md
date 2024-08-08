@@ -3,8 +3,7 @@ title: Architectures for Oracle applications with database on Azure Virtual Mach
 description: Learn about architectures for Oracle applications with database on Azure Virtual Machines. 
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: oracle
 ms.topic: article
 ms.date: 08/23/2023
@@ -29,13 +28,13 @@ The provided network settings for Oracle Applications on Azure cover various asp
 - Routing Internal Users through [ExpressRoute](../../../expressroute/expressroute-introduction.md): For internal users, route traffic through Azure ExpressRoute for a dedicated, private connection to Azure services, ensuring low-latency and secure communication.
 - Azure Firewall: If necessary, you can configure [Azure Firewall](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall) in front of your application for added security. Azure Firewall helps protect your resources from unauthorized access and threats.
 - Application Gateway for External Users: When external users need to access your application, consider using [Azure Application Gateway](../../../application-gateway/overview.md). It supplies Web Application Firewall (WAF) capabilities for protecting your web applications and Layer 7 load balancing to distribute traffic.
-- Network Security Groups (NSG): Secure your subnets by using [Network Security Groups](../../../virtual-network/network-security-groups-overview.md) (NSG). NSGs allow you to control inbound and outbound traffic to network interfaces, Virtual Machines, and subnets by defining security rules.
+- Network Security Groups (NSG): Secure your subnets by using [Network Security Groups (NSG)](../../../virtual-network/network-security-groups-overview.md). NSGs allow you to control inbound and outbound traffic to network interfaces, Virtual Machines, and subnets by defining security rules.
 - Role-Based Access Control (RBAC): To grant access to specific individuals or roles, use Azure Role-Based Access Control (RBAC). [RBAC](../../../role-based-access-control/overview.md) provides fine-grained access control to Azure resources based on roles and permissions.
 - Bastion Host for SSH Access: Use a [Bastion host](../../../bastion/bastion-overview.md) as a jump box to enhance security for SSH access. A Bastion host acts as a secure gateway for administrators to access Virtual Machines in the virtual network. This host provides an added layer of security.
 - More considerations:
   - Data Encryption: Ensure that data at rest and in transit is encrypted. Azure provides tools like Azure Disk Encryption and SSL/TLS for this purpose.
   - Patch Management: Regularly update and patch your EBS environment to protect against known vulnerabilities.
-  - Monitoring and Logging: Implement [Azure Monitor](../../../azure-monitor/overview.md) and [Azure Defender](../../../defender-for-cloud/defender-for-cloud-introduction.md) for security to continuously check your environment for security threats and anomalies. Set up logging for auditing and forensic analysis.
+  - Monitoring and Logging: Implement [Azure Monitor](../../../azure-monitor/overview.md) and [Azure Defender](/azure/defender-for-cloud/defender-for-cloud-introduction) for security to continuously check your environment for security threats and anomalies. Set up logging for auditing and forensic analysis.
 
   
 - In summary, these network and security settings aim to provide a robust and secure environment for hosting Oracle applications on Azure IaaS. They incorporate best practices for authentication, access control, and network security, both for internal and external users. They also consider the need for SSH access to Application servers. These recommendations can help you set up a mature security posture for your Oracle applications deployment on Azure IaaS.

@@ -16,6 +16,8 @@
           href: ru/introduction.md
         - name: API versions
           items:
+            - name: API version 7.0
+              href: feature-support-70.md
             - name: API version 6.0
               href: feature-support-60.md
             - name: API version 5.0
@@ -80,8 +82,6 @@
           href: tutorial-update.md
         - name: Deleting data
           href: tutorial-delete.md
-        - name: Create Jupyter notebooks
-          href: ../nosql/tutorial-create-notebook.md
         - name: Kusto Query Language (KQL) transformations
           displayName: KQL, workspace, data
           href: ../tutorial-log-transformation.md
@@ -113,6 +113,8 @@
               href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
             - name: Find existing free-tier accounts
               href: ../scripts/cli/common/free-tier.md
+            - name: Migrate all resources to autoscale
+              href: ../scripts/cli/common/convert-to-autoscale.md
         - name: Azure PowerShell
           items:
             - name: Overview
@@ -302,12 +304,6 @@
               href: ../compliance.md
             - name: Data residency
               href: ../data-residency.md
-        - name: Jupyter notebooks
-          items:
-            - name: Overview
-              href: ../notebooks-overview.md
-            - name: FAQ
-              href: ../notebooks-faq.yml              
         - name: Emulator
           href: ../emulator.md
         - name: Network bandwidth
@@ -339,7 +335,9 @@
               items:
                 - name: Use explorer
                   href: ../data-explorer.md
-                - name: Keyboard shorcuts
+                - name: Manage multiple items
+                  href: ../how-to-data-explorer-manage-items.md
+                - name: Keyboard shortcuts
                   href: ../data-explorer-shortcuts.md
         - name: Develop applications
           items:

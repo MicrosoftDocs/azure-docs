@@ -3,7 +3,7 @@ title:  "Tutorial: Managed identity to invoke Azure Functions"
 description: Learn how to use a managed identity to invoke Azure Functions from an Azure Spring Apps app.
 author: KarlErickson
 ms.author: margard
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 05/07/2023
@@ -79,15 +79,9 @@ Use the following steps to enable Microsoft Entra authentication to access your 
 1. In the Azure portal, navigate to your resource group and then open the Function app you created.
 1. In the navigation pane, select **Authentication** and then select **Add identity provider** on the main pane.
 1. On the **Add an identity provider** page, select **Microsoft** from the **Identity provider** dropdown menu.
-
-   :::image type="content" source="media/tutorial-managed-identities-functions/add-identity-provider.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Microsoft highlighted in the identity provider dropdown menu." lightbox="media/tutorial-managed-identities-functions/add-identity-provider.png":::
-
 1. Select **Add**.
 1. For the **Basics** settings on the **Add an identity provider** page, set **Supported account types** to **Any Microsoft Entra directory - Multi-tenant**.
 1. Set **Unauthenticated requests** to **HTTP 401 Unauthorized: recommended for APIs**. This setting ensures that all unauthenticated requests are denied (401 response).
-
-   :::image type="content" source="media/tutorial-managed-identities-functions/identity-provider-settings.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Support account types and Unauthenticated requests highlighted." lightbox="media/tutorial-managed-identities-functions/identity-provider-settings.png":::
-
 1. Select **Add**.
 
 After you add the settings, the Function app restarts and all subsequent requests are prompted to sign in through Microsoft Entra ID. You can test that unauthenticated requests are currently being rejected with the Function app's root URL (returned in the `hostNames` output of the `az functionapp create` command). You should then be redirected to your organization's Microsoft Entra sign-in screen.
@@ -125,7 +119,7 @@ By default, functions use key-based authentication to secure HTTP endpoints. To 
 }
 ```
 
-For more information, see the [Secure an HTTP endpoint in production](../../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production) section of [Azure Functions HTTP trigger](../../azure-functions/functions-bindings-http-webhook-trigger.md).
+For more information, see the [Secure HTTP endpoints](../../azure-functions/security-concepts.md#secure-http-endpoints) section of [Securing Azure Functions](../../azure-functions/security-concepts.md).
 
 Use the following command to publish the app to the instance created in the previous step:
 

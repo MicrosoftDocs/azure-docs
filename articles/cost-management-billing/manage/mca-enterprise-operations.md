@@ -141,7 +141,7 @@ You can view charges for a subscription either on the [subscriptions page](https
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Next steps
+## Related content
 
 - [Understand billing account for a Microsoft Customer Agreement](../understand/mca-overview.md)
 - [Understand your invoice](../understand/review-individual-bill.md)

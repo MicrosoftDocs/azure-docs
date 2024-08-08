@@ -3,13 +3,13 @@ title: "Run batch endpoints from Event Grid events in storage"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch endpoints to be automatically triggered when new files are generated in storage.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.date: 10/10/2022
-ms.reviewer: mopeakande
+ms.reviewer: cacrest
 ms.custom:
   - devplatv2
   - ignite-2023
@@ -19,50 +19,66 @@ ms.custom:
 
 [!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
-Event Grid is a fully managed service that enables you to easily manage events across many different Azure services and applications. It simplifies building event-driven and serverless applications. In this tutorial, we learn how to trigger a batch endpoint's job to process files as soon as they are created in a storage account. In this architecture, we use a Logic App to subscribe to those events and trigger the endpoint.
+Event Grid is a fully managed service that you can use to easily manage events across many different Azure services and applications. The service simplifies the way that you build event-driven and serverless applications. This tutorial shows you how to trigger a batch endpoint's job to process files as soon as they're created in a storage account. The architecture uses a logic app workflow to subscribe to those events and trigger the endpoint.
 
-The workflow looks as follows:
+The following diagram shows the architecture for this solution:
 
-:::image type="content" source="./media/how-to-use-event-grid-batch/batch-endpoint-event-grid-arch.png" alt-text="Diagram displaying the different components of the architecture.":::
+:::image type="content" source="./media/how-to-use-event-grid-batch/batch-endpoint-event-grid-arch.png" alt-text="Conceptual diagram shows the components for this architecture.":::
 
-1. A **file created** event is triggered when a new blob is created in a specific storage account.
-2. The event is sent to Event Grid to get processed to all the subscribers.
-3. A Logic App is subscribed to listen to those events. Since the storage account can contain multiple data assets, event filtering will be applied to only react to events happening in a specific folder inside of it. Further filtering can be done if needed (for instance, based on file extensions).
-4. The Logic App will be triggered, which in turns will:
+The following steps describe the high-level steps in this solution:
 
-   1. It will get an authorization token to invoke batch endpoints using the credentials from a Service Principal
+1. When a new blob is created in a specific storage account, a **file created** event is triggered.
 
-   1. It will trigger the batch endpoint (default deployment) using the newly created file as input.
+1. The event is sent to Event Grid to get processed to all the subscribers.
 
-5. The batch endpoint will return the name of the job that was created to process the file.
+1. The logic app workflow subscribes and listens to those events.
+
+   The storage account can contain multiple data assets, so event filtering is applied to react only to events happening in a specific folder in the storage account. Further filtering can be done if needed, for example, based on file extensions.
+
+1. The logic app workflow triggers, and performs the following actions:
+
+   1. Gets an authorization token to invoke batch endpoints using the credentials from a service principal.
+
+   1. Triggers the batch endpoint (default deployment) using the newly created file as input.
+
+1. The batch endpoint returns the name of the job that was created to process the file.
 
 > [!IMPORTANT]
-> When using Logic App connected with event grid to invoke batch endpoint, you are generateing one job per **each blob file** created in the sotrage account. Keep in mind that since batch endpoints distribute the work at the file level, there will not be any parallelization happening. Instead, you will be taking advantage of batch endpoints's capability of executing multiple jobs under the same compute cluster. If you need to run jobs on entire folders in an automatic fashion, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
+>
+> When you use a logic app workflow that connects with Event Grid to invoke batch endpoint, you generate one job per *each blob file* created in the storage account. Keep in mind that batch endpoints distribute the work at the file level, so no parallelization happens. Instead, you use the batch endpoints's capability to execute multiple jobs on the same compute cluster. If you need to run jobs on entire folders in an automatic fashion, we recommend that you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
 
 ## Prerequisites
 
-* This example assumes that you have a model correctly deployed as a batch endpoint. This architecture can perfectly be extended to work with [Pipeline component deployments](concept-endpoints-batch.md?#pipeline-component-deployment) if needed.
-* This example assumes that your batch deployment runs in a compute cluster called `batch-cluster`.
-* The Logic App we are creating will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md?tabs=rest).
+* You have a model correctly deployed as a batch endpoint. You can extend this architecture to work with [Pipeline component deployments](concept-endpoints-batch.md?#pipeline-component-deployment) if needed.
 
-## Authenticating against batch endpoints
+* Your batch deployment runs in a compute cluster called `batch-cluster`.
 
-Azure Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../connectors/connectors-native-http.md) activity. Batch endpoints support Microsoft Entra ID for authorization and hence the request made to the APIs require a proper authentication handling.
+* The logic app that you create communicates with Azure Machine Learning batch endpoints using REST.
 
-We recommend to using a service principal for authentication and interaction with batch endpoints in this scenario.
+  For more information about how to use the REST API for batch endpoints, see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md?tabs=rest).
 
-1. Create a service principal following the steps at [Register an application with Microsoft Entra ID and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
-1. Create a secret to use for authentication as explained at [Option 3: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
-1. Take note of the client secret **Value** that is generated. This is only displayed once.
-1. Take note of the `client ID` and the `tenant id` in the **Overview** pane of the application.
-1. Grant access for the service principal you created to your workspace as explained at [Grant access](../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the service principal will require:
+## Authenticate against batch endpoints
 
-   1. Permission in the workspace to read batch deployments and perform actions over them.
-   1. Permissions to read/write in data stores.
+Azure Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../connectors/connectors-native-http.md) action. Batch endpoints support Microsoft Entra ID for authorization and hence the request made to the APIs require a proper authentication handling.
 
-## Enabling data access
+This tutorial uses a service principal for authentication and interaction with batch endpoints in this scenario.
 
-We will be using cloud URIs provided by Event Grid to indicate the input data to send to the deployment job. Batch endpoints use the identity of the compute to mount the data while keeping the identity of the job **to read it** once mounted. Hence, we need to assign a user-assigned managed identity to the compute cluster in order to ensure it does have access to mount the underlying data. Follow these steps to ensure data access:
+1. Create a service principal by following [Register an application with Microsoft Entra ID and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+
+1. Create a secret to use for authentication by following [Option 3: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
+
+1. Make sure to save the generated client secret **Value**, which appears only once.
+
+1. Make sure to save the `client ID` and the `tenant id` in the application's **Overview** pane.
+
+1. Grant your service principal access to your workspace by following [Grant access](../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). For this example, the service principal requires the following:
+
+   - Permission in the workspace to read batch deployments and perform actions over them.
+   - Permissions to read/write in data stores.
+
+## Enable data access
+
+To indicate the input data that you want to send to the deployment job, this tutorial uses cloud URIs provided by Event Grid. Batch endpoints use the identity of the compute to mount the data, while keeping the identity of the job to read the mounted data. So, you have to assign a user-assigned managed identity to the compute cluster, and make sure the cluster has access to mount the underlying data. To ensure data access, follow these steps:
 
 1. Create a [managed identity resource](../active-directory/managed-identities-azure-resources/overview.md):
 
@@ -79,10 +95,11 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
    identity="/subscriptions/<subscription>/resourcegroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/azureml-cpu-cluster-idn"
    ```
 
-1. Update the compute cluster to use the managed identity we created:
+1. Update the compute cluster to use the managed identity that we created:
 
    > [!NOTE]
-   > This examples assumes you have a compute cluster created named `cpu-cluster` and it is used for the default deployment in the endpoint.
+   >
+   > This examples assumes that you have a compute cluster created named `cpu-cluster` that is used for the default deployment in the endpoint.
 
    # [Azure CLI](#tab/cli)
 
@@ -108,21 +125,19 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
    ml_client.compute.begin_create_or_update(compute_cluster)
    ```
 
-1. Go to the [Azure portal](https://portal.azure.com) and ensure the managed identity has the right permissions to read the data. To access storage services, you must have at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
+1. In the [Azure portal](https://portal.azure.com), make sure the managed identity has the correct permissions to read the data. 
 
-## Create a Logic App
+   To access storage services, you must have at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 
-1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account.
+## Create a logic app
 
-1. On the Azure home page, select **Create a resource**.
+1. In the [Azure portal](https://portal.azure.com), on the Azure home page, select **Create a resource**.
 
 1. On the Azure Marketplace menu, select **Integration** > **Logic App**.
 
-   ![Screenshot that shows Azure Marketplace menu with "Integration" and "Logic App" selected.](../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png)
+   ![Screenshot that shows Azure Marketplace menu with selected options for Integration and Logic App.](~/reusable-content/ce-skilling/azure/media/logic-apps/create-new-logic-app-resource.png)
 
 1. On the **Create Logic App** pane, on the **Basics** tab, provide the following information about your logic app resource.
-
-   ![Screenshot showing Azure portal, logic app creation pane, and info for new logic app resource.](../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -130,17 +145,20 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
    | **Resource Group** | Yes | **LA-TravelTime-RG** | The [Azure resource group](../azure-resource-manager/management/overview.md) where you create your logic app resource and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). |
    | **Name** | Yes | **LA-TravelTime** | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). |
 
-1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** to show only the settings for a Consumption logic app workflow, which runs in multi-tenant Azure Logic Apps.
+   ![Screenshot showing Azure portal, logic app creation pane, and info for new logic app resource.](~/reusable-content/ce-skilling/azure/media/logic-apps/create-logic-app-settings.png)
+   
+1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** to show only the settings for a Consumption logic app workflow, which runs in multitenant Azure Logic Apps.
+
+   > [!IMPORTANT]
+   >
+   > For private-link enabled workspaces, you need to use the Standard plan for Azure Logic Apps with allow private networking configuration.
 
    The **Plan type** property also specifies the billing model to use.
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](../logic-apps/logic-apps-pricing.md#standard-pricing). |
-   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). |
-
-   > [!IMPORTANT]
-   > For private-link enabled workspaces, you need to use the Standard plan for Logic Apps with allow private networking configuration.
+   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard pricing model](../logic-apps/logic-apps-pricing.md#standard-pricing). |
+   | **Consumption** | This logic app type runs in global, multitenant Azure Logic Apps and uses the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). |
 
 1. Now continue with the following selections:
 
@@ -153,99 +171,93 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
 
 1. After Azure deploys your app, select **Go to resource**.
 
-   Azure opens the workflow template selection pane, which shows an introduction video, commonly used triggers, and workflow template patterns.
-
-1. Scroll down past the video and common triggers sections to the **Templates** section, and select **Blank Logic App**.
-
-   ![Screenshot that shows the workflow template selection pane with "Blank Logic App" selected.](../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/select-logic-app-template.png)
-
+   Azure opens the workflow designer for your logic app.
 
 ## Configure the workflow parameters
 
-This Logic App uses parameters to store specific pieces of information that you will need to run the batch deployment.
+This logic app workflow uses parameters to store specific pieces of information that you need to run the batch deployment.
 
-1. On the workflow designer, under the tool bar, select the option __Parameters__ and configure them as follows:
+1. On the workflow designer toolbar, select **Parameters**.
 
-    :::image type="content" source="./media/how-to-use-event-grid-batch/parameters.png" alt-text="Screenshot of all the parameters required in the workflow.":::
+    :::image type="content" source="./media/how-to-use-event-grid-batch/parameters.png" alt-text="Screenshot shows Parameters pane for defining parameters required for the workflow.":::
 
-1. To create a parameter, use the __Add parameter__ option:
+1. On the **Parameters** pane, select **Create parameter**, and provide the following information about each parameter to create:
 
-    :::image type="content" source="./media/how-to-use-event-grid-batch/parameter.png" alt-text="Screenshot showing how to add one parameter in designer.":::
+   > [!TIP]
+   >
+   > Use the values configured at [Authenticating against batch endpoints](#authenticate-against-batch-endpoints).
 
-1. Create the following parameters.
+   | Parameter name | Description | Sample value |
+   |----------------|-------------|--------------|
+   | `tenant_id`    | The tenant ID where the endpoint is deployed. |`00000000-0000-0000-00000000` |
+   | `client_id`    | The client ID for the service principal used to invoke the endpoint. | `00000000-0000-0000-00000000` |
+   | `client_secret` | The client secret of the service principal used to invoke the endpoint. | `ABCDEFGhijkLMNOPQRstUVwz` |
+   | `endpoint_uri`  | The endpoint scoring URI. <br><br>**Important**: This URI is for the endpoint that you want to execute. The endpoint must have a default deployment configured. | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
 
-    | Parameter             | Description  | Sample value |
-    | --------------------- | -------------|------------- |
-    | `tenant_id`           | Tenant ID where the endpoint is deployed.  | `00000000-0000-0000-00000000` |
-    | `client_id`           | The client ID of the service principal used to invoke the endpoint.  | `00000000-0000-0000-00000000` |
-    | `client_secret`       | The client secret of the service principal used to invoke the endpoint.  | `ABCDEFGhijkLMNOPQRstUVwz` |
-    | `endpoint_uri`        | The endpoint scoring URI.  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
+   The following example shows a sample parameter:
 
-    > [!IMPORTANT]
-    > `endpoint_uri` is the URI of the endpoint you are trying to execute. The endpoint must have a default deployment configured.
+   :::image type="content" source="./media/how-to-use-event-grid-batch/parameter.png" alt-text="Screenshot shows how to add one parameter in designer.":::
 
-    > [!TIP]
-    > Use the values configured at [Authenticating against batch endpoints](#authenticating-against-batch-endpoints).
+   For more information, see [Create cross-environment parameters for workflow inputs in Azure Logic Apps](../logic-apps/create-parameters-workflows.md).
 
 ## Add the trigger
 
-We want to trigger the Logic App each time a new file is created in a given folder (data asset) of a Storage Account. The Logic App uses the information of the event to invoke the batch endpoint and pass the specific file to be processed.
+We want to trigger the logic app workflow each time a new file is created in a specific folder (data asset) of a storage account. The logic app uses the information from the event to invoke the batch endpoint and pass the specific file to process.
 
-1. On the workflow designer, under the search box, select **Built-in**.
+1. On the workflow designer, [follow these general steps to add an **Event Grid** trigger named **When a resource event occurs**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-1. In the search box, enter **event grid**, and select the trigger named **When a resource event occurs**.
+1. In the connection information box, select the authentication type to use, and then select **Sign in**.
 
-1. Configure the trigger as follows:
+1. In the trigger box, provide the following information:
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Subscription** | Your subscription name | The subscription where the Azure Storage Account is placed. |
    | **Resource Type** | `Microsoft.Storage.StorageAccounts` | The resource type emitting the events. |
-   | **Resource Name** | Your storage account name | The name of the Storage Account where the files will be generated. |
+   | **Subscription** | Your subscription name | The subscription for the storage account. |
+   | **Resource Name** | Your storage account name | The name of the storage account where the files are generated. |
    | **Event Type Item** | `Microsoft.Storage.BlobCreated` | The event type. |
 
-1. Click on __Add new parameter__ and select __Prefix Filter__. Add the value `/blobServices/default/containers/<container_name>/blobs/<path_to_data_folder>`.
+1. From the **Advanced parameters** list, select **Prefix Filter**, and provide the following value:
+
+   **/blobServices/default/containers/<*container-name*>/blobs/<*path-to-data-folder*>**
 
    > [!IMPORTANT]
-   > __Prefix Filter__ allows Event Grid to only notify the workflow when a blob is created in the specific path we indicated. In this case, we are assumming that files will be created by some external process in the folder `<path_to_data_folder>` inside the container `<container_name>` in the selected Storage Account. Configure this parameter to match the location of your data. Otherwise, the event will be fired for any file created at any location of the Storage Account. See [Event filtering for Event Grid](../event-grid/event-filtering.md) for more details.
+   >
+   > The **Prefix Filter** property allows Event Grid to only notify the workflow when a blob is created in the specific path we indicated. In this case, we assume that files are created by some external process in the folder specified by **<*path-to-data-folder*>** inside the container **<*container-name*>**, which is in the selected storage account. Configure this parameter to match the location of your data. Otherwise, the event is fired for any file created at any location of the storage account. For more information, see [Event filtering for Event Grid](../event-grid/event-filtering.md).
 
-   The trigger will look as follows:
+   The following example shows how the trigger appears:
 
-   :::image type="content" source="./media/how-to-use-event-grid-batch/create-trigger.png" alt-text="Screenshot of the trigger activity of the Logic App.":::
+   :::image type="content" source="./media/how-to-use-event-grid-batch/create-trigger.png" alt-text="Screenshot of the trigger activity of the logic app.":::
 
 ## Configure the actions
 
-1. Click on __+ New step__.
+1. Under the **When a resource event occurs** trigger, [follow these general steps to add the **HTTP** action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action). Rename the action to **Authorize**.
 
-1. On the workflow designer, under the search box, select **Built-in** and then click on __HTTP__:
+1. In the **Authorize** action, provide the following information:
 
-1. Configure the action as follows:
+   | Property | Value | Notes |
+   |----------|-------|-------|
+   | **Method** | `POST` | The HTTP method |
+   | **URI** | `concat('https://login.microsoftonline.com/', parameters('tenant_id'), '/oauth2/token')` | To enter this expression, select inside the **URI** box. From the options that appear, select the expression editor (formula icon). |
+   | **Headers** | `Content-Type` with value `application/x-www-form-urlencoded` | |
+   | **Body**    | `concat('grant_type=client_credentials&client_id=', parameters('client_id'), '&client_secret=', parameters('client_secret'), '&resource=https://ml.azure.com')` | To enter this expression, select inside the **Body** box. From the options that appear, select the expression editor (formula icon). |
+
+   The following example shows a sample **Authorize** action:
+
+   :::image type="content" source="./media/how-to-use-event-grid-batch/authorize.png" alt-text="Screenshot shows sample Authorize action in the logic app workflow.":::
+
+1. Under the **Authorize** action, add another **HTTP** action, and rename the title to **Invoke**.
+
+1. In the **Invoke** action, provide the following information:
 
    | Property | Value | Notes |
    |----------|-------|-------------|
    | **Method** | `POST` | The HTTP method |
-   | **URI** | `concat('https://login.microsoftonline.com/', parameters('tenant_id'), '/oauth2/token')` | Click on __Add dynamic context__, then __Expression__, to enter this expression. |
-   | **Headers** | `Content-Type` with value `application/x-www-form-urlencoded` |  |
-   | **Body**    | `concat('grant_type=client_credentials&client_id=', parameters('client_id'), '&client_secret=', parameters('client_secret'), '&resource=https://ml.azure.com')` | Click on __Add dynamic context__, then __Expression__, to enter this expression. |
-
-   The action will look as follows:
-
-   :::image type="content" source="./media/how-to-use-event-grid-batch/authorize.png" alt-text="Screenshot of the authorize activity of the Logic App.":::
-
-1. Click on __+ New step__.
-
-1. On the workflow designer, under the search box, select **Built-in** and then click on __HTTP__:
-
-1. Configure the action as follows:
-
-   | Property | Value | Notes |
-   |----------|-------|-------------|
-   | **Method** | `POST` | The HTTP method |
-   | **URI** | `endpoint_uri` | Click on __Add dynamic context__, then select it under `parameters`. |
+   | **URI** | `endpoint_uri` | Select inside the **URI** box, and then under **Parameters**, select **endpoint_uri**. |
    | **Headers** | `Content-Type` with value `application/json` |  |
-   | **Headers** | `Authorization` with value `concat('Bearer ', body('Authorize')['access_token'])` | Click on __Add dynamic context__, then __Expression__, to enter this expression. |
+   | **Headers** | `Authorization` with value `concat('Bearer ', body('Authorize')['access_token'])` | To enter this expression, select inside the **Headers** box. From the options that appear, select the expression editor (formula icon). |
 
-1. In the parameter __Body__, click on __Add dynamic context__, then __Expression__, to enter the following expression:
+1. Select inside the **Body** box, and from the options that appear, select the expression editor (formula icon) to enter the following expression:
 
    ```fx
    replace('{
@@ -253,28 +265,32 @@ We want to trigger the Logic App each time a new file is created in a given fold
       "InputData": {
         "mnistinput": {
            "JobInputType" : "UriFile",
-            "Uri" : "<JOB_INPUT_URI>"
-          }
-         }
+           "Uri" : "<JOB_INPUT_URI>"
+        }
+      }
      }
    }', '<JOB_INPUT_URI>', triggerBody()?[0]['data']['url'])
    ```
 
    > [!TIP]
-   > The previous payload correspond to a **Model deployment**. If you are working with a **Pipeline component deployment**, please adapt the format according to the expectations of the pipeline's inputs. Learn more about how to structure the input in REST calls at [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md?tabs=rest).
+   >
+   > The previous payload corresponds to a **Model deployment**. If you're working with a **Pipeline component deployment**, adapt the format according to the expectations of the pipeline's inputs. For more information about how to structure the input in REST calls, see [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md?tabs=rest).
 
-   The action will look as follows:
+   The following example shows a sample **Invoke** action:
 
-   :::image type="content" source="./media/how-to-use-event-grid-batch/invoke.png" alt-text="Screenshot of the invoke activity of the Logic App.":::
+   :::image type="content" source="./media/how-to-use-event-grid-batch/invoke.png" alt-text="Screenshot shows sample Invoke action in the logic app workflow.":::
 
    > [!NOTE]
-   > Notice that this last action will trigger the batch job, but it will not wait for its completion. Azure Logic Apps is not designed for long-running applications. If you need to wait for the job to complete, we recommend you to switch to [Run batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
+   >
+   > The **Invoke** action triggers the batch job, but the action won't wait for its completion. By default, Azure Logic Apps isn't set up for long-running applications. If you need to wait for the job to complete, we recommend you to switch to [Run batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
 
-1. Click on __Save__.
+1. When you're done, save your workflow.
 
-1. The Logic App is ready to be executed and it will trigger automatically each time a new file is created under the indicated path. You will notice the app has successfully received the event by checking the __Run history__ of it:
+   The logic app workflow is ready to execute and automatically triggers each time a new file is created under the indicated path.
 
-   :::image type="content" source="./media/how-to-use-event-grid-batch/invoke-history.png" alt-text="Screenshot of the invoke history of the Logic App.":::
+1. To confirm that the app successfully received an event, check the app's **Runs history**:
+
+   :::image type="content" source="./media/how-to-use-event-grid-batch/invoke-history.png" alt-text="Screenshot shows run history for the logic app workflow.":::
 
 ## Next steps
 

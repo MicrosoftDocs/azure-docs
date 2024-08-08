@@ -1,18 +1,19 @@
 ---
 title: Updating Client SSL/TLS Certificates for Java
-description: Learn about updating Java clients with Flexible Server using SSL and TLS.
-author: GennadNY
-ms.author: gennadyk
+description: Learn about updating Java clients with Flexible Server using  TLS.
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-dotnet, devx-track-extended-java
 ms.topic: conceptual
 ---
 
 # Update Client TLS Certificates for Application Clients with Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 
 ## Import Root CA Certificates in Java Key Store on the client for certificate pinning scenarios
@@ -23,27 +24,23 @@ You can use following directions to update client root CA certificates for clien
   ```powershell
     keytool -list -v -keystore ..\lib\security\cacerts > outputfile.txt
   ```
-If necessary certificates are not present in the java key store on the client,as can be checked in output, you should proceed with following directions:
+If necessary certificates aren't present in the java key store on the client, as can be checked in output, you should proceed with following directions:
    
 1. Make a backup copy of your custom keystore.
-2. Download [certificates](../flexible-server/concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios)
-3. Generate a combined CA certificate store with both Root CA certificates are included. Example below shows using DefaultJavaSSLFactory for PostgreSQL JDBC users.
+2. Download [certificates](../flexible-server/concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios) and save these locally where you can reference these. 
+3. Generate a combined CA certificate store with all needed Root CA certificates are included. Example below shows using DefaultJavaSSLFactory for PostgreSQL JDBC users.
 
-     * For connectivity to servers deployed to Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona) 
+     
      ```powershell
  
  
          keytool -importcert -alias PostgreSQLServerCACert  -file D:\ DigiCertGlobalRootG2.crt.pem   -keystore truststore -storepass password -noprompt
 
          keytool -importcert -alias PostgreSQLServerCACert2  -file "D:\ Microsoft ECC Root Certificate Authority 2017.crt.pem" -keystore truststore -storepass password  -noprompt
-      ```
-     * For connectivity to servers deployed in Azure public regions worldwide
-    ```powershell
 
          keytool -importcert -alias PostgreSQLServerCACert  -file D:\ DigiCertGlobalRootCA.crt.pem   -keystore truststore -storepass password -noprompt
-
-         keytool -importcert -alias PostgreSQLServerCACert2  -file "D:\ Microsoft ECC Root Certificate Authority 2017.crt.pem" -keystore truststore -storepass password  -noprompt
-    ```
+      ```
+   
 
  5. Replace the original keystore file with the new generated one:
  
@@ -56,7 +53,7 @@ If necessary certificates are not present in the java key store on the client,as
 For more information on configuring client certificates with PostgreSQL JDBC driver, see this [documentation.](https://jdbc.postgresql.org/documentation/ssl/)
 
 > [!NOTE]
-> To import certificates to client certificate stores you may have to convert certificate .crt files to .pem format. You ?..can use **[OpenSSL utility to do these file conversions](./concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios)**.
+> To import certificates to client certificate stores you may have to convert certificate .crt files to .pem format. You can use **[OpenSSL utility to do these file conversions](./concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios)**.
 
 ## Get list of trusted certificates in Java Key Store programmatically
 
@@ -92,18 +89,16 @@ public void whenLoadingCacertsKeyStore_thenCertificatesArePresent() {
 
 For Azure App services, connecting to Azure Database for PostgreSQL, we can have two possible scenarios on updating client certificates and it depends on how on you're using SSL with your application deployed to Azure App Services.
 
-* Usually new certificates are added to App Service at platform level prior to changes in Azure Database for PostgreSQL - Flexible Server. If you're using the SSL certificates included on App Service platform in your application, then no action is needed. Consult following [Azure App Service documentation](../../app-service/configure-ssl-certificate.md) for more information. 
+* New certificates are added to App Service at platform level prior to changes in Azure Database for PostgreSQL - Flexible Server. If you're using the SSL certificates included on App Service platform in your application, then no action is needed. Consult following [Azure App Service documentation](../../app-service/configure-ssl-certificate.md) for more information. 
 * If you're explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert. A good example of this scenario is when you use custom containers in App Service as shared in the [App Service documentation](../../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress)
 
  ## Update Root CA certificates when using clients in Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL - Flexible Server for certificate pinning scenarios
 
-If you're trying to connect to the Azure Database for PostgreSQL using applications hosted in  Azure Kubernetes Services (AKS) and pinning certificates, it's similar to access from a dedicated customers host environment. Refer to the steps [here](../../aks/ingress-tls.md).
+If you're trying to connect to the Azure Database for PostgreSQL using applications hosted in  Azure Kubernetes Services (AKS) and pinning certificates, it's similar to access from a dedicated customers host environment. Refer to the steps [here](/azure/aks/ingress-tls).
 
 ## Updating Root CA certificates for .NET (Npgsql) users on Windows with Azure Database for PostgreSQL - Flexible Server for certificate pinning scenarios
 
-For .NET (Npgsql) users on Windows, connecting to Azure Database for PostgreSQL - Flexible Servers deployed in Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona)  make sure **both** Microsoft RSA Root Certificate Authority 2017 and DigiCert Global Root G2 both exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
-
-For .NET (Npgsql) users on Windows, connecting to Azure Database for PostgreSQL - Flexible Servers deployed in Azure public regions worldwide  make sure **both** Microsoft RSA Root Certificate Authority 2017 and DigiCert Global Root CA **both** exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
+For .NET (Npgsql) users on Windows, connecting to Azure Database for PostgreSQL - Flexible Servers,  make sure **all three** Microsoft RSA Root Certificate Authority 2017,  DigiCert Global Root G2, as well as Digicert Global Root CA all exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
 
 
 

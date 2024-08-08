@@ -4,8 +4,8 @@ description: Learn how to create a single-node K3s cluster for Edge Storage Acce
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 04/08/2024
-
 ---
 
 # Install Edge Storage Accelerator on a single-node K3s cluster (preview)

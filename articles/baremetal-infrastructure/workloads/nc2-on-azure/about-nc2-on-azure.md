@@ -6,18 +6,55 @@ description: Learn about Nutanix Cloud Clusters on Azure and the benefits it off
 ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 04/01/2023
+ms.date: 7/19/2024
+ms.service: azure-baremetal-infrastructure
 ---
 
 # About Nutanix Cloud Clusters on Azure
 
-The articles in this section are intended for professionals interested in using Nutanix Cloud Clusters (NC2) on Azure.
+In this article, we'll give an overview of the features BareMetal Infrastructure offers for Nutanix workloads.
 
-Email [NC2-on-Azure Docs](mailto:AzNutanixPM@microsoft.com) to provide input.
+Nutanix Cloud Clusters (NC2) on Microsoft Azure provides a hybrid cloud solution that operates as a single cloud, allowing you to manage applications and infrastructure in your private cloud and Azure. With NC2 running on Azure, you can seamlessly move your applications between on-premises and Azure using a single management console. With NC2 on Azure, you can use your existing Azure accounts and networking setup (VPN, VNets, and Subnets), eliminating the need to manage any complex network overlays. With this hybrid offering, you use the same Nutanix software and licenses across your on-premises cluster and Azure to optimize your IT investment efficiently.
+
+You use the NC2 console to create a cluster, update the cluster capacity (the number of nodes), and delete a Nutanix cluster. After you create a Nutanix cluster in Azure using NC2, you can operate the cluster in the same manner as you operate your on-premises Nutanix cluster with minor changes in the Nutanix command-line interface (nCLI), Prism Element and Prism Central web consoles, and APIs.  
 
 :::image type="content" source="media/nc2-on-azure.png" alt-text="Illustration of NC2 on Azure features." border="false" lightbox="media/nc2-on-azure.png":::
 
-In particular, this article highlights NC2 features.
+## Operating system and hypervisor
+
+NC2 runs Nutanix Acropolis Operating System (AOS) and Nutanix Acropolis Hypervisor (AHV).
+
+- AHV hypervisor is based upon open source Kernel-based Virtual Machine (KVM).
+- AHV will determine the lowest processor generation in the cluster and constrain all Quick Emulator (QEMU) domains to that level.
+
+This functionality allows mixing of processor generations within an AHV cluster and ensures the ability to live-migrate between hosts.
+
+AOS abstracts kvm, virsh, qemu, libvirt, and iSCSI from the end-user and handles all backend configuration. Thus users can use Prism to manage everything they would want to manage, while not needing to be concerned with low-level management.
+
+## SKUs
+
+We offer two SKUs: AN36 and AN36P. The following table presents component options for each available SKU.
+
+| Component |Ready Node for Nutanix AN36|Ready Node for Nutanix AN36P|
+| :------------------- | -------------------: |:---------------:|
+|Core|Intel 6140, 36 Core, 2.3 GHz|Intel 6240, 36 Core, 2.6 GHz|
+|vCPUs|72|72|
+|RAM|576 GB|768 GB|
+|Storage|18.56 TB (8 x 1.92 TB SATA SSD, 2x1.6TB NVMe)|20.7 TB (2x750 GB Optane, 6x3.2-TB NVMe)|
+|Network (available bandwidth between nodes)|25 Gbps|25 Gbps|
+
+## Licensing
+
+You can bring your own on-premises capacity-based Nutanix licenses (CBLs). 
+Alternatively, you can purchase licenses from Nutanix or from Azure Marketplace.
+
+## Supported protocols
+
+The following protocols are used for different mount points within BareMetal servers for Nutanix workload.
+
+- OS mount – internet small computer systems interface (iSCSI)
+- Data/log – [Network File System version 3 (NFSv3)](/windows-server/storage/nfs/nfs-overview#nfs-version-3-continuous-availability)
+- Backup/archive – [Network File System version 4 (NFSv4)](/windows-server/storage/nfs/nfs-overview#nfs-version-41)
 
 ## Unlock the benefits of Azure
 
@@ -33,10 +70,6 @@ In particular, this article highlights NC2 features.
    * Manage your cloud spending with license portability to significantly reduce the cost of running workloads in the cloud.
 * Modernize through the power of Azure
    * Adapt quicker with unified data governance and gain immediate insights with transformative analytics to drive innovation.
-
-### SKUs
-
-We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 
 ### More benefits
 
@@ -103,6 +136,22 @@ NC2 on Azure requires manual escalation to request, approve, and deliver ESU key
 
 For any questions on Azure Hybrid Benefits, contact your Microsoft Account Executive.
 
+## Responsibility matrix
+
+NC2 on Azure implements a shared responsibility model that defines distinct roles and responsibilities of the three parties involved in the offering: the Customer, Microsoft and Nutanix.
+
+On-premises Nutanix environments require the Nutanix customer to support all the hardware and software for running the platform. For NC2 on Azure, Microsoft maintains the hardware for the customer.
+
+:::image type="content" source="media/nc2-on-azure-responsibility-matrix.png" alt-text="A diagram showing the support responsibilities for Microsoft and partners." border="false" lightbox="media/nc2-on-azure-responsibility-matrix.png":::
+
+Microsoft manages the Azure BareMetal specialized compute hardware and its data and control plane platform for underlay network. Microsoft supports if the customers plan to bring their existing Azure Subscription, VNet, vWAN, etc.
+
+Nutanix covers the life-cycle management of Nutanix software (MCM, Prism Central/Element, etc.) and their licenses.
+
+**Monitoring and remediation**
+
+Microsoft continuously monitors the health of the underlay and BareMetal infrastructure. If Microsoft detects a failure, it takes action to repair the failed services.
+
 ## Support
 
 Nutanix (for software-related issues) and Microsoft (for infrastructure-related issues) will provide end-user support.
@@ -116,4 +165,4 @@ Nutanix (for software-related issues) and Microsoft (for infrastructure-related 
 Learn more:
 
 > [!div class="nextstepaction"]
-> [Use cases and supported scenarios](use-cases-and-supported-scenarios.md)
+> [Architecture](architecture.md)

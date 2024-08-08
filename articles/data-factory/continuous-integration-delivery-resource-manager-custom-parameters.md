@@ -1,7 +1,6 @@
 ---
 title: Custom parameters in a Resource Manager template 
 description: Learn how to use custom parameters in a Resource Manager template with continuous integration and delivery in Azure Data Factory.
-ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain

@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 12/01/2023
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE [azure-database-for-mysql-single-server-deprecation](includes/Azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE [azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 With Azure, your MySQL server workloads can run in a hosted virtual machine infrastructure as a service (IaaS) or as a hosted platform as a service (PaaS). PaaS has two deployment options, and there are service tiers within each deployment option. When you choose between IaaS and PaaS, you must decide if you want to manage your database, apply patches, backups, security, monitoring, and scaling, or delegate these operations to Azure.
 
@@ -23,8 +23,6 @@ When making your decision, consider the following two options:
 - **Azure Database for MySQL**. This option falls into the industry category of PaaS, and represents a fully managed MySQL database engine based on the stable version of the MySQL community edition. This relational database as a service (DBaaS), hosted on the Azure cloud platform, falls into the industry category of PaaS. With a managed instance of MySQL on Azure, you can use built-in features viz automated patching, high availability, automated backups, elastic scaling, enterprise-grade security, compliance and governance, monitoring and alerting that require extensive configuration when MySQL Server is either on-premises or in an Azure VM. When using MySQL as a service, you pay-as-you-go, with options to scale up or out for greater control without interruption. [Azure Database for MySQL](flexible-server/overview.md), powered by the MySQL community edition, is available in two deployment modes:
 
    - [Flexible Server](flexible-server/overview.md) is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. The flexible server architecture allows users to opt for high availability within a single availability zone and across multiple availability zones. Flexible servers provide better cost optimization controls with the ability to stop/start the server and burstable compute tier, ideal for workloads that don't need full compute capacity continuously. Flexible Server also supports reserved instances allowing you to save up to 63% cost, which is ideal for production workloads with predictable compute capacity requirements. The service supports the community version of MySQL 5.7 and 8.0. The service is generally available today in various [Azure regions](flexible-server/overview.md#azure-regions). Flexible servers are best suited for all new developments and migration of production workloads to Azure Database for MySQL service.
-
-   - [Single Server](single-server/single-server-overview.md) is a fully managed database service designed for minimal customization. The single server platform is designed to handle most database management functions such as patching, backups, high availability, and security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability in a single availability zone. It supports the community version of MySQL 5.6 (retired), 5.7, and 8.0. The service is generally available today in various [Azure regions](https://azure.microsoft.com/global-infrastructure/services/). Single servers are best-suited **only for existing applications already leveraging single servers**. It's recommended to choose Flexible Server for all new developments or migrations.
 
 - **MySQL on Azure VMs**. This option falls into the industry category of IaaS. With this service, you can run MySQL Server inside a managed virtual machine on the Azure cloud platform. You can install all recent versions and editions of MySQL on a virtual machine.
 

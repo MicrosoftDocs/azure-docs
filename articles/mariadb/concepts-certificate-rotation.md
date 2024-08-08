@@ -110,7 +110,7 @@ For Azure app services, connecting to Azure Database for MariaDB, there are two 
 
 ### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for MariaDB?
 
-If you're trying to connect to the Azure Database for MariaDB using Azure Kubernetes Services (AKS), it's similar to access from a dedicated customers host environment. Refer to the steps [here](../aks/ingress-own-tls.md).
+If you're trying to connect to the Azure Database for MariaDB using Azure Kubernetes Services (AKS), it's similar to access from a dedicated customers host environment. Refer to the steps [here](/azure/aks/ingress-own-tls).
 
 ### 6. What is the impact if using Azure Data Factory to connect to Azure Database for MariaDB?
 

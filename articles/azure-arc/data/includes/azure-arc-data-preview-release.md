@@ -5,19 +5,17 @@ ms.service: azure-arc
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 04/30/2024
+ms.date: 06/11/2024
 ---
+At this time, a test or preview build is not available for the next release.
 
 <!---
-At this time, a test or preview build is not available for the next release.
--->
-
-May, 2024 test release is now available.
+July, 2024 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
-|Container images tag |`v1.30.0_2024-05-14`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
+|Container images tag |`v1.31.0_2024-07-09`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
@@ -34,8 +32,11 @@ May, 2024 test release is now available.
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |Azure Resource Manager (ARM) API version|2023-11-01-preview|
-|`arcdata` Azure CLI extension version|1.5.14 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc-enabled Kubernetes helm chart extension version|1.30.0|
+|`arcdata` Azure CLI extension version|1.5.16 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.31.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
 |SQL Database version | 970 |
 
+Release Notes:
+- Arc SQL Server | Automatically start billing for ESU on servers that are enabled for ESU and host SQL Server 2014 instances when SQL Server 2014 ESU program starts
+-->

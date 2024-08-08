@@ -7,7 +7,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 08/06/2024
 ms.author: banders
 ---
 
@@ -42,7 +42,7 @@ Here's a table summarizing payment methods for different agreement types
 
 **The Reserve Bank of India has issued new directives.**
 
-As of October 2021, automatic payments in India might block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this situation, you might need to make payments manually in the Azure portal. This directive doesn't affect the total amount you're charged for your Azure usage.
+As of October 2021, automatic payments in India might block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this situation, you might need to make payments manually in the Azure portal. This directive doesn't affect the total amount you get charged for your Azure usage.
 
 As of June 2022, The Reserve Bank of India (RBI) increased the limit of e-mandates on cards for recurring payments from INR 5,000 to INR 15,000.
 
@@ -67,19 +67,21 @@ To make a payment with UPI or NetBanking:
 
 1. Select Add a new payment method when you’re making a payment.
 2. Select UPI / NetBanking.
-3. You're redirected to a payment partner, like Billdesk, where you can choose your payment method.
-4. You’re redirected to your bank's website where you can process the payment.
+3. You get redirected to a payment partner, like Billdesk, where you can choose your payment method.
+4. You get redirected to your bank's website where you can process the payment.
 5. Wait until the payment completes in your UPI app then return to the Azure portal and then select **Complete**. Don't close your browser until the payment is complete.
 
 After you submit the payment, allow time for the payment to appear in the Azure portal.
 
 #### How am I refunded if I made a payment with UPI or NetBanking?
 
-Refunds are treated as a regular charge. They’re refunded to your bank account.
+Refunds are treated as a regular charge. They get refunded to your bank account.
 
-## Partial payment for Azure global in China
+## Partial payments
 
-Partial payment is available for Azure global pay-as-you-go customers in China only. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards using partial payment.
+Partial payment is available for Azure global pay-as-you-go customers in China and in Egypt. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards using partial payment.
+
+A minimum payment has a minimum value that you can pay, which varies for your country/region.
 
 >[!NOTE]
 > To avoid service interruption, pay the full invoice amount by the due date found on the invoice.
@@ -92,16 +94,12 @@ To make a partial payment, use the following steps.
 4. If any of your eligible invoices are due or past due, a blue **Pay now** link for the invoice is available. Select **Pay now**.
 5. In the Pay now window, select or tap **Select a payment method** to choose an existing credit card or add a new one.
 6. After you select a payment method, select **Pay now**.
-7. If the payment fails, the partial payment feature appears in the Pay now experience. The minimum partial payment amount is 10,000 CNY. Enter an amount greater than 10,000 CNY.
+7. If the payment fails, the partial payment feature appears in the Pay now experience. There's a minimum partial payment amount. You must enter an amount greater than the minimum.
 8. After you enter the amount, select the **Select a payment method** option to choose an existing credit card or add a new one. It's the card the first partial payment is applied to.
 9. After you select a payment method, select **Pay now**.
 10. Repeat steps 8 – 9 until you fully pay the invoice amount.
 
-## Pay by default payment method
-
-The default payment method of your billing profile can either be a credit card, debit card, or wire transfer.
-
-### Credit or debit card
+## Credit or debit card
 
 If the default payment method for your billing profile is a credit or debit card, it automatically gets charged each billing period.
 
@@ -116,7 +114,7 @@ There are a few countries/regions that don't allow the use of debit cards, howev
 - Hong Kong Special Administrative Region and Brazil only support credit cards.
 - India supports debit and credit cards through Visa and Mastercard.
 
-### Wire transfer
+## Wire transfer
 
 If the default payment method of your billing profile is wire transfer, follow the payment instructions shown on your invoice PDF file.
 
@@ -125,7 +123,7 @@ Alternatively, if your invoice is under the threshold amount for your currency, 
 > [!NOTE]
 > When multiple invoices are remitted in a single wire transfer, you must specify the invoice numbers for all of the invoices.
 
-#### Bank details used to send wire transfer payments
+### Bank details used to send wire transfer payments
 <a name="wire-bank-details"></a>
 
 If your default payment method is wire transfer, check your invoice for payment instructions. Find payment instructions for your country/region in the following list.
@@ -301,11 +299,13 @@ The invoice status shows *paid* within 24 hours.
 
 If you have a Microsoft Online Services Program account (pay-as-you-go account), the **Pay now** option might be unavailable. Instead, you might see a **Settle balance** banner. If so, see [Resolve past due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
 
+You can see a complete list of all the counties/regions where the **Pay now** option is available at [Settle balance might be Pay now](../manage/resolve-past-due-balance.md#settle-balance-might-be-pay-now).
+
 Based on the default payment method and invoice amount, the **Pay now** option might be unavailable. Check your invoice for payment instructions.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## Next steps
+## Related content
 
 - To become eligible to pay by wire transfer, see [how to pay by invoice](../manage/pay-by-invoice.md)

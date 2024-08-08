@@ -2,7 +2,7 @@
 title: Best practices for optimal performance in Azure Managed Instance for Apache Cassandra
 description: Learn about best practices to ensure optimal performance from Azure Managed Instance for Apache Cassandra.
 author: IriaOsara
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 04/05/2023
 ms.author: iriaosara
@@ -90,8 +90,12 @@ Our default settings are already suitable for low latency workloads. To ensure b
 
 Like every database system, Cassandra works best if the CPU utilization is around 50% and never gets above 80%. You can view CPU metrics in the Metrics tab within Monitoring from the portal:
 
-   :::image type="content" source="./media/best-practice-performance/metrics.png" alt-text="Screenshot of CPU metrics." lightbox="./media/best-practice-performance/metrics.png" border="true"::: 
+   :::image type="content" source="./media/best-practice-performance/metrics-cpu.png" alt-text="Screenshot of CPU metrics by idle usage." lightbox="./media/best-practice-performance/metrics-cpu.png" border="true":::    
+    
+   > [!TIP]
+   > For a realistic CPU view, add a filter and split the property by `Usage kind=usage_idle`. If this value is lower than 20%, you can apply splitting to obtain usage by all usage kinds.
 
+   :::image type="content" source="./media/best-practice-performance/metrics-cpu-by-usage.png" alt-text="Screenshot of CPU metrics by usage kind." lightbox="./media/best-practice-performance/metrics-cpu-by-usage.png" border="true":::
 
 If the CPU is permanently above 80% for most nodes the database becomes overloaded manifesting in multiple client timeouts. In this scenario, we recommend taking the following actions:
 

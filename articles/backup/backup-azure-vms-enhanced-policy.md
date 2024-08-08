@@ -2,9 +2,9 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 05/02/2024
+ms.date: 06/11/2024
 ms.reviewer: sharrai
-ms.service: backup
+ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -22,6 +22,7 @@ Azure Backup now supports _Enhanced policy_ that's needed to support new Azure o
 >- If you're protecting a VM with an enhanced policy, it incurs additional snapshot costs. [Learn more](backup-instant-restore-capability.md#cost-impact).
 >- Once you enable a VM backup with Enhanced policy, Azure Backup doesn't allow to change the policy type to *Standard*.
 >- Azure Backup now supports the migration to enhanced policy for the Azure VM backups using standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
+>- You can exclude shared disk with Enhanced policy and backup the other supported disks in the VM.
 
 You must enable backup of Trusted Launch VM through enhanced policy only. Enhanced policy provides the following features:
 
@@ -260,7 +261,7 @@ Trusted Launch VMs can only be backed up using Enhanced policies.
 >- The support for Enhanced policy is available in all Azure Public and US Government regions.
 >- For hourly backups, the last backup of the day is transferred to vault. If backup fails, the first backup of the next day is transferred to vault.
 >- Migration to enhanced policy for Azure VMs protected with standard policy is now supported and available in preview.
->- Backup an Azure VM with disks that have public network access disabled is now supported and available in preview.
+>- Backup an Azure VM with disks that have public network access disabled is now supported and generally available.
 
 ## Enable selective disk backup and restore
 

@@ -3,7 +3,7 @@ title: 'Quickstart: Create and configure Route Server - Azure portal'
 description: In this quickstart, you learn how to create and configure an Azure Route Server using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: quickstart
 ms.date: 08/11/2023
 ms.custom: mode-ui, template-quickstart
@@ -13,7 +13,7 @@ ms.custom: mode-ui, template-quickstart
 
 This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. Azure Route Server will learn routes from the NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
 
-:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." border="false":::
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure Portal." lightbox="media/quickstart-configure-route-server-portal/environment-diagram.png":::
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 

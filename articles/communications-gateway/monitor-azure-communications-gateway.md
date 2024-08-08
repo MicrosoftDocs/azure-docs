@@ -2,11 +2,11 @@
 title: Monitor Azure Communications Gateway
 description: Start here to learn how to monitor Azure Communications Gateway. Use Azure Monitor and Azure Resource Health to monitor your Azure Communications Gateway.
 ms.date: 06/17/2024
-ms.custom: horz-monitor, subject-monitoring
+ms.custom: horz-monitor
 ms.topic: conceptual
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ---
 
 # Monitor Azure Communications Gateway

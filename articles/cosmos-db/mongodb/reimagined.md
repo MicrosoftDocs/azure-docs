@@ -3,7 +3,7 @@ title: Your MongoDB app reimagined
 description: Easily transition your MongoDB apps to attain planet scale and high availability while maintaining continuity.
 author: wmwxwa
 ms.author: wangwilliam
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: conceptual
 ms.date: 04/10/2024
@@ -11,7 +11,7 @@ ms.date: 04/10/2024
 
 # Your MongoDB app reimagined
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 You have launched an app using [MongoDB](https://www.mongodb.com/) as its database. Word of mouth spreads slowly, and a small but loyal user base forms. They diligently give you feedback, helping you improve it. As you continue to fix issues and add features, more and more users fall in love with your app, and your users grows like a snowball rolling down a hill. Celebrities and influencers endorse it; teenagers use its name as an everyday verb. Suddenly, your app's usage skyrockets, and you watch in awe as the user count soars, anticipating your creation to become a staple on devices worldwide.
 

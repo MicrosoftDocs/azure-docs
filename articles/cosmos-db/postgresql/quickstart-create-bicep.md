@@ -3,7 +3,7 @@ title: 'Quickstart: create a cluster using Bicep'
 description: Using Bicep template for provisioning a cluster of Azure Cosmos DB for PostgreSQL
 ms.author: avijitgupta
 author: AvijitkGupta
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: devx-track-bicep
 ms.topic: reference
@@ -16,7 +16,7 @@ ms.date: 09/07/2023
 
 Azure Cosmos DB for PostgreSQL is a managed service that allows you to run horizontally scalable PostgreSQL databases in the cloud. In this article you learn, using Bicep to provision and manage an Azure Cosmos DB for PostgreSQL cluster.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

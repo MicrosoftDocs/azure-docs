@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
-ms.date: 01/31/2024
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
+ms.date: 05/31/2024
 ---
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks

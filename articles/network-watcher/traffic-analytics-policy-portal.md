@@ -2,13 +2,13 @@
 title: Manage traffic analytics using Azure Policy 
 titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Policy built-in policies to audit Azure Network Watcher NSG flow logs and manage the deployment of traffic analytics.
-services: network-watcher
 author: halkazwini
-ms.service: network-watcher
-ms.topic: how-to
-ms.date: 05/30/2023
 ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
+ms.service: azure-network-watcher
+ms.topic: how-to
+ms.date: 05/30/2024
+
+#CustomerIntent: As an Azure administrator, I want to use Azure Policy to audit and deploy traffic analytics.
 ---
 
 # Manage traffic analytics using Azure Policy 
@@ -25,9 +25,9 @@ To audit your flow logs by using the built-in policy:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results. 
+1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results. 
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/azure-portal.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/azure-portal.png":::
+    :::image type="content" source="./media/traffic-analytics-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/policy-portal-search.png":::
 
 1. Select **Assignments**, then select on **Assign Policy**.
 
@@ -75,9 +75,9 @@ To assign any of the *deployIfNotExists* two policies, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results. 
+1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results. 
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/azure-portal.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/azure-portal.png":::
+    :::image type="content" source="./media/traffic-analytics-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/policy-portal-search.png":::
 
 1. Select **Assignments**, and then select on **Assign policy**.
 
@@ -101,9 +101,9 @@ To assign any of the *deployIfNotExists* two policies, follow these steps:
     | --- | --- |
     | Effect | Select **DeployIfNotExists**. |
     | Network security group region | Select the region of your network security group that you're targeting with the policy. |
-    | Storage resource ID | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is: `/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
+    | Storage resource ID | Enter the full resource ID of the storage account. The storage account must be in the same region as the network security group. The format of storage resource ID is: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`. |
     | Traffic analytics processing interval in minutes | Select the frequency at which processed logs are pushed into the workspace. Currently available values are 10 and 60 minutes. Default value is 60 minutes. |
-    | Workspace resource ID | Enter the full resource ID of the workspace where traffic analytics has to be enabled. The format of workspace resource ID is: `/subscriptions/<SubscriptionID>/resourcegroups/<ResouceGroupName>/providers/microsoft.operationalinsights/workspaces/<WorkspaceName>`. |
+    | Workspace resource ID | Enter the full resource ID of the workspace where traffic analytics has to be enabled. The format of workspace resource ID is: `/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.operationalinsights/workspaces/<WorkspaceName>`. |
     | Workspace region | Select the region of your traffic analytics workspace. |
     | Workspace ID | Enter your traffic analytics workspace ID. |
     | Network Watcher resource group | Select the resource group of your Network Watcher. |
@@ -147,7 +147,7 @@ Remediation task fails with `PolicyAuthorizationFailed` error code: sample error
 
 In such scenario, the managed identity must be manually granted access. Go to the appropriate subscription/resource group (containing the resources provided in the policy parameters) and grant contributor access to the managed identity created by the policy.
 
-## Next steps 
+## Related content
 
 - Learn about [NSG flow logs built-in policies](./nsg-flow-logs-policy-portal.md).
 - Learn more about [traffic analytics](./traffic-analytics.md).

@@ -1,20 +1,22 @@
 ---
-title: Generate vector embeddings with Azure OpenAI in Azure Databae for PostgreSQL.
+title: Generate vector embeddings with Azure OpenAI in Azure Database for PostgreSQL.
 description: Use vector indexes and OpenAI embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns.
 author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 05/20/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
+  - build-2024
 ---
 
-# Azure Database for PostgreSQL - Flexible Server Azure AI Extension (Preview)
+# Azure AI extension on Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server extension for Azure AI enables you to use large language models (LLMS) and build rich generative AI applications within the database.  The Azure AI extension enables the database to call into various Azure AI services including [Azure OpenAI](../../ai-services/openai/overview.md) and [Azure Cognitive Services](https://azure.microsoft.com/products/ai-services/cognitive-search/) simplifying the development process allowing seamless integration into those services. 
 
@@ -46,7 +48,7 @@ The extension also allows calling Azure OpenAI and Azure Cognitive Services.
 
 Configuring the extension requires you to provide the endpoints to connect to the Azure AI services and the API keys required for authentication. Service settings are stored using following functions:
 
-### permissions
+### Permissions
 
 Your Azure AI access keys are similar to a root password for your account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely.
 To manage service keys used by the extension, users require the `azure_ai_settings_manager` role granted to them. The following functions require the role:
@@ -133,7 +135,22 @@ select azure_ai.version();
 
 ## Permissions
 
-The `azure_ai` extension defines a role called `azure_ai_settings_manager`, which enables reading and writing of settings related to the extension.  Only superusers and members of the `azure_ai_settings_manager` role can invoke the `azure_ai.get_settings` and `azure_ai.set_settings` functions. In Azure Database for PostgreSQL flexible server, all admin users have the `azure_ai_settings_manager` role assigned.
+The `azure_ai` extension defines a role called `azure_ai_settings_manager`, which enables reading and writing of settings related to the extension. Only superusers and members of the `azure_ai_settings_manager` role can invoke the `azure_ai.get_settings` and `azure_ai.set_settings` functions. In Azure Database for PostgreSQL flexible server, all admin users have the `azure_ai_settings_manager` role assigned.
+
+
+## Upgrade the Azure AI extension
+Newer versions of the extension can introduce new functionality and in-place upgrades of the extension are allowed. You can compare the currently installed version to the newest version allowed by using the SQL command:
+
+```sql
+SELECT * FROM pg_available_extensions
+WHERE name = 'azure_ai'
+```
+ 
+To update an installed extension to the latest available version supported by Azure, use the following SQL command:
+
+```sql
+ALTER EXTENSION azure_ai UPDATE;
+```
 
 ## Next steps
 

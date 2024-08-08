@@ -3,10 +3,9 @@ title: Access a secured Microsoft Purview account
 description: Learn about how to access a firewall protected Microsoft Purview account through private endpoints from Azure Data Factory
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/07/2023
+ms.date: 05/15/2024
 ---
 
 # Access a secured Microsoft Purview account from Azure Data Factory

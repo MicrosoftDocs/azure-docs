@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 04/05/2024
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: mode-ui, ignite-2022
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 ---
@@ -29,7 +29,7 @@ This article doesn't demonstrate DNS forwarding to an on-premises network. For m
 
 The following figure summarizes the setup used in this article:
 
-![Conceptual figure displaying components of the private resolver](./media/dns-resolver-getstarted-portal/resolver-components.png)
+:::image type="content" source="./media/dns-resolver-getstarted-portal/resolver-components.png" alt-text="Conceptual figure displaying components of the private resolver." lightbox="./media/dns-resolver-getstarted-portal/resolver-components.png":::
 
 ## Prerequisites
 

@@ -16,11 +16,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/operator-5g-core/quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md",
-            "redirect_url": "/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/operator-5g-core/how-to-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md",
             "redirect_url": "/azure/operator-5g-core/quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service",
             "redirect_document_id": false

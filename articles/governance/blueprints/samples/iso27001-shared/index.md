@@ -13,8 +13,7 @@ and policy guardrails that help toward ISO 27001 attestation. This blueprint hel
 cloud-based architectures that offer solutions to scenarios that have accreditation or compliance
 requirements.
 
-The [ISO 27001 App Service Environment/SQL Database workload](../iso27001-ase-sql-workload/index.md)
-blueprint sample extends this sample.
+The [ISO 27001 App Service Environment/SQL Database workload](../iso27001-ase-sql-workload/index.md) blueprint sample extends this sample.
 
 ## Architecture
 
@@ -56,7 +55,7 @@ composed of:
     by the blueprint)
   - Use of [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
     and standard DDoS protection
-- An [Azure Key Vault](../../../../key-vault/general/overview.md) instance used to host secrets used
+- An [Azure Key Vault](/azure/key-vault/general/overview) instance used to host secrets used
   for the VMs deployed in the shared services environment
 
 All these elements abide to the proven practices published in the

@@ -1,7 +1,7 @@
 ---
 title: How to use reporting and image rendering in Azure Managed Grafana
 description: Learn how to create reports in Azure Managed Grafana and understand performance and limitations of image rendering
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
@@ -61,7 +61,7 @@ To create a new report, follow these steps.
 
 ## Use image in alerts
 
-Grafana allows screen-capturing a panel that triggers an alert. Recipients can see the panel image directly in the notification message. Azure Managed Grafana is currently configured to upload these screenshots to the local storage on your instance. Only the list of contact points in the **Upload from disk** column of the [Supported contact points](https://grafana.com/docs/grafana/latest/alerting/manage-notifications/images-in-notifications/#supported-contact-points) table can receive the images. In addition, there's a 30-second time limit for taking a screenshot. If a screenshot can't be completed in time, it isn't included with the corresponding alert. Screenshots are taken only for those alerts that have Dashboard UID and Panel ID annotations in the rule. You can use these annotations to disable screen-capturing selectively.
+Grafana allows screen-capturing a panel that triggers an alert. Recipients can see the panel image directly in the notification message. Azure Managed Grafana is currently configured to upload these screenshots to the local storage on your instance. Only the list of contact points in the **Upload from disk** column of the [Supported contact points](https://grafana.com/docs/grafana/latest/alerting/configure-notifications/template-notifications/images-in-notifications/#supported-contact-points) table can receive the images. In addition, there's a 30-second time limit for taking a screenshot. If a screenshot can't be completed in time, it isn't included with the corresponding alert. Screenshots are taken only for those alerts that have Dashboard UID and Panel ID annotations in the rule. You can use these annotations to disable screen-capturing selectively.
 
 ## Next steps
 

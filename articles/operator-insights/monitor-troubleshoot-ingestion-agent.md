@@ -4,7 +4,7 @@ description: Learn how to detect, troubleshoot, and fix problems with Azure Oper
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: troubleshooting-general #Don't change.
 ms.date: 02/29/2024
 
@@ -32,6 +32,8 @@ Metrics are reported in a simple human-friendly form.
 
 To collect a diagnostics package, SSH to the Virtual Machine and run the command `/usr/bin/microsoft/az-aoi-ingestion-gather-diags`. This command generates a date-stamped zip file in the current directory that you can copy from the system.
 
+If you have configured collection of logs through the Azure Monitor agent, you can view ingestion agent logs in the portal view of your Log Analytics workspace, and may not need to collect a diagnostics package to debug your issues.
+
 > [!NOTE]
 > Microsoft Support might request diagnostics packages when investigating an issue. Diagnostics packages don't contain any customer data or the value of any credentials.
 
@@ -55,7 +57,7 @@ Symptoms: `sudo systemctl status az-aoi-ingestion` shows that the service is in 
     ```
 - Look at the */var/log/az-aoi-ingestion/stdout.log* file and check for any reported errors. Fix any issues with the configuration file and start the agent again.
  
-### No data appearing in AOI
+### No data appearing in Azure Operator Insights
 
 Symptoms: no data appears in Azure Data Explorer.
 
@@ -78,7 +80,7 @@ Symptoms: MCC reports alarms about MSFs being unavailable.
 - Check the logs from the agent and see if it's reporting connections. If not, check the network connectivity to the agent VM and verify that the firewalls aren't blocking traffic to port 36001.
 - Collect a packet capture to see where the connection is failing.
 
-### No EDRs appearing in AOI
+### No EDRs appearing in Azure Operator Insights
 
 Symptoms: no data appears in Azure Data Explorer.
 
@@ -103,7 +105,7 @@ You can also use the diagnostics provided by Azure Operator Insights itself in A
 
 ### Agent can't connect to SFTP server
 
-Symptoms: No files are uploaded to AOI. The agent log file, */var/log/az-aoi-ingestion/stdout.log*, contains errors about connecting the SFTP server.
+Symptoms: No files are uploaded to Azure Operator Insights. The agent log file, */var/log/az-aoi-ingestion/stdout.log*, contains errors about connecting the SFTP server.
 
 - Verify the SFTP user and credentials used by the agent are valid for the SFTP server.
 - Check network connectivity and firewall configuration between the agent and the SFTP server. By default, the SFTP server must have port 22 open to accept SFTP connections.
@@ -117,6 +119,7 @@ Symptoms: No data appears in Azure Data Explorer. Logs of category `Ingestion` d
 
 - Check that the agent is running on all VMs and isn't reporting errors in logs.
 - Check that files exist in the correct location on the SFTP server, and that they aren't being excluded due to file source config (see [Files are missing](#files-are-missing)).
+- Ensure that the configured SFTP user can read all directories under the `base_path`, which file source config doesn't exclude.
 - Check the network connectivity and firewall configuration between the ingestion agent VM and the Data Product's input storage account.
 
 ### Files are missing

@@ -23,9 +23,15 @@ A lifecycle management policy is composed of one or more rules that define a set
 - The number of days since the blob was last modified.
 - The number of days since the blob was last accessed. To use this condition in an action, you should first [optionally enable last access time tracking](#optionally-enable-access-time-tracking).
 
+> [!NOTE]  
+> Any operation that modifies the blob, including an update of the blob's metadata or properties, changes the last-modified time of the blob.
+
 When the selected condition is true, then the management policy performs the specified action. For example, if you have defined an action to move a blob from the hot tier to the cool tier if it hasn't been modified for 30 days, then the lifecycle management policy will move the blob 30 days after the last write operation to that blob.
 
 For a blob snapshot or version, the condition that is checked is the number of days since the snapshot or version was created.
+
+> [!NOTE]  
+> Lifecycle management policies are supported for block blobs and append blobs in general-purpose v2, premium block blob, and Blob Storage accounts.
 
 ## Optionally enable access time tracking
 

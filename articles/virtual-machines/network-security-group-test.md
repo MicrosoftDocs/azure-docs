@@ -3,7 +3,7 @@ title: Network security group test
 description: Learn how to check if a security rule is blocking traffic to or from your virtual machine (VM) using network security group test in the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 07/17/2023
 ms.custom: template-how-to, engagement-fy23

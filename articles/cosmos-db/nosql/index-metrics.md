@@ -2,7 +2,7 @@
 title: Azure Cosmos DB indexing metrics
 description:  Learn how to obtain and interpret the indexing metrics in Azure Cosmos DB
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 10/25/2021
@@ -138,7 +138,7 @@ Consider the list of utilized indexed paths as evidence that a query used those 
 
 ## Potential indexed paths
 
-The potential single indexes and utilized composite indexes respectively show the included paths and composite indexes that, if added, the query might utilize. If you see potential indexed paths, you should consider adding them to your indexing policy and observe if they improve query performance.
+The potential single indexes and potential composite indexes respectively show the included paths and composite indexes that, if added, the query might utilize. If you see potential indexed paths, you should consider adding them to your indexing policy and observe if they improve query performance.
 
 Consider the list of potential indexed paths as recommendations rather than conclusive evidence that a query will use a specific indexed path. The potential indexed paths are not an exhaustive list of indexed paths that a query could use. Additionally, it's possible that some potential indexed paths won't have any impact on query performance. [Add the recommended indexed paths](how-to-manage-indexing-policy.md) and confirm that they improve query performance.
 

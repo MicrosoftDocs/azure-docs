@@ -5,11 +5,10 @@ description: Learn about change data capture in Azure Data Factory and Azure Syn
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/08/2023
+ms.date: 05/15/2024
 ---
 
 # Change data capture in Azure Data Factory and Azure Synapse Analytics

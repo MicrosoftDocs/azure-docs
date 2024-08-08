@@ -2,8 +2,8 @@
 title:  Understanding Microsoft Azure Maps Transactions
 titleSuffix:  Microsoft Azure Maps
 description: Learn about Microsoft Azure Maps Transactions
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 04/05/2024
 ms.topic: reference
 ms.service: azure-maps
@@ -41,7 +41,11 @@ The following table summarizes the Azure Maps services that generate transaction
 | [Traffic] | Yes | One request = 1 transaction (except tiles)<br>15 tiles = 1 transaction | <ul><li>Location Insights Traffic (Gen2 pricing)</li><li>Standard S1 Traffic Transactions (Gen1 S1 pricing)</li><li>Standard Traffic Transactions (Gen1 S0 pricing)</li><li>Maps Traffic Tiles (Gen2 pricing)</li><li>Standard S1 Tile Transactions (Gen1 S1 pricing)</li><li>Standard Tile Transactions (Gen1 S0 pricing)</li></ul> |
 | [Weather] | Yes | One request = 1 transaction | <ul><li>Location Insights Weather (Gen2 pricing)</li><li>Standard S1 Weather Transactions (Gen1 S1 pricing)</li><li>Standard Weather Transactions (Gen1 S0 pricing)</li></ul> |
 
-<sup>1</sup> The Azure Maps Data service (both [v1] and [v2]) is now deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data Registry] service by 9/16/24. For more information, see [How to create data registry].
+<sup>1</sup> The Azure Maps Data service (both [v1] and [v2]) is now deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service need to be updated to use the Azure Maps [Data Registry] service by 9/16/24. For more information, see [How to create data registry].
+
+> [!TIP]
+>
+> Unlike Bing Maps, Azure Maps doesn’t use [session IDs]. Instead, Azure Maps offers a number of free transactions each month as shown in [Azure Maps pricing]. For example, you get 5,000 free *Base Map Tile* transactions per month. Each transaction can include up to 15 tiles for a total of 75,000 tiles rendered for free each month.
 
 <!-- In Bing Maps, any time a synchronous Truck Routing request is made, three transactions are counted. Does this apply also to Azure Maps?-->
 
@@ -53,7 +57,7 @@ The following table summarizes the Azure Maps services that generate transaction
 | [Conversion] | Part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning (Gen2 pricing) |
 | [Dataset] | Part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning (Gen2 pricing)|
 | [Feature State]  | Yes, except for `FeatureState.CreateStateset`, `FeatureState.DeleteStateset`, `FeatureState.GetStateset`, `FeatureState.ListStatesets`, `FeatureState.UpdateStatesets` | One request = 1 transaction | Azure Maps Creator Feature State (Gen2 pricing)     |
-| [Render] | Yes, only with `GetMapTile` with Creator Tileset ID and `GetStaticTile`.<br>For everything else for Render, see Render section in the above table.| One request = 1 transaction<br>One tile = 1 transaction | Azure Maps Creator Map Render (Gen2 pricing) |
+| [Render] | Yes, only with `GetMapTile` with Creator Tileset ID and `GetStaticTile`.<br>For more information on Render related transactions, see the Render section in the previous table.| One request = 1 transaction<br>One tile = 1 transaction | Azure Maps Creator Map Render (Gen2 pricing) |
 | [Tileset] | Part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning    (Gen2 pricing) |
 | [WFS] | Yes| One request = 1 transaction | Azure Maps Creator Web Feature (WFS) (Gen2 pricing) |
 
@@ -103,6 +107,7 @@ The following table summarizes the Azure Maps services that generate transaction
 [Route]: /rest/api/maps/route
 [Search v1]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Search v2]: /rest/api/maps/search
+[session IDs]: /bingmaps/getting-started/bing-maps-dev-center-help/understanding-bing-maps-transactions#using-session-ids-to-make-billable-transactions-non-billable
 [Spatial]: /rest/api/maps/spatial
 [Tileset]: /rest/api/maps-creator/tileset
 [Timezone]: /rest/api/maps/timezone

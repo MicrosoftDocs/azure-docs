@@ -63,7 +63,7 @@ sections:
       - question: |
           Which social identity providers do you support now? Which ones do you plan to support in the future?
         answer: |
-          We currently support several social identity providers including Amazon, Facebook, GitHub (preview), Google, LinkedIn, Microsoft Account (MSA), QQ (preview), Twitter, WeChat (preview), and Weibo (preview). We evaluate adding support for other popular social identity providers based on customer demand.
+          We currently support several social identity providers including Amazon, Facebook, GitHub (preview), Google, LinkedIn, Microsoft Account (MSA), QQ (preview), X, WeChat (preview), and Weibo (preview). We evaluate adding support for other popular social identity providers based on customer demand.
           
           Azure AD B2C also supports [custom policies](custom-policy-overview.md). Custom policies allow you to create your own policy for any identity provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) or SAML. Get started with custom policies by checking out our [custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
           
@@ -274,6 +274,12 @@ sections:
 
           * API connectors
           * Conditional Access
+
+      - question: |
+          I am using rolling refresh tokens for my application and I am getting an invalid_grant error on redeeming newly acquired refresh tokens well within their set validity period. Why does this happen? 
+        answer: |
+          While determining validity for rolling refresh tokens, B2C will consider the initial login time of the user in the application also to calculate the token validity skew. If the user haven't logged out of the application for a very long time, this skew value will exceed the validity period of the token and hence for security reasons the tokens will be considered as invalid. Hence the error. Inform the user to perform a proper logout and login back into the application and this should reset the skew. This scenario is not applicable if refresh token rolling is set as infinite rolling.
+             
           
       - question: |
           I've revoked the refresh token using Microsoft Graph invalidateAllRefreshTokens, or Microsoft Graph PowerShell,  Revoke-MgUserSignInSession. Why is Azure AD B2C still accepting the old refresh token?
@@ -286,6 +292,9 @@ sections:
           1. Wait for 10 minutes.
           
           1. Retrieve the `RefreshToken` again.
+
+          > [!TIP]
+          > With Azure AD B2C [custom policy](custom-policy-overview.md), you can reduce the above mentioned skew time of 5 minutes (300000 milliseconds)  by adjusting the value for InputParameter "TreatAsEqualIfWithinMillseconds" under claim transformation Id "AssertRefreshTokenIssuedLaterThanValidFromDate". This claim transformation can be found in the TrustFrameworkBase.xml file under latest custom policy [stater-pack](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy#get-the-starter-pack). 
           
       - question: |
          I use multiple tabs in a web browser to sign in to multiple applications that I registered in the same Azure AD B2C tenant. When I try to perform a single sign-out, not all of the applications are signed out. Why does this happen? 

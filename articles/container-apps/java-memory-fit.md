@@ -3,7 +3,7 @@ title: How to use memory efficiently for Java apps in Azure Container Apps
 description: Optimization of default configurations to enhance Java application performance and efficiency.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: ignite-2024, devx-track-azurecli, devx-track-extended-java
 ms.topic: conceptual
 ms.date: 02/27/2024

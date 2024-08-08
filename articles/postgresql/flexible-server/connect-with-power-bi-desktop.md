@@ -5,14 +5,14 @@ author: techieari
 ms.author: arianap
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
 ---
 
 # Import data from Azure Database for PostgreSQL - Flexible Server in Power BI 
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 > [!NOTE]
 > This article applies to Power BI Desktop only. Currently Power Query online or Power BI Service is **not supported**. 

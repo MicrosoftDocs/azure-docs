@@ -3,7 +3,7 @@ title: Migrate your application to use the Azure Cosmos DB .NET SDK 2.0 (Microso
 description: Learn how to upgrade your existing .NET application from the v1 SDK to .NET SDK v2 for API for NoSQL.
 author: stefArroyo
 ms.author: esarroyo
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.devlang: csharp

@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 01/02/2024
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: linux-related-content
 ---
 
@@ -23,18 +23,22 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 |---------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------|
 | Windows, Linux      | [CPU Pressure](#cpu-pressure)                                               | Compute capacity loss, resource pressure                    |
 | Windows, Linux      | [Kill Process](#kill-process)                                               | Dependency disruption                                       |
-| Windows, Linux      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
-| Windows, Linux      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
-| Windows, Linux      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
+| Windows             | [Pause Process](#pause-process)                                             | Dependency disruption, service disruption                   |
+| Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
+| Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
+| Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
+| Windows, Linux<sup>2</sup>      | [Network Isolation](#network-isolation)                                     | Network disruption                                          |
+| Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
+| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall)       | Network disruption                                          |
 | Windows, Linux      | [Physical Memory Pressure](#physical-memory-pressure)                       | Memory capacity loss, resource pressure                     |
 | Windows, Linux      | [Stop Service](#stop-service)                                               | Service disruption/restart                                  |
-| Windows, Linux      | [Time Change](#time-change)                                                 | Time synchronization issues                                 |
-| Windows, Linux      | [Virtual Memory Pressure](#virtual-memory-pressure)                         | Memory capacity loss, resource pressure                     |
+| Windows             | [Time Change](#time-change)                                                 | Time synchronization issues                                 |
+| Windows             | [Virtual Memory Pressure](#virtual-memory-pressure)                         | Memory capacity loss, resource pressure                     |
 | Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stressor)               | General system stress testing                               |
 | Linux               | [Linux DiskIO Pressure](#linux-disk-io-pressure)                            | Disk I/O performance degradation                            |
 | Windows             | [DiskIO Pressure](#disk-io-pressure)                                        | Disk I/O performance degradation                            |
-| Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
-| Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall)       | Network disruption                                          |
+
+<sup>1</sup> TCP/UDP packets only. <sup>2</sup> Outbound network traffic only.
 
 ## App Service
 
@@ -54,7 +58,7 @@ This section applies to the `Microsoft.Insights/autoscaleSettings` resource type
 
 ## Azure Kubernetes Service
 
-This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](../aks/intro-kubernetes.md).
+This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](/azure/aks/intro-kubernetes).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -101,7 +105,7 @@ This section applies to the `Microsoft.EventHub/namespaces` resource type. [Lear
 
 ## Key Vault
 
-This section applies to the `Microsoft.KeyVault/vaults` resource type. [Learn more about Key Vault](../key-vault/general/basic-concepts.md).
+This section applies to the `Microsoft.KeyVault/vaults` resource type. [Learn more about Key Vault](/azure/key-vault/general/basic-concepts).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -164,11 +168,12 @@ These actions are building blocks for constructing effective experiments. Use th
 |-|-|
 | Capability name | NetworkDisconnect-1.1 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux. |
-| Description | Blocks outbound network traffic for specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
+| Supported OS types | Windows, Linux (outbound traffic only) |
+| Description | Blocks network traffic for specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
 | | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
 | Urn | urn:csci:microsoft:agent:networkDisconnect/1.1 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
 | inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
@@ -218,6 +223,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 * The agent-based network faults currently only support IPv4 addresses.
 * The network disconnect fault only affects new connections. Existing active connections continue to persist. You can restart the service or process to force connections to break.
 * When running on Windows, the network disconnect fault currently only works with TCP or UDP packets.
+* When running on Linux, this fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
 
 ### Network Disconnect (Via Firewall)
 
@@ -229,6 +235,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | Description | Applies a Windows firewall rule to block outbound traffic for specified port range and network block. |
 | Prerequisites | Agent must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
 | Urn | urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | destinationFilters | Delimited JSON array of packet filters that define which outbound packets to target for fault injection. |
 | address | IP address that indicates the start of the IP range. |
@@ -266,6 +273,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 #### Limitations
 
 * The agent-based network faults currently only support IPv4 addresses.
+* This fault currently only affects new connections. Existing active connections are unaffected. You can restart the service or process to force connections to break.
 
 ### Network Latency
 
@@ -278,6 +286,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
 | | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
 | Urn | urn:csci:microsoft:agent:networkLatency/1.1 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
 | destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
@@ -332,6 +341,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 * The agent-based network faults currently only support IPv4 addresses.
 * When running on Linux, the network latency fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
 * When running on Windows, the network latency fault currently only works with TCP or UDP packets.
+* This fault currently only affects new connections. Existing active connections are unaffected. You can restart the service or process to force connections to break.
 
 ### Network Packet Loss
 
@@ -339,11 +349,12 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 |-|-|
 | Capability name | NetworkPacketLoss-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux |
+| Supported OS types | Windows, Linux (outbound traffic only) |
 | Description | Introduces packet loss for outbound traffic at a specified rate, between 0.0 (no packets lost) and 1.0 (all packets lost). This action can help simulate scenarios like network congestion or network hardware issues. |
 | Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
 | | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
 | Urn | urn:csci:microsoft:agent:networkPacketLoss/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | packetLossRate | The rate at which packets matching the destination filters will be lost, ranging from 0.0 to 1.0. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
@@ -387,6 +398,47 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 
 * The agent-based network faults currently only support IPv4 addresses.
 * When running on Windows, the network packet loss fault currently only works with TCP or UDP packets.
+* When running on Linux, this fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
+* This fault currently only affects new connections. Existing active connections are unaffected. You can restart the service or process to force connections to break.
+
+### Network Isolation
+
+| Property | Value |
+|-|-|
+| Capability name | NetworkIsolation-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows, Linux (outbound only) |
+| Description | Fully isolate the virtual machine from network connections by dropping all IP-based inbound (on Windows) and outbound (on Windows and Linux) packets for the specified duration. At the end of the duration, network connections will be re-enabled. Because the agent depends on network traffic, this action cannot be cancelled and will run to the specified duration. |
+| Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
+| | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
+| Urn | urn:csci:microsoft:agent:networkIsolation/1.0 |
+| Fault type | Continuous. |
+| Parameters (key, value) |  |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode, optional otherwise. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:networkIsolation/1.0",
+      "parameters": [],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+#### Limitations
+
+* Because the agent depends on network traffic, **this action cannot be cancelled** and will run to the specified duration. Use with caution.
+* This fault currently only affects new connections. Existing active connections are unaffected. You can restart the service or process to force connections to break.
+* When running on Linux, this fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments.
+
 
 ### DNS Failure
 
@@ -398,6 +450,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 | Description | Substitutes DNS lookup request responses with a specified error code. DNS lookup requests that are substituted must:<ul><li>Originate from the VM.</li><li>Match the defined fault parameters.</li></ul>DNS lookups that aren't made by the Windows DNS client aren't affected by this fault. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:dnsFailure/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | hosts | Delimited JSON array of host names to fail DNS lookup request for.<br><br>This property accepts wildcards (`*`), but only for the first subdomain in an address and only applies to the subdomain for which they're specified. For example:<ul><li>\*.microsoft.com is supported.</li><li>subdomain.\*.microsoft isn't supported.</li><li>\*.microsoft.com doesn't work for multiple subdomains in an address, such as subdomain1.subdomain2.microsoft.com.</li></ul>   |
 | dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more information on DNS return codes, see the [IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6). |
@@ -444,11 +497,12 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 |-|-|
 | Capability name | CPUPressure-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux. |
+| Supported OS types | Windows, Linux |
 | Description | Adds CPU pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the **% Processor Utility** performance counter is used at fault start to determine current CPU percentage, which is subtracted from the `pressureLevel` defined in the fault so that **% Processor Utility** hits approximately the `pressureLevel` defined in the fault parameters. |
 | Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. Installation happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, including Azure Linux, you must install **stress-ng** manually. For more information, see the [upstream project repository](https://github.com/ColinIanKing/stress-ng). |
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value)  | |
 | pressureLevel | An integer between 1 and 99 that indicates how much CPU pressure (%) is applied to the VM in terms of **% CPU Usage** |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
@@ -488,11 +542,12 @@ Known issues on Linux:
 |-|-|
 | Capability name | PhysicalMemoryPressure-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux. |
+| Supported OS types | Windows, Linux |
 | Description | Adds physical memory pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial physical memory pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. Installation happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, including Azure Linux, you must install **stress-ng** manually. For more information, see the [upstream project repository](https://github.com/ColinIanKing/stress-ng). |
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:physicalMemoryPressure/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) is applied to the VM. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
@@ -536,6 +591,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Description | Adds virtual memory pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial virtual memory pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:virtualMemoryPressure/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) is applied to the VM. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
@@ -576,6 +632,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to a Virtual Machine. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:diskIOPressure/1.1 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the `PressureModes` in the following table. |
 | targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, `D:/Temp`. If the parameter is not included, pressure is added to the primary disk. |
@@ -631,6 +688,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
 | Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. Installation happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, including Azure Linux, you must install **stress-ng** manually. For more information, see the [upstream project repository](https://github.com/ColinIanKing/stress-ng). |
 | Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.1 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | workerCount | Number of worker processes to run. Setting `workerCount` to 0 generates as many worker processes as there are number of processors. |
 | fileSizePerWorker | Size of the temporary file that a worker performs I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, `4m` for 4 megabytes and `256g` for 256 gigabytes). |
@@ -681,10 +739,11 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 |-|-|
 | Capability name | StopService-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux. |
+| Supported OS types | Windows, Linux |
 | Description | Stops a Windows service or a Linux systemd service during the fault. Restarts it at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:stopService/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | serviceName | Name of the Windows service or Linux systemd service you want to stop. |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
@@ -726,10 +785,11 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 |-|-|
 | Capability name | KillProcess-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux. |
+| Supported OS types | Windows, Linux |
 | Description | Kills all the running instances of a process that matches the process name sent in the fault parameters. Within the duration set for the fault action, a process is killed repetitively based on the value of the kill interval specified. This fault is a destructive fault where system admin would need to manually recover the process if self-healing is configured for it. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:killProcess/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | processName | Name of a process to continuously kill (without the .exe). The process does not need to be running when the fault begins executing. |
 | killIntervalInMilliseconds | Amount of time the fault waits in between successive kill attempts in milliseconds. |
@@ -765,6 +825,51 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 }
 ```
 
+### Pause Process
+
+| Property | Value |
+|-|-|
+| Capability name | PauseProcess-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows |
+| Description | Pauses (suspends) the specified processes for the specified duration. If there are multiple processes with the same name, this fault suspends all of those processes. Within the fault's duration, the processes are paused repetitively at the specified interval. At the end of the duration or if the experiment is canceled, the processes will resume. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:agent:pauseProcess/1.0 |
+| Fault type | Continuous. |
+| Parameters (key, value) |  |
+| processNames | Delimited JSON array of process names defining which processes are to be paused. Maximum of 4. The process name can optionally include the ".exe" extension. |
+| pauseIntervalInMilliseconds | Amount of time the fault waits between successive pausing attempts, in milliseconds. |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:pauseProcess/1.0",
+      "parameters": [
+        {
+          "key": "processNames",
+          "value": "[ \"test-0\", \"test-1.exe\" ]"
+        },
+        {
+          "key": "pauseIntervalInMilliseconds",
+          "value": "1000"
+        }
+      ],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+#### Limitations
+
+Currently, a maximum of 4 process names can be listed in the processNames parameter.
 
 ### Time Change
 
@@ -776,6 +881,7 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 | Description | Changes the system time of the virtual machine and resets the time at the end of the experiment or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:agent:timeChange/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If `YYYY-MM-DD` values are missing, they're defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (`YY`), it's converted to a 4-digit year (`YYYY`) based on the current century. If the timezone `<Z>` is missing, the default offset is the local timezone. `<Z>` must always include a sign symbol (negative or positive). |
 | virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
@@ -816,6 +922,7 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 | Description | Runs any stress-ng command by passing arguments directly to stress-ng. Useful when one of the predefined faults for stress-ng doesn't meet your needs. |
 | Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. Installation happens automatically as part of agent installation, using the default package manager, on several operating systems including Debian-based (like Ubuntu), Red Hat Enterprise Linux, and OpenSUSE. For other distributions, including Azure Linux, you must install **stress-ng** manually. For more information, see the [upstream project repository](https://github.com/ColinIanKing/stress-ng). |
 | Urn | urn:csci:microsoft:agent:stressNg/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | stressNgArguments | One or more arguments to pass to the stress-ng process. For information on possible stress-ng arguments, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. **NOTE: Do NOT include the "-t " argument because it will cause an error. Experiment length is defined directly in the Azure chaos experiment UI, NOT in the stressNgArguments.** |
 
@@ -1269,6 +1376,7 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 | Description | Causes an Azure Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md). |
 | Prerequisites | None. |
 | Urn | `urn:csci:microsoft:cosmosDB:failover/1.0` |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | readRegion | The read region that should be promoted to write region during the failover, for example, `East US 2`. |
 
@@ -1530,11 +1638,12 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 
 | Property | Value |
 |-|-|
-| Capability name | SecurityRule-1.0 |
+| Capability name | SecurityRule-1.0, SecurityRule-1.1 |
 | Target type | Microsoft-NetworkSecurityGroup |
 | Description | Enables manipulation or rule creation in an existing Azure network security group (NSG) or set of Azure NSGs, assuming the rule definition is applicable across security groups. Useful for: <ul><li>Simulating an outage of a downstream or cross-region dependency/nondependency.<li>Simulating an event that's expected to trigger a logic to force a service failover.<li>Simulating an event that's expected to trigger an action from a monitoring or state management service.<li>Using as an alternative for blocking or allowing network traffic where Chaos Agent can't be deployed. |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:networkSecurityGroup:securityRule/1.0 |
+| Urn | urn:csci:microsoft:networkSecurityGroup:securityRule/1.0, urn:csci:microsoft:networkSecurityGroup:securityRule/1.1 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | name | A unique name for the security rule that's created. The fault fails if another rule already exists on the NSG with the same name. Must begin with a letter or number. Must end with a letter, number, or underscore. May contain only letters, numbers, underscores, periods, or hyphens. |
 | protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
@@ -1608,6 +1717,7 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 * Rules are applied at the start of the action. Any external changes to the rule during the duration of the action cause the experiment to fail.
 * Creating or modifying Application Security Group rules isn't supported.
 * Priority values must be unique on each NSG targeted. Attempting to create a new rule that has the same priority value as another causes the experiment to fail.
+* The NSG Security Rule **version 1.1** fault supports an additional `flushConnection` parameter. This functionality has an **active known issue**: if `flushConnection` is enabled, the fault may result in a "FlushingNetworkSecurityGroupConnectionIsNotEnabled" error. To avoid this error temporarily, disable the `flushConnection` parameter or use the NSG Security Rule version **1.0** fault.
 
 
 ### Service Bus: Change Queue State
@@ -1786,6 +1896,7 @@ These sample values produced ~100% disk pressure when tested on a `Standard_D2s_
 | Description | Shuts down a VM for the duration of the fault. Restarts it at the end of the experiment or if the experiment is canceled. Only Azure Resource Manager VMs are supported. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachine:shutdown/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | abruptShutdown | (Optional) Boolean that indicates if the VM should be shut down gracefully or abruptly (destructive). |
 
@@ -1826,6 +1937,7 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 | Description | Shuts down or kills a virtual machine scale set instance during the fault and restarts the VM at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
+| Fault type | Continuous. |
 | Parameters (key, value) |  |
 | abruptShutdown | (Optional) Boolean that indicates if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
 | instances | A string that's a delimited array of virtual machine scale set instance IDs to which the fault is applied. |
@@ -1866,6 +1978,7 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 | Description | Shuts down or kills a virtual machine scale set instance during the fault. Restarts the VM at the end of the fault duration or if the experiment is canceled. Supports [dynamic targeting](chaos-studio-tutorial-dynamic-target-cli.md). |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0 |
+| Fault type | Continuous. |
 | [filter](/azure/templates/microsoft.chaos/experiments?pivots=deployment-language-arm-template#filter-objects-1) | (Optional) Available starting with Version 2.0. Used to filter the list of targets in a selector. Currently supports filtering on a list of zones. The filter is only applied to virtual machine scale set resources within a zone:<ul><li>If no filter is specified, this fault shuts down all instances in the virtual machine scale set.</li><li>The experiment targets all virtual machine scale set instances in the specified zones.</li><li>If a filter results in no targets, the experiment fails.</li></ul> |
 | Parameters (key, value) |  |
 | abruptShutdown | (Optional) Boolean that indicates if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |

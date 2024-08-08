@@ -5,18 +5,19 @@ author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
 ---
 
 # Recommendation System with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-This hands-on tutorial shows you how to build a recommender application using Azure Database for PostgreSQL flexible server and Azure OpenAI service. Recommendations have applications in different domains – service providers frequently tend to provide recommendations for products and services they offer based on prior history and contextual information collected from the customer and environment. 
+This hands-on tutorial shows you how to build a recommender application using Azure Database for PostgreSQL flexible server and Azure OpenAI Service. Recommendations have applications in different domains – service providers frequently tend to provide recommendations for products and services they offer based on prior history and contextual information collected from the customer and environment. 
 
 There are different ways to model recommendation systems. This article explores the simplest form – recommendation based one product corresponding to, say, a prior purchase. This tutorial uses the recipe dataset used in the [Semantic Search](./generative-ai-semantic-search.md) article and the recommendation is for recipes based on a recipe a customer liked or searched for before.
 
@@ -26,7 +27,7 @@ There are different ways to model recommendation systems. This article explores 
 1. Grant access to Azure OpenAI in the desired subscription.
 1. Grant permissions to [create Azure OpenAI resources and to deploy models](../../ai-services/openai/how-to/role-based-access-control.md).
 
-[Create and deploy an Azure OpenAI service resource and a model](../../ai-services/openai/how-to/create-resource.md), deploy the embeddings model [text-embedding-ada-002](../../ai-services/openai/concepts/models.md#embeddings-models). Copy the deployment name as it is needed to create embeddings.
+[Create and deploy an Azure OpenAI Service resource and a model](../../ai-services/openai/how-to/create-resource.md), deploy the embeddings model [text-embedding-ada-002](../../ai-services/openai/concepts/models.md#embeddings-models). Copy the deployment name as it is needed to create embeddings.
 
 ## Enable the `azure_ai` and `pgvector` extensions
 

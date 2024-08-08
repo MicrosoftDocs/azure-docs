@@ -5,7 +5,7 @@ services: storage
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
-ms.date: 04/26/2023
+ms.date: 06/04/2024
 ms.author: kendownie
 ms.custom: include file, devx-track-azurecli 
 ms.devlang: azurecli
@@ -23,7 +23,7 @@ To add a server endpoint, go to the newly created sync group. Under **Server end
     - **Date Policy**: Files are tiered to the cloud if they haven't been accessed (that is, read or written to) for the specified number of days. For example, if you noticed that files that have gone more than 15 days without being accessed are typically archival files, you should set your date policy to 15 days.
 - **Initial Sync**: The Initial Sync section is available only for the first server endpoint in a sync group (section changes to Initial Download when creating more than one server endpoint in a sync group). Within the Initial Sync section, you can select the **Initial Upload** and **Initial Download** behavior. 
     - **Initial Upload**: You can select how the server initially uploads the data to the Azure file share:
-        -  Option #1: Merge the content of this server path with the content in the Azure file share. Files with the same name and path will lead to conflicts if their content is different. Both versions of those files will be stored next to each other. If your server path or Azure file share are empty, always choose this option.
+        -  Option #1: Merge the content of this server path with the content in the Azure file share. Files with the same name and path will lead to conflicts if their content is different. Both versions of those files will be stored next to each other. If your server path or Azure file share is empty, always choose this option.
         -  Option #2: Authoritatively overwrite files and folders in the Azure file share with content in this server’s path. This option avoids file conflicts.
        
        To learn more, see [Initial sync](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-sync-section).
@@ -36,6 +36,9 @@ To add a server endpoint, go to the newly created sync group. Under **Server end
        To learn more, see [Initial download](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download-section).
 
 To add the server endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server.
+
+> [!NOTE]
+> Azure Files Sync takes a snapshot of the Azure file share as a backup before creating the server endpoint. This snapshot can be used to restore the share to the state before the server endpoint was created. The snapshot is not removed automatically after the server endpoint is created, so you can delete it manually if you don't need it. You can find the snapshots created by Azure File Sync by looking at the snapshots for the Azure file share and checking for AzureFileSync in the Initiator column.
 
 # [PowerShell](#tab/azure-powershell)
 Execute the following PowerShell commands to create the server endpoint, and be sure to replace `<your-server-endpoint-path>` and `<your-volume-free-space>` with the desired values. Check the settings for the optional [initial download](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download-section) and [initial upload](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-sync-section) policies.

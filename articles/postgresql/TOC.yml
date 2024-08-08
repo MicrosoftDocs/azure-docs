@@ -122,6 +122,8 @@
       href: flexible-server/concepts-compliance.md
     - name: Limits
       href: flexible-server/concepts-limits.md
+    - name: Identity
+      href: flexible-server/concepts-Identity.md
     - name: Encryption with customer managed keys
       href: flexible-server/concepts-data-encryption.md
     - name: Scheduled maintenance
@@ -129,7 +131,101 @@
     - name: Connection pooling (PgBouncer)
       href: flexible-server/concepts-pgbouncer.md
     - name: Server parameters
-      href: flexible-server/concepts-server-parameters.md
+      items:
+      - name: Overview
+        href: flexible-server/concepts-server-parameters.md
+      - name: Autovacuum
+        href: flexible-server/server-parameters-table-autovacuum.md?pivots=postgresql-16
+      - name: Client Connection Defaults / Locale and Formatting
+        href: flexible-server/server-parameters-table-client-connection-defaults---locale-and-formatting.md?pivots=postgresql-16
+      - name: Client Connection Defaults / Other Defaults
+        href: flexible-server/server-parameters-table-client-connection-defaults---other-defaults.md?pivots=postgresql-16
+      - name: Client Connection Defaults / Shared Library Preloading
+        href: flexible-server/server-parameters-table-client-connection-defaults---shared-library-preloading.md?pivots=postgresql-16
+      - name: Client Connection Defaults / Statement Behavior
+        href: flexible-server/server-parameters-table-client-connection-defaults---statement-behavior.md?pivots=postgresql-16
+      - name: Connections and Authentication / Authentication
+        href: flexible-server/server-parameters-table-connections-and-authentication---authentication.md?pivots=postgresql-16
+      - name: Connections and Authentication / Connection Settings
+        href: flexible-server/server-parameters-table-connections-and-authentication---connection-settings.md?pivots=postgresql-16
+      - name: Connections and Authentication / SSL
+        href: flexible-server/server-parameters-table-connections-and-authentication---ssl.md?pivots=postgresql-16
+      - name: Customized Options
+        href: flexible-server/server-parameters-table-customized-options.md?pivots=postgresql-16
+      - name: Developer Options
+        href: flexible-server/server-parameters-table-developer-options.md?pivots=postgresql-16
+      - name: Error Handling
+        href: flexible-server/server-parameters-table-error-handling.md?pivots=postgresql-16
+      - name: File Locations
+        href: flexible-server/server-parameters-table-file-locations.md?pivots=postgresql-16
+      - name: Intelligent tuning
+        href: flexible-server/server-parameters-table-intelligent-tuning.md?pivots=postgresql-16
+      - name: Lock Management
+        href: flexible-server/server-parameters-table-lock-management.md?pivots=postgresql-16
+      - name: Metrics
+        href: flexible-server/server-parameters-table-metrics.md?pivots=postgresql-16
+      - name: PgBouncer
+        href: flexible-server/server-parameters-table-pgbouncer.md?pivots=postgresql-16
+      - name: Preset Options
+        href: flexible-server/server-parameters-table-preset-options.md?pivots=postgresql-16
+      - name: Query Tuning / Genetic Query Optimizer
+        href: flexible-server/server-parameters-table-query-tuning---genetic-query-optimizer.md?pivots=postgresql-16
+      - name: Query Tuning / Other Planner Options
+        href: flexible-server/server-parameters-table-query-tuning---other-planner-options.md?pivots=postgresql-16
+      - name: Query Tuning / Planner Cost Constants
+        href: flexible-server/server-parameters-table-query-tuning---planner-cost-constants.md?pivots=postgresql-16
+      - name: Query Tuning / Planner Method Configuration
+        href: flexible-server/server-parameters-table-query-tuning---planner-method-configuration.md?pivots=postgresql-16
+      - name: Replication / Primary Server
+        href: flexible-server/server-parameters-table-replication---primary-server.md?pivots=postgresql-16
+      - name: Replication / Sending Servers
+        href: flexible-server/server-parameters-table-replication---sending-servers.md?pivots=postgresql-16
+      - name: Replication / Standby Servers
+        href: flexible-server/server-parameters-table-replication---standby-servers.md?pivots=postgresql-16
+      - name: Replication / Subscribers
+        href: flexible-server/server-parameters-table-replication---subscribers.md?pivots=postgresql-16
+      - name: Reporting and Logging / Process Title
+        href: flexible-server/server-parameters-table-reporting-and-logging---process-title.md?pivots=postgresql-16
+      - name: Reporting and Logging / What to Log
+        href: flexible-server/server-parameters-table-reporting-and-logging---what-to-log.md?pivots=postgresql-16
+      - name: Reporting and Logging / When to Log
+        href: flexible-server/server-parameters-table-reporting-and-logging---when-to-log.md?pivots=postgresql-16
+      - name: Reporting and Logging / Where to Log
+        href: flexible-server/server-parameters-table-reporting-and-logging---where-to-log.md?pivots=postgresql-16
+      - name: Resource Usage / Asynchronous Behavior
+        href: flexible-server/server-parameters-table-resource-usage---asynchronous-behavior.md?pivots=postgresql-16
+      - name: Resource Usage / Background Writer
+        href: flexible-server/server-parameters-table-resource-usage---background-writer.md?pivots=postgresql-16
+      - name: Resource Usage / Cost-Based Vacuum Delay
+        href: flexible-server/server-parameters-table-resource-usage---cost-based-vacuum-delay.md?pivots=postgresql-16
+      - name: Resource Usage / Disk
+        href: flexible-server/server-parameters-table-resource-usage---disk.md?pivots=postgresql-16
+      - name: Resource Usage / Kernel Resources
+        href: flexible-server/server-parameters-table-resource-usage---kernel-resources.md?pivots=postgresql-16
+      - name: Resource Usage / Memory
+        href: flexible-server/server-parameters-table-resource-usage---memory.md?pivots=postgresql-16
+      - name: Statistics / Cumulative Query and Index Statistics
+        href: flexible-server/server-parameters-table-statistics---cumulative-query-and-index-statistics.md?pivots=postgresql-16
+      - name: Statistics / Monitoring
+        href: flexible-server/server-parameters-table-statistics---monitoring.md?pivots=postgresql-16
+      - name: TLS
+        href: flexible-server/server-parameters-table-tls.md?pivots=postgresql-16
+      - name: Version and Platform Compatibility / Other Platforms and Clients
+        href: flexible-server/server-parameters-table-version-and-platform-compatibility---other-platforms-and-clients.md?pivots=postgresql-16
+      - name: Version and Platform Compatibility / Previous PostgreSQL Versions
+        href: flexible-server/server-parameters-table-version-and-platform-compatibility---previous-postgresql-versions.md?pivots=postgresql-16
+      - name: Write-Ahead Log / Archive Recovery
+        href: flexible-server/server-parameters-table-write-ahead-log---archive-recovery.md?pivots=postgresql-16
+      - name: Write-Ahead Log / Archiving
+        href: flexible-server/server-parameters-table-write-ahead-log---archiving.md?pivots=postgresql-16
+      - name: Write-Ahead Log / Checkpoints
+        href: flexible-server/server-parameters-table-write-ahead-log---checkpoints.md?pivots=postgresql-16
+      - name: Write-Ahead Log / Recovery Target
+        href: flexible-server/server-parameters-table-write-ahead-log---recovery-target.md?pivots=postgresql-16
+      - name: Write-Ahead Log / Recovery
+        href: flexible-server/server-parameters-table-write-ahead-log---recovery.md?pivots=postgresql-16
+      - name: Write-Ahead Log / Settings
+        href: flexible-server/server-parameters-table-write-ahead-log---settings.md?pivots=postgresql-16
     - name: Troubleshooting guides
       href: flexible-server/concepts-troubleshooting-guides.md
     - name: Logical replication and logical decoding
@@ -169,6 +265,8 @@
           href: flexible-server/concepts-query-store-best-practices.md
         - name: Query Performance Insight
           href: flexible-server/concepts-query-performance-insight.md
+        - name: Index tuning (preview)
+          href: flexible-server/concepts-index-tuning.md
         - name: Intelligent tuning
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Read replicas
@@ -190,8 +288,6 @@
         href: flexible-server/concepts-connectivity.md
       - name: Connection pooling best practices
         href: flexible-server/concepts-connection-pooling-best-practices.md
-      - name: Connect with Azure Kubernetes Service
-        href: single-server/concepts-aks.md
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Integrations
@@ -392,6 +488,12 @@
         href: flexible-server/how-to-configure-and-access-logs.md
     - name: Intelligent performance
       items:
+        - name: Index tuning
+          items:
+          - name: Configure index tuning
+            href: flexible-server/how-to-configure-index-tuning.md
+          - name: Use index recommendations
+            href: flexible-server/how-to-get-and-apply-recommendations-from-index-tuning.md
         - name: Intelligent tuning
           items:
           - name: Azure portal
@@ -416,7 +518,13 @@
       - name: Azure Cognitive Services
         href: flexible-server/generative-ai-azure-cognitive.md
       - name: Azure Machine Learning Services
-        href: flexible-server/generative-ai-azure-machine-learning.md        
+        href: flexible-server/generative-ai-azure-machine-learning.md
+    - name: In-database Embeddings (azure_local_ai)
+      items:
+      - name: Overview  
+        href: flexible-server/azure-local-ai.md
+      - name: Create embeddings with azure_local_ai
+        href: flexible-server/generative-ai-azure-local-ai.md
     - name: Azure Storage (pg_azure_storage)
       href: flexible-server/reference-pg-azure-storage.md
     - name: Vector similarity search (pgvector)
@@ -432,38 +540,54 @@
       - name: Partitioning using pg_partman
         href: flexible-server/how-to-use-pg-partman.md
         displayName: pg_partman
-- name: Migration Service
+- name: Migrate to Azure Database for PostgreSQL
   items:
-  - name: Overview
-    href: migrate/migration-service/concepts-migration-service-postgresql.md
-  - name: Tutorials
+  - name: Migration Service
     items:
-    - name: Migrate from Single Server
-      href: migrate/migration-service/tutorial-migration-service-single-to-flexible.md
-    - name: Migrate from on-premises or Azure VM
-      href: migrate/migration-service/tutorial-migration-service-iaas.md
-    - name: Migrate from AWS RDS
-      href: migrate/migration-service/tutorial-migration-service-aws.md
-  - name: Concepts
-    items:
-    - name: Premigration validation
-      href: migrate/migration-service/concepts-premigration-migration-service.md
-    - name: User roles and permissions
-      href: migrate/migration-service/concepts-user-roles-migration-service.md
-    - name: Best practices
-      href: migrate/migration-service/best-practices-migration-service-postgresql.md
-    - name: Known issues and limitations
-      href: migrate/migration-service/concepts-known-issues-migration-service.md
-  - name: How-to guides
-    items:
-    - name: Network setup
-      href: migrate/migration-service/how-to-network-setup-migration-service.md
-- name: Migrate data with pg_dump
-  href: migrate/how-to-migrate-using-dump-and-restore.md
-- name: Minimal-downtime migration with DMS
-  href: single-server/how-to-migrate-online.md
-- name: Migrate from Oracle
-  href: single-server/how-to-migrate-from-oracle.md
+    - name: Overview
+      href: migrate/migration-service/overview-migration-service-postgresql.md
+    - name: Tutorials
+      items:
+      - name: Migrate from Single Server
+        href: migrate/migration-service/tutorial-migration-service-single-to-flexible.md
+      - name: Migrate from an Azure VM or an on-premises PostgreSQL server offline
+        href: migrate/migration-service/tutorial-migration-service-iaas-offline.md
+      - name: Migrate from an Azure VM or an on-premises PostgreSQL server online
+        href: migrate/migration-service/tutorial-migration-service-iaas-online.md
+      - name: Migrate from AWS RDS offline
+        href: migrate/migration-service/tutorial-migration-service-aws-offline.md
+      - name: Migrate from AWS RDS online
+        href: migrate/migration-service/tutorial-migration-service-aws-online.md
+    - name: Concepts
+      items:
+      - name: Premigration validation
+        href: migrate/migration-service/concepts-premigration-migration-service.md
+      - name: User roles and permissions
+        href: migrate/migration-service/concepts-user-roles-migration-service.md
+      - name: Runtime Server
+        href: migrate/migration-service/concepts-migration-service-runtime-server.md
+      - name: Best practices
+        href: migrate/migration-service/best-practices-migration-service-postgresql.md
+      - name: Known issues and limitations
+        href: migrate/migration-service/concepts-known-issues-migration-service.md
+    - name: How-to guides
+      items:
+      - name: How to set up Azure CLI
+        href: migrate/migration-service/how-to-setup-azure-cli-commands-postgresql.md
+      - name: How to set up the network
+        href: migrate/migration-service/how-to-network-setup-migration-service.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot errors
+        href: migrate/migration-service/troubleshoot-error-codes-premigration.md
+  - name: Automigration from Azure Database for PostgreSQL - Single Server to Flexible Server
+    href: migrate/automigration-single-to-flexible-postgresql.md
+  - name: Migrate data with pg_dump
+    href: migrate/how-to-migrate-using-dump-and-restore.md
+  - name: Minimal-downtime migration with DMS
+    href: single-server/how-to-migrate-online.md
+  - name: Migrate from Oracle
+    href: single-server/how-to-migrate-from-oracle.md
 - name: Azure Database for PostgreSQL - Single Server
   expanded: false
   items:
@@ -574,7 +698,7 @@
         href: single-server/concepts-connectivity-architecture.md
         displayName: security, architecture
       - name: Threat protection with Microsoft Defender for Cloud
-        href: ../defender-for-cloud/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
+        href: /azure/defender-for-cloud/defender-for-databases-usage?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md
@@ -652,6 +776,8 @@
       - name: Connection resiliency
         href: single-server/concepts-connectivity.md
         displayName: transient errors, connection issues, connectivity issues, pooling
+      - name: Connect with Azure Kubernetes Service
+        href: single-server/concepts-aks.md
     - name: Replication
       items:
       - name: Read replicas

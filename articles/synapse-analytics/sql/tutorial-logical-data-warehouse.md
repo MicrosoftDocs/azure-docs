@@ -2,12 +2,12 @@
 title: 'Tutorial: Use serverless SQL pool to build a Logical Data Warehouse'
 description: This tutorial shows you how to easily create Logical data Warehouse on Azure data sources using serverless SQL pool
 author: jovanpop-msft
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 02/17/2023
 ms.author: jovanpop
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Tutorial: Create Logical Data Warehouse with serverless SQL pool

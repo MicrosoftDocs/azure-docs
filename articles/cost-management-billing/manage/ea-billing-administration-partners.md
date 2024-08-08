@@ -133,6 +133,6 @@ Partner administrators can view a list of their customer enrollments (billing pr
 
 By default, all active enrollments are shown. You can change the status filter to view the entire list of enrollments associated with the partner organization. Then you can select an enrollment to manage.
 
-## Next steps
+## Related content
 
 - To view usage and charges for a specific enrollment, see the [View your usage summary details and download reports for EA enrollments](direct-ea-azure-usage-charges-invoices.md) article.

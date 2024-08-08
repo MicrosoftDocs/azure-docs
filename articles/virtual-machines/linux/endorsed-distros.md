@@ -3,7 +3,7 @@ title: Linux distributions endorsed on Azure
 description: Learn about Linux on Azure-endorsed distributions, including information about Ubuntu, CentOS, Oracle, Flatcar, Debian, Red Hat, and SUSE.
 services: virtual-machines
 author: srijang
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.topic: conceptual
 ms.date: 08/02/2023
@@ -15,27 +15,30 @@ ms.custom: engagement-fy23, linux-related-content
 # Endorsed Linux distributions on Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
-In this article we will cover the following -
+In this article, we will cover the following:
 - Types of Images 
 - Partners 
 - Image Update Cadence 
 - Azure-tuned Kernels 
 
-There are several different sources of Linux VM images for Azure. Each source provides a different expectation for quality, utility and support. This document will summarize each source (marketplace images, platform images, custom images, and community gallery images). It will further provide more details about platform images which are images provided in partnership between Microsoft and several mainstream Linux publishers such as Red Hat, Canonical, and SUSE. 
+There are several different sources of Linux VM images for Azure. Each source provides a different expectation for quality, utility, and support. This document summarizes each source (marketplace images, platform images, custom images, and community gallery images) and gives you more details about platform images, which are images provided in partnership between Microsoft and several mainstream Linux publishers such as Red Hat, Canonical, and SUSE. 
 
 
 Microsoft’s Linux distribution partners provide a multitude of Linux images in the Azure Marketplace. For distributions that are not available from the Marketplace, you can always  provide a custom built Linux image by following the guidelines found in  [Create and upload a virtual hard disk that contains the Linux operating system](create-upload-generic.md). For older versions see [Linux Kernel Requirements](create-upload-generic.md#linux-kernel-requirements).
 
 
 
-The Azure Linux Agent is already pre-installed on Azure Marketplace images and is typically available from the distribution package repository. Source code can be found on [GitHub](https://github.com/azure/walinuxagent).  
+The Azure Linux Agent is already preinstalled on Azure Marketplace images and is typically available from the distribution package repository. Source code can be found on [GitHub](https://github.com/azure/walinuxagent).  
 
 For more information on support by distribution, see [Support for Linux images in Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure).
 
+For more information about running Azure workloads on Linux, see the following video:
+
+> [!VIDEO https://www.youtube.com/embed/K3ybTXorG5I?si=Bedb40scj_A0oD3U]
 
 ## Types of Images
 Azure Linux images can be grouped into three categories: 
@@ -47,20 +50,20 @@ Images published and maintained by either Microsoft or partners. There are a lar
 Platform Images are a type of Marketplace images for which Microsoft has partnered with several mainstream publishers (see table below about Partners) to create a set of “platform images” that undergo additional testing and receive predictable updates (see section below on Image Update Cadence). These platform images can be used for building your own custom images and solution stacks. These images are published by the endorsed Linux distribution partners such as Canonical (Ubuntu), Red Hat (RHEL), and Credativ (Debian). 
 
 
-Microsoft CSS provides commercially reasonable support for these images. Additionally, Red Hat, Canonical, and SUSE offer integrated vendor support capabilities for their platform images.  
+Microsoft provides commercially reasonable customer support for these images. Additionally, Red Hat, Canonical, and SUSE offer integrated vendor support capabilities for their platform images.
 
 
 ### Custom Images 
 These images are created and maintained by the customer, often based on platform images. These images can also be created from scratch and uploaded to Azure - [learn how to create custom images](tutorial-custom-images.md). Customers can host these images in [Azure Compute Gallery](../azure-compute-gallery.md) and they can share these images with others in their organization.  
 
  
-Microsoft CSS provides commercially reasonable support for custom images. 
+Microsoft provides commercially reasonable customer support for custom images. 
 
 ### Community Gallery Images
 These images are created and provided by open source projects, communities and teams. These images are provided using licensing terms set out by the publisher, often under an open source license. They do not appear as traditional marketplace listings, however, they do appear in the portal and via command line tools. More information on community galleries can be found here: [Azure Compute Gallery](../azure-compute-gallery.md#community-gallery).
 
 
-Microsoft CSS provides support for Community Gallery images. 
+Microsoft provides commercially reasonable support for Community Gallery images. 
 
 
 
@@ -73,8 +76,7 @@ Microsoft CSS provides support for Community Gallery images.
 |**Kinvolk / Flatcar**|[Flatcar Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar-container-linux-free) <br/><br/> [Flatcar Container Linux (BYOL)](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar-container-linux) <br/><br/> [Flatcar Container Linux ARM64](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar-container-linux-corevm)|Microsoft CSS provides commercially reasonable support these images.|Kinvolk is the team behind Flatcar Container Linux, continuing the original CoreOS vision for a minimal, immutable, and auto-updating foundation for containerized applications. As a minimal distro, Flatcar contains just those packages required for deploying containers. Its immutable file system guarantees consistency and security, while its auto-update capabilities, enable you to be always up-to-date with the latest security fixes. Kinvolk was acquired by Microsoft in April 2021 and, post-acquisition, continues its mission to support the Flatcar Container Linux community. <br/><br/> https://www.flatcar-linux.org |
 |**Oracle Linux**|[Oracle Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oracle-linux)|Microsoft CSS provides commercially reasonable support these images.|Oracle's strategy is to offer a broad portfolio of solutions for public and private clouds. The strategy gives customers choice and flexibility in how they deploy Oracle software in Oracle clouds and other clouds. Oracle's partnership with Microsoft enables customers to deploy Oracle software to Microsoft public and private clouds with the confidence of certification and support from Oracle. Oracle's commitment and investment in Oracle public and private cloud solutions is unchanged. <br/><br/> https://www.oracle.com/cloud/azure |
 |**Red Hat / Red Hat Enterprise Linux (RHEL)**|[Red Hat Enterprise Linux](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rhel-20190605) <br/><br/> [Red Hat Enterprise Linux RAW](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rhel-raw) <br/><br/> [Red Hat Enterprise Linux ARM64](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rhel-arm64) <br/><br/> [Red Hat Enterprise Linux for SAP Apps](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rhel-sap-apps) <br/><br/> [Red Hat Enterprise Linux for SAP, HA, Updated Services](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rhel-sap-ha) <br/><br/> [Red Hat Enterprise Linux with HA add-on](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rhel-ha)|Microsoft CSS provides commercially reasonable support these images.|The world's leading provider of open-source solutions, Red Hat helps more than 90% of Fortune 500 companies solve business challenges, align their IT and business strategies, and prepare for the future of technology. Red Hat achieves this by providing secure solutions through an open business model and an affordable, predictable subscription model. <br/><br/> https://www.redhat.com/en/partners/microsoft |
-|**Rogue Wave / CentOS**|[CentOS Based Images/Offers](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos?tab=Overview)|Microsoft CSS provides commercially reasonable support these images.|CentOS is currently on End-of-Life path scheduled to be deprecated in mid 2024.|
-|**SUSE / SUSE Linux Enterprise Server (SLES)**|[SUSE Enterprise Linux 15 SP4](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/suse.sles-sap-15-sp4?tab=Overview)|Microsoft CSS provides commercially reasonable support these images.|SUSE Linux Enterprise Server on Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE's versatile Linux platform seamlessly integrates with Azure cloud services to deliver an easily manageable cloud environment. With more than 9,200 certified applications from more than 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Azure. <br/><br/> https://www.suse.com/partners/alliance/microsoft |
+|**SUSE / SUSE Linux Enterprise Server (SLES)**|[SUSE Enterprise Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/suse.sles-15-sp5?tab=Overview)|Microsoft CSS provides commercially reasonable support these images.|SUSE Linux Enterprise Server on Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE's versatile Linux platform seamlessly integrates with Azure cloud services to deliver an easily manageable cloud environment. With more than 9,200 certified applications from more than 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Azure. <br/><br/> https://www.suse.com/partners/alliance/microsoft |
 
 
 ## Image Update Cadence
@@ -83,7 +85,7 @@ Azure requires that the publishers of the endorsed Linux distributions regularly
 ## Azure-tuned Kernels 
 Azure works closely with various endorsed Linux distributions to optimize the images that they published to Azure Marketplace. One aspect of this collaboration is the development of "tuned" Linux kernels that are optimized for the Azure platform and delivered as fully supported components of the Linux distribution. The Azure-Tuned kernels incorporate new features and performance improvements, and at a faster (typically quarterly) cadence compared to the default or generic kernels that are available from the distribution. 
 
-In most cases, you will find these kernels pre-installed on the default images in Azure Marketplace so customers will immediately get the benefit of these optimized kernels. More information about these Azure-Tuned kernels can be found in the following links: 
+In most cases, you will find these kernels preinstalled on the default images in Azure Marketplace so customers will immediately get the benefit of these optimized kernels. More information about these Azure-Tuned kernels can be found in the following links: 
 - [CentOS Azure-Tuned Kernel - Available via the CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Debian Cloud Kernel - Available with the Debian 10 and Debian 9 "backports" image on Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
 - [SLES Azure-Tuned Kernel](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images)

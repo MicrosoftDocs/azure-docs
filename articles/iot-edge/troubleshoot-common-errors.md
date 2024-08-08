@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure IoT Edge common errors
-description: Resolve common issues encountered when using an IoT Edge solution
+description: Resolve common issues in Azure IoT Edge solutions. Learn how to troubleshoot issues with provisioning, deployment, the IoT Edge runtime, and networking.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 02/26/2024
-ms.topic: conceptual
+ms.date: 07/10/2024
+ms.topic: troubleshooting-general
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
@@ -14,7 +14,7 @@ ms.custom:  [amqp, mqtt]
 # Solutions to common issues for Azure IoT Edge
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
@@ -82,7 +82,7 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 
 **Option 1: Set DNS server in container engine settings**
 
-Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
+Specify the DNS server for your environment in the container engine settings, which apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
 
 ```json
 {
@@ -363,6 +363,22 @@ You don't need to disable socket activation on a distribution where socket activ
 1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
 1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
 
+### Message queue clean up is slow
+
+#### Symptoms
+
+The message queue isn't being cleaned up after messages are processed. The message queue grows over time and eventually causes the IoT Edge runtime to run out of memory.
+
+#### Cause
+
+The message cleanup interval is controlled by the client message TTL (time to live) and the *EdgeHub* *MessageCleanupIntervalSecs* environment variable. The default message TTL value is two hours and the default *MessageCleanupIntervalSecs* value is 30 minutes. If your application uses a TTL value that is shorter than the default and you don't adjust the *MessageCleanupIntervalSecs* value, expired messages won't be cleaned up until the next cleanup interval.
+
+#### Solution
+
+If you change the TTL value for your application that is shorter than the default, also adjust the *MessageCleanupIntervalSecs* value. The *MessageCleanupIntervalSecs* value should be significantly smaller than the smallest TTL value that the client is using. For example, if the client application defines a TTL of five minutes in the message header, set the *MessageCleanupIntervalSecs* value to one minute. These settings ensure that messages are cleaned up within six (5 + 1) minutes. 
+
+To configure the *MessageCleanupIntervalSecs* value, set the environment variable in the deployment manifest for the IoT Edge hub module. For more information about setting runtime environment variables, see [Edge Agent and Edge Hub Environment Variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
+
 ## Networking
 
 ### IoT Edge security daemon fails with an invalid hostname
@@ -386,9 +402,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 
 1. In the Azure portal, navigate to the overview page of your virtual machine.
 
-2. Open the configuration panel by selecting **Not configured** (if your virtual machine is new) under DNS name, or select your existing DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
-
-   :::image type="content" source="./media/troubleshoot/configure-dns.png" alt-text="Screenshot of how to open the configuration panel of your DNS name.":::
+2. Open the configuration panel by selecting the **Not configured** link (if your virtual machine is new) or select your existing DNS name under **Essentials** > **DNS name**. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
 
 3. Provide a value for **DNS name label** if you don't have one already and select **Save**.
 

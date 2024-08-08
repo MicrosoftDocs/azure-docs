@@ -1,7 +1,7 @@
 ---
 title: "Share gallery images across tenants using an app registration"
 description: Learn how to share Azure Compute Gallery images across Azure tenants using an app registration.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 02/02/2023
@@ -14,7 +14,7 @@ ms.author: saraic
 
 With Azure Compute Galleries, you can share an image to another organization by using an app registration. For more information about other sharing options, see the [Share the gallery](./share-gallery.md).
 
-[!INCLUDE [virtual-machines-share-images-across-tenants](./includes/virtual-machines-share-images-across-tenants.md)]
+[!INCLUDE [virtual-machines-share-images-across-tenants](~/reusable-content/ce-skilling/azure/includes/virtual-machines/includes/virtual-machines-share-images-across-tenants.md)]
 
 > [!IMPORTANT]
 > You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the Azure CLI or PowerShell.

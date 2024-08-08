@@ -3,7 +3,7 @@ title: Deploy an Azure Firewall Manager security partner provider
 description: Learn how to deploy an Azure Firewall Manager security partner provider using the Azure portal. 
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.topic: how-to
 ms.date: 09/28/2023
 ms.author: victorh

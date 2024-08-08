@@ -70,5 +70,5 @@ You can import a `.json` or a `.lu` version of your application.
 
 See the following links to view the REST APIs for importing and exporting applications:
 
-* [Importing applications](/rest/api/cognitiveservices-luis/authoring/versions/import?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
-* [Exporting applications](/rest/api/cognitiveservices-luis/authoring/versions/export?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+* [Importing applications](/rest/api/luis/versions/import)
+* [Exporting applications](/rest/api/luis/versions/export)

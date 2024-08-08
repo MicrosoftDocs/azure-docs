@@ -3,7 +3,7 @@ title: Query data with Azure Cosmos DB for MongoDB
 description: Learn how to query data from Azure Cosmos DB for MongoDB by using MongoDB shell commands.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: tutorial
 ms.date: 03/14/2023
@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # Query data by using Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 The [Azure Cosmos DB for MongoDB](introduction.md) supports [MongoDB queries](https://docs.mongodb.com/manual/tutorial/query-documents/).
 

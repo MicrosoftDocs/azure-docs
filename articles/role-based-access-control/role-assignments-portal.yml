@@ -6,7 +6,7 @@ metadata:
   author: rolyon
   ms.author: rolyon
   manager: amycolannino
-  ms.date: 01/30/2024
+  ms.date: 08/01/2024
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
@@ -65,7 +65,7 @@ procedureSection:
   - title: | 
       Step 3: Select the appropriate role
     summary: |
-      Follow these steps: 
+      To select a role, follow these steps: 
     steps:
       - |
         On the **Role** tab, select a role that you want to use.
@@ -88,7 +88,7 @@ procedureSection:
   - title: |
       Step 4: Select who needs access
     summary: |
-      Follow these steps:  
+      To select who needs access, follow these steps:  
     steps: 
       - |
         On the **Members** tab, select **User, group, or service principal** to assign the selected role to one or more Microsoft Entra users, groups, or service principals (applications).
@@ -133,10 +133,6 @@ procedureSection:
     
       ### Delegate condition
 
-      > [!IMPORTANT]
-      > Delegating Azure role assignment management with conditions is currently in PREVIEW.
-      > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
       If you selected one of the following privileged roles, follow the steps in this section.
 
       - [Owner](built-in-roles.md#owner)
@@ -171,7 +167,42 @@ procedureSection:
         Follow the steps in [Add or edit Azure role assignment conditions](conditions-role-assignments-portal.md#step-3-review-basics).
 
   - title: |
-      Step 6: Assign role
+      Step 6: Select assignment type (Preview)
+    summary: |
+      > [!IMPORTANT]
+      > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
+      > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+      If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, an **Assignment type** tab will appear for management group, subscription, and resource group scopes. Use eligible assignments to provide just-in-time access to a role. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different. For more information, see [Integration with Privileged Identity Management (Preview)](./role-assignments.md#integration-with-privileged-identity-management-preview).
+    steps:
+      - |
+        On the **Assignment type** tab, select the **Assignment type**.
+
+        - **Eligible** - User must perform one or more actions to use the role, such as perform a multifactor authentication check, provide a business justification, or request approval from designated approvers. You can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps.
+        - **Active** -  User doesn't have to perform any action to use the role.
+
+        :::image type="content" source="./media/shared/assignment-type-eligible.png" alt-text="Screenshot of Add role assignment with Assignment type options displayed." lightbox="./media/shared/assignment-type-eligible.png":::
+
+      - |
+        Depending on your settings, for **Assignment duration**, select **Permanent** or **Time bound**.
+
+        Select permanent if you want member to always be allowed to activate or use role. Select time bound to specify start and end dates. This option might be disabled if permanent assignments creation is not allowed by PIM policy.
+
+      - |
+        If **Time bound** is selected, set **Start date and time** and **Start date and time** to specify when user is allowed to activate or use role.
+
+        It's possible to set the start date in the future. The maximum allowed eligible duration depends on your Privileged Identity Management (PIM) policy.
+
+      - |
+        (Optional) Use **Configure PIM Policy** to configure expiration options, role activation requirements (approval, multifactor authentication, or Conditional Access authentication context), and other settings.
+
+        When you select the **Update PIM policy** link, a PIM page is displayed. Select **Settings** to configure PIM policy for for roles. For more information, see [Configure Azure resource role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-configure-role-settings).
+
+      - |
+        Click **Next**.
+
+  - title: |
+      Step 7: Assign role
     summary: |
       Follow these steps:   
     steps:
@@ -187,6 +218,32 @@ procedureSection:
           ![Screenshot of role assignment list after assigning role.](./media/role-assignments-portal/rg-role-assignments.png)
       - |
         If you don't see the description for the role assignment, click **Edit columns** to add the **Description** column.
+
+  - title: |
+      Edit assignment (Preview)
+    summary: |
+      > [!IMPORTANT]
+      > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
+      > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+      If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, you can edit your role assignment type settings. For more information, see [Integration with Privileged Identity Management (Preview)](./role-assignments.md#integration-with-privileged-identity-management-preview).
+    steps:
+      - |
+        On the **Access control (IAM)** page, click the **Role assignments** tab to view the role assignments at this scope.
+
+      - |
+        Find the role assignment that you want to edit.
+
+      - |
+        In the **State** column, click the link, such as **Eligible time-bound** or **Active permanent**.
+
+        The **Edit assignment** pane appears where you can update the role assignment type settings. The pane might take a few moments to open.
+
+        :::image type="content" source="./media/role-assignments-portal/assignment-type-edit.png" alt-text="Screenshot of Edit assignment pane with Assignment type options displayed." lightbox="./media/role-assignments-portal/assignment-type-edit.png":::
+      - |
+        When finished, click **Save**.
+
+        Your updates might take a while to be processed and reflected in the portal.
 
 relatedContent:
   - text: Assign a user as an administrator of an Azure subscription

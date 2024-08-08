@@ -3,7 +3,7 @@ title: Prepay for Azure virtual machines to save money
 description: Learn how to buy Azure Reserved Virtual Machine Instances to save on your compute costs.
 author: vikramdesai01
 manager: vikramdesai01
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/09/2023
@@ -69,6 +69,8 @@ Your usage file shows your charges by billing period and daily usage. For inform
 Reserved VM Instances are available for most VM sizes with some exceptions. Reservation discounts don't apply for the following VMs:
 
 - **VM series** - A-series, or G-series.
+    >[!NOTE]
+    > A-series VMs differ from Av2 series VMs. Av2 series VMs are available for reservation purchase.
 
 - **Preview or Promo VMs** - Any VM-series or size that is in preview or uses promotional meter.
 

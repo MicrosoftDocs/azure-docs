@@ -1,13 +1,13 @@
 ---
 title: Get started with Azure Synapse Link for Azure SQL Database
 description: Learn how to connect an Azure SQL database to an Azure Synapse workspace with Azure Synapse Link.
-author: SnehaGunda
-ms.service: synapse-analytics
-ms.topic: how-to
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender, wiassaf
+ms.date: 08/06/2024
+ms.service: azure-synapse-analytics
 ms.subservice: synapse-link
-ms.date: 11/16/2022
-ms.author: sngun
-ms.reviewer: sngun, wiassaf
+ms.topic: how-to
 ---
 
 # Get started with Azure Synapse Link for Azure SQL Database
@@ -16,9 +16,9 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 ## Prerequisites
 
-* To get Azure Synapse Link for SQL, see [Create a new Azure Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse). The current tutorial is to create Azure Synapse Link for SQL in a public network. This article assumes that you selected **Disable Managed virtual network** and **Allow connections from all IP address** when you created an Azure Synapse workspace. If you want to configure Azure Synapse Link for Azure SQL Database with network security, also see [Configure Azure Synapse Link for Azure SQL Database with network security](connect-synapse-link-sql-database-vnet.md).
+- To get Azure Synapse Link for SQL, see [Create a new Azure Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse). The current tutorial is to create Azure Synapse Link for SQL in a public network. This article assumes that you selected **Disable Managed virtual network** and **Allow connections from all IP address** when you created an Azure Synapse workspace. If you want to configure Azure Synapse Link for Azure SQL Database with network security, also see [Configure Azure Synapse Link for Azure SQL Database with network security](connect-synapse-link-sql-database-vnet.md).
 
-* For database transaction unit (DTU)-based provisioning, make sure that your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned aren't supported.
+- For database transaction unit (DTU)-based provisioning, make sure that your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned aren't supported.
 
 ## Configure your source Azure SQL database
 
@@ -26,11 +26,11 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 1. Go to your Azure SQL logical server, select **Identity**, and then set **System assigned managed identity** to **On**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/set-identity-sql-database.png" alt-text="Screenshot of turning on the system assigned managed identity.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/set-identity-sql-database.png" alt-text="Screenshot of turning on the system assigned managed identity." lightbox="../media/connect-synapse-link-sql-database/set-identity-sql-database.png":::
 
 1. Go to **Networking**, and then select the **Allow Azure services and resources to access this server** checkbox. 
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/configure-network-firewall-sql-database.png" alt-text="Screenshot that shows how to configure firewalls for your SQL database by using the Azure portal.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/configure-network-firewall-sql-database.png" alt-text="Screenshot that shows how to configure firewalls for your SQL database by using the Azure portal." lightbox="../media/connect-synapse-link-sql-database/configure-network-firewall-sql-database.png":::
 
 1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the logical server. If you want to have your Azure Synapse workspace connect to your Azure SQL database by using a managed identity, set the Microsoft Entra admin permissions on the logical server. To apply the privileges in step 6, use the same admin name to connect to the logical server with administrative privileges.
 
@@ -59,7 +59,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 1. Go to the **Manage** hub, select **SQL pools**, and then select **New**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-sql-pool.png" alt-text="Screenshot that shows how to create a new SQL dedicated pool from Synapse Studio.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-sql-pool.png" alt-text="Screenshot that shows how to create a new SQL dedicated pool from Synapse Studio." lightbox="../media/connect-synapse-link-sql-database/studio-new-sql-pool.png":::
 
 1. Enter a unique pool name, use the default settings, and create the dedicated pool.
 
@@ -72,7 +72,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 1. On the **Integrate** pane, select the plus sign (**+**), and then select **Link connection**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-link-connection.png" alt-text="Screenshot that shows how to select a new link connection from Synapse Studio.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-link-connection.png" alt-text="Screenshot that shows how to select a new link connection from Synapse Studio." lightbox="../media/connect-synapse-link-sql-database/studio-new-link-connection.png":::
 
 1. Under **Source linked service**, select **New**.
 
@@ -82,10 +82,13 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    * Select the subscription, server, and database corresponding to your Azure SQL database.
    * Do either of the following:
-     * To connect your Azure Synapse workspace to the source database by using the workspace's managed identity, set **Authentication type** to **Managed Identity**.
+     * To connect your Azure Synapse workspace to the source database by using the workspace's managed identity, set **Authentication type** to **Managed Identity**. 
      * To use SQL authentication instead, if you know the username and password to use, select **SQL Authentication**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-linked-service.png" alt-text="Screenshot that shows how to enter the server and database details to create a new linked service.":::
+
+   > [!NOTE]
+   > Only the Linked Service in Legacy version is supported.
 
 1. Select **Test connection** to ensure that the firewall rules are properly configured and the workspace can successfully connect to the source Azure SQL database.
 
@@ -98,13 +101,12 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    > [!NOTE]
    > A specified source table can be enabled in only one link connection at a time.
-
 1. Select a target Azure Synapse SQL database and pool.
 
 1. Provide a name for your Azure Synapse Link connection, and select the number of cores for the [link connection compute](sql-database-synapse-link.md#link-connection). These cores will be used for the movement of data from the source to the target.
 
    > [!NOTE]
-   > * The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the source Azure SQL Database configuration or the target dedicated SQL pool confiruation.
+   > * The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the source Azure SQL Database configuration or the target dedicated SQL pool configuration.
    > * We recommend starting low and increasing the number of cores as needed.
 
 1. Select **OK**.
@@ -112,10 +114,27 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 1. With the new Azure Synapse Link connection open, you can update the target table name, distribution type, and structure type.
 
    > [!NOTE]
-   > * Consider using *heap table* for the structure type when your data contains varchar(max), nvarchar(max), and varbinary(max).
+   > * Consider using *heap table* for the structure type when your data contains **varchar(max)**, **nvarchar(max)**, and **varbinary(max)**.
    > * Make sure that the schema in your Azure Synapse SQL dedicated pool has already been created before you start the link connection. Azure Synapse Link for SQL will create tables automatically under your schema in the Azure Synapse SQL dedicated pool.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-edit-link.png" alt-text="Screenshot that shows where to edit the Azure Synapse Link connection from Synapse Studio.":::
+
+1. In the **Action on existing target table** dropdown list, choose the option most appropriate for your scenario if the table already exists in the destination. 
+
+   - **Drop and recreate table**: The existing target table will be dropped and recreated.
+   - **Fail on non-empty table**: If target table contains data, link connection for the given table will fail.
+   - **Merge with existing data**: Data will be merged into the existing table.
+
+   > [!NOTE]
+   > If you want to merge multiple sources into the same destination by choosing "Merge with existing data", make sure the sources contain different data to avoid conflict and unexpected result.
+
+1. Specify whether to **enable transaction consistency across tables**. 
+
+   - When this option is enabled, a transaction spanning across multiple tables on the source database is always replicated to the destination database in a single transaction. This, however, will create overhead on the overall replication throughput. 
+   - When the option is disabled, each table will replicate changes in its own transaction boundary to the destination in parallel connections, thus improving overall replication throughput. 
+   
+   > [!NOTE]
+   > When you want to enable transaction consistency across tables, please also make sure the transaction isolation levels in your Synapse dedicated SQL pool is READ COMMITTED SNAPSHOT ISOLATION.
 
 1. Select **Publish all** to save the new link connection to the service.
 
@@ -165,7 +184,7 @@ To add or remove tables in Synapse Studio, do the following:
    * To add a table, select **New table**.
    * To remove a table, select the trash can icon next to it.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Screenshot of the link connection pane for adding or removing tables.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Screenshot of the link connection pane for adding or removing tables." lightbox="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png":::
 
    > [!NOTE]
    > You can directly add or remove tables when a link connection is running.
@@ -183,13 +202,13 @@ To stop the Azure Synapse Link connection in Synapse Studio, do the following:
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Screenshot of the pane for stopping a link connection.":::
 
    > [!NOTE]
-   > If you restart a link connection after stopping it, it will start from a full initial load from your source database, and incremental change feeds will follow.
+   > * If you restart a link connection after stopping it, it will start from a full initial load from your source database, and incremental change feeds will follow.
+   > * If you choose "**Merge with existing data**" as the action on existing target table, when you stop the link connection and restart it, the record deletions in source during that period won't be deleted in the destination. In such case, to ensure data consistency, consider to use pause/resume instead of stop/start, or to clean up the destination tables before you restart the link connection.
 
-## Next steps
+## Related content
 
-If you're using a database other than an Azure SQL database, see:
-
-* [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
-* [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
-* [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md)
-* [Get or set a managed identity for an Azure SQL Database logical server or managed instance](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity#get-or-set-a-managed-identity-for-a-logical-server-or-managed-instance)
+- [Get or set a managed identity for an Azure SQL Database logical server or managed instance](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity#get-or-set-a-managed-identity-for-a-logical-server-or-managed-instance)
+- [Azure Synapse Link for SQL FAQ](faq.yml)
+- [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
+- [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
+- [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md)

@@ -1,18 +1,18 @@
 ---
 title: Virtual endpoints
 description: This article describes the virtual endpoints for read replica feature in Azure Database for PostgreSQL - Flexible Server.
-author: AlicjaKucharczyk
-ms.author: alkuchar
+author: akashraokm
+ms.author: akashrao
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 6/10/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
 # Virtual endpoints for read replicas in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Virtual Endpoints are read-write and read-only listener endpoints, that remain consistent irrespective of the current role of the Azure Database for PostgreSQL flexible server instance. This means you don't have to update your application's connection string after performing the **promote to primary server** action, as the endpoints will automatically point to the correct instance following a role change.
 
@@ -52,11 +52,32 @@ The sections below delve into how these endpoints react to both [Promote to prim
   * **If Read-Only Endpoint Points to Replica**: The Read-Only endpoint is redirected from the promoted replica to point to the primary server.
   * **If Read-Only Endpoint Points to Primary**: The Read-Only endpoint remains unchanged, continuing to point to the same server.
 
+### Using Virtual Endpoints for Consistent Hostname During Point-in-Time Recovery (PITR) or Snapshot Restore
 
-Learn how to [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints).
+This section explains how to use Virtual Endpoints in Azure Database for PostgreSQL - Flexible Server to maintain a consistent hostname during Point-in-Time Recovery (PITR) or Snapshot Restore, ensuring application connection strings remain unchanged. Follow below steps:
+
+1. **Add Virtual Endpoint to Primary Server:**
+    - Browse to your primary server instance in the Azure Portal.
+    - Navigate to **Replication** Tab, and under **Virtual Endpoints**, click **Add Virtual Endpoint**.
+    - Configure the virtual endpoint with a consistent hostname (e.g., `mydb-virtual-endpoint.postgres.database.azure.com`).
+    - Save the configuration.
+    - Update your application to use this virtual endpoint in the connection string.
+
+2. **Perform Point-in-Time-Restore (PITR) or Snapshot Restore:**
+    - Initiate Recovery:
+        - Go to the **Backups** section of your primary server.
+        - Choose the appropriate restore option (`PITR` or `snapshot`) and specify the desired point in time.
+    - Update Virtual Endpoint:
+        - Once the new instance is created, navigate back to the old primary server **Replication** Tab.
+        - Remove the virtual endpoint from the original primary server. Old Primary should be in `succeeded` state to remove the virtual endpoint
+        - Add the same virtual endpoint to the newly created server.
+
+3. **Validation:**
+    - Ensure that your application connects using the virtual endpoint and verify the database operations post-recovery.
 
 ## Related content
 
+- [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints).
 - [Read replicas - overview](concepts-read-replicas.md)
 - [Geo-replication](concepts-read-replicas-geo.md)
 - [Promote read replicas](concepts-read-replicas-promote.md)

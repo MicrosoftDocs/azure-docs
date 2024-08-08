@@ -17,12 +17,7 @@ ms.subservice: calling
 
 # End of Call Survey overview
 
-
-> [!NOTE] 
-> End of Call Survey is currently supported only for our JavaScript / Web SDK.
-
-The End of Call Survey provides you with a tool to understand how your end users perceive the overall quality and reliability of your JavaScript / Web SDK calling solution.
-
+The End of Call Survey provides you with a tool to understand how your end users perceive the overall quality and reliability of your Calling SDK solution.
 
 ## Purpose of the End of Call Survey
 It’s difficult to determine a customer’s perceived calling experience and determine how well your calling solution is performing without gathering subjective feedback from customers. You can use the End of Call Survey to collect and analyze customers **subjective** opinions on their calling experience as opposed to relying only on **objective** measurements such as audio and video bitrate, jitter, and latency, which may not indicate if a customer had a poor calling experience.

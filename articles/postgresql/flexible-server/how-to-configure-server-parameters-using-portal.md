@@ -5,14 +5,14 @@ author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
 # Configure server parameters in Azure Database for PostgreSQL - Flexible Server via the Azure portal 
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 You can list, show, and update configuration parameters for an Azure Database for PostgreSQL flexible server instance through the Azure portal. In addition, you can also click on the **Server Parameter Tabs** to easily view parameter group as **Modified**, **Static**, **Dynamic** and **Read-Only**.
 

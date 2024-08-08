@@ -3,7 +3,7 @@ title: Getting started with Azure Communications Gateway
 description: Learn how to plan for and deploy Azure Communications Gateway.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 02/16/2024
 
@@ -77,14 +77,11 @@ Use the following procedures to integrate with Operator Connect and Teams Phone 
 Use the following procedures to integrate with Microsoft Teams Direct Routing.
 
 1. [Connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md) describes how to connect Azure Communications Gateway to the Microsoft Phone System for Microsoft Teams Direct Routing.
-1. [Configure a test customer for Microsoft Teams Direct Routing](configure-test-customer-teams-direct-routing.md) describes how to configure Azure Communications Gateway and Microsoft 365 with a test customer.
-1. [Configure test numbers for Microsoft Teams Direct Routing](configure-test-numbers-teams-direct-routing.md) describes how to configure Azure Communications Gateway and Microsoft 365 with test numbers.
-1. [Prepare for live traffic with Microsoft Teams Direct Routing and Azure Communications Gateway](prepare-for-live-traffic-teams-direct-routing.md) describes how to test your deployment and launch your service.
+1. [Prepare for live traffic with Microsoft Teams Direct Routing and Azure Communications Gateway](prepare-for-live-traffic-teams-direct-routing.md) describes how to test your deployment (including configuring test numbers on Azure Communications Gateway and Microsoft 365) and launch your service.
 
 Use the following procedures to integrate with Zoom Phone Cloud Peering.
 
 1. [Connect Azure Communications Gateway to Zoom Phone Cloud Peering](connect-zoom.md) describes how to connect Azure Communications Gateway to Zoom servers.
-1. [Configure test numbers for Zoom Phone Cloud Peering](configure-test-numbers-zoom.md) describes how to configure Azure Communications Gateway and Zoom with test numbers.
 1. [Prepare for live traffic with Zoom Phone Cloud Peering and Azure Communications Gateway](prepare-for-live-traffic-zoom.md) describes how to test your deployment and launch your service.
 
 Use the following procedures to integrate with Azure Operator Call Protection Preview.

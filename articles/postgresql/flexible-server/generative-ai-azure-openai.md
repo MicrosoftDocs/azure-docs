@@ -4,17 +4,19 @@ description: Use vector indexes and Azure OpenAI embeddings in PostgreSQL for re
 author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 05/20/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
+  - build-2024
 ---
 
-# Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server (Preview)
+# Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Invoke [Azure OpenAI embeddings](../../ai-services/openai/reference.md#embeddings) easily to get a vector representation of the input, which can be used then in [vector similarity](./how-to-use-pgvector.md#vector-similarity) searches and consumed by machine learning models.
 
@@ -52,6 +54,10 @@ azure_openai.create_embeddings(deployment_name text, input text[], batch_size in
 
 `text` or `text[]` single text or array of texts, depending on the overload of the function used, for which embeddings are created.
 
+#### `dimensions`
+
+`integer DEFAULT NULL` The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models. Available in versions 1.1.0 and later of the azure_ai extension
+
 #### `batch_size`
 
 `integer DEFAULT 100` number of records to process at a time (only available for the overload of the function for which parameter `input` is of type `text[]`).
@@ -66,11 +72,11 @@ azure_openai.create_embeddings(deployment_name text, input text[], batch_size in
 
 #### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure OpenAI endpoint for embedding creation if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries the Azure OpenAI embedding creation if it fails with any retryable error.
 
 #### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure OpenAI endpoint for embedding creation, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits before calling again the Azure OpenAI endpoint for embedding creation, when it fails with any retryable error.
 
 ### Return type
 

@@ -5,9 +5,9 @@ description: Use an isolated Azure Virtual Network to secure your Azure Machine 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 09/29/2023
 ms.topic: how-to
 ms.custom: UpdateFrequency5, tracking-python, security, cliv1, sdkv1, build-2023
@@ -178,7 +178,7 @@ Azure key vault can be configured to use either a private endpoint or service en
 
 # [Private endpoint](#tab/pe)
 
-For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](../../key-vault/general/private-link-service.md#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
+For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
 
 
 # [Service endpoint](#tab/se)
@@ -194,7 +194,7 @@ For information on using a private endpoint with Azure Key Vault, see [Integrate
 
     :::image type="content" source="../media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="The Firewalls and virtual networks section in the Key Vault pane":::
 
-For more information, see [Configure Azure Key Vault network settings](../../key-vault/general/how-to-azure-key-vault-network-security.md).
+For more information, see [Configure Azure Key Vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 ---
 

@@ -4,8 +4,8 @@ description: This article describes how you can monitor Azure Database for MySQL
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.date: 03/27/2023
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---

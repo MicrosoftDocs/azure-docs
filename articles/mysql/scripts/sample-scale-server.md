@@ -3,7 +3,7 @@ title: CLI script - Scale server - Azure Database for MySQL
 description: This sample CLI script scales Azure Database for MySQL server to a different performance level after querying the metrics.
 author: SudheeshGH
 ms.author: sunaray
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: sample
@@ -17,13 +17,13 @@ ms.date: 02/10/2022
 
 This sample CLI script scales compute and storage for a single Azure Database for MySQL server after querying the metrics. Compute can scale up or down. Storage can only scale up.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -31,7 +31,7 @@ This sample CLI script scales compute and storage for a single Azure Database fo
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

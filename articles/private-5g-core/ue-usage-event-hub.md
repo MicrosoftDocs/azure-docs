@@ -3,7 +3,7 @@ title: Monitor UE usage with Event Hubs
 description: Information on using Azure Event Hubs to monitor UE usage in your private mobile network. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: conceptual 
 ms.date: 05/24/2023
 ms.custom: template-concept

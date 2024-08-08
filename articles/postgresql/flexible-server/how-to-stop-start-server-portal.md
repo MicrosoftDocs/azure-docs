@@ -4,8 +4,8 @@ description: This article describes how to stop/start operations in Azure Databa
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 04/30/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 #customer intent: As a user, I want to learn how to stop/start an Azure Database for PostgreSQL flexible server instance using the Azure portal so that I can manage my server efficiently.
@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Stop/Start an Azure Database for PostgreSQL - Flexible Server instance using Azure portal
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides step-by-step instructions to stop and start an Azure Database for PostgreSQL flexible server instance.
 

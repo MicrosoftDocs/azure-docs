@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Cosmos DB bad request exceptions
 description: Learn how to diagnose and fix bad request exceptions such as input content or partition key is invalid, partition key doesn't match in Azure Cosmos DB.
 author: ealsur
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.date: 03/07/2022
 ms.author: maquaran
@@ -46,6 +46,16 @@ A response with this error means you are executing an operation and passing a pa
 
 ### Solution
 Send the partition key value parameter that matches the document property value.
+
+## Numeric partition key value precision loss
+On this scenario, it's common to see errors like:
+
+*The requested partition key is out of key range, possibly because of loss of precision of partition key value*
+
+A response with this error is likely to be caused by an operation on a document with a numeric partition key whose value is outside what is supported by Azure Cosmos DB. See [Per-item limits](/azure/cosmos-db/concepts-limits#per-item-limits) for the maximum length of numeric property value.
+
+### Solution
+Consider using type `string` for partition key if requiring precise numeric values.
 
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dotnet-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.

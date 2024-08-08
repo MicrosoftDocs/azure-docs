@@ -1,12 +1,9 @@
 ---
 title: Microsoft Entra joined session hosts in Azure Virtual Desktop
 description: Learn about using Microsoft Entra joined session hosts in Azure Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 11/14/2023
+ms.date: 06/04/2024
 ms.author: helohr
 ---
 
@@ -21,7 +18,7 @@ The following known limitations may affect access to your on-premises or Active 
 - Azure Virtual Desktop (classic) doesn't support Microsoft Entra joined VMs.
 - Microsoft Entra joined VMs don't currently support external identities, such as Microsoft Entra Business-to-Business (B2B) and Microsoft Entra Business-to-Consumer (B2C).
 - Microsoft Entra joined VMs can only access [Azure Files shares](create-profile-container-azure-ad.yml) or [Azure NetApp Files shares](create-fslogix-profile-container.md) for hybrid users using Microsoft Entra Kerberos for FSLogix user profiles.
-- The [Remote Desktop app for Windows](users/connect-microsoft-store.md) doesn't support Microsoft Entra joined VMs.
+- The [Remote Desktop Store app](users/connect-windows.md?pivots=rd-store) for Windows doesn't support Microsoft Entra joined VMs.
 
 <a name='deploy-azure-ad-joined-vms'></a>
 

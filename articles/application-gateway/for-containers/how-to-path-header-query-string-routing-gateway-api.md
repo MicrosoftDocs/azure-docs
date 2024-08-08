@@ -3,7 +3,7 @@ title: Path, header, and query string routing with Application Gateway for Conta
 description: Learn how to configure Application Gateway for Containers with support with path, header, and query string routing.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
 ms.date: 02/27/2024
@@ -14,7 +14,7 @@ ms.author: greglin
 
 This document helps you set up an example application that uses the resources from Gateway API to demonstrate traffic routing based on URL path, query string, and header. Steps are provided to:
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resource that references a backend service.
+- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute) resource that references a backend service.
 - Use [HTTPRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) to perform `matches` that route based on path, header, and query string.
 
 ## Background

@@ -1,7 +1,9 @@
 ---
 title: What's new with Azure Operator Insights ingestion agent
 description: This article has release notes for Azure Operator Insights ingestion agent. For many of the summarized issues, there are links to more details.
-ms.topic: overview
+ms.author: rdunstan
+author: rcdun
+ms.topic: whats-new
 ms.date: 02/28/2024
 ---
 
@@ -21,6 +23,8 @@ Supported distributions:
 - RHEL 8
 - RHEL 9
 
+This release has been produced in accordance with Microsoft's Secure Development Lifecycle, including processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
+
 ### Known issues
 
 None
@@ -39,6 +43,8 @@ None
 Supported distributions: 
 - RHEL 8
 - RHEL 9
+
+This release has been produced in accordance with Microsoft's Secure Development Lifecycle, including processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
 ### Known issues
 

@@ -3,7 +3,7 @@ title: Concepts of customer-managed keys in Azure Cosmos DB for PostgreSQL.
 description: Concepts of customer-managed keys.
 ms.author: akashrao
 author: akashraokm
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 04/06/2023
@@ -24,7 +24,7 @@ The Azure Cosmos DB for PostgreSQL service uses the FIPS 140-2 validated cryptog
 
 Many organizations require full control of access to data using a customer-managed key (CMK). Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL enables you to bring your own key for protecting data at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you're responsible for, and in full control of, a key's lifecycle, usage permissions, and auditing of operations.
 
-Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL is set at the server level. Data, including backups, are encrypted on disk. This encryption includes the temporary files created while running queries. For a given cluster, a customer-managed key, called the key encryption key (**KEK**), is used to encrypt the service's data encryption key (**DEK**). The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](../../key-vault/index.yml) instance.
+Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL is set at the server level. Data, including backups, are encrypted on disk. This encryption includes the temporary files created while running queries. For a given cluster, a customer-managed key, called the key encryption key (**KEK**), is used to encrypt the service's data encryption key (**DEK**). The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](/azure/key-vault/) instance.
 
 | | Description |
 | --- | --- |

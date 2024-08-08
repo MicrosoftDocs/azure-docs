@@ -4,8 +4,8 @@ description: Learn about using Data-in replication to synchronize from an extern
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 05/02/2023
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
@@ -55,12 +55,13 @@ The parameter `replicate_wild_ignore_table` creates a replication filter for tab
 - Binary log files on the source server shouldn't be purged before the replica applies those changes. If the source is Azure Database for MySQL flexible server, refer to how to configure binlog_expire_logs_seconds for [flexible server](./concepts-server-parameters.md#binlog_expire_logs_seconds) or [Single server](../concepts-server-parameters.md#binlog_expire_logs_seconds)
 - If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` stored procedure. Refer to the following [examples](./how-to-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
 - Ensure that the machine hosting the source server allows both inbound and outbound traffic on port 3306.
-- With **public access**, ensure that the source server has a public IP address, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).
-- With **private access**, ensure that the source server name can be resolved and is accessible from the VNet where the Azure Database for MySQL flexible server instance is running. (For more details, visit [Name resolution for resources in Azure virtual networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)).
+- With **public access**, ensure that the source server has a public IP address, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN). If you have a private endpoint and have disabled public access, data-in replication is not supported
+
+- With **private access** (VNet Integration), ensure that the source server name can be resolved and is accessible from the VNet where the Azure Database for MySQL flexible server instance is running. (For more details, visit [Name resolution for resources in Azure virtual networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)).
 
 ### Generated Invisible Primary Key
 
-For MySQL version 8.0 and above, [Generated Invisible Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html)(GIPK) is enabled by default for all the Azure Database for MySQL flexible server instances. MySQL 8.0+ servers adds the invisible column *my_row_id* to the tables and a primary key on that column, where the InnoDB table is created without an explicit primary key. This feature, when enabled may impact some of the data-in replication use cases, as described below:
+For MySQL version 8.0 and above, [Generated Invisible Primary Keys (GIPK)](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html) is enabled by default for all the Azure Database for MySQL flexible server instances. MySQL 8.0+ servers adds the invisible column *my_row_id* to the tables and a primary key on that column, where the InnoDB table is created without an explicit primary key. This feature, when enabled may impact some of the data-in replication use cases, as described below:
 
 - Data-in replication fails with replication error: “**ERROR 1068 (42000): Multiple primary key defined**” if source server creates a Primary key on the table without Primary Key. For mitigation, run the following sql command, skip replication error and restart [data-in replication](how-to-data-in-replication.md). 
 

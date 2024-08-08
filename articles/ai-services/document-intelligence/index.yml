@@ -35,11 +35,11 @@ landingContent:
             url: whats-new.md
       - linkListType: reference
         links:
-           - text: 🆕 SDK overview ```2023-10-31-preview``` (preview)
+           - text: 🆕 SDK overview `2024-02-29-preview` (v4.0 preview)
              url: sdk-overview-v4-0.md
-           - text: SDK overview ```2023-07-31``` latest (GA)
+           - text: SDK overview `2023-07-31` latest (v3.1 GA)
              url: sdk-overview-v3-1.md
-           - text: SDK overview ```2022-08-31``` legacy (GA)
+           - text: SDK overview `2022-08-31` legacy (v3.0 GA)
              url: sdk-overview-v3-0.md
 
 #Card 2

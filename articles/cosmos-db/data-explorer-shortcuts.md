@@ -14,7 +14,7 @@ ms.date: 05/02/2024
 
 Keyboard shortcuts offer a quick way to navigate websites and enable users to work more efficiently. Instead of using a mouse, you use keys, or combinations of keys, to run tasks. This article lists the Windows and Mac keyboard shortcuts that work in the Data Explorer within the Azure portal. You no longer have to worry about losing progress by accidentally hitting <kbd>F5</kbd>.
 
-The letters in this article correspond to keys on your keyboard. For example, to use the <kbd>G</kbd>+<kbd>N</kbd> shortcut, select the <kbd>G</kbd> key, then select <kbd>N</kbd>. If the shortcut is <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>X</kbd>, continuously select <kbd>Ctrl</kbd>, then select <kbd>K</kbd> and <kbd>X</kbd> simultaneously. If the command is <kbd>Alt</kbd>+<kbd>N</kbd>&nbsp;<kbd>P</kbd>, select <kbd>Alt</kbd>+<kbd>N</kbd>, deselect both, and then select <kbd>P</kbd>.
+The letters in this article correspond to keys on your keyboard. For example, to use the <kbd>G</kbd>+<kbd>N</kbd> shortcut, select the <kbd>G</kbd> key, then select <kbd>N</kbd>. If the shortcut is <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>X</kbd>, continuously select <kbd>Ctrl</kbd>, then select <kbd>K</kbd>, release <kbd>K</kbd> and press <kbd>X</kbd>. If the command is <kbd>Alt</kbd>+<kbd>N</kbd>&nbsp;<kbd>P</kbd>, select <kbd>Alt</kbd>+<kbd>N</kbd>, deselect both, and then select <kbd>P</kbd>.
 
 ## Keyboard shortcuts for the toolbar
 

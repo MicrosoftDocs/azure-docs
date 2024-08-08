@@ -3,12 +3,15 @@ title: CLI script - Create and enable public access connectivity
 description: This Azure CLI sample script shows how to create a Azure Database for MySQL - Flexible Server instance, configure a server-level firewall rule (public access connectivity method), and connect to the server.
 author: shreyaaithal
 ms.author: shaithal
-ms.service: mysql
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
-ms.date: 02/10/2022 
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # Create an Azure Database for MySQL - Flexible Server instance and enable public access connectivity using Azure CLI
@@ -28,7 +31,7 @@ Once the script runs successfully, the MySQL Flexible Server will be accessible 
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -36,7 +39,7 @@ Once the script runs successfully, the MySQL Flexible Server will be accessible 
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

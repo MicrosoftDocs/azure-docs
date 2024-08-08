@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 04/25/2024
 ms.author: bwren
 author: bwren
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Configuration of Azure Monitor edge pipeline
@@ -374,109 +374,117 @@ Replace the properties in the following table before deploying the template.
 
 ```json
 {
-    "type": "Microsoft.monitor/pipelineGroups",
-    "location": "eastus",
-    "apiVersion": "2023-10-01-preview",
-     "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.ExtendedLocation/customLocations/my-custom-location",
-
-    "extendedLocation": {
-        "name": "my-custom-location",
-        "type": "CustomLocation"
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "description": "This template deploys an edge pipeline for azure monitor."
     },
-    "properties": {
-        "receivers": [
-            {
-                "type": "OTLP",
-                "name": "receiver-OTLP",
-                "otlp": {
-                    "endpoint": "0.0.0.0:4317"
-                }
+    "resources": [
+        {
+            "type": "Microsoft.monitor/pipelineGroups",
+            "location": "eastus",
+            "apiVersion": "2023-10-01-preview",
+            "name": "my-pipeline-group-name",
+            "extendedLocation": {
+                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.ExtendedLocation/customLocations/my-custom-location",
+                "type": "CustomLocation"
             },
-            {
-                "type": "Syslog",
-                "name": "receiver-Syslog",
-                "syslog": {
-                    "endpoint": "0.0.0.0:514"
-                }
-            }
-        ],
-        "processors": [],
-        "exporters": [
-            {
-                "type": "AzureMonitorWorkspaceLogs",
-                "name": "exporter-log-analytics-workspace",
-                "azureMonitorWorkspaceLogs": {
-                    "api": {
-                        "dataCollectionEndpointUrl": "https://my-dce-4agr.eastus-1.ingest.monitor.azure.com",
-                        "dataCollectionRule": "dcr-00000000000000000000000000000000",
-                        "stream": "Custom-OTLP",
-                        "cache": {
-                            "maxStorageUsage": "10000",
-                            "retentionPeriod": "60"
-                        },
-                        "schema": {
-                            "recordMap": [
-                                {
-                                    "from": "body",
-                                    "to": "Body"
-                                },
-                                {
-                                    "from": "severity_text",
-                                    "to": "SeverityText"
-                                },
-                                {
-                                    "from": "time_unix_nano",
-                                    "to": "TimeGenerated"
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        ],
-        "service": {
-            "pipelines": [
-                {
-                    "name": "DefaultOTLPLogs",
-                    "receivers": [
-                        "receiver-OTLP"
-                    ],
-                    "processors": [],
-                    "exporters": [
-                        "exporter-log-analytics-workspace"
-                    ],
-                    "type": "logs"
-                },
-                {
-                    "name": "DefaultSyslogs",
-                    "receivers": [
-                        "receiver-Syslog"
-                    ],
-                    "processors": [],
-                    "exporters": [
-                        "exporter-log-analytics-workspace"
-                    ],
-                    "type": "logs"
-                }
-            ],
-            "persistence": {
-                "persistentVolume": "my-persistent-volume"
-            }
-        },
-        "networkingConfigurations": [
-            {
-                "externalNetworkingMode": "LoadBalancerOnly",
-                "routes": [
+            "properties": {
+                "receivers": [
                     {
-                        "receiver": "receiver-OTLP"
+                        "type": "OTLP",
+                        "name": "receiver-OTLP",
+                        "otlp": {
+                            "endpoint": "0.0.0.0:4317"
+                        }
                     },
                     {
-                        "receiver": "receiver-Syslog"
+                        "type": "Syslog",
+                        "name": "receiver-Syslog",
+                        "syslog": {
+                            "endpoint": "0.0.0.0:514"
+                        }
+                    }
+                ],
+                "processors": [],
+                "exporters": [
+                    {
+                        "type": "AzureMonitorWorkspaceLogs",
+                        "name": "exporter-log-analytics-workspace",
+                        "azureMonitorWorkspaceLogs": {
+                            "api": {
+                                "dataCollectionEndpointUrl": "https://my-dce-4agr.eastus-1.ingest.monitor.azure.com",
+                                "dataCollectionRule": "dcr-00000000000000000000000000000000",
+                                "stream": "Custom-OTLP",
+                                "schema": {
+                                    "recordMap": [
+                                        {
+                                            "from": "body",
+                                            "to": "Body"
+                                        },
+                                        {
+                                            "from": "severity_text",
+                                            "to": "SeverityText"
+                                        },
+                                        {
+                                            "from": "time_unix_nano",
+                                            "to": "TimeGenerated"
+                                        }
+                                    ]
+                                }
+                            },
+                            "cache": {
+                                "maxStorageUsage": 10000,
+                                "retentionPeriod": 60
+                            }
+                        }
+                    }
+                ],
+                "service": {
+                    "pipelines": [
+                        {
+                            "name": "DefaultOTLPLogs",
+                            "receivers": [
+                                "receiver-OTLP"
+                            ],
+                            "processors": [],
+                            "exporters": [
+                                "exporter-log-analytics-workspace"
+                            ],
+                            "type": "logs"
+                        },
+                        {
+                            "name": "DefaultSyslogs",
+                            "receivers": [
+                                "receiver-Syslog"
+                            ],
+                            "processors": [],
+                            "exporters": [
+                                "exporter-log-analytics-workspace"
+                            ],
+                            "type": "logs"
+                        }
+                    ],
+                    "persistence": {
+                        "persistentVolumeName": "my-persistent-volume"
+                    }
+                },
+                "networkingConfigurations": [
+                    {
+                        "externalNetworkingMode": "LoadBalancerOnly",
+                        "routes": [
+                            {
+                                "receiver": "receiver-OTLP"
+                            },
+                            {
+                                "receiver": "receiver-Syslog"
+                            }
+                        ]
                     }
                 ]
             }
-         ]
-    }
+        }
+    ]
 }
 ```
 

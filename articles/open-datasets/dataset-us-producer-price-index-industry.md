@@ -1,7 +1,7 @@
 ---
 title: US Producer Price Index industry
 description: Learn how to use the US Producer Price Index industry dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 The Producer Price Index (PPI) is a measure of average change over time in the selling prices received by domestic producers for their output. The prices included in the PPI are from the first commercial transaction for products and services covered.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 The Producer Price Index Revision-Current Series indexes reflect price movements for the net output of producers organized according to the North American Industry Classification System (NAICS). The PC dataset is compatible with a wide assortment of NAICS-based economic time series including: productivity, production, employment, wages, and earnings.
 

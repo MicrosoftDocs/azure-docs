@@ -3,7 +3,7 @@ title: Use with Internal Load Balancer - Azure Application Gateway
 description: This article provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB)
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 09/13/2022
 ms.author: greglin 
@@ -18,7 +18,7 @@ This article walks you through the steps to configure a Standard v1 Application 
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 1. Install the latest version of the Azure PowerShell module by following the [install instructions](/powershell/azure/install-azure-powershell).
 2. You create a virtual network and a subnet for Application Gateway. Make sure that no virtual machines or cloud deployments are using the subnet. Application Gateway must be by itself in a virtual network subnet.

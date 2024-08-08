@@ -11,7 +11,7 @@ ms.date: 01/04/2024
 
 # Azure CLI script sample - create a logic app
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 This script creates a sample logic app through the [Azure CLI Logic Apps extension](/cli/azure/logic), (`az logic`). For a detailed guide to creating and managing logic apps through the Azure CLI, see the [Logic Apps quickstart for the Azure CLI](quickstart-logic-apps-azure-cli.md).
 
