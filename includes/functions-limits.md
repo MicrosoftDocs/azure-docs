@@ -21,7 +21,7 @@ ms.author: glenga
 | Function apps per plan<sup>12</sup> | 100 | 100 | 100 | unbounded<sup>4</sup> | unbounded<sup>4</sup> |
 | [App Service plans](/azure/app-service/overview-hosting-plans) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) | n/a | 100 per resource group |100 per resource group | n/a |
 | [Deployment slots](/azure/azure-functions/functions-deployment-slots) per app<sup>11</sup> | 2 | n/a | 3 | 1-20<sup>10</sup> | not supported |
-| Storage (temporary)<sup>5</sup> | 0.5 GB | 1 GB | 21-140 GB |11-140 GB | n/a |
+| Storage (temporary)<sup>5</sup> | 0.5 GB | 0.8 GB | 21-140 GB |11-140 GB | n/a |
 | Storage (persisted) | 1 GB<sup>6</sup> | 0 GB | 250 GB |10-1000 GB<sup>10</sup> | n/a |
 | Custom domains per app</a> |500<sup>7</sup> | 500 | 500 | 500 | not supported |
 | Custom domain [SSL support](/azure/app-service/configure-ssl-bindings) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | not supported |
@@ -32,8 +32,8 @@ Notes on service limits:
 2. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/).  
 3. These limits are [set in the host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
 4. The actual number of function apps that you can host depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
-5. The storage limit is the total content size in temporary storage across all apps in the same App Service plan. For Consumption plans on Linux, the storage is guaranteed to be at least 500MB.
-6. Consumption plan uses an Azure Files share for persisted storage. When you provide your own Azure Files share, the specific share size limits depend on the storage account you set for [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](/azure/azure-functions/functions-app-settings#website_contentazurefileconnectionstring). On Linux Consumption, you must provide your own Azure Files share.
+5. The storage limit is the total content size in temporary storage across all apps in the same App Service plan. For Consumption plans on Linux, the storage is currently 1.5 GB.
+6. Consumption plan uses an Azure Files share for persisted storage. When you provide your own Azure Files share, the specific share size limits depend on the storage account you set for [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](/azure/azure-functions/functions-app-settings#website_contentazurefileconnectionstring). On Linux, you must [explicitly mount your own Azure Files share](/azure/azure-functions/storage-considerations#mount-file-shares) for both Flex Consumption and Consumption plans.
 7. When your function app is hosted in a [Consumption plan](/azure/azure-functions/consumption-plan), only the CNAME option is supported. For function apps in a [Premium plan](/azure/azure-functions/functions-premium-plan) or an [App Service plan](/azure/azure-functions/dedicated-plan), you can map a custom domain using either a CNAME or an A record.  
 8. Guaranteed for up to 60 minutes.  
 9. Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.   
