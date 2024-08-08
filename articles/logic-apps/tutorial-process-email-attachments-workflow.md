@@ -18,7 +18,7 @@ This tutorial shows how to build an example workflow that integrates Azure Funct
 
 When you finish, your workflow looks like the following high level example:
 
-:::image type="content" source="media/tutorial-process-email-attachments-workflow/overview.png" alt-text="Screenshot shows example Consumption workflow that runs using the Office 365 Outlook trigger" lightbox="media/tutorial-process-email-attachments-workflow/overview.png":::
+:::image type="content" source="media/tutorial-process-email-attachments-workflow/overview.png" alt-text="Screenshot shows example Consumption workflow that runs using the Office 365 Outlook trigger." lightbox="media/tutorial-process-email-attachments-workflow/overview.png":::
 
 > [!TIP]
 >
@@ -54,7 +54,7 @@ You can create a similar workflow with a Standard logic app resource where some 
 
 ## Set up storage to save attachments
 
-The following steps set up [Azure storage](../storage/common/storage-introduction.md) so that you can incoming emails and attachments as blobs.
+The following steps set up [Azure storage](../storage/common/storage-introduction.md) so that you can store incoming emails and attachments as blobs.
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
@@ -293,7 +293,7 @@ The following steps add a trigger that monitors for incoming emails that have at
 
 1. Sign in to your email account, which creates a connection between your workflow and your email account.
 
-1. In the trigger information box, from the **Advanced parameters** list, add the following parameters, if they don't apear, and provide the following information:
+1. In the trigger information box, from the **Advanced parameters** list, add the following parameters, if they don't appear, and provide the following information:
 
    | Parameter | Value | Description |
    |-----------|-------|-------------|
@@ -387,7 +387,7 @@ Next, define the actions to take for the **True** branch. To save the email alon
 
 ## Call the RemoveHTMLFunction
 
-The following steps add your previously created Azure function and passes the email body content from email trigger to your function.
+The following steps add your previously created Azure function, which accepts the email body content from the email trigger as input.
 
 1. On the logic app menu, under **Development Tools**, select **Logic app designer**. In the **True** branch, select **Add an action**.
 

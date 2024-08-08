@@ -287,15 +287,15 @@ Now, add an action that sends email when the travel time exceeds your limit. Thi
 
    1. Enter the text **Add extra travel time (minutes):** with a trailing space. Keep your cursor in the **Body** box, and select the option for the expression editor (formula icon).
 
-   1. In the expression editor, enter **sub(,15)** so that you can calculate the number of minutes that exceed your limit: 
+   1. In the expression editor, enter **sub(,15)** so that you can calculate the number of minutes that exceed your limit:
 
       :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-expression-editor.png" alt-text="Screenshot shows expression editor with the sub(,15) entered." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-expression-editor.png":::
 
-   1. Within the expression, put your cursor between the left parenthesis (**(**) and the comma (**,**), and select **Dynamic content**. 
+   1. Within the expression, put your cursor between the left parenthesis (**(**) and the comma (**,**), and select **Dynamic content**.
 
       :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-select-dynamic-content.png" alt-text="Screenshot shows where to put cursor in the sub(,15) expression, and select Dynamic content." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-select-dynamic-content.png":::
 
-1. Under **Variables**, select **travelTime**.
+   1. Under **Variables**, select **travelTime**.
 
       :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-select-travel-time.png" alt-text="Screenshot shows dynamic content list with travelTime variable selected." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-select-travel-time.png":::
 
