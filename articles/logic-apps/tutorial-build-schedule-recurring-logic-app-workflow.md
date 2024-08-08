@@ -114,7 +114,7 @@ Next, add the **Schedule** trigger named **Recurrence**, which runs the workflow
    | **At these hours** | 7, 8, 9 | This setting is available only when you set the **Frequency** to **Week** or **Day**. For this recurrence, select the hours of the day. This example runs at the **7**, **8**, and **9**-hour marks. |
    | **At these minutes** | 0, 15, 30, 45 | This setting is available only when you set the **Frequency** to **Week** or **Day**. For this recurrence, select the minutes of the day. This example starts at the zero-hour mark and runs every 15 minutes. |
 
-   When you're done, the trigger information box appears similar to the following example:
+   When you finish, the trigger information box appears similar to the following example:
 
    :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/recurrence-trigger-property-values.png" alt-text="Screenshot shows week-related properties set to values described in the preceding table." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/recurrence-trigger-property-values.png":::
 
@@ -239,7 +239,7 @@ Next, add a condition that checks whether the current travel time is greater tha
 
    1. On the condition's right side, in the **Choose a value** box, enter the following value: **15**
 
-      When you're done, the condition looks like the following example:
+      When you finish, the condition looks like the following example:
 
       :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png" alt-text="Screenshot shows finished condition for comparing the travel time to the specified limit." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png":::
 
