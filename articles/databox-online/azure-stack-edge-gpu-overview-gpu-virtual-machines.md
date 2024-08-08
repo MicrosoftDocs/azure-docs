@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/07/2024
+ms.date: 08/08/2024
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.
 ---
@@ -50,7 +50,7 @@ This extension supports the following OS distro, depending on the driver support
 | Red Hat Enterprise Linux | 7.4 |
 
 > [!NOTE]
-> Ubuntu version 18.04 LTS has been deprecated. It is no longer supported on GPU VMs running on Azure Stack Edge devices. If you plan to utilize the Ubuntu version 18.04 LTS distro, see [CUDA Toolkit 12.1 Update 1 Downloads](https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local).
+> Ubuntu version 18.04 LTS GPU extension has been deprecated. The GPU extension is no longer supported on GPU VMs running on Azure Stack Edge devices. If you plan to utilize the Ubuntu version 18.04 LTS distro, see steps for manual GPU driver installation at [CUDA Toolkit 12.1 Update 1 Downloads](https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local).
 
 ## GPU VM deployment
 
