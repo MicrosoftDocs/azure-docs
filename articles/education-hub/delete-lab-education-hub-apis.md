@@ -1,5 +1,5 @@
 ---
-title: Delete a lab in the Azure Education Hub
+title: Delete a lab in the Azure Education Hub with REST APIs
 description: Learn how to delete a lab in the Azure Education Hub by using REST APIs.
 author: vinnieangel
 ms.author: vangellotti

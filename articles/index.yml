@@ -1218,7 +1218,7 @@ productDirectory:
       imageSrc: ./media/index/defender.svg
       azureCategories:
         - security
-      url: defender-for-cloud/index.yml
+      url: /azure/defender-for-cloud/
     # Card
     - title: Microsoft Defender for IoT
       summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
@@ -1345,7 +1345,7 @@ productDirectory:
       imageSrc: ./media/index/dedicated-hsm.svg
       azureCategories:
         - security
-      url: dedicated-hsm/index.yml
+      url: /azure/dedicated-hsm/
     # Card
     - title: Microsoft Defender for External Attack Surface Management
       summary: Safeguard the digital experience by discovering all internet-exposed resources
@@ -1360,7 +1360,7 @@ productDirectory:
       imageSrc: ./media/index/key-vault.svg
       azureCategories:
         - security
-      url: key-vault/index.yml
+      url: /azure/key-vault/
     # Card
     - title: Archive Storage
       summary: Industry leading price point for storing rarely accessed data

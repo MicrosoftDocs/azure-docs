@@ -14,6 +14,12 @@ services: azure-maps
 
 This document contains information about new features and other changes to the Azure Maps Drawing Tools Module.
 
+## [1.0.4] (Aug 8, 2024)
+
+### Bug fixes (1.0.4)
+
+- Fix source not synced in DrawingManager after a style change.
+
 ## [1.0.3]
 
 ### Other changes (1.0.3)
@@ -41,6 +47,7 @@ Stay up to date on Azure Maps:
 > [Azure Maps Blog]
 
 
+[1.0.4]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.4
 [1.0.3]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.3
 [1.0.2]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.2
 [Azure Maps Drawing Tools Samples]: https://samples.azuremaps.com/?search=Drawing

@@ -3,7 +3,7 @@ title: Name resolution for resources in Azure virtual networks
 titlesuffix: Azure Virtual Network
 description: Name resolution scenarios for Azure IaaS, hybrid solutions, between different cloud services, Active Directory, and using your own DNS server.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 08/02/2024
 ms.author: allensu
