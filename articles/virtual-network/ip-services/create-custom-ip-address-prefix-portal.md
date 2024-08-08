@@ -1,20 +1,22 @@
 ---
-title: Create a custom IPv4 address prefix - Azure portal
+title: Create a custom IPv4 address prefix in Azure
 titleSuffix: Azure Virtual Network
-description: Learn how to onboard a custom IP address prefix using the Azure portal
+description: Learn how to onboard and create a custom IP address prefix using the Azure portal, Azure CLI, or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-maims.date: 08/06/2024
+maims.date: 08/08/2024
 ---
 
-# Create a custom IPv4 address prefix using the Azure portal
+# Create a custom IPv4 address prefix in Azure
 
 In this article, you learn how to create a custom IPv4 address prefix using the Azure portal. You prepare a range to provision, provision the range for IP allocation, and enable the range advertisement by Microsoft.
 
 A custom IPv4 address prefix enables you to bring your own IPv4 ranges to Microsoft and associate it to your Azure subscription. You maintain ownership of the range while Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
+
+For this article, choose between the Azure portal, Azure CLI, or PowerShell to create a custom IPv4 address prefix.
 
 [!INCLUDE [ip-services-custom-ip-global-regional-unified-model](../../../includes/ip-services-custom-ip-global-regional-unified-model.md)]
 
