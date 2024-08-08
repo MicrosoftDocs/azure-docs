@@ -1,6 +1,6 @@
 ---
-title: Ingest custom-format syslog messages to Microsoft Sentinel - AMA
-description: Ingest syslog messages in custom formats from linux machines and from network and security devices and appliances to Microsoft Sentinel, using the data connector based on the Azure Monitor Agent (AMA).
+title: Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel - AMA
+description: Collect text file-based logs from network or security solutions installed on Windows- or Linux-based machines, using the Custom Logs via AMA data connector based on the Azure Monitor Agent (AMA).
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
@@ -10,14 +10,21 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As a security operator, I want to ingest and filter custom-format syslog messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
+#Customer intent: As a security operator, I want to ingest and filter text file-based logs from network or security solutions installed on Windows- or Linux-based machines to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
 
-# Ingest custom-format syslog messages to Microsoft Sentinel with the Azure Monitor Agent
+# Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel
 
-This article describes how to use the **Custom Logs via AMA** connector to quickly filter and ingest custom-format syslog messages from Linux machines and from network and security devices and appliances. To learn more about this and other similar data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md).
+This article describes how to use the **Custom Logs via AMA** connector to quickly filter and ingest logs from text files on Windows or Linux machines with network or security solutions installed. 
 
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+Many applications log data to text files instead of standard logging services like Windows Event log or Syslog. You can use the Azure Monitor Agent (AMA) to collect data in text files of nonstandard formats from both Windows and Linux computers. The AMA can also effect transformations on the data at the time of collection, to parse it into different fields.
+
+For more information about existing solutions for Microsoft Sentinel that support this type of log collection, see [Custom Logs via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-custom-device.md).
+
+> [!IMPORTANT]
+> - The **Custom Logs via AMA** data connector is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> - [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 ## Prerequisites
 
