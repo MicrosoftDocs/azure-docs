@@ -83,4 +83,4 @@ This section explains how to use Virtual Endpoints in Azure Database for Postgre
 - [Promote read replicas](concepts-read-replicas-promote.md)
 - [Create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
 - [Cross-region replication with virtual network](concepts-networking.md#replication-across-azure-regions-and-virtual-networks-with-private-networking)
-- [Create Virtual Endpoints for Read Replicas with Terraform](how-to-read-replicas-virtual-endpoints-terraform.md)
+- [Create virtual endpoints for read replicas with Terraform](how-to-read-replicas-virtual-endpoints-terraform.md)
