@@ -59,7 +59,6 @@ By relying on token usage metrics returned from the LLM endpoint, the policy can
 
 ### Usage notes
 
-* 
 * This policy can be used multiple times per policy definition.
 * Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the LLM API are used to determine token usage.
 * Certain LLM endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute.
