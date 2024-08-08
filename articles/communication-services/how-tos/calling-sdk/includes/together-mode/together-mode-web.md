@@ -94,7 +94,7 @@ console.log(`Current scene has the following size: ${JSON.stringify(togetherMode
 > [!NOTE]
 > Only Microsoft 365 users with role organizer, co-organizer and presenter can change scene or assignment of participants in the together mode. These changes can only be done from Teams Client. 
 
-In the event of a scene change or seat reassignment, the `togetherModeSceneUpdated` or `togetherModeSeatingUpdated` events are raised respectively, providing an updated calculation of the participants’ seating positions.
+If there is a scene change or seat reassignment, the `togetherModeSceneUpdated` or `togetherModeSeatingUpdated` events are raised respectively, providing an updated calculation of the participants’ seating positions.
 
 ```js
 const seatUpdate = (participantSeatingMap) => {
@@ -110,6 +110,6 @@ togetherModeFeature.on('togetherModeSeatingUpdated', seatUpdate);
 ## Troubleshooting
 |code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
-|403		| 46303	| ExpectedError  | Participant's role isn't eligible to call the together mode start API | Ensure the participant calling the together mode start API has organizer, coorganizer, or presenter role |
+|403		| 46303	| ExpectedError  | The participant’s role does not have the necessary permissions to invoke the `togetherMode` start API. | Make sure the participant initiating the `togetherMode` start API has the role of organizer, co-organizer, or presenter |
 |403	| 46304 | ExpectedError  | Together mode was started in an unsupported calling scenario  | Ensure together mode is started only in group call or meeting scenarios |
 |403 | 46306	| ExpectedError | Together mode start API was called by a nonmicrosft M365 user  | Ensure a Microsoft M365 User starts together mode.|
