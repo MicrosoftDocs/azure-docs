@@ -95,7 +95,7 @@ Points to consider when you're using Azure-provided name resolution:
 
 ### Reverse DNS Considerations
 
-Reverse DNS for VMs is supported in all Azure Resource Manager based virtual networks. Azure-managed reverse DNS (PTR) records of form **\[vmname\].internal.cloudapp.net** are automatically added to when you start a VM, and removed when the VM is stopped (deallocated). See the following example:
+Reverse DNS for VMs is supported in all Azure Resource Manager based virtual networks. Azure-managed reverse DNS (PTR) records of form **\[vmname\].internal.cloudapp.net** are automatically added to DNS when you start a VM, and removed when the VM is stopped (deallocated). See the following example:
 
 ```cmd
 C:\>nslookup -type=ptr 10.11.0.4
