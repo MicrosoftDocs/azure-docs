@@ -269,7 +269,7 @@ If the error message mentions `"failed to communicate with the workspace's conta
 Image build timeouts are often due to an image becoming too large to be able to complete building within the timeframe of deployment creation.
 To verify if this is your issue, check your image build logs at the location that the error may specify. The logs are cut off at the point that the image build timed out.
 
-To resolve this, please [build your image separately](/azure/devops/pipelines/ecosystems/containers/publish-to-acr?view=azure-devops&tabs=javascript%2Cportal%2Cmsi) so that the image only needs to be pulled during deployment creation.
+To resolve this, please [build your image separately](/azure/devops/pipelines/ecosystems/containers/publish-to-acr?view=azure-devops&tabs=javascript%2Cportal%2Cmsi&preserve-view=true) so that the image only needs to be pulled during deployment creation.
 
 #### Generic image build failure
 

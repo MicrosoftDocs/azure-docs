@@ -23,7 +23,7 @@ The server can also be used to create validation gates in a continuous integrati
 
 This article supports developers who want to use the inference server to debug locally and describes how to use the inference server with online endpoints on Windows.
 
-## Explore local debug options for online endpoints
+## Explore local debugging options for online endpoints
 
 By debugging endpoints locally before you deploy to the cloud, you can catch errors in your code and configuration earlier. To debug endpoints locally, you have several options, including:
 
@@ -68,9 +68,9 @@ python -m pip install azureml-inference-server-http
 
 To debug your scoring script locally, you have several options for testing the server behavior:
 
-- Try a dummy scoring script
-- Use Visual Studio Code to debug with the [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package
-- Run an actual scoring script, model file, and environment file from our [examples repo](https://github.com/Azure/azureml-examples)
+- Try a dummy scoring script.
+- Use Visual Studio Code to debug with the [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package.
+- Run an actual scoring script, model file, and environment file from our [examples repo](https://github.com/Azure/azureml-examples).
 
 ### Test server behavior with dummy scoring script
 
@@ -93,7 +93,7 @@ To debug your scoring script locally, you have several options for testing the s
    <!-- Reviewer: The 'source' command appears to apply to Linux only. 
         I found that the 'python -m virtualenv...' command (as opposed to 'python -m venv ...') both creates and activates the env. -->
 
-   After you test the server, you can run `deactivate` to deactivate the Python virtual environment.
+   After you test the server, you can run the `deactivate` command to deactivate the Python virtual environment.
 
 1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/project/azureml-inference-server-http/) feed:
 
@@ -199,7 +199,7 @@ To use VS Code and the [Python Extension](https://marketplace.visualstudio.com/i
 
       1. Select **Run** > **Start Debugging** or use the keyboard shortcut F5.
 
-      1. In the command window, view the logs from the inference server, and locate the process ID of the `azmlinfsrv` command (not the `gunicorn`).
+      1. In the command window, view the logs from the inference server and locate the process ID of the `azmlinfsrv` command (not the `gunicorn`):
 
          :::image type="content" source="./media/how-to-inference-server-http/debug-attach-pid.png" border="false" alt-text="Screenshot that shows a command window displaying logs from the inference HTTP server and the process ID of the azmlinfsrv command highlighted.":::
 
@@ -247,7 +247,7 @@ The following procedure runs the server locally with [sample files](https://gith
    azmlinfsrv --entry_script ./onlinescoring/score.py --model_dir ./
    ```
 
-   When the server launches and successfully invokes the scoring script, the example [startup log](#startup-logs) opens. Otherwise, the log shows error messages.
+   When the server launches and successfully invokes the scoring script, the example [startup log](#view-startup-logs) opens. Otherwise, the log shows error messages.
 
 1. Test the scoring script with sample data:
 
@@ -273,7 +273,7 @@ The inference HTTP server listens on port 5001 by default at the following route
 
 ## Review server parameters
 
-The following table summarizes the parameters accepted by the inference HTTP server:
+The inference HTTP server accepts the following parameters:
 
 | Parameter | Required | Default | Description |
 | --- | --- | :---: | --- |
@@ -286,7 +286,7 @@ The following table summarizes the parameters accepted by the inference HTTP ser
 
 ## Explore server request processing
 
-The following steps demonstrate how the Azure Machine Learning inference HTTP server (azmlinfsrv) handles incoming requests:
+The following steps demonstrate how the Azure Machine Learning inference HTTP server (`azmlinfsrv`) handles incoming requests:
 
 1. A Python CLI wrapper sits around the server's network stack and is used to start the server.
 
@@ -308,7 +308,7 @@ The following steps demonstrate how the Azure Machine Learning inference HTTP se
 There are two ways to obtain log data for the inference HTTP server test:
 
 - Run the `azureml-inference-server-http` package locally and view the logs output.
-- Use online endpoints and view the [container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs). The log for the inference server is named **Azure Machine Learning Inferencing HTTP server <version>**.
+- Use online endpoints and view the [container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs). The log for the inference server is named **Azure Machine Learning Inferencing HTTP server \<version>**.
 
 > [!NOTE]
 > The logging format has changed since version 0.8.0. If your log uses a different style than expected, update the `azureml-inference-server-http` package to the latest version.
@@ -342,7 +342,7 @@ Score:          POST  127.0.0.1:<port>/score
 
 For example, when you launch the server by following the [end-to-end example](#use-an-end-to-end-example), the log displays as follows:
 
-```
+```console
 Azure Machine Learning Inferencing HTTP server v0.8.0
 
 Server Settings
@@ -382,13 +382,13 @@ All logs from the inference HTTP server, except for the launcher script, present
 
 `<UTC Time> | <level> [<pid>] <logger name> - <message>`
 
-The format consists of the following values:
+The entry consists of the following components:
 
 - `<UTC Time>`: Time when the entry was entered into the log.
-- `<pid>`: The ID of the process associated with the entry.
-- `<level>`: The first character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) for the entry, such as `E` for ERROR, `I` for INFO, and so on.  
-- `<logger name>`: The name of the resource associated with the log entry.
-- `<message>`: The contents of the log message.
+- `<pid>`: ID of the process associated with the entry.
+- `<level>`: First character of the [logging level](https://docs.python.org/3/library/logging.html#logging-levels) for the entry, such as `E` for ERROR, `I` for INFO, and so on.  
+- `<logger name>`: Name of the resource associated with the log entry.
+- `<message>`: Contents of the log message.
 
 There are six levels of logging in Python with assigned numeric values according to severity:
 

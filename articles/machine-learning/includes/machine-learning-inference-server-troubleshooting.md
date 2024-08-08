@@ -8,11 +8,11 @@ ms.author: shnagata
 
 ### Check installed packages
 
-Follow these steps to determine issues with installed packages:
+Follow these steps to address issues with installed packages:
 
 1. Gather information about installed packages and versions for your Python environment.
 
-1. Confirm the `azureml-inference-server-http` Python package version specified in the environment file matches the Azure Machine Learning inference HTTP server version displayed in the [startup log](../how-to-inference-server-http.md#startup-logs).
+1. Confirm the `azureml-inference-server-http` Python package version specified in the environment file matches the Azure Machine Learning inference HTTP server version displayed in the [startup log](../how-to-inference-server-http.md#view-startup-logs).
 
    - In some cases, the pip dependency resolver installs unexpected package versions.
 
@@ -110,6 +110,6 @@ You might encounter an `ImportError` or `ModuleNotFoundError` on specific module
 ImportError: cannot import name 'Markup' from 'jinja2'
 ```
 
-The import and module errors result in older versions of the server (version **0.4.10** and earlier) that don't pin the Flask dependency to a compatible version. 
+The import and module errors occur when you use older versions of the server (version **0.4.10** and earlier) that don't pin the Flask dependency to a compatible version. 
 
-This problem is fixed in the latest version of the server.
+To prevent the issue, install a later version of the server.
