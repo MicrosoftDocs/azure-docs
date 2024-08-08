@@ -306,7 +306,7 @@ Now add a condition that selects only emails that have attachments.
 
 1. On the workflow designer, [follow these general steps to add the **Control** action named **Condition**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. Open the **Condition** action's information pane, and replace the default name with the following version: **If email has attachments and key subject phrase**
+1. In the **Condition** action information pane, rename the action with **If email has attachments and key subject phrase**.
 
 1. Build the condition that checks for emails that have attachments.
 
@@ -386,7 +386,7 @@ The following steps add your previously created Azure function to your workflow 
 
 1. Select your function, which is named **RemoveHTMLFunction** in this example, and then select **Add Action**.
 
-1. On the action information pane, replace the name for your Azure Functions action with the following version: **Call RemoveHTMLFunction**
+1. In the **Azure Functions** action information pane, rename the action with **Call RemoveHTMLFunction**.
 
 1. Now specify the input for your function to process.
 
@@ -404,55 +404,55 @@ The following steps add your previously created Azure function to your workflow 
 
    When you're done, the Azure function looks like the following example:
 
-   :::image type="content" source="media/tutorial-process-email-attachments-workflow/add-email-body-finished.png" alt-text="Screenshot shows finished Azure function with request body content to pass to your function." lightbox="media/tutorial-process-email-attachments-workflow/add-email-body-finished.png":::
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/add-email-body-done.png" alt-text="Screenshot shows finished Azure function with request body content to pass to your function." lightbox="media/tutorial-process-email-attachments-workflow/add-email-body-done.png":::
 
 1. Save your workflow.
 
 Next, add an action that creates a blob in your storage container so you can save the email body.
 
-## Add an action to create a blob
+## Add an action to create blob for email body
 
 The following steps create a blob to store the email body:
 
-1. On the designer, in the **True** block, under your Azure function, select **Add an action**.
+1. On the designer, in the condition's **True** block, under your Azure function, select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **All**. In the search box, enter **create blob**, and select the action named **Create blob**.
+1. [Follow these general steps to add the **Azure Blob Storage** action named **Create blob**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   ![Screenshot showing the Azure Blob Storage action named Create blob selected.](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
+1. Provide the connection information for your storage account, for example:
 
-1. Provide the connection information for your storage account, and select **Create**, for example:
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Connection Name** | Yes | <*connection-name*> | A descriptive name for the connection. <br><br>This example uses **AttachmentStorageConnection**. |
+   | **Authentication Type** | Yes | <*authentication-type*> | The authentication type to use for the connection. <br><br>This example uses **Access Key**. |
+   | **Azure Storage Account Name Or Blob Endpoint** | Yes | <*storage-account-name*> | The name for your previously created storage account. <br><br>This example uses **attachmentstorageacct**. |
+   | **Azure Storage Account Access Key** | Yes | <*storage-account-access-key*> | The access key for your previously created storage account. |
 
-   | Property | Value | Description |
-   |----------|-------|-------------|
-   | **Connection name** | **AttachmentStorageConnection** | A descriptive name for the connection |
-   | **Authentication type** | **Access Key** | The authentication type to use for the connection |
-   | **Azure Storage account name or endpoint** | <*storage-account-name*> | The name for your previously created storage account, which is **attachmentstorageacct** for this example |
-   | **Azure Storage Account Access Key** | <*storage-account-access-key*> | The access key for your previously created storage account |
+1. When you're done, select **Create New**.
 
-1. Rename the **Create blob** action with the following description: **Create blob for email body**
+1. In the **Create blob** action information pane, rename the action with **Create blob for email body**.
 
-1. In the **Create blob** action, provide the following information:
+1. Provide the following action information:
 
-   | Property | Value | Description |
-   |----------|-------|-------------|
-   | **Storage account name or blob endpoint** | **Use connection settings(<*storage-account-name*>)** | Select your storage account, which is **attachmentstorageacct** for this example. |
-   | **Folder path** | <*path-and-container-name*> | The path and name for the container that you previously created. For this example, select the folder icon, and then select the **attachments** container. |
-   | **Blob name** | <*sender-name*> | For this example, use the sender's name as the blob's name. Select inside this box so that the dynamic content list appears. From the **When a new email arrives** section, select the **From** field. |
-   | **Blob content** | <*content-for-blob*> | For this example, use the HTML-free email body as the blob content. Select inside this box so that the dynamic content list appears. From the **Call RemoveHTMLFunction to clean email body** section, select **Body**. |
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Storage Account Name Or Blob Endpoint** | Yes | **Use connection settings(<*storage-account-name-or-blob-endpoint*>)** | Select the option that includes your storage account name. <br><br>This example uses **https://attachmentstorageacct.blob.core.windows.net**. |
+   | **Folder Path** | Yes | <*path-and-container-name*> | The path and name for the container that you previously created. <br><br>For this example, select the folder icon, and then select the **attachments** container. |
+   | **Blob Name** | Yes | <*sender-name*> | For this example, use the sender's name as the blob's name. <br><br>1. Select inside the **Blob Name** box, and then select the dynamic content list option (lightning icon). <br><br>2. From the **When a new email arrives** section, select the **From** field. |
+   | **Blob Content** | Yes | <*content-for-blob*> | For this example, use the HTML-free email body as the blob content. <br><br>1. Select inside the **Blob Content** box, and then select the dynamic content list option (lightning icon). <br><br>2. From the **Call RemoveHTMLFunction to clean email body** section, select **Body**. |
 
-   The following image shows the fields to select for the **Create blob** action:
+   When you're done, the The following image shows the fields to select for the **Create blob** action:
 
-   ![Screenshot showing information about the HTML-free email body in the Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/create-blob-email-body.png" alt-text="Screenshot shows parameter values and selected outputs for the Create blob action." lightbox="media/tutorial-process-email-attachments-workflow/create-blob-email-body.png":::
 
-   When you're done, the action looks like the following example:
+   When you're done, the **Create blob** action looks like the following example:
 
-   ![Screenshot showing example HTML-free email inputs for the finished Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/create-blob-email-body-done.png" alt-text="Screenshot shows finished Create blob action." lightbox="media/tutorial-process-email-attachments-workflow/create-blob-email-body-done.png":::
 
 1. Save your workflow.
 
 ### Test attachment handling 
 
-1. On the designer toolbar, select **Run Trigger** > **Run**.
+1. On the designer toolbar, select **Run** > **Run**.
 
    This step manually starts and runs your workflow, but nothing will happen until the test email arrives in your inbox.
 
@@ -516,12 +516,12 @@ The following steps add an action to create a blog for each attachment:
 
    ![Screenshot showing the selected action named Create blob.](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-1. Rename the **Create blob 2** action with the following description: **Create blob for each email attachment**
+1. In the **Create blob 2** action information pane, rename the action with **Create blob for each email attachment**.
 
-1. In the **Create blob for each email attachment** action, provide the following information:
+1. Provide the following information for the action:
 
-   | Property | Value | Description |
-   |----------|-------|-------------|
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
    | **Storage account name or blob endpoint** | **Use connection settings(<*storage-account-name*>)** | Select your storage account, which is **attachmentstorageacct** for this example. |
    | **Folder path** | <*path-and-container-name*> | The path and name for the container that you previously created. For this example, select the folder icon, and then select the **attachments** container. |
    | **Blob name** | <*attachment-name*> | For this example, use the attachment's name as the blob's name. Select inside this box so that the dynamic content list appears. From the **When a new email arrives** section, select the **Name** field. |
