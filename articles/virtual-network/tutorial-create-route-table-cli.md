@@ -76,7 +76,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Create two additional subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
+Create two more subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 # Create a private subnet.
@@ -106,9 +106,9 @@ az network vnet subnet update \
 
 ## Create an NVA
 
-An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.  We will create a basic NVA from a general purpose Ubuntu VM, for demonstration purposes.
+An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization. We create a basic NVA from a general purpose Ubuntu VM, for demonstration purposes.
 
-Create a VM to be used as the NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *nic-nva* and a subnet-public IP address to the VM, by default. The `--subnet-public-ip-address ""` parameter instructs Azure not to create and assign a subnet-public IP address to the VM, since the VM doesn't need to be connected to from the internet. 
+Create a VM to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *nic-nva* and a subnet-public IP address to the VM, by default. The `--subnet-public-ip-address ""` parameter instructs Azure not to create and assign a subnet-public IP address to the VM, since the VM doesn't need to be connected to from the internet. 
 
 The following example creates a VM and adds a user account. The `--generate-ssh-keys` parameter causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, that key is used. If not, one is generated and stored in `~/.ssh`. Finally, we deploy the latest `Ubuntu 22.04` image.
 
@@ -123,9 +123,9 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM and returns output about the VM.
+The VM takes a few minutes to create. Don't continue to the next step until Azure finishes creating the VM and returns output about the VM.
 
-For a network interface nic-nva to be able to forward network traffic sent to it, that is not destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
+For a network interface nic-nva to be able to forward network traffic sent to it, that isn't destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
@@ -134,7 +134,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic.  We will use the `sysctl` command to enable the Linux kernel to forward packets.  To run this command without logging onto the VM, we will use the [Custom Script extension](/azure/virtual-machines/extensions/custom-script-linux) [az vm extension set](/cli/azure/vm/extension):
+Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. We use the `sysctl` command to enable the Linux kernel to forward packets. To run this command without logging onto the VM, we use the [Custom Script extension](/azure/virtual-machines/extensions/custom-script-linux) [az vm extension set](/cli/azure/vm/extension):
 
 ```azurecli-interactive
 az vm extension set \
@@ -145,7 +145,7 @@ az vm extension set \
   --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
 ```
 
-The command may take up to a minute to execute. This change will not persist after a VM reboot, so if the NVA VM is rebooted for any reason, the script will need to be repeated.
+The command might take up to a minute to execute. This change won't persist after a VM reboot, so if the NVA VM is rebooted for any reason, the script will need to be repeated.
 
 ## Create virtual machines
 
@@ -195,9 +195,9 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
 }
 ```
 
-## Enable Azure AD Login for the virtual machines
+## Enable Microsoft Entra ID sign in for the virtual machines
 
-The following code example deploys a Linux VM and then installs the extension to enable an Azure AD Login for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
+The following code example deploys a Linux VM and then installs the extension to enable a Microsoft Entra ID sign-in for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
 
 ```bash
 az vm extension set \
@@ -217,7 +217,7 @@ az vm extension set \
 
 ## Route traffic through an NVA
 
-Using an SSH client of your choice, connect to the VMs created above. For example, the following command can be used from a command line interface such as [WSL](/windows/wsl/install) to create an SSH session with the *vm-private* VM.
+Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-private* VM.
 
 ### Store IP address of VM in order to SSH
 
@@ -299,6 +299,6 @@ az group delete --name test-rg --yes
 
 ## Next steps
 
-In this article, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a subnet-public subnet to a private subnet. Deploy a variety of pre-configured NVAs that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.yml).
+In this article, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a subnet-public subnet to a private subnet. Deploy various preconfigured NVAs that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.yml).
 
-While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. To learn how, see [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-cli.md).
+While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services can't be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. To learn how, see [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-cli.md).
