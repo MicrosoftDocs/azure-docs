@@ -11,11 +11,11 @@ ms.custom:
 ---
 # MMA/OMS Discovery and Removal Utility
 
-After you migrate your machines to the Azure Monitor Agent (AMA), remove the legacy Log Analytics Agent, MMA or OMS depending on your operating systems, to avoid duplication of logs. The legacy Discovery and Removal Utility can remove the extensions from Azure Virtual Machines (VMs), Azure Virtual Machine Scale Sets, and Azure Arc servers from a single subscription.  
+After you migrate your machines to the Azure Monitor Agent (AMA), remove the legacy Log Analytics Agent, MMA, or OMS depending on your operating systems, to avoid duplication of logs. The legacy Discovery and Removal Utility can remove the extensions from Azure Virtual Machines (VMs), Azure Virtual Machine Scale Sets (VMSSs), and Azure Arc servers from a single subscription.
 
 The utility works in two steps:
 
-1. *Discovery*: The utility creates an inventory of all machines that have a legacy agent installed in a simple CSV file. We recommend that you don't create any new VMs, virtual machine scale sets, or Azure Arc servers with the legacy agent extension while the utility is running.
+1. *Discovery*: The utility creates an inventory of all machines that have a legacy agent installed in a simple CSV file. We recommend that you don't create any new VMs while the utility is running.
 
 2. *Removal*: The utility removes the legacy agent from machines listed in the CSV file. You should edit the list of machine in the CSV file to ensure that only machines you want the agent removed from are present.
 
@@ -23,13 +23,12 @@ The utility works in two steps:
 Do all the setup steps on an Internet connected machine. You need:
 
 - Windows 10 or later, or Windows Server 2019 or later.
-- [PowerShell 7.0 or later.](/powershell/scripting/install/installing-powershell?view=powershell-7.4&preserve-view=true) This allows for parallel execution that speeds the process up.
+- [PowerShell 7.0 or later.](/powershell/scripting/install/installing-powershell?view=powershell-7.4&preserve-view=true), which enables parallel execution that speeds the process up.
 - Azcli must be installed to communicate with the [Azure Graph API.](/cli/azure/install-azure-cli-windows?tabs=azure-cli). 
 1. Open PowerShell as administrator:
 2. Run the command: `Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile AzureCLI.msi`.
 3. Run the command: `Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'`.
-4. The latest version of Azure CLI will be downloaded and installed.
-- A [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview) that has**User Access Administrator**, **Reader**, **Virtual Machine Contributor**, and **Azure Arc ScVmm VM Contributor** access on the target scopes.
+4. The latest version of Azure CLI will download and install.
 
 
 ## Step 1 Login and set subscription
@@ -44,9 +43,10 @@ Next you must set your subscription.
 Az account set --subscription {subscription_id or “subscription_name”}
    ```
 ## Step 2 Copy the script
+
 You'll use the following script for agent removal. Open a file in your local directory named MMAUnistallUtilityScript.ps1 and copy the script into the file.
    ``` PowerShell
-   # This is per subscription, the customer has to set the az subscription before running this.
+# This is per subscription, the customer has to set the az subscription before running this.
 # az login
 # az account set --subscription <subscription_id/subscription_name>
 # This script uses parallel processing, modify the $parallelThrottleLimit parameter to either increase or decrease the number of parallel processes
@@ -234,11 +234,11 @@ switch ($args.Count)
    ```
 
 ## Step 3 Get inventory
-You must collect a list of all legacy agents, both MMA and OMS, on all VM, Virtual Machine Scale Sets, and Arc enabled server in the subscription. Run the script you downloaded to your file to product and inventory of legacy agents in your subscription.
+You'll  collect a list of all legacy agents, both MMA and OMS, on all VM, VMSSs and Arc enabled server in the subscription. You'll run the script you downloaded an inventory of legacy agents in your subscription.
    ``` PowerShell
    .\MMAUnistallUtilityScript.ps1 GetInventory
    ```
-The script will report the total VM, Virtual Machine Scale Sets, or Arc enables servers seen in the subscription. It will take several minutes to run. You'll see a progress bar in the console window. Once complete there will be a CSV file called MMAInventory.csv in the local directory with the following format.
+The script reports the total VM, VMSSs, or Arc enables servers seen in the subscription. It takes several minutes to run. You see a progress bar in the console window. Once complete, you are able to see a CSV file called MMAInventory.csv in the local directory with the following format.
 
 |Resource_Group | Resource_Type | Name | Install_Type |Extension_Name |
 |---|---|---|---|---|

@@ -424,7 +424,7 @@ For feature variations and limitations, see [Cloud feature availability for US G
 
 Azure Information Protection Premium is part of the [Enterprise Mobility + Security](/enterprise-mobility-security) suite. For details on this service and how to use it, see [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
-### [Microsoft Defender for Cloud](../defender-for-cloud/index.yml)
+### [Microsoft Defender for Cloud](/azure/defender-for-cloud/)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud).
 

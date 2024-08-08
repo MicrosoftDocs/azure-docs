@@ -175,7 +175,7 @@ Clients communicating with the Batch service should be configured to use Transpo
 
 Some of the information specified in Batch APIs, such as account certificates, job and task metadata, and task command lines, is automatically encrypted when stored by the Batch service. By default, this data is encrypted using Azure Batch platform-managed keys unique to each Batch account.
 
-You can also encrypt this data using [customer-managed keys](batch-customer-managed-key.md). [Azure Key Vault](../key-vault/general/overview.md) is used to generate and store the key, with the key identifier registered with your Batch account.
+You can also encrypt this data using [customer-managed keys](batch-customer-managed-key.md). [Azure Key Vault](/azure/key-vault/general/overview) is used to generate and store the key, with the key identifier registered with your Batch account.
 
 ### Encrypt compute node disks
 

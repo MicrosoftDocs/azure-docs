@@ -58,7 +58,7 @@ In addition to storing raw configuration values, Azure App Configuration has its
 
 1. Identify the identity that you used for the App Configuration reference. Access to the vault must be granted to that same identity.
 
-1. Create an [access policy in Key Vault](../key-vault/general/security-features.md#privileged-access) for that identity. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
+1. Create an [access policy in Key Vault](/azure/key-vault/general/security-features#privileged-access) for that identity. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
 ## Reference syntax
 
