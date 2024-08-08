@@ -14,6 +14,9 @@
     - name: MedTech service
       displayName: MedTech service
       href: ./iot/overview.md
+    - name: De-identification service
+      displayName: De-identification service
+      href: ./deidentification/overview.md
     - name: Events
       href: ./events/events-overview.md
     - name: Azure API for FHIR

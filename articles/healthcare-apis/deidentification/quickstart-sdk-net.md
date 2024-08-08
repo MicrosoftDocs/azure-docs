@@ -1,9 +1,10 @@
 ---
 title: "Quickstart: Azure Health De-identification client library for .NET"
-description: A Quickstart guide to de-identify health data with the .NET client library
+description: A quickstart guide to de-identify health data with the .NET client library
 author: GrahamMThomas
 ms.author: gthomas
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
+ms.subservice: deidentification-service
 ms.topic: quickstart-sdk
 ms.date: 08/05/2024
 ---
@@ -18,17 +19,16 @@ Get started with the Azure Health De-identification client library for .NET to d
 
 ## Prerequisites
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Storage Account (Only for job workflow)
-
+* An Azure Storage Account (only for job workflow).
 
 ## Setting up
 
-### Create an Azure De-identification Service
+### Create a de-identification service (preview)
 
-An Azure De-identification Service provides you with an endpoint URL. This endpoint url can be utilized as a Rest API or with an SDK.
+A de-identification service (preview) provides you with an endpoint URL. This endpoint url can be utilized as a Rest API or with an SDK.
 
 1. Install [Azure CLI](/cli/azure/install-azure-cli)
-2. Create De-identification Service Resource
+2. Create a de-identification service resource
 
     ```bash
     REGION="<Region>"
@@ -47,9 +47,9 @@ An Azure De-identification Service provides you with an endpoint URL. This endpo
     az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --location $REGION
     ```
 
-### Authorize De-identification Service on storage account
+### Authorize de-identification service (preview) on storage account
 
--  Give De-identification Service access to your storage account
+-  Give the de-identification service (preview) access to your storage account
    
    ```bash
     STORAGE_ACCOUNT_ID=$(az storage account show --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --query id --output tsv)
@@ -90,9 +90,9 @@ The client library is available through NuGet, as the `Azure.Health.Deidentifica
 
 ### Create a Deidentification Client
 
-Before you can create the client, you need to find your **Deidentification Service Endpoint Url**.
+Before you can create the client, you need to find your **deidentification service (preview) endpoint URL**.
 
-You can find the endpoint url with the Azure CLI
+You can find the endpoint URL with the Azure CLI:
 
 ```bash
 az resource show -n $DEID_SERVICE_NAME -g $RESOURCE_GROUP_NAME  --resource-type microsoft.healthdataaiservices/deidservices --query properties.serviceUrl --output tsv
@@ -135,13 +135,13 @@ DeidentificationResult result = await client.DeidentifyAsync(content);
 
 This function allows you to de-identify all files, filtered via prefix, within an Azure Blob Storage Account.
 
-To create the job, we need the url to the blob endpoint of the Azure Storage Account.
+To create the job, we need the URL to the blob endpoint of the Azure Storage Account.
 
 ```bash
 az resource show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME  --resource-type Microsoft.Storage/storageAccounts --query properties.primaryEndpoints.blob --output tsv
 ```
 
-Now we can create the job. Here I used `folder1/` as the prefix. Any files that match this prefix are de-identified and output with the `output_files/` prefix.
+Now we can create the job. This example uses `folder1/` as the prefix. Any files that match this prefix will be de-identified and output with the `output_files/` prefix.
 
 ```csharp
 using Azure;
@@ -198,7 +198,7 @@ az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage 
 
 ### Unable to access source or target storage
 
-Ensure the permissions are given and the Managed Identity for the Deidentification Service is set up properly.
+Ensure the permissions are given and the Managed Identity for the de-identification service (preview) is set up properly.
 
 See [Authorize Deidentification Service on Storage Account](#authorize-de-identification-service-on-storage-account)
 
@@ -212,7 +212,7 @@ See [Sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdata
 ## Next steps
 
 In this quickstart, you learned:
-- How to create a Deidentification Service and assign a role on a storage account.
+- How to create a de-identification service (preview) and assign a role on a storage account.
 - How to create a Deidentification Client
 - How to de-identify strings and create jobs on documents within a storage account.
 

@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
-title: Deidentification service documentation
-summary: Documentation for the Deidentification service in Azure Health Data Services
+title: De-identification service documentation
+summary: Documentation for the Azure Health Data Services de-identification service.
 
 metadata:
-  title: Azure Health Data Services Deidentification service
-  description: Deidentification service documentation for Azure Health Data Services.
-  ms.service: healthcare-apis
-  ms.subservice: workspace
+  title: Azure Health Data Services de-identification service
+  description: Documentation for the Azure Health Data Services de-identification service.
+  ms.service: azure-health-data-services
+  ms.subservice: deidentification-service
   ms.topic: landing-page
 
   author: msjasteppe
@@ -17,18 +17,18 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: About deidentification
+  - title: About the de-identification service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the Deidentification service?
+          - text: What is the de-identification service?
             url: overview.md
 
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy the Deidentification service
+          - text: Deploy the de-identification service
             url: quickstart.md
           - text: Azure Health De-identification client library for .NET
             url: quickstart-sdk-net.md
@@ -41,5 +41,3 @@ landingContent:
             url: manage-access-rbac.md
           - text: Use managed identities
             url: managed-identities.md
-          - text: Deidentify medical data with batch jobs
-            url: batch-job.md
