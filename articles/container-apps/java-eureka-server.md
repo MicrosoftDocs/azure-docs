@@ -213,7 +213,7 @@ To remove a binding from a container app, use the `--unbind` option.
 ### [Azure portal](#tab/azure-portal)
 1.  Go to your container app environment page, select **Service** on the left panel
 2.  Select **eureka** in Service list
-3.  Under bindings, select Delete after app **sample-service-eureka-client**, Click **Next**
+3.  Under bindings, select **Delete** after app **sample-service-eureka-client**, Click **Next**
 4.  Click **Configure** on **Review** page
   
   :::image type="content" source="media/java-components/app-unbind-eureka.png" alt-text="Screenshot of container app unbind with eureka."  lightbox="media/java-components/app-unbind-eureka.png":::
