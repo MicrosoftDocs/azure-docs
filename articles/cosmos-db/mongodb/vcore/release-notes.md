@@ -21,20 +21,18 @@ This article contains release notes for the API for MongoDB vCore. These release
 - [Geospatial support](geospatial-support.md) is now GA.
 
 - Support for TLS1.3 for mongo connections.
-
-- Support for accumulators [GA]
+- Support for accumulators
   - $mergeObjects.
-
-- Support for aggregation operators [GA]
+- Support for aggregation operators
   - $bitAnd.
   - $bitOr.
   - $bitXor.
   - $bitNot.
-
-- Support for stage [GA]
+  - $let.
+- Support for aggregation stage
   - $bucket.
+  - $vectorSearch.
   - $setWindowFields (Only with $sum window accumulator).
-
 - Geospatial query operators [GA]
   - $minDistance.
   - $maxDistance.
@@ -62,7 +60,7 @@ This article contains release notes for the API for MongoDB vCore. These release
 ### May 06, 2024
 
 - Query operator enhancements.
-  - $geoNear aggregation. This can be enabled through Flag - `Geospatial support for vCore "MongoDB for CosmosDB"`  (Preview feature list)
+  - $geoNear aggregation. This can be enabled through Flag - `Geospatial support for vCore "MongoDB for CosmosDB"`  (Preview feature)
   
   - Support for accumulators
     - $push.
