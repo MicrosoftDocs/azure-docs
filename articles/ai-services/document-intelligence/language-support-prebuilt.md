@@ -65,11 +65,33 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker-end
 
+## Bank Statement
+
+:::moniker range="doc-intel-4.0.0"
+
+***Model ID: prebuilt-bankStatement***
+
+| Language  Locale code | Default |
+|:----------------------|:---------|
+| English (United States) `en-US`| English (United States) `en-US`|
+
 ## Contract
 
 :::moniker range="doc-intel-4.0.0 || doc-intel-3.1.0"
 
 ***Model ID: prebuilt-contract***
+
+| Language  Locale code | Default |
+|:----------------------|:---------|
+| English (United States) `en-US`| English (United States) `en-US`|
+
+:::moniker-end
+
+## Check
+
+:::moniker range="doc-intel-4.0.0"
+
+***Model ID: prebuilt-check***
 
 | Language  Locale code | Default |
 |:----------------------|:---------|
@@ -245,6 +267,33 @@ Azure AI Document Intelligence models provide multilingual document processing s
   |English (`en`) | United States (`us`)
 :::moniker-end
 
+## Mortgage
+
+:::moniker range="doc-intel-4.0.0"
+
+***Model ID: prebuilt-mortgage***
+  | Model ID | Language  Locale code | Default |
+  |--------|:----------------------|:---------|
+  |**prebuilt-mortgage-1003**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-mortgage-1004**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-mortgage-1005**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-mortgage-1008**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-mortgage-.closingDisclosure**|English (United States)|English (United States) `en-US`|
+
+:::moniker-end
+
+## PayStub
+
+:::moniker range="doc-intel-4.0.0"
+
+***Model ID: prebuilt-paystub***
+
+| Language  Locale code | Default |
+|:----------------------|:---------|
+| English (United States) `en-US`| English (United States) `en-US`|
+
+:::moniker-end
+
 ## Receipt
 
 :::moniker range=">=doc-intel-3.0.0"
@@ -341,6 +390,8 @@ Azure AI Document Intelligence models provide multilingual document processing s
   | Model ID | Language  Locale code | Default |
   |--------|:----------------------|:---------|
   |**prebuilt-tax.us.w2**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-tax.us**|English (United States)|English (United States) `en-US`|
+  |**prebuilt-tax.us.1099Combo**|English (United States)|English (United States) `en-US`|
   |**prebuilt-tax.us.1098**|English (United States)|English (United States) `en-US`|
   |**prebuilt-tax.us.1098E**|English (United States)|English (United States) `en-US`|
   |**prebuilt-tax.us.1098T**|English (United States)|English (United States) `en-US`|
