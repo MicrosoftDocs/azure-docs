@@ -147,7 +147,7 @@ If you're an existing customer looking for information about these models, see [
 
 ### August 8, 2024
 
-* Updated `gpt-35-turbo` (0613) retirement date to November 1, 2024.
+* Updated `gpt-35-turbo` & `gpt-35-turbo-16k` (0613) model's retirement date to November 1, 2024.
 
 ### July 30, 2024
 
