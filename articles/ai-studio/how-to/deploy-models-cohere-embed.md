@@ -3,10 +3,11 @@ title: How to use Cohere Embed V3 models with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to use Cohere Embed V3 models with Azure AI Studio.
 ms.service: azure-ai-studio
+manager: scottpolly
 ms.topic: how-to
 ms.date: 08/08/2024
-ms.reviewer: fasantia
-reviewer: santiagxf
+ms.reviewer: shubhiraj
+reviewer: shubhirajMsft
 ms.author: mopeakande
 author: msakande
 ms.custom: references_regions, generated
