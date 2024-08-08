@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/vpn-gateway/bgp-diagnostics.md.md",
+            "source_path_from_root": "/articles/vpn-gateway/bgp-diagnostics.md",
             "redirect_url": "/azure/vpn-gateway/monitor-vpn-gateway",
             "redirect_document_id": false
         },
