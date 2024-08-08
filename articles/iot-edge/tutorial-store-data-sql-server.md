@@ -288,7 +288,7 @@ Run the following commands on your IoT Edge device. These commands connect to th
 2. Open the SQL command tool.
 
       ```bash
-      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<YOUR-STRONG-PASSWORD>
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<YOUR-STRONG-PASSWORD>'
       ```
 
 3. Create your database:
