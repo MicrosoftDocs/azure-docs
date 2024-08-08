@@ -381,6 +381,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-openapi-turbine-repair-isolated",
+      "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair-isolated",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-templates-v3",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "v3.x",
@@ -1284,7 +1290,6 @@
   ".openpublishing.redirection.availability-zones.json",
   ".openpublishing.redirection.azure-app-configuration.json",
   ".openpublishing.redirection.azure-arc-data.json",
-  ".openpublishing.redirection.azure-attestation.json",
   ".openpublishing.redirection.azure-australia.json",
   ".openpublishing.redirection.azure-databricks.json",
   ".openpublishing.redirection.azure-datalake-storage-gen1.json",
@@ -1301,7 +1306,6 @@
   ".openpublishing.redirection.cognitive-services.json",
   ".openpublishing.redirection.container-service.json",
   ".openpublishing.redirection.data-lake-analytics.json",
-  ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
   ".openpublishing.redirection.dev-spaces.json",
   ".openpublishing.redirection.devops-project.json",
@@ -1315,7 +1319,6 @@
   ".openpublishing.redirection.iot-develop.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.json",
-  ".openpublishing.redirection.key-vault.json",
   ".openpublishing.redirection.machine-configuration.json",
   ".openpublishing.redirection.marketplace.json",
   ".openpublishing.redirection.openshift.json",

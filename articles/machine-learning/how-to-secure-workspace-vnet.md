@@ -177,7 +177,7 @@ Azure key vault can be configured to use either a private endpoint or service en
 
 # [Private endpoint](#tab/pe)
 
-For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](../key-vault/general/private-link-service.md#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
+For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
 
 
 # [Service endpoint](#tab/se)
@@ -193,7 +193,7 @@ For information on using a private endpoint with Azure Key Vault, see [Integrate
 
     :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="The Firewalls and virtual networks section in the Key Vault pane":::
 
-For more information, see [Configure Azure Key Vault network settings](../key-vault/general/how-to-azure-key-vault-network-security.md).
+For more information, see [Configure Azure Key Vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 ---
 
@@ -273,7 +273,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     az ml workspace update --name myworkspace --resource-group myresourcegroup --image-build-compute mycomputecluster
     ```
 
-    You can switch back to serverless compute by executing the same command and referencing the compute as an empty space: `--image-build-compute ' '`.
+    You can switch back to serverless compute by executing the same command and referencing the compute as an empty space: `--image-build-compute ''`.
 
     # [Python SDK](#tab/python)
 
