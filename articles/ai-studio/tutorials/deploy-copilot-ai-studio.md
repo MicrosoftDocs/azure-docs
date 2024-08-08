@@ -80,7 +80,7 @@ You can return to the prompt flow anytime by selecting **Prompt flow** from **To
 
 ## Customize prompt flow with multiple data sources
 
-previously in the [AI Studio](https://ai.azure.com) chat playground, you [added your data](#add-your-data-and-try-the-chat-model-again) to create one search index that contained product data for the Contoso copilot. So far, users can only inquire about products with questions such as "How much do the TrailWalker hiking shoes cost?". But they can't get answers to questions such as "How many TrailWalker hiking shoes did Daniel Wilson buy?" To enable this scenario, we add another index with customer information to the flow.
+Previously in the [AI Studio](https://ai.azure.com) chat playground, you [added your data](#add-your-data-and-try-the-chat-model-again) to create one search index that contained product data for the Contoso copilot. So far, users can only inquire about products with questions such as "How much do the TrailWalker hiking shoes cost?". But they can't get answers to questions such as "How many TrailWalker hiking shoes did Daniel Wilson buy?" To enable this scenario, we add another index with customer information to the flow.
 
 ### Create the customer info index
 
