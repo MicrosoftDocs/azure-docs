@@ -68,7 +68,9 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 1. To the left of **Key vault and key**, select **Click to select a key**.
 1. On the **Select key from Azure Key Vault**, under the **Key Vault** field, select **Create new**.
 1. On the **Create key vault** screen, ensure that the Resource Group is *myResourceGroup*, and give your key vault a name.  Every key vault across Azure must have a unique name.
-1. On the **Access Policies** tab, check the **Azure Disk Encryption for volume encryption** box.
+1. On the **Access Configuration** tab, check the **Azure Disk Encryption for volume encryption** box.
+1. On the **Networking** tab, tick the **enable public access** and from **public access** select the option **Selected network**.
+1. Under **Virtual Network**, Add your existing virtual network. Under **Exception** tick the check box **Allow trusted Microsoft services to bypass this firewall**
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="disks and encryption selection":::
 
