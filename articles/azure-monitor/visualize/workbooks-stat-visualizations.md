@@ -30,7 +30,7 @@ This allows you to build dashboards that provide immediate visual alerts when a 
   ```
 
 1. Set **Visualization** to **Stat**.
-2. Select the **Stat Settings** button to open the **Stat Settings** pane:
+1. Select the **Stat Settings** button to open the **Stat Settings** pane:
    - In **Use column**, set: `Requests`
    - In **Tag text**, set: `# of requests`
    - In **Color settings**, set:
@@ -38,7 +38,7 @@ This allows you to build dashboards that provide immediate visual alerts when a 
      - **Color palette**: `Red to Green`
      - **Minimum value**: 0
      - **Maximum value**: 1,000
-3. Select the **Save and Close** button at the bottom of the pane.
+1. Select the **Save and Close** button at the bottom of the pane.
 
 :::image type="content" source="./media/workbooks-stat-visualizations/stat-configured.png" lightbox="./media/workbooks-stat-visualizations/stat-configured.png" alt-text="Screenshot that shows a configured stat visualization in a workbook.":::
 
