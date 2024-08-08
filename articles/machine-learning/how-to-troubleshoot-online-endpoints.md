@@ -511,7 +511,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 - Readiness or liveness probes aren't set up correctly.
 - Container initialization is taking too long so that readiness or liveness probe fails beyond failure threshold. In this case, adjust [probe settings](reference-yaml-deployment-managed-online.md#probesettings) to allow longer time to initialize the container. Or try a bigger VM SKU among [supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md), which accelerates the initialization.
 - There's an error in the environment set up of the container, such as a missing dependency.
-- When you receive the `TypeError: register() takes 3 positional arguments but 4 were given` error, check the dependency between flask v2 and `azureml-inference-server-http`. For more information, see [FAQs for inference HTTP server](how-to-inference-server-http.md#1-i-encountered-the-following-error-during-server-startup).
+- When you receive the `TypeError: register() takes 3 positional arguments but 4 were given` error, check the dependency between flask v2 and `azureml-inference-server-http`. For more information, see [FAQs for inference HTTP server](how-to-inference-server-http.md#typeerror-during-server-startup).
 
 ### ERROR: ResourceNotFound
 
