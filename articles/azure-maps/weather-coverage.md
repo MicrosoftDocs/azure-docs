@@ -1,7 +1,7 @@
 ---
 title:  Microsoft Azure Maps Weather services coverage
 description: Learn about Microsoft Azure Maps Weather services coverage
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui
 ms.date: 11/08/2022
 ms.topic: conceptual

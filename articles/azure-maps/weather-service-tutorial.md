@@ -2,7 +2,7 @@
 title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python)'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather services using Azure Notebooks(Python).
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui
 ms.date: 10/28/2021
 ms.topic: tutorial

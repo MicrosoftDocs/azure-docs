@@ -2,7 +2,7 @@
 title: Migrate Bing Maps Calculate a Route API to Azure Maps Route Directions API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Calculate a Route API to the Azure Maps Route Directions API.
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui 
 ms.date: 05/16/2024
 ms.topic: how-to

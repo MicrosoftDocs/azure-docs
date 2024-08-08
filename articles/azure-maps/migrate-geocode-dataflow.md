@@ -2,7 +2,7 @@
 title: Migrate Bing Maps Geocode Dataflow API to Azure Maps Geocoding Batch and Reverse Geocoding Batch API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Geocode Dataflow API to the Azure Maps Geocoding Batch and Reverse Geocoding Batch API.
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui
 ms.date: 05/15/2024
 ms.topic: how-to

@@ -3,11 +3,7 @@ title: How to secure a daemon application in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: This article describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
 author: pbrasil
-<<<<<<< HEAD
 ms.author: peterbr
-=======
-ms.author: peterbr 
->>>>>>> 89a6b4b3c47812a32bf48929af987e51ca6670ea
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps

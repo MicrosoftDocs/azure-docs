@@ -2,7 +2,7 @@
 title: Create multi-itinerary optimization service 
 titleSuffix: Microsoft Azure Maps
 description: Learn how to use Azure Maps and NVIDIA cuOpt to build a multi-itinerary optimization service.
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui
 ms.date: 05/20/2024
 ms.topic: how-to
