@@ -245,7 +245,7 @@ You can also remove a binding from your application.
 ### [Azure portal](#tab/azure-portal)
 1.  Go to your container app environment page, **Service** on the left panel
 2.  Select **configserver** in Service list
-3.  Under bindings, delete app **my-config-client**, Click **Next**
+3.  Under bindings, select **Delete** after app **my-config-client**, Click **Next**
 4.  Click **Configure** on **Review** page
   
   :::image type="content" source="media/java-components/app-unbind-configserver.png" alt-text="Screenshot of container app unbind with config server."  lightbox="media/java-components/app-unbind-configserver.png":::
