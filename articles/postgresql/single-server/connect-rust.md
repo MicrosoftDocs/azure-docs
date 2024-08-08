@@ -1,7 +1,7 @@
 ---
 title: Use Rust to interact with Azure Database for PostgreSQL
 description: Learn to connect and query data in Azure Database for PostgreSQL Single Server using Rust code samples.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.author: sunila

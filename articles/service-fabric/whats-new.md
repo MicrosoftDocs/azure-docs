@@ -2,7 +2,7 @@
 title: What's new for Service Fabric
 description: Learn about what's new for Service Fabric.
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: whats-new
 ms.date: 08/09/2023
 ms.author: tomcassidy

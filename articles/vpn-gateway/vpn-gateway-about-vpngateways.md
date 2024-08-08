@@ -2,7 +2,7 @@
 title: 'About Azure VPN Gateway'
 description: Learn what VPN Gateway is, and how to use a VPN gateway to connect to IPsec IKE site-to-site, VNet-to-VNet, and point-to-site VPN virtual networks.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: overview
 ms.date: 07/23/2024
 ms.author: cherylmc

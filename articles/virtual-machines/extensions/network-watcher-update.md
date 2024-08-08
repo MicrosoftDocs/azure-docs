@@ -3,7 +3,7 @@ title: Update Network Watcher extension to the latest version
 description: Learn how to update the Azure Network Watcher Agent virtual machine (VM) extension to the latest version.
 author: halkazwini
 ms.author: halkazwini
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: concept-article
 ms.date: 07/05/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli

@@ -1,7 +1,7 @@
 ---
 title: Connect to Azure Cosmos DB using Compass
 description: Learn how to use MongoDB Compass to store and manage data in Azure Cosmos DB.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 08/26/2021

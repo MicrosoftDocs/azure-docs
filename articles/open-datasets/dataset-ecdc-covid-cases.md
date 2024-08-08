@@ -1,7 +1,7 @@
 ---
 title: European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases
 description: Learn how to use the European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---

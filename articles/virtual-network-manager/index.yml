@@ -6,7 +6,7 @@ summary: Learn how to use Azure Virtual Network Manager to manage virtual networ
 metadata:
   title: Azure Virtual Network Manager documentation 
   description: Learn about Azure Virtual Network Manager
-  ms.service: virtual-network-manager 
+  ms.service: azure-virtual-network-manager
   ms.topic: landing-page 
   author: mbender-ms 
   ms.author: mbender 

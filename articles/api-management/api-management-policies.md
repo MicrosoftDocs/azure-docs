@@ -3,7 +3,7 @@ title: Azure API Management policy reference | Microsoft Docs
 description: Reference index for all Azure API Management policies and settings. Policies allow the API publisher to change API behavior through configuration.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: article

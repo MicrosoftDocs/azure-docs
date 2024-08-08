@@ -1,7 +1,7 @@
 ---
 title: Security in Azure Database for PostgreSQL - Single Server
 description: An overview of the security features in Azure Database for PostgreSQL - Single Server.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: conceptual
 ms.author: sunila
@@ -53,7 +53,7 @@ You can also connect to the server using [Microsoft Entra authentication](concep
 
 ## Threat protection
 
-You can opt in to [Advanced Threat Protection](../../defender-for-cloud/defender-for-databases-introduction.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
+You can opt in to [Advanced Threat Protection](/azure/defender-for-cloud/defender-for-databases-introduction) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
 
 [Audit logging](concepts-audit.md) is available to track activity in your databases.
 

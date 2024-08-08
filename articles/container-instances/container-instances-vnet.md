@@ -4,7 +4,7 @@ description: Learn how to deploy a container group to a new or existing Azure vi
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: devx-track-azurecli

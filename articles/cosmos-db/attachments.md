@@ -3,7 +3,7 @@ title: Azure Cosmos DB Attachments
 description: This article presents an overview of Azure Cosmos DB Attachments.
 author: aliuy
 ms.author: andrl
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/07/2020

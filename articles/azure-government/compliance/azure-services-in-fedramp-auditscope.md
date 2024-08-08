@@ -88,7 +88,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Fluid Relay](../../azure-fluid-relay/index.yml) | &#x2705; | &#x2705; |
 | [Azure for Education](https://azureforeducation.microsoft.com/) | &#x2705; | &#x2705; |
 | [Azure Information Protection](/azure/information-protection/) | &#x2705; | &#x2705; |
-| [Azure Kubernetes Service (AKS)](../../aks/index.yml) | &#x2705; | &#x2705; |
+| [Azure Kubernetes Service (AKS)](/azure/aks/) | &#x2705; | &#x2705; |
 | [Azure Managed Grafana](../../managed-grafana/index.yml) | &#x2705; | &#x2705; |
 | [Azure Marketplace portal](https://azuremarketplace.microsoft.com/) | &#x2705; | &#x2705; |
 | [Azure Maps](../../azure-maps/index.yml) | &#x2705; | &#x2705; |
@@ -147,7 +147,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Dataverse](/powerapps/maker/data-platform/) (incl. [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake)) | &#x2705; | &#x2705; |
 | [DDoS Protection](../../ddos-protection/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
-| [Dedicated HSM](../../dedicated-hsm/index.yml) | &#x2705; | &#x2705; |
+| [Dedicated HSM](/azure/dedicated-hsm/) | &#x2705; | &#x2705; |
 | [DevTest Labs](../../devtest-labs/index.yml) | &#x2705; | &#x2705; |
 | [DNS](../../dns/index.yml) | &#x2705; | &#x2705; |
 | [Omnichannel for Customer Service (Formerly Dynamics 365 Chat and Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; |
@@ -176,7 +176,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Import/Export](../../import-export/index.yml) | &#x2705; | &#x2705; |
 | [Internet Analyzer](../../internet-analyzer/index.yml) | &#x2705; | &#x2705; |
 | [IoT Hub](../../iot-hub/index.yml) | &#x2705; | &#x2705; |
-| [Key Vault](../../key-vault/index.yml) | &#x2705; | &#x2705; |
+| [Key Vault](/azure/key-vault/) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Lab Services](../../lab-services/index.yml) | &#x2705; | &#x2705; |
 | [Lighthouse](../../lighthouse/index.yml) | &#x2705; | &#x2705; |
@@ -186,9 +186,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; |
 | [Media Services](/azure/media-services/) | &#x2705; | &#x2705; |
 | [Metrics Advisor](../../ai-services/metrics-advisor/index.yml) | &#x2705; | &#x2705; |
-| [Microsoft Azure Attestation](../../attestation/index.yml)| &#x2705; | &#x2705; |
+| [Microsoft Azure Attestation](/azure/attestation/)| &#x2705; | &#x2705; |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)| &#x2705; | &#x2705; |
-| [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) (formerly Azure Security Center) | &#x2705; | &#x2705; |
+| [Microsoft Defender for Cloud](/azure/defender-for-cloud/) (formerly Azure Security Center) | &#x2705; | &#x2705; |
 | [Microsoft Defender for Cloud Apps](/defender-cloud-apps/) (formerly Microsoft Cloud App Security) | &#x2705; | &#x2705; |
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; |
 | [Microsoft Defender for Identity](/defender-for-identity/) (formerly Azure Advanced Threat Protection) | &#x2705; | &#x2705; |
@@ -300,7 +300,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Database for PostgreSQL](../../postgresql/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Databricks](/azure/databricks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Information Protection](/azure/information-protection/) **&ast;&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure Kubernetes Service (AKS)](../../aks/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Kubernetes Service (AKS)](/azure/aks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Maps](../../azure-maps/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Monitor](../../azure-monitor/index.yml) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md) and [Log Analytics](../../azure-monitor/logs/data-platform-logs.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -351,7 +351,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Database Migration Service](../../dms/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dataverse](/powerapps/maker/data-platform/) (formerly Common Data Service) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [DDoS Protection](../../ddos-protection/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Dedicated HSM](../../dedicated-hsm/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Dedicated HSM](/azure/dedicated-hsm/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [DevTest Labs](../../devtest-labs/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [DNS](../../dns/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Dynamics 365 Chat (Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -378,7 +378,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [HPC Cache](../../hpc-cache/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Import/Export](../../import-export/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [IoT Hub](../../iot-hub/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Key Vault](../../key-vault/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Key Vault](/azure/key-vault/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lab Services](../../lab-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Lighthouse](../../lighthouse/index.yml)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Load Balancer](../../load-balancer/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -389,7 +389,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Azure portal](../../azure-portal/index.yml) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Microsoft Azure Government portal](../documentation-government-get-started-connect-with-portal.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | |
-| [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) (formerly Azure Security Center) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Microsoft Defender for Cloud](/azure/defender-for-cloud/) (formerly Azure Security Center) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft Defender for Cloud Apps](/defender-cloud-apps/) (formerly Microsoft Cloud App Security) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Identity](/defender-for-identity/) (formerly Azure Advanced Threat Protection) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |

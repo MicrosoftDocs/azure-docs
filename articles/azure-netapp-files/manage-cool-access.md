@@ -25,19 +25,11 @@ The standard storage with cool access feature provides options for the “coolne
 * You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
 * To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to "Default" or "Never." For more information, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
-    * Sequential reads from Azure NetApp Files backup, cross-zone replication, and cross-zone replication do not impact the temperature of the data.
-    * If you're using a third-party backup service, configure it to use NDMP instead of the CIFS or NFS protocols. NDMP reads do not affect the temperature of the data.
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level stops further tiering of data.  
 * You can't use [large volume](large-volumes-requirements-considerations.md) with Standard storage with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
-* Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) (CRR) and [cross-zone replication](cross-zone-replication-introduction.md): 
-    * If the volume is in a CRR relationship as a source volume, you can enable cool access on it only if the [mirror state](cross-region-replication-display-health-status.md#display-replication-status) is `Mirrored`. Enabling cool access on the source volume automatically enables cool access on the destination volume.
-    * If the volume is in a CRR relationship as a destination volume (data protection volume), enabling cool access isn't supported for the volume.
-    * The cool access setting is updated automatically on the destination volume to be the same as the source volume. When you update the cool access setting on the source volume, the same setting is applied at the destination volume.
-* Considerations for using cool access with [Azure NetApp Files backup](backup-requirements-considerations.md): 
-    * When a backup is in progress for a volume, you can’t enable cool access on the volume.  
-    * If a volume already contains cool-tiered data, you can’t enable backup for the volume.
-    * If backup is already enabled on a volume, you can enable cool access only if the baseline backup is complete.
+* Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) and [cross-zone replication](cross-zone-replication-introduction.md): 
+    * The cool access setting on the destination is updated automatically to match the source volume whenever the setting is changed on the source volume or during authorizing or performing a reverse resync of the replication. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
 * Considerations for using cool access with [snapshot restore](snapshots-restore-new-volume.md):
     * When restoring a snapshot of a cool access enabled volume to a new volume, the new volume inherits the cool access configuration from the parent volume. Once the new volume is created, the cool access settings can be modified.  
     * You can't restore from a snapshot of a non-cool-access volume to a cool access volume.  Likewise, you can't restore from a snapshot of a cool access volume to a non-cool-access volume.

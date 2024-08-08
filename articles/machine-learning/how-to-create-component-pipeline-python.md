@@ -2,7 +2,7 @@
 title: 'Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2'
 titleSuffix: Azure Machine Learning
 description: Build a machine learning pipeline for image classification. Focus on machine learning instead of infrastructure and automation.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 author: lgayhardt

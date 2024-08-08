@@ -4,7 +4,7 @@ description: This article describes the fabric settings and the fabric upgrade p
 ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---

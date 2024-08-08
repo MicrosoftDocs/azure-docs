@@ -6,7 +6,7 @@ services: machine-learning
 author: Blackmist
 ms.author: larryfr
 ms.reviewer: balapv
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.date: 09/10/2023
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.custom:
   - sdkv2
   - build-2023
   - ignite-2023
-  - update-code1
+  - update-code2
 ---
 
 # Train models with Azure Machine Learning CLI, SDK, and REST API

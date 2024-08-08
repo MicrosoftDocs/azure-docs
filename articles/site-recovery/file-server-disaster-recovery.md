@@ -3,7 +3,7 @@ title: Protect a file server by using Azure Site Recovery
 description: This article describes how to protect a file server by using Azure Site Recovery 
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: ankitadutta

@@ -5,7 +5,7 @@ description: Use YCSB to benchmark Azure Cosmos DB for NoSQL with recipes to mea
 author: ravitella
 ms.author: ratella
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 01/31/2023

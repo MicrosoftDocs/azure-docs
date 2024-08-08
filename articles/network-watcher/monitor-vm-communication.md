@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In this tutorial, learn how to monitor network communication between two Azure virtual machines with Azure Network Watcher's connection monitor capability.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 09/29/2023
 

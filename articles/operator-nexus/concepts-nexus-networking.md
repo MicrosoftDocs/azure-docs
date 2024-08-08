@@ -227,8 +227,8 @@ field.
 [vrf]: https://en.wikipedia.org/wiki/Virtual_routing_and_forwarding
 [isd]: ./howto-configure-isolation-domain.md
 [internal-net]: ./howto-configure-isolation-domain.md#create-internal-network
-[vm-netattach]: https://learn.microsoft.com/rest/api/networkcloud/virtual-machines/create-or-update?view=rest-networkcloud-2023-07-01&tabs=HTTP#networkattachment
-[attachednetconf]: https://learn.microsoft.com/rest/api/networkcloud/kubernetes-clusters/create-or-update?view=rest-networkcloud-2023-07-01&tabs=HTTP#attachednetworkconfiguration
+[vm-netattach]: /rest/api/networkcloud/virtual-machines/create-or-update?view=rest-networkcloud-2023-07-01&tabs=HTTP#networkattachment
+[attachednetconf]: /rest/api/networkcloud/kubernetes-clusters/create-or-update?view=rest-networkcloud-2023-07-01&tabs=HTTP#attachednetworkconfiguration
 
 ## Operator Nexus Kubernetes networking
 

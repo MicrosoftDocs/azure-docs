@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB
 description: This article describes how to use MongoDB extension commands to manage data stored in Azure Cosmos DB for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: sample
 ms.date: 02/27/2023

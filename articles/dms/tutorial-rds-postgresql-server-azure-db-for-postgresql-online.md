@@ -6,7 +6,7 @@ author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: randolphwest
 ms.date: 04/11/2020
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: tutorial
 ms.custom:
   - sql-migration-content

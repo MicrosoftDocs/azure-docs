@@ -3,10 +3,10 @@ title: Azure Site Recovery Deployment Planner for VMware disaster recovery
 description: Learn about the Azure Site Recovery Deployment Planner for disaster recovery of VMware VMs to Azure.
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 05/02/2023
+ms.date: 08/07/2024
 ---
 
 
@@ -72,8 +72,8 @@ The tool has two main phases: profiling and report generation. There is also a t
 
 | Server requirement | Description|
 |---|---|
-|Profiling and throughput measurement| <ul><li>Operating system: Windows Server 2016 or Windows Server 2012 R2<br>(ideally matching at least the [size recommendations for the configuration server](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server))</li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure (`*.blob.core.windows.net`) from this server, port 443<br>[This is optional. You can choose to provide the available bandwidth during Report Generation manually.]</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1,000 VMs with an average of three disks each, profiled for 30 days)</li><li>VMware vCenter statistics level settings can be 1 or higher level</li><li>Allow vCenter port (default 443): Site Recovery Deployment Planner uses this port to connect to the vCenter server/ESXi host</ul></ul>|
-| Report generation | A Windows PC or Windows Server with Excel 2013 or later.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) is required only when you pass -User option in the report generation command to fetch the latest VM configuration information of the VMs. The Deployment Planner connects to vCenter server. Allow  vCenter port (default 443) port to connect to vCenter server.</li>|
+|Profiling and throughput measurement| <ul><li>Operating system: Windows Server 2016 or Windows Server 2012 R2<br>(ideally matching at least the [size recommendations for the configuration server](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server))</li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure (`*.blob.core.windows.net`) from this server, port 443<br>[This is optional. You can choose to provide the available bandwidth during Report Generation manually.]</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1,000 VMs with an average of three disks each, profiled for 30 days)</li><li>VMware vCenter statistics level settings can be 1 or higher level</li><li>Allow vCenter port (default 443): Site Recovery Deployment Planner uses this port to connect to the vCenter server/ESXi host</ul></ul>|
+| Report generation | A Windows PC or Windows Server with Excel 2013 or later.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li> is required only when you pass -User option in the report generation command to fetch the latest VM configuration information of the VMs. The Deployment Planner connects to vCenter server. Allow  vCenter port (default 443) port to connect to vCenter server.</li>|
 | User permissions | Read-only permission for the user account that's used to access the VMware vCenter server/VMware vSphere ESXi host during profiling |
 
 > [!NOTE]
@@ -82,7 +82,7 @@ The tool has two main phases: profiling and report generation. There is also a t
 >
 
 ## Download and extract the deployment planner tool
-1. Download the latest version of [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
+1. Download the latest version of [Site Recovery Deployment Planner](https://download.microsoft.com/download/6/5/d/65d39a90-c4e2-49a7-9149-af58deb8ef7d/ASRDeploymentPlanner-v3.0.zip).
 The tool is packaged in a .zip folder. The current version of the tool supports only the VMware to Azure scenario.
 
 2. Copy the .zip folder to the Windows server from which you want to run the tool.

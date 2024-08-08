@@ -6,7 +6,7 @@ ms.author: dimatokar
 ms.topic: conceptual 
 ms.date: 01/26/2024
 ms.custom: Edge Secured-core get certified
-ms.service: certification
+ms.service: azure-certified-device
 ---
 
 # Get your device certified

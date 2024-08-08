@@ -12,7 +12,7 @@ definition maps to **compliance domains** and **controls** in CIS Microsoft Azur
 For more information about this compliance standard, see
 [CIS Microsoft Azure Foundations Benchmark 2.0.0](https://www.cisecurity.org/benchmark/azure/). To understand
 _Ownership_, review the [policy type](../concepts/definition-structure-basics.md#policy-type) and
-[Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
+[Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
 The following mappings are to the **CIS Microsoft Azure Foundations Benchmark 2.0.0** controls. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
@@ -1045,7 +1045,7 @@ initiative definition.
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[CosmosDB accounts should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58440f8a-10c5-4151-bdce-dfbaad4a20b7) |Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to your CosmosDB account, data leakage risks are reduced. Learn more about private links at: [https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints](../../../cosmos-db/how-to-configure-private-endpoints.md). |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_PrivateEndpoint_Audit.json) |
+|[CosmosDB accounts should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58440f8a-10c5-4151-bdce-dfbaad4a20b7) |Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to your CosmosDB account, data leakage risks are reduced. Learn more about private links at: [https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints](/azure/cosmos-db/how-to-configure-private-endpoints). |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_PrivateEndpoint_Audit.json) |
 
 ### Use Azure Active Directory (AAD) Client Authentication and Azure RBAC where possible.
 
@@ -1054,7 +1054,7 @@ initiative definition.
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Cosmos DB database accounts should have local authentication methods disabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5450f5bd-9c72-4390-a9c4-a7aba4edfdd2) |Disabling local authentication methods improves security by ensuring that Cosmos DB database accounts exclusively require Azure Active Directory identities for authentication. Learn more at: [https://docs.microsoft.com/azure/cosmos-db/how-to-setup-rbac#disable-local-auth](../../../cosmos-db/how-to-setup-rbac.md#disable-local-auth). |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_DisableLocalAuth_AuditDeny.json) |
+|[Cosmos DB database accounts should have local authentication methods disabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5450f5bd-9c72-4390-a9c4-a7aba4edfdd2) |Disabling local authentication methods improves security by ensuring that Cosmos DB database accounts exclusively require Azure Active Directory identities for authentication. Learn more at: [https://docs.microsoft.com/azure/cosmos-db/how-to-setup-rbac#disable-local-auth](/azure/cosmos-db/how-to-setup-rbac#disable-local-auth). |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/Cosmos_DisableLocalAuth_AuditDeny.json) |
 
 ## 5.1
 
@@ -1461,7 +1461,7 @@ initiative definition.
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Azure Key Vault should use RBAC permission model](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12d4fa5e-1f9f-4c21-97a9-b99b3c6611b5) |Enable RBAC permission model across Key Vaults. Learn more at: [https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration](../../../key-vault/general/rbac-migration.md) |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Should_Use_RBAC.json) |
+|[Azure Key Vault should use RBAC permission model](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12d4fa5e-1f9f-4c21-97a9-b99b3c6611b5) |Enable RBAC permission model across Key Vaults. Learn more at: [https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration](/azure/key-vault/general/rbac-migration) |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Should_Use_RBAC.json) |
 
 ### Ensure that Private Endpoints are Used for Azure Key Vault
 

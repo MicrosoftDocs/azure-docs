@@ -84,7 +84,7 @@ sections:
 
           - Basic
 
-            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to use Document Intelligence Studio.
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource to use Document Intelligence Studio.
 
           - Advanced
 
@@ -94,7 +94,7 @@ sections:
 
           - Basic
 
-            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to train a custom model or analyze with trained models.
+            - **Cognitive Services User**: You need this role for a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multiple-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource to train a custom model or analyze with trained models.
 
             - **Storage Blob Data Contributor**: You need this role for a storage account to create project and label data.
 
@@ -218,7 +218,7 @@ sections:
 
            - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](/azure/ai-services/document-intelligence/containers/install-run).
 
-           - Your project is highly dependent on [Document Intelligence v2.1](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true), and you want to keep using the v2.1 APIs.
+           - Your project is highly dependent on Document Intelligence V2.1 and you want to keep using the v2.1 APIs.
 
       - question: |
          Are there best practices to mitigate throttling?
@@ -255,7 +255,7 @@ sections:
 
         - For signature and region labeling, don't include the surrounding text.
 
-        For more information, see [Accuracy and confidence scores](concept-accuracy-confidence.md#ensure-high-model-accuracy).
+        For more information, see [Accuracy and confidence scores](concept-accuracy-confidence.md).
 
     - question: |
         Can I retrain a custom model?
@@ -286,6 +286,13 @@ sections:
         You can use the [Copy API](disaster-recovery.md#copy-api-overview) to copy custom models from one Document Intelligence account into others that exist in any supported geographical region. For detailed instructions, see [Disaster recovery](disaster-recovery.md).
 
         The copy operation is limited to copying models within the specific cloud environment where you trained the model. For instance, copying models from the public cloud to the Azure Government cloud isn't supported.
+
+    - question: |
+        Am I charged when training a custom neural model?
+      answer: |
+        **Yes for the first 10 hours only.**
+
+        If training hours exceed 10 hours, charges are incurred for further custom neural model training.
 
   - name: Storage account
     questions:
