@@ -258,17 +258,17 @@ curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-
 Invoke-RestMethod -Headers @{"Metadata" = "true"} -Method POST -body '{"StartRequests": [{"EventId": "5DD55B64-45AD-49D3-BBC9-F57D4EA97BD7"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01 | ConvertTo-Json -Depth 64
 ```
 #### Python sample
-````
+````python
 import json
 import requests
 
-def approve_scheduled_event(event_id):  
+def confirm_scheduled_event(event_id):  
    # This payload approves a single event with id event_id
    payload = json.dumps({"StartRequests": [{"EventId": event_id}]})
    response = requests.post("http://169.254.169.254/metadata/scheduledevents", 
-                            headers = {"Metadata": "true"},
-                            params = {"api-version": "2020-07-01"},
-                            data = payload)
+                            headers={"Metadata": "true"},
+                            params={"api-version": "2020-07-01"},
+                            data=payload)
    return response.status_code
 ````
 
@@ -359,13 +359,14 @@ def get_scheduled_events():
     return data
 
 
-def confirm_scheduled_event(event_id):
-    # This payload confirms a single event with id event_id
+def confirm_scheduled_event(event_id):  
+    # This payload approves a single event with id event_id
     # You can confirm multiple events in a single request if needed
     payload = json.dumps({"StartRequests": [{"EventId": event_id}]})
-    response = requests.post(
-        metadata_url, headers=header, params=query_params, data=payload
-    )
+    response = requests.post("http://169.254.169.254/metadata/scheduledevents", 
+                             headers={"Metadata": "true"},
+                             params={"api-version": "2020-07-01"},
+                             data=payload)
     return response.status_code
 
 
