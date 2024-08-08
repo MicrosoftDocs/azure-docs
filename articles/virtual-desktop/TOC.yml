@@ -150,7 +150,11 @@
     - name: Azure Virtual Desktop FAQ
       href: faq.yml
     - name: Deploy on Azure Stack HCI
+      displayName: session hosts, virtual machines, vms, on-premises, on premises
       href: azure-stack-hci-overview.md
+    - name: Deploy on Azure Extended Zones
+      displayName: session hosts, virtual machines, vms, low latency
+      href: azure-extended-zones.md
     - name: Example architecture scenarios
       items:
       - name: Azure Virtual Desktop for the enterprise
@@ -249,7 +253,7 @@
   - name: Deploy
     items:
       - name: Deploy Azure Virtual Desktop
-        displayName: deploy, create, get started, host pool, application group, workspace, assign users, azure stack hci
+        displayName: deploy, create, get started, host pool, application group, workspace, assign users, azure stack hci, azure extended zones
         href: deploy-azure-virtual-desktop.md
       - name: Use the getting started feature
         displayName: deploy, create, get started
@@ -257,7 +261,7 @@
       - name: Session hosts
         items:
         - name: Add session hosts to a host pool
-          displayName: deploy, get started
+          displayName: deploy, get started, virtual machines, vms, azure stack hci, azure extended zones
           href: add-session-hosts-host-pool.md
         - name: Enable GPU acceleration
           displayName: graphics, multimedia, videos, cad, session hosts

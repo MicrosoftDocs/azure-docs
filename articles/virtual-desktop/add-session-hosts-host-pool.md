@@ -4,14 +4,16 @@ description: Learn how to add session hosts virtual machines to a host pool in A
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/11/2024
+ms.date: 08/08/2024
 ---
 
 # Add session hosts to a host pool
 
-> [!IMPORTANT]
-> Azure Virtual Desktop for Azure Stack HCI is currently in preview for Azure Government and Azure China. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
+> The following features are currently in preview:
+> - Azure Virtual Desktop on Azure Stack HCI for Azure Government and Azure China.
+> - Azure Virtual Desktop on Azure Extended Zones.
+>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 Once you've created a host pool, workspace, and an application group, you need to add session hosts to the host pool for your users to connect to. You may also need to add more session hosts for extra capacity.
 
 You can create new virtual machines (VMs) to use as session hosts and add them to a host pool natively using the Azure Virtual Desktop service in the Azure portal. Alternatively you can also create VMs outside of the Azure Virtual Desktop service, such as with an automated pipeline, then add them as session hosts to a host pool. When using Azure CLI or Azure PowerShell you'll need to create the VMs outside of Azure Virtual Desktop, then add them as session hosts to a host pool separately.
@@ -52,12 +54,11 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
 
    - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
 
-To deploy session hosts to an [Azure Extended Zone](/azure/virtual-desktop/azure-extended-zones), you also need: 
+To deploy session hosts to [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones), you also need: 
 
-   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see TODO:
+   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
    
    - An existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network that the session hosts are being deployed to.
-
    
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 

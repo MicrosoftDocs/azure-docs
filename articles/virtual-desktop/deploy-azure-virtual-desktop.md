@@ -5,15 +5,15 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 05/16/2024
+ms.date: 08/08/2024
 ---
 
 # Deploy Azure Virtual Desktop
 
 > [!IMPORTANT]
 > The following features are currently in preview:
-> - Azure Virtual Desktop for Azure Stack HCI for Azure Government and Azure China.
-> - Azure Extended Zones for Azure Virtual Desktop.
+> - Azure Virtual Desktop on Azure Stack HCI for Azure Government and Azure China.
+> - Azure Extended Zones on Azure Virtual Desktop.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -68,9 +68,9 @@ In addition, you need:
    
    - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
 
-To deploy session hosts to an [Azure Extended Zone](/azure/virtual-desktop/azure-extended-zones), you also need: 
+To deploy session hosts to [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones), you also need: 
 
-   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see TODO:
+   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
    
    - An existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network that the session hosts are being deployed to. 
 
