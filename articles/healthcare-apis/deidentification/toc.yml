@@ -28,5 +28,5 @@ items:
         href: /python/api/overview/azure/health-deidentification-readme?view=azure-python-preview
       - name: Java SDK
         href: /java/api/overview/azure/health-deidentification?view=azure-java-preview
-      - name: Javascript SDK
+      - name: JavaScript SDK
         href: /javascript/api/overview/azure/health-deidentification?view=azure-node-latest
