@@ -69,7 +69,7 @@ The threshold-based availability strategy can improve tail latency and availabil
 ```java
 // Proactive Connection Management
 CosmosContainerIdentity containerIdentity = new CosmosContainerIdentity("sample_db_id", "sample_container_id");
-int proactiveConnectionRegionsCount = 1;
+int proactiveConnectionRegionsCount = 2;
 Duration aggressiveWarmupDuration = Duration.ofSeconds(1);
 
 CosmosAsyncClient clientWithOpenConnections = new CosmosClientBuilder()
