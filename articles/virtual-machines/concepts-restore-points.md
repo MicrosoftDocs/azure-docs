@@ -1,7 +1,7 @@
 ---
 title: Support matrix for VM restore points
 description: Support matrix for VM restore points
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 07/05/2022
 ms.custom: template-concept
