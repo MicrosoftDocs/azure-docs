@@ -112,7 +112,7 @@
     - name: Configure cross-tenant connection - CLI
       href: how-to-configure-cross-tenant-cli.md
   - Name: Manage IP addresses
-    href: how-to-manage-ip-addresses.md
+    href: how-to-manage-ip-addresses-network-manager.md
   - name: Monitoring
     items:
     - name: Configure Event Logs for Azure Virtual Network Manager
