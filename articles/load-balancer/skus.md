@@ -3,7 +3,7 @@ title: Azure Load Balancer SKUs
 description: Overview of Azure Load Balancer SKUs.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: reference
 ms.date: 06/27/2024
 ms.author: mbender

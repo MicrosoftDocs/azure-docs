@@ -4,7 +4,7 @@ description: In this article, learn about the monitoring and notification capabi
 ms.topic: conceptual
 ms.date: 09/14/2022
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

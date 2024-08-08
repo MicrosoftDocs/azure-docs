@@ -5,7 +5,7 @@ description: Learn to deploy models as serverless APIs, using Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 07/18/2024
 ms.author: mopeakande 
 author: msakande
 ms.reviewer: fasantia
@@ -14,8 +14,6 @@ ms.custom: build-2024, serverless, devx-track-azurecli
 ---
 
 # Deploy models as serverless APIs
-
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to deploy a model from the model catalog as a serverless API with pay-as-you-go token based billing.
 
@@ -86,16 +84,13 @@ In this article, you learn how to deploy a model from the model catalog as a ser
     You can use any compatible web browser to [deploy ARM templates](../../azure-resource-manager/templates/deploy-portal.md) in the Microsoft Azure portal or use any of the deployment tools. This tutorial uses the [Azure CLI](/cli/azure/).
 
 
-## Subscribe your project to the model offering
-
-For models offered through the Azure Marketplace, you can deploy them to serverless API endpoints to consume their predictions. If it's your first time deploying the model in the project, you have to subscribe your project for the particular model offering from the Azure Marketplace. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
-
-> [!NOTE]
-> Models offered through the Azure Marketplace are available for deployment to serverless API endpoints in specific regions. Check [Model and region availability for Serverless API deployments](deploy-models-serverless-availability.md) to verify which models and regions are available. If the one you need is not listed, you can deploy to a workspace in a supported region and then [consume serverless API endpoints from a different workspace](deploy-models-serverless-connect.md).
+## Find your model and model ID in the model catalog
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 
-1. Ensure your account has the **Azure AI Developer** role permissions on the resource group, or that you meet the [permissions required to subscribe to model offerings](#permissions-required-to-subscribe-to-model-offerings).
+1. For models offered through the Azure Marketplace, ensure that your account has the **Azure AI Developer** role permissions on the resource group, or that you meet the [permissions required to subscribe to model offerings](#permissions-required-to-subscribe-to-model-offerings).
+
+    Models that are offered by non-Microsoft providers (for example, Llama and Mistral models) are billed through the Azure Marketplace. For such models, you're required to subscribe your project to the particular model offering. Models that are offered by Microsoft (for example, Phi-3 models) don't have this requirement, as billing is done differently. For details about billing for serverless deployment of models in the model catalog, see [Billing for serverless APIs](model-catalog-overview.md#billing).
 
 1. Select **Model catalog** from the left sidebar and find the model card of the model you want to deploy. In this article, you select a **Meta-Llama-3-8B-Instruct** model.
     
@@ -106,13 +101,23 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
 
     :::image type="content" source="../media/deploy-monitor/serverless/model-card.png" alt-text="A screenshot showing a model's details page." lightbox="../media/deploy-monitor/serverless/model-card.png":::
 
+
+The next section covers the steps for subscribing your project to a model offering. You can skip this section and go to [Deploy the model to a serverless API endpoint](#deploy-the-model-to-a-serverless-api-endpoint), if you're deploying a Microsoft model.
+
+## Subscribe your project to the model offering
+
+Serverless API endpoints can deploy both Microsoft and non-Microsoft offered models. For Microsoft models (such as Phi-3 models), you don't need to create an Azure Marketplace subscription and you can [deploy them to serverless API endpoints directly](#deploy-the-model-to-a-serverless-api-endpoint) to consume their predictions. For non-Microsoft models, you need to create the subscription first. If it's your first time deploying the model in the project, you have to subscribe your project for the particular model offering from the Azure Marketplace. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
+
+> [!NOTE]
+> Models offered through the Azure Marketplace are available for deployment to serverless API endpoints in specific regions. Check [Model and region availability for Serverless API deployments](deploy-models-serverless-availability.md) to verify which models and regions are available. If the one you need is not listed, you can deploy to a workspace in a supported region and then [consume serverless API endpoints from a different workspace](deploy-models-serverless-connect.md).
+
 1. Create the model's marketplace subscription. When you create a subscription, you accept the terms and conditions associated with the model offer.
 
     # [AI Studio](#tab/azure-ai-studio)
 
-    1. On the model's **Details** page, select **Deploy** and then select **Serverless API** to open the deployment wizard.
+    1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety (preview)** to open the deployment wizard.
 
-    1. Select the project in which you want to deploy your models. Notice that not all the regions are supported.
+    1. Select the project in which you want to deploy your models. To use the serverless API model deployment offering, your project must belong to one of the [regions that are supported for serverless deployment](deploy-models-serverless-availability.md) for the particular model.
 
         :::image type="content" source="../media/deploy-monitor/serverless/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the serverless API option." lightbox="../media/deploy-monitor/serverless/deploy-pay-as-you-go.png"::: 
 
@@ -183,7 +188,6 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
                 "type": "Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions",
                 "apiVersion": "2024-04-01",
                 "name": "[concat(parameters('project_name'), '/', parameters('subscription_name'))]",
-                "location": "[parameters('location')]",
                 "properties": {
                     "modelId": "[parameters('model_id')]"
                 }
@@ -192,7 +196,7 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
     }
     ```
 
-1. Once you sign up the project for the particular Azure Marketplace offering, subsequent deployments of the same offering in the same project don't require subscribing again.
+1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the same offering in the same project don't require subscribing again.
 
 1. At any point, you can see the model offers to which your project is currently subscribed:
 
@@ -234,15 +238,21 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
 
 ## Deploy the model to a serverless API endpoint
 
-Once you've created a model's subscription, you can deploy the associated model to a serverless API endpoint. The serverless API endpoint provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Once you've created a subscription for a non-Microsoft model, you can deploy the associated model to a serverless API endpoint. For Microsoft models (such as Phi-3 models), you don't need to create a subscription.
 
-In this article, you create an endpoint with name **meta-llama3-8b-qwerty**.
+The serverless API endpoint provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+
+In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
 
 1. Create the serverless endpoint
 
     # [AI Studio](#tab/azure-ai-studio)
 
-    1. From the previous wizard, select **Deploy** (if you've just subscribed the project to the model offer in the previous section), or select **Continue to deploy** (if your deployment wizard had the note *You already have an Azure Marketplace subscription for this project*). 
+    1. To deploy a Microsoft model that doesn't require subscribing to a model offering:
+        1. Select **Deploy** and then select **Serverless API with Azure AI Content Safety (preview)** to open the deployment wizard.
+        1. Select the project in which you want to deploy your model. Notice that not all the regions are supported.
+
+    1. Alternatively, for a non-Microsoft model that requires a model subscription, if you've just subscribed your project to the model offer in the previous section, continue to select **Deploy**. Alternatively, select **Continue to deploy** (if your deployment wizard had the note *You already have an Azure Marketplace subscription for this project*).
 
         :::image type="content" source="../media/deploy-monitor/serverless/deploy-pay-as-you-go-subscribed-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/serverless/deploy-pay-as-you-go-subscribed-project.png":::
 
@@ -419,11 +429,11 @@ In this article, you create an endpoint with name **meta-llama3-8b-qwerty**.
     > [!TIP]
     > If you're using prompt flow in the same project or hub where the deployment was deployed, you still need to create the connection.
 
-## Using the serverless API endpoint
+## Use the serverless API endpoint
 
 Models deployed in Azure Machine Learning and Azure AI studio in Serverless API endpoints support the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions from a diverse set of models in a uniform and consistent way. 
 
-Read more about the [capabilities of this API](../reference/reference-model-inference-api.md#capabilities) and how [you can leverage it when building applications](../reference/reference-model-inference-api.md#getting-started). 
+Read more about the [capabilities of this API](../reference/reference-model-inference-api.md#capabilities) and how [you can use it when building applications](../reference/reference-model-inference-api.md#getting-started). 
 
 ## Delete endpoints and subscriptions
 
@@ -496,7 +506,15 @@ az resource delete --name <resource-name>
 
 ## Cost and quota considerations for models deployed as serverless API endpoints
 
-Models deployed as serverless API endpoints are offered through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying or fine-tuning the models.
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
+
+#### Cost for Microsoft models
+
+You can find the pricing information on the __Pricing and terms__ tab of the deployment wizard when deploying Microsoft models (such as Phi-3 models) as serverless API endpoints.
+
+#### Cost for non-Microsoft models
+
+Non-Microsoft models deployed as serverless API endpoints are offered through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying or fine-tuning these models.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
@@ -504,8 +522,6 @@ For more information on how to track costs, see [Monitor costs for models offere
 
 :::image type="content" source="../media/deploy-monitor/serverless/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters." lightbox="../media/deploy-monitor/serverless/costs-model-as-service-cost-details.png":::
 
-
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
 ## Permissions required to subscribe to model offerings
 
@@ -528,6 +544,7 @@ Azure role-based access controls (Azure RBAC) are used to grant access to operat
 
 For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
-## Next step
+## Related content
 
+* [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
 * [Fine-tune a Meta Llama 2 model in Azure AI Studio](fine-tune-model-llama.md)

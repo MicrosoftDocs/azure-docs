@@ -3,7 +3,7 @@ title: Configure CORS in the Azure portal for Azure Container Apps
 description: Learn how to configure your static web app to allow cross origin resource sharing (CORS) for Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/21/2023

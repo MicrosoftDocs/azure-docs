@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 04/24/2024
 ms.author: anfdocs
 ---
 # Manage backup policies for Azure NetApp Files 

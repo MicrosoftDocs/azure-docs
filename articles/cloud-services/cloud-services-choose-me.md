@@ -1,9 +1,9 @@
 ---
 title: What is Azure Cloud Services (classic) | Microsoft Docs
-description: Learn about what Azure Cloud Services is, specifically that it's designed to support applications that are scalable, reliable, and inexpensive to operate.
+description: Learn about what Azure Cloud Services is, specifically its design to support applications that are scalable, reliable, and inexpensive to operate.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 02/21/2023
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -18,13 +18,13 @@ Azure Cloud Services is an example of a [platform as a service](https://azure.mi
 
 ![Azure Cloud Services diagram](./media/cloud-services-choose-me/diagram.png)
 
-More control also means less ease of use. Unless you need the additional control options, it's typically quicker and easier to get a web application up and running in the Web Apps feature of App Service compared to Azure Cloud Services.
+More control also means less ease of use. Unless you need the more control options, it's typically quicker and easier to get a web application up and running in the Web Apps feature of App Service compared to Azure Cloud Services.
 
 There are two types of Azure Cloud Services roles. The only difference between the two is how your role is hosted on the VMs:
 
-* **Web role**: Automatically deploys and hosts your app through IIS.
+* **Web role**: Automatically deploys and hosts your app through Internet Information Services (IIS).
 
-* **Worker role**: Does not use IIS, and runs your app standalone.
+* **Worker role**: Doesn't use IIS, and runs your app standalone.
 
 For example, a simple application might use just a single web role, serving a website. A more complex application might use a web role to handle incoming requests from users, and then pass those requests on to a worker role for processing. (This communication might use [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) or [Azure Queue storage](../storage/common/storage-introduction.md).)
 
@@ -40,7 +40,7 @@ An Azure Cloud Services application is typically made available to users via a t
 ## Monitoring
 Azure Cloud Services also provides monitoring. Like Virtual Machines, it detects a failed physical server and restarts the VMs that were running on that server on a new machine. But Azure Cloud Services also detects failed VMs and applications, not just hardware failures. Unlike Virtual Machines, it has an agent inside each web and worker role, and so it's able to start new VMs and application instances when failures occur.
 
-The PaaS nature of Azure Cloud Services has other implications, too. One of the most important is that applications built on this technology should be written to run correctly when any web or worker role instance fails. To achieve this, an Azure Cloud Services application shouldn't maintain state in the file system of its own VMs. Unlike VMs created with Virtual Machines, writes made to Azure Cloud Services VMs aren't persistent. There's nothing like a Virtual Machines data disk. Instead, an Azure Cloud Services application should explicitly write all state to Azure SQL Database, blobs, tables, or some other external storage. Building applications this way makes them easier to scale and more resistant to failure, which are both important goals of Azure Cloud Services.
+The PaaS nature of Azure Cloud Services has other implications, too. One of the most important implications is that you should write applications built on this technology to run correctly when any web or worker role instance fails. To achieve this goal, an Azure Cloud Services application shouldn't maintain state in the file system of its own VMs. Unlike VMs created with Virtual Machines, writes made to Azure Cloud Services VMs aren't persistent. There's nothing like a Virtual Machines data disk. Instead, an Azure Cloud Services application should explicitly write all state to Azure SQL Database, blobs, tables, or some other external storage. Building applications this way makes them easier to scale and more resistant to failure. Scalability and resiliency are both important goals of Azure Cloud Services.
 
 ## Next steps
 * [Create a cloud service app in .NET](cloud-services-dotnet-get-started.md) 

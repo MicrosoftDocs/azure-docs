@@ -13,11 +13,13 @@ ms.topic: how-to
 ms.date: 06/28/2024
 ---
 
-# Connect to Azure AI Search using key authentication
+# Connect to Azure AI Search using keys
 
-Azure AI Search offers key-based authentication that you can use on connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. A request made to a search service endpoint is accepted if both the request and the API key are valid.
+Azure AI Search offers key-based authentication for connections to your search service. An API key is a unique string composed of 52 randomly generated numbers and letters. In your source code, you can specify it as an [environment variable](/azure/ai-services/cognitive-services-environment-variables) or as an app setting in your project, and then reference the variable on the request. A request made to a search service endpoint is accepted if both the request and the API key are valid.
 
-Key-based authentication is the default. You can replace it with [role-based access](search-security-enable-roles.md), which eliminates the need for hardcoded keys in your code.
+Key-based authentication is the default. 
+
+You can replace it with [role-based access](search-security-enable-roles.md), which eliminates the need for hardcoded keys in your codebase.
 
 ## Types of API keys
 
@@ -50,7 +52,7 @@ Here's an example of admin API key usage on a create index request:
 
 ```http
 ### Create an index
-POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{adminApiKey}}
 
@@ -69,7 +71,7 @@ Here's an example of query API key usage on a Search Documents (GET) request:
 
 ```http
 ### Query an index
-GET /indexes/my-new-index/docs?search=*&api-version=2023-11-01&api-key={{queryApiKey}}
+GET /indexes/my-new-index/docs?search=*&api-version=2024-07-01&api-key={{queryApiKey}}
 ```
 
 > [!NOTE]  

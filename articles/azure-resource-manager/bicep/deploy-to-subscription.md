@@ -165,7 +165,7 @@ To deploy resources to the target subscription, add those resources with the `re
 targetScope = 'subscription'
 
 // resource group created in target subscription
-resource exampleResource 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+resource exampleResource 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   ...
 }
 ```
@@ -229,7 +229,7 @@ targetScope = 'subscription'
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
 // management group created at tenant
-resource managementGroup 'Microsoft.Management/managementGroups@2021-04-01' = {
+resource managementGroup 'Microsoft.Management/managementGroups@2023-04-01' = {
   scope: tenant()
   name: mgName
   properties: {}
@@ -257,7 +257,7 @@ param policyDefinitionID string
 param policyName string
 param policyParameters object = {}
 
-resource policyAssign 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
+resource policyAssign 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
   name: policyName
   properties: {
     policyDefinitionId: policyDefinitionID
@@ -273,7 +273,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
 ```bicep
 targetScope = 'subscription'
 
-resource locationPolicy 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
+resource locationPolicy 'Microsoft.Authorization/policyDefinitions@2023-04-01' = {
   name: 'locationpolicy'
   properties: {
     policyType: 'Custom'
@@ -290,7 +290,7 @@ resource locationPolicy 'Microsoft.Authorization/policyDefinitions@2021-06-01' =
   }
 }
 
-resource locationRestrict 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
+resource locationRestrict 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
   name: 'allowedLocation'
   properties: {
     policyDefinitionId: locationPolicy.id
@@ -324,7 +324,7 @@ param roleAssignmentName string = guid(principalId, roleDefinitionId, resourceGr
 
 var roleID = '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/${roleDefinitionId}'
 
-resource newResourceGroup 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+resource newResourceGroup 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: resourceGroupName
   location: resourceGroupLocation
   properties: {}

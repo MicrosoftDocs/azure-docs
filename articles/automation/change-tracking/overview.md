@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/30/2024
+ms.date: 08/02/2024
 ms.custom: linux-related-content
 ms.topic: conceptual
 ---
@@ -11,7 +11,7 @@ ms.topic: conceptual
 # Change Tracking and Inventory overview
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!Important]
 > - Change Tracking and Inventory using Log Analytics agent will  retire on **31 August 2024** and we recommend that you use Azure Monitoring Agent as the new supporting agent. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md).
@@ -28,7 +28,7 @@ This article introduces you to Change Tracking and Inventory in Azure Automation
 > [!NOTE]
 > To track Azure Resource Manager property changes, see the Azure Resource Graph [change history](../../governance/resource-graph/how-to/get-resource-changes.md).
 
-Change Tracking and Inventory makes use of [Microsoft Defender for Cloud File Integrity Monitoring (FIM)](../../security-center/security-center-file-integrity-monitoring.md) to examine operating system and application files, and Windows Registry. While FIM monitors those entities, Change Tracking and Inventory natively tracks:
+Change Tracking and Inventory is used by Microsoft Defender [Microsoft Defender for Cloud File Integrity Monitoring (FIM)](../../security-center/security-center-file-integrity-monitoring.md) to examine operating system and application files, and Windows Registry. While FIM monitors those entities, Change Tracking and Inventory natively tracks:
 
 - Software changes
 - Windows services

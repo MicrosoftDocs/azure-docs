@@ -6,7 +6,7 @@ services: azure-resource-manager
 ms.author: jushiman
 ms.date: 03/10/2022
 ms.topic: quickstart
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 

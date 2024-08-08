@@ -3,8 +3,8 @@ title: Azure Synapse Runtime for Apache Spark 3.1 (unsupported)
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.1.
 author: ekote
 ms.author: eskot 
-ms.reviewer: wiassaf, sngun
-ms.service: synapse-analytics
+ms.reviewer: whhender, whhender
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/28/2022
@@ -15,15 +15,15 @@ ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1.
 
-> [!WARNING] 
->  Deprecation and disablement notification for Azure Synapse Runtime for Apache Spark 3.1 
-> * End of Support for Azure Synapse Runtime for Apache Spark 3.1 announced January 26, 2023.
-> * Effective January 26, 2024, the Azure Synapse has stopped official support for Spark 3.1 Runtimes.
-> * Post January 26, 2024, we will not be addressing any support tickets related to Spark 3.1. There will be no release pipeline in place for bug or security fixes for Spark 3.1. Utilizing Spark 3.1 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
-> * Recognizing that certain customers may need additional time to transition to a higher runtime version, we are temporarily extending the usage option for Spark 3.1, but we will not provide any official support for it.
-> * **We strongly advise proactively upgrading workloads to a more recent version of the runtime (e.g., [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md))**.
-
-
+> [!CAUTION]
+> Deprecation and disablement notification for Azure Synapse Runtime for Apache Spark 3.1 
+> * Effective August 29, 2024, **disablement** of jobs running on Azure Synapse Runtime for Apache Spark 3.1 will be executed. **Immediately** migrate to higher runtime versions otherwise your jobs will stop executing. 
+> * **All Spark jobs running on Azure Synapse Runtime for Apache Spark 3.1 will be disabled as of August 29, 2024.**
+ * End of Support for Azure Synapse Runtime for Apache Spark 3.1 announced January 26, 2023.
+ * Effective January 26, 2024, the Azure Synapse has stopped official support for Spark 3.1 Runtimes.
+ * Post January 26, 2024, we will not be addressing any support tickets related to Spark 3.1. There will be no release pipeline in place for bug or security fixes for Spark 3.1. Utilizing Spark 3.1 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
+ * Recognizing that certain customers may need additional time to transition to a higher runtime version, we are temporarily extending the usage option for Spark 3.1, but we will not provide any official support for it.
+ * **We strongly advise proactively upgrading workloads to a more recent version of the runtime (e.g., [Azure Synapse Runtime for Apache  Spark 3.4 (GA)](./apache-spark-34-runtime.md))**.
 ## Component versions
 
 |  Component   | Version   |  

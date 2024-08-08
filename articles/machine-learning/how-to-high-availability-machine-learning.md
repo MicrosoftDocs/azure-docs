@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.author: andyaviles 
-author: andyaviles121 
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: andyaviles
 ms.date: 06/28/2024
 monikerRange: 'azureml-api-2'
 ---

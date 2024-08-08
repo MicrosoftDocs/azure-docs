@@ -1,7 +1,7 @@
 ---
 title: Configure server parameters - Azure PowerShell - Azure Database for PostgreSQL
 description: This article describes how to configure the service parameters in Azure Database for PostgreSQL using PowerShell.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila

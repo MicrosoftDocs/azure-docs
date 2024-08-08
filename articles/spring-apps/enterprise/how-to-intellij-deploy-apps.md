@@ -4,7 +4,7 @@ title:  "Tutorial: Deploy Spring Boot applications using IntelliJ"
 description: Use IntelliJ to deploy applications to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: tutorial
 ms.date: 06/27/2024
 ms.custom: devx-track-java

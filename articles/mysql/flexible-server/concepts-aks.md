@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
@@ -57,8 +57,8 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## Use Azure premium fileshare
 
- Use [Azure premium fileshare](../../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal) for persistent storage that can be used by one or many pods, and can be dynamically or statically provisioned. Azure premium fileshare gives you best performance for your application if you expect large number of I/O operations on the file storage. To learn more, see [How to enable Azure Files](../../aks/azure-files-dynamic-pv.md).
+ Use [Azure premium fileshare](../../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal) for persistent storage that can be used by one or many pods, and can be dynamically or statically provisioned. Azure premium fileshare gives you best performance for your application if you expect large number of I/O operations on the file storage. To learn more, see [How to enable Azure Files](/azure/aks/azure-files-dynamic-pv).
 
 ## Next steps
 
-Create an AKS cluster by [using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../../aks/learn/quick-kubernetes-deploy-portal.md).
+Create an AKS cluster by [using the Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli), [using Azure PowerShell](/azure/aks/learn/quick-kubernetes-deploy-powershell), or [using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal).

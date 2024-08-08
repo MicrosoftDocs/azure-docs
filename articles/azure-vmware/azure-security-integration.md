@@ -27,7 +27,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 ## Prerequisites
 
-- [Plan for optimized use of Defender for Cloud](../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md).
+- [Plan for optimized use of Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide).
 
 - [Review the supported platforms in Defender for Cloud](../security-center/security-center-os-coverage.md).
 
@@ -159,7 +159,7 @@ After connecting data sources to Microsoft Sentinel, you can create rules to gen
 
 6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next: Automated response**.
  
-    :::image type="content" source="../sentinel/media/detect-threats-custom/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Microsoft Sentinel.":::
+    :::image type="content" source="../sentinel/media/create-analytics-rules/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Microsoft Sentinel.":::
 
 7. Select **Next: Review**.
 

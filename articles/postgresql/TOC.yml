@@ -122,6 +122,8 @@
       href: flexible-server/concepts-compliance.md
     - name: Limits
       href: flexible-server/concepts-limits.md
+    - name: Identity
+      href: flexible-server/concepts-Identity.md
     - name: Encryption with customer managed keys
       href: flexible-server/concepts-data-encryption.md
     - name: Scheduled maintenance
@@ -578,6 +580,8 @@
       items:
       - name: Troubleshoot errors
         href: migrate/migration-service/troubleshoot-error-codes-premigration.md
+  - name: Automigration from Azure Database for PostgreSQL - Single Server to Flexible Server
+    href: migrate/automigration-single-to-flexible-postgresql.md
   - name: Migrate data with pg_dump
     href: migrate/how-to-migrate-using-dump-and-restore.md
   - name: Minimal-downtime migration with DMS
@@ -694,7 +698,7 @@
         href: single-server/concepts-connectivity-architecture.md
         displayName: security, architecture
       - name: Threat protection with Microsoft Defender for Cloud
-        href: ../defender-for-cloud/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
+        href: /azure/defender-for-cloud/defender-for-databases-usage?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md

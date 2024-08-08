@@ -54,7 +54,7 @@ The collection endpoint preaggregates events before ingestion sampling. For this
 |-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
 | ASP.NET                 | Supported <sup>1<sup>    | Not supported                             | Not supported                           |
 | ASP.NET Core            | Supported <sup>2<sup>    | Not supported                             | Not supported                           |
-| Java                    | Not supported            | Not supported                             | [Supported](opentelemetry-add-modify.md?tabs=java#metrics) |
+| Java                    | Not supported            | Not supported                             | [Supported](opentelemetry-add-modify.md?tabs=java#send-custom-telemetry-using-the-application-insights-classic-api) |
 | Node.js                 | Not supported            | Not supported                             | Not supported                           |
 
 1. [ASP.NET autoinstrumentation on virtual machines/virtual machine scale sets](./azure-vm-vmss-apps.md) and [on-premises](./application-insights-asp-net-agent.md) emits standard metrics without dimensions. The same is true for Azure App Service, but the collection level must be set to recommended. The SDK is required for all dimensions.

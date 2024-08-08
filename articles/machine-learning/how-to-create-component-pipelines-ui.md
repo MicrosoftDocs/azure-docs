@@ -3,11 +3,11 @@ title: Create and run component-based ML pipelines (UI)
 titleSuffix: Azure Machine Learning
 description: Create and run machine learning pipelines using the Azure Machine Learning studio UI.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.author: keli19
-author: likebupt
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: keli19
 ms.date:  01/31/2024
 ms.topic: how-to
 ms.custom: devplatv2, designer

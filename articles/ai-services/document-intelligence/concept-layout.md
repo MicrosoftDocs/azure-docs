@@ -5,10 +5,8 @@ description: Extract text, tables, selections, titles, section headings, page he
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ---
 
@@ -51,11 +49,11 @@ The following illustration shows the typical components in an image of a sample 
 
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2024-02-29-preview, 2023-10-31-preview) supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-07-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Layout model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-layout**|
+|**Layout model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-layout**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
@@ -120,7 +118,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of `Layout` processing a newspaper page in Document Intelligence Studio.":::
 
-1. On the Document Intelligence Studio home page, select **Layout**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Layout**.
 
 1. You can analyze the sample document or upload your own files.
 
@@ -201,13 +199,14 @@ The pages collection is a list of pages within the document. Each page is repres
 |PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
 |TIFF | Each image in the TIFF = 1 page unit | Total images in the TIFF |
 |Word (DOCX)  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
-|Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets | 
-|PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides | 
+|Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets |
+|PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides |
 |HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.0.0"
+
 ```json
 "pages": [
     {
@@ -228,6 +227,7 @@ The pages collection is a list of pages within the document. Each page is repres
 ::: moniker range="doc-intel-3.1.0"
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze pages.
 for page in result.pages:
@@ -235,11 +235,14 @@ for page in result.pages:
     print(
         f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}"
     )
+
 ```
+
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model/sample_analyze_layout.py)
 
 #### [Output](#tab/output)
+
 ```json
 "pages": [
     {
@@ -260,16 +263,19 @@ for page in result.pages:
 ::: moniker range="doc-intel-4.0.0"
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze pages.
 for page in result.pages:
     print(f"----Analyzing layout from page #{page.page_number}----")
     print(f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}")
+
 ```
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
 
 #### [Output](#tab/output)
+
 ```json
 "pages": [
     {
@@ -311,9 +317,9 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 
 ### Paragraph roles
 
-The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Document Intelligence Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
+The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Document Intelligence Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. It's best to use paragraph roles with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
 
-| **Predicted role**   | **Description**   | **Supported file types** | 
+| **Predicted role**   | **Description**   | **Supported file types** |
 | --- | --- | --- |
 | `title`  | The main headings in the page | pdf, image, docx, pptx, xlsx, html |
 | `sectionHeading`  | One or more subheadings on the page  | pdf, image, docx, xlsx, html |
@@ -374,6 +380,7 @@ For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence versions 
 ::: moniker range="doc-intel-3.1.0"
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze lines.
 for line_idx, line in enumerate(page.lines):
@@ -388,11 +395,13 @@ for line_idx, line in enumerate(page.lines):
         print(
             f"......Word '{word.content}' has a confidence of {word.confidence}"
         )
+
 ```
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model/sample_analyze_layout.py)
 
 #### [Output](#tab/output)
+
 ```json
 "words": [
     {
@@ -416,6 +425,7 @@ for line_idx, line in enumerate(page.lines):
 ::: moniker range="doc-intel-4.0.0"
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze lines.
 if page.lines:
@@ -429,11 +439,13 @@ if page.lines:
     # Analyze words.
     for word in words:
         print(f"......Word '{word.content}' has a confidence of {word.confidence}")
+
 ```
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
 
 #### [Output](#tab/output)
+
 ```json
 "words": [
     {
@@ -503,6 +515,7 @@ The Layout model also extracts selection marks from documents. Extracted selecti
 ::: moniker range="doc-intel-3.1.0"
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze selection marks.
 for selection_mark in page.selection_marks:
@@ -510,11 +523,13 @@ for selection_mark in page.selection_marks:
         f"Selection mark is '{selection_mark.state}' within bounding polygon "
         f"'{format_polygon(selection_mark.polygon)}' and has a confidence of {selection_mark.confidence}"
     )
+
 ```
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model/sample_analyze_layout.py)
 
 #### [Output](#tab/output)
+
 ```json
 {
     "selectionMarks": [
@@ -536,6 +551,7 @@ for selection_mark in page.selection_marks:
 ::: moniker range="doc-intel-4.0.0"
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze selection marks.
 if page.selection_marks:
@@ -544,11 +560,13 @@ if page.selection_marks:
             f"Selection mark is '{selection_mark.state}' within bounding polygon "
             f"'{selection_mark.polygon}' and has a confidence of {selection_mark.confidence}"
         )
+
 ```
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
 
 #### [Output](#tab/output)
+
 ```json
 {
     "selectionMarks": [
@@ -564,6 +582,7 @@ if page.selection_marks:
     ]
 }
 ```
+
 ---
 ::: moniker-end
 
@@ -573,8 +592,20 @@ if page.selection_marks:
 
 Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether the area is recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
 
+Here are a few factors to consider when using the Document Intelligence bale extraction capability:
+
+* Is the data that you want to extract presented as a table, and is the table structure meaningful?
+
+* Can the data fit in a two-dimensional grid if the data isn't in a table format?
+
+* Do your tables span multiple pages? If so, to avoid having to label all the pages, split the PDF into pages before sending it to Document Intelligence. After the analysis, post-process the pages to a single table.
+
+* Refer to [Tabular fields](concept-custom-label.md#tabular-fields) if you're creating custom models. Dynamic tables have a variable number of rows for each column. Fixed tables have a constant number of rows for each column.
+
 > [!NOTE]
-> Table is not supported if the input file is XLSX.
+>
+> * Table analysis is not supported if the input file is XLSX.
+> * Starting with *2024-07-31-preview*, the bounding regions for figures and tables cover only the core content and exclude associated caption and footnotes.
 
 ::: moniker-end
 
@@ -607,6 +638,7 @@ Extracting tables is a key requirement for processing documents containing large
 ::: moniker range="doc-intel-3.1.0"
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze tables.
 for table_idx, table in enumerate(result.tables):
@@ -626,11 +658,13 @@ for table_idx, table in enumerate(result.tables):
             print(
                 f"...content on page {region.page_number} is within bounding polygon '{format_polygon(region.polygon)}'"
             )
+
 ```
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model/sample_analyze_layout.py)
 
 #### [Output](#tab/output)
+
 ```json
 {
     "tables": [
@@ -659,6 +693,7 @@ for table_idx, table in enumerate(result.tables):
 ::: moniker range="doc-intel-4.0.0"
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 if result.tables:
     for table_idx, table in enumerate(result.tables):
@@ -672,11 +707,13 @@ if result.tables:
             if cell.bounding_regions:
                 for region in cell.bounding_regions:
                 print(f"...content on page {region.page_number} is within bounding polygon '{region.polygon}'")
+
 ```
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
 
 #### [Output](#tab/output)
+
 ```json
 {
     "tables": [
@@ -731,7 +768,11 @@ The Layout model extracts annotations in documents, such as checks and crosses. 
 
 The Layout API can output the extracted text in markdown format. Use the `outputContentFormat=markdown` to specify the output format in markdown. The markdown content is output as part of the `content` section.
 
+> [!NOTE]
+> Starting from *2024-07-31-preview*, the representation of tables is changed to HTML tables to enable rendering of merged cells, multi-row headers, etc. Another related change is to use Unicode checkbox characters ☒ and ☐ for selection marks instead of :selected: and :unselected:.  Note that this means that the content of selection mark fields will contain :selected: even though their spans refer to Unicode characters in the top-level span.
+
 #### [Sample code](#tab/sample-code)
+
 ```Python
 document_intelligence_client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 poller = document_intelligence_client.begin_analyze_document(
@@ -785,7 +826,7 @@ vague
 coherent
  :unselected:
 Incomprehensible
-Turn documents into usable data and shift your focus to acting on information rather than compiling it. Start with prebuilt models or create custom models tailored to your documents both on premises and in the cloud with the Al Document Intelligence studio or SDK.  
+Turn documents into usable data and shift your focus to acting on information rather than compiling it. Start with prebuilt models or create custom models tailored to your documents both on premises and in the cloud with the Al Document Intelligence studio or SDK.
 Learn how to accelerate your business processes by automating text extraction with Al Document Intelligence. This webinar features hands-on demos for key use cases such as document processing, knowledge mining, and industry-specific Al model customization.
 <!-- PageFooter="This is the footer of the document." -->
 <!-- PageFooter="1 | Page" -->
@@ -796,15 +837,23 @@ Learn how to accelerate your business processes by automating text extraction wi
 
 Figures (charts, images) in documents play a crucial role in complementing and enhancing the textual content, providing visual representations that aid in the understanding of complex information. The figures object detected by the Layout model has key properties like `boundingRegions` (the spatial locations of the figure on the document pages, including the page number and the polygon coordinates that outline the figure's boundary), `spans` (details the text spans related to the figure, specifying their offsets and lengths within the document's text. This connection helps in associating the figure with its relevant textual context), `elements` (the identifiers for text elements or paragraphs within the document that are related to or describe the figure) and `caption` if there's any.
 
+When *output=figures* is specified during the initial analyze operation, the service generates cropped images for all detected figures that can be accessed via `/analyeResults/{resultId}/figures/{figureId}`.
+`FigureId` is included in each figure object, following an undocumented convention of `{pageNumber}.{figureIndex}` where `figureIndex` resets to one per page.
+
+> [!NOTE]
+> Starting with *2024-07-31-preview*, the bounding regions for figures and tables cover only the core content and exclude associated caption and footnotes.
+
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze figures.
-if result.figures:                    
+if result.figures:
     for figures_idx,figures in enumerate(result.figures):
         print(f"Figure # {figures_idx} has the following spans:{figures.spans}")
         for region in figures.bounding_regions:
-            print(f"Figure # {figures_idx} location on page:{region.page_number} is within bounding polygon '{region.polygon}'")                    
+            print(f"Figure # {figures_idx} location on page:{region.page_number} is within bounding polygon '{region.polygon}'")
 ```
+
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
 
@@ -814,6 +863,7 @@ if result.figures:
 {
     "figures": [
       {
+        "id": "{figureId}",
         "boundingRegions": [],
         "spans": [],
         "elements": [
@@ -839,6 +889,7 @@ if result.figures:
 Hierarchical document structure analysis is pivotal in organizing, comprehending, and processing extensive documents. This approach is vital for semantically segmenting long documents to boost comprehension, facilitate navigation, and improve information retrieval. The advent of [Retrieval Augmented Generation (RAG)](concept-retrieval-augmented-generation.md) in document generative AI underscores the significance of hierarchical document structure analysis. The Layout model supports sections and subsections in the output, which identifies the relationship of sections and object within each section. The hierarchical structure is maintained in `elements` of each section. You can use [output to markdown format](#output-to-markdown-format) to easily get the sections and subsections in markdown.
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 document_intelligence_client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 poller = document_intelligence_client.begin_analyze_document(
@@ -852,6 +903,7 @@ poller = document_intelligence_client.begin_analyze_document(
 > [View samples on GitHub.](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_analyze_documents_output_in_markdown.py)
 
 #### [Output](#tab/output)
+
 ```json
 {
     "sections": [

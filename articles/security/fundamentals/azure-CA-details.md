@@ -4,8 +4,9 @@ description: Certificate Authority details for Azure services that utilize x509 
 services: security
 ms.service: security
 ms.subservice: security-fundamentals
+ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 06/23/2024
+ms.date: 07/22/2024
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
@@ -20,6 +21,7 @@ This article outlines the specific root and subordinate Certificate Authorities 
 Any entity trying to access Microsoft Entra identity services via the TLS/SSL protocols will be presented with certificates from the CAs listed in this article. Different services may use different root or intermediate CAs. The following root and subordinate CAs are relevant to entities that use [certificate pinning](certificate-pinning.md).
 
 **How to read the certificate details:**
+
 - The Serial Number (top string in the table) contains the hexadecimal value of the certificate serial number.
 - The Thumbprint (bottom string in the table) is the SHA1 thumbprint.
 - CAs listed in italics are the most recently added CAs.
@@ -34,6 +36,7 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | [DigiCert Global Root CA](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 |
 | [DigiCert Global Root G2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | 0x033af1e6a711a9a0bb2864b11d09fae5<br>DF3C24F9BFD666761B268073FE06D1CC8D4F82A4 |
 | [DigiCert Global Root G3](https://cacerts.digicert.com/DigiCertGlobalRootG3.crt) | 0x055556bcf25ea43535c3a40fd5ab4572<br>7E04DE896A3E666D00E687D33FFAD93BE83D349E |
+| [Entrust Root Certification Authority G2](https://web.entrust.com/root-certificates/entrust_g2_ca.cer) | 4a538c28<br>8cf427fd790c3ad166068de81e57efbb932272d4 |
 | [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 0x66f23daf87de8bb14aea0c573101c2ec<br>999A64C37FF47D9FAB95F14769891460EEC4C3C5 |
 | [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 0x1ed397095fd8b4b347701eaabe7f45b3<br>73a5e64a3bff8316ff0edccc618a906e4eae4d74 |
 
@@ -43,11 +46,13 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 |---- |---- |
 | [DigiCert Basic RSA CN CA G2](https://crt.sh/?d=2545289014) | 0x02f7e1f982bad009aff47dc95741b2f6<br>4D1FA5D1FB1AC3917C08E43F65015E6AEA571179 |
 | [DigiCert Cloud Services CA-1](https://crt.sh/?d=12624881) | 0x019ec1c6bd3f597bb20c3338e551d877<br>81B68D6CD2F221F8F534E677523BB236BBA1DC56 |
-| [DigiCert Cloud Services CA-1](https://crt.sh/?q=B3F6B64A07BB9611F47174407841F564FB991F29) | 0f171a48c6f223809218cd2ed6ddc0e8<br>b3f6b64a07bb9611f47174407841f564fb991f29 |
+| [DigiCert Cloud Services CA-1](https://crt.sh/?d=B3F6B64A07BB9611F47174407841F564FB991F29) | 0f171a48c6f223809218cd2ed6ddc0e8<br>b3f6b64a07bb9611f47174407841f564fb991f29 |
 | [DigiCert SHA2 Secure Server CA](https://crt.sh/?d=3422153451) | 0x02742eaa17ca8e21c717bb1ffcfd0ca0<br>626D44E704D1CEABE3BF0D53397464AC8080142C |
 | [DigiCert TLS Hybrid ECC SHA384 2020 CA1](https://crt.sh/?d=3422153452) | 0x0a275fe704d6eecb23d5cd5b4b1a4e04<br>51E39A8BDB08878C52D6186588A0FA266A69CF28 |
 | [DigiCert TLS RSA SHA256 2020 CA1](https://crt.sh/?d=4385364571) | 0x06d8d904d5584346f68a2fa754227ec4<br>1C58A3A8518E8759BF075B76B750D4F2DF264FCD |
-| [DigiCert TLS RSA SHA256 2020 CA1](https://crt.sh/?q=6938FD4D98BAB03FAADB97B34396831E3780AEA1) | 0a3508d55c292b017df8ad65c00ff7e4<br>6938fd4d98bab03faadb97b34396831e3780aea1 |
+| [DigiCert TLS RSA SHA256 2020 CA1](https://crt.sh/?d=6938FD4D98BAB03FAADB97B34396831E3780AEA1) | 0a3508d55c292b017df8ad65c00ff7e4<br>6938fd4d98bab03faadb97b34396831e3780aea1 |
+| [Entrust Certification Authority - L1K](https://aia.entrust.net/l1k-chain256.cer) | 0ee94cc30000000051d37785<br>f21c12f46cdb6b2e16f09f9419cdff328437b2d7 |
+| [Entrust Certification Authority - L1M](https://aia.entrust.net/l1m-chain256.cer) | 61a1e7d20000000051d366a6<br>cc136695639065fab47074d28c55314c66077e90 |
 | [GeoTrust Global TLS RSA4096 SHA256 2022 CA1](https://crt.sh/?d=6670931375) | 0x0f622f6f21c2ff5d521f723a1d47d62d<br>7E6DB7B7584D8CF2003E0931E6CFC41A3A62D3DF |
 | [Microsoft Azure ECC TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2003%20-%20xsign.crt) | 0x01529ee8368f0b5d72ba433e2d8ea62d<br>56D955C849887874AA1767810366D90ADF6C8536 |
 | [Microsoft Azure ECC TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2003.crt) | 0x330000003322a2579b5e698bcc000000000033<br>91503BE7BF74E2A10AA078B48B71C3477175FEC3 |
@@ -102,6 +107,9 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | └ [Microsoft Azure ECC TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2004%20-%20xsign.crt) | 0x02393d48d702425a7cb41c000b0ed7ca<br>FB73FDC24F06998E070A06B6AFC78FDF2A155B25 |
 | └ [Microsoft Azure ECC TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2007%20-%20xsign.crt) | 0x0f1f157582cdcd33734bdc5fcd941a33<br>3BE6CA5856E3B9709056DA51F32CBC8970A83E28 |
 | └ [Microsoft Azure ECC TLS Issuing CA 08](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2008%20-%20xsign.crt) | 0x0ef2e5d83681520255e92c608fbc2ff4<br>716DF84638AC8E6EEBE64416C8DD38C2A25F6630 |
+| [**Entrust Root Certification Authority G2**](https://web.entrust.com/root-certificates/entrust_g2_ca.cer) | 4a538c28<br>8cf427fd790c3ad166068de81e57efbb932272d4 |
+| └ [Entrust Certification Authority - L1K](https://aia.entrust.net/l1k-chain256.cer) | 0ee94cc30000000051d37785<br>f21c12f46cdb6b2e16f09f9419cdff328437b2d7 |
+| └ [Entrust Certification Authority - L1M](https://aia.entrust.net/l1m-chain256.cer) | 61a1e7d20000000051d366a6<br>cc136695639065fab47074d28c55314c66077e90 |
 | [**Microsoft ECC Root Certificate Authority 2017**](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 0x66f23daf87de8bb14aea0c573101c2ec<br>999A64C37FF47D9FAB95F14769891460EEC4C3C5 |
 | └ [Microsoft Azure ECC TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2003.crt) | 0x330000003322a2579b5e698bcc000000000033<br>91503BE7BF74E2A10AA078B48B71C3477175FEC3 |
 | └ [Microsoft Azure ECC TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2004.crt) | 0x33000000322164aedab61f509d000000000032<br>406E3B38EFF35A727F276FE993590B70F8224AED |
@@ -250,6 +258,7 @@ Microsoft updated Azure services to use TLS certificates from a different set of
 
 ### Article change log
 
+- July 22, 2024: Added Entrust CAs from a parallel Microsoft 365 article to provide a comprehensive list.
 - June 27, 2024: Removed the following CAs, which were superseded by both versions of Microsoft Azure ECC TLS Issuing CAs 03, 04, 07, 08.
 
     | Certificate Authority | Serial Number<br>Thumbprint |
@@ -270,6 +279,7 @@ Microsoft updated Azure services to use TLS certificates from a different set of
     |[Microsoft Azure TLS Issuing CA 05](https://crt.sh/?d=2616326057)|0x330000001f9f1fa2043bc28db900000000001f<br>56F1CA470BB94E274B516A330494C792C419CF87|
     |[Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006.cer)| 0x02e79171fb8021e93fe2d983834c50c0<br>30E01761AB97E59A06B41EF20AF6F2DE7EF4F7B0|
     |[Microsoft Azure TLS Issuing CA 06](https://crt.sh/?d=2616330106)|0x3300000020a2f1491a37fbd31f000000000020<br>8F1FD57F27C828D7BE29743B4D02CD7E6E5F43E6|
+
 - July 17, 2023: Added 16 new subordinate Certificate Authorities
 - February 7, 2023: Added eight new subordinate Certificate Authorities
 

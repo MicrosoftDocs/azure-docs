@@ -291,7 +291,7 @@ You can only regenerate one admin API key at a time.
 ### Regnerate admin keys
 POST https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/regenerateAdminKey/primary?api-version=2023-11-01 HTTP/1.1
      Content-type: application/json
-     Authorization: Bearer 
+     Authorization: Bearer {{token}}
 ```
 
 ## Create query API keys

@@ -3,14 +3,13 @@ title: How to deploy TimeGEN-1 model with Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy TimeGEN-1 with Azure Machine Learning studio.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 5/21/2024
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.author: mopeakande
+author: msakande
+ms.reviewer: kritifaujdar
 ms.custom: [references_regions]
 ---
 
@@ -47,6 +46,40 @@ You can deploy TimeGEN-1 as a serverless API with pay-as-you-go billing. Nixtla 
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
+
+#### Estimate the number of tokens needed
+
+Before you create a deployment, it's useful to estimate the number of tokens that you plan to consume and be billed for.
+One token corresponds to one data point in your input dataset or output dataset.
+
+Suppose you have the following input time series dataset:
+
+| Unique_id | Timestamp           | Target Variable | Exogenous Variable 1 | Exogenous Variable 2 |
+|:---------:|:-------------------:|:---------------:|:--------------------:|:--------------------:|
+| BE        | 2016-10-22 00:00:00 | 70.00           | 49593.0              | 57253.0              |
+| BE        | 2016-10-22 01:00:00 | 37.10           | 46073.0              | 51887.0              |
+
+To determine the number of tokens, multiply the number of rows (in this example, two) and the number of columns used for forecasting—not counting the unique_id and timestamp columns (in this example, three) to get a total of six tokens.
+
+Given the following output dataset:
+
+| Unique_id | Timestamp           | Forecasted Target Variable |
+|:---------:|:-------------------:|:--------------------------:|
+| BE        | 2016-10-22 02:00:00 | 46.57                      |
+| BE        | 2016-10-22 03:00:00 | 48.57                      |
+
+You can also determine the number of tokens by counting the number of data points returned after data forecasting. In this example, the number of tokens is two.
+
+#### Estimate pricing based on tokens
+
+There are four pricing meters that determine the price you pay. These meters are as follows:
+
+| Pricing Meter | Description |
+|--|--|
+| paygo-inference-input-tokens | Costs associated with the tokens used as input for inference when *finetune_steps* = 0 |
+| paygo-inference-output-tokens | Costs associated with the tokens used as output for inference when *finetune_steps* = 0 |
+| paygo-finetuned-model-inference-input-tokens | Costs associated with the tokens used as input for inference when *finetune_steps* > 0 |
+| paygo-finetuned-model-inference-output-tokens | Costs associated with the tokens used as output for inference when *finetune_steps* > 0 |
 
 ### Create a new deployment
 

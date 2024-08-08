@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected System Center Virtual Machine Manager 
 description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager.
-ms.date: 06/27/2024
+ms.date: 07/11/2024
 ms.topic: overview
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -86,27 +86,12 @@ Azure Arc-enabled SCVMM is currently supported in the following regions:
 - Southeast Asia
 - Australia East
 
-### Resource bridge networking requirements
-
-The following firewall URL exceptions are needed for the Azure Arc resource bridge VM:
-
-[!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
-
-In addition, SCVMM requires the following exception:
-
-| **Service** | **Port** | **URL** | **Direction** | **Notes**|
-| --- | --- | --- | --- | --- |
-| SCVMM Management Server | 443 | URL of the SCVMM management server. | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
-| WinRM | WinRM Port numbers (Default: 5985 and 5986). | URL of the WinRM service. | IPs in the IP Pool used by the Appliance VM and control plane need connection with the VMM server. | Used by the SCVMM server to communicate with the Appliance VM. |
-
-[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
-
-For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
-
 ## Data Residency
 
 Azure Arc-enabled SCVMM doesn't store/process customer data outside the region the customer deploys the service instance in.
 
 ## Next steps
 
-[Create an Azure Arc VM](create-virtual-machine.md).
+
+- Plan your Arc-enabled SCVMM deployment by reviewing the [support matrix](support-matrix-for-system-center-virtual-machine-manager.md).
+- Once ready, [connect your SCVMM management server to Azure Arc using the onboarding script](quickstart-connect-system-center-virtual-machine-manager-to-arc.md).

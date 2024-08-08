@@ -3,11 +3,11 @@ title: Create client for model deployed as web service
 titleSuffix: Azure Machine Learning
 description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-ms.author: aashishb
-author: aashishb
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: aashishb
 ms.date: 11/16/2022
 ms.topic: how-to
 ms.devlang: csharp
@@ -21,7 +21,7 @@ ms.custom: UpdateFrequency5, devx-track-python, devx-track-csharp, cliv1, sdkv1,
 
 Deploying an Azure Machine Learning model as a web service creates a REST API endpoint. You can send data to this endpoint and receive the prediction returned by the model. In this document, learn how to create clients for the web service by using C#, Go, Java, and Python.
 
-You create a web service when you deploy a model to your local environment, Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA). You retrieve the URI used to access the web service by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). If authentication is enabled, you can also use the SDK to get the authentication keys or tokens.
+You create a web service when you deploy a model to your local environment, Azure Container Instances, or Azure Kubernetes Service. You retrieve the URI used to access the web service by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). If authentication is enabled, you can also use the SDK to get the authentication keys or tokens.
 
 The general workflow for creating a client that uses a machine learning web service is:
 
@@ -90,6 +90,9 @@ az ml service show -n <service-name>
 # [Studio](#tab/azure-studio)
 
 From Azure Machine Learning studio, select __Endpoints__, __Real-time endpoints__, and then the endpoint name. In details for the endpoint, the __REST endpoint__ field contains the scoring URI. The __Swagger URI__ contains the swagger URI.
+
+> [!NOTE]
+> Although you can retrieve scoring URI, swagger URI and other information from Azure Machine Learning studio (UI), using Test tab on Azure Machine Learning studio isn't supported for Azure Container Instance or Azure Kubernetes Service based web services. Instead, use code based approach to consume the web service as described in the later section of this article. To fully utilize Test tab to test the deployments, consider [migrating to v2 Managed online endpoint](../migrate-to-v2-deploy-endpoints.md). For more, see [endpoints for inferencing](../concept-endpoints.md).
 
 ---
 

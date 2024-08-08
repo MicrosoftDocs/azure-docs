@@ -2,12 +2,11 @@
 title: What's new on the Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine
 description: Release notes for the Azure Data Science Virtual Machine
-author: jesscioffi
 ms.service: data-science-vm
 ms.custom: linux-related-content
-
-ms.author: jcioffi
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: jcioffi
 ms.date: 05/21/2024
 ms.topic: reference
 ---
@@ -21,28 +20,6 @@ Because of rapidly evolving needs and packages updates, we target new releases o
 Azure portal users can find the latest image available for provisioning the Data Science Virtual Machine. For CLI or Azure Resource Manager (ARM) users, we keep images of individual versions available for 12 months. After that period, specific image versions are no longer available for provisioning.
 
 Visit the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
-
-## June 28, 2024
-
-Image Version: 24.06.10
-
-SDK Version: 1.56.0
-
-Issue fixed: Compute Instance 20.04 image build with SDK 1.56.0
-
-Major: Image Version: 24.06.10
-
-- SDK（azureml-core):1.56.0
-- Python:3.9
-- CUDA: 12.2
-- CUDnn==9.1.1
-- Nvidia Driver: 535.171.04
-- PyTorch: 1.13.1
-- TensorFlow: 2.15.0
-- autokeras==1.0.16
-- keras=2.15.0
-- ray==2.2.0
-- docker version==24.0.9-1
 
 ## June 17, 2024
 

@@ -3,14 +3,13 @@ title: How to deploy Cohere Command models with Azure Machine Learning studio
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy Cohere Command models with Azure Machine Learning studio.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 04/02/2024
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.author: shubhiraj
-author: shubhirajMsft
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
 ms.custom: references_regions, build-2024
 
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-cohere.md

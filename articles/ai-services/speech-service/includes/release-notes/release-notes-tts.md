@@ -7,6 +7,49 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### July 2024 release
+
+#### Text to speech avatar (GA)
+
+Text to speech avatar is now generally available. For more information, see [text to speech avatar](../../text-to-speech-avatar/what-is-text-to-speech-avatar.md).
+
+#### Prebuilt neural voice
+
+- Introduce 2 turbo version of Azure OpenAI voices in public preview: `en-US-AlloyTurboMultilingualNeural` and `en-US-NovaTurboMultilingualNeural`. Turbo version of Azure OpenAI voices has the similar voice persona as Azure OpenAI voices but supports extra features. Turbo voices support the full set of SSML elements and more features like word boundary, just like other Azure AI Speech voices. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+  
+- Introduce 2 new multilingual voices in public preview: `zh-CN-YunfanMultilingualNeural` and `zh-CN-YunxiaoMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+
+#### Embedded neural voice
+
+- `en-US-JennyMultilingual` voice is released in production, supporting up to 24 locales for on-device experience. For the supported locales, see the table below.
+
+  | Locale | Language        |
+  |--------|-----------------|
+  | `da-DK`| Danish (Denmark)|
+  | `de-DE`| German (Germany)|
+  | `en-AU`| English (Australia)|
+  | `en-GB`| English (United Kingdom)|
+  | `en-IN`| English (India)|
+  | `en-US`| English (United States)|
+  | `es-ES`| Spanish (Spain)|
+  | `es-MX`| Spanish (Mexico)|
+  | `fr-CA`| French (Canada)|
+  | `fr-FR`| French (France)|
+  | `he-IL`| Hebrew (Israel)|
+  | `it-IT`| Italian (Italy)|
+  | `ja-JP`| Japanese (Japan)|
+  | `ko-KR`| Korean (Korea)|
+  | `nb-NO`| Norwegian Bokmål (Norway)|
+  | `nl-NL`| Dutch (Netherlands)|
+  | `pl-PL`| Polish (Poland)|
+  | `pt-PT`| Portuguese (Portugal)|
+  | `sv-SE`| Swedish (Sweden)|
+  | `th-TH`| Thai (Thailand)|
+  | `tr-TR`| Turkish (Turkey)|
+  | `zh-CN`| Chinese (Mandarin, Simplified)|
+  | `zh-HK`| Chinese (Cantonese, Traditional)|
+  | `zh-TW`| Chinese (Taiwanese Mandarin, Traditional)|
+
 ### June 2024 release
 
 #### Prebuilt neural voice
@@ -787,7 +830,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 - With Neural text to speech Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. Check [how to install Speech Containers](../../speech-container-howto.md).
 
 #### New features
-- **Custom voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [portal](https://speech.microsoft.com/customvoice) here.
+- **Custom voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [Azure portal](https://speech.microsoft.com/customvoice) here.
 - [SSML silence tag](../../speech-synthesis-markup-structure.md#add-silence) support.
 - General TTS voice quality improvements: Improved word-level pronunciation accuracy in nb-NO. Reduced 53% pronunciation error.
 
@@ -797,7 +840,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 
 #### New features
 - Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](../../speech-synthesis-markup-voice.md#use-speaking-styles-and-roles).
-- **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video translation, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
 - **[Custom voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.
 - **Audio Content Creation**: Added style degree control for XiaoxiaoNeural; Refined the customized break feature to include incremental breaks of 50ms.
 

@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 4/15/2024
+ms.date: 7/15/2024
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
@@ -47,7 +47,7 @@ After your dataset is uploaded, go to the **Train custom models** page to [train
 To create a dataset and connect it to an existing project, use the `spx csr dataset create` command. Construct the request parameters according to the following instructions:
 
 - Set the `project` parameter to the ID of an existing project. This parameter is recommended so that you can also view and manage the dataset in Speech Studio. You can run the `spx csr project list` command to get available projects.
-- Set the required `kind` parameter. The possible set of values for dataset kind are: Language, Acoustic, Pronunciation, and AudioFiles.
+- Set the required `kind` parameter. The possible set of values for a training dataset kind are: Acoustic, AudioFiles, Language, LanguageMarkdown, and Pronunciation.
 - Set the required `contentUrl` parameter. This parameter is the location of the dataset. If you don't use trusted Azure services security mechanism (see next Note), then the `contentUrl` parameter should be a URL that can be retrieved with a simple anonymous GET request. For example, a [SAS URL](/azure/storage/common/storage-sas-overview) or a publicly accessible URL. URLs that require extra authorization, or expect user interaction aren't supported.
 
     > [!NOTE]
@@ -59,32 +59,36 @@ To create a dataset and connect it to an existing project, use the `spx csr data
 Here's an example Speech CLI command that creates a dataset and connects it to an existing project:
 
 ```azurecli-interactive
-spx csr dataset create --api-version v3.1 --kind "Acoustic" --name "My Acoustic Dataset" --description "My Acoustic Dataset Description" --project YourProjectId --content YourContentUrl --language "en-US"
+spx csr dataset create --api-version v3.2 --kind "Acoustic" --name "My Acoustic Dataset" --description "My Acoustic Dataset Description" --project YourProjectId --content YourContentUrl --language "en-US"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/datasets/23b6554d-21f9-4df1-89cb-f84510ac8d23",
   "kind": "Acoustic",
-  "contentUrl": "https://contoso.com/mydatasetlocation",
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/datasets/23b6554d-21f9-4df1-89cb-f84510ac8d23/files"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "properties": {
-    "acceptedLineCount": 0,
-    "rejectedLineCount": 0
+    "textNormalizationKind": "Default",
+    "acceptedLineCount": 2,
+    "rejectedLineCount": 0,
+    "duration": "PT59S"
   },
-  "lastActionDateTime": "2022-05-20T14:07:11Z",
-  "status": "NotStarted",
-  "createdDateTime": "2022-05-20T14:07:11Z",
+  "lastActionDateTime": "2024-07-14T17:36:30Z",
+  "status": "Succeeded",
+  "createdDateTime": "2024-07-14T17:36:14Z",
   "locale": "en-US",
   "displayName": "My Acoustic Dataset",
-  "description": "My Acoustic Dataset Description"
+  "description": "My Acoustic Dataset Description",
+  "customProperties": {
+    "PortalAPIVersion": "3"
+  }
 }
 ```
 
@@ -105,7 +109,7 @@ spx help csr dataset
 To create a dataset and connect it to an existing project, use the [Datasets_Create](/rest/api/speechtotext/datasets/create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This property is recommended so that you can also view and manage the dataset in Speech Studio. You can make a [Projects_List](/rest/api/speechtotext/projects/list) request to get available projects.
-- Set the required `kind` property. The possible set of values for dataset kind are: Language, Acoustic, Pronunciation, and AudioFiles.
+- Set the required `kind` property. The possible set of values for a training dataset kind are: Acoustic, AudioFiles, Language, LanguageMarkdown, and Pronunciation. 
 - Set the required `contentUrl` property. This property is the location of the dataset. If you don't use trusted Azure services security mechanism (see next Note), then the `contentUrl` parameter should be a URL that can be retrieved with a simple anonymous GET request. For example, a [SAS URL](/azure/storage/common/storage-sas-overview) or a publicly accessible URL. URLs that require extra authorization, or expect user interaction aren't supported. 
 
     > [!NOTE]
@@ -122,36 +126,40 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "displayName": "My Acoustic Dataset",
   "description": "My Acoustic Dataset Description",
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "contentUrl": "https://contoso.com/mydatasetlocation",
   "locale": "en-US",
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/datasets"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/datasets"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/datasets/23b6554d-21f9-4df1-89cb-f84510ac8d23",
   "kind": "Acoustic",
-  "contentUrl": "https://contoso.com/mydatasetlocation",
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/datasets/23b6554d-21f9-4df1-89cb-f84510ac8d23/files"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "properties": {
-    "acceptedLineCount": 0,
-    "rejectedLineCount": 0
+    "textNormalizationKind": "Default",
+    "acceptedLineCount": 2,
+    "rejectedLineCount": 0,
+    "duration": "PT59S"
   },
-  "lastActionDateTime": "2022-05-20T14:07:11Z",
-  "status": "NotStarted",
-  "createdDateTime": "2022-05-20T14:07:11Z",
+  "lastActionDateTime": "2024-07-14T17:36:30Z",
+  "status": "Succeeded",
+  "createdDateTime": "2024-07-14T17:36:14Z",
   "locale": "en-US",
   "displayName": "My Acoustic Dataset",
-  "description": "My Acoustic Dataset Description"
+  "description": "My Acoustic Dataset Description",
+  "customProperties": {
+    "PortalAPIVersion": "3"
+  }
 }
 ```
 

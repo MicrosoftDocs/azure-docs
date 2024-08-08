@@ -1,7 +1,7 @@
 ---
 title: Use Azure Table Storage and Azure Cosmos DB for Table with C++
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB for Table by using C++.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.devlang: cpp
 ms.topic: sample

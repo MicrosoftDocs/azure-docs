@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Java and JDBC with Azure Database for PostgreSQL'
 description: In this quickstart, you learn how to use Java and JDBC with an Azure Database for PostgreSQL.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.author: judubois

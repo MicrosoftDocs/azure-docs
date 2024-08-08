@@ -2,9 +2,24 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 6/6/2024
+ms.date: 7/12/2024
 ms.author: eur
 ---
+
+### August 2024 release
+
+#### Language learning (Preview)
+
+Language learning is now available in public preview. Interactive language learning can make your learning experience more engaging and effective. For more information, see [Interactive language learning with pronunciation assessment](../../language-learning-with-pronunciation-assessment.md).
+
+### July 2024 release
+
+#### Fast Transcription API (Preview)
+
+Fast transcription is now available in public preview. Fast transcription allows you to transcribe audio file to text accurately and synchronously, with a high speed factor. It can transcribe a 30-minutes audio in less than 1 minute. For more information, see the [fast transcription API guide](../../fast-transcription-create.md).
+
+> [!TIP]
+> Try out fast transcription in [Azure AI Studio](https://aka.ms/fasttranscription/studio).
 
 ### June 2024 release
 
@@ -13,7 +28,7 @@ ms.author: eur
 The Speech to text REST API version 3.2 is now generally available. For more information about speech to text REST API v3.2, see the [Speech to text REST API v3.2 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2&preserve-view=true) and the [Speech to text REST API guide](../../rest-speech-to-text.md). 
 
 > [!NOTE]
-> Preview versions *3.2-preview.1* and *3*.2-preview.2* will be removed in September 2024.
+> Preview versions *3.2-preview.1* and *3.2-preview.2* will be removed in September 2024.
 
 [Speech to text REST API](../../rest-speech-to-text.md) v3.1 will be retired on a date to be announced. Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information about upgrading, see the Speech to text REST API [v3.0 to v3.1](../../migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](../../migrate-v3-1-to-v3-2.md) migration guides.
 

@@ -4,7 +4,7 @@ description: Learn about protecting your health data and applications from disru
 ms.topic: conceptual
 author: msjasteppe
 ms.author: ounyman
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
 ms.date: 09/07/2023

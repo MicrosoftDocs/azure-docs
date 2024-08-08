@@ -3,7 +3,7 @@ title: Quickstart - Create Azure Managed Instance for Apache Cassandra cluster f
 description: This quickstart shows how to create an Azure Managed Instance for Apache Cassandra cluster using the Azure portal.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 05/31/2022
 ms.custom:
@@ -238,7 +238,7 @@ The service allows update to Cassandra YAML configuration on a datacenter via th
 ## Update Cassandra version
 
 > [!IMPORTANT]
-> Cassandra 4.1, 5.0 and Turnkey Version Updates, are in public preview.
+> Cassandra 5.0 and Turnkey Version Updates, are in public preview.
 > These features are provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

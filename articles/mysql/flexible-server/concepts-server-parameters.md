@@ -5,7 +5,7 @@ author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
@@ -41,7 +41,7 @@ Refer to the following sections to learn more about the limits of the several co
 
 ### lower_case_table_names
 
-For MySQL version 5.7, default value is 1 in Azure Database for MySQL flexible server. It's important to note that while it is possible to change the supported value to 2, reverting from 2 back to 1 isn't allowed.  Contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value. 
+For MySQL version 5.7, default value is 1 in Azure Database for MySQL flexible server. It's important to note that while it's possible to change the supported value to 2, reverting from 2 back to 1 isn't allowed.  Contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value. 
 For [MySQL version 8.0+](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html) lower_case_table_names can only be configured when initializing the server. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html). Changing the lower_case_table_names setting after the server is initialized is prohibited. For MySQL version 8.0, default value is 1 in Azure Database for MySQL flexible server. Supported value for MySQL version 8.0 are 1 and 2 in Azure Database for MySQL flexible server. Contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value during server creation.
 
 
@@ -64,13 +64,20 @@ If [`log_bin_trust_function_creators`] is set to OFF, if you try to create trigg
 ### innodb_buffer_pool_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) to learn more about this parameter.
+The [Physical Memory Size](./concepts-service-tiers-storage.md#physical-memory-size-gb) (GB) in the table below represents the available random-access memory (RAM)  in gigabytes (GB)  on your Azure Database for MySQL flexible server.
 
-|**Pricing Tier**|**vCore(s)**|**Memory Size (GiB)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
+|**Pricing Tier**|**vCore(s)**|**Physical Memory Size (GiB)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|---|
-|Burstable (B1s)|1|1|134217728|33554432|134217728|
-|Burstable (B1ms)|1|2|536870912|134217728|536870912|
-|Burstable|2|4|2147483648|134217728|2147483648|
-|General Purpose|2|8|5368709120|134217728|5368709120|
+|Burstable (B1s)|1|1|134217728|33554432|268435456|
+|Burstable (B1ms)|1|2|536870912|134217728|1073741824|
+|Burstable (B2s)|2|4|2147483648|134217728|2147483648|
+|Burstable (B2ms)|2|8|4294967296|134217728|5368709120|
+|Burstable |4|16|12884901888|134217728|12884901888|
+|Burstable |8|32|25769803776|134217728|25769803776|
+|Burstable |12|48|51539607552|134217728|51539607552|
+|Burstable |16|64|2147483648|134217728|2147483648|
+|Burstable |20|80|64424509440|134217728|64424509440|
+|General Purpose|2|8|4294967296|134217728|5368709120|
 |General Purpose|4|16|12884901888|134217728|12884901888|
 |General Purpose|8|32|25769803776|134217728|25769803776|
 |General Purpose|16|64|51539607552|134217728|51539607552|
@@ -81,6 +88,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 |Business Critical|4|32|25769803776|134217728|25769803776|
 |Business Critical|8|64|51539607552|134217728|51539607552|
 |Business Critical|16|128|103079215104|134217728|103079215104|
+|Business Critical|20|160|128849018880|134217728|128849018880|
 |Business Critical|32|256|206158430208|134217728|206158430208|
 |Business Critical|48|384|309237645312|134217728|309237645312|
 |Business Critical|64|504|405874409472|134217728|405874409472|
@@ -93,20 +101,26 @@ Azure Database for MySQL flexible server supports at largest, **4 TB**, in a sin
 
 ### innodb_log_file_size
 
-[innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) is the size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file) in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group). The combined size of log files [(innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) * [innodb_log_files_in_group](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group)) can't exceed a maximum value that is slightly less than 512 GB). A bigger log file size is better for performance, but it has a drawback that the recovery time after a crash is high. You need to balance recovery time in the rare event of a crash recovery versus maximizing throughput during peak operations. These can also result in longer restart times. You can configure innodb_log_size to any of these values - 256 MB, 512 MB, 1 GB or 2 GB for Azure Database for MySQL flexible server. The parameter is static and requires a restart.
+[innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) is the size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file) in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group). The combined size of log files [(innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) * [innodb_log_files_in_group](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group)) can't exceed a maximum value that is slightly less than 512 GB). A bigger log file size is better for performance, but it has a drawback that the recovery time after a crash is high. You need to balance recovery time in the rare event of a crash recovery versus maximizing throughput during peak operations. These can also result in longer restart times. You can configure innodb_log_size to any of these values - 256 MB, 512 MB, 1 GB, or 2 GB for Azure Database for MySQL flexible server. The parameter is static and requires a restart.
 
 > [!NOTE]
 > If you have changed the parameter innodb_log_file_size from default, check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'" stays at 0 for 30 seconds to avoid restart delay.
 
 ### max_connections
 
-The value of `max_connection` is determined by the memory size of the server.
+The value of `max_connection` is determined by the memory size of the server. The [Physical Memory Size](./concepts-service-tiers-storage.md#physical-memory-size-gb) (GB) in the table below represents the available random-access memory (RAM)  in gigabytes (GB)  on your Azure Database for MySQL flexible server.
 
-|**Pricing Tier**|**vCore(s)**|**Memory Size (GiB)**|**Default value**|**Min value**|**Max value**|
+|**Pricing Tier**|**vCore(s)**|**Physical Memory Size (GiB)**|**Default value**|**Min value**|**Max value**|
 |---|---|---|---|---|---|
 |Burstable (B1s)|1|1|85|10|171|
 |Burstable (B1ms)|1|2|171|10|341|
-|Burstable|2|4|341|10|683|
+|Burstable (B2s)|2|4|341|10|683|
+|Burstable (B2ms)|2|4|683|10|1365|
+|Burstable |4|16|1365|10|2731|
+|Burstable|8|32|2731|10|5461|
+|Burstable |12|48|4097|10|8193|
+|Burstable |16|64|5461|10|10923|
+|Burstable |20|80|6827|10|13653|
 |General Purpose|2|8|683|10|1365|
 |General Purpose|4|16|1365|10|2731|
 |General Purpose|8|32|2731|10|5461|
@@ -118,6 +132,7 @@ The value of `max_connection` is determined by the memory size of the server.
 |Business Critical|4|32|2731|10|5461|
 |Business Critical|8|64|5461|10|10923|
 |Business Critical|16|128|10923|10|21845|
+|Business Critical|20|160|13653|10|27306|
 |Business Critical|32|256|21845|10|43691|
 |Business Critical|48|384|32768|10|65536|
 |Business Critical|64|504|43008|10|86016|
@@ -150,7 +165,7 @@ Upon initial deployment, an Azure Database for MySQL flexible server instance in
 
 In Azure Database for MySQL flexible server this parameter specifies the number of seconds the service waits before purging the binary log file.
 
-The binary log contains "events" that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log is used mainly for two purposes, replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup or the replica set. If there are multiple replicas, the binary logs wait for the slowest replica to read the changes before it's been purged. If you want to persist binary logs for a more duration of time, you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0, which is the default value, it purges as soon as the handle to the binary log is freed. If binlog_expire_logs_seconds > 0,  then it would wait until the seconds configured before it purges. For Azure Database for MySQL flexible server, managed features like backup and read replica purging of binary files are handled internally. When you replicate the data-out from Azure Database for MySQL flexible server, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs won't be purged soon enough and can lead to increase in the storage billing.
+The binary log contains "events" that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log is used mainly for two purposes, replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup, or the replica set. If there are multiple replicas, the binary logs wait for the slowest replica to read the changes before it's been purged. If you want to persist binary logs for a more duration of time, you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0, which is the default value, it purges as soon as the handle to the binary log is freed. If binlog_expire_logs_seconds > 0,  then it would wait until the seconds configured before it purges. For Azure Database for MySQL flexible server, managed features like backup and read replica purging of binary files are handled internally. When you replicate the data-out from Azure Database for MySQL flexible server, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs won't be purged soon enough and can lead to increase in the storage billing.
 
 ### event_scheduler
 

@@ -4,7 +4,7 @@ description: How to add zoom control, pitch control, rotate control and a style 
 author: sinnypan
 ms.author: sipa
 ms.date: 05/15/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ms.custom:
 ---

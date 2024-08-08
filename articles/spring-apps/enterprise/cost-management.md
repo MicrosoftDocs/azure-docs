@@ -2,7 +2,7 @@
 title: Manage costs for Azure Spring Apps
 description: Learn about how to manage costs in Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: overview
 ms.date: 09/27/2023
 ms.author: hangwan

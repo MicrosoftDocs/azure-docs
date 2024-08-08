@@ -2,13 +2,13 @@
 title: Azure Machine Learning glossary
 description: Glossary of terms for the Azure Machine Learning platform.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: build-2023
 ms.topic: overview
-author: frogglew
-ms.author: saoh
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: saoh
 ms.date: 09/21/2022
 monikerRange: 'azureml-api-2'
 ---

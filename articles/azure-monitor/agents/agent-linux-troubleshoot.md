@@ -14,7 +14,7 @@ ms.reviewer: luki, mattmcinnes
 This article provides help in troubleshooting errors you might experience with the Log Analytics agent for Linux in Azure Monitor.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 ## Log Analytics Troubleshooting Tool
 
@@ -226,7 +226,7 @@ This is a known issue that occurs on the first upload of Linux data into a Log A
 
 ### Probable causes
 
-A regression in nss-pem package [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html) caused a severe performance issue. We've been seeing this issue come up a lot in Redhat/CentOS 7.x distributions. To learn more about this issue, see [1667121 Performance regression in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
+A regression in nss-pem package [v1.0.3-5.el7](https://pkgs.org/download/nss-pem) caused a severe performance issue. We've been seeing this issue come up a lot in Redhat/CentOS 7.x distributions. To learn more about this issue, see [1667121 Performance regression in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
 
 Performance-related bugs don't happen all the time, and they're difficult to reproduce. If you experience such an issue with omiagent, use the script `omiHighCPUDiagnostics.sh`, which will collect the stack trace of the omiagent when it exceeds a certain threshold.
 
@@ -240,7 +240,7 @@ Performance-related bugs don't happen all the time, and they're difficult to rep
 
 ### Resolution
 
-1. Upgrade the nss-pem package to [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html): <br/>
+1. Upgrade the nss-pem package to [v1.0.3-5.el7_6.1](https://pkgs.org/download/nss-pem): <br/>
 `sudo yum upgrade nss-pem`
 
 1. If nss-pem isn't available for upgrade, which mostly happens on CentOS, downgrade curl to 7.29.0-46. If you run "yum update" by mistake, curl will be upgraded to 7.29.0-51 and the issue will happen again: <br/>

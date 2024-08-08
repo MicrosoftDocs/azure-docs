@@ -2,8 +2,8 @@
 title: Create an Azure confidential VM with ARM template
 description: Learn how to quickly create and deploy an Azure confidential virtual machine (confidential VM) using an ARM template.
 author: RunCai
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
@@ -200,7 +200,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. (Optional) If you don't want to use an Azure key vault, you can create an Azure Key Vault Managed HSM instead.
 
-    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](../key-vault/managed-hsm/quick-create-cli.md) to provision and activate Azure Key Vault Managed HSM.
+    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/quick-create-cli) to provision and activate Azure Key Vault Managed HSM.
     1. Enable purge protection on the Azure Managed HSM. This step is required to enable key release.
 
         ```azurecli-interactive

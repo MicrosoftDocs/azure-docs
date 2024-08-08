@@ -3,7 +3,7 @@ title: Introduction to Azure Managed Instance for Apache Cassandra
 description: Learn about Azure Managed Instance for Apache Cassandra. This service manages the deployment and scaling of native open-source instances of Apache Cassandra in Azure.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 11/02/2021
 ---

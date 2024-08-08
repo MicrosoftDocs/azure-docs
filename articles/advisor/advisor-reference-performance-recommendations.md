@@ -2,8 +2,6 @@
 title: Performance recommendations
 description: Full list of available performance recommendations in Advisor.
 ms.topic: article
-author: mabrahms
-ms.author: v-mabrahms
 ms.date: 6/24/2024
 ---
 
@@ -455,25 +453,25 @@ Learn more about [Azure Database for PostgreSQL flexible server - Upscale Server
 
 Our system shows that you have log_statement enabled, for better performance set it to NONE
 
-Learn more about [Azure Database for PostgreSQL flexible server - Optimize log_statement settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging.md).
+Learn more about [Azure Database for PostgreSQL flexible server - Optimize log_statement settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging).
 
 ### Optimize log_duration settings for PostgreSQL on Azure Database
 
 You may experience potential performance degradation due to logging settings. To optimize these settings, set the log_duration server parameter to OFF.
 
-Learn more about [Learn more about Azure Database for PostgreSQL flexible server - Optimize log_duration settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging.md).
+Learn more about [Learn more about Azure Database for PostgreSQL flexible server - Optimize log_duration settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging).
 
 ### Optimize log_min_duration settings for PostgreSQL on Azure Database
 
 Your log_min_duration server parameter is set to less than 60,000 ms (1 minute), which can lead to potential performance degradation. You can optimize logging settings by setting the log_min_duration_statement parameter to -1.
 
-Learn more about [Azure Database for PostgreSQL flexible server - Optimize log_min_duration settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging.md).
+Learn more about [Azure Database for PostgreSQL flexible server - Optimize log_min_duration settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging).
 
 ### Optimize log_error_verbosity settings for PostgreSQL on Azure Database
 
 Your server has been configured to output VERBOSE error logs. This can be useful for troubleshooting your database, but it can also result in reduced database performance. To improve performance, we recommend changing the log_error_verbosity server parameter to the DEFAULT setting.
 
-Learn more about [Learn more about Azure Database for PostgreSQL flexible server - Optimize log_error_verbosity settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging.md).
+Learn more about [Learn more about Azure Database for PostgreSQL flexible server - Optimize log_error_verbosity settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging).
 
 ### Identify if checkpoints are happening too often to improve PostgreSQL - Flexible Server performance
 
@@ -942,7 +940,7 @@ Learn more about [Attestation provider - UpgradeAttestationAPI (Update Attestati
 
 New Key Vault Client Libraries are split to keys, secrets, and certificates SDKs, which are integrated with recommended Azure Identity library to provide seamless authentication to Key Vault across all languages and environments. It also contains several performance fixes to issues reported by customers and proactively identified through our QA process. If Key Vault is integrated with Azure Storage, Disk or other Azure services that can use old Key Vault SDK and when all your current custom applications are using .NET SDK 4.0 or above, dismiss the recommendation.
 
-Learn more about [Key vault - UpgradeKeyVaultSDK (Update Key Vault SDK Version)](../key-vault/general/client-libraries.md).
+Learn more about [Key vault - UpgradeKeyVaultSDK (Update Key Vault SDK Version)](/azure/key-vault/general/client-libraries).
 
 ### Update Key Vault SDK Version
 
@@ -951,7 +949,7 @@ New Key Vault Client Libraries are split to keys, secrets, and certificates SDKs
 > [!IMPORTANT]
 > Be aware that you can only remediate recommendation for custom applications you have access to. Recommendations can be shown due to integration with other Azure services like Storage, Disk encryption, which are in process to update to new version of our SDK. If you use .NET 4.0 in all your applications, dismiss the recommendation.
 
-Learn more about [Managed HSM Service - UpgradeKeyVaultMHSMSDK (Update Key Vault SDK Version)](../key-vault/general/client-libraries.md).
+Learn more about [Managed HSM Service - UpgradeKeyVaultMHSMSDK (Update Key Vault SDK Version)](/azure/key-vault/general/client-libraries).
 
 
 

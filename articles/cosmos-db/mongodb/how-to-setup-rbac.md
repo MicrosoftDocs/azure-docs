@@ -2,7 +2,7 @@
 title: Configure role-based access control in Azure Cosmos DB for MongoDB database
 description: Learn how to configure native role-based access control in Azure Cosmos DB for MongoDB
 author: gahl-levy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-js
 ms.topic: how-to
 ms.date: 09/26/2022
@@ -127,6 +127,12 @@ MongoClient client = new MongoClient(uri);
 ## Authenticate using Mongosh
 ```powershell
 mongosh --authenticationDatabase <YOUR_DB> --authenticationMechanism SCRAM-SHA-256 "mongodb://<YOUR_USERNAME>:<YOUR_PASSWORD>@<YOUR_HOST>:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000"
+```
+
+## Authenticate using MongoDB Compass/Azure Data Studio
+```bash
+connectionString = "mongodb://" + "<YOUR_USER>" + ":" + "<YOUR_PASSWORD>" + "@" + "<YOUR_HOSTNAME>" + ":10255/" + "?ssl=true&retrywrites=false&replicaSet=globaldb&authmechanism=SCRAM-SHA-256&appname=@" + "<YOUR appName FROM CONNECTION STRING IN AZURE PORTAL>" + "@"
++"&authSource=" +"<YOUR_DATABASE>";
 ```
 
 ## Azure CLI RBAC Commands

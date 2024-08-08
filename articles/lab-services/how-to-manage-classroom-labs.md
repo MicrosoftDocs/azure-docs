@@ -7,6 +7,8 @@ ms.date: 03/28/2023
 
 # Manage labs in Azure Lab Services when using lab accounts
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article describes how to create and delete a lab. It also shows you how to view all the labs in a lab account.

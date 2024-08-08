@@ -7,7 +7,7 @@ manager: raynew
 ms.collection:
   - usx-security
 ms.topic: how-to
-ms.date: 06/09/2024
+ms.date: 07/01/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -26,7 +26,7 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
-Watch the following video for an overview and demo of SOC optimization in the Defender portal. If you just want a demo, jump to minute 8:14. <br>
+Watch the following video for an overview and demo of SOC optimization in the Defender portal. If you just want a demo, jump to minute 8:14. <br><br>
 
 > [!VIDEO https://www.youtube.com/embed/b0rbPZwBuc0?si=DuYJQewK8IZz8T0Y]
 
@@ -100,6 +100,9 @@ In the Defender portal, SOC optimization recommendations are listed in the **You
 ---
 
 Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
+
+> [!NOTE]
+> SOC optimization recommendations are calculated every 24 hours.
 
 ### Filter optimizations
 
