@@ -8,9 +8,10 @@ ms.date: 08/08/2024
 ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
+ai.usage: ai-assisted
 ---
 
-## Create Virtual Endpoints for Read Replicas with Terraform
+# Create Virtual Endpoints for Read Replicas with Terraform
 
 Using Terraform, you can create and manage virtual endpoints for read replicas in Azure Database for PostgreSQL—Flexible Server. Terraform is an open-source infrastructure-as-code tool that allows you to define and provision infrastructure using a high-level configuration language.
 
