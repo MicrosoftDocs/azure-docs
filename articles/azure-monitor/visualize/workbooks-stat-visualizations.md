@@ -30,15 +30,15 @@ This allows you to build dashboards that provide immediate visual alerts when a 
   ```
 
 1. Set **Visualization** to **Stat**.
-1. Select the **Stat Settings** button to open the **Stat Settings** pane:
-  1. In **Use column**, set: `Requests`
-  1. In **Tag text**, set: `# of requests`
-  1. In **Color settings**, set:
-    1. **Apply color from**: `Heatmap`
-    1. **Color palette**: `Red to Green`
-    1. **Minimum value**: 0
-    1. **Maximum value**: 1,000
-1. Select the **Save and Close** button at the bottom of the pane.
+2. Select the **Stat Settings** button to open the **Stat Settings** pane:
+   - In **Use column**, set: `Requests`
+   - In **Tag text**, set: `# of requests`
+   - In **Color settings**, set:
+     - **Apply color from**: `Heatmap`
+     - **Color palette**: `Red to Green`
+     - **Minimum value**: 0
+     - **Maximum value**: 1,000
+3. Select the **Save and Close** button at the bottom of the pane.
 
 :::image type="content" source="./media/workbooks-stat-visualizations/stat-configured.png" lightbox="./media/workbooks-stat-visualizations/stat-configured.png" alt-text="Screenshot that shows a configured stat visualization in a workbook.":::
 
@@ -110,20 +110,20 @@ Thresholds apply a specific color depending on the visualization's value meeting
   | summarize Status = iif(count() == 0, "OK", "Unhealthy")
   ```
 1. Set **Visualization** to **Stat**.
-1. Select the **Stat Settings** button to open the **Stat Settings** pane:
-  * In **Use column**, set: `Status`
-  * In **Tag text**, set: `Service Health Status`
-  1. In **Color settings**, set:
-    * **Apply color from**: `Thresholds`
-    1. In the fields, create the first threshold:
-      * **Operator**: `==`
-      * **Value**: `Unhealthy`
-      * **Color**: `Red (bright)`
-    1. In the fields, create the second threshold:
-      * **Operator**: `==`
-      * **Value**: `OK`
-      * **Color**: `Green`
-1. Select the **Save and Close** button at the bottom of the pane.
+2. Select the **Stat Settings** button to open the **Stat Settings** pane:
+   - In **Use column**, set: `Status`
+   - In **Tag text**, set: `Service Health Status`
+   - In **Color settings**, set:
+     - **Apply color from**: `Thresholds`
+     - In the fields, create the first threshold:
+       - **Operator**: `==`
+       - **Value**: `Unhealthy`
+       - **Color**: `Red (bright)`
+     - In the fields, create the second threshold:
+       - **Operator**: `==`
+       - **Value**: `OK`
+       - **Color**: `Green`
+3. Select the **Save and Close** button at the bottom of the pane.
 
 The query will now display a different color, depending on the resource health status of your queries.
 
@@ -152,15 +152,15 @@ When the **Heatmap** option is selected, the visualization's color is selected a
   | summarize Count=count()
   ```
 1. Set **Visualization** to **Stat**.
-1. Select the **Stat Settings** button to open the **Stat Settings** pane:
-  * In **Use column**, set: `Count`
-  * In **Tag text**, set: `Active Health Events Count`
-  1. In **Color settings**, set:
-    * **Apply color from**: `Heatmap`
-    * **Color palette**: `Green to Red`
-    * **Minimum value**: `0`
-    * **Maximum value**: `100`
-1. Select the **Save and Close** button at the bottom of the pane.
+2. Select the **Stat Settings** button to open the **Stat Settings** pane:
+   - In **Use column**, set: `Count`
+   - In **Tag text**, set: `Active Health Events Count`
+   - In **Color settings**, set:
+     - **Apply color from**: `Heatmap`
+     - **Color palette**: `Green to Red`
+     - **Minimum value**: `0`
+     - **Maximum value**: `100`
+3. Select the **Save and Close** button at the bottom of the pane.
 
 Depending on the value returned by the query in the `Count` column, the color will fall within the gradient of the chosen palette.
 
