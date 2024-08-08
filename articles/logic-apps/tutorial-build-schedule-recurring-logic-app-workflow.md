@@ -32,6 +32,8 @@ When you finish, your workflow looks like the following high level example:
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
+You can create a similar workflow with a Standard logic app resource. However, the user experience and tutorial steps vary slightly from the Consumption version.
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
