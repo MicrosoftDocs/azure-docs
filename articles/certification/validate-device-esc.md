@@ -6,7 +6,7 @@ ms.author: sufon
 ms.topic: conceptual 
 ms.date: 08/06/2024 
 ms.custom: Edge Secured-core certified devices
-ms.service: certification
+ms.service: azure-certified-device
 ---
 # Validate your Edge Secured-core certified devices
 To check if your device is Edge Secured-core enabled: 
