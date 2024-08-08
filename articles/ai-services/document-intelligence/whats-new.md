@@ -37,8 +37,8 @@ The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document
 * **West Europe**
 * **North Central US**
 
-* [🆕 Custom generative (Document field extraction) model](concept-custom-generative.md)
-  * Use **Generative AI** to extract fields from documents and forms. Document Intelligence now offers new custom generative model that utilizes lrge language models (LLMs) to extract fields from unstructured documents or structured forms with a wide variety of visual templates. With grounded values and confidence scores, the new generative model aligns with your existing processes.
+* [🆕 Document field extraction (custom generative) model](concept-custom-generative.md)
+  * Use **Generative AI** to extract fields from documents and forms. Document Intelligence now offers a new document field extraction model that utilizes large language models (LLMs) to extract fields from unstructured documents or structured forms with a wide variety of visual templates. With grounded values and confidence scores, the new Generative AI based extraction fits into your existing processes.
 * [🆕 Model compose with custom classifiers](concept-composed-models.md)
   * Document Intelligence now adds support for composing model with an explicit custom classification model. [Learn more about the benefits](concept-composed-models.md) of using the new compose capability.
 * [Custom classification model](concept-custom.md#custom-classification-model)
