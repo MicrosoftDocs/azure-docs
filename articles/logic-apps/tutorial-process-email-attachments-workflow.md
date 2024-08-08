@@ -40,9 +40,9 @@ You can create a similar workflow with a Standard logic app resource where some 
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An email account from an email provider supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/).
+* An email account from an email provider supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-  This logic app workflow uses a work or school account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
+  This tutorial uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but the user experience might slightly differ.
 
   > [!NOTE]
   >
@@ -57,7 +57,7 @@ You can create a similar workflow with a Standard logic app resource where some 
 
 ## Set up storage to save attachments
 
-You can save incoming emails and attachments as blobs in an [Azure storage container](../storage/common/storage-introduction.md).
+The following steps set up [Azure storage](../storage/common/storage-introduction.md) so that you can incoming emails and attachments as blobs.
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
@@ -106,7 +106,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
    1. Select **Create**.
 
-   When you're done, the containers list now shows the new storage container.
+   After you finish, the containers list now shows the new storage container.
 
 To create a storage container, you can also use [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) or [Azure CLI](/cli/azure/storage/container#az-storage-container-create).
 
@@ -114,7 +114,7 @@ Next, connect Storage Explorer to your storage account.
 
 ## Set up Storage Explorer
 
-To confirm that your workflow can correctly save attachments as blobs in your storage container, connect Storage Explorer to your storage account.
+The following steps connect Storage Explorer to your storage account so to you can confirm that your workflow correctly saves attachments as blobs in your storage container.
 
 1. Launch Microsoft Azure Storage Explorer. Sign in with your Azure account.
 
@@ -154,9 +154,11 @@ To confirm that your workflow can correctly save attachments as blobs in your st
 
    :::image type="content" source="./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png" alt-text="Screenshot showing Storage Explorer - find storage container.":::
 
-Next, create an Azure function app and a function that removes HTML from incoming email.
+Next, create an Azure function app and a function that removes HTML from content.
 
 ## Create a function app
+
+The following steps create an Azure function that your workflow calls to remove HTML from incoming email.
 
 1. Before you can create a function, [create a function app by selecting the **Consumption** plan](../azure-functions/functions-create-function-app-portal.md) and following these steps:
 
@@ -178,13 +180,15 @@ Next, create an Azure function app and a function that removes HTML from incomin
       |----------|----------|-------|-------------|
       | **Storage account** | Yes | <*Azure-storage-account-name*> | Create a storage account for your function app to use. Storage account names must be between 3 and 24 characters in length and can contain only lowercase letters and numbers. <br><br>This example uses **cleantextfunctionstorageacct**. <br><br>**Note:** This storage account contains your function apps and differs from your previously created storage account for email attachments. You can also use an existing account, which must meet the [storage account requirements](../azure-functions/storage-considerations.md#storage-account-requirements). |
 
-   1. When you're done, select **Review + create**. After Azure validates the provided information, select **Create**.
+   1. When you finish, select **Review + create**. After Azure validates the provided information, select **Create**.
 
    1. After Azure deploys the function app resource, select **Go to resource**.
 
 ## Create function to remove HTML
 
-To create an Azure function that removes HTML from each incoming email, you can use the code snippet provided by these steps. This function makes the email content cleaner and easier to process. You can call this function from your workflow. For more information, see [Create your first function in the Azure portal](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-function). For expanded function creation, you can also [create your function locally](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-your-functions-locally).
+The following steps create an Azure function that removes HTML from each incoming email by using the sample code snippet. This function makes the email content cleaner and easier to process. You can call this function from your workflow.
+
+For more information, see [Create your first function in the Azure portal](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-function). For expanded function creation, you can also [create your function locally](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-your-functions-locally).
 
 1. In the [Azure portal](https://portal.azure.com), open your function app, if not already open.
 
@@ -196,8 +200,8 @@ To create an Azure function that removes HTML from each incoming email, you can 
 
 1. Provide the following information for your function, and select **Create**:
 
-   | Property | Value |
-   |----------|-------|
+   | Parameter | Value |
+   |-----------|-------|
    | **Function name** | **RemoveHTMLFunction** |
    | **Authorization level** | **Function** |
 
@@ -229,7 +233,7 @@ To create an Azure function that removes HTML from each incoming email, you can 
    }
    ```
 
-1. When you're done, on the **Code + Test** toolbar, select **Save**, and then select **Test/Run**.
+1. When you finish, on the **Code + Test** toolbar, select **Save**, and then select **Test/Run**.
 
 1. On the **Test/Run** pane, on the **Input** tab, in the **Body** box, enter following sample input, and select **Run**:
 
@@ -243,6 +247,8 @@ After you confirm that your function works, create your logic app resource and w
 
 ## Create a Consumption logic app resource
 
+The following steps create the logic app resource and workflow that integrates various services, apps, data, and systems.
+
 1. In the Azure portal search box, enter **logic app**, and select **Logic apps**.
 
 1. On the **Logic apps** page, select **Add**.
@@ -255,8 +261,8 @@ After you confirm that your function works, create your logic app resource and w
 
 1. On the **Basics** tab, provide the following information about your logic app resource:
 
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | The same Azure subscription that you previously used. |
    | **Resource Group** | Yes | **LA-Tutorial-RG** | The same Azure resource group that you previously used. |
    | **Logic App name** | Yes | <*logic-app-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a logic app resource named **LA-ProcessAttachment**. A Consumption logic app and workflow always have the same name. |
@@ -276,11 +282,13 @@ After you confirm that your function works, create your logic app resource and w
 
 ## Add a trigger to monitor incoming email
 
-Now, add a trigger that monitors incoming emails that have attachments. This example uses the Office 365 Outlook connector, which requires that you sign in with a Microsoft work or school account. If you're using a personal Microsoft account, use the Outlook.com connector.
+The following steps add a trigger that monitors for incoming emails that have attachments.
 
 1. On the logic app menu, under **Development Tools**, select **Logic app designer**.
 
 1. On the workflow designer, [follow these general steps to add the **Office 365 Outlook** trigger named **When a new email arrives**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
+
+   This example uses the Office 365 Outlook connector, which requires that you sign in with a Microsoft work or school account. If you're using a personal Microsoft account, use the Outlook.com connector.
 
 1. Sign in to your email account, which creates a connection between your workflow and your email account.
 
@@ -304,7 +312,7 @@ Now, add a trigger that monitors incoming emails that have attachments. This exa
 
 ## Add a condition to check for attachments
 
-Now add a condition that selects only emails that have attachments.
+The following steps add a condition that selects only emails that have attachments.
 
 1. On the workflow designer, [follow these general steps to add the **Control** action named **Condition**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
@@ -350,11 +358,11 @@ Now add a condition that selects only emails that have attachments.
 
 1. On the designer toolbar, select **Run** > **Run**.
 
-   This step manually starts and runs your workflow, but nothing happens until the test email arrives in your inbox.
+   This step manually starts and runs your workflow, but nothing happens until you send a test email to your inbox.
 
 1. Send yourself an email that meets the following criteria:
 
-   * Your email's subject has the text that you specified in the trigger's **Subject filter**: **Business Analyst 2 #423501**
+   * Your email's subject has the text that you specified in the trigger's **Subject Filter**: **Business Analyst 2 #423501**
 
    * Your email has one attachment. For now, just create one empty text file and attach that file to your email.
 
@@ -378,7 +386,7 @@ Next, define the actions to take for the **True** branch. To save the email alon
 
 ## Call the RemoveHTMLFunction
 
-The following steps add your previously created Azure function to your workflow and passes the email body content from email trigger to your function.
+The following steps add your previously created Azure function and passes the email body content from email trigger to your function.
 
 1. On the logic app menu, under **Development Tools**, select **Logic app designer**. In the **True** branch, select **Add an action**.
 
@@ -404,17 +412,17 @@ The following steps add your previously created Azure function to your workflow 
 
       :::image type="content" source="media/tutorial-process-email-attachments-workflow/add-email-body.png" alt-text="Screenshot shows Azure function information box with dynamic content list and Body selected." lightbox="media/tutorial-process-email-attachments-workflow/add-email-body.png":::
 
-   When you're done, the Azure function looks like the following example:
+   When you finish, the Azure function looks like the following example:
 
    :::image type="content" source="media/tutorial-process-email-attachments-workflow/add-email-body-done.png" alt-text="Screenshot shows finished Azure function with request body content to pass to your function." lightbox="media/tutorial-process-email-attachments-workflow/add-email-body-done.png":::
 
 1. Save your workflow.
 
-Next, add an action that creates a blob in your storage container so you can save the email body.
+Next, add an action that creates a blob to store the email body.
 
 ## Add an action to create a blob for email body
 
-The following steps create a blob to store the email body:
+The following steps create a blob that stores the email body in your storage container.
 
 1. On the designer, in the condition's **True** block, under your Azure function, select **Add an action**.
 
@@ -429,26 +437,31 @@ The following steps create a blob to store the email body:
    | **Azure Storage Account Name Or Blob Endpoint** | Yes | <*storage-account-name*> | The name for your previously created storage account. <br><br>This example uses **attachmentstorageacct**. |
    | **Azure Storage Account Access Key** | Yes | <*storage-account-access-key*> | The access key for your previously created storage account. |
 
-1. When you're done, select **Create New**.
+1. When you finish, select **Create New**.
 
 1. In the **Create blob** action information pane, rename the action with **Create blob for email body**.
 
 1. Provide the following action information:
 
+   > [!TIP]
+   >
+   > If you can't find a specified output in the dynamic content list, 
+   > select **See more** next to the operation name.
+
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Storage Account Name Or Blob Endpoint** | Yes | **Use connection settings(<*storage-account-name-or-blob-endpoint*>)** | Select the option that includes your storage account name. <br><br>This example uses **https://attachmentstorageacct.blob.core.windows.net**. |
-   | **Folder Path** | Yes | <*path-and-container-name*> | The path and name for the container that you previously created. <br><br>For this example, select the folder icon, and then select the **attachments** container. |
-   | **Blob Name** | Yes | <*sender-name*> | For this example, use the sender's name as the blob's name. <br><br>1. Select inside the **Blob Name** box, and then select the dynamic content list option (lightning icon). <br><br>2. From the **When a new email arrives** section, select the **From** field. |
-   | **Blob Content** | Yes | <*content-for-blob*> | For this example, use the HTML-free email body as the blob content. <br><br>1. Select inside the **Blob Content** box, and then select the dynamic content list option (lightning icon). <br><br>2. From the **Call RemoveHTMLFunction** section, select **Body**. |
+   | **Storage Account Name Or Blob Endpoint** | Yes | **Use connection settings(<*storage-account-name-or-blob-endpoint*>)** | Select the option that includes your storage account name. <br><br>This example uses **`https://attachmentstorageacct.blob.core.windows.net`**. |
+   | **Folder Path** | Yes | <*path-and-container-name*> | The path and name for the container that you previously created. <br><br>For this example, select the folder icon, and then select **attachments**. |
+   | **Blob Name** | Yes | <*sender-name*> | For this example, use the sender name as the blob name. <br><br>1. Select inside the **Blob Name** box, and then select the dynamic content list option (lightning icon). <br><br>2. From the **When a new email arrives** section, select **From**. |
+   | **Blob Content** | Yes | <*cleaned-email-body*> | For this example, use the HTML-free email body as the blob content. <br><br>1. Select inside the **Blob Content** box, and then select the dynamic content list option (lightning icon). <br><br>2. From the **Call RemoveHTMLFunction** section, select **Body**. |
 
-   When you're done, the The following image shows the fields to select for the **Create blob for email body** action:
+   The following screenshot shows the outputs to select for the **Create blob for email body** action:
 
-   :::image type="content" source="media/tutorial-process-email-attachments-workflow/create-blob-email-body.png" alt-text="Screenshot shows parameter values and selected outputs for the Create blob action." lightbox="media/tutorial-process-email-attachments-workflow/create-blob-email-body.png":::
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/create-blob-email-body.png" alt-text="Screenshot shows storage container, sender, and HTML-free email body in Create blob action." lightbox="media/tutorial-process-email-attachments-workflow/create-blob-email-body.png":::
 
-   When you're done, the **Create blob for email body** action looks like the following example:
+   When you finish, the action looks like the following example:
 
-   :::image type="content" source="media/tutorial-process-email-attachments-workflow/create-blob-email-body-done.png" alt-text="Screenshot shows finished Create blob action." lightbox="media/tutorial-process-email-attachments-workflow/create-blob-email-body-done.png":::
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/create-blob-email-body-done.png" alt-text="Screenshot shows example email body information for finished Create blob action." lightbox="media/tutorial-process-email-attachments-workflow/create-blob-email-body-done.png":::
 
 1. Save your workflow.
 
@@ -456,13 +469,13 @@ The following steps create a blob to store the email body:
 
 1. On the designer toolbar, select **Run** > **Run**.
 
-   This step manually starts and runs your workflow, but nothing will happen until you send a test email to your inbox.
+   This step manually starts and runs your workflow, but nothing happens until you send a test email to your inbox.
 
 1. Send yourself an email that meets the following criteria:
 
-   * Your email's subject has the text that you specified in the trigger's **Subject filter** parameter: **Business Analyst 2 #423501**
+   * Your email's subject has the text that you specified in the trigger's **Subject Filter** parameter: **Business Analyst 2 #423501**
 
-   * Your email has at least one attachment. For now, just create one empty text file, and attach that file to your email.
+   * Your email has one or more attachments. For now, just create one empty text file, and attach that file to your email.
 
    * Your email has some test content in the body, for example: **Testing my logic app workflow**
 
@@ -478,7 +491,7 @@ The following steps create a blob to store the email body:
 
       :::image type="content" source="media/tutorial-process-email-attachments-workflow/storage-explorer-saved-email.png" alt-text="Screenshot shows Storage Explorer with only the saved email." lightbox="media/tutorial-process-email-attachments-workflow/storage-explorer-saved-email.png":::
 
-   1. When you're done, delete the email in Storage Explorer.
+   1. When you finish, delete the email in Storage Explorer.
 
 1. Optionally, to test the **False** branch, which does nothing at this time, you can send an email that doesn't meet the criteria.
 
@@ -486,13 +499,13 @@ Next, add a **For each** loop to process each email attachment.
 
 ## Add a loop to process attachments
 
-To process each attachment in the email, add a **For each** loop to your workflow.
+The following steps add a loop to process each attachment in the email.
 
 1. Return to the workflow designer. Under the **Create blob for email body** action, select **Add an action**.
 
 1. [Follow these general steps to add the **Control** action named **For each**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. Rename the **For each** action with **For each email attachment**.
+1. In the **For each** action information pane, rename the action with **For each email attachment**.
 
 1. Now select the content for the loop to process.
 
@@ -514,46 +527,56 @@ Next, add an action that saves each attachment as a blob in your **attachments**
 
 ## Add an action to create a blob per attachment
 
-The following steps add an action to create a blog for each attachment:
+The following steps add an action to create a blob for each attachment.
 
-1. In the designer, in the **For each email attachment** loop, select **Add an action** to specify the task to perform on each found attachment.
+1. In the designer, in the **For each email attachment** loop, select **Add an action**.
 
-   ![Screenshot showing loop with the Add an action selected.](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
+1. [Follow these general steps to add the **Azure Blob Storage** action named **Create blob**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. Under the **Choose an operation** search box, select **All**. In the search box, enter **create blob**, and select the action named **Create blob**.
+1. In the **Create blob** action information pane, rename the action with **Create blob for email attachment**.
 
-   ![Screenshot showing the selected action named Create blob.](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
+1. Provide the following action information:
 
-1. In the **Create blob 2** action information pane, rename the action with **Create blob for each email attachment**.
+   > [!TIP]
+   >
+   > If you can't find a specified output in the dynamic content list, 
+   > select **See more** next to the operation name.
 
-1. Provide the following information for the action:
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Storage Account Name Or Blob Endpoint** | Yes | **Use connection settings(<*storage-account-name-or-blob-endpoint*>)** | Select the option that includes your storage account name. <br><br>This example uses **`https://attachmentstorageacct.blob.core.windows.net`**. |
+   | **Folder Path** | Yes | <*path-and-container-name*> | The path and name for the container that you previously created. <br><br>For this example, select the folder icon, and then select **attachments**. |
+   | **Blob Name** | Yes | <*attachment-name*> | For this example, use the attachment name as the blob name. <br><br>1. Select inside the **Blob Name** box, and then select the dynamic content list option (lightning icon). <br><br>2. From the **When a new email arrives** section, select **Name**. |
+   | **Blob Content** | Yes | <*email-content*> | For this example, use the email content as the blob content. <br><br>1. Select inside the **Blob Content** box, and then select the dynamic content list option (lightning icon). <br><br>2. From the **When a new email arrives** section, select **Content**. |
 
-   | Parameter | Value | Description |
-   |-----------|-------|-------------|
-   | **Storage account name or blob endpoint** | **Use connection settings(<*storage-account-name*>)** | Select your storage account, which is **attachmentstorageacct** for this example. |
-   | **Folder path** | <*path-and-container-name*> | The path and name for the container that you previously created. For this example, select the folder icon, and then select the **attachments** container. |
-   | **Blob name** | <*attachment-name*> | For this example, use the attachment's name as the blob's name. Select inside this box so that the dynamic content list appears. From the **When a new email arrives** section, select the **Name** field. |
-   | **Blob content** | <*email-content*> | For this example, use the email content as the blob content. Select inside this box so that the dynamic content list appears. From the **When a new email arrives** section, select **Content**. |
+   > [!NOTE]
+   >
+   > If you select an output that has an array, such as the **Content** output, which is an array 
+   > that includes attachments, the designer automatically adds a **For each** loop around the action 
+   > that references that output. That way, your workflow can perform that action on each array item.
+   > To remove loop, move the action that references the output to outside the loop, and delete the loop.
 
-   ![Screenshot showing information about the attachment in the Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
+   The following screenshot shows the outputs to select for the **Create blob for email attachment** action:
 
-   When you're done, the action looks like the following example:
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png" alt-text="Screenshot shows storage container and attachment information in Create blob action." lightbox="media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png":::
 
-   ![Screenshot showing example attachment information for the finished Create blob action.](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment-done.png)
+   When you finish, the action looks like the following example:
+
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/create-blob-per-attachment-done.png" alt-text="Screenshot shows example attachment information for finished Create blob action." lightbox="media/tutorial-process-email-attachments-workflow/create-blob-per-attachment-done.png":::
 
 1. Save your workflow.
 
 ### Retest attachment handling
 
-1. On the designer toolbar, select **Run Trigger** > **Run**.
+1. On the designer toolbar, select **Run** > **Run**.
 
-   This step manually starts and runs your workflow, but nothing will happen until the test email arrives in your inbox.
+   This step manually starts and runs your workflow, but nothing happens until you send a test email to your inbox.
 
 1. Send yourself an email that meets the following criteria:
 
-   * Your email's subject has the text that you specified in the trigger's **Subject filter** property: `Business Analyst 2 #423501`
+   * Your email's subject has the text that you specified in the trigger's **Subject Filter** parameter: **Business Analyst 2 #423501**
 
-   * Your email has at least two attachments. For now, just create two empty text files and attach those files to your email.
+   * Your email has two or more attachments. For now, just create two empty text files and attach those files to your email.
 
    If your workflow didn't trigger or run despite a successful trigger, see [Troubleshoot your logic app workflow](logic-apps-diagnosing-failures.md).
 
@@ -563,56 +586,56 @@ The following steps add an action to create a blog for each attachment:
 
    1. Check the **attachments** container for both the email and the attachments.
 
-      ![Screenshot showing Storage Explorer and saved email and attachments.](./media/tutorial-process-email-attachments-workflow/storage-explorer-saved-attachments.png)
+      :::image type="content" source="media/tutorial-process-email-attachments-workflow/storage-explorer-saved-attachments.png" alt-text="Screenshot shows Storage Explorer and saved email and attachments." lightbox="media/tutorial-process-email-attachments-workflow/storage-explorer-saved-attachments.png":::
 
-   1. When you're done, delete the email and attachments in Storage Explorer.
+   1. When you finish, delete the email and attachments in Storage Explorer.
 
-Next, add an action so that your workflow sends email to review the attachments.
+Next, add an action in your workflow that sends email to review the attachments.
 
 ## Add an action to send email
 
-1. Return to the designer. In the **True** branch, collapse the **For each email attachment** loop.
+The following steps add an action so that your workflow sends email to review the attachments.
+
+1. Return to the workflow designer. In the **True** branch, collapse the **For each email attachment** loop.
 
 1. Under the loop, select **Add an action**.
 
-   ![Screenshot showing the collapsed for each loop. Under the loop, the Add an action option is selected.](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
-
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **send email**.
-
-1. From the actions list, select the send email action for your email provider. To filter the actions list based on a specific connector, you can select the connector first.
+1. [Follow these general steps to add the **Office 365 Outlook** action named **Send an email**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    This example continues with the Office 365 Outlook connector, which works only with an Azure work or school account. For personal Microsoft accounts, select the Outlook.com connector.
 
-   ![Screenshot showing the Office 365 Outlook send email action selected.](./media/tutorial-process-email-attachments-workflow/add-action-select-send-email.png)
-
 1. If you're asked for credentials, sign in to your email account so that Azure Logic Apps creates a connection to your email account.
 
-1. Rename the **Send an email** action with the following description: **Send email for review**
+1. In the **Send an email** action information pane, rename the action with **Send email for review**.
 
-1. Provide the following action information and select the fields to include in the email.
+1. Provide the following action information and select the outputs to include in the email:
 
-   * To add blank lines in an edit box, press Shift + Enter.
-   * If you can't find an expected field in the dynamic content list, select **See more** next to **When a new email arrives**.
+   > [!TIP]
+   >
+   > * To add blank lines in an edit box, press Shift + Enter.
+   > * If you can't find a specified output in the dynamic content list, 
+   > select **See more** next to the operation name.
 
-   | Property | Value | Description |
-   |----------|-------|-------------|
-   | **To** | <*recipient-email-address*> | For testing purposes, you can use your own email address. |
-   | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** | The email subject that you want to include. Click inside this box, enter the example text, and from the dynamic content list, select the **Subject** field under **When a new email arrives**. |
-   | **Body** | ```Please review new applicant:``` <p>```Applicant name:``` **From** <p>```Application file location:``` **Path** <p>```Application email content:``` **Body** | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** |
-
-   ![Screenshot showing the sample email to send.](./media/tutorial-process-email-attachments-workflow/send-email-notification.png)
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **To** | Yes | <*recipient-email-address*> | For testing purposes, use your own email address. |
+   | **Subject** | Yes | <*email-subject*> | The email subject to include. <br><br>This example uses **ASAP - Review applicant for position:**, and the **Subject** output from the trigger. <br><br>1. In the **Subject** box, enter the example text with a trailing space. <br><br>2. Select inside the **Subject** box, and then select the dynamic content list option (lightning icon). <br><br>3. In the list, under **When a new email arrives**, select **Subject**. |
+   | **Body** | Yes | <*email-body*> | The email body to include. <br><br>The examle uses **Please review new applicant:**, the trigger output named **From**, the **Path** output from the **Create blob for email body** action, and the **Body** output from your **Call RemoveHTMLFunction** action. <br><br>1. In the **Body** box, enter the example text: **Please review new applicant:** <br><br>2. Add a new line, enter the example text, **Applicant name:**, and add the **From** output from the trigger. <br><br>3. Add a new line, enter the example text, **Application file location:**, and add the **Path** output from the **Create blob for email body** action. <br><br>4. Add a new line, enter the example text, **Application email content:**, and add the **Body** output from the  | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** |
 
    > [!NOTE]
    >
-   > If you select a field that contains an array, such as the **Content** field, which is an array 
-   > that contains attachments, the designer automatically adds a **For each** loop around the action 
-   > that references that field. That way, your workflow can perform that action on each array item.
-   > To remove the loop, remove the field for the array, move the referencing action to outside the loop,
-   > select the ellipses (**...**) on the loop's title bar, and select **Delete**.
+   > If you select an output that has an array, such as the **Content** output, which is an array 
+   > that includes attachments, the designer automatically adds a **For each** loop around the action 
+   > that references that output. That way, your workflow can perform that action on each array item.
+   > To remove loop, move the action that references the output to outside the loop, and delete the loop.
+
+   The following screenshot shows the outputs to select for the **Send an email** action:
+
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/send-email-notification.png" alt-text="Screenshot shows sample email to send." lightbox="media/tutorial-process-email-attachments-workflow/send-email-notification.png":::
 
 1. Save your workflow.
 
-Now, test your workflow, which now looks like the following example:
+Your finished workflow now looks like the following example:
 
 ![Screenshot showing the finished workflow.](./media/tutorial-process-email-attachments-workflow/complete.png)
 
@@ -620,7 +643,7 @@ Now, test your workflow, which now looks like the following example:
 
 1. Send yourself an email that meets this criteria:
 
-   * Your email's subject has the text that you specified in the trigger's **Subject filter** property: `Business Analyst 2 #423501`
+   * Your email's subject has the text that you specified in the trigger's **Subject Filter** parameter: **Business Analyst 2 #423501**
 
    * Your email has one or more attachments. You can reuse an empty text file from your previous test. For a more realistic scenario, attach a resume file.
 
