@@ -48,23 +48,29 @@ The following decision charts highlight the features of each **Document Intellig
 
 | Document type | Data to extract | Your best solution |
 | -----------------|--------------|-------------------|
+|**US Unified Tax**|You want to extract key information across all tax forms of W2s, 1040s, 1090s, 1098s from a single file without running any custom classification of your own.|[**US Unified tax model**](concept-tax-document.md)|
 |**US Tax W-2 tax**|You want to extract key information such as salary, wages, and taxes withheld.|[**US tax W-2 model**](concept-tax-document.md)|
 |**US Tax 1098**|You want to extract mortgage interest details such as principal, points, and tax.|[**US tax 1098 model**](concept-tax-document.md)|
 |**US Tax 1098-E**|You want to extract student loan interest details such as lender and interest amount.|[**US tax 1098-E model**](concept-tax-document.md)|
 |**US Tax 1098T**|You want to extract qualified tuition details such as scholarship adjustments, student status, and lender information.|[**US tax 1098-T model**](concept-tax-document.md)|
 |**US Tax 1099(Variations)**|You want to extract information from `1099` forms and its variations (A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC, NEC, OID, PATR, Q, QA, R, S, SA, SB).|[**US tax 1099 model**](concept-tax-document.md)|
 |**US Tax 1040(Variations)**|You want to extract information from `1040` forms and its variations (Schedule 1, Schedule 2, Schedule 3, Schedule 8812, Schedule A, Schedule B, Schedule C, Schedule D, Schedule E, Schedule `EIC`, Schedule F, Schedule H, Schedule J, Schedule R, Schedule `SE`, Schedule Senior).|[**US tax 1040 model**](concept-tax-document.md)|
+|**Bank Statement**  |You want to extract key information from US bank statement | [**\Bank Statement**](concept-bank-statement.md)|
+|**Check** |You want to extract key information from check document. | [**Bank Check**](concept-bank-check.md)|
 |**Contract** (legal agreement between parties).|You want to extract contract agreement details such as parties, dates, and intervals.|[**Contract model**](concept-contract.md)|
 |**Health insurance card** or health insurance ID.| You want to extract key information such as insurer, member ID, prescription coverage, and group number.|[**Health insurance card model**](./concept-health-insurance-card.md)|
-|**Credit/Debit card** . |You want to extract key information bank cards such as card number and bank name. | [**Credit/Debit card model**](concept-credit-card.md)|
-|**Marriage Certificate** . |You want to extract key information from marriage certificates. | [**Marriage certificate model**](concept-marriage-certificate.md)|
-|**Invoice** or billing statement.|You want to extract key information such as customer name, billing address, and amount due.|[**Invoice model**](concept-invoice.md)
+|**Credit/Debit card** |You want to extract key information bank cards such as card number and bank name. | [**Credit/Debit card model**](concept-credit-card.md)|
+|**Marriage Certificate** |You want to extract key information from marriage certificates. | [**Marriage certificate model**](concept-marriage-certificate.md)|
+|**Invoice** or billing statement|You want to extract key information such as customer name, billing address, and amount due.|[**Invoice model**](concept-invoice.md)
 |**Receipt**, voucher, or single-page hotel receipt. |You want to extract key information such as merchant name, transaction date, and transaction total.|[**Receipt model**](concept-receipt.md)|
-|**Identity document (ID)** like a U.S. driver's license or international passport. |You want to extract key information such as first name, surname, date of birth, address, and signature. | [**Identity document (ID) model**](concept-id-document.md)|
-|**US Mortgage 1003** . |You want to extract key information from the Uniform Residential loan application. | [**1003 form model**](concept-mortgage-documents.md)|
-|**US Mortgage 1008** . |You want to extract key information from the Uniform Underwriting and Transmittal summary. | [**1008 form model**](concept-mortgage-documents.md)|
-|**US Mortgage Closing Disclosure** . |You want to extract key information from a mortgage closing disclosure form. | [**Mortgage closing disclosure form model**](concept-mortgage-documents.md)|
-|**Mixed-type document(s)** with structured, semi-structured, and/or unstructured elements. | You want to extract key-value pairs, selection marks, tables, signature fields, and selected regions not extracted by prebuilt or general document models.| [**Custom model**](concept-custom.md)|
+|**Identity document (ID)** like a U.S. driver's license or international passport |You want to extract key information such as first name, surname, date of birth, address, and signature. | [**Identity document (ID) model**](concept-id-document.md)|
+|**Paystub** |You want to extract key information from the paystub document. | [**Paystub Model**](concept-pay-stub.md)|
+|**US Mortgage 1003** |You want to extract key information from the Uniform Residential loan application. | [**1003 form model**](concept-mortgage-documents.md)|
+|**US Mortgage 1004** |You want to extract key information from thelUniform Residential Appraisal Report (URAR). | [**1004 form model**](concept-mortgage-documents.md)|
+|**US Mortgage 1005** |You want to extract key information from the Verification of employment form | [**1005 form model**](concept-mortgage-documents.md)|
+|**US Mortgage 1008**  |You want to extract key information from the Uniform Underwriting and Transmittal summary. | [**1008 form model**](concept-mortgage-documents.md)|
+|**US Mortgage Closing Disclosure** |You want to extract key information from a mortgage closing disclosure form. | [**Mortgage closing disclosure form model**](concept-mortgage-documents.md)|
+|**Mixed-type document(s)** with structured, semi-structured, and/or unstructured elements | You want to extract key-value pairs, selection marks, tables, signature fields, and selected regions not extracted by prebuilt or general document models.| [**Custom model**](concept-custom.md)|
 
 >[!Tip]
 >
