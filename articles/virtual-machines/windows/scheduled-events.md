@@ -412,7 +412,7 @@ def advanced_sample(last_document_incarnation):
         # Events that may be impactful (for example reboot or redeploy) may need custom
         # handling for your application
         else:
-            # TODO Custom handling for impactful events
+            #TODO Custom handling for impactful events
             log(event)
     print("Processed events from document: " + str(found_document_incarnation))
     return found_document_incarnation
