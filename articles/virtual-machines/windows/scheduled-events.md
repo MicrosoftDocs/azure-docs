@@ -222,7 +222,7 @@ This means that you can detect a future schedule of event at least by the minimu
 > In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if Azure predicts that there is a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you [self-redeploy your virtual machine](./redeploy-to-new-node-windows.md) as soon as possible.
 
 >[!NOTE]
-> In the case the host node experiences a hardware failure, Azure will bypass the minimum notice period and immediately begin the recovery process for affected virtual machines. This reduces recovery time in the case that the affected VMs are unable to respond. During the recovery process a scheduled event will be created for all impacted VMs with `EventType = Reboot` and `EventStatus = Started`.
+> If the host node experiences a hardware failure, Azure will bypass the minimum notice period and immediately begin the recovery process for affected virtual machines. This reduces recovery time in the case that the affected VMs are unable to respond. During the recovery process a scheduled event will be created for all impacted VMs with `EventType = Reboot` and `EventStatus = Started`.
 
 ### Polling frequency
 
