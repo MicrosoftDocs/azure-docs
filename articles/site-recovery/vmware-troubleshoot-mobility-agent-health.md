@@ -31,6 +31,7 @@ To troubleshoot mobility agent health errors, follow these recommendations:
     - **Windows**: `/var/log/svagents_curr<>.log`
     - **Linux**: `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents_curr<>.log`
 
+
 ### Error 1 - ClientCertificateIsInvalidOrExpired
 
 If you get the following error in the `svagents_curr<>.log` file:
@@ -39,6 +40,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 **ClientCertificateIsInvalidOrExpired**
 **The specified client certificate is invalid or already expired.**
+
 ---
 
 #### Full error message
@@ -72,7 +74,7 @@ handshake: **certificate verify failed** (SSL routines)
 
 #### Full error message
 
-```md
+```
 #~> (06-25-2024 16:17:42):   ERROR  2480 4612 36 TransportStream::Write: Failed to send data with error [at C:\__w\1\s\host\cxpslib\client.h:BasicClient<class HttpTraits>::putFile:609]   (sid: ), remoteName: b0a77692-5c2a-48d5-bb95-35404e10a10d.mon, dataSize: 1048576, moreData: 1, error: [at C:\__w\1\s\host\cxpslib\client.h:BasicClient<class HttpTraits>::connectSocket:1468]   WIN-0LTQUK99R9O : 11001, No such host is known.: handshake: certificate verify failed (SSL routines) [asio.ssl:167772294].  (may want to check server side logs for this sid) cxps
 ```
 
@@ -97,7 +99,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 #### Full error message
 
-```md
+```
 #~> (06-20-2024 10:03:51):  ERROR  1688 648 16394 Server certificate expired for URL https://<IPAddress>:443/CallRcmApi
 #~> (06-20-2024 10:03:51):   ERROR  1688 648 16395 Could not perform curl. Curl error: (60) SSL peer certificate or SSH remote key was not OK
 #~> (06-20-2024 10:03:51):   ERROR  1688 648 16396 Curl internal error : SSL certificate problem: self-signed certificate.
@@ -110,7 +112,6 @@ If you get the following error in the `svagents_curr<>.log` file:
 #~> (06-20-2024 10:03:53):   ERROR  1688 648 16403 RCM proxy post call failed for all addresses
 #~> (06-20-2024 10:03:53):   ERROR  1688 648 16404 RcmClientLib::RcmConfigurator::PollReplicationSettings: failed to get settings from RCM with error 20501
 ```
----
 
 #### Resolution
 
