@@ -17,9 +17,14 @@ This article describes how to configure Container insights to use Azure Private 
 
 
 ### Prerequisites
- - Azure CLI version 2.61.0 or higher.
- - Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
+- Azure CLI version 2.63.0 or higher.
 
+- AKS-preview CLI extension version MUST be 7.0.0b4 or higher if there is an AKS-preview CLI extension installed.
+
+- Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
+
+
+- Configure network isolation on your Log Analytics workspace to disable ingestion for the public networks. Isolate log queries if you want them to be restricted to Private network.
 
 ### Existing AKS Cluster 
 
