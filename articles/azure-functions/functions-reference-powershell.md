@@ -456,93 +456,106 @@ The function app restarts after the change is made to the configuration.
 
 ## Dependency management
 
-Functions lets you leverage [PowerShell gallery](https://www.powershellgallery.com) for managing dependencies. With dependency management enabled, the requirements.psd1 file is used to automatically download required modules. You enable this behavior by setting the `managedDependency` property to `true` in the root of the [host.json file](functions-host-json.md), as in the following example:
+Managing modules in Azure Functions written in PowerShell can be approached in two ways: using the Managed Dependencies feature or including the modules directly in your app content. Each method has its own advantages, and choosing the right one depends on your specific needs.
+
+### Choosing the Right Module Management Approach
+
+**Managed Dependencies Feature**
+- **Simplified initial installation**: Automatically handles module installation based on your `requirements.psd1` file.
+- **Auto-upgrades**: Modules are updated automatically, including security fixes, without requiring manual intervention.
+
+**Including Modules in App Content**
+- **No dependency on the PowerShell Gallery**: Modules are bundled with your app, eliminating external dependencies.
+- **More control**: Avoids the risk of auto-upgrade regressions, giving you full control over which module versions are used.
+- **Compatibility**: Works on Flex Consumption and is recommended for other Linux SKUs.
+
+### Managed Dependencies Feature
+
+The Managed Dependencies feature allows Azure Functions to automatically download and manage PowerShell modules specified in the `requirements.psd1` file. This is enabled by default in new PowerShell function apps.
+
+#### Enabling Managed Dependencies
+
+To enable managed dependencies, set the `managedDependency` property to `true` in the `host.json` file:
 
 ```json
 {
   "managedDependency": {
-          "enabled": true
-       }
+    "enabled": true
+  }
 }
 ```
 
-When you create a new PowerShell functions project, dependency management is enabled by default, with the Azure [`Az` module](/powershell/azure/new-azureps-module-az) included. The maximum number of modules currently supported is 10. The supported syntax is *`MajorNumber.*`* or exact module version, as shown in the following requirements.psd1 example:
+#### Target Specific Versions
 
-```powershell
-@{
-	Az = '1.*'
-	SqlServer = '21.1.18147'
-}
-```
+When targeting specific module versions, it’s important to follow both steps below to ensure the correct module version is loaded:
 
-When you update the requirements.psd1 file, updated modules are installed after a restart.
+1. **Specify the module version in `requirements.psd1`:**
 
-### Target specific versions
+    ```powershell
+    @{
+      'Az.Accounts' = '1.9.5'
+    }
+    ```
 
-You may want to target a specific version of a module in your requirements.psd1 file. For example, if you wanted to use an older version of Az.Accounts than the one in the included Az module, you would need to target a specific version as shown in the following example: 
+2. **Add an import statement to `profile.ps1`:**
 
-```powershell
-@{
-	'Az.Accounts' = '1.9.5'
-}
-```
+    ```powershell
+    Import-Module Az.Accounts -RequiredVersion '1.9.5'
+    ```
 
-In this case, you also need to add an import statement to the top of your profile.ps1 file, which looks like the following example:
+This ensures the specified version is loaded when your function starts.
 
-```powershell
-Import-Module Az.Accounts -RequiredVersion '1.9.5'
-```
+#### Dependency Management Considerations
 
-In this way, the older version of the Az.Account module is loaded first when the function is started.
+- **Internet Access**: Managed dependencies require access to `https://www.powershellgallery.com` to download modules. Ensure that your environment allows this access.
+- **License Acceptance**: Modules that require license acceptance are not supported by managed dependencies.
+- **Flex Consumption Plan**: Managed dependencies are not supported in the Flex Consumption plan. Use custom modules instead.
 
-### Dependency management considerations
+#### Dependency Management App Settings
 
-The following considerations apply when using dependency management:
+You can configure how managed dependencies are downloaded and installed using the following app settings:
 
-+ Managed dependencies requires access to `https://www.powershellgallery.com` to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
+| Setting                     | Default Value             | Description  |
+|-----------------------------|---------------------------|--------------|
+| **MDMaxBackgroundUpgradePeriod** | `7.00:00:00` (seven days) | Controls the background update period for PowerShell function apps. |
+| **MDNewSnapshotCheckPeriod** | `01:00:00` (one hour)     | Specifies how often the PowerShell worker checks for updates. |
+| **MDMinBackgroundUpgradePeriod** | `1.00:00:00` (one day)   | Minimum time between upgrade checks. |
 
-+ Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
+### Including Modules in App Content
 
-+ Managed dependencies aren't supported when you host your function app in a [Flex Consumption plan](flex-consumption-plan.md). You must instead [define your own custom modules](#custom-modules).
+For more control over your module versions and to avoid dependencies on external resources, you can include modules directly in your function app’s content.
 
-### Dependency management app settings
+#### Function App-Level Modules Folder
 
-The following application settings can be used to change how the managed dependencies are downloaded and installed. 
+To include custom modules:
 
-| Function App setting              | Default value             | Description                                         |
-|   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **MDMaxBackgroundUpgradePeriod**      | `7.00:00:00` (seven days)     | Controls the background update period for PowerShell function apps. To learn more, see [MDMaxBackgroundUpgradePeriod](functions-app-settings.md#mdmaxbackgroundupgradeperiod). | 
-| **MDNewSnapshotCheckPeriod**         | `01:00:00` (one hour)       | Specifies how often each PowerShell worker checks whether managed dependency upgrades have been installed. To learn more, see [MDNewSnapshotCheckPeriod](functions-app-settings.md#mdnewsnapshotcheckperiod).|
-| **MDMinBackgroundUpgradePeriod**      | `1.00:00:00` (one day)     | The period of time after a previous upgrade check before another upgrade check is started. To learn more, see [MDMinBackgroundUpgradePeriod](functions-app-settings.md#mdminbackgroundupgradeperiod).|
+1. **Create a `Modules` folder** at the root of your function app.
 
-Essentially, your app upgrade starts within `MDMaxBackgroundUpgradePeriod`, and the upgrade process completes within approximately the `MDNewSnapshotCheckPeriod`.
+    ```powershell
+    mkdir ./Modules
+    ```
 
-## Custom modules
+2. **Copy modules to the `Modules` folder** using one of the following methods:
 
-Leveraging your own custom modules in Azure Functions differs from how you would do it normally for PowerShell.
+    - **If modules are already available locally**:
 
-On your local computer, the module gets installed in one of the globally available folders in your `$env:PSModulePath`. When running in Azure, you don't have access to the modules installed on your machine. This means that the `$env:PSModulePath` for a PowerShell function app differs from `$env:PSModulePath` in a regular PowerShell script.
+      ```powershell
+      Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
+      ```
 
-In Functions, `PSModulePath` contains two paths:
+    - **Using `Save-Module` to retrieve from the PowerShell Gallery**:
 
-* A `Modules` folder that exists at the root of your function app.
-* A path to a `Modules` folder that is controlled by the PowerShell language worker.
+      ```powershell
+      Save-Module -Name MyCustomModule -Path ./Modules
+      ```
 
-### Function app-level modules folder
+    - **Using `Save-PSResource` from the `PSResourceGet` module**:
 
-To use custom modules, you can place modules on which your functions depend in a `Modules` folder. From this folder, modules are automatically available to the functions runtime. Any function in the function app can use these modules. 
+      ```powershell
+      Save-PSResource -Name MyCustomModule -Path ./Modules
+      ```
 
-> [!NOTE]
-> Modules specified in the [requirements.psd1 file](#dependency-management) are automatically downloaded and included in the path so you don't need to include them in the modules folder. These are stored locally in the `$env:LOCALAPPDATA/AzureFunctions` folder and in the `/data/ManagedDependencies` folder when run in the cloud.
-
-To take advantage of the custom module feature, create a `Modules` folder in the root of your function app. Copy the modules you want to use in your functions to this location.
-
-```powershell
-mkdir ./Modules
-Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
-```
-
-With a `Modules` folder, your function app should have the following folder structure:
+Your function app should have the following structure:
 
 ```
 PSFunctionApp
@@ -558,34 +571,7 @@ PSFunctionApp
  | - requirements.psd1
 ```
 
-When you start your function app, the PowerShell language worker adds this `Modules` folder to the `$env:PSModulePath` so that you can rely on module autoloading just as you would in a regular PowerShell script.
-
-### Language worker level modules folder
-
-Several modules are commonly used by the PowerShell language worker. These modules are defined in the last position of `PSModulePath`. 
-
-The current list of modules is as follows:
-
-* [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): module used for working with archives, like `.zip`, `.nupkg`, and others.
-* **ThreadJob**: A thread-based implementation of the PowerShell job APIs.
-
-By default, Functions uses the most recent version of these modules. To use a specific module version, put that specific version in the `Modules` folder of your function app.
-
-## Environment variables
-
-In Functions, [app settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings using `$env:NAME_OF_ENV_VAR`, as shown in the following example:
-
-```powershell
-param($myTimer)
-
-Write-Host "PowerShell timer trigger function ran! $(Get-Date)"
-Write-Host $env:AzureWebJobsStorage
-Write-Host $env:WEBSITE_SITE_NAME
-```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-When running locally, app settings are read from the [local.settings.json](functions-develop-local.md#local-settings-file) project file.
+Modules in the `Modules` folder are automatically available to the runtime.
 
 ## Concurrency
 
@@ -693,9 +679,11 @@ When you work with PowerShell functions, be aware of the considerations in the f
 
 When developing Azure Functions in the [serverless hosting model](consumption-plan.md), cold starts are a reality. *Cold start* refers to period of time it takes for your function app to start running to process a request. Cold start happens more frequently in the Consumption plan because your function app gets shut down during periods of inactivity.
 
-### Bundle modules instead of using Install-Module
+#### Avoid Using Install-Module
 
-Your script is run on every invocation. Avoid using `Install-Module` in your script. Instead use `Save-Module` before publishing so that your function doesn't have to waste time downloading the module. If cold starts are impacting your functions, consider deploying your function app to an [App Service plan](dedicated-plan.md) set to *always on* or to a [Premium plan](functions-premium-plan.md).
+Running `Install-Module` in your function script on each invocation can cause performance issues. Instead, use `Save-Module` or `Save-PSResource` before publishing your function app to bundle the necessary modules.
+
+For more information, refer to the [Module Management](#module-management) section.
 
 ## Next steps
 
