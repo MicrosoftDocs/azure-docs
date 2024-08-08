@@ -525,7 +525,7 @@ Both ARM and Bicep templates are provided in this section.
 
 ### [Azure Policy](#tab/policy)
 
-#### Azure Portal
+#### Azure portal
 
 1. From the **Definitions** tab of the **Policy** menu in the Azure portal, create a policy definition with the following details.
 

@@ -164,7 +164,7 @@ The following sample shows this transformation added to the Container insights D
 
 In the example above, only records with a `LogLevel` of `error` or `critical` are collected. An alternate strategy instead of not collecting these records at all is to save them to an alternate table configured for basic logs. 
 
-For this strategy, two transformation are needed. The first transformation sends the records with `LogLevel` of `error` or `critical` to the default table. The second transformation sends the other records to a custom table named `ContainerLogV2_CL`. The queries for each are shown below using `source` for the incoming data as described in the previous example.
+For this strategy, two transformations are needed. The first transformation sends the records with `LogLevel` of `error` or `critical` to the default table. The second transformation sends the other records to a custom table named `ContainerLogV2_CL`. The queries for each are shown below using `source` for the incoming data as described in the previous example.
 
 ```kusto
 # Return error and critical logs

@@ -39,7 +39,7 @@ The following example shows the ConfigMap settings to collect stdout and stderr 
 ```
 
 
-## Platform log filtering (System Kubernetes Namespaces)
+## Platform log filtering (System Kubernetes namespaces)
 By default, container logs from the system namespace are excluded from collection to minimize the Log Analytics cost. Container logs of system containers can be critical though in specific troubleshooting scenarios. This feature is restricted to the following system namespaces:  `kube-system`, `gatekeeper-system`, `calico-system`, `azure-arc`, `kube-public`, and `kube-node-lease`.
 
 Enable platform logs using [ConfigMap](./container-insights-data-collection-configure.md#configure-data-collection-using-configmap) with the `collect_system_pod_logs` setting. You must also ensure that the system namespace is not in the `exclude_namespaces` setting. 
@@ -107,7 +107,7 @@ Enable collection of environment variables across all pods and nodes in the clus
     enabled = true
 ```
 
-If collection of environment variables is globally enabled, you can disable it for a specific container by setting the environment variable `AZMON_COLLECT_ENV` to `False` either with a Dockerfile setting or in the [configuration file for the Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under the `env:` section. If collection of environment variables is globally disabled, you can't enable collection for a specific container. The only override that can be applied at the container level is to disable collectdion when it's already enabled globally.
+If collection of environment variables is globally enabled, you can disable it for a specific container by setting the environment variable `AZMON_COLLECT_ENV` to `False` either with a Dockerfile setting or in the [configuration file for the Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under the `env:` section. If collection of environment variables is globally disabled, you can't enable collection for a specific container. The only override that can be applied at the container level is to disable collection when it's already enabled globally.
 
 
 

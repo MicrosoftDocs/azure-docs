@@ -631,7 +631,7 @@ The required tables for this chart include KubeNodeInventory, KubePodInventory, 
 
 ## Prometheus metrics
 
-The following examples requires the configuration described in [Send Prometheus metrics to Log Analytics workspace with Container insights](container-insights-prometheus-logs.md).
+The following examples require the configuration described in [Send Prometheus metrics to Log Analytics workspace with Container insights](container-insights-prometheus-logs.md).
 
 To view Prometheus metrics scraped by Azure Monitor and filtered by namespace, specify *"prometheus"*. Here's a sample query to view Prometheus metrics from the `default` Kubernetes namespace.
 

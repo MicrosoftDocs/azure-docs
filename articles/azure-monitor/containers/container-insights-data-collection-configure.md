@@ -1,6 +1,6 @@
 ---
 title: Configure Container insights data collection
-description: Details on configuring data collection in Azure Monitor Container insights after you enable it on on your Kubernetes cluster.
+description: Details on configuring data collection in Azure Monitor Container insights after you enable it on your Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 05/14/2024
 ms.reviewer: aul
@@ -16,7 +16,7 @@ There are two methods use to configure and filter data being collected in Contai
 | Method | Description |
 |:---|:---| 
 | [Data collection rule (DCR)](#configure-data-collection-using-dcr) | [Data collection rules](../essentials/data-collection-rule-overview.md) are sets of instructions supporting data collection using the [Azure Monitor pipeline](../essentials/pipeline-overview.md). A DCR is created when you enable Container insights, and you can modify the settings in this DCR either using the Azure portal or other methods. | 
-| [ConfigMap](#configure-data-collection-using-configmap) | [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as a configuration file or environment variables. Container insights looks for a ConfigMap on each cluster with particular settings that define data that it should collect.|
+| [ConfigMap](#configure-data-collection-using-configmap) | [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allows you to store non-confidential data such as a configuration file or environment variables. Container insights looks for a ConfigMap on each cluster with particular settings that define data that it should collect.|
 
 ## Configure data collection using DCR
 The DCR created by Container insights is named *MSCI-\<cluster-region\>-\<cluster-name\>*. You can [view this DCR](../essentials/data-collection-rule-view.md) along with others in your subscription, and you can edit it using methods described in [Create and edit data collection rules (DCRs) in Azure Monitor](../essentials/data-collection-rule-create-edit.md). While you can directly modify the DCR for particular customizations, you can perform most required configuration using the methods described below. See [Data transformations in Container insights](./container-insights-transformations.md) for details on editing the DCR directly for more advanced configurations.
@@ -127,7 +127,7 @@ Use the following command to create a new AKS cluster with monitoring enabled. T
 az aks create -g <clusterResourceGroup> -n <clusterName> --enable-managed-identity --node-count 1 --enable-addons monitoring --data-collection-settings dataCollectionSettings.json --generate-ssh-keys 
 ```
 
-#### Existing AKS Cluster
+#### Existing AKS cluster
 
 **Cluster without the monitoring addon**
 Use the following command to add monitoring to an existing cluster without Container insights enabled. This assumes a configuration file named **dataCollectionSettings.json**.
@@ -156,7 +156,7 @@ Use the following command to add monitoring to an existing Arc-enabled Kubernete
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true dataCollectionSettings='{"interval":"1m","namespaceFilteringMode": "Include", "namespaces": [ "kube-system"],"enableContainerLogV2": true,"streams": ["<streams to be collected>"]}'
 ```
 
-### AKS hybrid Cluster
+### AKS hybrid cluster
 Use the following command to add monitoring to an existing AKS hybrid cluster.
 
 ```azcli

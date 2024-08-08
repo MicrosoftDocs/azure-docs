@@ -13,13 +13,12 @@ Kubernetes clusters generate a large amount of data that's collected by Containe
 Once you've analyzed your collected data and determined if there's any data that you're collecting that you don't require, there are several options to filter any data that you don't want to collect. This ranges from selecting from a set of predefined cost configurations to leveraging different features to filter data based on specific criteria. This article provides a walkthrough of guidance on how to analyze and optimize your data collection for Container insights. 
 
 
-| [Configure pricing tiers](#configure-pricing-tiers) | Analyze whether configuring basic pricing tier for your container logs will reduce your costs based on your particular usage. You can also use transformations to break up different data into multiple tables using different tiers. |
 
 ## Analyze your data ingestion
 
 To identify your best opportunities for cost savings, analyze the amount of data being collected in different tables. This information will help you identify which tables are consuming the most data and help you make informed decisions about how to reduce costs.
 
-You can visualize how much data is ingested in each workspace by using the **Container Insights Usage** runbook, which is available from the **Workspace** page of of a monitored cluster. 
+You can visualize how much data is ingested in each workspace by using the **Container Insights Usage** runbook, which is available from the **Workspace** page of a monitored cluster. 
 
 :::image type="content" source="media/container-insights-cost/workbooks-page.png" lightbox="media/container-insights-cost/workbooks-page.png" alt-text="Screenshot that shows the View Workbooks dropdown list.":::
 
@@ -69,7 +68,7 @@ See [Data transformations in Container insights](./container-insights-transforma
 
 ## Configure pricing tiers
 
-[Basic Logs in Azure Monitor](../logs/logs-table-plans.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that that you occasionally use for debugging and troubleshooting. Tables configured for basic logs offer a significant cost discount for data ingestion in exchange for a cost for log queries meaning that they're ideal for data that you require but that you access infrequently. 
+[Basic Logs in Azure Monitor](../logs/logs-table-plans.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that you occasionally use for debugging and troubleshooting. Tables configured for basic logs offer a significant cost discount for data ingestion in exchange for a cost for log queries meaning that they're ideal for data that you require but that you access infrequently. 
 
 [ContainerLogV2](container-insights-logs-schema.md) can be configured for basic logs which can give you significant cost savings if you query the data infrequently. Using [transformations](#transformations), you can specify data that should be sent to alternate tables configured for basic logs. See [Data transformations in Container insights](./container-insights-transformations.md) for an example of this strategy.
 
