@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 07/25/2024
+ms.date: 08/07/2024
 ms.author: anfdocs
 ---
 
@@ -14,12 +14,23 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## August 2024
+
 * [Volume encryption with customer-managed keys with managed Hardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) (Preview)
 
     Volume encryption with customer-managed keys with managed HSM extends the [customer-managed keys](configure-customer-managed-keys.md), enabling you to store your keys in a more secure FIPS 140-2 Level 3 HSM service instead of the FIPS 140-2 Level 1 or 2 encryption offered with Azure Key Vault. 
 
 ## July 2024
 
+* Availability zone volume placement enhancement - [**Populate existing volumes**](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) is now generally available (GA).
+
+
+* [Cross-zone replication](cross-zone-replication-introduction.md) is now generally available (GA).
+
+    Cross-zone replication allows you to replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone (AZ) to another within the same region. Using technology similar to the cross-region replication feature and Azure NetApp Files availability zone volume placement feature, cross-zone replication replicates data in-region across different zones; only changed blocks are sent over the network in a compressed, efficient format. It helps you protect your data from unforeseeable zone failures without the need for host-based data replication. This feature minimizes the amount of data required to replicate across the zones, limiting data transfers required and shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs and is highly cost-effective. 
+    
+    Cross-zone replication is available in all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+    
 * [Transition a volume to customer-managed keys](configure-customer-managed-keys.md#transition) (Preview)
 
     Azure NetApp Files now supports the ability to transition an existing volume to use customer-managed keys for volume encryption. 

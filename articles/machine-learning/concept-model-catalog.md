@@ -3,7 +3,7 @@ title: Model Catalog and Collections
 titleSuffix: Azure Machine Learning
 description: Overview of models in the model catalog.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: conceptual
 ms.author: ssalgado

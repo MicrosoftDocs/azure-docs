@@ -2,8 +2,8 @@
 title: Enable Azure Automation State Configuration
 description: This article tells how to set up machines for management with Azure Automation State Configuration.
 services: automation
-ms.service: automation
-ms.subservice: dsc
+ms.service: azure-automation
+ms.subservice: desired-state-config
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.custom:

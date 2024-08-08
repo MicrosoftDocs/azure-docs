@@ -5,7 +5,6 @@ description: The webhook activity for Azure Data Factory and Synapse Analytics c
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

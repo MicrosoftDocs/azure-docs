@@ -42,7 +42,7 @@ As a *Global Administrator* in an Azure AD B2C tenant, you can restrict non-admi
 
 1. Under **Manage**, select **User Settings**.
 
-1. Under **Tenant creation**, select **Yes**. 
+1. Under **Default user role permissions**, for **Restrict non-admin users from creating tenants**, select **Yes**. 
 
 1. At the top of the **User Settings** page, select **Save**. 
 
@@ -58,7 +58,7 @@ Before you create an Azure AD B2C tenant, make sure that you've the permission t
 
 1. Under **Manage**, select **User Settings**.
 
-1. Review your **Tenant Creation** setting. If the settings is set to **No**, then contact your administrator to assign the tenant creator role to you. The setting is greyed out if you're not an administrator in the tenant.
+1.  Under **Default user role permissions**, review your **Restrict non-admin users from creating tenants** setting. If the setting is set to **No**, then contact your administrator to assign the tenant creator role to you. The setting is greyed out if you're not an administrator in the tenant.
 
 
 ## Next steps 

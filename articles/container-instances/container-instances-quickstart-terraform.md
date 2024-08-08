@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Container Instance with a public IP address using Terraform'
 description: 'In this article, you create an Azure Container Instance with a public IP address using Terraform'
 ms.topic: quickstart
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.date: 4/14/2023
 ms.custom: devx-track-terraform, linux-related-content
 author: TomArcherMsft

@@ -3,7 +3,7 @@ title: 'Generate and export certificates for P2S: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a self-signed root certificate, export a public key, and generate client certificates for VPN Gateway point-to-site connections.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/24/2024
 ms.author: cherylmc

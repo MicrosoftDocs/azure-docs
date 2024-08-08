@@ -5,7 +5,7 @@ description: Learn how to diagnose and fix either the HTTP request header too la
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: troubleshooting
 ms.date: 02/27/2023

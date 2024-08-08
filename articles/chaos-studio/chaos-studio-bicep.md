@@ -7,7 +7,7 @@ ms.topic: sample
 ms.date: 06/09/2023
 ms.author: abbyweisberg
 ms.reviewer: carlsonr
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: devx-track-bicep
 ---
 

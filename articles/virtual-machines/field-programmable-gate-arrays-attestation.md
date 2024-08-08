@@ -1,7 +1,7 @@
 ---
 title: Azure FPGA Attestation Service
 description: Attestation service for the NP-series VMs.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/27/2023

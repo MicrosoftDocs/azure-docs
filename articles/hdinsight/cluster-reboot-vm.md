@@ -2,7 +2,7 @@
 title: Reboot VMs for Azure HDInsight clusters 
 description: Learn how to reboot unresponsive VMs for Azure HDInsight clusters.
 ms.custom: hdinsightactive
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 06/15/2024
 ---

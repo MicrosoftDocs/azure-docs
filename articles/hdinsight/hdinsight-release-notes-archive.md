@@ -1,7 +1,7 @@
 ---
 title: Archived release notes for Azure HDInsight
 description: Archived release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, Hive and more.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
 ms.date: 05/27/2024

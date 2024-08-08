@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 06/15/2024
+ms.date: 08/07/2024
 ms.custom: references_regions
 ---
 # Security FAQs for Azure NetApp Files
@@ -30,7 +30,7 @@ Azure NetApp Files cross-region and cross-zone replication uses TLS 1.2 AES-256 
 
 By default key management for Azure NetApp Files is handled by the service, using [platform-managed keys](../security/fundamentals/key-management.md). A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. When you delete a volume, Azure NetApp Files immediately deletes the volume's encryption keys.
 
-Alternatively, [customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) can be used where keys are stored in [Azure Key Vault](../key-vault/general/basic-concepts.md). With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys. The feature is generally available (GA) in [supported regions](configure-customer-managed-keys.md#supported-regions). 
+Alternatively, [customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) can be used where keys are stored in [Azure Key Vault](/azure/key-vault/general/basic-concepts). With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys. The feature is generally available (GA) in [supported regions](configure-customer-managed-keys.md#supported-regions).
 
 Azure NetApp Files supports the ability to move existing volumes using platform-managed keys to customer-managed keys. Once you complete the transition, you cannot revert back to platform-managed keys. For additional information, see [Transition an Azure NetApp Files volume to customer-managed keys](configure-customer-managed-keys.md#transition).
 

@@ -36,7 +36,7 @@ used to state that both conditional statements must be true for the effect, **mo
 place.
 
 **value** evaluates the result of the template function
-[resourceGroup()](../../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)
+[resourceGroup()](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)
 to the condition **notEquals** of a blank value. If the tag name provided in **tagName** on the
 parent resource group exists, the conditional evaluates to true.
 

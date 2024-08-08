@@ -3,7 +3,7 @@ title: 'Configure ExpressRoute and S2S VPN coexisting connections: Azure portal'
 description: Configure ExpressRoute and a Site-to-Site VPN connection that can coexist for the Resource Manager model using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau

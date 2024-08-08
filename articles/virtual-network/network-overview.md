@@ -129,6 +129,16 @@ We welcome you to share your feedback about this feature in this [quick survey](
 
 For more information about how-to configure multiple address prefixes on a subnet, see [Create multiple prefixes for a subnet](how-to-multiple-prefixes-subnet.md). 
 
+> [!IMPORTANT]
+> There are two subnet properties for address space, **AddressPrefix** (string), and **AddressPrefixes** (list). The distinction and usage is explained as follows.
+> - The array property was introduced for dual stack. The property is also used for scenarios with more than one subnet prefixes as discussed previously.
+> - As part of the Azure Portal customer experience update, the **AddressPrefixes** is the default property for subnet address space when a subnet is created via the portal. 
+>     - Any new subnets created via portal will default to the **AddressPrefixes** list parameter.
+> - If customers are using dual-stack in their virtual network or have more than one subnet prefixes, they are updated to use the list property.
+>     - For existing deployments using the string, the current behavior is retained unless there are explicit changes in  your virtual network to use the list property for subnet address prefixes. An example is adding IPv6 address space or another prefix to the subnet.
+> - We recommend that customers should look for both the properties in subnet wherever applicable.
+
+
 ## Network security groups
 
 A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. Traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.

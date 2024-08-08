@@ -35,7 +35,7 @@ Azure Arc-enabled servers VM extension support provides the following key benefi
 
 - Download and execute scripts on hybrid connected machines using the Custom Script Extension. This extension is useful for post deployment configuration, software installation, or any other configuration or management tasks.
 
-- Automatically refresh of certificates stored in an [Azure Key Vault](../../key-vault/general/overview.md).
+- Automatically refresh of certificates stored in an [Azure Key Vault](/azure/key-vault/general/overview).
 
 ## Availability
 
@@ -128,9 +128,9 @@ Deploying the Key Vault VM extension is only supported using:
 
 Before you deploy the extension, you need to complete the following:
 
-1. [Create a vault and certificate](../../key-vault/certificates/quick-create-portal.md) (self-signed or import).
+1. [Create a vault and certificate](/azure/key-vault/certificates/quick-create-portal) (self-signed or import).
 
-2. Grant the Azure Arc-enabled server access to the certificate secret. If you’re using the [RBAC preview](../../key-vault/general/rbac-guide.md), search for the name of the Azure Arc resource and assign it the **Key Vault Secrets User (preview)** role. If you’re using [Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md), assign Secret **Get** permissions to the Azure Arc resource’s system assigned identity.
+2. Grant the Azure Arc-enabled server access to the certificate secret. If you’re using the [RBAC preview](/azure/key-vault/general/rbac-guide), search for the name of the Azure Arc resource and assign it the **Key Vault Secrets User (preview)** role. If you’re using [Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal), assign Secret **Get** permissions to the Azure Arc resource’s system assigned identity.
 
 ### Connected Machine agent
 

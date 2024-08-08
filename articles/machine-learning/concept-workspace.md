@@ -3,7 +3,7 @@ title: 'What is a workspace?'
 titleSuffix: Azure Machine Learning
 description: The workspace is the top-level resource for Azure Machine Learning. It keeps a history of all training runs, with logs, metrics, output, and a snapshot of your scripts.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: build-2023
 ms.topic: conceptual

@@ -5,7 +5,7 @@ author: karlaescobar
 ms.author: karlaescobar
 ms.reviewer: sanjaymi
 ms.date: 10/04/2022
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: troubleshooting
 ms.custom:
   - mvc

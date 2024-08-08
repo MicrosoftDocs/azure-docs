@@ -1,7 +1,7 @@
 ---
 title:  Microsoft Copilot in Azure capabilities
 description: Learn about the things you can do with Microsoft Copilot in Azure.
-ms.date: 05/28/2024
+ms.date: 07/26/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
@@ -14,7 +14,9 @@ author: JnHs
 
 # Microsoft Copilot in Azure capabilities
 
-Microsoft Copilot in Azure (preview) amplifies your impact with AI-enhanced operations. 
+Microsoft Copilot in Azure (preview) amplifies your impact with AI-enhanced operations. You can ask Copilot to Azure for help with designing, operating, optimizing, and troubleshooting your Azure apps and infrastructure. Copilot for Azure can help you gain new insights, discover more benefits of the cloud, and orchestrate data across both the cloud and the edge.
+
+This article describes some of the ways that you can use Copilot for Azure.
 
 [!INCLUDE [preview-note](includes/preview-note.md)]
 

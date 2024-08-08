@@ -1,19 +1,20 @@
 ---
-title: HB-series specs include
+title: HB series specs include
 description: Include file containing specifications of HB-series VM sizes.
-services: virtual-machines
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
-ms.date: 04/19/2024
+ms.date: 07/31/2024
 ms.author: mattmcinnes
+ms.reviewer: mattmcinnes
 ms.custom: include file
 ---
-| Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
+| Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor        | 15 - 60<sup>vCores   | AMD EPYC™ 7551 (Naples)                    |
-| Memory           | 228<sup>GiB    | 263<sup>GBps</sup>                               |
-| Data Disks       | 4<sup>Disks     |                                            |
-| Network          | 8<sup>vNICs       | Mellanox EDR Infiniband 100<sup>Gbps</sup>     |
-| Accelerators     | None                  |                                           |
+| Processor      | 60 - 15 vCPUs     | AMD EPYC 7551 (Naples) [x86-64] |
+| Memory         | 228 GiB        |    |
+| Local Storage  | 1 Disk         | 700 GiB  |
+| Remote Storage | 4 Disks        |  |
+| Network        | 8 NICs        |  |
+| Accelerators   | None            |     |

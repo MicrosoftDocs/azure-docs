@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 02/08/2023
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -301,7 +301,7 @@ Next, create a SAS token for your storage account that the endpoint can use to a
 
 # [Portal](#tab/portal)
 
-To create an endpoint with dead-lettering enabled, you must use the [CLI commands](/cli/azure/dt) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+To create an endpoint with dead-lettering enabled, you must use the [CLI commands](/cli/azure/dt) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digital-twins-endpoint-create-or-update) to create your endpoint, rather than the Azure portal.
 
 For instructions on how to create this type of endpoint with the Azure CLI, switch to the CLI tab for this section.
 
@@ -318,7 +318,7 @@ The value for the parameter is the dead letter SAS URI made up of the storage ac
 >[!TIP]
 >To create a dead-letter endpoint with identity-based authentication, add both the dead-letter parameter from this section and the appropriate [managed identity parameter](#3-create-the-endpoint-with-identity-based-authentication) to the same command.
 
-You can also create dead letter endpoints using the [Azure Digital Twins control plane APIs](concepts-apis-sdks.md#control-plane-apis) instead of the CLI. To do so, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to see how to structure the request and add the dead letter parameters.
+You can also create dead letter endpoints using the [Azure Digital Twins control plane APIs](concepts-apis-sdks.md#control-plane-apis) instead of the CLI. To do so, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digital-twins-endpoint-create-or-update) to see how to structure the request and add the dead letter parameters.
 
 ---
 

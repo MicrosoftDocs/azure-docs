@@ -3,7 +3,7 @@ title: Evaluate your Semantic Kernel with prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to evaluate Semantic Kernel in prompt flow with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023

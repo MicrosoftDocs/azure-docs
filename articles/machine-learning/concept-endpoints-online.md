@@ -3,7 +3,7 @@ title: What are online endpoints?
 titleSuffix: Azure Machine Learning
 description: Learn about online endpoints for real-time inference in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 author: msakande

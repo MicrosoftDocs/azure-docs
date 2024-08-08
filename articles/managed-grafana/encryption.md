@@ -3,7 +3,7 @@ title: Encryption in Azure Managed Grafana
 description: Learn how data is encrypted in Azure Managed Grafana.
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: conceptual
 ms.date: 03/23/2023
 ms.custom: concept, engagement-fy23

@@ -5,7 +5,7 @@ description: Time travel enables you to access Azure Cosmos DB data in the analy
 author: Rodrigossz
 ms.author: rosouz
 ms.topic: conceptual
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.date: 11/28/2023
 ---

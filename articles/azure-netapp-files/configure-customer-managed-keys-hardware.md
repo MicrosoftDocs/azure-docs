@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 04/26/2024
+ms.date: 08/08/2024
 ms.author: anfdocs
 ---
 # Configure customer-managed keys with managed Hardware Security Module for Azure NetApp Files volume encryption 
@@ -21,7 +21,6 @@ ms.author: anfdocs
 Azure NetApp Files volume encryption with customer-managed keys with the managed Hardware Security Module (HSM) is an extension to [customer-managed keys for Azure NetApp Files volumes encryption feature](configure-customer-managed-keys.md). Customer-managed keys with HSM allows you to store your encryptions keys in a more secure FIPS 140-2 Level 3 HSM instead of the FIPS 140-2 Level 1 or Level 2 service used by Azure Key Vault (AKV).
 
 ## Requirements 
-
 
 * Customer-managed keys with managed HSM is supported using the 2022.11 or later API version.
 * Customer-managed keys with managed HSM is only supported for Azure NetApp Files accounts that don't have existing encryption. 
