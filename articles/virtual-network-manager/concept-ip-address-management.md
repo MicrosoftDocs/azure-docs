@@ -3,9 +3,9 @@ title: What is IP address management (IPAM) in Azure Virtual Network Manager?
 description: Learn about IP address management (IPAM) in Azure Virtual Network Manager and how it can help you manage IP addresses in your virtual networks.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 07/17/2024
+ms.date: 08/24/2024
 #customer intent: As a network administrator, I want to learn about IP address management (IPAM) in Azure Virtual Network Manager so that I can manage IP addresses in my virtual networks.
 ---
 
