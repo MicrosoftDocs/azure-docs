@@ -20,7 +20,7 @@ Scheduled Events is an Azure Metadata Service that gives your application time t
 
 For information about Scheduled Events on Linux, see [Scheduled Events for Linux VMs](../linux/scheduled-events.md).
 
-Scheduled events provide proactive notifications about upcoming events, for reactive information about events that have already happened see [VM availability information in Azure Resource Graph](../resource-graph-availability.md) and [Create availability alert rule for Azure virtual machine](../../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md). 
+Scheduled Events provide proactive notifications about upcoming events. For reactive information about events that have already happened, see [VM availability information in Azure Resource Graph](../resource-graph-availability.md) and [Create availability alert rule for Azure virtual machine](../../azure-monitor/vm/tutorial-monitor-vm-alert-availability.md). 
 
 > [!Note] 
 > Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
@@ -48,7 +48,7 @@ Scheduled Events provides events in the following use cases:
 
 ## The Basics  
 
-Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP and isn't exposed outside the VM.
+The [Instance Metadata Service (IMDS)](../instance-metadata-service.md) exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP and isn't exposed outside the VM.
 
 ### Scope
 Scheduled events are delivered to and can be acknowledged by:
@@ -106,9 +106,9 @@ There are two major components to handling Scheduled Events, preparation and rec
 
 ![State diagram showing the various transitions a scheduled event can take.](media/scheduled-events/scheduled-events-states.png)
 
-For events in the EventStatus:"Scheduled" state, you'll need to take steps to prepare your workload. Once the preparation is complete, you should then approve the event using the scheduled event API. Otherwise, the event is automatically approved when the NotBefore time is reached. If the VM is on shared infrastructure, the system will then wait for all other tenants on the same hardware to also approve the job or timeout. Once approvals are gathered from all impacted VMs or the NotBefore time is reached then Azure generates a new scheduled event payload with EventStatus:"Started" and triggers the start of the maintenance event. When the event has reached a terminal state, it's removed from the list of events. That serves as the signal for the customer to recover their VMs.
+For events in the EventStatus:"Scheduled" state, you'll need to take steps to prepare your workload. Once the preparation is complete, you should then approve the event using the Scheduled Events API. Otherwise, the event is automatically approved when the NotBefore time is reached. If the VM is on shared infrastructure, the system will then wait for all other tenants on the same hardware to also approve the job or timeout. Once approvals are gathered from all impacted VMs or the NotBefore time is reached then Azure generates a new scheduled event payload with EventStatus:"Started" and triggers the start of the maintenance event. When the event has reached a terminal state, it's removed from the list of events. That serves as the signal for the customer to recover their VMs.
 
-Below is psudeo code demonstrating a process for how to read and manage scheduled events in your application: 
+The following pseudocode demonstrates a process for how to read and manage scheduled events in your application: 
 ```
 current_list_of_scheduled_events = get_latest_from_se_endpoint()
 #prepare for new events
@@ -125,9 +125,9 @@ previous_list_of_scheduled_events = current_list_of_scheduled_events
 As scheduled events are often used for applications with high availability requirements, there are a few exceptional cases that should be considered:
 
 1. Once a scheduled event is completed and removed from the array, there will be no further impacts without a new event including another EventStatus:"Scheduled" event
-2. Azure  monitors maintenance operations across the entire fleet and in rare circumstances determines that a maintenance operation too high risk to apply. In that case the scheduled event goes directly from “Scheduled” to being removed from the events array
-3. In the case of hardware failure, Azure bypasses the “Scheduled” state and immediately move to the EventStatus:"Started" state. 
-4. While the event is still in EventStatus:"Started" state, there may be another impact of a shorter duration than what was advertised in the scheduled event.
+2. Azure monitors maintenance operations across the entire fleet and in rare circumstances determines that a maintenance operation too high risk to apply. In that case the scheduled event goes directly from “Scheduled” to being removed from the events array.
+3. In the case of hardware failure, Azure bypasses the “Scheduled” state and immediately moves to the EventStatus:"Started" state. 
+4. While the event is still in EventStatus:"Started" state, there may be another impact of a shorter duration than what was listed in the scheduled event.
 
 As part of Azure’s availability guarantee, VMs in different fault domains won't be impacted by routine maintenance operations at the same time. However, they may have operations serialized one after another. VMs in one fault domain can receive scheduled events with EventStatus:"Scheduled" shortly after another fault domain’s maintenance is completed. Regardless of what architecture you chose, always keep checking for new events pending against your VMs.
 
@@ -159,11 +159,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254
 import json
 import requests
 
-metadata_url ="http://169.254.169.254/metadata/scheduledevents"
-header = {'Metadata' : 'true'}
-query_params = {'api-version':'2020-07-01'}
+metadata_url = "http://169.254.169.254/metadata/scheduledevents"
+header = {"Metadata": "true"}
+query_params = {"api-version": "2020-07-01"}
 
-def get_scheduled_events():           
+def get_scheduled_events():
     resp = requests.get(metadata_url, headers = header, params = query_params)
     data = resp.json()
     return data
@@ -197,14 +197,14 @@ In the case where there are scheduled events, the response contains an array of 
 | - | - |
 | Document Incarnation | Integer that increases when the events array changes. Documents with the same incarnation contain the same event information, and the incarnation will be incremented when an event changes. |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Expected impact this event will cause.  <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there's no impact on memory or open files.<li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). In rare cases a VM scheduled for EventType:"Reboot" may experience a freeze event instead of a reboot. Follow the instructions above for how to know if the event is complete and it's safe to restore your workload. <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Spot Virtual Machine is being deleted (ephemeral disks are lost). This event is made available on a best effort basis <li> `Terminate`: The virtual machine is scheduled to be deleted. |
+| EventType | Expected impact this event will cause.  <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there's no impact on memory or open files.<li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). In rare cases a VM scheduled for EventType:"Reboot" may experience a freeze event instead of a reboot. Follow the instructions above for how to know if the event is complete and it's safe to restore your workload. <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Spot Virtual Machine is being deleted (ephemeral disks are lost). This event is made available on a best effort basis. <li> `Terminate`: The virtual machine is scheduled to be deleted. |
 | ResourceType | Type of resource this event affects. <br><br> Values: <ul><li>`VirtualMachine`|
-| Resources| List of resources this event affects. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Resources | List of resources this event affects. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided. The event is no longer returned when the event is finished.
-| NotBefore| Time after which this event can start. The event is guaranteed to not start before this time. Will be blank if the event has already started <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
+| NotBefore | Time after which this event can start. The event is guaranteed to not start before this time. Will be blank if the event has already started <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT |
 | Description | Description of this event. <br><br> Example: <br><ul><li> Host server is undergoing maintenance. |
 | EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platform. <li>`User`: This event is initiated by user. |
-| DurationInSeconds | The expected duration of the interruption caused by the event. <br><br> Example: <br><ul><li> `9`: The interruption caused by the event will last for 9 seconds. <li>`0`: The event won't interrupt the VM or impact its availability (eg. update to the network) <li>`-1`: The default value used if the impact duration is either unknown or not applicable.  |
+| DurationInSeconds | The expected duration of the interruption caused by the event. <br><br> Example: <br><ul><li> `9`: The interruption caused by the event will last for 9 seconds. <li>`0`: The event won't interrupt the VM or impact its availability (e.g., update to the network) <li>`-1`: The default value used if the impact duration is either unknown or not applicable. |
 
 ### Event scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
@@ -219,10 +219,10 @@ Each event is scheduled a minimum amount of time in the future based on the even
 This means that you can detect a future schedule of event at least by the minimum notice time before the event occurs. Once an event is scheduled, it will move into the `Started` state after it's been approved or the `NotBefore` time passes. However, in rare cases, the operation will be canceled by Azure before it starts. In that case the event will be removed from the Events array, and the impact won't occur as previously scheduled. 
 	
 > [!NOTE] 
-> In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if the prediction is that there's a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you self-redeploy your virtual machine as soon as possible.
+> In some cases, Azure is able to predict host failure due to degraded hardware and will attempt to mitigate disruption to your service by scheduling a migration. Affected virtual machines will receive a scheduled event with a `NotBefore` that is typically a few days in the future. The actual time varies depending on the predicted failure risk assessment. Azure tries to give 7 days' advance notice when possible, but the actual time varies and might be smaller if Azure predicts that there is a high chance of the hardware failing imminently. To minimize risk to your service in case the hardware fails before the system-initiated migration, we recommend that you [self-redeploy your virtual machine](./redeploy-to-new-node-windows.md) as soon as possible.
 
 >[!NOTE]
-> In the case the host node experiences a hardware failure Azure will bypass the minimum notice period an immediately begin the recovery process for affected virtual machines. This reduces recovery time in the case that the affected VMs are unable to respond. During the recovery process an event will be created for all impacted VMs with `EventType = Reboot` and `EventStatus = Started`.
+> In the case the host node experiences a hardware failure, Azure will bypass the minimum notice period and immediately begin the recovery process for affected virtual machines. This reduces recovery time in the case that the affected VMs are unable to respond. During the recovery process a scheduled event will be created for all impacted VMs with `EventType = Reboot` and `EventStatus = Started`.
 
 ### Polling frequency
 
@@ -236,18 +236,18 @@ The following JSON sample is expected in the `POST` request body. The request sh
 
 ```
 {
-	"StartRequests" : [
-		{
-			"EventId": {EventId}
-		}
-	]
+    "StartRequests" : [
+        {
+            "EventId": {EventId}
+        }
+    ]
 }
 ```
 
 The service always returns a 200 success code if it's passed a valid event ID, even if another VM already approved the event. A 400 error code indicates that the request header or payload was malformed. 
 
 > [!Note] 
-> Events will not proceed unless they are  either approved via a POST message or the NotBefore time elapses. This includes user triggered events such as VM restarts from the Azure portal. 
+> Events will not proceed unless they are either approved via a POST message or the NotBefore time elapses. This includes user triggered events such as VM restarts from the Azure portal. 
 
 #### Bash sample
 ```
@@ -262,13 +262,13 @@ Invoke-RestMethod -Headers @{"Metadata" = "true"} -Method POST -body '{"StartReq
 import json
 import requests
 
-def confirm_scheduled_event(event_id):  
-   # This payload confirms a single event with id event_id
-   payload = json.dumps({"StartRequests": [{"EventId": event_id }]})
+def approve_scheduled_event(event_id):  
+   # This payload approves a single event with id event_id
+   payload = json.dumps({"StartRequests": [{"EventId": event_id}]})
    response = requests.post("http://169.254.169.254/metadata/scheduledevents", 
-                            headers =  {'Metadata' : 'true'}, 
-                            params = {'api-version':'2020-07-01'}, 
-                            data = payload)    
+                            headers = {"Metadata": "true"},
+                            params = {"api-version": "2020-07-01"},
+                            data = payload)
    return response.status_code
 ````
 
@@ -346,88 +346,95 @@ import requests
 from time import sleep
 
 # The URL to access the metadata service
-metadata_url ="http://169.254.169.254/metadata/scheduledevents"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents"
 # This must be sent otherwise the request will be ignored
-header = {'Metadata' : 'true'}
+header = {"Metadata": "true"}
 # Current version of the API
-query_params = {'api-version':'2020-07-01'}
+query_params = {"api-version": "2020-07-01"}
 
-def get_scheduled_events():           
-    resp = requests.get(metadata_url, headers = header, params = query_params)
+
+def get_scheduled_events():
+    resp = requests.get(metadata_url, headers=header, params=query_params)
     data = resp.json()
     return data
 
-def confirm_scheduled_event(event_id):  
+
+def confirm_scheduled_event(event_id):
     # This payload confirms a single event with id event_id
-    # You can confirm multiple events in a single request if needed      
-    payload = json.dumps({"StartRequests": [{"EventId": event_id }]})
-    response = requests.post(metadata_url, 
-                            headers= header,
-                            params = query_params, 
-                            data = payload)    
+    # You can confirm multiple events in a single request if needed
+    payload = json.dumps({"StartRequests": [{"EventId": event_id}]})
+    response = requests.post(
+        metadata_url, headers=header, params=query_params, data=payload
+    )
     return response.status_code
 
-def log(event): 
-    # This is an optional placeholder for logging events to your system 
+
+def log(event):
+    # This is an optional placeholder for logging events to your system
     print(event["Description"])
     return
 
-def advanced_sample(last_document_incarnation): 
+
+def advanced_sample(last_document_incarnation):
     # Poll every second to see if there are new scheduled events to process
-    # Since some events may have necessarily short warning periods, it is 
+    # Since some events may have necessarily short warning periods, it is
     # recommended to poll frequently
     found_document_incarnation = last_document_incarnation
-    while (last_document_incarnation == found_document_incarnation):
+    while last_document_incarnation == found_document_incarnation:
         sleep(1)
-        payload = get_scheduled_events()    
-        found_document_incarnation = payload["DocumentIncarnation"]        
-        
-    # We recommend processing all events in a document together, 
+        payload = get_scheduled_events()
+        found_document_incarnation = payload["DocumentIncarnation"]
+
+    # We recommend processing all events in a document together,
     # even if you won't be actioning on them right away
     for event in payload["Events"]:
 
         # Events that have already started, logged for tracking
-        if (event["EventStatus"] == "Started"):
+        if event["EventStatus"] == "Started":
             log(event)
-            
-        # Approve all user initiated events. These are typically created by an 
-        # administrator and approving them immediately can help to avoid delays 
+
+        # Approve all user initiated events. These are typically created by an
+        # administrator and approving them immediately can help to avoid delays
         # in admin actions
-        elif (event["EventSource"] == "User"):
-            confirm_scheduled_event(event["EventId"])            
-            
+        elif event["EventSource"] == "User":
+            confirm_scheduled_event(event["EventId"])
+
         # For this application, freeze events less that 9 seconds are considered
         # no impact. This will immediately approve them
-        elif (event["EventType"] == "Freeze" and 
-            int(event["DurationInSeconds"]) >= 0  and 
-            int(event["DurationInSeconds"]) < 9):
+        elif (
+            event["EventType"] == "Freeze"
+            and int(event["DurationInSeconds"]) >= 0
+            and int(event["DurationInSeconds"]) < 9
+        ):
             confirm_scheduled_event(event["EventId"])
-            
-        # Events that may be impactful (for example reboot or redeploy) may need custom 
+
+        # Events that may be impactful (for example reboot or redeploy) may need custom
         # handling for your application
-        else: 
-            #TODO Custom handling for impactful events
+        else:
+            # TODO Custom handling for impactful events
             log(event)
     print("Processed events from document: " + str(found_document_incarnation))
     return found_document_incarnation
 
+
 def main():
-    # This will track the last set of events seen 
+    # This will track the last set of events seen
     last_document_incarnation = "-1"
 
     input_text = "\
         Press 1 to poll for new events \n\
         Press 2 to exit \n "
-    program_exit = False 
+    program_exit = False
 
     while program_exit == False:
-        user_input = input(input_text)    
-        if (user_input == "1"):                        
+        user_input = input(input_text)
+        if user_input == "1":
             last_document_incarnation = advanced_sample(last_document_incarnation)
-        elif (user_input == "2"):
-            program_exit = True       
+        elif user_input == "2":
+            program_exit = True
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
 ```
 
