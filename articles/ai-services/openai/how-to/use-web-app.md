@@ -91,7 +91,7 @@ To enable Microsoft Entra ID for intra-service authentication for your web app, 
 You can enable managed identity for the Azure OpenAI resource and the Azure App Service by navigating to "Identity" and turning on the system assigned managed identity in the Azure portal for each resource.
 
 
-![Screenshot that shows the application identity configuration in the Azure portal](../media/use-your-data/openai-managed-identity.png)
+:::image type="content" source="../media/use-your-data/openai-managed-identity.png" alt-text="Screenshot that shows the application identity configuration in the Azure portal." lightbox="../media/use-your-data/openai-managed-identity.png":::
 
 Note: If you're using an embedding model deployed to the same resource used for inference, you only need to enable managed identity on one Azure OpenAI resource. If using an embedding model deployed to a different resource from the one used for inference, you also need to enable managed identity on the Azure OpenAI resource used to deploy your embedding model.
 
