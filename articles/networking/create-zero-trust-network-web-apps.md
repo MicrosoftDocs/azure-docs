@@ -3,7 +3,7 @@ title: Deploy a Zero Trust Virtual Network for Web Applications
 description: Deploy a Zero Trust virtual network configuration for web applications in Azure using Azure Firewall, Azure Application Gateway, Web Application Firewall, and other virtual network services.
 author: mbender
 ms.author: chplut
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 12/31/2022
 ms.custom: template-how-to
