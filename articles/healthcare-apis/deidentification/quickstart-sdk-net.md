@@ -200,7 +200,7 @@ az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage 
 
 Ensure the permissions are given and the Managed Identity for the de-identification service (preview) is set up properly.
 
-See [Authorize Deidentification Service on Storage Account](#authorize-de-identification-service-(preview)-on-storage-account)
+See [Authorize Deidentification Service on Storage Account](#authorize-de-identification-service-preview-on-storage-account)
 
 ### Job failed with status PartialFailed
 
