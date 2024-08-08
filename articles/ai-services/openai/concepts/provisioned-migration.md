@@ -50,13 +50,9 @@ Provisioned quota granularity is changing from model-specific to model-independe
 
 Starting August 12, 2024, existing customers will have their current, model-specific quota converted to model-independent. This will happen automatically and be complete by August 14, 2024. No quota will be lost in the transition. Existing quota limits will be summed and assigned to a new model-independent quota item.
 
-<!--:::image type="content" source="./media/provisioned/model-independent-quota.png" alt-text="Diagram of model independent quota with one pool of PTUs available to multiple Azure OpenAI models." lightbox="./media/provisioned/model-independent-quota.png":::-->
-
 :::image type="content" source="../media/provisioned/consolidation.png" alt-text="Diagram showing quota consolidation." lightbox="../media/provisioned/consolidation.png":::
 
 The new model-independent quota will show up as a quota item named **Provisioned Managed Throughput Unit**, with model and version no longer included in the name. In the Studio Quota pane, expanding the quota item will still show all of the deployments that contribute to the quota item. 
-
-<!--:::image type="content" source="./media/provisioned/quota.png" alt-text="Screenshot of the quota UI for Azure OpenAI provisioned." lightbox="./media/provisioned/quota.png":::-->
 
 ### Default quota
 
