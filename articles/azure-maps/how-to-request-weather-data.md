@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather services 
 author: FarazGIS
 ms.author: fsiddiqui
-ms.date: 10/28/2021
+ms.date: 08/08/2024
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -39,7 +39,7 @@ This video provides examples for making REST calls to Azure Maps Weather service
 
 >[!IMPORTANT]
 >
-> - In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+> In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 This tutorial uses the [bruno] application, but you can choose a different API development environment.
 
@@ -67,172 +67,172 @@ In this example, you use the [Get Current Conditions API] to retrieve current we
 
     ```json
     {
-    "results": [
+      "results": [
         {
-            "dateTime": "2020-10-19T20:39:00+00:00",
-            "phrase": "Cloudy",
-            "iconCode": 7,
-            "hasPrecipitation": false,
-            "isDayTime": true,
-            "temperature": {
-                "value": 12.4,
-                "unit": "C",
-                "unitType": 17
+          "dateTime": "2024-08-08T09:22:00-07:00",
+          "phrase": "Sunny",
+          "iconCode": 1,
+          "hasPrecipitation": false,
+          "isDayTime": true,
+          "temperature": {
+            "value": 19.5,
+            "unit": "C",
+            "unitType": 17
+          },
+          "realFeelTemperature": {
+            "value": 23.7,
+            "unit": "C",
+            "unitType": 17
+          },
+          "realFeelTemperatureShade": {
+            "value": 19.4,
+            "unit": "C",
+            "unitType": 17
+          },
+          "relativeHumidity": 81,
+          "dewPoint": {
+            "value": 16.2,
+            "unit": "C",
+            "unitType": 17
+          },
+          "wind": {
+            "direction": {
+              "degrees": 0,
+              "localizedDescription": "N"
             },
-            "realFeelTemperature": {
-                "value": 13.7,
-                "unit": "C",
-                "unitType": 17
-            },
-            "realFeelTemperatureShade": {
-                "value": 13.7,
-                "unit": "C",
-                "unitType": 17
-            },
-            "relativeHumidity": 87,
-            "dewPoint": {
-                "value": 10.3,
-                "unit": "C",
-                "unitType": 17
-            },
-            "wind": {
-                "direction": {
-                    "degrees": 23.0,
-                    "localizedDescription": "NNE"
-                },
-                "speed": {
-                    "value": 4.5,
-                    "unit": "km/h",
-                    "unitType": 7
-                }
-            },
-            "windGust": {
-                "speed": {
-                    "value": 9.0,
-                    "unit": "km/h",
-                    "unitType": 7
-                }
-            },
-            "uvIndex": 1,
-            "uvIndexPhrase": "Low",
-            "visibility": {
-                "value": 9.7,
-                "unit": "km",
-                "unitType": 6
-            },
-            "obstructionsToVisibility": ",
-            "cloudCover": 100,
-            "ceiling": {
-                "value": 1494.0,
-                "unit": "m",
-                "unitType": 5
-            },
-            "pressure": {
-                "value": 1021.2,
-                "unit": "mb",
-                "unitType": 14
-            },
-            "pressureTendency": {
-                "localizedDescription": "Steady",
-                "code": "S"
-            },
-            "past24HourTemperatureDeparture": {
-                "value": -2.1,
-                "unit": "C",
-                "unitType": 17
-            },
-            "apparentTemperature": {
-                "value": 15.0,
-                "unit": "C",
-                "unitType": 17
-            },
-            "windChillTemperature": {
-                "value": 12.2,
-                "unit": "C",
-                "unitType": 17
-            },
-            "wetBulbTemperature": {
-                "value": 11.3,
-                "unit": "C",
-                "unitType": 17
-            },
-            "precipitationSummary": {
-                "pastHour": {
-                    "value": 0.0,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "past3Hours": {
-                    "value": 0.0,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "past6Hours": {
-                    "value": 0.0,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "past9Hours": {
-                    "value": 0.0,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "past12Hours": {
-                    "value": 0.0,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "past18Hours": {
-                    "value": 0.0,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "past24Hours": {
-                    "value": 0.4,
-                    "unit": "mm",
-                    "unitType": 3
-                }
-            },
-            "temperatureSummary": {
-                "past6Hours": {
-                    "minimum": {
-                        "value": 12.2,
-                        "unit": "C",
-                        "unitType": 17
-                    },
-                    "maximum": {
-                        "value": 14.0,
-                        "unit": "C",
-                        "unitType": 17
-                    }
-                },
-                "past12Hours": {
-                    "minimum": {
-                        "value": 12.2,
-                        "unit": "C",
-                        "unitType": 17
-                    },
-                    "maximum": {
-                        "value": 14.0,
-                        "unit": "C",
-                        "unitType": 17
-                    }
-                },
-                "past24Hours": {
-                    "minimum": {
-                        "value": 12.2,
-                        "unit": "C",
-                        "unitType": 17
-                    },
-                    "maximum": {
-                        "value": 15.6,
-                        "unit": "C",
-                        "unitType": 17
-                    }
-                }
+            "speed": {
+              "value": 2,
+              "unit": "km/h",
+              "unitType": 7
             }
+          },
+          "windGust": {
+            "speed": {
+              "value": 3.8,
+              "unit": "km/h",
+              "unitType": 7
+            }
+          },
+          "uvIndex": 4,
+          "uvIndexPhrase": "Moderate",
+          "visibility": {
+            "value": 16.1,
+            "unit": "km",
+            "unitType": 6
+          },
+          "obstructionsToVisibility": "",
+          "cloudCover": 5,
+          "ceiling": {
+            "value": 12192,
+            "unit": "m",
+            "unitType": 5
+          },
+          "pressure": {
+            "value": 1015.9,
+            "unit": "mb",
+            "unitType": 14
+          },
+          "pressureTendency": {
+            "localizedDescription": "Steady",
+            "code": "S"
+          },
+          "past24HourTemperatureDeparture": {
+            "value": 3,
+            "unit": "C",
+            "unitType": 17
+          },
+          "apparentTemperature": {
+            "value": 20,
+            "unit": "C",
+            "unitType": 17
+          },
+          "windChillTemperature": {
+            "value": 19.4,
+            "unit": "C",
+            "unitType": 17
+          },
+          "wetBulbTemperature": {
+            "value": 17.5,
+            "unit": "C",
+            "unitType": 17
+          },
+          "precipitationSummary": {
+            "pastHour": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "past3Hours": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "past6Hours": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "past9Hours": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "past12Hours": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "past18Hours": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "past24Hours": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            }
+          },
+          "temperatureSummary": {
+            "past6Hours": {
+              "minimum": {
+                "value": 16,
+                "unit": "C",
+                "unitType": 17
+              },
+              "maximum": {
+                "value": 19.5,
+                "unit": "C",
+                "unitType": 17
+              }
+            },
+            "past12Hours": {
+              "minimum": {
+                "value": 16,
+                "unit": "C",
+                "unitType": 17
+              },
+              "maximum": {
+                "value": 20.4,
+                "unit": "C",
+                "unitType": 17
+              }
+            },
+            "past24Hours": {
+              "minimum": {
+                "value": 16,
+                "unit": "C",
+                "unitType": 17
+              },
+              "maximum": {
+                "value": 26.4,
+                "unit": "C",
+                "unitType": 17
+              }
+            }
+          }
         }
-    ]
+      ]
     }
     ```
 
@@ -242,8 +242,8 @@ Azure Maps [Get Severe Weather Alerts API] returns the severe weather alerts
 
 In this example, you use the [Get Severe Weather Alerts API] to retrieve current weather conditions at coordinates located in Cheyenne, WY.
 
->[!NOTE]
->This example retrieves severe weather alerts at the time of this writing. It is likely that there are no longer any severe weather alerts at the requested location. To retrieve actual severe alert data when running this example, you'll need to retrieve data at a different coordinate location.
+> [!NOTE]
+> This example retrieves severe weather alerts at the time of this writing. It is likely that there are no longer any severe weather alerts at the requested location. To retrieve actual severe alert data when running this example, you'll need to retrieve data at a different coordinate location.
 
 1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
@@ -278,7 +278,7 @@ In this example, you use the [Get Severe Weather Alerts API] to retrieve current
             "alertAreas": [
                 {
                     "name": "Platte/Goshen/Central and Eastern Laramie",
-                    "summary": "Red Flag Warning in effect until 7:00 PM MDT.  Source: U.S. National Weather Service",
+                    "summary": "Red Flag Warning in effect until 7:00 PM MDT. Source: U.S. National Weather Service",
                     "startTime": "2020-10-05T15:00:00+00:00",
                     "endTime": "2020-10-06T01:00:00+00:00",
                     "latestStatus": {
@@ -298,8 +298,8 @@ In this example, you use the [Get Severe Weather Alerts API] to retrieve current
 
 The [Get Daily Forecast API] returns detailed daily weather forecast such as temperature and wind. The request can specify how many days to return: 1, 5, 10, 15, 25, or 45 days for a given coordinate location. The response includes details such as temperature, wind, precipitation, air quality, and UV index. In this example, we request for five days by setting `duration=5`.
 
->[!IMPORTANT]
->In the S0 pricing tier, you can request daily forecast for the next 1, 5, 10, and 15 days. In either Gen1 (S1) or Gen2 pricing tier, you can request daily forecast for the next 25 days, and 45 days.
+> [!IMPORTANT]
+> In the S0 pricing tier, you can request daily forecast for the next 1, 5, 10, and 15 days. In either Gen1 (S1) or Gen2 pricing tier, you can request daily forecast for the next 25 days, and 45 days.
 >
 > **Azure Maps Gen1 pricing tier retirement**
 >
@@ -325,231 +325,227 @@ In this example, you use the [Get Daily Forecast API] to retrieve the five-day w
 
     ```json
     {
-    "summary": {
-        "startDate": "2020-10-18T17:00:00+00:00",
-        "endDate": "2020-10-19T23:00:00+00:00",
-        "severity": 2,
-        "phrase": "Snow, mixed with rain at times continuing through Monday evening and a storm total of 3-6 cm",
-        "category": "snow/rain"
-    },
-    "forecasts": [
+      "summary": {
+        "startDate": "2024-08-09T08:00:00-07:00",
+        "endDate": "2024-08-09T20:00:00-07:00",
+        "severity": 7,
+        "phrase": "Very warm tomorrow",
+        "category": "heat"
+      },
+      "forecasts": [
         {
-            "date": "2020-10-19T04:00:00+00:00",
-            "temperature": {
-                "minimum": {
-                    "value": -1.1,
-                    "unit": "C",
-                    "unitType": 17
-                },
-                "maximum": {
-                    "value": 1.3,
-                    "unit": "C",
-                    "unitType": 17
-                }
+          "date": "2024-08-08T07:00:00-07:00",
+          "temperature": {
+            "minimum": {
+              "value": 16.2,
+              "unit": "C",
+              "unitType": 17
             },
-            "realFeelTemperature": {
-                "minimum": {
-                    "value": -6.0,
-                    "unit": "C",
-                    "unitType": 17
-                },
-                "maximum": {
-                    "value": 0.5,
-                    "unit": "C",
-                    "unitType": 17
-                }
+            "maximum": {
+              "value": 28.9,
+              "unit": "C",
+              "unitType": 17
+            }
+          },
+          "realFeelTemperature": {
+            "minimum": {
+              "value": 16.3,
+              "unit": "C",
+              "unitType": 17
             },
-            "realFeelTemperatureShade": {
-                "minimum": {
-                    "value": -6.0,
-                    "unit": "C",
-                    "unitType": 17
-                },
-                "maximum": {
-                    "value": 0.7,
-                    "unit": "C",
-                    "unitType": 17
-                }
+            "maximum": {
+              "value": 29.8,
+              "unit": "C",
+              "unitType": 17
+            }
+          },
+          "realFeelTemperatureShade": {
+            "minimum": {
+              "value": 16.3,
+              "unit": "C",
+              "unitType": 17
             },
-            "hoursOfSun": 1.8,
-            "degreeDaySummary": {
-                "heating": {
-                    "value": 18.0,
-                    "unit": "C",
-                    "unitType": 17
-                },
-                "cooling": {
-                    "value": 0.0,
-                    "unit": "C",
-                    "unitType": 17
-                }
+            "maximum": {
+              "value": 27.3,
+              "unit": "C",
+              "unitType": 17
+            }
+          },
+          "hoursOfSun": 12.9,
+          "degreeDaySummary": {
+            "heating": {
+              "value": 0,
+              "unit": "C",
+              "unitType": 17
             },
-            "airAndPollen": [
-                {
-                    "name": "AirQuality",
-                    "value": 23,
-                    "category": "Good",
-                    "categoryValue": 1,
-                    "type": "Ozone"
-                },
-                {
-                    "name": "Grass",
-                    "value": 0,
-                    "category": "Low",
-                    "categoryValue": 1
-                },
-                {
-                    "name": "Mold",
-                    "value": 0,
-                    "category": "Low",
-                    "categoryValue": 1
-                },
-                {
-                    "name": "Ragweed",
-                    "value": 0,
-                    "category": "Low",
-                    "categoryValue": 1
-                },
-                {
-                    "name": "Tree",
-                    "value": 0,
-                    "category": "Low",
-                    "categoryValue": 1
-                },
-                {
-                    "name": "UVIndex",
-                    "value": 0,
-                    "category": "Low",
-                    "categoryValue": 1
-                }
-            ],
-            "day": {
-                "iconCode": 22,
-                "iconPhrase": "Snow",
-                "hasPrecipitation": true,
-                "precipitationType": "Mixed",
-                "precipitationIntensity": "Light",
-                "shortPhrase": "Chilly with snow, 2-4 cm",
-                "longPhrase": "Chilly with snow, accumulating an additional 2-4 cm",
-                "precipitationProbability": 90,
-                "thunderstormProbability": 0,
-                "rainProbability": 54,
-                "snowProbability": 85,
-                "iceProbability": 8,
-                "wind": {
-                    "direction": {
-                        "degrees": 36.0,
-                        "localizedDescription": "NE"
-                    },
-                    "speed": {
-                        "value": 9.3,
-                        "unit": "km/h",
-                        "unitType": 7
-                    }
-                },
-                "windGust": {
-                    "direction": {
-                        "degrees": 70.0,
-                        "localizedDescription": "ENE"
-                    },
-                    "speed": {
-                        "value": 25.9,
-                        "unit": "km/h",
-                        "unitType": 7
-                    }
-                },
-                "totalLiquid": {
-                    "value": 4.3,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "rain": {
-                    "value": 0.5,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "snow": {
-                    "value": 2.72,
-                    "unit": "cm",
-                    "unitType": 4
-                },
-                "ice": {
-                    "value": 0.0,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "hoursOfPrecipitation": 9.0,
-                "hoursOfRain": 1.0,
-                "hoursOfSnow": 9.0,
-                "hoursOfIce": 0.0,
-                "cloudCover": 96
+            "cooling": {
+              "value": 5,
+              "unit": "C",
+              "unitType": 17
+            }
+          },
+          "airAndPollen": [
+            {
+              "name": "AirQuality",
+              "value": 56,
+              "category": "Moderate",
+              "categoryValue": 2,
+              "type": "Nitrogen Dioxide"
             },
-            "night": {
-                "iconCode": 29,
-                "iconPhrase": "Rain and snow",
-                "hasPrecipitation": true,
-                "precipitationType": "Mixed",
-                "precipitationIntensity": "Light",
-                "shortPhrase": "Showers of rain and snow",
-                "longPhrase": "A couple of showers of rain or snow this evening; otherwise, cloudy; storm total snowfall 1-3 cm",
-                "precipitationProbability": 65,
-                "thunderstormProbability": 0,
-                "rainProbability": 60,
-                "snowProbability": 54,
-                "iceProbability": 4,
-                "wind": {
-                    "direction": {
-                        "degrees": 16.0,
-                        "localizedDescription": "NNE"
-                    },
-                    "speed": {
-                        "value": 16.7,
-                        "unit": "km/h",
-                        "unitType": 7
-                    }
-                },
-                "windGust": {
-                    "direction": {
-                        "degrees": 1.0,
-                        "localizedDescription": "N"
-                    },
-                    "speed": {
-                        "value": 35.2,
-                        "unit": "km/h",
-                        "unitType": 7
-                    }
-                },
-                "totalLiquid": {
-                    "value": 4.3,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "rain": {
-                    "value": 3.0,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "snow": {
-                    "value": 0.79,
-                    "unit": "cm",
-                    "unitType": 4
-                },
-                "ice": {
-                    "value": 0.0,
-                    "unit": "mm",
-                    "unitType": 3
-                },
-                "hoursOfPrecipitation": 4.0,
-                "hoursOfRain": 1.0,
-                "hoursOfSnow": 3.0,
-                "hoursOfIce": 0.0,
-                "cloudCover": 94
+            {
+              "name": "Grass",
+              "value": 2,
+              "category": "Low",
+              "categoryValue": 1
             },
-            "sources": [
-                "AccuWeather"
-            ]
-        },...
-    ]
+            {
+              "name": "Mold",
+              "value": 0,
+              "category": "Low",
+              "categoryValue": 1
+            },
+            {
+              "name": "Ragweed",
+              "value": 5,
+              "category": "Low",
+              "categoryValue": 1
+            },
+            {
+              "name": "Tree",
+              "value": 0,
+              "category": "Low",
+              "categoryValue": 1
+            },
+            {
+              "name": "UVIndex",
+              "value": 7,
+              "category": "High",
+              "categoryValue": 3
+            }
+          ],
+          "day": {
+            "iconCode": 2,
+            "iconPhrase": "Mostly sunny",
+            "hasPrecipitation": false,
+            "shortPhrase": "Mostly sunny",
+            "longPhrase": "Mostly sunny; wildfire smoke will cause the sky to be hazy",
+            "precipitationProbability": 0,
+            "thunderstormProbability": 0,
+            "rainProbability": 0,
+            "snowProbability": 0,
+            "iceProbability": 0,
+            "wind": {
+              "direction": {
+                "degrees": 357,
+                "localizedDescription": "N"
+              },
+              "speed": {
+                "value": 11.1,
+                "unit": "km/h",
+                "unitType": 7
+              }
+            },
+            "windGust": {
+              "direction": {
+                "degrees": 354,
+                "localizedDescription": "N"
+              },
+              "speed": {
+                "value": 29.6,
+                "unit": "km/h",
+                "unitType": 7
+              }
+            },
+            "totalLiquid": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "rain": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "snow": {
+              "value": 0,
+              "unit": "cm",
+              "unitType": 4
+            },
+            "ice": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "hoursOfPrecipitation": 0,
+            "hoursOfRain": 0,
+            "hoursOfSnow": 0,
+            "hoursOfIce": 0,
+            "cloudCover": 10
+          },
+          "night": {
+            "iconCode": 35,
+            "iconPhrase": "Partly cloudy",
+            "hasPrecipitation": false,
+            "shortPhrase": "Partly cloudy",
+            "longPhrase": "Partly cloudy; wildfire smoke will cause the sky to be hazy",
+            "precipitationProbability": 1,
+            "thunderstormProbability": 0,
+            "rainProbability": 1,
+            "snowProbability": 0,
+            "iceProbability": 0,
+            "wind": {
+              "direction": {
+                "degrees": 7,
+                "localizedDescription": "N"
+              },
+              "speed": {
+                "value": 9.3,
+                "unit": "km/h",
+                "unitType": 7
+              }
+            },
+            "windGust": {
+              "direction": {
+                "degrees": 3,
+                "localizedDescription": "N"
+              },
+              "speed": {
+                "value": 20.4,
+                "unit": "km/h",
+                "unitType": 7
+              }
+            },
+            "totalLiquid": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "rain": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "snow": {
+              "value": 0,
+              "unit": "cm",
+              "unitType": 4
+            },
+            "ice": {
+              "value": 0,
+              "unit": "mm",
+              "unitType": 3
+            },
+            "hoursOfPrecipitation": 0,
+            "hoursOfRain": 0,
+            "hoursOfSnow": 0,
+            "hoursOfIce": 0,
+            "cloudCover": 26
+          },
+          "sources": [
+            "AccuWeather"
+          ]
+        }
+      ]
     }
     ```
 
@@ -576,97 +572,95 @@ In this example, you use the [Get Hourly Forecast API] to retrieve the hourly we
 
    :::image type="content" source="./media/weather-service/bruno-run-request-hourly-weather-forecast-data.png" alt-text="A screenshot showing the Request hourly weather forecast data URL with the run button highlighted in the bruno app.":::
 
-    The response body contains weather forecast data for the next 12 hours. For the sake of brevity, the following JSON response shows the forecast for the first hour.
+    The response body contains weather forecast data for the next 12 hours. The following example JSON response only shows the first hour:
 
     ```json
     {
-    "forecasts": [
+      "forecasts": [
         {
-            "date": "2020-10-19T21:00:00+00:00",
-            "iconCode": 12,
-            "iconPhrase": "Showers",
-            "hasPrecipitation": true,
-            "precipitationType": "Rain",
-            "precipitationIntensity": "Light",
-            "isDaylight": true,
-            "temperature": {
-                "value": 14.7,
-                "unit": "C",
-                "unitType": 17
+          "date": "2024-08-07T15:00:00-07:00",
+          "iconCode": 2,
+          "iconPhrase": "Mostly sunny",
+          "hasPrecipitation": false,
+          "isDaylight": true,
+          "temperature": {
+            "value": 24.6,
+            "unit": "C",
+            "unitType": 17
+          },
+          "realFeelTemperature": {
+            "value": 26.4,
+            "unit": "C",
+            "unitType": 17
+          },
+          "wetBulbTemperature": {
+            "value": 18.1,
+            "unit": "C",
+            "unitType": 17
+          },
+          "dewPoint": {
+            "value": 14.5,
+            "unit": "C",
+            "unitType": 17
+          },
+          "wind": {
+            "direction": {
+              "degrees": 340,
+              "localizedDescription": "NNW"
             },
-            "realFeelTemperature": {
-                "value": 13.3,
-                "unit": "C",
-                "unitType": 17
-            },
-            "wetBulbTemperature": {
-                "value": 12.0,
-                "unit": "C",
-                "unitType": 17
-            },
-            "dewPoint": {
-                "value": 9.5,
-                "unit": "C",
-                "unitType": 17
-            },
-            "wind": {
-                "direction": {
-                    "degrees": 242.0,
-                    "localizedDescription": "WSW"
-                },
-                "speed": {
-                    "value": 9.3,
-                    "unit": "km/h",
-                    "unitType": 7
-                }
-            },
-            "windGust": {
-                "speed": {
-                    "value": 14.8,
-                    "unit": "km/h",
-                    "unitType": 7
-                }
-            },
-            "relativeHumidity": 71,
-            "visibility": {
-                "value": 9.7,
-                "unit": "km",
-                "unitType": 6
-            },
-            "cloudCover": 100,
-            "ceiling": {
-                "value": 1128.0,
-                "unit": "m",
-                "unitType": 5
-            },
-            "uvIndex": 1,
-            "uvIndexPhrase": "Low",
-            "precipitationProbability": 51,
-            "rainProbability": 51,
-            "snowProbability": 0,
-            "iceProbability": 0,
-            "totalLiquid": {
-                "value": 0.3,
-                "unit": "mm",
-                "unitType": 3
-            },
-            "rain": {
-                "value": 0.3,
-                "unit": "mm",
-                "unitType": 3
-            },
-            "snow": {
-                "value": 0.0,
-                "unit": "cm",
-                "unitType": 4
-            },
-            "ice": {
-                "value": 0.0,
-                "unit": "mm",
-                "unitType": 3
+            "speed": {
+              "value": 14.8,
+              "unit": "km/h",
+              "unitType": 7
             }
-        }...
-    ]
+          },
+          "windGust": {
+            "speed": {
+              "value": 24.1,
+              "unit": "km/h",
+              "unitType": 7
+            }
+          },
+          "relativeHumidity": 53,
+          "visibility": {
+            "value": 16.1,
+            "unit": "km",
+            "unitType": 6
+          },
+          "cloudCover": 11,
+          "ceiling": {
+            "value": 10211,
+            "unit": "m",
+            "unitType": 5
+          },
+          "uvIndex": 5,
+          "uvIndexPhrase": "Moderate",
+          "precipitationProbability": 0,
+          "rainProbability": 0,
+          "snowProbability": 0,
+          "iceProbability": 0,
+          "totalLiquid": {
+            "value": 0,
+            "unit": "mm",
+            "unitType": 3
+          },
+          "rain": {
+            "value": 0,
+            "unit": "mm",
+            "unitType": 3
+          },
+          "snow": {
+            "value": 0,
+            "unit": "cm",
+            "unitType": 4
+          },
+          "ice": {
+            "value": 0,
+            "unit": "mm",
+            "unitType": 3
+          }
+        }
+      ]
     }
     ```
 
@@ -694,90 +688,90 @@ In this example, you use the [Get Minute Forecast API] to retrieve the minute-by
 
     ```json
     {
-    "summary": {
+      "summary": {
         "briefPhrase60": "No precipitation for at least 60 min",
         "shortPhrase": "No precip for 120 min",
         "briefPhrase": "No precipitation for at least 120 min",
         "longPhrase": "No precipitation for at least 120 min",
-        "iconCode": 7
-    },
-    "intervalSummaries": [
+        "iconCode": 1
+      },
+      "intervalSummaries": [
         {
-            "startMinute": 0,
-            "endMinute": 119,
-            "totalMinutes": 120,
-            "shortPhrase": "No precip for %MINUTE_VALUE min",
-            "briefPhrase": "No precipitation for at least %MINUTE_VALUE min",
-            "longPhrase": "No precipitation for at least %MINUTE_VALUE min",
-            "iconCode": 7
+          "startMinute": 0,
+          "endMinute": 119,
+          "totalMinutes": 120,
+          "shortPhrase": "No precip for %MINUTE_VALUE min",
+          "briefPhrase": "No precipitation for at least %MINUTE_VALUE min",
+          "longPhrase": "No precipitation for at least %MINUTE_VALUE min",
+          "iconCode": 1
         }
-    ],
-    "intervals": [
+      ],
+      "intervals": [
         {
-            "startTime": "2020-10-19T20:51:00+00:00",
-            "minute": 0,
-            "dbz": 0.0,
-            "shortPhrase": "No Precipitation",
-            "iconCode": 7,
-            "cloudCover": 100
+          "startTime": "2024-08-08T05:58:00-07:00",
+          "minute": 0,
+          "dbz": 0,
+          "shortPhrase": "No Precipitation",
+          "iconCode": 1,
+          "cloudCover": 7
         },
         {
-            "startTime": "2020-10-19T21:06:00+00:00",
-            "minute": 15,
-            "dbz": 0.0,
-            "shortPhrase": "No Precipitation",
-            "iconCode": 7,
-            "cloudCover": 100
+          "startTime": "2024-08-08T06:13:00-07:00",
+          "minute": 15,
+          "dbz": 0,
+          "shortPhrase": "No Precipitation",
+          "iconCode": 1,
+          "cloudCover": 3
         },
         {
-            "startTime": "2020-10-19T21:21:00+00:00",
-            "minute": 30,
-            "dbz": 0.0,
-            "shortPhrase": "No Precipitation",
-            "iconCode": 7,
-            "cloudCover": 100
+          "startTime": "2024-08-08T06:28:00-07:00",
+          "minute": 30,
+          "dbz": 0,
+          "shortPhrase": "No Precipitation",
+          "iconCode": 1,
+          "cloudCover": 2
         },
         {
-            "startTime": "2020-10-19T21:36:00+00:00",
-            "minute": 45,
-            "dbz": 0.0,
-            "shortPhrase": "No Precipitation",
-            "iconCode": 7,
-            "cloudCover": 100
+          "startTime": "2024-08-08T06:43:00-07:00",
+          "minute": 45,
+          "dbz": 0,
+          "shortPhrase": "No Precipitation",
+          "iconCode": 1,
+          "cloudCover": 2
         },
         {
-            "startTime": "2020-10-19T21:51:00+00:00",
-            "minute": 60,
-            "dbz": 0.0,
-            "shortPhrase": "No Precipitation",
-            "iconCode": 7,
-            "cloudCover": 100
+          "startTime": "2024-08-08T06:58:00-07:00",
+          "minute": 60,
+          "dbz": 0,
+          "shortPhrase": "No Precipitation",
+          "iconCode": 1,
+          "cloudCover": 1
         },
         {
-            "startTime": "2020-10-19T22:06:00+00:00",
-            "minute": 75,
-            "dbz": 0.0,
-            "shortPhrase": "No Precipitation",
-            "iconCode": 7,
-            "cloudCover": 100
+          "startTime": "2024-08-08T07:13:00-07:00",
+          "minute": 75,
+          "dbz": 0,
+          "shortPhrase": "No Precipitation",
+          "iconCode": 1,
+          "cloudCover": 1
         },
         {
-            "startTime": "2020-10-19T22:21:00+00:00",
-            "minute": 90,
-            "dbz": 0.0,
-            "shortPhrase": "No Precipitation",
-            "iconCode": 7,
-            "cloudCover": 100
+          "startTime": "2024-08-08T07:28:00-07:00",
+          "minute": 90,
+          "dbz": 0,
+          "shortPhrase": "No Precipitation",
+          "iconCode": 1,
+          "cloudCover": 0
         },
         {
-            "startTime": "2020-10-19T22:36:00+00:00",
-            "minute": 105,
-            "dbz": 0.0,
-            "shortPhrase": "No Precipitation",
-            "iconCode": 7,
-            "cloudCover": 100
+          "startTime": "2024-08-08T07:43:00-07:00",
+          "minute": 105,
+          "dbz": 0,
+          "shortPhrase": "No Precipitation",
+          "iconCode": 1,
+          "cloudCover": 0
         }
-        ]
+      ]
     }
     ```
 
