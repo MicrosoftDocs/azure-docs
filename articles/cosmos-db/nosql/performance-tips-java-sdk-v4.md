@@ -73,7 +73,8 @@ int proactiveConnectionRegionsCount = 2;
 Duration aggressiveWarmupDuration = Duration.ofSeconds(1);
 
 CosmosAsyncClient clientWithOpenConnections = new CosmosClientBuilder()
-          .endpoint("")
+          .endpoint("<account URL goes here")
+          .key("<account key goes here>")
           .endpointDiscoveryEnabled(true)
           .preferredRegions(Arrays.asList("sample_region_1", "sample_region_2"))
           .openConnectionsAndInitCaches(new CosmosContainerProactiveInitConfigBuilder(Arrays.asList(containerIdentity))
