@@ -2915,7 +2915,7 @@ groups:
   - id: preview-version
     title: Preview release
 # Owner: avanigupta
-- id: data-plane-api-version
+- id: appconfig-data-plane-api-version
   title: API version pivots
   prompt: Choose an API version
   pivots:

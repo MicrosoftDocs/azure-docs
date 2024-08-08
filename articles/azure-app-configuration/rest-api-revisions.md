@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/02/2024
-zone_pivot_groups: data-plane-api-version
+zone_pivot_groups: appconfig-data-plane-api-version
 
 ---
 :::zone target="docs" pivot="v1,v23-10,v23-11"
@@ -100,13 +100,22 @@ Content-Range: items 0-2/80
 
 ## Filtering
 
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10"
+
 A combination of `key` and `label` filtering is supported.
 Use the optional `key` and `label` query string parameters.
+
+```http
+GET /revisions?key={key}&label={label}&api-version={api-version}
+```
 
 :::zone-end
 :::zone target="docs" pivot="v23-11"
 
-For API Versions greater than `2023-11-01`, filtering by`tags` is also supported. Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
+A combination of `key`, `label` and `tags` filtering is supported.
+Use the optional `key`, `label` and `tags` query string parameters.
+Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
 
 ```http
 GET /revisions?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version={api-version}
@@ -114,10 +123,6 @@ GET /revisions?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-v
 
 :::zone-end
 :::zone target="docs" pivot="v1,v23-10,v23-11"
-
-```http
-GET /revisions?key={key}&label={label}&api-version={api-version}
-```
 
 ### Supported filters
 
@@ -132,7 +137,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 |Label filter|Effect|
 |--|--|
-|`label` is omitted or `label=`|Matches entry without label|
+|`label` is omitted or `label=`|Matches key-values with no label|
 |`label=*`|Matches **any** label|
 |`label=prod`|Matches the label **prod**|
 |`label=prod*`|Matches labels that start with **prod**|
@@ -146,10 +151,10 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 |Tags filter|Effect|
 |--|--|
 |`tags` is omitted or `tags=` |Matches **any** tag|
-|`tags=group=app1`|Matches KV where the tag name is `group` and tag value is `app1`|
-|`tags=group=app1&tags=env=prod`|Matches KV which contain at least 2 tags, where the tag names are `group` and `env` and tag values are `app1` and `prod` respectively (limited to 5 tag filters)|
-|`tags=tag1=%00`|Matches KV where the tag name is `tag1` and tag value is `null`|
-|`tags=tag1=`|Matches KV where the tag name is `tag1` and tag value is empty|
+|`tags=group=app1`|Matches key-values that have a tag named `group` with value `app1`|
+|`tags=group=app1&tags=env=prod`|Matches key-values that have a tag named `group` with value `app1` and a tag named `env` with value `prod`(limited to 5 tag filters)|
+|`tags=tag1=%00`|Matches key-values that have a tag named `tag1` with value `null`|
+|`tags=tag1=`|Matches key-values that have a tag named `tag1` empty value|
 
 :::zone-end
 :::zone target="docs" pivot="v1,v23-10,v23-11"

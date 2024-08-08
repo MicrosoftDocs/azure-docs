@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/02/2024
-zone_pivot_groups: data-plane-api-version
+zone_pivot_groups: appconfig-data-plane-api-version
 
 ---
 :::zone target="docs" pivot="v1,v23-10,v23-11"
