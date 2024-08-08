@@ -1,34 +1,34 @@
 ---
-title: Quickstart - Deploy the de-identification service in Azure Health Data Services
-description: Get up and running quickly with the de-identification service in Azure Health Data Services.
+title: Quickstart - Deploy the de-identification service (preview) in Azure Health Data Services
+description: Get up and running quickly with the de-identification service (preview) in Azure Health Data Services.
 author: jovinson-ms
-ms.service: healthcare-apis
-ms.subservice: workspace
+ms.service: azure-health-data-services
+ms.subservice: deidentification-service
 ms.topic: quickstart
 ms.date: 7/16/2024
 ms.author: jovinson
 ---
 
-# Quickstart: Deploy the de-identification service
+# Quickstart: Deploy the de-identification service (preview)
 
-In this quickstart, you deploy an instance of the de-identification service in your Azure subscription.
+In this quickstart, you deploy an instance of the de-identification service (preview) in your Azure subscription.
 
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Register the `Microsoft.HealthDataAIServices` resource provider.
 
-## Deploy the de-identification service
+## Deploy the de-identification service (preview)
 
-To deploy an instance of the de-identification service, start at the Azure portal home page.
+To deploy an instance of the de-identification service (preview), start at the Azure portal home page.
 
 1. Search for **de-identification** in the top search bar.
-1. Select **de-identification Services** in the search results.
+1. Select **De-identification Services** in the search results.
 1. Select the **Create** button.
 
 ## Complete the Basics tab
 
-In the **Basics** tab, you provide basic information for your de-identification service.
+In the **Basics** tab, you provide basic information for your de-identification service (preview).
 
 1. Fill in the **Project Details** section:
 
@@ -51,21 +51,21 @@ For more information, see [Use tags to organize your Azure resources](/azure/azu
 
 ## Complete the Managed Identity tab (optional)
 
-In the **Managed Identity** tab, you can assign a managed identity to your de-identification service. For more information, see [managed identities](managed-identities.md).
+In the **Managed Identity** tab, you can assign a managed identity to your de-identification service (preview). For more information, see [managed identities](managed-identities.md).
 
 1. To create a system-assigned managed identity, select **On** under **Status**.
 1. To add a user-assigned managed identity, select **Add** to use the selection pane to choose an existing identity to assign.
 
 ## Review and create
 
-After you complete the configuration, you can deploy the de-identification service.
+After you complete the configuration, you can deploy the de-identification service (preview).
 
 1. Select **Next: Review + create** to review your choices.
 1. Select **Create** to start the deployment of your de-identification service. After the deployment is complete, select **Go to resource** to view your service.
 
 ## Clean up resources
 
-If you no longer need them, delete the resource group and de-identification service. To do so, select the resource group and select **Delete**.
+If you no longer need them, delete the resource group and de-identification service (preview). To do so, select the resource group and select **Delete**.
 
 ## Related content
 

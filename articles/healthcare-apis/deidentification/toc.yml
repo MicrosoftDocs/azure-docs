@@ -1,15 +1,15 @@
 items:
-  - name: Deidentification service documentation
+  - name: De-identification service documentation
     href: index.yml
   - name: Overview
     expanded: true
     items:
-      - name: What is the Deidentification service?
+      - name: What is the de-identification service?
         href: overview.md
   - name: Quickstarts
     expanded: true
     items:
-      - name: Deploy the Deidentification service
+      - name: Deploy the de-identification service
         href: quickstart.md
       - name: Azure Health De-identification client library for .NET
         href: quickstart-sdk-net.md
@@ -20,5 +20,3 @@ items:
         href: managed-identities.md
       - name: Use Azure role-based access control
         href: manage-access-rbac.md
-      - name: Use batch jobs to deidentify data
-        href: batch-job.md
