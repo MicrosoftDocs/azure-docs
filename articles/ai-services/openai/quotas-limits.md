@@ -48,7 +48,10 @@ The following sections provide you with a quick guide to the default quotas and 
 | Assistants token limit | 2,000,000 token limit |
 | GPT-4o max images per request (# of images in the messages array/conversation history) | 10 |
 | GPT-4 `vision-preview` & GPT-4 `turbo-2024-04-09` default max tokens | 16 <br><br> Increase the `max_tokens` parameter value to avoid truncated responses. GPT-4o max tokens defaults to 4096. |
-| Max number of customer headers in API requests | 10 |
+| Max number of custom headers in API requests<sup>1</sup> | 10 |
+
+<sup>1</sup> Our current APIs allow up to 10 custom headers, which are passed through the pipeline, and returned. We have noticed some customers now exceed this header count resulting in HTTP 431 errors. There is no solution for this error, other than to reduce header volume.  **In future API versions we will no longer pass through custom headers**. We recommend customers not depend on custom headers in future system architectures.
+
 
 ## Regional quota limits
 

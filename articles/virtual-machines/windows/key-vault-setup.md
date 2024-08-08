@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 [!INCLUDE [learn-about-deployment-models](~/reusable-content/ce-skilling/azure/includes/learn-about-deployment-models-rm-include.md)]
 
-In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the resource provider of Key Vault. To learn more about Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md)
+In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the resource provider of Key Vault. To learn more about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
 > [!NOTE]
 > 1. In order for Key Vault to be used with Azure Resource Manager virtual machines, the **EnabledForDeployment** property on Key Vault must be set to true. You can do this in various clients.
@@ -25,7 +25,7 @@ In Azure Resource Manager stack, secrets/certificates are modeled as resources t
 >
 
 ## Use PowerShell to set up Key Vault
-To create a key vault by using PowerShell, see [Set and retrieve a secret from Azure Key Vault using PowerShell](../../key-vault/secrets/quick-create-powershell.md).
+To create a key vault by using PowerShell, see [Set and retrieve a secret from Azure Key Vault using PowerShell](/azure/key-vault/secrets/quick-create-powershell).
 
 For new key vaults, you can use this PowerShell cmdlet:
 
@@ -40,7 +40,7 @@ Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 ```
 
 ## Use CLI to set up Key Vault
-To create a key vault by using the command-line interface (CLI), see [Manage Key Vault using CLI](../../key-vault/general/manage-with-cli2.md#create-a-key-vault).
+To create a key vault by using the command-line interface (CLI), see [Manage Key Vault using CLI](/azure/key-vault/general/manage-with-cli2#create-a-key-vault).
 
 For CLI, you have to create the key vault before you assign the deployment policy. You can do this by using the following command:
 
