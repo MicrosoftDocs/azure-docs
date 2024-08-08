@@ -5,7 +5,7 @@ description: 'In this article, you create an Azure Virtual Machine with a NAT Ga
 ms.topic: quickstart
 ms.date: 02/21/2024
 ms.custom: devx-track-terraform
-ms.service: virtual-network
+ms.service: azure-virtual-network
 author: asudbring
 ms.author: allensu
 content_well_notification: 

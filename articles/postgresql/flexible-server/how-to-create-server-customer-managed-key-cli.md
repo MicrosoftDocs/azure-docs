@@ -1,8 +1,8 @@
 ---
 title: Create and manage with data encrypted by customer managed keys using the Azure CLI
 description: Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using the Azure CLI.
-author: gennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 04/27/2024
 ms.service: azure-database-postgresql
