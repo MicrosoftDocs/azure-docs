@@ -72,7 +72,7 @@ The following Windows operating systems are supported when creating restore poin
 - Windows Server 2016 (Datacenter/Datacenter Core/Standard)
 - Windows Server 2012 R2 (Datacenter/Standard)
 - Windows Server 2012 (Datacenter/Standard)
-- OS that have reached [extended security update](/lifecycle/faq/extended-security-updates.md) will not be supported. Check your product's lifecycle [here](/lifecycle/products/)
+- OS that have reached [extended security update](/lifecycle/faq/extended-security-updates) will not be supported. Check your product's lifecycle [here](/lifecycle/products/)
 
 Restore points don't support 32-bit operating systems.
 
