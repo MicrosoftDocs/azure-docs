@@ -26,7 +26,11 @@ This article demonstrates how to:
 * An [Azure Maps account]
 * A [subscription key]
 
-This tutorial uses the [Postman] application, but you may choose a different API development environment.
+>[!IMPORTANT]
+>
+> In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+
+This article uses the [bruno] application, but you can choose a different API development environment.
 
 ## Request latitude and longitude for an address (geocoding)
 
@@ -35,23 +39,27 @@ The example in this section uses [Get Search Address] to convert an address into
 >[!TIP]
 >If you have a set of addresses to geocode, you can use [Post Search Address Batch] to send a batch of queries in a single request.
 
-1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
+1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. In this request, we're searching for a specific address: `400 Braod St, Seattle, WA 98109`. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
     ```
 
-3. Select the blue **Send** button. The response body contains data for a single location.
+    This request searches for a specific address: `400 Broad St, Seattle, WA 98109`.
 
-4. Next, search an address that has more than one possible locations. In the **Params** section, change the `query` key to `400 Broad, Seattle`. Select the blue **Send** button.
+1. Select the **Create** button.
+
+1. Select the run button.
+
+1. Next, search an address that has more than one possible location. In the **Params** section, change the `query` key to `400 Broad, Seattle`. Select the blue **Send** button.
 
     :::image type="content" source="./media/how-to-search-for-address/search-address.png" alt-text="Search for address":::
 
-5. Next, try setting the `query` key to `400 Broa`.
+1. Next, try setting the `query` key to `400 Broa`.
 
-6. Select the **Send** button. The response includes results from multiple countries/regions. To geobias results to the relevant area for your users, always add as many location details as possible to the request.
+1. Select the **Send** button. The response includes results from multiple countries/regions. To geobias results to the relevant area for your users, always add as many location details as possible to the request.
 
 ## Fuzzy Search
 
@@ -67,7 +75,7 @@ The example in this section uses `Fuzzy Search` to search the entire world for *
 > [!IMPORTANT]
 > To geobias results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].
 
-1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
+1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
@@ -115,7 +123,7 @@ The example in this section uses `Fuzzy Search` to search the entire world for *
 
 This example demonstrates making reverse searches using a few of the optional parameters that are available. For the full list of optional parameters, see [Reverse Search Parameters].
 
-1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
+1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key. The request should look like the following URL:
 
@@ -151,7 +159,7 @@ This example demonstrates making reverse searches using a few of the optional pa
 
 This example demonstrates how to search for a cross street based on the coordinates of an address.
 
-1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
+1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key. The request should look like the following URL:
   
@@ -183,7 +191,7 @@ This example demonstrates how to search for a cross street based on the coordina
 [point of interest result]: /rest/api/maps/search/getsearchpoi?view=rest-maps-1.0&preserve-view=true#searchpoiresponse
 [Post Search Address Batch]: /rest/api/maps/search/postsearchaddressbatch
 [Post Search Address Reverse Batch]: /rest/api/maps/search/postsearchaddressreversebatch?view=rest-maps-1.0&preserve-view=true
-[Postman]: https://www.postman.com/
+[bruno]: https://www.usebruno.com/
 [Reverse Address Search Results]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true#searchaddressreverseresult
 [Reverse Address Search]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [Reverse Search Parameters]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true#uri-parameters
