@@ -25,14 +25,11 @@ The Jamba-Instruct model is AI21's production-grade Mamba-based large language m
 
 ::: zone pivot="programming-language-python"
 
-## Jamba-Instruct chat models
-
-The Jamba Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba Instruct model is built for reliable commercial use with respect to quality and performance.
 
 
 You can learn more about the models in their respective model card:
 
-* [Jamba-Instruct](https://aka.ms/azureai/landing/Jamba-Instruct)
+* [AI21-Jamba-Instruct](https://aka.ms/azureai/landing/AI21-Jamba-Instruct)
 
 
 ## Prerequisites
@@ -108,7 +105,7 @@ print("Model provider name:", model_info.model_provider)
 ```
 
 ```console
-Model name: Jamba-Instruct
+Model name: AI21-Jamba-Instruct
 Model type: chat-completions
 Model provider name: AI21
 ```
@@ -142,7 +139,7 @@ print("\tCompletion tokens:", response.usage.completion_tokens)
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Jamba-Instruct
+Model: AI21-Jamba-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -279,14 +276,11 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
-## Jamba-Instruct chat models
-
-The Jamba Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba Instruct model is built for reliable commercial use with respect to quality and performance.
 
 
 You can learn more about the models in their respective model card:
 
-* [Jamba-Instruct](https://aka.ms/azureai/landing/Jamba-Instruct)
+* [AI21-Jamba-Instruct](https://aka.ms/azureai/landing/AI21-Jamba-Instruct)
 
 
 ## Prerequisites
@@ -360,7 +354,7 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 ```
 
 ```console
-Model name: Jamba-Instruct
+Model name: AI21-Jamba-Instruct
 Model type: chat-completions
 Model provider name: AI21
 ```
@@ -400,7 +394,7 @@ console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Jamba-Instruct
+Model: AI21-Jamba-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -554,14 +548,11 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
-## Jamba-Instruct chat models
-
-The Jamba Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba Instruct model is built for reliable commercial use with respect to quality and performance.
 
 
 You can learn more about the models in their respective model card:
 
-* [Jamba-Instruct](https://aka.ms/azureai/landing/Jamba-Instruct)
+* [AI21-Jamba-Instruct](https://aka.ms/azureai/landing/AI21-Jamba-Instruct)
 
 
 ## Prerequisites
@@ -654,7 +645,7 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 ```
 
 ```console
-Model name: Jamba-Instruct
+Model name: AI21-Jamba-Instruct
 Model type: chat-completions
 Model provider name: AI21
 ```
@@ -689,7 +680,7 @@ Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Jamba-Instruct
+Model: AI21-Jamba-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -845,14 +836,11 @@ catch (RequestFailedException ex)
 
 ::: zone pivot="programming-language-rest"
 
-## Jamba-Instruct chat models
-
-The Jamba Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba Instruct model is built for reliable commercial use with respect to quality and performance.
 
 
 You can learn more about the models in their respective model card:
 
-* [Jamba-Instruct](https://aka.ms/azureai/landing/Jamba-Instruct)
+* [AI21-Jamba-Instruct](https://aka.ms/azureai/landing/AI21-Jamba-Instruct)
 
 
 ## Prerequisites
@@ -904,7 +892,7 @@ The response is as follows:
 
 ```json
 {
-    "model_name": "Jamba-Instruct",
+    "model_name": "AI21-Jamba-Instruct",
     "model_type": "chat-completions",
     "model_provider_name": "AI21"
 }
@@ -937,7 +925,7 @@ The response is as follows, where you can see the model's usage statistics:
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Jamba-Instruct",
+    "model": "AI21-Jamba-Instruct",
     "choices": [
         {
             "index": 0,
@@ -994,7 +982,7 @@ You can visualize how streaming generates content:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Jamba-Instruct",
+    "model": "AI21-Jamba-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1017,7 +1005,7 @@ The last message in the stream has `finish_reason` set, indicating the reason fo
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Jamba-Instruct",
+    "model": "AI21-Jamba-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1068,7 +1056,7 @@ Explore other parameters that you can specify in the inference client. For a ful
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Jamba-Instruct",
+    "model": "AI21-Jamba-Instruct",
     "choices": [
         {
             "index": 0,

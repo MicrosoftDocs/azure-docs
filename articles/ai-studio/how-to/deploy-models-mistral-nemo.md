@@ -21,8 +21,6 @@ Mistral AI offers two categories of models. Premium models including [Mistral La
 
 ::: zone pivot="programming-language-python"
 
-## Mistral Nemo chat model
-
 Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
 
 Mistral Nemo is a 12B model, making it a powerful drop-in replacement for any system using Mistral 7B, which it supersedes. It supports a context length of 128K, and it accepts only text inputs and generates text outputs.
@@ -460,8 +458,6 @@ except HttpResponseError as ex:
 
 
 ::: zone pivot="programming-language-javascript"
-
-## Mistral Nemo chat model
 
 Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
 
@@ -919,8 +915,6 @@ catch (error) {
 
 
 ::: zone pivot="programming-language-csharp"
-
-## Mistral Nemo chat model
 
 Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
 
@@ -1400,8 +1394,6 @@ catch (RequestFailedException ex)
 
 
 ::: zone pivot="programming-language-rest"
-
-## Mistral Nemo chat model
 
 Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
 

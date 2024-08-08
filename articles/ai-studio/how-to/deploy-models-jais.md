@@ -26,9 +26,7 @@ JAIS 30b Chat is an autoregressive bi-lingual LLM for **Arabic** & **English**. 
 
 ::: zone pivot="programming-language-python"
 
-## Jais chat models
 
-None
 
 You can learn more about the models in their respective model card:
 
@@ -279,9 +277,7 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
-## Jais chat models
 
-None
 
 You can learn more about the models in their respective model card:
 
@@ -553,9 +549,7 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
-## Jais chat models
 
-None
 
 You can learn more about the models in their respective model card:
 
@@ -843,9 +837,7 @@ catch (RequestFailedException ex)
 
 ::: zone pivot="programming-language-rest"
 
-## Jais chat models
 
-None
 
 You can learn more about the models in their respective model card:
 

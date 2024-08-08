@@ -22,8 +22,6 @@ The Phi-3 family of small language models (SLMs) is a collection of instruction-
 
 ::: zone pivot="programming-language-python"
 
-## Phi-3 chat models with vision
-
 Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
 
 
@@ -343,8 +341,6 @@ Usage:
 
 
 ::: zone pivot="programming-language-javascript"
-
-## Phi-3 chat models with vision
 
 Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
 
@@ -687,8 +683,6 @@ Usage:
 
 ::: zone pivot="programming-language-csharp"
 
-## Phi-3 chat models with vision
-
 Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
 
 
@@ -1026,8 +1020,6 @@ Usage:
 
 
 ::: zone pivot="programming-language-rest"
-
-## Phi-3 chat models with vision
 
 Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
 
