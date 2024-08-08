@@ -51,7 +51,8 @@ Azure AI Health Insights container images can be found on the `mcr.microsoft.com
 
 To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list`.
 
-- Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the [docker hub clinical matching page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-clinical-matching).  
+- Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. 
+You can find the featured tags on the [docker hub clinical matching page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-clinical-matching).  
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/health-insights/<model-name>:<tag-name>
@@ -127,7 +128,7 @@ This command:
 Use the example cURL request as a reference how to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/health-insights/<model>/jobs?api-version=<version>/' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X PUT 'http://<serverURL>:5000/health-insights/<model>/jobs/id?api-version=<version>/' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 ```
 
 #### Example docker compose file
