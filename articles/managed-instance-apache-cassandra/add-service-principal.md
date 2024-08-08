@@ -2,7 +2,7 @@
 title: How to add Azure Cosmos DB service principal for Azure Managed Instance for Apache Cassandra
 description: Learn how to add an Azure Cosmos DB service principal to an existing virtual network for Azure Managed Instance for Apache Cassandra
 author: TheovanKraay
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: thvankra

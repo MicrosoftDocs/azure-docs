@@ -237,40 +237,6 @@ items:
         href: app/transaction-search-and-diagnostics.md
     - name: Code analysis
       items:
-      - name: Profiler
-        items:
-        - name: Overview
-          displayName: profiling, debugging, code performance, perf
-          href: profiler/profiler-overview.md
-        - name: Enable Profiler
-          items:
-          - name: Azure App Service
-            href: profiler/profiler.md
-          - name: Azure Functions app
-            href: profiler/profiler-azure-functions.md
-          - name: Azure Cloud Service
-            href: profiler/profiler-cloudservice.md
-          - name: Azure Service Fabric app
-            href: profiler/profiler-servicefabric.md
-          - name: Azure Virtual Machines
-            href: profiler/profiler-vm.md
-          - name: ASP.NET Core app hosted in Linux on App Service
-            href: profiler/profiler-aspnetcore-linux.md
-          - name: ASP.NET Core app running in container
-            href: profiler/profiler-containers.md
-        - name: View Profiler data
-          displayName: profiling, debugging, code performance, perf
-          href: profiler/profiler-data.md
-        - name: Configure
-          items:
-          - name: Configure Profiler
-            href: profiler/profiler-settings.md
-          - name: Configure BYOS (Bring Your Own Storage)
-            href: profiler/profiler-bring-your-own-storage.md
-        - name: Track Requests
-          href: profiler/profiler-trackrequests.md
-        - name: Troubleshooting
-          href: profiler/profiler-troubleshooting.md
       - name: Code Optimizations
         displayName: opt insights, optimization insights, code optimization, perflens
         items:
@@ -282,6 +248,40 @@ items:
           href: insights/view-code-optimizations.md
         - name: Troubleshooting
           href: insights/code-optimizations-troubleshoot.md
+        - name: Profiler
+          items:
+          - name: Overview
+            displayName: profiling, debugging, code performance, perf
+            href: profiler/profiler-overview.md
+          - name: Enable Profiler
+            items:
+            - name: Azure App Service
+              href: profiler/profiler.md
+            - name: Azure Functions app
+              href: profiler/profiler-azure-functions.md
+            - name: Azure Cloud Service
+              href: profiler/profiler-cloudservice.md
+            - name: Azure Service Fabric app
+              href: profiler/profiler-servicefabric.md
+            - name: Azure Virtual Machines
+              href: profiler/profiler-vm.md
+            - name: ASP.NET Core app hosted in Linux on App Service
+              href: profiler/profiler-aspnetcore-linux.md
+            - name: ASP.NET Core app running in container
+              href: profiler/profiler-containers.md
+          - name: View Profiler data
+            displayName: profiling, debugging, code performance, perf
+            href: profiler/profiler-data.md
+          - name: Configure
+            items:
+            - name: Configure Profiler
+              href: profiler/profiler-settings.md
+            - name: Configure BYOS (Bring Your Own Storage)
+              href: profiler/profiler-bring-your-own-storage.md
+          - name: Track Requests
+            href: profiler/profiler-trackrequests.md
+          - name: Troubleshooting
+            href: profiler/profiler-troubleshooting.md
       - name: Snapshot Debugger
         items:
         - name: Overview
@@ -464,7 +464,7 @@ items:
         - name: Custom configuration
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-configuration.md
-        - name: Configure collection using Service and Pod Monitor Custom Resources (Preview)
+        - name: Configure collection using Service and Pod Monitor Custom Resources
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-crd.md
         - name: Create and validate custom scrape config
@@ -596,21 +596,20 @@ items:
         displayName: data collection rule, dcr, Azure Monitor pipeline
         href: essentials/data-collection-rule-overview.md
       - name: Best practices
-        displayName: data collection, data collection rules
+        displayName: data collection rules, DCR
         href: essentials/data-collection-rule-best-practices.md
-      - name: View DCRs
+      - name: View and associate
+        displayName: data collection rules, DCR
         href: essentials/data-collection-rule-view.md
-      - name: Create and edit DCRs
-        items:
-        - name: Create
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-create-edit.md
-        - name: Edit tutorial
-          displayName: data collection rules
-          href: essentials/data-collection-rule-edit.md
-        - name: Structure
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-structure.md
+      - name: Create and edit
+        displayName: Data collection rules, DCR
+        href: essentials/data-collection-rule-create-edit.md
+      - name: Edit DCR tutorial
+        displayName: data collection rules
+        href: essentials/data-collection-rule-edit.md
+      - name: Structure
+        displayName: Data collection rules, DCR
+        href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
@@ -709,7 +708,7 @@ items:
           - name: SNMP traps
             displayName: data collection rule,Azure Monitor agent
             href: agents/data-collection-snmp-data.md
-          - name: Collect Windows Firewall logs
+          - name: Windows Firewall logs
             displayName: data collection rule,Azure Monitor Agent,firewall logs
             href: agents/data-sources-firewall-logs.md
           - name: Configure a syslog forwarder
@@ -1615,3 +1614,4 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor
+

@@ -3,7 +3,7 @@ title: Deploy models as serverless APIs
 titleSuffix: Azure Machine Learning
 description: Learn to deploy models as serverless APIs, using Azure Machine Learning.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 07/19/2024
@@ -106,12 +106,12 @@ The next section covers the steps for subscribing your workspace to a model offe
 
 ## Subscribe your workspace to the model offering
 
-For non-Microsoft models offered through the Azure Marketplace, you can deploy them to serverless API endpoints to consume their predictions. If it's your first time deploying the model in the workspace, you have to subscribe your workspace for the particular model offering from the Azure Marketplace. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
+Serverless API endpoints can deploy both Microsoft and non-Microsoft offered models. For Microsoft models (such as Phi-3 models), you don't need to create an Azure Marketplace subscription and you can [deploy them to serverless API endpoints directly](#deploy-the-model-to-a-serverless-api-endpoint) to consume their predictions. For non-Microsoft models, you need to create the subscription first. If it's your first time deploying the model in the workspace, you have to subscribe your workspace for the particular model offering from the Azure Marketplace. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
 
 > [!NOTE]
 > Models offered through the Azure Marketplace are available for deployment to serverless API endpoints in specific regions. Check [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md) to verify which models and regions are available. If the one you need is not listed, you can deploy to a workspace in a supported region and then [consume serverless API endpoints from a different workspace](how-to-connect-models-serverless.md).
 
-1. Create the model's marketplace subscription. When you create a subscription, you accept the terms and conditions associated with the model offer.
+1. Create the model's marketplace subscription. When you create a subscription, you accept the terms and conditions associated with the model offer. Remember you don't need to perform this step for Microsoft offered models (like Phi-3).
 
     # [Studio](#tab/azure-studio)
 
@@ -172,8 +172,8 @@ For non-Microsoft models offered through the Azure Marketplace, you can deploy t
         "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "workspace_name": {
-                "defaultValue": "my-workspace",
+            "project_name": {
+                "defaultValue": "my-project",
                 "type": "String"
             },
             "subscription_name": {
@@ -190,8 +190,7 @@ For non-Microsoft models offered through the Azure Marketplace, you can deploy t
             {
                 "type": "Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions",
                 "apiVersion": "2024-04-01",
-                "name": "[concat(parameters('workspace_name'), '/', parameters('subscription_name'))]",
-                "location": "[parameters('location')]",
+                "name": "[concat(parameters('project_name'), '/', parameters('subscription_name'))]",
                 "properties": {
                     "modelId": "[parameters('model_id')]"
                 }
@@ -305,8 +304,8 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
         "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "workspace_name": {
-                "defaultValue": "my-workspace",
+            "project_name": {
+                "defaultValue": "my-project",
                 "type": "String"
             },
             "endpoint_name": {
@@ -327,7 +326,7 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
             {
                 "type": "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints",
                 "apiVersion": "2024-04-01",
-                "name": "[concat(parameters('workspace_name'), '/', parameters('endpoint_name'))]",
+                "name": "[concat(parameters('project_name'), '/', parameters('endpoint_name'))]",
                 "location": "[parameters('location')]",
                 "sku": {
                     "name": "Consumption"

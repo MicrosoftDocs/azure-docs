@@ -2,12 +2,12 @@
 title: How to resize disks encrypted using Azure Disk Encryption
 description: This article provides instructions for resizing ADE encrypted disks by using logical volume management.
 author: jofrance
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: disks
 ms.custom: linux-related-content
 ms.topic: article
 ms.author: jofrance
-ms.date: 04/11/2023
+ms.date: 08/06/2024
 ---
 
 # How to resize logical volume management devices that use Azure Disk Encryption
@@ -45,6 +45,7 @@ The procedures in this article apply to the following scenarios:
 - Traditional LVM and LVM-on-crypt configurations
 - Traditional LVM encryption
 - LVM-on-crypt
+- Data disks only. OS disk resizing is not supported.
 
 ### Traditional LVM and LVM-on-crypt configurations
 

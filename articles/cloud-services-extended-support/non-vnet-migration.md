@@ -2,7 +2,7 @@
 title: Migrate cloud services not in a virtual network to a virtual network
 description: How to migrate nonvnet cloud services to a virtual network
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mattmcinnes

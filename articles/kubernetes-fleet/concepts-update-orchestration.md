@@ -27,7 +27,7 @@ Currently, the supported update operations on the cluster are upgrades. There ar
 - Upgrade Kubernetes versions for only the control planes of the clusters
 - Upgrade only the node images.
 
-You can specify the target Kubernetes version to upgrade to, but you can't specify the exact target node image versions as the latest available node image versions may vary depending on the region of the cluster (check [release tracker](../aks/release-tracker.md) for more information).
+You can specify the target Kubernetes version to upgrade to, but you can't specify the exact target node image versions as the latest available node image versions may vary depending on the region of the cluster (check [release tracker](/azure/aks/release-tracker) for more information).
 The target node image versions are automatically selected for you based on your preferences:
 
 - `Latest`: Use the latest node images available in the region of a cluster when the upgrade of the cluster starts. As a result, different image versions could be used depending on which region a cluster is in and when its upgrade actually starts.
@@ -37,7 +37,7 @@ You should choose `Latest` to use fresher image versions and minimize security r
 
 ## Planned maintenance
 
-Update runs honor [planned maintenance windows](../aks/planned-maintenance.md) that you set at the Azure Kubernetes Service (AKS) cluster level.
+Update runs honor [planned maintenance windows](/azure/aks/planned-maintenance) that you set at the Azure Kubernetes Service (AKS) cluster level.
 
 Within an update run (for both [One by one](./update-orchestration.md#update-all-clusters-one-by-one) or [Stages](./update-orchestration.md#update-clusters-in-a-specific-order) type update runs), update run prioritizes upgrading the clusters in the following order: 
   1. Member with an open ongoing maintenance window.

@@ -8,7 +8,7 @@ ms.author: larryfr
 ms.reviewer: meyetman
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 01/05/2024
+ms.date: 07/26/2024
 ms.topic: how-to
 ms.custom: has-adal-ref, subject-rbac-steps, cliv2, sdkv2, devx-track-azurecli
 ---
@@ -17,9 +17,7 @@ ms.custom: has-adal-ref, subject-rbac-steps, cliv2, sdkv2, devx-track-azurecli
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-
 Azure Machine Learning is composed of multiple Azure services. There are multiple ways that authentication can happen between Azure Machine Learning and the services it relies on.
-
 
 * The Azure Machine Learning workspace uses a __managed identity__ to communicate with other services. By default, this is a system-assigned managed identity. You can also use a user-assigned managed identity instead.
 * Azure Machine Learning uses Azure Container Registry (ACR) to store Docker images used to train and deploy models. If you allow Azure Machine Learning to automatically create ACR, it will enable the __admin account__.
@@ -37,7 +35,7 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 ## Azure Container Registry and identity types
 
-The following table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks). 
+This table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks).
 
 | Authentication method | Public network access</br>disabled | Azure Container Registry</br>Public network access enabled |
 | ---- | :----: | :----: |
@@ -60,8 +58,8 @@ The following [Azure RBAC role assignments](../role-based-access-control/role-as
 |---|---|
 |Azure Machine Learning workspace|Contributor|
 |Azure Storage|Contributor (control plane) + Storage Blob Data Contributor (data plane, optional, to enable data preview in the Azure Machine Learning studio)|
-|Azure Key Vault (when using [RBAC permission model](../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
-|Azure Key Vault (when using [access policies permission model](../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations|
+|Azure Key Vault (when using [RBAC permission model](/azure/key-vault/general/rbac-guide))|Contributor (control plane) + Key Vault Administrator (data plane)|
+|Azure Key Vault (when using [access policies permission model](/azure/key-vault/general/assign-access-policy))|Contributor + any access policy permissions besides **purge** operations|
 |Azure Container Registry|Contributor|
 |Azure Application Insights|Contributor|
 
@@ -527,7 +525,6 @@ except Exception:
     ml_client.compute.begin_create_or_update(compute)
 ```
 
-
 # [Studio](#tab/azure-studio)
 
 For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
@@ -597,6 +594,11 @@ You can now use the environment in a [training job](how-to-train-cli.md).
 
 ### Build Azure Machine Learning managed environment into base image from private ACR for training or inference
 
+> [!NOTE]
+> Connecting to a private ACR using user-assigned managed identity is not currently supported. **Admin key** is the only auth type supported for private ACR.
+
+<!-- 20240725: this commented block will be restored at a later date TBD . . .
+
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 In this scenario, Azure Machine Learning service builds the training or inference environment on top of a base image you supply from a private ACR. Because the image build task happens on the workspace ACR using ACR Tasks, you must perform more steps to allow access.
@@ -642,7 +644,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
     image: <acr url>/pytorch/pytorch:latest
     description: Environment created from private ACR.
     ```
-
+-->
 ## Next steps
 
 * Learn more about [enterprise security in Azure Machine Learning](concept-enterprise-security.md)

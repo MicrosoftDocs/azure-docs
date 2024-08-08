@@ -4,9 +4,9 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create, change, disable, or delete Azure Network Watcher NSG flow logs using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 07/25/2024
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher NSG flow logs so that I can analyze it later.
 ---
@@ -70,7 +70,7 @@ Create a flow log for your network security group. This NSG flow log is saved in
     | Storage accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
     | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts).  Enter *0* if you want to retain the flow logs data in the storage account forever (until you delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
-    :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log.png" alt-text="Screenshot of creating an NSG flow log in the Azure portal.":::
+    :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log-basics.png" alt-text="Screenshot of creating an NSG flow log in the Azure portal.":::
 
     > [!NOTE]
     > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
@@ -126,9 +126,9 @@ To disable traffic analytics for a flow log, take the previous steps 1-3, then u
 
 :::image type="content" source="./media/nsg-flow-logs-portal/disable-traffic-analytics.png" alt-text="Screenshot that shows how to disable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/disable-traffic-analytics.png":::
 
-## Change a flow log
+## Change flow log settings
 
-You can change the properties of a flow log after you create it. For example, you can change the flow log version or disable traffic analytics.
+You can change the settings of a flow log after you create it. For example, you can change the flow log version or disable traffic analytics.
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
@@ -149,6 +149,10 @@ You can change the properties of a flow log after you create it. For example, yo
     | Subscription | Change the Azure subscription of the Log Analytics workspace that you want to use. |
     | Log analytics workspace | Change the Log Analytics workspace that you want to save the flow logs to (if traffic analytics is enabled). |
     | Traffic logging interval | Change the processing interval of traffic analytics (if traffic analytics is enabled). Available options are: one hour and 10 minutes. The default processing interval is every one hour. For more information, see [Traffic Analytics](traffic-analytics.md). |
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/change-flow-log.png" alt-text="Screenshot that shows how to edit flow log's settings in the Azure portal where you can change some virtual network flow log settings." lightbox="./media/nsg-flow-logs-portal/change-flow-log.png":::
+
+1. Select **Save** to apply the changes or **Cancel** to exit without saving them.
 
 ## List all flow logs
 
@@ -175,6 +179,8 @@ You can view the details of a flow log in a subscription or a group of subscript
 1. In **Flow logs settings**, you can view the settings of the flow log resource.
 
     :::image type="content" source="./media/nsg-flow-logs-portal/flow-log-settings.png" alt-text="Screenshot of Flow logs settings page in the Azure portal." lightbox="./media/nsg-flow-logs-portal/flow-log-settings.png":::
+
+1. Select **Cancel** to close the settings page without making changes.
 
 ## Download a flow log
 
@@ -203,7 +209,7 @@ You can temporarily disable an NSG flow log without deleting it. Disabling a flo
     :::image type="content" source="./media/nsg-flow-logs-portal/disable-flow-log.png" alt-text="Screenshot shows how to disable a flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/disable-flow-log.png":::
 
 > [!NOTE]
-> If traffic analytics is enabled for a flow log, it must disabled before you can disable the flow log. To disable traffic analytics, see [Change a flow log](#change-a-flow-log).
+> If traffic analytics is enabled for a flow log, it must be disabled before you can disable the flow log. To disable traffic analytics, see [Change a flow log](#change-flow-log-settings).
 
 ## Delete a flow log
 

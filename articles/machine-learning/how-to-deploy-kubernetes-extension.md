@@ -5,7 +5,7 @@ titleSuffix: Azure Machine Learning
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: bozhlin
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 01/19/2024
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, devx-track-azurecli
 
 # Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster
 
-To enable your AKS or Arc Kubernetes cluster to run training jobs or inference workloads, you must first deploy the Azure Machine Learning extension on an AKS or Arc Kubernetes cluster. The Azure Machine Learning extension is built on the [cluster extension for AKS](../aks/cluster-extensions.md) and [cluster extension or Arc Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md), and its lifecycle can be managed easily with Azure CLI [k8s-extension](/cli/azure/k8s-extension).
+To enable your AKS or Arc Kubernetes cluster to run training jobs or inference workloads, you must first deploy the Azure Machine Learning extension on an AKS or Arc Kubernetes cluster. The Azure Machine Learning extension is built on the [cluster extension for AKS](/azure/aks/cluster-extensions) and [cluster extension or Arc Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md), and its lifecycle can be managed easily with Azure CLI [k8s-extension](/cli/azure/k8s-extension).
 
 In this article, you can learn:
 > [!div class="checklist"]
@@ -28,7 +28,7 @@ In this article, you can learn:
 
 ## Prerequisites
 
-* An AKS cluster running in Azure. If you haven't previously used cluster extensions, you need to [register the KubernetesConfiguration service provider](../aks/dapr.md#register-the-kubernetesconfiguration-resource-provider).
+* An AKS cluster running in Azure. If you haven't previously used cluster extensions, you need to [register the KubernetesConfiguration service provider](/azure/aks/dapr#register-the-kubernetesconfiguration-resource-provider).
 * Or an Arc Kubernetes cluster is up and running. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
   * If the cluster is an Azure RedHat OpenShift (ARO) Service cluster or OpenShift Container Platform (OCP) cluster, you must satisfy other prerequisite steps as documented in the [Reference for configuring Kubernetes cluster](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters) article.
 * For production purposes, the Kubernetes cluster must have a minimum of **4 vCPU cores and 14-GB memory**. For more information on resource detail and cluster size recommendations, see [Recommended resource planning](./reference-kubernetes.md).
@@ -39,12 +39,12 @@ In this article, you can learn:
 
 ## Limitations
 
-- [Using a service principal with AKS](../aks/kubernetes-service-principal.md) is **not supported** by Azure Machine Learning. The AKS cluster must use a **managed identity** instead. Both **system-assigned managed identity** and **user-assigned managed identity** are supported. For more information, see [Use a managed identity in Azure Kubernetes Service](../aks/use-managed-identity.md).
+- [Using a service principal with AKS](/azure/aks/kubernetes-service-principal) is **not supported** by Azure Machine Learning. The AKS cluster must use a **managed identity** instead. Both **system-assigned managed identity** and **user-assigned managed identity** are supported. For more information, see [Use a managed identity in Azure Kubernetes Service](/azure/aks/use-managed-identity).
     -  When your AKS cluster used service principal is converted to use Managed Identity, before installing the extension, all node pools need to be deleted and recreated, rather than updated directly.
-- [Disabling local accounts](../aks/manage-local-accounts-managed-azure-ad.md#disable-local-accounts) for AKS is **not supported**  by Azure Machine Learning. When the AKS Cluster is deployed, local accounts are enabled by default.
-- If your AKS cluster has an [Authorized IP range enabled to access the API server](../aks/api-server-authorized-ip-ranges.md), enable the Azure Machine Learning control plane IP ranges for the AKS cluster. The Azure Machine Learning control plane is deployed across paired regions. Without access to the API server, the machine learning pods can't be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
+- [Disabling local accounts](/azure/aks/manage-local-accounts-managed-azure-ad#disable-local-accounts) for AKS is **not supported**  by Azure Machine Learning. When the AKS Cluster is deployed, local accounts are enabled by default.
+- If your AKS cluster has an [Authorized IP range enabled to access the API server](/azure/aks/api-server-authorized-ip-ranges), enable the Azure Machine Learning control plane IP ranges for the AKS cluster. The Azure Machine Learning control plane is deployed across paired regions. Without access to the API server, the machine learning pods can't be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
 - Azure Machine Learning doesn't support attaching an AKS cluster cross subscription. If you have an AKS cluster in a different subscription, you must first [connect it to Azure-Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) and specify in the same subscription as your Azure Machine Learning workspace.
-- Azure Machine Learning doesn't guarantee support for all preview stage features in AKS. For example, [Microsoft Entra pod identity](../aks/use-azure-ad-pod-identity.md) isn't supported.
+- Azure Machine Learning doesn't guarantee support for all preview stage features in AKS. For example, [Microsoft Entra pod identity](/azure/aks/use-azure-ad-pod-identity) isn't supported.
 - If you've followed the steps from [Azure Machine Learning AKS v1 document](./v1/how-to-create-attach-kubernetes.md?view=azureml-api-1&preserve-view=true) to create or attach your AKS as inference cluster, use the following link to [clean up the legacy azureml-fe related resources](./v1/how-to-create-attach-kubernetes.md?view=azureml-api-1&preserve-view=true#delete-azureml-fe-related-resources) before you continue the next step.
 
 
@@ -200,7 +200,7 @@ Upon Azure Machine Learning extension deployment completes, you can use `kubectl
 
 Update, list, show and delete an Azure Machine Learning extension.
 
-- For AKS cluster without Azure Arc connected, refer to [Deploy and manage cluster extensions](../aks/deploy-extensions-az-cli.md).
+- For AKS cluster without Azure Arc connected, refer to [Deploy and manage cluster extensions](/azure/aks/deploy-extensions-az-cli).
 - For Azure Arc-enabled Kubernetes, refer to [Deploy and manage Azure Arc-enabled Kubernetes cluster extensions](../azure-arc/kubernetes/extensions.md).
 
 

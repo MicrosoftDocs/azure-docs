@@ -1,7 +1,7 @@
 ---
 title: Optimize query time by using the TOAST table storage strategy in Azure Database for PostgreSQL - Single Server
 description: This article describes how to optimize query time with the TOAST table storage strategy on an Azure Database for PostgreSQL - Single Server.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: how-to
 ms.author: dianas

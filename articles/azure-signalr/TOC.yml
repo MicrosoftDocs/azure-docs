@@ -81,8 +81,6 @@
       href: availability-zones.md
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
-  - name: Metrics
-    href: monitor-signalr-reference.md
   - name: Performance considerations
     href: signalr-concept-performance.md
   - name: Authentication
@@ -161,9 +159,9 @@
           href: signalr-howto-work-with-apim.md
   - name: Monitor
     items:
-    - name: Monitor
+    - name: Monitor SignalR Service
       href: monitor-signalr.md
-    - name: Use diagnostic logs to monitor SignalR Service
+    - name: Use resource logs to monitor SignalR Service
       href: signalr-howto-diagnostic-logs.md
     - name: Monitoring data reference
       href: monitor-signalr-reference.md
@@ -229,7 +227,7 @@
     href: https://www.youtube.com/results?search_query=Azure+SignalR+Core
   - name: StackOverflow
     href: https://stackoverflow.com/search?q=signalr+service
-  - name: Twitter
-    href: https://twitter.com/SignalR
+  - name: X
+    href: https://x.com/SignalR
   - name: ASP.NET forums
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=aspsignalr

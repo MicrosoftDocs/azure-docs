@@ -3,7 +3,7 @@ title: Migrate logging from SDK v1 to MLflow
 titleSuffix: Azure Machine Learning
 description: Comparison of SDK v1 logging APIs and MLflow tracking
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2

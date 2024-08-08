@@ -1,15 +1,15 @@
 ---
-title: Use Azure Container Storage Preview with local NVMe replication
+title: Use Azure Container Storage with local NVMe replication
 description: Configure Azure Container Storage for use with Ephemeral Disk using local NVMe on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool with volume replication, create a volume, and deploy a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 07/23/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Use Azure Container Storage Preview with local NVMe and volume replication
+# Use Azure Container Storage with local NVMe and volume replication
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk with local NVMe and volume replication as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using local NVMe as its storage. Replication copies data across volumes on different nodes and restores a volume when a replica is lost, providing resiliency for Ephemeral Disk.
 
@@ -17,7 +17,9 @@ ms.custom: references_regions
 
 When your application needs sub-millisecond storage latency, you can use Ephemeral Disk with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
 
-There are two types of Ephemeral Disk available: NVMe and [temp SSD](use-container-storage-with-temp-ssd.md). NVMe is designed for high-speed data transfer between storage and CPU. Choose NVMe when your application requires higher IOPS and throughput than temp SSD, or if your workload requires replication. Replication isn't currently supported for temp SSD.
+There are two types of Ephemeral Disk available: local NVMe and [temp SSD](use-container-storage-with-temp-ssd.md). NVMe is designed for high-speed data transfer between storage and CPU. Choose NVMe when your application needs higher IOPS or throughput than temp SSD, or requires more storage space. Be aware that Azure Container Storage only supports synchronous data replication for local NVMe.
+
+Due to the ephemeral nature of these disks, Azure Container Storage supports the use of *generic ephemeral volumes* by default when using ephemeral disk. However, certain use cases might call for *persistent volumes* even if the data isn't durable; for example, if you want to use existing YAML files or deployment templates that are hard-coded to use persistent volumes, and your workload supports application-level replication for durability. In such cases, you can [update your Azure Container Storage installation](#create-and-attach-persistent-volumes) and add the annotation `acstor.azure.com/accept-ephemeral-storage=true` in your persistent volume claim definition to support the creation of persistent volumes from ephemeral disk storage pools.
 
 ## Prerequisites
 
@@ -43,11 +45,15 @@ nodepool1   standard_l8s_v3
 
 We recommend that each VM have a minimum of four virtual CPUs (vCPUs), and each node pool have at least three nodes.
 
-## Create and attach persistent volumes
+## Create and attach generic ephemeral volumes
 
-Follow these steps to create and attach a persistent volume.
+Follow these steps to create and attach a generic ephemeral volume.
 
 ### 1. Create a storage pool with volume replication
+
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file.
+
+If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#2-display-the-available-storage-classes).
 
 Follow these steps to create a storage pool using local NVMe with replication. Azure Container Storage currently supports three-replica and five-replica configurations. If you specify three replicas, you must have at least three nodes in your AKS cluster. If you specify five replicas, you must have at least five nodes.
 
@@ -56,7 +62,7 @@ Follow these steps to create a storage pool using local NVMe with replication. A
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
-1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want. Set replicas to 3 or 5.
+1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want.
 
    ```yml
    apiVersion: containerstorage.azure.com/v1
@@ -106,7 +112,149 @@ acstor-ephemeraldisk-nvme        containerstorage.csi.azure.com   Delete        
 > [!IMPORTANT]
 > Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
 
-### 3. Create a persistent volume claim
+### 3. Deploy a pod with a generic ephemeral volume
+
+Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation, that uses a generic ephemeral volume.
+
+1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod.yaml`.
+
+1. Paste in the following code and save the file.
+
+   ```yml
+   kind: Pod
+   apiVersion: v1
+   metadata:
+     name: fiopod
+   spec:
+     nodeSelector:
+       acstor.azure.com/io-engine: acstor
+     containers:
+       - name: fio
+         image: nixery.dev/shell/fio
+         args:
+           - sleep
+           - "1000000"
+         volumeMounts:
+           - mountPath: "/volume"
+             name: ephemeralvolume
+     volumes:
+       - name: ephemeralvolume
+         ephemeral:
+           volumeClaimTemplate:
+             metadata:
+               labels:
+                 type: my-ephemeral-volume
+             spec:
+               accessModes: [ "ReadWriteOnce" ]
+               storageClassName: acstor-ephemeraldisk-nvme # replace with the name of your storage class if different
+               resources:
+                 requests:
+                   storage: 1Gi
+   ```
+
+   When you change the storage size of your volumes, make sure the size is less than the available capacity of a single node's ephemeral disk. See [Check node ephemeral disk capacity](#check-node-ephemeral-disk-capacity).
+
+1. Apply the YAML manifest file to deploy the pod.
+   
+   ```azurecli-interactive
+   kubectl apply -f acstor-pod.yaml
+   ```
+   
+   You should see output similar to the following:
+   
+   ```output
+   pod/fiopod created
+   ```
+
+1. Check that the pod is running and that the ephemeral volume claim has been bound successfully to the pod:
+
+   ```azurecli-interactive
+   kubectl describe pod fiopod
+   kubectl describe pvc fiopod-ephemeralvolume
+   ```
+
+1. Check fio testing to see its current status:
+
+   ```azurecli-interactive
+   kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
+   ```
+
+You've now deployed a pod that's using local NVMe with volume replication, and you can use it for your Kubernetes workloads.
+
+## Create and attach persistent volumes
+
+To create a persistent volume from an ephemeral disk storage pool, you must include an annotation in your persistent volume claims (PVCs) as a safeguard to ensure that you intend to use persistent volumes even when the data is ephemeral. Additionally, you need to enable the `--ephemeral-disk-volume-type` flag with the `PersistentVolumeWithAnnotation` value on your cluster before creating your persistent volume claims.
+
+Follow these steps to create and attach a persistent volume.
+
+### 1. Update your Azure Container Storage installation
+
+Run the following command to update your Azure Container Storage installation to allow the creation of persistent volumes from ephemeral disk storage pools.
+
+```azurecli-interactive
+az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage ephemeralDisk --storage-pool-option NVMe --ephemeral-disk-volume-type PersistentVolumeWithAnnotation 
+```
+
+### 2. Create a storage pool with volume replication
+
+Follow these steps to create a storage pool using local NVMe with replication. Azure Container Storage currently supports three-replica and five-replica configurations. If you specify three replicas, you must have at least three nodes in your AKS cluster. If you specify five replicas, you must have at least five nodes.
+
+> [!NOTE]
+> Because Ephemeral Disk storage pools consume all the available NVMe disks, you must delete any existing local NVMe storage pools before creating a new storage pool.
+
+1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
+
+1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want. Set replicas to 3 or 5.
+
+   ```yml
+   apiVersion: containerstorage.azure.com/v1
+   kind: StoragePool
+   metadata:
+     name: ephemeraldisk-nvme
+     namespace: acstor
+   spec:
+     poolType:
+       ephemeralDisk:
+         diskType: nvme
+         replicas: 3
+   ```
+
+1. Apply the YAML manifest file to create the storage pool.
+   
+   ```azurecli-interactive
+   kubectl apply -f acstor-storagepool.yaml 
+   ```
+   
+   When storage pool creation is complete, you'll see a message like:
+   
+   ```output
+   storagepool.containerstorage.azure.com/ephemeraldisk-nvme created
+   ```
+   
+   You can also run this command to check the status of the storage pool. Replace `<storage-pool-name>` with your storage pool **name** value. For this example, the value would be **ephemeraldisk-nvme**.
+   
+   ```azurecli-interactive
+   kubectl describe sp <storage-pool-name> -n acstor
+   ```
+
+When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`.
+
+### 3. Display the available storage classes
+
+When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating and deploying volumes.
+
+Run `kubectl get sc` to display the available storage classes. You should see a storage class called `acstor-<storage-pool-name>`.
+
+```output
+$ kubectl get sc | grep "^acstor-"
+acstor-azuredisk-internal   disk.csi.azure.com               Retain          WaitForFirstConsumer   true                   65m
+acstor-ephemeraldisk-nvme        containerstorage.csi.azure.com   Delete          WaitForFirstConsumer   true                   2m27s
+```
+
+> [!IMPORTANT]
+> Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
+
+### 4. Create a persistent volume claim
 
 A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. Follow these steps to create a PVC using the new storage class.
 
@@ -119,6 +267,8 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    kind: PersistentVolumeClaim
    metadata:
      name: ephemeralpvc
+     annotations:
+       acstor.azure.com/accept-ephemeral-storage: "true"
    spec:
      accessModes:
        - ReadWriteOnce
@@ -150,7 +300,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 Once the PVC is created, it's ready for use by a pod.
 
-### 4. Deploy a pod and attach a persistent volume
+### 5. Deploy a pod and attach a persistent volume
 
 Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume. For **claimName**, use the **name** value that you used when creating the persistent volume claim.
 
@@ -210,7 +360,7 @@ You've now deployed a pod that's using local NVMe with volume replication, and y
 
 ## Manage volumes and storage pools
 
-In this section, you'll learn how to check the available capacity of ephemeral disk for a single node, how to detach and reattach a persistent volume, and how to expand or delete a storage pool.
+In this section, you'll learn how to check the available capacity of ephemeral disk, how to detach and reattach a persistent volume, how to expand or delete a storage pool, and how to optimize performance.
 
 ### Check node ephemeral disk capacity
 
@@ -236,7 +386,7 @@ To detach a persistent volume, delete the pod that the persistent volume is atta
 kubectl delete pods <pod-name>
 ```
 
-To reattach a persistent volume, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#4-deploy-a-pod-and-attach-a-persistent-volume).
+To reattach a persistent volume, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#5-deploy-a-pod-and-attach-a-persistent-volume).
 
 To check which persistent volume a persistent volume claim is bound to, run:
 
@@ -266,6 +416,25 @@ If you want to delete a storage pool, run the following command. Replace `<stora
 
 ```azurecli-interactive
 kubectl delete sp -n acstor <storage-pool-name>
+```
+
+### Optimize performance when using local NVMe
+
+Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Advanced**. These tiers offer a different range of IOPS, and your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
+
+| **Tier** | **Number of vCPUs** |
+|---------------|--------------------------|
+| `Basic` | 12.5% of total VM cores | 
+| `Standard` (default) | 25% of total 
+| `Advanced` | 50% of total VM cores |
+
+> [!NOTE]
+> RAM and hugepages consumption will stay consistent across all tiers: 1 GiB of RAM and 2 GiB of hugepages.
+
+Once you've identified the performance tier that aligns best to your needs, you can run the following command to update the performance tier of your Azure Container Storage installation. Replace `<performance tier>` with basic, standard, or advanced.
+
+```azurecli-interactive
+az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type> --ephemeral-disk-nvme-perf-tier <performance-tier>
 ```
 
 ## See also

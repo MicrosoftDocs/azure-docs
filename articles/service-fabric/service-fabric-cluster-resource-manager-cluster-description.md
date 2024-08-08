@@ -4,7 +4,7 @@ description: Describe a Service Fabric cluster by specifying fault domains, upgr
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---

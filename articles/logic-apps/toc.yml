@@ -155,8 +155,6 @@ items:
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
-    - name: Export flows from Power Automate and deploy to Azure Logic Apps
-      href: export-from-microsoft-flow-logic-app-template.md
     - name: Migrate from BizTalk to Azure
       items:
       - name: Why migrate from BizTalk Server?
@@ -550,8 +548,8 @@ items:
     href: /answers/tags/134/azure-logic-apps
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-logic-apps
-  - name: Twitter
-    href: https://twitter.com/logicappsio
+  - name: X
+    href: https://x.com/logicappsio
   - name: Provide product feedback
     href: https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c
   - name: Service updates

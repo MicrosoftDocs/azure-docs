@@ -60,7 +60,7 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure Backup](relocation-backup.md)| ✅ | ❌| ❌ |
 [Azure Batch](../batch/account-move.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Cache for Redis](../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json)| ✅ |  ❌| ❌ |
-[Azure Container Registry](../container-registry/manual-regional-move.md)|✅ | ✅|  ❌  |
+[Azure Container Registry](relocation-container-registry.md)|✅ | ✅| ❌ |
 [Azure Cosmos DB](relocation-cosmos-db.md)|✅ | ✅|  ❌  |
 [Azure Database for MariaDB Server](../mariadb/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Database for MySQL Server](../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)✅ | ✅|  ❌  |
@@ -68,6 +68,7 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure Event Grid domains](relocation-event-grid-domains.md)| ✅ | ❌| ❌ |
 [Azure Event Grid custom topics](relocation-event-grid-custom-topics.md)| ✅ | ❌| ❌ |
 [Azure Event Grid system topics](relocation-event-grid-system-topics.md)| ✅ | ❌| ❌ |
+[Azure Firewall](./relocation-firewall.md)|❌ | ✅| ❌ |
 [Azure Functions](../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |❌  | ❌ |
 [Azure Logic apps](../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json)|  ✅| ❌ | ❌ |
 [Azure Monitor - Log Analytics](./relocation-log-analytics.md)| ✅| ❌ | ❌ |

@@ -5,7 +5,7 @@ author: azaricstefan
 ms.author: stefanazaric
 ms.reviewer: whhender, wiassaf
 ms.date: 12/08/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: overview
 ---

@@ -4,7 +4,7 @@ description: This article helps you understand managed identity and how it works
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 03/26/2024
 ---
@@ -15,7 +15,7 @@ This article helps you understand managed identity (formerly known as Managed Se
 
 ## Overview of managed identities
 
-Managed identities eliminate the need to manage credentials. Managed identities provide an identity for service instances to use when connecting to resources that support Microsoft Entra ID (formerly Azure Active Directory) authentication. For example, the service can use a managed identity to access resources like [Azure Key Vault](../key-vault/general/overview.md), where data admins can securely store credentials or access storage accounts. The service uses the managed identity to obtain Microsoft Entra ID tokens.
+Managed identities eliminate the need to manage credentials. Managed identities provide an identity for service instances to use when connecting to resources that support Microsoft Entra ID (formerly Azure Active Directory) authentication. For example, the service can use a managed identity to access resources like [Azure Key Vault](/azure/key-vault/general/overview), where data admins can securely store credentials or access storage accounts. The service uses the managed identity to obtain Microsoft Entra ID tokens.
 
 Microsoft Entra ID offers two types of managed identities:
 

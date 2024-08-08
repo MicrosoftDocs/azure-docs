@@ -3,7 +3,7 @@ title: Enable logging for Azure Data Manager for Agriculture
 description: Learn how enable logging and debugging in Azure Data Manager for Agriculture
 author: gourdsay
 ms.author: angour
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 04/10/2023
 ms.custom: template-how-to
@@ -221,6 +221,8 @@ The following table lists the **operationName** values and corresponding REST AP
   
 ### ApplicationAuditLogs
 The write and delete logs present in other categories are also present in this category. The difference between the logs in this category and other categories for the same API call is that, ApplicationAuditLogs doesn't log the request-body, while in other categories the request-body is populated. Use the correlation-id to relate logs of two different categories to get more details. Some of the control plane operations that aren't part of the rest of the categories are listed below.
+> [!NOTE] 
+>For making control plane calls, you need owner access on ADMA resource scope.
 
 |operationName|
 | --- |

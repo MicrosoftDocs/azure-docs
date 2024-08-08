@@ -2,7 +2,7 @@
 title: Best practices for optimal performance in Azure Managed Instance for Apache Cassandra
 description: Learn about best practices to ensure optimal performance from Azure Managed Instance for Apache Cassandra.
 author: IriaOsara
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 04/05/2023
 ms.author: iriaosara

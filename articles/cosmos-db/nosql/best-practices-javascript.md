@@ -5,7 +5,7 @@ description: Review a list of best practices for using the Azure Cosmos DB JavaS
 author: sajeetharan
 ms.author: sasinnat
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-js
 ms.topic: best-practice

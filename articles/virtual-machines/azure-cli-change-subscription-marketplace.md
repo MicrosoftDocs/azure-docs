@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.reviewer: mattmcinnes
 ms.date: 04/20/2023
 ms.topic: sample
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---

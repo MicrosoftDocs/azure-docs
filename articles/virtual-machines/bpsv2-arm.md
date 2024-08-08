@@ -3,7 +3,7 @@ title: 'Bpsv2 Series (preview)' #Required; page title is displayed in search res
 description: Overview of Bpsv2 ARM series; this appears in search as the short description
 author:  iamwilliew
 ms.author:  wwilliams
-ms.service: virtual-machines 
+ms.service: azure-virtual-machines
 ms.subservice: sizes 
 ms.topic: conceptual 
 ms.date: 06/09/2023 

@@ -14,11 +14,12 @@ ms.author: banders
 
 Cost control is a critical component to maximizing the value of your investment in the cloud. There are several scenarios where cost visibility, reporting, and cost-based orchestration are critical to continued business operations. [Cost Management APIs](/rest/api/consumption/) provide a set of APIs to support each of these scenarios. The APIs provide usage details, allowing you to view granular instance level costs.
 
-Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. In addition to using the budgets API to notify you via email when a budget threshold is reached, you can use [Azure Monitor action groups](../../azure-monitor/alerts/action-groups.md) to trigger an orchestrated set of actions resulting from a budget event.
+Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. Besides using the budgets API to send email notifications when a budget threshold is reached, you can also use [Azure Monitor action groups](../../azure-monitor/alerts/action-groups.md). Action groups trigger a coordinated set of actions in response to a budget event.
 
-A common budgets scenario for a customer running a noncritical workload could occur when they want to manage against a budget and also get to a predictable cost when looking at the monthly invoice. This scenario requires some cost-based orchestration of resources that are part of the Azure environment. In this scenario, a monthly budget of $1,000 for the subscription is set. Also, notification thresholds are set to trigger a few orchestrations. This scenario starts with an 80% cost threshold, which will stop all virtual machines (VM) in the resource group **Optional**. Then, at the 100% cost threshold, all VM instances are stopped.
 
-To configure this scenario, you'll complete the following actions by using the steps provided in each section of this tutorial.
+A typical budget scenario for a customer running a noncritical workload is to manage spending against a budget and achieve predictable costs when reviewing the monthly invoice. This scenario requires some cost-based orchestration of resources that are part of the Azure environment. In this scenario, a monthly budget of $1,000 for the subscription is set. Also, notification thresholds are set to trigger a few orchestrations. This scenario starts with an 80% cost threshold, which stops all virtual machines (VM) in the resource group **Optional**. Then, at the 100% cost threshold, all VM instances are stopped.
+
+To configure this scenario, you complete the following actions by using the steps provided in each section of this tutorial.
 
 These actions included in this tutorial allow you to:
 
@@ -29,7 +30,7 @@ These actions included in this tutorial allow you to:
 
 ## Create an Azure Automation Runbook
 
-[Azure Automation](../../automation/automation-intro.md) is a service that enables you to script most of your resource management tasks and run those tasks as either scheduled or on-demand. As part of this scenario, you'll create an [Azure Automation runbook](../../automation/automation-runbook-types.md) that will be used to stop VMs. You'll use the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) graphical runbook from the [Azure Automation gallery](https://github.com/azureautomation) to build this scenario. By importing this runbook into your Azure account and publishing it, you can stop VMs when a budget threshold is reached.
+[Azure Automation](../../automation/automation-intro.md) is a service that enables you to script most of your resource management tasks and run those tasks as either scheduled or on-demand. As part of this scenario, you create an [Azure Automation runbook](../../automation/automation-runbook-types.md) that stops VMs. You use the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) graphical runbook from the [Azure Automation gallery](https://github.com/azureautomation) to build this scenario. By importing this runbook into your Azure account and publishing it, you can stop VMs when a budget threshold is reached.
 
 ### Create an Azure Automation account
 
@@ -50,10 +51,10 @@ Using an [Azure Automation runbook](../../automation/automation-runbook-types.md
 1. Select **Runbooks gallery** from the **Process Automation** section.
 1. Set the **Gallery Source** to **Script Center** and select **OK**.
 1. Locate and select the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) gallery item within the Azure portal.
-1. Select **Import** to display the **Import** area and select **OK**. The runbook overview area will be displayed.
-1. Once the runbook has completed the import process, select **Edit** to display the graphical runbook editor and publishing option.  
+1. Select **Import** to display the **Import** area and select **OK**. The runbook overview area gets displayed.
+1. Once the runbook completes the import process, select **Edit** to display the graphical runbook editor and publishing option.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png" alt-text="Screenshot showing Edit graphical runbook.":::
-1. Select **Publish** to publish the runbook and then select **Yes** when prompted. When you publish a runbook, you override any existing published version with the draft version. In this case, you've no published version because you've created the runbook.
+1. Select **Publish** to publish the runbook and then select **Yes** when prompted. When you publish a runbook, you override any existing published version with the draft version. In this case, you have no published version because you created the runbook.
     For more information about publishing a runbook, see [Create a graphical runbook](../../automation/learn/powershell-runbook-managed-identity.md).
 
 ## Create webhooks for the runbook
@@ -73,7 +74,7 @@ Using the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-v
    > If the runbook has mandatory parameters, then you are not able to create the webhook unless values are provided.
 1. Select **OK** to accept the webhook parameter values.
 1. Select **Create** to create the webhook.
-1. Next, follow the steps above to create a second webhook named **Complete**.
+1. Next, follow the preceding steps to create a second webhook named **Complete**.
     > [!IMPORTANT]
     > Be sure to save both webhook URLs to use later in this tutorial. For security reasons, once you create the webhook, you cannot view or retrieve the URL again.
 
@@ -81,28 +82,36 @@ You should now have two configured webhooks that are each available using the UR
 
 :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-02.png" alt-text="Screenshot showing Webhooks.":::
 
-You're now done with the Azure Automation setup. You can test the webhooks with a simple Postman test to validate that the webhook works. Next, you must create the Logic App for orchestration.
+You completed the Azure Automation setup. You can test the webhooks with a simple API test to validate that the webhook works. Some popular ways to query the API are:
+
+- [Visual studio](/aspnet/core/test/http-files)
+- [Insomnia](https://insomnia.rest/)
+- [Bruno](https://www.usebruno.com/)
+- PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
+- [Curl](https://curl.se/docs/httpscripting.html)
+
+Next, you must create the Logic App for orchestration.
 
 ## Create an Azure Logic App for orchestration
 
-Logic Apps helps you build, schedule, and automate processes as workflows so you can integrate apps, data, systems, and services across enterprises or organizations. In this scenario, the [Logic App](../../logic-apps/index.yml) you create will do a little more than just call the automation webhook you created.
+Logic Apps helps you build, schedule, and automate processes as workflows so you can integrate apps, data, systems, and services across enterprises or organizations. In this scenario, the [Logic App](../../logic-apps/index.yml) you create does a little more than just call the automation webhook you created.
 
-Budgets can be set up to trigger a notification when a specified threshold is met. You can provide multiple thresholds to be notified at and the Logic App will demonstrate the ability for you to perform different actions based on the threshold met. In this example, you'll set up a scenario where you get a couple of notifications, the first notification is for when 80% of the budget has been reached and the second notification is when 100% of the budget has been reached. The logic app will be used to shut down all VMs in the resource group. First, the **Optional** threshold will be reached at 80%, then the second threshold will be reached where all VMs in the subscription will be shut down.
+Budgets can be set up to trigger a notification when a specified threshold is met. You can provide multiple thresholds to be notified at and the Logic App demonstrates the ability for you to perform different actions based on the threshold met. In this example, you set up a scenario where you get a couple of notifications. The first notification is for when 80% of the budget is reached. The second notification is when 100% of the budget is reached. The logic app is used to shut down all VMs in the resource group. First, the **Optional** threshold is reached at 80%, then the second threshold is reached where all VMs in the subscription get shutdown.
 
-Logic apps allow you to provide a sample schema for the HTTP trigger, but require you to set the **Content-Type** header. Because the action group doesn't have custom headers for the webhook, you must parse out the payload in a separate step. You'll use the **Parse** action and provide it with a sample payload.
+Logic apps allow you to provide a sample schema for the HTTP trigger, but require you to set the **Content-Type** header. Because the action group doesn't have custom headers for the webhook, you must parse out the payload in a separate step. You use the **Parse** action and provide it with a sample payload.
 
 ### Create the logic app
 
-The logic app will perform several actions. The following list provides a high-level set of actions that the logic app will perform:
+The logic app performs several actions. The following list provides a high-level set of actions that the logic app performs:
 
 - Recognizes when an HTTP request is received
-- Parse the passed in JSON data to determine the threshold value that has been reached
-- Use a conditional statement to check whether the threshold amount has reached 80% or more of the budget range, but not greater than or equal to 100%.
-  - If this threshold amount has been reached, send an HTTP POST using the webhook named **Optional**. This action will shut down the VMs in the "Optional" group.
-- Use a conditional statement to check whether the threshold amount has reached or exceeded 100% of the budget value.
-  - If the threshold amount has been reached, send an HTTP POST using the webhook named **Complete**. This action will shut down all remaining VMs.
+- Parse the passed in JSON data to determine the threshold value that is reached
+- Use a conditional statement to check whether the threshold amount reached 80% or more of the budget range, but not greater than or equal to 100%.
+  - If this threshold amount is reached, send an HTTP POST using the webhook named **Optional**. This action shuts down the VMs in the "Optional" group.
+- Use a conditional statement to check whether the threshold amount reached or exceeded 100% of the budget value.
+  - If the threshold amount is reached, send an HTTP POST using the webhook named **Complete**. This action shuts down all remaining VMs.
 
-The following steps are needed to create the logic app that will perform the above steps:
+The following steps are needed to create the logic app that performs the preceding steps:
 
 1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Integration** > **Logic App**.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03.png" alt-text="Screenshot showing Select the Logic App resource.":::
@@ -127,13 +136,13 @@ Every logic app must start with a trigger, which fires when a specific event hap
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png" alt-text="Screenshot showing Use sample JSON data to generate schema payload.":::
 1. Paste the following JSON sample payload into the textbox:
     `{"schemaId":"AIP Budget Notification","data":{"SubscriptionName":"CCM - Microsoft Azure Enterprise - 1","SubscriptionId":"<GUID>","SpendingAmount":"100","BudgetStartDate":"6/1/2018","Budget":"50","Unit":"USD","BudgetCreator":"email@contoso.com","BudgetName":"BudgetName","BudgetType":"Cost","ResourceGroup":"","NotificationThresholdAmount":"0.8"}}`
-    The textbox will appear as:  
+    The textbox appears as:  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-08.png" alt-text="Screenshot showing sample JSON payload.":::
 1. Select **Done**.
 
 ### Add the first conditional action
 
-Use a conditional statement to check whether the threshold amount has reached 80% or more of the budget range, but not greater than or equal to 100%. If this threshold amount has been reached, send an HTTP POST using the webhook named **Optional**. This action will shut down the VMs in the **Optional** group.
+Use a conditional statement to check whether the threshold amount reached 80% or more of the budget range, but not greater than or equal to 100%. If this threshold amount is reached, send an HTTP POST using the webhook named **Optional**. This action shuts down the VMs in the **Optional** group.
 
 1. Select **New step** > **Add a condition**.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-09.png" alt-text="Screenshot showing Add a condition.":::
@@ -143,7 +152,7 @@ Use a conditional statement to check whether the threshold amount has reached 80
     `float()`  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-11.png" alt-text="Screenshot showing the Float expression.":::
 1. Select **Dynamic content**, place the cursor inside the parenthesis (), and select **NotificationThresholdAmount** from the list to populate the complete expression.
-    The expression will be:<br>
+    The expression is:<br>
     `float(body('Parse_JSON')?['data']?['NotificationThresholdAmount'])`
 1. Select **OK** to set the expression.
 1. Select **is greater than or equal to** in the dropdown box of the **Condition**.
@@ -158,26 +167,26 @@ Use a conditional statement to check whether the threshold amount has reached 80
 1. Select **is less than** in the dropdown box of the **Condition**.
 1. In the **Choose a value** box of the condition, enter `1`.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png" alt-text="Screenshot showing the Condition dialog box with two conditions.":::
-1. In the **If true** box, select **Add an action**. You'll add an HTTP POST action that will shut down optional VMs.  
+1. In the **If true** box, select **Add an action**. You add an HTTP POST action that shuts down optional VMs.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png" alt-text="Screenshot showing Add an action.":::
 1. Enter **HTTP** to search for the HTTP action and select the **HTTP – HTTP** action.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-15.png" alt-text="Screenshot showing Add HTTP action.":::
 1. Select **Post** for the **Method** value.
 1. Enter the URL for the webhook named **Optional** that you created earlier in this tutorial as the **Uri** value.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-16.png" alt-text="Screenshot showing the HTTP action URI.":::
-1. Select **Add an action** in the **If true** box. You'll add an email action that will send an email notifying the recipient that the optional VMs have been shut down.
+1. Select **Add an action** in the **If true** box. You add an email action that sends an email notifying the recipient that the optional VMs were shut down.
 1. Search for "send email" and select a *send email* action based on the email service you use.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-17.png" alt-text="Screenshot showing the Send email action.":::
 
-    For personal Microsoft accounts, select **Outlook.com**. For Azure work or school accounts, select **Office 365 Outlook**. If you don't already have a connection, you're asked to sign in to your email account. Logic Apps creates a connection to your email account.
-    You'll need to allow the Logic App to access your email information.  
+    For personal Microsoft accounts, select **Outlook.com**. For Azure work or school accounts, select **Office 365 Outlook**. If you don't already have a connection, you get asked to sign in to your email account. Logic Apps creates a connection to your email account.
+    You need to allow the Logic App to access your email information.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-18.png" alt-text="Screenshot showing the access notice.":::
-1. Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs have been shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields. 
+1. Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs were shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields. 
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-19.png" alt-text="Screenshot showing Email details.":::
 
 ### Add the second conditional action
 
-Use a conditional statement to check whether the threshold amount has reached or exceeded 100% of the budget value. If the threshold amount has been reached, send an HTTP POST using the webhook named **Complete**. This action will shut down all remaining VMs.
+Use a conditional statement to check whether the threshold amount reached or exceeded 100% of the budget value. If the threshold amount is reached, send an HTTP POST using the webhook named **Complete**. This action shuts down all remaining VMs.
 
 1. Select **New step** > **Add a Condition**.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png" alt-text="Screenshot showing the If true dialog box with Add an action called out.":::
@@ -185,43 +194,43 @@ Use a conditional statement to check whether the threshold amount has reached or
 1. Select **Expression** at the top of the list and enter the following expression in the expression editor:
     `float()`
 1. Select **Dynamic content**, place the cursor inside the parenthesis (), and select **NotificationThresholdAmount** from the list to populate the complete expression.
-    The expression will resemble:<br>
+    The expression resembles:<br>
     `float(body('Parse_JSON')?['data']?['NotificationThresholdAmount'])`
 1. Select **OK** to set the expression.
 1. Select **is greater than or equal to** in the dropdown box of the **Condition**.
 1. In the **Choose a value box** for the condition, enter `1`.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png" alt-text="Screenshot showing the Set condition value.":::
-1. In the **If true** box, select **Add an action**. You'll add an HTTP POST action that will shut down all the remaining VMs.  
+1. In the **If true** box, select **Add an action**. You add an HTTP POST action that shuts down all the remaining VMs.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png" alt-text="Screenshot showing the If true dialog box with where you can add an H T T P POST action.":::
 1. Enter **HTTP** to search for the HTTP action and select the **HTTP – HTTP** action.
 1. Select **Post** as the **Method** value.
 1. Enter the URL for the webhook named **Complete** that you created earlier in this tutorial as the **Uri** value.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png" alt-text="Screenshot showing the H T T P dialog box where you can enter the U R L value.":::
-1. Select **Add an action** in the **If true** box. You'll add an email action that will send an email notifying the recipient that the remaining VMs have been shut down.
+1. Select **Add an action** in the **If true** box. You add an email action that sends an email notifying the recipient that the remaining VMs were shut down.
 1. Search for "send email" and select a *send email* action based on the email service you use.
-1. Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs have been shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields.  
+1. Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs were shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields.  
     :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-24.png" alt-text="Screenshot showing the email details that you configured.":::
 1. Select **Save** at the top of the **Logic App Designer** area.
 
 ### Logic App summary
 
-Here's what your Logic App looks like once you're done. In the most basic of scenarios where you don't need any threshold-based orchestration, you could directly call the automation script from **Monitor** and skip the **Logic App** step.
+Here's what your Logic App looks like when done. In the most basic of scenarios where you don't need any threshold-based orchestration, you could directly call the automation script from **Monitor** and skip the **Logic App** step.
 
 :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-25.png" alt-text="Screenshot showing the Logic app - complete view.":::
 
-When you saved your logic app, a URL was generated that you'll be able to call. You'll use this URL in the next section of this tutorial.
+When you saved your logic app, a URL was generated that you can call. You use this URL in the next section of this tutorial.
 
 ## Create an Azure Monitor Action Group
 
 An action group is a collection of notification preferences that you define. When an alert is triggered, a specific action group can receive the alert by being notified. An Azure alert proactively raises a notification based on specific conditions and provides the opportunity to take action. An alert can use data from multiple sources, including metrics and logs.
 
-Action groups are the only endpoint that you'll integrate with your budget. You can set up notifications in a number of channels, but for this scenario you'll focus on the Logic App you created earlier in this tutorial.
+Action groups are the only endpoint that you integrate with your budget. You can set up notifications in many channels, but for this scenario you focus on the Logic App you created earlier in this tutorial.
 
 ### Create an action group in Azure Monitor
 
-When you create the action group, you'll point to the Logic App that you created earlier in this tutorial.
+When you create the action group, you point to the Logic App that you created earlier in this tutorial.
 
-1. If you are not already signed-in to the [Azure portal](https://portal.azure.com/), sign in and select **All services** > **Monitor**.
+1. If you aren't already signed-in to the [Azure portal](https://portal.azure.com/), sign in and select **All services** > **Monitor**.
 1. Select **Alerts** then select **Manage actions**.
 1. Select **Add an action group** from the **Action groups** area.
 1. Add and verify the following items:
@@ -233,11 +242,11 @@ When you create the action group, you'll point to the Logic App that you created
 1. Within the **Add action group** pane, add a LogicApp action. Name the action **Budget-BudgetLA**. In the **Logic App** pane, select the **Subscription** and the **Resource group**. Then, select the **Logic app** that you created earlier in this tutorial.
 1. Select **OK** to set the Logic App. Then, select **OK** in the **Add action group** pane to create the action group.
 
-You're done with all the supporting components needed to effectively orchestrate your budget. Now all you need to do is create the budget and configure it to use the action group you created.
+You completed all the supporting components that are needed to effectively orchestrate your budget. Now all you need to do is create the budget and configure it to use the action group you created.
 
 ## Create the budget
 
-You can create a budget in the Azure portal using the [Budget feature](../costs/tutorial-acm-create-budgets.md) in Cost Management. Or, you can create a budget using REST APIs, PowerShell cmdlets, or use the CLI. The following procedure uses the REST API. Before calling the REST API, you'll need an authorization token. To create an authorization token, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) project. The **ARMClient** allows you to authenticate yourself to the Azure Resource Manager and get a token to call the APIs.
+You can create a budget in the Azure portal using the [Budget feature](../costs/tutorial-acm-create-budgets.md) in Cost Management. Or, you can create a budget using REST APIs, PowerShell cmdlets, or use the CLI. The following procedure uses the REST API. Before calling the REST API, you need an authorization token. To create an authorization token, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) project. The **ARMClient** allows you to authenticate yourself to the Azure Resource Manager and get a token to call the APIs.
 
 ### Create an authentication token
 
@@ -249,31 +258,36 @@ You can create a budget in the Azure portal using the [Budget feature](../costs/
 1. To sign in and authenticate, enter the following command at the command prompt:<br>
     `ARMClient login prod`
 1. Copy the **subscription guid** from the output.
-1. To copy an authorization token to your clipboard, enter the following command at the command prompt, but sure to use the copied subscription ID from the step above: <br>
+1. To copy an authorization token to your clipboard, enter the following command at the command prompt, but sure to use the copied subscription ID from the preceding step: <br>
     `ARMClient token <subscription GUID from previous step>`
 
-    Once you have completed the step above, you'll see:<br>
+    When you complete the preceding step, you see:<br>
     **Token copied to clipboard successfully.**
 1. Save the token to be used for steps in the next section of this tutorial.
 
 ### Create the Budget
 
-Next, you'll configure **Postman** to create a budget by calling the Azure Consumption REST APIs. Postman is an API Development environment. You'll import environment and collection files into Postman. The collection contains grouped definitions of HTTP requests that call Azure Consumption REST APIs. The environment file contains variables that are used by the collection.
+Next, you create a budget by calling the Azure Consumption REST APIs. You need a way to interact with APIs. Some popular ways to query the API are:
 
-1. Download and open the [Postman REST client](https://www.getpostman.com/) to execute the REST APIs.
-1. In Postman, create a new request.  
-    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-27.png" alt-text="Screenshot showing create a new request in Postman.":::
-1. Save the new request as a collection, so that the new request has nothing on it.  
-    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-28.png" alt-text="Screenshot showing save the new request in Postman.":::
+- [Visual studio](/aspnet/core/test/http-files)
+- [Insomnia](https://insomnia.rest/)
+- [Bruno](https://www.usebruno.com/)
+- PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
+- [Curl](https://curl.se/docs/httpscripting.html)
+
+You need to import both environment and collection files into your API client. The collection contains grouped definitions of HTTP requests that call Azure Consumption REST APIs. The environment file contains variables that are used by the collection.
+
+1. In your API client, create a new request.
+1. Save the new request so that it has nothing in it.
 1. Change the request from a `Get` to a `Put` action.
 1. Modify the following URL by replacing `{subscriptionId}` with the **Subscription ID** that you used in the previous section of this tutorial. Also, modify the URL to include "SampleBudget" as the value for `{budgetName}`:
     `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2018-03-31`
-1. Select the **Headers** tab within Postman.
+1. Select Headers in your API client.
 1. Add a new **Key** named "Authorization".
 1. Set the **Value** to the token that was created using the ArmClient at the end of the last section.
-1. Select **Body** tab within Postman.
-1. Select the **raw** button option.
-1. In the textbox, paste in the below sample budget definition, however you must replace the `subscriptionID`, `resourcegroupname`, and `actiongroupname` parameters with your subscription ID, a unique name for your resource group, and the action group name you created in both the URL and the request body:
+1. Select Body in your API client.
+1. Select the **raw** option in your API client.
+1. In the text area in your API client, paste the following sample budget definition. You must replace the `subscriptionID`, `resourcegroupname`, and `actiongroupname` parameters with your subscription ID, a unique name for your resource group, and the action group name you created in both the URL and the request body:
 
     ```
         {
@@ -308,7 +322,7 @@ Next, you'll configure **Postman** to create a budget by calling the Azure Consu
             }
         }
     ```
-1. Press **Send** to send the request.
+1. Send the request.
 
 You now have all the pieces you need to call the [budgets API](/rest/api/consumption/budgets). The budgets API reference has more details on the specific requests, including:
 
@@ -327,7 +341,7 @@ By using this tutorial, you learned:
 - How to create an Azure Monitor Action Group that was configured to trigger the Azure Logic App when the budget threshold is met.
 - How to create the budget with the desired thresholds and wire it to the action group.
 
-You now have a fully functional budget for your subscription that will shut down your VMs when you reach your configured budget thresholds.
+You now have a fully functional budget for your subscription that shuts down your VMs when you reach your configured budget thresholds.
 
 ## Next steps
 
