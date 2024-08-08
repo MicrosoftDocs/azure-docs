@@ -256,9 +256,9 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 1. Configure the ACR for the workspace to [Allow access by trusted services](../container-registry/allow-access-trusted-services.md).
 
-1. If you are using [serverless compute](how-to-use-serverless-compute.md) (recommended) with your workspace, Azure Machine Learning will try to use the serverless compute to build the image. To configure the workspace to create the compute in your Azure Virtual Network, follow the guidance in the [Secure training environment](how-to-secure-training-vnet.md) article.
+1. By default, Azure Machine Learning will try to use a [serverless compute](how-to-use-serverless-compute.md) to build the image. This works only when the workspace-dependent resources such as Storage Account or Container Registry are not under any network restriction (private endpoints). If your workspace-dependent resources are network restricted, use an image-build-compute instead.
 
-1. If you are __not__ using serverless compute, create an Azure Machine Learning compute cluster. This cluster is used to build Docker images when ACR is behind a virtual network. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md). Use one of the following methods to configure the workspace to build Docker images using the compute cluster.
+1. To set up an image-build compute, create an Azure Machine Learning CPU SKU [compute cluster](how-to-create-attach-compute-cluster.md) in the same VNet as your workspace-dependent resources. This cluster can then be set as the default image-build compute and will be used to build every image in your workspace from that point onwards. Use one of the following methods to configure the workspace to build Docker images using the compute cluster.
 
     > [!IMPORTANT]
     > The following limitations apply When using a compute cluster for image builds:
