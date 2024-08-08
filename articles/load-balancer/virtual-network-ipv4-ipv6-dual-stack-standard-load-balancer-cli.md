@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: This article shows how to deploy an IPv6 dual stack application in Azure virtual network using Azure CLI.
 services: virtual-network
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 04/17/2023
 ms.author: mbender

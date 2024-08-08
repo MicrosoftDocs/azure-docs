@@ -3,7 +3,7 @@ title: Hybrid connection with two-tier application
 description: Learn how to deploy virtual appliances and route tables to create a multi-tier application environment in Azure
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom:
 ms.topic: conceptual
 ms.date: 03/22/2023
