@@ -225,6 +225,26 @@ Updating computed properties on an existing container is not supported in Python
 > [!TIP]
 > Every time you update container properties, the old values are overwritten. If you have existing computed properties and want to add new ones, be sure that you add both new and existing computed properties to the collection.
 
+### Create computed properties using azure data explorer in azure portal
+ 
+You can create computed properties in azure data explorer in azure portal also. 
+
+- Click the *Scale & Settings* under the container name.
+- Click the *computed properties* tab.
+- Create and define the compute property. Below is the sample computed property.
+
+```json
+[
+    {
+        "name": "cp_lowerName",
+        "query": "SELECT VALUE LOWER(c.name) FROM c"
+    }
+]
+```
+- Click *Save* to save the computed property.
+
+![create_computed_property_using_data_explorer](https://i.imgur.com/47aQNsw.png)
+
 ## Use computed properties in queries
 
 Computed properties can be referenced in queries the same way that persisted properties are referenced. Values for computed properties that aren't indexed are evaluated during runtime by using the computed property definition. If a computed property is indexed, the index is used the same way that it's used for persisted properties, and the computed property is evaluated on an as-needed basis. We recommend that you [add indexes on your computed properties](#index-computed-properties) for the best cost and performance.
