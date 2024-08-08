@@ -59,24 +59,96 @@ The following table provides different examples of log queries that retrieve per
 | Perf &#124; where Computer == "MyComputer"                   | All performance data from a particular computer |
 | Perf &#124; where CounterName == "Current Disk Queue Length" | All performance data for a particular counter   |
 
+### Option 1 - Table
+
 <br>
 <details>
-<summary>Expand for more sample queries</summary>
+<summary>Expand for more queries</summary>
 
 | Query | Description |
 |:------|:------------|
-| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(CounterValue) by Computer |Average CPU utilization across all computers |
-| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(CounterValue) by Computer |Maximum CPU utilization across all computers |
-| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(CounterValue) by InstanceName |Average current disk queue length across all the instances of a given computer |
-| Perf &#124; where CounterName == "Disk Transfers/sec" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer |95th percentile of disk transfers/sec across all computers |
-| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Hourly average of CPU usage across all computers |
+| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(CounterValue) by Computer | Average CPU utilization across all computers |
+| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(CounterValue) by Computer | Maximum CPU utilization across all computers |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(CounterValue) by InstanceName | Average current disk queue length across all the instances of a given computer |
+| Perf &#124; where CounterName == "Disk Transfers/sec" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer | 95th percentile of disk transfers/sec across all computers |
+| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer | Hourly average of CPU usage across all computers |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | Hourly 70th percentile of every percent counter for a particular computer |
-| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
+| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer | Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
 | Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | All performance data from the database performance object for the master database from the named SQL Server instance INST2 |
+</details>
+
+### Option 2 - Code blocks
+
+<br>
+<details>
+<summary>Expand for more queries</summary>
+
+**Average CPU utilization across all computers**
+
+```query
+Perf 
+| where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total"
+| summarize AVGCPU = avg(CounterValue) by Computer
+```
+
+**Maximum CPU utilization across all computers**
+
+```query
+Perf
+| where CounterName == "% Processor Time"
+| summarize AggregatedValue = max(CounterValue) by Computer
+```
+
+**Average current disk queue length across all the instances of a given computer**
+
+```query
+Perf 
+| where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName"
+| summarize AggregatedValue = avg(CounterValue) by InstanceName
+```
+
+**95th percentile of disk transfers/sec across all computers**
+
+```query
+Perf
+| where CounterName == "Disk Transfers/sec"
+| summarize AggregatedValue = percentile(CounterValue, 95) by Computer
+```
+
+**Hourly average of CPU usage across all computers**
+
+```query
+Perf 
+| where CounterName == "% Processor Time" and InstanceName == "_Total"
+| summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer
+```
+
+**Hourly 70th percentile of every percent counter for a particular computer**
+
+```query
+Perf
+| where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total"
+| summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName
+```
+
+**Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer**
+
+```query
+Perf
+| where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer"
+| summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer
+```
+
+**All performance data from the database performance object for the master database from the named SQL Server instance INST2**
+
+```query
+Perf
+| where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master"
+```
 
 </details>
 
-Additional samples queries are available at [Queries for the Perf table](/azure/azure-monitor/reference/queries/perf).
+Additional query examples are available at [Queries for the Perf table](/azure/azure-monitor/reference/queries/perf).
 
 ## Next steps
 
