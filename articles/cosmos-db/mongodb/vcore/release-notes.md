@@ -8,7 +8,7 @@ ms.reviewer: gahllevy
 ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: release-notes
-ms.date: 08/05/2024
+ms.date: 08/08/2024
 #Customer intent: As a database administrator, I want to review the release notes, so I can understand what new features are released for the service.
 ---
 
@@ -33,7 +33,7 @@ This article contains release notes for the API for MongoDB vCore. These release
   - $bucket.
   - $vectorSearch.
   - $setWindowFields (Only with $sum window accumulator).
-- Geospatial query operators [GA]
+- Geospatial query operators
   - $minDistance.
   - $maxDistance.
   - $near.
@@ -94,8 +94,8 @@ This article contains release notes for the API for MongoDB vCore. These release
 
 ### March 18, 2024
 
-- [Private Endpoint](how-to-private-link.md) support enabled on Portal. (GA)
-- [HNSW](vector-search.md) vector index on M40 & larger cluster tiers. (GA)
+- [Private Endpoint](how-to-private-link.md) support enabled on Portal.
+- [HNSW](vector-search.md) vector index on M40 & larger cluster tiers.
 - Enable Geo-spatial queries. (Preview)
 - Query operator enhancements.
   - $centerSphere with index pushdown.
