@@ -73,7 +73,32 @@ Learn more:
 - [Configure the rule with the SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](#available-watchlists)
 - Learn more about how to [configure the rule](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-for-sap-news-dynamic-sap-security-audit-log/ba-p/3326842#feedback-success) (full procedure)
 
-The following tables list the built-in [analytics rules](deploy-sap-security-content.md) that are included in the Microsoft Sentinel solution for SAP applications, deployed from the Microsoft Sentinel Solutions marketplace.
+## Detect anomalies with audit log monitoring rules (Preview)
+
+Use the following analytics rules to either monitor all audit log events on your SAP system or trigger alerts only when anomalies are detected:
+
+|Rule name  |Description  |
+|---------|---------|
+|**SAP - Missing configuration in the Dynamic Security Audit Log Monitor**     |  By default, runs daily to provide configuration recommendations for the SAP audit log module. Use the rule template to create and customize a rule for your workspace.     |
+|**SAP - Dynamic Deterministic Audit Log Monitor (PREVIEW)**     |  By default, runs every 10 minutes and focuses on the SAP audit log events marked as **Deterministic**. Use the rule template to create and customize a rule for your workspace, such as for a lower false positive rate. |
+|**SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)**     |  By default, runs hourly and focuses on SAP events marked as **AnomaliesOnly**, alerting on SAP audit log events when anomalies are detected. |
+
+The SAP audit log monitoring rules are delivered as part of the [Microsoft Sentinel for SAP solution security content](sap-solution-security-content.md#monitoring-the-sap-audit-log), and allow for further fine tuning using the *SAP_Dynamic_Audit_Log_Monitor_Configuration* and *SAP_User_Config watchlists*.
+
+For example, the following table lists several examples of how you can use the *SAP_Dynamic_Audit_Log_Monitor_Configuration* watchlist to configure the types of events that produce incidents, reducing the number of incidents generated.
+
+|Option  |Description  |
+|---------|---------|
+|**Set severities and disable unwanted events**    |By default, both the deterministic rules and the rules based on anomalies create alerts for events marked with medium and high severities. <br><br>You might want to configure severities separately production and nonproduction environments. For example, you might set a debugging activity event as *high* severity in production systems, and turn off the same events entirely in nonproduction systems.         |
+|**Exclude users by their SAP roles or SAP profiles**     |Microsoft Sentinel for SAP ingests the SAP user’s authorization profile, including direct and indirect role assignments, groups, and profiles, so that you can speak the SAP language in your SIEM.<br><br>You might want to configure an SAP event to exclude users based on their SAP roles and profiles. In the watchlist, add the roles or profiles that group your RFC interface users in the **RolesTagsToExclude** column, next to the **Generic table access by RFC** event. This configuration triggers alerts only for users that are missing these roles.         |
+|**Exclude users by their SOC tags**     |Use tags to create your own grouping, without relying on complicated SAP definitions or even without SAP authorization. This method is useful for SOC teams that want to create their own grouping for SAP users.<br><br>For example, if you don't want specific service accounts to be alerted for **Generic table access by RFC** events, but can’t find an SAP role or an SAP profile that groups these users, use tags as follows: <br>1. Add the **GenTableRFCReadOK** tag next to the relevant event in the watchlist. <br>2. Go to the **SAP_User_Config** watchlist and assign the interface users the same tag.    |
+|**Specify a frequency threshold per event type and system role**     |Works like a speed limit. For example, you might configure **User Master Record Change** events to only trigger alerts if more than 12 activities are observed in an hour, by the same user in a production system. If a user exceeds the 12 per hour limit—for example, 2 events in a 10-minute window—an incident is triggered.  |
+|**Determinism or anomalies**     |If you know the event’s characteristics, use the deterministic capabilities. If you aren't sure how to correctly configure the event, allow the machine learning capabilities to decide to start, and then make subsequent updates as needed.         |
+|**SOAR capabilities**     |Use Microsoft Sentinel to further orchestrate, automate, and respond to incidents created by SAP audit log dynamic alerts. For more information, see [Automation in Microsoft Sentinel: Security orchestration, automation, and response (SOAR)](../automation/automation.md). |
+
+For more information, see [Available watchlists](sap-solution-security-content.md#available-watchlists).
+
+
 
 ### Initial access
 

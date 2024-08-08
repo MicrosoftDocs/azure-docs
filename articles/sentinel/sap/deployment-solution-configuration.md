@@ -19,13 +19,27 @@ Content in this article is relevant for your **security** team.
 > Some components of the Microsoft Sentinel solution for SAP applications are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-<!--should this be the get started article?-->
-
 ## Prerequisites
 
 Before configuring the settings described in this article, you must have your data connector agent and solution content installed.
 
 For more information, see [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md) and [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
+
+
+## Start enabling analytics rules
+
+By default, all analytics rules in the Microsoft Sentinel solution for SAP applications are provided as [alert rule templates](../manage-analytics-rule-templates.md#manage-template-versions-for-your-scheduled-analytics-rules-in-microsoft-sentinel). We recommend a staged approach, where you use the templates to create a few rules at a time, allowing time for fine-tuning each scenario.
+
+We recommend starting with the following analytics rules:
+
+- [Change in Sensitive privileged user](sap-solution-security-content.md#suspicious-privileges-operations)
+- [Sensitive privileged user logged in](sap-solution-security-content.md#suspicious-privileges-operations)
+- [Sensitive privileged user makes a change in other user](sap-solution-security-content.md#suspicious-privileges-operations)
+- [Sensitive Users Password Change and Login](sap-solution-security-content.md#suspicious-privileges-operations)
+- [Client Configuration Change](sap-solution-security-content.md#attempts-to-bypass-sap-security-mechanisms)
+- [Function Module tested](sap-solution-security-content.md#persistency)
+
+For more information, see [Built-in analytics rules](sap-solution-security-content.md#built-in-analytics-rules) and [Threat detection in Microsoft Sentinel](../threat-detection.md).
 
 ## Configure watchlists
 
@@ -42,45 +56,11 @@ After the initial solution deployment, it might take some time until the watchli
 
 For more information, see [Available watchlists](sap-solution-security-content.md#available-watchlists).
 
-## Start enabling analytics rules
+## Use a workbook to check compliance for your SAP security controls
 
-By default, all analytics rules in the Microsoft Sentinel solution for SAP applications are provided as [alert rule templates](../manage-analytics-rule-templates.md#manage-template-versions-for-your-scheduled-analytics-rules-in-microsoft-sentinel). We recommend a staged approach, where you use the templates to create a few rules at a time, allowing time for fine-tuning each scenario.
+The Microsoft Sentinel solution for SAP applications includes the **SAP - Security Audit Controls** workbook, which helps you check compliance for your SAP security controls. The workbook provides a comprehensive view of the security controls that are in place and the compliance status of each control.
 
-We recommend starting with the following analytics rules:
-
-- Change in sensitive privileged user
-- Client configuration change
-- Sensitive privileged user logon
-- Sensitive privileged user makes a change in other
-- Sensitive privilege user password change and login
-- Function module tested
-
-For more information, see [Built-in analytics rules](sap-solution-security-content.md#built-in-analytics-rules).
-
-## Detect anomalies with audit log monitoring rules (Preview)
-
-Use the following analytics rules to either monitor all audit log events on your SAP system or trigger alerts only when anomalies are detected:
-
-|Rule name  |Description  |
-|---------|---------|
-|**SAP - Missing configuration in the Dynamic Security Audit Log Monitor**     |  By default, runs daily to provide configuration recommendations for the SAP audit log module. Use the rule template to create and customize a rule for your workspace.     |
-|**SAP - Dynamic Deterministic Audit Log Monitor (PREVIEW)**     |  By default, runs every 10 minutes and focuses on the SAP audit log events marked as **Deterministic**. Use the rule template to create and customize a rule for your workspace, such as for a lower false positive rate. |
-|**SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)**     |  By default, runs hourly and focuses on SAP events marked as **AnomaliesOnly**, alerting on SAP audit log events when anomalies are detected. |
-
-The SAP audit log monitoring rules are delivered as part of the [Microsoft Sentinel for SAP solution security content](sap-solution-security-content.md#monitoring-the-sap-audit-log), and allow for further fine tuning using the *SAP_Dynamic_Audit_Log_Monitor_Configuration* and *SAP_User_Config watchlists*.
-
-For example, the following table lists several examples of how you can use the *SAP_Dynamic_Audit_Log_Monitor_Configuration* watchlist to configure the types of events that produce incidents, reducing the number of incidents generated.
-
-|Option  |Description  |
-|---------|---------|
-|**Set severities and disable unwanted events**    |By default, both the deterministic rules and the rules based on anomalies create alerts for events marked with medium and high severities. <br><br>You might want to configure severities separately production and nonproduction environments. For example, you might set a debugging activity event as *high* severity in production systems, and turn off the same events entirely in nonproduction systems.         |
-|**Exclude users by their SAP roles or SAP profiles**     |Microsoft Sentinel for SAP ingests the SAP user’s authorization profile, including direct and indirect role assignments, groups, and profiles, so that you can speak the SAP language in your SIEM.<br><br>You might want to configure an SAP event to exclude users based on their SAP roles and profiles. In the watchlist, add the roles or profiles that group your RFC interface users in the **RolesTagsToExclude** column, next to the **Generic table access by RFC** event. This configuration triggers alerts only for users that are missing these roles.         |
-|**Exclude users by their SOC tags**     |Use tags to create your own grouping, without relying on complicated SAP definitions or even without SAP authorization. This method is useful for SOC teams that want to create their own grouping for SAP users.<br><br>For example, if you don't want specific service accounts to be alerted for **Generic table access by RFC** events, but can’t find an SAP role or an SAP profile that groups these users, use tags as follows: <br>1. Add the **GenTableRFCReadOK** tag next to the relevant event in the watchlist. <br>2. Go to the **SAP_User_Config** watchlist and assign the interface users the same tag.    |
-|**Specify a frequency threshold per event type and system role**     |Works like a speed limit. For example, you might configure **User Master Record Change** events to only trigger alerts if more than 12 activities are observed in an hour, by the same user in a production system. If a user exceeds the 12 per hour limit—for example, 2 events in a 10-minute window—an incident is triggered.  |
-|**Determinism or anomalies**     |If you know the event’s characteristics, use the deterministic capabilities. If you aren't sure how to correctly configure the event, allow the machine learning capabilities to decide to start, and then make subsequent updates as needed.         |
-|**SOAR capabilities**     |Use Microsoft Sentinel to further orchestrate, automate, and respond to incidents created by SAP audit log dynamic alerts. For more information, see [Automation in Microsoft Sentinel: Security orchestration, automation, and response (SOAR)](../automation/automation.md). |
-
-For more information, see [Available watchlists](sap-solution-security-content.md#available-watchlists).
+For more information, see [Check compliance for your SAP security controls with the SAP - Security Audit Controls workbook(Preview)](sap-audit-controls-workbook.md).
 
 ## Related content
 

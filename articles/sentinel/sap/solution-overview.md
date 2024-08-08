@@ -78,6 +78,6 @@ SAP S/4HANA and SAP are trademarks or registered trademarks of SAP SE or its aff
 
 For more information, see:
 
-- [Configure initial Microsoft Sentinel solution for SAP applications content](deployment-solution-configuration.md)
+- [Enable SAP detections and threat protection](deployment-solution-configuration.md)
 - [Microsoft Sentinel incident response playbooks for SAP](sap-incident-response-playbooks.md)
 - [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)

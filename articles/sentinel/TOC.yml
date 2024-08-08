@@ -182,7 +182,7 @@
               href: sap/reference-systemconfig-json.md
             - name: Systemconfig.ini file reference (legacy)
               href: sap/reference-systemconfig.md
-        - name: Configure intial solution content
+        - name: Enable SAP detections and threat protection
           href: sap/deployment-solution-configuration.md
         - name: Automatic attack disruption for SAP
           href: sap/deployment-attack-disrupt.md

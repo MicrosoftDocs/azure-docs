@@ -69,7 +69,7 @@ We recommend that you involve all relevant teams when planning your deployment t
 
 1. [Connect your SAP system by deploying your data connector agent container](deploy-data-connector-agent-container.md). This step requires coordination between your security, infrastructure, and SAP BASIS teams.
 
-1. [Configure initial solution content](deployment-solution-configuration.md). This step is handled by the security team on the Azure portal.
+1. [Enable SAP detections and threat protection](deployment-solution-configuration.md). This step is handled by the security team on the Azure portal.
 
 **Extra, optional configurations include**:
 
