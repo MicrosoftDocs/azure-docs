@@ -43,7 +43,7 @@ Watch a video demonstration of the deployment process described in this article.
 
 ## Create a virtual machine and configure access to your credentials
 
-We recommend that you store your SAP and authentication secrets in an Azure key vault. How you access your key vault depends on where your virtual machine (VM) is deployed:
+We recommend that you store your SAP and authentication secrets in an [Azure key vault](/azure/key-vault/general/authentication). How you access your key vault depends on where your virtual machine (VM) is deployed:
 
 |Deployment method  |Access method  |
 |---------|---------|

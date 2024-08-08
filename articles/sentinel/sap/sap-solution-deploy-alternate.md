@@ -20,10 +20,9 @@ Content in this article is intended for your **SAP BASIS** teams.
 
 Make sure that your system complies with the prerequisites documented in the main [SAP data connector prerequisites document](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) before you start.
 
-<!-- do we need this procedure? isn't this always the same as standard creating an Azure Key vault?
 ## Create your Azure key vault
 
-Create an Azure key vault that you can dedicate to your Microsoft Sentinel solution for SAP applications data connector.
+Create an Azure key vault that you can dedicate to your Microsoft Sentinel solution for SAP® applications data connector.
 
 Run the following command to create your Azure key vault and grant access to an Azure service principal:
 
@@ -52,9 +51,9 @@ az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID -
 For more information, see .
 -->
 
-## Manually add SAP data connector agent Azure Key Vault secrets
+## Add Azure Key Vault secrets
 
-Use the following script to manually add SAP system secrets to your key vault. Make sure to replace the placeholders with your own system ID and the credentials you want to add:
+To add Azure Key Vault secrets, run the following script, with your own system ID and the credentials you want to add:
 
 ```azurecli
 #Add Abap username
