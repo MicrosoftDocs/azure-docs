@@ -2,7 +2,7 @@
 title: Azure Kubernetes network policies
 description: Learn about Kubernetes network policies to secure your Kubernetes cluster.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 03/25/2023
 ms.author: allensu

@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 08/03/2024
 ---
 
 # Language support: custom models
@@ -100,6 +100,9 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker-end
 
+## Custom generative 
+Custom generative only supports English `en`
+
 ## Custom neural
 
 :::moniker range=">=doc-intel-3.1.0"
@@ -120,6 +123,7 @@ The following table lists the supported languages for printed text.
 |Czech|`cs`|
 |Danish|`da`|
 |Dutch|`nl`|
+|English|`en`|
 |Estonian|`et`|
 |Finnish|`fi`|
 |French|`fr`|
@@ -158,6 +162,7 @@ The following table lists the supported languages for printed text.
 |Urdu|`ur`|
 |Vietnamese|`vi`|
 
+
 ## [**Handwritten text**](#tab/handwritten)
 
 The following table lists the supported languages for extracting **handwritten** texts.
@@ -171,17 +176,6 @@ The following table lists the supported languages for extracting **handwritten**
 |Italian  |`it`|
 
 ---
-
-Neural models support added languages for the `v3.1` and later APIs.
-
-| Languages | API version |
-|:--:|:--:|
-| English |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`, `v3.0:2022-08-31 (GA)`|
-| German |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Italian |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| French |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Spanish |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Dutch |`v4.0:2024-02-29-preview, 2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
 
 :::moniker-end
 

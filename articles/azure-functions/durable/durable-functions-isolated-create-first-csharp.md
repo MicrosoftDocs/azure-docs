@@ -111,13 +111,15 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
     :::image type="content" source="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png" alt-text="Screenshot of the Azure local output window." lightbox="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png":::
 
-1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint.
+1. Use one of these HTTP test tools to send an HTTP POST request to the URL endpoint:
+
+   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
 
    The response is the HTTP function's initial result. It lets you know that the Durable Functions app orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
 
    At this point, your breakpoint in the activity function should be hit because the orchestration has started. Step through it to get a response for the status of the orchestration.
 
-1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
+1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use the HTTP test tool to issue the GET request.
 
     The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app like in this example:
 

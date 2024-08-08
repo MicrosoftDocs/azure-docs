@@ -186,7 +186,7 @@ image.show()
 ---
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](../../../key-vault/general/overview.md).
+> Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](/azure/key-vault/general/overview).
 
 Run the application with the `python` command:
 

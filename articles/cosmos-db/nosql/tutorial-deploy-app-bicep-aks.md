@@ -47,7 +47,7 @@ The Bicep modules will deploy the following Azure resources within the targeted 
 - An [AKS](/azure/aks/intro-kubernetes) cluster
 - A [virtual network](../../virtual-network/network-overview.md) for configuring AKS
 - An [Azure Cosmos DB for NoSQL account](../introduction.md), along with a database, a container, and the [SQL role](/cli/azure/cosmosdb/sql/role)
-- A [key vault](../../key-vault/general/overview.md) to store secure keys
+- A [key vault](/azure/key-vault/general/overview) to store secure keys
 - (Optional) A [Log Analytics workspace](../../azure-monitor/logs/log-analytics-overview.md)
 
 This tutorial uses the following security best practices with Azure Cosmos DB:
