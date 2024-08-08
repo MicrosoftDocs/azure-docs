@@ -366,10 +366,6 @@ Ensure that you specify the correct key-value selectors to match the expected da
 
 You can customize the installation by providing additional Helm values when installing the Azure App Configuration Kubernetes Provider. For example, you can set the log level, configure the provider to run on a specific node, or disable the workload identity. Refer to the [installation guide](./reference-kubernetes-provider.md#installation) for more information.
 
-#### Why the workload identity does not work after I upgrade the Azure App Configuration Kubernetes Provider to v2.0.0?
-
-Start from v2.0.0, per namespace service account should be used for workload identity by default. See the [workload identity](./reference-kubernetes-provider.md#use-workload-identity) documentation for more details. If you still want to use the provider's service account, binding your managed identities to the global service account `az-appconfig-k8s-provider` that been created in `azappconfig-system` namespace, you can enable it by setting `workloadIdentity.globalServiceAccountEnabled=true` at installation time, refer to the [installation guide](./reference-kubernetes-provider.md#installation) for more information.
-
 ## Clean up resources
 
 Uninstall the App Configuration Kubernetes Provider from your AKS cluster if you want to keep the AKS cluster.
