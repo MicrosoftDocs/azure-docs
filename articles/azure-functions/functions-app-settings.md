@@ -14,6 +14,8 @@ Application settings in a function app contain configuration options that affect
 
 In this article, example connection string values are truncated for readability.
 
+Because Azure Functions leverages the Azure App Service platform for hosting, you might find some settings relevant to your function app hosting documented in [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
+
 ## App setting considerations
 
 When using app settings, you should be aware of the following considerations:
