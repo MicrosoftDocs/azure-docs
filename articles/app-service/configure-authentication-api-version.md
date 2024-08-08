@@ -90,7 +90,7 @@ The following steps will allow you to manually migrate the application to the V2
            "tokenStoreEnabled": true,
            "allowedExternalRedirectUrls": null,
            "defaultProvider": "AzureActiveDirectory",
-           "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
+           "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
            "clientSecret": "",
            "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
            "clientSecretCertificateThumbprint": null,

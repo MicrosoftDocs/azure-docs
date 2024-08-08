@@ -3,7 +3,7 @@ title: Troubleshooting managed virtual networks
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot Azure Machine Learning managed virtual network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: None
 ms.author: larryfr

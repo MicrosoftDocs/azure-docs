@@ -44,7 +44,7 @@ Latency between Azure resources and Oracle Database@Azure is within the Azure re
 
 ### Does Oracle Database@Azure support deploying Base Database (BD), or do I need to migrate to Autonomous Database service?
 
-No, Base Database isn't currently supported with Oracle Database@Azure. You can deploy single instance self-managed databases on Azure VMs or if you need Oracle managed databases with RAC, we recommend Autonomous Databases via Oracle Database@Azure. For more information, see [Autonomous Database | Oracle](https://www.oracle.com/cloud/azure/oracle-database-at-azure/) and [Provision Oracle Autonomous Databases | Microsoft Learn](https://learn.microsoft.com/training/modules/migrate-oracle-workload-azure-odaa/).
+No, Base Database isn't currently supported with Oracle Database@Azure. You can deploy single instance self-managed databases on Azure VMs or if you need Oracle managed databases with RAC, we recommend Autonomous Databases via Oracle Database@Azure. For more information, see [Autonomous Database | Oracle](https://www.oracle.com/cloud/azure/oracle-database-at-azure/) and [Provision Oracle Autonomous Databases | Microsoft Learn](/training/modules/migrate-oracle-workload-azure-odaa/).
 
 ### For the Oracle Database@Azure service, will the automated DBCS DR use Azure backbone or the OCI backbone?
 
@@ -179,7 +179,7 @@ On-premises and Cloud](https://www.oracle.com/docs/tech/database/maa-exadata-asm
 
 ### Is tiering storage available for the database within Oracle Database@Azure?
 
-Tiering storage service is available as part of Oracle Database@Azure. The Exadata storage servers provide three levels of tiering--PMem, NVME Flash, and HDD. Compression and partitioning are recommended as part of a storage tiering design. For more information, see [Oracle Exadata Cloud Infrastructure X9M Data Sheet](https://www.oracle.com/a/ocom/docs/engineered-systems/exadata-database-machine/exadata-x9m-ds.pdf).
+Tiering storage service is available as part of Oracle Database@Azure. The Exadata storage servers provide three levels of tiering--PMem, NVME Flash, and HDD. Compression and partitioning are recommended as part of a storage tiering design. For more information, see [Oracle Exadata Cloud Infrastructure X9M Data Sheet](https://www.oracle.com/a/ocom/docs/engineered-systems/exadata/exadata-cloud-infrastructure-x9m-ds.pdf).
 
 ### Where can I go to get more information about capabilities and features corresponding to Oracle Database@Azure?
 
@@ -188,7 +188,7 @@ For more information about Oracle Database@Azure, see the following resources.
 - [Overview - Oracle Database@Azure](/azure/oracle/oracle-db/database-overview)
 - [Provision and manage Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/multicloud/oaaonboard.htm)
 - [Oracle Database@Azure support information](https://mylearn.oracle.com/ou/course/oracle-databaseazure-deep-dive/135849)
-- [Network planning for Oracle Database@Azure](https://learn.microsoft.com/training/modules/migrate-oracle-workload-azure-odaa/)
+- [Network planning for Oracle Database@Azure](/training/modules/migrate-oracle-workload-azure-odaa/)
 - [Groups and roles for Oracle Database@Azure](https://www.oracle.com/cloud/azure/oracle-database-at-azure/)
 
 ## Next steps
@@ -196,5 +196,5 @@ For more information about Oracle Database@Azure, see the following resources.
 - [Overview - Oracle Database@Azure](/azure/oracle/oracle-db/database-overview)
 - [Provision and manage Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/multicloud/oaaonboard.htm)
 - [Oracle Database@Azure support information](https://mylearn.oracle.com/ou/course/oracle-databaseazure-deep-dive/135849)
-- [Network planning for Oracle Database@Azure](https://learn.microsoft.com/training/modules/migrate-oracle-workload-azure-odaa/)
+- [Network planning for Oracle Database@Azure](/training/modules/migrate-oracle-workload-azure-odaa/)
 - [Groups and roles for Oracle Database@Azure](https://www.oracle.com/cloud/azure/oracle-database-at-azure/)
