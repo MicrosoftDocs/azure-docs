@@ -402,11 +402,9 @@ def advanced_sample(last_document_incarnation):
 
         # For this application, freeze events less that 9 seconds are considered
         # no impact. This will immediately approve them.
-        elif (
-            event["EventType"] == "Freeze"
+        elif (event["EventType"] == "Freeze"
             and int(event["DurationInSeconds"]) >= 0
-            and int(event["DurationInSeconds"]) < 9
-        ):
+            and int(event["DurationInSeconds"]) < 9):
             confirm_scheduled_event(event["EventId"])
 
         # Events that may be impactful (for example reboot or redeploy) may need custom
