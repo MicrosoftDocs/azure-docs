@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 03/22/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Azure Maps Power BI visual Data Residency
