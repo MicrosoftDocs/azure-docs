@@ -12,7 +12,7 @@ There are some caveats to the customer managed key for service side encryption.
 - This feature is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It can't be enabled for standard tier Service Bus namespaces.
 - The encryption can only be enabled for new or empty namespaces. If the namespace contains any queues or topics, then the encryption operation fails.
 
-You can use Azure Key Vault (including Azure Key Vault Managed HSM) to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
+You can use Azure Key Vault (including Azure Key Vault Managed HSM) to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
 ## Enable customer-managed keys (Azure portal)
 To enable customer-managed keys in the Azure portal, follow these steps:
@@ -28,9 +28,9 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 
 ## Set up a key vault with keys
 
-After you enable customer-managed keys, you need to associate the customer managed key with your Azure Service Bus namespace. Service Bus supports only Azure Key Vault. If you enable the **Encryption with customer-managed key** option in the previous section, you need to have the key imported into Azure Key Vault. Also, the keys must have **Soft Delete** and **Do Not Purge** configured for the key. These settings can be configured using [PowerShell](../key-vault/general/key-vault-recovery.md) or [CLI](../key-vault/general/key-vault-recovery.md).
+After you enable customer-managed keys, you need to associate the customer managed key with your Azure Service Bus namespace. Service Bus supports only Azure Key Vault. If you enable the **Encryption with customer-managed key** option in the previous section, you need to have the key imported into Azure Key Vault. Also, the keys must have **Soft Delete** and **Do Not Purge** configured for the key. These settings can be configured using [PowerShell](/azure/key-vault/general/key-vault-recovery) or [CLI](/azure/key-vault/general/key-vault-recovery).
 
-1. To create a new key vault, follow the Azure Key Vault [Quickstart](../key-vault/general/overview.md). For more information about importing existing keys, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
+1. To create a new key vault, follow the Azure Key Vault [Quickstart](/azure/key-vault/general/overview). For more information about importing existing keys, see [About keys, secrets, and certificates](/azure/key-vault/general/about-keys-secrets-certificates).
 
     > [!IMPORTANT]
     > Using customer-managed keys with Azure Service Bus requires that the key vault have two required properties configured. They are:  **Soft Delete** and **Do Not Purge**. The Soft Delete property is enabled by default when you create a new key vault in the Azure portal whereas the Purge Protection is optional so make sure to select it when creating the Key Vault. Also, if you need to enable these properties on an existing key vault, you must use either PowerShell or Azure CLI.
@@ -83,18 +83,18 @@ After you enable customer-managed keys, you need to associate the customer manag
     > [!IMPORTANT]
     > If you are looking to use Customer managed key along with [Geo-Disaster Recovery](service-bus-geo-dr.md), please review this section. 
     >
-    > To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/security-features.md) is set up for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
+    > To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](/azure/key-vault/general/security-features) is set up for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
     >
     > Due to this:
     > 
     >   * If [Geo-Disaster Recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you are looking to enable customer managed key, then 
     >     * Break the pairing
-    >     * [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for both the primary and secondary namespaces to the key vault.
+    >     * [Set up the access policy](/azure/key-vault/general/assign-access-policy-portal) for the managed identity for both the primary and secondary namespaces to the key vault.
     >     * Set up encryption on the primary namespace.
     >     * Re-pair the primary and secondary namespaces.
     > 
     >   * If you are looking to enable Geo-Disaster Recovery on a Service Bus namespace where customer managed key is already set up, then -
-    >     * [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for the secondary namespace to the key vault.
+    >     * [Set up the access policy](/azure/key-vault/general/assign-access-policy-portal) for the managed identity for the secondary namespace to the key vault.
     >     * Pair the primary and secondary namespaces.
     >    
     >   * Once paired, the secondary namespace will use the key vault configured for the primary namespace. If the key vault for both namespaces is different before Geo-Disaster Recovery pairing, the user must delegate an access policy or RBAC role for the managed identity of the secondary namespace in the key vault associated with primary namespace.
@@ -628,7 +628,7 @@ You can rotate your key in the key vault by using the Azure Key Vaults rotation 
 
 ### Revoke access to keys
 
-Revoking access to the encryption keys won't purge the data from Service Bus. However, the data can't be accessed from the Service Bus namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](../key-vault/general/secure-your-key-vault.md).
+Revoking access to the encryption keys won't purge the data from Service Bus. However, the data can't be accessed from the Service Bus namespace. You can revoke the encryption key through access policy or by deleting the key. Learn more about access policies and securing your key vault from [Secure access to a key vault](/azure/key-vault/general/secure-your-key-vault).
 
 Once the encryption key is revoked, the Service Bus service on the encrypted namespace becomes inoperable. If the access to the key is enabled or the deleted key is restored, Service Bus service picks the key so you can access the data from the encrypted Service Bus namespace.
 
@@ -645,16 +645,16 @@ Here are more details:
 ## Considerations when using Geo-Disaster Recovery
 
 ### Geo-Disaster Recovery - encryption with system-assigned identities
-To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](../key-vault/general/secure-your-key-vault.md) is set up for a system-assigned managed identity on the specified Azure KeyVault. This step ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace. Therefore, you need to follow these steps: 
+To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](/azure/key-vault/general/secure-your-key-vault) is set up for a system-assigned managed identity on the specified Azure KeyVault. This step ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace. Therefore, you need to follow these steps: 
 
 
 - If [Geo-Disaster Recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you're looking to enable customer managed key, then
     - Break the pairing.
-    - [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the system-assigned managed identity for both the primary and secondary namespaces to the key vault.
+    - [Set up the access policy](/azure/key-vault/general/assign-access-policy-portal) for the system-assigned managed identity for both the primary and secondary namespaces to the key vault.
     - Set up encryption on the primary namespace.
     - Re-pair the primary and secondary namespaces.
 - If you're looking to enable Geo-Disaster Recovery on a Service Bus namespace where customer-managed key is already set up, then follow these steps: 
-    - [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for the secondary namespace to the key vault.
+    - [Set up the access policy](/azure/key-vault/general/assign-access-policy-portal) for the managed identity for the secondary namespace to the key vault.
     - Pair the primary and secondary namespaces.
 
 ### Geo-Disaster Recovery - encryption with user-assigned identities
@@ -683,4 +683,4 @@ Use the [`resource__versionless_id` or `versionless_id`](https://registry.terraf
 ## Next steps
 See the following articles:
 - [Service Bus overview](service-bus-messaging-overview.md)
-- [Key Vault overview](../key-vault/general/overview.md)
+- [Key Vault overview](/azure/key-vault/general/overview)

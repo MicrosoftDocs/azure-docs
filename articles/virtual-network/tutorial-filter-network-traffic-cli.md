@@ -4,7 +4,7 @@ description: In this article, you learn how to filter network traffic to a subne
 services: virtual-network
 author: asudbring
 
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
