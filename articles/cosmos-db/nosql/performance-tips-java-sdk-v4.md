@@ -78,6 +78,7 @@ CosmosAsyncClient clientWithOpenConnections = new CosmosClientBuilder()
           .preferredRegions(Arrays.asList("sample_region_1", "sample_region_2"))
           .openConnectionsAndInitCaches(new CosmosContainerProactiveInitConfigBuilder(Arrays.asList(containerIdentity))
                 .setProactiveConnectionRegionsCount(proactiveConnectionRegionsCount)
+                 //setting aggressive warmup duration helps in cases where there is a high no. of partitions
                 .setAggressiveWarmupDuration(aggressiveWarmupDuration)
                 .build())
           .directMode()
