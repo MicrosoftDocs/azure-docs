@@ -47,6 +47,7 @@ The de-identification service (preview) is designed to receive unstructured text
 The following service limits are applicable during preview:
 - Requests cannot exceed 50 KB.
 - Jobs can process no more than 1000 documents.
+- Each document processed by a job cannot exceed 2 MB.
 
 ## Responsible use of AI
 
