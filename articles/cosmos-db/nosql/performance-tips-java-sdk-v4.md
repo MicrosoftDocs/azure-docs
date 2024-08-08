@@ -63,10 +63,30 @@ These techniques provide advanced mechanisms to address specific latency and ava
 
 ### Threshold-based availability strategy
 
-The threshold-based availability strategy can improve tail latency and availability by sending parallel read requests to secondary regions and accepting the fastest response. This approach can drastically reduce the impact of regional outages or high-latency conditions on application performance.
+The threshold-based availability strategy can improve tail latency and availability by sending parallel read requests to secondary regions and accepting the fastest response. This approach can drastically reduce the impact of regional outages or high-latency conditions on application performance. Additionally, proactive connection management can be employed to further enhance performance by warming up connections and caches across both the current read region and preferred remote regions.
 
 **Example configuration:**
 ```java
+// Proactive Connection Management
+CosmosContainerIdentity containerIdentity = new CosmosContainerIdentity("sample_db_id", "sample_container_id");
+int proactiveConnectionRegionsCount = 2;
+Duration aggressiveWarmupDuration = Duration.ofSeconds(1);
+
+CosmosAsyncClient clientWithOpenConnections = new CosmosClientBuilder()
+          .endpoint("<account URL goes here")
+          .key("<account key goes here>")
+          .endpointDiscoveryEnabled(true)
+          .preferredRegions(Arrays.asList("sample_region_1", "sample_region_2"))
+          .openConnectionsAndInitCaches(new CosmosContainerProactiveInitConfigBuilder(Arrays.asList(containerIdentity))
+                .setProactiveConnectionRegionsCount(proactiveConnectionRegionsCount)
+                 //setting aggressive warmup duration helps in cases where there is a high no. of partitions
+                .setAggressiveWarmupDuration(aggressiveWarmupDuration)
+                .build())
+          .directMode()
+          .buildAsyncClient();
+
+CosmosAsyncContainer container = clientWithOpenConnections.getDatabase("sample_db_id").getContainer("sample_container_id");
+
 int threshold = 500;
 int thresholdStep = 100;
 
@@ -79,8 +99,8 @@ options.setCosmosEndToEndOperationLatencyPolicyConfig(config);
 
 container.readItem("id", new PartitionKey("pk"), options, JsonNode.class).block();
 
-//Write operations can benefit from threshold-based availability strategy if opted into non-idempotent write retry policy 
-//and the account is configured for multi-region writes.
+// Write operations can benefit from threshold-based availability strategy if opted into non-idempotent write retry policy 
+// and the account is configured for multi-region writes.
 options.setNonIdempotentWriteRetryPolicy(true, true);
 container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).block();
 ```
@@ -94,6 +114,8 @@ container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).bloc
 3. **Third Request:** If neither the primary nor the secondary region responds within 600 milliseconds (500ms + 100ms, the `thresholdStep` value), the SDK sends another parallel request to the third preferred region (for example, West US).
 
 4. **Fastest Response Wins:** Whichever region responds first, that response is accepted, and the other parallel requests are ignored.
+
+Proactive connection management helps by warming up connections and caches for containers across the preferred regions, reducing cold-start latency for failover scenarios or writes in multi-region setups.
 
 This strategy can significantly improve latency in scenarios where a particular region is slow or temporarily unavailable, but it may incur more cost in terms of request units when parallel cross-region requests are required.
 

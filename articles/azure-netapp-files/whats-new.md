@@ -20,6 +20,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Volume encryption with customer-managed keys with managed HSM extends the [customer-managed keys](configure-customer-managed-keys.md), enabling you to store your keys in a more secure FIPS 140-2 Level 3 HSM service instead of the FIPS 140-2 Level 1 or 2 encryption offered with Azure Key Vault. 
 
+* [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) is now generally available (GA). 
+
 ## July 2024
 
 * Availability zone volume placement enhancement - [**Populate existing volumes**](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) is now generally available (GA).
