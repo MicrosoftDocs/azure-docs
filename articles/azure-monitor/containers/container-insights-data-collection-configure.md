@@ -84,7 +84,7 @@ Using the Azure portal, you can select from multiple preset configurations for d
 #### Prerequisites
 
 - Azure CLI minimum version 2.51.0.
-- For AKS clusters, [aks-preview](/azure/aks/cluster-configuration.md) version 0.5.147 or higher
+- For AKS clusters, [aks-preview](/azure/aks/cluster-configuration) version 0.5.147 or higher
 - For Arc enabled Kubernetes and AKS hybrid, [k8s-extension](../../azure-arc/kubernetes/extensions.md#prerequisites) version 1.4.3 or higher
 
 #### Configuration file
@@ -250,7 +250,7 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 ## Share DCR with multiple clusters
 When you enable Container insights on a Kubernetes cluster, a new DCR is created for that cluster, and the DCR for each cluster can be modified independently. If you have multiple clusters with custom monitoring configurations, you may want to share a single DCR with multiple clusters. You can then make changes to a single DCR that are automatically implemented for any clusters associated with it.
 
-A DCR is associated with a cluster with a [data collection rule associates (DCRA)](../essentials/data-collection-rule-overview.md#data-collection-rule-associations-dcra). Use the [preview DCR experience](../essentials/data-collection-rule-view.md#preview-dcr-experience) to view and remove existing DCR associations for each cluster. You can then use the guidance at [Create new associations](../essentials/data-collection-rule-view.md#create-new-associations) to add an association to a single DCR for multiple clusters.
+A DCR is associated with a cluster with a [data collection rule associates (DCRA)](../essentials/data-collection-rule-overview.md#data-collection-rule-associations-dcra). Use the [preview DCR experience](../essentials/data-collection-rule-view.md#preview-dcr-experience) to view and remove existing DCR associations for each cluster. You can then use this feature to add an association to a single DCR for multiple clusters.
 
 ## Configure data collection using ConfigMap
 
