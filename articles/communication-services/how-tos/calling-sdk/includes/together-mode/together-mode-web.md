@@ -78,7 +78,7 @@ const seatingMap = togetherModeFeature.togetherModeSeatingMap;
 ```
 
 ### Manage scene size
-The property `sceneSize` refers to the width and height of the HTML container that holds the together mode video stream. The seating positions of participants are calculated based on the dimensions of the scene size. If scene size isn't provided, the calculation defaults to a width of 1,280 pixels and a height of 720 pixels.
+The `sceneSize` property specifies the dimensions (width and height) of the HTML container that houses the `togetherMode` video stream.. The seating positions of participants are calculated based on the dimensions of the scene size. If scene size isn't provided, the calculation defaults to a width of 1,280 pixels and a height of 720 pixels.
 
 ```js
 const togetherModeContainerSize = { width: 500, height: 500 };
@@ -94,7 +94,7 @@ console.log(`Current scene has the following size: ${JSON.stringify(togetherMode
 > [!NOTE]
 > Only Microsoft 365 users with role organizer, co-organizer and presenter can change scene or assignment of participants in the together mode. These changes can only be done from Teams Client. 
 
-If there is a scene change or seat reassignment, the `togetherModeSceneUpdated` or `togetherModeSeatingUpdated` events are raised respectively, providing an updated calculation of the participants’ seating positions.
+If there's a scene change or seat reassignment, the `togetherModeSceneUpdated` or `togetherModeSeatingUpdated` events are raised respectively, providing an updated calculation of the participants’ seating positions.
 
 ```js
 const seatUpdate = (participantSeatingMap) => {
@@ -110,6 +110,6 @@ togetherModeFeature.on('togetherModeSeatingUpdated', seatUpdate);
 ## Troubleshooting
 |code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
-|403		| 46303	| ExpectedError  | The participant’s role does not have the necessary permissions to invoke the `togetherMode` start API. | Make sure the participant initiating the `togetherMode` start API has the role of organizer, co-organizer, or presenter |
+|403		| 46303	| ExpectedError  | The participant’s role doesn't have the necessary permissions to invoke the `togetherMode` start API. | Make sure the participant initiating the `togetherMode` start API has the role of organizer, coorganizer, or presenter |
 |403	| 46304 | ExpectedError  | Together mode was started in an unsupported calling scenario  | Ensure together mode is started only in group call or meeting scenarios |
 |403 | 46306	| ExpectedError | Together mode start API was called by a nonmicrosft M365 user  | Ensure a Microsoft M365 User starts together mode.|
