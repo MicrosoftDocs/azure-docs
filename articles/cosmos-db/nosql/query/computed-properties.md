@@ -9,7 +9,7 @@ ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql
-ms.date: 02/27/2024
+ms.date: 08/08/2024
 ms.custom: query-reference
 ---
 
@@ -244,7 +244,7 @@ You can use the Data Explorer to create a computed property for a container.
     ]
     ```
 
-    :::image type="content" source="media/computed-properties/data-explorer.png" alt-text="Screenshot of the computed properties JSON editor in the Data Explorer interface.":::
+    :::image type="content" source="media/computed-properties/data-explorer-editor.png" alt-text="Screenshot of the computed properties JSON editor in the Data Explorer interface.":::
 
 1. **Save** the computed property.
 
@@ -254,7 +254,7 @@ Computed properties can be referenced in queries the same way that persisted pro
 
 The following examples use the quickstart products dataset that's available in [Data Explorer](../../data-explorer.md) in the Azure portal. To get started, select **Launch the quick start** and load the dataset in a new container.
 
-:::image type="content" source="./media/computed-properties/data-explorer-quickstart-data.png" alt-text="Screenshot that shows how to begin the quickstart to load a sample dataset in the Azure portal." border="false":::
+:::image type="content" source="./media/computed-properties/data-explorer-home.png" alt-text="Screenshot illustrating how to load a sample data set into a database and container." border="false":::
 
 Here's an example of an item:
 
