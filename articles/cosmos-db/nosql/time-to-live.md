@@ -14,7 +14,7 @@ ms.date: 08/08/2024
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-With **Time to Live** or TTL, Azure Cosmos DB deletes items automatically from a container after a certain time period. By default, you can set time to live at the container level and override the value on a per-item basis. After you set the TTL at a container or at an item level, Azure Cosmos DB will automatically remove these items after the time period, since the time they were last modified. Time to live value is configured in seconds. When you configure TTL, the system automatically deletes the expired items based on the TTL value, without needing a delete operation explicitly issued by the client application. The maximum value for TTL is 2147483647 seconds, the approximate equivalent of 24,855 days or 68 years.
+With **Time to Live** or TTL, Azure Cosmos DB deletes items automatically from a container after a certain time period. By default, you can set time to live at the container level and override the value on a per-item basis. After you set the TTL at a container or at an item level, Azure Cosmos DB will automatically remove these items after the time period, since the time they were last modified. Time to live value is configured in seconds. When you configure TTL, the system automatically deletes the expired items based on the TTL value, without needing a delete operation explicitly issued by the client application. The maximum value for TTL is 2,147,483,647 seconds, the approximate equivalent of 24,855 days or 68 years.
 
 Expired items are deleted as a background task. An item will no longer appear in query responses immediately after the TTL expires, even if it hasn't yet been permanently deleted from the container. If the container does not have enough request units (RUs) to perform the deletion, the data deletion will be delayed. The data will be deleted once sufficient RUs are available to complete the deletion.
 
@@ -33,9 +33,9 @@ The time to live value is set in seconds, and is interpreted as a delta from the
 
    - If missing (or set to null), items aren't expired automatically.
 
-   - If present and the value is set to "-1", it's equal to infinity, and items don’t expire by default.
+   - If present and the value is set to *"-1,"* it's equal to infinity, and items don’t expire by default.
 
-   - If present and the value is set to some *nonzero* number *"n"* – items will expire *"n"* seconds after their last modified time.
+   - If present and the value is set to some *nonzero* number *"n,"* items will expire *"n"* seconds after their last modified time.
 
 2. **Time to Live on an item** (set using `ttl`):
 
@@ -64,9 +64,9 @@ TTL on container is set to null (DefaultTimeToLive = null)
 
 |TTL on item| Result|
 |---|---|
-|ttl property missing |TTL is disabled. The item will never expire (default).|
-|ttl = -1|TTL is disabled. The item will never expire.|
-|ttl = 2000|TTL is disabled. The item will never expire.|
+|ttl property missing |TTL is disabled. The item never expires (default).|
+|ttl = -1|TTL is disabled. The item never expires.|
+|ttl = 2000|TTL is disabled. The item never expires.|
 
 ### Example 2
 
@@ -74,9 +74,9 @@ TTL on container is set to -1 (DefaultTimeToLive = -1)
 
 |TTL on item| Result|
 |---|---|
-|ttl property missing |TTL is enabled. The item will never expire (default).|
-|ttl = -1|TTL is enabled. The item will never expire.|
-|ttl = 2000|TTL is enabled. The item will expire after 2000 seconds.|
+|ttl property missing |TTL is enabled. The item never expires (default).|
+|ttl = -1|TTL is enabled. The item never expires.|
+|ttl = 2000|TTL is enabled. The item expires after 2,000 seconds.|
 
 ### Example 3
 
@@ -84,9 +84,9 @@ TTL on container is set to 1000 (DefaultTimeToLive = 1000)
 
 |TTL on item| Result|
 |---|---|
-|ttl property missing |TTL is enabled. The item will expire after 1000 seconds (default).|
+|ttl property missing |TTL is enabled. The item will expire after 1,000 seconds (default).|
 |ttl = -1|TTL is enabled. The item will never expire.|
-|ttl = 2000|TTL is enabled. The item will expire after 2000 seconds.|
+|ttl = 2000|TTL is enabled. The item will expire after 2,000 seconds.|
 
 ## Next steps
 
