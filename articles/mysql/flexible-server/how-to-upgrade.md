@@ -56,7 +56,15 @@ To perform a major version upgrade for an Azure Database for MySQL Burstable SKU
 
    Before proceeding with the upgrade, run Oracle's official tool to validate that your current database schema is compatible with MySQL 8.0. This step is crucial to ensure a smooth upgrade process.
 
-4. Pre-Upgrade Decision
+   >[!NOTE]
+   >When you use Oracle's official tool to check schema compatibility, you might encounter some warnings indicating unexpected tokens in stored procedures, such as:
+   >`mysql.az_replication_change_master - at line 3,4255: unexpected token 'REPLICATION'`
+   >`mysql.az_add_action_history - PROCEDURE uses obsolete NO_AUTO_CREATE_USER sql_mode`
+   >You can safely ignore these warnings. They refer to built-in stored procedures prefixed with mysql., which are used to support Azure MySQL features. These warnings do not affect the functionality of your database.
+
+
+
+5. Pre-Upgrade Decision
 
    Before proceeding with the upgrade, you need to choose the compute tier to which you want to upgrade to perform the major version upgrade. By default, the system will upgrade from Burstable SKU to the most basic General Purpose SKU, but you can opt to upgrade to a higher compute tier if needed.
 
