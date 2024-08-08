@@ -59,21 +59,21 @@ The constraints on computed property names are:
 
 ### Query constraints
 
-Queries in the computed property definition must be valid syntactically and semantically, otherwise the create or update operation fails. Queries should evaluate to a deterministic value for all items in a container. Queries may evaluate to undefined or null for some items, and computed properties with undefined or null values behave the same as persisted properties with undefined or null values when used in queries.
+Queries in the computed property definition must be valid syntactically and semantically, otherwise the create or update operation fails. Queries should evaluate to a deterministic value for all items in a container. Queries might evaluate to undefined or null for some items, and computed properties with undefined or null values behave the same as persisted properties with undefined or null values when used in queries.
 
 The limitations on computed property query definitions are:
 
 - Queries must specify a FROM clause that represents the root item reference. Examples of supported FROM clauses are: `FROM c`, `FROM root c`, and `FROM MyContainer c`.
 - Queries must use a VALUE clause in the projection.
 - Queries can't include a JOIN.
-- Queries can't use non-deterministic Scalar expressions. Examples of non-deterministic scalar expressions are: GetCurrentDateTime, GetCurrentTimeStamp, GetCurrentTicks, and RAND.
+- Queries can't use nondeterministic Scalar expressions. Examples of nondeterministic scalar expressions are: GetCurrentDateTime, GetCurrentTimeStamp, GetCurrentTicks, and RAND.
 - Queries can't use any of the following clauses: WHERE, GROUP BY, ORDER BY, TOP, DISTINCT, OFFSET LIMIT, EXISTS, ALL, LAST, FIRST, and NONE.
 - Queries can't include a scalar subquery.
 - Aggregate functions, spatial functions, nondeterministic functions, and user defined functions (UDFs) aren't supported.
 
 ## Create computed properties
 
-After the computed properties are created, you can execute queries that reference the properties by using any method, including all SDKs and Azure Data Explorer in the Azure portal.
+After the computed properties are created, you can execute queries that reference the properties by using any method, including all software development kits (SDKs) and Azure Data Explorer in the Azure portal.
 
 | | Supported version | Notes |
 | --- | --- | --- |
@@ -142,7 +142,7 @@ const { container: containerWithComputedProperty } = await database.containers.c
 
 ### [Python](#tab/python)
 
-You can define multiple computed properties in a list and then add them to the container properties. Python SDK currently doesn't support computed properties on existing containers. 
+You can define multiple computed properties in a list and then add them to the container properties. Python SDK currently doesn't support computed properties on existing containers.
 
 ```python
 computed_properties = [{'name': "cp_lower", 'query': "SELECT VALUE LOWER(c.db_group) FROM c"},
@@ -152,13 +152,13 @@ computed_properties = [{'name': "cp_lower", 'query': "SELECT VALUE LOWER(c.db_gr
 container_with_computed_props = db.create_container_if_not_exists(
             "myContainer", PartitionKey(path="/pk"), computed_properties=computed_properties)
 ```
+
 Computed properties can be used like any other property in queries. For example, you can use the computed property `cp_lower` in a query like this:
 
 ```python
 queried_items = list(
             container_with_computed_props.query_items(query='Select * from c Where c.cp_power = 25', partition_key="test"))
 ```
-
 
 ---
 
@@ -218,7 +218,8 @@ console.log("Container definition is undefined.");
 ```
 
 ### [Python](#tab/python)
-Updating computed properties on an existing container is not supported in Python SDK. You can only define computed properties when creating a new container. This is a work in progress currently.
+
+Updating computed properties on an existing container isn't supported in Python SDK. You can only define computed properties when creating a new container.
 
 ---
 
@@ -231,9 +232,9 @@ You can use the Data Explorer to create a computed property for a container.
 
 1. Open your existing container in the Data Explorer.
 
-1. Navigate to the **Settings** section for you container. Then, navigate to the **Computed Properties* sub-section.
+1. Navigate to the **Settings** section for your container. Then, navigate to the **Computed Properties* subsection.
 
-1. Edit the computed properties definition JSON for your container. In this example, this JSON is used to define a computed property to split the `SKU` string for a retail product using the `-` delimeter.
+1. Edit the computed properties definition JSON for your container. In this example, this JSON is used to define a computed property to split the `SKU` string for a retail product using the `-` delimiter.
 
     ```json
     [
@@ -382,14 +383,14 @@ ORDER BY
 
 ## Index computed properties
 
-Computed properties aren't indexed by default and aren't covered by wildcard paths in the [indexing policy](../../index-policy.md). You can add single or composite indexes on computed properties in the indexing policy the same way you would add indexes on persisted properties. We recommend that you add relevant indexes to all computed properties. We recommend these indexes because they're beneficial in increasing performance and reducing RUs when they're indexed. When computed properties are indexed, actual values are evaluated during item write operations to generate and persist index terms.
+Computed properties aren't indexed by default and aren't covered by wildcard paths in the [indexing policy](../../index-policy.md). You can add single or composite indexes on computed properties in the indexing policy the same way you would add indexes on persisted properties. We recommend that you add relevant indexes to all computed properties. We recommend these indexes because they're beneficial in increasing performance and reducing request units (RUs). When computed properties are indexed, actual values are evaluated during item write operations to generate and persist index terms.
 
 There are a few considerations for indexing computed properties, including:
 
-- Computed properties can be specified in included paths, excluded paths, and composite index paths.
-- Computed properties can't have a spatial index defined on them.
-- Wildcard paths under the computed property path work like they do for regular properties.
-- If you're removing a computed property that has been indexed, all indexes on that property must also be dropped.
+- Computed properties can be specified in included paths, excluded paths, and composite index paths
+- Computed properties can't have a spatial index defined on them
+- Wildcard paths under the computed property path work like they do for regular properties
+- Related indexes on a removed and indexed property must also be dropped
 
 > [!NOTE]
 > All computed properties are defined at the top level of the item. The path is always `/<computed property name>`.
@@ -401,7 +402,6 @@ There are a few considerations for indexing computed properties, including:
 > When the definition of an indexed computed property is modified, it's not automatically reindexed. To index the modified computed property, you'll first need to drop the computed property from the index. Then after the reindexing is completed, add the computed property back to the index policy.
 >
 > If you want to delete a computed property, you'll first need to remove it from the index policy.
-
 
 ### Add a single index for computed properties
 
@@ -460,7 +460,7 @@ To add a composite index on two properties in which, one is computed as `cp_myCo
 
 ## Understand request unit consumption
 
-Adding computed properties to a container doesn't consume RUs. Write operations on containers that have computed properties defined might have a slight RU increase. If a computed property is indexed, RUs on write operations increase to reflect the costs for indexing and evaluation of the computed property. 
+Adding computed properties to a container doesn't consume RUs. Write operations on containers that have computed properties defined might have a slight RU increase. If a computed property is indexed, RUs on write operations increase to reflect the costs for indexing and evaluation of the computed property.
 
 ## Related content
 
