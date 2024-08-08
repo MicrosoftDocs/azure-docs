@@ -155,7 +155,7 @@ Now that you have an existing environment and config server client container app
 
   :::image type="content" source="media/java-components/select-java-component.png" alt-text="Screenshot of how to select Java component."  lightbox="media/java-components/select-java-component.png":::
 
-2. In new **Configure Java component** panel, select or enter the following values and leave others be the default, and then select **Next**
+2. In new **Configure Java component** panel, select or enter the following values
 
   :::image type="content" source="media/java-components/create-config-server-java-component.png" alt-text="Screenshot of how to create Config Server Java component."  lightbox="media/java-components/create-config-server-java-component.png":::
 
@@ -163,7 +163,7 @@ Now that you have an existing environment and config server client container app
   
   :::image type="content" source="media/java-components/configure-git-uri.png" alt-text="Screenshot of how to configure config server git uri."  lightbox="media/java-components/configure-git-uri.png":::
 
-4. Click **Configure** on **Review** page
+4. Click **Next**, and then click **Configure** on **Review** page
 ---
 
 ## Bind your container app to the Config Server for Spring Java component
@@ -245,7 +245,7 @@ You can also remove a binding from your application.
 ### [Azure portal](#tab/azure-portal)
 1.  Go to your container app environment page, **Service** on the left panel
 2.  Select **configserver** in Service list
-3.  Under bindings, select app **my-config-client**, Click **Next**
+3.  Under bindings, delete app **my-config-client**, Click **Next**
 4.  Click **Configure** on **Review** page
   
   :::image type="content" source="media/java-components/app-unbind-configserver.png" alt-text="Screenshot of container app unbind with config server."  lightbox="media/java-components/app-unbind-configserver.png":::
