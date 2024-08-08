@@ -97,7 +97,7 @@ items:
       - name: Phi-3 chat models with vision
         href: how-to/deploy-models-phi-3-vision.md
       - name: Fine-tune Phi-3 chat models
-        href: how-to/fine-tune-model-phi-3.md
+        href: how-to/fine-tune-phi-3.md
     - name: Cohere models
       items:
       - name: Cohere Command models
