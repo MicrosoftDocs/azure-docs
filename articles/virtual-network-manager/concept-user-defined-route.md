@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
 ms.date: 05/09/2024
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.custom: references_regions
 # Customer Intent: As a network engineer, I want learn how I can automate and simplify routing within my Azure Network using User-defined routes.
 ---
@@ -117,7 +117,7 @@ When you select **Direct routing within virtual network** or **Direct routing wi
 
 ## Adding additional virtual networks
 
-When you add additional virtual networks to a network group, the routing configuration is automatically applied to the new virtual network. Your network manager automatically detects the new virtual network and applies the routing configuration to it. When you remove a virtual network from the network group, the applied routing configuration is automatically removed as well. Changes
+When you add additional virtual networks to a network group, the routing configuration is automatically applied to the new virtual network. Your network manager automatically detects the new virtual network and applies the routing configuration to it. When you remove a virtual network from the network group, the applied routing configuration is automatically removed as well.
 
 
 ## Limitations of UDR management
