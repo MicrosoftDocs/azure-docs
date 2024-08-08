@@ -1,34 +1,33 @@
 ---
-title: Azure API Management policy reference - azure-openai-token-limit
-description: Reference for the azure-openai-token-limit policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+title: Azure API Management policy reference - llm-token-limit
+description: Reference for the llm-token-limit policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
-  - build-2024
 ms.topic: article
-ms.date: 06/25/2024
+ms.date: 08/07/2024
 ms.author: danlep
 ---
 
-# Limit Azure OpenAI API token usage
+# Limit large language model API token usage
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-The `azure-openai-token-limit` policy prevents Azure OpenAI Service API usage spikes on a per key basis by limiting consumption of language model tokens to a specified number per minute. When the token usage is exceeded, the caller receives a `429 Too Many Requests` response status code.
+The `llm-token-limit` policy prevents large language model (LLM) API usage spikes on a per key basis by limiting consumption of LLM tokens to a specified number per minute. When the token usage is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
-By relying on token usage metrics returned from the OpenAI endpoint, the policy can accurately monitor and enforce limits in real time. The policy also enables precalculation of prompt tokens by API Management, minimizing unnecessary requests to the OpenAI backend if the limit is already exceeded.
+By relying on token usage metrics returned from the LLM endpoint, the policy can accurately monitor and enforce limits in real time. The policy also enables precalculation of prompt tokens by API Management, minimizing unnecessary requests to the LLM backend if the limit is already exceeded.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
-[!INCLUDE [api-management-azure-openai-models](../../includes/api-management-azure-openai-models.md)]
+[!INCLUDE [api-management-llm-models](../../includes/api-management-llm-models.md)]
 
 ## Policy statement
 
 ```xml
-<azure-openai-token-limit counter-key="key value"
+<llm-token-limit counter-key="key value"
         tokens-per-minute="number"
         estimate-prompt-tokens="true | false"    
         retry-after-header-name="custom header name, replaces default 'Retry-After'" 
@@ -61,9 +60,8 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 ### Usage notes
 
 * This policy can be used multiple times per policy definition.
-* This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
-* Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the Azure OpenAI Service API are used to determine token usage.
-* Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute.
+* Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the LLM API are used to determine token usage.
+* Certain LLM endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute.
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
 
 ## Example
@@ -74,7 +72,7 @@ In the following example, the token limit of 5000 per minute is keyed by the cal
 <policies>
     <inbound>
         <base />
-        <azure-openai-token-limit
+        <llm-token-limit
             counter-key="@(context.Request.IpAddress)"
             tokens-per-minute="5000" estimate-prompt-tokens="false" remaining-tokens-variable-name="remainingTokens" />
     </inbound>
@@ -87,7 +85,7 @@ In the following example, the token limit of 5000 per minute is keyed by the cal
 ## Related policies
 
 * [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
-* [llm-token-limit](llm-token-limit-policy.md) policy
-* [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) policy
+* [azure-openai-token-limit](azure-openai-token-limit-policy.md) policy
+* [llm-emit-token-metric](llm-emit-token-metric-policy.md) policy
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
