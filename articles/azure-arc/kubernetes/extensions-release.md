@@ -127,13 +127,15 @@ The most recent version of the Flux v2 extension and the two previous versions (
 >
 > The [HelmChart](https://fluxcd.io/flux/components/source/helmcharts/) kind will be promoted from `v1beta2` to `v1` (GA). The `v1` API is backwards compatible with `v1beta2`, with the exception of the `.spec.valuesFile` field, which will be replaced by `.spec.valuesFiles`.
 >
-> To avoid issues due to breaking changes, we recommend updating your deployments as soon as possible to ensure that your manifests are compliant with this release. Use the new fields which are already available in the current version of the APIs, instead of the fields that will be removed.
+> Use the new fields which are already available in the current version of the APIs, instead of the fields that will be removed.
 >
 > The kustomize package will be updated to v5.4.0, which contains the following breaking changes:
 >
 > - [Kustomization build fails when resources key is missing](https://github.com/kubernetes-sigs/kustomize/issues/5337)
 > - [Components are now applied after generators and before transformers](https://github.com/kubernetes-sigs/kustomize/pull/5170) in [v5.1.0](https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv5.1.0)
 > - [Null yaml values are replaced by "null"](https://github.com/kubernetes-sigs/kustomize/pull/5519) in [v5.4.0](https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv5.4.0)
+>
+> To avoid issues due to breaking changes, we recommend updating your manifests as soon as possible to ensure that your Flux configurations remain compliant with this release.
 
 
 > [!NOTE]
