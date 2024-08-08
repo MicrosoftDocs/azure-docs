@@ -19,6 +19,8 @@ In this article, you learn how to deploy a model from the model catalog as a ser
 
 [Certain models in the model catalog](deploy-models-serverless-availability.md) can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
+This article uses a Meta Llama model deployment for illustration. However, you can use the same steps to deploy any of the [models in the model catalog that are available for serverless API deployment](deploy-models-serverless-availability.md).
+
 ## Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
@@ -115,8 +117,12 @@ Serverless API endpoints can deploy both Microsoft and non-Microsoft offered mod
 
     # [AI Studio](#tab/azure-ai-studio)
 
-    1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety (preview)** to open the deployment wizard.
+    1. On the model's **Details** page, select **Deploy**. A **Deployment options** window opens up, giving you the choice between serverless API deployment and deployment using a managed compute.
 
+        > [!NOTE]
+        > For models that can be deployed only via serverless API deployment, the serverless API deployment wizard opens up right after you select **Deploy** from the model's details page.
+
+    1. Select **Serverless API with Azure AI Content Safety (preview)** to open the serverless API deployment wizard.
     1. Select the project in which you want to deploy your models. To use the serverless API model deployment offering, your project must belong to one of the [regions that are supported for serverless deployment](deploy-models-serverless-availability.md) for the particular model.
 
         :::image type="content" source="../media/deploy-monitor/serverless/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the serverless API option." lightbox="../media/deploy-monitor/serverless/deploy-pay-as-you-go.png"::: 
