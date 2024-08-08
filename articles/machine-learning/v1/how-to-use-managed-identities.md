@@ -5,8 +5,8 @@ description: Learn how to use CLI and SDK v1 with managed identities to control 
 services: machine-learning
 author: Blackmist
 ms.author: larryfr
-ms.service: machine-learning
 ms.service: azure-machine-learning
+ms.subservice: enterprise-readiness
 ms.reviewer: roastala
 ms.topic: how-to
 ms.date: 11/16/2022
