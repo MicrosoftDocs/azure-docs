@@ -6,7 +6,7 @@ metadata:
   ms.author: johnmarc
   ms.service: azure-redhat-openshift
   ms.topic: faq
-  ms.date: 07/25/2024
+  ms.date: 08/08/2024
 title: Azure Red Hat OpenShift FAQ
 summary: This article answers frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
 
@@ -31,7 +31,7 @@ sections:
         answer: |
           The actual number of supported pods depends on an application’s memory, CPU, and storage requirements.
                  
-          Azure Red Hat OpenShift 4.x has a 250 pod-per-node limit and a 180 compute node limit. These limits cap the maximum number of pods supported in a cluster to 250&times;180 = 45,000. These limits are the same for clusters created using [User Defined Routing (UDR)](howto-create-private-cluster-4x.md#create-a-private-cluster-without-a-public-ip-address) and running version 4.11 or higher.
+          Azure Red Hat OpenShift 4.x has a 250 pod-per-node limit and a 250 compute node limit. These limits cap the maximum number of pods supported in a cluster to 250&times;20 = 62,500. These limits are the same for clusters created using [User Defined Routing (UDR)](howto-create-private-cluster-4x.md#create-a-private-cluster-without-a-public-ip-address) and running version 4.11 or higher.
           
       - question: Can a cluster have compute nodes across multiple Azure regions?
         answer: No. All nodes in an Azure Red Hat OpenShift cluster must originate in the same Azure region.
