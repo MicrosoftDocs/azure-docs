@@ -155,7 +155,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254.169.254/metadata/scheduledevents?api-version=2020-07-01" | ConvertTo-Json -Depth 64
 ```
 #### Python sample
-````
+````python
 import json
 import requests
 
