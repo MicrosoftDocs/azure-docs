@@ -86,7 +86,7 @@ To configure the clipboard using Intune, follow these steps. This process create
     - **Restrict clipboard transfer from client to server**: Select **Enabled**.
     - **Restrict clipboard transfer from client to server**: Select the type of clipboard data you want to prevent or allow. Your options:
 
-      - Disable clipboard transfers from server to client
+      - Disable clipboard transfers from client to server
       - Allow plain text
       - Allow plain text and images
       - Allow plain text, images, and Rich Text Format

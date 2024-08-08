@@ -29,8 +29,7 @@ In this QuickStart guide, you set up:
 ## Prerequisites
 
 - You must have an active Log Analytics Workspace in order to ingest into Microsoft Sentinel.
-- Permissions for contributors to control Microsoft Sentinel at the subscription and resource group levels.
-- Permissions for contributors to install or manage Microsoft Sentinel solutions within the content hub.
+- You must have an active Microsoft Sentinel Contributor permission at resource group level.
 
 ## Enable Sentinel for Log Analytics Workspace
 
@@ -121,7 +120,10 @@ In this QuickStart guide, you set up:
 
    [ ![A screenshot of the insights.](./media/siem-integration-with-sentinel/insights.png) ](./media/siem-integration-with-sentinel/insights.png#lightbox)
 
-
-[Automate Playbook and Alerts](../../azure-monitor/../sentinel/automation/automation.md) to create an alert for extra security measures and communication.
+## Next steps
 
 Congratulations, you can now create security barriers on your logs and investigate any incidents!
+
+Try out automating playbook: 
+- [Automate Playbook and Alerts](../../azure-monitor/../sentinel/automation/automation.md) to create an alert for extra security measures and communication.
+

@@ -434,9 +434,9 @@ Before configuring the Credentials, you require to create and store secrets in t
 * Advance to the [next article](troubleshoot-artifact-cache.md) to walk through the troubleshoot guide for Registry Cache.
 
 <!-- LINKS - External -->
-[create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-cli.md#add-a-secret-to-key-vault
-[set-and-retrieve-a-secret]: ../key-vault/secrets/quick-create-cli.md#retrieve-a-secret-from-key-vault
-[az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy
+[create-and-store-keyvault-credentials]: /azure/key-vault/secrets/quick-create-cli#add-a-secret-to-key-vault
+[set-and-retrieve-a-secret]: /azure/key-vault/secrets/quick-create-cli#retrieve-a-secret-from-key-vault
+[az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy#assign-an-access-policy
 [Install Azure CLI]: /cli/azure/install-azure-cli
 [Azure Cloud Shell]: /azure/cloud-shell/quickstart
 [az-acr-cache-create]:/cli/azure/acr/cache#az-acr-cache-create

@@ -69,7 +69,7 @@ If you rotate your certificate in Azure Key Vault, the App Service Environment p
 
 ### Network access to Key Vault
 
-The key vault can be accessed publicly or through a [private endpoint](../../private-link/private-endpoint-overview.md) accessible from the subnet that the App Service Environment is deployed to. To learn how to configure a private endpoint, see [Integrate Key Vault with Azure Private Link](../../key-vault/general/private-link-service.md). If you use public access, you can secure your key vault to only accept traffic from the outbound IP address of the App Service Environment. The App Service Environment uses the platform outbound IP address as the source address when accessing the key vault. You can find the IP address in the IP Addresses page in Azure portal.
+The key vault can be accessed publicly or through a [private endpoint](../../private-link/private-endpoint-overview.md) accessible from the subnet that the App Service Environment is deployed to. To learn how to configure a private endpoint, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service). If you use public access, you can secure your key vault to only accept traffic from the outbound IP address of the App Service Environment. The App Service Environment uses the platform outbound IP address as the source address when accessing the key vault. You can find the IP address in the IP Addresses page in Azure portal.
 
 :::image type="content" source="./media/custom-domain-suffix/platform-outbound-ip.png" alt-text="Screenshot of IP Addresses page in Azure portal.":::
 

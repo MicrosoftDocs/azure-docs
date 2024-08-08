@@ -2,7 +2,7 @@
 title: Create a zoned VM with the Azure CLI
 description: Create a virtual machine in an availability zone with the Azure CLI
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.date: 04/05/2018

@@ -3,7 +3,7 @@ title: Filter network traffic - Azure PowerShell
 description: In this article, you learn how to filter network traffic to a subnet, with a network security group, using PowerShell.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.date: 03/30/2018
