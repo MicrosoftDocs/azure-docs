@@ -24,9 +24,9 @@ Azure Operator Nexus utilizes secrets and certificates to manage component secur
 
 ## Configure Managed Identity for Cluster Manager
 
-Beginning with the 2024-06-01 public preview API, managed identities are used in the Cluster Manager for write access to rotated credentials to a key vault. The Cluster Manager identity can be system-assigned or [user-assigned](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities), and can be managed directly via APIs or via CLI.
+Beginning with the 2024-06-01-public-preview API, managed identities are used in the Cluster Manager for write access to rotated credentials to a key vault. The Cluster Manager identity can be system-assigned or [user-assigned](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities), and can be managed directly via APIs or via CLI.
 
-The examples below describe how to configure a managed identity for a Cluster Manager if one is not already configured.
+These examples describe how to configure a managed identity for a Cluster Manager.
 
 - Create or update Cluster Manager with system-assigned identity
 ```
@@ -93,7 +93,7 @@ User-assigned identity example:
 > [!IMPORTANT]
 > Use of App IDs for Customer Key Vault access is deprecated and support will be removed in a future version. It is recommended to use managed identity principals.
 
-Instead of managed identities, the following application IDs may be granted access to the Key Vault.
+Instead of managed identities, the following application IDs grant access to the Key Vault.
 
 - Ensure that the *Microsoft.NetworkCloud* resource provider is registered with the customer subscription.
 
@@ -110,7 +110,7 @@ az provider register --namespace 'Microsoft.NetworkCloud' --subscription <Subscr
 
 ## Writing Credential Updates to a Customer Key Vault on Nexus Cluster
 
-- Assign the *Operator Nexus Key Vault Writer Service Role*. Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* view. Then from the *Access control (IAM)* view, select to add a role assignment.
+- Assign the *Operator Nexus Key Vault Writer Service Role*. Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* view. Then from the *Access Control* view, select to add a role assignment.
 
 | Role Name                                              | Role Definition ID                   |
 |:-------------------------------------------------------|:-------------------------------------|
