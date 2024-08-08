@@ -53,9 +53,9 @@ The following table summarizes the support matrix for VM restore points.
 **VMs with ADE (Azure Disk Encryption)** | Yes
 **VMs using Accelerated Networking** | Yes
 **Minimum Frequency at which App consistent restore point can be taken** | 3 hours
-**Minimum Frequency at which [crash consistent restore points (preview)](https://github.com/Azure/Virtual-Machine-Restore-Points/tree/main/Crash%20consistent%20VM%20restore%20points%20(preview)) can be taken** | 1 hour
+**Minimum Frequency at which crash consistent restore points can be taken** | 1 hour
 **API version for Application consistent restore point** | 2021-03-01 or later
-**API version for Crash consistent restore point (in preview)** | 2021-07-01 or later
+**API version for Crash consistent restore point** | 2021-07-01 or later
 
 > [!Note]
 > Restore Points (App consistent or crash consistent) can be created by customer at the minimum supported frequency as mentioned above. Taking restore points at a frequency lower than supported would result in failure.
@@ -72,8 +72,7 @@ The following Windows operating systems are supported when creating restore poin
 - Windows Server 2016 (Datacenter/Datacenter Core/Standard)
 - Windows Server 2012 R2 (Datacenter/Standard)
 - Windows Server 2012 (Datacenter/Standard)
-- Windows Server 2008 R2 (RTM and SP1 Standard)
-- Windows Server 2008 (64 bit only)
+- OS that have reached [extended security update](/lifecycle/faq/extended-security-updates.md) will not be supported. Check your product's lifecycle [here](/lifecycle/products/)
 
 Restore points don't support 32-bit operating systems.
 
@@ -96,7 +95,7 @@ For Azure VM Linux VMs, restore points support the list of Linux [distributions 
 - Restore points are supported only for managed disks. 
 - Ephemeral OS disks, and Shared disks aren't supported via both consistency modes. 
 - Restore points APIs require an API of version 2021-03-01 or later for application consistency. 
-- Restore points APIs require an API of version 2021-03-01 or later for crash consistency. (in preview)
+- Restore points APIs require an API of version 2021-03-01 or later for crash consistency.
 - A maximum of 10,000 restore point collections can be retained at per subscription per region level.
 - A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections.
 - Concurrent creation of restore points for a VM isn't supported. 
