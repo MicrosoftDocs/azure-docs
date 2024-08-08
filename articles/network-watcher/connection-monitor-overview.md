@@ -4,17 +4,16 @@ titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher connection monitor and how to use it to monitor network communication in a distributed environment.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 03/12/2024
+ms.date: 07/05/2024
 
 #CustomerIntent: As an Azure administrator, I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
 
 # Connection monitor overview
 
-> [!IMPORTANT]
-> Connection monitor (Classic) is deprecated and no longer available. For more information, see [Migrate from Connection monitor (Classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to migrate your connection monitors from Connection monitor (Classic) to the new Connection monitor.
+[!INCLUDE [Migrate connection monitor (classic)](../../includes/network-watcher-connection-monitor-classic.md)]
 
 Connection monitor provides unified, end-to-end connection monitoring in Network Watcher. The Connection monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
@@ -50,10 +49,10 @@ The following sections provide details for these steps.
 
 ## Install monitoring agents
 
- > [!NOTE]
- > Connection monitor now supports auto enablement of monitoring extensions for Azure & Non-Azure endpoints, thus eliminating the need for manual installation of monitoring solutions during the creation of Connection monitor. 
- 
 Connection monitor relies on lightweight executable files to run connectivity checks. It supports connectivity checks from both Azure environments and on-premises environments. The executable file that you use depends on whether your VM is hosted on Azure or on-premises.
+
+> [!NOTE]
+> Monitoring extensions for Azure and non-Azure endpoints are automatically enabled when you use the Azure portal to create a connection monitor.
 
 ### Agents for Azure virtual machines and virtual machine scale sets 
 
@@ -351,8 +350,6 @@ When you use metrics, set the resource type as **Microsoft.Network/networkWatche
 
 | Metric | Display name | Unit | Aggregation type | Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent (classic) | % Probes Failed (classic) | Percentage | Average | Percentage of connectivity monitoring probes failed.<br>This metric is available only for Connection monitor (Classic).  | No dimensions |
-| AverageRoundtripMs (classic) | Avg. round-trip time (ms) (classic) | Milliseconds | Average | Average network RTT for connectivity monitoring probes sent between source and destination.<br>This metric is available only for Connection monitor (Classic). |             No dimensions |
 | ChecksFailedPercent | % Checks Failed | Percentage | Average | Percentage of failed checks for a test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 | RoundTripTimeMs | Round-trip time (ms) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 | TestResult | Test Result | Count | Average | Connection monitor test results. <br>Interpretation of result values: <br>0-&nbsp;Indeterminate <br>1- Pass <br>2- Warning <br>3- Fail| SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |

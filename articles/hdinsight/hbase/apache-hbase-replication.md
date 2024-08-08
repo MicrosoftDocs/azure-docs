@@ -1,10 +1,10 @@
 ---
 title: HBase cluster replication in virtual networks - Azure HDInsight
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 04/29/2024
 ---
 
 # Set up Apache HBase cluster replication in Azure virtual networks
@@ -374,7 +374,7 @@ Create keytab file for the user using `ktutil`.
 1. `wkt /etc/security/keytabs/admin.keytab`
 
 > [!NOTE] 
-> Make sure the keytab file is stored in `/etc/security.keytabs/` folder in the `<username>.keytab` format.
+> Make sure the keytab file is stored in `/etc/security/keytabs/` folder in the `<username>.keytab` format.
 
 **Step 2:** 
 Run script action with `-ku` option 

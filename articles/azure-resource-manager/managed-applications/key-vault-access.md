@@ -2,13 +2,13 @@
 title: Use Azure Key Vault when deploying Managed Applications
 description: Shows how to access secrets in Azure Key Vault when deploying Managed Applications.
 ms.custom: subject-rbac-steps
-ms.topic: conceptual
-ms.date: 06/06/2023
+ms.topic: how-to
+ms.date: 06/24/2024
 ---
 
 # Access Key Vault secret when deploying Azure Managed Applications
 
-When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md). To access the Key Vault when deploying Managed Applications, you must grant access to the **Appliance Resource Provider** service principal. The Managed Applications service uses this identity to run operations. To successfully retrieve a value from a Key Vault during deployment, the service principal must be able to access the Key Vault.
+When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](/azure/key-vault/general/overview). To access the Key Vault when deploying Managed Applications, you must grant access to the **Appliance Resource Provider** service principal. The Managed Applications service uses this identity to run operations. To successfully retrieve a value from a Key Vault during deployment, the service principal must be able to access the Key Vault.
 
 This article describes how to configure the Key Vault to work with Managed Applications.
 
@@ -29,9 +29,9 @@ This article describes how to configure the Key Vault to work with Managed Appli
 
 ## Add service as contributor
 
-Assign the **Contributor** role to the **Appliance Resource Provider** user at the key vault scope. The **Contributor** role is a _privileged administrator role_ for the role assignment. For detailed steps, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Assign the **Contributor** role to the **Appliance Resource Provider** user at the key vault scope. The **Contributor** role is a _privileged administrator role_ for the role assignment. For detailed steps, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
-The **Appliance Resource Provider** is a service principal in your Microsoft Entra tenant. From the Azure portal, you can verify if it's registered by going to **Microsoft Entra ID** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If it's not found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
+The **Appliance Resource Provider** is a service principal in your Microsoft Entra tenant. From the Azure portal, you can verify its registration at **Microsoft Entra ID** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If the service principal isn't found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
 
 ## Reference Key Vault secret
 
@@ -147,9 +147,9 @@ To pass a secret from a Key Vault to a template in your Managed Application, you
 
 ## Next steps
 
-You've configured your Key Vault to be accessible during deployment of a Managed Application.
+You configured your Key Vault to be accessible during deployment of a Managed Application.
 
 - For information about passing a value from a Key Vault as a template parameter, go to [Use Azure Key Vault to pass secure parameter value during deployment](../templates/key-vault-parameter.md).
-- To learn more about key vault security, go to [Azure Key Vault security](../../key-vault/general/security-features.md) and [Authentication in Azure Key Vault](../../key-vault/general/authentication.md).
+- To learn more about key vault security, go to [Azure Key Vault security](/azure/key-vault/general/security-features) and [Authentication in Azure Key Vault](/azure/key-vault/general/authentication).
 - For managed application examples, go to [Sample projects for Azure managed applications](sample-projects.md).
 - To learn how to create a UI definition file for a managed application, go to [Get started with CreateUiDefinition](create-uidefinition-overview.md).

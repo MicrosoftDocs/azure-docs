@@ -1,18 +1,18 @@
 ---
 title: Cross subscription and cross resource group restore
 description: This article describes how to restore to a different subscription or resource group server in Azure Database for PostgreSQL - Flexible Server using the Azure portal.
-ms.service: postgresql
-ms.subservice: flexible-server
-ms.topic: how-to
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 01/23/2024
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
+ms.subservice: flexible-server
+ms.topic: how-to
 ---
 
 # Cross subscription and cross resource group restore in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides a step-by-step procedure for using the Azure portal to perform a restore to a different subscription or resource group in Azure Database for PostgreSQL flexible server through automated backups. You can perform this procedure to the latest restore point or to a custom restore point within your retention period.
 

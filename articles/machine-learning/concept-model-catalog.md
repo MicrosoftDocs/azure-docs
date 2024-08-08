@@ -1,75 +1,183 @@
 ---
 title: Model Catalog and Collections
 titleSuffix: Azure Machine Learning
-description: Learn about machine learning foundation models in model catalog and how to use them at scale in Azure.
+description: Overview of models in the model catalog.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: conceptual
-ms.author: timanghn
-author: tinaem
-ms.reviewer: ssalgado
-ms.date: 03/04/2024
-#Customer intent: As a data scientist, I want to learn about machine learning foundation models and how to integrate popular models into azure machine learning.
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: timanghn
+ms.custom: references_regions, build-2024
+ms.date: 05/02/2024
+#Customer intent: As a data scientist, I want to learn about models available in the model catalog.
 ---
 
 # Model Catalog and Collections
 
-The Model Catalog in Azure Machine Learning studio is the hub for a wide-variety of third-party open source as well as Microsoft developed foundation models pre-trained for various language, speech and vision use-cases. You can evaluate, customize and deploy these models with the native capabilities to build and operationalize open-source foundation Models at scale to easily integrate these pretrained models into your applications with enterprise-grade security and data governance.  
+The model catalog in Azure Machine Learning studio is the hub to discover and use a wide range of models that enable you to build Generative AI applications. The model catalog features hundreds of models from model providers such as Azure OpenAI service, Mistral, Meta, Cohere, Nvidia, Hugging Face, including models trained by Microsoft. Models from providers other than Microsoft are Non-Microsoft Products, as defined in [Microsoft's Product Terms](https://www.microsoft.com/licensing/terms/welcome/welcomepage), and subject to the terms provided with the model.   
 
-* **Discover:** Review model descriptions, try sample inference and browse code samples to evaluate, fine-tune, or deploy the model.
-* **Evaluate:** Evaluate if the model is suited for your specific workload by providing your own test data. Evaluation metrics make it easy to visualize how well the selected model performed in your scenario.
-* **Fine tune:** Customize these models using your own training data. Built-in optimizations that speed up fine-tuning and reduce the memory and compute needed for fine tuning. Apply the experimentation and tracking capabilities of Azure Machine Learning to organize your training jobs and find the model best suited for your needs.
-* **Deploy:** Deploy pre-trained Foundation Models or fine-tuned models seamlessly to online endpoints for real time inference or batch endpoints for processing large inference datasets in job mode. Apply industry-leading machine learning operationalization capabilities in Azure Machine Learning.
-* **Import:** Open source models are released frequently. You can always use the latest models in Azure Machine Learning by importing models similar to ones in the catalog. For example, you can import models for supported tasks that use the same libraries.
+## Model Collections 
 
-You start by exploring the model collections or by filtering based on tasks and license, to find the model for your use-case. `Task` calls out the inferencing task that the foundation model can be used for. `Finetuning-tasks` list the tasks that this model can be fine tuned for. `License` calls out the licensing info.
+Models are organized by Collections in the model catalog. There are three types of collections in the model catalog: 
 
-## Collections
+* **Models curated by Azure AI:** The most popular third-party open weight and propriety models packaged and optimized to work seamlessly on the Azure AI platform. Use of these models is subject to the model provider's license terms provided with the model. When deployed in Azure Machine Learning, availability of the model is subject to the applicable [Azure SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services), and Microsoft provides support for deployment issues. Models from partners such as Meta, NVIDIA, Mistral AI are examples of models available in the "Curated by Azure AI" collection on the catalog. These models can be identified by a green checkmark on the model tiles in the catalog or you can filter by the "Curated by Azure AI" collection. 
+* **Azure OpenAI models, exclusively available on Azure:** Flagship Azure OpenAI models via the 'Azure OpenAI' collection through an integration with the Azure OpenAI Service. These models are supported by Microsoft and their use is subject to the product terms and [SLA for Azure OpenAI Service](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+* **Open models from the Hugging Face hub:** Hundreds of models from the HuggingFace hub are accessible via the 'Hugging Face' collection for real time inference with online endpoints. Hugging face creates and maintains models listed in HuggingFace collection. Use [HuggingFace forum](https://discuss.huggingface.co) or [HuggingFace support](https://huggingface.co/support) for help. Learn more about [how to deploy models from Hugging Face](./how-to-deploy-models-from-huggingface.md).
 
-There are three types of collections in the Model Catalog:
+**Suggesting additions to the model catalog:** You can submit a request to add a model to the model catalog using [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR_frVPkg_MhOoQxyrjmm7ZJUM09WNktBMURLSktOWEdDODBDRjg2NExKUy4u). 
 
-**Open source models curated by Azure AI**:
-The most popular open source third-party models curated by Azure Machine Learning. These models are packaged for out-of-the-box usage and are optimized for use in Azure Machine Learning, offering state of the art performance and throughput on Azure hardware. They offer native support for distributed training and can be easily ported across Azure hardware. 
+## Model catalog capabilities overview 
 
-'Curated by Azure AI' and collections from partners such as Meta, NVIDIA, Mistral AI are all curated collections on the Catalog. 
+For information on Azure OpenAI models, refer to [Azure OpenAI Service](../ai-services/openai/overview.md). 
 
-**Azure OpenAI models, exclusively available on Azure**:
-Deploy Azure OpenAI models via the 'Azure Open AI' collection in the Model Catalog.
+For models **Curated by Azure AI** and **Open models from the Hugging Face hub**, some of these can be deployed with a managed compute option, and some of these are available to be deployed using serverless APIs with pay-as-you-go billing. These models can be discovered, compared, evaluated, fine-tuned (when supported) and deployed at scale and integrated into your Generative AI applications with enterprise-grade security and data governance.  
 
-**Transformers models from the HuggingFace hub**: 
-Thousands of models from the HuggingFace hub are accessible via the 'Hugging Face' collection for real time inference with online endpoints. 
+* **Discover:** Review model cards, try sample inference and browse code samples to evaluate, fine-tune, or deploy the model. 
+* **Compare:** Compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario. 
+* **Evaluate:** Evaluate if the model is suited for your specific workload by providing your own test data. Evaluation metrics make it easy to visualize how well the selected model performed in your scenario. 
+* **Fine-tune:** Customize fine-tunable models using your own training data and pick the best model by comparing metrics across all your fine-tuning jobs. Built-in optimizations speed up fine-tuning and reduce the memory and compute needed for fine-tuning. 
+* **Deploy:** Deploy pretrained models or fine-tuned models seamlessly for inference. Models that can be deployed to managed compute can also be downloaded.  
 
-> [!IMPORTANT]
-> Models in model catalog are covered by third party licenses. Understand the license of the models you plan to use and verify that license allows your use case.
-> Some models in the model catalog are currently in preview. 
-> Models are in preview if one or more of the following statements apply to them:  
-  The model is not usable (can be deployed, fine-tuned, and evaluated) within an isolated network.   
-  Model packaging and inference schema is subject to change for newer versions of the model. 
-> For more information on preview, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Model deployment: Managed compute and serverless API (pay-as-you-go)
 
+Model Catalog offers two distinct ways to deploy models from the catalog for your use: managed compute and serverless APIs. The deployment options available for each model vary; learn more about the features of the deployment options, and the options available for specific models, in the tables below. Learn more about [data processing](concept-data-privacy.md) with the deployment options. 
 
-## Compare capabilities of models by collection
+Features | Managed compute   | Serverless API (pay-as-you-go)
+--|--|-- 
+Deployment experience and billing |  Model weights are deployed to dedicated Virtual Machines with managed online endpoints. The managed online endpoint, which can have one or more deployments, makes available a REST API for inference. You're billed for the Virtual Machine core hours used by the deployments.  | Access to models is through a deployment that provisions an API to access the model. The API provides access to the model hosted in a central GPU pool, managed by Microsoft, for inference. This mode of access is referred to as "Models as a Service".   You're billed for inputs and outputs to the APIs, typically in tokens; pricing information is provided before you deploy.  
+| API authentication   | Keys and Microsoft Entra ID authentication. [Learn more.](concept-endpoints-online-auth.md) | Keys only.  
+Content safety | Use Azure Content Safety service APIs.  | Azure AI Content Safety filters are available integrated with inference APIs. Azure AI Content Safety filters may be billed separately.  
+Network isolation | Managed Virtual Network with Online Endpoints. [Learn more.](how-to-network-isolation-model-catalog.md)  |  
 
-Feature | Open source models curated by Azure Machine Learning | Transformers models from the HuggingFace hub
+### Deployment options
+
+Model | Managed compute | Serverless API (pay-as-you-go)
 --|--|--
-Inference | Online and batch inference | Online inference
-Evaluation and fine-tuning | Evaluate and fine tune with the UI, SDK or CLI | not available
-Import models | Limited support for importing models using SDK or CLI | not available 
+Llama family models  | Llama-2-7b <br> Llama-2-7b-chat <br> Llama-2-13b <br> Llama-2-13b-chat <br> Llama-2-70b <br> Llama-2-70b-chat <br> Llama-3-8B-Instruct <br> Llama-3-70B-Instruct <br> Llama-3-8B <br> Llama-3-70B | Llama-3-70B-Instruct <br> Llama-3-8B-Instruct <br> Llama-2-7b <br> Llama-2-7b-chat <br> Llama-2-13b <br> Llama-2-13b-chat <br> Llama-2-70b <br> Llama-2-70b-chat 
+Mistral family models | mistralai-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x22B-Instruct-v0-1 <br> mistral-community-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x7B-v01 <br> mistralai-Mistral-7B-Instruct-v0-2 <br> mistralai-Mistral-7B-v01 <br> mistralai-Mixtral-8x7B-Instruct-v01 <br> mistralai-Mistral-7B-Instruct-v01 | Mistral-large (2402) <br> Mistral-large (2407) <br> Mistral-small <br> Mistral-Nemo
+Cohere family models | Not available | Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual <br> Cohere-rerank-3-english <br> Cohere-rerank-3-multilingual
+JAIS | Not available | jais-30b-chat
+Phi3 family models | Phi-3-mini-4k-Instruct <br> Phi-3-mini-128k-Instruct <br> Phi-3-small-8k-Instruct <br> Phi-3-small-128k-Instruct <br> Phi-3-medium-4k-instruct <br> Phi-3-medium-128k-instruct | Phi-3-mini-4k-Instruct <br> Phi-3-mini-128k-Instruct <br> Phi-3-small-8k-Instruct <br> Phi-3-small-128k-Instruct <br> Phi-3-medium-4k-instruct <br> Phi-3-medium-128k-instruct  
+Nixtla | Not available | TimeGEN-1
+Other models | Available | Not available
 
-## Compare attributes of collections
+:::image type="content" source="./media/concept-model-catalog/platform-service-cycle.png" alt-text="A diagram showing models as a service and Real time end points service cycle." lightbox="media/concept-model-catalog/platform-service-cycle.png":::
 
-Attribute | Open source models curated by Azure Machine Learning | Transformers models from the HuggingFace hub
---|--|--
-Model format | Curated in MLFlow or Triton model format for seamless no-code deployment with online and batch endpoints | Transformers
-Model hosting | Model weights hosted on Azure |  Model weights are pulled on demand during deployment from HuggingFace hub.
-Use in network isolated workspace | Out-of-the-box outbound capability to use models. Some models will require outbound to public domains for installing packages at runtime. | Allow outbound to HuggingFace hub, Docker hub and their CDNs 
-Support | Supported by Microsoft and covered by [Azure Machine Learning SLA](https://www.azure.cn/en-us/support/sla/machine-learning/) | Hugging face creates and maintains models listed in `HuggingFace` community registry. Use [HuggingFace forum](https://discuss.huggingface.co/) or [HuggingFace support](https://huggingface.co/support) for help.
+## Managed compute
+
+The capability to deploy models with managed compute builds on platform capabilities of Azure Machine Learning to enable seamless integration, across the entire LLMOps lifecycle, of the wide collection of models in the model catalog. 
+
+:::image type="content" source="media/concept-model-catalog/llm-ops-life-cycle.png" alt-text="A diagram showing the LLMops life cycle." lightbox="media/concept-model-catalog/llm-ops-life-cycle.png":::
+
+### How are models made available for managed compute?
+
+The models are made available through [Azure Machine Learning registries](concept-machine-learning-registries-mlops.md) that enable ML first approach to [hosting and distributing Machine Learning assets](how-to-share-models-pipelines-across-workspaces-with-registries.md) such as model weights, container runtimes for running the models, pipelines for evaluating and fine-tuning the models and datasets for benchmarks and samples. These ML Registries build on top of highly scalable and enterprise ready infrastructure that: 
+
+* Delivers low latency access model artifacts to all Azure regions with built-in geo-replication. 
+
+* Supports enterprise security requirements as [limiting access to models with Azure Policy](how-to-regulate-registry-deployments.md) and [secure deployment with managed virtual networks](how-to-network-isolation-model-catalog.md). 
+
+### Evaluate and fine-tune models deployed with managed compute
+
+You can evaluate and fine-tune in the "Curated by Azure AI" collection in Azure Machine Learning using Azure Machine Learning Pipelines. You can either choose to bring your own evaluation and fine-tuning code and just access model weights or use Azure Machine Learning components that offer built-in evaluation and fine-tuning capabilities. To learn more, [follow this link](how-to-use-foundation-models.md).
+
+### Deploy models for inference with managed compute 
+
+Models available for deployment with managed compute can be deployed to Azure Machine Learning online endpoints for real-time inference or can be used for Azure Machine Learning batch inference to batch process your data. Deploying to managed compute requires you to have Virtual Machine quota in your Azure Subscription for the specific SKUs needed to optimally run the model.  Some models allow you to deploy to [temporarily shared quota for testing the model](how-to-use-foundation-models.md). Learn more about deploying models: 
+
+* [Deploy Meta Llama models](how-to-deploy-models-llama.md) 
+* [Deploy Open models Created by Azure AI](how-to-use-foundation-models.md)
+* [Deploy Hugging Face models](how-to-deploy-models-from-huggingface.md)
+
+### Build Generative AI Apps with managed compute
+
+Prompt flow offers capabilities for prototyping, experimenting, iterating, and deploying your AI applications. You can use models deployed with managed compute in Prompt Flow with the [Open Model LLM tool](./prompt-flow/tools-reference/open-model-llm-tool.md).  You can also use the REST API exposed by the managed computes in popular LLM tools like LangChain with the [Azure Machine Learning extension](https://python.langchain.com/docs/integrations/chat/azureml_chat_endpoint/).  
+
+
+### Content safety for models deployed with managed compute 
+
+[Azure AI Content Safety (AACS)](../ai-services/content-safety/overview.md) service is available for use with models deployed to managed compute to screen for various categories of harmful content such as sexual content, violence, hate, and self-harm and advanced threats such as Jailbreak risk detection and Protected material text detection. You can refer to this notebook for reference integration with AACS for [Llama 2](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/inference/text-generation/llama-safe-online-deployment.ipynb) or use the [Content Safety (Text) tool in Prompt Flow](./prompt-flow/tools-reference/content-safety-text-tool.md) to pass responses from the model to AACS for screening. You'll be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. 
+
+### Work with models not in the model catalog 
+
+For models not available in the model catalog, Azure Machine Learning provides an open and extensible platform for working with models of your choice. You can bring a model with any framework or runtime using Azure Machine Learning's open and extensible platform capabilities such as [Azure Machine Learning environments](concept-environments.md) for containers that can package frameworks and runtimes and [Azure Machine Learning pipelines](concept-ml-pipelines.md) for code to evaluate or fine-tune the models. Refer to this notebook for sample reference to import models and work with the [built-in runtimes and pipelines](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/import/import_model_into_registry.ipynb).
+
+
+## Serverless APIs with Pay-as-you-go billing
+
+Certain models in the model catalog can be deployed as serverless APIs with pay-as-you-go billing; this method of deployment is called Models-as-a Service (MaaS). Models available through MaaS are hosted in infrastructure managed by Microsoft, which enables API-based access to the model provider's model. API based access can dramatically reduce the cost of accessing a model and significantly simplify the provisioning experience. Most MaaS models come with token-based pricing.   
+
+### How are third-party models made available in MaaS?   
+
+:::image type="content" source="media/concept-model-catalog/model-publisher-cycle.png" alt-text="A diagram showing model publisher service cycle." lightbox="media/concept-model-catalog/model-publisher-cycle.png":::
+
+Models that are available for deployment as serverless APIs with pay-as-you-go billing are offered by the model provider but hosted in Microsoft-managed Azure infrastructure and accessed via API. Model providers define the license terms and set the price for use of their models, while Azure Machine Learning service manages the hosting infrastructure, makes the inference APIs available, and acts as the data processor for prompts submitted and content output by models deployed via MaaS. Learn more about data processing for MaaS at the [data privacy](concept-data-privacy.md) article. 
+
+### Pay for model usage in MaaS    
+
+The discovery, subscription, and consumption experience for models deployed via MaaS is in the Azure AI Studio and Azure Machine Learning studio. Users accept license terms for use of the models, and pricing information for consumption is provided during deployment. Models from third party providers are billed through Azure Marketplace, in accordance with the [Commercial Marketplace Terms of Use](/legal/marketplace/marketplace-terms); models from Microsoft are billed using Azure meters as First Party Consumption Services. As described in the [Product Terms](https://www.microsoft.com/licensing/terms/welcome/welcomepage), First Party Consumption Services are purchased using Azure meters but aren't subject to Azure service terms; use of these models is subject to the license terms provided. 
+
+### Deploy models for inference through MaaS 
+
+Deploying a model through MaaS allows users to get access to ready to use inference APIs without the need to configure infrastructure or provision GPUs, saving engineering time and resources. These APIs can be integrated with several LLM tools and usage is billed as described in the previous section. 
+
+### Fine-tune models through MaaS with Pay-as-you-go 
+
+For models that are available through MaaS and support fine-tuning, users can take advantage of hosted fine-tuning with pay-as-you-go billing to tailor the models using data they provide. For more information, see [fine-tune a Llama 2 model](../ai-studio/how-to/fine-tune-model-llama.md) in Azure AI Studio. 
+
+### RAG with models deployed through MaaS 
+
+Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmented Generation. Models that can be deployed as serverless APIs can be used to generate embeddings and inferencing based on custom data to generate answers specific to their use case. For more information, see [Retrieval augmented generation and indexes](concept-retrieval-augmented-generation.md). 
+
+### Regional availability of offers and models 
+
+Pay-as-you-go deployment is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see "offer availability region" in the table in the next section). If the offer is available in the relevant region, the user then must have a Workspace in the Azure region where the model is available for deployment or fine-tuning, as applicable (see "Workspace region" columns in the table below). 
+
+Model | Offer availability region | Workspace Region for Deployment | Workspace Region for Finetuning
+--|--|--|--
+Llama-3-70B-Instruct <br> Llama-3-8B-Instruct | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central, North Central US, South Central US, West US, East US, West US 3 | Not available
+Llama-2-7b <br> Llama-2-13b <br> Llama-2-70b | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, East US, West US 3, West US, North Central US, South Central US | West US 3
+Llama-2-7b-chat <br> Llama-2-13b-chat <br> Llama-2-70b-chat | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, East US, West US 3, West US, North Central US, South Central US | Not available
+Mistral Small | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
+Mistral Large (2402) <br> Mistral Large (2407) | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Brazil <br> Hong Kong <br> Israel|  East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
+Mistral Nemo | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Brazil <br> Hong Kong <br> Israel|  East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
+Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Japan | East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
+Cohere-rerank-3-english <br> Cohere-rerank-3-multilingual | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)| East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
+TimeGEN-1 | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Mexico <br> Israel| East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
+jais-30b-chat | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
+Phi-3-mini-4k-instruct <br> Phi-3-mini-128k-instruct | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
+Phi-3-small-8k-instruct <br> Phi-3-small-128k-Instruct | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
+Phi-3-medium-4k-instruct, Phi-3-medium-128k-instruct  | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
+
+### Content safety for models deployed via MaaS  
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+
+[!INCLUDE [content-safety-serverless-models](../ai-studio/includes/content-safety-serverless-models.md)]
+
+### Network isolation for models deployed via Serverless APIs
+
+Endpoints for models deployed as Serverless APIs follow the public network access (PNA) flag setting of the workspace in which the deployment exists. To secure your MaaS endpoint, disable the PNA flag on your workspace. You can secure inbound communication from a client to your endpoint by using a private endpoint for the workspace.
+
+To set the PNA flag for the workspace:
+
+* Go to the [Azure portal](https://ms.portal.azure.com/).
+* Search for _Azure Machine Learning_, and select your workspace from the list of workspaces.
+* On the Overview page, use the left navigation pane to go to **Settings** > **Networking**.
+* Under the **Public access** tab, you can configure settings for the public network access flag.
+* Save your changes. Your changes might take up to five minutes to propagate.
+
+#### Limitations
+
+* If you have a workspace with a private endpoint created before July 11, 2024, new MaaS endpoints added to this workspace won't follow its networking configuration. Instead, you need to create a new private endpoint for the workspace and create new serverless API deployments in the workspace so that the new deployments can follow the workspace's networking configuration. 
+* If you have a workspace with MaaS deployments created before July 11, 2024, and you enable a private endpoint on this workspace, the existing MaaS deployments won't follow the workspace's networking configuration. For serverless API deployments in the workspace to follow the workspace's configuration, you need to create the deployments again.
+* Currently [On Your Data](#rag-with-models-deployed-through-maas) support isn't available for MaaS deployments in private workspaces, since private workspaces have the PNA flag disabled.
+* Any network configuration change (for example, enabling or disabling the PNA flag) might take up to five minutes to propagate.
 
 ## Learn more
 
-* Learn [how to use foundation Models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation and deployment using Azure Machine Learning studio UI or code based methods.
+* Learn [how to use foundation Models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation, and deployment using Azure Machine Learning studio UI or code based methods.
 * Explore the [Model Catalog in Azure Machine Learning studio](https://ml.azure.com/model/catalog). You need an [Azure Machine Learning workspace](./quickstart-create-resources.md) to explore the catalog.
-* [Evaluate, fine-tune and deploy models](./how-to-use-foundation-models.md) curated by Azure Machine Learning.
-
-
+* [Evaluate, finetune, and deploy models](./how-to-use-foundation-models.md) curated by Azure Machine Learning.

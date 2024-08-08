@@ -3,7 +3,7 @@ title: 'Quickstart: Automate load tests with CI/CD'
 titleSuffix: Azure Load Testing
 description: 'Learn how to automate an existing load test by adding it to Azure Pipelines directly from the Azure portal. Run load tests in your CI/CD pipeline to automate performance regression testing.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: quickstart
 author: ninallam
 ms.author: ninallam

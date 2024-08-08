@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 06/10/2024
 ms.author: normesta
 ms.custom: devx-track-azurepowershell
 ---
@@ -79,6 +79,41 @@ To check the current settings for blob soft delete, call the [az storage account
 az storage account blob-service-properties show --account-name <storage-account> \
     --resource-group <resource-group>
 ```
+
+### [Template](#tab/template)
+
+To enable blob soft delete with an Azure Resource Manager template, create a template that sets the **deleteRetentionPolicy** property. The following steps describe how to create a template in the Azure portal.
+
+1. In the Azure portal, choose **Create a resource**.
+1. In **Search the Marketplace**, type **Deploy a custom template**, and then press **ENTER**.
+1. Choose **Build your own template in the editor**.
+1. In the template editor, paste in the following JSON. Replace the `<account-name>` placeholder with the name of your storage account.
+
+    ```json
+      {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "variables": {},
+      "resources": [
+            {
+               "type": "Microsoft.Storage/storageAccounts/blobServices",
+               "apiVersion": "2023-04-01",
+               "name": "<account-name>/default",
+               "properties": {
+                     "deleteRetentionPolicy": {
+                        "enabled": true,
+                        "days": 7
+                  }
+               }
+            }
+      ]
+      }
+    ```
+
+1. Specify the retention period. The default value is 7.
+1. Save the template.
+1. Specify the resource group of the account, and then choose the **Review + create** button to deploy the template and enable container soft delete.
 
 ---
 
@@ -168,9 +203,44 @@ To enable blob soft delete for your storage account by using the Azure portal, f
    az storage fs service-properties update --delete-retention false --connection-string $con
    ```
 
+### [Template](#tab/template)
+
+To enable blob soft delete with an Azure Resource Manager template, create a template that sets the **deleteRetentionPolicy** property. The following steps describe how to create a template in the Azure portal.
+
+1. In the Azure portal, choose **Create a resource**.
+1. In **Search the Marketplace**, type **Deploy a custom template**, and then press **ENTER**.
+1. Choose **Build your own template in the editor**.
+1. In the template editor, paste in the following JSON. Replace the `<account-name>` placeholder with the name of your storage account.
+
+    ```json
+      {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "variables": {},
+      "resources": [
+            {
+               "type": "Microsoft.Storage/storageAccounts/blobServices",
+               "apiVersion": "2023-04-01",
+               "name": "<account-name>/default",
+               "properties": {
+                     "deleteRetentionPolicy": {
+                        "enabled": true,
+                        "days": 7
+                  }
+               }
+            }
+      ]
+      }
+    ```
+
+1. Specify the retention period. The default value is 7.
+1. Save the template.
+1. Specify the resource group of the account, and then choose the **Review + create** button to deploy the template and enable container soft delete.
+
 ---
 
 ## Next steps
 
 - [Soft delete for blobs](soft-delete-blob-overview.md)
-- [Manage and restore soft-deleted blobs](soft-delete-blob-manage.md)
+- [Manage and restore soft-deleted blobs](soft-delete-blob-manage.yml)

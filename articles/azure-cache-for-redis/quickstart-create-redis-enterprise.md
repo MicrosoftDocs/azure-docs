@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Redis Enterprise cache'
 description: In this quickstart, learn how to create an instance of Azure Cache for Redis in use the Enterprise tier.
 author: flang-msft
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 04/10/2023
@@ -54,9 +54,11 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
 1. Select **Next: Advanced**.
 
-   Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. Disabling TLS is **not** recommended, however. You can't change the eviction policy or clustering policy of an Enterprise cache instance after you create it. If you're using this cache instance in a replication group, be sure to know the policies of your primary nodes before you create the cache. For more information on replication, see [Active geo-replication prerequisites](cache-how-to-active-geo-replication.md#active-geo-replication-prerequisites).
+   Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. Disabling TLS is **not** recommended, however. 
 
-   Set **Clustering policy** to **Enterprise** for a nonclustered cache. For more information on choosing **Clustering policy**, see [Clustering Policy](#clustering-policy).
+   Set **Clustering policy** to **Enterprise** for a nonclustered cache, or to **OSS** for a clustered cache. For more information on choosing **Clustering policy**, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
+
+  
 
    :::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
@@ -67,6 +69,14 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
    > For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
    >
 
+   > [!IMPORTANT]
+   > You can't change the clustering policy of an Enterprise cache instance after you create it. If you're using [RediSearch](cache-redis-modules.md#redisearch), the Enterprise cluster policy is required, and `NoEviction` is the only eviction policy supported. 
+   >
+
+   > [!IMPORTANT]
+   >  If you're using this cache instance in a geo-replication group, eviction policies cannot be changed after the instance is created. Be sure to know the eviction policies of your primary nodes before you create the cache. For more information on active geo-replication, see [Active geo-replication prerequisites](cache-how-to-active-geo-replication.md#active-geo-replication-prerequisites).
+   >
+   
    > [!IMPORTANT]
    > You can't change modules after you create a cache instance. Modules must be enabled at the time you create an Azure Cache for Redis instance. There is no option to enable the configuration of a module after you create a cache.
    >
@@ -80,12 +90,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 1. Review the settings and select **Create**.
 
    It takes some time for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
-
-## Clustering Policy
-
-The OSS Cluster mode allows clients to communicate with Redis using the same Redis Cluster API as open-source Redis. This mode provides optimal latency and near-linear scalability improvements when scaling the cluster. Your client library must support clustering to use the OSS Cluster mode.
-
-The Enterprise Cluster mode is a simpler configuration that exposes a single endpoint for client connections. This mode allows an application designed to use a standalone, or nonclustered, Redis server to seamlessly operate with a scalable, multi-node, Redis implementation. Enterprise Cluster mode abstracts the Redis Cluster implementation from the client by internally routing requests to the correct node in the cluster. Clients aren't required to support OSS Cluster mode.
+   
 
 ## Related content
 

@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/search/search-security-trimming-for-azure-search-with-aad.md",
+            "redirect_url": "/previous-versions/azure/search/search-security-trimming-for-azure-search-with-aad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/search-howto-aad.md",
+            "redirect_url": "/azure/search/keyless-connections",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/search/search-synonyms-tutorial-sdk.md",
+            "redirect_url": "https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample02_Service.md#create-a-synonym-map",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/search-case-studies.md",
             "redirect_url": "https://azure.microsoft.com/case-studies",
             "redirect_document_id": false
@@ -244,11 +259,6 @@
             "source_path_from_root": "/articles/search/search-howto-index-documentdb.md",
             "redirect_url": "/azure/search/search-howto-index-cosmosdb",
             "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/documentdb/documentdb-search-indexer.md",
-            "redirect_url": "/azure/search/search-howto-index-documentdb",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/search/search-create-index-portal.md",

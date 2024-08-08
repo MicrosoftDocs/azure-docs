@@ -1,20 +1,20 @@
 ---
 title: Azure Storage extension in Azure Database for PostgreSQL - Flexible Server
 description: Learn about the Azure Storage extension in Azure Database for PostgreSQL - Flexible Server.
-author: gennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
-ms.date: 03/28/2024
-ms.service: postgresql
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Azure Storage extension in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 A common use case for Microsoft customers is the ability to import and export data between Azure Blob Storage and an Azure Database for PostgreSQL flexible server instance. The Azure Storage extension (`azure_storage`) in Azure Database for PostgreSQL flexible server simplifies this use case.
 
@@ -226,10 +226,6 @@ When the Azure Database for PostgreSQL flexible server administrator decides tha
 ```sql
 SELECT * FROM azure_storage.account_user_remove('mystorageaccount', 'support');
 ```
-
-## Limitations and known issues
-
-[!INCLUDE [Note Query Store and Azure Storage compability](includes/note-query-store-azure-storage-compability.md)]
 
 ## Next steps
 

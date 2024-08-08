@@ -5,12 +5,14 @@ author: anaharris-ms
 ms.author: anaharris
 ms.date: 03/01/2024
 ms.service: azure-storage
-ms.topic: concept
+ms.topic: concept-article
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 
 
 # Relocate Azure network security group (NSG) to another region
+
+
 
 This article shows you how to relocate an NSG to a new region by creating a copy of the source configuration and security rules of the NSG to another region.
 

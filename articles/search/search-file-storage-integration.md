@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 06/25/2024
 ---
 
 # Index data from Azure Files
 
 > [!IMPORTANT] 
-> Azure Files indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to create the indexer data source.
+> Azure Files indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API](/rest/api/searchservice/search-service-api-versions#preview-versions) to create the indexer data source.
 
 In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Files and makes it searchable in Azure AI Search. Inputs to the indexer are your files in a single share. Output is a search index with searchable content and metadata stored in individual fields.
 
@@ -37,8 +37,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 The Azure Files indexer can extract text from the following document formats:
 
-[!INCLUDE [search-document-data-sources](../../includes/search-blob-data-sources.md)]
-
+[!INCLUDE [search-document-data-sources](./includes/search-blob-data-sources.md)]
 
 ## How Azure Files are indexed
 
@@ -48,14 +47,16 @@ A compound or embedded document (such as a ZIP archive, a Word document with emb
 
 Textual content of a document is extracted into a string field named "content". You can also extract standard and user-defined metadata.
 
-
 ## Define the data source
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or later for "type": `"azurefile"`.
+You can use 2020-06-30-preview or later for "type": `"azurefile"`. We recommend the latest preview API.
 
-    ```json
+1. [Create a data source](/rest/api/searchservice/indexers/create?view=rest-searchservice-2024-05-01-preview&preserve-view=true) to set its definition, using a preview API for "type": `"azurefile"`.
+
+    ```http
+    POST /datasources?api-version=2024-05-01-preview
     {
         "name" : "my-file-datasource",
         "type" : "azurefile",
@@ -87,10 +88,10 @@ Indexers can connect to a file share using the following connections.
 
 In the [search index](search-what-is-an-index.md), add fields to accept the content and metadata of your Azure files. 
 
-1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store file content and metadata:
+1. [Create or update an index](/rest/api/searchservice/indexes/create-or-update) to define search fields that will store file content and metadata.
 
     ```http
-    POST /indexes?api-version=2020-06-30
+    POST /indexes?api-version=2024-07-01
     {
       "name" : "my-search-index",
       "fields": [
@@ -114,7 +115,7 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
 
 1. Add a "content" field to store extracted text from each file through the blob's "content" property. You aren't required to use this name, but doing so lets you take advantage of implicit field mappings. 
 
-1. Add fields for standard metadata properties. In file indexing, the standard metadata properties are the same as blob metadata properties. The file indexer automatically creates internal field mappings for these properties that converts hyphenated property names to underscored property names. You still have to add the fields you want to use the index definition, but you can omit creating field mappings in the data source.
+1. Add fields for standard metadata properties. In file indexing, the standard metadata properties are the same as blob metadata properties. The Azure Files indexer automatically creates internal field mappings for these properties that converts hyphenated property names to underscored property names. You still have to add the fields you want to use the index definition, but you can omit creating field mappings in the data source.
 
     + **metadata_storage_name** (`Edm.String`) - the file name. For example, if you have a file /my-share/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
     + **metadata_storage_path** (`Edm.String`) - the full URI of the file, including the storage account. For example, `https://myaccount.file.core.windows.net/my-share/my-folder/subfolder/resume.pdf`
@@ -124,14 +125,14 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
     + **metadata_storage_content_md5** (`Edm.String`) - MD5 hash of the file content, if available.
     + **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the file. This token shouldn't be stored for later use as it might expire.
 
-## Configure and run the file indexer
+## Configure and run the Azure Files indexer
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
+1. [Create or update an indexer](/rest/api/searchservice/indexers/create-or-update) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    POST /indexers?api-version=2024-07-01
     {
       "name" : "my-file-indexer",
       "dataSourceName" : "my-file-datasource",
@@ -165,10 +166,10 @@ An indexer runs automatically when it's created. You can prevent this by setting
 
 ## Check indexer status
 
-To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/indexers/get-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2024-07-01
   Content-Type: application/json  
   api-key: [admin key]
 ```

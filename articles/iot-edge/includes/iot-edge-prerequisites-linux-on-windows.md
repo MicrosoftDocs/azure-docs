@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 12/23/2022
+ms.date: 06/10/2024
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -27,7 +27,7 @@ A Windows device with the following minimum requirements:
   * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](../nested-virtualization.md).
 
 * Networking support
-  * Windows Server does not come with a default switch. Before you can deploy EFLOW to a Windows Server device, you need to create a virtual switch.  For more information, see [Create virtual switch for Linux on Windows](../how-to-create-virtual-switch.md).
+  * Windows Server does not come with a default switch. Before you can deploy EFLOW to a Windows Server device, you need to create a virtual switch. For more information, see [Create virtual switch for Linux on Windows](../how-to-create-virtual-switch.md).
   * Windows Desktop versions come with a default switch that can be used for EFLOW installation. If needed, you can create your own custom virtual switch.
 
 > [!TIP]

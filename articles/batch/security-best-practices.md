@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 09/13/2023
+ms.date: 06/27/2024
 ms.topic: conceptual
 ---
 
@@ -9,7 +9,10 @@ ms.topic: conceptual
 
 This article provides guidance and best practices for enhancing security when using Azure Batch.
 
-By default, Azure Batch accounts have a public endpoint and are publicly accessible. When an Azure Batch pool is created, the pool is provisioned in a specified subnet of an Azure virtual network. Virtual machines in the Batch pool are accessed through public IP addresses that are created by Batch. Compute nodes in a pool can communicate with each other when needed, such as to run multi-instance tasks, but nodes in a pool can't communicate with virtual machines outside of the pool.
+By default, Azure Batch accounts have a public endpoint and are publicly accessible. When an Azure Batch pool is created,
+the pool is provisioned in a specified subnet of an Azure virtual network. Virtual machines in the Batch pool are accessed,
+by default, through public IP addresses that Batch creates. Compute nodes in a pool can communicate with each other when needed,
+such as to run multi-instance tasks, but nodes in a pool can't communicate with virtual machines outside of the pool.
 
 :::image type="content" source="media/security-best-practices/typical-environment.png" alt-text="Diagram showing a typical Batch environment.":::
 
@@ -21,9 +24,7 @@ Many features are available to help you create a more secure Azure Batch deploym
 
 ### Pool configuration
 
-Many security features are only available for pools configured using [Virtual Machine Configuration](nodes-and-pools.md#configurations), and not for pools with Cloud Services Configuration. We recommend using Virtual Machine Configuration pools, which utilize [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md), whenever possible.
-
-Pools can also be configured in one of two node communication modes, classic or [simplified](simplified-compute-node-communication.md).
+Pools can be configured in one of two node communication modes, classic or [simplified](simplified-compute-node-communication.md).
 In the classic node communication model, the Batch service initiates communication to the compute nodes, and compute nodes
 also require communicating to Azure Storage. In the simplified node communication model, compute nodes initiate communication
 with the Batch service. Due to the reduced scope of inbound/outbound connections required, and not requiring Azure Storage
@@ -35,14 +36,14 @@ node communication model will be
 
 Batch account access supports two methods of authentication: Shared Key and [Microsoft Entra ID](batch-aad-auth.md).
 
-We strongly recommend using Microsoft Entra ID for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here. The service API authentication mechanism for a Batch account can be restricted to only Microsoft Entra ID using the [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create) property. When this property is set, API calls using Shared Key authentication will be rejected.
+We strongly recommend using Microsoft Entra ID for Batch account authentication. Some Batch capabilities require this method of authentication, including many of the security-related features discussed here. The service API authentication mechanism for a Batch account can be restricted to only Microsoft Entra ID using the [allowedAuthenticationModes](/rest/api/batchmanagement/batch-account/create) property. When this property is set, API calls using Shared Key authentication is rejected.
 
 ### Batch account pool allocation mode
 
 When creating a Batch account, you can choose between two [pool allocation modes](accounts.md#batch-accounts):
 
-- **Batch service**: The default option, where the underlying Cloud Service or Virtual Machine Scale Set resources used to allocate and manage pool nodes are created on Batch-owned subscriptions, and aren't directly visible in the Azure portal. Only the Batch pools and nodes are visible.
-- **User subscription**: The underlying Cloud Service or Virtual Machine Scale Set resources are created in the same subscription as the Batch account. These resources are therefore visible in the subscription, in addition to the corresponding Batch resources.
+- **Batch service**: The default option, where the underlying Virtual Machine Scale Set resources used to allocate and manage pool nodes are created on Batch-owned subscriptions, and aren't directly visible in the Azure portal. Only the Batch pools and nodes are visible.
+- **User subscription**: The underlying Virtual Machine Scale Set resources are created in the same subscription as the Batch account. These resources are therefore visible in the subscription, in addition to the corresponding Batch resources.
 
 With user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription mode is required if you want to create Batch pools using Azure Reserved VM Instances, use Azure Policy on Virtual Machine Scale Set resources, and/or  manage the core quota on the subscription (shared across all Batch accounts in the subscription). To create a Batch account in user subscription mode, you must also register your subscription with Azure Batch, and associate the account with an Azure Key Vault.
 
@@ -72,6 +73,13 @@ Batch supports both Linux and Windows operating systems. Batch supports Linux wi
 distributions. It's recommended that the operating system is kept up-to-date with the latest patches provided by the OS
 publisher.
 
+It's recommended to enable [Auto OS upgrade for Batch pools](batch-upgrade-policy.md), which allows the underlying
+Azure infrastructure to coordinate updates across the pool. This option can be configured to be nondisrupting for task
+execution. Automatic OS upgrade doesn't support all operating systems that Batch supports. For more information, see the
+[Virtual Machine Scale Sets Auto OS upgrade Support Matrix](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
+For Windows operating systems, ensure that you aren't enabling the property
+`virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates` when using Auto OS upgrade on the Batch pool.
+
 Batch support for images and node agents phase out over time, typically aligned with publisher support timelines. It's
 recommended to avoid using images with impending end-of-life (EOL) dates or images that are past their EOL date.
 It's your responsibility to periodically refresh your view of the EOL dates pertinent to your pools and migrate your workloads
@@ -89,7 +97,7 @@ at any time. EOL dates can be discovered via the
 The Batch node agent doesn't modify operating system level defaults for SSL/TLS versions or cipher suite ordering. In Windows,
 SSL/TLS versions and cipher suite order is controlled at the operating system level, and therefore the Batch node agent adopts
 the settings set by the image used by each compute node. Although the Batch node agent attempts to utilize the
-most secure settings available when possible, it can still be limited by operating system level settings.  We recommend that
+most secure settings available when possible, it can still be limited by operating system level settings. We recommend that
 you review your OS level defaults and set them appropriately for the most secure mode that is amenable for your workflow and
 organizational requirements. For more information, please visit
 [Manage TLS](/windows-server/security/tls/manage-tls) for cipher suite order enforcement and
@@ -167,7 +175,7 @@ Clients communicating with the Batch service should be configured to use Transpo
 
 Some of the information specified in Batch APIs, such as account certificates, job and task metadata, and task command lines, is automatically encrypted when stored by the Batch service. By default, this data is encrypted using Azure Batch platform-managed keys unique to each Batch account.
 
-You can also encrypt this data using [customer-managed keys](batch-customer-managed-key.md). [Azure Key Vault](../key-vault/general/overview.md) is used to generate and store the key, with the key identifier registered with your Batch account.
+You can also encrypt this data using [customer-managed keys](batch-customer-managed-key.md). [Azure Key Vault](/azure/key-vault/general/overview) is used to generate and store the key, with the key identifier registered with your Batch account.
 
 ### Encrypt compute node disks
 

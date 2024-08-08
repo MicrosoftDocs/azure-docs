@@ -3,12 +3,12 @@ title: Manage Network Watcher Agent VM extension - Windows
 description: Learn about the Network Watcher Agent virtual machine extension on Windows virtual machines and how to deploy it.
 author: halkazwini
 ms.author: halkazwini
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.topic: how-to
-ms.date: 03/31/2024
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.date: 08/07/2024
+ms.custom: devx-track-arm-template
 
 #CustomerIntent: As an Azure administrator, I want to learn about Network Watcher Agent VM extension so that I can use Network watcher features to diagnose and monitor my virtual machines (VMs).
 ---
@@ -75,7 +75,13 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 ## Supported operating systems
 
-Network Watcher Agent extension for Windows can be installed on Windows Server 2012, 2012 R2, 2016, 2019 and 2022 releases. Currently, Nano Server isn't supported.
+Network Watcher Agent extension for Windows can be installed on:
+
+- Windows Server 2012, 2012 R2, 2016, 2019 and 2022 releases.
+- Windows 10 and 11 releases.
+
+> [!NOTE]
+> Currently, Nano Server isn't supported.
 
 ## Extension schema
 

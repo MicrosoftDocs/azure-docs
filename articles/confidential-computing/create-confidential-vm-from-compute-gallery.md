@@ -3,8 +3,8 @@ title: Create a confidential VM from an Azure Compute Gallery image
 description: Learn how to quickly create and deploy an AMD-based DCasv5 or ECasv5 series Azure confidential virtual machine (confidential VM) from an Azure Compute Gallery image
 author: lakmeedee
 ms.author: dejv
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 07/14/2022
 ms.custom: mode-arm
@@ -37,7 +37,7 @@ This image version can be replicated within the source region **but cannot be re
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the **Virtual machines** service.
 1. Open the confidential VM that you want to use as the image source.
-1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.md) before you create the image.
+1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.yml) before you create the image.
 1. Select **Capture**.
 1. In the **Create an image** page that opens, [create your image definition and version](../virtual-machines/image-version.md?tabs=portal#create-an-image).
     1. Allow the image to be shared to Azure Compute Gallery as a VM image version. Managed images aren't supported for confidential VMs.
@@ -56,7 +56,7 @@ Now, you can [create a Confidential VM from your custom image](#create-a-confide
 ### Create a Confidential VM type image from managed disk or snapshot
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.md) for the disk or snapshot before you create the image.
+1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.yml) for the disk or snapshot before you create the image.
 1. Search for and select **VM Image Versions** in the search bar.
 1. Select **Create**
 1. On the **Create VM image version** page's **Basics** tab:

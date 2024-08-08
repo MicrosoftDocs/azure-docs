@@ -113,7 +113,7 @@ You can persist instances of the two concrete classes in the Table service using
 
 ![Person table](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-For more information about working with multiple entity types in the same table in client code, see the section Working with heterogeneous entity types later in this guide. This provides examples of how to recognize the entity type in client code.  
+For more information about working with multiple entity types in the same table in client code, see the section [Working with heterogeneous entity types](table-storage-design-patterns.md#working-with-heterogeneous-entity-types) later in this guide. This provides examples of how to recognize the entity type in client code.  
 
 
 ## Next steps

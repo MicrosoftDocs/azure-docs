@@ -4,15 +4,15 @@ description: Troubleshooting guide for high memory utilization.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
-ms.date: 01/23/2024
-ms.service: postgresql
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
 # High memory utilization in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article introduces common scenarios and root causes that might lead to high memory utilization in [Azure Database for PostgreSQL flexible server](overview.md).
 
@@ -88,7 +88,7 @@ A reasonable setting for shared buffers is 25% of RAM. Setting a value of greate
 
 All new and idle connections on an Azure Database for PostgreSQL flexible server database consume up to 2 MB of memory. One way to monitor connections is by using the following query:
 
-```postgresql
+```sql
 select count(*) from pg_stat_activity;
 ```
 

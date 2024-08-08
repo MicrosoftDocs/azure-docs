@@ -1,8 +1,8 @@
 ---
 title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 10/21/2022
 ms.topic: overview
 ms.service: azure-maps
@@ -15,7 +15,6 @@ ms.custom: mvc, references_regions
 Azure Maps is a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications. Azure Maps provides:
 
 * REST APIs to render vector and raster maps in multiple styles and satellite imagery.
-* Creator services to create and render maps based on private indoor map data.
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
@@ -215,10 +214,6 @@ Verify that the location of your current IP address is in a supported country/re
 
 ## Next steps
 
-Learn about indoor maps:
-
-[What is Azure Maps Creator?]
-
 Try a sample app that showcases Azure Maps:
 
 [Quickstart: Create a web app]
@@ -232,7 +227,6 @@ Stay up to date on Azure Maps:
 [Get started with Azure Maps Power BI visual]: power-bi-visual-get-started.md
 [How to use the Get Map Attribution API]: how-to-show-attribution.md
 [Quickstart: Create a web app]: quick-demo-map-app.md
-[What is Azure Maps Creator?]: about-creator.md
 [v1]: /rest/api/maps/data?view=rest-maps-1.0&preserve-view=true
 [v2]: /rest/api/maps/data
 [How to create data registry]: how-to-create-data-registries.md

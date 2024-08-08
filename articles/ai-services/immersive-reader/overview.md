@@ -16,8 +16,6 @@ keywords: readers, language learners, display pictures, improve reading, read co
 
 # What is Azure AI Immersive Reader?
 
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
-
 [Immersive Reader](https://www.onenote.com/learningtools), part of [Azure AI services](../../ai-services/what-are-ai-services.md), is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft OneNote to improve your web applications.
 
 This documentation contains the following types of articles:  
@@ -68,6 +66,10 @@ With Immersive Reader, you can break words into syllables to improve readability
 ## How does Immersive Reader work?
 
 Immersive Reader is a standalone web application. When it's invoked, the Immersive Reader client library displays on top of your existing web application in an `iframe`. When your web application calls the Immersive Reader service, you specify the content to show the reader. The Immersive Reader client library handles the creation and styling of the `iframe` and communication with the Immersive Reader backend service. The Immersive Reader service processes the content for parts of speech, text to speech, translation, and more.
+
+## Data privacy for Immersive reader
+
+Immersive reader doesn't store any customer data.
 
 ## Next step
 

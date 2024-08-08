@@ -5,16 +5,16 @@ author: dominicbetts
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 06/02/2023
+ms.date: 06/20/2024
 ms.author: dobett
 ---
 
 # What Azure technologies and services can you use to create IoT solutions?
 
-Azure IoT technologies and services provide you with options to create a wide variety of IoT solutions that enable digital transformation for your organization. For example, you can:
+Azure IoT technologies and services provide you with options to create a wide variety of IoT solutions that enable digital transformation for your organization. For example:
 
-* Use [Azure IoT Central](https://apps.azureiotcentral.com), a managed IoT application platform, to evaluate your IoT solution.
-* Use Azure IoT platform services such as [Azure IoT Hub](../iot-hub/about-iot-hub.md) and the [Device Provisioning Service](../iot-dps/about-iot-dps.md) to build a custom IoT solution from scratch.
+* To evaluate your IoT solution, use [Azure IoT Central](https://apps.azureiotcentral.com), a managed IoT application platform.
+* To build a custom IoT solution from scratch, use Azure IoT platform services such as [Azure IoT Hub](../iot-hub/about-iot-hub.md) and the [Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 ## Devices and device SDKs
 
@@ -33,9 +33,9 @@ To learn more, see [Azure IoT device and application development](./concepts-iot
 
 ## Azure IoT Central
 
-[IoT Central](https://apps.azureiotcentral.com) is a managed app platform that reduces the burden and cost of developing, managing, and maintaining IoT solutions. Use IoT Central to quickly evaluate your IoT scenario and assess the opportunities it can create for your business. IoT Central streamlines the development of a complex and continually evolving IoT infrastructure by letting you to focus on determining the business impact you can create with your IoT data.
+[IoT Central](https://apps.azureiotcentral.com) is a managed app platform that reduces the burden and cost of developing, managing, and maintaining IoT solutions. Use IoT Central to quickly evaluate your IoT scenario and assess the opportunities it can create for your business. IoT Central streamlines the development of a complex and continually evolving IoT infrastructure by letting you to focus on determining the business benefit you can create with your IoT data.
 
-The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. After you've used IoT Central to evaluate your IoT scenario, you can then build your enterprise-ready Azure IoT solution.  
+The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications. After using IoT Central to evaluate your IoT scenario, you can then build your enterprise-ready Azure IoT solution.  
 
 As a fully managed app platform, IoT Central has a simple, predictable pricing model.
 
@@ -68,7 +68,7 @@ IoT devices typically generate large amounts of time series data, such as temper
 
 ### Actions and notifications
 
-A solution may required automated actions based on device data. For example, you may want to send an email or text message when a device reports a critical condition.
+A solution might require automated actions based on device data. For example, you might want to send an email or text message when a device reports a critical condition.
 
 [Azure Functions](../azure-functions/functions-overview.md) is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. Use Azure Functions to create event-driven, serverless apps that can run actions in response to conditions identified in telemetry streams.
 

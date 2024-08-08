@@ -2,7 +2,7 @@
 title: Troubleshoot common errors in the Azure Cosmos DB for Apache Cassandra
 description: This article discusses common issues in the Azure Cosmos DB for Apache Cassandra and how to troubleshoot them.
 author: TheovanKraay
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: troubleshooting
 ms.date: 03/02/2021

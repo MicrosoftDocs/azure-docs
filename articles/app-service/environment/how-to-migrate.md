@@ -1,10 +1,10 @@
 ---
 title: Use the in-place migration feature to migrate your App Service Environment to App Service Environment v3
-description: Learn how to migrate your App Service Environment to App Service Environment v3 by using the in-place migration feature.
+description: Deprecated - Learn how to migrate your App Service Environment to App Service Environment v3 by using the in-place migration feature.
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 3/26/2024
+ms.date: 5/21/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -54,7 +54,7 @@ ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --quer
 
 ## 2. Validate that migration is supported
 
-The following command checks whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages that you can get. If your environment [isn't supported for migration using the in-place migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the in-place migration feature, see the [manual migration options](migration-alternatives.md). This command also validates that your App Service Environment is on the supported build version for migration. If your App Service Environment isn't on the supported build version, you need to start the upgrade yourself. For more information on the premigration upgrade, see [Validate that migration is supported using the in-place migration feature for your App Service Environment](migrate.md#validate-that-migration-is-supported-using-the-in-place-migration-feature-for-your-app-service-environment).
+The following command checks whether your App Service Environment is supported for migration. If you receive an error or if your App Service Environment is in an unhealthy or suspended state, you can't migrate at this time. See the [troubleshooting](migrate.md#troubleshooting) section for descriptions of the potential error messages that you can get. If your environment [isn't supported for migration using the in-place migration feature](migrate.md#supported-scenarios) or you want to migrate to App Service Environment v3 without using the in-place migration feature, see the [manual migration options](migration-alternatives.md). This command also validates that your App Service Environment is on the supported build version for migration. If your App Service Environment isn't on the supported build version, you need to start the upgrade yourself, which could take 8-12 hours or longer depending on the size of your environment. For more information on the premigration upgrade, see [Validate that migration is supported using the in-place migration feature for your App Service Environment](migrate.md#validate-that-migration-is-supported-using-the-in-place-migration-feature-for-your-app-service-environment).
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"
@@ -87,6 +87,10 @@ If the step is in progress, you get a status of `Migrating`. After you get a sta
 ```azurecli
 az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2021-02-01"
 ```
+
+> [!NOTE]
+> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change again once the [migration step](#8-migrate-to-app-service-environment-v3-and-check-status) is complete. Be prepared to update your dependent resources again with the new inbound IP address after the migration step is complete. This bug is being addressed and will be fixed as soon as possible. Open a support case if you have any questions or concerns about this issue or need help with the migration process.
+>
 
 ## 4. Update dependent resources with new IPs
 
@@ -131,7 +135,7 @@ Zone redundancy is an optional configuration. You can set it only during the cre
 If your existing App Service Environment uses a custom domain suffix, you need to [configure one for your new App Service Environment v3 resource during the migration process](./migrate.md#choose-your-app-service-environment-v3-configurations). Migration fails if you don't configure a custom domain suffix and are using one currently. Migration also fails if you try to add a custom domain suffix during migration to an environment that doesn't have one configured. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
 
 > [!NOTE]
-> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated in step 3.
+> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated in step 3. If you're accessing your key vault using a private endpoint, ensure you've configured private access correctly.
 >
 
 If your migration doesn't include a custom domain suffix and you aren't enabling zone redundancy, you can move on to migration.
@@ -223,6 +227,10 @@ Get the details of your new environment by running the following command or by g
 az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 ```
 
+> [!NOTE]
+> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the [migration step](#8-migrate-to-app-service-environment-v3) is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help with the confirming the new IPs.
+>
+
 ::: zone-end
 
 ::: zone pivot="experience-azp"
@@ -243,7 +251,7 @@ If your App Service Environment isn't supported for migration at this time or yo
 
 :::image type="content" source="./media/migration/migration-not-supported.png" alt-text="Screenshot that shows an example portal message that says the migration feature doesn't support the App Service Environment.":::
 
-If you need to start an upgrade to upgrade your App Service Environment to the supported build version, you're prompted to start the upgrade. Select **Upgrade** to start the upgrade. When the upgrade completes, you pass validation and can use the migration feature to start your migration.
+If you need to start an upgrade to upgrade your App Service Environment to the supported build version, you're prompted to start the upgrade, which could take 8-12 hours or longer depending on the size of your environment. Select **Upgrade** to start the upgrade. When the upgrade completes, you pass validation and can use the migration feature to start your migration.
 
 If migration is supported for your App Service Environment, proceed to the next step in the process. The **Migration** page guides you through the series of steps to complete the migration.
 
@@ -298,7 +306,7 @@ If your existing App Service Environment uses a [custom domain suffix](./migrate
 If you want to use a custom domain suffix but don't currently have one configured, you can configure one after migration is complete. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
 
 > [!NOTE]
-> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated in step 2.
+> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated in step 2. If you're accessing your key vault using a private endpoint, ensure you've configured private access correctly.
 
 :::image type="content" source="./media/migration/input-custom-domain-suffix.png" alt-text="Screenshot that shows the link for adding a custom domain suffix.":::
 
@@ -320,6 +328,10 @@ This step takes three to six hours for v2 to v3 migrations and up to six hours f
 At this time, detailed migration statuses are available only when you're using the Azure CLI. For more information, see the Azure CLI section for migrating to App Service Environment v3. You can check the status of the migration with the CLI even if you use the portal to do the migration.
 
 When migration is complete, you have an App Service Environment v3 resource, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
+
+> [!NOTE]
+> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the migration step is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help with the confirming the new IPs.
+>
 
 If your migration includes a custom domain suffix, the domain appeared in the **Essentials** section of the **Overview** page of the portal for App Service Environment v1/v2, but it no longer appears there in App Service Environment v3. Instead, for App Service Environment v3, go to the **Custom domain suffix** page to confirm that your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously.
 

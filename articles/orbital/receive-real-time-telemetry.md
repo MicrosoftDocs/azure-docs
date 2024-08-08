@@ -68,8 +68,8 @@ Follow the [instructions to enable Capture](../../articles/event-hubs/event-hubs
 
 ## Understand telemetry points
 
-### Current telemetry schema version: 4.0
-The ground station provides telemetry using Avro as a schema. The schema is below:
+### Current telemetry schema version: 4.1
+The ground station provides telemetry using Avro as a schema. The schema is below.  Note, Microsoft antennas emit Telemetry once the first data point is received. Telemetry is reported using a "last known value" approach, meaning that we will always send the most recent value we have for a metric. Due to this behavior, you may see a `NULL` value in the first second of a contact until that metric is first produced.
 
 ```json
 {
@@ -130,11 +130,11 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
     },
     {
       "name": "contactTleLine1",
-      "type": "string"
+      "type": [ "null", "string" ]
     },
     {
       "name": "contactTleLine2",
-      "type": "string"
+      "type": [ "null", "string" ]
     },
     {
       "name": "links",
@@ -285,7 +285,7 @@ The following table provides the source device/point, possible values, and defin
 | digitizerName | Digitizer | | Name of digitizer device |
 | endpointName | Contact profile link channel	| |	Name of the endpoint used for the contact. |
 | inputEbN0InDb |	Modem: measuredEbN0	| • NULL (Modem model other than QRadio or QRx) <br> • Double: Input EbN0 | Input energy per bit to noise power spectral density in dB. |
-| inputEsN0InDb	| Not used in Microsoft antenna telemetry | NULL (Not used in Microsoft antenna telemetry) | Input energy per symbol to noise power spectral density in dB. |
+| inputEsN0InDb	| Modem: measuredEsN0 | • NULL (Modem model other than QRx) <br> • Double: Input EsN0 | Input energy per symbol to noise power spectral density in dB. |
 | inputRfPowerDbm |	Digitizer: inputRfPower	| • NULL (Uplink or Digitizer driver other than SNNB or SNWB) <br> • Double: Input Rf Power | Input RF power in dBm. |
 | outputRfPowerDbm | Digitizer: outputRfPower | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Output Rf Power | Ouput RF power in dBm. |
 | outputPacketRate | Digitizer: rfOutputStream[0].measuredPacketRate | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Output Packet Rate | Measured packet rate for Uplink |
@@ -302,6 +302,7 @@ You can write simple consumer apps to receive events from your Event Hubs using 
 - [JavaScript](../event-hubs/event-hubs-node-get-started-send.md)
 
 ## Changelog
+2024-04-17 - Updated schema to include possible NULL for TLEs, and added EsN0 for QRX, and added blurb about how Microsoft antennas may have a NULL for a field during the first second of a contact.
 2023-10-03 - Introduce version 4.0. Updated schema to include uplink packet metrics and names of infrastructure in use (ground station, antenna, spacecraft, modem, digitizer, link, channel) <br>
 2023-06-05 - Updated schema to show metrics under channels instead of links.
 

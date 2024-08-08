@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 05/06/2024
 ---
 
 # Relevance in keyword search (BM25 scoring)
@@ -67,22 +67,40 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 
 | Cause | Description |
 |-----------|-------------|
-| Data volatility | Index content varies as you add, modify, or delete documents. Term frequencies will change as index updates are processed over time, affecting the search scores of matching documents. |
-| Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. For more information about this condition, see [Concepts: search units, replicas, partitions, shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards) in the capacity planning documentation. |
 | Identical scores | If multiple documents have the same score, any one of them might appear first.  |
+| Data volatility | Index content varies as you add, modify, or delete documents. Term frequencies will change as index updates are processed over time, affecting the search scores of matching documents. |
+| Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. The following section provides more information about this condition. |
+
+## Sharding effects on query results
+
+A *shard* is a chunk of an index. Azure AI Search subdivides an index into *shards* to make the process of adding partitions faster (by moving shards to new search units). On a search service, shard management is an implementation detail and nonconfigurable, but knowing that an index is sharded helps to understand the occasional anomalies in ranking and autocomplete behaviors:
+
++ Ranking anomalies: Search scores are computed at the shard level first, and then aggregated up into a single result set. Depending on the characteristics of shard content, matches from one shard might be ranked higher than matches in another one. If you notice counter intuitive rankings in search results, it's most likely due to the effects of sharding, especially if indexes are small. You can avoid these ranking anomalies by choosing to [compute scores globally across the entire index](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), but doing so will incur a performance penalty.
+
++ Autocomplete anomalies: Autocomplete queries, where matches are made on the first several characters of a partially entered term, accept a fuzzy parameter that forgives small deviations in spelling. For autocomplete, fuzzy matching is constrained to terms within the current shard. For example, if a shard contains "Microsoft" and a partial term of "micro" is entered, the search engine will match on "Microsoft" in that shard, but not in other shards that hold the remaining parts of the index.
+
+The following diagram shows the relationship between replicas, partitions, shards, and search units. It shows an example of how a single index is spanned across four search units in a service with two replicas and two partitions. Each of the four search units stores only half of the shards of the index. The search units in the left column store the first half of the shards, comprising the first partition, while those in the right column store the second half of the shards, comprising the second partition. Since there are two replicas, there are two copies of each index shard. The search units in the top row store one copy, comprising the first replica, while those in the bottom row store another copy, comprising the second replica.
+
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Search indexes are sharded across partitions.":::
+
+The diagram above is only one example. Many combinations of partitions and replicas are possible, up to a maximum of 36 total search units.
+
+> [!NOTE]
+> The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). Azure AI Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create an index, each partition will contain four shards of the index. How Azure AI Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
+>
 
 <a name="scoring-statistics"></a>
 
 ### Scoring statistics and sticky sessions
 
-For scalability, Azure AI Search distributes each index horizontally through a sharding process, which means that [portions of an index are physically separate](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
+For scalability, Azure AI Search distributes each index horizontally through a sharding process, which means that [portions of an index are physically separate](#sharding-effects-on-query-results).
 
 By default, the score of a document is calculated based on statistical properties of the data *within a shard*. This approach is generally not a problem for a large corpus of data, and it provides better performance than having to calculate the score based on information across all shards. That said, using this performance optimization could cause two very similar documents (or even identical documents) to end up with different relevance scores if they end up in different shards.
 
 If you prefer to compute the score based on the statistical properties across all shards, you can do so by adding `scoringStatistics=global` as a [query parameter](/rest/api/searchservice/search-documents) (or add `"scoringStatistics": "global"` as a body parameter of the [query request](/rest/api/searchservice/search-documents)).
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2024-07-01
 {
     "search": "<query string>",
     "scoringStatistics": "global"
@@ -92,7 +110,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Using `scoringStatistics` will ensure that all shards in the same replica provide the same results. That said, different replicas may be slightly different from one another as they're always getting updated with the latest changes to your index. In some scenarios, you may want your users to get more consistent results during a "query session". In such scenarios, you can provide a `sessionId` as part of your queries. The `sessionId` is a unique string that you create to refer to a unique user session.
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2024-07-01
 {
     "search": "<query string>",
     "sessionId": "<string>"

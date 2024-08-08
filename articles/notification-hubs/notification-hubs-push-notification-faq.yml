@@ -7,12 +7,12 @@ metadata:
   manager: femila
   keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
   
-  ms.service: notification-hubs
+  ms.service: azure-notification-hubs
   ms.tgt_pltfrm: mobile-multiple
   ms.topic: faq
-  ms.date: 06/05/2023
+  ms.date: 04/24/2024
   ms.author: sethm
-  ms.reviewer: thsomasu
+  ms.reviewer: heathertian
   ms.lastreviewed: 11/13/2019
 title: "Push notifications with Azure Notification Hubs: Frequently asked questions"
 summary: |
@@ -181,6 +181,15 @@ sections:
           Is there audit log capability?
         answer: |
           Yes. All Notification Hubs management operations update the Azure Activity Log to which is exposed in the [Azure portal](https://portal.azure.com). The Azure Activity Log offers insights into the operations performed on resources in your subscriptions. Using the Activity Log, you can determine the what, who, and when for any write operations (PUT, POST, DELETE) made for the resources in your subscription. You can also understand the status of the operations and other relevant properties. However. the Activity Log does not include read (GET) operation.
+
+      - question: |
+          Does Notification Hubs detect uninstallation?
+        answer: |
+          If you stored the device as a `Registration`, the first time you send to that registration and the PNS responds with an error status code that indicates the device is not valid, the device is deleted from your notification hub.
+
+          If you stored your devices using the `Installation` APIs, they are not deleted in the scenario above. This decision was made to preserve tags and other metadata about a particular user that might be relevant if the user reinstalls.
+
+          For both registrations and installations, you can set an expiration so that the device is automatically cleaned up at a given time. A common pattern is to have your client application update that expiration date once a day to move it back as long as the user is using your application.
           
   - name: Monitoring and troubleshooting
     questions:

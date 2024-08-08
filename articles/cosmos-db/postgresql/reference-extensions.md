@@ -3,11 +3,11 @@ title: Extensions – Azure Cosmos DB for PostgreSQL
 description: Describes the ability to extend the functionality of your database by using extensions in Azure Cosmos DB for PostgreSQL
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 02/11/2024
+ms.date: 05/28/2024
 ---
 # PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
@@ -82,7 +82,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Provides functions and operators for manipulating null-free arrays of integers. | 1.2 | 1.2 | 1.3 | 1.5 | 1.5 | 1.5 |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Functions for tracking last modification time. | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
 > | [orafce](https://github.com/orafce/orafce) | Functions and operators that emulate a subset of functions and packages from the Oracle RDBMS. |     |     |     | 4.9 | 4.9 | 4.9 |
-> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.7.4 | 4.7.4 | 4.7.4 | 5.0.1 | 5.0.1 | 5.0.1 |
+> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.7.4 | 4.7.4 | 4.7.4 | 5.1.0 | 5.1.0 | 5.1.0 |
 > | [pg\_surgery](https://www.postgresql.org/docs/current/pgsurgery.html) | Functions to perform surgery on a damaged relation. |     |     |     | 1.0 | 1.0 | 1.0 |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 |
 > | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Provides cryptographic functions. | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 |
@@ -115,7 +115,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > |---|---|---|---|---|---|
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Functions for verifying relation integrity. | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 |
 > | [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. See the "dblink and postgres_fdw" section for information about this extension. | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 |
-> | [old\_snapshot](https://www.postgresql.org/docs/current/oldsnapshot.html) | Allows inspection of the server state that is used to implement old_snapshot_threshold. |     |     |     | 1.0 | 1.0 |     |
+> | [old\_snapshot](https://www.postgresql.org/docs/current/oldsnapshot.html) | Allows inspection of the server state that is used to implement old_snapshot_threshold. |     |     |     | 1.0 | 1.0 | 1.0 |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspect the contents of database pages at a low level. | 1.7 | 1.7 | 1.8 | 1.9 | 1.11 | 1.12 |
 > | [pg\_azure\_storage](howto-ingest-azure-blob-storage.md) | Azure integration for PostgreSQL. | | | 1.3 | 1.3 | 1.3 | 1.3 |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.4 |
@@ -136,7 +136,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** | **PG 16** |
 > |---|---|---|---|---|---|
-> [pgvector](https://github.com/pgvector/pgvector#installation-notes) | Open-source vector similarity search for Postgres | 0.5.1 | 0.6.0 | 0.6.0 | 0.6.0 | 0.6.0 | 0.6.0 |
+> [pgvector](https://github.com/pgvector/pgvector#installation-notes) | Open-source vector similarity search for Postgres | 0.5.1 | 0.7.0 | 0.7.0 | 0.7.0 | 0.7.0 | 0.7.0 |
 
 ### PostGIS extensions
 
@@ -144,9 +144,9 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** | **PG 16** |
 > |---|---|---|---|---|---|
 > | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 3.3.4 | 3.4.1 | 3.4.1 | 3.4.1 | 3.4.1 | 3.4.1 |
-> | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 3.3.4 | 3.4.1 | 3.4.1 | 3.4.1 | 3.4.1 | 3.4.1 |
-> | postgis\_sfcgal | PostGIS SFCGAL functions. | 3.3.4 | 3.4.1 | 3.4.1 | 3.4.1 | 3.4.1 | 3.4.1 |
-> | postgis\_topology | PostGIS topology spatial types and functions. | 3.3.4 | 3.4.1 | 3.4.1 | 3.4.1 | 3.4.1 | 3.4.1 |
+> | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 3.3.4 | 3.4.2 | 3.4.2 | 3.4.2 | 3.4.2 | 3.4.2 |
+> | postgis\_sfcgal | PostGIS SFCGAL functions. | 3.3.4 | 3.4.2 | 3.4.2 | 3.4.2 | 3.4.2 | 3.4.2 |
+> | postgis\_topology | PostGIS topology spatial types and functions. | 3.3.4 | 3.4.2 | 3.4.2 | 3.4.2 | 3.4.2 | 3.4.2 |
 
 ## pg_stat_statements
 The [pg\_stat\_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Cosmos DB for PostgreSQL cluster to provide you with a means of tracking execution statistics of SQL statements.

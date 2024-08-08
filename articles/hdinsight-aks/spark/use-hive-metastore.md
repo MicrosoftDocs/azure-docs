@@ -34,18 +34,18 @@ While you create the cluster, HDInsight service needs to connect to the external
 1. Create an Azure Key Vault.
 
     The purpose of the Key Vault is to allow you to store the SQL Server admin password set during SQL database creation. HDInsight on AKS platform doesn’t deal with the credential directly. Hence, it's necessary to store your important credentials in Azure Key Vault. 
-    Learn the steps to create an [Azure Key Vault](../../key-vault/general/quick-create-portal.md).
+    Learn the steps to create an [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 1. Post the creation of Azure Key Vault assign the following roles
 
     |Object	|Role|Remarks|
     |-|-|-|
     |User Assigned Managed Identity(the same UAMI as used by the HDInsight cluster) |Key Vault Secrets User | Learn how to [Assign role to UAMI](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md)|
-    |User(who creates secret in Azure Key Vault) | Key Vault Administrator| Learn how to [Assign role to user](../../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page). |
+    |User(who creates secret in Azure Key Vault) | Key Vault Administrator| Learn how to [Assign role to user](../../role-based-access-control/role-assignments-portal.yml#step-2-open-the-add-role-assignment-page). |
 
     > [!NOTE]
     > Without this role, user can't create a secret.
 
-1. [Create a secret](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
+1. [Create a secret](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault)
 
     This step allows you to keep your SQL server admin password as a secret in Azure Key Vault. Add your password(same password as provided in the SQL DB for admin) in the “Value” field while adding a secret.
 

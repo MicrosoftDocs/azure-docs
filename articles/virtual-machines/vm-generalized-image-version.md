@@ -2,7 +2,7 @@
 title: Create a VM from a generalized image in a gallery
 description: Create a VM from a generalized image in a gallery.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 08/15/2023
@@ -474,7 +474,7 @@ You also need the `imageID` of the image you want to use and you need to make su
 
 In this example, we're showing how to create a VM from a generalized image. If you're using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
 
-You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
+You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. In this case, tenant1 is where the image is stored, and tenant2 is where you want to create the VM. This is how Azure authenticates that you have access to the image.
 
 ```azurecli-interactive
 
@@ -485,8 +485,6 @@ az account clear
 az login --tenant $tenant1
 az account get-access-token 
 az login --tenant $tenant2
-az account get-access-token
-az login --tenant $tenant1
 az account get-access-token
 ```
  
@@ -514,7 +512,7 @@ az vm create \
 
 In this example, we're showing how to create a VM from a generalized image. If you're using a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md).
 
-You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. This is how Azure authenticates that you have access to the image.
+You need to sign in to the tenant where the image is stored, get an access token, then sign into the tenant where you want to create the VM. In this case, tenant1 is where the image is stored, and tenant2 is where you want to create the VM. This is how Azure authenticates that you have access to the image.
 
 ```azurepowershell-interactive
 
@@ -522,7 +520,6 @@ $tenant1 = "<Tenant 1 ID>"
 $tenant2 = "<Tenant 2 ID>"
 Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 Connect-AzAccount -Tenant "<Tenant 2 ID>" -UseDeviceAuthentication
-Connect-AzAccount -Tenant "<Tenant 1 ID>" -UseDeviceAuthentication
 ```
 
 

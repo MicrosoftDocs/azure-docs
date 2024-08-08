@@ -1,9 +1,9 @@
 ---
-author: santiagxf
 ms.service: machine-learning
 ms.topic: include
 ms.date: 04/22/2023
-ms.author: fasantia
+author: ccrestana
+ms.author: cacrest
 ---
 
 Before following the steps in this article, make sure you have the following prerequisites:

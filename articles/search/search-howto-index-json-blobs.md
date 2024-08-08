@@ -1,7 +1,7 @@
 ---
 title: Search over JSON blobs
 titleSuffix: Azure AI Search
-description: Extract searchable text from JSON blobs using the Blob indexer in Azure AI Search. Indexers provide indexing automation for supported data sources like Azure Blob Storage.
+description: Extract searchable text from JSON blobs using the blob indexer in Azure AI Search. Indexers provide indexing automation for supported data sources like Azure Blob Storage.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,14 +11,14 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 06/25/2024
 ---
 
 # Index JSON blobs and files in Azure AI Search
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 
-For blob indexing in Azure AI Search, this article shows you how to set properties for blobs or files consisting of JSON documents. JSON files in Azure Blob Storage or Azure File Storage commonly assume any of these forms:
+For blob indexing in Azure AI Search, this article shows you how to set properties for blobs or files consisting of JSON documents. JSON files in Azure Blob Storage or Azure Files commonly assume any of these forms:
 
 + A single JSON document
 + A JSON document containing an array of well-formed JSON elements
@@ -35,6 +35,10 @@ The blob indexer provides a `parsingMode` parameter to optimize the output of th
 For both **`jsonArray`** and **`jsonLines`**, you should review [Indexing one blob to produce many search documents](search-howto-index-one-to-many-blobs.md) to understand how the blob indexer handles disambiguation of the document key for multiple search documents produced from the same blob.
 
 Within the indexer definition, you can optionally set [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For example, when using the **`jsonArray`** parsing mode, if the array exists as a lower-level property, you can set a "documentRoot" property indicating where the array is placed within the blob.
+
+> [!NOTE]
+> When a JSON parsing mode is used, Azure AI Search assumes that all blobs use the same parser (either for **`json`**, **`jsonArray`** or **`jsonLines`**). If you have a mix of different file types in the same data source, consider using [file extension filters](search-blob-storage-integration.md#controlling-which-blobs-are-indexed) to control which files are imported.
+
 
 The following sections describe each mode in more detail. If you're unfamiliar with indexer clients and concepts, see [Create a search indexer](search-howto-create-indexers.md). You should also be familiar with the details of [basic blob indexer configuration](search-howto-indexing-azure-blob-storage.md), which isn't repeated here.
 
@@ -59,7 +63,7 @@ The blob indexer parses the JSON document into a single search document, loading
 Although the default behavior is one search document per JSON blob, setting the **`json`** parsing mode changes the internal field mappings for content, promoting fields inside `content` to actual fields in the search index. An example indexer definition for the **`json`** parsing mode might look like this:
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -73,6 +77,7 @@ api-key: [admin key]
 
 > [!NOTE]
 > As with all indexers, if fields do not clearly match, you should expect to explicitly specify individual [field mappings](search-indexer-field-mappings.md) unless you are using the implicit fields mappings available for blob content and metadata, as described in [basic blob indexer configuration](search-howto-indexing-azure-blob-storage.md).
+
 
 ### json example (single hotel JSON files)
 
@@ -97,7 +102,7 @@ Alternatively, you can use the JSON array option. This option is useful when blo
 The `parameters` property on the indexer contains parsing mode values. For a JSON array, the indexer definition should look similar to the following example.
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -109,9 +114,9 @@ api-key: [admin key]
 }
 ```
 
-### jsonArrays example (clinical trials sample data)
+### jsonArrays example
 
-The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
+The [New York Philharmonic JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ny-philharmonic) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the [**Import data** wizard](search-get-started-portal.md) to quickly evaluate how this content is parsed into individual search documents. 
 
 The data set consists of eight blobs, each containing a JSON array of entities, for a total of 100 entities. The entities vary as to which fields are populated, but the end result is one search document per entity, from all arrays, in all blobs.
 
@@ -156,7 +161,7 @@ If your blob contains multiple JSON entities separated by a newline, and you wan
 For JSON lines, the indexer definition should look similar to the following example.
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 

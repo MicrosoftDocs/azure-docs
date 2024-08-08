@@ -48,22 +48,23 @@ Face detection identifies the visual landmarks of human faces and finds their bo
 
 The recognition model is used when the face features are extracted, so you can specify a model version when performing the Detect operation.
 
-When using the [Face - Detect] API, assign the model version with the `recognitionModel` parameter. The available values are:
+When using the [Detect] API, assign the model version with the `recognitionModel` parameter. The available values are:
 * `recognition_01`
 * `recognition_02`
 * `recognition_03`
 * `recognition_04`
 
 
-Optionally, you can specify the _returnRecognitionModel_ parameter (default **false**) to indicate whether _recognitionModel_ should be returned in response. So, a request URL for the [Face - Detect] REST API will look like this:
+Optionally, you can specify the _returnRecognitionModel_ parameter (default **false**) to indicate whether _recognitionModel_ should be returned in response. So, a request URL for the [Detect] REST API will look like this:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect?detectionModel={detectionModel}&recognitionModel={recognitionModel}&returnFaceId={returnFaceId}&returnFaceAttributes={returnFaceAttributes}&returnFaceLandmarks={returnFaceLandmarks}&returnRecognitionModel={returnRecognitionModel}&faceIdTimeToLive={faceIdTimeToLive}`
 
 If you're using the client library, you can assign the value for `recognitionModel` by passing a string representing the version. If you leave it unassigned, a default model version of `recognition_01` will be used. See the following code example for the .NET client library.
 
 ```csharp
-string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(url: imageUrl, returnFaceId: true, returnFaceLandmarks: true, recognitionModel: "recognition_01", returnRecognitionModel: true);
+string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
+var response = await faceClient.DetectAsync(new Uri(imageUrl), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: true, returnFaceLandmarks: true, returnRecognitionModel: true);
+var faces = response.Value;
 ```
 
 > [!NOTE]
@@ -71,49 +72,57 @@ var faces = await faceClient.Face.DetectWithUrlAsync(url: imageUrl, returnFaceId
 
 ## Identify faces with the specified model
 
-The Face service can extract face data from an image and associate it with a **Person** object (through the [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API call, for example), and multiple **Person** objects can be stored together in a **PersonGroup**. Then, a new face can be compared against a **PersonGroup** (with the [Face - Identify] call), and the matching person within that group can be identified.
+The Face service can extract face data from an image and associate it with a **Person** object (through the [Add Person Group Person Face] API call, for example), and multiple **Person** objects can be stored together in a **PersonGroup**. Then, a new face can be compared against a **PersonGroup** (with the [Identify From Person Group] call), and the matching person within that group can be identified.
 
-A **PersonGroup** should have one unique recognition model for all of the **Person**s, and you can specify this using the `recognitionModel` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]). If you don't specify this parameter, the original `recognition_01` model is used. A group will always use the recognition model it was created with, and new faces will become associated with this model when they're added to it. This can't be changed after a group's creation. To see what model a **PersonGroup** is configured with, use the [PersonGroup - Get] API with the _returnRecognitionModel_ parameter set as **true**.
+A **PersonGroup** should have one unique recognition model for all of the **Person**s, and you can specify this using the `recognitionModel` parameter when you create the group ([Create Person Group] or [Create Large Person Group]). If you don't specify this parameter, the original `recognition_01` model is used. A group will always use the recognition model it was created with, and new faces will become associated with this model when they're added to it. This can't be changed after a group's creation. To see what model a **PersonGroup** is configured with, use the [Get Person Group] API with the _returnRecognitionModel_ parameter set as **true**.
 
-See the following code example for the .NET client library.
+See the following .NET code example.
 
 ```csharp
 // Create an empty PersonGroup with "recognition_04" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = "My Person Group Name", ["recognitionModel"] = "recognition_04" }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PutAsync($"{ENDPOINT}/face/v1.0/persongroups/{personGroupId}", content);
+}
 ```
 
 In this code, a **PersonGroup** with ID `mypersongroupid` is created, and it's set up to use the _recognition_04_ model to extract face features.
 
-Correspondingly, you need to specify which model to use when detecting faces to compare against this **PersonGroup** (through the [Face - Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration; otherwise, the operation will fail due to incompatible models.
+Correspondingly, you need to specify which model to use when detecting faces to compare against this **PersonGroup** (through the [Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration; otherwise, the operation will fail due to incompatible models.
 
-There is no change in the [Face - Identify] API; you only need to specify the model version in detection.
+There is no change in the [Identify From Person Group] API; you only need to specify the model version in detection.
 
 ## Find similar faces with the specified model
 
-You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the **FaceList** with [FaceList - Create] API or [LargeFaceList - Create]. If you don't specify this parameter, the `recognition_01` model is used by default. A **FaceList** will always use the recognition model it was created with, and new faces will become associated with this model when they're added to the list; you can't change this after creation. To see what model a **FaceList** is configured with, use the [FaceList - Get] API with the _returnRecognitionModel_ parameter set as **true**.
+You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the **FaceList** with [Create Face List] API or [Create Large Face List]. If you don't specify this parameter, the `recognition_01` model is used by default. A **FaceList** will always use the recognition model it was created with, and new faces will become associated with this model when they're added to the list; you can't change this after creation. To see what model a **FaceList** is configured with, use the [Get Face List] API with the _returnRecognitionModel_ parameter set as **true**.
 
-See the following code example for the .NET client library.
+See the following .NET code example.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = "My face collection", ["recognitionModel"] = "recognition_04" }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PutAsync($"{ENDPOINT}/face/v1.0/facelists/{faceListId}", content);
+}
 ```
 
-This code creates a **FaceList** called `My face collection`, using the _recognition_04_ model for feature extraction. When you search this **FaceList** for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_04_ model. As in the previous section, the model needs to be consistent.
+This code creates a **FaceList** called `My face collection`, using the _recognition_04_ model for feature extraction. When you search this **FaceList** for similar faces to a new detected face, that face must have been detected ([Detect]) using the _recognition_04_ model. As in the previous section, the model needs to be consistent.
 
-There is no change in the [Face - Find Similar] API; you only specify the model version in detection.
+There is no change in the [Find Similar] API; you only specify the model version in detection.
 
 ## Verify faces with the specified model
 
-The [Face - Verify] API checks whether two faces belong to the same person. There is no change in the Verify API with regard to recognition models, but you can only compare faces that were detected with the same model.
+The [Verify Face To Face] API checks whether two faces belong to the same person. There is no change in the Verify API with regard to recognition models, but you can only compare faces that were detected with the same model.
 
 ## Evaluate different models
 
 If you'd like to compare the performances of different recognition models on your own data, you'll need to:
 1. Create four **PersonGroup**s using _recognition_01_, _recognition_02_, _recognition_03_, and _recognition_04_ respectively.
 1. Use your image data to detect faces and register them to **Person**s within these four **PersonGroup**s. 
-1. Train your **PersonGroup**s using the PersonGroup - Train API.
-1. Test with Face - Identify on all four **PersonGroup**s and compare the results.
+1. Train your **PersonGroup**s using the [Train Person Group] API.
+1. Test with [Identify From Person Group] on all four **PersonGroup**s and compare the results.
 
 If you normally specify a confidence threshold (a value between zero and one that determines how confident the model must be to identify a face), you may need to use different thresholds for different models. A threshold for one model isn't meant to be shared to another and won't necessarily produce the same results.
 
@@ -123,16 +132,17 @@ In this article, you learned how to specify the recognition model to use with di
 
 * [Face .NET SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Face JavaScript SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-javascript%253fpivots%253dprogramming-language-javascript)
 
-[Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
-[Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237
-[Face - Identify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239
-[Face - Verify]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a
-[PersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
-[PersonGroup - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
-[PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b
-[PersonGroup - Train]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
-[LargePersonGroup - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d
-[FaceList - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
-[FaceList - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
-[LargeFaceList - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc
+[Detect]: /rest/api/face/face-detection-operations/detect
+[Verify Face To Face]: /rest/api/face/face-recognition-operations/verify-face-to-face
+[Identify From Person Group]: /rest/api/face/face-recognition-operations/identify-from-person-group
+[Find Similar]: /rest/api/face/face-recognition-operations/find-similar-from-face-list
+[Create Person Group]: /rest/api/face/person-group-operations/create-person-group
+[Get Person Group]: /rest/api/face/person-group-operations/get-person-group
+[Train Person Group]: /rest/api/face/person-group-operations/train-person-group
+[Add Person Group Person Face]: /rest/api/face/person-group-operations/add-person-group-person-face
+[Create Large Person Group]: /rest/api/face/person-group-operations/create-large-person-group
+[Create Face List]: /rest/api/face/face-list-operations/create-face-list
+[Get Face List]: /rest/api/face/face-list-operations/get-face-list
+[Create Large Face List]: /rest/api/face/face-list-operations/create-large-face-list

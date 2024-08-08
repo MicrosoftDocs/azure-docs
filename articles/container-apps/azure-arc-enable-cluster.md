@@ -3,7 +3,7 @@ title: 'Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes'
 description: 'Tutorial: learn how to set up Azure Container Apps in your Azure Arc-enabled Kubernetes clusters.'
 services: container-apps
 author: v-jaswel
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 3/24/2023
@@ -26,7 +26,7 @@ This tutorial will show you how to enable Azure Container Apps on your Arc-enabl
 > [!NOTE]
 > During the preview, Azure Container Apps on Arc are not supported in production configurations. This article provides an example configuration for evaluation purposes only.
 >
-> This tutorial uses [Azure Kubernetes Service (AKS)](../aks/index.yml) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you may not want to enable Azure Arc on an AKS cluster as it is already managed in Azure.
+> This tutorial uses [Azure Kubernetes Service (AKS)](/azure/aks/) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you may not want to enable Azure Arc on an AKS cluster as it is already managed in Azure.
 
 
 
@@ -44,11 +44,10 @@ Install the following Azure CLI extensions.
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az extension add --name connectedk8s  --upgrade --yes
+az extension add --name connectedk8s --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
-az extension remove --name containerapp
-az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
+az extension add --name containerapp  --upgrade --yes
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -57,8 +56,7 @@ az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-n
 az extension add --name connectedk8s  --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
-az extension remove --name containerapp
-az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
+az extension add --name containerapp  --upgrade --yes
 ```
 
 ---

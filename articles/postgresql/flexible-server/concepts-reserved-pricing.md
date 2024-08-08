@@ -1,12 +1,13 @@
 ---
 title: Prepay for Azure Database for PostgreSQL - Flexible Server compute resources with reserved capacity
 description: Learn about reserved compute pricing and how to purchase Azure Database for PostgreSQL flexible server reserved capacity.
-ms.service: postgresql
+author: kabharati
+ms.author: kabharati
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: sunila
-author: sunilagarwal
-ms.date: 02/03/2024
 ---
 
 # Prepay for Azure Database for PostgreSQL - Flexible Server compute resources with reserved capacity
@@ -30,9 +31,11 @@ A reservation doesn't cover software, networking, or storage charges associated 
 > [!IMPORTANT]
 > Reserved capacity pricing is available for [Azure Database for PostgreSQL single server](../single-server/overview-single-server.md) and [Azure Database for PostgreSQL flexible server](overview.md) deployment options.
 
+> Starting July 1st, 2024, new reservations will not be available for Azure Database for PostgreSQL single server. Your existing single server reservations remain valid, and you can still purchase reservations for Azure Database for PostgreSQL flexible server.
+
 You can buy Azure Database for PostgreSQL flexible server reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md). To buy the reserved capacity:
 
-* You must be in the owner role for at least one Enterprise Agreement (EA) or individual subscription with pay-as-you-go rates.
+* To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 * For EA subscriptions, **Add Reserved Instances** must be turned on in the [EA portal](https://ea.azure.com/). Or, if that setting is off, you must be an EA admin on the subscription.
 * For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Database for PostgreSQL flexible server reserved capacity.
 

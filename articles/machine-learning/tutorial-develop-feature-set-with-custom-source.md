@@ -3,14 +3,14 @@ title: "Tutorial 5: Develop a feature set with a custom source"
 titleSuffix: Azure Machine Learning managed feature store - basics
 description: This is part 5 of the managed feature store tutorial series
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 
 ms.subservice: core
 ms.topic: tutorial
-author: ynpandey
-ms.author: yogipandey
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 11/28/2023
-ms.reviewer: franksolomon
+ms.reviewer: yogipandey
 ms.custom:
   - sdkv2
   - ignite2023
@@ -46,7 +46,7 @@ You don't need to explicitly install these resources for this tutorial, because 
 
 ### Configure the Azure Machine Learning Spark notebook
 
-You can create a new notebook and execute the instructions in this tutorial step by step. You can also open and run the existing notebook *featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb*. Keep this tutorial open and refer to it for documentation links and more explanation.
+You can create a new notebook and execute the instructions in this tutorial step by step. You can also open and run the existing notebook *featurestore_sample/notebooks/sdk_only/5.Develop-feature-set-custom-source.ipynb*. Keep this tutorial open and refer to it for documentation links and more explanation.
 
 1. On the top menu, in the **Compute** dropdown list, select **Serverless Spark Compute** under **Azure Machine Learning Serverless Spark**.
 
@@ -61,17 +61,17 @@ You can create a new notebook and execute the instructions in this tutorial step
 ## Set up the root directory for the samples
 This code cell sets up the root directory for the samples. It needs about 10 minutes to install all dependencies and start the Spark session.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb?name=root-dir)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5.Develop-feature-set-custom-source.ipynb?name=root-dir)]
 
 ## Initialize the CRUD client of the feature store workspace
 Initialize the `MLClient` for the feature store workspace, to cover the create, read, update, and delete (CRUD) operations on the feature store workspace.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb?name=init-fset-crud-client)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5.Develop-feature-set-custom-source.ipynb?name=init-fset-crud-client)]
 
 ## Initialize the feature store core SDK client
 As mentioned earlier, this tutorial uses the Python feature store core SDK (`azureml-featurestore`). This initialized SDK client covers create, read, update, and delete (CRUD) operations on feature stores, feature sets, and feature store entities.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb?name=init-fs-core-sdk)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5.Develop-feature-set-custom-source.ipynb?name=init-fs-core-sdk)]
 
 ## Custom source definition
 You can define your own source loading logic from any data storage that has a custom source definition. Implement a source processor user-defined function (UDF) class (`CustomSourceTransformer` in this tutorial) to use this feature. This class should define an `__init__(self, **kwargs)` function, and a `process(self, start_time, end_time, **kwargs)` function. The `kwargs` dictionary is supplied as a part of the feature set specification definition. This definition is then passed to the UDF. The `start_time` and `end_time` parameters are calculated and passed to the UDF function.
@@ -111,11 +111,11 @@ class CustomSourceTransformer:
 ## Create a feature set specification with a custom source, and experiment with it locally
 Now, create a feature set specification with a custom source definition, and use it in your development environment to experiment with the feature set. The tutorial notebook attached to **Serverless Spark Compute** serves as the development environment.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb?name=create-fs-custom-src)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5.Develop-feature-set-custom-source.ipynb?name=create-fs-custom-src)]
 
 Next, define a feature window, and display the feature values in this feature window.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb?name=display-features)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5.Develop-feature-set-custom-source.ipynb?name=display-features)]
 
 ### Export as a feature set specification
 To register the feature set specification with the feature store, first save that specification in a specific format. Review the generated `transactions_custom_source` feature set specification. Open this file from the file tree to see the specification: `featurestore/featuresets/transactions_custom_source/spec/FeaturesetSpec.yaml`.
@@ -129,22 +129,22 @@ To learn more about the specification, see [Understanding top-level entities in 
 
 Feature set specification persistence offers another benefit: the feature set specification can be source controlled.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb?name=dump-txn-fs-spec)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5.Develop-feature-set-custom-source.ipynb?name=dump-txn-fs-spec)]
 
 ## Register the transaction feature set with the feature store
 Use this code to register a feature set asset loaded from custom source with the feature store. You can then reuse that asset, and easily share it. Registration of a feature set asset offers managed capabilities, including versioning and materialization.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb?name=register-txn-fset)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5.Develop-feature-set-custom-source.ipynb?name=register-txn-fset)]
 
 Obtain the registered feature set, and print related information.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb?name=get-txn-fset)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5.Develop-feature-set-custom-source.ipynb?name=get-txn-fset)]
 
 ## Test feature generation from registered feature set
 Use the `to_spark_dataframe()` function of the feature set to test the feature generation from the registered feature set, and display the features.
 print-txn-fset-sample-values
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb?name=print-txn-fset-sample-values)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/5.Develop-feature-set-custom-source.ipynb?name=print-txn-fset-sample-values)]
 
 You should be able to successfully fetch the registered feature set as a Spark dataframe, and then display it. You can now use these features for a point-in-time join with observation data, and the subsequent steps in your machine learning pipeline.
 

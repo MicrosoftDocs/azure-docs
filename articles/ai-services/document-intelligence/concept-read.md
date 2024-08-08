@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/09/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ---
 
@@ -44,11 +44,11 @@ Optical Character Recognition (OCR) for documents is optimized for large text-he
 
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2024-02-29-preview, 2023-10-31-preview) supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-07-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-read**|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-read**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
@@ -66,7 +66,7 @@ Document Intelligence v3.0 supports the following tools, applications, and libra
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-read**|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-read**|
 ::: moniker-end
 
 ## Input requirements
@@ -90,7 +90,7 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 :::image type="content" source="media/studio/form-recognizer-studio-read-v3p2-updated.png" alt-text="Screenshot of Read processing in Document Intelligence Studio.":::
 
-1. On the Document Intelligence Studio home page, select **Read**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Read**.
 
 1. You can analyze the sample document or upload your own files.
 
@@ -115,6 +115,43 @@ See our [Language Support—document analysis models](language-support-ocr.md) p
 > * Page range (`pages`) is not supported as a parameter.
 > * No `lines` object.
 
+## Searchable PDF
+
+The searchable PDF capability enables you to convert an analog PDF, such as scanned-image PDF files, to a PDF with embedded text. The embedded text enables deep text search within the PDF's extracted content by overlaying the detected text entities on top of the image files. 
+
+  > [!IMPORTANT]
+  >
+  > * Currently, the searchable PDF capability is only supported by Read OCR model `prebuilt-read`. When using this feature, please specify the `modelId` as `prebuilt-read`, as other model types will return error for this preview version.
+  > * Searchable PDF is included with the 2024-07-31-preview `prebuilt-read` model with no usage cost for general PDF consumption.
+
+### Use searchable PDF
+
+To use searchable PDF, make a `POST` request using the `Analyze` operation and specify the output format as `pdf`:
+
+```bash
+
+POST /documentModels/prebuilt-read:analyze?output=pdf
+{...}
+202
+```
+
+Once the `Analyze` operation is complete, make a `GET` request to retrieve the `Analyze` operation results.
+
+Upon successful completion, the PDF can be retrieved and downloaded as `application/pdf`. This operation allows direct downloading of the embedded text form of PDF instead of Base64-encoded JSON.
+
+```bash
+
+// Monitor the operation until completion.
+GET /documentModels/prebuilt-read/analyzeResults/{resultId}
+200
+{...}
+
+// Upon successful completion, retrieve the PDF as application/pdf.
+GET /documentModels/prebuilt-read/analyzeResults/{resultId}/pdf
+200 OK
+Content-Type: application/pdf
+```
+
 ### Pages
 
 The pages collection is a list of pages within the document. Each page is represented sequentially within the document and includes the orientation angle indicating if the page is rotated and the width and height (dimensions in pixels). The page units in the model output are computed as shown:
@@ -128,6 +165,8 @@ The pages collection is a list of pages within the document. Each page is repres
 |Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets |
 |PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides |
 |HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+
+::: moniker range="doc-intel-2.1.0 || doc-intel-3.0.0"
 
 ```json
 "pages": [
@@ -143,6 +182,73 @@ The pages collection is a list of pages within the document. Each page is repres
     }
 ]
 ```
+
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze pages.
+for page in result.pages:
+    print(f"----Analyzing document from page #{page.page_number}----")
+    print(
+        f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}"
+    )
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model/sample_analyze_read.py)
+
+#### [Output](#tab/output)
+```json
+"pages": [
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": []
+    }
+]
+```
+---
+
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+#### [Sample code](#tab/sample-code)
+
+```Python
+# Analyze pages.
+for page in result.pages:
+    print(f"----Analyzing document from page #{page.page_number}----")
+    print(f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}")
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Read_model/sample_analyze_read.py)
+
+#### [Output](#tab/output)
+
+```json
+"pages": [
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": []
+    }
+]
+```
+---
+::: moniker-end
 
 ### Select pages for text extraction
 
@@ -168,6 +274,52 @@ The Read OCR model extracts print and handwritten style text as `lines` and `wor
 
 For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence Read model v3.1 and later versions extracts all embedded text as is. Texts are extrated as words and paragraphs. Embedded images aren't supported.
 
+::: moniker range="doc-intel-2.1.0 || doc-intel-3.0.0"
+
+```json
+
+"words": [
+    {
+        "content": "While",
+        "polygon": [],
+        "confidence": 0.997,
+        "span": {}
+    },
+],
+"lines": [
+    {
+        "content": "While healthcare is still in the early stages of its Al journey, we",
+        "polygon": [],
+        "spans": [],
+    }
+]
+```
+
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+#### [Sample code](#tab/sample-code)
+
+```Python
+# Analyze lines.
+for line_idx, line in enumerate(page.lines):
+    words = line.get_words()
+    print(
+        f"...Line # {line_idx} has {len(words)} words and text '{line.content}' within bounding polygon '{format_polygon(line.polygon)}'"
+    )
+
+    # Analyze words.
+    for word in words:
+        print(
+            f"......Word '{word.content}' has a confidence of {word.confidence}"
+        )
+```
+
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model/sample_analyze_read.py)
+
+#### [Output](#tab/output)
 
 ```json
 "words": [
@@ -186,6 +338,51 @@ For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence Read mode
     }
 ]
 ```
+
+---
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+#### [Sample code](#tab/sample-code)
+
+```Python
+# Analyze lines.
+if page.lines:
+    for line_idx, line in enumerate(page.lines):
+        words = get_words(page, line)
+        print(
+            f"...Line # {line_idx} has {len(words)} words and text '{line.content}' within bounding polygon '{line.polygon}'"
+        )
+
+        # Analyze words.
+        for word in words:
+            print(f"......Word '{word.content}' has a confidence of {word.confidence}")
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Read_model/sample_analyze_read.py)
+
+#### [Output](#tab/output)
+
+```json
+"words": [
+    {
+        "content": "While",
+        "polygon": [],
+        "confidence": 0.997,
+        "span": {}
+    },
+],
+"lines": [
+    {
+        "content": "While healthcare is still in the early stages of its Al journey, we",
+        "polygon": [],
+        "spans": [],
+    }
+]
+```
+---
+::: moniker-end
 
 ### Handwritten style for text lines
 
@@ -222,4 +419,18 @@ Complete a Document Intelligence quickstart:
 Explore our REST API:
 
 > [!div class="nextstepaction"]
-> [Document Intelligence API v4.0](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)
+> [Document Intelligence API v4.0](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)
+
+::: moniker range="doc-intel-4.0.0"
+Find more samples on GitHub:
+> [!div class="nextstepaction"]
+> [Read model.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Read_model)
+
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+Find more samples on GitHub:
+> [!div class="nextstepaction"]
+> [Read model.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model)
+
+::: moniker-end

@@ -3,14 +3,14 @@ title: Train scikit-learn machine learning models (v2)
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning enables you to scale out a scikit-learn training job using elastic cloud compute resources (v2).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
-ms.author: balapv
-author: balapv
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: balapv
 ms.date: 03/26/2024
 ms.topic: how-to
-ms.custom: sdkv2
+ms.custom: sdkv2, update-code
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 

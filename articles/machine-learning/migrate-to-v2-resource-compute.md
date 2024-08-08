@@ -3,13 +3,13 @@ title: 'Upgrade compute management to v2'
 titleSuffix: Azure Machine Learning
 description: Upgrade compute management from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: reference
-author: vijetajo
-ms.author: vijetaj
-ms.date: 02/14/2023
-ms.reviewer: franksolomon
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.date: 04/15/2024
+ms.reviewer: vijetaj
 ms.custom: migration
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
@@ -18,8 +18,7 @@ monikerRange: 'azureml-api-1 || azureml-api-2'
 
 The compute management functionally remains unchanged with the v2 development platform.
 
-This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
-
+This article gives a comparison of scenarios in SDK v1 and SDK v2.
 
 ## Create compute instance
 

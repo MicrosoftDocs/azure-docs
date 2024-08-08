@@ -88,8 +88,8 @@ If you create a new Azure Key Vault instance, enable these properties during cre
 
 If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If any of these properties isn't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 
-- [How to use soft-delete with PowerShell](../key-vault/general/key-vault-recovery.md)
-- [How to use soft-delete with Azure CLI](../key-vault/general/key-vault-recovery.md)
+- [How to use soft-delete with PowerShell](/azure/key-vault/general/key-vault-recovery)
+- [How to use soft-delete with Azure CLI](/azure/key-vault/general/key-vault-recovery)
 
 ## Initialize the SDK
 
@@ -149,6 +149,8 @@ Creating a new data encryption key is done by calling the `CreateClientEncryptio
   - The `type` defines the type of key resolver (for example, Azure Key Vault).
   - The `name` can be any friendly name you want.
   - The `value` must be the key identifier.
+  > [!IMPORTANT]
+  > Once the key is created, browse to its current version, and copy its full key identifier: `https://<my-key-vault>.vault.azure.net/keys/<key>/<version>`. If you omit the key version at the end of the key identifier, the latest version of the key is used.
   - The `algorithm` defines which algorithm shall be used to wrap the key encryption key with the customer-managed key.
 
 ```csharp
@@ -173,6 +175,8 @@ Creating a new data encryption key is done by calling the `createClientEncryptio
   - The `type` defines the type of key resolver (for example, Azure Key Vault).
   - The `name` can be any friendly name you want.
   - The `value` must be the key identifier.
+  > [!IMPORTANT]
+  > Once the key is created, browse to its current version, and copy its full key identifier: `https://<my-key-vault>.vault.azure.net/keys/<key>/<version>`. If you omit the key version at the end of the key identifier, the latest version of the key is used.
   - The `algorithm` defines which algorithm shall be used to wrap the key encryption key with the customer-managed key.
 
 ```java

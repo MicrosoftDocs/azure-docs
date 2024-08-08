@@ -64,7 +64,7 @@ Cloud resources:
 
 * A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Key concepts
 
@@ -211,8 +211,6 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 1. In Visual Studio, create a new project.
 
 1. On the **Create a new project** page, search for **Azure IoT Edge**. Select the project that matches the platform (Linux IoT Edge module) and architecture for your IoT Edge device, and select **Next**.
-
-   :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-project.png" alt-text="Create New Project":::
 
 1. On the **Configure your new project** page, enter a name for your project and specify the location, then select **Create**.
 

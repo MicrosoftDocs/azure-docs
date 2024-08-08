@@ -8,9 +8,9 @@ metadata:
   description: Azure management groups help you organize your resources and subscriptions.
   ms.service: governance
   ms.topic: landing-page
-  author: tfitzmac
-  ms.author: tomfitz
-  ms.date: 09/30/2020
+  author: davidsmatlak
+  ms.author: davidsmatlak
+  ms.date: 07/18/2024
 
 landingContent:
   - title: About Azure Governance

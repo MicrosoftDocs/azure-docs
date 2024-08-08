@@ -31,6 +31,16 @@ Conceptually, Kafka and Event Hubs are very similar. They're both partitioned lo
 | Consumer Group | Consumer Group |
 | Offset | Offset|
 
+## Apache Kafka features supported on Azure Event Hubs
+
+### Compression
+
+The Kafka compression for Event Hubs is only supported in Premium and Dedicated tiers currently.
+
+The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/Compression) feature in Apache Kafka clients conserves compute resources and bandwidth by compressing a batch of multiple messages into a single message on the producer side and decompressing the batch on the consumer side. The Apache Kafka broker treats the batch as a special message.
+
+Kafka producer application developers can enable message compression by setting the compression.type property. Azure Event Hubs currently supports `gzip` compression.
+
 ## Key differences between Apache Kafka and Azure Event Hubs
 
 While [Apache Kafka](https://kafka.apache.org/) is software you typically need to install and operate, Event Hubs is a fully managed, cloud-native service. There are no servers, disks, or networks to manage and monitor and no brokers to consider or configure, ever. You create a namespace, which is an endpoint with a fully qualified domain name, and then you create Event Hubs (topics) within that namespace. 
@@ -45,7 +55,7 @@ Coming from building applications using Apache Kafka, it's also useful to unders
 
 While some providers of commercial distributions of Apache Kafka might suggest that Apache Kafka is a one-stop-shop for all your messaging platform needs, the reality is that Apache Kafka doesn't implement, for instance, the [competing-consumer](/azure/architecture/patterns/competing-consumers) queue pattern, doesn't have support for  [publish-subscribe](/azure/architecture/patterns/publisher-subscriber) at a level that allows subscribers access to the incoming messages based on server-evaluated rules other than plain offsets, and it has no facilities to track the lifecycle of a job initiated by a message or sidelining faulty messages into a dead-letter queue, all of which are foundational for many enterprise messaging scenarios.
 
-To understand the differences between patterns and which pattern is best covered by which service, see the [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging) guidance. As an Apache Kafka user, you may find that communication paths you have so far realized with Kafka, can be realized with far less basic complexity and yet more powerful capabilities using either Event Grid or Service Bus. 
+To understand the differences between patterns and which pattern is best covered by which service, see the [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging) guidance. As an Apache Kafka user, you can find that communication paths you have so far realized with Kafka, can be realized with far less basic complexity and yet more powerful capabilities using either Event Grid or Service Bus. 
 
 If you need specific features of Apache Kafka that aren't available through the Event Hubs for Apache Kafka interface or if your implementation pattern exceeds the [Event Hubs quotas](event-hubs-quotas.md), you can also run a [native Apache Kafka cluster in Azure HDInsight](../hdinsight/kafka/apache-kafka-introduction.md).  
 
@@ -125,19 +135,9 @@ As explained [above](#is-apache-kafka-the-right-solution-for-your-workload), the
 
 [Azure Service Bus](../service-bus-messaging/service-bus-transactions.md) has robust transaction support that allows receiving and settling messages and sessions while sending outbound messages resulting from message processing to multiple target entities under the consistency protection of a transaction. The feature set not only allows for exactly once processing of each message in a sequence, but also avoids the risk of another consumer inadvertently reprocessing the same messages as it would be the case with Apache Kafka. Service Bus is the recommended service for transactional message workloads.
 
-### Compression
-
-The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/Compression) feature of Apache Kafka compresses a batch of multiple messages into a single message on the producer side and decompresses the batch on the consumer side. The Apache Kafka broker treats the batch as a special message.
-
-Kafka producer application developers can enable message compression by setting the compression.type property. In the public preview, the only compression algorithm supported is gzip. 
-
-`Compression.type = none | gzip` 
-
-The feature is currently only supported for Apache Kafka traffic producer and consumer traffic. AMQP consumer can consume compressed Kafka traffic as decompressed messages. The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing though in public preview, the only option is gzip. The benefits of using Kafka compression are through smaller message size, increased payload size you can transmit, and lower message broker resource consumption.  
-
 ### Kafka Streams
 
-Kafka Streams is a client library for stream analytics that is part of the Apache Kafka open-source project, but is separate from the Apache Kafka event stream broker. 
+Kafka Streams is a client library for stream analytics that is part of the Apache Kafka open-source project, but is separate from the Apache Kafka event broker. 
 
 The most common reason Azure Event Hubs customers ask for Kafka Streams support is because they're interested in Confluent's "ksqlDB" product. "ksqlDB" is a proprietary shared source project that is [licensed such](https://github.com/confluentinc/ksql/blob/master/LICENSE) that no vendor "offering software-as-a-service, platform-as-a-service, infrastructure-as-a-service, or other similar online services that compete with Confluent products or services" is permitted to use or offer "ksqlDB" support. Practically, if you use ksqlDB, you must either operate Kafka yourself or you must use Confluent’s cloud offerings. The licensing terms might also affect Azure customers who offer services for a purpose excluded by the license.
 
@@ -150,12 +150,12 @@ Standalone and without ksqlDB, Kafka Streams has fewer capabilities than many al
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - [Apache Spark](event-hubs-kafka-spark-tutorial.md)
 - [Apache Flink](event-hubs-kafka-flink-tutorial.md)
-- [Apache Flink on HDInsight on AKS](/azure/hdinsight-aks/flink/flink-overview)
+- [Apache Flink on HDInsight on AKS](../hdinsight-aks/flink/flink-overview.md)
 - [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
 
 The listed services and frameworks can generally acquire event streams and reference data directly from a diverse set of sources through adapters. Kafka Streams can only acquire data from Apache Kafka and your analytics projects are therefore locked into Apache Kafka. To use data from other sources, you're required to first import data into Apache Kafka with the Kafka Connect framework.
 
-If you must use the Kafka Streams framework on Azure, [Apache Kafka on HDInsight](../hdinsight/kafka/apache-kafka-introduction.md) will provide you with that option. Apache Kafka on HDInsight provides full control over all configuration aspects of Apache Kafka, while being fully integrated with various aspects of the Azure platform, from fault/update domain placement to network isolation to monitoring integration. 
+If you must use the Kafka Streams framework on Azure, [Apache Kafka on HDInsight](../hdinsight/kafka/apache-kafka-introduction.md) provides you with that option. Apache Kafka on HDInsight provides full control over all configuration aspects of Apache Kafka, while being fully integrated with various aspects of the Azure platform, from fault/update domain placement to network isolation to monitoring integration. 
 
 ## Next steps
 This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).

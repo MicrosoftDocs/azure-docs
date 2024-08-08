@@ -1,5 +1,5 @@
 ---
-title: Export data to Event Hubs IoT Central
+title: Export data to Event Hubs
 description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Event Hubs
 services: iot-central
 author: dominicbetts

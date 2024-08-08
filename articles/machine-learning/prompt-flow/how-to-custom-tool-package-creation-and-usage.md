@@ -3,14 +3,15 @@ title: Custom tool package creation and usage in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to develop your own tool package in prompt flow.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 09/12/2023
 ---
 
@@ -25,20 +26,23 @@ After successful installation, your custom "tool" can show up in the tool list:
 
 Your tool package should be a python package. To develop your custom tool, follow the steps **Create your own tool package** and **build and share the tool package** in [Create and Use Tool Package](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/create-and-use-tool-package.html). You can find more advanced development guidance in [How to develop a tool](https://microsoft.github.io/promptflow/how-to-guides/develop-a-tool/index.html).
 
-## Prepare runtime
+## Prepare compute session
 
-In order to add the custom tool to your tool list for use, it's necessary to prepare the runtime. Here we use [my-tools-package](https://pypi.org/project/my-tools-package/) as an example.
+In order to add the custom tool to your tool list for use, it's necessary to prepare the compute session. Here we use [my-tools-package](https://pypi.org/project/my-tools-package/) as an example.
 
-When using automatic runtime, you can readily install the publicly released package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the 'Save and install' button to start installation. After completion, you can see the custom tools displayed in the tool list. To learn more, see [How to create and manage runtime](./how-to-create-manage-runtime.md).
-:::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/install-package-on-automatic-runtime.png" alt-text="Screenshot of how to install packages on automatic runtime."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/install-package-on-automatic-runtime.png":::
+When using compute session, you can readily install the publicly released package by adding the custom tool package name into the `requirements.txt` file in the flow folder. Then select the 'Save and install' button to start installation. After completion, you can see the custom tools displayed in the tool list. To learn more, see [How to manage compute session](./how-to-manage-compute-session.md).
+:::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/install-package-on-compute-session.png" alt-text="Screenshot of how to install packages on compute session."lightbox = "./media/how-to-custom-tool-package-creation-and-usage/install-package-on-compute-session.png":::
 
-Another method is applicable for not only publicly released packages, but also local or private feed packages. Firstly you should build an image following the two steps in [how to customize environment](./how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime), and then [change the base image for automatic runtime](./how-to-create-manage-runtime.md#change-the-base-image-for-automatic-runtime-preview) or [create a compute instance runtime based on your customized environment](./how-to-create-manage-runtime.md#create-a-compute-instance-runtime-on-a-runtime-page).
+Another method is applicable for not only publicly released packages, but also local or private feed packages. Firstly you should build an image following the two steps in [how to customize base image for compute session](./how-to-customize-session-base-image.md), and then [change the base image for compute session](./how-to-manage-compute-session.md#change-the-base-image-for-compute-session).
 
 ## Test from prompt flow UI
 1. Create a standard flow.
-2. Select the correct runtime and add your tools.
-    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing the runtime and more tools dropdown."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png":::
-3. Change flow based on your requirements and run flow in the selected runtime.
+2. Start compute session.
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/start-compute-session.png" alt-text="Screenshot of flow in Azure Machine Learning studio starting compute session."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/start-compute-session.png":::
+
+3. Add your tools.
+    :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing more tools dropdown."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-1.png":::
+4. Change flow based on your requirements and run flow .
     :::image type="content" source="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-2.png" alt-text="Screenshot of flow in Azure Machine Learning studio showing adding a tool."lightbox ="./media/how-to-custom-tool-package-creation-and-usage/test-customer-tool-on-ui-step-2.png":::
 
 ## FAQ
@@ -73,7 +77,6 @@ You can test your tool package using the following script to ensure that you've 
       ```
 
   3. Run this script in your conda environment. It returns the metadata of all tools installed in your local environment, and you should verify that your tools are listed.
-- If you're using runtime with CI, try to restart your container with command `docker restart <container_name_or_id>` to see if the issue can be resolved.
 
 ### Why am I unable to upload package to PyPI?
 
@@ -82,4 +85,5 @@ You can test your tool package using the following script to ensure that you've 
 
 ## Next steps
 
-- Learn more about [customize environment for runtime](how-to-customize-environment-runtime.md)
+- Learn more about [how to manage compute session](./how-to-manage-compute-session.md)
+- Learn more about [how to customize base image for compute session](./how-to-customize-session-base-image.md)

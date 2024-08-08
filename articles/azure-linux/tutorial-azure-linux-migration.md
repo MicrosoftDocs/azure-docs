@@ -15,7 +15,7 @@ ms.date: 01/19/2024
 In this tutorial, part three of five, you migrate your existing nodes to Azure Linux. You can migrate your existing nodes to Azure Linux using one of the following methods:
 
 * Remove existing node pools and add new Azure Linux node pools.
-* In-place OS SKU migration (preview).
+* In-place OS SKU migration.
 
 If you don't have any existing nodes to migrate to Azure Linux, skip to the [next tutorial](./tutorial-azure-linux-telemetry-monitor.md). In later tutorials, you learn how to enable telemetry and monitoring in your clusters and upgrade Azure Linux nodes.
 
@@ -42,7 +42,7 @@ If you don't have any existing nodes to migrate to Azure Linux, skip to the [nex
     az aks nodepool delete --resource-group <resource-group-name> --cluster-name <cluster-name> --name <node-pool-name>
     ```
 
-## In-place OS SKU migration (preview)
+## In-place OS SKU migration
 
 You can now migrate your existing Ubuntu node pools to Azure Linux by changing the OS SKU of the node pool, which rolls the cluster through the standard node image upgrade process. This new feature doesn't require the creation of new node pools.
 
@@ -50,10 +50,9 @@ You can now migrate your existing Ubuntu node pools to Azure Linux by changing t
 
 There are several settings that can block the OS SKU migration request. To ensure a successful migration, review the following guidelines and limitations:
 
-* The OS SKU migration feature isn't available through Terraform, PowerShell, or the Azure portal.
+* The OS SKU migration feature isn't available through PowerShell or the Azure portal.
 * The OS SKU migration feature isn't able to rename existing node pools.
 * Ubuntu and Azure Linux are the only supported Linux OS SKU migration targets.
-* AgentPool `count` field must not change during the migration.
 * An Ubuntu OS SKU with `UseGPUDedicatedVHD` enabled can't perform an OS SKU migration.
 * An Ubuntu OS SKU with CVM 20.04 enabled can't perform an OS SKU migration.
 * Node pools with Kata enabled can't perform an OS SKU migration.
@@ -61,59 +60,14 @@ There are several settings that can block the OS SKU migration request. To ensur
 
 ### Prerequisites
 
-* [Install the `aks-preview` extension](#install-the-aks-preview-extension).
-* [Register the `OSSKUMigrationPreview` feature flag on your subscription](#register-the-osskumigrationpreview-feature-flag).
 * An existing AKS cluster with at least one Ubuntu node pool.
 * We recommend that you ensure your workloads configure and run successfully on the Azure Linux container host before attempting to use the OS SKU migration feature by [deploying an Azure Linux cluster](./quickstart-azure-cli.md) in dev/prod and verifying your service remains healthy.
 * Ensure the migration feature is working for you in test/dev before using the process on a production cluster.
-* Ensure that your pods have enough [Pod Disruption Budget](../aks/operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets) to allow AKS to move pods between VMs during the upgrade.
-* You need Azure CLI version 0.5.172 or higher. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* Ensure that your pods have enough [Pod Disruption Budget](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) to allow AKS to move pods between VMs during the upgrade.
+* You need Azure CLI version [2.61.0](/cli/azure/release-notes-azure-cli#may-21-2024) or higher. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* If you are using Terraform, you must have [v3.111.0](https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v3.111.0) or greater of the AzureRM Terraform module. 
 
 ### [Azure CLI](#tab/azure-cli)
-
-#### Install the `aks-preview` extension
-
-[!INCLUDE [preview features callout](../aks/includes/preview/preview-callout.md)]
-
-1. Install the `aks-preview` extension using the `az extension add` command.
-
-    ```azurecli-interactive
-    az extension add --name aks-preview
-    ```
-
-2. Update the extension to make sure you have the latest version using the `az extension update` command.
-
-    ```azurecli-interactive
-    az extension update --name aks-preview
-    ```
-
-#### Register the `OSSKUMigrationPreview` feature flag
-
-1. Register the `OSSKUMigrationPreview` feature flag on your subscription using the `az feature register` command.
-
-    ```azurecli-interactive
-    az feature register --namespace Microsoft.ContainerService --name OSSKUMigrationPreview
-    ```
-
-2. Check the registration status using the `az feature list` command.
-
-    ```azurecli-interactive
-    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/OSSKUMigrationPreview')].{Name:name,State:properties.state}"
-    ```
-
-    Your output should look similar to the following example output:
-
-    ```output
-    Name                                            State
-    ----------------------------------------------  -------
-    Microsoft.ContainerService/OSSKUMigrationPreview  Registered
-    ```
-
-3. Refresh the registration of the `OSSKUMigrationPreview` feature flag using the `az provider register` command.
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
 
 #### Migrate the OS SKU of your Ubuntu node pool
 
@@ -238,17 +192,122 @@ There are several settings that can block the OS SKU migration request. To ensur
     az deployment group create --resource-group testRG --template-file 0base.json
     ```
 
-3. Migrate the OS SKU of your system node pool to Azure Linux using the `az deployment group create` command and the ManagedClusters API in the [1mcupdate.json example ARM template](#1mcupdatejson).
+3. Migrate the OS SKU of your system node pool to Azure Linux using the `az deployment group create` command.
 
     ```azurecli-interactive
     az deployment group create --resource-group testRG --template-file 1mcupdate.json
     ```
 
-4. Migrate the OS SKU of your system node pool back to Ubuntu using the `az deployment group create` command and the AgentPools API in the [2apupdate.json example ARM template](#2apupdatejson).
+4. Migrate the OS SKU of your system node pool back to Ubuntu using the `az deployment group create` command.
 
     ```azurecli-interactive
     az deployment group create --resource-group testRG --template-file 2apupdate.json
     ```
+
+### [Terraform](#tab/terraform)
+
+#### Example Terraform template
+
+1. Confirm that your `providers.tf` file is updated to pick up the required version of the Azure provider. 
+
+##### providers.tf
+
+```terraform
+terraform {
+      required_version = ">=1.0"
+
+      required_providers {
+        azurerm = {
+          source  = "hashicorp/azurerm"
+          version = "~>3.111.0"
+        }
+        random = {
+          source  = "hashicorp/random"
+          version = "~>3.0"
+        }
+      }
+    }
+
+    provider "azurerm" {
+      features {}
+    }
+```
+
+2. For brevity, only the snippet of the Terraform template that is of interest is displayed below. In this initial configuration, an AKS cluster with a nodepool of **os_sku** with **Ubuntu** is deployed. 
+
+##### base.tf
+
+```terraform
+resource "azurerm_kubernetes_cluster" "k8s" {
+  location            = azurerm_resource_group.rg.location
+  name                = var.cluster_name
+  resource_group_name = azurerm_resource_group.rg.name
+  dns_prefix          = var.dns_prefix
+  tags                = {
+    Environment = "Development"
+  }
+
+  default_node_pool {
+    name       = "azurelinuxpool"
+    vm_size    = "Standard_D2_v2"
+    node_count = var.agent_count
+    os_sku = "Ubuntu"
+  }
+  linux_profile {
+    admin_username = "azurelinux"
+
+    ssh_key {
+      key_data = file(var.ssh_public_key)
+    }
+  }
+  network_profile {
+    network_plugin    = "kubenet"
+    load_balancer_sku = "standard"
+  }
+  service_principal {
+    client_id     = var.aks_service_principal_app_id
+    client_secret = var.aks_service_principal_client_secret
+  }
+}
+```
+
+3. To run an in-place OS SKU migration, just replace the **os_sku** to **AzureLinux** and re-apply the Terraform plan. 
+
+##### update.tf
+
+```terraform
+resource "azurerm_kubernetes_cluster" "k8s" {
+  location            = azurerm_resource_group.rg.location
+  name                = var.cluster_name
+  resource_group_name = azurerm_resource_group.rg.name
+  dns_prefix          = var.dns_prefix
+  tags                = {
+    Environment = "Development"
+  }
+
+  default_node_pool {
+    name       = "azurelinuxpool"
+    vm_size    = "Standard_D2_v2"
+    node_count = var.agent_count
+    os_sku = "AzureLinux"
+  }
+  linux_profile {
+    admin_username = "azurelinux"
+
+    ssh_key {
+      key_data = file(var.ssh_public_key)
+    }
+  }
+  network_profile {
+    network_plugin    = "kubenet"
+    load_balancer_sku = "standard"
+  }
+  service_principal {
+    client_id     = var.aks_service_principal_app_id
+    client_secret = var.aks_service_principal_client_secret
+  }
+}
+```
 
 ---
 
@@ -265,8 +324,8 @@ Once the migration is complete on your test clusters, you should verify the foll
 
 ### Run the OS SKU migration on your production clusters
 
-1. Update your existing templates to set `OSSKU=AzureLinux`. In ARM templates, you use `"OSSKU: "AzureLinux"` in the `agentPoolProfile` section. In Bicep, you use `osSku: "AzureLinux"` in the `agentPoolProfile` section. Make sure that your `apiVersion` is set to `2023-07-01` or later.
-2. Redeploy your ARM template for the cluster to apply the new `OSSKU` setting. During this deploy, your cluster behaves as if it's taking a node image upgrade. Your cluster surges capacity, and then reboots your existing nodes one by one into the latest AKS image from your new OS SKU.
+1. Update your existing templates to set `OSSKU=AzureLinux`. In ARM templates, you use `"OSSKU: "AzureLinux"` in the `agentPoolProfile` section. In Bicep, you use `osSku: "AzureLinux"` in the `agentPoolProfile` section. Lastly, for Terraform, you use `"os_sku = "AzureLinux"` in the `default_node_pool` section. Make sure that your `apiVersion` is set to `2023-07-01` or later.
+2. Redeploy your ARM, Bicep, or Terraform template for the cluster to apply the new `OSSKU` setting. During this deploy, your cluster behaves as if it's taking a node image upgrade. Your cluster surges capacity, and then reboots your existing nodes one by one into the latest AKS image from your new OS SKU.
 
 ### Rollback
 
@@ -283,7 +342,7 @@ If you experience issues during the OS SKU migration, you can roll back to your 
 In this tutorial, you migrated existing nodes to Azure Linux using one of the following methods:
 
 * Remove existing node pools and add new Azure Linux node pools.
-* In-place OS SKU migration (preview).
+* In-place OS SKU migration.
 
 In the next tutorial, you learn how to enable telemetry to monitor your clusters.
 

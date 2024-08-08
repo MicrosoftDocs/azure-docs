@@ -3,7 +3,7 @@ title: Use a TLS/SSL certificate in code
 description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
 ms.topic: article
 ms.custom: linux-related-content
-ms.date: 02/15/2023
+ms.date: 05/01/2024
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -148,7 +148,9 @@ The certificate file names are the certificate thumbprints.
 > App Service inject the certificate paths into Windows containers as the following environment variables `WEBSITE_PRIVATE_CERTS_PATH`, `WEBSITE_INTERMEDIATE_CERTS_PATH`, `WEBSITE_PUBLIC_CERTS_PATH`, and `WEBSITE_ROOT_CERTS_PATH`. It's better to reference the certificate path with the environment variables instead of hardcoding the certificate path, in case the certificate paths change in the future.
 >
 
-In addition, [Windows Server Core containers](configure-custom-container.md#supported-parent-images) load the certificates into the certificate store automatically, in **LocalMachine\My**. To load the certificates, follow the same pattern as [Load certificate in Windows apps](#load-certificate-in-windows-apps). For Windows Nano based containers, use these file paths [Load the certificate directly from file](#load-certificate-from-file).
+In addition, [Windows Server Core  and Windows Nano Server containers](configure-custom-container.md#supported-parent-images) load the certificates into the certificate store automatically, in **LocalMachine\My**. To load the certificates, follow the same pattern as [Load certificate in Windows apps](#load-certificate-in-windows-apps). For Windows Nano based containers, use these file paths [Load the certificate directly from file](#load-certificate-from-file).
+
+### [Linux](#tab/linux)
 
 The following C# code shows how to load a public certificate in a Linux app.
 
@@ -176,6 +178,62 @@ var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate
 ```
+
+### [Windows](#tab/windows)
+
+The following C# example shows how to load a public certificate in a .NET Framework app in a Windows Server Core Container.
+
+```csharp
+using System;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+
+string certThumbprint = "E661583E8FABEF4C0BEF694CBC41C28FB81CD870";
+bool validOnly = false;
+
+using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.LocalMachine))
+{
+  certStore.Open(OpenFlags.ReadOnly);
+
+  X509Certificate2Collection certCollection = certStore.Certificates.Find(
+                              X509FindType.FindByThumbprint,
+                              // Replace below with your certificate's thumbprint
+                              certThumbprint,
+                              validOnly);
+  // Get the first cert with the thumbprint
+  X509Certificate2 cert = certCollection.OfType<X509Certificate2>().FirstOrDefault();
+
+  if (cert is null)
+      throw new Exception($"Certificate with thumbprint {certThumbprint} was not found");
+
+  // Use certificate
+  Console.WriteLine(cert.FriendlyName);
+  
+  // Consider to call Dispose() on the certificate after it's being used, available in .NET 4.6 and later
+}
+```
+
+The following C# example shows how to load a public certificate in a .NET Core app in a Windows Server Core or Windows Nano Server Container.
+
+```csharp
+using System.Security.Cryptography.X509Certificates;
+
+string Thumbprint = "C0CF730E216F5D690D1834446554DF5DC577A78B";
+
+using X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+{
+    store.Open(OpenFlags.ReadOnly);
+    
+    // Get the first cert with the thumbprint
+    var certificate = store.Certificates.OfType<X509Certificate2>()
+        .First(c => c.Thumbprint == Thumbprint) ?? throw new Exception($"Certificate with thumbprint {Thumbprint} was not found");
+
+    // Use certificate
+    ViewData["certificateDetails"] = certificate.IssuerName.Name.ToString();
+}
+```
+
+---
 
 To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, or Java, see the documentation for the respective language or web platform.
 

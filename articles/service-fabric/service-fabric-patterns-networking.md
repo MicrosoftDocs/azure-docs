@@ -4,7 +4,7 @@ description: Describes common networking patterns for Service Fabric and how to 
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---
@@ -26,7 +26,7 @@ Service Fabric is unique from other networking features in one aspect. The [Azur
 If port 19080 is not accessible from the Service Fabric resource provider, a message like *Nodes Not Found* appears in the portal, and your node and application list appears empty. If you want to see your cluster in the Azure portal, your load balancer must expose a public IP address, and your network security group must allow incoming port 19080 traffic. If your setup does not meet these requirements, the Azure portal does not display the status of your cluster.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Templates
 

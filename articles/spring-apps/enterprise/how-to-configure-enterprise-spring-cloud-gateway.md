@@ -3,7 +3,7 @@ title: Configure VMware Spring Cloud Gateway
 description: Learn how to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 12/01/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -244,7 +244,7 @@ If you send the `GET` request to the `/scg-logout` endpoint by using `XMLHttpReq
 
 You need to have a route configuration to route the logout request to your application, as shown in the following example. This code makes a gateway-only logout SSO session.
 
-```java
+```javascript
 const req = new XMLHttpRequest();
 req.open("GET", "/scg-logout);
 req.send();
@@ -495,7 +495,7 @@ To enable the response cache for any route, use the `LocalResponseCache` filter.
 }
 ```
 
-For more information, see the [LocalResponseCache](./how-to-configure-enterprise-spring-cloud-gateway-filters.md#localresponsecache) section of [How to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan](./how-to-configure-enterprise-spring-cloud-gateway-filters.md) and [LocalResponseCache](https://aka.ms/vmware/scg/filters/localresponsecache) in the VMware documentation.
+For more information, see the [LocalResponseCache](./how-to-configure-enterprise-spring-cloud-gateway-filters.md#localresponsecache) section of [How to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan](./how-to-configure-enterprise-spring-cloud-gateway-filters.md) and [LocalResponseCache](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-filters-traffic-control.html#localresponsecache) in the VMware documentation.
 
 Instead of configuring `size` and `timeToLive` for each `LocalResponseCache` filter individually, you can set these parameters at the Spring Cloud Gateway level. This option enables you to use the `LocalResponseCache` filter without specifying these values initially, while retaining the flexibility to override them later.
 
@@ -816,6 +816,44 @@ The following list shows the supported add-on configurations for the add-on key 
         }
     }
     ```
+
+- Pod configuration
+  - Key name: `PodOverrides`, which is used to specify overrides for the default pod configuration.
+  - Value type: Object
+  - Properties
+    - `Containers`: This array contains the configuration for individual containers within the pod. Only the container named `gateway` is supported currently.
+      - `Name`: Specifies the name of the container. The container should be named `gateway`.
+      - `Lifecycle`: `PreStop` is a lifecycle hook that's executed when a container is about to be terminated. This hook enables you to perform any necessary cleanup before the container stops.
+    - `TerminationGracePeriodSeconds`: Specifies the amount of time Kubernetes waits for a pod to terminate gracefully before forcibly killing it.
+  - Example:
+
+    ```json
+    {
+        "PodOverrides": {
+            "Containers": [
+                {
+                    "Name": "gateway",
+                    "Lifecycle": {
+                        "PreStop": {
+                            "Exec": {
+                                "Command": [
+                                    "/bin/sh",
+                                    "-c",
+                                    "sleep 20"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ],
+            "TerminationGracePeriodSeconds": 120
+        }
+    }
+    ```
+    
+    When a pod containing this container is being terminated, the `PreStop` hook executes the command `/bin/sh -c 'sleep 20'`, causing the container to sleep for 20 seconds. This pause gives the container some time to complete any ongoing tasks or cleanup before it actually stops.
+    
+    The `TerminationGracePeriodSeconds` setting provides a total of 120 seconds for the pod to terminate gracefully, including the time taken by any lifecycle hooks, such as `PreStop`.
 
 Use the following steps to update the add-on configuration.
 

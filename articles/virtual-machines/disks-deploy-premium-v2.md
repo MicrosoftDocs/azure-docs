@@ -231,6 +231,6 @@ Currently, adjusting disk performance is only supported with the Azure CLI or Az
 
 ## Next steps
 
-Add a data disk by using either the [Azure portal](linux/attach-disk-portal.md), [Azure CLI](linux/add-disk.md), or [PowerShell](windows/attach-disk-ps.md).
+Add a data disk by using either the [Azure portal](linux/attach-disk-portal.yml), [Azure CLI](linux/add-disk.md), or [PowerShell](windows/attach-disk-ps.md).
 
 Provide feedback on [Premium SSD v2](https://aka.ms/premium-ssd-v2-survey).

@@ -3,12 +3,12 @@ title: What are batch endpoints?
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning uses batch endpoints to simplify machine learning deployments.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: concept-article
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: cacrest
 ms.custom:
   - devplatv2
   - ignite-2023

@@ -11,17 +11,18 @@ ms.date: 04/03/2024
 adobe-target: true
 ---
 
-# Database for AI Era
+# Azure Cosmos DB - Database for the AI Era
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table, PostgreSQL](includes/appliesto-nosql-mongodb-cassandra-gremlin-table-postgresql.md)]
 
-> "OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance." – Satya Nadella, Microsoft chairman and chief executive officer
+> "OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance."
+> – Satya Nadella, Microsoft chairman and chief executive officer
 
 Today's applications are required to be highly responsive and always online. They must respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users.
 
 The surge of AI-powered applications created another layer of complexity, because many of these applications integrate a multitude of data stores. For example, some organizations built applications that simultaneously connect to MongoDB, Postgres, Redis, and Gremlin. These databases differ in implementation workflow and operational performances, posing extra complexity for scaling applications.
 
-Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from caching to backup to vector search. It provides the data infrastructure for modern applications like AI, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table.
+Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from [geo-replicated distributed caching](https://medium.com/@marcodesanctis2/using-azure-cosmos-db-as-your-persistent-geo-replicated-distributed-cache-b381ad80f8a0) to backup to [vector indexing and search](vector-database.md). It provides the data infrastructure for modern applications like [AI agent](ai-agents.md), digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table.
 
 ## An AI database providing industry-leading capabilities...
 
@@ -39,21 +40,36 @@ App development is faster and more productive thanks to:
 
 As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates, and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
-If you're an existing Azure AI or GitHub Copilot customer, you may try Azure Cosmos DB for free with 40,000 [RU/s](request-units.md) (equivalent of up to $6,000) of throughput for 90 days under the [Azure AI Advantage offer](ai-advantage.md).
+The following free options are available:
 
-Alternatively, you may use the [Azure Cosmos DB lifetime free tier](free-tier.md) with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
+* [Azure Cosmos DB lifetime free tier](free-tier.md) provides 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
+* [Azure AI Advantage](ai-advantage.md) offers 40,000 [RU/s](request-units.md) of throughput for 90 days (equivalent of up to $6,000) to Azure AI or GitHub Copilot customers.
+* [Try Azure Cosmos DB free](https://azure.microsoft.com/try/cosmosdb/) for 30 days without creating an Azure account; no commitment follows when the trial period ends.
 
-If you aren't already using Azure, you may Try Azure Cosmos DB free for 30 days without an Azure subscription ([learn more](https://azure.microsoft.com/try/cosmosdb/)). No commitment follows the end of your trial period.
+When you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
 
 > [!div class="nextstepaction"]
 > [Try Azure Cosmos DB free](https://azure.microsoft.com/try/cosmosdb/)
 
 > [!TIP]
-> To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
+> To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://www.youtube.com/@AzureCosmosDB/streams).
 
 ## ...for more than just AI apps
 
-Besides AI, Azure Cosmos DB should also be your goto database for web, mobile, gaming, and IoT applications. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build IoT and telematics, retail and marketing, gaming and web and mobile applications.
+Besides AI, Azure Cosmos DB should also be your goto database for a variety of use cases, including [retail and marketing](use-cases.md#retail-and-marketing), [IoT and telematics](use-cases.md#iot-and-telematics), [gaming](use-cases.md#gaming), [social](social-media-apps.md), and [personalization](use-cases.md#personalization), among others. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications.
+
+##### For what kinds of apps is Azure Cosmos DB a good fit?
+
+- **Flexible Schema for Iterative Development.** For example, apps wanting to adopt flexible modern DevOps practices and accelerate feature deployment timelines.
+- **Latency sensitive workloads.** For example, real-time Personalization.
+- **Highly elastic workloads.** For example, concert booking platform.
+- **High throughput workloads.** For example, IoT device state/telemetry.
+- **Highly available mission critical workloads.** For example, customer-facing Web Apps.
+
+##### For what kinds of apps is Azure Cosmos DB a poor fit?
+
+- **Analytical workloads (OLAP).** For example, interactive, streaming, and batch analytics to enable Data Scientist / Data Analyst scenarios. Consider Microsoft Fabric instead.
+- **Highly relational apps.** For example, white-label CRM applications. Consider Azure SQL, Azure Database for MySQL, or Azure Database for PostgreSQL instead.
 
 ## ...with unmatched reliability and flexibility
 

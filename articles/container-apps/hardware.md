@@ -4,7 +4,7 @@ description: Learn about hardware specifications in Container Apps
 services: container-apps
 author: cachai2
 ms.author: cachai
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: reference
 ms.date: 08/30/2023
 ---

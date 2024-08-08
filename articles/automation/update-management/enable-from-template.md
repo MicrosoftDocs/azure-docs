@@ -5,7 +5,8 @@ services:  automation
 ms.subservice: update-management
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 07/15/2024
+ms.service: azure-automation
 ---
 
 # Enable Update Management using Azure Resource Manager template

@@ -1,7 +1,7 @@
 ---
 title: NYC Taxi and Limousine yellow dataset
 description: Learn how to use the NYC Taxi and Limousine yellow dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 The yellow taxi trip records include fields capturing pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Volume and retention
 

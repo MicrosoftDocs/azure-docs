@@ -2,7 +2,7 @@
 title: Manage Azure Cosmos DB for NoSQL resources using PowerShell
 description: Manage Azure Cosmos DB for NoSQL resources using PowerShell.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/18/2022
@@ -21,7 +21,7 @@ The following guide describes how to use PowerShell to script and automate manag
 
 For cross-platform management of Azure Cosmos DB, you can use the `Az` and `Az.CosmosDB` cmdlets with [cross-platform PowerShell](/powershell/scripting/install/installing-powershell), as well as the [Azure CLI](manage-with-cli.md), the [REST API][rp-rest-api], or the [Azure portal](how-to-create-account.md).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Getting Started
 
@@ -49,7 +49,7 @@ The following sections demonstrate how to manage the Azure Cosmos DB account, in
 
 ### <a id="create-account"></a> Create an Azure Cosmos DB account
 
-This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [service-managed failover](../how-to-manage-database-account.md#automatic-failover) and bounded-staleness [consistency policy](../consistency-levels.md).
+This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [service-managed failover](../how-to-manage-database-account.yml#enable-service-managed-failover-for-your-azure-cosmos-db-account) and bounded-staleness [consistency policy](../consistency-levels.md).
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -827,11 +827,9 @@ Remove-AzResourceLock `
 ## Next steps
 
 * [All PowerShell Samples](powershell-samples.md)
-* [How to manage Azure Cosmos DB account](../how-to-manage-database-account.md)
+* [How to manage Azure Cosmos DB account](../how-to-manage-database-account.yml)
 * [Create an Azure Cosmos DB container](how-to-create-container.md)
 * [Configure time-to-live in Azure Cosmos DB](how-to-time-to-live.md)
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [powershell-install-configure]: /powershell/azure/
 [scaling-globally]: ../distribute-data-globally.md#EnableGlobalDistribution

@@ -3,7 +3,7 @@ title: 'About VPN devices for connections'
 titleSuffix: Azure VPN Gateway
 description: Learn about VPN devices and IPsec parameters for Site-to-Site cross-premises connections. Links are provided to configuration instructions and samples.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: article
 ms.date: 10/06/2023
 ms.author: cherylmc
@@ -49,7 +49,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Citrix |NetScaler MPX, SDX, VPX |10.1 and later |[Configuration guide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Not compatible |
 | F5 |BIG-IP series |12.0 |[Configuration guide](https://community.f5.com/t5/technical-articles/connecting-to-windows-azure-with-the-big-ip/ta-p/282476) |[Configuration guide](https://community.f5.com/t5/technical-articles/big-ip-to-azure-dynamic-ipsec-tunneling/ta-p/282665) |
 | Fortinet |FortiGate |FortiOS 5.6 | Not tested |[Configuration guide](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
-| Fujitsu | Si-R G series | V04: V04.12<br>V20: V20.14 | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) |
+| Fsas Technologies | Si-R G series | V04: V04.12<br>V20: V20.14 | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) |
 | Hillstone Networks | Next-Gen Firewalls (NGFW) | 5.5R7  | Not tested | [Configuration guide](https://www.hillstonenet.com/wp-content/uploads/How-to-setup-Site-to-Site-VPN-between-Microsoft-Azure-and-an-on-premise-Hillstone-Networks-Security-Gateway.pdf) |
 | HPE Aruba | EdgeConnect SDWAN Gateway | ECOS Release v9.2<br>Orchestrator OS v9.2 | [Configuration guide](https://www.arubanetworks.com/website/techdocs/sdwan-PDFs/integrations/int_Azure-EC-IPSec_latest.pdf) | [Configuration guide](https://www.arubanetworks.com/website/techdocs/sdwan-PDFs/integrations/int_Azure-EC-IPSec_latest.pdf)|
 | Internet Initiative Japan (IIJ) |SEIL Series |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Configuration guide](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Not compatible |
@@ -112,8 +112,6 @@ After you download the provided VPN device configuration sample, you’ll need t
 
 The following tables contain the combinations of algorithms and parameters Azure VPN gateways use in default configuration (**Default policies**). For route-based VPN gateways created using the Azure Resource Management deployment model, you can specify a custom policy on each individual connection. Refer to [Configure IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) for detailed instructions.
 
-Additionally, you must clamp TCP **MSS** at **1350**. Or if your VPN devices don't support MSS clamping, you can alternatively set the **MTU** on the tunnel interface to **1400** bytes instead.
-
 In the following tables:
 
 * SA = Security Association
@@ -141,6 +139,15 @@ In the following tables:
 | SA Lifetime (Bytes)           |102,400,000 KB |102,400,000 KB                               |
 | Perfect Forward Secrecy (PFS) |No             |[RouteBased QM SA Offers](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |Not supported  |Supported                                    |
+
+### Azure VPN Gateway TCP MSS Clamping
+
+MSS clamping is done bidirectionally on the Azure VPN Gateway. The following table lists the packet size under different scenarios.
+
+| **Packet Flow**               |**IPv4**        | **IPv6**   |
+| ---                           | ---            | ---        |
+| Over Internet                 | 1340 bytes     | 1360 bytes |
+| Over Express Route Gateway    | 1250 bytes     | 1250 bytes |
 
 
 ### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec Security Association (IKE Quick Mode SA) Offers

@@ -32,7 +32,7 @@ The remainder of this article is focused on queries and client code. It uses Jav
 Elements of a request include one of the search-as-you-type APIs, a partial query, and a suggester. The following script illustrates components of a request, using the Autocomplete REST API as an example.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2024-07-01
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -145,7 +145,7 @@ If you're using C# and an MVC application, **HomeController.cs** file under the 
 
 The `InitSearch` method creates an authenticated HTTP index client to the Azure AI Search service. Properties on the [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) class determine which fields are searched and returned in the results, the number of matches, and whether fuzzy matching is used. 
 
-For autocomplete, fuzzy matching is limited to one edit distance (one omitted or misplaced character). Fuzzy matching in autocomplete queries can sometimes produce unexpected results depending on index size and how it's sharded. For more information, see [partition and sharding concepts](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
+For autocomplete, fuzzy matching is limited to one edit distance (one omitted or misplaced character). Fuzzy matching in autocomplete queries can sometimes produce unexpected results depending on index size and [how it's sharded](index-similarity-and-scoring.md#sharding-effects-on-query-results). 
 
 ```csharp
 public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string term)

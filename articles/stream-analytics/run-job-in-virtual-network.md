@@ -3,7 +3,7 @@ title: Run your Stream Analytics in Azure virtual network
 description: This article describes how to run an Azure Stream Analytics job in an Azure virtual network.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 05/23/2023
 ---

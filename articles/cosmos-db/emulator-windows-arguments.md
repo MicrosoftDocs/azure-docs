@@ -4,10 +4,10 @@ titleSuffix: Azure Cosmos DB
 description: Manage the Azure Cosmos DB emulator with the command line or PowerShell and change the configuration of the emulator.   
 author: sajeetharan
 ms.author: sasinnat
-ms.reviewer: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: reference
-ms.date: 09/11/2023
+ms.date: 06/20/2024
 ---
 
 # Command-line and PowerShell reference for Windows (local) emulator
@@ -58,7 +58,7 @@ To view the list of parameters, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at
 | `StartWprTraces` | Start collecting debug trace logs using **Windows Performance Recording** tool. | `Microsoft.Azure.Cosmos.Emulator.exe /StartWprTraces` |
 | `StopWprTraces` | Stop collecting debug trace logs using **Windows Performance Recording** tool. | `Microsoft.Azure.Cosmos.Emulator.exe /StopWprTraces` |
 | `FailOnSslCertificateNameMismatch` | By default the emulator regenerates its self-signed TLS/SSL certificate, if the certificate's SAN doesn't include the emulator host's domain name, local IP address ([v4](https://wikipedia.org/wiki/Internet_Protocol_version_4)), `localhost`, and `127.0.0.1`. With this option, the emulator instead fails at startup. You should then use the `/GenCert` option to create and install a new self-signed TLS/SSL certificate. | `Microsoft.Azure.Cosmos.Emulator.exe /FailOnSslCertificateNameMismatch` |
-| `GenCert` | Generate and install a new self-signed TLS/SSL certificate. optionally including a comma-separated list of extra DNS names for accessing the emulator over the network. | `Microsoft.Azure.Cosmos.Emulator.exe /GenCert`  |
+| `GenCert` | Generate and install a new self-signed TLS/SSL certificate. optionally including a comma-separated list of extra Domain Name System (DNS) names for accessing the emulator over the network. | `Microsoft.Azure.Cosmos.Emulator.exe /GenCert`  |
 | `DirectPorts` | Specifies the ports to use for direct connectivity. Defaults are `10251`, `10252`, `10253`, and `10254`. | `Microsoft.Azure.Cosmos.Emulator.exe /DirectPorts:65600,65700` |
 | `Key` | Authorization key for the emulator. Key must be the base-64 encoding of a 64-byte vector. | `Microsoft.Azure.Cosmos.Emulator.exe /Key:D67PoU0bcK/kgPKFHu4W+3SUY9LNcwcFLIUHnwrkA==` |
 | `EnableRateLimiting` | Specifies that request rate limiting behavior is enabled. | `Microsoft.Azure.Cosmos.Emulator.exe /EnableRateLimiting` |
@@ -81,7 +81,7 @@ The emulator comes with a PowerShell module to start, stop, uninstall, and retri
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
-or place the `PSModules` directory on your `PSModulePath` and import it as shown in the following command:
+Or place the `PSModules` directory on your `PSModulePath` and import it as shown in the following command:
 
 ```powershell
 $env:PSModulePath += ";$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
@@ -185,7 +185,7 @@ Start-CosmosDbEmulator [-AllowNetworkAccess]
 
 #### Examples
 
-- Start the emulator and wait until it's fully started and ready to accept requests.
+- Start the emulator and wait until it's ready to accept requests.
 
     ```powershell
     Start-CosmosDbEmulator
@@ -271,9 +271,9 @@ Uninstall-CosmosDbEmulator @parameters
 
 ## Change the number of default containers
 
-By default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the emulator. By modifying the **PartitionCount** value, you can create up to 250 fixed size containers or 50 unlimited containers, or any combination of the two that doesn't exceed 250 fixed size containers (where one unlimited container = 5 fixed size containers). However it's not recommended to set up the emulator to run with more than 200 fixed size containers. Because of the overhead that it adds to the disk IO operations, which result in unpredictable timeouts when using the endpoint APIs.
+By default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB software development kits (SDKs)), or 5 unlimited containers using the emulator. By modifying the **PartitionCount** value, you can create up to 250 fixed size containers or 50 unlimited containers, or any combination of the two that doesn't exceed 250 fixed size containers (where one unlimited container = 5 fixed size containers). However we don't recommend that you set up the emulator to run with more than 200 fixed size containers. Because of the overhead that it adds to the disk IO operations, which result in unpredictable timeouts when using the endpoint APIs.
 
-If you attempt to create a container after the current partition count has been exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
+If you attempt to create a container after the current partition count is exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
 
 ```output
 Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again.
@@ -286,7 +286,7 @@ To change the number of containers available in the emulator, run the following 
 
 1. Delete all emulator data in this folder `%LOCALAPPDATA%\CosmosDBEmulator`.
 
-1. Exit all open instances by right-clicking the **emulator** icon on the system tray, and then clicking **Exit**. It may take a minute for all instances to exit.
+1. Exit all open instances by right-clicking the **emulator** icon on the system tray, and then clicking **Exit**. It might take a minute for all instances to exit.
 
 1. Install the latest version of the [emulator](https://cosmosdbportalstorage.azureedge.net/emulator/2023_01_30_2.14.11-dfad83c1/azure-cosmosdb-emulator-2.14.11-dfad83c1.msi).
 

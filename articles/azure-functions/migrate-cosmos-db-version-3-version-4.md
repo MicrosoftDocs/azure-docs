@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
-ms.date: 03/04/2024
+ms.date: 07/10/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -19,7 +19,7 @@ This article walks you through the process of migrating your function app to run
 
 ## Changes to item ID generation
 
-Item ID is no longer auto populated in the Extension. Therefore, the Item ID must specifically include a generated ID for cases where you were using the Output Binding to create items.
+Item ID is no longer auto populated in the Extension. Therefore, the Item ID must specifically include a generated ID for cases where you were using the Output Binding to create items. To maintain the same behavior as the previous version, you can assign a random GUID as ID property.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -210,14 +210,16 @@ namespace CosmosDBSamples
 ```
 
 > [!NOTE]
-> If your scenario relied on the dynamic nature of the `Document` type to identify different schemas and types of events, you can use a base abstract type with the common properties across your types or dynamic types like `JObject` that allow to access properties like `Document` did.
+> If your scenario relied on the dynamic nature of the `Document` type to identify different schemas and types of events, you can use a base abstract type with the common properties across your types or dynamic types like `JObject` (when using `Microsoft.Azure.WebJobs.Extensions.CosmosDB`) and `JsonNode` (when using `Microsoft.Azure.Functions.Worker.Extensions.CosmosDB`) that allow to access properties like `Document` did.
+
+Additionally, if you are using the Output Binding, please review the [change in item ID generation](#changes-to-item-id-generation) to verify if you need additional code changes.
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Modify your function code
 
-After you update your `host.json` to use the correct extension bundle version and modify your `function.json` to use the correct attribute names, there are no further code changes required.
+After you update your `host.json` to use the correct extension bundle version and modify your `function.json` to use the correct attribute names, there are no further code changes required for cases where you are using Input Bindings or Trigger. If you are using the Output Binding, please review the [change in item ID generation](#changes-to-item-id-generation) to verify if you need additional code changes.
 
 ::: zone-end
 

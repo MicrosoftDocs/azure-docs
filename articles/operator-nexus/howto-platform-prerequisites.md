@@ -141,203 +141,327 @@ Terminal Server has been deployed and configured as follows:
   - Terminal Server interface is connected to the operators on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
   - Terminal Server is accessible from the management VPN
 
-1. Setup hostname:
-   [CLI Reference](https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-)
+### Step 1: Setting up hostname
 
-   ```bash
-   sudo ogcli update system/hostname hostname=\"$TS_HOSTNAME\"
-   ```
+To set up the hostname for your terminal server, follow these steps:
 
-   | Parameter name | Description                  |
-   | -------------- | ---------------------------- |
-   | TS_HOSTNAME    | The terminal server hostname |
+Use the following command in the CLI:
 
-2. Setup network:
+```bash
+sudo ogcli update system/hostname hostname=\"$TS_HOSTNAME\"
+```
 
-   ```bash
-   sudo ogcli create conn << 'END'
-     description="PE1 to TS NET1"
-     mode="static"
-     ipv4_static_settings.address="$TS_NET1_IP"
-     ipv4_static_settings.netmask="$TS_NET1_NETMASK"
-     ipv4_static_settings.gateway="$TS_NET1_GW"
-     physif="net1"
-     END
+**Parameters:**
 
-   sudo ogcli create conn << 'END'
-     description="PE2 to TS NET2"
-     mode="static"
-     ipv4_static_settings.address="$TS_NET2_IP"
-     ipv4_static_settings.netmask="$TS_NET2_NETMASK"
-     ipv4_static_settings.gateway="$TS_NET2_GW"
-     physif="net2"
-     END
-   ```
+| Parameter Name | Description               |
+| -------------- | ------------------------- |
+| TS_HOSTNAME    | Terminal server hostname  |
 
-   | Parameter name  | Description                                |
-   | --------------- | ------------------------------------------ |
-   | TS_NET1_IP      | The terminal server PE1 to TS NET1 IP      |
-   | TS_NET1_NETMASK | The terminal server PE1 to TS NET1 netmask |
-   | TS_NET1_GW      | The terminal server PE1 to TS NET1 gateway |
-   | TS_NET2_IP      | The terminal server PE2 to TS NET2 IP      |
-   | TS_NET2_NETMASK | The terminal server PE2 to TS NET2 netmask |
-   | TS_NET2_GW      | The terminal server PE2 to TS NET2 gateway |
+[Refer to CLI Reference](https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-) for more details.
 
-3. Clear net3 interface if existing:
+### Step 2: Setting up network
 
-   Check for any interface configured on physical interface net3 and "Default IPv4 Static Address":
-   ```bash
-   ogcli get conns 
-   **description="Default IPv4 Static Address"**
-   **name="$TS_NET3_CONN_NAME"**
-   **physif="net3"**
-   ```
+To configure network settings, follow these steps:
+
+Execute the following commands in the CLI:
+
+```bash
+sudo ogcli create conn << 'END'
+  description="PE1 to TS NET1"
+  mode="static"
+  ipv4_static_settings.address="$TS_NET1_IP"
+  ipv4_static_settings.netmask="$TS_NET1_NETMASK"
+  ipv4_static_settings.gateway="$TS_NET1_GW"
+  physif="net1"
+  END
+sudo ogcli create conn << 'END'
+  description="PE2 to TS NET2"
+  mode="static"
+  ipv4_static_settings.address="$TS_NET2_IP"
+  ipv4_static_settings.netmask="$TS_NET2_NETMASK"
+  ipv4_static_settings.gateway="$TS_NET2_GW"
+  physif="net2"
+  END
+```
+
+**Parameters:**
+
+| Parameter Name  | Description                                     |
+| --------------- | ----------------------------------------------- |
+| TS_NET1_IP      | Terminal server PE1 to TS NET1 IP               |
+| TS_NET1_NETMASK | Terminal server PE1 to TS NET1 netmask          |
+| TS_NET1_GW      | Terminal server PE1 to TS NET1 gateway          |
+| TS_NET2_IP      | Terminal server PE2 to TS NET2 IP               |
+| TS_NET2_NETMASK | Terminal server PE2 to TS NET2 netmask          |
+| TS_NET2_GW      | Terminal server PE2 to TS NET2 gateway          |
+
+>[!NOTE]
+>Make sure to replace these parameters with appropriate values.
+
+### Step 3: Clearing net3 interface (if existing)
+
+To clear the net3 interface, follow these steps:
+
+1. Check for any interface configured on the physical interface net3 and "Default IPv4 Static Address" using the following command:
    
-   Remove if existing:
-   ```bash
-   ogcli delete conn "$TS_NET3_CONN_NAME"
-   ```
+```bash
+ogcli get conns 
+**description="Default IPv4 Static Address"**
+**name="$TS_NET3_CONN_NAME"**
+**physif="net3"**
+```
 
-   | Parameter name    | Description                                |
-   | ----------------- | ------------------------------------------ |
-   | TS_NET3_CONN_NAME | The terminal server NET3 Connection name   |
+**Parameters:**
 
-4. Setup support admin user:
+| Parameter Name    | Description                              |
+| ----------------- | ---------------------------------------- |
+| TS_NET3_CONN_NAME | Terminal server NET3 Connection name     |
 
-   For each user
-   ```bash
-   ogcli create user << 'END'
-   description="Support Admin User"
-   enabled=true
-   groups[0]="admin"
-   groups[1]="netgrp"
-   hashed_password="$HASHED_SUPPORT_PWD"
-   username="$SUPPORT_USER"
-   END
-   ```
-
-   | Parameter name     | Description                         |
-   | ------------------ | ----------------------------------- |
-   | SUPPORT_USER       | Support admin user                  |
-   | HASHED_SUPPORT_PWD | Encoded support admin user password |
-
-5. Add sudo support for admin users (added at admin group level):
-
-   ```bash
-   sudo vi /etc/sudoers.d/opengear
-   %netgrp ALL=(ALL) ALL
-   %admin ALL=(ALL) NOPASSWD: ALL
-   ```
+2. Remove the interface if it exists:
    
-6. Start/Enable the LLDP service if it isn't running:
+```bash
+ogcli delete conn "$TS_NET3_CONN_NAME"
+```
+
+>[!NOTE]
+>Make sure to replace these parameters with appropriate values.
+
+### Step 4: Setting up support admin user
+
+To set up the support admin user, follow these steps:
+
+1. For each user, execute the following command in the CLI:
    
-   Check if LLDP service is running on TS:
-   ```bash
-   sudo systemctl status lldpd
-   lldpd.service - LLDP daemon
-       Loaded: loaded (/lib/systemd/system/lldpd.service; enabled; vendor preset: disabled)
-       Active: active (running) since Thu 2023-09-14 19:10:40 UTC; 3 months 25 days ago
-         Docs: man:lldpd(8)
-     Main PID: 926 (lldpd)
-        Tasks: 2 (limit: 9495)
-       Memory: 1.2M
-       CGroup: /system.slice/lldpd.service
-               ├─926 lldpd: monitor.
-               └─992 lldpd: 3 neighbors.
+```bash
+ogcli create user << 'END'
+description="Support Admin User"
+enabled=true
+groups[0]="admin"
+groups[1]="netgrp"
+hashed_password="$HASHED_SUPPORT_PWD"
+username="$SUPPORT_USER"
+END
+```
 
-   Notice: journal has been rotated since unit was started, output may be incomplete.
-   ```
+**Parameters:**
 
-   If the service isn't active (running), start the service:
-   ```bash
-   sudo systemctl start lldpd
-   ```
+| Parameter Name     | Description                            |
+| ------------------ | -------------------------------------- |
+| SUPPORT_USER       | Support admin user                     |
+| HASHED_SUPPORT_PWD | Encoded support admin user password    |
 
-   Enable the service on reboot:
-   ```bash
-   sudo systemctl enable lldpd
-   ```
-7. Check system date/time:
+>[!NOTE]
+>Make sure to replace these parameters with appropriate values.
 
-   ```bash
-   date
-   ```
+### Step 5: Adding sudo support for admin users
 
-   To fix date if incorrect:
-   ```bash
-   ogcli replace system/time
-   Reading information from stdin. Press Ctrl-D to submit and Ctrl-C to cancel.
-   time="$CURRENT_DATE_TIME"
-   ```
+To add sudo support for admin users, follow these steps:
 
-   | Parameter name     | Description                                   |
-   | ------------------ | --------------------------------------------- |
-   | CURRENT_DATE_TIME  | Current date time in format hh:mm MMM DD, YYY |
+1. Open the sudoers configuration file:
 
-8. Label TS Ports (if missing/incorrect):
+```bash
+sudo vi /etc/sudoers.d/opengear
+```
 
-   ```bash
-   ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
-   ```
+2. Add the following lines to grant sudo access:
 
-   | Parameter name  | Description                 |
-   | ----------------| --------------------------- |
-   | NEW_NAME        | Port label name             |
-   | PORT_#          | Terminal Server port number |
+```bash
+%netgrp ALL=(ALL) ALL
+%admin ALL=(ALL) NOPASSWD: ALL
+```
 
-9. Settings required for PURE Array serial connections:
+>[!NOTE]
+>Make sure to save the changes after editing the file.
 
-   ```bash
-   ogcli update port ports-<PORT_#> 'baudrate="115200"'	<PORT_#>	Pure Storage Controller console
-   ogcli update port ports-<PORT_#> 'pinout="X1"'	<PORT_#>	Pure Storage Controller console
-   ```
+This configuration allows members of the "netgrp" group to execute any command as any user and members of the "admin" group to execute any command as any user without requiring a password.
 
-   | Parameter name  | Description                 |
-   | ----------------| --------------------------- |
-   | PORT_#          | Terminal Server port number |
+### Step 6: Ensuring LLDP service availability
 
-10. Verify Settings
+To ensure the LLDP service is available on your terminal server, follow these steps:
 
-   ```bash
-   ping $PE1_IP -c 3  # ping test to PE1 //TS subnet +2
-   ping $PE2_IP -c 3 # ping test to PE2 //TS subnet +2
-   ogcli get conns # verify NET1, NET2, NET3 Removed
-   ogcli get users # verify support admin user
-   ogcli get static_routes # there should be no static routes
-   ip r # verify only interface routes
-   ip a # verify loopback, NET1, NET2
-   date # check current date/time
-   pmshell # Check ports labelled
-   
-   sudo lldpctl
-   sudo lldpcli show neighbors # to check the LLDP neighbors - should show date from NET1 and NET2
-   # Should include 
-   -------------------------------------------------------------------------------
-   LLDP neighbors:
-   -------------------------------------------------------------------------------
-   Interface:    net2, via: LLDP, RID: 2, Time: 0 day, 20:28:36
-    Chassis:     
-      ChassisID:    mac 12:00:00:00:00:85
-      SysName:      austx502xh1.els-an.att.net
-      SysDescr:      7.7.2, S9700-53DX-R8
-      Capability:   Router, on
-    Port:         
-      PortID:       ifname TenGigE0/0/0/0/3
-      PortDescr:     GE10_Bundle-Ether83_austx4511ts1_net2_net2_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
-      TTL:          120
-   -------------------------------------------------------------------------------
-   Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
-   Chassis:     
-       ChassisID:    mac 12:00:00:00:00:05
-      SysName:      austx501xh1.els-an.att.net
-      SysDescr:      7.7.2, S9700-53DX-R8
-      Capability:   Router, on
-    Port:         
-      PortID:       ifname TenGigE0/0/0/0/3
-      PortDescr:     GE10_Bundle-Ether83_austx4511ts1_net1_net1_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
-      TTL:          120
-   -------------------------------------------------------------------------------
-   ```
+Check if the LLDP service is running:
+
+```bash
+sudo systemctl status lldpd
+```
+
+You should see output similar to the following if the service is running:
+
+```Output
+lldpd.service - LLDP daemon
+   Loaded: loaded (/lib/systemd/system/lldpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2023-09-14 19:10:40 UTC; 3 months 25 days ago
+     Docs: man:lldpd(8)
+ Main PID: 926 (lldpd)
+    Tasks: 2 (limit: 9495)
+   Memory: 1.2M
+   CGroup: /system.slice/lldpd.service
+           ├─926 lldpd: monitor.
+           └─992 lldpd: 3 neighbors.
+Notice: journal has been rotated since unit was started, output may be incomplete.
+```
+
+If the service isn't active (running), start the service:
+
+```bash
+sudo systemctl start lldpd
+```
+
+Enable the service to start on reboot:
+
+```bash
+sudo systemctl enable lldpd
+```
+
+>[!NOTE]
+>Make sure to perform these steps to ensure the LLDP service is always available and starts automatically upon reboot.
+
+### Step 7: Checking system date/time
+
+Ensure that the system date/time is correctly set, and the timezone for the terminal server is in UTC.
+
+#### Check timezone setting:
+
+To check the current timezone setting:
+
+```bash
+ogcli get system/timezone
+```
+
+#### Set timezone to UTC:
+
+If the timezone is not set to UTC, you can set it using:
+
+```bash
+ogcli update system/timezone timezone=\"UTC\"
+```
+
+#### Check current date/time:
+
+Check the current date and time:
+
+```bash
+date
+```
+
+#### Fix date/time if incorrect:
+
+If the date/time is incorrect, you can fix it using:
+
+```bash
+ogcli replace system/time
+Reading information from stdin. Press Ctrl-D to submit and Ctrl-C to cancel.
+time="$CURRENT_DATE_TIME"
+```
+
+**Parameters:**
+
+| Parameter Name     | Description                                   |
+| ------------------ | --------------------------------------------- |
+| CURRENT_DATE_TIME  | Current date time in format hh:mm MMM DD, YYYY |
+
+>[!NOTE]
+>Ensure the system date/time is accurate to prevent any issues with applications or services relying on it.
+
+### Step 8: Labeling Terminal Server ports (if missing/incorrect)
+
+To label Terminal Server ports, use the following command:
+
+```bash
+ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
+```
+
+**Parameters:**
+
+| Parameter Name  | Description                 |
+| ----------------| --------------------------- |
+| NEW_NAME        | Port label name             |
+| PORT_#          | Terminal Server port number |
+
+
+### Step 9: Settings required for PURE Array serial connections
+
+Pure Storage arrays purchased prior to 2024 have revision R3 controllers which use rollover console cables and require the custom serial port connection commands below:
+
+**Pure Stoarge R3 Controllers:**
+```bash
+ogcli update port ports-<PORT_#> 'baudrate="115200"' <PORT_#> Pure Storage Controller console
+ogcli update port ports-<PORT_#> 'pinout="X1"' <PORT_#>	Pure Storage Controller console
+```
+
+Newer Pure Storage appliances, and systems upgraded from R3 to R4 Pure Storage controllers, will use straight-through console cables with the updated settings below:
+
+**Pure Storage R4 Controllers:**
+```bash
+ogcli update port ports-<PORT_#> 'baudrate="115200"' <PORT_#> Pure Storage Controller console
+ogcli update port ports-<PORT_#> 'pinout="X2"' <PORT_#>	Pure Storage Controller console
+```
+
+**Parameters:**
+
+| Parameter Name  | Description                 |
+| ----------------| --------------------------- |
+| PORT_#          | Terminal Server port number |
+
+These commands set the baud rate and pinout for connecting to the Pure Storage Controller console.
+
+>[!NOTE]
+>All other Terminal Server port configurations settings should remain the same and work by default with a straight-through RJ45 console cable.
+
+### Step 10: Verifying settings
+
+To verify the configuration settings, execute the following commands:
+
+```bash
+ping $PE1_IP -c 3  # Ping test to PE1 //TS subnet +2
+ping $PE2_IP -c 3  # Ping test to PE2 //TS subnet +2
+ogcli get conns     # Verify NET1, NET2, NET3 Removed
+ogcli get users     # Verify support admin user
+ogcli get static_routes  # Ensure there are no static routes
+ip r                # Verify only interface routes
+ip a                # Verify loopback, NET1, NET2
+date                # Check current date/time
+pmshell             # Check ports labelled
+
+sudo lldpctl
+sudo lldpcli show neighbors  # Check LLDP neighbors - should show data from NET1 and NET2
+```
+
+>[!NOTE]
+>Ensure that the LLDP neighbors are as expected, indicating successful connections to PE1 and PE2.
+
+Example LLDP neighbors output:
+
+```Output
+-------------------------------------------------------------------------------
+LLDP neighbors:
+-------------------------------------------------------------------------------
+Interface:    net2, via: LLDP, RID: 2, Time: 0 day, 20:28:36
+  Chassis:     
+    ChassisID:    mac 12:00:00:00:00:85
+    SysName:      austx502xh1.els-an.att.net
+    SysDescr:     7.7.2, S9700-53DX-R8
+    Capability:   Router, on
+  Port:         
+    PortID:       ifname TenGigE0/0/0/0/3
+    PortDescr:    GE10_Bundle-Ether83_austx4511ts1_net2_net2_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
+    TTL:          120
+-------------------------------------------------------------------------------
+Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
+  Chassis:     
+    ChassisID:    mac 12:00:00:00:00:05
+    SysName:      austx501xh1.els-an.att.net
+    SysDescr:     7.7.2, S9700-53DX-R8
+    Capability:   Router, on
+  Port:         
+    PortID:       ifname TenGigE0/0/0/0/3
+    PortDescr:    GE10_Bundle-Ether83_austx4511ts1_net1_net1_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
+    TTL:          120
+-------------------------------------------------------------------------------
+```
+
+>[!NOTE]
+>Verify that the output matches your expectations and that all configurations are correct.
 
 ## Set up storage array
 
@@ -352,7 +476,7 @@ Terminal Server has been deployed and configured as follows:
    - Installation Address:
    - FIC/Rack/Grid Location:
 4. Data provided to the operator and shared with storage array technician, which will be common to all installations:
-   - Purity Code Level: 6.5.1
+   - Purity Code Level: Refer to [supported Purity versions](./reference-near-edge-storage-supported-versions.md)
    - Safe Mode: Disabled
    - Array Time zone: UTC
    - DNS (Domain Name System) Server IP Address: 172.27.255.201

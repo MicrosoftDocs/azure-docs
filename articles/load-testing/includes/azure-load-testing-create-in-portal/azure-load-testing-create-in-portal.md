@@ -3,9 +3,9 @@ title: "Include file"
 description: "Include file"
 services: load-testing
 author: ninallam
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: ninallam
-ms.custom: "include file"
+ms.custom: include file, build-2024
 ms.topic: "include"
 ms.date: 10/11/2023
 ---
@@ -27,7 +27,7 @@ ms.date: 10/11/2023
     |**Subscription**     | Select the Azure subscription that you want to use for this Azure Load Testing resource.         |
     |**Resource group**     | Select an existing resource group. Or select **Create new**, and then enter a unique name for the new resource group.        |
     |**Name**     | Enter a unique name to identify your Azure Load Testing resource.<br>The name can't contain special characters, such as \\/""[]:\|<>+=;,?*@&, or whitespace. The name can't begin with an underscore (_), and it can't end with a period (.) or a dash (-). The length must be 1 to 64 characters.     |
-    |**Location**     | Select a geographic location to host your Azure Load Testing resource. <BR>This location also determines where the test engines are hosted and where the JMeter client requests originate from. |
+    |**Location** | Select a geographic location to host your Azure Load Testing resource. <BR>This location also determines where the test engines are hosted and where the test framework requests originate from. |
 
     > [!NOTE]
     > Optionally, you can configure more details on the **Tags** tab. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.

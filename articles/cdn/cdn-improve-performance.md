@@ -7,7 +7,7 @@ manager: kumudd
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 04/21/2024
 ms.author: duau
 ---
 
@@ -101,7 +101,7 @@ If the request supports more than one compression type, brotli compression takes
 
 When a request for an asset specifies gzip compression and the request results in a cache miss, Azure CDN performs gzip compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache.
 
-If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the CDN POP, then response sizes greater than 8 MB aren't supported.
+If the origin uses Chunked Transfer Encoding (CTE) to send data to the CDN POP, then compression isn't supported.
 
 <a name='azure-cdn-from-verizon-profiles'></a>
 
@@ -138,7 +138,7 @@ The following tables describe Azure CDN compression behavior for every scenario:
 
 | Client-requested format (via Accept-Encoding header) | Cached-file format | CDN response to the client | Notes |
 | --- | --- | --- | --- |
-| Compressed |Compressed |Compressed |CDN transcodes between supported formats. <br/>**Azure CDN from Microsoft** doesn't support transcoding between formats and instead fetches data from origin, compresses and caches separately for the format. |
+| Compressed |Compressed |Compressed |CDN transcodes between supported formats. <br/>**Azure CDN from Microsoft** doesn't support transcoding between formats and instead fetches data from origin, compresses, and caches separately for the format. |
 | Compressed |Uncompressed |Compressed |CDN performs a compression. |
 | Compressed |Not cached |Compressed |CDN performs a compression if the origin returns an uncompressed file. <br/>**Azure CDN from Edgio** passes the uncompressed file on the first request and then compresses and caches the file for subsequent requests. <br/>Files with the `Cache-Control: no-cache` header are never compressed. |
 | Uncompressed |Compressed |Uncompressed |CDN performs a decompression. <br/>**Azure CDN from Microsoft** doesn't support decompression and instead fetches data from origin and caches separately for uncompressed clients. |

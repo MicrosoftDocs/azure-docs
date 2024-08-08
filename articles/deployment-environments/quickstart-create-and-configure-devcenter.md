@@ -1,16 +1,16 @@
 ---
-title: Set up a dev center for Azure Deployment Environments
+title: Set up Azure Deployment Environments
 titleSuffix: Azure Deployment Environments
 description: Learn how to set up the resources to get started with Azure Deployment Environments. Configure a dev center, attach an identity, and attach a catalog for using IaC templates.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.date: 03/22/2024
 ---
 
-# Quickstart: Create and configure a dev center for Azure Deployment Environments
+# Quickstart: Configure Azure Deployment Environments
 
 In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate a project with the dev center, add environment types, and allow dev access to the project.
 
@@ -188,7 +188,7 @@ Before developers can create environments based on the environment types in a pr
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |

@@ -10,7 +10,6 @@ ZRS for premium file shares is available for a subset of Azure regions:
 
 - (Africa) South Africa North
 - (Asia Pacific) Australia East
-- (Asia Pacific) Australia South East
 - (Asia Pacific) China North 3
 - (Asia Pacific) Southeast Asia
 - (Asia Pacific) Korea Central
@@ -38,3 +37,4 @@ ZRS for premium file shares is available for a subset of Azure regions:
 - (North America) West US 3
 - (North America) South Central US
 - (South America) Brazil South
+- (US Government) US Gov Virginia

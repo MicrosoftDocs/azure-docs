@@ -3,7 +3,7 @@ title: Learn how to secure access to data in Azure Cosmos DB
 description: Learn about access control concepts in Azure Cosmos DB, including primary keys, read-only keys, users, and permissions.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/26/2022
@@ -213,7 +213,7 @@ To add Azure Cosmos DB account reader access to your user account, have a subscr
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -221,7 +221,7 @@ To add Azure Cosmos DB account reader access to your user account, have a subscr
     | Assign access to | User, group, or service principal. |
     | Members | The user, group, or application in your directory to which you want to grant access. |
 
-    ![Screenshot that shows the Add role assignment page in the Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot that shows the Add role assignment page in the Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 The entity can now read Azure Cosmos DB resources.
 
@@ -231,7 +231,7 @@ As a database service, Azure Cosmos DB enables you to search, select, modify, an
 
 Each multi-model API (SQL, MongoDB, Gremlin, Cassandra, or Table) provides different language SDKs that contain methods to search and delete data based on custom predicates. You can also enable the [time to live (TTL)](time-to-live.md) feature to delete data automatically after a specified period, without incurring any more cost.
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 ## Next steps
 

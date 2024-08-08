@@ -57,7 +57,7 @@ The snippet below shows the `dataFlows` section for a single stream with a trans
         "destinations": [
             "ciworkspace"
         ],
-        "transformKql": "source | where Namespace == 'kube-system'"
+        "transformKql": "source | where PodNamespace == 'kube-system'"
     }
 ]
 ```
@@ -68,7 +68,7 @@ The following samples show DCRs for Container insights using transformations. Us
 
 
 ### Filter for a particular namespace
-This sample uses the log query `source | where Namespace == 'kube-system'` to collect data for a single namespace in `ContainerLogsV2`. You can replace `kube-system` in this query with another namespace or replace the `where` clause with another filter to match the particular data you want to collect. The other streams are grouped into a separate data flow and have no transformation applied.
+This sample uses the log query `source | where PodNamespace == 'kube-system'` to collect data for a single namespace in `ContainerLogsV2`. You can replace `kube-system` in this query with another namespace or replace the `where` clause with another filter to match the particular data you want to collect. The other streams are grouped into a separate data flow and have no transformation applied.
 
 
 ```json
@@ -101,8 +101,7 @@ This sample uses the log query `source | where Namespace == 'kube-system'` to co
         "destinations": {
             "logAnalytics": [
                 {
-                    "workspaceResourceId": "",
-                    "workspaceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
+                    "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
                     "name": "ciworkspace"
                 }
             ]
@@ -132,7 +131,7 @@ This sample uses the log query `source | where Namespace == 'kube-system'` to co
                 "destinations": [
                     "ciworkspace"
                 ],
-                "transformKql": "source | where Namespace == 'kube-system'"
+                "transformKql": "source | where PodNamespace == 'kube-system'"
             }
         ] 
     }
@@ -174,8 +173,7 @@ This sample uses the log query `source | extend new_CF = ContainerName` to send 
         "destinations": {
             "logAnalytics": [
                 {
-                    "workspaceResourceId": "",
-                    "workspaceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
+                    "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
                 "name": "ciworkspace"
                 }
             ]

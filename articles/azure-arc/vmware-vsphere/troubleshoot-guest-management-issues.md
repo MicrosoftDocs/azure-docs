@@ -2,21 +2,21 @@
 title: Troubleshoot Guest Management Issues
 description: Learn about how to troubleshoot the guest management issues for Arc-enabled VMware vSphere.
 ms.topic: reference
-ms.date: 11/06/2023
+ms.date: 08/06/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom: linux-related-content
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 # Customer intent: As a VI admin, I want to understand the troubleshooting process for guest management issues.
 ---
 # Troubleshoot Guest Management for Linux VMs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-This article provides information on how to troubleshoot and resolve the issues that can occur while you enable guest management on Arc-enabled VMware vSphere virtual machines.
+This article provides information on how to troubleshoot and resolve the issues that can occur when you enable guest management on Arc-enabled VMware vSphere virtual machines.
 
 ## Troubleshoot issues while enabling Guest Management on a domain-joined Linux VM
 
@@ -72,15 +72,17 @@ Applies to:
 
 Before you enable the guest agent, follow these steps on the VM:
 
-1. Create file `vmtools_unconfined_rpm_script_kcs5347781.te` using the following:
+1. Create a file named `vmtools_unconfined_rpm_script_kcs5347781.te`, and add the following to it:
 
-     `policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0)
+    ```
+     policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0)
      gen_require(`
      type vmtools_unconfined_t;
      ')
      optional_policy(`
      rpm_transition_script(vmtools_unconfined_t,system_r)
-     ')`
+     ')
+     ```
 
 2. Install the package to build the policy module:
 
@@ -112,6 +114,6 @@ If you don't see your problem here or you can't resolve your issue, try one of t
 
 - Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
-- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).

@@ -10,7 +10,7 @@ ms.date: 03/25/2024
 
 This article describes how to set up a trial license and create an initial OT plan for Microsoft Defender for IoT, for customers who don't have any Microsoft tenant or Azure subscription at all. Use Defender for IoT to monitor network traffic across your OT networks.
 
-A trial supports a **Large** site size with up to 1,000 devices, and lasts for 90 days. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
+A trial supports a **Large** site size with up to 1,000 devices. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
 
 For more information, see [Free trial](billing.md#free-trial).
 
@@ -32,7 +32,7 @@ To add a trial license with a new tenant, we recommend that you use the Trial wi
 
 **To add a trial license with a new tenant**:
 
-1. In a browser, open the [Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial wizard](https://admin.microsoft.com/Commerce/Trial.aspx?OfferId=d2bdd05f-4856-4569-8474-2f9ec298923b&ru=PDP).
+1. In a browser, open the [Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial wizard](https://signup.microsoft.com/get-started/signup?products=d2bdd05f-4856-4569-8474-2f9ec298923b).
 
 1. In the **Email** box, enter the email address you want to associate with the trial license, and select **Next**.
 

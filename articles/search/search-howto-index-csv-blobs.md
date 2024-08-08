@@ -1,7 +1,7 @@
 ---
 title: Search over CSV blobs
 titleSuffix: Azure AI Search
-description: Extract CSV blobs from Azure Blob Storage and import as search documents into Azure AI Search using the delimitedText parsing mode.
+description: Extract CSV blobs from Azure Blob Storage or Azure Files and import as search documents into Azure AI Search using the delimitedText parsing mode.
 
 manager: nitinme
 author: HeidiSteen
@@ -18,7 +18,7 @@ ms.date: 01/17/2024
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 
-In Azure AI Search, both blob indexers and file indexers support a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, the `delimitedText` parsing mode would result in two documents in the search index: 
+In Azure AI Search, indexers for Azure Blob Storage and Azure Files support a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, the `delimitedText` parsing mode would result in two documents in the search index: 
 
 ```text
 id, datePublished, tags
@@ -74,7 +74,7 @@ Putting it all together, here are the complete payload examples.
 Datasource: 
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 {
@@ -88,7 +88,7 @@ api-key: [admin key]
 Indexer:
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 {

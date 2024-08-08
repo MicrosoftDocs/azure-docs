@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 ## Set up Azure Service Bus topic and subscription
 
-This tutorial uses the Service Bus integration for Event Grid to simplify the detection of configuration changes for applications that don't wish to poll App Configuration for changes continuously. The Azure Service Bus SDK provides an API to register a message handler that can be used to update configuration when changes are detected in App Configuration. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscription](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) to create a service bus namespace, topic, and subscription.
+This tutorial uses the Service Bus integration for Event Grid to simplify the detection of configuration changes for applications that don't wish to poll App Configuration for changes continuously. The Azure Service Bus SDK provides an API to register a message handler that can be used to update configuration when changes are detected in App Configuration. Follow the steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscription](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) to create a service bus namespace, topic, and subscription.
 
 Once the resources are created, add the following environment variables. These will be used to register an event handler for configuration changes in the application code.
 
@@ -111,13 +111,14 @@ namespace TestConsole
                     options.ConfigureRefresh(refresh =>
                         refresh
                             .Register("TestApp:Settings:Message")
-                            .SetCacheExpiration(TimeSpan.FromDays(1))  // Important: Reduce poll frequency
+                            // Important: Reduce poll frequency
+                            .SetCacheExpiration(TimeSpan.FromDays(1))  
                     );
 
                     _refresher = options.GetRefresher();
                 }).Build();
 
-            RegisterRefreshEventHandler();
+            await RegisterRefreshEventHandler();
             var message = configuration["TestApp:Settings:Message"];
             Console.WriteLine($"Initial value: {configuration["TestApp:Settings:Message"]}");
 
@@ -135,33 +136,35 @@ namespace TestConsole
             }
         }
 
-        private static void RegisterRefreshEventHandler()
+        private static async Task RegisterRefreshEventHandler()
         {
             string serviceBusConnectionString = Environment.GetEnvironmentVariable(ServiceBusConnectionStringEnvVarName);
             string serviceBusTopic = Environment.GetEnvironmentVariable(ServiceBusTopicEnvVarName);
-            string serviceBusSubscription = Environment.GetEnvironmentVariable(ServiceBusSubscriptionEnvVarName);
+            string serviceBusSubscription = Environment.GetEnvironmentVariable(ServiceBusSubscriptionEnvVarName); 
             ServiceBusClient serviceBusClient = new ServiceBusClient(serviceBusConnectionString);
             ServiceBusProcessor serviceBusProcessor = serviceBusClient.CreateProcessor(serviceBusTopic, serviceBusSubscription);
 
             serviceBusProcessor.ProcessMessageAsync += (processMessageEventArgs) =>
-                {
-                    // Build EventGridEvent from notification message
-                    EventGridEvent eventGridEvent = EventGridEvent.Parse(BinaryData.FromBytes(processMessageEventArgs.Message.Body));
+            {
+                // Build EventGridEvent from notification message
+                EventGridEvent eventGridEvent = EventGridEvent.Parse(BinaryData.FromBytes(processMessageEventArgs.Message.Body));
 
-                    // Create PushNotification from eventGridEvent
-                    eventGridEvent.TryCreatePushNotification(out PushNotification pushNotification);
+                // Create PushNotification from eventGridEvent
+                eventGridEvent.TryCreatePushNotification(out PushNotification pushNotification);
 
-                    // Prompt Configuration Refresh based on the PushNotification
-                    _refresher.ProcessPushNotification(pushNotification);
+                // Prompt Configuration Refresh based on the PushNotification
+                _refresher.ProcessPushNotification(pushNotification);
 
-                    return Task.CompletedTask;
-                };
+                return Task.CompletedTask;
+            };
 
             serviceBusProcessor.ProcessErrorAsync += (exceptionargs) =>
-                {
-                    Console.WriteLine($"{exceptionargs.Exception}");
-                    return Task.CompletedTask;
-                };
+            {
+                Console.WriteLine($"{exceptionargs.Exception}");
+                return Task.CompletedTask;
+            };
+
+            await serviceBusProcessor.StartProcessingAsync();
         }
     }
 }

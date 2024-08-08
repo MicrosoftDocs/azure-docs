@@ -1,6 +1,6 @@
 ---
 title: Get started with the Azure Education Hub
-description: Details how to quickly get started using the Azure Education Hub starting with the Get Started page.
+description: Learn how to quickly get started with using the Azure Education Hub.
 author: tfosmark
 ms.author: rymend
 ms.topic: quickstart
@@ -9,16 +9,13 @@ ms.date: 06/30/2020
 ms.custom: mode-other
 ---
 
-# Getting started with Azure Education Hub
+# Getting started with the Azure Education Hub
 
-The Education Hub Get Started page provides quick links upon first landing into the Education Hub. There, you can find information about how to set up your course, learn about different services, or easily deploy your first services through Azure Quickstart Templates.
+Before you access the Azure Education Hub you must complete signup by clicking the **signup here** link in the invitation email. After you complete the signup you can navigate to the Azure Education Hub to begin allocating this credit to students via labs.
 
-:::image type="content" source="media/get-started-education-hub/get-started-page.png" alt-text="The Get Started page in the Azure Education Hub." border="false":::
+:::image type="content" source="media/get-started-education-hub/get-started-page.png" alt-text="Screenshot that shows an email message with a Get Started link to the Azure Education Hub." border="false":::
 
-After subsequent logins, you'll see the Overview page by default. 
+## Related content
 
-## Next steps
-
-- [Manage your Academic Grant using the Overview page](hub-overview-page.md)
-
+- [Manage your academic grant by using the Overview page](hub-overview-page.md)
 - [Support options](educator-service-desk.md)

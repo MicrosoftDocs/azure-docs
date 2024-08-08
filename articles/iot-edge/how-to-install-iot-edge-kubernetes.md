@@ -27,6 +27,3 @@ IoT Edge can be installed on Kubernetes by using [KubeVirt](https://www.cncf.io/
 
 ## Sample
 A functional sample for running IoT Edge on Azure Kubernetes Service (AKS) using KubeVirt is available at [https://aka.ms/iotedge-kubevirt](https://aka.ms/iotedge-kubevirt). 
-
-> [!NOTE]
-> Based on feedback, the prior translation-based preview of IoT Edge integration with Kubernetes has been discontinued and will not be made generally available. An exception being Azure Stack Edge devices where translation-based Kubernetes integration will be supported until IoT Edge v1.1 is maintained (Dec 2022).

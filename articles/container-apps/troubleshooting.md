@@ -3,11 +3,11 @@ title: Troubleshooting in Azure Container Apps
 description: Learn to troubleshoot an Azure Container Apps application.
 services: container-apps
 author: v-jaswel
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 03/14/2024
 ms.author: v-wellsjason
-ms.custom: devx-track-azurecli
+ms.custom:
 ---
 
 # Troubleshoot a container app
@@ -27,6 +27,8 @@ The following table lists issues you might encounter while using Azure Container
 | Requests to endpoints fail | The container app endpoint doesn't respond to requests. | [Review ingress configuration](#review-ingress-configuration) |
 | Requests return status 403 | The container app endpoint responds to requests with HTTP error 403 (access denied). |  [Verify networking configuration is correct](#verify-networking-configuration) |
 | Responses not as expected | The container app endpoint responds to requests, but the responses aren't as expected. | [Verify traffic is routed to the correct revision](#verify-traffic-is-routed-to-the-correct-revision)<br><br>[Verify you're using unique tags when deploying images to the container registry](/azure/container-registry/container-registry-image-tag-version) |
+| Missing parameters error | You receive error messages about missing parameters when you run `az containerapp` commands in the Azure CLI, or run cmdlets from the `Az.App` module in Azure PowerShell. | [Verify latest version of Azure Container Apps extension is installed](#verify-latest-version-of-azure-container-apps-extension-is-installed) |
+| Preview features not available | [Preview features](./whats-new.md) are not available when you run `az containerapp` commands in the Azure CLI. | [Verify Azure Container Apps extension allows preview features](#verify-azure-container-apps-extension-allows-preview-features) |
 
 ## View logs
 
@@ -88,7 +90,7 @@ Your container app's ingress settings are enforced through a set of rules that c
 | Is ingress enabled? | Verify the **Enabled** checkbox is checked. |
 | Do you want to allow external ingress? | Verify that **Ingress Traffic** is set to **Accepting traffic from anywhere**. If your container app doesn't listen for HTTP traffic, set **Ingress Traffic** to **Limited to Container Apps Environment**. |
 | Does your client use HTTP or TCP to access your container app? | Verify **Ingress type** is set to the correct protocol (**HTTP** or **TCP**). |
-| Does your client support mTLS? | Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [Environment level network encryption.](./networking.md#mtls) |
+| Does your client support mTLS? | Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [configure client certificate authentication.](./client-certificate-authorization.md) |
 | Does your client use HTTP/1 or HTTP/2? | Verify **Transport** is set to the correct HTTP version (**HTTP/1** or **HTTP/2**). |
 | Is the target port set correctly? | Verify **Target port** is set to the same port your container app is listening on, or the same port exposed by your container app's Dockerfile. |
 | Is your client IP address denied? | If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied. |
@@ -177,6 +179,38 @@ If *Revision Mode* is set to `Single`, all traffic is routed to your latest revi
 If **Revision Mode** is set to `Multiple`, verify you're not routing traffic to outdated revisions.
 
 For more information about configuring traffic splitting, see [Traffic splitting in Azure Container Apps](./traffic-splitting.md).
+
+## Verify latest version of Azure Container Apps extension is installed
+
+If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in Azure PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az extension add --name containerapp --upgrade
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Install-Module -Name Az.App
+```
+
+If you have an older version of the `Az.App` module installed, update it.
+
+```azurepowershell
+Update-Module -Name Az.App
+```
+
+---
+
+## Verify Azure Container Apps extension allows preview features
+
+If [preview features](./whats-new.md) are not available when you run `az containerapp` commands in the Azure CLI, enable preview features on the Azure Container Apps extension.
+
+```azurecli
+az extension add --name containerapp --upgrade --allow-preview true
+```
 
 ## Next steps
 

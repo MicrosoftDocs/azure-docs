@@ -2,13 +2,13 @@
 title: Autoscale online endpoints
 titleSuffix:  Azure Machine Learning
 description: Learn to scale up online endpoints. Get more CPU, memory, disk space, and extra features.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-ms.custom: devplatv2, cliv2
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
+ms.custom: devplatv2, cliv2, update-code
 
 ms.date: 02/07/2023
 ---
@@ -150,7 +150,7 @@ Under __Choose how to scale your resources__, select __Custom autoscale__ to beg
 
 ---
 
-## Create a rule to scale out using metrics
+## Create a rule to scale out using deployment metrics
 
 A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. The following example will allocate two more nodes (up to the maximum) if the CPU average a load of greater than 70% for five minutes::
 
@@ -234,7 +234,7 @@ Finally, select the __Add__ button to create the rule.
 
 ---
 
-## Create a rule to scale in using metrics
+## Create a rule to scale in using deployment metrics
 
 When load is light, a scaling in rule can reduce the number of VM instances. The following example will release a single node, down to a minimum of 2, if the CPU load is less than 30% for 5 minutes:
 
@@ -401,6 +401,10 @@ Select __Scale based on metric__, and then select __Add a rule__. The __Scale ru
 
 ---
 
+## Find supported Metrics IDs
+
+If you want to use other metrics in code (either CLI or SDK) to set up autoscale rules, see the table in [Available metrics](how-to-monitor-online-endpoints.md#available-metrics).
+
 ## Create scaling rules based on a schedule
 
 You can also create rules that apply only on certain days or at certain times. In this example, the node count is set to 2 on the weekend.
@@ -454,6 +458,38 @@ From the bottom of the page, select __+ Add a scale condition__. On the new scal
 * Set the schedule to __Repeat every__ __Saturday__ and __Sunday__.
 
 :::image type="content" source="media/how-to-autoscale-endpoints/schedule-rules.png" lightbox="media/how-to-autoscale-endpoints/schedule-rules.png" alt-text="Screenshot showing schedule-based rules.":::
+
+---
+
+## Enable or disable autoscaling
+
+You can enable or disable specific autoscale profile.
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="disable_profile" :::
+
+# [Python](#tab/python)
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
+```python
+mon_client.autoscale_settings.create_or_update(
+    resource_group, 
+    autoscale_settings_name, 
+    parameters = {
+        "location" : endpoint.location,
+        "target_resource_uri" : deployment.id,
+        "enabled" : False
+    }
+)
+```
+
+# [Studio](#tab/azure-studio)
+
+To disable the autoscale profile, simply choose "Manual scale" and Save.
+To enable the autoscale profile, simply choose "Custom autoscale". If you have added the autoscale profile before, you'll see them below. You can now click Save to enable it. 
 
 ---
 

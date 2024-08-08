@@ -1,100 +1,131 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
 title: SAP on Azure documentation
-summary:  SAP on Azure provides multiple options for running, managing and monitoring SAP workloads on Azure.
+summary: SAP on Azure provides multiple options for running, managing and monitoring SAP workloads on Azure.
+brand: azure
+
 metadata:
   title: SAP on Azure
   description: Learn about solutions for SAP on Azure, including SAP workloads on Azure VMs, Azure Center for SAP solutions, Azure Monitor for SAP solutions, SAP on Azure Large Instances, and the SAP on Azure deployment automation framework.
   ms.service: sap-on-azure
-  ms.topic: landing-page
+  ms.topic: hub-page
   author: ju-shim
   ms.author: jushiman
-  ms.date: 02/08/2023
-landingContent:
-  - title: SAP workloads on Azure VMs
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: How do you run SAP workloads on Azure VMs?
-            url: ./workloads/get-started.md
-          - text: Documentation change log
-            url: ./workloads/get-started.md#change-log
-          - text: SAP certifications on Azure
-            url: ./workloads/certifications.md
-          - text: Supported SAP scenarios on Azure VMs
-            url: ./workloads/planning-supported-configurations.md
-          - text: Supported SAP software on Azure VMs
-            url: ./workloads/supported-product-on-azure.md
-      - linkListType: concept
-        links:
-          - text: Planning guidance
-            url: ./workloads/planning-guide.md
-          - text: Azure storage types for SAP workloads
-            url: ./workloads/planning-guide-storage.md
-          - text: High availability for SAP components
-            url: ./workloads/sap-high-availability-architecture-scenarios.md
-          - text: Azure Availability Zones for SAP workloads
-            url: ./workloads/high-availability-zones.md
-      - linkListType: how-to-guide
-        links:
-          - text: How to deploy SAP on Azure VMs
-            url: ./workloads/deployment-guide.md
-          - text: How to deploy DBMS on Azure VMs
-            url: ./workloads/dbms-guide-general.md
+  ms.date: 07/22/2024
 
-  - title: Azure Center for SAP solutions
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Center for SAP solutions?
-            url: center-sap-solutions/overview.md
-          - text: FAQ about Azure Center for SAP solutions
-            url: center-sap-solutions/faq.yml
-      - linkListType: how-to-guide
-        links:
-          - text: Prepare for deployment
-            url: center-sap-solutions/prepare-network.md
-          - text: Deploy SAP infrastructure
-            url: center-sap-solutions/deploy-s4hana.md
-          - text: Install SAP software
-            url: center-sap-solutions/install-software.md
-          - text: Register an existing SAP system
-            url: center-sap-solutions/register-existing-system.md
-          - text: Start and stop SAP systems
-            url: center-sap-solutions/start-stop-sap-systems.md
-          - text: Manage a Virtual Instance for SAP solutions
-            url: center-sap-solutions/manage-virtual-instance.md
-          - text: Get quality checks and insights
-            url: center-sap-solutions/get-quality-checks-insights.md
-          - text: View cost analysis for SAP system
-            url: center-sap-solutions/view-cost-analysis.md
 
-  - title: Azure Monitor for SAP solutions
-    linkLists:
-      - linkListType: overview
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What SAP on Azure offerings are available?
+      itemType: overview
+      url: /azure/sap/sap-on-azure-overview
+    - title: SAP on Azure workloads 
+      itemType: get-started
+      url: /azure/sap/workloads/get-started
+    - title: Azure Center for SAP solutions
+      itemType: overview
+      url: /azure/sap/center-sap-solutions/overview
+    - title: SAP on Azure deployment automation framework
+      itemType: overview
+      url: /azure/sap/automation/deployment-framework
+    - title: What is Azure Monitor for SAP solutions?
+      itemType: overview
+      url: /azure/sap/monitor/about-azure-monitor-sap-solutions
+    - title: What is SAP HANA on Azure Large Instances?
+      itemType: overview
+      url: /azure/sap/large-instances/hana-overview-architecture
+
+
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 4 sections
+  sections:
+    - title: SAP workloads on Azure VMs
+      items:
+       #card
+      - title: Overview
         links:
-          - text: What is Azure Monitor for SAP solutions?
-            url: ./monitor/about-azure-monitor-sap-solutions.md
-          - text: FAQ about Azure Monitor for SAP solutions
-            url: ./monitor/faq.yml
-      - linkListType: concept
+        - text: How do you run SAP workloads on Azure VMs?
+          url: /azure/sap/workloads/get-started
+        - text: Documentation change log
+          url: /azure/sap/workloads/get-started#change-log
+        - text: SAP certifications on Azure
+          url: /azure/sap/workloads/certifications
+        - text: Supported SAP scenarios on Azure VMs
+          url: /azure/sap/workloads/planning-supported-configurations
+        - text: Supported SAP software on Azure VMs
+          url: /azure/sap/workloads/supported-product-on-azure
+      #card
+      - title: Concept
         links:
-          - text: Providers in Azure Monitor for SAP solutions
-            url: ./monitor/providers.md
-      - linkListType: quickstart
+        - text: Planning guidance
+          url: ./workloads/planning-guide.md
+        - text: Azure storage types for SAP workloads
+          url: ./workloads/planning-guide-storage.md
+        - text: High availability for SAP components
+          url: ./workloads/sap-high-availability-architecture-scenarios.md
+        - text: Azure Availability Zones for SAP workloads
+          url: ./workloads/high-availability-zones.md
+      #card 
+      - title: How-to guides
+        links:
+        - text: How to deploy SAP on Azure VMs
+          url: ./workloads/deployment-guide.md
+        - text: How to deploy DBMS on Azure VMs
+          url: ./workloads/dbms-guide-general.md
+    
+    - title: Azure Center / Monitor for SAP solutions
+      items:
+      #card
+      - title: Overview
+        links:
+        - text: What is Azure Center for SAP solutions?
+          url: center-sap-solutions/overview.md
+        - text: FAQ about Azure Center for SAP solutions
+          url: center-sap-solutions/faq.yml
+        - text: What is Azure Monitor for SAP solutions?
+          url: ./monitor/about-azure-monitor-sap-solutions.md
+        - text: FAQ about Azure Monitor for SAP solutions
+          url: ./monitor/faq.yml
+    #card
+      - title: Quickstart
         links:
           - text: Deploy Azure Monitor for SAP solutions (Azure portal)
             url: ./monitor/quickstart-portal.md
           - text: Deploy Azure Monitor for SAP solutions (PowerShell)
             url: ./monitor/quickstart-powershell.md
-
-  - title: SAP on Azure deployment automation framework
-    linkLists:
-      - linkListType: overview
+      #card
+      - title: How-to guide
+        links:
+        - text: Prepare for deployment
+          url: center-sap-solutions/prepare-network.md
+        - text: Deploy SAP infrastructure
+          url: center-sap-solutions/deploy-s4hana.md
+        - text: Install SAP software
+          url: center-sap-solutions/install-software.md
+        - text: Register an existing SAP system
+          url: center-sap-solutions/register-existing-system.md
+        - text: Start and stop SAP systems
+          url: center-sap-solutions/start-stop-sap-systems.md
+        - text: Manage a Virtual Instance for SAP solutions
+          url: center-sap-solutions/manage-virtual-instance.md
+        - text: Get quality checks and insights
+          url: center-sap-solutions/get-quality-checks-insights.md
+        - text: View cost analysis for SAP system
+          url: center-sap-solutions/view-cost-analysis.md
+    
+    - title: SAP on Azure deployment automation framework
+      items:
+      #card
+      - title: Overview
         links:
           - text: What is SAP on Azure deployment automation framework?
             url: ./automation/deployment-framework.md
-      - linkListType: concept
+      #card
+      - title: Concept
         links:
           - text: Supported platform and features
             url: ./automation/supportability.md
@@ -102,18 +133,21 @@ landingContent:
             url: ./automation/get-started.md
           - text: Plan your deployment of the automation framework
             url: ./automation/plan-deployment.md
-      - linkListType: quickstart
+      #card
+      - title: Quickstart
         links:
           - text: Configure Azure DevOps Services for automation framework
             url: ./automation/configure-devops.md
 
-  - title: SAP on Azure Large Instances
-    linkLists:
-      - linkListType: overview
+    - title: SAP on Azure Large Instances / SAP and Microsoft integrations
+      items:
+      #card
+      - title: ALI - overview
         links:
-          - text: What is SAP HANA on Azure Large Instances?
-            url: ./large-instances/hana-overview-architecture.md
-      - linkListType: concept
+        - text: What is SAP HANA on Azure Large Instances?
+          url: ./large-instances/hana-overview-architecture.md
+      #card
+      - title: ALI - concept
         links:
           - text: Certifications for Large Instances
             url: ./large-instances/hana-certification.md 
@@ -123,30 +157,33 @@ landingContent:
             url: ./large-instances/hana-available-skus.md 
           - text: Architecture for Large Instances
             url: ./large-instances/hana-architecture.md 
-      - linkListType: how-to-guide
+      #card
+      - title: ALI - How-to-guide
         links:
           - text: How to install SAP HANA on Azure Large Instances
             url: ./large-instances/hana-example-installation.md
-
-  - title: SAP and Microsoft integrations
-    linkLists:
-      - linkListType: overview
+      #card
+      - title: Integrations - overview 
         links:
           - text: What scenarios are available and how do I get started?
             url: ./workloads/integration-get-started.md
           - text: How do you integrate with SAP RISE?
             url: ./workloads/rise-integration.md
-      - linkListType: how-to-guide
+      #card
+      - title: Integrations - How-to-guide
         links:
-          - text: How to configure M365 Exchange Online for SAP
-            url: ./workloads/exchange-online-integration-sap-email-outbound.md
-          - text: How to expose SAP Process Orchestration on Azure securely
-            url: ./workloads/expose-sap-process-orchestration-on-azure.md
-      - linkListType: quickstart
+           - text: How to configure Microsoft 365 Exchange Online for SAP
+             url: ./workloads/exchange-online-integration-sap-email-outbound.md
+           - text: How to expose SAP Process Orchestration on Azure securely
+             url: ./workloads/expose-sap-process-orchestration-on-azure.md
+           - text: How to configure SAP printing with Microsoft Universal Print
+             url: ./workloads/universal-print-sap-frontend.md
+      #card
+      - title: Integrations - Quickstart
         links:
-          - text: Deploy an ERP extension using SAP's Cloud SDK on Azure in one click
-            url: https://github.com/Azure-Samples/app-service-javascript-sap-cloud-sdk-quickstart
-          - text: Use free developer accounts for SAP BTP, M365 and Azure
-            url: ./workloads/integration-get-started.md#free-developer-accounts
-          - text: Use SAP ABAP platform and SAP BTP, ABAP environment to integrate with Microsoft
-            url: https://blogs.sap.com/2023/06/06/kick-start-your-sap-abap-platform-integration-journey-with-microsoft
+           - text: Deploy an ERP extension using SAP's Cloud SDK on Azure in one click
+             url: https://github.com/Azure-Samples/app-service-javascript-sap-cloud-sdk-quickstart
+           - text: Use free developer accounts for SAP BTP, Microsoft 365 and Azure
+             url: ./workloads/integration-get-started.md#free-developer-accounts
+           - text: Use SAP ABAP platform and SAP BTP, ABAP environment to integrate with Microsoft
+             url: https://blogs.sap.com/2023/06/06/kick-start-your-sap-abap-platform-integration-journey-with-microsoft

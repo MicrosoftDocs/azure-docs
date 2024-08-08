@@ -138,7 +138,7 @@
   - name: Containers
     items:
     - name: AKS
-      href: ../../aks/learn/quick-kubernetes-deploy-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/aks/learn/quick-kubernetes-deploy-rm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Registry
@@ -266,13 +266,13 @@
   - name: Security
     items:
     - name: Attestation
-      href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/attestation/quickstart-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Defender for Cloud
-      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/defender-for-cloud/quickstart-automation-alert?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault - key
-      href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/key-vault/keys/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault - secret
-      href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/key-vault/secrets/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -415,7 +415,7 @@
     - name: Create parameter file
       href: parameter-files.md
     - name: Pass sensitive values
-      displayname: key vault
+      displayName: key vault
       href: key-vault-parameter.md
   - name: Export templates
     items:
@@ -459,8 +459,6 @@
       href: create-visual-studio-deployment-project.md
     - name: Update VS deployment script to Az module
       href: update-visual-studio-deployment-script.md
-    - name: IntelliJ IDEA
-      href: create-templates-use-intellij.md
 - name: Reference
   items:
   - name: Template reference

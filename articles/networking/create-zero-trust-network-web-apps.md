@@ -3,7 +3,7 @@ title: Deploy a Zero Trust Virtual Network for Web Applications
 description: Deploy a Zero Trust virtual network configuration for web applications in Azure using Azure Firewall, Azure Application Gateway, Web Application Firewall, and other virtual network services.
 author: mbender
 ms.author: chplut
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 12/31/2022
 ms.custom: template-how-to
@@ -44,12 +44,12 @@ To complete the Zero Trust deployment, you'll need:
 
 Other Azure services that will be deployed and configured and not explicitly listed in the reference architecture include:
 
-- [Azure Key Vault](../key-vault/general/overview.md)
+- [Azure Key Vault](/azure/key-vault/general/overview)
 - [Managed identity](../active-directory/managed-identities-azure-resources/overview.md)
 - [Public IP addresses](../virtual-network/ip-services/public-ip-addresses.md)
 - [Network security groups](../virtual-network/network-security-groups-overview.md)
 - [Private endpoints](../private-link/private-endpoint-overview.md)
-- [Route tables](../virtual-network/manage-route-table.md)
+- [Route tables](../virtual-network/manage-route-table.yml)
 
 
 ### Deploying the resource group
@@ -76,10 +76,10 @@ First up, you create a resource group to store all of the created resources.
 
 ### Deploying the Azure Key Vault
 
-In this step, you'll deploy [Azure Key Vault](../key-vault/general/overview.md) to store secrets, keys, and certificates. We'll use a Key Vault to store the public trusted certificate that is used for TLS connections by the application gateway and Azure Firewall in this how-to.
+In this step, you'll deploy [Azure Key Vault](/azure/key-vault/general/overview) to store secrets, keys, and certificates. We'll use a Key Vault to store the public trusted certificate that is used for TLS connections by the application gateway and Azure Firewall in this how-to.
 
 > [!NOTE]
-> By default, [soft-delete](../key-vault/general/soft-delete-overview.md) is enabled on Azure Key Vault. This presents the accidental deletion of stored credentials. To allow you to remove the key vault in a timely manner upon completing this how-to, it's recommend to set the **Days to retain deleted vaults** to 7 days.
+> By default, [soft-delete](/azure/key-vault/general/soft-delete-overview) is enabled on Azure Key Vault. This presents the accidental deletion of stored credentials. To allow you to remove the key vault in a timely manner upon completing this how-to, it's recommend to set the **Days to retain deleted vaults** to 7 days.
 
 1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
 1. In the **Search** box, enter **Key Vault** and select **Key Vault** from the results.

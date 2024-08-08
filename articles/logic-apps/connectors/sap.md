@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/10/2024
+ms.date: 04/18/2024
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps
@@ -72,7 +72,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * Longer timeout at 5 minutes compared to managed connector and ISE-versioned connector.
 
-  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means timeouts are longer at 5 minutes compared to the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests work without you having to implement the [long-running webhook-based request action pattern](../logic-apps-scenario-function-sb-trigger.md).
+  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means timeouts are longer at 5 minutes compared to the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests work without you having to implement the long-running webhook-based request action pattern.
 
 * By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
 
@@ -1016,6 +1016,7 @@ If you use an [on-premises data gateway for Azure Logic Apps](../install-on-prem
 You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
 > [!NOTE]
+>
 > Extended logging might affect your workflow's performance when always enabled. As a best practice, 
 > turn off extended log files after you're finished with analyzing and troubleshooting an issue.
 
@@ -1081,9 +1082,9 @@ See the steps for [SAP logging for Consumption logic apps in multitenant workflo
 
 ---
 
-## Enable SAP client library (NCo) logging and tracing (Built-in connector only)
+## Enable SAP client library (NCo) logging and tracing (built-in connector only)
 
-When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
+When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space. 
 
 You can control this tracing capability at the application level by adding the following settings:
 
@@ -1096,6 +1097,17 @@ You can control this tracing capability at the application level by adding the f
    * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
 
    * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
+   
+     > [!NOTE]
+     >
+     > For Standard logic app workflows that use runtime version 1.69.0 or later, you can enable
+     > logging for multiple trace levels by separating each trace level with a comma (**,**).
+     >
+     > To find your workflow's runtime version, follow these steps:
+     >
+     > 1. In the Azure portal, on your workflow menu, select **Overview**.
+     > 2. In the **Essentials** section, find the **Runtime Version** property.
+
    * **SAP_CPIC_TRACE_LEVEL**: The Common Programming Interface for Communication (CPI-C) trace level with **Verbose** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
 
    For more information about adding application settings, see [Edit host and app settings for Standard logic app workflows](../edit-app-settings-host-settings.md#manage-app-settings).
@@ -1128,12 +1140,12 @@ You can control this tracing capability at the application level by adding the f
 
 #### CPIC Trace Levels
 
-|Value|Description|
-|---|---|
-|Off|No logging|
-|Basic|Basic logging|
-|Verbose|Verbose logging|
-|VerboseWithData|Verbose logging with all server response dump|
+| Value | Description |
+|-------|-------------|
+| Off | No logging |
+| Basic | Basic logging |
+| Verbose | Verbose logging |
+| VerboseWithData | Verbose logging with all server response dump |
 
 ### View the trace
 
@@ -1145,10 +1157,11 @@ You can control this tracing capability at the application level by adding the f
 
    A new folder named **NCo**, or whatever folder name that you used, appears for the application setting value, **C:\home\LogFiles\NCo**, that you set earlier.
 
-   After you open the **$SAP_RFC_TRACE_DIRECTORY** folder, you'll find:
+1. Open the **$SAP_RFC_TRACE_DIRECTORY** folder, which contains the following :
 
-   1. _NCo Trace Logs_: A file named **dev_nco_rfc.log**, one or multiple files named **nco_rfc_NNNN.log**, and one or multiple files named **nco_rfc_NNNN.trc** files where **NNNN** is a thread identifier.
-   1. _CPIC Trace Logs_: One or multiple files named **nco_cpic_NNNN.trc** files where **NNNN** is thread identifier.
+   * NCo trace logs: A file named **dev_nco_rfc.log**, one or multiple files named **nco_rfc_NNNN.log**, and one or multiple files named **nco_rfc_NNNN.trc** files where **NNNN** is a thread identifier.
+   
+   * CPIC trace logs: One or multiple files named **nco_cpic_NNNN.trc** files where **NNNN** is thread identifier.
 
 1. To view the content in a log or trace file, select the **Edit** button next to a file.
 
@@ -1156,6 +1169,57 @@ You can control this tracing capability at the application level by adding the f
    >
    > If you download a log or trace file that your logic app workflow opened 
    > and is currently in use, your download might result in an empty file.
+
+## Enable SAP Common Crypto Library (CCL) tracing (built-in connector only)
+
+If you have to investigate any problems with the crypto library while using SNC authentication, you can set up custom text file-based CCL tracing. You can use these CCL logs to troubleshoot SNC authentication issues, or share them with Microsoft or SAP support, if requested. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
+
+You can control this tracing capability at the application level by adding the following settings:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+
+1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
+
+1. Browse to a location under **C:\home\site\wwwroot**, and create a text file, for example: **CCLPROFILE.txt**.
+
+   For more information about logging parameters, see [**Tracing** > SAP NOTE 2338952](https://me.sap.com/notes/2338952/E). The following sample provides an example tracing configuration:
+   
+   ```
+   ccl/trace/directory=C:\home\LogFiles\CCLLOGS
+   ccl/trace/level=4
+   ccl/trace/rotatefilesize=10000000
+   ccl/trace/rotatefilenumber=10
+   ```
+   
+1. On the logic app menu, under **Settings**, select **Environment variables** to review the application settings.
+
+1. On the **Environment variables** page, on the **App settings** tab, add the following application setting:
+
+   **CCL_PROFILE**: The directory where **CCLPROFILE.txt** was created, for example, **C:\home\site\wwwroot\CCLPROFILE.txt**.
+
+1. Save your changes. This step restarts the application.
+
+### View the trace
+
+1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+
+1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
+
+1. Browse to the folder for the **$ccl/trace/directory** parameter, which is from the **CCLPROFILE.txt** file.
+
+    Usually, the trace files are named **sec-Microsoft.Azure.Work-$processId.trc** and **sec-sapgenpse.exe-$processId.trc**.
+
+   Your logic app workflow performs SNC authentication as a two-step process:
+
+   1. Your logic app workflow invokes **sapgenpse.exe** to generate a **cred_v2** file from the PSE file.
+   
+      You can find the traces related to this step in a file named **sec-sapgenpse.exe-$processId.trc**.
+
+   1. Your logic app workflow authenticates access to your SAP server by consuming the generated **cred_v2** file, with the SAP client library invoking the common crypto library.
+
+       You can find the traces related to this step in a file named **sec-Microsoft.Azure.Work-$processId.trc**.
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
@@ -1167,13 +1231,15 @@ With the August 2021 update for the on-premises data gateway, SAP connector oper
 
 ### Metrics and traces from SAP NCo client library
 
-*Metrics* are numeric values that might or might not vary over a time period, based on the usage and availability of resources on the on-premises data gateway. You can use these metrics to better understand system health and to create alerts about the following activities:
+SAP NCo-based metrics are numeric values that might or might not vary over a time period, based on the usage and availability of resources on the on-premises data gateway. You can use these metrics to better understand system health and to create alerts about the following activities:
 
 * System health decline.
 * Unusual events.
 * Heavy system load.
 
 This information is sent to the Application Insights table named **customMetrics**. By default, metrics are sent at 30-second intervals.
+
+SAP NCo-based traces include text information that's used with metrics. This information is sent to the Application Insights table named **traces**. By default, traces are sent at 10-minute intervals.
 
 SAP NCo metrics and traces are based on SAP NCo metrics, specifically the following NCo classes:
 
@@ -1182,9 +1248,7 @@ SAP NCo metrics and traces are based on SAP NCo metrics, specifically the follow
 * RfcServerMonitor.
 * RfcRepositoryMonitor.
 
-For more information about the metrics that each class provides, review the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
-
-*Traces* include text information that is used with metrics. This information is sent to the Application Insights table named **traces**. By default, traces are sent at 10-minute intervals.
+For more information about the metrics that each class provides, see the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
 
 ### Set up SAP telemetry for Application Insights
 

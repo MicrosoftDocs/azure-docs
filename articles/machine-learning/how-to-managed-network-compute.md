@@ -5,9 +5,9 @@ description: Use managed compute resources with managed virtual network isolatio
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 08/22/2023
 ms.topic: how-to
 ---
@@ -158,6 +158,7 @@ You can't create a compute cluster or compute instance from the Azure portal. In
 ## Limitations
 
 * Creating a compute cluster in a different region than the workspace isn't supported when using a managed virtual network.
+* If the compute is in a managed network and also configured for no public IP, use the `az ml compute connect-ssh` command to connect to the compute instance over SSH.
 
 ### Migration of compute resources
 

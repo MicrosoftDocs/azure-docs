@@ -3,9 +3,8 @@ title: Create and assign an autoscale scaling plan for Azure Virtual Desktop
 description: How to create and assign an autoscale scaling plan to optimize deployment costs.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/11/2024
+ms.date: 04/18/2024
 ms.author: helohr
-manager: femila
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Create and assign an autoscale scaling plan for Azure Virtual Desktop
@@ -27,14 +26,19 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 To use scaling plans, make sure you follow these guidelines:
 
 - Scaling plan configuration data must be stored in the same region as the host pool configuration. Deploying session host VMs is supported in all Azure regions.
-- When using autoscale for pooled host pools, you must have a configured *MaxSessionLimit* parameter for that host pool. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AzWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool) or [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) PowerShell cmdlets.
-- You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
-- If you want to use personal desktop autoscale with hibernation (preview), you will need to enable the hibernation feature when [creating VMs](deploy-azure-virtual-desktop.md) for your personal host pool. For the full list of prerequisites for hibernation, see [Prerequisites to use hibernation](../virtual-machines/hibernate-resume.md).
 
-    > [!IMPORTANT]
-    > Hibernation is currently in PREVIEW.
-    > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+- When using autoscale for pooled host pools, you must have a configured *MaxSessionLimit* parameter for that host pool. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AzWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool) or [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) PowerShell cmdlets.
+
+- You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
+
+- If you want to use personal desktop autoscale with hibernation, you'll need to enable the hibernation feature for VMs in your personal host pool. FSLogix and app attach currently don't support hibernate. Don't enable hibernate if you're using FSLogix or app attach for your personal host pools. For the full list of prerequisites for hibernation, see [Prerequisites to use hibernation](../virtual-machines/hibernate-resume.md).
+
 - If you are using PowerShell to create and assign your scaling plan, you will need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
+
+- If you are [configuring a time limit policy using Microsoft Intune](#configure-a-time-limit-policy-using-microsoft-intune), you will need: 
+    - A Microsoft Entra ID account that is assigned the Policy and Profile manager built-in RBAC role.
+    - A group containing the devices you want to configure.
+
 
 ## Assign the Desktop Virtualization Power On Off Contributor role with the Azure portal
 
@@ -119,8 +123,14 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
           - Force logoff users
     
         > [!IMPORTANT]
-        > - If you've enabled autoscale to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions to shut down. Autoscale will put the session host in drain mode, send all active user sessions a notification telling them they'll be signed out, and then sign out all users after the specified wait time is over. After autoscale signs out all user sessions, it then deallocates the VM. If you haven't enabled forced sign out during ramp-down, session hosts with no active or disconnected sessions will be deallocated.
-        > - During ramp-down, autoscale will only shut down VMs if all existing user sessions in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
+        > - If you've enabled autoscale to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions (active and disconnected) to shut down. Autoscale will put the session host in drain mode, send those user sessions a notification telling them they'll be signed out, and then sign out those users after the specified wait time is over. After autoscale signs out those user sessions, it then deallocates the VM.
+        >    
+        > - If you haven't enabled forced sign out during ramp-down, you then need to choose whether you want to shut down ‘VMs have no active or disconnected sessions’ or ‘VMs have no active sessions’ during ramp-down.
+        >
+        > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
+        >
+        > - You can also configure a time limit policy that will apply to all phases to sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). For more information, see [Configure a time limit policy using Microsoft Intune](#configure-a-time-limit-policy-using-microsoft-intune).
+        
     
         - Likewise, **Off-peak hours** works the same way as **Peak hours**:
     
@@ -239,9 +249,9 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
             RampDownLoadBalancingAlgorithm = 'BreadthFirst'
             RampDownMinimumHostsPct = '20'
             RampDownCapacityThresholdPct = '20'
-            RampDownForceLogoffUser:$true
+            RampDownForceLogoffUser = $true
             RampDownWaitTimeMinute = '30'
-            RampDownNotificationMessage = '"Log out now, please."'
+            RampDownNotificationMessage = 'Log out now, please.'
             RampDownStopHostsWhen = 'ZeroSessions'
             OffPeakStartTimeHour = '22'
             OffPeakStartTimeMinute = '45'
@@ -312,9 +322,24 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
     
  You have now created a new scaling plan, 1 or more schedules, assigned it to your pooled or personal host pool(s), and enabled autoscale. 
 
-
-
 ---
+
+## Configure a time limit policy using Microsoft Intune
+
+You can configure a time limit policy that will sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). 
+
+To configure the policy using Intune, follow these steps: 
+
+1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com/).
+2. Select **Devices** and **Configuration**. Then, select **Create** and **New policy**. 
+3. In **Profile type**, select **Settings catalog** and then **Create**. This will take you to the **Create profile** page.
+4. On the **Basics** tab, enter a name for your policy. Select **Next**.
+5. On the **Configuration settings** tab, select **Add settings**. 
+6. In the **Settings picker** pane, select **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**. Then select the checkbox for **Set time limit for disconnected sessions**.
+7. The settings to enable the time limit will appear in the **Configuration settings** tab. Select your desired time limit in the drop-down menu for **End a disconnected session (Device)** and change the toggle to **Enabled** for **Set time limit for disconnected sessions**.
+8. On the **Assignments** tab, select the group containing the computers providing a remote session you want to configure, then select Next.
+9. On the **Review + create** tab, review the settings, then select **Create**.
+
 
 ## Edit an existing scaling plan
 

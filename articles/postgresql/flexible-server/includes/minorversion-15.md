@@ -1,10 +1,11 @@
 ---
 author: varun-dhawan
-ms.service: postgresql
+ms.author: varundhawan
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
-ms.date: 04/11/2024
-ms.author: varundhawan
 ---
-15.6
+15.7
 

@@ -2,7 +2,7 @@
 title: "Upgrade Azure Managed Grafana to Grafana 10"
 titleSuffix: Azure Managed Grafana
 description: "Learn how to upgrade an Azure Managed Grafana workspace from Grafana 9 to Grafana 10, and learn information about upgrading legacy alerting to unified alerting."
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 author: maud-lv  
 ms.author: malev 
 ms.date: 03/01/2024 

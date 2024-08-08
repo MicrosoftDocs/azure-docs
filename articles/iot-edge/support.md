@@ -3,7 +3,7 @@ title: IoT Edge supported platforms
 description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/26/2024
+ms.date: 05/01/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -11,10 +11,12 @@ services: iot-edge
 
 # Azure IoT Edge supported platforms
 
+::: moniker range="=iotedge-1.4"
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+::: moniker-end
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-1.4-or-1.5](includes/iot-edge-version-1-4-or-1-5.md)]
 
 This article explains what operating system platforms, IoT Edge runtimes, container engines, and components are supported by IoT Edge whether generally available or in preview.
 
@@ -30,7 +32,7 @@ If you experience problems while using the Azure IoT Edge service, there are sev
 
 ## Container engines
 
-Azure IoT Edge modules are implemented as containers, so IoT Edge needs a container engine to launch them. Microsoft provides a container engine, moby-engine, to fulfill this requirement. This container engine is based on the Moby open-source project. Docker CE and Docker EE are other popular container engines. They're also based on the Moby open-source project and are compatible with Azure IoT Edge. Microsoft provides best effort support for systems using those container engines; however, Microsoft can't ship fixes for issues in them. For this reason, Microsoft recommends using moby-engine on production systems.
+Azure IoT Edge modules are implemented as containers, so IoT Edge needs a container engine to launch them. Microsoft provides a container engine, moby-engine, to fulfill this requirement. This container engine is based on the Moby open-source project. Docker CE and Docker EE are other popular container engines. They're also based on the Moby open-source project and are compatible with Azure IoT Edge. Microsoft provides best effort support for systems using those container engines; however, Microsoft can't ship fixes for issues in them. For this reason, Microsoft recommends using moby-engine on production systems. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
 
 :::image type="content" source="./media/support/only-moby-for-production.png" alt-text="Screenshot of the Moby engine as a container runtime.":::
 
@@ -55,18 +57,18 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 
 [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) is the recommended way to run IoT Edge on Windows devices.
 
-| Operating System | AMD64 | ARM32v7 | ARM64 | End of support |
+| Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
-| Debian 11 (Bullseye) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  | [June 2026](https://wiki.debian.org/LTS) |
-| Red Hat Enterprise Linux 9 | ![Red Hat Enterprise Linux 9 + AMD64](./media/support/green-check.png) | | | [May 2032](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
-| Red Hat Enterprise Linux 8 | ![Red Hat Enterprise Linux 8 + AMD64](./media/support/green-check.png) | | | [May 2029](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
-| Ubuntu Server 22.04 | ![Ubuntu Server 22.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 22.04 + ARM64](./media/support/green-check.png) | [June 2027](https://wiki.ubuntu.com/Releases) |
-| Ubuntu Server 20.04 | ![Ubuntu Server 20.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 20.04 + ARM64](./media/support/green-check.png) | [April 2025](https://wiki.ubuntu.com/Releases) |
-| Windows 10/11 | ![Windows 10/11 + AMD64](./media/support/green-check.png) |  | ![Windows 10/11 + ARM64](./media/support/green-check.png) | See [Azure IoT EFLOW](iot-edge-for-linux-on-windows.md#prerequisites) for supported Windows OS versions. |
-| Windows Server 2019/2022 | ![Windows Server 2019/2022 + AMD64](./media/support/green-check.png) | | | See [Azure IoT EFLOW](iot-edge-for-linux-on-windows.md#prerequisites) for supported Windows OS versions. |
+| [Debian 11](https://www.debian.org/releases/bullseye/) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  | [June 2026](https://wiki.debian.org/LTS) |
+| [Red Hat Enterprise Linux 9](https://access.redhat.com/articles/3078) | ![Red Hat Enterprise Linux 9 + AMD64](./media/support/green-check.png) | | | [May 2032](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
+| [Red Hat Enterprise Linux 8](https://access.redhat.com/articles/3078) | ![Red Hat Enterprise Linux 8 + AMD64](./media/support/green-check.png) | | | [May 2029](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
+| [Ubuntu Server 22.04](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | ![Ubuntu Server 22.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 22.04 + ARM64](./media/support/green-check.png) | [June 2027](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Server 20.04](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | ![Ubuntu Server 20.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 20.04 + ARM64](./media/support/green-check.png) | [April 2025](https://wiki.ubuntu.com/Releases) |
+| [Windows 10/11](iot-edge-for-linux-on-windows.md#prerequisites) | ![Windows 10/11 + AMD64](./media/support/green-check.png) |  | ![Windows 10/11 + ARM64](./media/support/green-check.png) | See [Azure IoT EFLOW](iot-edge-for-linux-on-windows.md#prerequisites) for supported Windows OS versions. |
+| [Windows Server 2019/2022](iot-edge-for-linux-on-windows.md#prerequisites) | ![Windows Server 2019/2022 + AMD64](./media/support/green-check.png) | | | See [Azure IoT EFLOW](iot-edge-for-linux-on-windows.md#prerequisites) for supported Windows OS versions. |
 
 > [!NOTE]
-> When a *Tier 1* operating system reaches its end of support date, it's removed from the *Tier 1* supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
+> When a *Tier 1* operating system reaches its end of standard support date, it's removed from the *Tier 1* supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
 
 #### Windows containers
 
@@ -79,7 +81,9 @@ The systems listed in the following table are considered compatible with Azure I
 > [!IMPORTANT]
 > Support for these systems is best effort and may require you reproduce the issue on a tier 1 supported system.
 
-| Operating System | AMD64 | ARM32v7 | ARM64 | End of support |
+::: moniker range="=iotedge-1.4"
+
+| Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
 | [CentOS-7](https://docs.centos.org/en-US/docs/) | ![CentOS + AMD64](./media/support/green-check.png) | ![CentOS + ARM32v7](./media/support/green-check.png) | ![CentOS + ARM64](./media/support/green-check.png) | [June 2024](https://www.redhat.com/en/topics/linux/centos-linux-eol) |
 | [Debian 10 <sup>1</sup>](https://www.debian.org/releases/buster/) | ![Debian 10 + AMD64](./media/support/green-check.png) | ![Debian 10 + ARM32v7](./media/support/green-check.png) | ![Debian 10 + ARM64](./media/support/green-check.png) | [June 2024](https://wiki.debian.org/LTS) |
@@ -87,12 +91,12 @@ The systems listed in the following table are considered compatible with Azure I
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/support/green-check.png) |  |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/support/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/support/green-check.png) |  |
 | [RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7) | ![RHEL 7 + AMD64](./media/support/green-check.png) | ![RHEL 7 + ARM32v7](./media/support/green-check.png) | ![RHEL 7 + ARM64](./media/support/green-check.png) | [June 2024](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
-| [Ubuntu 20.04 <sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) |  | ![Ubuntu 20.04 + ARM32v7](./media/support/green-check.png) |  | [April 2025](https://wiki.ubuntu.com/Releases) |
-| [Ubuntu 22.04 <sup>2</sup>](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) |  | ![Ubuntu 22.04 + ARM32v7](./media/support/green-check.png) |  | [June 2027](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Server 22.04 <sup>2</sup>](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) |  | ![Ubuntu 22.04 + ARM32v7](./media/support/green-check.png) |  | [June 2027](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Server 20.04 <sup>2</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) |  | ![Ubuntu 20.04 + ARM32v7](./media/support/green-check.png) |  | [April 2025](https://wiki.ubuntu.com/Releases) |
 | [Ubuntu Core <sup>3</sup>](https://snapcraft.io/azure-iot-edge) |  | ![Ubuntu Core + AMD64](./media/support/green-check.png) | ![Ubuntu Core + ARM64](./media/support/green-check.png)  | [April 2027](https://ubuntu.com/about/release-cycle) |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/support/green-check.png) |  |  |  |
-| [Yocto](https://www.yoctoproject.org/)<br>For Yocto issues, open a [GitHub issue](https://github.com/Azure/meta-iotedge/issues) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) | [April 2024](https://wiki.yoctoproject.org/wiki/Releases) |
-| Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/support/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/support/green-check.png) |  |
+| [Yocto (Kirkstone)](https://www.yoctoproject.org/)<br>For Yocto issues, open a [GitHub issue](https://github.com/Azure/meta-iotedge/issues) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) | [April 2026](https://wiki.yoctoproject.org/wiki/Releases) |
+| Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/support/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/support/green-check.png) | [June 2024](https://wiki.debian.org/LTS) |
 
 <sup>1</sup> With the release of 1.3, there are new system calls that cause crashes in Debian 10. To see the workaround, view the [Known issue: Debian 10 (Buster) on ARMv7](https://github.com/Azure/azure-iotedge/releases) section of the 1.3 release notes for details.
 
@@ -100,8 +104,30 @@ The systems listed in the following table are considered compatible with Azure I
 
 <sup>3</sup> Ubuntu Core is fully supported but the automated testing of Snaps currently happens on Ubuntu 22.04 Server LTS. 
 
+::: moniker-end
+
+::: moniker range=">=iotedge-1.5"
+
+| Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
+| ---------------- | ----- | ------- | ----- | -------------- |
+| [Debian 11 ](https://www.debian.org/releases/bullseye/) | ![Debian 11 + AMD64](./media/support/green-check.png) |  | ![Debian 11 + ARM64](./media/support/green-check.png) | [June 2026](https://wiki.debian.org/LTS) |
+| [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/support/green-check.png) |  |
+| [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/support/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/support/green-check.png) |  |
+| [Ubuntu Server 22.04 <sup>1</sup>](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) |  | ![Ubuntu 22.04 + ARM32v7](./media/support/green-check.png) |  | [June 2027](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Server 20.04 <sup>1</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) |  | ![Ubuntu 20.04 + ARM32v7](./media/support/green-check.png) |  | [April 2025](https://wiki.ubuntu.com/Releases) |
+| [Ubuntu Core <sup>2</sup>](https://snapcraft.io/azure-iot-edge) |  | ![Ubuntu Core + AMD64](./media/support/green-check.png) | ![Ubuntu Core + ARM64](./media/support/green-check.png)  | [April 2027](https://ubuntu.com/about/release-cycle) |
+| [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/support/green-check.png) |  |  |  |
+| [Yocto (Kirkstone)](https://www.yoctoproject.org/)<br>For Yocto issues, open a [GitHub issue](https://github.com/Azure/meta-iotedge/issues) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) | [April 2026](https://wiki.yoctoproject.org/wiki/Releases) |
+
+
+<sup>1</sup> Installation packages are made available on the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+
+<sup>2</sup> Ubuntu Core is fully supported but the automated testing of Snaps currently happens on Ubuntu 22.04 Server LTS. 
+
+::: moniker-end
+
 > [!NOTE]
-> When a *Tier 2* operating system reaches its end of support date, it's removed from the supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
+> When a *Tier 2* operating system reaches its end of standard support date, it's removed from the supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
 
 ## Releases
 
@@ -109,6 +135,7 @@ The following table lists the currently supported releases. IoT Edge release ass
 
 | Release notes and assets | Type | Release Date | End of Support Date |
 | ------------------------ | ---- | ------------ | ------------------- |
+| [1.5](https://github.com/Azure/azure-iotedge/releases/tag/1.5.0) | Long-term support (LTS) | April 2024 | November 10, 2026 |
 | [1.4](https://github.com/Azure/azure-iotedge/releases/tag/1.4.0) | Long-term support (LTS) | August 2022 | November 12, 2024 |
 
 For more information on IoT Edge version history, see, [Version history](version-history.md#version-history).
@@ -120,7 +147,8 @@ IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see 
 
 | IoT Edge version | Microsoft.Azure.Devices.Client SDK version |
 |------------------|--------------------------------------------|
-| 1.4              | 1.36.6                                     |
+| 1.5              | 1.42.x |
+| 1.4              | 1.36.6 |
 
 ## Virtual Machines
 

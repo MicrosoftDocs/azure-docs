@@ -1,30 +1,31 @@
 ---
 title: Troubleshooting guides
 description: Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server.
-ms.service: postgresql
+author: AwdotiaRomanowna
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: alkuchar
-author: AwdotiaRomanowna
-ms.date: 01/23/2024
 ---
 
 # Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-The troubleshooting guides for Azure Database for PostgreSQL flexible server are designed to help you quickly identify and resolve common challenges you may encounter while using Azure Database for PostgreSQL flexible server. Integrated directly into the Azure portal, the troubleshooting guides provide actionable insights, recommendations, and data visualizations to assist you in diagnosing and addressing issues related to common performance problems. With these guides at your disposal, you'll be better equipped to optimize your Azure Database for PostgreSQL flexible server experience and ensure a smoother, more efficient database operation.
+The troubleshooting guides for Azure Database for PostgreSQL flexible server are designed to help you quickly identify and resolve common challenges you may encounter while using Azure Database for PostgreSQL flexible server. Integrated directly into the Azure portal, the troubleshooting guides provide actionable insights, recommendations, and data visualizations to assist you in diagnosing and addressing issues related to common performance problems. With these guides at your disposal, you are better equipped to optimize your Azure Database for PostgreSQL flexible server experience and ensure a smoother, more efficient database operation.
 
 ## Overview
 
 The troubleshooting guides available in Azure Database for PostgreSQL flexible server provide you with the necessary tools to analyze and troubleshoot prevalent performance issues, 
 including:
-* High CPU Usage, 
-* High Memory Usage, 
-* High IOPS Usage, 
-* High Temporary Files, 
-* Autovacuum Monitoring,
-* Autovacuum Blockers. 
+* CPU
+* Memory
+* IOPS
+* Temporary files
+* Autovacuum monitoring
+* Autovacuum blockers
 
 :::image type="content" source="./media/concepts-troubleshooting-guides/overview-troubleshooting-guides.jpg" alt-text="Screenshot of multiple Troubleshooting Guides combined." lightbox="./media/concepts-troubleshooting-guides/overview-troubleshooting-guides.jpg":::
 
@@ -33,65 +34,68 @@ The troubleshooting guides are directly integrated into the Azure portal and you
 
 The troubleshooting guides consist of the following components:
 
-- **High CPU Usage**
+- **CPU**
 
-  * CPU Utilization
-  * Workload Details
-  * Transaction Trends and Counts
-  * Long Running Transactions
-  * Top CPU Consuming queries
-  * Total User Only Connections
+  * CPU
+  * Workload
+  * Transactions
+  * Long running transactions
+  * Queries
+  * User connections
+  * Locking and blocking
 
-- **High Memory Usage**
+- **Memory**
 
-  * Memory Utilization
-  * Workload Details
-  * Long Running Sessions
-  * Top Queries by Data Usage
-  * Total User only Connections
-  * Guidelines for configuring parameters
+  * Memory
+  * Workload
+  * Sessions
+  * Queries
+  * User connections
+  * Memory parameters
 
-- **High IOPS Usage**
+- **IOPS**
 
-  * IOPS Usage
-  * Workload Details
-  * Session Details
-  * Top Queries by IOPS
-  * IO Wait Events
-  * Checkpoint Details
-  * Storage Usage
+  * IOPS
+  * Workload
+  * Sessions
+  * Queries
+  * Waits
+  * Checkpoints
+  * Storage
 
-- **High Temporary Files**
+- **Temporary files**
 
-  * Storage Utilization
-  * Temporary Files Generated
-  * Workload Details
-  * Top Queries by Temporary Files
+  * Storage
+  * Temporary files
+  * Workload
+  * Queries
 
-- **Autovacuum Monitoring**
+- **Autovacuum monitoring**
 
-  * Bloat Ratio
-  * Tuple Counts
-  * Tables Vacuumed & Analyzed Execution Counts
-  * Autovacuum Workers Execution Counts
+  * Bloat
+  * Tuples
+  * Vacuum and analyze
+  * Autovacuum workers
+  * Autovacuum per table
+  * Enhanced metrics
 
-- **Autovacuum Blockers**
+- **Autovacuum blockers**
 
-  * Emergency AV and Wraparound
-  * Autovacuum Blockers
+  * Emergency autovacuum and wraparound
+  * Autovacuum blockers
 
 
-Before using any troubleshooting guide, it is essential to ensure that all prerequisites are in place. For a detailed list of prerequisites, please refer to the [Use Troubleshooting Guides](how-to-troubleshooting-guides.md) article.
+Before using any troubleshooting guide, it's essential to ensure that all prerequisites are in place. For a detailed list of prerequisites refer to the article [Use troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ### Limitations
 
-* Troubleshooting Guides are not available for [read replicas](concepts-read-replicas.md).
-* Please be aware that enabling Query Store on the Burstable pricing tier can lead to a negative impact on performance. As a result, it is generally not recommended to use Query Store with this particular pricing tier.
+* Troubleshooting guides aren't available for [read replicas](concepts-read-replicas.md).
+* Be aware that enabling Query Store on the Burstable pricing tier can lead to a negative impact on performance. As a result, it's not recommended to use Query Store with this particular pricing tier.
 
 
 ## Next steps
 
-* Learn more about [How to use Troubleshooting Guides](how-to-troubleshooting-guides.md).
+* Learn more about [How to use troubleshooting guides](how-to-troubleshooting-guides.md).
 * Learn more about [Troubleshoot high CPU utilization](how-to-high-cpu-utilization.md).
 * Learn more about [High memory utilization](how-to-high-memory-utilization.md).
 * Learn more about [Troubleshoot high IOPS utilization](how-to-high-io-utilization.md).

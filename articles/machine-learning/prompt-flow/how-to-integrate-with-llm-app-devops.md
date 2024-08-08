@@ -3,14 +3,15 @@ title: Integrate prompt flow with LLM-based application DevOps
 titleSuffix: Azure Machine Learning
 description: Learn about integration of prompt flow with LLM-based application DevOps in Azure Machine Learning
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenlujiao
 ms.date: 11/02/2023
 ---
 
@@ -80,7 +81,7 @@ For more information about DevOps integration with Azure Machine Learning, see [
 
 - Complete the [Create resources to get started](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
 
-- A Python environment in which you've installed Azure Machine Learning Python SDK v2 - [install instructions](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk#getting-started). This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime. To learn more, see [how to manage runtime](how-to-create-manage-runtime.md) for prompt flow engineering.
+- A Python environment in which you've installed Azure Machine Learning Python SDK v2 - [install instructions](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk#getting-started). This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at compute session. To learn more, see [how to manage compute session](how-to-manage-compute-session.md) for prompt flow engineering.
 
 ### Install prompt flow SDK
 
@@ -136,13 +137,14 @@ column_mapping:
   url: ${data.url}
 
 # define cloud resource
-# if omitted, it will use the automatic runtime, you can also specify the runtime name, specify automatic will also use the automatic runtime.
-runtime: <runtime_name> 
 
-
-# define instance type only work for automatic runtime, will be ignored if you specify the runtime name.
+# if using serverless compute type
 # resources:
-#   instance_type: <instance_type>
+#   instance_type: <instance_type> 
+
+# if using compute instance compute type
+# resources:
+#   compute: <compute_instance_name> 
 
 # overrides connections 
 connections:
@@ -179,9 +181,12 @@ data = "<path_to_flow>/data.jsonl"
 
 
 # define cloud resource
-runtime = <runtime_name>
-# define instance type
+
+# define instance type when using serverless compute type
 # resources = {"instance_type": <instance_type>}
+
+# specify the compute instance name when using compute instance compute type
+# resources = {"compute": <compute_instance_name>}
 
 # overrides connections 
 connections = {"classify_with_llm":
@@ -192,18 +197,27 @@ connections = {"classify_with_llm":
                   "deployment_name": <deployment_name>}
                 }
 # create run
-base_run = pf.run(
+run = Run(
+    # local flow file
     flow=flow,
+    # remote data
     data=data,
-    runtime=runtime, # if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
-#    resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
     column_mapping={
         "url": "${data.url}"
     }, 
-    connections=connections,  
-
+    connections=connections, 
+    # to customize runtime instance type and compute instance, you can provide them in resources
+    # resources={
+    #     "instance_type": "STANDARD_DS11_V2",
+    #     "compute": "my_compute_instance"
+    # }
+    # to customize identity, you can provide them in identity
+    # identity={
+    #     "type": "managed",
+    # }
 )
-print(base_run)
+
+base_run = pf.runs.create_or_update(run=run)
 ```
 
 ---
@@ -222,13 +236,15 @@ column_mapping:
   prediction: ${run.outputs.category}
 
 # define cloud resource
-# if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
-runtime: <runtime_name> 
 
-
-# define instance type only work for automatic runtime, will be ignored if you specify the runtime name.
+# if using serverless compute type
 # resources:
-#   instance_type: <instance_type>
+#   instance_type: <instance_type> 
+
+# if using compute instance compute type
+# resources:
+#   compute: <compute_instance_name> 
+
 
 # overrides connections 
 connections:
@@ -253,9 +269,12 @@ flow = "<path_to_flow>"
 data = "<path_to_flow>/data.jsonl"
 
 # define cloud resource
-runtime = <runtime_name>
-# define instance type
+
+# define instance type when using serverless compute type
 # resources = {"instance_type": <instance_type>}
+
+# specify the compute instance name when using compute instance compute type
+# resources = {"compute": <compute_instance_name>}
 
 # overrides connections 
 connections = {"classify_with_llm":
@@ -267,18 +286,29 @@ connections = {"classify_with_llm":
                 }
 
 # create evaluation run
-eval_run = pf.run(
-    flow=flow
+eval_run = Run(
+    # local flow file
+    flow=flow,
+    # remote data
     data=data,
     run=base_run,
     column_mapping={
         "groundtruth": "${data.answer}",
         "prediction": "${run.outputs.category}",
     },
-    runtime=runtime, # if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
-#    resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
-    connections=connections
+    connections=connections,
+    # to customize runtime instance type and compute instance, you can provide them in resources
+    # resources={
+    #     "instance_type": "STANDARD_DS11_V2",
+    #     "compute": "my_compute_instance"
+    # }
+    # to customize identity, you can provide them in identity
+    # identity={
+    #     "type": "managed",
+    # }
 )
+
+eval_run = pf.runs.create_or_update(run=eval_run)
 ```
 
 ---

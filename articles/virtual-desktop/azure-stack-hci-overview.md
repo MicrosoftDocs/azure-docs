@@ -63,7 +63,7 @@ To run Azure Virtual Desktop on Azure Stack HCI, you need to make sure you're li
 
 - **Azure Stack HCI service fee.** Learn more at [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci/).
  
-- **Azure Virtual Desktop on Azure Stack HCI service fee.** This fee requires you to pay for each active virtual CPU (vCPU) for your Azure Virtual Desktop session hosts running on Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+- **Azure Virtual Desktop for Azure Stack HCI service fee.** This fee requires you to pay for each active virtual CPU (vCPU) for your Azure Virtual Desktop session hosts running on Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
 ## Data storage
 
@@ -72,12 +72,6 @@ There are different classifications of data for Azure Virtual Desktop, such as c
 ## Limitations
 
 Azure Virtual Desktop on Azure Stack HCI has the following limitations:
-
-- You can't use some Azure Virtual Desktop features when session hosts running on Azure Stack HCI, such as:
-    
-    - [Azure Virtual Desktop Insights](insights.md)
-    - [Session host scaling with Azure Automation](set-up-scaling-script.md)
-    - [Per-user access pricing](licensing.md)
 
 - Each host pool must only contain session hosts on Azure or on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
 

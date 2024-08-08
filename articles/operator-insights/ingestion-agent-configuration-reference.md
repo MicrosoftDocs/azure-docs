@@ -4,10 +4,11 @@ description: This article documents the complete set of configuration for the Az
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: conceptual
 ms.date: 12/06/2023
 ---
+
 # Configuration reference for Azure Operator Insights ingestion agent
 
 This reference provides the complete set of configuration for the [Azure Operator Insights ingestion agent](ingestion-agent-overview.md), listing all fields with explanatory comments.
@@ -22,12 +23,12 @@ This reference shows two pipelines: one with an MCC EDR source and one with an S
 
 ```yaml
 # A unique identifier for this agent instance. Reserved URL characters must be percent-encoded. It's included in the upload path to the Data Product's input storage account.
-agent_id: agent01 
+agent_id: agent01
 # Config for secrets providers. We support reading secrets from Azure Key Vault and from the VM's local filesystem.
 # Multiple secret providers can be defined and each must be given a unique name, which is referenced later in the config.
 # A secret provider of type `key_vault` which contains details required to connect to the Azure Key Vault and allow connection to the Data Product's input storage account. This is always required.
 # A secret provider of type `file_system`, which specifies a directory on the VM where secrets are stored. For example for an SFTP pull source, for storing credentials for connecting to an SFTP server.
-secret_providers: 
+secret_providers:
   - name: data_product_keyvault_mi
     key_vault:
       vault_name: contoso-dp-kv
@@ -73,7 +74,7 @@ sink:
   # Optional A string giving an optional base path to use in the container in the Data Product's input storage account. Reserved URL characters must be percent-encoded. See the Data Product for what value, if any, is required.
   base_path: base-path
   sas_token:
-    # This must reference a secret provider configured above. 
+    # This must reference a secret provider configured above.
     secret_provider: data_product_keyvault_mi
     # The name of a secret in the corresponding provider.
     # This will be the name of a secret in the Key Vault.
@@ -102,13 +103,13 @@ source:
   mcc_edrs:
     # The maximum amount of data to buffer in memory before uploading. Units are B, KiB, MiB, GiB, etc.
     message_queue_capacity: 32 MiB
-    # Quick check on the maximum RAM that the agent should use.   
-    # This is a guide to check the other tuning parameters, rather than a hard limit. 
+    # Quick check on the maximum RAM that the agent should use.
+    # This is a guide to check the other tuning parameters, rather than a hard limit.
     maximum_overall_capacity: 1216 MiB
     listener:
       # The TCP port to listen on.  Must match the port MCC is configured to send to.  Defaults to 36001.
       port: 36001
-      # EDRs greater than this size are dropped. Subsequent EDRs continue to be processed. 
+      # EDRs greater than this size are dropped. Subsequent EDRs continue to be processed.
       # This condition likely indicates MCC sending larger than expected EDRs. MCC is not normally expected
       # to send EDRs larger than the default size. If EDRs are being dropped because of this limit,
       # investigate and confirm that the EDRs are valid, and then increase this value. Units are B, KiB, MiB, GiB, etc.
@@ -118,7 +119,7 @@ source:
       # corrupt EDRs to Azure. You should not need to change this value. Units are B, KiB, MiB, GiB, etc.
       hard_maximum_message_size: 100000 B
     batching:
-      # The maximum size of a single blob (file) to store in the Data Product's input storage account. 
+      # The maximum size of a single blob (file) to store in the Data Product's input storage account.
       maximum_blob_size: 128 MiB. Units are B, KiB, MiB, GiB, etc.
       # The maximum time to wait when no data is received before uploading pending batched data to the Data Product's input storage account. Examples: 30s, 10m, 1h, 1d.
       blob_rollover_period: 5m
@@ -149,16 +150,17 @@ source:
         # Only for use with password authentication. The name of the file containing the password in the secrets_directory folder
         secret_name: sftp-user-password
         # Only for use with private key authentication. The name of the file containing the SSH key in the secrets_directory folder
-        key_secret: sftp-user-ssh-key
+        key_secret_name: sftp-user-ssh-key
         # Optional. Only for use with private key authentication. The passphrase for the SSH key. This can be omitted if the key is not protected by a passphrase.
         passphrase_secret_name: sftp-user-ssh-key-passphrase
     filtering:
       # The path to a folder on the SFTP server that files will be uploaded to Azure Operator Insights from.
       base_path: /path/to/sftp/folder
       # Optional. A regular expression to specify which files in the base_path folder should be ingested. If not specified, the agent will attempt to ingest all files in the base_path folder (subject to exclude_pattern, settling_time and exclude_before_time).
-      include_pattern: "*\.csv$"
+      include_pattern: ".*\.csv$" # Only include files which end in ".csv"
       # Optional. A regular expression to specify any files in the base_path folder which should not be ingested. Takes priority over include_pattern, so files which match both regular expressions will not be ingested.
-      exclude_pattern: '\.backup$'    
+      # The exclude_pattern can also be used to ignore whole directories, but the pattern must still match all files under that directory. e.g. `^excluded-dir/.*$` or `^excluded-dir/` but *not* `^excluded-dir$`
+      exclude_pattern: "^\.staging/|\.backup$" # Exclude all file paths that start with ".staging/" or end in ".backup"
       # A duration, such as "10s", "5m", "1h".. During an upload run, any files last modified within the settling time are not selected for upload, as they may still be being modified.
       settling_time: 1m
       # Optional. A datetime that adheres to the RFC 3339 format. Any files last modified before this datetime will be ignored.

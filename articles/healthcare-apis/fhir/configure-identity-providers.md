@@ -3,7 +3,7 @@ title: Configure multiple service identity providers for the FHIR service in Azu
 description: Learn how to configure multiple identity providers for the FHIR service in Azure Health Data Services by using OpenID Connect and SMART on FHIR v1 Scopes.
 services: healthcare-apis
 author: namalu
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: devx-track-arm-template
 ms.topic: tutorial

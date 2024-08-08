@@ -84,9 +84,9 @@ If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Lin
 To create a VM image using the RHEL BYOS image, follow these steps:
 
 1. Sign in to [Red Hat Subscription Management](https://access.redhat.com/management). Navigate to the [Cloud Access Dashboard](https://access.redhat.com/management/cloud) from the top menu bar.
-1. Enable your Azure subscription. See [detailed instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/getting-started-with-ca_cloud-access). Enabling the subscription will allow you to access the Red Hat Gold Images.
+1. Enable your Azure subscription. See [detailed instructions](https://access.redhat.com/documentation/en-us/subscription_central/1-latest/html/red_hat_cloud_access_reference_guide/getting-started-with-ca_cloud-access). Enabling the subscription will allow you to access the Red Hat Gold Images.
 
-1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access). 
+1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://access.redhat.com/documentation/en-us/subscription_central/1-latest/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access). 
 
 You can now use the VM that you provisioned to [Create a VM custom image](#create-a-custom-vm-image) in Linux.
 
@@ -165,7 +165,7 @@ To copy your VHD to a blob container using AzCopy, do the following steps:
     For example, the following URI will copy a file named **windowsosdisk.vhd** to the **virtual machines** blob container in the **mystorageaccount** storage account:
 
     ```azcopy 
-    .\azcopy copy "https://md-h1rvdq3wwtdp.z24.blob.storage.azure.net/gxs3kpbgjhkr/abcd?sv=2018-03-28&sr=b&si=f86003fc-a231-43b0-baf2-61dd51e3a05a&sig=o5Rj%2BNZSook%2FVNMcuCcwEwsr0i7sy%2F7gIDzak6JhlKg%3D" "https://mystorageaccount.blob.core.windows.net/virtualmachines/osdisk.vhd?sp=rw&st=2021-05-21T16:52:24Z&se=2021-05-22T00:52:24Z&spr=https&sv=2020-02-10&sr=c&sig=PV3Q3zpaQ%2FOLidbQJDKlW9nK%2BJ7PkzYv2Eczxko5k%2Bg%3D" --recursive
+    .\azcopy copy "https://md-h1rvdq3wwtdp.z24.blob.storage.azure.net/gxs3kpbgjhkr/abcd?sv=2018-03-28&sr=b&si=f86003fc-a231-43b0-baf2-61dd51e3a05a&sig=abc123DEF456...%3D" "https://mystorageaccount.blob.core.windows.net/virtualmachines/osdisk.vhd?sp=rw&st=2021-05-21T16:52:24Z&se=2021-05-22T00:52:24Z&spr=https&sv=2020-02-10&sr=c&sig=abc123DEF456...%3D" --recursive
     ```
 
 #### Sample output
@@ -173,7 +173,7 @@ To copy your VHD to a blob container using AzCopy, do the following steps:
 For the example AzCopy command above, the following output indicates a successful copy was completed.
 
    ```output
-   PS C:\azcopy\azcopy_windows_amd64_10.10.0> .\azcopy copy "https://md-h1rvdq3wwtdp.z24.blob.storage.azure.net/gxs3kpbgjhkr/abcd?sv=2018-03-28&sr=b&si=f86003fc-a231-43b0-baf2-61dd51e3a05a&sig=o5Rj%2BNZSook%2FVNMcuCcwEwsr0i7sy%2F7gIDzak6JhlKg%3D" "https://mystorageaccount.blob.core.windows.net/virtualmachines/osdisk.vhd?sp=rw&st=2021-05-21T16:52:24Z&se=2021-05-22T00:52:24Z&spr=https&sv=2020-02-10&sr=c&sig=PV3Q3zpaQ%2FOLidbQJDKlW9nK%2BJ7PkzYv2Eczxko5k%2Bg%3D" --recursive
+   PS C:\azcopy\azcopy_windows_amd64_10.10.0> .\azcopy copy "https://md-h1rvdq3wwtdp.z24.blob.storage.azure.net/gxs3kpbgjhkr/abcd?sv=2018-03-28&sr=b&si=f86003fc-a231-43b0-baf2-61dd51e3a05a&sig=abc123DEF456...%3D" "https://mystorageaccount.blob.core.windows.net/virtualmachines/osdisk.vhd?sp=rw&st=2021-05-21T16:52:24Z&se=2021-05-22T00:52:24Z&spr=https&sv=2020-02-10&sr=c&sig=abc123DEF456...%3D" --recursive
    INFO: Scanning...
    INFO: Failed to create one or more destination container(s). Your transfers may still succeed if the container already exists.
    INFO: Any empty folders will not be processed, because source and/or destination doesn't have full folder support

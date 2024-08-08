@@ -1,9 +1,8 @@
 ---
  title: include file
  description: include file
- services: event-grid
  author: robece
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 11/15/2023
  ms.author: robece
@@ -44,10 +43,14 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Inbound MQTT bandwidth per Event Grid namespace         | 1 MB per second per TU                                                            |
 | Inbound MQTT publishing requests per session | 100 messages per second                                                           |
 | Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
+| Inbound in-flight MQTT messages*        | 100 messages                                                                   |
+| Inbound in-flight MQTT bandwidth*         | 64 KB                                                             |
 | Outbound MQTT publishing requests per Event Grid namespace | 1,000 messages per second per TU                                                         |
 | Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU                                                            |
 | Outbound MQTT publishing requests per session| 100 messages per second                                                           |
 | Outbound MQTT bandwidth per session       | 1 MB per second                                                                   |
+| Outbound in-flight MQTT messages*        | 100 messages                                                                   |
+| Outbound in-flight MQTT bandwidth*         | 64 KB                                                             |
 | Max message size                             | 512 KB                                                                            |
 | Segments per topic/ topic filter             | 8                                                                                 |
 | Topic size                                   | 256 B                                                                             |
@@ -71,6 +74,8 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Topic spaces                                 | 10                                                                                |
 | Topic templates                              | 10 per topic space                                                                |
 | Permission bindings                          | 100                                                                               |
+
+\* For MQTTv5, learn more about [flow control support](../mqtt-support.md#flow-control).
 
 ## Events limits in Event Grid namespace
 
@@ -96,7 +101,7 @@ The following limits apply to Azure Event Grid custom topic, system topic, and p
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Custom topics per Azure subscription                   | 100<br/>When the limit is reached, you can consider a different region or consider using domains, which can support 100,000 topics. |
 | Event subscriptions per topic                          | 500<br/>This limit can’t be increased.                                                                                              |
-| Publish rate for a custom or a partner topic (ingress) | 5,000 events of 64 KB size per second or 5 MB per second (whichever comes first). An event is counted for limits and pricing purposes as a 64KB data chunk. So, if the event is 128 KB, it counts as two events. |
+| Publish rate for a custom or a partner topic (ingress) | 5,000 events or 5 MB per second (whichever comes first). An event is counted for limits and pricing purposes as a 64KB data chunk. So, if the event is 128 KB, it counts as two events. |
 | Event size                                             | 1 MB<br/>This limit can’t be increased.                                                                                             |
 | Maximum event retention on topics              | 1 day. This limit can't be increased. |
 | Number of incoming events per batch                    | 5,000<br/>This limit can’t be increased                                                                                             |
@@ -113,7 +118,7 @@ The following limits apply to Azure Event Grid domain resource.
 | Topics per domain                             | 100,000                                                            |
 | Event subscriptions per topic within a domain | 500<br/>This limit can’t be increased                              |
 | Domain scope event subscriptions              | 50<br/>This limit can’t be increased                               |
-| Publish rate for a domain (ingress)           | 5,000 events of 64 KB size per second or 5 MB per second (whichever comes first). An event is counted for limits and pricing purposes as a 64KB data chunk. So, if the event is 128 KB, it counts as two events. |
+| Publish rate for a domain (ingress)           | 5,000 events or 5 MB per second (whichever comes first). An event is counted for limits and pricing purposes as a 64KB data chunk. So, if the event is 128 KB, it counts as two events. |
 | Maximum event retention on domain topics              | 1 day. This limit can't be increased. |
 | Private endpoint connections per domain       | 64                                                                 |
 | IP Firewall rules per topic                   | 128                                                                |

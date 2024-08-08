@@ -9,7 +9,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 06/26/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -29,20 +29,49 @@ This article contains both a quick reference and detailed description of Azure A
 
 ## Model usage
 
+:::moniker range="doc-intel-4.0.0"
+|Document types supported|Read|Layout|Prebuilt models|Custom models|Add-on capabilities|
+|--|--|--|--|--|----|
+| PDF | ✔️ | ✔️ | ✔️ | ✔️ |✔️|
+| Images: `JPEG/JPG`, `PNG`, `BMP`, `TIFF`, `HEIF` | ✔️ | ✔️ | ✔️ | ✔️ |✔️|
+| Microsoft Office: `DOCX`, `PPTX`, `XLS` | ✔️ | ✔️ | ✖️ | ✖️ |✖️|
+
+✔️ = supported
+✖️ = Not supported
+:::moniker-end
+
 :::moniker range="doc-intel-3.1.0"
 |Document types supported|Read|Layout|Prebuilt models|Custom models|
 |--|--|--|--|--|
 | PDF | ✔️ | ✔️ | ✔️ | ✔️ |
-| Images (JPEG/JPG), PNG, BMP, TIFF, HEIF | ✔️ | ✔️ | ✔️ | ✔️ |
-| Office file types DOCX, PPTX, XLS | ✔️ | ✖️ | ✖️ | ✖️ |
-:::moniker-end
+| Images: `JPEG/JPG`, `PNG`, `BMP`, `TIFF`, `HEIF` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Microsoft Office: `DOCX`, `PPTX`, `XLS` | ✔️ | ✖️ | ✖️ | ✖️ |
 
-:::moniker range="doc-intel-4.0.0"
-|Document types supported|Read|Layout|Prebuilt models|Custom models|
-|--|--|--|--|--|
-| PDF | ✔️ | ✔️ | ✔️ | ✔️ |
-| Images (JPEG/JPG), PNG, BMP, TIFF, HEIF | ✔️ | ✔️ | ✔️ | ✔️ |
-| Office file types DOCX, PPTX, XLS | ✔️ | ✔️ | ✖️ | ✖️ |
+✔️ = supported
+✖️ = Not supported
+
+## Billing
+
+Document Intelligence billing is calculated monthly based on the model type and the number of pages analyzed. You can find usage metrics on the metrics dashboard in the Azure portal. The dashboard displays the number of pages that Azure AI Document Intelligence processes. You can check the estimated cost spent on the resource by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For detailed instructions, see [Check usage and estimate cost](how-to-guides/estimate-cost.md). Here are some details:
+
+- When you submit a document for analysis, the service analyzes all pages unless you specify a page range by using the `pages` parameter in your request. When the service analyzes Microsoft Excel and PowerPoint documents through the read, OCR, or layout model, it counts each Excel worksheet and PowerPoint slide as one page.
+
+- When the service analyzes PDF and TIFF files, it counts each page in the PDF file or each image in the TIFF file as one page with no maximum character limits.
+
+- When the service analyzes Microsoft Word and HTML files that the read and layout models support, it counts pages in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, the two pages with 3,000 characters each and one page with 1,000 characters add up to a total of three pages.
+
+- The read and layout models don't support analysis of embedded or linked images in Microsoft Word, Excel, PowerPoint, and HTML files. Therefore, service doesn't count them as added images.
+
+- Training a custom model is always free with Document Intelligence. Charges are incurred only when the service uses a model to analyze a document.
+
+- Container pricing is the same as cloud service pricing.
+
+- Document Intelligence offers a free tier (F0) where you can test all the Document Intelligence features.
+
+- Document Intelligence has a commitment-based pricing model for large workloads.
+
+- The Layout model is required to generate labels for your dataset for custom training. If the dataset that you use for custom training doesn't have label files available, the service generates them for you and bills you for layout model usage.
+
 :::moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
@@ -149,7 +178,7 @@ This article contains both a quick reference and detailed description of Azure A
 
 ## Detailed description, Quota adjustment, and best practices
 
-Before requesting a quota increase (where applicable), ensure that it's necessary. Document Intelligence service uses autoscaling to bring the required computational resources in "on-demand"  and at the same time to keep the customer costs low, deprovision unused resources by not maintaining an excessive amount of hardware capacity.
+Before requesting a quota increase (where applicable), ensure that it's necessary. Document Intelligence service uses autoscaling to bring the required computational resources `on-demand`, keep the customer costs low, and deprovision unused resources by not maintaining an excessive amount of hardware capacity.
 
 If your application returns Response Code 429 (*Too many requests*) and your workload is within the defined limits: most likely, the service is scaling up to your demand, but has yet to reach the required scale. Thus the service doesn't immediately have enough resources to serve the request. This state is transient and shouldn't last long.
 
@@ -176,36 +205,35 @@ If you would like to increase your transactions per second, you can enable auto 
 
 #### Have the required information ready
 
-* Document Intelligence Resource ID
-* Region
+- Document Intelligence Resource ID
+- Region
 
-* **How to get information (Base model)**:
-  * Sign in to the [Azure portal](https://portal.azure.com)
-  * Select the Document Intelligence Resource for which you would like to increase the transaction limit
-  * Select *Properties* (*Resource Management* group)
-  * Copy and save the values of the following fields:
-    * **Resource ID**
-    * **Location** (your endpoint Region)
+- Base model information:
+  - Sign in to the [Azure portal](https://portal.azure.com)
+  - Select the Document Intelligence Resource for which you would like to increase the transaction limit
+  - Select -Properties- (-Resource Management- group)
+  - Copy and save the values of the following fields:
+    - Resource ID
+    - Location (your endpoint Region)
 
 #### Create and submit support request
 
 Initiate the increase of transactions per second(TPS) limit for your resource by submitting the Support Request:
 
-* Ensure you have the [required information](#have-the-required-information-ready)
-* Sign in to the [Azure portal](https://portal.azure.com)
-* Select the Document Intelligence Resource for which you would like to increase the TPS limit
-* Select *New support request* (*Support + troubleshooting* group)
-* A new window appears with autopopulated information about your Azure Subscription and Azure Resource
-* Enter *Summary* (like "Increase Document Intelligence TPS limit")
-* In Problem type,* select "Quota or usage validation"
-* Select *Next: Solutions*
-* Proceed further with the request creation
-* Under the *Details* tab, enter the following information in the *Description* field:
-  * a note, that the request is about **Document Intelligence** quota.
-  * Provide a TPS expectation you would like to scale to  meet.
-  * Azure resource information you [collected](#have-the-required-information-ready).
-  * Complete entering the required information and select *Create* button in *Review + create* tab
-  * Note the support request number in Azure portal notifications. You're contacted shortly for further processing
+- Ensure you have the [required information](#have-the-required-information-ready)
+- Sign in to the [Azure portal](https://portal.azure.com)
+- Select the Document Intelligence Resource for which you would like to increase the TPS limit
+- Select -New support request- (-Support + troubleshooting- group). A new window appears with autopopulated information about your Azure Subscription and Azure Resource
+- Enter -Summary- (like "Increase Document Intelligence TPS limit")
+- Select "Quota or usage validation" for problem type field.
+- Select -Next: Solutions-
+- Proceed further with the request creation
+- Enter the following information in the -Description- field, under the Details tab:
+  - a note, that the request is about Document Intelligence quota.
+  - Provide a TPS expectation you would like to scale to  meet.
+  - Azure resource information you [collected](#have-the-required-information-ready).
+  - Complete entering the required information and select -Create- button in -Review + create- tab
+  - Note the support request number in Azure portal notifications. Look for Support to contact you shortly for further processing.
 
 ## Example of a workload pattern best practice
 

@@ -1,10 +1,10 @@
 ---
-title: Configure, connect, and verify an IoT Edge module with a GPU
+title: Configure and connect an IoT Edge module with a GPU
 description: Configure your environment to connect and verify your GPU to process modules from your IoT Edge device.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 9/22/2022
+ms.date: 05/29/2024
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Tutorial: Configure, connect, and verify an IoT Edge module for a GPU
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This tutorial shows you how to build a GPU-enabled virtual machine (VM). From the VM, you'll see how to run an IoT Edge device that allocates work from one of its modules to your GPU. 
 
@@ -39,15 +39,13 @@ We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to
 
 ## Create a GPU-optimized virtual machine
 
-To create a GPU-optimized virtual machine (VM), choosing the right size is important. Not all VM sizes will accommodate GPU processing. In addition, there are different VM sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) or try the [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
+To create a GPU-optimized virtual machine (VM), choosing the right size is important. Not all VM sizes accommodate GPU processing. In addition, there are different VM sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) or try the [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
 
 Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) template in GitHub, then configure it to be GPU-optimized.
 
-1. Go to the IoT Edge VM deployment template in GitHub: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.4).
+1. Go to the IoT Edge VM deployment template in GitHub: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy).
 
 1. Select the **Deploy to Azure** button, which initiates the creation of a custom VM for you in the Azure portal. 
-
-   :::image type="content" source="media/configure-connect-verify-gpu/deploy-to-azure-button.png" alt-text="Screenshot of the Deploy to Azure button in GitHub.":::
 
 1. Fill out the **Custom deployment** fields with your Azure credentials and resources:
 

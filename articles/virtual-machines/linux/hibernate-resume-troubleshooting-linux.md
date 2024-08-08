@@ -2,18 +2,15 @@
 title: Troubleshoot hibernation on Linux virtual machines
 description: Learn how to troubleshoot hibernation on Linux VMs.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 05/16/2024
 ms.author: jainan
 ms.reviewer: mattmcinnes
 ---
 
 # Troubleshooting hibernation on Linux VMs
-
-> [!IMPORTANT]
-> Azure Virtual Machines - Hibernation is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Hibernating a virtual machine allows you to persist the VM state to the OS disk. This article describes how to troubleshoot issues with the hibernation feature on Linux, issues creating hibernation enabled Linux VMs, and issues with hibernating a Linux VM.
 
@@ -41,6 +38,7 @@ systemctl status hibernation-setup-tool
 A successful status should return "Inactive (dead)”, and the log messages should say "Swap file for VM hibernation set up successfully"
 
 Example:
+
 ```
 azureuser@:~$ systemctl status hibernation-setup-tool
 ● hibernation-setup-tool.service - Hibernation Setup Tool
@@ -51,12 +49,12 @@ azureuser@:~$ systemctl status hibernation-setup-tool
 
 linuxhib2 hibernation-setup-tool[1131]: INFO: update-grub2 finished successfully.
 linuxhib2 hibernation-setup-tool[1131]: INFO: udev rule to hibernate with systemd set up in /etc/udev/rules.d/99-vm-hibernation.rules.  Telling udev about it.
-…
-…
+...
+...
 linuxhib2 hibernation-setup-tool[1131]: INFO: systemctl finished successfully.
 linuxhib2 hibernation-setup-tool[1131]: INFO: Swap file for VM hibernation set up successfully
-
 ```
+
 If the guest OS isn't configured for hibernation, take the appropriate action to resolve the issue. For example, if the guest failed to configure hibernation due to insufficient space, resize the OS disk to resolve the issue.    
 
 

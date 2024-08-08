@@ -1,13 +1,15 @@
 ---
 title: List and download server logs with Azure CLI
 description: This article describes how to list and download Azure Database for MySQL - Flexible Server logs by using the Azure CLI.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
-ms.topic: conceptual
 author: code-sidd
 ms.author: sisawant
-ms.date: 08/05/2022
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
+ms.custom:
+  - devx-track-azurecli
 ---
 # List and download Azure Database for MySQL - Flexible Server logs by using the Azure CLI
 
@@ -43,13 +45,12 @@ az mysql flexible-server server-logs list --resource-group <myresourcegroup> --s
 
 Here are the details for the above command
 
-LastModifiedTime | Name  | ResourceGroup | SizeInKb  | TypePropertiesType  | Url
----|---|---|---|---|---|
-2022-08-01T11:09:48+00:00 | mysql-slow-serverlogdemo-2022073111.log  | myresourcegroup | 10947 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022073111.log?`
-2022-08-02T11:10:00+00:00 | mysql-slow-serverlogdemo-2022080111.log  | myresourcegroup | 10927 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080111.log?`
-2022-08-03T11:10:12+00:00   | mysql-slow-serverlogdemo-2022080211.log  | myresourcegroup | 10936 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080211.log?`
-2022-08-03T11:12:00+00:00 | mysql-slow-serverlogdemo-2022080311.log  | myresourcegroup | 8920 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080311.log?`
-
+| LastModifiedTime | Name  | ResourceGroup | SizeInKb  | TypePropertiesType  | Url |
+|---|---|---|---|---|---|
+| 2022-08-01T11:09:48+00:00 | mysql-slow-serverlogdemo-2022073111.log  | myresourcegroup | 10947 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022073111.log?` |
+| 2022-08-02T11:10:00+00:00 | mysql-slow-serverlogdemo-2022080111.log  | myresourcegroup | 10927 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080111.log?` |
+| 2022-08-03T11:10:12+00:00   | mysql-slow-serverlogdemo-2022080211.log  | myresourcegroup | 10936 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080211.log?` |
+| 2022-08-03T11:12:00+00:00 | mysql-slow-serverlogdemo-2022080311.log  | myresourcegroup | 8920 | slowlog | `https://00000000000.file.core.windows.net/0000000serverlog/slowlogs/mysql-slow-serverlogdemo-2022080311.log?` |
 
 Above list shows LastModifiedTime, Name, ResourceGroup, SizeInKb and Download Url of the Server Logs available.
 Default LastModifiedTime is set to 72 hours, for listing files older than 72 hours, use flag `--file-last-written <Time:HH>`

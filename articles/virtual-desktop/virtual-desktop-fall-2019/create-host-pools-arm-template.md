@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.date: 03/30/2020
 ms.author: helohr
-manager: femila
 ---
 # Create a host pool in Azure Virtual Desktop (classic) with an Azure Resource Manager template
 
@@ -25,7 +24,7 @@ Make sure you know the following things before running the Azure Resource Manage
 - Your domain join credentials.
 - Your Azure Virtual Desktop credentials.
 
-When you create an Azure Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../../virtual-machines/windows/capture-image-resource.md).
+When you create an Azure Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../../virtual-machines/windows/capture-image-resource.yml).
 
 ## Run the Azure Resource Manager template for provisioning a new host pool
 

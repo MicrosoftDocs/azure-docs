@@ -5,7 +5,7 @@ author: biqian
 
 ms.author: biqian
 ms.date: 06/01/2023
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ---
 
@@ -22,14 +22,6 @@ Companies seeking local presence or requiring a robust failover system often cho
 ## Prerequisites
 
 * An Azure SignalR Service in [Premium tier](https://azure.microsoft.com/pricing/details/signalr-service/).
-* The user needs following permissions to operate on replicas:
-
-    | Permission                                        | Description                                       |
-    |---------------------------------------------------|---------------------------------------------------|
-    | Microsoft.SignalRService/signalr/replicas/write   | create, update or delete a replica. |
-    | Microsoft.SignalRService/signalr/replicas/read    | get meta data of a replica.|
-    | Microsoft.SignalRService/signalr/replicas/action  | perform actions on a replica, such as restarting. |
-
 
 ## Example use case
 Contoso is a social media company with its customer base spread across the US and Canada. To serve those customers and let them communicate with each other, Contoso runs its services in Central US. Azure SignalR Service is used to handle user connections and facilitate communication among users. Contoso's end users are mostly phone users. Due to the long geographical distances, end-users in Canada might experience high latency and poor network quality.

@@ -2,7 +2,7 @@
 title: 'Troubleshooting Azure VPN Gateway using diagnostic logs'
 description: Learn how to troubleshoot Azure VPN Gateway using diagnostic logs.
 author: stegag
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: stegag
@@ -13,7 +13,7 @@ ms.author: stegag
 
 This article helps understand the different logs available for VPN Gateway diagnostics and how to use them to effectively troubleshoot VPN gateway issues.
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 The following logs are available* in Azure:
 

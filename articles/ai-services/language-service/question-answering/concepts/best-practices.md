@@ -81,7 +81,7 @@ Question answering takes casing into account but it's intelligent enough to unde
 
 ### How are question answer pairs prioritized for multi-turn questions?
 
-When a project has hierarchical relationships (either added manually or via extraction) and the previous response was an answer related to other question answer pairs, for the next query we give slight preference to all the children question answer pairs, sibling question answer pairs, and grandchildren question answer pairs in that order. Along with any query, the [custom question answering REST API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) expects a `context` object with the property `previousQnAId`, which denotes the last top answer. Based on this previous `QnAID`, all the related `QnAs` are boosted.
+When a project has hierarchical relationships (either added manually or via extraction) and the previous response was an answer related to other question answer pairs, for the next query we give slight preference to all the children question answer pairs, sibling question answer pairs, and grandchildren question answer pairs in that order. Along with any query, the [custom question answering REST API](/rest/api/questionanswering/question-answering/get-answers) expects a `context` object with the property `previousQnAId`, which denotes the last top answer. Based on this previous `QnAID`, all the related `QnAs` are boosted.
 
 ### How are accents treated?
 

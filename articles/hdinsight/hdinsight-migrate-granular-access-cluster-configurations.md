@@ -1,7 +1,7 @@
 ---
 title: Granular role-based access Azure HDInsight cluster configurations
 description: Learn about the changes required as part of the migration to granular role-based access for HDInsight cluster configurations.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 09/19/2023
 ---
@@ -177,7 +177,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### Using the Azure portal
 
-You can alternatively use the Azure portal to add the HDInsight Cluster Operator role assignment to a user. See the documentation, [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+You can alternatively use the Azure portal to add the HDInsight Cluster Operator role assignment to a user. See the documentation, [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ## FAQ
 

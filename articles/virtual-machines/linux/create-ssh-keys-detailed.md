@@ -2,7 +2,7 @@
 title: Detailed steps to create an SSH key pair
 description: Learn detailed steps to create and manage an SSH public and private key pair for Linux VMs in Azure.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.date: 08/18/2022
@@ -17,9 +17,12 @@ ms.custom: GGAL-freshness822, linux-related-content
 
 With a secure shell (SSH) key pair, you can create a Linux virtual machine that uses SSH keys for authentication. This article shows you how to create and use an SSH RSA public-private key file pair for SSH client connections.
 
-If you want quick commands rather than a more in-depth explaination of SSH keys, see [How to create an SSH public-private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
+If you want quick commands rather than a more in-depth explanation of SSH keys, see [How to create an SSH public-private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
 
 To create SSH keys and use them to connect to a Linux VM from a **Windows** computer, see [How to use SSH keys with Windows on Azure](ssh-from-windows.md). You can also use the [Azure portal](../ssh-keys-portal.md) to create and manage SSH keys for creating VMs in the portal.
+
+> [!Note]
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -48,6 +51,12 @@ The following `ssh-keygen` command generates 4096-bit SSH RSA public and private
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
+The following `ssh-keygen` command generates 256-bit ED25519 public and private key files by default in the `~/.ssh` directory. If an existing SSH key pair is found in the current location, those files are overwritten.
+
+```bash
+ssh-keygen -m PEM -t ed25519
+```
+
 ### Detailed example
 The following example shows additional command options to create an SSH RSA key pair. If an SSH key pair exists in the current location, those files are overwritten. 
 
@@ -57,10 +66,19 @@ ssh-keygen \
     -t rsa \
     -b 4096 \
     -C "azureuser@myserver" \
-    -f ~/.ssh/mykeys/myprivatekey \
+    -f ~/.ssh/mykeys/myrsaprivatekey \
     -N mypassphrase
 ```
+The following example shows additional command options to create an SSH ED25519 key pair. If an SSH key pair exists in the current location, those files are overwritten. 
 
+```bash
+ssh-keygen \
+    -m PEM \
+    -t ed25519 \
+    -C "azureuser@myserver" \
+    -f ~/.ssh/mykeys/myedprivatekey \
+    -N mypassphrase
+```
 **Command explained**
 
 `ssh-keygen` = the program used to create the keys
@@ -77,7 +95,7 @@ ssh-keygen \
 
 `-N mypassphrase` = an additional passphrase used to access the private key file. 
 
-### Example of ssh-keygen
+### Example of ssh-keygen (RSA)
 
 ```bash
 ssh-keygen -t rsa -m PEM -b 4096 -C "azureuser@myserver"
@@ -102,21 +120,59 @@ The key's randomart image is:
 |           ..    |
 +----[SHA256]-----+
 ```
+### Example of ssh-keygen (ED25519)
+
+```bash
+ssh-keygen -t ed25519 -m PEM -C "azureuser@myserver"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/azureuser/.ssh/id_ed25519.
+Your public key has been saved in /home/azureuser/.ssh/id_ed25519.pub.
+The key fingerprint is:
+SHA256:vFfHHrpSGQBd/oNdvNiX0sG9Vh+wROlZBktNZw9AUjA azureuser@myserver
+The key's randomart image is:
++---[ED25519 256]----+
+|                 |
+|..  .            |
+|o+.o       .     |
+|*=o o   o + +    |
+|*+o+   oSB + o   |
+|**++o.+oo = .    |
+|=+*..*.o E       |
+|..  o o..        |
+|     .o.         |
++----[SHA256]-----+
+```
 
 #### Saved key files
 
 `Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): ~/.ssh/id_rsa`
 
-The key pair name for this article. Having a key pair named `id_rsa` is the default; some tools might expect the `id_rsa` private key file name, so having one is a good idea. The directory `~/.ssh/` is the default location for SSH key pairs and the SSH config file. If not specified with a full path, `ssh-keygen` creates the keys in the current working directory, not the default `~/.ssh`.
+or 
+
+`Enter file in which to save the key (/home/azureuser/.ssh/id_ed25519): ~/.ssh/id_ed25519`
+
+
+The default key pair names for RSA and ED25519 are `id_rsa` and `id_ed25519` respectively; some tools might expect the `id_rsa` or `id_ed25519` private key file name, so having one is a good idea. The directory `~/.ssh/` is the default location for SSH key pairs and the SSH config file. If not specified with a full path, `ssh-keygen` creates the keys in the current working directory, not the default `~/.ssh`.
 
 #### List of the `~/.ssh` directory
 
 To view existing files in the `~/.ssh` directory, run the following command. If no files are found in the directory or the directory itself is missing, make sure that all previous commands were successfully run. You may require root access to modify files in this directory on certain Linux distributions.
 
+RSA Key pair:
 ```bash
 ls -al ~/.ssh
 -rw------- 1 azureuser staff  1675 Aug 25 18:04 id_rsa
 -rw-r--r-- 1 azureuser staff   410 Aug 25 18:04 id_rsa.pub
+```
+
+ED25519 Key pair:
+```bash
+ls -al ~/.ssh
+-rw------- 1 azureuser staff  1675 Aug 25 18:04 id_ed25519
+-rw-r--r-- 1 azureuser staff   410 Aug 25 18:04 id_ed25519.pub
 ```
 
 #### Key passphrase
@@ -129,12 +185,16 @@ It is *strongly* recommended to add a passphrase to your private key. Without a 
 
 If you use the [Azure CLI](/cli/azure) to create your VM, you can optionally generate both public and private SSH key files by running the [az vm create](/cli/azure/vm) command with the `--generate-ssh-keys` option. The keys are stored in the ~/.ssh directory. Note that this command option does not overwrite keys if they already exist in that location, such as with some pre-configured Compute Gallery images.
 
+> [!NOTE]
+> [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command deafults to RSA encryption and cannot be use to generate ED25519 key pairs, however you can create a ED25519 key pair using ssh-keygen as described above and then use that public key to create a VM.
+
 ## Provide SSH public key when deploying a VM
 
 To create a Linux VM that uses SSH keys for authentication, provide your SSH public key when creating the VM using the Azure portal, CLI, Resource Manager templates, or other methods. When using the portal, you enter the public key itself. If you use the [Azure CLI](/cli/azure) to create your VM with an existing public key, specify the value or location of this public key by running the [az vm create](/cli/azure/vm) command with the `--ssh-key-value` option. 
 
 If you're not familiar with the format of an SSH public key, you can see your public key by running `cat` as follows, replacing `~/.ssh/id_rsa.pub` with your own public key file location:
 
+### RSA key pair
 ```bash
 cat ~/.ssh/id_rsa.pub
 ```
@@ -149,13 +209,37 @@ If you copy and paste the contents of the public key file into the Azure portal 
 
 If you prefer to use a public key that is in a multiline format, you can generate an RFC4716 formatted key in a 'pem' container from the public key you previously created.
 
-To create a RFC4716 formatted key from an existing SSH public key:
+To create an RFC4716 formatted key from an existing SSH public key:
 
 ```bash
 ssh-keygen \
 -f ~/.ssh/id_rsa.pub \
 -e \
 -m RFC4716 > ~/.ssh/id_ssh2.pem
+```
+
+### ED25519 key pair
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Output is similar to the following (redacted example below):
+
+```
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP6I5JuhGq3RidMNpxrplIQwEfc4Rh7UyV8JYYH2U2xA azureuser@myserver
+```
+
+If you copy and paste the contents of the public key file into the Azure portal or a Resource Manager template, make sure you don't copy any additional whitespace or introduce additional line breaks. For example, if you use macOS, you can pipe the public key file (by default, `~/.ssh/id_ed25519.pub`) to **pbcopy** to copy the contents (there are other Linux programs that do the same thing, such as `xclip`).
+
+If you prefer to use a public key that is in a multiline format, you can generate an RFC4716 formatted key in a 'pem' container from the public key you previously created.
+
+To create a PEM formatted key from an existing SSH public key:
+
+```bash
+ssh-keygen \
+-f ~/.ssh/id_ed25519.pub \
+-e \
+-m RFC4716 > ~/.ssh/id_edssh.pem
 ```
 
 ## SSH to your VM with an SSH client
@@ -183,6 +267,11 @@ Now add the private key to `ssh-agent` using the command `ssh-add`.
 
 ```bash
 ssh-add ~/.ssh/id_rsa
+```
+or
+
+```bash
+ssh-add ~/.ssh/id_ed25519
 ```
 
 The private key passphrase is now stored in `ssh-agent`.

@@ -9,9 +9,9 @@ ms.custom:
   - engagement-fy23
   - ignite-2023
 ms.topic: conceptual
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 09/12/2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -32,11 +32,10 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
     | Microsoft.MachineLearningServices | Creating the Azure Machine Learning workspace.
     | Microsoft.Storage | Storage Account is used as the default storage for the workspace.
     | Microsoft.KeyVault |Azure Key Vault is used by the workspace to store secrets.
-    | Microsoft.DocumentDB/databaseAccounts | Azure Cosmos DB instance that logs metadata for the workspace.
-    | Microsoft.Search/searchServices | Azure Search provides indexing capabilities for the workspace.
+    | Microsoft.DocumentDB | Azure Cosmos DB instance that logs metadata for the workspace.
+    | Microsoft.Search | Azure AI Search provides indexing capabilities for the workspace.
 
     For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
-
 
 ## Limitations
 
@@ -51,7 +50,7 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 
 ## Create Azure Key Vault
 
-To create the key vault, see [Create a key vault](../key-vault/general/quick-create-portal.md). When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
+To create the key vault, see [Create a key vault](/azure/key-vault/general/quick-create-portal). When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
 
 > [!IMPORTANT]
 > The key vault must be in the same Azure subscription that will contain your Azure Machine Learning workspace.
@@ -64,8 +63,8 @@ To create the key vault, see [Create a key vault](../key-vault/general/quick-cre
 > If you plan to use a user-assigned managed identity for your workspace, the managed identity must also be assigned these roles and access policies.
 >
 > For more information, see the following articles:
-> * [Provide access to key vault keys, certificates, and secrets](../key-vault/general/rbac-guide.md)
-> * [Assign a key vault access policy](../key-vault/general/assign-access-policy.md)
+> * [Provide access to key vault keys, certificates, and secrets](/azure/key-vault/general/rbac-guide)
+> * [Assign a key vault access policy](/azure/key-vault/general/assign-access-policy)
 > * [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md)
 
 1. From the [Azure portal](https://portal.azure.com), select the key vault instance. Then select __Keys__ from the left.
@@ -156,7 +155,7 @@ For more information on creating and using a deployment configuration, see the f
 :::moniker-end
 ### Azure Kubernetes Service
 
-You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md). 
+You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](/azure/aks/azure-disk-customer-managed-keys). 
 
 This process allows you to encrypt both the Data and the OS Disk of the deployed virtual machines in the Kubernetes cluster.
 

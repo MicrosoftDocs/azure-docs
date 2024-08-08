@@ -2,7 +2,7 @@
 title: Use Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
 description: Learn how to set up the Azure Key Vault Provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 ms.custom: devx-track-azurecli
-ms.date: 02/09/2024
+ms.date: 06/11/2024
 ms.topic: how-to
 ---
 
@@ -31,6 +31,10 @@ Capabilities of the Azure Key Vault Secrets Provider extension include:
   - Elastic Kubernetes Service
   - Tanzu Kubernetes Grid
   - Azure Red Hat OpenShift
+- Outbound connectivity to the following endpoints:
+  - `linuxgeneva-microsoft.azurecr.io`
+  - `upstreamarc.azurecr.io`
+  - `*.blob.core.windows.net`
 - Ensure you've met the [general prerequisites for cluster extensions](extensions.md#prerequisites). You must use version 0.4.0 or newer of the `k8s-extension` Azure CLI extension.
 
 ## Install the Azure Key Vault Secrets Provider extension on an Arc-enabled Kubernetes cluster
@@ -47,11 +51,11 @@ Only one instance of the extension can be deployed on each Azure Arc-enabled Kub
 1. In the [Azure portal](https://portal.azure.com/#home), navigate to **Kubernetes - Azure Arc** and select your cluster.
 1. Select **Extensions** (under **Settings**), and then select **+ Add**.
 
-   [![Screenshot showing the Extensions page for an Arc-enabled Kubernetes cluster in the Azure portal.](media/tutorial-akv-secrets-provider/extension-install-add-button.jpg)](media/tutorial-akv-secrets-provider/extension-install-add-button.jpg#lightbox)
+   :::image type="content" source="media/tutorial-akv-secrets-provider/extension-install-add-button.png" lightbox="media/tutorial-akv-secrets-provider/extension-install-add-button.png" alt-text="Screenshot showing the Extensions pane for an Arc-enabled Kubernetes cluster in the Azure portal.":::
 
 1. From the list of available extensions, select **Azure Key Vault Secrets Provider** to deploy the latest version of the extension.
 
-   [![Screenshot of the Azure Key Vault Secrets Provider extension in the Azure portal.](media/tutorial-akv-secrets-provider/extension-install-new-resource.jpg)](media/tutorial-akv-secrets-provider/extension-install-new-resource.jpg)
+   :::image type="content" source="media/tutorial-akv-secrets-provider/extension-install-new-resource.png" alt-text="Screenshot showing the Azure Key Vault Secrets Provider extension in the Azure portal.":::
 
 1. Follow the prompts to deploy the extension. If needed, customize the installation by changing the default options on the **Configuration** tab.
 
@@ -279,8 +283,8 @@ Before you move on to the next section, take note of the following properties:
 
 Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed through a service principal. Follow these steps to provide an identity that can access your Key Vault.
 
-1. Follow the steps [to create a service principal in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Take note of the Client ID and Client Secret generated in this step.
-1. Next, [ensure Azure Key Vault has GET permission to the created service principal](../../key-vault/general/assign-access-policy.md#assign-an-access-policy).
+1. Follow the steps [to create a service principal in Azure](/entra/identity-platform/howto-create-service-principal-portal). Take note of the Client ID and Client Secret generated in this step.
+1. Next, [ensure Azure Key Vault has GET permission to the created service principal](/azure/key-vault/general/assign-access-policy#assign-an-access-policy).
 1. Use the client ID and Client Secret from the first step to create a Kubernetes secret on the connected cluster:
 
    ```bash
@@ -436,4 +440,4 @@ For more information about resolving common issues, see the open source troubles
 ## Next steps
 
 - Want to try things out? Get started quickly with an [Azure Arc Jumpstart scenario](https://aka.ms/arc-jumpstart-akv-secrets-provider) using Cluster API.
-- Learn more about [Azure Key Vault](../../key-vault/general/overview.md).
+- Learn more about [Azure Key Vault](/azure/key-vault/general/overview).

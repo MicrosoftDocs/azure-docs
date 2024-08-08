@@ -3,7 +3,7 @@ title: Connect to Azure VMs on-premises failover with Azure Site Recovery
 description: Describes how to connect to Azure VMs after failover from on-premises to Azure using Azure Site Recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 07/26/2022
 ms.author: ankitadutta

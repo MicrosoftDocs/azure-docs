@@ -8,6 +8,9 @@ items:
       href: overview.md
     - name: Quotas and limits
       href: quotas-limits.md
+    - name: Deployment types
+      href: ./how-to/deployment-types.md
+      displayName: global, Global, globalstandard, global-standard, Global-Standard, standard, provisioned 
     - name: Models
       href: ./concepts/models.md
     - name: Model retirements
@@ -47,6 +50,10 @@ items:
       href: ./concepts/abuse-monitoring.md
     - name: Content filtering
       href: ./concepts/content-filter.md
+    - name: Default safety policies
+      href: ./concepts/default-safety-policies.md
+    - name: Prompt transformations
+      href: ./concepts/prompt-transformation.md
     - name: Customizing Large Language Models (LLMs)
       href: ./concepts/customizing-llms.md
     - name: Embeddings
@@ -63,7 +70,7 @@ items:
       href: ./concepts/prompt-engineering.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
-    - name: Prompt engineering for GPT-4 Turbo with Vision
+    - name: Image prompt engineering techniques
       href: ./concepts/gpt-4-v-prompt-engineering.md
     - name: Model versions
       href: ./concepts/model-versions.md
@@ -87,7 +94,15 @@ items:
       - name: Code Interpreter
         href: ./how-to/code-interpreter.md
       - name: Function calling
-        href: ./how-to/assistant-functions.md
+        items:
+        - name: Assistants function calling
+          href: ./how-to/assistant-functions.md
+        - name: Function calling with Azure Logic Apps
+          href: ./how-to/assistants-logic-apps.md
+      - name: File search
+        href: ./how-to/file-search.md
+  - name: Batch
+    href: ./how-to/batch.md
   - name: Completions & chat completions
     items:
     - name: GPT-35-Turbo & GPT-4 
@@ -147,8 +162,12 @@ items:
         href: ./how-to/use-web-app.md
       - name: Use the Azure Developer CLI
         href: ./how-to/azure-developer-cli.md
+      - name: Troubleshooting and best practices
+        href: ./how-to/on-your-data-best-practices.md
   - name: Migrate to OpenAI Python v1.x
     href: ./how-to/migration.md
+  - name: Migrate to OpenAI JavaScript v4.x
+    href: ./how-to/migration-javascript.md
   - name: Models
     items:
       - name: Manage models
@@ -159,7 +178,7 @@ items:
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/openai/context/context
       - name: Encryption of data at rest
         href: encrypt-data-at-rest.md
-      - name: Manage identity
+      - name: Managed identity
         href: ./how-to/managed-identity.md
       - name: Use Azure OpenAI on your data securely
         href: ./how-to/use-your-data-securely.md
@@ -168,7 +187,7 @@ items:
       - name: Resource creation & model deployment
         href: ./how-to/create-resource.md
       - name: OpenAI vs Azure OpenAI (Python)
-        href: ./how-to/switching-endpoints.md
+        href: ./how-to/switching-endpoints.yml
       - name: Manage quota
         href: ./how-to/quota.md
       - name: Dynamic quota
@@ -213,6 +232,10 @@ items:
       href: /legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context
 - name: Reference
   items:
+    - name: Inference GA API reference
+      href: reference.md
+    - name: Inference preview API reference
+      href: reference-preview.md
     - name: Assistants API Reference
       items:
         - name: Python/REST
@@ -265,10 +288,8 @@ items:
       href: /javascript/api/@azure/openai/?view=azure-node-preview&preserve-view=true
     - name: .NET 
       href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true
-    - name: REST API (completions & embeddings)
-      href: reference.md
     - name: REST API (fine-tuning)
-      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
+      href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2024-03-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
       href: /rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP
     - name: Templates
@@ -302,8 +323,3 @@ items:
       href: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA#ServiceSpecificTerms
     - name: Azure compliance offerings
       href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
-    
-
-
-
-

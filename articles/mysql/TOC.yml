@@ -1,10 +1,12 @@
-- name: Azure Database for MySQL - Flexible Server documentation
+- name: Azure Database for MySQL
   href: index.yml
 - name: Overview
   expanded: true
   items:
   - name: What is Azure Database for MySQL - Flexible Server?
-    href: flexible-server/overview-single.md
+    href: flexible-server/overview.md
+  - name: What's happening to Single Server?
+    href: migrate/whats-happening-to-mysql-single-server.md
   - name: Select the right deployment type
     href: select-right-deployment-type.md
   - name: Try for free
@@ -13,16 +15,13 @@
     href: flexible-server/concept-reserved-pricing.md
   - name: Version support policy
     href: concepts-version-policy.md
-    displayName: version policy
   - name: Supported versions
     href: flexible-server/concepts-supported-versions.md
-
 - name: Azure Database for MySQL - Flexible Server
   items:
   - name: Overview
+    expanded: true
     items:
-      - name: Flexible server deployment model
-        href: flexible-server/overview.md
       - name: What's new?
         href: flexible-server/whats-new.md
       - name: Release notes
@@ -32,11 +31,14 @@
           - name: February 2024
             href: flexible-server/release-notes/february-2024.md
           - name: April 2024
-            href: flexible-server/release-notes/april-2024.md            
-      - name: Compute and storage
+            href: flexible-server/release-notes/april-2024.md
+          - name: May 2024
+            href: flexible-server/release-notes/may-2024.md
+          - name: June 2024
+            href: flexible-server/release-notes/june-2024.md
+      - name: Service tiers
         href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
-    expanded: true
     items:
       - name: Create an Azure Database for MySQL - Flexible Server instance
         items:
@@ -157,6 +159,8 @@
         href: flexible-server/concepts-azure-ad-authentication.md
       - name: Data encryption
         href: flexible-server/concepts-customer-managed-key.md
+      - name: Threat protection with Microsoft Defender for Cloud
+        href: /azure/defender-for-cloud/defender-for-databases-introduction?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
   - name: Integrations
     items:
     - name: Automation tasks
@@ -345,9 +349,6 @@
         href: flexible-server/scripts/sample-cli-slow-query-logs.md
 - name: Azure Database for MySQL - Single Server
   items:
-  - name: What's happening to Azure Database for MySQL - Single Server?
-    href: single-server/whats-happening-to-mysql-single-server.md
-    displayName: What's happening to Single Server?
   - name: Overview
     items:
     - name: What is Azure Database for MySQL - Single Server?
@@ -359,7 +360,6 @@
       - name: Pricing tiers
         href: single-server/concepts-pricing-tiers.md
   - name: Quickstarts
-    expanded: true
     items:
     - name: Create an Azure Database for MySQL - Single Server instance
       items:

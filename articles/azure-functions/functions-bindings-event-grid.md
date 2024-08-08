@@ -4,7 +4,7 @@ description: Understand how to handle Event Grid events in Azure Functions.
 
 ms.topic: reference
 ms.date: 03/04/2022
-ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 

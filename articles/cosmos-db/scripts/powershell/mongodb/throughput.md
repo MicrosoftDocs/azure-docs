@@ -2,7 +2,7 @@
 title: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB s API for MongoDB
 description: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB s API for MongoDB
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.custom: devx-track-azurepowershell
 ms.topic: sample
@@ -12,9 +12,9 @@ ms.reviewer: mjbrown
 ---
 
 # Throughput (RU/s) operations with PowerShell for a database or collection for Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
-[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
 If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).

@@ -1,12 +1,12 @@
 ---
-title: "Quickstart: Document Intelligence (formerly Form Recognizer) JavaScript SDK (beta) | v3.1 | v3.0"
+title: "Quickstart: Document Intelligence (formerly Form Recognizer) JavaScript SDK"
 titleSuffix: Azure AI services
 description: Form and document processing, data extraction, and analysis using Document Intelligence JavaScript client library.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/25/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
@@ -21,7 +21,7 @@ ms.author: lajanuar
 
 :::moniker range="doc-intel-3.0.0"
 
-[Client library](/javascript/api/%40azure/ai-form-recognizer/) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/26e85928088c6ee46ff9b357b2af8158b9da8b49/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript) |[Supported REST API version](../../sdk-overview-v3-0.md)
+[Client library](/javascript/api/%40azure/ai-form-recognizer/) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/26e85928088c6ee46ff9b357b2af8158b9da8b49/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript) |[Supported REST API version](../../sdk-overview-v3-0.md)
 :::moniker-end
 
 In this quickstart, use the following features to analyze and extract data and values from forms and documents:
@@ -38,7 +38,7 @@ In this quickstart, use the following features to analyze and extract data and v
 
 * The latest `LTS` version of [Node.js](https://nodejs.org/).
 
-* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) Document Intelligence resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
     > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Microsoft Entra authentication](../../../../active-directory/authentication/overview-authentication.md).
@@ -73,8 +73,7 @@ In this quickstart, use the following features to analyze and extract data and v
  4. Install the `ai-document-intelligence` client library and `azure/identity` npm packages:
 
     ```console
-    npm i @azure-rest/ai-document-intelligence@1.0.0-beta.2
-
+    npm i @azure-rest/ai-document-intelligence@1.0.0-beta.2 @azure/core-auth
     ```
 
     Your app's `package.json` file is updated with the dependencies.
@@ -119,7 +118,7 @@ To interact with the Document Intelligence service, you need to create an instan
 
 :::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 
-To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form 
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form
 Recognizer `endpoint`.
 
 :::moniker-end
@@ -131,7 +130,7 @@ Recognizer `endpoint`.
     * [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../ai-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* Azure AI services [security](../../../../ai-services/security-features.md).
 
 <!-- markdownlint-disable MD036 -->
 
@@ -146,46 +145,51 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 :::moniker range="doc-intel-4.0.0"
 
 ```javascript
-    const { AzureKeyCredential, DocumentIntelligence } = require("@azure-rest/ai-document-intelligence");
+    const DocumentIntelligence = require("@azure-rest/ai-document-intelligence").default,
+  { getLongRunningPoller, isUnexpected } = require("@azure-rest/ai-document-intelligence");
+
+  const { AzureKeyCredential } = require("@azure/core-auth");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
-    const key = "<your-key>";
+    const key = "<your-key";
     const endpoint = "<your-endpoint>";
 
     // sample document
-  const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+    const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
-async function main() {
-    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
+   async function main() {
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key:key));
 
-    const poller = await client.beginAnalyzeDocument("prebuilt-layout", formUrl);
 
-const {
-        pages,
-        tables
-    } = await poller.pollUntilDone();
+    const initialResponse = await client
+      .path("/documentModels/{modelId}:analyze", "prebuilt-layout")
+      .post({
+        contentType: "application/json",
+        body: {
+          urlSource: formUrl
+        },
+       });
 
-    if (pages.length <= 0) {
-        console.log("No pages were extracted from the document.");
-    } else {
-        console.log("Pages:");
-        for (const page of pages) {
-            console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
-            console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
-            console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
-        }
+       if (isUnexpected(initialResponse)) {
+       throw initialResponse.body.error;
+     }
+
+    const poller = await getLongRunningPoller(client, initialResponse);
+    const analyzeResult = (await poller.pollUntilDone()).body.analyzeResult;
+
+    const documents = analyzeResult?.documents;
+
+    const document = documents && documents[0];
+    if (!document) {
+    throw new Error("Expected at least one document in the result.");
     }
 
-    if (tables.length <= 0) {
-        console.log("No tables were extracted from the document.");
-    } else {
-        console.log("Tables:");
-        for (const table of tables) {
-            console.log(
-                `- Extracted table: ${table.columnCount} columns, ${table.rowCount} rows (${table.cells.length} cells)`
-            );
-        }
-    }
+    console.log(
+    "Extracted document:",
+    document.docType,
+    `(confidence: ${document.confidence || "<undefined>"})`,
+    );
+    console.log("Fields:", document.fields);
 }
 
 main().catch((error) => {
@@ -311,41 +315,58 @@ In this example, we analyze an invoice using the **prebuilt-invoice** model.
 
 ```javascript
 
-const { AzureKeyCredential, DocumentIntelligence } = require("@azure-rest/ai-document-intelligence");
+const DocumentIntelligence = require("@azure-rest/ai-document-intelligence").default,
+  { getLongRunningPoller, isUnexpected } = require("@azure-rest/ai-document-intelligence");
+
+const { AzureKeyCredential } = require("@azure/core-auth");
 
     // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
     const key = "<your-key>";
     const endpoint = "<your-endpoint>";
 
     // sample document
-    invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
+    const invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
 async function main() {
-    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-invoice", invoiceUrl);
-if (pages.length <= 0) {
-        console.log("No pages were extracted from the document.");
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key:key));
+
+    const initialResponse = await client
+    .path("/documentModels/{modelId}:analyze", "prebuilt-invoice")
+    .post({
+      contentType: "application/json",
+      body: {
+        // The Document Intelligence service will access the URL to the invoice image and extract data from it
+        urlSource: invoiceUrl,
+      },
+    });
+
+    if (isUnexpected(initialResponse)) {
+       throw initialResponse.body.error;
+     }
+
+    const poller = await getLongRunningPoller(client, initialResponse);
+
+    poller.onProgress((state) => console.log("Operation:", state.result, state.status));
+    const analyzeResult = (await poller.pollUntilDone()).body.analyzeResult;
+
+    const documents = analyzeResult?.documents;
+
+    const result = documents && documents[0];
+    if (result) {
+      console.log(result.fields);
     } else {
-        console.log("Pages:");
-        for (const page of pages) {
-            console.log("- Page", page.pageNumber, `(unit: ${page.unit})`);
-            console.log(`  ${page.width}x${page.height}, angle: ${page.angle}`);
-            console.log(`  ${page.lines.length} lines, ${page.words.length} words`);
-        }
+      throw new Error("Expected at least one invoice in the result.");
     }
 
-    if (tables.length <= 0) {
-        console.log("No tables were extracted from the document.");
-    } else {
-        console.log("Tables:");
-        for (const table of tables) {
-            console.log(
-                `- Extracted table: ${table.columnCount} columns, ${table.rowCount} rows (${table.cells.length} cells)`
-            );
-        }
-    }
+console.log(
+    "Extracted invoice:",
+    document.docType,
+    `(confidence: ${document.confidence || "<undefined>"})`,
+  );
+  console.log("Fields:", document.fields);
 }
+
 
 main().catch((error) => {
     console.error("An error occurred:", error);

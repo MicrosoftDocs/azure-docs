@@ -13,9 +13,7 @@ ms.subservice: chat
 
 # Enable file sharing using UI Library in Teams Interoperability Chat
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between Azure Communication Services end users and Teams users. Note, Interop Chat is different from the Azure Communication Services Chat. If you want to enable file sharing in an Azure Communication Services Chat, refer to [Add file sharing with UI Library in Azure Communication Services Chat](./file-sharing-tutorial-acs-chat.md). Currently, the Azure Communication Services end user is only able to receive file attachments from the Teams user. Please refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
+In a Teams Interoperability Chat ("Interop Chat"), we can enable file sharing between Azure Communication Services end users and Teams users. Note, Interop Chat is different from the Azure Communication Services Chat. If you want to enable file sharing in an Azure Communication Services Chat, refer to [Add file sharing with UI Library in Azure Communication Services Chat](./file-sharing-tutorial-acs-chat.md). Currently, the Azure Communication Services end user is only able to receive file attachments from the Teams user. Refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
 
 >[!IMPORTANT]
 >
@@ -33,7 +31,7 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions. Use the `node --version` command to check your version.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
-- Using the UI library version [1.7.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.7.0-beta.1) or the latest.
+- Using the UI library version [1.17.0](https://www.npmjs.com/package/@azure/communication-react/v/1.17.0) or the latest.
 - Have a Teams meeting created and the meeting link ready.
 - Be familiar with how [ChatWithChat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
 
@@ -58,7 +56,7 @@ export type CallWithChatExampleProps = {
   token: string;
   displayName: string;
   endpointUrl: string;
-  locator: TeamsMeetingLinkLocator | CallAndChatLocator;
+  locator: TeamsMeetingLinkLocator | TeamsMeetingIdLocator | CallAndChatLocator;
 
   // Props to customize the CallWithChatComposite experience
   fluentTheme?: PartialTheme | Theme;
@@ -68,15 +66,19 @@ export type CallWithChatExampleProps = {
 
 ```
 
-To be able to start the Composite for meeting chat, we need to pass `TeamsMeetingLinkLocator`, which looks like this:
+To be able to start the Composite for meeting chat, we need to pass `TeamsMeetingLinkLocator` or `TeamsMeetingIdLocator`, which looks like this:
 
 ```js
 { "meetingLink": "<TEAMS_MEETING_LINK>" }
 ```
 
-Note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`
+Or
 
-And this is all you need! And there's no other setup needed to enable the Azure Communication Services end user to receive file attachments from the Teams user. 
+```js
+{ "meetingId": "<TEAMS_MEETING_ID>", "passcode": "<TEAMS_MEETING_PASSCODE>"}
+```
+
+This is all you need - and there's no other setup needed to enable the Azure Communication Services end user to receive file attachments from the Teams user!
 
 ## Permissions
 

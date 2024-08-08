@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Import and manage APIs - Azure API Management and VS Code
 description: Learn how to use the Azure API Management extension for Visual Studio Code to import, test, and manage APIs.
-ms.service: api-management
+ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: tutorial
@@ -107,7 +107,6 @@ You need a subscription key for your API Management instance to test the importe
 1. In the Explorer pane, expand the **Operations** node under the *demo-conference-api* that you imported.
 1. Select an operation such as *GetSpeakers*, and then right-click the operation and select **Test Operation**.
 1. In the editor window, next to **Ocp-Apim-Subscription-Key**, replace `{{SubscriptionKey}}` with the subscription key that you copied.
-1. Next to `Ocp-Apim-Trace`, enter `false`. This setting disables request tracing.
 1. Select **Send request**.
 
 :::image type="content" source="media/visual-studio-code-tutorial/test-api.png" alt-text="Screenshot of sending API request from Visual Studio Code.":::
@@ -126,24 +125,7 @@ Notice the following details in the response:
 
 Optionally, you can get detailed request tracing information to help you debug and troubleshoot the API.
 
-To trace request processing, first enable the **Allow tracing** setting for the subscription used to debug your API. For steps to enable this setting using the portal, see [Verify allow tracing setting](api-management-howto-api-inspector.md#verify-allow-tracing-setting). To limit unintended disclosure of sensitive information, tracing is allowed for only 1 hour.
-
-After allowing tracing with your subscription, follow these steps:
-
-1. In the Explorer pane, expand the **Operations** node under the *demo-conference-api* that you imported.
-1. Select an operation such as *GetSpeakers*, and then right-click the operation and select **Test Operation**.
-1. In the editor window, next to **Ocp-Apim-Subscription-Key**, replace `{{SubscriptionKey}}` with the subscription key that you want to use.
-1. Next to `Ocp-Apim-Trace`, enter `true`. This setting enables tracing for this request.
-1. Select **Send request**.
-
-When the request succeeds, the backend response includes an **Ocp-APIM-Trace-Location** header.
-
-:::image type="content" source="media/visual-studio-code-tutorial/test-api-tracing.png" alt-text="Screenshot of tracing location in the API test response in Visual Studio Code.":::
-
-Select the link next to **Ocp-APIM-Trace-Location** to see Inbound, Backend, and Outbound trace information. The trace information helps you determine where problems occur after the request is made.
-
-> [!TIP]
-> When you test API operations, the API Management extension allows optional [policy debugging](api-management-debug-policies.md) (available only in the Developer service tier).
+For steps to enable tracing for an API, see [Enable tracing for an API](api-management-howto-api-inspector.md#enable-tracing-for-an-api). To limit unintended disclosure of sensitive information, tracing by default is allowed for only 1 hour.
 
 ## Clean up resources
 

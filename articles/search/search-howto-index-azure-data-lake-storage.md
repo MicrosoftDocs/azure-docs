@@ -5,7 +5,6 @@ description: Set up an Azure Data Lake Storage (ADLS) Gen2 indexer to automate i
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
-
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
@@ -42,7 +41,7 @@ For a code sample in C#, see [Index Data Lake Gen2 using Microsoft Entra ID](htt
 
 The ADLS Gen2 indexer can extract text from the following document formats:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)]
 
 ## Determine which blobs to index
 
@@ -232,7 +231,7 @@ An indexer runs automatically when it's created. You can prevent this by setting
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2024-07-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -284,7 +283,7 @@ By default, the blob indexer stops as soon as it encounters a blob with an unsup
 There are five indexer properties that control the indexer's response when errors occur. 
 
 ```http
-PUT /indexers/[indexer name]?api-version=2023-11-01
+PUT /indexers/[indexer name]?api-version=2024-07-01
 {
   "parameters" : { 
     "maxFailedItems" : 10, 
@@ -308,7 +307,7 @@ PUT /indexers/[indexer name]?api-version=2023-11-01
 
 ## Limitations
 
-1. Unlike blob indexers, ADLS Gen2 indexers cannot utilize container level SAS tokens for enumerating and indexing content from a storage account. This is because the indexer makes a check to determine if the storage account has hierarchical namespaces enabled by calling the [Filesystem - Get properties API](https://learn.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/get-properties). For storage accounts where hierarchical namespaces are not enabled, customers are instead recommended to utilize [blob indexers](search-howto-indexing-azure-blob-storage.md) to ensure performant enumeration of blobs.
+1. Unlike blob indexers, ADLS Gen2 indexers cannot utilize container level SAS tokens for enumerating and indexing content from a storage account. This is because the indexer makes a check to determine if the storage account has hierarchical namespaces enabled by calling the [Filesystem - Get properties API](/rest/api/storageservices/datalakestoragegen2/filesystem/get-properties). For storage accounts where hierarchical namespaces are not enabled, customers are instead recommended to utilize [blob indexers](search-howto-indexing-azure-blob-storage.md) to ensure performant enumeration of blobs.
 
 2. If the property `metadata_storage_path` is mapped to be the index key field, blobs are not guaranteed to get reindexed upon a directory rename. If you desire to reindex the blobs that are part of the renamed directories, update the `LastModified` timestamps for all of them.
 

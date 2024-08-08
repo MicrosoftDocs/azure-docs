@@ -3,7 +3,7 @@ title: Troubleshooting ML pipelines
 titleSuffix: Azure Machine Learning
 description: How to troubleshoot when you get errors running a machine learning pipeline. Common pitfalls and tips to help debug your scripts before and during remote execution.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: zhanxia
 author: xiaoharper
@@ -353,6 +353,6 @@ model_download_step = PythonScriptStep(
 
 * For a complete example showing automated machine learning in ML pipelines, see [Use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md).
 
-* See the SDK reference for help with the [azureml-pipelines-core](/python/api/azureml-pipeline-core/) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) package.
+* See the SDK reference for help with the [azureml-pipelines-core](/python/api/azureml-pipeline-core/azureml.pipeline.core) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) package.
 
 * See the list of [designer exceptions and error codes](../algorithm-module-reference/designer-error-codes.md).

@@ -7,13 +7,13 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 06/28/2024
 ms.author: banders
 ---
 
 # Manage billing across multiple tenants using associated billing tenants
 
-You can simplify billing management for your organization by creating multi-tenant billing relationships using associated billing tenants. A multi-tenant billing relationship lets you securely share your organization’s billing account with other tenants, while maintaining control over your billing data. You can move subscriptions in different tenants and provide users in those tenants with access to your organization’s billing account. This relationship lets users on those tenants do billing activities like viewing and downloading invoices or managing licenses.
+You can simplify billing management for your organization by creating multitenant billing relationships using associated billing tenants. A multitenant billing relationship lets you securely share your organization’s billing account with other tenants, while maintaining control over your billing data. You can move subscriptions in different tenants and provide users in those tenants with access to your organization’s billing account. This relationship lets users on those tenants do billing activities like viewing and downloading invoices or managing licenses.
 
 ## Understand tenant types
 
@@ -21,8 +21,14 @@ Primary billing tenant: The primary billing tenant is the tenant used when the b
 
 Associated billing tenants: An associated billing tenant is a tenant that is linked to your primary billing tenant’s billing account. You can move Microsoft 365 subscriptions to these tenants. You can also assign billing account roles to users in associated billing tenants.
 
-> [!IMPORTANT]
-> Adding associated billing tenants, moving subscriptions and assigning roles to users in associated billing tenants are only available for billing accounts of type Microsoft Customer Agreement that are created by working with a Microsoft sales representative. To learn more about types of billing accounts, see [Billing accounts and scopes in the Azure portal](view-all-accounts.md).
+## Prerequisites
+
+You must have a Microsoft Customer Agreement - enterprise billing account to use associated billing tenants. An enterprise billing account is a billing account that is created by working with a Microsoft sales representative.
+
+If you don't have one, you don't see the **Associated billing tenants** option in the Azure portal. You also can't move subscriptions to other tenants or assign roles to users in other tenants.
+
+To learn more about types of billing accounts, see [Billing accounts and scopes in the Azure portal](view-all-accounts.md).
+
 
 ## Access settings for associated billing tenants
 
@@ -68,7 +74,7 @@ Before assigning roles, make sure you [add a tenant as an associated billing ten
 1. Select **Access control (IAM)** on the left side of the page.
 1. On the Access control (IAM) page, select **Add** at the top of the page.  
     :::image type="content" source="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" alt-text="Screenshot showing access control page while assigning roles." lightbox="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" :::
-1. In the Add role assignment pane, select a role, select the associated billing tenant from the tenant dropdown, then enter the email address of the users, groups or apps to whom you want to assign roles.
+1. In the Add role assignment pane, select a role, select the associated billing tenant from the tenant dropdown, then enter the email address of the users, groups, or apps to whom you want to assign roles.
 1. Select **Add**.  
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png" alt-text="Screenshot showing saving a role assignment." lightbox="./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png" :::
 1. The users receive an email with a link to review the role assignment request. After they accept the role, they have access to your billing account.
@@ -95,7 +101,7 @@ Choosing to assign roles to users from associated billing tenants might be the r
 
 | Consideration |Associated billing tenants  |Azure B2B  |
 |---------|---------|---------|
-|Security     |  The users that you invite to share your billing account will follow their tenant's security policies.      |  The users that you invite to share your billing account will follow your tenant's security policies.       |
+|Security     |  The users that you invite to share your billing account follow their tenant's security policies.      |  The users that you invite to share your billing account follow your tenant's security policies.       |
 |Access    | The users get access to your billing account in their own tenant and can manage billing and make purchases without switching tenants.        |  External guest identities are created for users in your tenant and these identities get access to your billing account. Users would have to switch tenant to manage billing and make purchases.     |
 
 ## Move Microsoft 365 subscriptions to a billing tenant

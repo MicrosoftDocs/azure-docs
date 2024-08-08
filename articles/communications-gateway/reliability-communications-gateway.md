@@ -3,7 +3,7 @@ title: Reliability in Azure Communications Gateway
 description: Find out about reliability in Azure Communications Gateway.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.custom:
   - subject-reliability
@@ -141,6 +141,9 @@ Choose a management region from the following list:
 - Australia East
 
 Management regions can be colocated with service regions. We recommend choosing the management region nearest to your service regions.
+
+> [!NOTE]
+> If you are enabling Azure Operator Call Protection Preview, the service region you select may not be the Azure region where supporting resources are deployed. See [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=operator-call-protection) for the list of currently supported Azure Operator Call Protection service regions and speak to your onboarding team if you have any questions about which region is selected.
 
 ## Service-level agreements
 

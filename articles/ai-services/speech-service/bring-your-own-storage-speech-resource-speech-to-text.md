@@ -87,7 +87,7 @@ Such a request returns direct Storage Account URLs to data files (without SAS or
 URL of this format ensures that only Microsoft Entra identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
-> If `sasValidityInSeconds` parameter is omitted in [Get Transcription Files](/rest/api/speechtotext/transcriptions/list-files) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
+> If `sasValidityInSeconds` parameter is omitted in [Get Transcription Files](/rest/api/speechtotext/transcriptions/list-files) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 5 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
 
 ## Real-time transcription with audio and transcription result logging enabled
 
@@ -96,7 +96,7 @@ You can enable logging for both audio input and recognized speech when using spe
 If you use BYOS, then you find the logs in `customspeech-audiologs` Blob container in the BYOS-associated Storage account.
 
 > [!WARNING]
-> Logging data is kept for 30 days. After this period the logs are automatically deleted. This is valid for BYOS-enabled Speech resources as well. If you want to keep the logs longer, copy the correspondent files and folders from `customspeech-audiologs` Blob container directly or use REST API.
+> Logging data is kept for 5 days. After this period the logs are automatically deleted. This is valid for BYOS-enabled Speech resources as well. If you want to keep the logs longer, copy the correspondent files and folders from `customspeech-audiologs` Blob container directly or use REST API.
 
 ### Get real-time transcription logs via REST API
 
@@ -119,7 +119,7 @@ Such a request returns direct Storage Account URLs to data files (without SAS or
 URL of this format ensures that only Microsoft Entra identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
-> If `sasValidityInSeconds` parameter is omitted in [Get Base Model Logs](/rest/api/speechtotext/endpoints/list-base-model-logs) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
+> If `sasValidityInSeconds` parameter is omitted in [Get Base Model Logs](/rest/api/speechtotext/endpoints/list-base-model-logs) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 5 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
 
 ## Custom speech
 
@@ -160,7 +160,7 @@ Such a request returns direct Storage Account URLs to data files (without SAS or
 URL of this format ensures that only Microsoft Entra identities (users, service principals, managed identities) with sufficient access rights (like *Storage Blob Data Reader* role) can access the data from the URL.
 
 > [!WARNING]
-> If `sasValidityInSeconds` parameter is omitted in [Get Dataset Files](/rest/api/speechtotext/datasets/list-files) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 30 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
+> If `sasValidityInSeconds` parameter is omitted in [Get Dataset Files](/rest/api/speechtotext/datasets/list-files) request or similar ones, then a [User delegation SAS](../../storage/common/storage-sas-overview.md) with the validity of 5 days will be generated for each data file URL returned. This SAS is signed by the system assigned managed identity of your BYOS-enabled Speech resource. Because of it, the SAS allows access to the data, even if storage account key access is disabled. See details [here](../../storage/common/shared-key-authorization-prevent.md#understand-how-disallowing-shared-key-affects-sas-tokens). 
 
 ## Next steps
 

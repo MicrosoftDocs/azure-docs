@@ -2,8 +2,8 @@
 title: Deploy the DICOM service with Azure Data Lake Storage
 description: Learn how to deploy the DICOM service and store all your DICOM data in its native format with a data lake in Azure Health Data Services.
 author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: mmitrik
@@ -206,12 +206,30 @@ Use the Azure portal to **Deploy a custom template** and then use the sample ARM
 
 1. When prompted, select the values for the workspace name, DICOM service name, region, storage account name, storage account SKU, and container name.  
 
-1. Select **Review + create** to deploy the DICOM service.  
+1. Select **Review + create** to deploy the DICOM service.
+
+## Troubleshooting
+
+### Connectivity
+
+To be alerted to store health and connectivity failures, please sign up for [Resource Health alerts](/azure/service-health/resource-health-alert-monitor-guide).
+
+### 424 Failed Dependency
+
+When the response status code is `424 Failed Dependency`, the issue lies with a dependency configured with DICOM and it may be the data lake store.
+The response body indicates which dependency failed and provides more context on the failure. For data lake storage account failures, an error code is provided which was received when attempting to interact with the store. For more information, see [Azure Blob Storage error codes](/rest/api/storageservices/blob-service-error-codes).
+Note that a code of `ConditionNotMet` typically indicates the blob file has been moved, deleted or modified without using DICOM APIs. The best way to mitigate such a situation is to use the DICOM API to DELETE the instance to remove the index and then reupload the modified file. This will enable you to continue to reference and interact with the file through DICOM APIs.
 
 ## Next steps
+[Receive resource health alerts](/azure/service-health/resource-health-alert-monitor-guide)
 
-* [Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
-* [Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
+[Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
+
+[Review DICOM service conformance statement](/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2)
+
+[Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
+
 * [Enable audit and diagnostic logging in the DICOM service](enable-diagnostic-logging.md)
+
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

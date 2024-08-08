@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 02/23/2024
+ms.date: 04/11/2024
 ms.author: linglingye
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -25,7 +25,7 @@ Follow the documents to use dynamic configuration in Azure Kubernetes Service.
 
 ## Create a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot showing creating feature flag named Beta.](./media/add-beta-feature-flag.png)

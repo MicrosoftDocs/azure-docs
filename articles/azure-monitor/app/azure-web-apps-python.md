@@ -110,7 +110,7 @@ In order to enable telemetry collection with Application Insights, only the foll
 > [!NOTE]
 > Profiler and snapshot debugger are not available for Python applications
 
-[!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
+[!INCLUDE [azure-web-apps-arm-automation](../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
 
 ## Django Instrumentation
 
@@ -118,7 +118,7 @@ In order to use the OpenTelemetry Django Instrumentation, you need to set the `D
 
 ## Frequently asked questions
 
-[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+[!INCLUDE [azure-web-apps-troubleshoot](../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
 ## Troubleshooting
 
@@ -174,7 +174,7 @@ If your app uses Django and is either failing to start or using incorrect settin
 
 ---
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 For the latest updates and bug fixes, [consult the release notes](web-app-extension-release-notes.md). -->
 

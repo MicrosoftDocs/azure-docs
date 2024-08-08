@@ -1,0 +1,43 @@
+items:
+- name: Informatica Intelligent Data Management Cloud 
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Informatica Intelligent Data Management Cloud (IDMC) 
+    href: informatica-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an Informatica IDMC organization
+    href: informatica-create.md
+  - name: Create an Informatica IDMC advanced serverless runtime
+    href: informatica-create-advanced-serverless.md
+- name: How to
+  items:
+  - name: Manage your Informatica IDMC organization
+    href: informatica-manage.md
+  - name: Manage your advanced serverless runtime and Informatica IDMC organization
+    href: informatica-manage-serverless.md
+  - name: Troubleshoot
+    expanded: true
+    items:
+    - name: Get support for an Informatica IDMC organization
+      href: informatica-get-support.md
+    - name: Fix common errors with an Informatica IDMC organization
+      href: informatica-troubleshoot.md
+- name: Reference
+  items:
+  - name: Python
+    href: /python/api/overview/azure/mgmt-informaticadatamanagement-readme
+  - name: JavaScript
+    href: /javascript/api/overview/azure/arm-informaticadatamanagement-readme
+  # - name: .NET
+    # href: /Azure.ResourceManager.InformaticaDataManagement/1.0.0-beta.1
+  - name: Java
+    href: /java/api/overview/azure/resourcemanager-informaticadatamanagement-readme
+  - name: Go 
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/informaticadatamgmt/arminformaticadatamgmt
+# - name: REST API
+#   href: /rest/api/informatica
+# - name: Azure PowerShell
+#   href: 

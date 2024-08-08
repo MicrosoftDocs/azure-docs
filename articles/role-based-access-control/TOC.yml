@@ -67,15 +67,15 @@
 - name: How-to guides
   items:
   - name: List role definitions
-    href: role-definitions-list.md
+    href: role-definitions-list.yml
   - name: List role assignments
     items:
     - name: Portal
-      href: role-assignments-list-portal.md
+      href: role-assignments-list-portal.yml
     - name: PowerShell
-      href: role-assignments-list-powershell.md
+      href: role-assignments-list-powershell.yml
     - name: CLI
-      href: role-assignments-list-cli.md
+      href: role-assignments-list-cli.yml
     - name: REST API
       href: role-assignments-list-rest.md
   - name: Assign roles
@@ -85,9 +85,9 @@
     - name: Portal
       items:
       - name: Assign roles
-        href: role-assignments-portal.md
+        href: role-assignments-portal.yml
       - name: Managed identity
-        href: role-assignments-portal-managed-identity.md
+        href: role-assignments-portal-managed-identity.yml
       - name: External users
         href: role-assignments-external-users.md
     - name: PowerShell
@@ -99,10 +99,14 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
+  - name: Activate roles
+    items:
+    - name: Activate eligible roles
+      href: role-assignments-eligible-activate.md
   - name: Delegate
     items:
     - name: Subscription administrator with conditions
-      href: role-assignments-portal-subscription-admin.md
+      href: role-assignments-portal-subscription-admin.yml
     - name: Delegate role assignment management with conditions
       href: delegate-role-assignments-portal.md
   - name: Add or edit ABAC conditions
@@ -122,7 +126,7 @@
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments
-    href: role-assignments-remove.md
+    href: role-assignments-remove.yml
   - name: List deny assignments
     href: deny-assignments.md
   - name: Create custom roles

@@ -2,9 +2,11 @@
 title: Configure IP firewall for Azure Event Grid namespaces
 description: This article describes how to configure firewall settings for Azure Event Grid namespaces.
 ms.topic: how-to
+ms.custom:
+  - build-2024
 ms.date: 11/29/2023
-author: jfggdl
-ms.author: jafernan
+author: robece
+ms.author: robece
 ---
 
 # Configure IP firewall for Azure Event Grid namespaces

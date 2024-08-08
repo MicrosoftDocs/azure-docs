@@ -3,7 +3,7 @@ title: Azure Route Server frequently asked questions (FAQ)
 description: Find answers to frequently asked questions about Azure Route Server.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: faq
 ms.date: 08/18/2023
 ---
@@ -32,13 +32,16 @@ No. Azure Route Server only exchanges BGP routes with your network virtual appli
 
 Yes, if you peer a virtual network hosting the Azure Route Server to another virtual network and you enable **Use the remote virtual network's gateway or Route Server** on the second virtual network, Azure Route Server learns the address spaces of the peered virtual network and send them to all the peered network virtual appliances (NVAs). It also programs the routes from the NVAs into the route table of the virtual machines in the peered virtual network. 
 
-### Why does Azure Route Server require a public IP address?
+### Why does Azure Route Server require a public IP address with opened ports?
 
-Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, that's why it needs the public IP address. This public IP address doesn't constitute a security exposure of your virtual network.
+These public endpoints are required for Azure's underlying SDN and management platform to communicate with Azure Route Server. Because Route Server is considered part of the customer's private network, Azure's underlying platform is unable to directly access and manage Route Server via its private endpoints due to compliance requirements. Connectivity to Route Server's public endpoints is authenticated via certificates, and Azure conducts routine security audits of these public endpoints. As a result, they do not constitute a security exposure of your virtual network.
 
 ### Does Azure Route Server support IPv6?
 
-No. We'll add IPv6 support in the future. If you have deployed an ExpressRoute virtual network gateway in a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break ExpressRoute connectivity for IPv6 traffic.
+No. We'll add IPv6 support in the future. If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break connectivity for IPv6 traffic.
+
+> [!WARNING]
+> If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will also break connectivity for IPv4 traffic. This issue will be fixed in our next release to ensure IPv4 traffic continues to work as expected.
 
 ## Routing
 
@@ -69,6 +72,10 @@ Azure Route Server supports ***NO_ADVERTISE*** BGP community. If a network virtu
 ### When a VNet peering is created between my hub VNet and spoke VNet, does this cause a BGP soft reset between Azure Route Server and its peered NVAs?
 
 Yes. If a VNet peering is created between your hub VNet and spoke VNet, Azure Route Server will perform a BGP soft reset by sending route refresh requests to all its peered NVAs. If the NVAs do not support BGP route refresh, then Azure Route Server will perform a BGP hard reset with the peered NVAs, which may cause connectivity disruption for traffic traversing the NVAs. 
+
+### How is the 1000 route limit calculated on a BGP peering session between an NVA and Azure Route Server?
+
+Today, Route Server can accept a maximum of 1000 routes from a single BGP peer. When processing BGP route updates, this limit is calculated as the number of current routes learnt from a BGP peer plus the number of routes coming in the BGP route update. For example, if an NVA initially advertises 501 routes to Route Server and later re-advertises these 501 routes in a BGP route update, Route Server will calculate this as 1002 routes and tear down the BGP session. 
 
 ### What Autonomous System Numbers (ASNs) can I use?
 

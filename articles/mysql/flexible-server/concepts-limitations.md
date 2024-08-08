@@ -4,8 +4,8 @@ description: This article describes limitations in Azure Database for MySQL - Fl
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 03/29/2023
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
@@ -25,7 +25,7 @@ This article describes limitations in Azure Database for MySQL flexible server. 
 Azure Database for MySQL flexible server supports tuning the values of server parameters. Some parameters' min and max values (ex. `max_connections`, `join_buffer_size`, `query_cache_size`) are determined by the compute tier and before you compute the size of the server. Refer to [server parameters](./concepts-server-parameters.md) for more information about these limits.
 
 ### Generated Invisible Primary Keys
-For MySQL version 8.0 and above, [Generated Invisible Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html)(GIPK) is enabled by default for all Azure Database for MySQL flexible server instances. MySQL 8.0+ servers add the invisible column *my_row_id* to the tables and a primary key on that column, where the InnoDB table is created without an explicit primary key. For this reason, you can't create a table having a column named *my_row_id* unless the table creation statement also specifies an explicit primary key. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html).
+For MySQL version 8.0 and above, [Generated Invisible Primary Keys (GIPK)](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html) is enabled by default for all Azure Database for MySQL flexible server instances. MySQL 8.0+ servers add the invisible column *my_row_id* to the tables and a primary key on that column, where the InnoDB table is created without an explicit primary key. For this reason, you can't create a table having a column named *my_row_id* unless the table creation statement also specifies an explicit primary key. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html).
 By default, GIPKs are shown in the output of [SHOW CREATE TABLE](https://dev.mysql.com/doc/refman/8.0/en/show-create-table.html), [SHOW COLUMNS](https://dev.mysql.com/doc/refman/8.0/en/show-columns.html), and [SHOW INDEX](https://dev.mysql.com/doc/refman/8.0/en/show-index.html), and are visible in the Information Schema [COLUMNS](https://dev.mysql.com/doc/refman/8.0/en/information-schema-columns-table.html) and [STATISTICS](https://dev.mysql.com/doc/refman/8.0/en/information-schema-statistics-table.html) tables.
 For more details on GIPK and its use cases with [Data-in-Replication](./concepts-data-in-replication.md) in Azure Database for MySQL flexible server, refer to [GIPK with Data-in-Replication](./concepts-data-in-replication.md#generated-invisible-primary-key). 
 
@@ -130,5 +130,3 @@ For the complete list of feature comparisons between Azure Database for MySQL si
 - Understand [what's available for compute and storage options in flexible server](concepts-service-tiers-storage.md)
 - Learn about [Supported MySQL Versions](concepts-supported-versions.md)
 - Quickstart: [Use the Azure portal to create an Azure Database for MySQL flexible server instance](quickstart-create-server-portal.md)
-
-

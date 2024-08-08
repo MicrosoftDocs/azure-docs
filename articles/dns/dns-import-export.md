@@ -4,7 +4,7 @@ titleSuffix: Azure DNS
 description: Learn how to import and export a DNS (Domain Name System) zone file to Azure DNS by using Azure CLI.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.custom: devx-track-azurecli
 ms.date: 10/20/2023
 ms.author: greglin

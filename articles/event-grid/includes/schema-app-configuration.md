@@ -1,9 +1,8 @@
 ---
  title: App Configuration schema for Azure Event Grid
  description: Describes the schema for App Configuration in Azure Event Grid. 
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 12/02/2022
  ms.author: spelluru

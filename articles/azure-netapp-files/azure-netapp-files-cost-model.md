@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 11/08/2021
+ms.date: 07/15/2024
 ms.author: anfdocs
 ---
 # Cost model for Azure NetApp Files 
@@ -18,7 +18,7 @@ For cost model specific to cross-region replication, see [Cost model for cross-r
 
 Azure NetApp Files is billed on provisioned storage capacity, which is allocated by creating capacity pools. Capacity pools are billed monthly based on a set cost per allocated GiB per hour. Capacity pool allocation is measured hourly.  
 
-Capacity pools must be at least 2 TiB and can be increased or decreased in 1-TiB intervals. Capacity pools contain volumes that range in size from a minimum of 100 GiB to a maximum of 100 TiB. Volumes are assigned quotas that are subtracted from the capacity pool’s provisioned size. For an active volume, capacity consumption against the quota is based on logical (effective) capacity, being active filesystem data or snapshot data. See [How Azure NetApp Files snapshots work](snapshots-introduction.md) for details. 
+Capacity pools must be at least 1 TiB and can be increased or decreased in 1-TiB intervals. Capacity pools contain volumes that range in size from a minimum of 100 GiB to a maximum of 100 TiB for regular volumes and up to 1 PiB for [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes). Volumes are assigned quotas that are subtracted from the capacity pool’s provisioned size. For an active volume, capacity consumption against the quota is based on logical (effective) capacity, being active filesystem data or snapshot data. See [How Azure NetApp Files snapshots work](snapshots-introduction.md) for details. 
 
 ### Pricing examples
 

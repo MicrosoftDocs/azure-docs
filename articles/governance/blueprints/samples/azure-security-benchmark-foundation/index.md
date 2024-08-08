@@ -56,7 +56,7 @@ foundation. This environment is composed of:
   Azure Firewall) configured to block all internet inbound and outbound traffic.
 - [Application security groups](../../../../virtual-network/application-security-groups.md)
   to enable grouping of Azure virtual machines to apply common network security policies.
-- [Route tables](../../../../virtual-network/manage-route-table.md) to route all
+- [Route tables](../../../../virtual-network/manage-route-table.yml) to route all
   outbound internet traffic from subnets through the firewall. (Azure Firewall and NSG rules will
   need to be configured after deployment to open connectivity.)
 - [Azure Network Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
