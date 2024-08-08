@@ -72,11 +72,11 @@ With structured logs, you're able to choose to use [Resource Specific Tables](..
 
 In **Resource specific** mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it:
 
-- Might reduce overall logging costs by up to 80%.
-- makes it much easier to work with the data in log queries
-- makes it easier to discover schemas and their structure
-- improves performance across both ingestion latency and query times
-- allows you to grant Azure RBAC rights on a specific table
+- might reduce overall logging costs by up to 80%.
+- makes it much easier to work with the data in log queries.
+- makes it easier to discover schemas and their structure.
+- improves performance across both ingestion latency and query times.
+- allows you to grant Azure RBAC rights on a specific table.
 
 New resource specific tables are now available in Diagnostic setting that allows you to utilize the following categories:
 
@@ -130,7 +130,7 @@ To learn how to enable the diagnostic logging using the Azure portal, see [Enabl
 
 ### Application rule log
 
-The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following examples:
+The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you enable it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following examples:
 
    ```console
    Category: application rule logs.
@@ -165,7 +165,7 @@ The Application rule log is saved to a storage account, streamed to Event hubs a
 
 ### Network rule log
 
-The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you enable it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```console
    Category: network rule logs.
@@ -189,7 +189,7 @@ The Network rule log is saved to a storage account, streamed to Event hubs and/o
 
 ### DNS proxy log
 
-The DNS proxy log is saved to a storage account, streamed to Event hubs, and/or sent to Azure Monitor logs only if you’ve enabled it for each Azure Firewall. This log tracks DNS messages to a DNS server configured using DNS proxy. The data is logged in JSON format, as shown in the following examples:
+The DNS proxy log is saved to a storage account, streamed to Event hubs, and/or sent to Azure Monitor logs only if you enable it for each Azure Firewall. This log tracks DNS messages to a DNS server configured using DNS proxy. The data is logged in JSON format, as shown in the following examples:
 
    ```console
    Category: DNS proxy logs.
@@ -226,7 +226,7 @@ The DNS proxy log is saved to a storage account, streamed to Event hubs, and/or 
    }
    ```
 
-   msg format:
+   Message format:
 
    ```console
    [client’s IP address]:[client’s port] – [query ID] [type of the request] [class of the request] [name of the request] [protocol used] [request size in bytes] [EDNS0 DO (DNSSEC OK) bit set in the query] [EDNS0 buffer size advertised in the query] [response CODE] [response flags] [response size] [response duration]

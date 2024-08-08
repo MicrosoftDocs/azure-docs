@@ -31,11 +31,11 @@ In the preceding table, the *Firewall health state* metric has two dimensions:
 - Status: Possible values are *Healthy*, *Degraded*, *Unhealthy*.
 - Reason: Indicates the reason for the corresponding status of the firewall.
 
-If SNAT ports are used > 95%, they're considered exhausted and the health is 50% with status=*Degraded* and reason=*SNAT port*. The firewall keeps processing traffic and existing connections aren't affected. However, new connections might not be established intermittently.
+If SNAT ports are used more than 95%, they're considered exhausted and the health is 50% with status=*Degraded* and reason=*SNAT port*. The firewall keeps processing traffic and existing connections aren't affected. However, new connections might not be established intermittently.
 
-If SNAT ports are used < 95%, then firewall is considered healthy and health is shown as 100%.
+If SNAT ports are used less than 95%, then firewall is considered healthy and health is shown as 100%.
 
-If no SNAT ports usage is reported, health is shown as 0%. 
+If no SNAT ports usage is reported, health is shown as 0%.
 
 #### SNAT port utilization
 
@@ -84,7 +84,7 @@ Azure Firewall has two new diagnostics logs you can use to help monitor your fir
 
 ## Top flows
 
-The top flows log, known in the industry and in the preceding table as *Azure Firewall Fat Flow Log*, shows the top connections that are contributing to the highest throughput through the firewall.
+The top flows log is known in the industry as *fat flow log* and in the preceding table as *Azure Firewall Fat Flow Log*. The top flows log shows the top connections that are contributing to the highest throughput through the firewall.
 
 > [!TIP]
 > Activate Top flows logs only when troubleshooting a specific issue to avoid excessive CPU usage of Azure Firewall.
@@ -94,7 +94,7 @@ The flow rate is defined as the data transmission rate in megabits per second un
 
 Enable the Top flows log using the following Azure PowerShell commands:
 
-```azurepowershell
+```powershell
 Set-AzContext -SubscriptionName <SubscriptionName>
 $firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
 $firewall.EnableFatFlowLogging = $true
@@ -105,7 +105,7 @@ To disable the logs, use the same previous Azure PowerShell command and set the 
 
 For example:
 
-```azurepowershell
+```powershell
 Set-AzContext -SubscriptionName <SubscriptionName>
 $firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
 $firewall.EnableFatFlowLogging = $false
@@ -118,21 +118,17 @@ There are a few ways to verify the update was successful, but you can navigate t
 
 To create a diagnostic setting and enable Resource Specific Table, see [Create diagnostic settings in Azure Monitor](../azure-monitor/essentials/create-diagnostic-settings.md).
 
-The firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *SYN* packet. However, this doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped, or asymmetric routing occurred. The Azure Firewall Flow Trace Log addresses this concern.
+The firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *SYN* packet. However, such an entry doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped, or asymmetric routing occurred. The Azure Firewall Flow Trace Log addresses this concern.
 
 > [!TIP]
 > To avoid excessive disk usage caused by Flow trace logs in Azure Firewall with many short-lived connections, activate the logs only when troubleshooting a specific issue for diagnostic purposes.
 
-The following additional properties can be added:
+The following properties can be added:
 
 - SYN-ACK: ACK flag that indicates acknowledgment of SYN packet.
-
 - FIN: Finished flag of the original packet flow. No more data is transmitted in the TCP flow.
-
 - FIN-ACK: ACK flag that indicates acknowledgment of FIN packet.
-
 - RST: The Reset the flag indicates the original sender doesn't receive more data.
-
 - INVALID (flows): Indicates packet can’t be identified or don't have any state.
 
   For example:
@@ -151,7 +147,7 @@ Register-AzProviderFeature -FeatureName AFWEnableTcpConnectionLogging -ProviderN
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-It can take several minutes for this to take effect. Once the feature is registered, consider performing an update on Azure Firewall for the change to take effect immediately.
+It can take several minutes for this change to take effect. Once the feature is registered, consider performing an update on Azure Firewall for the change to take effect immediately.
 
 To check the status of the AzResourceProvider registration, you can run the Azure PowerShell command:
 
