@@ -197,10 +197,10 @@ You need to select which architecture you're targeting with each solution, becau
    }
    ```
 
-6. In line 35, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container, which doesn't exist yet. You will create it with the name **SQL** in the next section.
+6. In line 35, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container, which doesn't exist yet. You will create it with the name **SQL** in the next section. Choose a strong password for the *Password* keyword.
 
    ```csharp
-   Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
+   Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=<YOUR-STRONG-PASSWORD>;TrustServerCertificate=False;Connection Timeout=30;
    ```
 
 7. Save the **sqlFunction.cs** file.
@@ -277,7 +277,7 @@ You can set modules on a device through the IoT Hub, but you can also access you
 
 When you apply the deployment manifest to your device, you get three modules running. The SimulatedTemperatureSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. This section guides you through setting up the SQL database to store the temperature data.
 
-Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and create a database and table to hold the temperature data being sent to it.
+Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and create a database and table to hold the temperature data being sent to it. Replace \<YOUR-STRONG-PASSWORD\> with the strong password you chose in your connection string.
 
 1. In a command-line tool on your IoT Edge device, connect to your database.
 
@@ -288,7 +288,7 @@ Run the following commands on your IoT Edge device. These commands connect to th
 2. Open the SQL command tool.
 
       ```bash
-      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<YOUR-STRONG-PASSWORD>
       ```
 
 3. Create your database:
