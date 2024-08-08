@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/19/2024
-ms.service: automation
+ms.service: azure-automation
 ms.topic: concept-article
 ms.custom:
   - subject-relocation
