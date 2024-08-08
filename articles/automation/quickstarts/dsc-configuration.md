@@ -13,7 +13,7 @@ ms.service: azure-automation
 # Configure a VM with Desired State Configuration
 
 > [!CAUTION]
-> Azure Automation DSC has retired. For more information, see the [announcement](https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/#:~:text=The%20DSC%20extension%20for%20Linux%20machines%20in%20Azure%2C,no%20longer%20be%20supported%20after%2030%20September%202023.).
+> Azure Automation DSC for Linux has retired. For more information, see the [announcement](https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/#:~:text=The%20DSC%20extension%20for%20Linux%20machines%20in%20Azure%2C,no%20longer%20be%20supported%20after%2030%20September%202023.).
 
 > [!NOTE]
 > Before you enable Azure Automation DSC, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [Azure Machine Configuration](../../governance/machine-configuration/overview.md). The Azure Machine Configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Azure Machine Configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
