@@ -58,7 +58,7 @@ In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWestEurope*) in
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
    - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
-   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** and **HTTP** in the pull down box.
+   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** and **HTTP** from the drop-down list.
 
 3. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
 4. Select **Review + create**.
@@ -74,7 +74,7 @@ In this section, you install the IIS server on the two VMs myIISVMEastUS and myI
 
 1. Select **All resources** on the left menu. From the resource list, select **myIISVMEastUS** in the **myResourceGroupTM1** resource group.
 2. On the **Overview** page, select **Connect**. In **Connect to virtual machine**, select **Download RDP file**.
-3. Open the downloaded .rdp file. If you're prompted, select **Connect**. Enter the user name and password that you specified when you created the VM. You might need to select **More choices** > **Use a different account**, to specify the credentials that you entered when you created the VM.
+3. Open the `.rdp` file you downloaded. If you're prompted, select **Connect**. Enter the user name and password that you specified when you created the VM. You might need to select **More choices** > **Use a different account**, to specify the credentials that you entered when you created the VM.
 4. Select **OK**.
 5. You might receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue** to proceed with the connection.
 6. On the server desktop, browse to **Windows Administrative Tools** > **Server Manager**.
@@ -118,7 +118,7 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
    - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
-   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** in the pull down box.
+   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** from the drop-down box.
 
 3. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
 4. Select **Review + create**.
@@ -188,7 +188,7 @@ In this section, you can see Traffic Manager in action.
 
 1. Select **All resources** on the left menu. From the resource list, select **myVMEastUS** in the **myResourceGroupTM1** resource group.
 2. On the **Overview** page, select **Connect**. In **Connect to virtual machine**, select **Download RDP file**.
-3. Open the downloaded .rdp file. If you're prompted, select **Connect**. Enter the user name and password that you specified when creating the VM. You might need to select **More choices** > **Use a different account**, to specify the credentials that you entered when you created the VM.
+3. Open the `.rdp` file you downloaded. If you're prompted, select **Connect**. Enter the user name and password that you specified when creating the VM. You might need to select **More choices** > **Use a different account**, to specify the credentials that you entered when you created the VM.
 4. Select **OK**.
 5. You might receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue** to proceed with the connection.
 6. In a web browser on the VM myVMEastUS, enter the DNS name of your Traffic Manager profile to view your website. You're routed to website hosted on the IIS server myIISVMEastUS because it's assigned a higher weight of **100**. The IIS server myIISVMWestEurope is assigned a lower endpoint weight value of **25**.
