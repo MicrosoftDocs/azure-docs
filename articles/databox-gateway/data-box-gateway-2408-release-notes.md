@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Gateway 2301 release notes| Microsoft Docs
-description: Describes critical open issues and resolutions for the Azure Data Box Gateway running 2301 release.
+title: Azure Data Box Gateway 2408 release notes| Microsoft Docs
+description: Describes critical open issues and resolutions for the Azure Data Box Gateway running 2408 release.
 services: databox
 author: stevenmatthew
  
@@ -35,8 +35,7 @@ This release contains the following bug fixes:
 
 ## Bug Fixes
 
-- **Bug Fix 1** - Description of Bug Fix 1.
-- **Bug Fix 2** - Description of Bug Fix 2.
+- **web UI certificate format** - Implemented bug fixes pertaining to the web UI certificate format, potentially causing compatibility issues when using web-UI.
 
 ## Updates
 
@@ -47,7 +46,7 @@ This release contains the following updates:
     - Malware protection on OS disk
     - Device Guard Siging Service support for more stringent checks on the binary signing.
     - Utilizing a newer .NET framework for better security.
-1. Implemented bug fixes pertaining to the web UI certificate format, potentially causing compatibility issues when using web-UI.
+1. 
 1. Hypervisor support for Hyper-V 2022.
 
 ## Known issues in this release
