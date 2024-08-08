@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ---
 
 # Azure Communications Gateway monitoring data reference
