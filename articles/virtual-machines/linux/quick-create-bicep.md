@@ -3,7 +3,7 @@ title: 'Quickstart: Use a Bicep file to create an Ubuntu Linux VM'
 description: In this quickstart, you learn how to use a Bicep file to create a Linux virtual machine
 author: schaffererin
 ms.author: schaffererin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.date: 03/10/2022

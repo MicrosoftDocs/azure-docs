@@ -37,7 +37,7 @@ After these resources are configured, use the following steps so that the Azure 
 
 1. Assign a managed identity to the Azure App Configuration instance.
 1. Grant permissions to the identity to be able to access the Key Vault key.
-    * For Key Vault's with [Azure RBAC](../key-vault/general/rbac-guide.md) enabled, assign the identity the `Key Vault Crypto Service Encryption User` role on the target Key Vault.
+    * For Key Vault's with [Azure RBAC](/azure/key-vault/general/rbac-guide) enabled, assign the identity the `Key Vault Crypto Service Encryption User` role on the target Key Vault.
     * For Key Vault's using access policy authorization, grant the identity `GET`, `WRAP`, and `UNWRAP` permissions in the target Key Vault's access policy.
 
 ## Enable customer-managed key encryption for your App Configuration store
