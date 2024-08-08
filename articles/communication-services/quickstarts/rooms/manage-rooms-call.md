@@ -85,7 +85,7 @@ CreateCallResult response = await client.GetCallConnection(callConnectionId).Add
 
 ```java
 PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS-provisioned phone number for the caller
-CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
+CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber); // The phone number participant to dial out to
 AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
 Response<AddParticipantResult> addParticipantResultResponse = client.getCallConnectionAsync(callConnectionId)
     .addParticipantWithResponse(addParticipantOptions).block();
@@ -95,7 +95,7 @@ Response<AddParticipantResult> addParticipantResultResponse = client.getCallConn
 
 ```javascript
 const callInvite = {
-    targetParticipant: { phoneNumber: "+18008008800" }, // The target phone number to dial out to
+    targetParticipant: { phoneNumber: "+18008008800" }, // The phone number participant to dial out to
     sourceCallIdNumber: { phoneNumber: "+18888888888" } // This is the ACS-provisioned phone number for the caller
 };
 const response = await client.getCallConnection(callConnectionId).addParticipant(callInvite);
@@ -107,7 +107,7 @@ const response = await client.getCallConnection(callConnectionId).addParticipant
 caller_id_number = PhoneNumberIdentifier(
     "+18888888888"
 ) # TThis is the ACS-provisioned phone number for the caller
-target = PhoneNumberIdentifier("+18008008800"),
+target = PhoneNumberIdentifier("+18008008800"), # The phone number participant to dial out to
 
 call_connection_client = call_automation_client.get_call_connection(
     "call_connection_id"
@@ -132,7 +132,7 @@ var removeThisUser = new PhoneNumberIdentifier("+16044561234");
 var removeParticipantOptions = new RemoveParticipantOptions(removeThisUser)
 {
     OperationContext = "operationContext",
-    OperationCallbackUri = new Uri("uri_endpoint"); // Sending event to a non-default endpoint.
+    OperationCallbackUri = new Uri("uri_endpoint"); // Sending event to a non-default endpoint
 }
 
 RemoveParticipantsResult result = await client.GetCallConnection(callConnectionId).RemoveParticipantAsync(removeParticipantOptions);
@@ -235,14 +235,14 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
 Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
 .StartAsync(recordingOptions);
 
-// Stop recording using recordingId received in response of start recording.
-var stopRecording = await callAutomationClient.GetCallRecording().StopAsync(recordingId);
-
 // Pause recording using recordingId received in response of start recording.
 var pauseRecording = await callAutomationClient.GetCallRecording ().PauseAsync(recordingId);
 
 // Resume recording using recordingId received in response of start recording.
 var resumeRecording = await callAutomationClient.GetCallRecording().ResumeAsync(recordingId);
+
+// Stop recording using recordingId received in response of start recording.
+var stopRecording = await callAutomationClient.GetCallRecording().StopAsync(recordingId);
 
 ```
 ### [Java](#tab/java)
@@ -257,10 +257,6 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
 Response<RecordingStateResult> response = callAutomationClient.getCallRecording()
 .startWithResponse(recordingOptions, null);
 
-// Stop recording using recordingId received in response of start recording
-Response<Void> response = callAutomationClient.getCallRecording()
-               .stopWithResponse(recordingId, null);
-
 // Pause recording using recordingId received in response of start recording
 Response<Void> response = callAutomationClient.getCallRecording()
               .pauseWithResponse(recordingId, null);
@@ -268,6 +264,10 @@ Response<Void> response = callAutomationClient.getCallRecording()
 // Resume recording using recordingId received in response of start recording
 Response<Void> response = callAutomationClient.getCallRecording()
                .resumeWithResponse(recordingId, null);
+
+// Stop recording using recordingId received in response of start recording
+Response<Void> response = callAutomationClient.getCallRecording()
+               .stopWithResponse(recordingId, null);
 
 ```
 ### [JavaScript](#tab/javascript)
@@ -285,14 +285,14 @@ var options: StartRecordingOptions =
 };
 var response = await callAutomationClient.getCallRecording().start(options);
 
-// Stop recording using recordingId received in response of start recording
-var stopRecording = await callAutomationClient.getCallRecording().stop(recordingId);
-
 // Pause recording using recordingId received in response of start recording
 var pauseRecording = await callAutomationClient.getCallRecording().pause(recordingId);
 
 // Resume recording using recordingId received in response of start recording.
 var resumeRecording = await callAutomationClient.getCallRecording().resume(recordingId);
+
+// Stop recording using recordingId received in response of start recording
+var stopRecording = await callAutomationClient.getCallRecording().stop(recordingId);
 
 ```
 ### [Python](#tab/python)
@@ -304,18 +304,16 @@ response = call_automation_client.start_recording(call_locator=ServerCallLocator
             recording_format_type = RecordingFormat.Wav,
             recording_state_callback_url = "<CallbackUri>")
 
-# Stop recording using recording_id received in response of start recording
-stop_recording = call_automation_client.stop_recording(recording_id = recording_id)
-
 # Pause recording using recording_id received in response of start recording
 pause_recording = call_automation_client.pause_recording(recording_id = recording_id)
 
 # Resume recording using recording_id received in response of start recording
 resume_recording = call_automation_client.resume_recording(recording_id = recording_id)
+
+# Stop recording using recording_id received in response of start recording
+stop_recording = call_automation_client.stop_recording(recording_id = recording_id)
 ```
 -----
-
-
 
 ### Terminate a Call
 You can use the Call Automation SDK Hang Up action to terminate a call. When the Hang Up action completes, the SDK publishes a `CallDisconnected` event.
