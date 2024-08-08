@@ -21,7 +21,7 @@ The following guide walks you through key steps in creating a provisioned deploy
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Assignment of the Contributor or Cognitive Services Contributor role to user in the subscription.
+- Azure Contributor or Cognitive Services Contributor role 
 - Access to Azure OpenAI Studio
 
 ## Obtain/verify PTU quota availability.
@@ -48,7 +48,7 @@ Additional quota can be requested by clicking the Request Quota link to the righ
 Provisioned Throughput deployments are created via Azure OpenAI resource objects within Azure. You must have an Azure OpenAI resource in each region where you intend to create a deployment. Use the Azure portal to [create a resource](./create-resource.md) in a region with available quota, if required.  
 
 > [!NOTE]
-> Azure OpenAI resources can be used with all types of Azure OpenAI deployments. There is no requirement to create dedicated resources for your provisioned deployment. 
+> Azure OpenAI resources can be support multiple types of Azure OpenAI deployments at the same time.  It is not necessary to dedicate new resources for your provisioned deployments. 
 
 ## Create your provisioned deployment - capacity is available
 

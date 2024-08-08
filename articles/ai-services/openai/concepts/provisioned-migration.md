@@ -14,7 +14,7 @@ recommendations: false
 
 # Azure OpenAI provisioned August 2024 update 
 
-On August 12, 2024, Microsoft launched improvements to its Provisioned Throughput offering that address customer feedback on usability and operational agility, and that open new payment options and deployment scenarios.
+In mid-August, 2024, Microsoft is launching improvements to its Provisioned Throughput offering that address customer feedback on usability and operational agility, and that open new payment options and deployment scenarios.
 
 This article is intended for existing users of the provisioned throughput offering. New customers should refer to the [Azure OpenAI provisioned onboarding guide](../how-to/provisioned-throughput-onboarding.md).
 
