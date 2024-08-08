@@ -84,7 +84,7 @@ In this scenario, the visualization would display the first value by default. If
 | `Font style`                  | Selects the font size and style used in the visualization. The default `Auto` option adjusts the font size based on the overall size of the visualization. |
 | `Color mode`                  | Determines how colors are applied in the stat. For instance, you can apply the color to the background or foreground.                            |
 | `Apply color from`            | Specifies the method for determining the color applied to the stat. Options include `Thresholds`, `Heatmap`, or a `Static value`.                |
-| `Color settings` | [Learn more](#color-settings) |
+| `Color settings` | Allow you to set the background or foreground of the stat. |
 | `Icon Settings`               | Allows you to add and customize icons based on conditions defined by the `Source`, `Operator`, and `Value`. Icons can visually represent different states or thresholds. |
 
 ### Applying color based on thresholds
