@@ -37,16 +37,21 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 # [Error message](#tab/error-message)
 
-```md
+**ClientCertificateIsInvalidOrExpired**
+**The specified client certificate is invalid or already expired.**
+---
+
+#### Full error message
+
+```
 <ErrorCategory>ClientError</ErrorCategory>
-<ErrorCode><strong> **ClientCertificateIsInvalidOrExpired** </ErrorCode>
+<ErrorCode> **ClientCertificateIsInvalidOrExpired** </ErrorCode>
 <ErrorSeverity>Error</ErrorSeverity>
 <IsRcmReportedError>false</IsRcmReportedError>
 <IsRetryableError>false</IsRetryableError>
 <Message> **The specified client certificate is invalid or already expired.** </Message>
 <PossibleCauses>The specified client certificate is valid between '6/23/2024 2:46:05 AM' and '6/24/2024 5:00:00 PM'. The current time is '6/26/2024 9:47:26 AM' which is outside certificate validity window.</PossibleCauses>
 ```
----
 
 #### Resolution
 
@@ -60,10 +65,17 @@ Follow these recommendations:
 If you get the following error in the `svagents_curr<>.log` file:
 
 # [Error message](#tab/error-message)
-```md
-#~> (06-25-2024 16:17:42):   ERROR  2480 4612 36 TransportStream::Write: Failed to send data with error [at C:\__w\1\s\host\cxpslib\client.h:BasicClient<class HttpTraits>::putFile:609]   (sid: ), remoteName: b0a77692-5c2a-48d5-bb95-35404e10a10d.mon, dataSize: 1048576, moreData: 1, error: [at C:\__w\1\s\host\cxpslib\client.h:BasicClient<class HttpTraits>::connectSocket:1468]   WIN-0LTQUK99R9O : 11001, No such host is known.: handshake: **certificate verify failed** (SSL routines) [asio.ssl:167772294].  (may want to check server side logs for this sid) cxps
-```
+
+handshake: **certificate verify failed** (SSL routines)
+
 ---
+
+#### Full error message
+
+```md
+#~> (06-25-2024 16:17:42):   ERROR  2480 4612 36 TransportStream::Write: Failed to send data with error [at C:\__w\1\s\host\cxpslib\client.h:BasicClient<class HttpTraits>::putFile:609]   (sid: ), remoteName: b0a77692-5c2a-48d5-bb95-35404e10a10d.mon, dataSize: 1048576, moreData: 1, error: [at C:\__w\1\s\host\cxpslib\client.h:BasicClient<class HttpTraits>::connectSocket:1468]   WIN-0LTQUK99R9O : 11001, No such host is known.: handshake: certificate verify failed (SSL routines) [asio.ssl:167772294].  (may want to check server side logs for this sid) cxps
+```
+
 
 #### Resolution
 
@@ -79,8 +91,14 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 # [Error message](#tab/error-message)
 
+**Server certificate expired**
+
+---
+
+#### Full error message
+
 ```md
-#~> (06-20-2024 10:03:51):  ERROR  1688 648 16394 **Server certificate expired** for URL https://<IPAddress>:443/CallRcmApi
+#~> (06-20-2024 10:03:51):  ERROR  1688 648 16394 Server certificate expired for URL https://<IPAddress>:443/CallRcmApi
 #~> (06-20-2024 10:03:51):   ERROR  1688 648 16395 Could not perform curl. Curl error: (60) SSL peer certificate or SSH remote key was not OK
 #~> (06-20-2024 10:03:51):   ERROR  1688 648 16396 Curl internal error : SSL certificate problem: self-signed certificate.
 #~> (06-20-2024 10:03:51):   ERROR  1688 648 16397 Curl operation failed with error (60) SSL peer certificate or SSH remote key was not OK
@@ -108,7 +126,14 @@ Follow these recommendations:
 
 If you get the following error in the `svagents_curr<>.log` file:
 
+
 # [Error message](#tab/error-message)
+
+**Mismatch of fingerprints between received:**
+
+---
+
+#### Full error message
 
 ```md
 #~> (07-01-2024 13:13:34):   ERROR  2952 5016 19 Could not perform curl. Curl error: (6) Couldn't resolve host name 
@@ -117,7 +142,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 #~> (07-01-2024 13:13:34):   ERROR  2952 5016 22 RcmClientLib::RcmClientProxyImpl::GetServerCert: Request failed for URI https://WIN-PK3OA9GH55Q:443, ErrorCode: 6
 #~> (07-01-2024 13:13:34):   ERROR  2952 5016 23 RcmClientLib::RcmClientProxyImpl::GetServerCert: Failed to get SSL Server cert and fingerprint 
 #~> (07-01-2024 13:13:34):   ERROR  2952 5016 24 Failed to get SSL Server cert and fingerprint for RCM Proxy <>:443 
-#~> (07-01-2024 13:13:34):   ERROR  2952 5016 25 **Mismatch of fingerprints between received:** <> and in source config: <> 
+#~> (07-01-2024 13:13:34):   ERROR  2952 5016 25 Mismatch of fingerprints between received: <> and in source config: <> 
 #~> (07-01-2024 13:13:34):   ERROR  2952 5016 26 Get server cert failed for all rcm proxy address 
 #~> (07-01-2024 13:13:34):   ERROR  2952 5016 27 VxService::StartWork: Verify client auth failed with error 4. Waiting for 120 sec before retry.
 ```
