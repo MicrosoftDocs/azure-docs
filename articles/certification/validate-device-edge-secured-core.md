@@ -11,17 +11,14 @@ ms.service: azure-certified-device
 # Validate your Edge Secured-core certified devices
 To check if your device is Edge Secured-core enabled: 
 1.	Go to Windows Icon > Security Settings > Device Security. The "Secured-core PC" status is available on the top of the screen. If the status is missing, reach out to the device builder for assistance.
-[![Screenshot of Device Security Status.](./media/images/edge-secured-core-enabled.png)](./media/images/edge-secured-core-enabled.png.png#lightbox)
+[![Screenshot of Device Security Status.](./media/images/edge-secured-core-enabled.png)](./media/images/edge-secured-core-enabled.png#lightbox)
 
 2.	Go to "Core isolation" to ensure that "Memory integrity" is on.
-![Screenshot of Core isolation Status.](./media/images/core-isolation.png)
+[![Screenshot of Core isolation Status.](./media/images/core-isolation.png)](./media/images/core-isolation.png#lightbox)
 
 3.	Go to "Security processor" to ensure that the Trusted Platform Module "Specification version" is 2.0.
-![Screenshot of security processor Status.](./media/images/security-processor.png)
+[![Screenshot of security processor Status.](./media/images/security-processor.png)](./media/images/security-processor.png#lightbox)
 
 4.	Go to "Data encryption" to ensure that "Device encryption" is on.
-![Screenshot of device encryption Status.](./media/images/device-encryption.png)
+[![Screenshot of device encryption Status.](./media/images/device-encryption.png)](./media/images/device-encryption.png#lightbox)
 
-
-
-[![Diagram showing flowchart for certification process.](./media/images/certification-flowchart.png)](./media/images/certification-flowchart-expanded.png#lightbox)
