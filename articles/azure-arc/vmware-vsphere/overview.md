@@ -75,7 +75,7 @@ Azure Arc-enabled VMware vSphere currently works with vCenter Server versions 7 
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, we don't recommend you to use Arc-enabled VMware vSphere with it at this point.
 
->If you're trying to enable Arc for Azure VMware Solution (AVS) private cloud, see [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md).
+If you're trying to enable Arc for Azure VMware Solution (AVS) private cloud, see [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md).
 
 ## Supported regions
 
