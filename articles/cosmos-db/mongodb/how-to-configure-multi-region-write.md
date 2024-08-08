@@ -2,7 +2,7 @@
 title: Configure multi-region writes in your Azure Cosmos DB for MongoDB database
 description: Learn how to configure multi-region writes in Azure Cosmos DB for MongoDB
 author: gahl-levy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: gahllevy

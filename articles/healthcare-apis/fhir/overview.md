@@ -3,7 +3,7 @@ title: What is the FHIR service in Azure Health Data Services?
 description: Discover the FHIR service in Azure Health Data Services for secure, compliant, and scalable health data exchange and management in the cloud
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/01/2023

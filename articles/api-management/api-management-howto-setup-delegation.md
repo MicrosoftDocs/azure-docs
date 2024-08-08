@@ -4,7 +4,7 @@ description: Learn how to delegate user registration and product subscription to
 author: dlepow
 services: api-management
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 06/24/2024
 ms.author: danlep

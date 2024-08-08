@@ -2,7 +2,7 @@
 title: Azure SignalR Service internals
 description: Learn about Azure SignalR Service internals, the architecture, the connections and how data is transmitted.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp

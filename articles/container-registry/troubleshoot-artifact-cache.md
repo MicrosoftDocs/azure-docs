@@ -4,7 +4,7 @@ description: Learn how to troubleshoot the most common problems for a registry e
 ms.topic: article
 ms.date: 10/31/2023
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 # customer intent: As a user, I want to troubleshoot the most common problems for a registry enabled with the Artifact cache feature so that I can effectively use the feature.
 ---
 
@@ -99,7 +99,7 @@ Artifact cache currently supports the following upstream registries:
 | Google Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
 
 <!-- LINKS - External -->
-[create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
+[create-and-store-keyvault-credentials]:/azure/key-vault/secrets/quick-create-portal
 
-[az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy
+[az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy#assign-an-access-policy
 

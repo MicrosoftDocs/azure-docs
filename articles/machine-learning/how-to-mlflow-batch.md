@@ -3,7 +3,7 @@ title: Deploy MLflow models in batch deployments
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy MLflow models in batch deployments
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 author: msakande

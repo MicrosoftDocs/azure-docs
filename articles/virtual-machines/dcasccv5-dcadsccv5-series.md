@@ -4,7 +4,7 @@ description: Specifications for Azure Confidential Computing's Azure DCas_cc_v5 
 author: ananyagarg
 ms.author: ananyagarg
 ms.reviewer: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual 
 ms.date: 03/29/2022
@@ -19,7 +19,7 @@ ms.date: 03/29/2022
 > Preview Terms - These VM sizes are subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Confidential child capable VMs are currently enabled only through [Azure Kubernetes Service (AKS)](../../articles/aks/index.yml) when you choose these VMs as your agent node sizes. If you wish to enable it outside AKS, please contact [azconfidentialpm@microsoft.com](mailto:azconfidentialpm@microsoft.com).
+> Confidential child capable VMs are currently enabled only through [Azure Kubernetes Service (AKS)](/azure/aks/) when you choose these VMs as your agent node sizes. If you wish to enable it outside AKS, please contact [azconfidentialpm@microsoft.com](mailto:azconfidentialpm@microsoft.com).
 
 Confidential child capable VMs allow you to borrow resources from the parent VM you deploy, to create AMD SEV-SNP protected child VMs. The parent VM has almost complete feature parity with any other general purpose Azure VM (for example, [D-series VMs](dasv5-dadsv5-series.md)). This parent-child deployment model can help you achieve higher levels of isolation from the Azure host and parent VM. These confidential child capable VMs are built on the same hardware that powers our [Azure confidential VMs](../../articles/confidential-computing/confidential-vm-overview.md). Azure confidential VMs are now generally available. 
 

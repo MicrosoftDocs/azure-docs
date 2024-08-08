@@ -104,7 +104,7 @@
   - name: Containers
     items:
     - name: AKS
-      href: ../../aks/learn/quick-kubernetes-deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/aks/learn/quick-kubernetes-deploy-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Registry
@@ -232,13 +232,13 @@
   - name: Security
     items:
     - name: Attestation
-      href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/attestation/quickstart-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Defender for Cloud
-      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/defender-for-cloud/quickstart-automation-alert?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Key Vault - key
-      href: ../../key-vault/keys/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/key-vault/keys/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Key Vault - secret
-      href: ../../key-vault/secrets/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/key-vault/secrets/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -413,9 +413,9 @@
       href: deployment-stacks.md
     - name: Bicep extensibility
       items:
-      - name: Kubernetes provider
-        href: ./bicep-extensibility-kubernetes-provider.md
-      - name: Microsoft Graph provider
+      - name: Kubernetes extension
+        href: ./bicep-kubernetes-extension.md
+      - name: Microsoft Graph extension
         href: https://aka.ms/graphbicep
     - name: Patterns
       items:
@@ -603,7 +603,7 @@
     displayName: build,decompile,install,list-versions,list versions,upgrade,version,module,registry
   - name: Azure PowerShell
     href: /powershell/module/az.resources/
-  - name: Bicep warnings and errors 
+  - name: Bicep core diagnostics 
     items:
     - name: All codes
       href: bicep-core-diagnostics.md

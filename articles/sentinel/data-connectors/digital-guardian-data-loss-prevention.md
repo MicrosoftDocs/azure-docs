@@ -43,7 +43,7 @@ DigitalGuardianDLPEvent
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected [**DigitalGuardianDLPEvent**](https://aka.ms/sentinel-DigitalGuardianDLP-parser) which is deployed with the Microsoft Sentinel Solution.
+   >  This data connector depends on a parser based on a Kusto Function to work as expected [**DigitalGuardianDLPEvent**](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Digital%20Guardian%20Data%20Loss%20Prevention/Parsers/DigitalGuardianDLPEvent.yaml) which is deployed with the Microsoft Sentinel Solution.
 
 1. Configure Digital Guardian to forward logs via Syslog to remote server where you will install the agent.
 

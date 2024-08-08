@@ -1,11 +1,11 @@
 ---
 title: Migrate to Azure Cloud Services (extended support) using PowerShell 
 description: How to migrate from Azure Cloud Services (classic) to Azure Cloud Services (extended support) using PowerShell
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 ms.reviwer: mimckitt
 ms.topic: how-to
-ms.date: 02/06/2020
+ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah
 ms.custom: devx-track-azurepowershell
@@ -16,24 +16,24 @@ ms.custom: devx-track-azurepowershell
 
 These steps show you how to use Azure PowerShell commands to migrate from [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Cloud Services (extended support)](overview.md).
 
-## 1) Plan for migration
-Planning is the most important step for a successful migration experience. Review the [Cloud Services (extended support) overview](overview.md) and [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md) prior to beginning any migration steps. 
+## Plan for migration
+Planning is the most important step for a successful migration experience. Review the [Cloud Services (extended support) overview](overview.md) and [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md) before beginning any migration steps. 
 
-## 2) Install the latest version of PowerShell
+## Install the latest version of PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
 For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps?preserve-view=true&view=azuresmps-4.0.0).
 
-## 3) Ensure Admin permissions
+## Ensure Admin permissions
 To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the **Hub** menu, select **Subscription**. If you don't see it, select **All services**.
 3. Find the appropriate subscription entry, and then look at the **MY ROLE** field. For a coadministrator, the value should be *Account admin*.
 
-If you're not able to add a co-administrator, contact a service administrator or co-administrator for the subscription to get yourself added.
+If you're not able to add a coadministrator, contact a service administrator or coadministrator for the subscription to get yourself added.
 
-## 4) Register the classic provider and CloudService feature
+## Register the classic provider and CloudService feature
 First, start a PowerShell prompt. For migration, set up your environment for both classic and Resource Manager.
 
 Sign in to your account for the Resource Manager model.
@@ -78,7 +78,8 @@ Check the status of the classic provider approval by using the following command
 Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
-Check the status of registration using the following:  
+Check the status of registration using the following command:
+
 ```powershell
 Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
@@ -112,17 +113,17 @@ Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 ```
 
 
-## 5) Migrate your Cloud Services 
+## Migrate your Cloud Services 
 Before starting the migration, understand how the [migration steps](./in-place-migration-overview.md#migration-steps) works and what each step does. 
 
-* [Migrate a Cloud Service not in a virtual network](#51-option-1---migrate-a-cloud-service-not-in-a-virtual-network)
-* [Migrate a Cloud Service in a virtual network](#51-option-2---migrate-a-cloud-service-in-a-virtual-network)
+* [Migrate a Cloud Service not in a virtual network](#option-1---migrate-a-cloud-service-not-in-a-virtual-network)
+* [Migrate a Cloud Service in a virtual network](#option-2---migrate-a-cloud-service-in-a-virtual-network)
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
 
 
-### 5.1) Option 1 - Migrate a Cloud Service not in a virtual network
+### Option 1 - Migrate a Cloud Service not in a virtual network
 Get the list of cloud services by using the following command. Then pick the cloud service that you want to migrate.
 
 ```powershell
@@ -160,7 +161,7 @@ If you're ready to complete the migration, commit the migration
 Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### 5.1) Option 2 - Migrate a Cloud Service in a virtual network
+### Option 2 - Migrate a Cloud Service in a virtual network
 
 To migrate a Cloud Service in a virtual network, you migrate the virtual network. The Cloud Service automatically migrates with the virtual network.
 
@@ -197,7 +198,6 @@ If the prepared configuration looks good, you can move forward and commit the re
 Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-
 ## Next steps
 
-Review the [Post migration changes](post-migration-changes.md) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment.
+Review the [Post migration changes](post-migration-changes.md) section to see changes in deployment files, automation, and other attributes of your new Cloud Services (extended support) deployment.

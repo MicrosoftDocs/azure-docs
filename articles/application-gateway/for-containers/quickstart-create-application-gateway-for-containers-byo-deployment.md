@@ -3,7 +3,7 @@ title: 'Quickstart: Create Application Gateway for Containers - bring your own d
 description: In this quickstart, you learn how to provision and manage the Application Gateway for Containers Azure resources independent from Kubernetes configuration.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
@@ -87,6 +87,9 @@ ALB_SUBNET_ID=$(az network vnet subnet list --resource-group $VNET_RESOURCE_GROU
 echo $ALB_SUBNET_ID
 ```
 
+> [!NOTE]
+> The NSG for the delegated subnet can only use the default rules for incoming traffic. For example: AllowVNetInBound, AllowAzureLoadBalancerInBound, and DenyAllInbound. No other incoming NSG rule is supported.
+   
 ### Delegate permissions to managed identity
 
 ALB Controller needs the ability to provision new Application Gateway for Containers resources and join the subnet intended for the Application Gateway for Containers association resource.

@@ -15,17 +15,12 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Diagnostic settings in Azure are used to collect resource logs. Resources emit Azure resource Logs and provide rich, frequent data about the operation of that resource. These logs are captured per request and are referred to as "data plane logs." Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
+Diagnostic settings in Azure are used to collect resource logs. Resources emit Azure resource Logs and provide rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as *data plane logs*. Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
 
-Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostic setting for Azure Cosmos DB accounts and send resource logs to the following sources:
-
-- Azure Monitor Log Analytics workspaces
-  - Data sent to Log Analytics can be written into **Azure Diagnostics (legacy)** or **Resource-specific (preview)** tables
-- Event hub
-- Storage Account
+To learn more about diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
   
 > [!NOTE]
-> We recommend creating the diagnostic setting in resource-specific mode (for all APIs except API for Table) [following our instructions for creating diagnostics setting via REST API](monitor-resource-logs.md). This option provides additional cost-optimizations with an improved view for handling data.
+> We recommend creating the diagnostic setting in resource-specific mode (for all APIs except API for Table) following the instructions in the *REST API* tab. This option provides additional cost-optimizations with an improved view for handling data.
 
 ## Prerequisites
 

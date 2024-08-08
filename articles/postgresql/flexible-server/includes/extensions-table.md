@@ -3,7 +3,7 @@ author: akashraokm
 ms.author: akashrao
 ms.reviewer: maghan
 ms.date: 07/13/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---

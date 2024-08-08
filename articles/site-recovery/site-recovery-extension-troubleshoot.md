@@ -3,7 +3,7 @@ title: Troubleshoot the Azure VM extension for disaster recovery with Azure Site
 description: Troubleshoot issues with the Azure VM extension for disaster recovery with Azure Site Recovery.
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: troubleshooting
 ms.date: 05/27/2024
 ---

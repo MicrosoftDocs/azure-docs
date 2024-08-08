@@ -6,7 +6,7 @@ ms.author: jparrel
 manager: dcscontentpm
 tags: top-support-issue,azure-resource-manager
 ms.custom: devx-track-python, linux-related-content
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: linux
 ms.topic: how-to

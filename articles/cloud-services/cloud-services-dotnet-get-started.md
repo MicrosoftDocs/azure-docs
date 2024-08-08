@@ -229,7 +229,7 @@ Azure storage account connection strings for both the web role project and the w
 2. Choose the **Settings** tab. In the **Service Configuration** drop-down box, choose **Cloud**.
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Select the **StorageConnectionString** entry, and you see an ellipsis (**...**) button at the right end of the line. Choose the ellipsis button to open the **Create Storage Account Connection String** dialog box.
+3. Select the **StorageConnectionString** entry, and you see an ellipsis (**...**) button at the right end of the line. Choose the ellipsis button to open the **Create Storage Connection String** dialog box.
 
     ![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. In the **Create Storage Connection String** dialog box, select **Your subscription**, choose the storage account that you created earlier, and then select **OK**. The explorer prompts you for your Azure account credentials if you still need to sign in.

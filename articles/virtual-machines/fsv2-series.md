@@ -2,7 +2,7 @@
 title: Fsv2-series
 description: Specifications for the Fsv2-series VMs.
 author: priyashan-19
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 12/19/2022

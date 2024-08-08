@@ -27,7 +27,13 @@ Any loops or iterations in the templates can have large impacts on performance. 
 The `$convert-data` operation applies post processing logic after the template is applied to the input. This post processing logic can result in the output looking different or unexpected errors compared to if you ran the default Liquid template directly. Post processing ensures the output is valid JSON and removes any duplicates based on the ID properties generated for resources in the template. To see the post processing logic in more detail, see the [FHIR-Converter GitHub repository](https://github.com/microsoft/FHIR-Converter/blob/main/src/Microsoft.Health.Fhir.Liquid.Converter/OutputProcessors/PostProcessor.cs).
 
 ## Message size
-There isn’t a hard limit on the size of the messages allowed for the `$convert-data` operation, however, for content with a request size  greater than 10 MB, server 500 errors are possible. If you're receiving 500 server errors, ensure your requests are under 10 MB. 
+There isn’t a hard limit on the size of the messages allowed for the `$convert-data` operation, however, for content with a request size  greater than 10 MB, server 500 errors are possible. If you're receiving 500 server errors, ensure your requests are under 10 MB.
+
+## Why are my dates being converted when transforming JSON data?
+ 
+It's possible for dates supplied within JSON data to be returned in a different format than what was supplied. During deserialization of the JSON payload strings that are identified as dates get converted into .NET DateTime objects. These objects then get converted back to strings before going through the Liquid template engine. This conversion can cause the date value to be reformatted and represented in the local timezone of the FHIR service.
+
+The coercion of strings to .NET DateTime objects can be disabled using the boolean parameter `jsonDeserializationTreatDatesAsStrings`. When set to `true`, the supplied data is treated as a string and won't be modified before being supplied to the Liquid engine. 
 
 ## Default templates and customizations
 Default template implementations for many common scenarios can be found on the [FHIR-Converter GitHub repository](https://github.com/microsoft/FHIR-Converter/tree/main/data/Templates). The default templates can be used as a guide and reference for customizing and creating your own templates. In addition to the default templates, the `$convert-data` operation supports several customer Liquid [filters and tags](https://github.com/microsoft/FHIR-Converter/blob/main/docs/Filters-and-Tags.md) that help simplify common scenarios. 

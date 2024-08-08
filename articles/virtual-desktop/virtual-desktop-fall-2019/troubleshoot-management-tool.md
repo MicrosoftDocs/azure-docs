@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
-manager: femila
 ---
 # Troubleshoot the Azure Virtual Desktop (classic) management tool
 

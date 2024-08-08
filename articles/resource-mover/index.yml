@@ -5,7 +5,7 @@ summary: Move Azure resources between Azure regions in the Azure Resource Mover 
 metadata:
   title: Azure Resource Mover Documentation
   description: Find tutorials and information about moving resources across Azure regions. 
-  ms.service: resource-mover
+  ms.service: azure-resource-mover
   ms.topic: landing-page
 
   author: ankitaduttaMSFT

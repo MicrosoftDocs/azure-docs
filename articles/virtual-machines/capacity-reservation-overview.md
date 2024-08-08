@@ -60,7 +60,7 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - B
     - Bpsv2
     - Bsv2 (Intel) and Basv2 (AMD)
-    - D series, v2 and newer; AMD and Intel
+    - D and Ds series, v2 and newer; AMD and Intel
     - Dadsv5
     - Dav4 series
     - Dasv4 and newer
@@ -92,9 +92,11 @@ From this example accumulation of Minutes Not Available, here's the calculation 
 - At VM deployment for below VM Series for Capacity Reservation, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation:
     - NC-series, v3
     - NCasT4_v3 series
+    - NCADSA10_v4 series
     - NC_A100_v4 series
     - NV-series, v3 and newer
     - NVadsA10_v5 series
+    - NGads V620_v1 series
 - Support for below VM Series for Capacity Reservation is in Public Preview: 
     - M-series, v2
     - M-series, v3
@@ -222,13 +224,13 @@ For example, lets say a Capacity Reservation with quantity reserved 2 has been c
 
 ![Capacity Reservation image 7.](./media/capacity-reservation-overview/capacity-reservation-7.jpg)
 
-In the previous image, a Reserved VM Instance discount is applied to one of the unused instances and the cost for that instance is zeroed out. For the other instance, PAYG rate is charged for the VM size reserved.  
+In the previous image, a Reserved VM Instance discount is applied to one of the unused instances and the cost for that instance is zeroed out. For the other instance, pay-as-you-go rate is charged for the VM size reserved.  
 
 When a VM is allocated against the Capacity Reservation, the other VM components such as disks, network, extensions, and any other requested components must also be allocated. In this state, the VM usage reflects one allocated VM and one unused capacity instance. The Reserved VM Instance will zero out the cost of either the VM or the unused capacity instance. The other charges for disks, networking, and other components associated with the allocated VM also appears on the bill. 
 
 ![Capacity Reservation image 8.](./media/capacity-reservation-overview/capacity-reservation-8.jpg)
 
-In the previous image, the VM Reserved Instance discount is applied to VM 0, which is only charged for other components such as disk and networking. The other unused instance is being charged at PAYG rate for the VM size reserved.
+In the previous image, the VM Reserved Instance discount is applied to VM 0, which is only charged for other components such as disk and networking. The other unused instance is being charged at pay-as-you-go rate for the VM size reserved.
 
 
 ## Frequently asked questions 

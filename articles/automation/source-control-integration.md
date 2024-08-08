@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 05/15/2024
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Use source control integration

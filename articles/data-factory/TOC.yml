@@ -369,7 +369,7 @@ items:
     items:
     - name: Connector overview
       href: connector-overview.md
-    - name: Amazon Marketplace Web Service
+    - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
       href: connector-amazon-rds-for-oracle.md
