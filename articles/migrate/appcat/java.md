@@ -60,12 +60,10 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 
 To use the `appcat` CLI, you must download the ZIP file described in the next section, and have a compatible JDK 11 or JDK 17 installation on your computer. The `appcat` CLI runs on any Java-compatible environment such as Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. We recommend you use the [Microsoft Build of OpenJDK](/java/openjdk). 
 
-### Download latest release
+### Download
 
 > [!div class="nextstepaction"]
 > [Download Azure Migrate application and code assessment for Java 6.3.0.9](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.9-preview.zip). Updated on 2024-08-06.
-
-Alternatively, the latest release of `appcat` CLI is available for download as a ZIP file from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
 
 See [release notes](#release-notes) for details.
 
