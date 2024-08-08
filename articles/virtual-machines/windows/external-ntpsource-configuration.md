@@ -2,7 +2,7 @@
 title: Time mechanism for Active Directory Windows Virtual Machines in Azure
 description: Time mechanism for Active Directory Windows Virtual Machines in Azure
 author: NDVALPHA
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: windows
 ms.topic: conceptual
 ms.date: 08/05/2022

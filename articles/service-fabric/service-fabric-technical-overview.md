@@ -4,7 +4,7 @@ description: Learn key Service Fabric terminology and concepts used in the rest 
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---

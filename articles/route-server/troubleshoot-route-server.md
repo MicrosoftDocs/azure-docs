@@ -35,6 +35,10 @@ If you want to inspect your on-premises traffic using a firewall, you can force 
 
 10.0.0.0/16 is the address space of the virtual network and 10.0.1.0/27 is the address space of RouteServerSubnet. 10.0.2.1 is the IP address of the firewall.
 
+### I added a user-defined route (UDR) with next hop type as Virtual Network Gateway, but this UDR is not taking effect. Is this expected?
+
+Yes, this is expected behavior. User-defined routes with next hop type **Virtual Network Gateway** are not supported for subnets within Route Server's virtual network and peered virtual networks. However, if you want to configure your next hop to be a network virtual appliance (NVA) or the internet, adding a user-defined route with next hop type **VirtualAppliance** or **Internet** is supported. 
+
 ### Why do I lose connectivity after associating a service endpoint policy to the RouteServerSubnet or GatewaySubnet?
  
 If you associate a service endpoint policy to the RouteServerSubnet or GatewaySubnet, then communication may break between Azure's underlying management platform and these respective Azure services (Route Server and VPN/ExpressRoute gateway). This can cause these Azure resources to enter an unhealthy state, resulting in connectivity loss between your on-premises and Azure workloads.

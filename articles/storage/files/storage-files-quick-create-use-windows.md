@@ -100,7 +100,6 @@ Now that you've created the VM, connect to it so you can mount your file share.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/local-host2.png" alt-text="Screenshot of the VM log in prompt, more choices is highlighted.":::
 
-
 1. You might receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to create the connection.
 
 ### Map the Azure file share to a Windows drive
@@ -120,7 +119,6 @@ Now that you've mapped the drive, create a snapshot.
 1. In the portal, navigate to your file share, select **Snapshots**, then select **+ Add snapshot** and then **OK**.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/create-snapshot.png" alt-text="Screenshot of the storage account snapshots tab.":::
-
 
 1. In the VM, open the *qstestfile.txt* and type "this file has been modified". Save and close the file.
 1. Create another snapshot.

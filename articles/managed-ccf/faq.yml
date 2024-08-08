@@ -5,7 +5,7 @@ metadata:
   services: managed-ccf
   author: msmbaldwin
     
-  ms.service: managed-ccf
+  ms.service: azure-managed-ccf
   ms.topic: faq
   ms.date: 09/15/2023
   ms.author: mbaldwin

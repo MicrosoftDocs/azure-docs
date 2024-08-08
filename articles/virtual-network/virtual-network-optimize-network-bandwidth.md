@@ -4,7 +4,7 @@ description: Optimize network throughput for Microsoft Azure Windows and Linux v
 services: virtual-network
 author: asudbring
 manager: Gerald DeGrace
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/02/2024

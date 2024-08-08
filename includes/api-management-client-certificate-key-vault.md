@@ -8,9 +8,11 @@ ms.author: danlep
 
 ### Prerequisites for key vault integration
 
-1. If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../articles/key-vault/general/quick-create-portal.md).
+[!INCLUDE [api-management-workspace-availability](api-management-workspace-availability.md)]
 
-    To create or import a certificate to the key vault, see [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](../articles/key-vault/certificates/quick-create-portal.md).
+1. If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
+
+    To create or import a certificate to the key vault, see [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal).
 
 1. Enable a system-assigned or user-assigned [managed identity](../articles/api-management/api-management-howto-use-managed-service-identity.md) in the API Management instance.
 

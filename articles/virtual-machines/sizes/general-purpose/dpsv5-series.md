@@ -2,7 +2,7 @@
 title: Dpsv5 size series
 description: Information on and specifications of the Dpsv5-series sizes
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 07/29/2024

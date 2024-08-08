@@ -6,7 +6,7 @@ summary: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples
 metadata:
   title: Azure Virtual Network Documentation - Tutorials, quickstarts, API references
   description: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.topic: landing-page
   author: asudbring
   ms.author: allensu

@@ -3,7 +3,7 @@ title: "Tutorial 4: Enable online materialization and run online inference"
 titleSuffix: Azure Machine Learning managed feature store - basics
 description: This is a part of a tutorial series on managed feature store. 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 
 ms.subservice: core
 ms.topic: tutorial

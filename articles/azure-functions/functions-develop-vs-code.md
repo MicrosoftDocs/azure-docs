@@ -546,6 +546,9 @@ Replace `<BINDING_TYPE_NAME>` with the name of the package that contains the bin
 
 Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to the current  Functions runtime are specified in the reference article for the binding.
 
+>[!TIP]  
+>You can also use the **NuGet** commands in [the C# Dev Kit](https://code.visualstudio.com/docs/csharp/package-management#_add-a-package) to install binding extension packages.
+
 C# script uses [extension bundles](functions-bindings-register.md#extension-bundles).
 
 ::: zone-end  

@@ -1,8 +1,8 @@
 ---
 title: Connect from an Azure Data Factory pipeline using Azure Private Link
 description: This article describes how to connect from Azure Data Factory to an instance of Azure Database for PostgreSQL - Flexible Server using Private Link.
-author: gennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 07/14/2024
 ms.service: azure-database-postgresql
