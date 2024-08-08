@@ -219,7 +219,7 @@ In these steps, you create a routing rule for the Azure Firewall subnet in regio
 5. Select the **X** to close the **Edit a rule collection** window.
 6. From the **Rule collections** window, select **Rules** under **Settings**, and review the listing of all rules in the routing configuration.
    
-   :::image type="content" source="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/review-rules-in-configuration-thumb.png" alt-text="Screenshot of rules window listing all rules and rule collections in routing configuration." lightbox="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/review-rules-in-configuration.png":::
+   :::image type="content" source="media/how-to-manage-user-defined-routes-multiple-hub-spoke-topologies/review-rules-in-configuration-thumb.png" alt-text="Screenshot of rules window listing all rules and rule collections in routing configuration." lightbox="media/how-to-manage-user-defined-routes-multiple-hub-spoke-topologies/review-rules-in-configuration.png":::
 
 ## Deploy the routing configuration
 
@@ -238,11 +238,11 @@ In this step, you confirm the routing configuration by reviewing the route table
 2. In the **Virtual networks** window, select the one of the spoke virtual networks in region 1.
 3. From the left menu, select **Subnets** and review settings for the subnets in the spoke virtual network.
 
-    :::image type="content" source="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/View-route-table-on-subnet-thumb.png" alt-text="Screenshot of subnets showing applied route table from deployment of routing configuration."lightbox="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/View-route-table-on-subnet.png":::
+    :::image type="content" source="media/how-to-manage-user-defined-routes-multiple-hub-spoke-topologies/View-route-table-on-subnet-thumb.png" alt-text="Screenshot of subnets showing applied route table from deployment of routing configuration."lightbox="media/how-to-manage-user-defined-routes-multiple-hub-spoke-topologies/View-route-table-on-subnet.png":::
 
 4. Under **Route table**, select the link staring with **NM_** to view the route table applied to the subnet.
 
-    :::image type="content" source="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/route-table-list.png" alt-text="Screenshot of route table for subnet.":::
+    :::image type="content" source="media/how-to-manage-user-defined-routes-multiple-hub-spoke-topologies/route-table-list.png" alt-text="Screenshot of route table for subnet.":::
 
 5. Close the route table and subnet window.
 6. Repeat the steps to review the route tables applied to all the subnets in your configuration.
