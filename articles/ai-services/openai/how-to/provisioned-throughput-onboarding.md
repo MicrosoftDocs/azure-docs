@@ -61,7 +61,7 @@ Azure OpenAI Provisioned is purchased on-demand at an hourly basis based on the 
 The hourly model is useful for short-term deployment needs, such as validating new models or acquiring capacity for a hackathon.  However, the discounts provided by the Azure Reservation for Azure OpenAI Provisioned are considerable and most customers with consistent long-term usage will find a reserved model to be a better value proposition. 
 
 > [!NOTE]
-> Azure OpenAI Provisioned customers onboarded prior to the August self-service update use a purchase model called the Commitment model.  These customers can continue to use this older purchase model alongside the Hourly/reservation purchase model.  The Commitment model is not available for new customers.  For details on the Commitment purchase model and options for coexistence and migration, please see the [Azure OpenAI Provisioned August Update](./provisioned-migration.md).
+> Azure OpenAI Provisioned customers onboarded prior to the August self-service update use a purchase model called the Commitment model.  These customers can continue to use this older purchase model alongside the Hourly/reservation purchase model.  The Commitment model is not available for new customers.  For details on the Commitment purchase model and options for coexistence and migration, please see the [Azure OpenAI Provisioned August Update](../concepts/provisioned-migration.md).
 
 ## Hourly Usage  
 
@@ -105,7 +105,7 @@ Discounts on top of the hourly usage price can be obtained by purchasing an Azur
 * Reservations guarantee a discounted price for the selected term.  They do not reserve capacity on the service or guarantee that it will be available when a deployment is created.  It is highly recommended that customers create deployments prior to purchasing a reservation to prevent from over-purchasing a reservation. 
  
 > [!NOTE]
-> The Azure role and tenant policy requirements to purchase a reservation are different than those required to create a deployment or Azure OpenAI resource. See Azure OpenAI [Provisioned reservation documentation](/azure/cost-management-billing/reservations/azure-open-ai) for more details.
+> The Azure role and tenant policy requirements to purchase a reservation are different than those required to create a deployment or Azure OpenAI resource. See Azure OpenAI [Provisioned reservation documentation](https://aka.ms/oai/docs/ptum-reservations) for more details.
 
 ## Important: Sizing Azure OpenAI Provisioned Reservations 
 
@@ -122,4 +122,4 @@ To assist customers with purchasing the correct reservation amounts. The total n
 
 - [Provisioned Throughput Units (PTU) getting started guide](./provisioned-get-started.md)
 - [Provisioned Throughput Units (PTU) concepts](../concepts/provisioned-throughput.md)
-- [Provisioned Throughput reservation documentation](/azure/cost-management-billing/reservations/azure-open-ai) 
+- [Provisioned Throughput reservation documentation](https://aka.ms/oai/docs/ptum-reservations) 

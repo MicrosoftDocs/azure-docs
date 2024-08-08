@@ -66,7 +66,7 @@ Customers will no longer obtain quota by contacting their sales teams. Instead, 
 
 The Quota screenshot below shows model-independent quota being used by deployments of different types, as well as the link for requesting additional quota. 
 
-:::image type="content" source="../media/provisioned/quota-request-type.png" alt-text="Screenshot of new request type UI for Azure OpenAI provisioned for requesting more quota." lightbox="./media/provisioned/quota-request-type.png":::
+:::image type="content" source="../media/provisioned/quota-request-type.png" alt-text="Screenshot of new request type UI for Azure OpenAI provisioned for requesting more quota." lightbox="../media/provisioned/quota-request-type.png":::
 
 
 ## New hourly reservation payment model
