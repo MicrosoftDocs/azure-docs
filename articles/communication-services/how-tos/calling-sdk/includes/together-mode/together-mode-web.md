@@ -48,21 +48,21 @@ const togetherModeStreams = togetherModeFeature.togetherModeStream;
 | Together Mode Stream Properties | Description|
 |----------------------------------------------|--------|
 |id		| unique number used to identify the stream. |
-|mediaStreamType		| Returns the stream type. For together mode the mediaStreamType will be `video`. |
+|mediaStreamType		| Returns the stream type. For together mode, the mediaStreamType is`video`. |
 |isReceiving		| Returns a boolean value indicating if video packets are received.  |
 |size		| 	The stream size. The higher the stream size, the better the video quality. |
 
 ### Start together mode for all participants
-Users with role organizer, coorganizer, or presenter can start together mode for everyone in the meeting. When together mode starts, all subscribers to `togetherModeStreamsUpdated` event receives notification, that allows participants to render together mode.
+Users with role organizer, coorganizer, or presenter can start together mode for everyone in the meeting. When together mode starts, all subscribers to `togetherModeStreamsUpdated` event receive notification that allows participants to render together mode.
 
 ```js
 togetherModeFeature.start();
 ```
 ### End together mode
 
-Together mode automatically ends for everyone when nobody subscribes to the video for 5 minutes. There is no API to end together mode.
+Together mode automatically ends for everyone when nobody subscribes to the video for 5 minutes. There's no API to end together mode.
 ### Get coordinates of participants in together mode
-The property `togetherModeSeatingMap` provides coordinates for individual participants in the stream. Developers can use these coordinates to provide an overlay on top of the stream with additional information about participants such as display name or render visual features such as spotlight, hand raised or reactions. 
+The property `togetherModeSeatingMap` provides coordinates for individual participants in the stream. Developers can use these coordinates to overlay participant info such as display name or visual features like spotlight, hand raised, and reactions on the stream. 
 
 ```js
 // returns Map<string, TogetherModeSeatingPosition>
@@ -110,6 +110,6 @@ togetherModeFeature.on('togetherModeSeatingUpdated', seatUpdate);
 ## Troubleshooting
 |code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
-|403		| 46303	| ExpectedError  | Participant's role is not eligible to call the together mode start API | Ensure the participant calling the together mode start API has organizer, coorganizer, or presenter role |
+|403		| 46303	| ExpectedError  | Participant's role isn't eligible to call the together mode start API | Ensure the participant calling the together mode start API has organizer, coorganizer, or presenter role |
 |403	| 46304 | ExpectedError  | Together mode was started in an unsupported calling scenario  | Ensure together mode is started only in group call or meeting scenarios |
-|403 | 46306	| ExpectedError | Together mode start API was called by a nonmicrosft M365 user  | Ensure together mode is started by a Microsoft M365 User |
+|403 | 46306	| ExpectedError | Together mode start API was called by a nonmicrosft M365 user  | Ensure a Microsoft M365 User starts together mode.|
