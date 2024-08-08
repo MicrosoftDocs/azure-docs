@@ -6,7 +6,7 @@ ms.author: allensu
 manager: dcscontentpm
 audience: ITPro
 ms.topic: troubleshooting
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.localizationpriority: medium
 ms.date: 08/29/2019
 ---
