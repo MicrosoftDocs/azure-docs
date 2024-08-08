@@ -41,6 +41,7 @@ Use Microsoft Copilot in Azure to perform many basic tasks in the Azure portal o
 - Write and optimize code:
   - [Generate Azure CLI scripts](generate-cli-scripts.md)
   - [Generate PowerShell scripts](generate-powershell-scripts.md)
+  - [Generate Terraform configurations](generate-terraform-configurations.md)
   - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
   - [Author API Management policies](author-api-management-policies.md)
   - [Create Kubernetes YAML files](generate-kubernetes-yaml.md)
