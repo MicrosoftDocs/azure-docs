@@ -13,7 +13,9 @@ This article introduces the Microsoft Sentinel Solution for SAP BTP. The solutio
 
 SAP BTP is a cloud-based solution that provides a wide range of tools and services for developers to build, run, and manage applications. One of the key features of SAP BTP is its low-code development capabilities. Low-code development allows developers to create applications quickly and efficiently by using visual drag-and-drop interfaces and prebuilt components, rather than writing code from scratch.
 
-### Why it's important to monitor BTP activity
+:::image type="content" source="media/deploy-sap-btp-solution/sap-btp-solution-overview.png" alt-text="Diagram that shows a SAP BTP landscape integrated with Microsoft Sentinel." lightbox="media/deploy-sap-btp-solution/sap-btp-solution-overview.png" border="false":::
+
+## Why it's important to monitor BTP activity
 
 While low-code development platforms have become increasingly popular among businesses looking to accelerate their application development processes, there are also security risks that organizations must consider. One key concern is the risk of security vulnerabilities introduced by citizen developers, some of whom might lack the security awareness of traditional pro-dev community. To counter these vulnerabilities, it's crucial for organizations to quickly detect and respond to threats on BTP applications.
 
@@ -26,6 +28,8 @@ Beyond the low-code aspect, BTP applications:
 - Used by wide range of users, internal and external​.
 
 Therefore, it's important to protect your BTP system against these risks.
+
+See a detailed scenario involving the audit log of the SAP BTP AI Core Service in [this SAP blog post](https://community.sap.com/t5/technology-blogs-by-members/nice-patch-sap-revisiting-your-sap-btp-security-measures-after-ai-core/ba-p/13770662).
 
 ## How the solution addresses BTP security risks
 
@@ -45,7 +49,7 @@ The solution includes:
   
 ## Next steps
 
-In this article, you learned about the Microsoft Sentinel solution for SAP BTP.
+In this article, you learned about the Microsoft Sentinel solution for SAP BTP. See [this SAP blog post](https://community.sap.com/t5/technology-blogs-by-members/nice-patch-sap-revisiting-your-sap-btp-security-measures-after-ai-core/ba-p/13770662) for more details.
 
 > [!div class="nextstepaction"]
 > [Deploy the Microsoft Sentinel Solution for SAP BTP](deploy-sap-btp-solution.md)
