@@ -113,7 +113,7 @@ container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).bloc
 
 4. **Fastest Response Wins:** Whichever region responds first, that response is accepted, and the other parallel requests are ignored.
 
-Proactive connection management helps by warming up connections and caches for containers across the preferred regions, reducing latency for failover scenarios or writes in multi-region setups.
+Proactive connection management helps by warming up connections and caches for containers across the preferred regions, reducing cold-start latency for failover scenarios or writes in multi-region setups.
 
 This strategy can significantly improve latency in scenarios where a particular region is slow or temporarily unavailable, but it may incur more cost in terms of request units when parallel cross-region requests are required.
 
