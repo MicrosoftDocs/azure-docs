@@ -36,7 +36,7 @@ More information about policies:
 | [Set usage quota by subscription](quota-policy.md) | Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis. | Yes | Yes | Yes | Yes
 | [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | No | No | Yes | 
 | [Limit concurrency](limit-concurrency-policy.md) | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Yes | Yes | Yes | Yes |
-| [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting language model tokens per calculated key. | Yes | Yes | No | No |
+| [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting large language model tokens per calculated key. | Yes | Yes | No | No |
 | [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | No |
 
 ## Authentication and authorization
@@ -81,9 +81,9 @@ More information about policies:
 |  [Get value from cache](cache-lookup-value-policy.md) | Retrieves a cached item by key. | Yes | Yes | Yes | Yes |
 |  [Store value in cache](cache-store-value-policy.md) | Stores an item in the cache by key. | Yes | Yes | Yes | Yes |
 |  [Remove value from cache](cache-remove-value-policy.md) | Removes an item in the cache by key. | Yes | Yes | Yes | Yes |
-|  [Get cached responses of Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) | Performs cache lookup using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes |
+|  [Get cached responses of Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) | Performs lookup in Azure OpenAI API cache using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes |
 |  [Store responses of Azure OpenAI API requests to cache](azure-openai-semantic-cache-store-policy.md) | Caches response according to the Azure OpenAI API cache configuration. | Yes | Yes | Yes | Yes |
-|  [Get cached responses of large language model API requests](llm-semantic-cache-lookup-policy.md) | Performs cache lookup using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes |
+|  [Get cached responses of large language model API requests](llm-semantic-cache-lookup-policy.md) | Performs lookup in large language model API cache using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes |
 |  [Store responses of large language model API requests to cache](llm-semantic-cache-store-policy.md) | Caches response according to the large language model API cache configuration. | Yes | Yes | Yes | Yes |
 
 
@@ -133,7 +133,7 @@ More information about policies:
 |---------|---------|---------|---------|---------|--------|
 |  [Trace](trace-policy.md) | Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs. | Yes | Yes<sup>1</sup> | Yes | Yes |
 |  [Emit metrics](emit-metric-policy.md) | Sends custom metrics to Application Insights at execution. | Yes | Yes | Yes | Yes |
-|  [Emit Azure OpenAI token metrics](azure-openai-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of language model tokens through Azure OpenAI service APIs. | Yes | Yes | No | No |
+|  [Emit Azure OpenAI token metrics](azure-openai-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model tokens through Azure OpenAI service APIs. | Yes | Yes | No | No |
 |  [Emit large language model API token metrics](llm-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model (LLM) tokens through LLM APIs. | Yes | Yes | No | No |
 
 
