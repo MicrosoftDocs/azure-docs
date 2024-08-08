@@ -173,16 +173,16 @@ Create an SSH connection with the VM.
 
 1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt.
 
-1. At your prompt, open an SSH connection to your VM. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
+1. At your prompt, open an SSH connection to your VM. Replace `xx.xx.xx.xx` with the IP address of your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
 
 ```console
-ssh -i .\Downloads\myVM_key.pem azureuser@20.25.14.85
+ssh -i .\Downloads\myVM_key.pem azureuser@xx.xx.xx.xx
 ```
 
 If you encounter a warning that the authenticity of the host can't be established, type **yes** to continue connecting to the VM. Leave the ssh connection open for the next step.
 
 > [!TIP]
-> The SSH key you created can be used the next time your create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
+> You can use the SSH key you created the next time you create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
 
 ## Mount the NFS share
 
