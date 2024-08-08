@@ -62,7 +62,7 @@ The following steps set up [Azure storage](../storage/common/storage-introductio
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
-1. [Follow these steps to create a storage account](../storage/common/storage-account-create.md#tabs=azure-portal) unless you already have one.
+1. [Follow these steps to create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal) unless you already have one.
 
    On the **Basics** tab, provide the following information:
 
@@ -197,7 +197,11 @@ For more information, see [Create your first function in the Azure portal](../az
 
 1. On the function app menu, select **Overview**. On the **Functions** tab, select **Create**.
 
-1. On the **Create function** pane, select **HTTP trigger** > **Next**.
+1. On the **Create function** pane, select **HTTP trigger: C#** > **Next**.
+
+   > [!NOTE]
+   >
+   > If you don't see the C# version, make sure to 
 
 1. Provide the following information for your function, and select **Create**:
 
@@ -217,7 +221,7 @@ For more information, see [Create your first function in the Azure portal](../az
    using Newtonsoft.Json;
    using System.Text.RegularExpressions;
 
-   public static async Task<IActionResult> Run(HttpRequest req, ILogger log) 
+   public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
    {
       log.LogInformation("HttpWebhook triggered");
 
@@ -230,7 +234,7 @@ For more information, see [Create your first function in the Azure portal](../az
       updatedBody = updatedBody.Replace(@"&nbsp;", " ");
 
       // Return cleaned text
-      return (ActionResult)new OkObjectResult(new { updatedBody });
+      return (ActionResult)new OkObjectResult(new {updatedBody});
    }
    ```
 
