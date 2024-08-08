@@ -3,7 +3,7 @@ title: 'Create a mesh network topology with Azure Virtual Network Manager'
 description: Learn how to create a mesh network topology with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 05/07/2024
 ms.custom: engagement-fy23

@@ -3,7 +3,7 @@ title: Configure alerts - Azure Cosmos DB for PostgreSQL
 description: See how to configure and access metric alerts for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 3/16/2020

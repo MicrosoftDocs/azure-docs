@@ -5,7 +5,7 @@ author: aditivgupta
 ms.author: adig
 ms.reviewer: maghan
 ms.date: 05/21/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: single-server
 ms.topic: how-to
 ---

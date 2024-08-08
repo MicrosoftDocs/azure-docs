@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: In this article, learn about load balancing across primary and secondary IP configurations using Azure PowerShell.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: mbender

@@ -2,8 +2,8 @@
 title: How to configure a cloud service (classic) - Portal | Microsoft Docs
 description: Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure portal.
 ms.topic: article
-ms.service: cloud-services
-ms.subservice: deployment-files
+ms.service: azure-cloud-services-classic
+ms.subservice: config-package-files
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah

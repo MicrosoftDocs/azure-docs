@@ -2,8 +2,13 @@
 title: Migrate Bing Maps Data Source Management and Query API to Azure Maps API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Data Source Management and Query API to the appropriate Azure Maps API.
+<<<<<<< HEAD
 author: faterceros
 ms.author: aterceros
+=======
+author: FarazGIS
+ms.author: fsiddiqui
+>>>>>>> 89a6b4b3c47812a32bf48929af987e51ca6670ea
 ms.date: 05/15/2024
 ms.topic: how-to
 ms.service: azure-maps

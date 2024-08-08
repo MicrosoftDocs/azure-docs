@@ -813,7 +813,8 @@ The managed VNet is automatically provisioned when you create a compute instance
 
 To reduce the wait time and avoid potential timeout errors, we recommend manually provisioning the managed network. Then wait until the provisioning completes before you create a compute instance.
 
-To create an online deployment, you must manually provision the managed network, or create a compute instance first which will automatically provision it. 
+> [!NOTE]
+> To create an online deployment, you must manually provision the managed network, or create a compute instance first which will automatically provision it. 
 
 # [Azure CLI](#tab/azure-cli)
 

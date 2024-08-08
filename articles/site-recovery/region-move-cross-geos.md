@@ -2,7 +2,7 @@
 title: Move Azure virtual machines between government and public regions with Azure Site Recovery 
 description: Use Azure Site Recovery to move Azure virtual machines between Azure Government and public regions.
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 07/08/2024
 ms.author: ankitadutta

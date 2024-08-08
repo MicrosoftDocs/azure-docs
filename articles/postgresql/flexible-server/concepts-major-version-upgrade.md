@@ -4,7 +4,7 @@ description: Learn how to use Azure Database for PostgreSQL - Flexible Server to
 author: varun-dhawan
 ms.author: varundhawan
 ms.date: 7/15/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---

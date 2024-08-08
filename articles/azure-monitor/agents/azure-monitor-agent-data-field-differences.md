@@ -26,6 +26,13 @@ This table collects log data from the Internet Information Service on Window sys
 | sSiteName | Not be populated | depends on customer data collection configuration | The MMA agent could turn on collection by default, but by principle is restricted from making configuration changes in other services.<p>Enable the `Service Name (s-sitename)` field in W3C logging of IIS. See [Select W3C Fields to Log](/iis/manage/provisioning-and-managing-iis/configure-logging-in-iis#select-w3c-fields-to-log).|
 | Fileuri | No longer populated | not required for MMA parity | MMA doesn't collect this field. This field was only populated for IIS logs collected from Azure Cloud Services through the Azure Diagnostics Extension.|
 
+### Windows event table
+This table collects Events from the Windows Event log. There are two other tables that are used to store Windows events, the SecurityEvent and Event tables.
+
+|LAW Field | Difference | Reason| Additional Information |
+|---|---|---|---|
+| UserName | MMA enriches the event with the username prior to sending the event for ingestion. AMA do not do the same enrichment. | The AMA enrichment is not yet implemented. | AMA principles dictate that the event data should remain unchanged by default. Adding and enriched field adds possible processing errors and additional cost for storage. In this case, the customer demand for the field is very high and work is underway to add the username. |
+
 
 ## Next steps
 - [Azure Monitor Agent migration helper workbook](./azure-monitor-agent-migration-helper-workbook.md)

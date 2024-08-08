@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy & configure Azure Firewall and policy using the Azure p
 description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy rules using the Azure portal. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: tutorial
 ms.date: 06/06/2024
 ms.author: victorh

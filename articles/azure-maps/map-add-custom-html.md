@@ -4,7 +4,7 @@ description: Learn how to add HTML markers to maps. See how to use the Azure Map
 author: sinnypan
 ms.author: sipa
 ms.date: 05/17/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
 ---

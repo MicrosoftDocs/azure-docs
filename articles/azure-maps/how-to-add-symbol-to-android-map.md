@@ -4,10 +4,10 @@ description: Learn how to add a marker to a map. See an example that uses the Az
 author: sinnypan
 ms.author: sipa
 ms.date: 2/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: android-sdk
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 

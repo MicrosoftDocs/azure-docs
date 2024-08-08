@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Get started learning how to configure and manage the backend pool of an Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/26/2024
 ms.author: mbender 

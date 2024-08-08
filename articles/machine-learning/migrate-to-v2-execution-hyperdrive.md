@@ -3,7 +3,7 @@ title: Upgrade hyperparameter tuning to SDK v2
 titleSuffix: Azure Machine Learning
 description: Upgrade hyperparameter tuning from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 author: sdgilley

@@ -9,20 +9,20 @@ ms.reviewer: merae
 ms.service: cosmos-db
 ms.custom: references_regions
 ms.topic: overview
-ms.date: 11/07/2022
+ms.date: 07/23/2024
 ---
 
 # Try Azure Cosmos DB free
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table, PostgreSQL](includes/appliesto-nosql-mongodb-cassandra-gremlin-table-postgresql.md)]
 
-[Try Azure Cosmos DB](https://aka.ms/trycosmosdb) makes it easy to try out Azure Cosmos DB for free before you commit. There's no credit card required to get started. Your account is free for 30 days. After expiration, a new sandbox account can be created. You can extend beyond 30 days for 24 hours. You can upgrade your active Try Azure Cosmos DB account at any time during the 30 day trial period.
+[Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for free before you commit with an Azure Cosmos DB sandbox account. There's no credit card required to get started. Your sandbox account is free for 30 days.  Your data is deleted at the expiration date.   
 
-If you're using the API for NoSQL or PostgreSQL, you can also migrate your Try Azure Cosmos DB data to your upgraded account before the trial ends.
+You can also upgrade your active trial sandbox account to a paid Azure subscription  at any time during the 30-day trial period.  You can only have one Try Azure Cosmos DB sandbox account at a time.  If you're using the API for NoSQL or PostgreSQL, after you upgrade to a paid Azure subscription and create a new Azure Cosmos DB account you can migrate the data from your Try Azure Cosmos DB sandbox account to your upgraded Azure subscription and Azure Cosmos DB account before the trial ends.
 
-This article walks you through how to create your account, limits, and upgrading your account. This article also walks through how to migrate your data from your Try Azure Cosmos DB sandbox to your own account using the API for NoSQL.
+This article walks you through how to create your Try Azure Cosmos DB sandbox account, limits, and upgrading your account. It will also explain how to migrate your data from your Azure Cosmos DB sandbox to your own account using the API for NoSQL.
 
-If you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
+When you decide that Azure Cosmos DB is right for you, you can receive up to a 63% discount on  [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
 
 <br>
 
@@ -32,7 +32,7 @@ If you decide that Azure Cosmos DB is right for you, you can receive up to 63% d
 
 ### [NoSQL / Cassandra/ Gremlin / Table](#tab/nosql+cassandra+gremlin+table)
 
-The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
+The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for free trial sandbox.
 
 | Resource | Limit |
 | --- | --- |
@@ -42,15 +42,15 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 | Maximum throughput per shared-throughput database | 20,000 |
 | Maximum total storage per account | 10 GB |
 
-¹ A new trial can be requested after expiration.
-² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
+¹ A new Try Azure Cosmos DB sandbox account can be requested after expiration.
+² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored to an enterprise subscription.
 
 > [!NOTE]
-> Try Azure Cosmos DB supports global distribution in only the **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans. If the account exceeds the maximum resource limits, it's automatically deleted.
+> The Try Azure Cosmos DB sandbox account supports global distribution in only the  **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. By default, the Try Azure Cosmos DB sandbox account is created in East US.  Azure support tickets can't be created for Try Azure Cosmos DB sandbox accounts. If the account exceeds the maximum resource limits, it's automatically deleted.  Don’t use personal or sensitive data in your sandbox database during the trial period.
 
 ### [MongoDB](#tab/mongodb)
 
-The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
+The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) free trial sandbox.
 
 | Resource | Limit |
 | --- | --- |
@@ -60,15 +60,15 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 | Maximum throughput per shared-throughput database | 20,000 |
 | Maximum total storage per account | 10 GB |
 
-¹ A new trial can be requested after expiration.
-² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
+¹ A new Try Azure Cosmos DB sandbox account can be requested after expiration
+² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored to an enterprise subscription.
 
 > [!NOTE]
-> Try Azure Cosmos DB supports global distribution in only the **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans. If the account exceeds the maximum resource limits, it's automatically deleted.
+> The Try Azure Cosmos DB sandbox account supports global distribution in only the  **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. By default, the Try Azure Cosmos DB sandbox account is created in East US.  Azure support tickets can't be created for Try Azure Cosmos DB sandbox accounts. If the account exceeds the maximum resource limits, it's automatically deleted.  Don’t use personal or sensitive data in your sandbox database during the trial period.
 
 ### [PostgreSQL](#tab/postgresql)
 
-The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
+The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) free trial sandbox.
 
 | Resource | Limit |
 | --- | --- |
@@ -78,8 +78,11 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 | Memory (GiB) | 8 |
 | Maximum storage size (GiB) | 128 |
 
-¹ A new trial can be requested after expiration.
-² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored. If the account exceeds the maximum resource limits, it's automatically deleted.
+¹ A new Try Azure Cosmos DB sandbox account can be requested after expiration. 
+² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored to an enterprise subscription.
+
+> [!NOTE]
+> The Try Azure Cosmos DB sandbox account supports global distribution in only the  **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. By default, the Try Azure Cosmos DB sandbox account is created in East US.  Azure support tickets can't be created for Try Azure Cosmos DB sandbox accounts. If the account exceeds the maximum resource limits, it's automatically deleted.  Don’t use personal or sensitive data in your sandbox database during the trial period.
 
 ---
 
@@ -109,7 +112,7 @@ You can also get started with one of the learning resources in the Data Explorer
 
 ## Upgrade your account
 
-Your account is free for 30 days. After expiration, a new sandbox account can be created. You can upgrade your active Try Azure Cosmos DB account at any time during the 30 day trial period. Here are the steps to start an upgrade.
+Your Try Azure Cosmos DB sandbox account is free for 30 days. After expiration, a new sandbox account can be created. You can upgrade your active Try Azure Cosmos DB account at any time during the 30 day trial period.  .  If you're using the API for NoSQL or PostgreSQL, after you upgrade to a paid Azure subscription and create a new Azure Cosmos DB account you can migrate the data from your Try Azure Cosmos DB sandbox account to your upgraded Azure subscription and Azure Cosmos DB account before the trial ends.  Here are the steps to start an upgrade.
 
 ### Start upgrade
 
@@ -136,7 +139,7 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 ### Move data to new account
 
-If you desire, you can migrate your existing data from the free account to the newly created account.
+If you desire, you can migrate your existing data from the free sandbox account to the newly created account.
 
 #### [NoSQL](#tab/nosql)
 
@@ -177,13 +180,17 @@ If you desire, you can migrate your existing data from the free account to the n
 
 ## Delete your account
 
-There can only be one free Try Azure Cosmos DB account per Microsoft account. You may want to delete your account or to try different APIs, you'll have to create a new account. Here’s how to delete your account.
+There can only be one free Try Azure Cosmos DB sandbox account per Microsoft account. You may want to delete your account or to try different APIs, you'll have to create a new account. Here’s how to delete your account.
 
 1. Go to the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) page.
 
 1. Select **Delete my account**.
 
     :::image type="content" source="media/try-free/delete-account.png" lightbox="media/try-free/delete-account.png" alt-text="Screenshot of the confirmation page for the account deletion experience.":::
+
+## Comments
+
+Use the **Feedback** icon in the command bar of the Data Explorer to give the product team any comments you have about the Try Azure Cosmos DB sandbox experience.
 
 ## Next steps
 

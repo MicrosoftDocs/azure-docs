@@ -135,7 +135,7 @@ For more information, see [Export or delete personal data from Azure DevTest Lab
 
 Enabling the key vault service endpoint affects only the firewall. Make sure to configure the appropriate key vault access permissions in the key vault **Access policies** section.
 
-For more information, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md).
+For more information, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy).
 
 ## Next steps
 

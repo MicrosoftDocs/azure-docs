@@ -1,8 +1,13 @@
 ---
 title: Zoom levels and tile grid in Microsoft Azure Maps
 description: Learn how to set zoom levels in Azure Maps. See how to convert geographic coordinates into pixel coordinates, tile coordinates, and quadkeys. View code samples.
+<<<<<<< HEAD
 author: faterceros
 ms.author: aterceros
+=======
+author: FarazGIS
+ms.author: fsiddiqui
+>>>>>>> 89a6b4b3c47812a32bf48929af987e51ca6670ea
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps

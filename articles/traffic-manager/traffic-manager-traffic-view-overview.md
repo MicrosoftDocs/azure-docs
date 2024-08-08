@@ -3,7 +3,7 @@ title: Traffic View in Azure Traffic Manager
 description: In this introduction, learn how Traffic manager Traffic view works.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: conceptual
 ms.date: 03/22/2023
 ms.author: greglin

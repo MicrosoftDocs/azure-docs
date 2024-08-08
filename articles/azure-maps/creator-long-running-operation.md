@@ -4,7 +4,7 @@ description: Learn about long-running asynchronous background processing in Azur
 author: faterceros
 ms.author: aterceros
 ms.date: 12/07/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: creator
 ms.custom: mvc

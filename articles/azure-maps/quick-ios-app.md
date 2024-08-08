@@ -7,7 +7,6 @@ ms.date: 11/23/2021
 ms.topic: quickstart
 ms.service: azure-maps
 ms.subservice: ios-sdk
-ms.custom: mode-other
 ---
 
 # Create an iOS app (Preview)

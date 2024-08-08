@@ -244,7 +244,7 @@ appgateways:
 
 Secure the secrets your Orchestrator uses to connect to Azure AD B2C, and other identity systems. Maverics load secrets in plain text out of `maverics.yaml`, however, in this tutorial, use Azure Key Vault as the secrets provider.
 
-Follow the instructions in, [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md). Add your secrets to the vault and make a note of the `SECRET NAME` for each secret. For example, `AzureADB2CClientSecret`.
+Follow the instructions in, [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal). Add your secrets to the vault and make a note of the `SECRET NAME` for each secret. For example, `AzureADB2CClientSecret`.
 
 To declare a value as a secret in a `maverics.yaml` config file, wrap the secret with angle brackets:
 

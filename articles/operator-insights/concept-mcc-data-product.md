@@ -4,7 +4,7 @@ description: This article gives an overview of the Azure Operator Insights Data 
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 10/25/2023
 

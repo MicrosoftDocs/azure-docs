@@ -2,7 +2,7 @@
 title: Best practices for scaling provisioned throughput (RU/s)
 description: Learn best practices for scaling provisioned throughput for manual and autoscale throughput
 author: deborahc
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.date: 08/20/2021
 ms.author: dech

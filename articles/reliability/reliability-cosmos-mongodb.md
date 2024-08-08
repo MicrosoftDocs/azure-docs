@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Cosmos DB for MongoDB vCore
 author: anaharris-ms
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: concept-article
 ms.date: 03/11/2024

@@ -8,7 +8,7 @@ ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: rest-sdk
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Java REST SDK Developers Guide (preview)

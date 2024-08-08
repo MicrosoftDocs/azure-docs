@@ -5,7 +5,7 @@ author: biqian
 
 ms.author: biqian
 ms.date: 06/01/2023
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ---
 

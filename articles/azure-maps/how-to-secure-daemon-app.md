@@ -3,7 +3,11 @@ title: How to secure a daemon application in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: This article describes how to host daemon applications, such as background processes, timers, and jobs in a trusted and secure environment in Microsoft Azure Maps.
 author: pbrasil
+<<<<<<< HEAD
 ms.author: peterbr
+=======
+ms.author: peterbr 
+>>>>>>> 89a6b4b3c47812a32bf48929af987e51ca6670ea
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -30,16 +34,16 @@ The following are examples of daemon applications:
 
 ## Scenario: Shared key authentication with Azure Key Vault
 
-Applications that use Shared Key authentication, should store the keys in a secure store. This scenario describes how to safely store your application key as a secret in Azure Key Vault. Instead of storing the shared key in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, we recommend that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
+Applications that use Shared Key authentication, should store the keys in a secure store. This scenario describes how to safely store your application key as a secret in Azure Key Vault. Instead of storing the shared key in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, we recommend that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](/azure/key-vault/general/developers-guide).
 
 >[!IMPORTANT]
 >This scenario indirectly accesses Microsoft Entra ID through Azure Key Vault. However, we recommend that you use Microsoft Entra authentication directly. Using Microsoft Entra ID directly avoids the additional complexity and operational requirements of using shared key authentication and setting up Key Vault.
 
 The following steps outline this process:
 
-1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
+1. [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 2. Create an [Microsoft Entra service principal](../active-directory/fundamentals/service-accounts-principal.md) by creating an App registration or managed identity. The created principal is responsible for accessing the Azure Key Vault.
-3. Assign the service principal access to Azure Key secrets `get` permission. For details about how to set permissions, see [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
+3. Assign the service principal access to Azure Key secrets `get` permission. For details about how to set permissions, see [Assign a Key Vault access policy using the Azure portal](/azure/key-vault/general/assign-access-policy-portal).
 4. Temporarily assign access to secrets `set` permission for you as the developer.
 5. Set the shared key in the Key Vault secrets and reference the secret ID as configuration for the daemon application.
 6. Remove your secrets `set` permission.
@@ -48,7 +52,7 @@ The following steps outline this process:
 Now, the daemon application can retrieve the shared key from the Key Vault.
 
 > [!TIP]
-> If the app is hosted in the Azure environment, we recommend that you use a managed identity to reduce the cost and complexity of managing a secret for authentication. To learn how to set up a managed identity, see [Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
+> If the app is hosted in the Azure environment, we recommend that you use a managed identity to reduce the cost and complexity of managing a secret for authentication. To learn how to set up a managed identity, see [Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET](/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
 
 <a name='scenario-azure-ad-role-based-access-control'></a>
 
@@ -175,7 +179,7 @@ To create a client secret:
       :::image type="content" border="true" source="./media/how-to-manage-authentication/copy-client-secret.png" alt-text="Copy client secret.":::
 
      >[!IMPORTANT]
-     >To securely store the certificate or secret, see the [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md). You'll use this secret to get tokens from Microsoft Entra ID.
+     >To securely store the certificate or secret, see the [Azure Key Vault Developer Guide](/azure/key-vault/general/developers-guide). You'll use this secret to get tokens from Microsoft Entra ID.
 
 [!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 

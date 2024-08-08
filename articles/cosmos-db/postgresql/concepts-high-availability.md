@@ -3,7 +3,7 @@ title: High availability – Azure Cosmos DB for PostgreSQL
 description: High availability and disaster recovery concepts
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 04/15/2024

@@ -3,7 +3,7 @@ title:  "Export Data: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Use the Export Data component in Azure Machine Learning designer to save results and intermediate data outside of Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

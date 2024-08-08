@@ -4,7 +4,7 @@ description: Learn how to configure your API for MongoDB account capabilities.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 05/10/2023

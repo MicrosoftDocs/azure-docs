@@ -4,7 +4,7 @@ description: This article demonstrates how to add a drawing toolbar to a map usi
 author: sinnypan
 ms.author: sipa
 ms.date: 05/23/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
 ---
@@ -42,7 +42,7 @@ For a complete working sample of how to use the drawing tools to draw polygon ar
 
 ### Draw and search in polygon area
 
-This code searches for points of interests inside the area of a shape after the user finished drawing the shape. You can modify and execute the code by clicking 'Edit on Code pen' on the top-right corner of the frame. The `drawingcomplete` event is used to trigger the search logic. If the user draws a rectangle or polygon, a search inside geometry is performed. If a circle is drawn, the radius and center position is used to perform a point of interest search. The `drawingmodechanged` event is used to determine when the user switches to the drawing mode, and this event clears the drawing canvas.
+This code searches for points of interests inside the area of a shape after the user finished drawing the shape. The `drawingcomplete` event is used to trigger the search logic. If the user draws a rectangle or polygon, a search inside geometry is performed. If a circle is drawn, the radius and center position is used to perform a point of interest search. The `drawingmodechanged` event is used to determine when the user switches to the drawing mode, and this event clears the drawing canvas.
 
 For a complete working sample of how to use the drawing tools to search for points of interests within drawn areas, see [Draw and search polygon area] in the [Azure Maps Samples]. For the source code for this sample, see [Draw and search polygon area sample code].
 

@@ -1,7 +1,7 @@
 ---
 title: Apache Ambari stale alerts in Azure HDInsight
 description: Discussion and analysis of possible reasons and solutions for Apache Ambari stale alerts in HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.date: 03/23/2024
 ---

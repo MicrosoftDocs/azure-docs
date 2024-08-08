@@ -3,7 +3,7 @@ title: Sharding models - Azure Cosmos DB for PostgreSQL
 description: What is sharding, and what sharding models are available in Azure Cosmos DB for PostgreSQL
 ms.author: adamwolk
 author: mulander
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 09/08/2023

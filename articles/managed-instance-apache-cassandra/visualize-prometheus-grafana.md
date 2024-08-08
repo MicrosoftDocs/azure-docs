@@ -2,7 +2,7 @@
 title: Configure Grafana to visualize metrics emitted from Azure Managed Instance for Apache Cassandra
 description: Learn how to install and configure Grafana in a VM to visualize metrics emitted from an Azure Managed Instance for Apache Cassandra cluster.
 author: TheovanKraay
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/16/2021
 ms.author: thvankra

@@ -3,7 +3,7 @@ title: Capture data from Event Hubs into Azure Data Lake Storage Gen2 in Parquet
 description: Learn how to use the node code editor to automatically capture the streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Parquet format.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/15/2023

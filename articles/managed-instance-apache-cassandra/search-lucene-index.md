@@ -3,7 +3,7 @@ title: Quickstart - Search Azure Managed Instance for Apache Cassandra using Str
 description: This quickstart shows how to search Azure Managed Instance for Apache Cassandra cluster using Stratio's Cassandra Lucene Index.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 04/17/2023
 ---

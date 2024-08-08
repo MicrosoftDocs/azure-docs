@@ -2,7 +2,7 @@
 title: Create and configure a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release)
 description: In this article, learn how to create and configure a key vault for Azure Disk Encryption with Microsoft Entra ID.
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref
 
 **The new release of Azure Disk Encryption eliminates the requirement for providing a Microsoft Entra application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Microsoft Entra credentials during the enable encryption step. All new VMs must be encrypted without the Microsoft Entra application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption](disk-encryption-overview.md). VMs that were already encrypted with Microsoft Entra application parameters are still supported and should continue to be maintained with the Microsoft Entra syntax.**
 
-Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md).
+Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](/azure/key-vault/general/overview) and [Secure your key vault](/azure/key-vault/general/security-features).
 
 Creating and configuring a key vault for use with Azure Disk Encryption with Microsoft Entra ID (previous release) involves three steps:
 
@@ -33,7 +33,7 @@ See the main [Creating and configuring a key vault for Azure Disk Encryption](di
 
 
 ## Create a key vault
-Azure Disk Encryption is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault.
+Azure Disk Encryption is integrated with [Azure Key Vault](/azure/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [Get started with Azure Key Vault](/azure/key-vault/general/overview) and [Secure your key vault](/azure/key-vault/general/security-features). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault.
 
 
 >[!WARNING]
@@ -160,7 +160,7 @@ Your Microsoft Entra application needs rights to access the keys or secrets in t
 <a name='set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli'></a>
 
 ### Set the key vault access policy for the Microsoft Entra app with Azure CLI
-Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) to set the access policy. For more information, see [Manage Key Vault using CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
+Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) to set the access policy. For more information, see [Manage Key Vault using CLI 2.0](/azure/key-vault/general/manage-with-cli2#authorizing-an-application-to-use-a-key-or-secret).
 
 Give the service principal you created via the Azure CLI access to get secrets and wrap keys with the following command:
 
@@ -238,7 +238,7 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 
 
 ## Set up a key encryption key (optional)
-If you want to use a key encryption key (KEK) for an additional layer of security for encryption keys, add a KEK to your key vault. Use the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to create a key encryption key in the key vault. You can also import a KEK from your on-premises key management HSM. For more information, see [Key Vault Documentation](../../key-vault/keys/hsm-protected-keys.md). When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault.
+If you want to use a key encryption key (KEK) for an additional layer of security for encryption keys, add a KEK to your key vault. Use the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to create a key encryption key in the key vault. You can also import a KEK from your on-premises key management HSM. For more information, see [Key Vault Documentation](/azure/key-vault/keys/hsm-protected-keys). When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault.
 
 * When generating keys, use an RSA key type. Azure Disk Encryption doesn't yet support using Elliptic Curve keys.
 

@@ -2,7 +2,7 @@
 title: Learn about hibernating your Linux virtual machine
 description: Learn how to hibernate a Linux virtual machine.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 05/20/2024
 ms.author: jainan

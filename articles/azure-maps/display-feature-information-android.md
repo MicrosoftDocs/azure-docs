@@ -4,10 +4,10 @@ description: Learn how to display information when users interact with map featu
 author: sinnypan
 ms.author: sipa
 ms.date: 2/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: android-sdk
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 
