@@ -57,7 +57,7 @@ The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document
 * [🆕 US Tax model](concept-tax-document.md)
   * New unified US tax model that can extract from forms such as W-2, 1098, 1099, and 1040.
 * 🆕 Searchable PDF. The [prebuilt read](concept-read.md) model now supports [PDF output](concept-read.md#searchable-pdf)  to download PDFs with embedded text from extraction results, allowing for PDF to be utilized in scenarios such as search copy of contents.
-* [Layout model](concept-layout.md) now supports improved [figure detection](concept-layout.md#figures) where figures from documents can now be downloaded as an image file to be used for further figure understanding. The layout model also features improvements to the OCR model for scanned text targeting improvements for single characters, boxed text and dense text documents.
+* [Layout model](concept-layout.md) now supports improved [figure detection](concept-layout.md#figures) where figures from documents can now be downloaded as an image file to be used for further figure understanding. The layout model also features improvements to the OCR model for scanned text targeting improvements for single characters, boxed text, and dense text documents.
 * [🆕 Batch API](concept-batch-analysis.md)
   * Document Intelligence now adds support for batch analysis operation to support analyzing a set of documents to simplify developer experience and improve efficiency.
 * [Add-on capabilities](concept-add-on-capabilities.md)
