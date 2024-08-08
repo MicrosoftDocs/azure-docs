@@ -20,40 +20,9 @@ Content in this article is intended for your **SAP BASIS** teams.
 
 Make sure that your system complies with the prerequisites documented in the main [SAP data connector prerequisites document](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) before you start.
 
-## Create your Azure key vault
+## Manually add SAP data connector agent Azure Key Vault secrets
 
-Create an Azure key vault that you can dedicate to your Microsoft Sentinel solution for SAP® applications data connector.
-
-Run the following command to create your Azure key vault and grant access to an Azure service principal:
-
-``` azurecli
-kvgp=<KVResourceGroup>
-
-kvname=<keyvaultname>
-
-spname=<sp-name>
-
-kvname=<keyvaultname>
-# Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
-az ad sp create-for-rbac –name $spname --role Contributor --scopes /subscriptions/<subscription_id>
-
-SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
-
-#Create key vault
-az keyvault create \
-  --name $kvname \
-  --resource-group $kvgp
-  
-# Add access to SP
-az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID --secret-permissions get list set
-```
-
-For more information, see .
--->
-
-## Add Azure Key Vault secrets
-
-To add Azure Key Vault secrets, run the following script, with your own system ID and the credentials you want to add:
+Use the following script to manually add SAP system secrets to your key vault. Make sure to replace the placeholders with your own system ID and the credentials you want to add:
 
 ```azurecli
 #Add Abap username
@@ -105,7 +74,7 @@ az keyvault secret set \
   --description SECRET_AZURE_LOG_WS_PUBLIC_KEY --vault-name $kvname
 ```
 
-For more information, see the [Quickstart: Create a key vault using the Azure CLI](../../key-vault/general/quick-create-cli.md) and the [az keyvault secret](/cli/azure/keyvault/secret) CLI documentation.
+For more information, see the [Quickstart: Create a key vault using the Azure CLI](../../key-vault/general/quick-create-cli) and the [az keyvault secret](/cli/azure/keyvault/secret) CLI documentation.
 
 ## Perform an expert / custom installation
 
@@ -147,7 +116,7 @@ This procedure describes how to deploy the Microsoft Sentinel for SAP data conne
 
     For more information, see [Manually configure the Microsoft Sentinel for SAP data connector](#manually-configure-the-microsoft-sentinel-for-sap-data-connector) and [Define the SAP logs that are sent to Microsoft Sentinel](#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-    To test your configuration, you may want to add the user and password directly to the **systemconfig.json** configuration file. While we recommend that you use [Azure Key vault](#manually-add-sap-data-connector-agent-azure-key-vault-secrets) to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-microsoft-sentinel-for-sap-data-connector), or you can add your credentials directly to the **systemconfig.json** file.
+    To test your configuration, you may want to add the user and password directly to the **systemconfig.json** configuration file. While we recommend that you use Azure Key vault to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-microsoft-sentinel-for-sap-data-connector), or you can add your credentials directly to the **systemconfig.json** file.
 
     For more information, see [SAL logs connector configurations](#sal-logs-connector-settings).
 
