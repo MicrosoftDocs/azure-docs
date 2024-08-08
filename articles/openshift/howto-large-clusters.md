@@ -5,11 +5,11 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 07/10/2024
+ms.date: 08/08/2024
 ---
 # Deploy a large Azure Red Hat OpenShift cluster
 
-This article provides the steps and best practices for deploying large scale Azure Red Hat OpenShift clusters up to 180 nodes. For clusters of that size, a combination of control plane nodes and infrastructure nodes to ensure the cluster functions properly is recommended.
+This article provides the steps and best practices for deploying large scale Azure Red Hat OpenShift clusters up to 250 nodes. For clusters of that size, a combination of control plane nodes and infrastructure nodes to ensure the cluster functions properly is recommended.
 
 ## Deploy a cluster
 
@@ -42,7 +42,7 @@ For instructions on configuring infrastructure nodes, see [Deploy infrastructure
 
 ## Add IP addresses to the cluster
 
-A maximum of 20 IP addresses can be added to a load balancer. One (1) IP address is needed per 65 nodes, so a cluster with 180 nodes requires a minimum of three (3) IP addresses.
+A maximum of 20 IP addresses can be added to a load balancer. One (1) IP address is needed per 65 nodes, so a cluster with 250 nodes requires a minimum of four (4) IP addresses.
 
 To add IP addresses to the load balancer using Azure CLI, run the following command:
 
