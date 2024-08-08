@@ -6,7 +6,7 @@ author: greg-lindsay
 manager: kumudD
 ms.service: azure-traffic-manager
 ms.topic: troubleshooting
-ms.date: 05/03/2017
+ms.date: 08/08/2024
 ms.author: greglin
 ---
 

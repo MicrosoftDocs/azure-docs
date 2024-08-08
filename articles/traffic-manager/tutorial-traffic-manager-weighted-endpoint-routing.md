@@ -5,7 +5,7 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: azure-traffic-manager
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-tutorial
 # Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
