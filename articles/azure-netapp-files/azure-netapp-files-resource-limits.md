@@ -140,7 +140,7 @@ You can create an Azure support request to increase the adjustable limits from t
 
     1. Under **Are you having one of the following issues?**, select **Storage: Azure NetApp Files limits** then **Next**.
     
-    :::image type="content" source="./media/azure-netapp-files-resource-limits/support-service.png" alt-text="Screenshot showing the option to choose Azure NetApp Files limits as an issue." lightbox="./media/azure-netapp-files-resource-limits/support-service.png":::
+    :::image type="content" source="./media/azure-netapp-files-resource-limits/support-issue.png" alt-text="Screenshot showing the option to choose Azure NetApp Files limits as an issue." lightbox="./media/azure-netapp-files-resource-limits/support-issue.png":::
 
     1. Select **Create a supoprt request**. 
 
