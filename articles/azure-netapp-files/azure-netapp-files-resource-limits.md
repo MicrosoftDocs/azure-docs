@@ -134,7 +134,7 @@ You can create an Azure support request to increase the adjustable limits from t
 
     :::image type="content" source="./media/azure-netapp-files-resource-limits/support-service.png" alt-text="Screenshot of choosing a service option." lightbox="./media/azure-netapp-files-resource-limits/support-service.png":::
 
-    1. Under **Which resource are you having an issue with?**, locate and select your subscription then locate and select your resource (the NetApp account).
+    1. Under **Which resource are you having an issue with?**, locate and select your subscription. Then locate and select your resource (the NetApp account).
     
     :::image type="content" source="./media/azure-netapp-files-resource-limits/support-resource.png" alt-text="Screenshot with the option to select your subscription and resource." lightbox="./media/azure-netapp-files-resource-limits/support-resource.png":::
 
@@ -142,7 +142,7 @@ You can create an Azure support request to increase the adjustable limits from t
     
     :::image type="content" source="./media/azure-netapp-files-resource-limits/support-issue.png" alt-text="Screenshot showing the option to choose Azure NetApp Files limits as an issue." lightbox="./media/azure-netapp-files-resource-limits/support-issue.png":::
 
-    1. Select **Create a supoprt request**. 
+    1. Select **Create a support request**. 
 
 1. Under the **Problem description** tab, provide the required information:
     1. For **Issue Type**, select **Service and Subscription Limits (Quotas)**.
