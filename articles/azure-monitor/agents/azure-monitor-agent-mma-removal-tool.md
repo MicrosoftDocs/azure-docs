@@ -29,7 +29,6 @@ Do all the setup steps on an Internet connected machine. You need:
 2. Run the command: `Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile AzureCLI.msi`.
 3. Run the command: `Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'`.
 4. The latest version of Azure CLI will download and install.
-- A [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview) that has**User Access Administrator**, **Reader**, **Virtual Machine Contributor**, and **Azure Arc ScVmm VM Contributor** access on the target scopes.
 
 
 ## Step 1 Login and set subscription

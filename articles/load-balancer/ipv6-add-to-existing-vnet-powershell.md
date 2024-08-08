@@ -5,7 +5,7 @@ description: This article shows how to deploy IPv6 addresses to an existing appl
 services: virtual-network
 author: mbender-ms
 manager: kumudd
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 09/27/2023
 ms.author: mbender
