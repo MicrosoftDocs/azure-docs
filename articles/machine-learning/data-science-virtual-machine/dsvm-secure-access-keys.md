@@ -20,7 +20,7 @@ Cloud application code often contains credentials to authenticate to cloud servi
 
 The [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) feature helps solve the problem. It gives Azure services an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication. Additionally, this identity avoids placement of any embedded credentials in your code.
 
-To secure credentials, use Windows Installer (MSI) in combination with [Azure Key Vault](../../key-vault/index.yml). Azure Key Vault is a managed Azure service that securely stores secrets and cryptographic keys. You can access a key vault by using the managed identity and then retrieve the authorized secrets and cryptographic keys from the key vault.
+To secure credentials, use Windows Installer (MSI) in combination with [Azure Key Vault](/azure/key-vault/). Azure Key Vault is a managed Azure service that securely stores secrets and cryptographic keys. You can access a key vault by using the managed identity and then retrieve the authorized secrets and cryptographic keys from the key vault.
 
 The documentation about Key Vault and managed identities for Azure resources forms a comprehensive resource for in-depth information about these services. This article walks through the basic use of MSI and Key Vault on the Data Science Virtual Machine (DSVM) to access Azure resources.
 

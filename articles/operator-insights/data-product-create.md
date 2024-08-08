@@ -114,7 +114,7 @@ An Azure Key Vault instance stores your Customer Managed Key (CMK) for data encr
 
 # [Portal](#tab/azure-portal)
 
-1. [Create an Azure Key Vault resource](../key-vault/general/quick-create-portal.md) in the same subscription and resource group that you set up in [Create a resource group](#create-a-resource-group).
+1. [Create an Azure Key Vault resource](/azure/key-vault/general/quick-create-portal) in the same subscription and resource group that you set up in [Create a resource group](#create-a-resource-group).
 1. Provide your user account with the Key Vault Administrator role on the Azure Key Vault resource. This is done via the **Access Control (IAM)** tab on the Azure Key Vault resource.
 1. Navigate to the object and select **Keys**. Select **Generate/Import**.
 1. Enter a name for the key and select **Create**.

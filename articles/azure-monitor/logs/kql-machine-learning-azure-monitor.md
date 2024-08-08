@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Analyze the root cause of anomalies
 
 > [!NOTE]
-> This tutorial provides links to a Log Analytics demo environment in which you can run the KQL query examples. However, you can implement the same KQL queries and principals in all [Azure Monitor tools that use KQL](log-query-overview.md). 
+> This tutorial provides links to a Log Analytics demo environment in which you can run the KQL query examples. The data in the demo environment is dynamic, so the query results aren't the same as the query results shown in this article. However, you can implement the same KQL queries and principals in your own environment and all [Azure Monitor tools that use KQL](log-query-overview.md). 
 
 ## Prerequisites
 

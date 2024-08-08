@@ -776,6 +776,8 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-rest-api
@@ -2106,7 +2108,17 @@ groups:
     title: Python
   - id: rest-api
     title: REST
-
+# Owner: mbullwin
+- id: openai-fine-tuning-batch
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-ai-studio
+    title: AI Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 # Owner: mbullwin
 - id: openai-embeddings
   title: Programming languages

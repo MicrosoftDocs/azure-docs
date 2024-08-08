@@ -596,21 +596,20 @@ items:
         displayName: data collection rule, dcr, Azure Monitor pipeline
         href: essentials/data-collection-rule-overview.md
       - name: Best practices
-        displayName: data collection, data collection rules
+        displayName: data collection rules, DCR
         href: essentials/data-collection-rule-best-practices.md
-      - name: View DCRs
+      - name: View and associate
+        displayName: data collection rules, DCR
         href: essentials/data-collection-rule-view.md
-      - name: Create and edit DCRs
-        items:
-        - name: Create
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-create-edit.md
-        - name: Edit tutorial
-          displayName: data collection rules
-          href: essentials/data-collection-rule-edit.md
-        - name: Structure
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-structure.md
+      - name: Create and edit
+        displayName: Data collection rules, DCR
+        href: essentials/data-collection-rule-create-edit.md
+      - name: Edit DCR tutorial
+        displayName: data collection rules
+        href: essentials/data-collection-rule-edit.md
+      - name: Structure
+        displayName: Data collection rules, DCR
+        href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview

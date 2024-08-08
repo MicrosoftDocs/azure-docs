@@ -941,6 +941,9 @@
       - name: Best practices
         displayName: Image builder, images, building, best practices
         href: image-builder-best-practices.md
+      - name: Connecting to Build VM
+        displayName: Image builder, images, building, connecting, build VM
+        href: ./linux/image-builder-connect-to-build-vm.md
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
         href: /azure/reliability/reliability-image-builder?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json

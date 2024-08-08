@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: femila
 ---
 # Customize Remote Desktop Protocol properties for an Azure Virtual Desktop (classic) host pool
 

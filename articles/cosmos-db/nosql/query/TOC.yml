@@ -65,6 +65,11 @@
     - name: Bitwise operators
       displayName: bitwise, binary, operators
       href: bitwise-operators.md
+- name: Vector functions
+  items:
+    - name: VectorDistance
+      displayName: vector, distance, AI
+      href: vectordistance.md
 - name: Aggregate functions
   items:
     - name: AVG
@@ -73,10 +78,10 @@
     - name: COUNT
       displayName: functions, aggregate, count
       href: count.md
-    - name: MAX
+    - name: Maximum
       displayName: functions, aggregate, max, maximum
       href: max.md
-    - name: MIN
+    - name: Minimum
       displayName: functions, aggregate, min, minimum
       href: min.md
     - name: SUM
@@ -90,16 +95,22 @@
     - name: Array functions
       items:
         - name: ARRAY_CONCAT
-          displayName: ARRAY_CONCAT, array concat, array functions
+          displayName: ARRAY_CONCAT, concat, array concat, array functions
           href: array-concat.md
         - name: ARRAY_CONTAINS
-          displayName: ARRAY_CONTAINS, array contains, array functions
+          displayName: ARRAY_CONTAINS, contains, array contains, array functions
           href: array-contains.md
+        - name: ARRAY_CONTAINS_ANY
+          displayName: ARRAY_CONTAINS_ANY, contains, array contains, array contains any, any, array functions
+          href: array-contains-any.md
+        - name: ARRAY_CONTAINS_ALL
+          displayName: ARRAY_CONTAINS_ALL, contains, array contains, array contains all, all, array functions
+          href: array-contains-all.md
         - name: ARRAY_LENGTH
-          displayName: ARRAY_LENGTH, array length, array functions
+          displayName: ARRAY_LENGTH, length, array length, array functions
           href: array-length.md
         - name: ARRAY_SLICE
-          displayName: ARRAY_SLICE, array slice, array functions
+          displayName: ARRAY_SLICE, slice, array slice, array functions
           href: array-slice.md
         - name: CHOOSE
           displayName: CHOOSE, choose, choose index, select item, array functions
@@ -115,7 +126,7 @@
           href: setunion.md
     - name: Conditional functions
       items:
-        - name: IIF
+        - name: Ternary conditional
           displayName: IIF, ternary, ternary conditional operator
           href: iif.md
     - name: Date and time functions
@@ -365,6 +376,12 @@
         - name: StringToObject
           displayName: StringToObject, string to object, built-in functions
           href: stringtoobject.md
+        - name: StringJoin
+          displayName: StringJoin, string join, built-in functions
+          href: stringjoin.md
+        - name: StringSplit
+          displayName: StringSplit, string split, built-in functions
+          href: stringsplit.md
         - name: SUBSTRING
           displayName: SUBSTRING, built-in functions
           href: substring.md
@@ -421,6 +438,6 @@
 - name: Pagination
   displayName: continuation tokens, paging, pagination
   href: pagination.md
-- name: LINQ to NoSQL
+- name: Linq to NoSQL
   displayName: linq, .NET
   href: linq-to-sql.md
