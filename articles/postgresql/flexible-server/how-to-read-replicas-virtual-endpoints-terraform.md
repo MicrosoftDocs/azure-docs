@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.date: 08/08/2024 
 ms.service: azure-database-postgresql
 ms.subservice: flexible-server
-ms.topic: conceptual
+ms.topic: how-to
 ai.usage: ai-assisted
 ---
 
@@ -122,4 +122,4 @@ For additional info about Virtual endpoints, refer to [create virtual endpoints]
 - [Promote read replicas](concepts-read-replicas-promote.md)
 - [Create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
 - [Cross-region replication with virtual network](concepts-networking.md#replication-across-azure-regions-and-virtual-networks-with-private-networking)
-- [Terraform Azure Provider Documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+- [Terraform Azure provider documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
