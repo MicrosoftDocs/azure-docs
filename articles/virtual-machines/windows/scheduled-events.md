@@ -363,9 +363,9 @@ def confirm_scheduled_event(event_id):
     # This payload approves a single event with id event_id
     # You can confirm multiple events in a single request if needed
     payload = json.dumps({"StartRequests": [{"EventId": event_id}]})
-    response = requests.post("http://169.254.169.254/metadata/scheduledevents", 
-                             headers={"Metadata": "true"},
-                             params={"api-version": "2020-07-01"},
+    response = requests.post(metadata_url, 
+                             headers=header,
+                             params=query_params,
                              data=payload)
     return response.status_code
 
@@ -387,7 +387,7 @@ def advanced_sample(last_document_incarnation):
         found_document_incarnation = payload["DocumentIncarnation"]
 
     # We recommend processing all events in a document together,
-    # even if you won't be actioning on them right away
+    # even if you won't be taking action on them right away
     for event in payload["Events"]:
 
         # Events that have already started, logged for tracking
@@ -396,12 +396,12 @@ def advanced_sample(last_document_incarnation):
 
         # Approve all user initiated events. These are typically created by an
         # administrator and approving them immediately can help to avoid delays
-        # in admin actions
+        # in admin actions.
         elif event["EventSource"] == "User":
             confirm_scheduled_event(event["EventId"])
 
         # For this application, freeze events less that 9 seconds are considered
-        # no impact. This will immediately approve them
+        # no impact. This will immediately approve them.
         elif (
             event["EventType"] == "Freeze"
             and int(event["DurationInSeconds"]) >= 0
