@@ -250,6 +250,7 @@ You can also remove a binding from your application.
   
   :::image type="content" source="media/java-components/app-unbind-configserver.png" alt-text="Screenshot of container app unbind with config server."  lightbox="media/java-components/app-unbind-configserver.png":::
 ---
+
 When you visit the app's URL again, the value of `connectTimeout` changes to back to `0`.
 
 ## Clean up resources
