@@ -28,77 +28,77 @@ Release Notes:
  
 Ray: `2.31.0`
 
-nvidia-docker2
+Nvidia-docker2
 
 Tensorflow: `2.15.0`
 
-pandas: `1.3.5`
+Pandas: `1.3.5`
 
-libcurl: `8.4.0`
+Libcurl: `8.4.0`
 
-libzmq5: `4.3.2-2ubuntu1`
+Libzmq5: `4.3.2-2ubuntu1`
 
-less: `551-1ubuntu0.3` 
+Less: `551-1ubuntu0.3` 
 
-libgit2: `0.28.4+dfsg.1-2ubuntu0.1`
+Libgit2: `0.28.4+dfsg.1-2ubuntu0.1`
 
-klibc-utils: `2.0.7-1ubuntu5.2` 
+Klibc-utils: `2.0.7-1ubuntu5.2` 
 
-libklibc: `2.0.7-1ubuntu5.2`
+Libklibc: `2.0.7-1ubuntu5.2`
 
-libc6: `2.31-0ubuntu9.16`
+Libc6: `2.31-0ubuntu9.16`
 
-linux-image-azure: `5.15.0.1045.52`
+Linux-image-azure: `5.15.0.1045.52`
 
-bind9: `1:9.16.48-0ubuntu0`
+Bind9: `1:9.16.48-0ubuntu0`
 
-binutils: `2.34-6ubuntu1.9`
+Binutils: `2.34-6ubuntu1.9`
 
-binutils-multiarch: `2.34-6ubuntu1.9`
+Binutils-multiarch: `2.34-6ubuntu1.9`
 
-libxml2: `2.9.10+dfsg-5ubuntu0`
+Libxml2: `2.9.10+dfsg-5ubuntu0`
 
-libuv1: `1.34.2-1ubuntu1.5`
+Libuv1: `1.34.2-1ubuntu1.5`
 
-curl: `7.68.0-1ubuntu2.22`
+Curl: `7.68.0-1ubuntu2.22`
 
-libcurl3-gnutls: `7.68.0-1ubuntu2.22`
+Libcurl3-gnutls: `7.68.0-1ubuntu2.22`
 
-libcurl3-nss: `7.68.0-1ubuntu2.22`
+Libcurl3-nss: `7.68.0-1ubuntu2.22`
 
-libcurl4: `7.68.0-1ubuntu2.22`
+Libcurl4: `7.68.0-1ubuntu2.22`
 
-util-linux: `2.34-0.1ubuntu9.6`
+Util-linux: `2.34-0.1ubuntu9.6`
 
-libglib2.0-0: `2.64.6-1~ubuntu20.04.7`
+Libglib2.0-0: `2.64.6-1~ubuntu20.04.7`
 
-libglib2.0-bin: `2.64.6-1~ubuntu20.04.7`
+Libglib2.0-bin: `2.64.6-1~ubuntu20.04.7`
 
-gstreamer1.0-plugins-base: `1.16.3-0ubuntu1.3`
+Gstreamer1.0-plugins-base: `1.16.3-0ubuntu1.3`
 
-xserver-xorg-core: `2:1.20.13-1ubuntu1`
+Xserver-xorg-core: `2:1.20.13-1ubuntu1`
 
-xwayland: `2:1.20.13-1ubuntu1`
+Xwayland: `2:1.20.13-1ubuntu1`
 
-libnss3: `2:3.98-0ubuntu0.20.04.2`
+Libnss3: `2:3.98-0ubuntu0.20.04.2`
 
-accountsservice: `0.6.55-0ubuntu12`
+Accountsservice: `0.6.55-0ubuntu12`
 
-libaccountsservice0: `0.6.55-0ubuntu12`
+Libaccountsservice0: `0.6.55-0ubuntu12`
 
-libssl1.1: `1.1.1f-1ubuntu2.22`
+Libssl1.1: `1.1.1f-1ubuntu2.22`
 
-libnode64: `10.19.0~dfsg-3ubuntu1.6`
+Libnode64: `10.19.0~dfsg-3ubuntu1.6`
 
-nodejs: `10.19.0~dfsg-3ubuntu1.6`
+Nodejs: `10.19.0~dfsg-3ubuntu1.6`
 
-libnss3: `2:3.98-0ubuntu0.20.04.2`
+Libnss3: `2:3.98-0ubuntu0.20.04.2`
 
-libgnutls30: `3.6.13-2ubuntu1.11`
+Libgnutls30: `3.6.13-2ubuntu1.11`
 
-cpio: `2.13+dfsg-2ubuntu0.4`
+Cpio: `2.13+dfsg-2ubuntu0.4`
 
-libtss2-esys0: `2.3.2-1ubuntu0`
+Libtss2-esys0: `2.3.2-1ubuntu0`
 
 ## July 3, 2024
 
