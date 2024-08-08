@@ -67,8 +67,6 @@ Stat visualizations can also process time series data and perform simple aggrega
 | 2024-08-08T18:32:00Z   | 50    |
 | ...   | ...    |
 
-This table could be used to demonstrate how the stat visualization can aggregate values over time, such as calculating the average, sum, or other statistics across the "Value" column.
-
 In this scenario, the visualization would display the first value by default. If an aggregation function is specified, it will apply the function to the selected column's values, summarizing the data accordingly.
 
 ## Stat Settings
