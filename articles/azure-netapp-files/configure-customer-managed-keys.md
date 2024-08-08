@@ -79,13 +79,15 @@ Azure NetApp Files customer-managed keys is supported for the following regions:
 * UAE North
 * UK South
 * UK West
-* US Gov Arizona
-* US Gov Texas
-* US Gov Virginia
+* US Gov Arizona*
+* US Gov Texas*
+* US Gov Virginia*
 * West Europe
 * West US
 * West US 2
 * West US 3
+
+\* The ability to transition existing volumes to customer-managed keys isn't currently supported for US Gov regions. 
 
 ## Requirements
 
@@ -367,6 +369,9 @@ Azure NetApp Files supports the ability to move existing volumes using platform-
 
 Encryption key transition for Azure NetApp Files is currently in preview. Before using this feature for the first time, you need to register it. 
 
+>[NOTE]
+> Transitioning volumes to customer-managed keys isn't currently supported in US Gov regions. 
+
 1. Register the feature: 
 
     ```azurepowershell-interactive
@@ -386,7 +391,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ### Transition volumes
 
 >[!NOTE]
->When you transition volumes to use customer-managed keys, you must perform the transition for every virtual network where your Azure NetApp Files account has volumes. 
+> When you transition volumes to use customer-managed keys, you must perform the transition for every virtual network where your Azure NetApp Files account has volumes. 
 
 1. Ensure you [configured your Azure NetApp Files account to use customer-managed keys](#configure-a-netapp-account-to-use-customer-managed-keys).
 1. In the Azure portal, navigate to **Encryption**. 
