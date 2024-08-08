@@ -52,13 +52,185 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-## Structured logs
+## Azure Structured Firewall logs
 
-Monitor Azure Firewall using Structured Logs, which use a predefined schema to structure log data for easy searching, filtering, and analysis. These logs include information such as source and destination IP addresses, protocols, port numbers, and firewall actions. Prioritize setting up Structured Logs as your main log type using Resource Specific Tables instead of the existing AzureDiagnostics table. To enable these logs and explore log categories, see [Azure Structured Firewall Logs](firewall-structured-logs.md).  
+Structured logs are a type of log data that are organized in a specific format. They use a predefined schema to structure log data in a way that makes it easy to search, filter, and analyze. Unlike unstructured logs, which consist of free-form text, structured logs have a consistent format that machines can parse and analyze.
+
+Azure Firewall's structured logs provide a more detailed view of firewall events. They include information such as source and destination IP addresses, protocols, port numbers, and action taken by the firewall. They also include more metadata, such as the time of the event and the name of the Azure Firewall instance.
+
+Currently, the following diagnostic log categories are available for Azure Firewall:
+
+- Application rule log
+- Network rule log
+- DNS proxy log
+
+These log categories use [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode). In this mode, all data from any diagnostic setting is collected in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
+
+With structured logs, you're able to choose to use [Resource Specific Tables](../azure-monitor/essentials/resource-logs.md#resource-specific) instead of the existing [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. In case both sets of logs are required, at least two diagnostic settings need to be created per firewall.
+
+### Resource specific mode
+
+In **Resource specific** mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it:
+
+- Might reduce overall logging costs by up to 80%.
+- makes it much easier to work with the data in log queries
+- makes it easier to discover schemas and their structure
+- improves performance across both ingestion latency and query times
+- allows you to grant Azure RBAC rights on a specific table
+
+New resource specific tables are now available in Diagnostic setting that allows you to utilize the following categories:
+
+- [Network rule log](/azure/azure-monitor/reference/tables/azfwnetworkrule) - Contains all Network Rule log data. Each match between data plane and network rule creates a log entry with the data plane packet and the matched rule's attributes.
+- [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes.
+- [Application rule log](/azure/azure-monitor/reference/tables/azfwapplicationrule) - Contains all Application rule log data. Each match between data plane and Application rule creates a log entry with the data plane packet and the matched rule's attributes.
+- [Threat Intelligence log](/azure/azure-monitor/reference/tables/azfwthreatintel) - Contains all Threat Intelligence events.
+- [IDPS log](/azure/azure-monitor/reference/tables/azfwidpssignature) - Contains all data plane packets that were matched with one or more IDPS signatures.
+- [DNS proxy log](/azure/azure-monitor/reference/tables/azfwdnsquery) - Contains all DNS Proxy events log data.
+- [Internal FQDN resolve failure log](/azure/azure-monitor/reference/tables/azfwinternalfqdnresolutionfailure) - Contains all internal Firewall FQDN resolution requests that resulted in failure.
+- [Application rule aggregation log](/azure/azure-monitor/reference/tables/azfwapplicationruleaggregation) - Contains aggregated Application rule log data for Policy Analytics.
+- [Network rule aggregation log](/azure/azure-monitor/reference/tables/azfwnetworkruleaggregation) - Contains aggregated Network rule log data for Policy Analytics.
+- [NAT rule aggregation log](/azure/azure-monitor/reference/tables/azfwnatruleaggregation) - Contains aggregated NAT rule log data for Policy Analytics.
+- [Top flow log](/azure/azure-monitor/reference/tables/azfwfatflow) - The Top Flows (Fat Flows) log shows the top connections that are contributing to the highest throughput through the firewall.
+- [Flow trace](/azure/azure-monitor/reference/tables/azfwflowtrace) - Contains flow information, flags, and the time period when the flows were recorded. You can see full flow information such as SYN, SYN-ACK, FIN, FIN-ACK, RST, INVALID (flows).
+
+### Enable structured logs
+
+To enable Azure Firewall structured logs, you must first configure a Log Analytics workspace in your Azure subscription. This workspace is used to store the structured logs generated by Azure Firewall.
+
+Once you configure the Log Analytics workspace, you can enable structured logs in Azure Firewall by navigating to the Firewall's **Diagnostic settings** page in the Azure portal. From there, you must select the **Resource specific** destination table and select the type of events you want to log.
+
+> [!NOTE]
+> There's no requirement to enable this feature with a feature flag or Azure PowerShell commands.
+
+:::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot of Diagnostics settings page.":::
+
+### Structured log queries
+
+A list of predefined queries is available in the Azure portal. This list has a predefined KQL (Kusto Query Language) log query for each category and joined query showing the entire Azure firewall logging events in single view.
+
+:::image type="content" source="media/firewall-structured-logs/firewall-queries.png" alt-text="Screenshot showing Azure Firewall queries." lightbox="media/firewall-structured-logs/firewall-queries.png" :::
+
+### Azure Firewall Workbook
+
+[Azure Firewall Workbook](firewall-workbook.md) provides a flexible canvas for Azure Firewall data analysis. You can use it to create rich visual reports within the Azure portal. You can tap into multiple firewalls deployed across Azure and combine them into unified interactive experiences.
+
+To deploy the new workbook that uses  Azure Firewall Structured Logs, see [Azure Monitor Workbook for Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook).
 
 ## Legacy Azure Diagnostics logs
 
-Legacy Azure Diagnostic logs are the original Azure Firewall log queries that output log data in an unstructured or free-form text format. The Azure Firewall legacy log categories use [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode), collecting entire data in the [AzureDiagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). In case both Structured and Diagnostic logs are required, at least two diagnostic settings need to be created per firewall. To enable these logs and explore log categories, see [Azure Firewall diagnostic logs](diagnostic-logs.md).
+Legacy Azure Diagnostic logs are the original Azure Firewall log queries that output log data in an unstructured or free-form text format. The Azure Firewall legacy log categories use [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode), collecting entire data in the [AzureDiagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). In case both Structured and Diagnostic logs are required, at least two diagnostic settings need to be created per firewall.
+
+The following log categories are supported in Diagnostic logs:
+
+- Azure Firewall application rule
+- Azure Firewall network rule
+- Azure Firewall DNS proxy
+
+To learn how to enable the diagnostic logging using the Azure portal, see [Enable structured logs](#enable-structured-logs).
+
+### Application rule log
+
+The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following examples:
+
+   ```console
+   Category: application rule logs.
+   Time: log timestamp.
+   Properties: currently contains the full message.
+   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
+   ```
+
+   ```json
+   {
+    "category": "AzureFirewallApplicationRule",
+    "time": "2018-04-16T23:45:04.8295030Z",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+    "operationName": "AzureFirewallApplicationRuleLog",
+    "properties": {
+        "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
+    }
+   }
+   ```
+
+   ```json
+   {
+     "category": "AzureFirewallApplicationRule",
+     "time": "2018-04-16T23:45:04.8295030Z",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+     "operationName": "AzureFirewallApplicationRuleLog",
+     "properties": {
+         "msg": "HTTPS request from 10.11.2.4:53344 to www.bing.com:443. Action: Allow. Rule Collection: ExampleRuleCollection. Rule: ExampleRule. Web Category: SearchEnginesAndPortals"
+     }
+   }
+   ```
+
+### Network rule log
+
+The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+
+   ```console
+   Category: network rule logs.
+   Time: log timestamp.
+   Properties: currently contains the full message.
+   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
+   ```
+
+   ```json
+  {
+    "category": "AzureFirewallNetworkRule",
+    "time": "2018-06-14T23:44:11.0590400Z",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+    "operationName": "AzureFirewallNetworkRuleLog",
+    "properties": {
+        "msg": "TCP request from 111.35.136.173:12518 to 13.78.143.217:2323. Action: Deny"
+    }
+   }
+
+   ```
+
+### DNS proxy log
+
+The DNS proxy log is saved to a storage account, streamed to Event hubs, and/or sent to Azure Monitor logs only if you’ve enabled it for each Azure Firewall. This log tracks DNS messages to a DNS server configured using DNS proxy. The data is logged in JSON format, as shown in the following examples:
+
+   ```console
+   Category: DNS proxy logs.
+   Time: log timestamp.
+   Properties: currently contains the full message.
+   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
+   ```
+
+   Success:
+
+   ```json
+   {
+     "category": "AzureFirewallDnsProxy",
+     "time": "2020-09-02T19:12:33.751Z",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+     "operationName": "AzureFirewallDnsProxyLog",
+     "properties": {
+         "msg": "DNS Request: 11.5.0.7:48197 – 15676 AAA IN md-l1l1pg5lcmkq.blob.core.windows.net. udp 55 false 512 NOERROR - 0 2.000301956s"
+     }
+   }
+   ```
+
+   Failed:
+
+   ```json
+   {
+     "category": "AzureFirewallDnsProxy",
+     "time": "2020-09-02T19:12:33.751Z",
+     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+     "operationName": "AzureFirewallDnsProxyLog",
+     "properties": {
+         "msg": " Error: 2 time.windows.com.reddog.microsoft.com. A: read udp 10.0.1.5:49126->168.63.129.160:53: i/o timeout”
+     }
+   }
+   ```
+
+   msg format:
+
+   ```console
+   [client’s IP address]:[client’s port] – [query ID] [type of the request] [class of the request] [name of the request] [protocol used] [request size in bytes] [EDNS0 DO (DNSSEC OK) bit set in the query] [EDNS0 buffer size advertised in the query] [response CODE] [response flags] [response size] [response duration]
+   ```
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 

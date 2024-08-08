@@ -169,7 +169,7 @@ To create a diagnostic setting and enable Resource Specific Table, see [Create d
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-### Azure Firewall Microsoft.Network/azureFirewalls 
+### Azure Firewall Microsoft.Network/azureFirewalls
 
 - [AZFWNetworkRule](/azure/azure-monitor/reference/tables/azfwnetworkrule#columns)
 - [AZFWFatFlow](/azure/azure-monitor/reference/tables/azfwfatflow#columns)

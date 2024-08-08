@@ -83,12 +83,8 @@ items:
         href: service-tags.md
     - name: Logs and metrics
       items:
-      - name: Structured Firewall Logs
-        href: firewall-structured-logs.md
       - name: Monitor Azure Firewall
         href: monitor-firewall.md
-      - name: Diagnostic logs (legacy)
-        href: diagnostic-logs.md
     - name: Policy
       items:
       - name: Policy rule sets
@@ -187,11 +183,6 @@ items:
       href: ../operational-excellence/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Monitor
     items:
-    - name: Monitor diagnostic logs
-      href: firewall-diagnostics.md
-      displayName: Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings
-    - name: Enable Top 10 flow and Flow trace logs
-      href: enable-top-ten-and-flow-trace.md
     - name: Azure Firewall Workbook
       href: firewall-workbook.md
   - name: Scale Outbound SNAT Ports
