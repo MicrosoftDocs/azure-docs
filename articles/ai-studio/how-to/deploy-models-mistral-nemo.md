@@ -1,7 +1,7 @@
 ---
-title: How to use Mistral premium chat models with Azure AI Studio
+title: How to use Mistral Nemo chat model with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to use Mistral premium chat models with Azure AI Studio.
+description: Learn how to use Mistral Nemo chat model with Azure AI Studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 08/08/2024
@@ -13,75 +13,45 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Mistral premium chat models
+# How to use Mistral Nemo chat model
 
-In this article, you learn about Mistral premium chat models and how to use them.
+In this article, you learn about Mistral Nemo chat model and how to use them.
 Mistral AI offers two categories of models. Premium models including [Mistral Large and Mistral Small](deploy-models-mistral.md), available as serverless APIs with pay-as-you-go token-based billing. Open models including [Mistral Nemo](deploy-models-mistral-nemo.md), [Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01](deploy-models-mistral-open.md); available to also download and run on self-hosted managed endpoints.
 
 
 ::: zone pivot="programming-language-python"
 
-## Mistral premium chat models
+## Mistral Nemo chat model
 
-The Mistral premium chat models include the following models:
+Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
 
-# [Mistral Large](#tab/mistral-large)
+Mistral Nemo is a 12B model, making it a powerful drop-in replacement for any system using Mistral 7B, which it supersedes. It supports a context length of 128K, and it accepts only text inputs and generates text outputs.
 
-Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities.
+Additionally, Mistral Nemo is:
 
-Additionally, Mistral Large is:
-
-* **Specialized in RAG**. Crucial information isn't lost in the middle of long context windows (up to 32-K tokens).
-* **Strong in coding**. Code generation, review, and comments. Supports all mainstream coding languages.
-* **Multi-lingual by design**. Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
-* **Responsible AI compliant**. Efficient guardrails baked in the model and extra safety layer with the safe_mode option.
-
-And attributes of Mistral Large (2407) include:
-
-* **Multi-lingual by design**. Supports dozens of languages, including English, French, German, Spanish, and Italian.
-* **Proficient in coding**. Trained on more than 80 coding languages, including Python, Java, C, C++, JavaScript, and Bash. Also trained on more specific languages such as Swift and Fortran.
-* **Agent-centric**. Possesses agentic capabilities with native function calling and JSON outputting.
-* **Advanced in reasoning**. Demonstrates state-of-the-art mathematical and reasoning capabilities.
+* **Jointly developed with Nvidia**. This collaboration has resulted in a powerful 12B model that pushes the boundaries of language understanding and generation.
+* **Multilingual proficient**. Mistral Nemo is equipped with a tokenizer called Tekken, which is designed for multilingual applications. It supports over 100 languages, such as English, French, German, and Spanish. Tekken is more efficient than the Llama 3 tokenizer in compressing text for approximately 85% of all languages, with significant improvements in Malayalam, Hindi, Arabic, and prevalent European languages.
+* **Agent-centric**. Mistral Nemo possesses top-tier agentic capabilities, including native function calling and JSON outputting.
+* **Advanced in reasoning**. Mistral Nemo demonstrates state-of-the-art mathematical and reasoning capabilities within its size category.
 
 
-The following models are available:
+You can learn more about the models in their respective model card:
 
-* [Mistral-Large](https://aka.ms/azureai/landing/Mistral-Large)
-* [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
+* [Mistral-Nemo](https://aka.ms/azureai/landing/Mistral-Nemo)
 
-
-# [Mistral Small](#tab/mistral-small)
-
-Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can be used on any language-based task that requires high efficiency and low latency.
-
-Mistral Small is:
-
-* **A small model optimized for low latency**. Efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral-8x7B and has lower latency.
-* **Specialized in RAG**. Crucial information isn't lost in the middle of long context windows (up to 32K tokens).
-* **Strong in coding**. Code generation, review, and comments. Supports all mainstream coding languages.
-* **Multi-lingual by design**. Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
-* **Responsible AI compliant**. Efficient guardrails baked in the model, and extra safety layer with the safe_mode option.
-
-
-The following models are available:
-
-* [Mistral-Small](https://aka.ms/azureai/landing/Mistral-Small)
-
-
----
 
 > [!TIP]
 > Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Prerequisites
 
-To use Mistral premium chat models with Azure AI Studio, you need the following prerequisites:
+To use Mistral Nemo chat model with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Mistral premium chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo chat model can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -109,7 +79,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Mistral premium chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Mistral Nemo chat model.
 
 ### Create a client to consume the model
 
@@ -146,7 +116,7 @@ print("Model provider name:", model_info.model_provider)
 ```
 
 ```console
-Model name: Mistral-Large
+Model name: Mistral-Nemo
 Model type: chat-completions
 Model provider name: MistralAI
 ```
@@ -180,7 +150,7 @@ print("\tCompletion tokens:", response.usage.completion_tokens)
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Mistral-Large
+Model: Mistral-Nemo
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -259,7 +229,7 @@ If you want to pass a parameter that isn't in the list of supported parameters, 
 
 #### Create JSON outputs
 
-Mistral premium chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral Nemo chat model can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```python
@@ -292,7 +262,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to Mistral premium chat models:
+The following extra parameters can be passed to Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -302,7 +272,7 @@ The following extra parameters can be passed to Mistral premium chat models:
 
 ### Safe mode
 
-Mistral premium chat models support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
+Mistral Nemo chat model support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -323,7 +293,7 @@ response = client.complete(
 
 ### Use tools
 
-Mistral premium chat models support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
+Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 
@@ -491,67 +461,37 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
-## Mistral premium chat models
+## Mistral Nemo chat model
 
-The Mistral premium chat models include the following models:
+Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
 
-# [Mistral Large](#tab/mistral-large)
+Mistral Nemo is a 12B model, making it a powerful drop-in replacement for any system using Mistral 7B, which it supersedes. It supports a context length of 128K, and it accepts only text inputs and generates text outputs.
 
-Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities.
+Additionally, Mistral Nemo is:
 
-Additionally, Mistral Large is:
-
-* **Specialized in RAG**. Crucial information isn't lost in the middle of long context windows (up to 32-K tokens).
-* **Strong in coding**. Code generation, review, and comments. Supports all mainstream coding languages.
-* **Multi-lingual by design**. Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
-* **Responsible AI compliant**. Efficient guardrails baked in the model and extra safety layer with the safe_mode option.
-
-And attributes of Mistral Large (2407) include:
-
-* **Multi-lingual by design**. Supports dozens of languages, including English, French, German, Spanish, and Italian.
-* **Proficient in coding**. Trained on more than 80 coding languages, including Python, Java, C, C++, JavaScript, and Bash. Also trained on more specific languages such as Swift and Fortran.
-* **Agent-centric**. Possesses agentic capabilities with native function calling and JSON outputting.
-* **Advanced in reasoning**. Demonstrates state-of-the-art mathematical and reasoning capabilities.
+* **Jointly developed with Nvidia**. This collaboration has resulted in a powerful 12B model that pushes the boundaries of language understanding and generation.
+* **Multilingual proficient**. Mistral Nemo is equipped with a tokenizer called Tekken, which is designed for multilingual applications. It supports over 100 languages, such as English, French, German, and Spanish. Tekken is more efficient than the Llama 3 tokenizer in compressing text for approximately 85% of all languages, with significant improvements in Malayalam, Hindi, Arabic, and prevalent European languages.
+* **Agent-centric**. Mistral Nemo possesses top-tier agentic capabilities, including native function calling and JSON outputting.
+* **Advanced in reasoning**. Mistral Nemo demonstrates state-of-the-art mathematical and reasoning capabilities within its size category.
 
 
-The following models are available:
+You can learn more about the models in their respective model card:
 
-* [Mistral-Large](https://aka.ms/azureai/landing/Mistral-Large)
-* [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
+* [Mistral-Nemo](https://aka.ms/azureai/landing/Mistral-Nemo)
 
-
-# [Mistral Small](#tab/mistral-small)
-
-Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can be used on any language-based task that requires high efficiency and low latency.
-
-Mistral Small is:
-
-* **A small model optimized for low latency**. Efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral-8x7B and has lower latency.
-* **Specialized in RAG**. Crucial information isn't lost in the middle of long context windows (up to 32K tokens).
-* **Strong in coding**. Code generation, review, and comments. Supports all mainstream coding languages.
-* **Multi-lingual by design**. Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
-* **Responsible AI compliant**. Efficient guardrails baked in the model, and extra safety layer with the safe_mode option.
-
-
-The following models are available:
-
-* [Mistral-Small](https://aka.ms/azureai/landing/Mistral-Small)
-
-
----
 
 > [!TIP]
 > Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Prerequisites
 
-To use Mistral premium chat models with Azure AI Studio, you need the following prerequisites:
+To use Mistral Nemo chat model with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Mistral premium chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo chat model can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -577,7 +517,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Mistral premium chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Mistral Nemo chat model.
 
 ### Create a client to consume the model
 
@@ -614,7 +554,7 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 ```
 
 ```console
-Model name: Mistral-Large
+Model name: Mistral-Nemo
 Model type: chat-completions
 Model provider name: MistralAI
 ```
@@ -654,7 +594,7 @@ console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Mistral-Large
+Model: Mistral-Nemo
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -739,7 +679,7 @@ If you want to pass a parameter that isn't in the list of supported parameters, 
 
 #### Create JSON outputs
 
-Mistral premium chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral Nemo chat model can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```javascript
@@ -781,7 +721,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to Mistral premium chat models:
+The following extra parameters can be passed to Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -791,7 +731,7 @@ The following extra parameters can be passed to Mistral premium chat models:
 
 ### Safe mode
 
-Mistral premium chat models support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
+Mistral Nemo chat model support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -817,7 +757,7 @@ var response = await client.path("/chat/completions").post({
 
 ### Use tools
 
-Mistral premium chat models support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
+Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 
@@ -980,67 +920,37 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
-## Mistral premium chat models
+## Mistral Nemo chat model
 
-The Mistral premium chat models include the following models:
+Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
 
-# [Mistral Large](#tab/mistral-large)
+Mistral Nemo is a 12B model, making it a powerful drop-in replacement for any system using Mistral 7B, which it supersedes. It supports a context length of 128K, and it accepts only text inputs and generates text outputs.
 
-Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities.
+Additionally, Mistral Nemo is:
 
-Additionally, Mistral Large is:
-
-* **Specialized in RAG**. Crucial information isn't lost in the middle of long context windows (up to 32-K tokens).
-* **Strong in coding**. Code generation, review, and comments. Supports all mainstream coding languages.
-* **Multi-lingual by design**. Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
-* **Responsible AI compliant**. Efficient guardrails baked in the model and extra safety layer with the safe_mode option.
-
-And attributes of Mistral Large (2407) include:
-
-* **Multi-lingual by design**. Supports dozens of languages, including English, French, German, Spanish, and Italian.
-* **Proficient in coding**. Trained on more than 80 coding languages, including Python, Java, C, C++, JavaScript, and Bash. Also trained on more specific languages such as Swift and Fortran.
-* **Agent-centric**. Possesses agentic capabilities with native function calling and JSON outputting.
-* **Advanced in reasoning**. Demonstrates state-of-the-art mathematical and reasoning capabilities.
+* **Jointly developed with Nvidia**. This collaboration has resulted in a powerful 12B model that pushes the boundaries of language understanding and generation.
+* **Multilingual proficient**. Mistral Nemo is equipped with a tokenizer called Tekken, which is designed for multilingual applications. It supports over 100 languages, such as English, French, German, and Spanish. Tekken is more efficient than the Llama 3 tokenizer in compressing text for approximately 85% of all languages, with significant improvements in Malayalam, Hindi, Arabic, and prevalent European languages.
+* **Agent-centric**. Mistral Nemo possesses top-tier agentic capabilities, including native function calling and JSON outputting.
+* **Advanced in reasoning**. Mistral Nemo demonstrates state-of-the-art mathematical and reasoning capabilities within its size category.
 
 
-The following models are available:
+You can learn more about the models in their respective model card:
 
-* [Mistral-Large](https://aka.ms/azureai/landing/Mistral-Large)
-* [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
+* [Mistral-Nemo](https://aka.ms/azureai/landing/Mistral-Nemo)
 
-
-# [Mistral Small](#tab/mistral-small)
-
-Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can be used on any language-based task that requires high efficiency and low latency.
-
-Mistral Small is:
-
-* **A small model optimized for low latency**. Efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral-8x7B and has lower latency.
-* **Specialized in RAG**. Crucial information isn't lost in the middle of long context windows (up to 32K tokens).
-* **Strong in coding**. Code generation, review, and comments. Supports all mainstream coding languages.
-* **Multi-lingual by design**. Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
-* **Responsible AI compliant**. Efficient guardrails baked in the model, and extra safety layer with the safe_mode option.
-
-
-The following models are available:
-
-* [Mistral-Small](https://aka.ms/azureai/landing/Mistral-Small)
-
-
----
 
 > [!TIP]
 > Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Prerequisites
 
-To use Mistral premium chat models with Azure AI Studio, you need the following prerequisites:
+To use Mistral Nemo chat model with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Mistral premium chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo chat model can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -1089,7 +999,7 @@ using System.Reflection;
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Mistral premium chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Mistral Nemo chat model.
 
 ### Create a client to consume the model
 
@@ -1122,7 +1032,7 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 ```
 
 ```console
-Model name: Mistral-Large
+Model name: Mistral-Nemo
 Model type: chat-completions
 Model provider name: MistralAI
 ```
@@ -1157,7 +1067,7 @@ Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Mistral-Large
+Model: Mistral-Nemo
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -1247,7 +1157,7 @@ If you want to pass a parameter that isn't in the list of supported parameters, 
 
 #### Create JSON outputs
 
-Mistral premium chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral Nemo chat model can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```csharp
@@ -1290,7 +1200,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to Mistral premium chat models:
+The following extra parameters can be passed to Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1300,7 +1210,7 @@ The following extra parameters can be passed to Mistral premium chat models:
 
 ### Safe mode
 
-Mistral premium chat models support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
+Mistral Nemo chat model support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -1323,7 +1233,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 
 ### Use tools
 
-Mistral premium chat models support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
+Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 
@@ -1491,67 +1401,37 @@ catch (RequestFailedException ex)
 
 ::: zone pivot="programming-language-rest"
 
-## Mistral premium chat models
+## Mistral Nemo chat model
 
-The Mistral premium chat models include the following models:
+Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
 
-# [Mistral Large](#tab/mistral-large)
+Mistral Nemo is a 12B model, making it a powerful drop-in replacement for any system using Mistral 7B, which it supersedes. It supports a context length of 128K, and it accepts only text inputs and generates text outputs.
 
-Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities.
+Additionally, Mistral Nemo is:
 
-Additionally, Mistral Large is:
-
-* **Specialized in RAG**. Crucial information isn't lost in the middle of long context windows (up to 32-K tokens).
-* **Strong in coding**. Code generation, review, and comments. Supports all mainstream coding languages.
-* **Multi-lingual by design**. Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
-* **Responsible AI compliant**. Efficient guardrails baked in the model and extra safety layer with the safe_mode option.
-
-And attributes of Mistral Large (2407) include:
-
-* **Multi-lingual by design**. Supports dozens of languages, including English, French, German, Spanish, and Italian.
-* **Proficient in coding**. Trained on more than 80 coding languages, including Python, Java, C, C++, JavaScript, and Bash. Also trained on more specific languages such as Swift and Fortran.
-* **Agent-centric**. Possesses agentic capabilities with native function calling and JSON outputting.
-* **Advanced in reasoning**. Demonstrates state-of-the-art mathematical and reasoning capabilities.
+* **Jointly developed with Nvidia**. This collaboration has resulted in a powerful 12B model that pushes the boundaries of language understanding and generation.
+* **Multilingual proficient**. Mistral Nemo is equipped with a tokenizer called Tekken, which is designed for multilingual applications. It supports over 100 languages, such as English, French, German, and Spanish. Tekken is more efficient than the Llama 3 tokenizer in compressing text for approximately 85% of all languages, with significant improvements in Malayalam, Hindi, Arabic, and prevalent European languages.
+* **Agent-centric**. Mistral Nemo possesses top-tier agentic capabilities, including native function calling and JSON outputting.
+* **Advanced in reasoning**. Mistral Nemo demonstrates state-of-the-art mathematical and reasoning capabilities within its size category.
 
 
-The following models are available:
+You can learn more about the models in their respective model card:
 
-* [Mistral-Large](https://aka.ms/azureai/landing/Mistral-Large)
-* [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
+* [Mistral-Nemo](https://aka.ms/azureai/landing/Mistral-Nemo)
 
-
-# [Mistral Small](#tab/mistral-small)
-
-Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can be used on any language-based task that requires high efficiency and low latency.
-
-Mistral Small is:
-
-* **A small model optimized for low latency**. Efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral-8x7B and has lower latency.
-* **Specialized in RAG**. Crucial information isn't lost in the middle of long context windows (up to 32K tokens).
-* **Strong in coding**. Code generation, review, and comments. Supports all mainstream coding languages.
-* **Multi-lingual by design**. Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
-* **Responsible AI compliant**. Efficient guardrails baked in the model, and extra safety layer with the safe_mode option.
-
-
-The following models are available:
-
-* [Mistral-Small](https://aka.ms/azureai/landing/Mistral-Small)
-
-
----
 
 > [!TIP]
 > Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Prerequisites
 
-To use Mistral premium chat models with Azure AI Studio, you need the following prerequisites:
+To use Mistral Nemo chat model with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Mistral premium chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo chat model can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -1570,7 +1450,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Mistral premium chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Mistral Nemo chat model.
 
 ### Create a client to consume the model
 
@@ -1592,7 +1472,7 @@ The response is as follows:
 
 ```json
 {
-    "model_name": "Mistral-Large",
+    "model_name": "Mistral-Nemo",
     "model_type": "chat-completions",
     "model_provider_name": "MistralAI"
 }
@@ -1625,7 +1505,7 @@ The response is as follows, where you can see the model's usage statistics:
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Mistral-Large",
+    "model": "Mistral-Nemo",
     "choices": [
         {
             "index": 0,
@@ -1682,7 +1562,7 @@ You can visualize how streaming generates content:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Mistral-Large",
+    "model": "Mistral-Nemo",
     "choices": [
         {
             "index": 0,
@@ -1705,7 +1585,7 @@ The last message in the stream has `finish_reason` set, indicating the reason fo
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Mistral-Large",
+    "model": "Mistral-Nemo",
     "choices": [
         {
             "index": 0,
@@ -1756,7 +1636,7 @@ Explore other parameters that you can specify in the inference client. For a ful
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Mistral-Large",
+    "model": "Mistral-Nemo",
     "choices": [
         {
             "index": 0,
@@ -1781,7 +1661,7 @@ If you want to pass a parameter that isn't in the list of supported parameters, 
 
 #### Create JSON outputs
 
-Mistral premium chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral Nemo chat model can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```json
@@ -1806,7 +1686,7 @@ Mistral premium chat models can create JSON outputs. Set `response_format` to `j
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718727522,
-    "model": "Mistral-Large",
+    "model": "Mistral-Nemo",
     "choices": [
         {
             "index": 0,
@@ -1858,7 +1738,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to Mistral premium chat models:
+The following extra parameters can be passed to Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1868,7 +1748,7 @@ The following extra parameters can be passed to Mistral premium chat models:
 
 ### Safe mode
 
-Mistral premium chat models support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
+Mistral Nemo chat model support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -1901,7 +1781,7 @@ extra-parameters: pass-through
 
 ### Use tools
 
-Mistral premium chat models support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
+Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 
@@ -1988,7 +1868,7 @@ You can inspect the response to find out if a tool needs to be called. Inspect t
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726007,
-    "model": "Mistral-Large",
+    "model": "Mistral-Nemo",
     "choices": [
         {
             "index": 0,

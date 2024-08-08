@@ -1,7 +1,7 @@
 ---
-title: How to use Phi-3 chat models with Azure AI Studio
+title: How to use Jais chat models with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to use Phi-3 chat models with Azure AI Studio.
+description: Learn how to use Jais chat models with Azure AI Studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 08/08/2024
@@ -13,89 +13,40 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Phi-3 chat models
+# How to use Jais chat models
 
-In this article, you learn about Phi-3 chat models and how to use them.
-The Phi-3 family of small language models (SLMs) is a collection of instruction-tuned generative text models.
+In this article, you learn about Jais chat models and how to use them.
+JAIS 30b Chat is an autoregressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is fine-tuned with both Arabic and English prompt-response pairs. The fine-tuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset and translated some open-source English instructions into Arabic.
+
+* **Context length:** JAIS supports a context length of 8K.
+* **Input:** Model input is text only.
+* **Output:** Model generates text only.
 
 
 
 ::: zone pivot="programming-language-python"
 
-## Phi-3 chat models
-
-The Phi-3 chat models include the following models:
-
-# [Phi-3-mini](#tab/phi-3-mini)
-
-Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model. Phi-3-Mini was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K. The numbers (4K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Mini-4K-Instruct and Phi-3-Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
 
 
-The following models are available:
+You can learn more about the models in their respective model card:
 
-* [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
-* [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
+* [jais-30b-chat](https://aka.ms/azureai/landing/jais-30b-chat)
 
-
-# [Phi-3-small](#tab/phi-3-small)
-
-Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K. The numbers (4K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Medium-4k-Instruct and Phi-3-Medium-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-* [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
-* [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
-
-
-# [Phi-3-medium](#tab/phi-3-medium)
-
-Phi-3-Small is a 7B parameters, lightweight, state-of-the-art open model. Phi-3-Small was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Small version comes in two variants, 8K and 128K. The numbers (8K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Small-8k-Instruct and Phi-3-Small-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-* [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
-* [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
-
-
----
 
 ## Prerequisites
 
-To use Phi-3 chat models with Azure AI Studio, you need the following prerequisites:
+To use Jais chat models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Jais chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
-
-**Deployment to a self-hosted managed compute**
-
-Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
-
-For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
-
-> [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
 
 ### The inference package installed
 
@@ -118,7 +69,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Jais chat models.
 
 ### Create a client to consume the model
 
@@ -135,23 +86,6 @@ client = ChatCompletionsClient(
     credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
 )
 ```
-
-When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
-
-
-```python
-import os
-from azure.ai.inference import ChatCompletionsClient
-from azure.identity import DefaultAzureCredential
-
-client = ChatCompletionsClient(
-    endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
-    credential=DefaultAzureCredential(),
-)
-```
-
-> [!NOTE]
-> Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
 
 ### Get the model's capabilities
 
@@ -172,9 +106,9 @@ print("Model provider name:", model_info.model_provider)
 ```
 
 ```console
-Model name: Phi-3-mini-4k-Instruct
+Model name: jais-30b-chat
 Model type: chat-completions
-Model provider name: Microsoft
+Model provider name: G42
 ```
 
 ### Create a chat completion request
@@ -192,9 +126,6 @@ response = client.complete(
 )
 ```
 
-> [!NOTE]
-> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
-
 The response is as follows, where you can see the model's usage statistics:
 
 
@@ -209,7 +140,7 @@ print("\tCompletion tokens:", response.usage.completion_tokens)
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Phi-3-mini-4k-Instruct
+Model: jais-30b-chat
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -285,7 +216,7 @@ response = client.complete(
 ```
 
 > [!WARNING]
-> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
@@ -307,16 +238,6 @@ response = client.complete(
     }
 )
 ```
-
-The following extra parameters can be passed to Phi-3 chat models:
-
-| Name           | Description           | Type            |
-| -------------- | --------------------- | --------------- |
-| `logit_bias` | Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token. | `float` |
-| `logprobs` | Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`. | `int` |
-| `top_logprobs` | An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used. | `float` |
-| `n` | How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. | `int` |
-
 
 ### Apply content safety
 
@@ -351,88 +272,32 @@ except HttpResponseError as ex:
 > [!TIP]
 > To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
-> [!NOTE]
-> Azure AI content safety is only available for models deployed as serverless API endpoints.
-
 ::: zone-end
 
 
 ::: zone pivot="programming-language-javascript"
 
-## Phi-3 chat models
-
-The Phi-3 chat models include the following models:
-
-# [Phi-3-mini](#tab/phi-3-mini)
-
-Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model. Phi-3-Mini was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K. The numbers (4K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Mini-4K-Instruct and Phi-3-Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
 
 
-The following models are available:
+You can learn more about the models in their respective model card:
 
-* [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
-* [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
+* [jais-30b-chat](https://aka.ms/azureai/landing/jais-30b-chat)
 
-
-# [Phi-3-small](#tab/phi-3-small)
-
-Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K. The numbers (4K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Medium-4k-Instruct and Phi-3-Medium-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-* [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
-* [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
-
-
-# [Phi-3-medium](#tab/phi-3-medium)
-
-Phi-3-Small is a 7B parameters, lightweight, state-of-the-art open model. Phi-3-Small was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Small version comes in two variants, 8K and 128K. The numbers (8K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Small-8k-Instruct and Phi-3-Small-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-* [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
-* [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
-
-
----
 
 ## Prerequisites
 
-To use Phi-3 chat models with Azure AI Studio, you need the following prerequisites:
+To use Jais chat models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Jais chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
-
-**Deployment to a self-hosted managed compute**
-
-Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
-
-For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
-
-> [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
 
 ### The inference package installed
 
@@ -453,7 +318,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Jais chat models.
 
 ### Create a client to consume the model
 
@@ -470,23 +335,6 @@ const client = new ModelClient(
     new AzureKeyCredential(process.env.AZURE_INFERENCE_CREDENTIAL)
 );
 ```
-
-When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
-
-
-```javascript
-import ModelClient from "@azure-rest/ai-inference";
-import { isUnexpected } from "@azure-rest/ai-inference";
-import { DefaultAzureCredential }  from "@azure/identity";
-
-const client = new ModelClient(
-    process.env.AZURE_INFERENCE_ENDPOINT, 
-    new DefaultAzureCredential()
-);
-```
-
-> [!NOTE]
-> Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
 
 ### Get the model's capabilities
 
@@ -507,9 +355,9 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 ```
 
 ```console
-Model name: Phi-3-mini-4k-Instruct
+Model name: jais-30b-chat
 Model type: chat-completions
-Model provider name: Microsoft
+Model provider name: G42
 ```
 
 ### Create a chat completion request
@@ -529,9 +377,6 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-> [!NOTE]
-> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
-
 The response is as follows, where you can see the model's usage statistics:
 
 
@@ -550,7 +395,7 @@ console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Phi-3-mini-4k-Instruct
+Model: jais-30b-chat
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -632,7 +477,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!WARNING]
-> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
@@ -659,16 +504,6 @@ var response = await client.path("/chat/completions").post({
     }
 });
 ```
-
-The following extra parameters can be passed to Phi-3 chat models:
-
-| Name           | Description           | Type            |
-| -------------- | --------------------- | --------------- |
-| `logit_bias` | Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token. | `float` |
-| `logprobs` | Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`. | `int` |
-| `top_logprobs` | An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used. | `float` |
-| `n` | How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. | `int` |
-
 
 ### Apply content safety
 
@@ -709,88 +544,32 @@ catch (error) {
 > [!TIP]
 > To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
-> [!NOTE]
-> Azure AI content safety is only available for models deployed as serverless API endpoints.
-
 ::: zone-end
 
 
 ::: zone pivot="programming-language-csharp"
 
-## Phi-3 chat models
-
-The Phi-3 chat models include the following models:
-
-# [Phi-3-mini](#tab/phi-3-mini)
-
-Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model. Phi-3-Mini was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K. The numbers (4K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Mini-4K-Instruct and Phi-3-Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
 
 
-The following models are available:
+You can learn more about the models in their respective model card:
 
-* [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
-* [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
+* [jais-30b-chat](https://aka.ms/azureai/landing/jais-30b-chat)
 
-
-# [Phi-3-small](#tab/phi-3-small)
-
-Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K. The numbers (4K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Medium-4k-Instruct and Phi-3-Medium-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-* [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
-* [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
-
-
-# [Phi-3-medium](#tab/phi-3-medium)
-
-Phi-3-Small is a 7B parameters, lightweight, state-of-the-art open model. Phi-3-Small was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Small version comes in two variants, 8K and 128K. The numbers (8K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Small-8k-Instruct and Phi-3-Small-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-* [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
-* [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
-
-
----
 
 ## Prerequisites
 
-To use Phi-3 chat models with Azure AI Studio, you need the following prerequisites:
+To use Jais chat models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Jais chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
-
-**Deployment to a self-hosted managed compute**
-
-Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
-
-For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
-
-> [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
 
 ### The inference package installed
 
@@ -834,7 +613,7 @@ using System.Reflection;
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Jais chat models.
 
 ### Create a client to consume the model
 
@@ -847,19 +626,6 @@ ChatCompletionsClient client = new ChatCompletionsClient(
     new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
 );
 ```
-
-When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
-
-
-```csharp
-client = new ChatCompletionsClient(
-    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
-    new DefaultAzureCredential(includeInteractiveCredentials: true)
-);
-```
-
-> [!NOTE]
-> Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
 
 ### Get the model's capabilities
 
@@ -880,9 +646,9 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 ```
 
 ```console
-Model name: Phi-3-mini-4k-Instruct
+Model name: jais-30b-chat
 Model type: chat-completions
-Model provider name: Microsoft
+Model provider name: G42
 ```
 
 ### Create a chat completion request
@@ -901,9 +667,6 @@ ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
 Response<ChatCompletions> response = client.Complete(requestOptions);
 ```
 
-> [!NOTE]
-> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
-
 The response is as follows, where you can see the model's usage statistics:
 
 
@@ -918,7 +681,7 @@ Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Phi-3-mini-4k-Instruct
+Model: jais-30b-chat
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -1005,7 +768,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
 > [!WARNING]
-> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
@@ -1029,16 +792,6 @@ requestOptions = new ChatCompletionsOptions()
 response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
-
-The following extra parameters can be passed to Phi-3 chat models:
-
-| Name           | Description           | Type            |
-| -------------- | --------------------- | --------------- |
-| `logit_bias` | Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token. | `float` |
-| `logprobs` | Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`. | `int` |
-| `top_logprobs` | An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used. | `float` |
-| `n` | How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. | `int` |
-
 
 ### Apply content safety
 
@@ -1079,88 +832,32 @@ catch (RequestFailedException ex)
 > [!TIP]
 > To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
-> [!NOTE]
-> Azure AI content safety is only available for models deployed as serverless API endpoints.
-
 ::: zone-end
 
 
 ::: zone pivot="programming-language-rest"
 
-## Phi-3 chat models
-
-The Phi-3 chat models include the following models:
-
-# [Phi-3-mini](#tab/phi-3-mini)
-
-Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model. Phi-3-Mini was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K. The numbers (4K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Mini-4K-Instruct and Phi-3-Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
 
 
-The following models are available:
+You can learn more about the models in their respective model card:
 
-* [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
-* [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
+* [jais-30b-chat](https://aka.ms/azureai/landing/jais-30b-chat)
 
-
-# [Phi-3-small](#tab/phi-3-small)
-
-Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K. The numbers (4K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Medium-4k-Instruct and Phi-3-Medium-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-* [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
-* [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
-
-
-# [Phi-3-medium](#tab/phi-3-medium)
-
-Phi-3-Small is a 7B parameters, lightweight, state-of-the-art open model. Phi-3-Small was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
-
-The model belongs to the Phi-3 model family, and the Small version comes in two variants, 8K and 128K. The numbers (8K and 128K) indicate the context length (in tokens) that each model variant can support.
-
-The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Small-8k-Instruct and Phi-3-Small-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-
-The following models are available:
-
-* [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
-* [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
-
-
----
 
 ## Prerequisites
 
-To use Phi-3 chat models with Azure AI Studio, you need the following prerequisites:
+To use Jais chat models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Jais chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
-
-**Deployment to a self-hosted managed compute**
-
-Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
-
-For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
-
-> [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
 
 ### A REST client
 
@@ -1174,16 +871,11 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Jais chat models.
 
 ### Create a client to consume the model
 
 First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
-
-When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
-
-> [!NOTE]
-> Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
 
 ### Get the model's capabilities
 
@@ -1201,9 +893,9 @@ The response is as follows:
 
 ```json
 {
-    "model_name": "Phi-3-mini-4k-Instruct",
+    "model_name": "jais-30b-chat",
     "model_type": "chat-completions",
-    "model_provider_name": "Microsoft"
+    "model_provider_name": "G42"
 }
 ```
 
@@ -1226,9 +918,6 @@ The following example shows how you can create a basic chat completions request 
 }
 ```
 
-> [!NOTE]
-> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
-
 The response is as follows, where you can see the model's usage statistics:
 
 
@@ -1237,7 +926,7 @@ The response is as follows, where you can see the model's usage statistics:
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "jais-30b-chat",
     "choices": [
         {
             "index": 0,
@@ -1294,7 +983,7 @@ You can visualize how streaming generates content:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "jais-30b-chat",
     "choices": [
         {
             "index": 0,
@@ -1317,7 +1006,7 @@ The last message in the stream has `finish_reason` set, indicating the reason fo
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "jais-30b-chat",
     "choices": [
         {
             "index": 0,
@@ -1368,7 +1057,7 @@ Explore other parameters that you can specify in the inference client. For a ful
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "jais-30b-chat",
     "choices": [
         {
             "index": 0,
@@ -1390,7 +1079,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 ```
 
 > [!WARNING]
-> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
@@ -1424,16 +1113,6 @@ extra-parameters: pass-through
     "logprobs": true
 }
 ```
-
-The following extra parameters can be passed to Phi-3 chat models:
-
-| Name           | Description           | Type            |
-| -------------- | --------------------- | --------------- |
-| `logit_bias` | Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token. | `float` |
-| `logprobs` | Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`. | `int` |
-| `top_logprobs` | An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used. | `float` |
-| `n` | How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. | `int` |
-
 
 ### Apply content safety
 
@@ -1473,35 +1152,26 @@ The following example shows how to handle events when the model detects harmful 
 > [!TIP]
 > To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
-> [!NOTE]
-> Azure AI content safety is only available for models deployed as serverless API endpoints.
-
 ::: zone-end
 
 ## More inference examples
 
-For more examples of how to use Phi-3, see the following examples and tutorials:
+For more examples of how to use Jais, see the following examples and tutorials:
 
 | Description                               | Language          | Sample                                                          |
 |-------------------------------------------|-------------------|-----------------------------------------------------------------|
-| CURL request                              | Bash              | [Link](https://aka.ms/phi-3/webrequests-sample)         |
 | Azure AI Inference package for JavaScript | JavaScript        | [Link](https://aka.ms/azsdk/azure-ai-inference/javascript/samples)  |
 | Azure AI Inference package for Python     | Python            | [Link](https://aka.ms/azsdk/azure-ai-inference/python/samples)  |
-| Python web requests                       | Python            | [Link](https://aka.ms/phi-3/webrequests-sample)         |
-| OpenAI SDK (experimental)                 | Python            | [Link](https://aka.ms/phi-3/openaisdk)                  |
-| LangChain                                 | Python            | [Link](https://aka.ms/phi-3/langchain-sample)           |
-| LiteLLM                                   | Python            | [Link](https://aka.ms/phi-3/litellm-sample)             | 
 
-
-## Cost and quota considerations for Phi-3 family of models deployed as serverless API endpoints
+## Cost and quota considerations for Jais family of models deployed as serverless API endpoints
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
-## Cost and quota considerations for Phi-3 family of models deployed to managed compute
+Jais models deployed as a serverless API are offered by G42 through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
-Phi-3 models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the run duration.
+Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
-It is a good practice to start with a low number of instances and scale up as needed. You can monitor the cost of the compute instance in the Azure portal.
+For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 ## Related content
 
