@@ -123,13 +123,13 @@ PyTorch: `1.13.1`
 
 TensorFlow: `2.15.0`
 
-autokeras==`1.0.16`
+Autokeras: `1.0.16`
 
-keras=`2.15.0`
+Keras: `2.15.0`
 
-ray==`2.2.0`
+Ray: `2.2.0`
 
-docker version==`24.0.9-1`
+Docker version: `24.0.9-1`
 
 ## February 16, 2024
 Version: `24.01.30`
@@ -165,7 +165,7 @@ Main changes:
 - `Azure Machine Learning SDK` to version `1.49.0`
 - `Certifi` updated to `2022.9.24`
 - `.NET` updated from `3.1` (end-of-life) to `6.0`
-- `Pyspark` update to `3.3.1` (mitigating log4j 1.2.17 and common-text-1.6 vulnerabilities)
+- `Pyspark` update to `3.3.1` (mitigating Log4j 1.2.17 and common-text-1.6 vulnerabilities)
 - Default `intellisense` to Python `3.10` on the CI
 - Bug fixes and stability improvements
 
