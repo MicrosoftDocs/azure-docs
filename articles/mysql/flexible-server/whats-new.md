@@ -45,7 +45,11 @@ This article summarizes new releases and features in the Azure Database for MySQ
 
 - **Move from private access (virtual network integrated) network to public access or private link**
 
-  Azure Database for MySQL flexible server can be transitioned from private access (virtual network Integrated) to public access, with the option to use Private Link. This functionality enables servers to switch from virtual network integrated to Private Link/Public infrastructure seamlessly, without the need to alter the server name or migrate data, simplifying the process for customers. [Learn more](concepts-networking-vnet.md#move-from-private-access-virtual-network-integrated-network-to-public-access-or-private-link)
+  Azure Database for MySQL Flexible Server can be transitioned from private access (virtual network Integrated) to public access, with the option to use Private Link. This functionality enables servers to switch from virtual network integrated to Private Link/Public infrastructure seamlessly, without the need to alter the server name or migrate data, simplifying the process for customers. [Learn more](concepts-networking-vnet.md#move-from-private-access-virtual-network-integrated-network-to-public-access-or-private-link)
+  
+- **Managed HSM support for Azure Database for MySQL Flexible Server (Generally Available)**
+
+  We're excited to announce the General Availability (GA) of Azure Key Vault Managed HSM support for Customer Managed Keys (CMK) in Azure Database for MySQL Flexible Server. With Managed HSM you can import your own HSM-backed encryption keys using the CMK bring your own key (BYOK) feature to protect data at rest in your Azure Database for MySQL Flexible Server instances while maintaining data residency and full control of your HSM keys. [Learn more](/azure/mysql/flexible-server/concepts-customer-managed-key)
   
 ## May 2024
 
@@ -67,7 +71,7 @@ This article summarizes new releases and features in the Azure Database for MySQ
 
   The newly added metrics include MySQL Uptime, MySQL History list length, MySQL Deadlocks, Active Transactions, and MySQL Lock Timeouts. These metrics provide a more detailed view of your server's performance, enabling you to monitor and optimize your database operations more effectively. In addition to these new metrics, we've also improved the Memory percent metric. It now offers more precise calculations of memory usage for the MySQL server (mysqld) process. [Monitor Azure Database for MySQL - Flexible Server](concepts-monitoring.md)
 
-- **Microsoft Defender for Cloud supports Azure Database for MySQL flexible server (General Availability)**
+- **Microsoft Defender for Cloud supports Azure Database for MySQL Flexible Server (General Availability)**
 
   We're excited to announce the general availability of the Microsoft Defender for Cloud feature for Azure Database for MySQL flexible server in all service tiers. The Microsoft Defender Advanced Threat Protection feature simplifies the security management of Azure Database for MySQL flexible server instances. It monitors the server for anomalous or suspicious database activities to detect potential threats and provides security alerts for you to investigate and take appropriate action, allowing you to actively improve the security posture of your database without being a security expert. [What is Microsoft Defender for open-source relational databases](/azure/defender-for-cloud/defender-for-databases-introduction)
 - **On-demand backup and Export (Preview)**
@@ -745,3 +749,4 @@ If you have questions about or suggestions for working with Azure Database for M
 - [Azure Database for MySQL flexible server pricing](https://azure.microsoft.com/pricing/details/mysql/server/)
 - [public documentation](index.yml)
 - [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md)
+
