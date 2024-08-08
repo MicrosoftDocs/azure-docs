@@ -1,7 +1,7 @@
 ---
-title: Create a custom IPv6 address prefix
+title: Create a custom IPv6 address prefix in Azure
 titleSuffix: Azure Virtual Network
-description: Learn how to onboard a custom IPv6 address prefix using the Azure portal, Azure CLI, or PowerShell.
+description: Learn how to onboard a custom IPv6 address prefix using the Azure portal, Azure CLI, or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.date: 08/06/2024
 ---
 
-# Create a custom IPv6 address prefix
+# Create a custom IPv6 address prefix in Azure
 
 In this article, you learn how to create a custom IPv6 address prefix. You prepare a range to provision, provision the range for IP allocation, and enable the range to be advertised by Microsoft.
 
 A custom IPv6 address prefix enables you to bring your own IPv6 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
 
-For this article, choose between the Azure portal, Azure CLI, or PowerShell to create a custom IPv6 address prefix.
+For this article, choose between the Azure portal, Azure CLI, or Azure PowerShell to create a custom IPv6 address prefix.
 
 ## Differences between using BYOIPv4 and BYOIPv6
 
