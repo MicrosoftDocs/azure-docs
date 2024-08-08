@@ -276,8 +276,8 @@ https://{endpoint}/formrecognizer/documentModels/{modelId}:copyTo?api-version=20
 :::moniker range="doc-intel-4.0.0"
 
 ## Billing
-
-Starting with version `2024-07-31-preview` and later you can receive **10 hours** of free model training. Billing charges are calculated for model trainings that exceed 10 hours. You can choose to spend all of 10 free hours on a single build with a large set of data, or utilize it across multiple builds by adjusting the maximum duration value for the `build` operation by specifying `maxTrainingHours`:
+ 
+Starting with version `2024-07-31-preview`, you can train your custom neural model for longer durations than 30 minutes. Previous versions have been capped at 30 minutes per training instance, with a total of 20 free training instances per month. Now with `2024-07-31-preview`, you can receive **10 hours** of free model training, and train a model for as long as 10 hours. If you would like to train a model for longer than 10 hours, billing charges are calculated for model trainings that exceed 10 hours. You can choose to spend all of 10 free hours on a single build with a large set of data, or utilize it across multiple builds by adjusting the maximum duration value for the `build` operation by specifying `maxTrainingHours` as below:
 
 ```bash
 
@@ -288,7 +288,10 @@ POST /documentModels:build
 }
 ```
 
-Build time varies. Billing is calculated for the actual time spent (excluding time in queue), with a minimum of 30 minutes per training job. The elapsed time is converted to V100 equivalent training hours and reported as part of the model.
+> [!NOTE]
+> For versions `v3.1 (2023-07031)` and `v3.0 (2022-08-31)`, custom neural model's paid training is not enabled. For the two versions, you will get a maximum of 30 minutes training duration per model.
+
+Each training hour is the amount of compute a single V100 GPU can perform in an hour. As each build takes different amount of time, billing is calculated for the actual time spent (excluding time in queue), with a minimum of 30 minutes per training job. The elapsed time is converted to V100 equivalent training hours and reported as part of the model.
 
 ```bash
 
