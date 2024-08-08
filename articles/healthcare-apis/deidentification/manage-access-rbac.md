@@ -100,9 +100,7 @@ The scope for a de-identification service (preview) is in the form `/subscriptio
 The following example assigns the **DeID Data Owner** built-in role to a user, scoped to a specific de-identification service. Make sure to replace the placeholder values 
 in angle brackets `<>` with your own values:
 
-```
-
-azurecli
+```azurecli
 az role assignment create \
 	--assignee <Email> \
 	--role "DeID Data Owner" \

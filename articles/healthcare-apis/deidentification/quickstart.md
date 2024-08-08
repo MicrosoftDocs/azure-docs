@@ -23,7 +23,7 @@ In this quickstart, you deploy an instance of the de-identification service (pre
 To deploy an instance of the de-identification service (preview), start at the Azure portal home page.
 
 1. Search for **de-identification** in the top search bar.
-1. Select **de-identification Services** in the search results.
+1. Select **De-identification Services** in the search results.
 1. Select the **Create** button.
 
 ## Complete the Basics tab

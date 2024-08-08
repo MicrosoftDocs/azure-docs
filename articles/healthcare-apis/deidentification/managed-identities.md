@@ -71,7 +71,7 @@ the resource definition, replacing **resource-id** with the Azure Resource Manag
 
 Managed identities assigned to the de-identification service (preview) can be used to allow access to Azure Blob Storage for batch de-identification jobs. The service acquires a token as
 the managed identity to access Blob Storage and de-identify blobs that match a specified pattern. For more information, including how to grant access to your managed identity,
-see [Batch de-identify files in Azure Blob Storage](batch-job.md).
+see [Quickstart: Azure Health De-identification client library for .NET](quickstart-sdk-net.md).
 
 ## Clean-up steps
 
