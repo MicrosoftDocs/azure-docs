@@ -1,21 +1,21 @@
 ---
-title: How to use Cohere Embed V3 models with Azure AI studio
-titleSuffix: Azure AI studio
-description: Learn how to use Cohere Embed V3 models with Azure AI studio.
+title: How to use Cohere Embed V3 models with Azure AI Studio
+titleSuffix: Azure AI Studio
+description: Learn how to use Cohere Embed V3 models with Azure AI Studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 08/05/2024
-ms.reviewer: kritifaujdar
-reviewer: fkriti
+ms.date: 08/08/2024
+ms.reviewer: fasantia
+reviewer: santiagxf
 ms.author: mopeakande
 author: msakande
 ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-embeddings
 ---
 
-# How to use Cohere Embed V3 models with Azure AI studio
+# How to use Cohere Embed V3 models with Azure AI Studio
 
-In this article, you learn about Cohere Embed V3 models and how to use them with Azure AI studio.
+In this article, you learn about Cohere Embed V3 models and how to use them with Azure AI Studio.
 The Cohere family of models includes various models optimized for different use cases, including chat completions, embeddings, and rerank. Cohere models are optimized for various use cases that include reasoning, summarization, and question answering.
 
 
@@ -46,7 +46,7 @@ Cohere Embed Multilingual is a text representation model used for semantic searc
 
 ## Prerequisites
 
-To use Cohere Embed V3 models with Azure AI studio, you need the following prerequisites:
+To use Cohere Embed V3 models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -235,7 +235,7 @@ Cohere Embed Multilingual is a text representation model used for semantic searc
 
 ## Prerequisites
 
-To use Cohere Embed V3 models with Azure AI studio, you need the following prerequisites:
+To use Cohere Embed V3 models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -426,7 +426,7 @@ Cohere Embed Multilingual is a text representation model used for semantic searc
 
 ## Prerequisites
 
-To use Cohere Embed V3 models with Azure AI studio, you need the following prerequisites:
+To use Cohere Embed V3 models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 

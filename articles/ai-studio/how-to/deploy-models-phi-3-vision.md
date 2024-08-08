@@ -1,12 +1,12 @@
 ---
-title: How to use Phi-3 chat models with vision with Azure AI studio
-titleSuffix: Azure AI studio
-description: Learn how to use Phi-3 chat models with vision with Azure AI studio.
+title: How to use Phi-3 chat models with vision with Azure AI Studio
+titleSuffix: Azure AI Studio
+description: Learn how to use Phi-3 chat models with vision with Azure AI Studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 08/05/2024
-ms.reviewer: kritifaujdar
-reviewer: fkriti
+ms.date: 08/08/2024
+ms.reviewer: fasantia
+reviewer: santiagxf
 ms.author: mopeakande
 author: msakande
 ms.custom: references_regions, generated
@@ -22,9 +22,19 @@ The Phi-3 family of small language models (SLMs) is a collection of instruction-
 
 ::: zone pivot="programming-language-python"
 
+## Phi-3 chat models with vision
+
+Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+
+
+You can learn more about the models in their respective model card:
+
+* [Phi-3-vision-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-vision-128k-Instruct)
+
+
 ## Prerequisites
 
-To use Phi-3 chat models with vision with Azure AI studio, you need the following prerequisites:
+To use Phi-3 chat models with vision with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -58,7 +68,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models with vision.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models with vision.
 
 ### Create a client to consume the model
 
@@ -334,9 +344,19 @@ Usage:
 
 ::: zone pivot="programming-language-javascript"
 
+## Phi-3 chat models with vision
+
+Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+
+
+You can learn more about the models in their respective model card:
+
+* [Phi-3-vision-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-vision-128k-Instruct)
+
+
 ## Prerequisites
 
-To use Phi-3 chat models with vision with Azure AI studio, you need the following prerequisites:
+To use Phi-3 chat models with vision with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -368,7 +388,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models with vision.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models with vision.
 
 ### Create a client to consume the model
 
@@ -667,9 +687,19 @@ Usage:
 
 ::: zone pivot="programming-language-csharp"
 
+## Phi-3 chat models with vision
+
+Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+
+
+You can learn more about the models in their respective model card:
+
+* [Phi-3-vision-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-vision-128k-Instruct)
+
+
 ## Prerequisites
 
-To use Phi-3 chat models with vision with Azure AI studio, you need the following prerequisites:
+To use Phi-3 chat models with vision with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -724,7 +754,7 @@ using System.Reflection;
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models with vision.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models with vision.
 
 ### Create a client to consume the model
 
@@ -997,9 +1027,19 @@ Usage:
 
 ::: zone pivot="programming-language-rest"
 
+## Phi-3 chat models with vision
+
+Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
+
+
+You can learn more about the models in their respective model card:
+
+* [Phi-3-vision-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-vision-128k-Instruct)
+
+
 ## Prerequisites
 
-To use Phi-3 chat models with vision with Azure AI studio, you need the following prerequisites:
+To use Phi-3 chat models with vision with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -1024,7 +1064,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models with vision.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models with vision.
 
 ### Create a client to consume the model
 
