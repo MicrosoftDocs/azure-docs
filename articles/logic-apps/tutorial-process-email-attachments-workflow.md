@@ -28,10 +28,6 @@ When you finish, your workflow looks like the following high level example:
 > - *What's Azure Functions?*
 > - *What's Azure Storage?*
 > - *What's a Consumption logic app workflow?*
-> - *What's the Bing Maps connector?*
-> - *What's a Data Operations action?*
-> - *What's a control flow action?*
-> - *What's the Office 365 Outlook connector?*
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
