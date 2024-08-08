@@ -10,21 +10,18 @@ ms.reviewer: aul
 # Enable private link with Container insights
 This article describes how to configure Container insights to use Azure Private Link for your AKS cluster.
 
+## Prerequisites
+- Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
+- Configure network isolation on your Log Analytics workspace to disable ingestion for the public networks. Isolate log queries if you want them to be restricted to Private network.
 
 ## Cluster using managed identity authentication
 
 ### [CLI](#tab/cli)
 
-
 ### Prerequisites
 - Azure CLI version 2.63.0 or higher.
-
 - AKS-preview CLI extension version MUST be 7.0.0b4 or higher if there is an AKS-preview CLI extension installed.
 
-- Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
-
-
-- Configure network isolation on your Log Analytics workspace to disable ingestion for the public networks. Isolate log queries if you want them to be restricted to Private network.
 
 ### Existing AKS Cluster 
 
@@ -74,7 +71,6 @@ Edit the values in the parameter file and deploy the template using any valid me
  Based on your requirements, you can configure other parameters such `streams`, `enableContainerLogV2`, `enableSyslog`, `syslogLevels`, `syslogFacilities`, `dataCollectionInterval`, `namespaceFilteringModeForDataCollection` and `namespacesForDataCollection`. 
 
 ### Prerequisites
-- Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
 - The template must be deployed in the same resource group as the cluster.
 
 ### AKS cluster
