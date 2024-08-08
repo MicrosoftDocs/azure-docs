@@ -3,7 +3,7 @@ title: Secure workspace resources using virtual networks (VNets)
 titleSuffix: Azure Machine Learning
 description: Secure Azure Machine Learning workspace resources and compute environments using an isolated Azure Virtual Network (VNet).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: None
 ms.author: larryfr

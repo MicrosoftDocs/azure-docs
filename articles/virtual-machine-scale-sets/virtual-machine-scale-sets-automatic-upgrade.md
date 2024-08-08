@@ -471,7 +471,7 @@ Action groups can be created and managed using:
 
 Customers can set up the following using action groups:
 * [SMS and/or Email notifications](/azure/azure-monitor/alerts/action-groups#email-azure-resource-manager)
-* [Webhooks](/azure/azure-monitor/alerts/action-groups#webhook) - Customers can attach webhooks to their automation runbooks and configure their action groups to trigger the runbooks. You can start a runbook from a [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks)
+* [Webhooks](/azure/azure-monitor/alerts/action-groups#webhook) - Customers can attach webhooks to their automation runbooks and configure their action groups to trigger the runbooks. You can start a runbook from a [webhook](/azure/automation/automation-webhooks)
 * [ITSM Connections](/azure/azure-monitor/alerts/itsmc-overview)
 
 ## Investigate and Resolve Auto Upgrade Errors
