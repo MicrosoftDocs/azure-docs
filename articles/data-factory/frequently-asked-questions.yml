@@ -203,7 +203,8 @@ sections:
           ### How many instances of Azure Data Factory should I have?
 
           The answer to this question will depend on the security model your organazation has adapted. Each instance of Azure Data Factory should be scoped with Least Privileged access in mind. This could be a situation where one instance of ADF supports all HR workloads and another supports all Finance data. Each ADF has access to different Linked Services and each instance could be supported by different development teams. There is no additional cost as you are billed by compute increments so the same 100 pipelines in 1 instance of ADF would cost the same as 10 pipelines across 10 instances of ADF.
- Access in mind. 
+          Access in mind. 
+          
           ### How can I schedule a pipeline?
           
           You can use the scheduler trigger or time window trigger to schedule a pipeline. The trigger uses a wall-clock calendar schedule, which can schedule pipelines periodically or in calendar-based recurrent patterns (for example, on Mondays at 6:00 PM and Thursdays at 9:00 PM). For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
