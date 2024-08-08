@@ -4,7 +4,7 @@ description: This article helps you get started configuring an Azure VM with Des
 services: automation
 ms.subservice: desired-state-config
 keywords: dsc, configuration, automation
-ms.date: 04/12/2023
+ms.date: 08/08/2024
 ms.topic: quickstart
 ms.custom: mvc, mode-other
 ms.service: azure-automation
@@ -13,19 +13,19 @@ ms.service: azure-automation
 # Configure a VM with Desired State Configuration
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> Azure Automation DSC has retired. For more information, see the [announcement](https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/#:~:text=The%20DSC%20extension%20for%20Linux%20machines%20in%20Azure%2C,no%20longer%20be%20supported%20after%2030%20September%202023.).
 
 > [!NOTE]
 > Before you enable Azure Automation DSC, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [Azure Machine Configuration](../../governance/machine-configuration/overview.md). The Azure Machine Configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Azure Machine Configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
 
-By enabling Azure Automation State Configuration, you can manage and monitor the configurations of your Windows and Linux servers using Desired State Configuration (DSC). Configurations that drift from a desired configuration can be identified or auto-corrected. This quickstart steps through enabling an Azure Linux VM and deploying a LAMP stack using Azure Automation State Configuration.
+By enabling Azure Automation State Configuration, you can manage and monitor the configurations of your Windows servers using Desired State Configuration (DSC). Configurations that drift from a desired configuration can be identified or auto-corrected. This quickstart steps through enabling an Azure VM and deploying a LAMP stack using Azure Automation State Configuration.
 
 ## Prerequisites
 
 To complete this quickstart, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* An Azure Resource Manager virtual machine running Red Hat Enterprise Linux, or Oracle Linux. For instructions on creating a VM, see [Create your first Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md)
+* An Azure Resource Manager virtual machine.
 
 ## Sign in to Azure
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -43,8 +43,6 @@ There are many different methods to enable a machine for Automation State Config
 5. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as `Node Configuration Name`. You can set the [configuration mode](/powershell/dsc/managing-nodes/metaConfig) to control the configuration behavior for the machine.
 6. Click **OK**. While the DSC extension is deployed to the virtual machine, the status reported is `Connecting`.
 
-![Enabling an Azure VM for DSC](./media/dsc-configuration/dsc-onboard-azure-vm.png)
-
 ## Import modules
 
 Modules contain DSC resources and many can be found in the [PowerShell Gallery](https://www.powershellgallery.com). Any resources that are used in your configurations must be imported to the Automation account before compiling. For this quickstart, the module named **nx** is required.
@@ -54,7 +52,6 @@ Modules contain DSC resources and many can be found in the [PowerShell Gallery](
 1. Click on the module to import.
 1. Click **Import**.
 
-![Importing a DSC Module](./media/dsc-configuration/dsc-import-module-nx.png)
 
 ## Import the configuration
 
@@ -116,11 +113,10 @@ You can assign a compiled node configuration to a DSC node. Assignment applies t
 1. In the left pane of the Automation account, select **State Configuration (DSC)** and then click the **Nodes** tab.
 1. Select the node to which to assign a configuration.
 1. Click **Assign Node Configuration**
-1. Select the node configuration `LAMPServer.localhost` and click **OK**. State Configuration now assigns the compiled configuration to the node, and the node status changes to `Pending`. On the next periodic check, the node retrieves the configuration, applies it, and reports status. It can take up to 30 minutes for the node to retrieve the configuration, depending on the node settings.
-1. To force an immediate check, you can run the following command locally on the Linux virtual machine:
-   `sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
+1. Select the node configuration `LAMPServer.localhost` and click **OK**. State Configuration now assigns the compiled configuration to the node, and the node status changes to `Pending`. On the next periodic check, the node retrieves the configuration, applies it, and reports status. 
 
-![Assigning a Node Configuration](./media/dsc-configuration/dsc-assign-node-configuration.png)
+It can take up to 30 minutes for the node to retrieve the configuration, depending on the node settings.
+
 
 ## View node status
 
@@ -130,7 +126,7 @@ You can view the status of all State Configuration-managed nodes in your Automat
 
 ## Next steps
 
-In this quickstart, you enabled an Azure Linux VM for State Configuration, created a configuration for a LAMP stack, and deployed the configuration to the VM. To learn how you can use Azure Automation State Configuration to enable continuous deployment, continue to the article:
+In this quickstart, you enabled an Azure VM for State Configuration, created a configuration for a LAMP stack, and deployed the configuration to the VM. To learn how you can use Azure Automation State Configuration to enable continuous deployment, continue to the article:
 
 > [!div class="nextstepaction"]
 > [Set up continuous deployment with Chocolatey](../automation-dsc-cd-chocolatey.md)
