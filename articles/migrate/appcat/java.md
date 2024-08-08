@@ -65,7 +65,7 @@ To use the `appcat` CLI, you must download the ZIP file described in the next se
 > [!div class="nextstepaction"]
 > [Download Azure Migrate application and code assessment for Java 6.3.0.9](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.9-preview.zip). Updated on 2024-08-06.
 
-See [release notes](#release-notes) for details.
+For more information, see the [Release notes](#release-notes) section.
 
 #### Known issues
 
@@ -74,6 +74,8 @@ Certain rules might not be triggered when parsing specific Lambda expressions. F
 Running `appcat` in a non-unicode environment with complex double-byte characters will cause corruption. For workarounds, see [the GitHub issue](https://github.com/Azure/appcat-rulesets/issues/183).
 
 #### Previous releases
+
+The following previous releases are also available for download:
 
  - [Azure Migrate application and code assessment for Java 6.3.0.8](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.8-preview.zip). Released on March, 2024.
  - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip). Released on November, 2023.
@@ -317,7 +319,7 @@ The complete guide for Rules Development is available at [azure.github.io/appcat
 
 ### 6.3.0.9
 
-This release contains fixes to the known issues previously on 6.3.0.8, and includes a set of new rules. See below for details:
+This release contains the following fixes to the known issues previously on 6.3.0.8, and includes a set of new rules. For more information, see below.
 
 - Resolved an issue with the `localhost-java-00001` rule.
 - Introduced new rules for identifying technologies such as AWS S3, AWS SQS, Alibaba Cloud OSS, Alibaba Cloud SMS, Alibaba Scheduler X, Alibaba Cloud Seata, and Alibaba Rocket MQ.
