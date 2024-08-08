@@ -25,8 +25,8 @@ items:
       - name: .NET SDK
         href: /dotnet/api/overview/azure/healthdeidentification
       - name: Python SDK
-        href: /python/api/overview/azure/health-deidentification-readme?view=azure-python-preview
+        href: /python/api/overview/azure/health-deidentification
       - name: Java SDK
-        href: /java/api/overview/azure/health-deidentification?view=azure-java-preview
+        href: /java/api/overview/azure/health-deidentification
       - name: JavaScript SDK
-        href: /javascript/api/overview/azure/health-deidentification?view=azure-node-latest
+        href: /javascript/api/overview/azure/health-deidentification
