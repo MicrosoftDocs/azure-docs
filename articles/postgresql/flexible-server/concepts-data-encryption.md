@@ -1,8 +1,8 @@
 ---
 title: Data encryption with a customer-managed key in Azure Database for PostgreSQL - Flexible Server
 description: Learn how data encryption with a customer-managed key in Azure Database for PostgreSQL - Flexible Server enables you to bring your own key for data protection at rest and allows organizations to implement separation of duties in the management of keys and data.
-author: gennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 06/24/2024
 ms.service: azure-database-postgresql

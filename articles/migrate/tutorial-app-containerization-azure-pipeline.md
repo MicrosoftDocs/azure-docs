@@ -95,3 +95,9 @@ Now that you've created both the service connections, you can configure your pip
 9. When you're ready, **Save** to commit the new pipeline into your repo. 
 
 Your pipeline is all setup to build and deploy your containerized for Day 2 operations. You can [customize your pipeline](/azure/devops/pipelines/customize-pipeline#prerequisite) to meet your organizational needs. 
+
+## Next steps
+
+- Containerizing Java web apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on AKS. [Learn more](./tutorial-app-containerization-java-kubernetes.md)
+- Containerizing ASP.NET web apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
+- Containerizing ASP.NET web apps and deploying them on Windows containers on Azure App Service. [Learn more](./tutorial-app-containerization-aspnet-app-service.md)
