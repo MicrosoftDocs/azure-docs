@@ -289,7 +289,7 @@ POST /documentModels:build
 ```
 
 > [!NOTE]
-> For versions `v3.1 (2023-07031)` and `v3.0 (2022-08-31)`, custom neural model's paid training is not enabled. For the two versions, you will get a maximum of 30 minutes training duration per model.
+> For Document Intelligence versions `v3.1 (2023-07-31)` and `v3.0 (2022-08-31)`, custom neural model's paid training is not enabled. For the two older versions, you will get a maximum of 30 minutes training duration per model. If you would like to train more than 20 model instances, you can request for increase in the training limit.
 
 Each training hour is the amount of compute a single V100 GPU can perform in an hour. As each build takes different amount of time, billing is calculated for the actual time spent (excluding time in queue), with a minimum of 30 minutes per training job. The elapsed time is converted to V100 equivalent training hours and reported as part of the model.
 
@@ -305,6 +305,26 @@ GET /documentModels/{myCustomModel}
 ```
 
 This billing structure enables you to train larger data sets for longer durations with flexibility in the training hours.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+## Billing
+
+For Document Intelligence versions `v3.1 (2023-07-31)` and `v3.0 (2022-08-31)`, you will get a maximum of 30 minutes training duration per model, and a maximum of 20 trainings for free per month. If you would like to train more than 20 model instances, you can request for increase in the training limit.
+
+If you are interested in training models for longer durations than 30 minutes, we support **paid training** for our newest version, `v4.0 (2024-07-31)`. Using the latest version, you can train your model for a longer duration to process larger documents.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+## Billing
+
+For Document Intelligence versions `v3.1 (2023-07-31)` and `v3.0 (2022-08-31)`, you will get a maximum of 30 minutes training duration per model, and a maximum of 20 trainings for free per month. If you would like to train more than 20 model instances, you can request for increase in the training limit.
+
+If you are interested in training models for longer durations than 30 minutes, we support **paid training** for our newest version, `v4.0 (2024-07-31)`. Using the latest version, you can train your model for a longer duration to process larger documents.
 
 :::moniker-end
 
