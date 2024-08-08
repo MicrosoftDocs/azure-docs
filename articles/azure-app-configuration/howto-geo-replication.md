@@ -90,9 +90,9 @@ To delete a replica in the portal, follow the steps below.
 
 ## Automatic replica discovery
 
-You can specify one or more endpoints of a geo-replication-enabled App Configuration store that you want your application to connect or failover to. However, if none of these endpoints are accessible, the App Configuration provider libraries can automatically discover any additional replicas and attempt to connect to them. This feature allows you to benefit from geo-replication without having to change your code or redeploy your application. This means you can enable geo-replication or add extra replicas even after your application has been deployed.
+The App Configuration providers can automatically discover any additional replicas from a given App Configuration endpoint and attempt to connect to them. This feature allows you to benefit from geo-replication without having to change your code or redeploy your application. This means you can enable geo-replication or add extra replicas even after your application has been deployed.
 
-The automatically discovered replicas will be selected and used randomly. If you have a preference for specific replicas, you can explicitly specify their endpoints. This feature is enabled by default, but you can refer to the following sample code to disable it.
+Automatic replica discovery is enabled by default, but you can refer to the following sample code to disable it (not recommended).
 
 ### [.NET](#tab/dotnet)
 
@@ -109,7 +109,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 ```
 
 > [!NOTE]
-> The automatic replica discovery support is available if you use version **7.1.0-preview** or later of any of the following packages.
+> The automatic replica discovery support is available if you use version **7.1.0** or later of any of the following packages.
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
@@ -153,7 +153,7 @@ spec:
 
 Each replica you create has its dedicated endpoint. If your application resides in multiple geo-locations, you can update each deployment of your application in a location to connect to the replica closer to that location, which helps minimize the network latency between your application and App Configuration. Since each replica has its separate request quota, this setup also helps the scalability of your application while it grows to a multi-region distributed service.
 
-When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for improved resiliency. App Configuration provider libraries have built-in failover support by accepting multiple replica endpoints. You can provide a list of your replica endpoints in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider library will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests.
+When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for improved resiliency. App Configuration providers have built-in failover support through user provided replicas as well as additional automatically discovered replicas. You can provide a list of your replica endpoints in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. If all user provided replicas are not accessible, the automatically discovered replicas will be randomly selected and used. When a more preferred endpoint becomes available, the provider will switch to it for future requests.
 
 Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for Microsoft Entra authentication or a list of connection strings for access key-based authentication.
 
@@ -227,7 +227,7 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_RE
 
 ### [Kubernetes](#tab/kubernetes)
 
-Not available.
+This feature is not yet supported in the Azure App Configuration Kubernetes Provider.
 
 ---
 
@@ -240,9 +240,9 @@ The failover won't happen for client errors like authentication failures.
 
 ## Load balance with replicas
 
-By default, your application always requests a single endpoint except in the case of failover. However, in addition to failover, replicas can also be used to balance the load of requests. By proactively distributing requests across any available replicas over time, you can avoid exhausting the request quota of a single replica and improve the overall performance of your application.
+By default, your application always sends requests to the most preferred endpoint you provide, except in the event of a failover. However, in addition to failover, replicas can also be used to balance the load of requests. By proactively distributing requests across any available replicas over time, you can avoid exhausting the request quota of a single replica and improve the overall scalability of your application.
 
-The App Configuration provider libraries offer built-in support for automatically load balancing across replicas.  You can use the following code samples to enable this feature in your application. 
+The App Configuration providers offer built-in support for load balancing across replicas, whether provided in code or discovered automatically. You can use the following code samples to enable this feature in your application (recommended).
 
 ### [.NET](#tab/dotnet)
 
@@ -263,6 +263,14 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
+
+### [Java Spring](#tab/spring)
+
+This feature is not yet supported in the Azure App Configuration Java Spring Provider.
+
+### [Kubernetes](#tab/kubernetes)
+
+This feature is not yet supported in the Azure App Configuration Kubernetes Provider.
 
 ---
 
