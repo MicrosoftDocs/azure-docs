@@ -107,7 +107,7 @@ Azure Arc-enabled VMware vSphere doesn't store/process customer data outside the
 
 ## Azure Kubernetes Service (AKS) Arc on VMware (preview)
 
-Starting in March 2024, Azure Kubernetes Service (AKS) enabled by Azure Arc on VMware is available for preview. AKS Arc on VMware enables you to use Azure Arc to create new Kubernetes clusters on VMware vSphere. For more information, see [What is AKS enabled by Arc on VMware?](/azure/aks/hybrid/aks-vmware-overview).
+Starting March 2024, Azure Kubernetes Service (AKS) enabled by Azure Arc on VMware is available for preview. AKS Arc on VMware enables you to use Azure Arc to create new Kubernetes clusters on VMware vSphere. For more information, see [What is AKS enabled by Arc on VMware?](/azure/aks/hybrid/aks-vmware-overview).
 
 The following capabilities are available in the AKS Arc on VMware preview:
 
