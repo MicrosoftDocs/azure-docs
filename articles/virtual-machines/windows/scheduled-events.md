@@ -164,7 +164,7 @@ header = {"Metadata": "true"}
 query_params = {"api-version": "2020-07-01"}
 
 def get_scheduled_events():
-    resp = requests.get(metadata_url, headers = header, params = query_params)
+    resp = requests.get(metadata_url, headers=header, params=query_params)
     data = resp.json()
     return data
 
