@@ -10,4 +10,4 @@ ms.author: danlep
 
 ## Supported models
 
-The policy is used with LLMs added to Azure API Management that are exposed through the [Azure AI Model Inference API](../articles/ai-studio/reference/reference-model-inference-api.md).
+Use the policy with LLM APIs added to Azure API Management that are available through the [Azure AI Model Inference API](../articles/ai-studio/reference/reference-model-inference-api.md).

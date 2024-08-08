@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 08/07/2024
+ms.date: 08/08/2024
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -16,7 +16,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `llm-emit-token-metric` policy sends metrics to Application Insights about consumption of large language model tokens through LLM APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
+The `llm-emit-token-metric` policy sends metrics to Application Insights about consumption of large language model (LLM) tokens through LLM APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 

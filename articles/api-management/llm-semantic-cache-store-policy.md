@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: article
-ms.date: 08/07/2024
+ms.date: 08/08/2024
 ms.author: danlep
 ---
 
@@ -16,11 +16,11 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `llm-semantic-cache-store` policy caches responses to [TBD - add here] requests to a configured external cache. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
+The `llm-semantic-cache-store` policy caches responses to chat completion API and completion API requests to a configured external cache. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
 
 > [!NOTE]
 > * This policy must have a corresponding [Get cached responses to large language model API requests](llm-semantic-cache-lookup-policy.md) policy. 
-> * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for large language model APIs in Azure API Management](llm-enable-semantic-caching.md).
+> * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md). 
 > * Currently, this policy is in preview.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
