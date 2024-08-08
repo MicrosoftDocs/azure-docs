@@ -1,4 +1,4 @@
-##---
+---
 title: High scale logs collection in Container Insights (Preview) 
 description: Enable high scale logs collection in Container Insights (Preview).
 ms.custom: devx-track-azurecli
@@ -20,7 +20,7 @@ Use the following [log queries](../logs/log-query-overview.md) to determine whet
 
 **Logs per second and per node**
 
-``kql
+```kql
 ContainerLogV2 
 | where _ResourceId = “<AzureResourceIdoftheAKSCluster>” 
 | summarize count() by bin(TimeGenerated, 1s), Computer 
@@ -54,7 +54,7 @@ The following scenarios are not supported during the Preview release. These will
 - Configuring through **Monitor Settings** from AKS Insights  
 - Automatic migration from existing Container Insights   
 
-## Enabling high scale logs collection
+## Enable high scale logs collection
 Use the following steps to enable high scale logs collection for your cluster.
 
 ### Update configmap
@@ -100,7 +100,9 @@ See [Create a private Azure Kubernetes Service (AKS) cluster](/azure/aks/private
 - `--ampls-resource-id`
 
 ### [ARM](#tab/arm)
-See [Enable Container insights](./kubernetes-monitoring-enable.md?tabs=arm#enable-container-insights) for guidance on enabling Container Insights using an ARM template.
+See [Enable Container insights](./kubernetes-monitoring-enable.md?tabs=arm#enable-container-insights) for guidance on enabling Container Insights using an ARM template. To enable high scale logs mode, add the following parameter to the ARM template.
+
+The only requirement to enable high scale mode is to 
 
 ## Next steps
 
