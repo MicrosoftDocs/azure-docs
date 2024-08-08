@@ -15,7 +15,7 @@ The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP Busin
 
 ## Solution architecture
 
-The following image illustrates how Microsoft Sentinel retrieves the complete BTP's audit log information. he Microsoft Sentinel soluition for SAP BTP provides built-in analytics rules and detections for selected scenarios, which you can extend to cover more of the audit log information and events.
+The following image illustrates how Microsoft Sentinel retrieves the complete BTP's audit log information. The Microsoft Sentinel solution for SAP BTP provides built-in analytics rules and detections for selected scenarios, which you can extend to cover more of the audit log information and events.
 
 :::image type="content" source="media/deploy-sap-btp-solution/sap-btp-solution-overview.png" alt-text="Diagram that shows an SAP BTP landscape integrated with Microsoft Sentinel." lightbox="media/deploy-sap-btp-solution/sap-btp-solution-overview.png" border="false":::
 
