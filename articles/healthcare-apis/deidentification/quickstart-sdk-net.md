@@ -141,7 +141,7 @@ To create the job, we need the URL to the blob endpoint of the Azure Storage Acc
 az resource show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME  --resource-type Microsoft.Storage/storageAccounts --query properties.primaryEndpoints.blob --output tsv
 ```
 
-Now we can create the job. This example uses `folder1/` as the prefix. Any files that match this prefix will be de-identified and output with the `output_files/` prefix.
+Now we can create the job. This example uses `folder1/` as the prefix. The job will de-identify any document that matches this prefix and write the de-identified version with the `output_files/` prefix.
 
 ```csharp
 using Azure;
@@ -200,7 +200,7 @@ az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage 
 
 Ensure the permissions are given and the Managed Identity for the de-identification service (preview) is set up properly.
 
-See [Authorize Deidentification Service on Storage Account](#authorize-de-identification-service-on-storage-account)
+See [Authorize Deidentification Service on Storage Account](#authorize-de-identification-service-(preview)-on-storage-account)
 
 ### Job failed with status PartialFailed
 

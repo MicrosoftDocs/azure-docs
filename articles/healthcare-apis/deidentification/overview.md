@@ -17,7 +17,7 @@ The de-identification service (preview) in Azure Health Data Services enables he
 
 The de-identification service (preview) unlocks data that was previously difficult to de-identify so organizations can conduct research and derive insights from analytics. The de-identification service supports three operations: **tag**, **redact**, or **surrogate PHI**. The de-identification service offers many benefits, including:
 
-- **Surrogation**: Our service offers best practices for PHI protection in the form of surrogate replacement, where PHI elements are replaced with plausible looking surrogates; resulting in data that is most representative of the source data. Surrogation also provides stronger privacy protections as any false-negative PHI values are hidden within a document.
+- **Surrogation**: Surrogation, or replacement, is a best practice for PHI protection. The service can replace PHI elements with plausible replacement values, resulting in data that is most representative of the source data. Surrogation strongthens privacy protections as any false-negative PHI values are hidden within a document.
 
 - **Consistent replacement**: Consistent surrogation results enable organizations to retain relationships occurring in the underlying dataset, which is critical for research, analytics, and machine learning. By submitting data in the same batch, our service allows for consistent replacement across entities and preserves the relative temporal relationships between events.
 
@@ -27,11 +27,11 @@ The de-identification service (preview) unlocks data that was previously difficu
 
 The de-identification service (preview) offers many benefits, including:
 
-- **PHI compliance**: The de-identification service is designed for protected health information (PHI). The service uses machine learning to identify PHI entities, including HIPAA’s 18 identifiers, using the “TAG” operation. The redaction and surrogation operations replace these identified PHI values with a tag of the entity type or a surrogate, or pseudonym. The service also meets all regional compliance requirements including HIPAA, GDPR, and CCPA.
+- **PHI compliance**: The de-identification service is designed for protected health information (PHI). The service uses machine learning to identify PHI entities, including HIPAA’s 18 identifiers, using the “TAG” operation. The redaction and surrogation operations replace these identified PHI values with a tag of the entity type or a surrogate, or pseudonym. The service also meets all regional compliance requirements including HIPAA, GDPR, and the California Consumer Privacy Act (CCPA).
 
 - **Security**: The de-identification service is a stateless service. Customer data stays within the customer’s tenant.
 
-- **Role-based Access Control (RBAC)**: RBAC enables you to manage how your organization's data is processed, stored, and accessed. You determine who has access to de-identify datasets based on roles you define for your environment.
+- **Role-based Access Control (RBAC)**: Azure role-based access control (RBAC) enables you to manage how your organization's data is processed, stored, and accessed. You determine who has access to de-identify datasets based on roles you define for your environment.
 
 ## Synchronous or asynchronous endpoints
 
@@ -42,16 +42,16 @@ The de-identification service (preview) offers two ways to interact with the RES
 
 ## Input requirements and service limits
 
-The de-identification service (preview) is designed to receive unstructured text. To de-identify data stored in the FHIR&reg; service, see [Export deidentified data](azure/healthcare-apis/fhir/deidentified-export).
+The de-identification service (preview) is designed to receive unstructured text. To de-identify data stored in the FHIR&reg; service, see [Export deidentified data](/azure/healthcare-apis/fhir/deidentified-export).
 
 The following service limits are applicable during preview:
-- Requests cannot exceed 50 KB.
-- Jobs can process no more than 1000 documents.
-- Each document processed by a job cannot exceed 2 MB.
+- Requests can't exceed 50 KB.
+- Jobs can process no more than 1,000 documents.
+- Each document processed by a job can't exceed 2 MB.
 
 ## Responsible use of AI
 
-An AI system includes the technology, the people who use it, the people affected by it, and the environment where it's deployed. Read the transparency note for the de-identification service (preview) to learn about responsible AI use and deployment in your systems.
+An AI system includes the technology, the people who use it, the people affected by it, and the environment where you deploy it. Read the transparency note for the de-identification service (preview) to learn about responsible AI use and deployment in your systems.
 
 ## Related content
 

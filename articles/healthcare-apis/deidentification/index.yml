@@ -37,7 +37,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage access with Azure RBAC
+          - text: Manage access with Azure role-based access control (RBAC)
             url: manage-access-rbac.md
           - text: Use managed identities
             url: managed-identities.md

@@ -39,9 +39,9 @@ The de-identification service (preview) has the following built-in roles availab
 Keep in mind the following points about Azure role assignments with the de-identification service (preview):
 
 - When you create a de-identification service, you aren't automatically assigned permissions to access data via Microsoft Entra ID. You need to explicitly assign yourself an applicable Azure role. You can assign it at the level of your subscription, resource group, or de-identification service.
-- It takes up to 10 minutes for changes role assignments to take effect.
+- When roles are assigned, it can take up to 10 minutes for changes to take effect.
 - When the de-identification service is locked with an [Azure Resource Manager read-only lock](/azure/azure-resource-manager/management/lock-resources), the lock prevents the assignment of Azure roles that are scoped to the de-identification service.
-- Azure deny assignments might block your access even if you have a role assignment. For more information, see [Understand Azure deny assignments](/azure/role-based-access-control/deny-assignments).
+- When Azure deny assignments have been applied, your access might be blocked even if you have a role assignment. For more information, see [Understand Azure deny assignments](/azure/role-based-access-control/deny-assignments).
 
 You can use different tools to assign built-in roles.
 
@@ -54,8 +54,7 @@ principal, follow the steps in [Assign Azure roles using the Azure portal](/azur
 
 To assign an Azure role to a security principal with PowerShell, call the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or higher.
 
-The format of the command can differ based on the scope of the assignment, but `ObjectId` and `RoleDefinitionName` are required parameters. Passing a value for the `Scope` parameter, while not 
-required, is highly recommended to retain the principle of least privilege. By limiting roles and scopes, you limit the resources that are at risk if the security principal is ever compromised.
+The format of the command can differ based on the scope of the assignment, but `ObjectId` and `RoleDefinitionName` are required parameters. While the `Scope` parameter is optional, you should set it to retain the principle of least privilege. By limiting roles and scopes, you limit the resources that are at risk if the security principal is ever compromised.
 
 The scope for a de-identification service (preview) is in the form `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.HealthDataAIServices/deidServices/<Deidentification Service Name>`
 

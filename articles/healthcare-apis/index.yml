@@ -139,7 +139,7 @@ conceptualContent:
               text: Deploy the de-identification service
             - url: ./deidentification/manage-access-rbac.md
               itemType: how-to-guide
-              text: Manage access with Azure role-based access (RBAC)
+              text: Manage access with Azure role-based access control (RBAC)
             - url: ./deidentification/managed-identities.md
               itemType: how-to-guide
               text: Use managed identities
