@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 03/18/2024
-ms.custom: engagement-fy24
+ms.date: 08/08/2024
+ms.custom: engagement-fy25
 ---
 
 
@@ -322,4 +322,7 @@ This error can occur if the appliance is in a shut-down state or the DRA service
 
 ## Next steps
 
-Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
+- Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
+- Learn how to migrate [VMware VMs](./vmware/tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), or [physical servers](tutorial-migrate-physical-virtual-machines.md).
+
+

@@ -4,7 +4,7 @@ description: Install the Elastic Stack (ELK) onto a development Linux VM in Azur
 services: virtual-machines
 author: rloutlaw
 manager: justhe
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli, linux-related-content

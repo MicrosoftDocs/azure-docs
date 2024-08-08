@@ -2,7 +2,7 @@
 title: Time sync for Windows VMs in Azure
 description: Time sync for Windows virtual machines.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: windows
 ms.topic: conceptual
 ms.date: 09/17/2018

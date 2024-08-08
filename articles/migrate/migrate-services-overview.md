@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: overview
 ms.service: azure-migrate
-ms.date: 05/22/2024
-ms.custom: mvc, engagement-fy23
+ms.date: 08/08/2024
+ms.custom: mvc, engagement-fy25
 ---
 
 # About Azure Migrate
@@ -106,5 +106,5 @@ There are two versions of the Azure Migrate service.
 
 ## Next steps
 
-- Try our tutorials to assess [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md).
+- Try our tutorials to discover [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md).
 - [Review frequently asked questions](resources-faq.md) about Azure Migrate.
