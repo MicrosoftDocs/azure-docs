@@ -92,34 +92,6 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
                 )
     ```
 
-* **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
-    
-    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
-
-   ```python
-   import os
-   from azureml.core import Workspace
-   from azureml.core.authentication import ServicePrincipalAuthentication
-
-   service_principal_password = os.environ.get("AZUREML_PASSWORD")
-
-   service_principal_auth = ServicePrincipalAuthentication(
-      tenant_id="<tenant-id>",
-      username="<application-id>",
-      password=service_principal_password)
-
-                        auth=service_principal_auth,
-                             subscription_id='<azure-subscription-id>',
-                             resource_group='myresourcegroup',
-                             create_resource_group=False,
-                             location='eastus2',
-                             friendly_name='My workspace',
-                             storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
-                             key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
-                             app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
-                             container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
-                             exist_ok=False)
-   ```
 
 For more information, see [Workspace SDK reference](/python/api/azureml-core/azureml.core.workspace.workspace).
 
