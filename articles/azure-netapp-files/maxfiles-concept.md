@@ -24,7 +24,7 @@ The `maxfiles` limit for an Azure NetApp Files volume is based on the size (quot
 
 The following table shows examples of the relationship `maxfiles` values based on volume sizes for regular volumes. 
 
-| Volume size | Estimated maxfiles limit |
+| Volume size | Estimated `maxfiles` limit |
 | - | - |
 | 0 – 683 GiB | 21,251,126 |
 | 1 TiB (1,073,741,824 KiB) | 31,876,709 |
@@ -34,7 +34,7 @@ The following table shows examples of the relationship `maxfiles` values based o
 
 The following table shows examples of the relationship `maxfiles` values based on volume sizes for large volumes. 
 
-| Volume size | Estimated maxfiles limit |
+| Volume size | Estimated `maxfiles` limit |
 | - | - |
 | 50 TiB (53,687,091,200 KiB) |	1,593,835,512 |
 | 100 TiB (107,374,182,400 KiB)	| 3,187,671,024 |

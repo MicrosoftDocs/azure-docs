@@ -10,9 +10,9 @@ ms.author: anfdocs
 ---
 # Understand directory sizes in Azure NetApp Files 
 
-When a file is created in a directory, an entry is added to a hidden index file within the Azure NetApp Files volume. This index file helps keep track of the existing inodes in a directory and helps speed up lookup requests for directories with a high number of files. As entries are added to this file, the file size increases (but never decrease) at a rate of approximately 512 bytes per entry depending on the length of the filename. Longer file names add more size to the file. Symbolic links also add entries to this file. This concept is known as the directory size, which is a common element in all Linux-based filesystems. Directory size is not the maximum total number of files in a single Azure NetApp Files volume. That is determined by the [`maxfiles` value](). 
+When a file is created in a directory, an entry is added to a hidden index file within the Azure NetApp Files volume. This index file helps keep track of the existing inodes in a directory and helps expedite lookup requests for directories with a high number of files. As entries are added to this file, the file size increases (but never decrease) at a rate of approximately 512 bytes per entry depending on the length of the filename. Longer file names add more size to the file. Symbolic links also add entries to this file. This concept is known as the directory size, which is a common element in all Linux-based filesystems. Directory size isn't the maximum total number of files in a single Azure NetApp Files volume. That is determined by the [`maxfiles` value](maxfiles-concept.md). 
 
-By default, when a new directory is created, it consumes 4 KiB (4096 bytes) or eight 512-byte blocks. You can view the size of a newly created directory from a Linux client using the stat command. 
+By default, when a new directory is created, it consumes 4 KiB (4,096 bytes) or eight 512-byte blocks. You can view the size of a newly created directory from a Linux client using the stat command. 
 
 ```
 # mkdir dirsize 
@@ -21,7 +21,7 @@ File: ‘dirsize’
 Size: 4096            Blocks: 8          IO Block: 32768  directory 
 ``` 
 
-Directory sizes are specific to a single directory and don't combine in sizes. For example, if there are ten directories in a volume, each can approach the 320 MiB directory size limit in a single volume. 
+Directory sizes are specific to a single directory and don't combine in sizes. For example, if there are 10 directories in a volume, each can approach the 320-MiB directory size limit in a single volume. 
 
 ## Determine if a directory is approaching the limit size <a name="directory-limit"></a>  
 
@@ -45,7 +45,7 @@ When dealing with a high-file count environment, consider the following recommen
 
 ## About directory layouts
 
-The `maxdirsize` value can create concerns when you are using flat directory structures, where a single folder contains millions of files at a single level. Folder structures where files, folders, and subfolders are interspersed have a low impact on `maxdirsize`. There are several directory structure methodologies. 
+The `maxdirsize` value can create concerns when you're using flat directory structures, where a single folder contains millions of files at a single level. Folder structures where files, folders, and subfolders are interspersed have a low impact on `maxdirsize`. There are several directory structure methodologies. 
 
 A **flat directory structure** is a single directory with many files below the same directory. 
 
@@ -61,13 +61,13 @@ A **deep directory structure** contains fewer top-level directories with many su
 
 ### Impact of flat directory structures in Azure NetApp Files
 
-Flat directory structures (many files in a single or few directories) have a negative effect on a wide array of file systems, Azure NetApp File volumes or others. Potential issues include:
+Flat directory structures (many files in a single or few directories) have a negative effect on a wide array of file systems, Azure NetApp File volumes, or others. Potential issues include:
 
 - Memory pressure
 - CPU utilization
-- Network performance/latency (especiall during mass queries of files, `GETATTR` operations, `READDIR` operations)
+- Network performance/latency (especially during mass queries of files, `GETATTR` operations, `READDIR` operations)
 
-Due to the design of Azure NetApp Files large volumes, the impact of `maxdirsize` is unique. Azure NetApp Files large volume `maxdirsize` is impacted uniquely due to its design. Unlike a regular volume, a large volume uses remote hard links inside Azure NetApp Files to help redirect traffic across different storage devices to provide more scale and performance. When using flat directories, there's a a higher ratio of internal remote hard links to local files. These remote hard links count against the total `maxdirsize` value, so a large volume might approach its `maxdirsize` limit faster than a regular volume.
+Due to the design of Azure NetApp Files large volumes, the impact of `maxdirsize` is unique. Azure NetApp Files large volume `maxdirsize` is impacted uniquely due to its design. Unlike a regular volume, a large volume uses remote hard links inside Azure NetApp Files to help redirect traffic across different storage devices to provide more scale and performance. When using flat directories, there's a higher ratio of internal remote hard links to local files. These remote hard links count against the total `maxdirsize` value, so a large volume might approach its `maxdirsize` limit faster than a regular volume.
 
 For example, if a single directory has millions of files and generates roughly 85% remote hard links for the file system, you can expect `maxdirsize` to be exhausted at nearly twice the amount as a regular volume would.
 
@@ -109,7 +109,7 @@ Although the `stat` command can be used to check the directory size of a specifi
 3792 /mnt/dir_16 
 ```
 
-In the previous, the directory size of `/mnt/dir_11/c5` is 316,084 KiB (308.6 MiB), which approaches the 320 MiB limit. That equates to around 4.1 million files.
+In the previous, the directory size of `/mnt/dir_11/c5` is 316,084 KiB (308.6 MiB), which approaches the 320-MiB limit. That equates to around 4.1 million files.
 
 ```
 # ls /mnt/dir_11/c5 | wc -l
