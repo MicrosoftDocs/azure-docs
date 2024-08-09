@@ -33,7 +33,7 @@ Using Azure DNS, you can:
 * [Monitor your application traffic patterns](/azure/traffic-manager/traffic-manager-traffic-view-overview)
 * And more ...
 
-For more information, see the following overviews for each Azure DNS service:
+For more information, see the following service overviews:
 
 - [What is Azure Public DNS?](public-dns-overview.md)
 - [What is Azure Private DNS?](private-dns-overview.md)
