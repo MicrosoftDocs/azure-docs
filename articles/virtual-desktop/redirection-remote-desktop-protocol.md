@@ -1,6 +1,6 @@
 ---
 title: Redirection over the Remote Desktop Protocol
-description: Learn about redirection over the Remote Desktop Protocol, which enable users to share resources between their local device and a remote session. It applies to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and Remote PC connections.
+description: Learn about redirection over the Remote Desktop Protocol, which enables users to share resources between their local device and a remote session. It applies to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and Remote PC connections.
 ms.topic: concept-article
 author: dknappettmsft
 ms.author: daknappe
@@ -9,7 +9,7 @@ ms.date: 08/06/2024
 
 # Redirection over the Remote Desktop Protocol
 
-Redirection enable users to share resources and peripherals, such as the clipboard, webcams, USB devices, printers, and more, between their local device (client-side) and a remote session (server-side) over the *Remote Desktop Protocol* (RDP). Redirection aims to provide a seamless remote experience, comparable to the experience using their local device. This experience helps users be more productive and efficient when working remotely. As an administrator, you can configure redirection to help balance between your security requirements and the needs of your users.
+Redirection enables users to share resources and peripherals, such as the clipboard, webcams, USB devices, printers, and more, between their local device (client-side) and a remote session (server-side) over the *Remote Desktop Protocol* (RDP). Redirection aims to provide a seamless remote experience, comparable to the experience using their local device. This experience helps users be more productive and efficient when working remotely. As an administrator, you can configure redirection to help balance between your security requirements and the needs of your users.
 
 This article provides detailed information about redirection methods across difference peripheral classes, redirection classifications, and the supported types of resources and peripherals you can redirect.
 
@@ -58,7 +58,7 @@ Redirecting USB peripherals using opaque low-level USB redirection is controlled
 
 For some products and services, such as Azure Virtual Desktop, you can control redirection behavior by setting the RDP property value as follows:
 
-- Some USB peripherals might have functions that use opaque low-level USB redirection or high-level redirection. By default, these peripherals are redirected using high-level redirection. You can use use the RDP property to force these peripherals to use opaque low-level USB redirection. To use USB audio peripherals with opaque low-level USB redirection, the audio output location must be set to play sounds on the local computer.
+- Some USB peripherals might have functions that use opaque low-level USB redirection or high-level redirection. By default, these peripherals are redirected using high-level redirection. You can use the RDP property to force these peripherals to use opaque low-level USB redirection. To use USB audio peripherals with opaque low-level USB redirection, the audio output location must be set to play sounds on the local computer.
 
 - Use [class GUIDs](/windows-hardware/drivers/install/system-defined-device-setup-classes-available-to-vendors) to redirect or not redirect an entire class of USB peripherals. 
 
@@ -80,7 +80,7 @@ When constructed as a string in the correct processing order, the syntax is:
 usbdevicestoredirect:s:*;{<DeviceClassGUID>};<USBInstanceID>;<-USBInstanceID>
 ```
 
-The device instance path for USB devices, is constructed in three sections in the format `USB\<Device ID>\<USB instance ID>`. You can find this value in Device Manager, or by using the [Get-PnpDevice PowerShell cmdlet](/powershell/module/pnpdevice/get-pnpdevice). The three sections are:
+The device instance path for USB devices, is constructed in three sections in the format `USB\<Device ID>\<USB instance ID>`. You can find this value in Device Manager, or by using the [Get-PnpDevice PowerShell cmdlet](/powershell/module/pnpdevice/get-pnpdevice). The three sections in order are:
 
 1. [Bus driver](/windows-hardware/drivers/kernel/bus-drivers) name, in this case *USB*.
 1. [Device ID](/windows-hardware/drivers/install/device-ids), which contains the *Vendor ID* (VID) and *Product ID* (PID) of the USB peripheral.

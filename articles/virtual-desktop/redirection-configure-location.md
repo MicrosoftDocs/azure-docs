@@ -131,7 +131,7 @@ To enable location services using Microsoft Intune:
    }
    ```
 
-1. Once you have made the changes, location services in the Windows Settings app on a should look similar to the following image:
+1. Once you have made the changes, location services in the Windows Settings app should look similar to the following image:
 
    :::image type="content" source="media/redirection-remote-desktop-protocol/redirection-location-intune.png" alt-text="A screenshot showing the location settings in the Windows Settings app." lightbox="media/redirection-remote-desktop-protocol/redirection-location-intune.png":::
 

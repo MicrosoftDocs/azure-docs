@@ -40,7 +40,7 @@ The following example shows the difference when redirecting an Apple iPhone usin
 
 - Using MTP and PTP redirection, the iPhone is listed as **Digital Still Camera** to applications and under **Portable Devices** in **Device Manager**:
 
-   :::image type="content" source="media/redirection-remote-desktop-protocol/remote-session-device-manager-portable-devices-mtp-ptp.png" alt-text="A screenshot showing portable devices in Device Manager using MTP and PTP redirection." lightbox="media/redirection-remote-desktop-protocol/remote-session-device-manager-portable-devices-mtp-ptp.png":::
+   :::image type="content" source="media/redirection-remote-desktop-protocol/remote-session-device-manager-portable-devices-digital-still-camera.png" alt-text="A screenshot showing portable devices in Device Manager using MTP and PTP redirection." lightbox="media/redirection-remote-desktop-protocol/remote-session-device-manager-portable-devices-digital-still-camera.png":::
 
 - Using USB redirection, the iPhone is listed as **Apple iPhone** to applications and under **Portable Devices** in **Device Manager**:
 
@@ -269,7 +269,7 @@ To test MTP and PTP redirection:
 
    1. Open the **Photos** app (from Microsoft) in the remote session from the start menu. Select **Import** and check the redirected device appears in the list of connected devices.
 
-      :::image type="content" source="media/redirection-remote-desktop-protocol/redirection-photos-app-mtp-ptp.png" alt-text="A screenshot showing the available printers and scanners in the remote session." lightbox="media/redirection-remote-desktop-protocol/redirection-photos-app-mtp-ptp.png":::
+      :::image type="content" source="media/redirection-remote-desktop-protocol/redirection-photos-app-digital-still-camera.png" alt-text="A screenshot showing the available printers and scanners in the remote session." lightbox="media/redirection-remote-desktop-protocol/redirection-photos-app-digital-still-camera.png":::
 
    1. Open a PowerShell prompt in the remote session and run the following command:
 

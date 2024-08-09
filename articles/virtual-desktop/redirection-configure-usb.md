@@ -253,13 +253,13 @@ Microsoft Dev Box redirects all supported peripherals for opaque low-level redir
 
 1. Select **Show Options**, then select the **Local Resources** tab.
 
-   :::image type="content" source="media/redirection-remote-desktop-protocol/mstsc-local-resources.png" alt-text="A screenshot showing the Local Resources tab of the Remote Desktop Connection app.":::
+   :::image type="content" source="media/redirection-remote-desktop-protocol/remote-desktop-connection-local-resources.png" alt-text="A screenshot showing the Local Resources tab of the Remote Desktop Connection app.":::
 
 1. In the section **Local devices and resources**, select **More...**.
 
 1. From the list of devices and resources, check the box for **Other supported RemoteFX USB devices**. This option only appears if you enable the setting **Allow RDP redirection of other supported RemoteFX USB devices from this computer** covered in the section [Local Windows device configuration](#local-windows-device-configuration). You can select the **+** (plus) icon to expand the list and see which devices are available to be redirected using opaque low-level redirection.
 
-   :::image type="content" source="media/redirection-remote-desktop-protocol/mstsc-usb-low-level-devices.png" alt-text="A screenshot showing an example of available USB peripherals to redirect using opaque low-level redirection.":::
+   :::image type="content" source="media/redirection-remote-desktop-protocol/remote-desktop-connection-usb-low-level-devices.png" alt-text="A screenshot showing an example of available USB peripherals to redirect using opaque low-level redirection.":::
 
 1. Select **OK** to close **Local devices and resources**.
 

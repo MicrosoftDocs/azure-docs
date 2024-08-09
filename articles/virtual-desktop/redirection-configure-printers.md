@@ -12,7 +12,7 @@ ms.date: 07/02/2024
 
 [!INCLUDE [include-rdp-shared-article](includes/include-rdp-shared-article.md)]
 
-You can configure the redirection behavior of printers from a local device to a remote session over the Remote Desktop Protocol (RDP). Printer redirection supports locally-attached and network printers. When you enable printer redirection, all printers available on the local device are redirected; you can't select specific printers to redirect. The default printer on the local device is automatically set as the default printer in the remote session.
+You can configure the redirection behavior of printers from a local device to a remote session over the Remote Desktop Protocol (RDP). Printer redirection supports locally attached and network printers. When you enable printer redirection, all printers available on the local device are redirected; you can't select specific printers to redirect. The default printer on the local device is automatically set as the default printer in the remote session.
 
 ::: zone pivot="azure-virtual-desktop"
 Printer redirection uses high-level redirection and doesn't require drivers to be installed on session hosts. The **Remote Desktop Easy Print** driver is used automatically on session hosts. The driver for the printer must be installed on the local device for redirection to work correctly.
