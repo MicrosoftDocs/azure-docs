@@ -39,7 +39,7 @@ You can create a similar workflow with a Standard logic app resource where some 
 
 * An email account from an email provider supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-  This tutorial uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but the user experience might slightly differ.
+  This example uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but the user experience might slightly differ. If you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
 
   > [!NOTE]
   >
@@ -248,11 +248,9 @@ After you confirm that your function works, create your logic app resource and w
 
 ## Create a Consumption logic app resource
 
-The following steps create the logic app resource and workflow that integrates various services, apps, data, and systems.
-
 1. In the Azure portal search box, enter **logic app**, and select **Logic apps**.
 
-1. On the **Logic apps** page, select **Add**.
+1. On the **Logic apps** page toolbar, select **Add**.
 
    The **Create Logic App** page appears and shows the following options:
 

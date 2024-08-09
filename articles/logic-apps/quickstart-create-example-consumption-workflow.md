@@ -15,13 +15,14 @@ ms.date: 08/07/2024
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-To create an automated workflow that performs tasks with multiple cloud services, this quickstart shows how to create an example workflow that integrates the following services, an RSS feed for a website and an email account, by using Azure Logic Apps.
+This quickstart show how to create an example workflow that runs in multitenant Azure Logic Apps and performs tasks with multiple cloud services. The workflow checks an RSS feed for new articles, based on a specific schedule, and sends an email for each new RSS item. Specifically, you create a Consumption logic app resource and workflow that uses the the following items: 
 
-This example specifically creates a Consumption logic app resource and workflow that runs in multitenant Azure Logic Apps. The example uses the **RSS** connector and the **Office 365 Outlook** connector. The **RSS** connector provides a trigger that you can use to check an RSS feed, based on a specific schedule. The **Office 365 Outlook** connector provides an action that sends an email for each new RSS item.
+- The **RSS** connector, which provides a trigger to check an RSS feed.
+- The **Office 365 Outlook** connector, which provides an action to send email.
 
 When you finish, your workflow looks like the following high level example:
 
-:::image type="content" source="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png" alt-text="Screenshot shows example Consumption workflow with RSS trigger named When a feed item is published plus the Outlook action named Send an email." lightbox="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png":::
+:::image type="content" source="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png" alt-text="Screenshot shows Azure portal, and example Consumption workflow with RSS trigger named When a feed item is published plus the Office 365 Outlook action named Send an email." lightbox="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png":::
 
 > [!TIP]
 >
@@ -34,7 +35,7 @@ When you finish, your workflow looks like the following high level example:
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
-The connectors in this example are only two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
+The operations in this example are from two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
 
 To create and manage a Consumption logic app workflow using other tools, see the following quickstarts:
 
@@ -42,10 +43,7 @@ To create and manage a Consumption logic app workflow using other tools, see the
 * [Create and manage logic app workflows in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 * [Create and manage logic apps workflows using the Azure CLI](quickstart-logic-apps-azure-cli.md)
 
-> [!NOTE]
->
-> To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see 
-> [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md). 
+To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 <a name="prerequisites"></a>
 
@@ -77,7 +75,7 @@ To create and manage a Consumption logic app workflow using other tools, see the
 
 1. In the Azure portal search box, enter **logic app**, and select **Logic apps**.
 
-   :::image type="content" source="media/quickstart-create-example-consumption-workflow/find-select-logic-apps.png" alt-text="Screenshot shows Azure portal search box with the words, logic apps, and shows the selection, Logic apps." lightbox="media/quickstart-create-example-consumption-workflow/find-select-logic-apps.png":::
+   :::image type="content" source="media/quickstart-create-example-consumption-workflow/find-select-logic-apps.png" alt-text="Screenshot shows Azure portal search box with the words, logic app, and shows the selection, Logic apps." lightbox="media/quickstart-create-example-consumption-workflow/find-select-logic-apps.png":::
 
 1. On the **Logic apps** page toolbar, select **Add**.
 
@@ -93,7 +91,7 @@ To create and manage a Consumption logic app workflow using other tools, see the
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Consumption-RG**. |
-   | **Logic App name** | Yes | <*logic-app-resource-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a logic app resource named **My-Consumption-Logic-App**. |
+   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a logic app resource named **My-Consumption-Logic-App**. |
    | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for your logic app. <br><br>This example uses **West US**. |
    | **Enable log analytics** | Yes | **No** | Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. <br><br>**Note**: This option is available only with Consumption logic apps. |
 
