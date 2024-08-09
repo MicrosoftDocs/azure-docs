@@ -109,3 +109,9 @@ The following API can be used to get the maximum number of participants that can
 ```js
 spotLightFeature.maxParticipantsToSpotlight;
 ```
+
+## Troubleshooting
+|code| Subcode | Result Category | Reason | Resolution |
+|----------------------------------------------|--------|--------|---------|----------|
+|403	| 46304 | ExpectedError  | Together mode was started in an unsupported calling scenario  | Ensure together mode is started only in group call or meeting scenarios |
+|403 | 46306	| ExpectedError | Together mode start API was called by a nonmicrosft M365 user  | Ensure a Microsoft M365 User starts together mode.|
