@@ -3,9 +3,9 @@ title: Learn about Grafana settings
 description: Learn about Grafana settings in Azure Managed Grafana, including Viewers can Edit and External Enabled.
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: concept-article
-ms.date: 07/15/2024
+ms.date: 08/09/2024
 #customer intent: In this document, learn about the custom Grafana options available in the Grafana settings tab, in Azure Managed Grafana.
 
 ---
