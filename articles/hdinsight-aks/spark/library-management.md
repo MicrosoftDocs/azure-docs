@@ -1,7 +1,7 @@
 ---
 title: Library Management in Azure HDInsight on AKS
 description: Learn how to use Library Management in Azure HDInsight on AKS with Spark 
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---

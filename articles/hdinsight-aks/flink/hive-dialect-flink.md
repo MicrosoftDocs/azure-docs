@@ -1,7 +1,7 @@
 ---
 title: Hive dialect in Apache Flink® clusters on HDInsight on AKS
 description: How to use Hive dialect in Apache Flink® clusters on HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 04/17/2024
 ---

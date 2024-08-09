@@ -1,7 +1,7 @@
 ---
 title: Expose Superset to the internet
 description: Learn how to expose Superset to the internet
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to 
 ms.date: 12/11/2023
 ---

@@ -1,7 +1,7 @@
 ---
 title: Manage clusters
 description: Manage clusters in HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---

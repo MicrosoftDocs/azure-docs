@@ -1,7 +1,7 @@
 ---
 title: Apache Flink® job management in HDInsight on AKS
 description: HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: tutorial
 ms.date: 04/01/2024
 ---

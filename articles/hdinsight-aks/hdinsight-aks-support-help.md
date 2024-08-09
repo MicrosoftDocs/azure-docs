@@ -1,7 +1,7 @@
 ---
 title: Support and troubleshooting for HDInsight on AKS
 description: This article provides support and troubleshooting options for HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: troubleshooting
 ms.date: 10/06/2023
 ---

@@ -1,7 +1,7 @@
 ---
 title: Using miscellaneous files
 description: Using miscellaneous files with Trino clusters in HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to 
 ms.date: 10/19/2023
 ---

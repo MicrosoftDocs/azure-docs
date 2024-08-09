@@ -1,7 +1,7 @@
 ---
 title: Configure Role Based Access Control
 description: How to provide Role Based Access Control
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to 
 ms.date: 08/29/2023
 ---

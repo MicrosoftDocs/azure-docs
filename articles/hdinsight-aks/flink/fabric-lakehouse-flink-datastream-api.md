@@ -1,7 +1,7 @@
 ---
 title: Microsoft Fabric with Apache Flink® in HDInsight on AKS
 description: An introduction to lakehouse on Microsoft Fabric with Apache Flink® on HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: conceptual
 ms.date: 03/23/2024
 ---

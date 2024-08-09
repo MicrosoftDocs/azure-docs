@@ -1,7 +1,7 @@
 ---
 title: Configure Microsoft Entra ID OAuth2 login for Apache Superset
 description: Learn how to configure Microsoft Entra ID OAuth2 login for Superset
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to 
 ms.date: 08/29/2023
 ---

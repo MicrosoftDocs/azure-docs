@@ -1,7 +1,7 @@
 ---
 title: Configure caching
 description: Learn how to configure caching in Trino
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to 
 ms.date: 11/03/2023
 ---

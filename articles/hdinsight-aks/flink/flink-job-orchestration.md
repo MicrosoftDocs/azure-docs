@@ -1,7 +1,7 @@
 ---
 title: Azure Data Factory Workflow Orchestration Manager (powered by Apache Airflow) with Apache Flink® on HDInsight on AKS
 description: Learn how to perform Apache Flink® job orchestration using Azure Data Factory Workflow Orchestration Manager
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 10/28/2023
 ---

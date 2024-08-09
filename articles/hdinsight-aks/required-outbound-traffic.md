@@ -1,7 +1,7 @@
 ---
 title: Outbound traffic on HDInsight on AKS
 description: Learn required outbound traffic on HDInsight on AKS. 
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: conceptual
 ms.date: 03/26/2024
 ---

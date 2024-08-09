@@ -1,7 +1,7 @@
 ---
 title: One-click deployment for Azure HDInsight on AKS 
 description: How to create cluster pool and cluster with one-click deployment on Azure HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: quickstart
 ms.date: 08/29/2023
 ---

@@ -1,7 +1,7 @@
 ---
 title: Table API and SQL - Use Iceberg Catalog type with Hive in Apache Flink® on HDInsight on AKS
 description: Learn how to create Iceberg Catalog in Apache Flink® on HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 04/19/2024
 ---

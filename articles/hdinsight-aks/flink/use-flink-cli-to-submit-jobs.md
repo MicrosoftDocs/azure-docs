@@ -1,7 +1,7 @@
 ---
 title: How to use Apache Flink® CLI to submit jobs
 description: Learn how to use Apache Flink® CLI to submit jobs
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 10/27/2023
 ---

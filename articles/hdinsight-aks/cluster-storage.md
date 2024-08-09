@@ -1,7 +1,7 @@
 ---
 title: Introduction to cluster storage
 description: Understand how Azure HDInsight on AKS integrates with Azure Storage
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 08/3/2023
 ---

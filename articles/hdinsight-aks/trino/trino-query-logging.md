@@ -1,7 +1,7 @@
 ---
 title: Query logging 
 description: Log query lifecycle events in Trino cluster
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to 
 ms.date: 10/19/2023
 ---

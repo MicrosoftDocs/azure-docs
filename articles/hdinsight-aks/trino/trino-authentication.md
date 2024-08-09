@@ -1,7 +1,7 @@
 ---
 title: Client authentication
 description: How to authenticate to Trino cluster
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 10/19/2023
 ---

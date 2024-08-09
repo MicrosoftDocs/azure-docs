@@ -1,7 +1,7 @@
 ---
 title: Automatically scale Azure HDInsight on AKS clusters
 description: Use the Auto scale feature to automatically scale Azure HDInsight clusters on AKS based on a schedule or load based metrics.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 02/06/2024
 ---

@@ -1,7 +1,7 @@
 ---
 title: Use Apache Flink on HDInsight on AKS with Azure Service Bus 
 description: Use Apache Flink DataStream API on HDInsight on AKS with Azure Service Bus.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 04/02/2024
 ---

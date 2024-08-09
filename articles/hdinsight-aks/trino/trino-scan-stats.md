@@ -1,7 +1,7 @@
 ---
 title: Use scan statistics
 description: How to enable, understand and query scan statistics using  query log tables for Trino clusters for HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 10/19/2023
 ---

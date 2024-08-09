@@ -1,7 +1,7 @@
 ---
 title: HDInsight on AKS preview information
 description: This article explains what public preview mean in HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: troubleshooting
 ms.date: 09/05/2023
 ---

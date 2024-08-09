@@ -1,7 +1,7 @@
 ---
 title: Manage service health.
 description: Learn how to check the health of the services running in a cluster.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: conceptual
 ms.date: 08/29/2023
 ---

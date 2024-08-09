@@ -1,7 +1,7 @@
 ---
 title: How to submit and manage jobs on an Apache Spark™ cluster in Azure HDInsight on AKS
 description: Learn how to submit and manage jobs on an Apache Spark™ cluster in HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-aks
 ms.topic: how-to
 ms.date: 10/27/2023
 ---
