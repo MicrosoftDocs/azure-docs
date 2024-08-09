@@ -42,7 +42,7 @@ Before following the steps in this article, make sure you have the following pre
 
 * (Optional) An Azure Machine Learning compute cluster configured to use a [managed identity](how-to-create-attach-compute-cluster.md?tabs=azure-studio#set-up-managed-identity). The cluster can be configured for either a system-assigned or user-assigned managed identity.
 
-* If your job will run on a compute cluster, grant the managed identity for the compute cluster access to the secrets stored in key vault. Or, if the job will run on serverless compute, grant the managed identity used to submit jobs access to the secrets. The method used to grant access depends on how your key vault is configured:
+* If your job will run on a compute cluster, grant the managed identity for the compute cluster access to the secrets stored in key vault. Or, if the job will run on serverless compute, grant the managed identity specified for the job access to the secrets. The method used to grant access depends on how your key vault is configured:
 
     * [Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide): When configured for Azure RBAC, add the managed identity to the __Key Vault Secrets User__ role on your key vault.
     * [Azure Key Vault access policy](/azure/key-vault/general/assign-access-policy): When configured to use access policies, add a new policy that grants the __get__ operation for secrets and assign it to the managed identity.
