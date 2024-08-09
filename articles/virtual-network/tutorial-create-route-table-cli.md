@@ -37,7 +37,7 @@ Before you can create a route table, create a resource group with [az group crea
 # Create a resource group.
 az group create \
   --name test-rg \
-  --location eastus2
+  --location westus2
 ```
 
 Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *route-table-public*.
@@ -186,7 +186,7 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/vm-private",
-  "location": "eastus2",
+  "location": "westus2",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.1.4",
