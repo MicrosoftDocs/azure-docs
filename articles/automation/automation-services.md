@@ -71,7 +71,7 @@ The following table describes the scenarios and users for ARM template and Bicep
 >[!Note]
 > On July 11, 2026, Azure Blueprints (Preview) will be deprecated. [Learn more](../governance/blueprints/overview.md) 
 
- Azure Blueprints (Preview) define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Blueprints are a declarative way to orchestrate the deployment of various resource templates and other artifacts such as Role assignments, Policy assignments, ARM templates, and Resource groups. [Learn more](../governance/blueprints/).
+ Azure Blueprints (Preview) define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Blueprints are a declarative way to orchestrate the deployment of various resource templates and other artifacts such as Role assignments, Policy assignments, ARM templates, and Resource groups. [Learn more](../governance/blueprints/index.yml).
 
   | **Scenarios**                                                                                                                                                                              | **Users**                                                                                                                                                    |
   | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
