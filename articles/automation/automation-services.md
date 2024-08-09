@@ -168,12 +168,12 @@ Provides a serverless, event-driven compute platform for automation that allows 
 
 Logic Apps is a platform for creating and running complex orchestration workflows that integrate your apps, data, services, and systems. [Learn more](../logic-apps/logic-apps-overview.md).
 
-  - Allows you to build smart integrations between first- and thirs-party apps, services and systems running across on-premises, hybrid and cloud native.
+  - Allows you to build smart integrations between first- and third-party apps, services and systems running across on-premises, hybrid and cloud native.
   - Allows you to use managed connectors from a 450+ and growing Azure connectors ecosystem to use in your workflows.
   - Provides a first-class support for enterprise integration and B2B scenarios.
   - Allows flexibility to visually create and edit workflows - low code\no code approach
   - Runs only on the cloud.
-  - Provides a large collection of readymade actions and triggers.
+  - Provides a large collection of ready-made actions and triggers.
 
   | **Scenarios**                                                                                                                                                                                                                                                                                                                                                                                                 | **Users**                                                                                                                                                          |
   | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
