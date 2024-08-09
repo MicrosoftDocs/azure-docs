@@ -51,3 +51,4 @@ The Perf table collects performance counters from Windows and Linux agents. It o
 
 * [Azure Monitor Agent migration helper workbook](./azure-monitor-agent-migration-helper-workbook.md)
 * [DCR Config Generator](./azure-monitor-agent-migration-data-collection-rule-generator.md)
+
