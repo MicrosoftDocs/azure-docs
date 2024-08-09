@@ -11,7 +11,7 @@ ms.author: greglin
 
 # What is Azure DNS?
 
-The Domain Name System (DNS) is responsible for translating (resolving) a service name to an IP address.  Azure DNS provides DNS hosting, resolution, and load balancing for your applications using the Microsoft Azure infrastructure. Azure DNS supports both internet-facing DNS domains and private DNS zones.
+The Domain Name System (DNS) is responsible for translating (resolving) a service name to an IP address. Azure DNS provides DNS hosting, resolution, and load balancing for your applications using the Microsoft Azure infrastructure. Azure DNS supports both internet-facing DNS domains and private DNS zones.
 
 Azure DNS provides the following services:
 - [Azure Public DNS](public-dns-overview.md) is a hosting service for DNS domains. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
@@ -34,4 +34,4 @@ Using Azure DNS, you can:
 * For frequently asked questions about Azure DNS, see [Azure DNS FAQ](dns-faq-private.yml).
 * For frequently asked questions about Azure Private DNS, see [Azure Private DNS FAQ](dns-faq.yml).
 * For frequently asked questions about Traffic Manager, see [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-faqs)
-* Also see the learn module: [Introduction to Azure DNS](/training/modules/intro-to-azure-dns).
+* Also see [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).

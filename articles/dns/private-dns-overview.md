@@ -19,7 +19,7 @@ To resolve the records of a private DNS zone from your virtual network, you must
 ![DNS overview](./media/private-dns-overview/scenario.png)
 
 > [!NOTE]
-> As a best practice, do not use a *.local* domain for your private DNS zone. Not all operating systems support this.
+> As a best practice, don't use a *.local* domain for your private DNS zone. Not all operating systems support this.
 
 ## Private zone resiliency
 
