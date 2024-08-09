@@ -14,9 +14,9 @@ ms.date: 08/03/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a dataflow, you must [configure dataflow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
+A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow by using the Azure IoT Operations portal or by creating a *dataflow* custom resource. Before you create a dataflow, you must [configure dataflow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
 
-The following is an example of a dataflow configuration with an MQTT source endpoint, transformations, and a Kafka destination endpoint:
+The following code is an example of a dataflow configuration with an MQTT source endpoint, transformations, and a Kafka destination endpoint:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -64,16 +64,16 @@ spec:
 
 | Name                        | Description                                                                |
 |-----------------------------|----------------------------------------------------------------------------|
-| profileRef                  | Reference to the [dataflow profile](howto-configure-dataflow-profile.md)           |
-| mode                        | Mode of the dataflow. *enabled* or *disabled*                              |
-| operations[]                | Operations performed by the dataflow                                       |
-| operationType               | Type of operation. *source*, *destination*, or *builtInTransformation*     |
+| `profileRef`                  | Reference to the [dataflow profile](howto-configure-dataflow-profile.md).           |
+| `mode`                        | Mode of the dataflow: `enabled` or `disabled`.                              |
+| `operations[]`                | Operations performed by the dataflow.                                      |
+| `operationType`               | Type of operation: `source`, `destination`, or `builtInTransformation`.     |
 
 Review the following sections to learn how to configure the operation types of the dataflow.
 
 ## Configure source
 
-To configure a source for the dataflow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint. For example, MQTT or Kafka topics. The following is an example of a dataflow configuration with a source endpoint and data source.
+To configure a source for the dataflow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint. For example, MQTT or Kafka topics. The following code is an example of a dataflow configuration with a source endpoint and data source:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -93,15 +93,14 @@ spec:
 
 | Name                        | Description                                                                        |
 |-----------------------------|------------------------------------------------------------------------------------|
-| operationType               | *source*                                                                           |
-| sourceSettings              | Settings for the *source* operation                                                |
-| sourceSettings.endpointRef  | Reference to the *source* endpoint                                                 |
-| sourceSettings.dataSources  | Data sources for the *source* operation. Wildcards ( `#` and `+` ) are supported.  |
-
+| `operationType`               | `source`                                                                           |
+| `sourceSettings`              | Settings for the `source` operation.                                                |
+| `sourceSettings.endpointRef`  | Reference to the `source` endpoint.                                                 |
+| `sourceSettings.dataSources`  | Data sources for the `source` operation. Wildcards ( `#` and `+` ) are supported.  |
 
 ## Configure transformation
 
-The transformation operation is where you can transform the data from the source before sending it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order they're specified in the configuration. 
+The transformation operation is where you can transform the data from the source before you send it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order in which they're specified in the configuration.
 
 ```yaml
 spec:
@@ -119,21 +118,21 @@ spec:
 
 | Name                                 | Description                                                                     |
 |--------------------------------------|---------------------------------------------------------------------------------|
-| operationType                        | *builtInTransformation*                                                         |
-| name                                 | Name of the transformation                                                      |
-| builtInTransformationSettings        | Settings for the *builtInTransformation* operation                              |
-| builtInTransformationSettings.datasets | Add other data to the source data given a dataset and condition to match   |
-| builtInTransformationSettings.filter | Filter the data based on a condition                                            |
-| builtInTransformationSettings.map    | Move data from one field to another with an optional conversion                 |
+| `operationType`                        | `builtInTransformation`                                                         |
+| `name`                                 | Name of the transformation.                                                      |
+| `builtInTransformationSettings`        | Settings for the `builtInTransformation` operation.                              |
+| `builtInTransformationSettings.datasets` | Add other data to the source data given a dataset and condition to match.   |
+| `builtInTransformationSettings.filter` | Filter the data based on a condition.                                            |
+| `builtInTransformationSettings.map`    | Move data from one field to another with an optional conversion.                 |
 
 ### Enrich: Add reference data
 
-To enrich the data, you can use a reference dataset in Azure IoT Operations's distributed state store (DSS). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+To enrich the data, you can use a reference dataset in the Azure IoT Operations distributed state store (DSS). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
 | Name                                           | Description                               |
 |------------------------------------------------|-------------------------------------------|
-| builtInTransformationSettings.datasets.key   | Dataset used for enrichment (key in DSS)              |
-| builtInTransformationSettings.datasets.expression | Condition for the enrichment operation    |
+| `builtInTransformationSettings.datasets.key`   | Dataset used for enrichment (key in DSS).              |
+| `builtInTransformationSettings.datasets.expression` | Condition for the enrichment operation.   |
 
 For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
 
@@ -161,11 +160,11 @@ If the dataset has a record with the `asset` field, similar to:
 }
 ```
 
-The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available `filter` and `map` stages.
+The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available in `filter` and `map` stages.
 
-You can load sample data into the distributed state store (DSS) using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set).
+You can load sample data into the DSS by using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set).
 
-For more information about condition syntax, see [Enrich data using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
+For more information about condition syntax, see [Enrich data by using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
 
 ### Filter: Filter data based on a condition
 
@@ -173,8 +172,8 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 
 | Name                                           | Description                               |
 |------------------------------------------------|-------------------------------------------|
-| builtInTransformationSettings.filter.inputs[]   | Inputs to evaluate a filter condition               |
-| builtInTransformationSettings.filter.expression | Condition for the filter evaluation   |
+| `builtInTransformationSettings.filter.inputs[]`   | Inputs to evaluate a filter condition.               |
+| `builtInTransformationSettings.filter.expression` | Condition for the filter evaluation.   |
 
 For example, you could use the `temperature` field in the source data to filter the data:
 
@@ -198,9 +197,9 @@ To map the data to another field with optional conversion, you can use the `map`
 
 | Name                                           | Description                               |
 |------------------------------------------------|-------------------------------------------|
-| builtInTransformationSettings.map[].inputs[]   | Inputs for the map operation              |
-| builtInTransformationSettings.map[].output     | Output field for the map operation        |
-| builtInTransformationSettings.map[].expression | Conversion formula for the map operation  |
+| `builtInTransformationSettings.map[].inputs[]`   | Inputs for the map operation              |
+| `builtInTransformationSettings.map[].output`     | Output field for the map operation        |
+| `builtInTransformationSettings.map[].expression` | Conversion formula for the map operation  |
 
 For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
 
@@ -220,7 +219,7 @@ spec:
           output: location
 ```
 
-To learn more, see the [Map data using dataflows](concept-dataflow-mapping.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
+To learn more, see [Map data by using dataflows](concept-dataflow-mapping.md) and [Convert data by using dataflows](concept-dataflow-conversions.md).
 
 ## Configure destination
 
@@ -228,13 +227,12 @@ To configure a destination for the dataflow, you need to specify the endpoint an
 
 | Name                        | Description                                                                |
 |-----------------------------|----------------------------------------------------------------------------|
-| destinationSettings.endpointRef | Reference to the *destination* endpoint                                |
-| destinationSettings.dataDestination | Destination for the data                                           |
-
+| `destinationSettings.endpointRef` | Reference to the `destination` endpoint                                |
+| `destinationSettings.dataDestination` | Destination for the data                                           |
 
 ### Configure destination endpoint reference
 
-To configure the endpoint for the destination, you need to specify the ID and endpoint reference.
+To configure the endpoint for the destination, you need to specify the ID and endpoint reference:
 
 ```yaml
 spec:
@@ -247,7 +245,7 @@ spec:
 
 ### Configure destination path
 
-Once you have the endpoint, you can configure the path for the destination. If the destination is an MQTT or Kafka endpoint, use the path to specify the topic.
+After you have the endpoint, you can configure the path for the destination. If the destination is an MQTT or Kafka endpoint, use the path to specify the topic:
 
 ```yaml
 - operationType: destination
@@ -256,7 +254,7 @@ Once you have the endpoint, you can configure the path for the destination. If t
     dataDestination: factory
 ```
 
-For storage endpoints like Microsoft Fabric, use the path to specify the table name.
+For storage endpoints like Microsoft Fabric, use the path to specify the table name:
 
 ```yaml
 - operationType: destination
