@@ -31,31 +31,38 @@ ms.author: lajanuar
 ::: moniker-end
 
 > [!IMPORTANT]
-> [The `model compose` operation behavior is changing from api-version=2024-07-31-preview](#composed-models-2024-07-31-preview-enhancements). Model compose v4.0 and lateradds an explicitly trained classifier instead of an implicit classifier for analysis. For the previous composed model version, *see* [Composed custom models v3.1]().  If you are currently using composed models consider upgrading to the latest implementation.
+>
+> [The `model compose` operation behavior is changing from api-version=2024-07-31-preview](#benefits-of-the-new-model-compose-operation). The `model compose` operation v4.0 and later adds an explicitly trained classifier instead of an implicit classifier for analysis. For the previous composed model version, *see* Composed custom models v3.1.  If you are currently using composed models consider upgrading to the latest implementation.
 
-# What is a composed model?
-Some scenarios require classifying the document first and then analyzing the document with the model best suited to extract the fields from the model. This could include scenarios where a user uploads a document to your app where you don’t know the document type explicitly, or when a user scans multiple documents together into a single file and submits the file for processing. Your app then needs to identify the component documents and select the best model for each of the component documents. 
+## What is a composed model?
+
 With composed models, you can group multiple custom models into a composed model called with a single model ID. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
-The implmentation of model compose prior to API version 2024-07-31-preview performed an implicit classification to decide which custom model best represents the submitted document. The new implementation of the `model compose` operation replaces the implicit classification from the earlier versions with an explicit classification step and adds conditional routing.
+Some scenarios require classifying the document first and then analyzing the document with the model best suited to extract the fields from the model. Such scenarios can include ones where a user uploads a document but the document type isn't explicitly known. Another scenario can be when multiple documents are scanned together into a single file and the file is submitted for processing. Your application then needs to identify the component documents and select the best model for each document.
 
-## Benefits of the new model compose
+In previous versions, the `model compose` operation performed an implicit classification to decide which custom model best represents the submitted document. The `2024-07-31-preview` implementation of the `model compose` operation replaces the implicit classification from the earlier versions with an explicit classification step and adds conditional routing.
 
-The new model compose, requires you to train an explicit classifier, which provides a few benefits.
-•	You can continually improve the quality of the classifier by adding additional samples and [incrementally improving the classification]( concept-incremental-classifier.md) ensuring your documents are always routed to the right model for extraction.
-•	This implementation provides complete control over routing. By adding confidence-based routing, you provide a confidence threshold in addition to the mapping of the analysis model to the doc type of the classification response. 
-•	Ignoring documents, earlier implementations of model compose always selected the best analysis model for extraction based on the highest confidence score even if the confidence scores were very low. By providing a confidence threshold or explicitly not mapping a known document type from classification to an extraction model, you can ignore specific document types.
-•	Analyze multiple instances of the same document type. This implementation of model compose when paired with ```splitMode``` option of the classifier can detect multiple instances of the same document in a file and split the file to process each document independently. This enables the processing of multiple instances of a document in a single request.
-•	Support for additional features. Add on features like query fields or barcodes can also be specified as a part of the analysis model parameters.
-•	Expanding the number of composed models to 500 models. The new implementation of model compose allows you to assign up to 500 trained custom models to a single composed model.
+## Benefits of the new model compose operation
 
+The new `model compose` operation requires you to train an explicit classifier and provides several benefits.
 
+* **Continual incremental improvement**. You can consistently improve the quality of the classifier by adding more samples and [incrementally improving classification]( concept-incremental-classifier.md). This fine tuning ensures your documents are always routed to the right model for extraction.
+
+* **Complete control over routing**. By adding confidence-based routing, you provide a confidence threshold for the document type and the classification response.
+
+* **Ignore document specific document types during the operation**. Earlier implementations of the `model compose` operation selected the best analysis model for extraction based on the confidence score even if the highest confidence scores were relatively low. By providing a confidence threshold or explicitly not mapping a known document type from classification to an extraction model, you can ignore specific document types.
+
+* **Analyze multiple instances of the same document type**. When paired with the  `splitMode` option of the classifier, the `model compose` operation can detect multiple instances of the same document in a file and split the file to process each document independently. Using `splitMode` enables the processing of multiple instances of a document in a single request.
+
+* **Support for add on features**. [Add on features](concept-add-on-capabilities.md) like query fields or barcodes can also be specified as a part of the analysis model parameters.
+
+* **Assigned custom model maximum expanded to 500**. The new implementation of the `model compose` operation allows you to assign up to 500 trained custom models to a single composed model.
 
 ::: moniker range="doc-intel-4.0.0"
 
-##  How to use model compose
+## How to use model compose
 
-* Start by collecting samples of all your needed documents including the documents information should be extracted from and documents that should be ignored.
+* Start by collecting samples of all your needed documents including samples with information that should be extracted or ignored.
 
 * Train a classifier by organizing the documents in folders where the folder names are the document type you intend to use in your composed model definition.
 
@@ -65,22 +72,19 @@ The new model compose, requires you to train an explicit classifier, which provi
 
 Use the `splitMode` parameter to control the file splitting behavior:
 
-  * **None**. The entire file is treated as a single document.
-  * **perPage**. Each page in the file is treated as a separate document.
-  * **auto**. The file is automatically split into documents.
+* **None**. The entire file is treated as a single document.
+* **perPage**. Each page in the file is treated as a separate document.
+* **auto**. The file is automatically split into documents.
 
 ## Billing and pricing
 
-Composed models are billed the same as individual custom models. The pricing is based on the number of pages analyzed by the the downstream analysis model. You are only billed the extraction price for the pages routed to an extraction model. With the addition of the explict classification, you are also billed for classification of all pages in the input file. For more information, see the [Document Intelligence pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/).
+Composed models are billed the same as individual custom models. The pricing is based on the number of pages analyzed by the downstream analysis model. Billing is based on the extraction price for the pages routed to an extraction model. With the addition of the explicit classification charges are incurred for the classification of all pages in the input file. For more information, see the [Document Intelligence pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/).
 
 ::: moniker-end
 
+::: moniker range="<=doc-intel-3.1.0"
 
-
-::: moniker range="doc-intel-3.1.0"
-
-// **This should include all previous versions**
-##  How to use model compose
+## Use model compose
 
 * Start by creating a list of all the model IDs you want to compose into a single model.
 
@@ -88,18 +92,13 @@ Composed models are billed the same as individual custom models. The pricing is 
 
 * Use the composed model ID to analyze documents.
 
+## Billing
 
-## Billing and pricing
-
-Composed models are billed the same as individual custom models. The pricing is based on the number of pages analyzed. You are only billed the extraction price for the pages routed to an extraction model. For more information, see the [Document Intelligence pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/).
+Composed models are billed the same as individual custom models. The pricing is based on the number of pages analyzed. Billing is based on the extraction price for the pages routed to an extraction model. For more information, see the [Document Intelligence pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/).
 
 * There's no change in pricing for analyzing a document by using an individual custom model or a composed custom model.
 
-
 ::: moniker-end
-
-
-
 
 ## Composed models features
 
@@ -110,7 +109,6 @@ Composed models are billed the same as individual custom models. The pricing is 
 * For `custom template` models, the composed model can be created using variations of a custom template or different form types. This operation is useful when incoming forms belong to one of several templates.
 
 * For `custom neural` models the best practice is to add all the different variations of a single document type into a single training dataset and train on custom neural model. The `model compose` operation is best suited for scenarios when you have documents of different types being submitted for analysis.
-
 
 ## Compose model limits
 
