@@ -262,6 +262,9 @@ The following table provides a description for each of the multimedia features:
 
 The following sections detail the redirection support available on each platform.
 
+> [!TIP]
+> Redirection of some peripheral and resource types needs to be enabled by an administrator before they can be used in a remote session. For more information, see [Redirection over the Remote Desktop Protocol](redirection-remote-desktop-protocol.md), where you can also find links in the [Related content](redirection-remote-desktop-protocol.md#related-content) section to articles that explain how to configure redirection for specific peripheral and resource types.
+
 ### Device redirection
 
 The following table shows which local devices you can redirect to a remote session on each platform:

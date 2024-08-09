@@ -3182,6 +3182,26 @@ groups:
     title: Remote Desktop Services
   - id: remote-pc
     title: Remote PC
+- id: rdp-products-features
+  title: Products and features using the Remote Desktop Protocol (RDP)
+  prompt: "Choose a product or feature:"
+  pivots:
+  - id: azure-virtual-desktop
+    title: Azure Virtual Desktop
+  - id: windows-365
+    title: Windows 365
+  - id: dev-box
+    title: Microsoft Dev Box
+- id: avd-rds-pc
+  title: Azure Virtual Desktop, Remote Desktop Services, and Remote PC
+  prompt: "Choose what you want to connect to:"
+  pivots:
+  - id: azure-virtual-desktop
+    title: Azure Virtual Desktop
+  - id: remote-desktop-services
+    title: Remote Desktop Services
+  - id: remote-pc
+    title: Remote PC
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
