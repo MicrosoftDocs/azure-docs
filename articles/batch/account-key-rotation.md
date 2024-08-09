@@ -7,7 +7,7 @@ ms.date: 08/09/2024
 # Batch account shared key credential rotation
 
 Batch accounts can be authenticated in one of two ways, either via shared key or Microsoft Entra ID. Batch accounts
-with shared key authentication enabled have two keys associated with them, to allow for key rotation scenarios.
+with shared key authentication enabled have two keys associated with them to allow for key rotation scenarios.
 
 > [!TIP]
 > It's highly recommended to avoid using shared key authentication with Batch accounts. The preferred authentication
