@@ -129,7 +129,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.38.0</version>
+            <version>1.40.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -150,7 +150,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.38.0@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.40.0@aar'
 }
 ```
 ::: zone-end
