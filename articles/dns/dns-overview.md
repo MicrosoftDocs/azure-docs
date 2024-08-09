@@ -2,7 +2,7 @@
 title: What is Azure DNS?
 description: An overview of services provided by Azure DNS.
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: overview
 ms.date: 08/09/2024
 ms.author: greglin
@@ -21,7 +21,7 @@ Azure DNS provides the following services:
 
 Using Azure DNS, you can:
 
-* [Host and resolve public domains](/azure/dns/dns-zones-records) 
+* [Host and resolve public domains](/azure/dns/dns-delegate-domain-azure-dns) 
 * [Manage DNS resolution in your virtual networks](/azure/dns/private-dns-privatednszone) 
 * [Enable name resolution between Azure and your on-premises resources](/azure/dns/private-resolver-hybrid-dns)
 * [Load-balance your applications](/azure/traffic-manager/traffic-manager-how-it-works)

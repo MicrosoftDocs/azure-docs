@@ -2,7 +2,6 @@
 title: What is Azure Public DNS?
 description: Overview of DNS hosting service on Microsoft Azure. Host your domain on Microsoft Azure.
 author: greg-lindsay
-services: dns
 ms.service: azure-dns
 ms.topic: overview
 ms.date: 08/09/2024
