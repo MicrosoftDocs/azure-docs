@@ -228,7 +228,7 @@ The Azure services that support each encryption model:
 | StorSimple | Yes | Yes | Yes |
 | Azure Backup | Yes | Yes, including Managed HSM | Yes |
 | Data Box | Yes | - | Yes |
-| Data Box Edge | Yes | Yes | - |
+| Azure Stack Edge | Yes | Yes | - |
 | **Other** | | | |
 | Azure Data Manager for Energy | Yes | Yes | Yes |
 
@@ -240,5 +240,5 @@ The Azure services that support each encryption model:
 
 ## Related content
 
-- [encryption is used in Azure](encryption-overview.md)
-- [double encryption](double-encryption.md)
+- [How encryption is used in Azure](encryption-overview.md)
+- [Double encryption](double-encryption.md)
