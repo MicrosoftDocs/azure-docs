@@ -6,8 +6,7 @@ ms.author: sipa
 ms.date: 07/29/2019
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Clustering point data in the Web SDK
