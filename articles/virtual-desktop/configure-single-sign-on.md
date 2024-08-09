@@ -34,12 +34,18 @@ Before you enable single sign-on, review the following information for using it 
 When single sign-on is enabled and the remote session is locked, either by the user or by policy, the session is instead disconnected and a dialog is shown. Users can select the Reconnect option from the dialog when they are ready to connect again. This is done for security reason and to ensure full support of passwordless authentication. Disconnecting provides the following benefits:
 
 - Consistent sign-in experience through Microsoft Entra ID when needed.
+- Single sign-on experience and reconnection without authentication prompt when allowed by conditional access policies.
 - Supports passwordless authentication like passkeys and FIDO2 devices, contrary to the remote lock screen.
+- Conditional access policies, including multifactor authentication and sign-in frequency, are re-evaluated when the user reconnects to their session.
 - Can require multi-factor authentication to return to the session and prevent users from unlocking with a simple username and password.
-- Reevaluates any applicable Microsoft Entra conditional access policies including sign-in frequency.
-- When meeting all conditional access requirements, users benefit from Entra single sign-on when reconnecting and are not prompted to re-authenticate.
 
-If you prefer to show the remote lock screen instead of disconnecting the session, you can configure your session hosts using Intune, Group Policy or the registry.
+If you prefer to show the remote lock screen instead of disconnecting the session, your session hosts must use the following operating systems:
+
+  - Windows 11 single or multi-session with the [2024-05 Cumulative Updates for Windows 11 (KB5037770)](https://support.microsoft.com/kb/KB5037770) or later installed.
+  - Windows 10 single or multi-session, versions 20H2 or later with the [2024-06 Cumulative Updates for Windows 10 (KB5039211)](https://support.microsoft.com/kb/KB5039211) or later installed.
+  - Windows Server 2022 with the [2024-05 Cumulative Update for Microsoft server operating system (KB5037782)](https://support.microsoft.com/kb/KB5037782) or later installed.
+
+ You can configure the session lock behavior of your session hosts by using Intune, Group Policy or the registry.
 
 # [Intune](#tab/intune)
 
@@ -103,7 +109,7 @@ To configure the session lock experience using Group Policy, follow these steps.
 1. Once the policy is configured, it will take effect after the user initiate a new session.
 
 > [!TIP]
-> During the preview, you can also configure Group Policy centrally in an Active Directory domain by copying the `terminalserver.admx` and `terminalserver.adml` administrative template files from a session host to the [Group Policy Central Store](/troubleshoot/windows-client/group-policy/create-and-manage-central-store) in a test environment.
+> To configure the Group Policy centrally on Active Directory Domain Controllers using Windows Server 2019 or Windows Server 2016, copy the `terminalserver.admx` and `terminalserver.adml` administrative template files from a session host to the [Group Policy Central Store](/troubleshoot/windows-client/group-policy/create-and-manage-central-store) on the domain controller.
 
 # [Registry](#tab/registry)
 
