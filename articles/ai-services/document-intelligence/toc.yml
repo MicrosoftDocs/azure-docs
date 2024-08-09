@@ -7,7 +7,7 @@ items:
   - name: What is Azure AI Document Intelligence?
     displayName: models, develop, development, cognitive, applied, form recognizer, form, recognizer
     href: overview.md
-  - name: Choose a model?
+  - name: Which model should I choose?
     href: choose-model-feature.md
   - name: Document Intelligence Studio
     displayName: get started

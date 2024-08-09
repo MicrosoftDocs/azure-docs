@@ -504,7 +504,8 @@
       items:
       - name: Azure portal, CLI, REST API
         href: flexible-server/how-to-read-replicas-portal.md
-        displayName: replica
+      - name: Read replica with Terraform
+        href: flexible-server/how-to-read-replicas-virtual-endpoints-terraform.md
   - name: Extensions
     items:
     - name: Overview

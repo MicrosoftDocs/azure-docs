@@ -123,7 +123,7 @@ The following table is an example of how to set up role-based access control for
 | --- | --- | ---|
 | IT admin | Owner of the hub | The IT admin can ensure the hub is set up to their enterprise standards. They can assign managers the Contributor role on the resource if they want to enable managers to make new hubs. Or they can assign managers the Azure AI Developer role on the resource to not allow for new hub creation. |
 | Managers | Contributor or Azure AI Developer on the hub | Managers can manage the hub, audit compute resources, audit connections, and create shared connections. |
-| Team lead/Lead developer | Azure AI Developer on the hub | Lead developers can create projects for their team and create shared resources (ex: compute and connections) at the hub level. After project creation, project owners can invite other members. |
+| Team lead/Lead developer | Azure AI Developer on the hub | Lead developers can create projects for their team and create shared resources (such as compute and connections) at the hub level. After project creation, project owners can invite other members. |
 | Team members/developers | Contributor or Azure AI Developer on the project | Developers can build and deploy AI models within a project and create assets that enable development such as computes and connections. |
 
 ## Access to resources created outside of the hub
