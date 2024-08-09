@@ -7,7 +7,7 @@ ms.service: azure-virtual-machines
 ms.subservice: azure-spot-vm
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.reviewer: cynthn
+ms.reviewer: ju-shim
 ---
 
 
