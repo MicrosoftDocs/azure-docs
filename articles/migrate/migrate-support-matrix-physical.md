@@ -398,4 +398,4 @@ Azure Government | Agent-based dependency analysis isn't supported.
 
 ## Next steps
 
-Prepare for [physical discovery and assessment](./tutorial-discover-physical.md).
+Prepare for [discovery](./tutorial-discover-physical.md) of physical servers.

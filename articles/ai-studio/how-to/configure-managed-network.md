@@ -27,6 +27,7 @@ You need to configure following network isolation configurations.
 - Create private endpoint outbound rules to your private Azure resources. Private Azure AI Search isn't supported yet. 
 - If you use Visual Studio Code integration with allow only approved outbound mode, create FQDN outbound rules described in the [use Visual Studio Code](#scenario-use-visual-studio-code) section.
 - If you use HuggingFace models in Models with allow only approved outbound mode, create FQDN outbound rules described in the [use HuggingFace models](#scenario-use-huggingface-models) section.
+- If you use one of the open-source models with allow only approved outbound mode, create FQDN outbound rules described in the [curated by Azure AI](#scenario-curated-by-azure-ai) section.
 
 ## Network isolation architecture and isolation modes
 
@@ -758,6 +759,18 @@ If you plan to use __HuggingFace models__ with the hub, add outbound _FQDN_ rule
 * production.cloudflare.docker.com
 * cnd.auth0.com
 * cdn-lfs.huggingface.co
+
+### Scenario: Curated by Azure AI
+
+These models involve dynamic installation of dependencies at runtime, and reequire outbound _FQDN_ rules to allow traffic to the following hosts:
+
+*.anaconda.org
+*.anaconda.com
+anaconda.com
+pypi.org
+*.pythonhosted.org
+*.pytorch.org
+pytorch.org
 
 ## Private endpoints
 

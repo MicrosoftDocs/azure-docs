@@ -92,7 +92,7 @@ To create a deployment:
 1. Alternatively, you can initiate a deployment by starting from your project in AI Studio. 
 
     1. From the left sidebar of your project, select **Components** > **Deployments**.
-    1. Select **+ Create deployment**.
+    1. Select **+ Deploy model**.
     1. Search for and select **Cohere-rerank-3-english**. to open the Model Details page.
     1. Select **Confirm** to open a serverless API deployment window for the model.
 

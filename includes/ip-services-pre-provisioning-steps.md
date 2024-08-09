@@ -4,7 +4,7 @@
  services: virtual-network
  sub-services: ip-services
  author: mbender-ms
- ms.service: virtual-network
+ ms.service: azure-virtual-network
  ms.topic: include
  ms.date: 07/24/2024
  ms.author: mbender

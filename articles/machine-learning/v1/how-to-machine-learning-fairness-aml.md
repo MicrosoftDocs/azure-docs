@@ -3,7 +3,7 @@ title: Assess ML models' fairness in Python (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to assess and mitigate the fairness of your machine learning models using Fairlearn and the Azure Machine Learning Python SDK.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.author: lagayhar
 author: lgayhardt
