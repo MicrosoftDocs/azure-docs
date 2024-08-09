@@ -14,7 +14,7 @@ ms.author: cshoe
 
 Config Server for Spring provides a centralized location to make configuration data available to multiple applications. In this article, you learn to connect an app hosted in Azure Container Apps to a Java Config Server for Spring instance.
 
-The Config Server for Spring component uses a GitHub repository as the source for configuration settings. Configuration values are made available to your container app via a binding between the component and your container app. As values change in the configuration server, they automatically flow to your application, all without requiring you to recompile or redeploy your application.
+The Config Server for Spring java component uses a GitHub repository as the source for configuration settings. Configuration values are made available to your container app via a binding between the component and your container app. As values change in the configuration server, they automatically flow to your application, all without requiring you to recompile or redeploy your application.
 
 In this tutorial, you learn to:
 
@@ -107,7 +107,7 @@ Follow the following steps to create the resource group, client container app an
 
   :::image type="content" source="media/java-components/create-containerapp-config.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-config.png":::
 
-3. In Container tab, select or enter the following values and leave others be the default.
+3. In Container tab, select or enter the following values and leave others be the default. The container image value is `mcr.microsoft.com/javacomponents/samples/sample-service-config-client:latest`, which is a sample config server client image provided by us.
 
   :::image type="content" source="media/java-components/select-config-image.png" alt-text="Screenshot of select image when create container apps."  lightbox="media/java-components/select-config-image.png":::
 
@@ -119,11 +119,11 @@ Follow the following steps to create the resource group, client container app an
 
 ---
 
-This environment is used to host both the Config Server for Spring component and your container app.
+This environment is used to host both the Config Server for Spring java component and your container app.
 
 ## Create the Config Server for Spring Java component
 
-Now that you have a Container Apps environment, you can create your container app and bind it to a Config Server for Spring component. When you bind your container app, configuration values automatically synchronize from the Config Server component to your application.
+Now that you have a Container Apps environment, you can create your container app and bind it to a Config Server for Spring java component. When you bind your container app, configuration values automatically synchronize from the Config Server component to your application.
 
 ### [Azure CLI](#tab/azure-cli)
 1. Create the Config Server for Spring Java component.
@@ -223,8 +223,8 @@ The bind request injects configuration setting into the application as environme
 In this case, the following environment variables are available to the application:
 
 ```bash
-SPRING_CLOUD_CONFIG_URI=http://$JAVA_COMPONENT_NAME:80
-SPRING_CLOUD_CONFIG_COMPONENT_URI=http://$JAVA_COMPONENT_NAME:80
+SPRING_CLOUD_CONFIG_URI=http://[JAVA_COMPONENT_INTERNAL_FQDN]:80
+SPRING_CLOUD_CONFIG_COMPONENT_URI=http://[JAVA_COMPONENT_INTERNAL_FQDN]:80
 SPRING_CONFIG_IMPORT=optional:configserver:$SPRING_CLOUD_CONFIG_URI
 ```
 
