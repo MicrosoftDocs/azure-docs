@@ -79,7 +79,7 @@ You can download the latest version of the Linux agent from [here](https://aka.m
     ```
 
     >[!NOTE]
-    > If you downloaded the agent via CURL, make sure to adjust the file name in the command.
+    > Because the above download link uses a redirect, the file name can differ when downloaded via CURL or other command line tools in Linux. Make sure to adjust the command accordingly.
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
 
@@ -91,6 +91,22 @@ To uninstall Dependency Agent:
 1. Select **Extensions + applications** > **DependencyAgentWindows** or **DependencyAgentLinux** > **Uninstall**.
 
     :::image type="content" source="media/vminsights-dependency-agent-maintenance/azure-monitor-uninstall-dependency-agent.png" alt-text="Screenshot showing the Extensions and applications screen for a virtual machine." lightbox="media/vminsights-dependency-agent-maintenance/azure-monitor-uninstall-dependency-agent.png":::
+
+### Manually uninstall Dependency Agent on Windows
+
+Method 1: In Windows, go to **Add and remove programs**, find Microsoft Dependency Agent, click on the ellipsis to open the context menu, and select **Uninstall**.
+
+Method 2: Use the uninstaller located in the Microsoft Dependency Agent folder, for example, `C:\Program Files\Microsoft Dependency Agent"\Uninstall_v.w.x.y.exe` (where v.w.x.y is the version number).
+
+### Manually uninstall Dependency Agent on Linux
+
+1. Sign on to the computer with an account that has administrative rights.
+
+2. Run the following command as root:
+
+    ```bash
+    /opt/microsoft/dependency-agent/uninstall -s
+    ```
 
 ## Dependency Agent Linux support
 
