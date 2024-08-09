@@ -2,7 +2,7 @@
 title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
-ms.date: 01/04/2024
+ms.date: 08/14/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -226,7 +226,7 @@ AzureBackup workload extension operation failed. | The VM is shut down, or the V
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Microsoft Entra services.| <li> If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Microsoft Entra ID (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access. <li> Ensure DNS is resolving Azure endpoints. <li> Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work. <li> Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
+The VM is not able to contact Azure Backup service due to internet connectivity issues. | **Cause 1**: The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Microsoft Entra services. <br><br> **Cause 2**: A Group Policy Object (GPO) policy restricts the required cipher suites for TLS communication. | **Recommendation for cause 1**: <li> If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Microsoft Entra ID (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access. <li> Ensure DNS is resolving Azure endpoints. <li> Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work. <li> Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services. <br><br> **Recommendation for cause 2**: Remove the VM from the GPO or disable/remove the GPO policy as a workaround. Alternatively, modify the GPO in such a way that it allows the required cipher suites.
 
 ### UserErrorOperationNotAllowedDatabaseMirroringEnabled
 
