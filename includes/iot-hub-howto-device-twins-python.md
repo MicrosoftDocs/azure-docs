@@ -113,11 +113,13 @@ You can update device twin tags and desired properties from a backend applicatio
 
 To apply a patch to a device twin:
 
-* Create a patch in JSON format.
+* Create a patch in JSON format. The patch can contain tags and desired properties.
 
 * Call [get_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-get-twin) to get the current version of the device twin.
 
-* Call [update_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to apply the patch to the device twin.
+* Call [update_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to apply the patch to the device twin. You can also use [replace_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&#azure-iot-hub-iothubregistrymanager-replace-twin) to replace desired properties and tags of a device twin.
+
+This example updates `region` and `plant` tag information.
 
 ```python
 new_tags = {

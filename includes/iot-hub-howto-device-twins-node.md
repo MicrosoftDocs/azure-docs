@@ -95,11 +95,9 @@ if (err)
 
 ### Update reported device twin properties
 
-Format a variable with the device twin patch.
+You can use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update) to update device reported properties. Include a JSON-formatted patch as the first parameter and callback method as the second parameter to the method.
 
-In this example, the patch contains a device twin `connectivity` update value of `cellular`.
-
-Use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update) to update the device twin with the patch provided as the first parameter.
+In this example, a JSON-formatted device twin patch is stored in the `patch` variable. The patch contains a device twin `connectivity` update value of `cellular`. The patch and error handler are passed to the `update` method. If there is an error, a console error message is displayed.
 
 ```javascript
 var patch = {
@@ -159,9 +157,10 @@ You can create a patch that contains tag and desired property updates for a devi
 To update a device twin:
 
 * Use [getTwin](/javascript/api/azure-iothub/registry?#azure-iothub-registry-gettwin-1) to retrieve the device twin object.
-* Format a patch that contains the device twin update. The patch is formatted in JSON and as described in [Twin class](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1), a backend service patch can contain tag and desired property updates. For more patch format information, see [Tags and properties format](/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
+* Format a patch that contains the device twin update. The patch is formatted in JSON and as described in [Twin class](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1). A backend service patch can contain tag and desired property updates. For more patch format information, see [Tags and properties format](/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
 
-* Use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1) to update the device twin with the patch.
+* Use [twin.update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1) to update the device twin with the patch.
+You can also use [registry.updateTwin](/javascript/api/azure-iothub/registry?#azure-iothub-registry-updatetwin) to apply a patch to the twin.
 
 In this example, the the device twin is retrieved for `myDeviceId`, then a patch is applied to the twins that contains `location` tags update of `region: 'US', plant: 'Redmond43'`.
 
