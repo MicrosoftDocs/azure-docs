@@ -40,6 +40,8 @@
     href: generate-cli-scripts.md
   - name: Generate PowerShell scripts
     href: generate-powershell-scripts.md
+  - name: Generate Terraform infrastructure
+    href: generate-terraform-configurations.md
   - name: Author API Management policies
     href: author-api-management-policies.md
   - name: Work with AKS clusters

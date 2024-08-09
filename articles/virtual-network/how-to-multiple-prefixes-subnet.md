@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to configure multiple prefixes for a subnet in an Azure Virtual Network to increase address space capacity.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 05/06/2024
 

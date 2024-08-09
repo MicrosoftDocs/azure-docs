@@ -99,7 +99,7 @@ Although not shown in the diagrams above, Azure Monitor, Log Analytics and Key V
   - [Azure Monitor Logs](../azure-monitor/logs/log-analytics-overview.md) records and stores log and performance data.
   - [Azure Monitor Metrics](../azure-monitor/essentials/metrics-getting-started.md) collects numerical values at regular intervals.
 - [Azure Log Analytics](../azure-monitor/logs/log-analytics-overview.md) is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
-- [Key Vault](../key-vault/general/basic-concepts.md) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+- [Key Vault](/azure/key-vault/general/basic-concepts) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
 ## Alternatives
 

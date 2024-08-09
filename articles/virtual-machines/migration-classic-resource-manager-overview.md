@@ -3,7 +3,7 @@ title: Overview of platform-supported migration of IaaS resources from classic t
 description: Walk through the platform-supported migration of resources from classic to Azure Resource Manager.
 author: oriwolman
 manager: vashan
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.topic: conceptual
 ms.date: 1/25/2023

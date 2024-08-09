@@ -11,7 +11,7 @@ appliesto:
 
 # Set up Microsoft Sentinel customer-managed key
 
-This article provides background information and steps to configure a [customer-managed key (CMK)](../azure-monitor/logs/customer-managed-keys.md) for Microsoft Sentinel. All the data stored in Microsoft Sentinel is already encrypted by Microsoft in all relevant storage resources. CMK provides an extra layer of protection with an encryption key created and owned by you and stored in your [Azure Key Vault](../key-vault/general/overview.md).
+This article provides background information and steps to configure a [customer-managed key (CMK)](../azure-monitor/logs/customer-managed-keys.md) for Microsoft Sentinel. All the data stored in Microsoft Sentinel is already encrypted by Microsoft in all relevant storage resources. CMK provides an extra layer of protection with an encryption key created and owned by you and stored in your [Azure Key Vault](/azure/key-vault/general/overview).
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ The Microsoft Sentinel solution uses a dedicated Log Analytics cluser for log co
 
 For more information, see:
 - [Azure Monitor customer-managed keys (CMK)](../azure-monitor/logs/customer-managed-keys.md).
-- [Azure Key Vault](../key-vault/general/overview.md).
+- [Azure Key Vault](/azure/key-vault/general/overview).
 - [Log Analytics dedicated clusters](../azure-monitor/logs/logs-dedicated-clusters.md).
 
 > [!NOTE]
