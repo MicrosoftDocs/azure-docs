@@ -214,7 +214,7 @@ Custom models are trained using your labeled datasets to extract distinct data f
 
 :::row:::
    :::column:::
-    [**Custom generative**](#custom-generative) | Build a custom extraction model using generative AI for documents with unstructured format and varying templates.
+    [**Custom generative**](#custom-generative-document-field-extraction) | Build a custom extraction model using generative AI for documents with unstructured format and varying templates.
    :::column-end:::
    :::column span="":::
     [**Custom neural**](#custom-neural) | Extract data from mixed-type documents.
@@ -248,7 +248,7 @@ Document Intelligence supports optional features that can be enabled and disable
 
 * [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
 
-Starting with `2024-07-31-preview` release, the Read model supports searchable PDF output:
+ The`2024-07-31-preview` release introduces `read` model support for [searchable PDF](concept-read.md#searchable-pdf) output:
 
 * [`Searchable PDF](concept-add-on-capabilities.md#searchable-pdf)
 
@@ -508,19 +508,21 @@ You can use Document Intelligence to automate document processing in application
 |----------|--------------|-----------------|
 |[**prebuilt-tax.us.1040{`variation`}**](concept-tax-document.md)|&#9679; Extract information from 1040-form variations.</br>&#9679; [Data and field extraction](concept-tax-document.md#field-extraction-1040-tax-form)|&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/prebuilt?formCategory=tax.us.1040)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
 
-::: moniker range="<=doc-intel-3.1.0"
+::: moniker range=">=doc-intel-4.0.0"
 
 ### Unified US tax forms
 
 | Model ID |Description|Development options |
 |----------|--------------|-----------------|
-|[**prebuilt-tax.us**](concept-tax-document.md)|&#9679;Extract information from any of the suported US tax forms.|&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/prebuilt?formCategory=tax.us.1040)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
+|[**prebuilt-tax.us**](concept-tax-document.md)|&#9679;Extract information from any of the supported US tax forms.|&#9679; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/prebuilt?formCategory=tax.us.1040)</br>&#9679; [**REST API**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true&pivots=programming-language-rest-api#analyze-document-post-request)</br>&#9679; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)</br>&#9679; [**JavaScript**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true#prebuilt-model)|
+
+:::moniker-end
 
 ::: moniker range="<=doc-intel-3.1.0"
 
 ### Business card
 
-:::image type="content" source="media/overview/analyze-business-card.png" alt-text="Screenshot of Business card model analysis using Document Intelligence Studio.":::
+  :::image type="content" source="media/overview/analyze-business-card.png" alt-text="Screenshot of Business card model analysis using Document Intelligence Studio.":::
 
 | Model ID | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
@@ -529,7 +531,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-::: moniker-end
+:::moniker-end
 
 ### Custom model overview
 
@@ -542,7 +544,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to custom model types](#custom-models)
 
-#### Custom generative (Document field extraction)
+#### Custom generative (document field extraction)
 
 :::image type="content" source="media/overview/analyze-custom-generative.png" alt-text="Screenshot of Custom generative model analysis using Azure AI Studio.":::
 
