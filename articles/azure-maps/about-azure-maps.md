@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 10/21/2022
 ms.topic: overview
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ms.custom: mvc, references_regions
 ---
 
