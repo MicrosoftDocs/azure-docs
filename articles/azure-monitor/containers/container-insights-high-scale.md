@@ -1,7 +1,7 @@
 ---
 title: High scale logs collection in Container Insights (Preview) 
 description: Enable high scale logs collection in Container Insights (Preview).
-ms.custom: devx-track-azurecli
+ms.topic: conceptual
 ms.date: 08/06/2024
 ---
 
@@ -22,7 +22,7 @@ Use the following [log queries](../logs/log-query-overview.md) to determine whet
 
 ```kql
 ContainerLogV2 
-| where _ResourceId = “<AzureResourceIdoftheAKSCluster>” 
+| where _ResourceId = "<AzureResourceIdoftheAKSCluster>" 
 | summarize count() by bin(TimeGenerated, 1s), Computer 
 | render timechart 
 ```
@@ -31,7 +31,7 @@ ContainerLogV2
 
 ```kusto
  ContainerLogV2 
-| where _ResourceId = “<AzureResourceIdoftheAKSCluster>” 
+| where _ResourceId = "<AzureResourceIdoftheAKSCluster>"
 | summarize BillableDataMB = sum(_BilledSize)/1024/1024 by bin(TimeGenerated, 1s), Computer 
 | render timechart 
 ```
@@ -62,10 +62,10 @@ The first step is to update configmap for the cluster to instruct the container 
 
 Follow the guidance in [Configure and deploy ConfigMap](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to download and update ConfigMap for the cluster. The only different you need to make for high scale logs is to add the following entry under `agent-settings`: 
 
-    ```yml
-    [agent_settings.high_log_scale] 
-      enabled = true 
-    ```
+```yml
+[agent_settings.high_log_scale] 
+  enabled = true 
+```
 
 After applying this configmap, `ama-logs-*` pods will get restarted automatically and configure the ama-logs daemonset pods to run in high scale log mode. 
 
@@ -100,9 +100,10 @@ See [Create a private Azure Kubernetes Service (AKS) cluster](/azure/aks/private
 - `--ampls-resource-id`
 
 ### [ARM](#tab/arm)
-See [Enable Container insights](./kubernetes-monitoring-enable.md?tabs=arm#enable-container-insights) for guidance on enabling Container Insights using an ARM template. To enable high scale logs mode, add the following parameter to the ARM template.
+See [Enable Container insights](./kubernetes-monitoring-enable.md?tabs=arm#enable-container-insights) for guidance on enabling Container Insights using an ARM template. To enable high scale logs mode, use `Microsoft-ContainerLogV2-HighScale` in the `streams` parameter.
 
-The only requirement to enable high scale mode is to 
+> [!WARNING]
+> Don't use both `Microsoft-ContainerLogV2` and `Microsoft-ContainerLogV2-HighScale` in the `streams` parameter. This will result in logs being collected in the standard mode.
 
 ## Next steps
 
