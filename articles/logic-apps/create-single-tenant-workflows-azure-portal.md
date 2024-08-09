@@ -174,7 +174,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
 
 1. On the deployment completion page, select **Go to resource** so that you can add a blank workflow.
 
-   ![Screenshot showing Azure portal and finished deployment.](./media/create-single-tenant-workflows-azure-portal/logic-app-completed-deployment.png)
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/logic-app-completed-deployment.png" alt-text="Screenshot showing Azure portal and finished deployment." lightbox="media/create-single-tenant-workflows-azure-portal/logic-app-completed-deployment.png":::
 
 <a name="add-workflow"></a>
 
@@ -182,11 +182,11 @@ More workflows in your logic app raise the risk of longer load times, which nega
 
 After you create your empty logic app resource, you have to add your first workflow.
 
-1. After Azure opens the resource, on your logic app resource menu, select **Workflows**. On the **Workflows** toolbar, select **Add**.
+1. After Azure opens the resource, on your logic app menu, under **Workflows**, select **Workflows**. On the **Workflows** toolbar, select **Add**.
 
-   ![Screenshot showing logic app resource menu with Workflows selected, and on the toolbar, Add is selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-add-blank-workflow.png)
+   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/logic-app-add-blank-workflow.png" alt-text="Screenshot shows logic app menu with Workflows selected. The toolbar shows selected option for Add." lightbox="media/create-single-tenant-workflows-azure-portal/logic-app-add-blank-workflow.png":::
 
-1. After the **New workflow** pane opens, provide a name for your workflow, and select the state type, either [**Stateful** or **Stateless**](single-tenant-overview-compare.md#stateful-stateless). When you're done, select **Create**.
+1. After the **New workflow** pane opens, provide a name for your workflow, and select the state type, either [**Stateful** or **Stateless**](single-tenant-overview-compare.md#stateful-stateless). When you finish, select **Create**.
 
    This example adds a blank stateful workflow named **Stateful-Workflow**. By default, the workflow is enabled but doesn't do anything until you add a trigger and actions.
 
@@ -198,7 +198,7 @@ After you create your empty logic app resource, you have to add your first workf
 
    The designer surface shows a prompt to select a trigger operation. By default, the prompt is already selected so that a pane with available triggers already appears open.
 
-So now you'll add a trigger that starts your workflow.
+Now, add a trigger that starts your workflow.
 
 <a name="add-trigger-actions"></a>
 
