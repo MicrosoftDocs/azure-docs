@@ -16,7 +16,7 @@ Note: 1.39.0 is not missing, it was a internal release.
 *  Added support for pitch, rate and volume setting in input text streaming in speech synthesis.
 *  Added support for personal voice input text streaming by introducing PersonalVoiceSynthesisRequest in speech synthesis. Note: This API is in preview and may be subject to change in future versions.
 *  Added support for diarization of intermediate results when ConversationTranscriber is used.
-*  Removed CentOS/RHEL 7 support due to CentOS 7 EOL and the end of RHEL 7 Maintenance Support 2.
+*  Removed CentOS/RHEL 7 support due to [CentOS 7 EOL](https://www.redhat.com/topics/linux/centos-linux-eol) and [the end of RHEL 7 Maintenance Support 2](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
 *  Use of embedded speech models now requires a model license instead of a model key. If you are an existing embedded speech customer and want to upgrade, please contact your support person at Microsoft for details on model updates.
 
 #### Bug fixes
