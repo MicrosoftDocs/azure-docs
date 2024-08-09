@@ -9,9 +9,9 @@ ms.date: 08/06/2024
 High scale logs mode is a feature in Container Insights enables you to collect container console (stdout & stderr) logs with high throughput from their AKS cluster nodes. This feature is intended for Azure Kubernetes Service clusters sending more than 5,000 logs/sec per node.
 
 ## Overview
-When high scale mode is enabled, Container Insights performs multiple configuration changes resulting in a higher overall throughput. This includes using and upgraded agent and Azure Monitor pipeline with scale improvements. These changes are all made by Azure Monitor and don't require input or configuration after the feature has been enabled.   
+When high scale mode is enabled, Container Insights performs multiple configuration changes resulting in a higher overall throughput. This includes using and upgraded agent and Azure Monitor pipeline with scale improvements. These changes are all made by Azure Monitor and don't require input or configuration after the feature is enabled.   
 
-High scale logs collection is suited for environments sending more than 5,000 logs/sec from a single node in their Kubernetes clusters and has been designed and tested for sending up to 50K log/sec per node.  High scale mode impacts only the data collection layer. The rest of the Container insights experience remains the same, with logs being ingested into same `ContainerLogV2` table. Queries and alerts continue to work since the same data is being collected.
+High scale logs collection is suited for environments sending more than 5,000 logs/sec from a single node in their Kubernetes clusters and has been designed and tested for sending up to 50 K log/sec per node.  High scale mode impacts only the data collection layer. The rest of the Container insights experience remains the same, with logs being ingested into same `ContainerLogV2` table. Queries and alerts continue to work since the same data is being collected.
 
 To achieve the maximum supported logs throughput, you should use high-end VM SKUs with 16 CPU cores or more for your AKS cluster nodes. Using low end VM SKUs will impact your logs throughput.  
 
@@ -45,12 +45,12 @@ ContainerLogV2
 
 ## Limitations 
 
-The following scenarios are not supported during the Preview release. These will be addressed when the feature becomes generally available.
+The following scenarios aren't supported during the Preview release. These will be addressed when the feature becomes generally available.
 
-- AKS Clusters with ARM64 nodes 
+- AKS Clusters with Arm64 nodes 
 - Azure Arc-enabled Kubernetes
 - HTTP proxy with trusted certificate
-- Onboarding through Azure Portal, Azure Policy, Terraform and Bicep 
+- Onboarding through Azure portal, Azure Policy, Terraform and Bicep 
 - Configuring through **Monitor Settings** from AKS Insights  
 - Automatic migration from existing Container Insights   
 
@@ -109,9 +109,9 @@ See [Enable Container insights](./kubernetes-monitoring-enable.md?tabs=arm#enabl
 ## Network and firewall requirements
 In addition to the [network firewall requirements](See [Network firewall requirements for monitoring Kubernetes cluster](./kubernetes-monitoring-firewall.md)) for monitoring a Kubernetes cluster, additional configurations are needed for enabling High scale Mode. 
 
-Get the **Logs Ingestion** endpoint from the data collection endpoint (DCE) for the data collection rule (DCR) used by the cluster. The DCR name will be in the form `MSCI-<region>-<clusterName>`.  
+Get the **Logs Ingestion** endpoint from the data collection endpoint (DCE) for the data collection rule (DCR) used by the cluster. The DCR name is in the form `MSCI-<region>-<clusterName>`.  
 
-The endpoint will have a different format depending on the cloud as shown in the following table.
+The endpoint has a different format depending on the cloud as shown in the following table.
 
 | Cloud | Endpoint | Port |
 |:---|:--|:--|
