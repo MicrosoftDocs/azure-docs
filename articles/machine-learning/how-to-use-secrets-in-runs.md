@@ -2,7 +2,7 @@
 title: Authentication secrets
 titleSuffix: Azure Machine Learning
 description: Learn how to pass secrets to training jobs in secure fashion using Azure Key Vault.
-services: azure-machine-learning
+services: machine-learning
 author: Blackmist
 ms.author: larryfr
 ms.reviewer: roastala
