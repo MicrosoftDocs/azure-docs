@@ -1,5 +1,5 @@
 ---
-title: What is Azure DNS?
+title: Azure DNS overview
 description: An overview of services provided by Azure DNS.
 author: greg-lindsay
 ms.service: azure-dns
@@ -9,7 +9,7 @@ ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
 
-# What is Azure DNS?
+# Azure DNS overview
 
 The Domain Name System (DNS) is responsible for translating (resolving) a service name to an IP address. Azure DNS provides DNS hosting, resolution, and load balancing for your applications using the Microsoft Azure infrastructure. 
 
