@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 06/27/2024
+ms.date: 08/08/2024
 ms.topic: conceptual
 ---
 
@@ -31,6 +31,10 @@ with the Batch service. Due to the reduced scope of inbound/outbound connections
 outbound access for baseline operation, the recommendation is to use the simplified node communication model. The classic
 node communication model will be
 [retired on March 31, 2026](batch-pools-to-simplified-compute-node-communication-model-migration-guide.md).
+
+Pools should also be configured with enhanced security settings, including
+[Trusted Launch](../virtual-machines/trusted-launch.md) (requires Gen2 VM images and a compatible VM size),
+enabling secure boot, vTPM, and encryption at host (requires a compatible VM size).
 
 ### Batch account authentication
 

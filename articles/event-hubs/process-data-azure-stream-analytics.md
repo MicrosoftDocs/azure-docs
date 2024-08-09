@@ -94,5 +94,7 @@ Your Azure Stream Analytics job defaults to three streaming units (SUs). To adju
 
 :::image type="content" source="./media/process-data-azure-stream-analytics/scale.png" alt-text="Screenshots showing the Scale page for a Stream Analytics job." lightbox="./media/process-data-azure-stream-analytics/scale.png":::
 
+[!INCLUDE [geo-replication-stream-analytics-job](../stream-analytics/includes/geo-replication-stream-analytics-job.md)]
+
 ## Related content
 To learn more about Stream Analytics queries, see [Stream Analytics Query Language](/stream-analytics-query/built-in-functions-azure-stream-analytics)
