@@ -26,9 +26,7 @@ DNS domains in Azure Public DNS are hosted on Azure's global network of DNS name
  Azure Public DNS is based on Azure Resource Manager, which provides features such as:
 
 * [Azure role-based access control (Azure RBAC)](../azure-resource-manager/management/overview.md) to control who has access to specific actions for your organization.
-
 * [Activity logs](../azure-resource-manager/management/overview.md) to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
-
 * [Resource locking](../azure-resource-manager/management/lock-resources.md) to lock a subscription, resource group, or resource. Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 
 For more information, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md). 
