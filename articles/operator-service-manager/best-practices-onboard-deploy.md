@@ -1,9 +1,9 @@
 ---
 title: Best practices for Azure Operator Service Manager
 description: Understand best practices for Azure Operator Service Manager to onboard and deploy a network function (NF).
-author: sherrygonz
-ms.author: sherryg
-ms.date: 09/11/2023
+author: adamdor
+ms.author: msftadam
+ms.date: 08/09/2024
 ms.topic: best-practice
 ms.service: azure-operator-service-manager
 ---
@@ -291,7 +291,7 @@ Delete publisher resources in the following order to make sure no orphaned resou
 - Artifact Store
 - Publisher
 
-## Next steps
+## Considerations if your NF uses Cert-manager 
 
-- [Quickstart: Complete the prerequisites to deploy a Containerized Network Function in Azure Operator Service Manager](quickstart-containerized-network-function-prerequisites.md)
-- [Quickstart: Complete the prerequisites to deploy a Virtualized Network Function in Azure Operator Service Manager](quickstart-virtualized-network-function-prerequisites.md)
+TBD
+
