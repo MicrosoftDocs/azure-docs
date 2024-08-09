@@ -4,7 +4,7 @@ description: Learn about the release notes for Azure Database for MySQL Flexible
 author: xboxeer
 ms.author: yuzheng1
 ms.date: 08/01/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
