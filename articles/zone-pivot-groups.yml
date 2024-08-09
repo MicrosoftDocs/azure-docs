@@ -2149,7 +2149,7 @@ groups:
     title: Manual
 # Owner: jefmarti
 - id: app-service-openai
-  title: App Service Open AI
+  title: App Service OpenAI
   prompt: Choose a language
   pivots:
   - id: openai-dotnet

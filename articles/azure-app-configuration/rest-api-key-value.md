@@ -143,7 +143,7 @@ Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 :::zone-end
 :::zone target="docs" pivot="v1,v23-10,v23-11"
 
-For additional options, see the "Filtering" section later in this article.
+For more options, see the "Filtering" section later in this article.
 
 :::zone-end
 :::zone target="docs" pivot="v23-10,v23-11"
@@ -235,8 +235,8 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 :::zone-end
 :::zone target="docs" pivot="v23-11"
 
-A combination of `key`, `label` and `tags` filtering is supported.
-Use the optional `key`, `label` and `tags` query string parameters.
+A combination of `key`, `label`, and `tags` filtering is supported.
+Use the optional `key`, `label`, and `tags` query string parameters.
 Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
 
 ```http
@@ -286,7 +286,7 @@ If a reserved character is part of the value, then it must be escaped by using `
 
 ***Filter validation***
 
-In the case of a filter validation error, the response is HTTP `400` with error details:
+If filter validation fails, the response is HTTP `400` with error details:
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -402,7 +402,7 @@ ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
 }
 ```
 
-If the item is locked, you'll receive the following response:
+If the item is locked, the following response is returned:
 
 ```http
 HTTP/1.1 409 Conflict
