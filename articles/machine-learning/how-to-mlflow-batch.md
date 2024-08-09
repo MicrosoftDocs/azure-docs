@@ -111,8 +111,6 @@ To create an endpoint, you need a name and description. The endpoint name appear
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=name_endpoint)]
 
-   ---
-
 1. Create the endpoint:
    
    # [Azure CLI](#tab/cli)
@@ -219,10 +217,11 @@ To test your endpoint, you use a sample of unlabeled data located in this reposi
    1. To see the changes, refresh the object:
    
       [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=get_data_asset)]
-
-   ---
    
-1. After you upload the data, invoke the endpoint:
+1. After you upload the data, invoke the endpoint.
+
+   > [!TIP]
+   > In the following commands, notice that the deployment name isn't indicated in the `invoke` operation. The endpoint automatically routes the job to the default deployment because the endpoint has one deployment only. You can target a specific deployment by indicating the argument/parameter `deployment_name`.
 
    # [Azure CLI](#tab/cli)
 
@@ -238,11 +237,6 @@ To test your endpoint, you use a sample of unlabeled data located in this reposi
    [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
    
    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=start_batch_scoring_job)]
-   
-   ---
-   
-   > [!TIP]
-   > Notice that the deployment name isn't indicated in the `invoke` operation. The endpoint automatically routes the job to the default deployment because the endpoint has one deployment only. You can target a specific deployment by indicating the argument/parameter `deployment_name`.
 
 1. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
 
@@ -307,7 +301,7 @@ The output displays a table:
 | 307 | 0   | heart-unlabeled-3.csv |
 
 > [!TIP]
-> Notice that in this example the input data was tabular data in `CSV` format and there were 4 different input files (heart-unlabeled-0.csv, heart-unlabeled-1.csv, heart-unlabeled-2.csv and heart-unlabeled-3.csv).
+> Notice that in this example, the input data contains tabular data in CSV format. There are four different input files: _heart-unlabeled-0.csv_, _heart-unlabeled-1.csv_, _heart-unlabeled-2.csv_, and _heart-unlabeled-3.csv_.
 
 ## Review considerations for batch inference
 
@@ -404,8 +398,6 @@ Use the following steps to deploy an MLflow model with a custom scoring script:
    
    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=configure_environment_custom)]
 
-   ---
-
 1. Configure the deployment: 
 
    # [Azure CLI](#tab/cli)
@@ -421,8 +413,6 @@ Use the following steps to deploy an MLflow model with a custom scoring script:
    Run the following code:
    
    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=configure_deployment_custom)]
-
-   ---
 
 1. Create the deployment:
 
