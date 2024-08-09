@@ -20,6 +20,9 @@ The `llm-token-limit` policy prevents large language model (LLM) API usage spike
 
 By relying on token usage metrics returned from the LLM endpoint, the policy can accurately monitor and enforce limits in real time. The policy also enables precalculation of prompt tokens by API Management, minimizing unnecessary requests to the LLM backend if the limit is already exceeded.
 
+> [!NOTE]
+> Currently, this policy is in preview.
+
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 [!INCLUDE [api-management-llm-models](../../includes/api-management-llm-models.md)]
