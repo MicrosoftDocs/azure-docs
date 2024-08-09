@@ -29,7 +29,8 @@ When using either static JSON content or getting dynamic values from queries, dr
 
 1. `group` (optional): unlike the other fields, the grouping column *must* be named `group` and appear after `value`, `label` and `selected`. This field in the data is used to group the items in the dropdown. If not specified, no grouping is used. If default selection isn't needed, the data/query must still return a `selected` field in at least one object/row, even if all the values are `false`.
 
-> [!NOTE]note: any other fields in the data are  ignored by the dropdown parameter. It is suggested to limit the content to just those fields used by the dropdown to avoid complicated queries returning data that is ignored.
+> [!NOTE]
+> Any other fields in the data are ignored by the dropdown parameter. It is suggested to limit the content to just those fields used by the dropdown to avoid complicated queries returning data that is ignored.
 
 ## Create a static dropdown parameter
 
