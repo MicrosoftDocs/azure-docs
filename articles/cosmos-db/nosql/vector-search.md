@@ -237,6 +237,7 @@ Vector indexing and search in Azure Cosmos DB for NoSQL has some limitations whi
 - `quantizedFlat` utilizes the same quantization method as DiskANN and isn't configurable at this time. 
 - Shared throughput databases can't use the vector search preview feature at this time.
 - Ingestion rate should be limited while using an early preview of DiskANN.
+- At this time in the preview, Vector Search is not supported on accounts with Analytical Store, Shared Throughput, Customer Managed Keys, Continuous Backup, Storage Analytics, and All Versions and Deletes Change Feed.
 
 ## Next step
 - [DiskANN + Azure Cosmos DB - Microsoft Mechanics Video](https://www.youtube.com/watch?v=MlMPIYONvfQ)
