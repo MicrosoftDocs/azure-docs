@@ -59,8 +59,7 @@ A **deep directory structure** contains fewer top-level directories with many su
 
 :::image type="content" source="./media/directory-sizes-concept/deep-structure.png" alt-text="Diagram of a deep directory structure.":::
 
-
-### Impact of flat directory structure in Azure NetApp Files
+### Impact of flat directory structures in Azure NetApp Files
 
 Flat directory structures (many files in a single or few directories) have a negative effect on a wide array of file systems, Azure NetApp File volumes or others. Potential issues include:
 
