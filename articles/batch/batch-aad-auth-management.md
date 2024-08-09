@@ -6,7 +6,7 @@ ms.date: 04/27/2017
 ms.custom: has-adal-ref, devx-track-csharp, devx-track-arm-template, devx-track-dotnet
 ---
 
-# Authenticate Batch Management solutions with Active Directory
+# Authenticate Batch Management solutions with Microsoft Entra ID
 
 Applications that call the Azure Batch Management service authenticate with [Microsoft Authentication Library](../active-directory/develop/msal-overview.md) (Microsoft Entra ID). Microsoft Entra ID is Microsoft's multi-tenant cloud based directory and identity management service. Azure itself uses Microsoft Entra ID for the authentication of its customers, service administrators, and organizational users.
 
