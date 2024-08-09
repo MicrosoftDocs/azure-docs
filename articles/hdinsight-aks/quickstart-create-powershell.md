@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create HDInsight on AKS cluster pool using Azure PowerShell'
 description: Learn how to use Azure PowerShell to create an HDInsight on AKS cluster pool.
-ms.service: azure-hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 06/19/2024

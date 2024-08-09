@@ -2,7 +2,7 @@
 title: Resource prerequisites for Azure HDInsight on AKS
 description: Prerequisite steps to complete for Azure resources before working with HDInsight on AKS.
 ms.topic: quickstart
-ms.service: azure-hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.date: 04/08/2024
 ---
 

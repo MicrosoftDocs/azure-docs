@@ -1,7 +1,7 @@
 ---
 title: Using Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
 description: Learn how to use Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
-ms.service: azure-hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 04/03/2024
 ---

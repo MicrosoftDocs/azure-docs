@@ -1,7 +1,7 @@
 ---
 title: Use Apache NiFi with HDInsight on AKS clusters running Apache Flink® to publish into ADLS Gen2
 description: Learn how to use Apache NiFi to consume processed Apache Kafka® topic from Apache Flink® on HDInsight on AKS clusters and publish into ADLS Gen2.
-ms.service: azure-hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 03/25/2024
 ---

@@ -1,7 +1,7 @@
 ---
 title: Trino CLI
 description: Using Trino via CLI
-ms.service: azure-hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 10/19/2023

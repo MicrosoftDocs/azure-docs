@@ -1,7 +1,7 @@
 ---
 title: Fraud detection with the Apache Flink® DataStream API
 description: Learn about Fraud detection with the Apache Flink® DataStream API.
-ms.service: azure-hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 04/09/2024
 ---

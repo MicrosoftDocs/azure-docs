@@ -1,7 +1,7 @@
 ---
 title: How to use Azure Pipelines with Apache Flink® on HDInsight on AKS
 description: Learn how to use Azure Pipelines with Apache Flink®
-ms.service: azure-hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 10/27/2023
 ---

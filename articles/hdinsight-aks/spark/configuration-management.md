@@ -1,7 +1,7 @@
 ---
 title: Configuration management in HDInsight on AKS with Apache Spark™
 description: Learn how to perform Configuration management in HDInsight on AKS with Apache Spark™ cluster
-ms.service: azure-hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 10/19/2023
 ---

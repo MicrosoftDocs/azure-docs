@@ -1,7 +1,7 @@
 ---
 title: Manual scale
 description: How to manually scale in HDInsight on AKS.
-ms.service: azure-hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 02/06/2024
 ---

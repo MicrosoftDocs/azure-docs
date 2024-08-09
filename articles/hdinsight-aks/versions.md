@@ -1,7 +1,7 @@
 ---
 title: Versioning
 description: Versioning in HDInsight on AKS.
-ms.service: azure-hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
 ms.date: 03/27/2024
 ---
