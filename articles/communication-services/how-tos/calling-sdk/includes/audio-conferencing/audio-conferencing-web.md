@@ -6,6 +6,12 @@ ms.date: 09/28/2023
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
+**For meeting scenario the following API can be called by Microsoft 365 or Communication Services users with the following role**
+
+|APIs| Organizer | Co-Organizer | Presenter | Attendee |
+|----------------------------------------------|--------|--------|--------|--------|
+| getTeamsMeetingAudioConferencingDetails | ✔️ | ✔️  | ✔️ | ✔️ |
+
 TeamsMeetingAudioConferencing is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
 ```js
@@ -42,3 +48,9 @@ try {
     console.error(e);
 }
 ```
+## Troubleshooting
+|code| Subcode | Result Category | Reason | Resolution |
+|----------------------------------------------|--------|--------|---------|----------|
+|400	| 45900 | ExpectedError  | All provided participant IDs are already spotlighted  | Only participants who are not currently spotlighted can be spotlighted |
+|400 | 45902	| ExpectedError | The maximum number of spotlighted participants has been reached | Only seven participants can be in the spotlight state at any given time |
+|403 | 45903	| ExpectedError | Only participants with the roles of organizer, coorganizer, or presenter can initiate a spotlight. | nsure that the participant invoking the `startSpotlight` API holds the role of organizer, co-organizer, or presenter |
