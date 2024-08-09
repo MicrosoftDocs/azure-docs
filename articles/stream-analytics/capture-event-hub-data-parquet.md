@@ -81,9 +81,13 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 
     :::image type="content" source="./media/capture-event-hub-data-parquet/job-metrics.png" alt-text="Screenshot showing metrics of the Stream Analytics job." lightbox="./media/capture-event-hub-data-parquet/job-metrics.png" :::    
 
+
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
+
 ## Next steps
 
 Now you know how to use the Stream Analytics no code editor to create a job that captures Event Hubs data to Azure Data Lake Storage Gen2 in Parquet format. Next, you can learn more about Azure Stream Analytics and how to monitor the job that you created.
+
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Monitor Stream Analytics job with Azure portal](stream-analytics-monitoring.md)
