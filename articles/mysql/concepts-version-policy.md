@@ -54,7 +54,7 @@ The retirement details for MySQL major versions are listed in the following tabl
 
 ## What will happen to Azure Database for MySQL service after MySQL community version is retired in October 2023?
 
-In line with Oracle's announcement regarding the end-of-life (EOL) of [MySQL Community Version v5.7 in __October 2023__](https://www.oracle.com/us/support/library/lsp-tech-chart-069290.pdf) (Page 23), we at Azure are actively preparing for this important transition. This development specifically impacts customers who are currently utilizing Version 5.7 of Azure Database for MySQL - Single Server and Flexible Server.
+In line with Oracle's announcement regarding the end-of-life of [MySQL Community Version v5.7 in __October 2023__](https://www.oracle.com/us/support/library/lsp-tech-chart-069290.pdf) (Page 23), we at Azure are actively preparing for this important transition. This development specifically impacts customers who are currently utilizing Version 5.7 of Azure Database for MySQL - Single Server and Flexible Server.
 
 In response to the customer's requests, Microsoft decided to prolong the support for Azure Database for MySQL beyond __October 2023__. During the extended support period, which lasts until __September 2025__, Microsoft prioritizes the availability, reliability, and security of the service. While there are no specific guarantees regarding minor version upgrades, we implement essential modifications to ensure that the service remains accessible, dependable, and protected. Our plan includes:
 
