@@ -33,7 +33,7 @@ You can subscribe to the event `togetherModeStreamsUpdated` to receive notificat
 // event : { added: TogetherModeVideoStream[]; removed: TogetherModeVideoStream[] }
 togetherModeFeature.on('togetherModeStreamsUpdated', (event) => {
     event.added.forEach(async stream => {
-        renderVideoStream(stream);
+        // stream can be rendered as a remote video stream
     });
 });
 ```
