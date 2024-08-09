@@ -48,9 +48,9 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 ## Updates
 
-**[Azure Monitor Agent](./azure-monitor-agent.md) for Log Analytics in HDInsight**
+**[Adding Azure Monitor Agent](./azure-monitor-agent.md) for Log Analytics in HDInsight**
 
-Addition of SystemMSI and Automated DCR for Log analytics, given the deprecation of [New Azure Monitor experience (preview)](./hdinsight-hadoop-oms-log-analytics-tutorial.md) .
+Addition of `SystemMSI` and Automated DCR for Log analytics, given the deprecation of [New Azure Monitor experience (preview)](./hdinsight-hadoop-oms-log-analytics-tutorial.md) .
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
