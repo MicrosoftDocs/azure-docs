@@ -54,7 +54,7 @@ The following tables show support of individual APIs in calling SDK to individua
 
 [2] Microsoft 365 users can use Graph API to participate in breakout room chat. The thread ID of the chat is provided in the assigned breakout room object.
 
-## SDKs
+### SDKs
 The following tables show support of breakout rooms feature in individual Azure Communication Services SDKs.
 
 |             | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
