@@ -356,7 +356,7 @@ items:
         href: how-tos/calling-sdk/capabilities.md
       - name: Pass contextual information
         href: how-tos/calling-sdk/call-context.md     
-      - name: BreakoutRooms
+      - name: Breakout rooms
         href: how-tos/calling-sdk/breakoutRooms.md
     - name: Call recording
       items:
