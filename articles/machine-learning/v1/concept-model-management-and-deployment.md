@@ -24,6 +24,7 @@ In this article, learn how to apply machine learning operations (MLOps) practice
 >
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+<a name="what-is-mlops"></a>
 ## What is machine learning operations?
 
 Based on [DevOps](https://azure.microsoft.com/overview/what-is-devops/) principles and practices, machine learning operations (MLOps) increases the efficiency of workflows. For example, continuous integration, delivery, and deployment. Machine learning operations apply these principles to the machine learning process with the goal of:
@@ -112,7 +113,7 @@ When the image is created, components required by Azure Machine Learning are als
 
 #### Batch scoring
 
-Batch scoring is supported through machine learning pipelines. For more information, see [Tutorial: Build an Azure Machine Learning pipeline for image classification](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-pipeline-python-sdk).
+Batch scoring is supported through machine learning pipelines. For more information, see [Tutorial: Build an Azure Machine Learning pipeline for image classification](/v1/tutorial-pipeline-python-sdk.md).
 
 #### Real-time web services
 
@@ -197,7 +198,7 @@ You can also use Azure Data Factory to create a data ingestion pipeline that pre
 Learn more by reading and exploring the following resources:
 
 - [Deploy machine learning models to Azure](how-to-deploy-and-where.md)
-- [Tutorial: Train and deploy an image classification model with an example Jupyter Notebook](../tutorial-train-deploy-notebook.md).
+- [Tutorial: Train and deploy an image classification model with an example Jupyter Notebook](../tutorial-train-deploy-notebook.md)
 - [Machine learning operations examples repo](https://github.com/microsoft/MLOps)
 - [Use Azure Pipelines with Azure Machine Learning](/azure/devops/pipelines/targets/azure-machine-learning)
 - [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
