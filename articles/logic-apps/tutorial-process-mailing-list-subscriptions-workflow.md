@@ -257,7 +257,7 @@ The following steps add an action to send failure email when the workflow fails 
 
    When you finish, the action looks like the following example:
 
-   :::image type="content" source="media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png" alt-text="Screenshot shows information for action named Send email on failure." lighbox="media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png":::
+   :::image type="content" source="media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png" alt-text="Screenshot shows information for action named Send email on failure." lightbox="media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png":::
 
 1. Save your workflow.
 
