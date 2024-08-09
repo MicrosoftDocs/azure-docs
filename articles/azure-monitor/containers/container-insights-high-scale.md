@@ -88,7 +88,7 @@ Once the ama-logs pods are running in high log scale mode, you can enable the Mo
 
 > [!NOTE]
 > Instead of CLI, you can use an ARM template to enable high scale mode for the Monitoring add-on. See [Enable Container insights](./kubernetes-monitoring-enable.md?tabs=arm#enable-container-insights) for guidance on enabling Container Insights using an ARM template. To enable high scale mode, use `Microsoft-ContainerLogV2-HighScale` in the `streams` parameter.
-
+>
 > Don't use both `Microsoft-ContainerLogV2` and `Microsoft-ContainerLogV2-HighScale` in the `streams` parameter. This will result in logs being collected in the standard mode.
 
 
@@ -113,9 +113,6 @@ az aks create -g <cluster-name> -n <cluster-name> enable-addons -a monitoring --
 **New AKS Private cluster**
 
 See [Create a private Azure Kubernetes Service (AKS) cluster](/azure/aks/private-clusters?tabs=azure-portal) for details on creating an AKS Private cluster. Use the additional parameters `--enable-high-scale-mode` and `--ampls-resource-id` to configure high log scale mode with Azure Monitor Private Link Scope Resource ID. 
-
-
----
 
 
 
