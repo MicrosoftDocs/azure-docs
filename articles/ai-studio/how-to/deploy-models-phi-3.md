@@ -3,6 +3,7 @@ title: How to use Phi-3 chat models with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to use Phi-3 chat models with Azure AI Studio.
 ms.service: azure-ai-studio
+manager: scottpolly
 ms.topic: how-to
 ms.date: 08/08/2024
 ms.reviewer: kritifaujdar

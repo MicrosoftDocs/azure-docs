@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: maghan
 ms.date: 02/14/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.topic: concept-article
 ms.custom:
   - subject-relocation
