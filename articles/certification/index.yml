@@ -26,4 +26,4 @@ landingContent:
       - text: List of certified devices
         url: ./edge-secured-core-devices.md
       - text: Validate Edge Secured-core device
-        url: ./validate-device-esc.md
+        url: ./validate-device-edge-secured-core.md
