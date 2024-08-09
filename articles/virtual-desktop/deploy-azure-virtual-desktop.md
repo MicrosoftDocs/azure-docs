@@ -12,12 +12,13 @@ ms.date: 08/08/2024
 
 > [!IMPORTANT]
 > The following features are currently in preview:
-> - Azure Virtual Desktop on Azure Stack HCI for Azure Government and Azure China.
-> - Azure Extended Zones on Azure Virtual Desktop.
+> - Azure Virtual Desktop on Azure Stack HCI for Azure Government and Azure operated by 21Vianet (Azure in China).
+> - Azure Virtual Desktop on Azure Extended Zones.
 >
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Stack HCI by using the Azure portal, Azure CLI, or Azure PowerShell. To deploy Azure Virtual Desktop you:
+This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Stack HCI by using the Azure portal, the Azure CLI, or Azure PowerShell. To deploy Azure Virtual Desktop, you:
+
 - Create a host pool.
 - Create a workspace.
 - Create an application group.
@@ -50,29 +51,29 @@ In addition, you need:
    | Session hosts (Azure and Azure Extended Zones) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
    | Session hosts (Azure Stack HCI) | [Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
-   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
+   Alternatively, you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
 
    For ongoing management of host pools, workspaces, and application groups, you can use more granular roles for each resource type. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
 
-- To assign users to the application group, you'll also need `Microsoft.Authorization/roleAssignments/write` permissions on the application group. Built-in RBAC roles that include this permission are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Owner](../role-based-access-control/built-in-roles.md#owner).
+- To assign users to the application group, you also need `Microsoft.Authorization/roleAssignments/write` permissions on the application group. Built-in RBAC roles that include this permission are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Owner](../role-based-access-control/built-in-roles.md#owner).
 
-- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as [PowerShell DSC](/powershell/dsc/overview) requires it.
+- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when you're creating session hosts by using the Azure portal, as [PowerShell DSC](/powershell/dsc/overview) requires it.
 
-- To add session hosts on Azure Stack HCI, you'll also need:
+- To add session hosts on Azure Stack HCI, you also need:
 
-   - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI, version 23H2 deployment overview](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc virtual machine (VM) management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
-   
-   - A stable connection to Azure from your on-premises network.
+  - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI, version 23H2 deployment overview](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc virtual machine (VM) management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
 
-   - At least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
-   
-   - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
+  - A stable connection to Azure from your on-premises network.
 
-To deploy session hosts to [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones), you also need: 
+  - At least one Windows OS image available on the cluster. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
-   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
-   
-   - An existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network that the session hosts are being deployed to. 
+  - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
+
+- To deploy session hosts to [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones), you also need:
+
+  - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
+
+  - An existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network where you're deploying the session hosts.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -85,14 +86,14 @@ In addition, you need:
    | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
    | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
 
-   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
+   Alternatively, you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
 
    For ongoing management of host pools, workspaces, and application groups, you can use more granular roles for each resource type. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
 
-- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+- If you want to use Azure PowerShell locally, see [Use the Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!IMPORTANT]
-> If you want to create Microsoft Entra joined session hosts, we only support this using the Azure portal.
+> If you want to create Microsoft Entra joined session hosts, we support this action only if you use the Azure portal.
 
 # [Azure CLI](#tab/cli)
 
@@ -105,14 +106,14 @@ In addition, you need:
    | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
    | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
 
-   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
+   Alternatively, you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
 
    For ongoing management of host pools, workspaces, and application groups, you can use more granular roles for each resource type. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
 
-- If you want to use Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+- If you want to use the Azure CLI locally, see [Use the Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!IMPORTANT]
-> If you want to create Microsoft Entra joined session hosts, we only support this using the Azure portal.
+> If you want to create Microsoft Entra joined session hosts, we support this action only if you use the Azure portal.
 
 ---
 
@@ -122,152 +123,151 @@ To create a host pool, select the relevant tab for your scenario and follow the 
 
 # [Portal](#tab/portal)
 
-Here's how to create a host pool using the Azure portal.
+Here's how to create a host pool by using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
-1. Select **Host pools**, then select **Create**.
+1. Select **Host pools**, and then select **Create**.
 
 1. On the **Basics** tab, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
-   | Subscription | Select the subscription you want to create the host pool in from the drop-down list. |
-   | Resource group | Select an existing resource group or select **Create new** and enter a name. |
-   | Host pool name | Enter a name for the host pool, for example **hp01**. |
-   | Location | Select the Azure region where you want to create your host pool. |
-   | Validation environment | Select **Yes** to create a host pool that is used as a [validation environment](create-validation-host-pool.md).<br /><br />Select **No** (*default*) to create a host pool that isn't used as a validation environment. |
-   | Preferred app group type | Select the [preferred application group type](preferred-application-group-type.md) for this host pool from *Desktop* or *RemoteApp*. A Desktop application group is created automatically when using the Azure portal. |
-   | Host pool type | Select whether you want your host pool to be Personal or Pooled.<br /><br />If you select **Personal**, a new option appears for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host. For more information, see [Host pool load balancing algorithms](host-pool-load-balancing.md) |
+   | **Subscription** | Select the subscription where you want to create the host pool from the dropdown list. |
+   | **Resource group** | Select an existing resource group or select **Create new** and enter a name. |
+   | **Host pool name** | Enter a name for the host pool, such as **hp01**. |
+   | **Location** | Select the Azure region where you want to create your host pool. |
+   | **Validation environment** | Select **Yes** to create a host pool that is used as a [validation environment](create-validation-host-pool.md).<br /><br />Select **No** (*default*) to create a host pool that isn't used as a validation environment. |
+   | **Preferred app group type** | Select the [preferred application group type](preferred-application-group-type.md) for this host pool from *Desktop* or *RemoteApp*. A Desktop application group is created automatically when you use the Azure portal. |
+   | **Host pool type** | Select whether you want your host pool to be Personal or Pooled.<br /><br />If you select **Personal**, a new option appears for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users that you want load-balanced to a single session host. For more information, see [Host pool load balancing algorithms](host-pool-load-balancing.md) |
 
    > [!TIP]
-   > Once you've completed this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
+   > After you complete this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
 1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, expand one of the following sections and complete the information, depending on whether you want to create session hosts on Azure or Azure Stack HCI. For guidance on sizing session host virtual machines, see [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs).<br /><br />
 
    <details>
-       <summary>To add session hosts on <b>Azure</b>, select to expand this section.</summary>
+       <summary>To add session hosts on <b>Azure</b>, expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
-      | Add virtual machines | Select **Yes**. This shows several new options. |
-      | Resource group | This automatically defaults to the same resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
-      | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | Virtual machine type | Select **Azure virtual machine**. |
-      | Virtual machine location | Select the Azure region where you want to deploy your session hosts. This must be the same region that your virtual network is in. |
-      | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure redundancy required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
-      | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
-      | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.yml). |
-      | Virtual machine size | Select a SKU. If you want to use different SKU, select **Change size**, then select from the list. |
-      | Hibernate | Check the box to enable hibernate. Hibernate is only available for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Teams media optimizations you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001). FSLogix and app attach currently don't support hibernate. Don't enable hibernate if you're using FSLogix or app attach for your personal host pools. |   
-      | Number of VMs | Enter the number of virtual machines you want to deploy. You can deploy up to 400 session hosts at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
-      | OS disk type | Select the disk type to use for your session hosts. We recommend only **Premium SSD** is used for production workloads. |
-      | OS disk size | Select a size for the OS disk.<br /><br />If you enable hibernate, ensure the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |
-      | Confidential computing encryption | If you're using a confidential VM, you must select the **Confidential compute encryption** check box to enable OS disk encryption.<br /><br />This check box only appears if you selected **Confidential virtual machines** as your security type. |
-      | Boot Diagnostics | Select whether you want to enable [boot diagnostics](../virtual-machines/boot-diagnostics.md). |
+      | **Add virtual machines** | Select **Yes**. This action shows several new options. |
+      | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
+      | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+      | **Virtual machine type** | Select **Azure virtual machine**. |
+      | **Virtual machine location** | Select the Azure region where you want to deploy your session hosts. This value must be the same region that contains your virtual network. |
+      | **Availability options** | Select from [availability zones](../reliability/availability-zones-overview.md), [availability set](../virtual-machines/availability-set-overview.md), or **No infrastructure redundancy required**. If you select **availability zones** or **availability set**, complete the extra parameters that appear.  |
+      | **Security type** | Select from **Standard**, [Trusted launch virtual machines](../virtual-machines/trusted-launch.md), or [Confidential virtual machines](../confidential-computing/confidential-vm-overview.md).<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
+      | **Image** | Select the OS image that you want to use from the list, or select **See all images** to see more, including any images that you created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.yml). |
+      | **Virtual machine size** | Select a size. If you want to use different size, select **Change size**, and then select from the list. |
+      | **Hibernate** | Select the box to enable hibernation. Hibernation is available only for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Microsoft Teams media optimizations, you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001). FSLogix and app attach currently don't support hibernation. Don't enable hibernation if you're using FSLogix or app attach for your personal host pools. |
+      | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can deploy up to 400 session hosts at this point if you want (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
+      | **OS disk type** | Select the disk type to use for your session hosts. We recommend that you use only **Premium SSD** for production workloads. |
+      | **OS disk size** | Select a size for the OS disk.<br /><br />If you enable hibernation, ensure that the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |
+      | **Confidential computing encryption** | If you're using a confidential VM, you must select the **Confidential compute encryption** checkbox to enable OS disk encryption.<br /><br />This checkbox appears only if you selected **Confidential virtual machines** as your security type. |
+      | **Boot Diagnostics** | Select whether you want to enable [boot diagnostics](../virtual-machines/boot-diagnostics.md). |
       | **Network and security** |  |
-      | Virtual network | Select your virtual network. An option to select a subnet appears. |
-      | Subnet | Select a subnet from your virtual network. |
-      | Network security group | Select whether you want to use a network security group (NSG).<br /><br />- **None** doesn't create a new NSG.<br /><br />- **Basic** creates a new NSG for the VM NIC.<br /><br />- **Advanced** enables you to select an existing NSG.<br /><br />We recommend that you don't create an NSG here, but [create an NSG on the subnet instead](../virtual-network/manage-network-security-group.md). |
-      | Public inbound ports | You can select a port to allow from the list. Azure Virtual Desktop doesn't require public inbound ports, so we recommend you select **No**. |
+      | **Virtual network** | Select your virtual network. An option to select a subnet appears. |
+      | **Subnet** | Select a subnet from your virtual network. |
+      | **Network security group** | Select whether you want to use a network security group (NSG).<br /><br />- **None** doesn't create a new NSG.<br /><br />- **Basic** creates a new NSG for the VM network adapter.<br /><br />- **Advanced** enables you to select an existing NSG.<br /><br />We recommend that you don't create an NSG here, but [create an NSG on the subnet instead](../virtual-network/manage-network-security-group.md). |
+      | **Public inbound ports** | You can select a port to allow from the list. Azure Virtual Desktop doesn't require public inbound ports, so we recommend that you select **No**. |
       | **Domain to join** |  |
-      | Select which directory you would like to join | Select from **Microsoft Entra ID** or **Active Directory** and complete the relevant parameters for the option you select.  |
+      | **Select which directory you would like to join** | Select from **Microsoft Entra ID** or **Active Directory** and complete the relevant parameters for the selected option.  |
       | **Virtual Machine Administrator account** |  |
-      | Username | Enter a name to use as the local administrator account for the new session hosts. |
-      | Password | Enter a password for the local administrator account. |
-      | Confirm password | Reenter the password. |
+      | **Username** | Enter a name to use as the local administrator account for the new session hosts. |
+      | **Password** | Enter a password for the local administrator account. |
+      | **Confirm password** | Reenter the password. |
       | **Custom configuration** |  |
-      | Custom configuration script URL | If you want to run a PowerShell script during deployment you can enter the URL here. |
+      | **Custom configuration script URL** | If you want to run a PowerShell script during deployment you can enter the URL here. |
    </details>
 
    <details>
-       <summary>To add session hosts on <b>Azure Stack HCI</b>, select to expand this section.</summary>
+       <summary>To add session hosts on <b>Azure Stack HCI</b>, expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
-      | Add virtual machines | Select **Yes**. This shows several new options. |
-      | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
-      | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | Virtual machine type | Select **Azure Stack HCI virtual machine**. |
-      | Custom location | Select the Azure Stack HCI cluster where you want to deploy your session hosts from the drop-down list. |
-      | Images | Select the OS image you want to use from the list, or select **Manage VM images** to manage the images available on the cluster you selected. |
-      | Number of VMs | Enter the number of virtual machines you want to deploy. You can add more later. |
-      | Virtual processor count | Enter the number of virtual processors you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
-      | Memory type | Select **Static** for a fixed memory allocation, or **Dynamic** for a dynamic memory allocation. |
-      | Memory (GB) | Enter a number for the amount of memory in GB you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
-      | Maximum memory | If you selected dynamic memory allocation, enter a number for the maximum amount of memory in GB you want your session host to be able to use. |
-      | Minimum memory | If you selected dynamic memory allocation, enter a number for the minimum amount of memory in GB you want your session host to be able to use. |
+      | **Add virtual machines** | Select **Yes**. This action shows several new options. |
+      | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
+      | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+      | **Virtual machine type** | Select **Azure Stack HCI virtual machine**. |
+      | **Custom location** | Select the Azure Stack HCI cluster where you want to deploy your session hosts from the dropdown list. |
+      | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the cluster you selected. |
+      | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can add more later. |
+      | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | **Memory type** | Select **Static** for a fixed memory allocation, or select **Dynamic** for a dynamic memory allocation. |
+      | **Memory (GB)** | Enter a number for the amount of memory in GB that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | **Maximum memory** | If you selected dynamic memory allocation, enter a number for the maximum amount of memory in GB that you want your session host to be able to use. |
+      | **Minimum memory** | If you selected dynamic memory allocation, enter a number for the minimum amount of memory in GB that you want your session host to be able to use. |
       | **Network and security** |  |
-      | Network dropdown | Select an existing network to connect each session to. |
+      | **Network dropdown** | Select an existing network to connect each session to. |
       | **Domain to join** |  |
-      | Select which directory you would like to join | **Active Directory** is the only available option. |
-      | AD domain join UPN | Enter the User Principal Name (UPN) of an Active Directory user that has permission to join the session hosts to your domain. |
-      | Password | Enter the password for the Active Directory user. |
-      | Specify domain or unit | Select yes if you want to join session hosts to a specific domain or be placed in a specific organization unit (OU). If you select no, the suffix of the UPN will be used as the domain. |
+      | **Select which directory you would like to join** | **Active Directory** is the only available option. |
+      | **AD domain join UPN** | Enter the user principal name (UPN) of an Active Directory user who has permission to join the session hosts to your domain. |
+      | **Password** | Enter the password for the Active Directory user. |
+      | **Specify domain or unit** | Select **yes** if you want to join session hosts to a specific domain or be placed in a specific organizational unit (OU). If you select **no**, the suffix of the UPN is used as the domain. |
       | **Virtual Machine Administrator account** |  |
-      | Username | Enter a name to use as the local administrator account for the new session hosts. |
-      | Password | Enter a password for the local administrator account. |
-      | Confirm password | Reenter the password. |
+      | **Username** | Enter a name to use as the local administrator account for the new session hosts. |
+      | **Password** | Enter a password for the local administrator account. |
+      | **Confirm password** | Reenter the password. |
    </details>
 
    <details>
-       <summary>To add session hosts on <b>Azure Extended Zones</b>, select to expand this section.</summary>
+       <summary>To add session hosts on <b>Azure Extended Zones</b>, expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
-      | Add virtual machines | Select **Yes**. This shows several new options. |
-      | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
-      | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | Virtual machine type | Select **Azure virtual machine**. |
-      | Virtual machine location | Select the Azure region where you want to deploy your session hosts. This must be the same region that your virtual network is in. Then select **Deploy to an Azure Extended Zone**. |
+      | **Add virtual machines** | Select **Yes**. This action shows several new options. |
+      | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
+      | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+      | **Virtual machine type** | Select **Azure virtual machine**. |
+      | **Virtual machine location** | Select the Azure region where you want to deploy your session hosts. This value must be the same region that contains your virtual network. Then select **Deploy to an Azure Extended Zone**. |
       | **Azure Extended Zones** |  |
-      | Azure Extended Zone | Select **Los Angeles**. |
-      | Place the session host(s) behind an existing load balancing solution? | Check the box. This will show options for selecting a load balancer and a backend pool.|
-      | Select a load balancer | Select an existing load balancer on the virtual network that the session hosts are being deployed to. |
-      | Select a backend pool | Select a backend pool on the load balancer to that you want to place the sessions host(s) into. |
-      | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
-      | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
+      | **Azure Extended Zone** | Select **Los Angeles**. |
+      | **Place the session host(s) behind an existing load balancing solution?** | Select the box. This action shows options for selecting a load balancer and a backend pool.|
+      | **Select a load balancer** | Select an existing load balancer on the virtual network where you're deploying the session hosts. |
+      | **Select a backend pool** | Select a backend pool on the load balancer where you want to place the session hosts. |
+      | **Availability options** | Select from [availability zones](../reliability/availability-zones-overview.md), [availability set](../virtual-machines/availability-set-overview.md), or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
+      | **Security type** | Select from **Standard**, [Trusted launch virtual machines](../virtual-machines/trusted-launch.md), or [Confidential virtual machines](../confidential-computing/confidential-vm-overview.md).<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
    </details>
 
-
-   Once you've completed this tab, select **Next: Workspace**.
+   After you complete this tab, select **Next: Workspace**.
 
 1. *Optional*: On the **Workspace** tab, if you want to create a workspace and register the default desktop application group from this host pool, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
-   | Register desktop app group | Select **Yes**. This registers the default desktop application group to the selected workspace. |
-   | To this workspace | Select an existing workspace from the list, or select **Create new** and enter a name, for example **ws01**. |
+   | **Register desktop app group** | Select **Yes**. This action registers the default desktop application group to the selected workspace. |
+   | **To this workspace** | Select an existing workspace from the list, or select **Create new** and enter a name, such as **ws01**. |
 
-   Once you've completed this tab, select **Next: Advanced**.
+   After you complete this tab, select **Next: Advanced**.
 
 1. *Optional*: On the **Advanced** tab, if you want to enable diagnostics settings, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
-   | Enable diagnostics settings | Check the box. |
-   | Choosing destination details to send logs to | Select one of the following destinations:<br /><br />- Send to Log Analytics workspace<br /><br />- Archive to storage account<br /><br />- Stream to an event hub |
+   | **Enable diagnostics settings** | Select the box. |
+   | **Choosing destination details to send logs to** | Select one of the following destinations:<br /><br />- Send to Log Analytics workspace<br /><br />- Archive to storage account<br /><br />- Stream to an event hub |
 
-   Once you've completed this tab, select **Next: Tags**.
+   After you complete this tab, select **Next: Tags**.
 
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs that you need, and then select **Next: Review + create**.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is during deployment.
 
 1. Select **Create** to create the host pool.
 
-1. Once the host pool has been created, select **Go to resource** to go to the overview of your new host pool, then select **Properties** to view its properties.
+1. Select **Go to resource** to go to the overview of your new host pool, and then select **Properties** to view its properties.
 
-### Post deployment
+### Post-deployment tasks
 
 If you also added session hosts to your host pool, there's some extra configuration you need to do, which is covered in the following sections.
 
 [!INCLUDE [include-session-hosts-post-deployment](includes/include-session-hosts-post-deployment.md)]
 
 > [!NOTE]
-> - If you created a host pool, workspace, and registered the default desktop application group from this host pool in the same process, go to the section [Assign users to an application group](#assign-users-to-an-application-group) and complete the rest of the article. A Desktop application group is created automatically when using the Azure portal, whichever application group type you set as the preferred.
+> - If you created a host pool, workspace, and registered the default desktop application group from this host pool in the same process, go to the section [Assign users to an application group](#assign-users-to-an-application-group) and complete the rest of the article. A Desktop application group is created automatically when you use the Azure portal, whichever application group type you set as the preferred.
 >
 > - If you created a host pool and workspace in the same process, but didn't register the default desktop application group from this host pool, go to the section [Create an application group](#create-an-application-group) and complete the rest of the article.
 >
@@ -275,17 +275,17 @@ If you also added session hosts to your host pool, there's some extra configurat
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to create a host pool using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. The following examples show you how to create a pooled host pool and a personal host pool.
+Here's how to create a host pool by using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. The following examples show you how to create a pooled host pool and a personal host pool.
 
 > [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+> In the following examples, you need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
 2. Use the `New-AzWvdHostPool` cmdlet with the following examples to create a host pool. More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
 
-   1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
-   
+   1. To create a pooled host pool by using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
+
       ```azurepowershell
       $parameters = @{
           Name = '<Name>'
@@ -300,8 +300,8 @@ Here's how to create a host pool using the [Az.DesktopVirtualization](/powershel
       New-AzWvdHostPool @parameters
       ```
 
-   1. To create a personal host pool using the *Automatic* assignment type and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
-   
+   1. To create a personal host pool by using the *Automatic* assignment type and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
+
       ```azurepowershell
       $parameters = @{
           Name = '<Name>'
@@ -324,17 +324,17 @@ Here's how to create a host pool using the [Az.DesktopVirtualization](/powershel
 
 # [Azure CLI](#tab/cli)
 
-Here's how to create a host pool using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI. The following examples show you how to create a pooled host pool and a personal host pool.
+Here's how to create a host pool by using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for the Azure CLI. The following examples show you how to create a pooled host pool and a personal host pool.
 
 > [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+> In the following examples, you need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
 2. Use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
-   1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
-   
+   1. To create a pooled host pool by using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
+
       ```azurecli
       az desktopvirtualization hostpool create \
           --name <Name> \
@@ -346,8 +346,8 @@ Here's how to create a host pool using the [desktopvirtualization](/cli/azure/de
           --location <AzureRegion>
       ```
 
-   1. To create a personal host pool using the *Automatic* assignment type, run the following command:
-   
+   1. To create a personal host pool by using the *Automatic* assignment type, run the following command:
+
       ```azurecli
       az desktopvirtualization hostpool create \
           --name <Name> \
@@ -373,48 +373,48 @@ Next, to create a workspace, select the relevant tab for your scenario and follo
 
 # [Portal](#tab/portal)
 
-Here's how to create a workspace using the Azure portal.
+Here's how to create a workspace by using the Azure portal.
 
-1. From the Azure Virtual Desktop overview, select **Workspaces**, then select **Create**.
+1. From the Azure Virtual Desktop overview, select **Workspaces**, and then select **Create**.
 
 1. On the **Basics** tab, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
-   | Subscription | Select the subscription you want to create the workspace in from the drop-down list. |
-   | Resource group | Select an existing resource group or select **Create new** and enter a name. |
-   | Workspace name | Enter a name for the workspace, for example *workspace01*. |
-   | Friendly name | *Optional*: Enter a friendly name for the workspace. |
-   | Description | *Optional*: Enter a description for the workspace. |
-   | Location | Select the Azure region where you want to deploy your workspace. |
+   | **Subscription** | Select the subscription where you want to create the workspace from the dropdown list. |
+   | **Resource group** | Select an existing resource group or select **Create new** and enter a name. |
+   | **Workspace name** | Enter a name for the workspace, such as *workspace01*. |
+   | **Friendly name** | *Optional*: Enter a friendly name for the workspace. |
+   | **Description** | *Optional*: Enter a description for the workspace. |
+   | **Location** | Select the Azure region where you want to deploy your workspace. |
 
    > [!TIP]
-   > Once you've completed this tab, you can continue to optionally register an existing application group to this workspace, if you have one, and enable diagnostics settings by selecting **Next: Application groups**. Alternatively, if you want to create and configure these separately, select **Review + create** and go to step 9.
+   > After you complete this tab, you can continue to optionally register an existing application group to this workspace, if you have one, and enable diagnostics settings by selecting **Next: Application groups**. Alternatively, if you want to create and configure these separately, select **Review + create** and go to step 9.
 
 1. *Optional*: On the **Application groups** tab, if you want to register an existing application group to this workspace, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
-   | Register application groups | Select **Yes**, then select **+ Register application groups**. In the new pane that opens, select the **Add** icon for the application group(s) you want to add, then select **Select**. |
+   | **Register application groups** | Select **Yes**, and then select **+ Register application groups**. In the new pane that opens, select the **Add** icon for the application groups that you want to add, and then select **Select**. |
 
-   Once you've completed this tab, select **Next: Advanced**.
+   After you complete this tab, select **Next: Advanced**.
 
 1. *Optional*: On the **Advanced** tab, if you want to enable diagnostics settings, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
-   | Enable diagnostics settings | Check the box. |
-   | Choosing destination details to send logs to | Select one of the following destinations:<br /><br />- Send to Log Analytics workspace<br /><br />- Archive to storage account<br /><br />- Stream to an event hub |
+   | **Enable diagnostics settings** | Select the box. |
+   | **Choosing destination details to send logs to** | Select one of the following destinations:<br /><br />- Send to Log Analytics workspace<br /><br />- Archive to storage account<br /><br />- Stream to an event hub |
 
-   Once you've completed this tab, select **Next: Tags**.
+   After you complete this tab, select **Next: Tags**.
 
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs that you need, and then select **Next: Review + create**.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
 1. Select **Create** to create the workspace.
 
-1. Once the workspace has been created, select **Go to resource** to go to the overview of your new workspace, then select **Properties** to view its properties.
+1. Select **Go to resource** to go to the overview of your new workspace, and then select **Properties** to view its properties.
 
 > [!NOTE]
 > - If you added an application group to this workspace, go to the section [Assign users to an application group](#assign-users-to-an-application-group) and complete the rest of the article.
@@ -423,7 +423,7 @@ Here's how to create a workspace using the Azure portal.
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to create a workspace using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to create a workspace by using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
 1. In the same PowerShell session, use the `New-AzWvdWorkspace` cmdlet with the following example to create a workspace. More parameters are available, such as to register existing application groups. For more information, see the [New-AzWvdWorkspace PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdworkspace).
 
@@ -439,7 +439,7 @@ Here's how to create a workspace using the [Az.DesktopVirtualization](/powershel
 
 # [Azure CLI](#tab/cli)
 
-Here's how to create a workspace using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
+Here's how to create a workspace by using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for the Azure CLI.
 
 1. In the same CLI session, use the `az desktopvirtualization workspace create` command with the following example to create a workspace. More parameters are available, such as to register existing application groups. For more information, see the [az desktopvirtualization workspace Azure CLI reference](/cli/azure/desktopvirtualization/workspace).
 
@@ -461,59 +461,59 @@ To create an application group, select the relevant tab for your scenario and fo
 
 # [Portal](#tab/portal)
 
-Here's how to create an application group using the Azure portal.
+Here's how to create an application group by using the Azure portal.
 
-1. From the Azure Virtual Desktop overview, select **Application groups**, then select **Create**.
+1. From the Azure Virtual Desktop overview, select **Application groups**, and then select **Create**.
 
 1. On the **Basics** tab, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
-   | Subscription | Select the subscription you want to create the application group in from the drop-down list. |
-   | Resource group | Select an existing resource group or select **Create new** and enter a name. |
-   | Host pool | Select the host pool for the application group. |
-   | Location | Metadata is stored in the same location as the host pool. |
-   | Application group type | Select the [application group type](environment-setup.md#app-groups) for the host pool you selected from *Desktop* or *RemoteApp*. |
-   | Application group name | Enter a name for the application group, for example *Session Desktop*. |
+   | **Subscription** | Select the subscription where you want to create the application group from the dropdown list. |
+   | **Resource group** | Select an existing resource group or select **Create new** and enter a name. |
+   | **Host pool** | Select the host pool for the application group. |
+   | **Location** | Metadata is stored in the same location as the host pool. |
+   | **Application group type** | Select the [application group type](environment-setup.md#app-groups) for the host pool you selected from *Desktop* or *RemoteApp*. |
+   | **Application group name** | Enter a name for the application group, such as *Session Desktop*. |
 
    > [!TIP]
-   > Once you've completed this tab, select **Next: Review + create**. You don't need to complete the other tabs to create an application group, but you'll need to [create a workspace](#create-a-workspace), [add an application group to a workspace](#add-an-application-group-to-a-workspace) and [assign users to the application group](#assign-users-to-an-application-group) before users can access the resources.
+   > After you complete this tab, select **Next: Review + create**. You don't need to complete the other tabs to create an application group, but you'll need to [create a workspace](#create-a-workspace), [add an application group to a workspace](#add-an-application-group-to-a-workspace) and [assign users to the application group](#assign-users-to-an-application-group) before users can access the resources.
    >
-   > If you created an application group for RemoteApp, you will also need to add applications to it. For more information, see [Publish applications](publish-applications.md).
+   > If you created an application group for RemoteApp, you also need to add applications to it. For more information, see [Publish applications](publish-applications.md).
 
-1. *Optional*: If you selected to create a RemoteApp application group, you can add applications to this application group. On the **Application groups** tab, select **+ Add applications**, then select an application. For more information on the application parameters, see [Publish applications with RemoteApp](manage-app-groups.md). At least one session host in the host pool must be powered on and available in Azure Virtual Desktop.
+1. *Optional*: If you selected to create a RemoteApp application group, you can add applications to this application group. On the **Application groups** tab, select **+ Add applications**, and then select an application. For more information on the application parameters, see [Publish applications with RemoteApp](manage-app-groups.md). At least one session host in the host pool must be powered on and available in Azure Virtual Desktop.
 
-   Once you've completed this tab, or if you're creating a desktop application group, select **Next: Assignments**.
+   After you complete this tab, or if you're creating a desktop application group, select **Next: Assignments**.
 
-1. *Optional*: On the **Assignments** tab, if you want to assign users or groups to this application group, select **+ Add Microsoft Entra users or user groups**. In the new pane that opens, check the box next to the users or groups you want to add, then select **Select**.
+1. *Optional*: On the **Assignments** tab, if you want to assign users or groups to this application group, select **+ Add Microsoft Entra users or user groups**. In the new pane that opens, select the box next to the users or groups that you want to add, and then select **Select**.
 
-   Once you've completed this tab, select **Next: Workspace**.
+   After you complete this tab, select **Next: Workspace**.
 
 1. *Optional*: On the **Workspace** tab, if you're creating a desktop application group, you can register the default desktop application group from the host pool you selected by completing the following information:
 
    | Parameter | Value/Description |
    |--|--|
-   | Register application group | Select **Yes**. This registers the default desktop application group to the selected workspace. |
-   | Register application group | Select an existing workspace from the list. |
+   | **Register application group** | Select **Yes**. This action registers the default desktop application group to the selected workspace. |
+   | **Register application group** | Select an existing workspace from the list. |
 
-   Once you've completed this tab, select **Next: Advanced**.
+   After you complete this tab, select **Next: Advanced**.
 
 1. *Optional*: If you want to enable diagnostics settings, on the **Advanced** tab, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
-   | Enable diagnostics settings | Check the box. |
-   | Choosing destination details to send logs to | Select one of the following destinations:<br /><br />- Send to Log Analytics workspace<br /><br />- Archive to storage account<br /><br />- Stream to an event hub |
+   | **Enable diagnostics settings** | Select the box. |
+   | **Choosing destination details to send logs to** | Select one of the following destinations:<br /><br />- Send to Log Analytics workspace<br /><br />- Archive to storage account<br /><br />- Stream to an event hub |
 
-   Once you've completed this tab, select **Next: Tags**.
+   After you complete this tab, select **Next: Tags**.
 
-1. *Optional*: On the **Tags** tab, you can enter any name/value pairs you need, then select **Next: Review + create**.
+1. *Optional*: On the **Tags** tab, you can enter any name/value pairs that you need, and then select **Next: Review + create**.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment.
 
 1. Select **Create** to create the application group.
 
-1. Once the application group has been created, select **Go to resource** to go to the overview of your new application group, then select **Properties** to view its properties.
+1. Select **Go to resource** to go to the overview of your new application group, and then select **Properties** to view its properties.
 
 > [!NOTE]
 > - If you created a desktop application group, assigned users or groups, and registered the default desktop application group to a workspace, your assigned users can connect to the desktop and you don't need to complete the rest of the article.
@@ -524,9 +524,9 @@ Here's how to create an application group using the Azure portal.
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to create an application group using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to create an application group by using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
-1. In the same PowerShell session, get the resource ID of the host pool you want to create an application group for and store it in a variable by running the following command:
+1. In the same PowerShell session, get the resource ID of the host pool for which you want to create an application group and store it in a variable by running the following command:
 
    ```azurepowershell
    $hostPoolArmPath = (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName).Id
@@ -570,9 +570,9 @@ Here's how to create an application group using the [Az.DesktopVirtualization](/
 
 # [Azure CLI](#tab/cli)
 
-Here's how to create an application group using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
+Here's how to create an application group by using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for the Azure CLI.
 
-1. In the same CLI session, get the resource ID of the host pool you want to create an application group for and store it in a variable by running the following command:
+1. In the same CLI session, get the resource ID of the host pool for which you want to create an application group and store it in a variable by running the following command:
 
    ```azurecli
    hostPoolArmPath=$(az desktopvirtualization hostpool show \
@@ -620,11 +620,11 @@ Next, to add an application group to a workspace, select the relevant tab for yo
 
 # [Portal](#tab/portal)
 
-Here's how to add an application group to a workspace using the Azure portal.
+Here's how to add an application group to a workspace by using the Azure portal.
 
-1. From the Azure Virtual Desktop overview, select **Workspaces**, then select the name of the workspace you want to assign an application group to.
+1. From the Azure Virtual Desktop overview, select **Workspaces**, and then select the name of the workspace that you want to assign an application group to.
 
-1. From the workspace overview, select **Application groups**, then select **+ Add**.
+1. From the workspace overview, select **Application groups**, and then select **+ Add**.
 
 1. Select the plus icon (**+**) next to an application group from the list. Only application groups that aren't already assigned to a workspace are listed.
 
@@ -632,12 +632,12 @@ Here's how to add an application group to a workspace using the Azure portal.
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to add an application group to a workspace using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to add an application group to a workspace by using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
 1. In the same PowerShell session, use the `Update-AzWvdWorkspace` cmdlet with the following example to add an application group to a workspace:
 
    ```azurepowershell
-   # Get the resource ID of the application group you want to add to the workspace
+   # Get the resource ID of the application group that you want to add to the workspace
    $appGroupPath = (Get-AzWvdApplicationGroup -Name <Name -ResourceGroupName <ResourceGroupName>).Id
 
    # Add the application group to the workspace
@@ -652,12 +652,12 @@ Here's how to add an application group to a workspace using the [Az.DesktopVirtu
 
 # [Azure CLI](#tab/cli)
 
-Here's how to add an application group to a workspace using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
+Here's how to add an application group to a workspace by using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for the Azure CLI.
 
 1. In the same CLI session, use the `az desktopvirtualization workspace update` command with the following example to add an application group to a workspace:
 
    ```azurecli
-   # Get the resource ID of the application group you want to add to the workspace
+   # Get the resource ID of the application group that you want to add to the workspace
    appGroupPath=$(az desktopvirtualization applicationgroup show \
        --name <Name> \
        --resource-group <ResourceGroupName> \
@@ -687,7 +687,7 @@ Finally, to assign users or user groups to an application group, select the rele
 
 # [Portal](#tab/portal)
 
-Here's how to assign users or user groups to an application group to a workspace using the Azure portal.
+Here's how to assign users or user groups to an application group to a workspace by using the Azure portal.
 
 1. From the Azure Virtual Desktop overview, select **Application groups**.
 
@@ -695,13 +695,13 @@ Here's how to assign users or user groups to an application group to a workspace
 
 1. From the application group overview, select **Assignments**.
 
-1. Select **+ Add**, then search for and select the user account or user group you want to assign to this application group.
+1. Select **+ Add**, and then search for and select the user account or user group that you want to assign to this application group.
 
 1. Finish by selecting **Select**.
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to assign users or user groups to an application group to a workspace using [Az.Resources](/powershell/module/az.resources) PowerShell module.
+Here's how to assign users or user groups to an application group to a workspace by using [Az.Resources](/powershell/module/az.resources) PowerShell module.
 
 1. In the same PowerShell session, use the `New-AzRoleAssignment` cmdlet with the following examples to assign users or user groups to an application group.
 
@@ -720,9 +720,9 @@ Here's how to assign users or user groups to an application group to a workspace
       ```
 
    1. To assign user groups to the application group, run the following commands:
-   
+
       ```azurepowershell
-      # Get the object ID of the user group you want to assign to the application group
+      # Get the object ID of the user group that you want to assign to the application group
       $userGroupId = (Get-AzADGroup -DisplayName "<UserGroupName>").Id
 
       # Assign users to the application group
@@ -739,14 +739,14 @@ Here's how to assign users or user groups to an application group to a workspace
 
 # [Azure CLI](#tab/cli)
 
-Here's how to assign users or user groups to an application group to a workspace using the [role](/cli/azure/role/assignment) extension for Azure CLI.
+Here's how to assign users or user groups to an application group to a workspace by using the [role](/cli/azure/role/assignment) extension for the Azure CLI.
 
 1. In the same CLI session, use the `az role assignment create` command with the following examples to assign users or user groups to an application group.
 
    1. To assign users to the application group, run the following commands:
 
       ```azurecli
-      # Get the resource ID of the application group you want to add to the workspace
+      # Get the resource ID of the application group that you want to add to the workspace
       appGroupPath=$(az desktopvirtualization applicationgroup show \
           --name <Name> \
           --resource-group <ResourceGroupName> \
@@ -763,14 +763,14 @@ Here's how to assign users or user groups to an application group to a workspace
    1. To assign user groups to the application group, run the following commands:
 
       ```azurecli
-      # Get the resource ID of the application group you want to add to the workspace
+      # Get the resource ID of the application group that you want to add to the workspace
       appGroupPath=$(az desktopvirtualization applicationgroup show \
           --name <Name> \
           --resource-group <ResourceGroupName> \
           --query [id] \
           --output tsv)
 
-      # Get the object ID of the user group you want to assign to the application group
+      # Get the object ID of the user group that you want to assign to the application group
       userGroupId=$(az ad group show \
           --group <UserGroupName> \
           --query [id] \
@@ -789,7 +789,7 @@ Here's how to assign users or user groups to an application group to a workspace
 
 # [Portal](#tab/portal)
 
-Once you've deployed Azure Virtual Desktop, your users can connect. There are several platforms you can connect from, including from a web browser. For more information, see [Remote Desktop clients for Azure Virtual Desktop](users/remote-desktop-clients-overview.md) and [Connect to Azure Virtual Desktop with the Remote Desktop Web client](users/connect-web.md).
+After you deploy Azure Virtual Desktop, your users can connect. There are several platforms you can connect from, including from a web browser. For more information, see [Remote Desktop clients for Azure Virtual Desktop](users/remote-desktop-clients-overview.md) and [Connect to Azure Virtual Desktop with the Remote Desktop Web client](users/connect-web.md).
 
 Here are some extra tasks you might want to do:
 
@@ -801,7 +801,7 @@ Here are some extra tasks you might want to do:
 
 # [Azure PowerShell](#tab/powershell)
 
-Once you've deployed a host pool, workspace, and application group, you'll need to create session hosts before your users can connect. You can do this by following the steps in [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+After you deploy a host pool, workspace, and application group, you need to create session hosts before your users can connect. Follow the steps in [Add session hosts to a host pool](add-session-hosts-host-pool.md).
 
 Here are some extra tasks you might want to do:
 
@@ -811,7 +811,7 @@ Here are some extra tasks you might want to do:
 
 # [Azure CLI](#tab/cli)
 
-Once you've deployed a host pool, workspace, and application group, you'll need to create session hosts before your users can connect. You can do this by following the steps in [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+After you deploy a host pool, workspace, and application group, you need to create session hosts before your users can connect. Follow the steps in [Add session hosts to a host pool](add-session-hosts-host-pool.md).
 
 Here are some extra tasks you might want to do:
 
