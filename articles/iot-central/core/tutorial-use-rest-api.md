@@ -29,41 +29,27 @@ In this tutorial, you learn how to:
 
 To complete the steps in this tutorial, you need:
 
-* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An Android or iOS smartphone on which you're able to install a free app from one of the official app stores.
+- An Android or iOS smartphone on which you're able to install a free app from one of the official app stores.
 
 ### Azure CLI
 
-You use the Azure CLI to generate the bearer tokens that some of the REST APIs use for authorization.
+You use the Azure CLI to make the REST API calls and to generate the bearer tokens that some of the REST APIs use for authorization.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-### Postman
-
-In this tutorial, you use [Postman](https://www.postman.com/downloads/) to make the REST API calls. If you prefer not to download and install Postman, you can use the online version. You can complete all the steps in the tutorial by using the free version of Postman.
-
-The tutorial uses a predefined Postman collection that includes some scripts to help you complete the steps.
-
-## Import the Postman collection
-
-To import the collection, open Postman and select **Import**. In the **Import** dialog, select **Link** and paste in the following [URL](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/postman-collection/IoT%20Central%20REST%20tutorial.postman_collection.json), select **Continue**.
-
-Your workspace now contains the **IoT Central REST tutorial** collection. This collection includes all the APIs you use in the tutorial.
-
-The collection uses variables to parameterize the REST API calls. To see the variables, select the `...` next to **IoT Central REST tutorial** and select **Edit**. Then select **Variables**. Many of the variables are either set automatically as you make the API calls or have preset values.
 
 ## Authorize the REST API
 
 Before you can use the REST API, you must configure the authorization. The REST API calls in this tutorial use one of three authorization types:
 
-* A bearer token that authorizes access to `https://management.azure.com`. You use this bearer token when you create and delete and IoT Central application. An IoT Central application is an Azure resource.
-* A bearer token that authorizes access to `https://apps.azureiotcentral.com`. You use this bearer token to create the API tokens in the IoT Central application.
-* Administrator and operator API tokens that authorize access to capabilities in your IoT Central application. You use these tokens for most the API calls in this tutorial. These tokens only authorize access to one specific IoT Central application.
+- A bearer token that authorizes access to `https://management.azure.com`. You use this bearer token when you create and delete and IoT Central application. An IoT Central application is an Azure resource.
+- A bearer token that authorizes access to `https://apps.azureiotcentral.com`. You use this bearer token to create the API tokens in the IoT Central application.
+- Administrator and operator API tokens that authorize access to capabilities in your IoT Central application. You use these tokens for most the API calls in this tutorial. These tokens only authorize access to one specific IoT Central application.
 
-Assign values to the following variables in the Postman collection:
+Generate the bearer tokens and get the subscription ID you need to use the REST API:
 
-* **bearerToken**: Run the following Azure CLI commands to generate a bearer token that authorizes access to `https://management.azure.com`:
+- **bearerToken**: Run the following Azure CLI commands to generate a bearer token that authorizes access to `https://management.azure.com`:
 
     ```azurecli
     az login
@@ -73,9 +59,9 @@ Assign values to the following variables in the Postman collection:
     > [!TIP]
     > You may need to run `az login` even if you're using the Cloud Shell.
 
-    Copy the `accessToken` value into the **Current value** column for **bearerToken** in the collection variables.
+    Make a note of this management bearer token, you use it later in the tutorial.
 
-* **bearerTokenApp**: Run the following Azure CLI commands to generate a bearer token that authorizes access to `https://apps.azureiotcentral.com`:
+- **bearerTokenApp**: Run the following Azure CLI commands to generate a bearer token that authorizes access to `https://apps.azureiotcentral.com`:
 
     ```azurecli
     az account get-access-token --resource https://apps.azureiotcentral.com
@@ -84,27 +70,31 @@ Assign values to the following variables in the Postman collection:
     > [!TIP]
     > If you started a new instance of your shell, run `az login` again.
 
-    Copy the `accessToken` value into the **Current value** column for **bearerTokenApp** in the collection variables.
+    Make a note of this application bearer token, you use it later in the tutorial.
 
-* **subscriptionId**: Your subscription ID was included in the output from the two previous commands. Copy the `subscription` value into the **Current value** column for **subscriptionId** in the collection variables.
-
-:::image type="content" source="media/tutorial-use-rest-api/postman-variables.png" alt-text="Screenshot that shows the variables set manually in the Postman collection.":::
-
-Be sure to save the changes to the Postman collection.
+- **subscriptionId**: Your subscription ID was included in the output from the two previous commands. Make a note of the subscription ID, you use it later in the tutorial.
 
 > [!NOTE]
-> Bearer tokens expire after an hour.
+> Bearer tokens expire after an hour. If they expire, run the same commands to generate new bearer tokens.
 
-## Create an application
+## Create a resource group
 
-Use the control plane requests to create and manage IoT central applications. Use the following **PUT** request to create the application that you use in this tutorial. The request uses a bearer token to authorize and generates a random application name.
+Use the Azure cli to create a resource group that contains the IoT Central application you create in this tutorial:
 
-1. In Postman, open the **IoT Central REST tutorial** collection, and select the **Create an IoT central application** request.
-1. Select **Send**.
-1. Check the request succeeds. If it fails, verify that you entered the **bearerToken** and **subscriptionId** variable values in the Postman collection.
-1. Select **Visualize** to see the URL of your new IoT Central application. Make a note of this URL, you need it later in this tutorial.
+```azurecli
+az group create --name iot-central-rest-tutorial --location eastus
+```
 
-:::image type="content" source="media/tutorial-use-rest-api/visualize-tab.png" alt-text="Screenshot that shows the Visualize tab with the application URL in Postman.":::
+## Create an IoT Central application
+
+Use the following command to generate an IoT Central application with a random name to use in this tutorial:
+
+```azurecli
+appName=app-rest-$(date +%s)
+az iot central app create --name $appName --resource-group iot-central-rest-tutorial --subdomain $appName
+```
+
+Make a note of the application name, you use it later in this tutorial.
 
 ## Create the API tokens
 
@@ -117,8 +107,23 @@ Use the following data plane requests to create the application API tokens in yo
 
 If you want to see these tokens in your IoT central application, open the application and navigate to **Security > Permissions > API tokens**.
 
-> [!NOTE]
-> A script in Postman automatically adds these API tokens to the list of collection variables for you.
+To create an operator token called `operator-token` by using the Azure CLI, run the following command. The role GUID is the ID of the operator role in all IoT Central applications:
+
+```azurecli
+$appName=<the app name generated previously>
+az rest --method put --uri https://$appName.azureiotcentral.com/api/apiTokens/operator-token?api-version=2022-07-31 --headers Authorization="Bearer $bearerTokenApp" "Content-Type=application/json" --body '{"roles": [{"role": "ae2c9854-393b-4f97-8c42-479d70ce626e"}]}'
+```
+
+Make a note of the operator token the command returns, you use it later in the tutorial. The token looks like `SharedAccessSignature sr=2...`.
+
+To create an admin token called `admin-token` by using the Azure CLI, run the following command. The role GUID is the ID of the admin role in all IoT Central applications:
+
+```azurecli
+$appName=<the app name generated previously>
+az rest --method put --uri https://$appName.azureiotcentral.com/api/apiTokens/admin-token?api-version=2022-07-31 --headers Authorization="Bearer $bearerTokenApp" "Content-Type=application/json" --body '{"roles": [{"role": "ca310b8d-2f4a-44e0-a36e-957c202cd8d4"}]}'
+```
+
+Make a note of the admin token the command returns, you use it later in the tutorial. The token looks like `SharedAccessSignature sr=2...`.
 
 ## Register a device
 
