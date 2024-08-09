@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: None
 ms.author: larryfr
 author: Blackmist
-ms.date: 08/11/2023
+ms.date: 08/09/2024
 ms.topic: how-to
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
