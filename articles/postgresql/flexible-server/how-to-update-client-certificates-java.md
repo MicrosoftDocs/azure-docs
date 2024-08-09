@@ -1,8 +1,8 @@
 ---
 title: Updating Client SSL/TLS Certificates for Java
 description: Learn about updating Java clients with Flexible Server using  TLS.
-author: GennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 04/27/2024
 ms.service: azure-database-postgresql

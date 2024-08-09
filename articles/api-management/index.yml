@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
-  ms.date: 01/08/2024
+  ms.date: 07/23/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -29,7 +29,7 @@ landingContent:
           - text: Gateway capabilities
             url: api-management-gateways-overview.md
           - text: Hybrid and multicloud management
-            url: self-hosted-gateway-overview.md          
+            url: self-hosted-gateway-overview.md   
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
@@ -73,6 +73,8 @@ landingContent:
             url: configure-custom-domain.md
           - text: Integrate with Application Insights 
             url: api-management-howto-app-insights.md
+          - text: Create a workspace
+            url: how-to-create-workspace.md
           - text: Deploy to VNet - external mode
             url: api-management-using-with-vnet.md
           - text: Deploy to VNet - internal mode
@@ -110,8 +112,8 @@ landingContent:
             url: api-management-authenticate-authorize-azure-openai.md
       - linkListType: concept
         links:
-          - text: New v2 service tiers
-            url: v2-service-tiers-overview.md
+          - text: Workspaces
+            url: workspaces-overview.md       
 # Card
   - title: Related services
     linkLists:

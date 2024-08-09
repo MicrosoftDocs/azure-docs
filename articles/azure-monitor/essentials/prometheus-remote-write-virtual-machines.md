@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 07/28/2024
+ms.date: 08/07/2024
 #customer intent: As an azure administrator, I want to send Prometheus metrics from my self-managed Prometheus instance to an Azure Monitor workspace.
 ---
 
@@ -203,15 +203,15 @@ Note the value of the `clientId` of the managed identity that you create. This I
 
     ```azurecli
     {
-      "clientId": "abcdef01-a123-b456-d789-0123abc345de",
-      "id": "/subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity",
+      "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity",
       "location": "eastus",
       "name": "PromRemoteWriteIdentity",
-      "principalId": "98765432-0123-abcd-9876-1a2b3c4d5e6f",
+      "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
       "resourceGroup": "rg-001",
       "systemData": null,
       "tags": {},
-      "tenantId": "ffff1234-aa01-02bb-03cc-0f9e8d7c6b5a",
+      "tenantId": "ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d",
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
     }
     ```
@@ -229,8 +229,8 @@ Note the value of the `clientId` of the managed identity that you create. This I
     ```azurecli
     az role assignment create \
     --role "Monitoring Metrics Publisher" \
-    --assignee abcdef01-a123-b456-d789-0123abc345de \
-    --scope /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.Insights/dataCollectionRules/amw-001
+    --assignee 00001111-aaaa-2222-bbbb-3333cccc4444 \
+    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.Insights/dataCollectionRules/amw-001
     ```
 
 1. Assign the managed identity to a Virtual Machine or Virtual Machine Scale Set.
@@ -258,7 +258,7 @@ Note the value of the `clientId` of the managed identity that you create. This I
     az vm identity assign \
     -g rg-prom-on-vm \
     -n win-vm-prom \
-    --identities /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity
+    --identities /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity
     ```
 For more information, see [az identity create](/cli/azure/identity#az-identity-create) and [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
@@ -275,15 +275,15 @@ For example,
 az ad sp create-for-rbac \
 --name PromRemoteWriteApp \
 --role "Monitoring Metrics Publisher" \
---scopes /subscriptions/abcdef00-1234-5678-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.nsights/dataCollectionRules/amw-001
+--scopes /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.nsights/dataCollectionRules/amw-001
 ```    
 The following is an example of the output displayed:    
 ```azurecli
 {
-  "appId": "01234567-abcd-ef01-2345-67890abcdef0",
+  "appId": "66667777-aaaa-8888-bbbb-9999cccc0000",
   "displayName": "PromRemoteWriteApp",
-  "password": "AbCDefgh1234578~zxcv.09875dslkhjKLHJHLKJ",
-  "tenant": "abcdef00-1234-5687-abcd-1234567890ab"
+  "password": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+  "tenant": "ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d"
 }
 ```
 

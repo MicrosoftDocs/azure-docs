@@ -75,7 +75,7 @@ You can download the latest version of the Linux agent from [here](https://aka.m
 2. Run the following command as root.
 
     ```bash
-    InstallDependencyAgent-Linux64.bin -s
+    ./InstallDependencyAgent-Linux64.bin -s
     ```
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 

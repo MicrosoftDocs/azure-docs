@@ -34,7 +34,7 @@ In the following section, you create an Azure key vault and a service principal,
 
 ### Create key vault
 
-If you don't already have a vault in [Azure Key Vault](../key-vault/general/overview.md), create one with the Azure CLI using the following commands.
+If you don't already have a vault in [Azure Key Vault](/azure/key-vault/general/overview), create one with the Azure CLI using the following commands.
 
 Update the `RES_GROUP` variable with the name of an existing resource group in which to create the key vault, and `ACR_NAME` with the name of your container registry. For brevity, commands in this article assume that your registry, key vault, and container instances are all created in the same resource group.
 
