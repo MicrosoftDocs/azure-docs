@@ -911,7 +911,7 @@
       items:
         - name: Online endpoints
           href: concept-endpoints-online.md
-        - name: Model specification in online deployment configuration
+        - name: Model specification for online deployment
           href: concept-online-deployment-model-specification.md
         - name: Deploy an ML model with an online endpoint
           href: how-to-deploy-online-endpoints.md

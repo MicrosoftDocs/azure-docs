@@ -2,8 +2,8 @@
 title: Model specification for online deployments
 titleSuffix: Azure Machine Learning
 description: Specify the model to use in an Azure Machine Learning online endpoint's deployment.
-services: machine-learning
-ms.service: machine-learning
+manager: scottpolly
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 author: dem108
 ms.author: sehan
