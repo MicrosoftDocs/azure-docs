@@ -9,14 +9,14 @@ ms.date: 08/08/2024
 ms.author: danlep
 ---
 
-# stv1 platform retirement (August 2024) - Global Azure cloud
+# API Management stv1 platform retirement - Global Azure cloud (August 2024)
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many details of the infrastructure used to host and run your service. **The infrastructure associated with the API Management `stv1` compute platform version will be retired effective 31 August 2024 in the global Microsoft Azure cloud.** A more current compute platform version (`stv2`) is already available, and provides enhanced service capabilities.
 
 > [!NOTE]
-> In the Microsoft Azure Government cloud and the Microsoft Azure operated by 21Vianet cloud, the retirement date for the `stv1` platform is February 28, 2025. [Learn more](stv1-platform-retirement-sovereign-clouds-february-2025.md).
+> For API Management instances deployed in Microsoft Azure Government cloud or Microsoft Azure operated by 21Vianet cloud (Azure in China), the retirement date for the `stv1` platform is 28 February 2025. [Learn more](stv1-platform-retirement-sovereign-clouds-february-2025.md)
 
 The following table summarizes the compute platforms currently used for instances in the different API Management service tiers. 
 
@@ -38,9 +38,9 @@ If the value of the `platformVersion` property of your service is `stv1`, it's h
 
 Support for API Management instances hosted on the `stv1` platform will be retired by 31 August 2024.
 
-> [!WARNING]
-> If your instance is currently hosted on the `stv1` platform, you must migrate to the `stv2` platform. Failure to migrate by the retirement date might result in loss of the environments running APIs and all configuration data.
+## What happens after 31 August 2024?
 
+[TBD...]
 
 ## What do I need to do?
 

@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom:
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 08/09/2024
 ms.author: danlep
 ---
 
@@ -16,7 +16,7 @@ ms.author: danlep
 
 Here we help you find guidance to migrate your API Management instance hosted on the `stv1` compute platform to the newer `stv2` platform. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
 
-There are two different migration scenarios, depending on whether or not your API Management instance is currently deployed (injected) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet. Choose the migration guide for your scenario. Both scenarios migrate an existing instance in-place to the `stv2` platform.
+There are two different in-place migration scenarios, depending on whether or not your API Management instance is currently deployed (injected) in a VNet (either external mode or internal mode). Choose the migration guide for your scenario. 
 
 [!INCLUDE [api-management-migration-alert](../../includes/api-management-migration-alert.md)]
 
@@ -24,7 +24,7 @@ There are two different migration scenarios, depending on whether or not your AP
 
 * [**Scenario 1: Migrate a non-VNet-injected API Management instance**](migrate-stv1-to-stv2-no-vnet.md) - Migrate your instance to the `stv2` platform using the portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API.   
 
-* [**Scenario 2: Migrate a VNet-injected API Management instance**](migrate-stv1-to-stv2-vnet.md) - Migrate your instance to the `stv2` platform by updating the VNet configuration settings using the portal.
+* [**Scenario 2: Migrate a VNet-injected API Management instance**](migrate-stv1-to-stv2-vnet.md) - Migrate your instance to the `stv2` platform by using the portal, the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API, or triggering update with new subnet settings.
 
 ## Alternative: Side-by-side deployment
 

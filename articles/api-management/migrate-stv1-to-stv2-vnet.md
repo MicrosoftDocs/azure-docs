@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom:
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 08/09/2024
 ms.author: danlep
 ---
 
@@ -22,9 +22,26 @@ If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1
 
 > [!CAUTION]
 > * Migrating your API Management instance to the `stv2` platform is a long-running operation. 
-> * The VIP address of your instance will change. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. Plan your migration accordingly.
+> * For certain migration options, the VIP address(es) of your API Management instance will change. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address(es). Plan your migration accordingly.
 > * Migration to `stv2` is not reversible.
 
+## Migration options
+
+The following are the migration options that are currently available for VNet-injected API Management instances. The migration options vary based on the network mode (external or internal) of the API Management instance. Review this article for the latest updates.
+
+> [!NOTE]
+> For API Management instances deployed in multiple regions, you must repeat the migration steps for each region where the instance is deployed.
+
+| Network mode | Option | Description | Notes |
+| -------- | ------- | ----- |
+| External VNet | [Migrate using portal](#migrate-using-portal)| Choose either a new IP address or to preserve IP address| |
+| External VNet | [Migrate using REST API](#migrate-using-rest-api) | | |
+| External VNet | [Update network configuration](#update-network-configuration) - Migrate to a new subnet in the same or a different VNet. Optionally migrate back to the original subnet. |
+| Internal VNet | [Migrate using portal](#migrate-using-portal) | | |
+| Internal VNet | [Migrating using REST API](#migrate-using-rest-api) | | |
+| Internal VNet | [Update network configuration](#update-network-configuration) - Migrate to a new subnet in the same or a different VNet. Optionally migrate back to the original subnet. | | |
+
+<!-- Delete or edit this section
 ## What happens during migration?
 
 API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/API configuration persisted in the storage layer.
@@ -40,6 +57,8 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 * Changes are required to your firewall rules, if any, to allow the new compute subnet to reach the backends.
 * After successful migration, the old compute is automatically decommissioned after approximately 15 minutes by default. You can enable a migration setting to retain the old gateway for 48 hours. *The 48 hour delay option is only available for VNet-injected services.* 
 
+ -->
+
 ## Prerequisites
 
 * An API Management instance hosted on the `stv1` compute platform. To confirm that your instance is hosted on the `stv1` platform, see [How do I know which platform hosts my API Management instance?](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) The instance must be injected in a virtual network.
@@ -50,7 +69,12 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
     [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
 
-## Trigger migration of a network-injected API Management instance
+## Migrate using Azure CLI
+
+[!INCLUDE [api-management-migration-cli-steps](../../includes/api-management-migration-cli-steps.md)]
+
+
+## Trigger migration of a network-injected API Management instance using the portal
 
 Trigger migration of a network-injected API Management instance to the `stv2` platform by updating the existing network configuration to use new network settings in each region where the instance is deployed. After that update completes, as an optional step, you can migrate back to the original VNets and subnets you used.
 
