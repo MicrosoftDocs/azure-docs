@@ -21,7 +21,7 @@ Note: 1.39.0 is not missing, it was a internal release.
 
 #### Bug fixes
 
-*  Built Speech SDK binaries for Windows with the _DISABLE_CONSTEXPR_MUTEX_CONSTRUCTOR flag as mitigation for the Visual C++ runtime issue Access violation with std::mutex::lock after upgrading to VS 2022 version 17.10.0 - Developer Community (visualstudio.com). Note that Windows C++ applications using the Speech SDK may need to apply the same build configuration flag if their code uses std::mutex (see details in the linked issue).
+*  Built Speech SDK binaries for Windows with the _DISABLE_CONSTEXPR_MUTEX_CONSTRUCTOR flag as mitigation for the Visual C++ runtime issue [Access violation with std::mutex::lock after upgrading to VS 2022 version 17.10.0 - Developer Community (visualstudio.com)](https://developercommunity.visualstudio.com/t/Access-violation-in-_Thrd_yield-after-up/10664660#T-N10668856). Note that Windows C++ applications using the Speech SDK may need to apply the same build configuration flag if their code uses std::mutex (see details in the linked issue).
 *  Fixed OpenSSL 3.x detection not working on Linux arm64 (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2420).
 *  Fixed the issue that when deploying a UWP app, libraries and model from MAS NuGet package wouldn't get copied to the deployment location.
 *  Fixed a content provider conflict in Android packages (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2463).
