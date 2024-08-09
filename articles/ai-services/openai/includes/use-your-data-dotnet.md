@@ -19,6 +19,8 @@ From the project directory, open the *Program.cs* file and replace its contents 
 ```csharp
 using Azure;
 using Azure.AI.OpenAI;
+using Azure.AI.OpenAI.Chat;
+using OpenAI.Chat;
 using System.Text.Json;
 using static System.Environment;
 
