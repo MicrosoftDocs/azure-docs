@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 09/29/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Get started with Azure Maps Power BI visual

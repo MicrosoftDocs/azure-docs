@@ -2,7 +2,7 @@
 title: What's new in Azure Virtual WAN?
 description: Learn what's new with Azure Virtual WAN such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 03/04/2024
 ms.author: cherylmc

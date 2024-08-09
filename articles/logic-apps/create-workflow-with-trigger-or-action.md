@@ -2,7 +2,7 @@
 title: Create a workflow with a trigger or action
 description: Start building your workflow by adding a trigger or an action in Azure Logic Apps.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to

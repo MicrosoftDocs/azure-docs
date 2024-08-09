@@ -1,11 +1,11 @@
 ---
 title: Create and manage with data encrypted by customer managed keys using Azure REST API
 description: Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using Azure REST API.
-author: gennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
@@ -20,7 +20,7 @@ In this article, you learn how to create an Azure Database for PostgreSQL flexib
 Prerequisites:
 - You must have an Azure subscription and be an administrator on that subscription.
 - Azure managed identity in region where the Azure Database for PostgreSQL flexible server instance will be created. 
-- Key Vault with key in region where the Azure Database for PostgreSQL flexible server instance will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
+- Key Vault with key in region where the Azure Database for PostgreSQL flexible server instance will be created. Follow this [tutorial](/azure/key-vault/general/quick-create-portal) to create Key Vault and generate key. 
 
 
 > [!NOTE]  

@@ -99,13 +99,13 @@ The following sections describe the four stages in the architecture.
 
 The following Azure services are used in this architecture.
 
-- [Key Vault](../key-vault/general/basic-concepts.md) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+- [Key Vault](/azure/key-vault/general/basic-concepts) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 - [Service Bus](https://azure.microsoft.com/services/service-bus/) is part of a broader [Azure messaging](../service-bus-messaging/service-bus-messaging-overview.md) infrastructure that supports queueing, publish/subscribe, and more advanced integration patterns.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is dedicated to big data analytics, and is built on [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs).
 - [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) enables Azure resources to securely communicate with each other, the internet, and on-premises networks.
 - [Azure Database for PostgreSQL - Flexible Server](../postgresql/flexible-server/overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. It has richer capabilities such as zone resilient high availability (HA), predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience suitable for your enterprise workloads.
 - [API Management Services](https://azure.microsoft.com/services/api-management/) offers a scalable, multicloud API management platform for securing, publishing and analyzing APIs.
-- [Azure Kubernetes Services](../aks/intro-kubernetes.md) offers the quickest way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
+- [Azure Kubernetes Services](/azure/aks/intro-kubernetes) offers the quickest way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
 - [Container Registry](../container-registry/container-registry-intro.md) to store and manage your container images and related artifacts.
 - [Virtual Machine](../virtual-machines/overview.md) (VM) gives you the flexibility of virtualization for a wide range of computing solutions. In a fully secured deployment, a user connects to a VM via Azure Bastion (described in the next item below) to perform a range of operations like copying files to storage accounts, running Azure CLI commands, and interacting with other services.  
 - [Azure Bastion](../bastion/bastion-overview.md) enables you to securely and seamlessly RDP & SSH to your VMs in Azure virtual network, without the need of public IP on the VM, directly from the Azure portal, and without the need of any other client/agent or any piece of software.
@@ -138,8 +138,8 @@ To catalog more data sources or to catalog your own data source, consider the fo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Azure Kubernetes Service [Container Security](../aks/concepts-security.md) implementation ensures the processors are built and run as containers are secure.
-- API Management Service [Security baseline](../aks/concepts-security.md) provides recommendations on how to secure your cloud solutions on Azure.
+- Azure Kubernetes Service [Container Security](/azure/aks/concepts-security) implementation ensures the processors are built and run as containers are secure.
+- API Management Service [Security baseline](/azure/aks/concepts-security) provides recommendations on how to secure your cloud solutions on Azure.
 - [Azure Database for PostgreSQL Security](../postgresql/flexible-server/concepts-security.md) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
 
 ### Cost optimization

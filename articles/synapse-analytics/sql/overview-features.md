@@ -4,7 +4,7 @@ description: List of Transact-SQL features that are available in Synapse SQL.
 services: synapse analytics
 author: jovanpop-msft
 ms.author: jovanpop
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 03/24/2022

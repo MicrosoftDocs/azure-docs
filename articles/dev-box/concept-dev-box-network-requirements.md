@@ -229,6 +229,8 @@ These FQDNs and endpoints only correspond to client sites and resources. This li
 
 ## Troubleshooting 
 
+This section covers some common connection and network issues.
+
 ### Connection issues
 
 - **Logon attempt failed**
@@ -243,13 +245,17 @@ These FQDNs and endpoints only correspond to client sites and resources. This li
 
   For more information about troubleshooting group policy issues, see [Applying Group Policy troubleshooting guidance](/troubleshoot/windows-server/group-policy/applying-group-policy-troubleshooting-guidance).
 
-
 ### IPv6 addressing issues
 
 If you're experiencing IPv6 issues, check that the *Microsoft.AzureActiveDirectory* service endpoint is not enabled on the virtual network or subnet. This service endpoint converts the IPv4 to IPv6.
 
 For more information, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
+### Updating dev box definition image issues
+
+When you update the image used in a dev box definition, you must ensure that you have sufficient IP addresses available in your virtual network. Additional free IP addresses are necessary for the Azure Network connection health check. If the health check fails the dev box definition will not update. You need 1 additional IP address per dev box, and two IP addresses for the health check and Dev Box infrastructure.
+
+For more information about updating dev box definition images, see [Update a dev box definition](how-to-manage-dev-box-definitions.md#update-a-dev-box-definition).
 
 ## Related content
 

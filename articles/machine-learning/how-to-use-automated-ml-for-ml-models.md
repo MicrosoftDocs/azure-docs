@@ -440,7 +440,7 @@ Automated ML helps you deploy the model without writing code.
    | --- | --- |
    | **Name** | Enter a unique name for your deployment. |
    | **Description** | Enter a description to better identify the deployment purpose. |
-   | **Compute type** | Select the type of endpoint you want to deploy: [*Azure Kubernetes Service (AKS)*](../aks/intro-kubernetes.md) or [*Azure Container Instance (ACI)*](../container-instances/container-instances-overview.md). |
+   | **Compute type** | Select the type of endpoint you want to deploy: [*Azure Kubernetes Service (AKS)*](/azure/aks/intro-kubernetes) or [*Azure Container Instance (ACI)*](../container-instances/container-instances-overview.md). |
    | **Compute name** | (Applies to AKS only) Select the name of the AKS cluster you wish to deploy to. |
    | **Enable authentication** | Select to allow for token-based or key-based authentication. |
    | **Use custom deployment assets** | Enable custom assets if you want to upload your own scoring script and environment file. Otherwise, Automated ML provides these assets for you by default. For more information, see [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md). |

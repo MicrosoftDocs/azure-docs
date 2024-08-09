@@ -17,6 +17,9 @@ You can only connect private clouds in the same region. To connect private cloud
 
 :::image type="content" source="media/networking/avs-interconnect.png" alt-text="Diagram of the AVS Interconnect Topology for 3 private clouds connected in one region." border="true" lightbox="media/networking/avs-interconnect.png":::
 
+>[!NOTE]
+>AVS Interconnect is based on Global Reach feature for both interconnection to same\different region. Please [check the Global Reach availability for your AVS deployment](../../articles/expressroute/expressroute-global-reach.md)
+
 ## Supported regions
 
 The Azure VMware Solution Interconnect feature is available in all regions.

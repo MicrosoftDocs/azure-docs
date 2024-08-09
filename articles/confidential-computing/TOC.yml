@@ -43,6 +43,8 @@
       href: confidential-vm-faq.yml
     - name: Guest attestation for confidential VMs
       href: guest-attestation-confidential-vms.md
+    - name: About Azure confidential GPUs
+      href: gpu-options.md
     - name: Microsoft Defender for Cloud integration
       href: guest-attestation-defender-for-cloud.md
     - name: Virtual TPMs in Azure confidential VMs
@@ -144,7 +146,7 @@
   - name: Azure Virtual Desktop (AVD) Confidential Desktop #done
     href: https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/confidential-virtual-machine-support-for-azure-virtual-desktop/ba-p/3686350
   - name: Azure Confidential Ledger #done
-    href: ../confidential-ledger/overview.md
+    href: /azure/confidential-ledger/overview
   - name: Deploy a virtual machine scale set using hardened image
     href: vmss-deployment-from-hardened-linux-image.md
   - name: Secure Key Release (SKR) with Azure Key Vault

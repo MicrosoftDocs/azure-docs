@@ -24,24 +24,19 @@ Your data source is used to help ground the model with specific data. Grounding 
 
 The steps in this tutorial are:
 
-1. Deploy and test a chat model without your data
-1. Add your data
-1. Test the model with your data
-1. Deploy your web app
-
+1. Deploy and test a chat model without your data.
+1. Add your data.
+1. Test the model with your data.
+1. Deploy your web app.
 
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
-- Access granted to Azure OpenAI in the desired Azure subscription.
-
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-
 - An [AI Studio hub](../how-to/create-azure-ai-resource.md), [project](../how-to/create-projects.md), and [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model. Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already.
 
-- An [Azure AI Search service connection](../how-to/connections-add.md#create-a-new-connection) to index the sample product and customer data. 
+- An [Azure AI Search service connection](../how-to/connections-add.md#create-a-new-connection) to index the sample product data. 
 
-- You need at least one file to upload that contains example data. To complete this tutorial, use the product information samples from the [Azure-Samples/aistudio-python-quickstart-sample repository on GitHub](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/tree/main/data). Specifically, the [product_info_11.md](https://github.com/Azure-Samples/aistudio-python-quickstart-sample/blob/main/data/3-product-info/product_info_11.md) contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. You can download the file or copy its contents to a file named `product_info_11.md` on your local computer.
+- You need a local copy of product data. The [Azure-Samples/rag-data-openai-python-promptflow repository on GitHub](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/) contains sample retail product information that's relevant for this tutorial scenario. Specifically, the `product_info_11.md` file contains product information about the TrailWalker hiking shoes that's relevant for this tutorial example. [Download the example Contoso Trek retail product data in a ZIP file](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/raw/main/tutorial/data.zip) to your local machine.
 
 ## Add your data and try the chat model again
 
@@ -55,7 +50,7 @@ Once you're satisfied with the experience in Azure AI Studio, you can deploy the
 
 ### Find your resource group in the Azure portal
 
-In this tutorial, your web app is deployed to the same resource group as your AI Studio hub. Later you configure authentication for the web app in the Azure portal.
+In this tutorial, your web app is deployed to the same resource group as your [AI Studio hub](../how-to/create-secure-ai-hub.md). Later you configure authentication for the web app in the Azure portal.
 
 Follow these steps to navigate from Azure AI Studio to your resource group in the Azure portal:
 
@@ -64,7 +59,7 @@ Follow these steps to navigate from Azure AI Studio to your resource group in th
 
     :::image type="content" source="../media/tutorials/chat/resource-group-manage-page.png" alt-text="Screenshot of the resource group in the Azure AI Studio." lightbox="../media/tutorials/chat/resource-group-manage-page.png":::
 
-1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the hub. Keep this page open in a browser tab - you return to it later.
+1. You should now be in the Azure portal, viewing the contents of the resource group where you deployed the hub. Keep this page open in a browser tab. You return to it later.
 
 ### Deploy the web app
 
@@ -128,7 +123,7 @@ You're almost there! Now you can test the web app.
 
     *If the authentication settings haven't yet taken effect, close the browser tab for your web app and return to the chat playground in Azure AI Studio. Then wait a little longer and try again.*
 
-1. In your web app, you can ask the same question as before ("How much are the TrailWalker hiking shoes"), and this time it uses information from your data to construct the response. You can expand the **references** button to see the data that was used.
+1. In your web app, you can ask the same question as before ("How much are the TrailWalker hiking shoes"), and this time it uses information from your data to construct the response. You can expand the **reference** button to see the data that was used.
 
    :::image type="content" source="../media/tutorials/chat/chat-with-data-web-app.png" alt-text="Screenshot of the chat experience via the deployed web app." lightbox="../media/tutorials/chat/chat-with-data-web-app.png":::
 
@@ -154,7 +149,7 @@ Once you've enabled chat history, your users will be able to show and hide it in
 
 If you delete the Cosmos DB resource but keep the chat history option enabled on the studio, your users will be notified of a connection error, but can continue to use the web app without access to the chat history.
 
-## Next steps
+## Related content
 
-- [Create a project in Azure AI Studio](../how-to/create-projects.md).
-- Learn more about what you can do in the [Azure AI Studio](../what-is-ai-studio.md).
+- [Build and deploy a question and answer copilot with prompt flow in Azure AI Studio.](./deploy-copilot-ai-studio.md).
+- [Build your own copilot with the prompt flow SDK.](./copilot-sdk-build-rag.md).

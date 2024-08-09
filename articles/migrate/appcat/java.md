@@ -12,9 +12,7 @@ ms.date: 07/12/2024
 
 # Azure Migrate application and code assessment for Java
 
-This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure.
-
-The `appcat` command line interface (CLI) is a command-line tool to assess Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
+This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a CLI (command-line interface) and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
 
 The tool discovers application technology usage through static code analysis, provides effort estimation, and accelerates code replatforming, helping you to prioritize and move Java applications to Azure. With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE, Spring, Hibernate, Java Message Service (JMS), and more. It then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, Azure Container Apps, and Azure Spring Apps) with specific Azure replatforming rules.
 
@@ -62,16 +60,25 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 
 To use the `appcat` CLI, you must download the ZIP file described in the next section, and have a compatible JDK 11 or JDK 17 installation on your computer. The `appcat` CLI runs on any Java-compatible environment such as Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. We recommend you use the [Microsoft Build of OpenJDK](/java/openjdk). 
 
-### Download latest release
-
-The `appcat` CLI is available for download as a ZIP file from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
+### Download
 
 > [!div class="nextstepaction"]
-> [Download Azure Migrate application and code assessment for Java 6.3.0.8](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
+> [Download Azure Migrate application and code assessment for Java 6.3.0.9](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.9-preview.zip). Updated on 2024-08-06.
 
-#### Previous release
+For more information, see the [Release notes](#release-notes) section.
 
- - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip)
+#### Known issues
+
+Certain rules might not be triggered when parsing specific Lambda expressions. For more information, see [the GitHub issue](https://github.com/konveyor/rulesets/issues/102).
+
+Running `appcat` in a non-unicode environment with complex double-byte characters will cause corruption. For workarounds, see [the GitHub issue](https://github.com/Azure/appcat-rulesets/issues/183).
+
+#### Previous releases
+
+The following previous releases are also available for download:
+
+ - [Azure Migrate application and code assessment for Java 6.3.0.8](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.8-preview.zip). Released on March, 2024.
+ - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip). Released on November, 2023.
 
 ### Get started with appcat
 
@@ -309,6 +316,15 @@ After executing this rule through `appcat`, rerun the analysis to review the gen
 The complete guide for Rules Development is available at [azure.github.io/appcat-docs/rules-development-guide](https://azure.github.io/appcat-docs/rules-development-guide/).
 
 ## Release notes
+
+### 6.3.0.9
+
+This release contains the following fixes to the known issues previously on 6.3.0.8, and includes a set of new rules. For more information, see below.
+
+- Resolved an issue with the `localhost-java-00001` rule.
+- Introduced new rules for identifying technologies such as AWS S3, AWS SQS, Alibaba Cloud OSS, Alibaba Cloud SMS, Alibaba Scheduler X, Alibaba Cloud Seata, and Alibaba Rocket MQ.
+- Updated the `azure-file-system-02000` to now support xml file extensions.
+- Upgraded various libraries to address security vulnerabilities.
 
 ### 6.3.0.8
 

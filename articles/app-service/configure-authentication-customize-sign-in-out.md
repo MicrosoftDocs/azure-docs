@@ -14,7 +14,7 @@ This article shows you how to customize user sign-ins and sign-outs while using 
 
 ## Use multiple sign-in providers
 
-The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your app. The steps are outlined as follows:
+The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and X). However, it isn't difficult to add the functionality to your app. The steps are outlined as follows:
 
 First, in the **Authentication / Authorization** page in the Azure portal, configure each of the identity provider you want to enable.
 
@@ -26,7 +26,7 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 <a href="/.auth/login/aad">Log in with Microsoft Entra</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
-<a href="/.auth/login/twitter">Log in with Twitter</a>
+<a href="/.auth/login/x">Log in with X</a>
 <a href="/.auth/login/apple">Log in with Apple</a>
 ```
 

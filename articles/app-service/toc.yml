@@ -54,8 +54,16 @@
           href: configure-language-php.md
         - name: Configure Python
           href: configure-language-python.md
-        - name: Configure Java
-          href: configure-language-java.md
+        - name: Configure Java SE, Tomcat, or JBoss
+          items:
+            - name: Deployment and runtime
+              href: configure-language-java-deploy-run.md
+            - name: Data sources
+              href: configure-language-java-data-sources.md
+            - name: APM integration
+              href: configure-language-java-apm.md
+            - name: Security
+              href: configure-language-java-security.md
     - name: Deployment methods
       items:
         - name: Use ZIP or WAR
@@ -152,8 +160,10 @@
           href: tutorial-php-mysql-app.md
         - name: Node.js with MongoDB
           href: tutorial-nodejs-mongodb-app.md
-        - name: Python with Postgres
+        - name: Python with Postgres (Flask/Django)
           href: tutorial-python-postgresql-app.md
+        - name: Python with Postgres (FastAPI)
+          href: tutorial-python-postgresql-app-fastapi.md
         - name: Tomcat with MySQL
           href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB
@@ -257,7 +267,7 @@
           href: configure-authentication-provider-github.md
         - name: Use Google
           href: configure-authentication-provider-google.md
-        - name: Use Twitter
+        - name: Use X
           href: configure-authentication-provider-twitter.md
         - name: Use OpenID Connect
           href: configure-authentication-provider-openid-connect.md
@@ -353,8 +363,8 @@
       href: app-service-web-app-cloning.md
     - name: Restore deleted app
       href: app-service-undelete.md
-    - name: Move app between regions
-      href: manage-move-across-regions.md
+    - name: Relocate app to another region
+      href: ../operational-excellence/relocation-app-service.md?toc=/azure/app-service/toc.json
     - name: Move app between subscriptions
       href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/app-service/toc.json#checklist-before-moving-resources
     - name: About cost management

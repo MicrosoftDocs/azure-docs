@@ -3,7 +3,7 @@ title: 'CLI (v2) blob store connection YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) blob store connections YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom:
   - build-2024

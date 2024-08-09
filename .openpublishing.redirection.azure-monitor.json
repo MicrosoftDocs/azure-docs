@@ -1516,6 +1516,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-overview.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-segmentation.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-funnels.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-cohorts.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-impact.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-retention.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-flows.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-heart.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/application-insights/app-insights-visual-studio.md",
             "redirect_url": "/azure/azure-monitor/app/visual-studio",
             "redirect_document_id": false
@@ -6770,6 +6810,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-data-collection-configmap.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-data-collection-configure#configure-data-collection-using-configmap",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-data-collection-dcr.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-data-collection-configure#configure-data-collection-using-dcr",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/essentials/pipeline-overview.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-overview",
             "redirect_document_id": false
@@ -6803,7 +6853,31 @@
             "source_path_from_root": "/articles/azure-monitor/agents/data-collection-rule-azure-monitor-agent.md",
             "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-data-collection",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/basic-logs-configure.md",
+            "redirect_url": "/azure/azure-monitor/logs/logs-table-plans",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/data-retention-archive.md",
+            "redirect_url": "/azure/azure-monitor/logs/data-retention-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/azure-cli-log-analytics-workspace-sample.md",
+            "redirect_url": "/azure/azure-monitor/logs/manage-logs-tables",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/powershell-workspace-configuration.md",
+            "redirect_url": "/azure/azure-monitor/logs/quick-create-workspace",
+            "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-monitor/containers/prometheus-authorization-proxy.md",
+          "redirect_url": "/previous-versions/azure/azure-monitor/containers/prometheus-authorization-proxy",
+          "redirect_document_id": false
         }
     ]
 }
-

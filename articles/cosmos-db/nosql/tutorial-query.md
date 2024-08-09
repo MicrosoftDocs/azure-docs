@@ -6,7 +6,7 @@ description: In this tutorial, learn how to query data in Azure Cosmos DB for No
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial

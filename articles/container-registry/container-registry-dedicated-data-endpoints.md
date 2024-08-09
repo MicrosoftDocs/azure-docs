@@ -4,7 +4,7 @@ description: Azure Container Registry is introducing dedicated data endpoints av
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.date: 10/31/2023
 
 ---

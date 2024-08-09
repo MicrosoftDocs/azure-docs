@@ -4,7 +4,7 @@ description: Quickstart to distribute table data across nodes in Azure Cosmos DB
 ms.author: jonels
 author: jonels-msft
 recommendations: false
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui
 ms.topic: quickstart

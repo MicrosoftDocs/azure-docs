@@ -3,7 +3,7 @@ title: Troubleshoot Azure Front Door common issues
 description: In this article, you learn how to troubleshoot some of the common problems that you might face for your Azure Front Door instance.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 04/04/2023
 ms.author: duau

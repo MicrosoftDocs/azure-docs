@@ -22,13 +22,13 @@ This article describes how to enable complete monitoring of your Kubernetes clus
 > 
 >- [Configure data collection and cost optimization in Container insights using data collection rule](./container-insights-data-collection-dcr.md)<br>Details on customizing log collection once you've enabled monitoring, including using preset cost optimization configurations.
 >- [Best practices for monitoring Kubernetes with Azure Monitor](../best-practices-containers.md)<br>Best practices for monitoring Kubernetes clusters organized by the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/), including cost optimization.
->- [Cost optimization in Azure Monitor](../best-practices-cost.md)<br>Best practices for configuring all features of Azure Monitor to optimize you costs and limit the amount of data that you collect.
+>- [Cost optimization in Azure Monitor](../best-practices-cost.md)<br>Best practices for configuring all features of Azure Monitor to optimize your costs and limit the amount of data that you collect.
 
 ## Supported clusters
 
 This article provides onboarding guidance for the following types of clusters. Any differences in the process for each type are noted in the relevant sections.
 
-- [Azure Kubernetes clusters (AKS)](../../aks/intro-kubernetes.md)
+- [Azure Kubernetes clusters (AKS)](/azure/aks/intro-kubernetes)
 - [Arc-enabled Kubernetes clusters](../../azure-arc/kubernetes/overview.md)
 
 ## Prerequisites
@@ -40,7 +40,7 @@ This article provides onboarding guidance for the following types of clusters. A
 
 **Managed Prometheus prerequisites**
 
-  - The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
+  - The cluster must use [managed identity authentication](/azure/aks/use-managed-identity).
   - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor workspace:
     - Microsoft.ContainerService
     - Microsoft.Insights
@@ -58,8 +58,8 @@ This article provides onboarding guidance for the following types of clusters. A
 
 > [!NOTE]
 > The Managed Prometheus Arc-Enabled Kubernetes extension does not support the following configurations:
-> * Red Hat Openshift distributions
-  > * Windows nodes
+> * Red Hat Openshift distributions, including Azure Red Hat OpenShift (ARO)
+> * Windows nodes
 
 
 ## Workspaces
@@ -188,6 +188,7 @@ If the Azure Managed Grafana instance is already linked to an Azure Monitor work
     - Parameter file: [https://aka.ms/azureprometheus-enable-bicep-template-parameters](https://aka.ms/azureprometheus-enable-arm-template-parameters)
     - DCRA module: [https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId](https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId)
     - Profile module: [https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId](https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId)
+    - Azure Managed Grafana Role Assignment module: [https://aka.ms/nested_grafana_amw_role_assignment](https://aka.ms/nested_grafana_amw_role_assignment)
 
     **Arc-Enabled cluster ARM**
 
@@ -524,7 +525,7 @@ Both ARM and Bicep templates are provided in this section.
 
 ### [Azure Policy](#tab/policy)
 
-#### Azure Portal
+#### Azure portal
 
 1. From the **Definitions** tab of the **Policy** menu in the Azure portal, create a policy definition with the following details.
 
@@ -658,7 +659,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
 
 
 ## Verify deployment
-Use the [kubectl command line tool](../../aks/learn/quick-kubernetes-deploy-cli.md#connect-to-the-cluster) to verify that the agent is deployed properly.
+Use the [kubectl command line tool](/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster) to verify that the agent is deployed properly.
 
 ### Managed Prometheus
 
@@ -792,7 +793,6 @@ When you create a new Azure Monitor workspace, the following additional resource
 | `<azuremonitor-workspace-name>` | **Data Collection Rule** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same as Azure Monitor Workspace | DCR created when you use OSS Prometheus server to Remote Write to Azure Monitor Workspace. |
 | `<azuremonitor-workspace-name>` | **Data Collection Endpoint** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same as Azure Monitor Workspace | DCE created when you use OSS Prometheus server to Remote Write to Azure Monitor Workspace.|
     
-
 
 ## Differences between Windows and Linux clusters
 

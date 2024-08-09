@@ -5,7 +5,7 @@ ms.date: 1/5/2021
 author: flang-msft
 ms.author: franlanglois
 ms.topic: quickstart
-ms.service: cache
+ms.service: azure-cache-redis
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 

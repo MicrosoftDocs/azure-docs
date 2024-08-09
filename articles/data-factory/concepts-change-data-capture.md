@@ -5,7 +5,6 @@ description: Learn about change data capture in Azure Data Factory and Azure Syn
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
