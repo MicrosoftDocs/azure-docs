@@ -61,7 +61,7 @@ To create and manage a Standard logic app workflow using other tools, see [Creat
 
 * An email account from an email provider supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-  This example uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but the user experience might slightly differ. If you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
+  This example uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but the user experience might slightly differ. If you use Outlook.com, use your personal Microsoft account instead to sign in.
 
   > [!NOTE]
   >

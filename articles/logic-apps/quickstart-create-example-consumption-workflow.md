@@ -53,7 +53,7 @@ To create a Standard logic app workflow that runs in single-tenant Azure Logic A
 
 * An email account from a service that works with Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-  This quickstart uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
+  This quickstart uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ. If you use Outlook.com, use your personal Microsoft account instead to sign in.
 
   > [!NOTE]
   >
