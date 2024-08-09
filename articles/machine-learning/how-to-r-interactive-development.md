@@ -143,6 +143,22 @@ You can also use a Datastore URI to access different files on a registered Datas
    })
    print(df)
    ```
+
+Using the same filestore object, you can read an RDS file, but you need to decompress the bytes before passing it to `readRDS()` as a `rawConnection`
+  
+  3. Read a serialized R object file (.RDS):
+   ```r
+   funcs <- import_builtins() # Add this with the other imports, gives access to built-in Python functions such as `list()`
+
+
+   r_object <- with(fs$open("<path>)", "r") %as% f, {
+    x <- as.raw(funcs$list(f$read))
+    decompressed_x <- memDecompress(x, type = "gzip", asChar = "FALSE")
+    conn <- rawConnection(decompressed_raw)
+    readRDS(conn) # readRDS will decompress automatically if provided with a path, but won't decompress if provided with a rawConnection
+   })
+   print(r_object)
+   ```
     
 ## Install R packages
 
