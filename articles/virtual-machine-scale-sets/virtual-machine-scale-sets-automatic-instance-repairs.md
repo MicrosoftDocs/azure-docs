@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: instance-protection
-ms.date: 06/27/2024
+ms.date: 08/09/2024
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
