@@ -292,6 +292,8 @@ items:
       displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
     - name: Collecting user feedback with the mobile UI Library
       href: tutorials/collecting-user-feedback/collecting-user-feedback.md
+    - name: Add Calling and Chat SDK in an Android application
+      href: quickstarts/voice-video-calling/get-started-android-calling-chat-sdk.md
     - name: Audio quality enhancements
       items:
         - name: Enabling audio effects
