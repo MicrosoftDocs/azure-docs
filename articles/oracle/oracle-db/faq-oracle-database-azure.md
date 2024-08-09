@@ -40,7 +40,7 @@ Oracle versions supported on Oracle Cloud Infrastructure (OCI) are supported on 
 
 ### Do you have any documented benchmark latency-wise between Azure resources and Oracle Database@Azure?
 
-Latency between Azure resources and Oracle Database@Azure is within the Azure regional latency envelope as the Exadata infrastructure is within the Azure Data Centers. Latency can be further fine-tuned dependent on Co-Location within Availability Zones. For more information, please see [here](https://learn.microsoft.com/azure/reliability/availability-zones-overview?tabs=azure-cli)
+Latency between Azure resources and Oracle Database@Azure is within the Azure regional latency envelope as the Exadata infrastructure is within the Azure Data Centers. Latency can be further fine-tuned dependent on colocation within availability zones. For more information, see [What are availability zones?](/azure/reliability/availability-zones-overview?tabs=azure-cli).
 
 ### Does Oracle Database@Azure support deploying Base Database (BD), or do I need to migrate to Autonomous Database service?
 
@@ -93,7 +93,7 @@ Ingress and Egress for managed services is via Azure OCI backbone and doesn't in
 In this section, we'll cover questions related to onboarding, provisioning, and migration to Oracle Database@Azure.
 ### To set up Oracle Database@Azure, what would be the role assignments needed for the Azure user?
 
-You can find the list of role assignments [here](https://learn.microsoft.com/azure/oracle/oracle-db/oracle-database-groups-roles)
+See [Groups and roles for Oracle Database@Azure](/azure/oracle/oracle-db/oracle-database-groups-roles) for the list of role assignments. 
 
 ### Can you describe the authentication/authorization standards supported by Oracle Database@Azure?
 
@@ -101,7 +101,7 @@ Oracle Database@Azure is based on SAML and OpenID standards. OCI Oracle Identity
 
 ### Where can I find best practices to plan and deploy Oracle Database@Azure?
 
-Refer to our landing zone architecture documentation to plan and deploy your oracle workloads with Oracle Database@Azure [here](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/oracle-iaas/?wt.mc_id=knwlserapi_inproduct_azportal#landing-zone-architecture-for-oracle-databaseazure)
+To plan and deploy your oracle workloads with Oracle Database@Azure, refer to the [landing zone architecture documentation](/azure/cloud-adoption-framework/scenarios/oracle-iaas/?wt.mc_id=knwlserapi_inproduct_azportal#landing-zone-architecture-for-oracle-databaseazure).
 
 ### Does Azure have any tools to assist with understanding Oracle database sizing, license usage and TCO for both Oracle Database@Azure and Oracle IaaS?
 
@@ -111,7 +111,7 @@ For Oracle Database on Azure VMs, we currently have the Oracle Migration Assista
 
 ### What tools can be used for database migration? Could you help share other details about licensing and charges for these tools?
 
-There are multiple tools available from Oracle: ZDM, Data Guard, Data pump, GoldenGate, and [more](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-migration-planning?wt.mc_id=knwlserapi_inproduct_azportal#migrate-oracle-workloads-to-azure). For more information, contact your Oracle representative for commercials.
+There are multiple tools available from Oracle: ZDM, Data Guard, Data pump, GoldenGate, and more. For more information, see[Migrate Oracle workloads to Azure](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-migration-planning?wt.mc_id=knwlserapi_inproduct_azportal#migrate-oracle-workloads-to-azure). Contact your Oracle representative for commercials.
 
 ### When using Oracle GoldenGate for migration, do I need to purchase a GoldenGate license?
 
