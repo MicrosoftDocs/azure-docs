@@ -108,5 +108,64 @@ Invoke-AzSpotPlacementScore
       [-DesiredLocation <String[]>] 
       [-DesiredSize <IResourceSize[]>]
 
+
 ## Examples
+
+The following examples have scenario assumptions, a table of results to help you understand how Spot Placement Score works.
+
+Some important terminology to notice before referring to these examples:
+
+- **sku.capacity** is the total number of VMs in the Virtual Machine Scale Set
+- **Base (standard) VMs** are the number of standard non-Spot VMs, akin to a minimum VM number
+
+### Scenario 1
+Example of a request returning regionally scoped placement scores for multiple desired sizes and multiple desired regions.
+ 
+The following scenario assumptions apply to this example:
+- **Desired Locations:** westus", "eastus"
+- **Desired Sizes":** Standard_D2_v2", Standard_D4_v2
+- **Desired Count:** 100
+- **Availability Zones:** False
+
+| sku                               | region      | Availability Zone   | Is Quota Available? | Placement Score |
+|-----------------------------------|-------------|---------------------|--------------------|-------------------|
+| Standard_D2_v2                    | westus      | False                | True               | High             |
+| Standard_D4_v2                    | westus      | False                | True               | Low              |
+| Standard_D2_v2                    | eastus      | False                | True               | Medium           |
+| Standard_D4_v2                    | eastus      | False                | True               | High             |
+
+### Scenario 2
+Example of a request returning zonally scoped placement scores for multiple desired sizes and multiple desired regions.
+ 
+The following scenario assumptions apply to this example:
+- **Desired Locations:** westus", "eastus"
+- **Desired Sizes":** Standard_D2_v2", Standard_D4_v2
+- **Desired Count:** 100
+- **Availability Zones:** True
+
+| sku                               | region      | Availability Zone   | Is Quota Available? | Placement Score |
+|-----------------------------------|-------------|---------------------|--------------------|-------------------|
+| Standard_D2_v2                    | westus      | 1                | True               | Medium           |
+| Standard_D2_v2                    | westus      | 2                | True               | Medium             |
+| Standard_D2_v2                    | westus      | 3               | True               | Medium           |
+| Standard_D4_v2                    | westus      | 1                | True               | High             |
+| Standard_D4_v2                    | westus      | 2               | True               | High             |
+| Standard_D4_v2                    | westus      | 3               | True               | High             |
+| Standard_D2_v2                    | eastus      | 1               | True               | Low           |
+| Standard_D2_v2                    | eastus      | 2               | True               | Low             |
+| Standard_D2_v2                    | eastus      | 3               | True               | Low           |
+| Standard_D4_v2                    | eastus      | 1               | True               | Medium            |
+| Standard_D4_v2                    | eastus      | 2               | True               | Medium           |
+| Standard_D4_v2                    | eastus      | 3               | True               | Medium             |
+
+
+## Troubleshooting
+
+| Status Code                       | Type        | Condition  
+|-----------------------------------|-------------|---------------------|--------------------|
+| 200                               | OK          | Placement score generation operations complete successfully.             | 
+| 400                               | Bad Error Request| If any required input parameters are not present or if the values of the provided parameters are invalid. There will be a detailed error message about the failed request.             |
+| 429                    | Too Many Requests      | Unable to generate placement score due to hitting rate limit| 
+| 500                   | Internal Server Error   | The placement score generation failed. The error message should have detailed error information.
+
 
