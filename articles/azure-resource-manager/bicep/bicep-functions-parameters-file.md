@@ -89,7 +89,7 @@ The following command sets the environment variable only for the PowerShell proc
 $env:testEnvironmentVariable = "Hello World!"
 ```
 
-You will get [BCP338](./diagnostics/bcp388.md). To set the environment variable at the user level, use the following command:
+You will get [BCP338](./diagnostics/bcp338.md). To set the environment variable at the user level, use the following command:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable('testEnvironmentVariable','Hello World!', 'User')
