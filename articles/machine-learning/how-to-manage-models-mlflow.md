@@ -235,7 +235,7 @@ client.delete_model_version(model_name, version="2")
 
 The MLflow client exposes several methods to retrieve and manage models. The following table lists the methods currently supported in MLflow when connected to Azure Machine Learning. The table also compares MLflow with other models management capabilities in Azure Machine Learning.
 
-| Feature | MLflow | Azure Machine Learning with MLflow | Azure Machine Learning CLI v2 | Azure Machine Learning studio |
+| Feature description | MLflow only | Machine Learning with MLflow | Machine Learning CLI v2 | Machine Learning studio |
 | --- | :---: | :---: | :---: | :---: |
 | Register models in MLflow format | **&check;** | **&check;** | **&check;** | **&check;** |
 | Register models not in MLflow format |  |  | **&check;** | **&check;** |
