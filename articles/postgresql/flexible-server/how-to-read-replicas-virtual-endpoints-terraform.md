@@ -31,7 +31,7 @@ Step-by-Step Terraform Configuration: Provide a step-by-step guide on configurin
 
 Follow these steps to create virtual endpoints for read replicas in Azure Database for PostgreSQL - Flexible Server:
 
-1. **Initialize the Terraform Configuration**:
+### Initialize the Terraform configuration
 
   Create a `main.tf` file and define the Azure provider.
 
