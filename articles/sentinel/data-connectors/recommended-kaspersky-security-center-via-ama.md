@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # [Recommended] Kaspersky Security Center via AMA connector for Microsoft Sentinel
@@ -47,7 +48,7 @@ To integrate with [Recommended] Kaspersky Security Center via AMA make sure you 
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected [**KasperskySCEvent**](https://aka.ms/sentinel-kasperskysc-parser) which is deployed with the Microsoft Sentinel Solution.
+   >  This data connector depends on a parser based on a Kusto Function to work as expected **KasperskySCEvent** which is deployed with the Microsoft Sentinel Solution.
 
 
 2. Secure your machine 
@@ -56,9 +57,3 @@ Make sure to configure the machine's security according to your organization's s
 
 
 [Learn more >](https://aka.ms/SecureCEF)
-
-
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-kasperskysc?tab=Overview) in the Azure Marketplace.

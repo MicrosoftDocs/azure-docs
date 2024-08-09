@@ -3,14 +3,14 @@ title: LLM tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: The prompt flow LLM tool enables you to take advantage of widely used large language models like OpenAI or Azure OpenAI for natural language processing.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: reference
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 11/02/2023
 ---
 
@@ -49,7 +49,7 @@ Set up connections to provisioned resources in prompt flow.
 |-------------|----------|----------|----------|-------------|
 | OpenAI      | Required | Required | -        | -           |
 | Azure OpenAI - API key| Required | Required | Required | Required    |
-| Azure OpenAI - Microsoft Entra ID| - | Required | Required | Required    |
+| Azure OpenAI - Microsoft Entra ID| Required | - | - | Required    |
 
   > [!TIP]
   > - To use Microsoft Entra ID auth type for Azure OpenAI connection, you need assign either the `Cognitive Services OpenAI User` or `Cognitive Services OpenAI Contributor role` to user or user assigned managed identity.

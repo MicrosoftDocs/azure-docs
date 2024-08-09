@@ -3,15 +3,16 @@ title: How to optimize costs
 description: This article provides a list of cost optimization recommendations.
 author: varun-dhawan
 ms.author: varundhawan
-ms.service: postgresql
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 1/25/2024
 ---
 
 # How to optimize costs in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server is a relational database service in the Microsoft cloud based on the [PostgreSQL Community Edition.](https://www.postgresql.org/).  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
 

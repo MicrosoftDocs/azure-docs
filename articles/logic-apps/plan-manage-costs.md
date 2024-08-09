@@ -1,7 +1,7 @@
 ---
 title: Plan to manage costs for Azure Logic Apps
 description: Learn how to plan for and manage costs for Azure Logic Apps by using cost analysis in the Azure portal.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
@@ -230,9 +230,7 @@ To help you reduce costs on your logic aps and related resources, try these opti
 
 * If a trigger has a polling version and a webhook version, try the webhook version, which waits for the specified event to happen before firing, rather than regularly checking for the event.
 
-* Call your logic app through another service so that the trigger fires only when the workflow should run.
-
-  For example, you can call your logic app from a function that you create and run using the Azure Functions service. For example, see [Call or trigger logic apps by using Azure Functions and Azure Service Bus](logic-apps-scenario-function-sb-trigger.md).
+* Call your logic app through another service, such as Azure Functions or Azure Service Bus, so that the trigger fires only when the workflow should run.
 
 * [Disable logic apps](manage-logic-apps-with-azure-portal.md#disable-enable-logic-apps) that don't have to constantly run, or [delete logic apps](manage-logic-apps-with-azure-portal.md#delete-logic-apps) that you no longer need at all. If possible, disable any other resources that you don't need constantly active.
 

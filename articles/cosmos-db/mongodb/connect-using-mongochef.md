@@ -1,7 +1,7 @@
 ---
 title: Use Studio 3T to connect to Azure Cosmos DB's API for MongoDB
 description: Learn how to connect to an Azure Cosmos DB's API for MongoDB using Studio 3T.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 08/26/2021
@@ -9,7 +9,7 @@ author: gahl-levy
 ms.author: gahllevy
 ---
 # Connect to an Azure Cosmos DB account using Studio 3T
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 To connect to an Azure Cosmos DB's API for MongoDB using Studio 3T, you must:
 

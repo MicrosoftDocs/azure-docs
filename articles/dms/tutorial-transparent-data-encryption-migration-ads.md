@@ -6,7 +6,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 10/10/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: tutorial
 ms.custom:
   - sql-migration-content
@@ -51,7 +51,7 @@ Before you begin the tutorial:
   - Contributor for the target managed instance (and Storage Account to upload your backups of the TDE certificate files from SMB network share).
   - Reader role for the Azure Resource Groups containing the target managed instance or the Azure storage account.
   - Owner or Contributor role for the Azure subscription (required if creating a new DMS service).
-  - As an alternative to using the above built-in roles, you can assign a custom role. For more information, see [Custom roles: Online SQL Server to SQL Managed Instance migrations using ADS](resource-custom-roles-sql-db-managed-instance-ads.md).
+  - As an alternative to using the above built-in roles, you can assign a custom role. For more information, see [Custom roles: Online SQL Server to SQL Managed Instance migrations using ADS](/data-migration/sql-server/managed-instance/custom-roles).
 
 - Create a target instance of [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
 
@@ -169,8 +169,8 @@ In **Step 3: Azure SQL target** in the Migrate to Azure SQL wizard, complete the
 
    Check the following step-by-step tutorials for more information about migrating databases online or offline to Azure SQL Managed Instance targets:
 
-   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance online](./tutorial-sql-server-managed-instance-offline-ads.md)
-   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline](./tutorial-sql-server-managed-instance-offline-ads.md)
+   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance online](/data-migration/sql-server/managed-instance/database-migration-service)
+   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline](/data-migration/sql-server/managed-instance/database-migration-service)
 
 ## Post-migration steps
 
@@ -209,6 +209,6 @@ The following table describes the current status of the TDE-enabled database mig
 ## Related content
 
 - [Migrate databases with Azure SQL Migration extension for Azure Data Studio](migration-using-azure-data-studio.md)
-- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](tutorial-sql-server-azure-sql-database-offline.md)
-- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](tutorial-sql-server-managed-instance-online-ads.md)
-- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](tutorial-sql-server-to-virtual-machine-online-ads.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](/data-migration/sql-server/database/database-migration-service)
+- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](/data-migration/sql-server/managed-instance/database-migration-service)
+- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](/data-migration/sql-server/virtual-machines/database-migration-service)

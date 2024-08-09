@@ -2,10 +2,10 @@
 title: Apache Spark - environment configuration
 titleSuffix: Azure Machine Learning
 description: Learn how to configure your Apache Spark environment for interactive data wrangling.
-author: ynpandey
-ms.author: yogipandey
-ms.reviewer: franksolomon
-ms.service: machine-learning
+author: fbsolo-ms1 
+ms.author: franksolomon
+ms.reviewer:  yogipandey
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 04/19/2024
@@ -55,7 +55,7 @@ To store Azure storage account credentials as secrets in the Azure Key Vault, wi
     :::image type="content" source="media/apache-spark-environment-configuration/create-a-secret.png" alt-text="Screenshot that shows the Azure secret creation screen.":::
 
 > [!TIP]
-> [Azure CLI](../key-vault/secrets/quick-create-cli.md) and [Azure Key Vault secret client library for Python](../key-vault/secrets/quick-create-python.md#sign-in-to-azure) can also create Azure Key Vault secrets.
+> [Azure CLI](/azure/key-vault/secrets/quick-create-cli) and [Azure Key Vault secret client library for Python](/azure/key-vault/secrets/quick-create-python#sign-in-to-azure) can also create Azure Key Vault secrets.
 
 ## Add role assignments in Azure storage accounts
 

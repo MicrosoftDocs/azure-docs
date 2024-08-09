@@ -4,122 +4,134 @@ description: Learn how to build a Python app to manage Azure Cosmos DB for Mongo
 author: diberry
 ms.author: diberry
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/08/2022
+ms.date: 08/01/2024
 ms.custom: devx-track-azurecli, devx-track-python
+zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for Python with MongoDB driver
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
-> [!div class="op_single_selector"]
->
-> * [.NET](quickstart-dotnet.md)
-> * [Python](quickstart-python.md)
-> * [Java](quickstart-java.md)
-> * [Node.js](quickstart-nodejs.md)
-> * [Go](quickstart-go.md)
->
+[!INCLUDE[Developer Quickstart selector](includes/quickstart-dev-selector.md)]
 
-Get started with the PyMongo package to create databases, collections, and documents within your Azure Cosmos DB resource. Follow these steps to install the package and try out example code for basic tasks.
+Get started with MongoDB to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
-> [!NOTE]
-> The [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) are available on GitHub as a Python project.
-
-In this quickstart, you'll communicate with the Azure Cosmos DB’s API for MongoDB by using one of the open-source MongoDB client drivers for Python, [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/). Also, you'll use the [MongoDB extension commands](./custom-commands.md), which are designed to help you create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](../resource-model.md).
+[API for MongoDB reference documentation](https://www.mongodb.com/docs/drivers/python-drivers/) | [pymongo package](https://pypi.org/project/pymongo/)
+ | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* [Python 3.8+](https://www.python.org/downloads/)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
-
-### Prerequisite check
-
-* In a terminal or command window, run `python --version`  to check that you have a recent version of Python.
-* Run ``az --version`` (Azure CLI) or `Get-Module -ListAvailable Az*` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
+[!INCLUDE [Developer Quickstart prerequisites](includes/quickstart-dev-prereqs.md)]
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos DB account and setting up a project that uses the MongoDB npm package.
+Deploy this project's development container to your environment. Then, use the Azure Developer CLI (`azd`) to create an Azure Cosmos DB for MongoDB account and deploy a containerized sample application. The sample application uses the client library to manage, create, read, and query sample data.
 
-### Create an Azure Cosmos DB account
+::: zone pivot="devcontainer-codespace"
 
-This quickstart will create a single Azure Cosmos DB account using the API for MongoDB.
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/alexwolfmsft/cosmos-db-mongodb-python-quickstart?template=false&quickstart=1&azure-portal=true)
 
-#### [Azure CLI](#tab/azure-cli)
+::: zone-end
 
-[!INCLUDE [Azure CLI - create resources](./includes/azure-cli-create-resource-group-and-resource.md)]
+::: zone pivot="devcontainer-vscode"
 
-#### [PowerShell](#tab/azure-powershell)
+[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/alexwolfmsft/cosmos-db-mongodb-python-quickstart)
 
-[!INCLUDE [Powershell - create resource group and resources](./includes/powershell-create-resource-group-and-resource.md)]
+::: zone-end
 
-#### [Portal](#tab/azure-portal)
+::: zone pivot="devcontainer-codespace"
 
-[!INCLUDE [Portal - create resource](./includes/portal-create-resource.md)]
+> [!IMPORTANT]
+> GitHub accounts include an entitlement of storage and core hours at no cost. For more information, see [included storage and core hours for GitHub accounts](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
----
+::: zone-end
 
-### Get MongoDB connection string
+::: zone pivot="devcontainer-vscode"
 
-#### [Azure CLI](#tab/azure-cli)
+::: zone-end
 
-[!INCLUDE [Azure CLI - get connection string](./includes/azure-cli-get-connection-string.md)]
+1. Open a terminal in the root directory of the project.
 
-#### [PowerShell](#tab/azure-powershell)
+1. Authenticate to the Azure Developer CLI using `azd auth login`. Follow the steps specified by the tool to authenticate to the CLI using your preferred Azure credentials.
 
-[!INCLUDE [Powershell - get connection string](./includes/powershell-get-connection-string.md)]
+    ```azurecli
+    azd auth login
+    ```
 
-#### [Portal](#tab/azure-portal)
+1. Use `azd init` to initialize the project.
 
-[!INCLUDE [Portal - get connection string](./includes/portal-get-connection-string-from-resource.md)]
-
----
-
-### Create a new Python app
-
-1. Create a new empty folder using your preferred terminal and change directory to the folder.
+    ```azurecli
+    azd init --template cosmos-db-mongodb-python-quickstart
+    ```
 
     > [!NOTE]
-    > If you just want the finished code, download or fork and clone the [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started) repo that has the full example. You can also `git clone` the repo in Azure Cloud Shell to walk through the steps shown in this quickstart.
+    > This quickstart uses the [azure-samples/cosmos-db-mongodb-python-quickstart](https://github.com/alexwolfmsft/cosmos-db-mongodb-python-quickstart) template GitHub repository. The Azure Developer CLI automatically clones this project to your machine if it is not already there.
 
-2. Create a *requirements.txt* file that lists the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
+1. During initialization, configure a unique environment name.
 
-    ```text
+    > [!TIP]
+    > The environment name will also be used as the target resource group name. For this quickstart, consider using `msdocs-cosmos-db`.
+
+1. Deploy the Azure Cosmos DB account using `azd up`. The Bicep templates also deploy a sample web application.
+
+    ```azurecli
+    azd up
+    ```
+
+1. During the provisioning process, select your subscription and desired location. Wait for the provisioning process to complete. The process can take **approximately five minutes**.
+
+1. Once the provisioning of your Azure resources is done, a URL to the running web application is included in the output.
+
+    ```output
+    Deploying services (azd deploy)
+    
+      (✓) Done: Deploying service web
+    - Endpoint: <https://[container-app-sub-domain].azurecontainerapps.io>
+    
+    SUCCESS: Your application was provisioned and deployed to Azure in 5 minutes 0 seconds.
+    ```
+
+1. Use the URL in the console to navigate to your web application in the browser. Observe the output of the running app.
+
+    :::image type="content" source="media/quickstart-python/cosmos-python-app.png" alt-text="Screenshot of the running web application.":::
+
+---
+
+### Install the client library
+
+1. Create a `requirements.txt` file in your app directory that lists the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
+
+    ```bash
     # requirements.txt
     pymongo
     python-dotenv
     ```
 
-3. Create a virtual environment and install the packages.
+1. Create a virtual environment and install the packages.
 
-    #### [Windows](#tab/venv-windows)
-    
+    ## [Windows](#tab/windows-package)
+
     ```bash
     # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
     py -3 -m venv .venv
     source .venv/Scripts/activate   
     pip install -r requirements.txt
     ```
-    
-    #### [Linux / macOS](#tab/venv-linux+macos)
-    
+
+    ## [Linux/macOS](#tab/linux-package)
+
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate
     pip install -r requirements.txt
     ```
-    
+
     ---
-
-### Configure environment variables
-
-[!INCLUDE [Multi-tab](./includes/environment-variables-connection-string.md)]
 
 ## Object model
 
@@ -169,7 +181,7 @@ For the steps below, the database won't use sharding and shows a synchronous app
 
     :::code language="python" source="~/azure-cosmos-db-mongodb-python-getting-started/001-quickstart/run.py" id="constant_values":::
 
-### Connect to Azure Cosmos DB’s API for MongoDB
+### Connect to Azure Cosmos DB's API for MongoDB
 
 Use the [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html#pymongo.mongo_client.MongoClient) object to connect to your Azure Cosmos DB for MongoDB resource. The connect method returns a reference to the database.
 

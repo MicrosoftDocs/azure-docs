@@ -8,10 +8,8 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.service: cognitive-search
-  ms.custom:
-    - ignite-2023
   ms.topic: faq
-  ms.date: 02/21/2024
+  ms.date: 05/28/2024
 title: Azure AI Search Frequently Asked Questions
 summary:  Find answers to commonly asked questions about Azure AI Search.
 
@@ -36,7 +34,9 @@ sections:
       - question: |
           What languages are supported?
         answer: |
-          The default analyzer used for tokenization is standard Lucene and it is language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
+          For vectors, the embedding models you use determines the linguistic experience. 
+          
+          For nonvector strings and numbers, the default analyzer used for tokenization is standard Lucene and it is language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
 
       - question: |
           How do I integrate search into my solution?
@@ -106,16 +106,16 @@ sections:
       - question: |
           How does vector search work in Azure AI Search?
         answer: |
-          With standalone vector search, you first use an embedding model to transform content into a vector representation within an embedding space. You can then provide these vectors in a document payload to the search index for indexing. To serve search requests, you use the same DNN from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents.
+          With standalone vector search, you first use an embedding model to transform content into a vector representation within an embedding space. You can then provide these vectors in a document payload to the search index for indexing. To serve search requests, you use the same deep neural network (DNN) from indexing to transform the search query into a vector representation, and vector search finds the most similar vectors and return the corresponding documents.
           
-          In Azure AI Search, you can index vector data as fields in documents alongside textual and other types of content. The data type for a vector field is `Collection(Edm.Single)`. 
+          In Azure AI Search, you can index vector data as fields in documents alongside textual and other types of content. There are [multiple data types](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) for vector fields. 
           
           Vector queries can be issued standalone or in combination with other query types, including term queries and filters in the same search request.
 
       - question: |
           Can Azure AI Search vectorize my content or queries?
         answer: |
-          Built-in integrated vectorization is now in public preview. 
+          [Built-in integrated vectorization](vector-search-integrated-vectorization.md) is now generally available. 
 
       - question: |
           Does my search service support vector search?
@@ -141,7 +141,7 @@ sections:
           
           * Add a "vectorSearch" section to the index schema specifying the configuration used by vector search fields, including the parameters of the Approximate Nearest Neighbor algorithm used, like HNSW.
           
-          * Use [**2023-11-01**](/rest/api/searchservice) or an Azure SDK to create or update the index, load documents, and issue queries.
+          * Use the latest stable version[**2024-07-01**](/rest/api/searchservice), or an Azure SDK to create or update the index, load documents, and issue queries.
 
   - name: Queries
     questions:
@@ -179,17 +179,24 @@ sections:
       - question: |
           Where does Azure AI Search store customer data?
         answer: |
-          It stores your data wherever your service is deployed. Azure AI Search doesn't store customer data outside of the deployment region.
+          It stores your data in the [geography (Geo)](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies) where your service is deployed. Microsoft might replicate your data within the same geo for high availability and durability. For more information, see [data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
 
       - question: |
           Does Azure AI Search send customer data to other services for processing?
         answer: |
-          Yes, if you use the built-in skills based on Azure AI services, the indexer sends requests to Azure AI services over the internal network. If you add a custom skill, the indexer sends content to the URI provided in the custom skill over the public network.
+          Yes, skills and vectorizers make [outbound calls from Azure AI Search](search-security-overview.md) to other Azure resources or external models that you specify for embedding or chat. Calls to those APIs typically contain raw content to be processed or queries that are vectorized by an embedding model. For Azure-to-Azure connections, the service sends requests over the internal network. If you add a custom skill or vectorizer, the indexer sends content to the URI provided in the custom skill over the public network unless you configure a [shared private link](search-indexer-howto-access-private.md).
+
+      - question: |
+          Does Azure AI Search process customer data in other regions?
+        answer: |
+          Processing (vectorization or applied AI transformations) is performed in the Geo that hosts the Azure AI services used by skills, or the Azure apps or functions hosting custom skills, or the Azure OpenAI or Azure AI Studio region that hosts your deployed models. These resources are specified by you, so you can choose whether to provision them in the same Geo as your search service or not
+          
+          If you send data to external (non-Azure) models or services, the processing location is determined by the external service. 
 
       - question: |
           Can I control access to search results based on user identity?
         answer: |
-          Not exactly. Typically, users who are authorized to run your application are also authorized to see all search results. Azure AI Search doesn't have built-in support for row-level or document-level permissions, but you can implement [security filters](./search-security-trimming-for-azure-search.md) as a workaround. 
+          You can if you implement a solution that associates documents with a user identity. Typically, users who are authorized to run your application are also authorized to see all search results. Azure AI Search doesn't have built-in support for row-level or document-level permissions, but you can implement [security filters](./search-security-trimming-for-azure-search.md) as a workaround. For steps and script, see [Get started with the Python enterprise chat sample using RAG](/azure/developer/python/get-started-app-chat-template).
 
       - question: |
           Can I control access to operations based on user identity?

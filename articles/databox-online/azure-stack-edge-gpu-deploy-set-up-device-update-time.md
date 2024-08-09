@@ -69,7 +69,7 @@ Follow these steps to configure device related settings:
 
         ![Screenshot of local web U I "Update Server" page.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-2.png)
 
-        You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
+        You can also choose to deploy updates from the **Windows Server Update services (WSUS)**. Provide the path to the WSUS server.
         
         ![Screenshot of local web U I "Update Server" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 

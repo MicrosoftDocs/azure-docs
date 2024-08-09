@@ -86,7 +86,7 @@ If you'd like to know about how Azure reservations for virtual machine (VM) rese
 
 For explanations about the common tasks that a partner EA administrator accomplishes in the Azure portal, see [EA billing administration for partners in the Azure portal](ea-billing-administration-partners.md).
 
-## Next steps
+## Related content
 
 - Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about getting started with the EA billing administration.
 - Azure Enterprise administrators should read [Azure EA billing administration](direct-ea-administration.md) to learn about common administrative tasks.

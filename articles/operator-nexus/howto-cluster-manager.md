@@ -24,6 +24,8 @@ You'll need:
 - **Azure Region** - The Cluster Manager should be created in the same Azure region as the Network Fabric Controller.
 This Azure region should be used in the `Location` field of the Cluster Manager and all associated Operator Nexus instances.
 
+## Limitations
+- **Naming** - Naming rules can be found [here](../azure-resource-manager/management/resource-name-rules.md#microsoftnetworkcloud).
 
 ## Global arguments
 
@@ -52,18 +54,20 @@ Some arguments that are available for every Azure CLI command
 
 ## Create a Cluster Manager
 
+### Create the Cluster Manager using AZ CLI:
+
 Use the `az networkcloud clustermanager create` command to create a Cluster Manager. This command creates a new Cluster Manager or updates the properties of the Cluster Manager if it exists. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
 
 ```azurecli
 az networkcloud clustermanager create \
-    --name <Cluster Manager name> \
-    --location <region> \
-    --analytics-workspace-id <log analytics workspace ID>
-    --fabric-controller-id <Fabric controller ID associated with this Cluster Manager>
-    --managed-resource-group-configuration < name=<Managed Resource group Name> location=<Managed Resource group location> >
-    --tags <key=value key=value>
-    --resource-group <Resource Group Name>
-    --subscription <subscription ID>
+    --name "$CLUSTER_MANAGER_NAME" \
+    --location "$LOCATION" \
+    --analytics-workspace-id "$LAW_NAME" \
+    --fabric-controller-id "$NFC_ID" \
+    --managed-resource-group-configuration name="$MRG_NAME" location="$MRG_LOCATION" \
+    --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2"
+    --resource-group "$CLUSTER_MANAGER_RG"
+    --subscription "$SUB_ID"
 ```
 
 - **Arguments**
@@ -71,7 +75,7 @@ az networkcloud clustermanager create \
   - **--fabric-controller-id [Required]** - The resource ID of the Network Fabric Controller that is associated with the Cluster Manager.
   - **--resource-group -g [Required]** - Name of resource group. You can configure the default resource group using `az configure --defaults group=<name>`.
   - **--analytics-workspace-id** - The resource ID of the Log Analytics Workspace that is used for the logs collection
-  - **--location -l** - Location. Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location=<location>`.
+  - **--location -l** - Location. Azure region where the Cluster Manager is created. Values from: `az account list -locations`. You can configure the default location using `az configure --defaults location="$LOCATION"`.
   - **--managed-resource-group-configuration** - The configuration of the managed resource group associated with the resource.
     - Usage: --managed-resource-group-configuration location=XX name=XX
     - location: The region of the managed resource group. If not specified, the region of the
@@ -82,6 +86,35 @@ az networkcloud clustermanager create \
   - **--tags** - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags
   - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 
+
+### Create the Cluster Manager using Azure Resource Manager template editor:
+
+An alternate way to create a Cluster Manager is with the ARM template editor.
+
+In order to create the cluster this way, you will need to provide a template file (clusterManager.jsonc) and a parameter file (clusterManager.parameters.jsonc).
+
+You can find examples of these two files here:
+
+[clusterManager.jsonc](./clusterManager-jsonc-example.md) , 
+[clusterManager.parameters.jsonc](./clusterManager-parameters-jsonc-example.md)
+
+>[!NOTE]
+>To get the correct formatting, copy the raw code file. The values within the clusterManager.parameters.jsonc file are customer specific and may not be a complete list. Please update the value fields for your specific environment.
+
+1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
+1. From the Azure portal search bar, search for 'Deploy a custom template' and then select it from the available services.
+1. Click on Build your own template in the editor.
+1. Click on Load file. Locate your clusterManager.jsonc template file and upload it.
+1. Click Save.
+1. Click Edit parameters.
+1. Click Load file.  Locate your clusterManager.parameters.jsonc parameters file and upload it.
+1. Click Save.
+1. Select the correct Subscription.
+1. Search for the Resource group if it already exists or create new.
+1. Make sure all Instance Details are correct.
+1. Click Review + create.
+
+
 ## List/show Cluster Manager(s)
 
 List and show commands are used to get a list of existing Cluster Managers or the properties of a specific Cluster Manager.
@@ -91,7 +124,7 @@ List and show commands are used to get a list of existing Cluster Managers or th
 This command lists the Cluster Managers in the specified Resource group.
 
 ```azurecli
-az networkcloud clustermanager list --resource-group <Azure Resource group>
+az networkcloud clustermanager list --resource-group "$CLUSTER_MANAGER_RG"
 ```
 
 ### List Cluster Managers in subscription
@@ -99,7 +132,7 @@ az networkcloud clustermanager list --resource-group <Azure Resource group>
 This command lists the Cluster Managers in the specified subscription.
 
 ```azurecli
-az networkcloud clustermanager list  --subscription <subscription ID>
+az networkcloud clustermanager list  --subscription "$SUB_ID"
 ```
 
 ### Show Cluster Manager properties
@@ -108,9 +141,9 @@ This command lists the properties of the specified Cluster Manager.
 
 ```azurecli
 az networkcloud clustermanager show \
-    --name <Cluster Manager name> \
-    --resource-group <Resource group Name>
-    --subscription <subscription ID>
+    --name "$CLUSTER_MANAGER_NAME" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
 ```
 
 ### List/show command arguments
@@ -126,10 +159,10 @@ This command is used to patch properties of the provided Cluster Manager, or upd
 
 ```azurecli
 az networkcloud clustermanager update \
-    --name <Cluster Manager name> \
-    --tags < <key1=value1> <key2=value2>>
-    --resource-group <Resource group Name>
-    --subscription <subscription ID>
+    --name "$CLUSTER_MANAGER_NAME" \
+    --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
 ```
 
 - **Arguments**
@@ -148,9 +181,9 @@ This command is used to Delete the provided Cluster Manager.
 
 ```azurecli
 az networkcloud clustermanager delete \
-    --name <Cluster Manager name> \
-    --resource-group <Resource Group Name>
-    --subscription <subscription ID>
+    --name "$CLUSTER_MANAGER_NAME" \
+    --resource-group "$CLUSTER_MANAGER_RG" \
+    --subscription "$SUB_ID"
 ```
 
 - **Arguments**
@@ -160,3 +193,7 @@ az networkcloud clustermanager delete \
   - **--IDs** - One or more resource IDs (space-delimited). It should be a complete resource ID containing all information of 'Resource ID' arguments.
   - **--resource-group -g** - Name of resource group. You can configure the default group using `az configure --defaults group=<name>`.
   - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
+
+## Next steps
+
+After you successfully create an NFC and Cluster Manager, the next step is to create a [Network Fabric](./howto-configure-network-fabric.md).

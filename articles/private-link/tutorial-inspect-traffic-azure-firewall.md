@@ -3,11 +3,10 @@ title: 'Tutorial: Inspect private endpoint traffic with Azure Firewall'
 description: Learn how to inspect private endpoint traffic with Azure Firewall.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, linux-related-content
 ms.date: 10/13/2023
-
 ---
 # Tutorial: Inspect private endpoint traffic with Azure Firewall
 
@@ -48,11 +47,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 [!INCLUDE [virtual-network-create-private-endpoint.md](../../includes/virtual-network-create-private-endpoint.md)]
 
-[!INCLUDE [create-test-virtual-machine-linux.md](../../includes/create-test-virtual-machine-linux.md)]
+[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
 
 ## Deploy Azure Firewall
 
@@ -130,7 +129,7 @@ In this section, you enable the firewall logs and send them to the log analytics
     | Resource group | Select **test-rg**. |
     | **Database details** |  |
     | Database name | Enter **sql-db**. |
-    | Server | Select **Create new**. </br> Enter **sql-server-1** in **Server name** (Server names must be unique, replace **sql-server-1** with a unique value). </br> Select **(US) East US 2** in **Location**. </br> Select **Use SQL authentication**. </br> Enter a server admin sign-in and password. </br> Select **OK**. |
+    | Server | Select **Create new**. </br> Enter **server-name** in **Server name** (Server names must be unique, replace **server-name** with a unique value). </br> Select **(US) East US 2** in **Location**. </br> Select **Use SQL authentication**. </br> Enter a server admin sign-in and password. </br> Select **OK**. |
     | Want to use SQL elastic pool? | Select **No**. |
     | Workload environment | Leave the default of **Production**. |
     | **Backup storage redundancy** |  |
@@ -322,7 +321,7 @@ The route sends traffic from **vnet-1** to the address space of virtual network 
 
 ## Configure an application rule in Azure Firewall
 
-Create an application rule to allow communication from **vnet-1** to the private endpoint of the Azure SQL server **sql-server-1.database.windows.net**. Replace **sql-server-1** with the name of your Azure SQL server.
+Create an application rule to allow communication from **vnet-1** to the private endpoint of the Azure SQL server **server-name.database.windows.net**. Replace **server-name** with the name of your Azure SQL server.
   
 1. In the search box at the top of the portal, enter **Firewall**. Select **Firewall Policies** in the search results.
 
@@ -348,7 +347,7 @@ Create an application rule to allow communication from **vnet-1** to the private
     | Source | Enter **10.0.0.0/16** |
     | Protocol | Enter **mssql:1433** |
     | Destination type | Select **FQDN**. |
-    | Destination | Enter **sql-server-1.database.windows.net**. |
+    | Destination | Enter **server-name.database.windows.net**. |
 
 1. Select **Add**.
 
@@ -367,7 +366,7 @@ Create an application rule to allow communication from **vnet-1** to the private
 1. To verify name resolution of the private endpoint, enter the following command in the terminal window:
 
     ```bash
-    nslookup sql-server-1.database.windows.net
+    nslookup server-name.database.windows.net
     ```
 
     You receive a message similar to the following example. The IP address returned is the private IP address of the private endpoint.
@@ -390,10 +389,10 @@ Create an application rule to allow communication from **vnet-1** to the private
 
     * Replace **\<admin-password>** with the admin password you entered during SQL server creation.
 
-    * Replace **sql-server-1** with the name of your SQL server.
+    * Replace **server-name** with the name of your SQL server.
 
     ```bash
-    sqlcmd -S sql-server-1.database.windows.net -U '<server-admin>' -P '<admin-password>'
+    sqlcmd -S server-name.database.windows.net -U '<server-admin>' -P '<admin-password>'
     ```
 
 1. A SQL command prompt is displayed on successful sign in. Enter **exit** to exit the **sqlcmd** tool.
@@ -408,9 +407,9 @@ Create an application rule to allow communication from **vnet-1** to the private
 
 1. In the example **Queries** in the search box, enter **Application rule**. In the returned results in **Network**, select the **Run** button for **Application rule log data**.
 
-1. In the log query output, verify **sql-server-1.database.windows.net** is listed under **FQDN** and **SQLPrivateEndpoint** is listed under **Rule**.
+1. In the log query output, verify **server-name.database.windows.net** is listed under **FQDN** and **SQLPrivateEndpoint** is listed under **Rule**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

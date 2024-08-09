@@ -35,7 +35,7 @@ Example of a task executing the PowerShell script needed to start the emulator.
 
 # Write your PowerShell commands here.
 
-dir "C:\Program Files\Azure Cosmos DB Emulator\"
+dir "$env:ProgramFiles\Azure Cosmos DB Emulator\"
 
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 
@@ -81,7 +81,7 @@ steps:
     script: |
       # Write your PowerShell commands here.
       
-      dir "C:\Program Files\Azure Cosmos DB Emulator\"
+      dir "$env:ProgramFiles\Azure Cosmos DB Emulator\"
       
       Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
       

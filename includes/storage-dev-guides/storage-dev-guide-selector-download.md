@@ -17,3 +17,4 @@ ms.custom: include file
 > - [JavaScript](../../articles/storage/blobs/storage-blob-download-javascript.md)
 > - [TypeScript](../../articles/storage/blobs/storage-blob-download-typescript.md)
 > - [Python](../../articles/storage/blobs/storage-blob-download-python.md)
+> - [Go](../../articles/storage/blobs/storage-blob-download-go.md)

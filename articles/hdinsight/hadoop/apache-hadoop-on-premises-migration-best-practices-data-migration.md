@@ -1,10 +1,10 @@
 ---
 title: 'Data migration: On-premises Apache Hadoop to Azure HDInsight'
 description: Learn data migration best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/22/2023
+ms.date: 06/14/2024
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - data migration best practices
@@ -52,7 +52,7 @@ DistCp tries to create map tasks so that each one copies roughly the same number
 
 * DistCp's lowest granularity is a single file. Specifying a number of Mappers more than the number of source files doesn't help and will waste the available cluster resources.
 
-* Consider the available Yarn memory on the cluster to determine the number of Mappers. Each Map task is launched as a Yarn container. Assuming that no other heavy workloads are running on the cluster, the number of Mappers can be determined by the following formula: m = (number of worker nodes \* YARN memory for each worker node) / YARN container size. However, If other applications are using memory, then choose to only use a portion of YARN memory for DistCp jobs.
+* Consider the available Yarn memory on the cluster to determine the number of Mappers. Each Map task is launched as a Yarn container. Assuming that no other heavy workloads are running on the cluster, the number of Mappers can be determined by the following formula: m = (number of worker nodes \* YARN memories for each worker node) / YARN container size. However, If other applications are using memory, then choose to only use a portion of YARN memory for DistCp jobs.
 
 ### Use more than one DistCp job
 

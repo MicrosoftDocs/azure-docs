@@ -1,17 +1,18 @@
 ---
 title: Server concepts for Azure Database for PostgreSQL - Flexible Server
 description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL - Flexible Server.
-ms.author: sunila
-author: sunilagarwal
-ms.service: postgresql
+author: kabharati
+ms.author: kabharati
+ms.reviewer: maghan
+ms.date: 04/30/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 01/23/2024
 ---
 
 # Server concepts for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL flexible server.
 
@@ -31,7 +32,7 @@ An Azure Database for PostgreSQL flexible server instance:
 - Is available in multiple versions. For more information, see the [supported PostgreSQL database versions](concepts-supported-versions.md).
 - Is extensible by users. For more information, see [PostgreSQL extensions](concepts-extensions.md).
 
-Within an Azure Database for PostgreSQL flexible server instance, you can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per server, based on the configuration of pricing tier, vCores, and storage (in gigabytes). For more information, see [Compute and storage options](concepts-compute-storage.md).
+Within an Azure Database for PostgreSQL flexible server instance, you can create one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see [Compute options](concepts-compute.md).
 
 ## How do I connect and authenticate to the database server?
 
@@ -65,8 +66,8 @@ As a managed service for Postgres, Azure Database for PostgreSQL has configurabl
 
 Your Azure Database for PostgreSQL flexible server instance is enabled with default values for each parameter on creation. The user can't configure some parameters that would require a server restart or superuser access for changes to take effect.
 
-## Next steps
+## Related content
 
 - For an overview of the service, see [Azure Database for PostgreSQL flexible server overview](overview.md).
-- For information about specific resource quotas and limitations based on your configuration, see [Compute and storage options](concepts-compute-storage.md).
-- View and edit server parameters through the [Azure portal](how-to-configure-server-parameters-using-portal.md) or the [Azure CLI](how-to-configure-server-parameters-using-cli.md).
+- For information about specific resource quotas and limitations based on your **configuration**, see [Compute options](concepts-compute.md).
+- View and edit server parameters through [Azure portal](how-to-configure-server-parameters-using-portal.md) or [Azure CLI](how-to-configure-server-parameters-using-cli.md).

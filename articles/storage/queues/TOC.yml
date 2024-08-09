@@ -357,10 +357,6 @@
       items:
       - name: Version 11.x samples
         href: queues-v11-samples-dotnet.md
-      - name: Design highly available applications (.NET version 11.x)
-        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/queues/toc.json
-    - name: Java version 8 samples
-      href: queues-v8-samples-java.md
     - name: Python version 2 samples
       href: queues-v2-samples-python.md
   - name: Compliance offerings

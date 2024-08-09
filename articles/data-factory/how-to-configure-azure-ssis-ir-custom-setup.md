@@ -1,12 +1,11 @@
 ---
 title: Customize the setup for an Azure-SSIS Integration Runtime
 description: This article describes how to use the custom setup interface for an Azure-SSIS Integration Runtime to install additional components or change settings
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -40,7 +39,7 @@ The following limitations apply only to standard custom setups:
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To customize your Azure-SSIS IR, you need the following items:
 
@@ -257,21 +256,9 @@ To provision or reconfigure your Azure-SSIS IR with custom setups using Azure Po
 
 ### Standard custom setup samples
 
-To view and reuse some samples of standard custom setups, complete the following steps.
+1. You can view and reuse some [samples of standard custom setups](https://github.com/Azure/Azure-DataFactory/tree/main/SamplesV2/SQLServerIntegrationServices/publicpreview/CustomSetupScript):
 
-1. Connect to our Public Preview blob container using Azure Storage Explorer.
-
-   a. Under **Local and Attached**, right-click **Storage Accounts**, and then select **Connect to Azure Storage**.
-
-      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png" alt-text="Connect to Azure Storage":::
-
-   b. Select **Blob container**, select **Shared access signature URL (SAS)**, and then select **Next**.
-
-   c. In the **Blob container SAS URL** text box, enter the SAS URI for our Public Preview blob container below, select **Next**, and then select **Connect**.
-
-      `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
-
-   d. In the left pane, select the connected **publicpreview** blob container, and then double-click the *CustomSetupScript* folder. In this folder are the following items:
+    a. In this folder are the following items:
 
       * A *Sample* folder, which contains a custom setup to install a basic task on each node of your Azure-SSIS IR. The task does nothing but sleep for a few seconds. The folder also contains a *gacutil* folder, whose entire content (*gacutil.exe*, *gacutil.exe.config*, and *1033\gacutlrc.dll*) can be copied as is to your blob container.
 
@@ -279,7 +266,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
         :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png" alt-text="Contents of the public preview blob container":::
 
-   e. Double-click the *UserScenarios* folder to find the following items:
+    b. Double-click the *UserScenarios* folder to find the following items:
 
       * A *.NET FRAMEWORK 3.5* folder, which contains a custom setup script (*main.cmd*) to install an earlier version of the .NET Framework on each node of your Azure-SSIS IR. This version might be required by some custom components.
 
@@ -317,7 +304,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * A *POSTGRESQL ODBC* folder, which contains a custom setup script (*main.cmd*) to install the PostgreSQL ODBC drivers on each node of your Azure-SSIS IR. This setup lets you use the ODBC Connection Manager, Source, and Destination to connect to the PostgreSQL server. 
      
-        First, [download the latest 64-bit and 32-bit versions of PostgreSQL ODBC driver installers](https://www.postgresql.org/ftp/odbc/versions/msi/) (for example, *psqlodbc_x64.msi* and *psqlodbc_x86.msi*), and then upload them all together with *main.cmd* to your blob container.
+        First, [download the latest 64-bit and 32-bit versions of PostgreSQL ODBC driver installers](https://sbp.enterprisedb.com/getfile.jsp?fileid=1259018) (for example, *psqlodbc_x64.msi* and *psqlodbc_x86.msi*), and then upload them all together with *main.cmd* to your blob container.
 
       * A *SAP BW* folder, which contains a custom setup script (*main.cmd*) to install the SAP .NET connector assembly (*librfc32.dll*) on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the SAP BW Connection Manager, Source, and Destination to connect to the SAP BW server. 
       
@@ -339,7 +326,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
         :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png" alt-text="Folders in the user scenarios folder":::
 
-   f. To reuse these standard custom setup samples, copy the content of selected folder to your blob container.
+    c. To reuse these standard custom setup samples, copy the content of selected folder to your blob container.
 
 1. When you provision or reconfigure your Azure-SSIS IR on ADF UI, select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced settings** page of **Integration runtime setup** pane. Next, enter the SAS URI of your blob container in the **Custom setup container SAS URI** text box.
    

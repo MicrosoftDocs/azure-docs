@@ -4,9 +4,8 @@ titleSuffix: Azure Data Factory
 description: Overview of the SAP Connectors
 author: ukchrist
 ms.author: ulrichchrist
-ms.service: data-factory
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # SAP connectors overview

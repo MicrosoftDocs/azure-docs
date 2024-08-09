@@ -24,6 +24,8 @@ Free tier lasts indefinitely for the lifetime of the account and it comes with a
 
 You can have up to one free tier Azure Cosmos DB account per an Azure subscription and you must opt in when creating the account. If you don't see the option to apply the free tier discount, another account in the subscription has already been enabled with free tier. If you create an account with free tier and then delete it, you can apply free tier for a new account. When creating a new account, it’s recommended to enable the free tier discount if it’s available.
 
+If you decide that Azure Cosmos DB is right for you, you can receive up to 63% discount on [Azure Cosmos DB prices through Reserved Capacity](reserved-capacity.md).
+
 ## Free tier with shared throughput database
 
 In shared throughput model, when you provision throughput on a database, the throughput is shared across all the containers in the database. When using the free tier, you can provision a shared database with up to 1000 RU/s for free. All containers in the database will share the throughput.
@@ -97,5 +99,5 @@ After you create a free tier account, you can start building apps with Azure Cos
 
 * [Build a console app using the .NET V4 SDK](create-sql-api-dotnet-v4.md) to manage Azure Cosmos DB resources.
 * [Build a .NET web app using Azure Cosmos DB for MongoDB](mongodb/create-mongodb-dotnet.md)
-* [Create a Jupyter notebook](notebooks-overview.md) and analyze your data.
+* [Create a notebook](nosql/tutorial-create-notebook-vscode.md) and analyze your data.
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)

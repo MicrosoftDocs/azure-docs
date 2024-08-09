@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy sync com
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 03/29/2024
+ms.date: 05/31/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -112,6 +112,8 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--check-md5`    (string)    Specifies how strictly MD5 hashes should be validated when downloading. This option is only available when downloading. Available values include: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (default 'FailIfDifferent'). (default "FailIfDifferent")
 
+`--compare-hash`    (string)    Inform sync to rely on hashes as an alternative to Last Modified Time (LMT). Missing hashes at a remote source will throw an error. (None, MD5) Default: None (default "None")
+
 `--cpk-by-name`   (string)    Client provided key by name let clients that make requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
 
 `--cpk-by-value`    Client provided key by name let clients that make requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables
@@ -140,13 +142,17 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--include-regex`    (string)    Include the relative path of the files that match with the regular expressions. Separate regular expressions with ';'.
 
-`--log-level`    (string)    Define the log verbosity for the log file, available levels: INFO(all requests and responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default INFO). (default "INFO")
+`--hash-meta-dir` When using `--local-hash-storage-mode=HiddenFiles`, you can specify an alternate directory to store hash metadata files in (as opposed to next to the related files in the source).
+
+`--local-hash-storage-mode` Specify an alternative way to cache file hashes. Valid options are: `HiddenFiles (OS Agnostic)`, `XAttr (Linux/MacOS only` (requires `user_xattr` on all file systems traversed sat the source), `AlternateDataStreams` (Windows only. requires named streams on target volume).
 
 `--mirror-mode`    Disable last-modified-time based comparison and overwrites the conflicting files and blobs at the destination if this flag is set to true. Default is false
 
 `--put-blob-size-mb`   Use this size (specified in MiB) as a threshold to determine whether to upload a blob as a single PUT request when uploading to Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
 
 `--preserve-permissions`    False by default. Preserves ACLs between aware resources (Windows and Azure Files, or ADLS Gen 2 to ADLS Gen 2). For Hierarchical Namespace accounts, you'll need a container SAS or OAuth token with Modify Ownership and Modify Permissions permissions. For downloads, you'll also need the `--backup` flag to restore permissions where the new Owner won't be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
+
+`--preserve-posix-properties-` False by default. `Preserves` property information gleaned from stat or statx into object metadata.
 
 `--preserve-smb-info`    For SMB-aware locations, flag will be set to true by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that isn't preserved for folders.  (default true)
 
@@ -158,7 +164,11 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--s2s-preserve-blob-tags`    Preserve index tags during service to service sync from one blob storage to another
 
+`--trailing-dot`  Enabled by default to treat file share related operations in a safe manner. Available options: `Enable`, `Disable`. Choose `Disable` to go back to legacy (potentially unsafe) treatment of trailing dot files where the file service will trim any trailing dots in paths. This can result in potential data corruption if the transfer contains two paths that differ only by a trailing dot (For example `mypath` and `mypath.`). If this flag is set to `Disable` and AzCopy encounters a trailing dot file, it will warn customers in the scanning log but will not attempt to abort the operation. If the destination does not support trailing dot files (Windows or Blob Storage), AzCopy will fail if the trailing dot file is the root of the transfer and skip any trailing dot paths encountered during enumeration.
+
 ## Options inherited from parent commands
+
+`--log-level`    (string)    Define the log verbosity for the log file, available levels: INFO(all requests and responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default INFO). (default "INFO")
 
 `--cap-mbps`    (float)    Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it's omitted, the throughput isn't capped.
 

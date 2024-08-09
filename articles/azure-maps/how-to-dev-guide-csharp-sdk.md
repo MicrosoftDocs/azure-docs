@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: rest-sdk
 ms.custom: devx-track-dotnet
-services: azure-maps
 ---
 
 # C# REST SDK Developers Guide

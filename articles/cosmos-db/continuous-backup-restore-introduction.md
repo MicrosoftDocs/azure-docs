@@ -43,32 +43,6 @@ By default, Azure Cosmos DB stores continuous mode backup data in locally redund
 ## Different ways to restore
 Continuous backup mode supports two ways to restore deleted containers and databases. They can be restored into a [new account](restore-account-continuous-backup.md) as documented here or can be restored into an existing account as described [here](restore-account-continuous-backup.md). The choice between these two modes depends on the scenarios. In most cases, it is preferred to restore deleted containers and databases into an existing account. This avoids the cost of data transfer that is required in the case they are restored to a new account. For scenario where accidental data modification was done, restore into new account could be the preferred option. 
 
-## Multi region write account restores (preview)
-All the writes that are performed on the [hub region](multi-region-writes.md#hub-region) are immediately confirmed and backed up asynchronously within 100 seconds. The mutations that are performed on the satellite region(non conflict resolution region) are sent to hub region for confirmation. The hub region  checks to see if any [conflict resolution](conflict-resolution-policies.md) is needed, and assigns a [conflict resolved timestamp](multi-region-writes.md#understanding-timestamps) after resolving the conflicts and sends back to satellite region. The satellite region only backs up the entities after the confirmation is received from the hub region.  
-To summarize, the restore process only restores the entities that are confirmed with conflict resolution timestamp from the hub region.  
-
-> [!NOTE]
-> More information about multi write region accounts can be found [here](multi-region-writes.md#hub-region), hub region is the first region in the portal. 
-
-### What isn't restored for Multi region write account restores (preview)? 
-The mutations that are yet to be confirmed by the restore timestamp aren't restored. 
-The collections with custom conflict resolution policy are reset to last writer wins based on timestamp. 
-
-Example: 
-Given a multi-write region account with two regions East us and West us, out of which East US is the hub region, consider the following sequence of events: 
-
-In this scenario, if the restore timestamp is T3, only entity1 is restored. Entity2 hasn't been confirmed by hub region by T3. Only if the restore timestamp > T4, the entity2 will be restored. 
-T1: Client writes a document Doc1 to East US. (Since East US is the hub region, the write is immediately confirmed)  
-T2: Client writes a document Doc2 to West US.
-T3: West US sends Doc2 to East US for confirmation.
-T4: East US receives Doc2, it confirms the document, and sends of Doc2 back to West US.
-T5: West US receives confirmed Doc2.
-
-In this scenario, if the restore timestamp provided is T3, only Doc1 will get restored. Doc2 hasn't been confirmed by hub by T3. Only if the restore timestamp > T4, the doc2 will get restored.  
-> [!NOTE]
-> Restore in hub region is supported in public preview. 
-
-
 
 ## What is restored into a new account?
 
@@ -160,7 +134,9 @@ Currently the point in time restore functionality has the following limitations:
 
 * Azure Cosmos DB APIs for SQL, MongoDB, Gremlin, and Table supported for continuous backup. API for Cassandra isn't supported now.
 
-* Currently Azure Synapse Link can be enabled in continuous backup database accounts. But the opposite situation isn't supported yet, it isn't possible to turn on continuous backup in Synapse Link enabled database accounts. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
+* `Multi region write` accounts aren't supported. 
+
+* Synapse Link for database accounts using continuous backup mode is GA. The opposiste situation, continuous backup mode for Synapse Link enabled accounts, is in public preview. Currently, customers that disabled Synapse Link from containers can't migrate to continuous backup. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 
@@ -172,13 +148,11 @@ Currently the point in time restore functionality has the following limitations:
 
 * Azure Cosmos DB for MongoDB accounts with continuous backup don't support creating a unique index for an existing collection. For such an account, unique indexes must be created along with their collection; it can be done using the create collection [extension commands](mongodb/custom-commands.md).
 
-* The point-in-time restore functionality always restores to a new Azure Cosmos DB account. Restoring to an existing account is currently not supported. If you're interested in providing feedback about in-place restore, contact the Azure Cosmos DB team via your account representative.
-
 * After restoring, it's possible that for certain collections the consistent index may be rebuilding. You can check the status of the rebuild operation via the [IndexTransformationProgress](how-to-manage-indexing-policy.md) property.
 
 * The restore process restores all the properties of a container including its TTL configuration by default, you can pass parameter to disable TTL while doing the restore. As a result, it's possible that the data restored is deleted immediately if you configured that way. In order to prevent this situation, the restore timestamp must be before the TTL properties were added into the container.
 
-* Unique indexes in API for MongoDB can't be added or updated when you create a continuous backup mode account. They also can't be modified when you migrate an account from periodic to continuous mode.
+* Unique indexes in API for MongoDB can't be added, updated, or dropped when you create a continuous backup mode account. They also can't be modified when you migrate an account from periodic to continuous mode.
 
 * Continuous mode restore may not restore throughput setting valid as of restore point.
 

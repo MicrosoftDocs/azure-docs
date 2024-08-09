@@ -2,7 +2,7 @@
 title: Lsv3-series - Azure Virtual Machines 
 description: Specifications for the Lsv3-series of Azure Virtual Machines (Azure VMs). 
 author: sasha-melamed 
-ms.service: virtual-machines 
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual 
 ms.date: 06/01/2022

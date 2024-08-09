@@ -3,13 +3,13 @@ title: Extend prebuilt Docker image
 titleSuffix: Azure Machine Learning
 description: 'Extend Prebuilt docker images in Azure Machine Learning'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-ms.author: sehan
-author: dem108
+ms.author: larryfr
+author: Blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.reviewer: larryfr
+ms.reviewer: sehan
 ms.custom: UpdateFrequency5, deploy, docker, prebuilt
 ---
 

@@ -4,7 +4,7 @@ description: Learn about the architecture of Azure Operator Insights and how you
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: duncanarcher
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.date: 04/05/2024
 ms.topic: concept-article
 
@@ -68,7 +68,7 @@ There are a range of options for ingesting data from the source into your Azure 
 - Using an Azure Operator Insights ingestion agent – This can consume data from different sources and upload the data to an Azure Operator Insights Data Product. For example, it supports pulling data from an SFTP server, or terminating a TCP stream of enhanced data records (EDRs). For more information, see [Ingestion agent overview](ingestion-agent-overview.md).
 - Using other Azure services and tools – Multiple tools can upload data to an Azure Operator Insights Data Product. For example:
   - [AzCopy v10](/azure/storage/common/storage-use-azcopy-v10) – AzCopy from Azure Storage is a robust, high throughput, and reliable ingestion mechanism across both low latency links and high latency links. With `azcopy sync`, you can use cron to automate ingestion from an on-premises virtual machine and achieve "free" ingestion into the Data Product (except for the cost of the on-premises virtual machine and networking).
-  - [Azure Data Factory](/azure/data-factory/introduction)
+  - [Azure Data Factory](/azure/data-factory/introduction) - See [Use Azure Data Factory to ingest data into an Azure Operator Insights Data Product](ingestion-with-data-factory.md).
 - Using the code samples available in the [Azure Operator Insights sample repository](https://github.com/Azure-Samples/operator-insights-data-ingestion) as a basis for creating your own ingestion agent or script for uploading data to an Azure Operator Insights Data Product. 
 
 ## Azure connectivity

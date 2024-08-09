@@ -3,10 +3,10 @@ title: Migrate from V1 to V2 - Azure Application Gateway
 description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from V1 to V2.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 02/26/2024
+ms.date: 07/15/2024
 ms.author: greglin
 ---
 
@@ -33,11 +33,12 @@ This article primarily helps with the configuration migration. Client traffic mi
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 * Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This rewrites the existing resources.
 * If a public IP address is provided, ensure that it's in a succeeded state. If not provided and AppGWResourceGroupName is provided ensure that public IP resource with name AppGWV2Name-IP  doesn’t  exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
+* For the V1 SKU, authentication certificates are required to set up TLS connections with backend servers. The V2 SKU requires uploading [trusted root certificates](./certificates-for-backend-authentication.md) for the same purpose. While V1 allows the use of self-signed certificates as authentication certificates, V2 mandates [generating and uploading a self-signed Root certificate](./self-signed-certificates.md) if self-signed certificates are used in the backend.
 * Ensure that no other operation is planned on the V1 gateway or any associated resources during migration.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 > [!IMPORTANT]
 >Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context. This is not a mandatory step for version 1.0.11 & above of the migration script.

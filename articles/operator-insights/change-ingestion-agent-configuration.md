@@ -4,7 +4,7 @@ description: Learn how to make and roll back configuration changes for Azure Ope
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: how-to
 ms.date: 02/29/2024
 

@@ -3,7 +3,7 @@ title: Capture heap dump and thread dump manually and use Java Flight Recorder i
 description: Learn how to manually capture a heap dump, a thread dump, or start Java Flight Recorder.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.custom: devx-track-java, devx-track-extended-java

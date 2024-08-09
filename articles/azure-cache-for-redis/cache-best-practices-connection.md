@@ -4,7 +4,7 @@ titleSuffix: Azure Cache for Redis
 description: Learn how to make your Azure Cache for Redis connections resilient.
 author: flang-msft
 
-ms.service: cache
+ms.service: azure-cache-redis
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 04/22/2024
@@ -78,7 +78,7 @@ Caches have limits on the number of client connections per cache tier. Ensure th
 
 ## Advance maintenance notification
 
-Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance](cache-failover.md#can-i-be-notified-in-advance-of-planned-maintenance).
+Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance](cache-failover.md#can-i-be-notified-in-advance-of-maintenance).
 
 ## Schedule maintenance window
 

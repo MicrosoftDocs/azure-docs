@@ -5,7 +5,6 @@ description: Filter out rows using the filter transformation in a mapping data f
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse

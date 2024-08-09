@@ -6,13 +6,13 @@ metadata:
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: gahllevy
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: mongodb
   ms.topic: faq
   ms.date: 02/23/2024
 title: Frequently asked questions on Azure Cosmos DB for MongoDB in RU architecture
 summary: |
-  [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+  [!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 sections:
   - name: General FAQ
     questions:

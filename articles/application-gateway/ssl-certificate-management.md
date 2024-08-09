@@ -3,7 +3,7 @@ title: Listener TLS certificate management in Application Gateway
 description: Understand listener certificate management through portal. 
 services: application-gateway
 author: jaesoni
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
 ms.date: 03/19/2024
 ms.author: jaysoni

@@ -4,8 +4,8 @@ description: Virtual WAN virtual hub route table to steer traffic to a network v
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
-ms.topic: conceptual
+ms.service: azure-virtual-wan
+ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 This article shows you how to steer traffic from a Virtual Hub to a Network Virtual Appliance. 
 
-![Virtual WAN diagram](./media/virtual-wan-route-table-nva/vwanroute.png)
+:::image type="content" source="./media/virtual-wan-route-table-nva/vwanroute.png" alt-text="Screenshot of Virtual WAN diagram PowerShell." lightbox="./media/virtual-wan-route-table-nva/vwanroute.png":::
 
 In this article you learn how to:
 
@@ -29,7 +29,7 @@ In this article you learn how to:
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Verify that you have met the following criteria:
 

@@ -3,7 +3,7 @@ title: On-demand Capacity Reservation in Azure
 description: Learn how to reserve compute capacity in an Azure region or an Availability Zone with Capacity Reservation.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 02/24/2023
 ms.reviewer: cynthn, jushiman, mattmcinnes
@@ -58,36 +58,52 @@ From this example accumulation of Minutes Not Available, here's the calculation 
 - The following VM Series support creation of capacity reservations: 
     - Av2 
     - B
-    - Bsv2 (Intel) and Basv2 (AMD)
     - Bpsv2
-    - D series, v2 and newer; AMD and Intel
+    - Bsv2 (Intel) and Basv2 (AMD)
+    - D and Ds series, v2 and newer; AMD and Intel
+    - Dadsv5
+    - Dav4 series
+    - Dasv4 and newer
     - DCsv2 series
     - DCasv5 series
     - DCesv5 and DCedsv5 series
-    - Dplsv5 series
-    - Dpsv series, v5 and newer
-    - Dpdsv6 series
+    - Ddv4 ad v5 series
+    - Ddsv4 series, v4 and newer
+    - Dplsv5 and Dpldsv5 series
+    - Dpsv and Dpds series, v5 and newer
+    - Dpds series, v5 and newer
     - Dplsv6 series
-    - Dpldsv6 series
+    - Dplds series, v5 and newer
     - Dlsv5 and newer series
     - Dldsv5 and newer series
     - E series, all versions; AMD and Intel
     - Eav4 and Easv4 series
+    - Easv5 and Eadsv5 series
+    - Ebdsv5 and Ebsv5 series
     - ECasv5 and ECadsv5 series
     - ECesv5 and ECedsv5 series
+    - Ed and Eds series, v4 and newer
+    - Eps and Epds series, v5 and newer
     - F series, all versions
     - Fasv6 and Falsv6 series
-    - Fx series 
+    - Fx series
     - Lsv3 (Intel) and Lasv3 (AMD)
     - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation.
+- At VM deployment for below VM Series for Capacity Reservation, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation:
+    - NC-series, v3
+    - NCasT4_v3 series
+    - NCADSA10_v4 series
+    - NC_A100_v4 series
+    - NV-series, v3 and newer
+    - NVadsA10_v5 series
+    - NGads V620_v1 series
 - Support for below VM Series for Capacity Reservation is in Public Preview: 
+    - M-series, v2
     - M-series, v3
     - Lsv2
-    - NC-series,v3
-    - NV-series,v2 and newer
-    - For above mentioned N series, at VM deployment, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation.
+    - For above mentioned M series, at VM deployment, Fault Domain (FD) count of 1 can be set using Virtual Machine Scale Sets. A deployment with more than 1 FD will fail to deploy against a Capacity Reservation.
 - Support for other VM Series isn't currently available:  
-    - M series, v1 and v2 
+    - M series, v1
     - ND-series 
     - Hb-series 
     - Hc-series 
@@ -106,9 +122,12 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - UltraSSD storage
     - VMs resuming from hibernation 
     - VMs requiring vnet encryption
-- Pinned subscription cannot use the feature
+- Pinned subscription can't use the feature
 - Only the subscription that created the reservation can use it. 
-- Reservations are only available to paid Azure customers. Sponsored accounts such as Free Trial and Azure for Students aren't eligible to use this feature. 
+- Reservations are only available to paid Azure customers. Sponsored accounts such as Free Trial and Azure for Students aren't eligible to use this feature.
+- Clouds supported for capacity reservation:
+   - Azure Cloud
+   - Azure for Government
 
 
 ## Pricing and billing 
@@ -205,13 +224,13 @@ For example, lets say a Capacity Reservation with quantity reserved 2 has been c
 
 ![Capacity Reservation image 7.](./media/capacity-reservation-overview/capacity-reservation-7.jpg)
 
-In the previous image, a Reserved VM Instance discount is applied to one of the unused instances and the cost for that instance is zeroed out. For the other instance, PAYG rate is charged for the VM size reserved.  
+In the previous image, a Reserved VM Instance discount is applied to one of the unused instances and the cost for that instance is zeroed out. For the other instance, pay-as-you-go rate is charged for the VM size reserved.  
 
 When a VM is allocated against the Capacity Reservation, the other VM components such as disks, network, extensions, and any other requested components must also be allocated. In this state, the VM usage reflects one allocated VM and one unused capacity instance. The Reserved VM Instance will zero out the cost of either the VM or the unused capacity instance. The other charges for disks, networking, and other components associated with the allocated VM also appears on the bill. 
 
 ![Capacity Reservation image 8.](./media/capacity-reservation-overview/capacity-reservation-8.jpg)
 
-In the previous image, the VM Reserved Instance discount is applied to VM 0, which is only charged for other components such as disk and networking. The other unused instance is being charged at PAYG rate for the VM size reserved.
+In the previous image, the VM Reserved Instance discount is applied to VM 0, which is only charged for other components such as disk and networking. The other unused instance is being charged at pay-as-you-go rate for the VM size reserved.
 
 
 ## Frequently asked questions 

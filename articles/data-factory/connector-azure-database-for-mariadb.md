@@ -4,11 +4,10 @@ description: Learn how to copy data from Azure Database for MariaDB to supported
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 06/03/2024
 ---
 
 # Copy data from Azure Database for MariaDB using Azure Data Factory or Synapse Analytics
@@ -16,6 +15,9 @@ ms.date: 01/05/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Azure Database for MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+>[!Note]
+>Azure Database for MariaDB will be retired on **September 19, 2025**. Please migrate to [Azure Database for MySQL connector](connector-azure-database-for-mysql.md) by that date. See this [article](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/migrating-from-azure-database-for-mariadb-to-azure-database-for/ba-p/3838455) for the Azure Database for MariaDB migration guidance.
 
 ## Supported capabilities
 

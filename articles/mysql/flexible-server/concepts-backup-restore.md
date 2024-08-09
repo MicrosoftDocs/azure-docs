@@ -1,12 +1,13 @@
 ---
 title: Backup and restore
 description: Learn about the concepts of backup and restore with Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: conceptual
 author: VandhanaMehta
 ms.author: vamehta
-ms.date: 07/26/2022
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
 ---
 
 # Backup and restore in Azure Database for MySQL - Flexible Server
@@ -163,8 +164,6 @@ Azure Backup and Azure Database for MySQL flexible server services have built an
 
 ### Limitations and considerations
 - In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
-- LTR backup is currently not supported for HA-enabled servers. This capability will be added in the future.
-
 - Support for LTR creation and management through Azure CLI is currently not supported.
 
 For more information about performing a long-term backup, visit the [how-to guide](../../backup/backup-azure-mysql-flexible-server.md)

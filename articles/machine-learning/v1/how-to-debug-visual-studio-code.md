@@ -3,7 +3,7 @@ title: Interactive debugging with Visual Studio Code
 titleSuffix: Azure Machine Learning
 description: Interactively debug Azure Machine Learning code, pipelines, and deployments using Visual Studio Code
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.reviewer: ssalgado

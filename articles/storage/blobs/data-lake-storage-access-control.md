@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 04/24/2024
+ms.date: 04/12/2024
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.devlang: python
@@ -102,8 +102,8 @@ This table shows a column that represents each level of a fictitious directory h
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Delete /Oregon/          |   `-WX`   |   `RWX`    |  `RWX`      | `RWX`          |
-| Delete /Oregon/Portland/ |   `--X`   |   `-WX`    |  `RWX`      | `RWX`          |
+| Delete /Oregon/          |   `-WX`   |   `RWX`    |  `RWX`      | `---`          |
+| Delete /Oregon/Portland/ |   `--X`   |   `-WX`    |  `RWX`      | `---`          |
 | Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | List /Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
@@ -111,22 +111,10 @@ This table shows a column that represents each level of a fictitious directory h
 
 ### Deleting files and directories
 
-As shown in the previous table, write permissions on the file are not required to delete it as long as the previous two conditions are true. However, to delete a directory and all of its contents, the parent directory must have Write + Execute permissions. The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
+As shown in the previous table, write permissions on the file are not required to delete it as long as the directory permissions are set properly. However, to delete a directory and all of its contents, the parent directory must have Write + Execute permissions. The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
 
 > [!NOTE]
 > The root directory "/" can never be deleted.
-
-### Which permissions are required to recursively delete a directory and its contents?
-
-- The caller has 'super-user' permissions,
-
-Or
-
-- The parent directory must have Write + Execute permissions.
-- The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
-
-> [!NOTE]
-> You do not need Write permissions to delete files in directories. Also, the root directory "/" can never be deleted.
 
 ## Users and identities
 
@@ -259,7 +247,7 @@ The mask may be specified on a per-call basis. This allows different consuming s
 
 The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user, the directory's owner, or the Superuser ($superuser).
 
-The sticky bit isn't shown in the Azure portal.
+The sticky bit isn't shown in the Azure portal. To learn more about the sticky bit and how to set it, see [What is the sticky bit Data Lake Storage Gen2?](/troubleshoot/azure/azure-storage/blobs/authentication/adls-gen2-sticky-bit-403-access-denied#what-is-the-sticky-bit-in-adls-gen2).
 
 ## Default permissions on new files and directories
 

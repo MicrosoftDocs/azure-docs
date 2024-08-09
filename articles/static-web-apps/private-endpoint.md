@@ -4,7 +4,7 @@ description: Learn to configure private endpoint access for Azure Static Web App
 services: static-web-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 7/28/2021
 ---

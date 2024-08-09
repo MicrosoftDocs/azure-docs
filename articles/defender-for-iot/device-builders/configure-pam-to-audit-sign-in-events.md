@@ -13,6 +13,8 @@ PAM configurations may vary between devices and Linux distributions.
 
 For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Prerequisites
 
 Before you get started, make sure that you have a Defender for IoT Micro Agent.

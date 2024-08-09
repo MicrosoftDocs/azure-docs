@@ -8,7 +8,7 @@ ms.author: pauljewell
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 05/10/2024
 ms.reviewer: nachakra
 ---
 
@@ -22,13 +22,15 @@ A connection string includes the authorization information required for your app
 
 To learn how to view your account access keys and copy a connection string, see [Manage storage account access keys](storage-account-keys-manage.md).
 
+[!INCLUDE [storage-auth-recommendations](../../../includes/storage-auth-recommendations.md)]
+
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## Store a connection string
 
 Your application needs to access the connection string at runtime to authorize requests made to Azure Storage. You have several options for storing your account access keys or connection string:
 
-- You can store your account keys securely in Azure Key Vault. For more information, see [About Azure Key Vault managed storage account keys](../../key-vault/secrets/about-managed-storage-account-keys.md).
+- You can store your account keys securely in Azure Key Vault. For more information, see [About Azure Key Vault managed storage account keys](/azure/key-vault/secrets/about-managed-storage-account-keys).
 - You can store your connection string in an environment variable.
 - An application can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
 

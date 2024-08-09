@@ -2,7 +2,7 @@
 title: Diagnose and troubleshoot Azure Cosmos DB Java SDK v4
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Java SDK v4.
 author: TheovanKraay
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.date: 04/01/2022
 ms.author: thvankra
 ms.devlang: java
@@ -500,7 +500,6 @@ The [query metrics](query-metrics.md) will help determine where the query is spe
 * Learn about Performance guidelines for the [Java SDK v4](performance-tips-java-sdk-v4.md)
 * Learn about the best practices for the [Java SDK v4](best-practice-java.md)
 
- <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
 [Connection limit on a host machine]: #connection-limit-on-host

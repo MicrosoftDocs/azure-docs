@@ -8,6 +8,6 @@ ms.date: 01/30/2023
 ---
 
 APPLIES TO:
-:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/yes-icon.svg" border="false":::
 Azure Cosmos DB for PostgreSQL (powered by the [Citus database
 extension](https://github.com/citusdata/citus) to PostgreSQL)

@@ -2,10 +2,10 @@
 title: "Configure Apache Spark jobs in Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: Learn how to submit Apache Spark jobs with Azure Machine Learning.
-author: ynpandey
-ms.author: yogipandey
-ms.reviewer: franksolomon
-ms.service: machine-learning
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.reviewer: yogipandey
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.custom: build-2023, devx-track-python
 ms.topic: how-to 

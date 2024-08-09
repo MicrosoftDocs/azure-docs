@@ -14,7 +14,7 @@ ms.custom: template-quickstart, devx-track-azurepowershell
 
 In this quickstart, learn how to create a NAT gateway by using PowerShell. The NAT Gateway service provides outbound connectivity for virtual machines in Azure.
 
-:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart.":::
+:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
 
 ## Prerequisites
 

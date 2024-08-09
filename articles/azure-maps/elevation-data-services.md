@@ -2,12 +2,12 @@
 title: Create elevation data & services using open data
 titeSuffix: Microsoft Azure Maps
 description: a guide to help developers build Elevation services and tiles using open data on the Microsoft Azure Cloud.
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui
 ms.date: 3/17/2023
 ms.topic: quickstart
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Create elevation data & services
@@ -41,7 +41,7 @@ Select the region that you want raster tiles for. For demonstration purposes, th
 
 1. Navigate to the [USGS EarthExplorer].
 
-1. In the **Search Criteria** tab, select **Polygon** then click on the map to create the boundary.
+1. In the **Search Criteria** tab, select **Polygon** then select anywhere on the map to create the boundary.
 
     :::image type="content" source="./media/elevation-services/create-polygon.png" alt-text="A screenshot showing the search criteria tab in the USGS earth explorer web site." lightbox="./media/elevation-services/create-polygon.png":::
 
@@ -82,7 +82,7 @@ Once you have the raster tiles you need, you can import them in QGIS.
     :::image type="content" source="./media/elevation-services/merge-raster-layers.png" alt-text="A screenshot showing the merge raster menu in QGIS.":::
 
 3. Reproject the merged raster layer to EPSG:3857 (WGS84 / Pseudo-Mercator) using **Save Raster Layer as**
-   accessed by right clicking on the merged raster layer in the **table of content** ->
+   right-click to access the merged raster layer in the **table of content** ->
    **Export** -> **Save As** option. EPSG:3857 is required to use it with [Azure Maps Web SDK].
 
     :::image type="content" source="./media/elevation-services/save-raster-layer.png" alt-text="A screenshot showing how the merge raster layers menu in QGIS.":::

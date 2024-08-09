@@ -3,7 +3,7 @@ title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
 description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
 ms.date: 01/05/2024
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, mode-api
+ms.custom: devx-track-azurecli, mode-api, build-2024
 ---
 # Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid
 
@@ -15,7 +15,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 :::image type="content" source="./media/custom-event-quickstart/viewer-record-inserted-event.png" alt-text="Screenshot showing the Event Grid Viewer sample with a sample event.":::
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -25,7 +25,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named *gridResourceGroup* in the *westus2* location. If you select **Try it**, you'll see the Azure Cloud Shell window in the right pane. Then, select **Copy** to copy the command and paste it in the Azure Cloud Shell window, and press ENTER to run the command. Change the name of the resource group and the location if you like. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named *gridResourceGroup* in the *westus2* location. If you select **Try it**, you see the Azure Cloud Shell window in the right pane. Then, select **Copy** to copy the command and paste it in the Azure Cloud Shell window, and press ENTER to run the command. Change the name of the resource group and the location if you like. 
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2

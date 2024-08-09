@@ -5,7 +5,7 @@ description: This article provides information on how to create Web Application 
 services: web-application-firewall
 ms.topic: article
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 04/06/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
@@ -71,7 +71,7 @@ And here's the corresponding JSON:
             }
           ],
           "operator": "Contains",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "evilbot"
           ],
@@ -132,7 +132,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "Regex",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "evilbot"
           ],
@@ -189,7 +189,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "GeoMatch",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "US"
           ],
@@ -249,7 +249,7 @@ Here's the corresponding JSON:
             }
           ],
           "operator": "IPMatch",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "192.168.5.0/24"
           ],
@@ -319,7 +319,7 @@ Here's the corresponding JSON:
             }
           ],
           "operator": "IPMatch",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "192.168.5.0/24"
           ],
@@ -333,7 +333,7 @@ Here's the corresponding JSON:
             }
           ],
           "operator": "Contains",
-          "negationConditon": false,
+          "negationCondition": false,
           "matchValues": [
             "evilbot"
           ],
@@ -410,7 +410,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "IPMatch",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "192.168.5.0/24"
           ],
@@ -433,7 +433,7 @@ And the corresponding JSON:
             }
           ],
           "operator": "Contains",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "chrome"
           ],
@@ -494,7 +494,7 @@ Corresponding JSON:
             }
           ],
           "operator": "Equal",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "user1",
             "user2"
@@ -555,7 +555,7 @@ And here's the corresponding JSON:
             }
           ],
           "operator": "Equal",
-          "negationConditon": true,
+          "negationCondition": true,
           "matchValues": [
             "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ],

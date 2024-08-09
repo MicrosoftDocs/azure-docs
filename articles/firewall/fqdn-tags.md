@@ -3,9 +3,9 @@ title: FQDN tags overview for Azure Firewall
 description: An FQDN tag represents a group of fully qualified domain names (FQDNs) associated with well known Microsoft services.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 06/07/2024
 ms.author: victorh
 ---
 
@@ -35,7 +35,8 @@ The following table shows the current FQDN tags you can use. Microsoft maintains
 |AzureKubernetesService (AKS)|Allows outbound access to AKS. For more information, see [Use Azure Firewall to protect Azure Kubernetes Service (AKS) Deployments](protect-azure-kubernetes-service.md).|
 |Office365<br><br>For example: Office365.Skype.Optimize|Several Office 365 tags are available to allow outbound access by Office 365 product and category. For more information, see [Use Azure Firewall to protect Office 365](protect-office-365.md).|
 |Windows365|Allows outbound communication to Windows 365, excluding network endpoints for Microsoft Intune. To allow outbound communication to port 5671, create a separated network rule. For more information, see Windows 365 [Network requirements](/windows-365/enterprise/requirements-network).|
-|MicrosoftIntune|Allow access to [Microsoft Intune](/mem/intune/fundamentals/intune-endpoints) for managed devices. 
+|MicrosoftIntune|Allow access to [Microsoft Intune](/mem/intune/fundamentals/intune-endpoints) for managed devices.|
+|citrixHdxPlusForWindows365|Required when using Citrix HDX Plus.|
 
 > [!NOTE]
 > When you select **FQDN Tag** in an application rule, the protocol:port field must be set to **https**.

@@ -3,7 +3,7 @@ title: Azure IoT Central quotas and limits
 description: This article lists the key quotas and limits that apply to an IoT Central application including from the underlying DPS and IoT Hub services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2023
+ms.date: 06/17/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -53,16 +53,16 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Maximum data retention in days | 30 | If you need to keep data for longer, use data export to export it to external storage. |
+| Maximum data retention in days | 7 | If you need to keep data for longer, use data export to export it to external storage. |
 
 ## Data export
 
-| Item | Quota or limit | Notes |
-| ---- | -------------- | ----- |
-| Number of data export jobs | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
-| Number of data export destinations | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
-| Number of data export destinations per job | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
-| Number of filters and enrichments per data export job | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Item | Quota or limit |
+| ---- | -------------- |
+| Number of data export jobs | 10 |
+| Number of data export destinations | 10 |
+| Number of data export destinations per job | 10 |
+| Number of filters and enrichments per data export job | 10 |
 
 For large volumes of export data, you may experience up to 60 seconds of latency. Typically, the latency is much lower than this.
 

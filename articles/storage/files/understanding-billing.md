@@ -1,14 +1,14 @@
 ---
 title: Understand Azure Files billing
-description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure file shares.
+description: Learn how to interpret the provisioned and pay-as-you-go billing models for SMB and NFS Azure file shares. Understand total cost of ownership, storage reservations, and burst credits.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 04/16/2024
+ms.date: 05/13/2024
 ms.author: kendownie
 ---
 
-# Understand Azure Files billing
+# Understand Azure Files billing models
 
 Azure Files provides two distinct billing models: provisioned and pay-as-you-go. The provisioned model is only available for premium file shares, which are file shares deployed in the **FileStorage** storage account kind. The pay-as-you-go model is only available for standard file shares, which are file shares deployed in the **general purpose version 2 (GPv2)** storage account kind. This article explains how both models work to help you understand your monthly Azure Files bill.
 
@@ -217,7 +217,7 @@ To see previous transactions:
 
 Azure Files tracks three distinct quantities with respect to share capacity:
 
-- **Provisioned size or quota**: With both premium and standard file shares, you specify the maximum size that the file share is allowed to grow to. In premium file shares, this value is called the provisioned size. Whatever amount you provision is what you pay for, regardless of how much you actually use. In standard file shares, this value is called quota and doesn't directly affect your bill. Provisioned size is a required field for premium file shares. For standard file shares, if provisioned size isn't directly specified, the share will default to the maximum value supported by the storage account.
+- **Provisioned size or quota**: With both premium and standard file shares, you specify the maximum size that the file share is allowed to grow to. In premium file shares, this value is called the provisioned size. Whatever amount you provision is what you pay for, regardless of how much you actually use. In standard file shares, this value is called quota and doesn't directly affect your bill. Provisioned size is a required field for premium file shares. For standard file shares, if provisioned size isn't directly specified, the share will default to the maximum value supported by the storage account (100 TiB).
 
 - **Logical size**: The logical size of a file share or file relates to how big it is without considering how it's actually stored, where additional optimizations might be applied. The logical size of the file is how many KiB/MiB/GiB would be transferred over the wire if you copied it to a different location. In both premium and standard file shares, the total logical size of the file share is used for enforcement against provisioned size/quota. In standard file shares, the logical size is the quantity used for the data at-rest usage billing. Logical size is referred to as "size" in the Windows properties dialog for a file/folder and as "content length" by Azure Files metrics.
 
@@ -286,7 +286,7 @@ Microsoft Defender for Storage doesn't support antivirus capabilities for Azure 
 
 The main cost from Microsoft Defender for Storage is an additional set of transaction costs that the product levies on top of the transactions that are done against the Azure file share. Although these costs are based on the transactions incurred in Azure Files, they aren't part of the billing for Azure Files, but rather are part of the Microsoft Defender pricing. Microsoft Defender for Storage charges a transaction rate even on premium file shares, where Azure Files includes transactions as part of IOPS provisioning. The current transaction rate can be found on [Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) under the *Microsoft Defender for Storage* table row.
 
-Transaction heavy file shares will incur significant costs using Microsoft Defender for Storage. Based on these costs, you might want to opt-out of Microsoft Defender for Storage for specific storage accounts. For more information, see [Exclude a storage account from Microsoft Defender for Storage protections](../../defender-for-cloud/defender-for-storage-exclude.md).
+Transaction heavy file shares will incur significant costs using Microsoft Defender for Storage. Based on these costs, you might want to opt-out of Microsoft Defender for Storage for specific storage accounts. For more information, see [Exclude a storage account from Microsoft Defender for Storage protections](/azure/defender-for-cloud/defender-for-storage-exclude).
 
 ## See also
 

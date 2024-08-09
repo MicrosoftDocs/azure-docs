@@ -1,20 +1,20 @@
 ---
 title: Copy data with Azure Storage Extension on Azure Database for PostgreSQL.
 description: Copy, export or read data from Azure Blob Storage with the Azure Storage extension for Azure Database for PostgreSQL - Flexible Server.
-author: gennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
-ms.date: 04/02/2024
-ms.service: postgresql
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
+ms.topic: reference
 ms.custom:
   - ignite-2023
-ms.topic: reference
 ---
 
 # pg_azure_storage extension on Azure Database for PostgreSQL - Flexible Server reference
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 The [pg_azure_storage extension](./concepts-storage-extension.md) allows you to import  or export data in multiple file formats directly between Azure blob storage and your Azure Database for PostgreSQL flexible server instance. Containers with access level "Private" or "Blob" requires adding private access key.  Examples of data export and import using this extension can be found in this [doc](./concepts-storage-extension.md#import-data-from-azure-blob-storage-to-azure-database-for-postgresql-flexible-server)
 
@@ -63,7 +63,7 @@ Your Azure blob storage (ABS) access keys are similar to a root password for you
 
 Function allows revoking account access to storage account.
 
-```postgresql
+```sql
 azure_storage.account_remove
         (account_name_p text);
 ```
@@ -78,7 +78,7 @@ Azure blob storage (ABS) account contains all of your ABS objects: blobs, files,
 
 The function allows adding access for a role to a storage account.
 
-```postgresql
+```sql
 azure_storage.account_add
         ( account_name_p text
         , user_p regrole);
@@ -98,7 +98,7 @@ Role created by user visible on the cluster.
 
 The function allows removing access for a role to a storage account.
 
-```postgresql
+```sql
 azure_storage.account_remove
         (account_name_p text
         ,user_p regrole);
@@ -118,7 +118,7 @@ Role created by user visible on the cluster.
 
 The function lists the account & role having access to Azure blob storage.
 
-```postgresql
+```sql
 azure_storage.account_list
         (OUT account_name text
         ,OUT allowed_users regrole[]
@@ -144,7 +144,7 @@ TABLE
 
 The function lists the available blob files within a user container with their properties.
 
-```postgresql
+```sql
 azure_storage.blob_list
         (account_name text
         ,container_name text
@@ -217,7 +217,7 @@ SETOF record
 
 The function allows loading the content of file \ files from within the container, with added support on filtering or manipulation of data, prior to import.
 
-```postgresql
+```sql
 azure_storage.blob_get
         (account_name text
         ,container_name text
@@ -231,7 +231,7 @@ RETURNS SETOF record;
 
 There's an overloaded version of function, containing rec parameter that allows you to conveniently define the output format record.
 
-```postgresql
+```sql
 azure_storage.blob_get
         (account_name text
         ,container_name text
@@ -296,7 +296,7 @@ SETOF Record / `anyelement`
 
 The function acts as a utility function called as a parameter within blob_get, which is useful for decoding the csv content.
 
-```postgresql
+```sql
 azure_storage.options_csv_get
         (delimiter text DEFAULT NULL::text
         ,null_string text DEFAULT NULL::text
@@ -352,7 +352,7 @@ jsonb
 
 The function acts as a utility function called as a parameter within blob_get.
 
-```postgresql
+```sql
 azure_storage.options_copy
         (delimiter text DEFAULT NULL::text
         ,null_string text DEFAULT NULL::text
@@ -413,7 +413,7 @@ jsonb
 
 The function acts as a utility function called as a parameter within blob_get. It's useful for decoding the tsv content.
 
-```postgresql
+```sql
 azure_storage.options_tsv
         (delimiter text DEFAULT NULL::text
         ,null_string text DEFAULT NULL::text
@@ -444,7 +444,7 @@ jsonb
 
 The function acts as a utility function called as a parameter within blob_get. It's useful for decoding the binary content.
 
-```postgresql
+```sql
 azure_storage.options_binary
         (content_encoding text DEFAULT NULL::text)
 Returns jsonb;

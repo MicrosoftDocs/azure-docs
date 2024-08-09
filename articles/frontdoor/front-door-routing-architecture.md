@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article helps you understand the global view aspect of Front Door's architecture.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 04/04/2023
 ms.author: duau

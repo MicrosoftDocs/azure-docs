@@ -3,10 +3,10 @@ title: Custom health probe for Azure Application Gateway for Containers
 description: Learn how to configure a custom health probe for Azure Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 7/10/2024
 ms.author: greglin
 ---
 
@@ -30,7 +30,6 @@ The following properties make up custom health probes:
 | timeout | How long in seconds the request should wait until it's marked as a failure  The minimum interval must be > 0 seconds. |
 | healthyThreshold | Number of health probes before marking the target endpoint healthy. The minimum interval must be > 0. |
 | unhealthyTreshold | Number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
-| protocol| Specifies either nonencrypted `HTTP` traffic or encrypted traffic via TLS as `HTTPS` |
 | (http) host | The hostname specified in the request to the backend target. |
 | (http) path | The specific path of the request. If a single file should be loaded, the path might be /index.html. |
 | (http -> match) statusCodes | Contains two properties, `start` and `end`, that define the range of valid HTTP status codes returned from the backend. |
@@ -52,9 +51,14 @@ When the default health probe is used, the following values for each health prob
 | healthyTrehshold | 1 probe |
 | unhealthyTreshold | 3 probes |
 | port | The port number used is defined by the backend port number in the Ingress resource or HttpRoute backend port in the HttpRoute resource. |
-| protocol | HTTP for HTTP and HTTPS when TLS is specified |
+| protocol | HTTP or HTTPS<sup>1</sup> |
 | (http) host | localhost |
 | (http) path | / |
+
+<sup>1</sup> HTTPS will be used when a backendTLSPolicy references a target backend service (for Gateway API implementation) or IngressExtension with a backendSetting protocol of HTTPS (for Ingress API implementation) is specified.
+
+>[!Note]
+>Health probes are initiated with the `User-Agent` value of `Microsoft-Azure-Application-LB/AGC`.
 
 ## Custom health probe
 
@@ -80,7 +84,6 @@ spec:
     timeout: 3s
     healthyThreshold: 1
     unhealthyThreshold: 1
-    protocol: HTTP
     http:
       host: contoso.com
       path: /

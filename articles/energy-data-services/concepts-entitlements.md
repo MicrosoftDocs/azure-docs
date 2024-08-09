@@ -58,7 +58,7 @@ The entitlement service enables three use cases for authorization:
 
 ### Peculiarity of `users.data.root@` group
 - users.data.root entitlement group is the default member of all data groups when groups are created. If you try to remove users.data.root from any data group, you get error since this membership is enforced by OSDU.
-- users.data.root becomes automatically the default and permanent owner of all the data records when the records get created in the system as explained in [OSDU validate owner access API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/DataAuthorizationService.java?ref_type=heads#L66) and [OSDU users data root check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java#L98). As a result, irrespective of the OSDU membership of the user, the system checks if the user is “DataManager”, i.e., part of data.root group, to grant access of the data record.
+- users.data.root becomes automatically the default and permanent owner of all the data records when the records get created in the system as explained in [OSDU validate owner access API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/DataAuthorizationService.java?ref_type=heads#L66) and [OSDU users data root check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java#L98). As a result, along with checking the OSDU membership of the user, the system also checks if the user is “DataManager”, i.e., part of data.root group, to assess the access of the data record.
 - The default membership in users.data.root is only the `app-id` that is used to set up the instance. You can add other users explicitly to this group to give them default access of data records. 
 
 As an example in the scenario, 
@@ -70,7 +70,7 @@ Now if you remove user_1 from  ACL_1, user_1 remains to have access of the data_
 And if ACL_1 and ACL_2 are removed from data_record_1, users.data.root continue to have owner access of the data. This preserves the data record from becoming orphan ever.
 
 ### Unknown OID
-You will see one unknown OID in all the OSDU groups added by default, this OID refers to an internal Azure Data Manager for Energy instance ID that is used for system to system communication. This OID gets created uniquely for each instance. 
+You will see one unknown OID in all the OSDU groups added by default, this OID refers to an internal Azure Data Manager for Energy GUID that is used for internal system to system communication. This GUID gets created uniquely for each instance and is enforced by the system to not be deleted or removed by you.
 
 ## Users
 
@@ -91,7 +91,7 @@ For a full list of Entitlement API endpoints, see [OSDU entitlement service](htt
 > [!NOTE]
 > The OSDU documentation refers to v1 endpoints, but the scripts noted in this documentation refer to v2 endpoints, which work and have been successfully validated.
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 

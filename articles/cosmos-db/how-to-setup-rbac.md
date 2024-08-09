@@ -217,7 +217,7 @@ Create a role named *MyReadOnlyRole* that only contains read actions in a file n
 ```azurecli
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-ro.json
+az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-ro.json 
 ```
 
 Create a role named *MyReadWriteRole* that contains all actions in a file named **role-definition-rw.json**:
@@ -238,7 +238,7 @@ Create a role named *MyReadWriteRole* that contains all actions in a file named 
 ```
 
 ```azurecli
-az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-rw.json
+az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-rw.json 
 ```
 
 List the role definitions you've created to fetch their IDs:
@@ -351,7 +351,7 @@ accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId='<roleDefinitionId>' # as fetched above
 # For Service Principals make sure to use the Object ID as found in the Enterprise applications section of the Azure Active Directory portal blade.
 principalId='<aadPrincipalId>'
-az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
+az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId --principal-type "ServicePrincipal"
 ```
 
 ### Using Bicep/Azure Resource Manager templates
@@ -451,14 +451,21 @@ When constructing the [REST API authorization header](/rest/api/cosmos-db/access
 
 ## Use data explorer
 
+The use of Azure Cosmos DB role-based access control within Data Explorer (either exposed in the Azure Portal or at [https://cosmos.azure.com](https://cosmos.azure.com)) is governed by the **Enable Entra ID RBAC** setting. You can access this setting via the "wheel" icon at the upper right-hand side of the Data Explorer interface. 
+
+The setting has three possible values:
+- **Automatic (default)**: In this mode, role-based access control will be automatically used if the account has [disabled the use of keys](#disable-local-auth). Otherwise, Data Explorer will use account keys for data requests.
+
+- **True**: In this mode, role-based access will always be used for Data Explorer data requests. If the account has not been enabled for role-based access , then the requests will fail.
+
+- **False**: In this mode, account keys will always be used for Data Explorer data requests. If the account has disabled the use of keys, then the requests will fail.
+
+When using modes that enable role-based access in the Azure Portal Data Explorer, you must click on the **Login for Entra ID RBAC** button (located on the Data Explorer command bar) prior to making any data requests. This is not necessary when using the Cosmos Explorer at cosmos.azure.com. Please ensure that the signed in identity has been [assigned with proper role definitions](#role-assignments) to enable data access.
+
+Also note that changing the mode to one that uses account keys may trigger a request to fetch the primary key on behalf of the identity that is signed in.
+
 > [!NOTE]
-> The data explorer exposed in the Azure portal does not support the Azure Cosmos DB role-based access control yet. To use your Microsoft Entra identity when exploring your data, you must use the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) instead.
-
-When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) with the specific `?feature.enableAadDataPlane=true` query parameter and sign in, the following logic is used to access your data:
-
-1. A request to fetch the account's primary key is attempted on behalf of the identity signed in. If this request succeeds, the primary key is used to access the account's data.
-1. If the identity signed in isn't allowed to fetch the account's primary key, this identity is directly used to authenticate data access. In this mode, the identity must be [assigned with proper role definitions](#role-assignments) to ensure data access.
-
+> Previously, role-based access was only supported in Cosmos Explorer using `https://cosmos.azure.com/?feature.enableAadDataPlane=true`. This is still supported and will override the value of the **Enable Entra ID RBAC** setting. Using this query parameter is equivalent to using the 'True' mode mentioned above.
 ## Audit data requests
 
 [Diagnostic logs](monitor-resource-logs.md) get augmented with identity and authorization information for each data operation when using Azure Cosmos DB role-based access control. This augmentation lets you perform detailed auditing and retrieve the Microsoft Entra identity used for every data request sent to your Azure Cosmos DB account.

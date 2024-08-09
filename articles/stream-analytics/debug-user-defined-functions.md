@@ -4,7 +4,7 @@ description: This article describes how to debug user-defined functions in Azure
 author: jenssuessmeyer
 ms.author: jenss
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-js

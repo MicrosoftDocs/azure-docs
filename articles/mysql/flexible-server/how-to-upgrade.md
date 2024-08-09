@@ -1,14 +1,15 @@
 ---
 title: Major version upgrade
 description: Learn how to upgrade major version for an Azure Database for MySQL - Flexible Server instance.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
-ms.topic: how-to
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.date: 10/12/2022
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: how-to
+ms.custom:
+  - devx-track-azurecli
 ---
 
 # Major version upgrade in Azure Database for MySQL - Flexible Server
@@ -22,7 +23,6 @@ This article describes how you can upgrade your MySQL major version in-place in 
 This feature enables customers to perform in-place upgrades of their MySQL 5.7 servers to MySQL 8.0 without any data movement or the need to make any application connection string changes.
 
 >[!Important]
-> - Major version upgrade is currently unavailable for version 5.7 servers based on the Burstable SKU.
 > - Duration of downtime varies based on the size of the database instance and the number of tables it contains.
 > - When initiating a major version upgrade for Azure Database for MySQL flexible server via Rest API or SDK, please avoid modifying other properties of the service in the same request. The simultaneous changes are not permitted and may lead to unintended results or request failure. Please conduct property modifications in separate operations post-upgrade completion.
 > - Upgrading the major MySQL version is irreversible. Your deployment might fail if validation identifies that the server is configured with any features that are [removed](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals) or [deprecated](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-deprecations). You can make necessary configuration changes on the server and try the upgrade again.
@@ -31,9 +31,64 @@ This feature enables customers to perform in-place upgrades of their MySQL 5.7 s
 
 - Read Replicas with MySQL version 5.7 should be upgraded before Primary Server for replication to be compatible between different MySQL versions, read more on [Replication Compatibility between MySQL versions](https://dev.mysql.com/doc/mysql-replication-excerpt/8.0/en/replication-compatibility.html).
 - Before upgrading your production servers, it's now easier and more efficient with our built-in **Validate** feature in the Azure portal. This tool pre-checks your database schema's compatibility with MySQL 8.0, highlighting potential issues. While we offer this convenient option, we also **strongly recommend** you use the official Oracle [MySQL Upgrade checker tool](https://go.microsoft.com/fwlink/?linkid=2230525) to test your database schema compatibility and perform necessary regression test to verify application compatibility with features [removed](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals)/[deprecated](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-deprecations) in the new MySQL version.
+  >[!NOTE]
+  >When you use Oracle's official tool to check schema compatibility, you might encounter some warnings indicating unexpected tokens in stored procedures, such as:
+  >`mysql.az_replication_change_master - at line 3,4255: unexpected token 'REPLICATION'`
+  >`mysql.az_add_action_history - PROCEDURE uses obsolete NO_AUTO_CREATE_USER sql_mode`
+  >You can safely ignore these warnings. They refer to built-in stored procedures prefixed with mysql., which are used to support Azure MySQL features. These warnings do not affect the functionality of your database.
 - Trigger [on-demand backup](./how-to-trigger-on-demand-backup.md) before you perform a major version upgrade on your production server, which can be used to [rollback to version 5.7](./how-to-restore-server-portal.md) from the full on-demand backup taken.
 
-## Perform a planned major version upgrade from MySQL 5.7 to MySQL 8.0 using the Azure portal
+## Perform a planned major version upgrade from MySQL 5.7 to MySQL 8.0 using the Azure portal for Burstable SKU servers
+
+Performing a major version upgrade for an Azure Database for MySQL Burstable SKU compute tier requires a specialized workflow. This is because major version upgrades are resource-intensive, demanding significant CPU and memory. Burstable SKU instances being credit based may struggle under these requirements, potentially causing the upgrade process to fail. Therefore, when upgrading a Burstable SKU, the system first upgrades the compute tier to a General Purpose SKU to ensure sufficient resources are available for the upgrade.
+
+To perform a major version upgrade for an Azure Database for MySQL Burstable SKU compute tier using the Azure portal, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL flexible server 5.7 server.
+    >[!Important]
+    > We recommend performing upgrade first on a restored copy of the server rather than upgrading production directly. See [how to perform point-in-time restore](./how-to-restore-server-portal.md).
+
+2. On the **Overview** page, in the toolbar, select **Upgrade**.
+
+    >[!Important]
+    > Before upgrading visit link for list of [features removed](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals) in MySQL 8.0.
+    > Verify deprecated [sql_mode](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_mode) values and remove/deselect them from your current Azure Database for MySQL flexible server 5.7 server using the Server Parameters Blade on your Azure portal to avoid deployment failure.
+    > [sql_mode](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_mode) with values NO_AUTO_CREATE_USER, NO_FIELD_OPTIONS, NO_KEY_OPTIONS and NO_TABLE_OPTIONS are no longer supported in MySQL 8.0.
+
+    :::image type="content" source="./media/how-to-upgrade/1-how-to-upgrade.png" alt-text="Screenshot showing Azure Database for MySQL flexible server Upgrade.":::
+
+3. Schema Compatibility Validation
+
+   Before proceeding with the upgrade, run Oracle's official [MySQL Upgrade checker tool](https://go.microsoft.com/fwlink/?linkid=2230525) to validate that your current database schema is compatible with MySQL 8.0. This step is crucial to ensure a smooth upgrade process.
+
+5. Pre-Upgrade Decision
+
+   Before proceeding with the upgrade, you need to choose the compute tier to which you want to upgrade to perform the major version upgrade. By default, the system will upgrade from Burstable SKU to the most basic General Purpose SKU, but you can opt to upgrade to a higher compute tier if needed.
+
+   >[!NOTE]
+   >While your server operates in the "General Purpose" tier during the upgrade, you will only be charged for the actual "General Purpose" resources used during this period.  
+
+6. Post-Upgrade Decision
+
+   Decide whether to retain the General Purpose SKU or revert to Burstable SKU after the upgrade. This choice will be prompted during the initial upgrade steps.
+
+   The system will automatically upgrade your compute tier from Burstable SKU to the selected General Purpose SKU support the major version upgrade.
+
+7. Major Version Upgrade
+
+   Once the compute tier is upgraded, the system will initiate the major version upgrade process. Monitor the upgrade progress through the Azure portal. The upgrade process might take some time depending on the size and activity of your database.
+   
+   >[!Note]
+   >If the major version upgrade fails, the compute tier will not automatically revert to the previous Burstable SKU. This is to allow customers to continue the major version upgrade without needing to perform the compute tier upgrade again.
+
+8. Automatic Reversion
+
+   Based on your pre-upgrade decision, the system will either retain the General Purpose SKU or automatically revert to Burstable SKU after the upgrade is complete.
+   
+   >[!Note]
+   >If you chose to automatically revert to Burstable SKU, the system will revert to the B2S SKU by default.
+
+## Perform a planned major version upgrade from MySQL 5.7 to MySQL 8.0 using the Azure portal for General Purpose and Business Critical SKU servers
 
 To perform a major version upgrade of an Azure Database for MySQL flexible server 5.7 server using the Azure portal, perform the following steps.
 

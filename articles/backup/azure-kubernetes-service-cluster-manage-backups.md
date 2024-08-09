@@ -2,7 +2,7 @@
 title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup
 description: This article explains how to manage Azure Kubernetes Service (AKS) backups using Azure Backup.
 ms.topic: how-to
-ms.service: backup
+ms.service: azure-backup
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
@@ -33,7 +33,7 @@ To install Backup Extension, you need to register `Microsoft.KubernetesConfigura
 The registration may take up to *10 minutes*. To monitor the registration process, run the following command:
 
    ```azurecli-interactive
-   az provider show -n Microsoft.KubernetesConfiguration -o table
+   az provider show --name Microsoft.KubernetesConfiguration --output table
    ```
 
 ### Register the Trusted Access
@@ -130,14 +130,14 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
 
    ```azurecli-interactive
    az aks trustedaccess rolebinding create \
-   -g <aksclusterrg> \
+   --resource-group <aksclusterrg> \
    --cluster-name <aksclustername> \
-   -n <randomRoleBindingName> \
-   --source-resource-id $(az dataprotection backup-vault show -g <vaultrg> --vault <VaultName> --query id -o tsv) \
+   --name <randomRoleBindingName> \
+   --source-resource-id $(az dataprotection backup-vault show --resource-group <vaultrg> --vault <VaultName> --query id -o tsv) \
    --roles Microsoft.DataProtection/backupVaults/backup-operator   
    ```
 
-Learn more about [other commands related to Trusted Access](../aks/trusted-access-feature.md#trusted-access-feature-overview).
+Learn more about [other commands related to Trusted Access](/azure/aks/trusted-access-feature#trusted-access-feature-overview).
 
 ## Monitor AKS backup jobs completed with warnings
 

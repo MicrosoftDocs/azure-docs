@@ -4,7 +4,7 @@ description: This article provides an overview of the data types used by Azure O
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 10/25/2023
 
@@ -21,22 +21,7 @@ Data Product operators can choose the data retention period for each data type.
 
 ## Data type contents
 
-Each data type contains data from a specific source. The primary source for a data type might be a network element within the subject domain. Some data types are derived by aggregating or enriching information from other data types.
-
-- The **Quality of Experience – Affirmed MCC** Data Product includes the following data types.
-  - `edr`: This data type handles Event Data Records (EDRs) from the MCC.
-  - `edr-sanitized`: This data type contains the same information as `edr` but with personal data suppressed to support operators' compliance with privacy legislation.
-  - `edr-validation`: This data type contains a subset of performance management statistics and provides you with the ability to optionally ingest a minimum number of PMstats tables for a data quality check.
-  - `device`: This optional data type contains device data (for example, device model, make and capabilities) that the Data Product can use to enrich the MCC Event Data Records. To use this data type, you must upload the device reference data in a CSV file. The CSV must conform to the [Device reference schema for the Quality of Experience Affirmed MCC Data Product](device-reference-schema.md).
-  - `enrichment`: This data type holds the enriched Event Data Records and covers multiple sub data types for precomputed aggregations targeted to accelerate specific dashboards, granularities, and queries. These multiple sub data types include:
-      - `agg-enrichment-5m`: contains enriched Event Data Records aggregated over five-minute intervals.
-      - `agg-enrichment-1h`: contains enriched Event Data Records aggregated over one-hour intervals.
-      - `enriched-flow-dcount`: contains precomputed counts used to report the unique IMSIs, MCCs, and Applications over time.
-  - `location`: This optional data type contains data enriched with location information, if you have a source of location data. This covers the following sub data types.
-      - `agg-location-1h`: contains enriched location data aggregated over one-hour intervals.
-      - `enriched-loc-dcount`: contains precomputed counts used to report location data over time.
- 
-- The **Monitoring – Affirmed MCC** Data Product includes the `pmstats` datatype. This data type contains performance management statistics from the MCC EMS.
+Each data type contains data from a specific source. The primary source for a data type might be a network element within the subject domain. Some data types are derived by aggregating or enriching information from other data types. For a description of the data types available in a given Data Product, refer to the documentation for that Data Product.
 
 ## Data type settings
 

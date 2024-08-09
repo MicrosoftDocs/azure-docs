@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: compute
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv2, sdkv2, build-2023
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
-ms.date: 01/25/2024
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
+ms.date: 05/03/2024
 ---
 
 # Create an Azure Machine Learning compute cluster
@@ -33,11 +33,29 @@ Learn how to:
 
 * An Azure Machine Learning workspace. For more information, see [Manage Azure Machine Learning workspaces](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service (v2)](how-to-configure-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+Select the appropriate tab for the rest of the prerequisites based on your preferred method of creating the compute cluster.
 
-* If using the Python SDK, [set up your development environment with a workspace](how-to-configure-environment.md).  Once your environment is set up, attach to the workspace in your Python script:
+# [Python SDK](#tab/python)
+
+* If you're not running your code on a compute instance, install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme). This SDK is already installed for you on a compute instance.
+
+* Attach to the workspace in your Python script:
 
     [!INCLUDE [connect ws v2](includes/machine-learning-connect-ws-v2.md)]
+
+# [Azure CLI](#tab/azure-cli)
+
+* If you're not running these commands on a compute instance, install the [Azure CLI extension for Machine Learning service (v2)](how-to-configure-cli.md). This extension is already installed for you on a compute instance.
+
+* Authenticate and set the default workspace and resource group. Leave the terminal open to run the rest of the commands in this article.
+
+    [!INCLUDE [cli first steps](includes/cli-first-steps.md)]
+
+# [Studio](#tab/azure-studio)
+
+Start at [Azure Machine Learning studio](https://ml.azure.com).
+
+---
 
 ## What is a compute cluster?
 
@@ -69,7 +87,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 [!INCLUDE [min-nodes-note](includes/machine-learning-min-nodes.md)]
 
-The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
+The compute autoscales down to zero nodes when it isn't used. Dedicated VMs are created to run your jobs as needed.
 
 Use the following examples to create a compute cluster:
 
@@ -112,9 +130,9 @@ Create a single- or multi- node compute cluster for your training, batch inferen
 
 1. Under **Manage**, select **Compute**.
 
-1. If you have no compute resources, select **Create** in the middle of the page.
+1. If you have no compute resources, select **New** in the middle of the page.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Screenshot that shows the Create button to create a compute target.":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Screenshot that shows the New button to create a compute target.":::
 
 1. If you see a list of compute resources, select **+New** above the list.
 
@@ -127,15 +145,15 @@ Create a single- or multi- node compute cluster for your training, batch inferen
     |Field  |Description  |
     |---------|---------|
     | Location | The Azure region where the compute cluster is created. By default, this is the same location as the workspace. If you don't have sufficient quota in the default region, switch to a different region for more options. <br>When using a different region than your workspace or datastores, you might see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it. |
-    |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation.     |
-    |Virtual machine priority | Choose **Dedicated** or **Low priority**.  Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job might be preempted. |
+    |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation. |
+    |Virtual machine priority | Choose **Dedicated** or **Low priority**. Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job might be preempted. |
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)   |
 
 1. Select **Next** to proceed to **Advanced Settings** and fill out the form as follows:
 
     |Field  |Description  |
     |---------|---------|
-    |Compute name     | * Name is required and must be between 3 to 24 characters long.<br><br> * Valid characters are upper and lower case letters, digits, and the  **-** character.<br><br> * Name must start with a letter. <br><br> * Name needs to be unique across all existing computes within an Azure region. You see an alert if the name you choose isn't unique. <br><br> * If **-**  character is used, then it needs to be followed by at least one letter later in the name.   |
+    |Compute name     | * Name is required and must be between 3 to 24 characters long.<br><br> * Valid characters are upper and lower case letters, digits, and the  **-** character.<br><br> * Name must start with a letter. <br><br> * Name needs to be unique across all existing computes within an Azure region. You see an alert if the name you choose isn't unique. <br><br> * If **-**  character is used, then it needs to be followed by at least one letter later in the name. |
     |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you don't pay for any nodes when the cluster is idle. |
     |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute automatically scales to a maximum of this node count when a job is submitted. |
     | Idle seconds before scale down | Idle time before scaling the cluster down to the minimum node count. |
@@ -146,7 +164,7 @@ Create a single- or multi- node compute cluster for your training, batch inferen
 
 ### Enable SSH access
 
-SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+SSH access is disabled by default. SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md). 
 
 [!INCLUDE [enable-ssh](includes/machine-learning-enable-ssh.md)]
 
@@ -156,7 +174,7 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 
 ---
 
-## Lower your compute cluster cost with low priority VMs
+### Lower your compute cluster cost with low priority VMs
 
 You can also choose to use [low-priority VMs](how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. These VMs don't have guaranteed availability and might be preempted while in use. You have to restart a preempted job.
 
@@ -190,6 +208,38 @@ Where the file *create-cluster.yml* is:
 # [Studio](#tab/azure-studio)
 
 In the studio, choose **Low Priority** when you create a VM.
+
+---
+
+## Delete
+
+While your compute cluster scales down to zero nodes when not in use, unprovisioned nodes contribute to your quota usage. Deleting the compute cluster removes the compute target from your workspace, and releases the quota.
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
+This deletes the basic compute cluster, created from the `create_basic` object earlier in this article.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=delete_cluster)]
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+
+This deletes a compute cluster named `basic-example`.
+
+```azurecli
+az ml compute delete --name basic-example 
+```
+
+# [Studio](#tab/azure-studio)
+
+1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
+1. In the left menu, under **Manage**, select **Compute**.
+1. At the top of the Compute page, select **Compute cluster**.
+1. Select the cluster you want to delete. 
+1. At the top of the page, select **Delete**.
 
 ---
 

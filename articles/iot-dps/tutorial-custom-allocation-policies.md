@@ -31,7 +31,7 @@ In this tutorial, you'll do the following:
 > * Set up the development environment for the Azure IoT C SDK.
 > * Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -370,7 +370,7 @@ For the example in this tutorial, use the following two device registration IDs 
 * **breakroom499-contoso-tstrsd-007**
 * **mainbuilding167-contoso-hpsd-088**
 
-The IoT extension for the Azure CLI provides the [`iot dps enrollment-group compute-device-key`](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-compute-device-key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [iot dps enrollment-group compute-device-key](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-compute-device-key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
 
 Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
 
@@ -379,7 +379,7 @@ az iot dps enrollment-group compute-device-key --key <ENROLLMENT_GROUP_KEY> --re
 ```
 
 ```azurecli
-az iot dps compute-device-key --key <ENROLLMENT_GROUP_KEY> --registration-id mainbuilding167-contoso-hpsd-088
+az iot dps enrollment-group compute-device-key --key <ENROLLMENT_GROUP_KEY> --registration-id mainbuilding167-contoso-hpsd-088
 ```
 
 > [!NOTE]

@@ -5,7 +5,7 @@ description: Query and access nested JSON properties and use special characters 
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.devlang: nosql

@@ -2,7 +2,7 @@
 title: 'Monitoring Azure Virtual WAN - Data reference'
 description: Learn about Azure Virtual WAN logs and metrics using Azure Monitor.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: reference
 ms.date: 02/15/2024
 ms.author: cherylmc
@@ -24,11 +24,8 @@ The following metric is available for virtual hub router within a virtual hub:
 | --- | --- |
 | **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: VNet to VNet (same hub and interhub) and VPN/ExpressRoute branch to VNet (interhub). If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. |
 | **Routing Infrastructure Units** | The virtual hub's routing infrastructure units (RIU). The virtual hub's RIU determines how much bandwidth the virtual hub router can process for flows traversing the virtual hub router. The hub's RIU also determines how many VMs in spoke VNets the virtual hub router can support. For more details on routing infrastructure units, see [Virtual Hub Capacity](hub-settings.md#capacity).
-| **Spoke VM Utilization** | The number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2 (which supports 2000 spoke VMs), and 1000 VMs are deployed across spoke VNets, then this metric will display as 50%.  |
+| **Spoke VM Utilization** | The approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2 (which supports 2000 spoke VMs), and 1000 VMs are deployed across spoke VNets, then this metric's value will be approximately 50%.  |
 
-> [!NOTE]
-> As of March 28, 2024, the backend functionality for the Routing Infrastructure Units and Spoke VM Utilization metrics are still rolling out. As a result, even if you see these metrics displayed in Portal, the actual values of these metrics might appear as 0. The backend functionality of these metrics is aimed to finish rolling out within the next several weeks, which will ensure the proper values are emitted. 
-> 
 
 ### <a name="s2s-metrics"></a>Site-to-site VPN gateway metrics
 

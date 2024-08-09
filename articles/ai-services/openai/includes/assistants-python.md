@@ -1,36 +1,47 @@
 ---
 title: 'Quickstart: Use the OpenAI Service via the Python SDK'
 titleSuffix: Azure OpenAI Service
-description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Python SDK. 
+description: Walkthrough on how to get started with Azure OpenAI and make your first Assistants call with the Python SDK. 
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 02/01/2024
+ms.date: 05/22/2024
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-openai-assistants-readme?context=/azure/ai-services/openai/context/context) | <a href="https://github.com/openai/openai-python" target="_blank">Library source code</a> | <a href="https://pypi.org/project/openai/" target="_blank">Package (PyPi)</a> |
+[Reference documentation](https://platform.openai.com/docs/api-reference/assistants/createAssistant) | <a href="https://github.com/openai/openai-python" target="_blank">Library source code</a> | <a href="https://pypi.org/project/openai/" target="_blank">Package (PyPi)</a> |
 
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to Azure OpenAI in the desired Azure subscription
-
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
-- The following Python libraries: os, json, openai (Version 1.x is required)
-- [Jupyter Notebooks](https://jupyter.org/)
-- Azure OpenAI Assistants are currently available in Sweden Central, East US 2, and Australia East. For more information about model availability in those regions, see the [models guide](../concepts/models.md).
+- The following Python libraries: os, openai (Version 1.x is required)
+- [Azure CLI](/cli/azure/install-azure-cli) used for passwordless authentication in a local development environment, create the necessary context by signing in with the Azure CLI. 
+- An Azure OpenAI resource with a [compatible model in a supported region](../concepts/models.md#assistants-preview).
 - We recommend reviewing the [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) and other [Responsible AI resources](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) to familiarize yourself with the capabilities and limitations of the Azure OpenAI Service.
 - An Azure OpenAI resource with the `gpt-4 (1106-preview)` model deployed was used testing this example.
 
+## Passwordless authentication is recommended
+
+For passwordless authentication, you need to 
+
+1. Use the [azure-identity](https://pypi.org/project/azure-identity/) package.
+2. Assign the `Cognitive Services User` role to your user account. This can be done in the Azure portal under **Access control (IAM)** > **Add role assignment**.
+3. Sign in with the Azure CLI such as `az login`.
+
 ## Set up
 
-Install the OpenAI Python client library with:
+1. Install the OpenAI Python client library with:
 
 ```console
-pip install openai==v1.20.0
+pip install openai
+```
+
+2. For the **recommended** passwordless authentication:
+
+```console
+pip install azure-identity
 ```
 
 [!INCLUDE [Assistants v2 note](./assistants-v2-note.md)]
@@ -71,26 +82,29 @@ In our code we are going to specify the following values:
 
 An individual assistant can access up to 128 tools including `code interpreter`, as well as any custom tools you create via [functions](../how-to/assistant-functions.md).
 
-Create and run an assistant with the following:
+### Create the Python app
+
+Sign in to Azure with `az login` then create and run an assistant with the following **recommended** passwordless Python example:
 
 ```python
 import os
-import time
-import json
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 from openai import AzureOpenAI
-    
+
+token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
+
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2024-02-15-preview",
-    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-    )
+    azure_ad_token_provider=token_provider,
+    azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
+    api_version="2024-05-01-preview",
+)
 
 # Create an assistant
 assistant = client.beta.assistants.create(
     name="Math Assist",
     instructions="You are an AI assistant that can write code to help answer math questions.",
     tools=[{"type": "code_interpreter"}],
-    model="gpt-4-1106-preview" #You must replace this value with the deployment name for your model.
+    model="gpt-4-1106-preview" # You must replace this value with the deployment name for your model.
 )
 
 # Create a thread
@@ -103,41 +117,75 @@ message = client.beta.threads.messages.create(
     content="I need to solve the equation `3x + 11 = 14`. Can you help me?"
 )
 
-# Run the thread
-run = client.beta.threads.runs.create(
-  thread_id=thread.id,
-  assistant_id=assistant.id,
+# Run the thread and poll for the result
+run = client.beta.threads.runs.create_and_poll(
+    thread_id=thread.id,
+    assistant_id=assistant.id,
+    instructions="Please address the user as Jane Doe. The user has a premium account.",
 )
 
-# Retrieve the status of the run
-run = client.beta.threads.runs.retrieve(
-  thread_id=thread.id,
-  run_id=run.id
+print("Run completed with status: " + run.status)
+
+if run.status == "completed":
+    messages = client.beta.threads.messages.list(thread_id=thread.id)
+    print(messages.to_json(indent=2))
+```
+
+To use the service API key for authentication, you can create and run an assistant with the following Python example:
+
+```python
+import os
+from openai import AzureOpenAI
+
+client = AzureOpenAI(
+    api_key=os.environ["AZURE_OPENAI_API_KEY"],
+    azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
+    api_version="2024-05-01-preview",
 )
 
-status = run.status
-
-# Wait till the assistant has responded
-while status not in ["completed", "cancelled", "expired", "failed"]:
-    time.sleep(5)
-    run = client.beta.threads.runs.retrieve(thread_id=thread.id,run_id=run.id)
-    status = run.status
-
-messages = client.beta.threads.messages.list(
-  thread_id=thread.id
+# Create an assistant
+assistant = client.beta.assistants.create(
+    name="Math Assist",
+    instructions="You are an AI assistant that can write code to help answer math questions.",
+    tools=[{"type": "code_interpreter"}],
+    model="gpt-4-1106-preview" # You must replace this value with the deployment name for your model.
 )
 
-print(messages.model_dump_json(indent=2))
+# Create a thread
+thread = client.beta.threads.create()
+
+# Add a user question to the thread
+message = client.beta.threads.messages.create(
+    thread_id=thread.id,
+    role="user",
+    content="I need to solve the equation `3x + 11 = 14`. Can you help me?"
+)
+
+# Run the thread and poll for the result
+run = client.beta.threads.runs.create_and_poll(
+    thread_id=thread.id,
+    assistant_id=assistant.id,
+    instructions="Please address the user as Jane Doe. The user has a premium account.",
+)
+
+print("Run completed with status: " + run.status)
+
+if run.status == "completed":
+    messages = client.beta.threads.messages.list(thread_id=thread.id)
+    print(messages.to_json(indent=2))
 ```
 
 ## Output
+
+Run completed with status: completed
 
 ```json
 {
   "data": [
     {
-      "id": "msg_XOL8597uuV6zIEgaqZtI0KD3",
-      "assistant_id": "asst_WKFOCDJ42Ld1bVUfS8w2pt6E",
+      "id": "msg_4SuWxTubHsHpt5IlBTO5Hyw9",
+      "assistant_id": "asst_cYqL1RuwLyFV3HU1gkaE2k0K",
+      "attachments": [],
       "content": [
         {
           "text": {
@@ -147,17 +195,17 @@ print(messages.model_dump_json(indent=2))
           "type": "text"
         }
       ],
-      "created_at": 1705892759,
-      "file_ids": [],
+      "created_at": 1716397091,
       "metadata": {},
       "object": "thread.message",
       "role": "assistant",
-      "run_id": "run_TSmF4LoU6bX4SD3xp5xDr1ey",
-      "thread_id": "thread_hCOKdEZy1diZAAzwDudRqGRc"
+      "run_id": "run_hFgBPbUtO8ZNTnNPC8PgpH1S",
+      "thread_id": "thread_isb7spwRycI5ueT9E7357aOm"
     },
     {
-      "id": "msg_F25tb90W5xTPqSn4KgU4aMsb",
+      "id": "msg_Z32w2E7kY5wEWhZqQWxIbIUB",
       "assistant_id": null,
+      "attachments": [],
       "content": [
         {
           "text": {
@@ -167,18 +215,17 @@ print(messages.model_dump_json(indent=2))
           "type": "text"
         }
       ],
-      "created_at": 1705892751,
-      "file_ids": [],
+      "created_at": 1716397025,
       "metadata": {},
       "object": "thread.message",
       "role": "user",
       "run_id": null,
-      "thread_id": "thread_hCOKdEZy1diZAAzwDudRqGRc"
+      "thread_id": "thread_isb7spwRycI5ueT9E7357aOm"
     }
   ],
   "object": "list",
-  "first_id": "msg_XOL8597uuV6zIEgaqZtI0KD3",
-  "last_id": "msg_F25tb90W5xTPqSn4KgU4aMsb",
+  "first_id": "msg_4SuWxTubHsHpt5IlBTO5Hyw9",
+  "last_id": "msg_Z32w2E7kY5wEWhZqQWxIbIUB",
   "has_more": false
 }
 ```
@@ -188,17 +235,17 @@ print(messages.model_dump_json(indent=2))
 In this example we create an assistant with code interpreter enabled. When we ask the assistant a math question it translates the question into python code and executes the code in sandboxed environment in order to determine the answer to the question. The code the model creates and tests to arrive at an answer is:
 
 ```python
-    from sympy import symbols, Eq, solve  
-      
-    # Define the variable  
-    x = symbols('x')  
-      
-    # Define the equation  
-    equation = Eq(3*x + 11, 14)  
-      
-    # Solve the equation  
-    solution = solve(equation, x)  
-    solution  
+from sympy import symbols, Eq, solve  
+  
+# Define the variable  
+x = symbols('x')  
+  
+# Define the equation  
+equation = Eq(3*x + 11, 14)  
+  
+# Solve the equation  
+solution = solve(equation, x)  
+solution  
 ```
 
 It is important to remember that while code interpreter gives the model the capability to respond to more complex queries by converting the questions into code and running that code iteratively in the Python sandbox until it reaches a solution, you still need to validate the response to confirm that the model correctly translated your question into a valid representation in code.
@@ -209,7 +256,7 @@ It is important to remember that while code interpreter gives the model the capa
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## See also

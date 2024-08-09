@@ -4,7 +4,7 @@ description: Start here to learn how to monitor Azure Virtual Machines and Virtu
 ms.date: 03/27/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 
 #customer intent: As a cloud administrator, I want to understand how to monitor Azure virtual machines so that I can ensure the health and performance of my virtual machines and applications.
 ---
@@ -20,21 +20,35 @@ This article provides an overview of how to monitor the health and performance o
 
 ## Overview: Monitor VM host and guest metrics and logs
 
-You can collect metrics and logs from the **VM host**, which is the physical server and hypervisor that creates and manages the VM, and from the **VM guest**, which includes the operating system and applications that run inside the VM.
+You can collect metrics and logs from: 
 
-VM host and guest data is useful in different scenarios:
+- The **VM host** - This data relates to the Hyper-V session managing the guest operating systems, and includes information about CPU, network, and disk utilization.
+- The **VM guest** - This data relates to the operating system and applications running inside the virtual machine.
 
-| Data type | Scenarios | Data collection | Available data |
-|-|-|-|-|
-| **VM host data** | Monitor the stability, health, and efficiency of the physical host on which the VM is running.<br>(Optional) [Scale up or scale down](/azure/azure-monitor/autoscale/autoscale-overview) based on the load on your application.| Available by default without any additional setup. |[Host performance metrics](#azure-monitor-platform-metrics)<br><br>[Activity logs](#azure-activity-log)<br><br>[Boot diagnostics](#boot-diagnostics)|
-| **VM guest data: overview** | Analyze and troubleshoot performance and operational efficiency of workloads running in your Azure environment. | Install [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) on the VM and set up a [data collection rule (DCR)](#data-collection-rules). |See various levels of data in the following rows.|
-|**Basic VM guest data**|[VM insights](#vm-insights) is a quick and easy way to start monitoring your VM clients, especially useful for exploring overall VM usage and performance when you don't yet know the metric of primary interest.|[Enable VM insights](/azure/azure-monitor/vm/vminsights-enable-overview) to automatically install Azure Monitor Agent and create a predefined DCR.|[Guest performance counters](/azure/azure-monitor/vm/vminsights-performance)<br><br>[Dependencies between application components running on the VM](/azure/azure-monitor/vm/vminsights-maps)|
-|**VM operating system monitoring data**|Monitor application performance and events, resource consumption by specific applications and processes, and operating system-level performance and events. Valuable for troubleshooting application-specific issues, optimizing resource usage within VMs, and ensuring optimal performance for workloads running inside VMs.|Install [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) on the VM and set up a [DCR](#data-collection-rules).|[Guest performance counters](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)<br><br>[Windows events](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)<br><br>[Syslog events](/azure/azure-monitor/agents/data-collection-syslog)|
-|**Advanced/custom VM guest data**|Monitoring of web servers, Linux appliances, and any type of data you want to collect from a VM. |Install [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) on the VM and set up a [DCR](#data-collection-rules).|[IIS logs](/azure/azure-monitor/agents/data-collection-iis)<br><br>[SNMP traps](/azure/azure-monitor/agents/data-collection-snmp-data)<br><br>[Any data written to a text or JSON file](/azure/azure-monitor/agents/data-collection-text-log)|
+Host-level data gives you an understanding of the VM's overall performance and load, while the guest-level data gives you visibility into the applications, components, and processes running on the machine and their performance and health. For example, if you’re troubleshooting a performance issue, you might start with host metrics to see which VM is under heavy load, and then use guest metrics to drill down into the details of the operating system and application performance.
 
-[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
-### VM insights
+### VM host data
+
+VM host data is available without additional setup.      
+
+| Scenario | Details | Data collection | Available data |Recommendations|
+|-|-|-|-|-|
+| **VM host metrics and logs** | Monitor the stability, health, and efficiency of the physical host on which the VM is running.<br>[Scale up or scale down](/azure/azure-monitor/autoscale/autoscale-overview) based on the load on your application.| Available by default without any additional setup. |<ul><li>[Host performance metrics](#azure-monitor-platform-metrics)</li><li>[Activity logs](#azure-activity-log)</li><li>[Boot diagnostics](#boot-diagnostics)</li></ul>|Enable [recommended alert rules](#recommended-alert-rules) to be notified when key host metrics deviate from their expected baseline values.|
+
+
+### VM guest data 
+
+VM guest data lets you analyze and troubleshoot the performance and operational efficiency of workloads running on your VMs. To monitor VM guest data, you need to install [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) on the VM and set up a [data collection rule (DCR)](#data-collection-rules). The [VM Insights](#vm-insights) feature automatically installs Azure Monitor Agent on your VM and sets up a default data collection rule for quick and easy onboarding. 
+
+| Scenario | Details | Data collection | Available data |Recommendations|
+|-|-|-|-|-|
+|**Basic monitoring: key performance indicators**|Identify issues related to operating system performance - including CPU and disk utilization - available memory, and network performance by collecting a predefined, basic set of key performance counters. |[Enable VM insights](/azure/azure-monitor/vm/vminsights-enable-overview)|[Predefined set of key guest performance counters](/azure/azure-monitor/vm/vminsights-performance)|<ul><li>Use as a starting point. </li><li>Enable recommended [Azure Monitor Baseline Alerts for VMs](https://azure.github.io/azure-monitor-baseline-alerts/services/Compute/virtualMachines/).</li><li>Add guest performance counters of interest and recommended operating system logs, as needed.</li></ul>|
+|**Basic monitoring: application component mapping**|Map application components on a particular VM and across VMs, and discover the dependencies that exist between application components.<br><br>This information is important for troubleshooting, optimizing performance, and planning for changes or updates to the application infrastructure. |[Enable the Map feature of VM insights](/azure/azure-monitor/vm/vminsights-enable-overview)|[Dependencies between application components running on the VM](/azure/azure-monitor/vm/vminsights-maps)||
+|**VM operating system metrics and logs (recommended)**|Monitor application performance and events, resource consumption by specific applications and processes, and operating system-level performance and events. <br><br>This data is important for troubleshooting application-specific issues, optimizing resource usage within VMs, and ensuring optimal performance for workloads running inside VMs.|Install [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) on the VM and set up a [DCR](#data-collection-rules).|<ul><li>[Guest performance counters](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)</li><li>[Windows events](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)</li><li>[Syslog events](/azure/azure-monitor/agents/data-collection-syslog)</li></ul>|<ul><li>In Windows, collect application logs at the **Critical**, **Error**, and **Warning** levels.</li><li>In Linux, collect **LOG_SYSLOG** facility logs at the **LOG_WARNING** level.</li></ul>|
+|**Advanced/custom VM guest data**|Monitoring of web servers, Linux appliances, and any type of data you want to collect from a VM. |Install [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) on the VM and set up a [DCR](#data-collection-rules).|<ul><li>[IIS logs](/azure/azure-monitor/agents/data-collection-iis)</li><li>[SNMP traps](/azure/azure-monitor/agents/data-collection-snmp-data)</li><li>[Any data written to a text or JSON file](/azure/azure-monitor/agents/data-collection-text-log)</li></ul>||
+
+## VM insights
 
 VM insights monitors your Azure and hybrid virtual machines in a single interface. VM insights provides the following benefits for monitoring VMs in Azure Monitor:
 
@@ -51,8 +65,7 @@ For a tutorial on enabling VM insights for a virtual machine, see [Enable monito
 
 If you enable VM insights, the Azure Monitor agent is installed and starts sending a predefined set of performance data to Azure Monitor Logs. You can create other data collection rules to collect events and other performance data. To learn how to install the Azure Monitor agent and create a data collection rule (DCR) that defines the data to collect, see [Tutorial: Collect guest logs and metrics from an Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest).
 
-[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
-For more information about the resource types for Virtual Machines, see [Azure Virtual Machines monitoring data reference](monitor-vm-reference.md).
+In VM insights, you can use the Azure Monitor Map feature to view application components that run in Azure or your environment. The Dependency agent VM extension is available for [Windows](extensions/agent-dependency-windows.md) and [Linux](extensions/agent-dependency-linux.md).
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
@@ -65,12 +78,6 @@ For detailed information about how the Azure Monitor agent collects VM monitorin
 
 For a list of available metrics for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-vm-reference.md#metrics).
 
-[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
-
-- For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Virtual Machines, see [Virtual Machines monitoring data reference](monitor-vm-reference.md).
-
-> [!IMPORTANT]
-> For Azure VMs, all the important data is collected by the Azure Monitor agent. The resource log categories available for Azure VMs aren't important and aren't available for collection from the Azure portal. For detailed information about how the Azure Monitor agent collects VM log data, see [Monitor virtual machines with Azure Monitor: Collect data](/azure/azure-monitor/vm/monitor-virtual-machine-data-collection).
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -89,19 +96,9 @@ You can also optionally enable collection of processes and dependencies, which p
 - [VMConnection](/azure/azure-monitor/reference/tables/vmconnection): Traffic for inbound and outbound connections to and from the machine
 - [VMProcess](/azure/azure-monitor/reference/tables/vmprocess): Processes running on the machine
 
-### Collect performance counters
-
-VM insights collects a common set of performance counters in Logs to support its performance charts. If you aren't using VM insights, or want to collect other counters or send them to other destinations, you can create other DCRs. You can quickly create a DCR by using the most common counters.
-
-You can send performance data from the client to either Azure Monitor Metrics or Azure Monitor Logs. VM insights sends performance data to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. Other DCRs send performance data to the [Perf](/azure/azure-monitor/reference/tables/perf) table. For guidance on creating a DCR to collect performance counters, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent).
-
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
-
-### Query logs from VM insights
-
-VM insights stores the data it collects in Azure Monitor Logs, and the insights provide performance and map views that you can use to interactively analyze the data. You can work directly with this data to drill down further or perform custom analyses. For more information and to get sample queries for this data, see [How to query logs from VM insights](/azure/azure-monitor/vm/vminsights-log-query).
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 

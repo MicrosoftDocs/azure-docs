@@ -1,7 +1,7 @@
 ---
 title: "Oracle to Azure Database for PostgreSQL: Migration guide"
 description: This guide helps you to migrate your Oracle schema to Azure Database for PostgreSQL. 
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.author: alkuchar

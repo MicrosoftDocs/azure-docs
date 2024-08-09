@@ -4,7 +4,7 @@ description: Learn how to create Web Application Firewall policies for Applicati
 services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 08/24/2023
 ms.author: victorh 
 ---
@@ -21,6 +21,8 @@ If your Application Gateway has an associated policy, and then you associate a d
    > Once a Firewall Policy is associated to a WAF, there must always be a policy associated to that WAF. You may overwrite that policy, but disassociating a policy from the WAF entirely isn't supported. 
 
 All new Web Application Firewall's WAF settings (custom rules, managed ruleset configurations, exclusions, etc.) live inside of a WAF Policy. If you have an existing WAF, these settings may still exist in your WAF config. For steps on how to move to the new WAF Policy, see [Upgrade your WAF Config to a WAF Policy](#upgrade) later in this article. 
+
+WAF policies need to be in the enabled state to inspect request traffic, log events and take action on requests. WAF policies in detection mode will log events when WAF rules are triggered but won't take any other action. Policies in prevention mode will take action on requests as well as log the event in the logs.
 
 ## Create a policy
 

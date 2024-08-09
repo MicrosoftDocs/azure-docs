@@ -1,13 +1,14 @@
 ---
 title: Azure API Management backends | Microsoft Docs
-description: Learn about backends in Azure API Management. A backend entity encapsulates information about the backend service, promoting reusability across APIs and improved governance.
+description: Learn about backends in Azure API Management. Backend entities encapsulate information about backend services, promoting reusability across APIs and governance.
 services: api-management
 author: dlepow
-ms.service: api-management
-ms.topic: article
-ms.date: 03/14/2024
-ms.author: danlep 
+ms.service: azure-api-management
+ms.topic: concept-article
+ms.date: 05/13/2024
+ms.author: danlep
 ms.custom:
+  - build-2024
 ---
 
 # Backends in API Management
@@ -75,9 +76,9 @@ For example, here is a policy to route traffic to another backend based on the g
 ```
 
 
-## Circuit breaker (preview)
+## Circuit breaker
 
-Starting in API version 2023-03-01 preview, API Management exposes a [circuit breaker](/rest/api/apimanagement/current-preview/backend/create-or-update?tabs=HTTP#backendcircuitbreaker) property in the backend resource to protect a backend service from being overwhelmed by too many requests.
+API Management exposes a [circuit breaker](/rest/api/apimanagement/current-preview/backend/create-or-update?tabs=HTTP#backendcircuitbreaker) property in the backend resource to protect a backend service from being overwhelmed by too many requests.
 
 * The circuit breaker property defines rules to trip the circuit breaker, such as the number or percentage of failure conditions during a defined time interval and a range of status codes that indicate failures. 
 * When the circuit breaker trips, API Management stops sending requests to the backend service for a defined time, and returns a 503 Service Unavailable response to the client. 
@@ -88,17 +89,20 @@ The backend circuit breaker is an implementation of the [circuit breaker pattern
 > [!NOTE]
 > * Currently, the backend circuit breaker isn't supported in the **Consumption** tier of API Management.
 > * Because of the distributed nature of the API Management architecture, circuit breaker tripping rules are approximate. Different instances of the gateway do not synchronize and will apply circuit breaker rules based on the information on the same instance.
+> * Currently, only one rule can be configured for a backend circuit breaker.
 
 ### Example
 
-Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a circuit breaker in a backend. In the following example, the circuit breaker in *myBackend* in the API Management instance *myAPIM* trips when there are three or more `5xx` status codes indicating server errors in a day. The circuit breaker resets after one hour.
+Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a circuit breaker in a backend. In the following example, the circuit breaker in *myBackend* in the API Management instance *myAPIM* trips when there are three or more `5xx` status codes indicating server errors in 1 hour. 
+
+The circuit breaker resets after 1 hour. If a `Retry-After` header is present in the response, the circuit breaker accepts the value and waits for the specified time before sending requests to the backend again.
 
 #### [Bicep](#tab/bicep)
 
 Include a snippet similar to the following in your Bicep template for a backend resource with a circuit breaker:
 
 ```bicep
-resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-preview' = {
+resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-preview' = {
   name: 'myAPIM/myBackend'
   properties: {
     url: 'https://mybackend.com'
@@ -111,7 +115,7 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-previ
             errorReasons: [
               'Server errors'
             ]
-            interval: 'P1D'
+            interval: 'PT1H' 
             statusCodeRanges: [
               {
                 min: 500
@@ -120,7 +124,8 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-03-01-previ
             ]
           }
           name: 'myBreakerRule'
-          tripDuration: 'PT1H'
+          tripDuration: 'PT1H'  
+          acceptRetryAfter: true
         }
       ]
     }
@@ -135,7 +140,7 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 ```JSON
 {
   "type": "Microsoft.ApiManagement/service/backends",
-  "apiVersion": "2023-03-01-preview",
+  "apiVersion": "2023-09-01-preview",
   "name": "myAPIM/myBackend",
   "properties": {
     "url": "https://mybackend.com",
@@ -146,7 +151,7 @@ Include a JSON snippet similar to the following in your ARM template for a backe
           "failureCondition": {
             "count": "3",
             "errorReasons": [ "Server errors" ],
-            "interval": "P1D",
+            "interval": "PT1H",
             "statusCodeRanges": [
               {
                 "min": "500",
@@ -155,7 +160,8 @@ Include a JSON snippet similar to the following in your ARM template for a backe
             ]
           },
           "name": "myBreakerRule",
-          "tripDuration": "PT1H"
+          "tripDuration": "PT1H",
+          "acceptRetryAfter": true
         }
       ]
     }
@@ -165,9 +171,9 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 
 ---
 
-## Load-balanced pool (preview)
+## Load-balanced pool
 
-Starting in API version 2023-05-01 preview, API Management supports backend *pools*, when you want to implement multiple backends for an API and load-balance requests across those backends. Currently, the backend pool supports round-robin load balancing.
+API Management supports backend *pools*, when you want to implement multiple backends for an API and load-balance requests across those backends. 
 
 Use a backend pool for scenarios such as the following:
 
@@ -177,33 +183,46 @@ Use a backend pool for scenarios such as the following:
 To create a backend pool, set the `type` property of the backend to `pool` and specify a list of backends that make up the pool.
 
 > [!NOTE]
-> * Currently, you can only include single backends in a backend pool. You can't add a backend of type `pool` to another backend pool.
+> * Currently, you can only include single backends in a backend pool. You can't add a backend of type `pool` to another backend pool. You can include up to 30 backends in a pool.
 > * Because of the distributed nature of the API Management architecture, backend load balancing is approximate. Different instances of the gateway do not synchronize and will load balance based on the information on the same instance.
 
 
+### Load balancing options
+
+API Management supports the following load balancing options for backend pools:
+
+* **Round-robin**: By default, requests are distributed evenly across the backends in the pool.
+* **Weighted**: Weights are assigned to the backends in the pool, and requests are distributed across the backends based on the relative weight assigned to each backend. Use this option for scenarios such as conducting a blue-green deployment.
+* **Priority-based**: Backends are organized in priority groups, and requests are sent to the backends in order of the priority groups. Within a priority group, requests are distributed either evenly across the backends, or (if assigned) according to the relative weight assigned to each backend.
+    
+> [!NOTE]
+> Backends in lower priority groups will only be used when all backends in higher priority groups are unavailable because circuit breaker rules are tripped.
+
 ### Example
 
-Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a backend pool. Example backends in the pool are named *backend-1* and *backend-2*. 
+Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a backend pool. Example backends in the pool are named *backend-1* and *backend-2*. Both backends are in the highest priority group; within the group, *backend-1* has a greater weight than *backend-2* .
 
 #### [Bicep](#tab/bicep)
 
 Include a snippet similar to the following in your Bicep template for a backend resource with a load-balanced pool:
 
 ```bicep
-resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-05-01-preview' = {
+resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-preview' = {
   name: 'myAPIM/myBackendPool'
   properties: {
     description: 'Load balancer for multiple backends'
     type: 'Pool'
-    protocol: 'http'
-    url: 'https://example.com'
     pool: {
       services: [
         {
-          id: '/backends/backend-1'
+          id: '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ApiManagement/service/<APIManagementName>/backends/backend-1'
+          priority: 1
+          weight: 3
         }
         {
-          id: '/backends/backend-2'
+          id: '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ApiManagement/service/<APIManagementName>/backends/backend-2'
+          priority: 1
+          weight: 1
         }
       ]
     }
@@ -212,25 +231,27 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-05-01-previ
 ```
 #### [ARM](#tab/arm)
 
-Include a JSON snippet similar to the following in your ARM template for a backend resource with a load-balanced pool:
+Include a JSON snippet similar to the following in your ARM template for a backend resource with a load-balanced pool. 
 
 ```json
 {
   "type": "Microsoft.ApiManagement/service/backends",
-  "apiVersion": "2023-05-01-preview",
+  "apiVersion": "2023-09-01-preview",
   "name": "myAPIM/myBackendPool",
   "properties": {
     "description": "Load balancer for multiple backends",
     "type": "Pool",
-    "protocol": "http",
-    "url": "https://example.com",
     "pool": {
       "services": [
         {
-          "id": "/backends/backend-1"
+          "id": "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ApiManagement/service/<APIManagementName>/backends/backend-1",
+          "priority": "1", 
+          "weight": "3" 
         },
         {
-          "id": "/backends/backend-2"
+          "id": "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ApiManagement/service/<APIManagementName>/backends/backend-2",
+          "priority": "1",
+          "weight": "1"    
         }
       ]
     }
@@ -239,11 +260,14 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 ```
 
 ---
-## Limitation
 
-For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog. 
+
+## Limitations
+
+- For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog.
+- Currently, only one rule can be configured for a backend circuit breaker.  
 
 ## Related content
 
+* Blog: [Using Azure API Management circuit breaker and load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-azure-api-management-circuit-breaker-and-load-balancing/ba-p/4041003)
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.yml) using the Azure portal.
-

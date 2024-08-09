@@ -3,12 +3,11 @@ title: How to deploy existing pipeline jobs to a batch endpoint
 titleSuffix: Azure Machine Learning
 description: Learn how to create pipeline component deployment for Batch Endpoints
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: santiagxf
-ms.author: fasantia
-reviewer: msakande
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: cacrest
 ms.topic: how-to
 ms.custom:
   - how-to

@@ -3,10 +3,10 @@ title: Release notes for 2024 Azure Health Data Services monthly releases
 description: 2024 - Stay updated with the latest features and improvements for the FHIR, DICOM, and MedTech services in Azure Health Data Services in 2024. Read the monthly release notes and learn how to get the most out of healthcare data.
 services: healthcare-apis
 author: shellyhaverkamp
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 04/11/2024
+ms.date: 07/29/2024
 ms.author: jasteppe
 ms.custom: references_regions
 ---
@@ -14,6 +14,57 @@ ms.custom: references_regions
 # Release notes 2024: Azure Health Data Services
 
 This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
+
+## July 2024
+
+### Azure Health Data Services
+
+### FHIR service
+
+#### Allow dates in JSON data to be treated as strings in the Convert-Data operation
+
+It's possible for dates supplied within JSON data to be returned in a different format than what was supplied. During deserialization of the JSON payload strings that are identified as dates get converted into .NET DateTime objects. These objects then get converted back to strings before going through the Liquid template engine. This conversion can cause the date value to be reformatted and represented in the local timezone of the FHIR service.
+
+The coercion of strings to .NET DateTime objects can be disabled using the boolean parameter `jsonDeserializationTreatDatesAsStrings`. When set to `true`, the supplied data is treated as a string and won't be modified before being supplied to the Liquid engine.
+
+#### Import Operation enhancement
+The FHIR service now allows ingestion of data without specifying a version at the resource level. The order of resources is maintained using the lastUpdated value. This enhancement introduces the "allowNegativeVersions" flag. Setting flag true allows the FHIR service to assign negative versions for resource records with an explicit lastUpdated value and no version specified.
+
+#### Bug Fixes
+- **Fixed inclusion of soft deleted resources when using _security:not search parameter**
+When using the _security:not search parameter in search operations, IDs for soft-deleted resources were being included in the search results. We have fixed the issue so that soft-deleted resources are now excluded from search results.
+- **Exporting Data as SMART User**
+Exporting data as a SMART user no longer requires write scopes. Previously, it was necessary to grant "write" privileges to a SMART user for exporting data, which implied higher privilege levels. To initiate an export job as a SMART user, ensure the user is a member of the FHIR export role in RBAC and requests the "read" SMART clinical scope. 
+Updating Status Code from HTTP 500 to HTTP 400
+- **Updating Status Code from HTTP 500 to HTTP 400**
+During a patch operation, if the payload requested an update for a resource type other than parameter, an internal server error (HTTP 500) was initially thrown. This has been updated to throw an HTTP 400 error instead.
+
+#### Performance enhancement
+Query optimization is added when searching FHIR resources with a data range. This query optimization will help with efficient querying as one combined CTE is generated.
+
+## May 2024
+
+### Azure Health Data Services
+
+### FHIR service
+
+#### Scaling enhancement to the Import operation
+
+The scaling logic for import operations is improved, enabling multiple jobs to be executed in parallel. This change impacts audit logs for the import operation. Audit logs for individual import jobs have multiple rows, with each row corresponding to an internal processing job. 
+
+#### Bug fixes
+- **Fixed: HTTP status code for long-running requests**. FHIR requests that take longer than 100 seconds to execute return an HTTP 408 status code instead of HTTP 500. 
+- **Fixed: History request in bundle**. Prior to the fix, history request in a bundle returned HTTP status code 404.
+
+#### Stand-alone FHIR converter (preview)
+
+The stand-alone FHIR converter API available for preview is decoupled from the FHIR service and packaged as a container (Docker) image. In addition to enabling you to convert data from the source of record to FHIR R4 bundles, the FHIR converter offers:
+
+- **Bidirectional data conversion from source of record to FHIR R4 bundles and back.** For example, the FHIR converter can convert data from FHIR R4 format back to HL7v2 format.
+- **Improved experience for customization** of default [Liquid](https://shopify.github.io/liquid/) templates.
+- **Samples** that demonstrate how to create an ETL (extract, transform, load) pipeline with [Azure Data Factory (ADF)](/azure/data-factory/introduction).
+
+To implement the FHIR converter container image, see the [FHIR converter GitHub project](https://github.com/microsoft/fhir-converter).
 
 ## April 2024
 
@@ -60,25 +111,25 @@ Learn more:
 - [Manage medical imaging data with the DICOM service and Azure Data Lake Storage](./dicom/dicom-data-lake.md)
 - [Deploy the DICOM service with Azure Data Lake Storage](./dicom/deploy-dicom-services-in-azure-data-lake.md)
 
-### FHIR Service 
+### FHIR service 
 
 #### Bundle parallelization (GA)
 Bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we enabled parallel processing.
 
 Learn more:
-- [Bundle parallelization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+- [Bundle parallelization](./../healthcare-apis/fhir/rest-api-capabilities.md)
 
 #### Import operation accepts multiple resource types in single file
 
 Import operation allowed to have resource type per input file in the request parameters. With this enhance capability, you can pass multiple resource types in single file.
 
-#### Bug Fixes
+#### Bug fixes
 
-- **Fixed: Import operation ingests resources with the same resource type and lastUpdated field value**. Before this change, resources executed in a batch with the same type and `lastUpdated` field value weren't ingested into the FHIR service. This bug fix addresses the issue. See [PR#3768](https://github.com/microsoft/fhir-server/pull/3768).
+- **Fixed: Import operation ingests resources with the same resource type and lastUpdated field value**. Before this change, resources executed in a batch with the same type and `lastUpdated` field value wasn't ingested into the FHIR service. This bug fix addresses the issue. See [PR#3768](https://github.com/microsoft/fhir-server/pull/3768).
 
-- **Fixed: FHIR search with 3 or more custom search parameters**. Before this fix, FHIR search query at the root with three or more custom search parameters resulted in HTTP status code 504. See [PR#3701](https://github.com/microsoft/fhir-server/pull/3701).
+- **Fixed: FHIR search with 3 or more custom search parameters**. Before this fix, a FHIR search query at the root with three or more custom search parameters resulted in HTTP status code 504. See [PR#3701](https://github.com/microsoft/fhir-server/pull/3701).
 
-- **Fixed: Improve performance for bundle processing**. Updates are made to the task execution method, leading to bundle processing performance improvement. See [PR#3727](https://github.com/microsoft/fhir-server/pull/3727).
+- **Fixed: Improve performance for bundle processing**. Updates to the task execution method, enabling bundle processing performance improvement. See [PR#3727](https://github.com/microsoft/fhir-server/pull/3727).
 
 ## February 2024
 

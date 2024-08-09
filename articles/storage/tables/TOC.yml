@@ -178,8 +178,6 @@
       items:
       - name: .NET (v12 SDK)
         href: ../common/geo-redundant-design.md?toc=/azure/storage/tables/toc.json
-      - name: .NET (v11 SDK)
-        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/tables/toc.json
   - name: Manage disaster recovery
     items:
     - name: Check the Last Sync Time property

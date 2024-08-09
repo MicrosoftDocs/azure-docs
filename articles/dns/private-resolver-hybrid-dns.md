@@ -3,7 +3,7 @@ title: Resolve Azure and on-premises domains.
 description: Configure Azure and on-premises DNS to resolve private DNS zones and on-premises domains.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: how-to
 ms.date: 04/05/2024
 ms.author: greglin

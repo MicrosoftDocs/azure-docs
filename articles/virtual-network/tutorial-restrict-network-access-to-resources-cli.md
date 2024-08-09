@@ -4,7 +4,7 @@ description: In this article, you learn how to limit and restrict network access
 services: virtual-network
 author: asudbring
 manager: mtillman
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
@@ -25,7 +25,7 @@ Virtual network service endpoints enable you to limit network access to some Azu
 * Confirm access to a resource from a subnet
 * Confirm access is denied to a resource from a subnet and the internet
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

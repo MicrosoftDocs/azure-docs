@@ -19,14 +19,13 @@ ms.topic: conceptual
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
 
 > [!NOTE]
-> The [Current GA version](../../defender-for-cloud/file-integrity-monitoring-enable-log-analytics.md) of File Integrity Monitoring based on Log Analytics agent, will be deprecated in August 2024, and a **new version will be provided over MDE soon**.  The **[FIM Public Preview](../../defender-for-cloud/file-integrity-monitoring-enable-ama.md) based on Azure Monitor Agent (AMA), will be deprecated when the alternative is provided over MDE**. Hence, the FIM with AMA Public Preview version is not planned for GA. Read the announcement [here](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341).
+> The [Current GA version](/azure/defender-for-cloud/file-integrity-monitoring-enable-log-analytics) of File Integrity Monitoring based on Log Analytics agent, will be deprecated in August 2024, and a **new version will be provided over MDE soon**.  The **[FIM Public Preview](/azure/defender-for-cloud/file-integrity-monitoring-enable-ama) based on Azure Monitor Agent (AMA), will be deprecated when the alternative is provided over MDE**. Hence, the FIM with AMA Public Preview version is not planned for GA. Read the announcement [here](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341).
 
 ## Key benefits
 
 - **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent](../../azure-monitor/agents/agents-overview.md) that enhances security, reliability, and facilitates multi-homing experience to store data.
 - **Compatibility with tracking tool**- Compatible with the Change tracking (CT) extension deployed through the Azure Policy on the client's virtual machine. You can switch to Azure Monitor Agent (AMA), and then the CT extension pushes the software, files, and registry to AMA.
-- **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](../../azure-monitor/agents/azure-monitor-agent-migration.md)
-so that all VMs point to a single workspace for data collection and maintenance.
+- **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](../../azure-monitor/agents/azure-monitor-agent-migration.md) so that all VMs point to a single workspace for data collection and maintenance.
 - **Rules management** – Uses [Data Collection Rules](../../azure-monitor/essentials/data-collection-rule-overview.md) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
 
 ## Current limitations

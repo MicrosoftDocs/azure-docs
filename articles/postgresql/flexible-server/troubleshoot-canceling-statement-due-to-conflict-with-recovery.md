@@ -1,17 +1,18 @@
 ---
 title: Canceling statement due to conflict with recovery
 description: Provides resolutions for a read replica error - Canceling statement due to conflict with recovery.
-ms.service: postgresql
+author: akashraokm
+ms.author: akashrao
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: troubleshooting-error-codes
-ms.author: alkuchar
-author: AlicjaKucharczyk
-ms.date: 10/5/2023
 ---
 
 # Canceling statement due to conflict with recovery
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article helps you solve a problem that occurs during executing queries against read replica.
 

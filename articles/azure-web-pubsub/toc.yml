@@ -31,6 +31,8 @@
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
       href: tutorial-build-chat.md
+    - name: Develop with Visual Studio Code
+      href: tutorial-develop-with-visual-studio-code.md
     - name: Client streaming with a service-supported subprotocol
       href: tutorial-subprotocol.md
     - name: Authentication and permissions
@@ -76,6 +78,8 @@
       items:
         - name: Protect the access key
           href: howto-secure-rotate-access-key.md
+        - name: Application firewall
+          href: howto-configure-application-firewall.md  
         - name: Use Azure Service Tags
           href: howto-service-tags.md
         - name: Use Azure private endpoints
@@ -118,15 +122,11 @@
           href: tutorial-serverless-static-web-app.md
         - name: Azure IoT Hub
           href: tutorial-serverless-iot.md
-    - name: Monitor and manage
-      items:
-        - name: Audit compliance using Azure Policy
-          href: howto-monitor-azure-policy.md
-        - name: Move resource across regions
-          href: howto-move-across-regions.md
+        - name: Azure Application Gateway
+          href: howto-integrate-app-gateway.md
     - name: Troubleshoot
       items:
-        - name: Debug event handlers locally
+        - name: Debug event handlers
           href: howto-local-debug-event-handler.md
         - name: Collect network trace
           href: howto-troubleshoot-network-trace.md
@@ -164,6 +164,8 @@
               href: socketio-troubleshoot-common-issues.md
             - name: Collect logs
               href: socketio-troubleshoot-logging.md
+            - name: Admin UI
+              href: socketio-troubleshoot-admin-ui.md
     - name: Concepts
       items:
         - name: How does Web PubSub support Socket.IO library

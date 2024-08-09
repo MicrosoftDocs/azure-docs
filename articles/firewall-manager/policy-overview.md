@@ -2,9 +2,9 @@
 title: Azure Firewall Manager policy overview
 description: Learn about Azure Firewall Manager policies.
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 services: firewall-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/06/2024
 ms.author: victorh
 ---
@@ -17,7 +17,7 @@ Firewall Policy is the recommended method to configure your Azure Firewall. It's
 
 ## Policy creation and association
 
-A policy can be created and managed in multiple ways, including the Azure portal, REST API, templates, Azure PowerShell, and CLI.
+A policy can be created and managed in multiple ways, including the Azure portal, REST API, templates, Azure PowerShell, CLI and Terraform.
 
 You can also migrate existing Classic rules from Azure Firewall using the portal or Azure PowerShell to create policies. For more information, see [How to migrate Azure Firewall configurations to Azure Firewall policy](migrate-to-policy.md). 
 
@@ -44,7 +44,7 @@ Azure Firewall supports Basic, Standard, and Premium policies. The following tab
 
 |Policy type|Feature support  | Firewall SKU support|
 |---------|---------|----|
-|Basic policy|NAT rules, Application rules<br>IP Groups<br>Threat Intelligence (alerts)|Basic
+|Basic policy|NAT rules, Network rules, Application rules<br>IP Groups<br>Threat Intelligence (alerts)|Basic
 |Standard policy    |NAT rules, Network rules, Application rules<br>Custom DNS, DNS proxy<br>IP Groups<br>Web Categories<br>Threat Intelligence|Standard or Premium|
 |Premium policy    |All Standard feature support, plus:<br><br>TLS Inspection<br>Web Categories<br>URL Filtering<br>IDPS|Premium
 

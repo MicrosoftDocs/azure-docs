@@ -4,7 +4,7 @@ description: Install the runtime and SDK and create a local development cluster 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-dotnet, devx-track-extended-java, linux-related-content
 services: service-fabric
 ms.date: 07/14/2022
@@ -192,7 +192,7 @@ Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microso
     ```
 
     >[!TIP]
-    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/_/microsoft-service-fabric-onebox) page.
 
 # [Local cluster](#tab/localcluster)
 

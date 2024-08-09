@@ -2,12 +2,12 @@
 title: Hibernation overview
 description: Overview of hibernating your VM.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 05/14/2024
 ms.author: jainan
 ms.reviewer: mattmcinnes
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
 ---
 
 # Hibernation for Azure virtual machines
@@ -41,33 +41,44 @@ Supported operating systems, OS specific limitations, and configuration procedur
 
 ### Supported VM sizes 
 
-VM sizes with up to 32-GB RAM from the following VM series support hibernation.  
+VM sizes with up to 64-GB RAM from the following General Purpose VM series support hibernation.
 - [Dasv5-series](dasv5-dadsv5-series.md) 
 - [Dadsv5-series](dasv5-dadsv5-series.md) 
 - [Dsv5-series](../virtual-machines/dv5-dsv5-series.md)
-- [Ddsv5-series](ddv5-ddsv5-series.md) 
+- [Ddsv5-series](ddv5-ddsv5-series.md)
+- [Easv5-series](easv5-eadsv5-series.md)
+- [Eadsv5-series](easv5-eadsv5-series.md)
+- [Esv5-series](ev5-esv5-series.md)
+- [Edsv5-series](edv5-edsv5-series.md)
+
+VM sizes with up to 112-GB RAM from the following GPU VM series support hibernation.
+- [NVv4-series](../virtual-machines/nvv4-series.md) (in preview)
+- [NVadsA10v5-series](../virtual-machines/nva10v5-series.md) (in preview). If you are using any UVM-enabled compute applications then we recommned you to idle the application before initiating hibernate action. 
+- 
+
+> [!IMPORTANT]
+> Azure Virtual Machines - Hibernation for GPU VMs is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### General limitations
-- You can't enable hibernation on existing VMs.
-- You can't resize a VM if it has hibernation enabled.
+- You can resize VMs that have hibernation enabled, but not when the VM is in a *Hibernated* state. The VM should either be in a *Running* or *Stopped* state.
 - Hibernation is only supported with Nested Virtualization when Trusted Launch is enabled on the VM
 - When a VM is hibernated, you can't attach, detach, or modify any disks or NICs associated with the VM. The VM must instead be moved to a Stop-Deallocated state.
 -	When a VM is hibernated, there's no capacity guarantee to ensure that there's sufficient capacity to start the VM later. In the rare case that you encounter capacity issues, you can try starting the VM at a later time. Capacity reservations don't guarantee capacity for hibernated VMs.
 -	You can only hibernate a VM using the Azure portal, CLI, PowerShell, SDKs and API. Hibernating the VM using guest OS operations don't result in the VM moving to a hibernated state and the VM continues to be billed.
--	You can't disable hibernation on a VM once enabled.
 
 ### Azure feature limitations
 -	Ephemeral OS disks
 -	Shared disks
 -	Availability Sets
--	Virtual Machine Scale Sets Uniform
+-	Virtual Machine Scale Sets in Uniform orchestration mode are not supported. Virtual Machine Scale Sets in [Flexible orchestration mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) are supported.
 -	Spot VMs
 -	Managed images
 -	Azure Backup
 -	Capacity reservations
 
 ## Prerequisites to use hibernation
-- Hibernation must be enabled on your VM while creating the VM.
+- Hibernation must be enabled on your VM.
 - A persistent OS disk large enough to store the contents of the RAM, OS and other applications running on the VM is connected.
 - The VM size supports hibernation.
 -	The VM OS supports hibernation.
@@ -96,10 +107,10 @@ Refer to the [Linux hibernation troubleshooting guide](./linux/hibernate-resume-
     - Once a VM is placed in a hibernated state, you aren't charged for the VM, just like how you aren't charged for VMs in a stop (deallocated) state. You're only charged for the OS disk, data disks and any static IPs associated with the VM.
 
 - Can I enable hibernation on existing VMs?
-    - No, you can't enable hibernation on existing VMs. You can only enable hibernation at the time of creating a VM.
+    - Yes, you can enable hibernation on existing VMs.
 
 - Can I resize a VM with hibernation enabled?
-    - No. Once you enable hibernation on a VM, you can't resize the VM. 
+    - Yes, you can resize a VM with hibernation enabled. You cannot resize the VM if it's in a *Hibernated* state. Move the VM to either a *Running* or *Stopped* state before resizing.
 
 - Can I modify a VM once it is in a hibernated state?
     - No, once a VM is in a hibernated state, you can't perform actions like resizing the VM and modifying the disks. Additionally, you can't detach any disks or networking resources that are currently attached to the VM or attach new resources to the VM. You can however stop(deallocate) or delete the VM if you want to detach these resources. 
@@ -109,8 +120,6 @@ Refer to the [Linux hibernation troubleshooting guide](./linux/hibernate-resume-
 
     - When you hibernate a VM, the memory contents are first persisted in the OS disk, then the VM hibernates. You can't resize VMs in a hibernated state, nor detach/attach disks and networking resources to the VM.
 
-- Can you disable hibernation?
-    - No, you can't disable hibernation on a VM. 
 
 - Can I initiate hibernation from within the VM?
     - To hibernate a VM you should use the Azure portal, CLI, PowerShell commands, SDKs and APIs. Triggering hibernation from inside the VM still results in your VM being billed for the compute resources. 
