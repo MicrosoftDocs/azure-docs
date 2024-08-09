@@ -431,9 +431,6 @@ items:
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
           href: how-to-track-speech-sdk-memory-usage.md
-    - name: Configure RHEL/CentOS 7
-      href: how-to-configure-rhel-centos-7.md
-      displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Generate a REST API client library
       href: swagger-documentation.md
       displayName: rest, swagger

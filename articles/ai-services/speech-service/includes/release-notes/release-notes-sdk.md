@@ -8,9 +8,6 @@ ms.author: eur
 
 ### Upcoming plans for Linux and Android users:
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 ### Speech SDK 1.38.0: 2024-June release
 
 ####  New features

@@ -35,8 +35,6 @@ Embedded TTS with neural voices is only supported on Arm64.
 
 Requires Linux on x64, Arm64, or Arm32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
 
-Embedded speech isn't supported on RHEL/CentOS 7.
-
 Embedded TTS with neural voices isn't supported on Arm32.
 
 # [macOS](#tab/macos-target)
