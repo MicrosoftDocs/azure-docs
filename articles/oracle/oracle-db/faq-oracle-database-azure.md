@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 ---
 
 # Oracle Database@Azure FAQs
-This article answers frequently asked questions (FAQs) about the Oracle Database@Azure partnership with Microsoft.
+This article answers frequently asked questions (FAQs) about the Oracle Database@Azure offering.
 
 ## General
 In this section, we cover general questions about Oracle Database@Azure.
@@ -22,7 +22,7 @@ Oracle Database@Azure is enabled by hosting OCI’s infrastructure in Azure and 
 
 - Oracle Database@Azure: Oracle Database@Azure (Oracle Database Service for Azure) is hosted on OCI’s infrastructure in Azure datacenters enabling you to host your mission critical Oracle databases closer to your application tier hosted in Azure. Azure virtual network integration with subnet delegation enables private IPs from customer virtual network to serve as database endpoints. This solution is Oracle managed and supported service in Azure.
 
-- Oracle on Azure VMs: You can also deploy and self-manage your Oracle workloads on Azure VMs. Specifically, workloads that don't require features like RAC, Smart Scan or Exadata, performance are best suited for this operation.
+- Oracle on Azure VMs: You can also deploy and self-manage your Oracle workloads on Azure VMs. Specifically, workloads that don't require features like RAC, Smart Scan or Exadata performance are best suited for this operation.
 
 - OCI Interconnect: OCI interconnect is used to connect your Oracle deployments in OCI with Applications and services in Azure over OCI FastConnect and Azure ExpressRoute. This typically suits workloads/solutions that can work with the high latency envelope, have dependency on services, features, and functionalities running in both clouds.
 
@@ -40,13 +40,13 @@ Oracle versions supported on Oracle Cloud Infrastructure (OCI) are supported on 
 
 ### Do you have any documented benchmark latency-wise between Azure resources and Oracle Database@Azure?
 
-Latency between Azure resources and Oracle Database@Azure is within the Azure regional latency envelope as the Exadata infrastructure is within the Azure Data Centers. Latency can be further fine-tuned dependent on Co-Location within Availability Zones.
+Latency between Azure resources and Oracle Database@Azure is within the Azure regional latency envelope as the Exadata infrastructure is within the Azure Data Centers. Latency can be further fine-tuned dependent on Co-Location within Availability Zones. For more information, please see [here](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview?tabs=azure-cli)
 
 ### Does Oracle Database@Azure support deploying Base Database (BD), or do I need to migrate to Autonomous Database service?
 
 No, Base Database isn't currently supported with Oracle Database@Azure. You can deploy single instance self-managed databases on Azure VMs or if you need Oracle managed databases with RAC, we recommend Autonomous Databases via Oracle Database@Azure. For more information, see [Autonomous Database | Oracle](https://www.oracle.com/cloud/azure/oracle-database-at-azure/) and [Provision Oracle Autonomous Databases | Microsoft Learn](/training/modules/migrate-oracle-workload-azure-odaa/).
 
-### For the Oracle Database@Azure service, will the automated DBCS DR use Azure backbone or the OCI backbone?
+### For the Oracle Database@Azure service, will the automated DR use Azure backbone or the OCI backbone?
 
 BCDR is enabled using the OCI managed offering (Backup and Data Guard) and will use the Azure-OCI backbone.
 
@@ -60,14 +60,14 @@ Various Oracle applications are authorized and supported to be run on Azure. For
 
 ### What are the available Service Level Agreements (SLAs)?
 
-For detailed Service Level Agreements, refer to the Oracle PaaS and IaaS Public Cloud Services Pillar Document.
+For detailed Service Level Agreements, refer to the Oracle PaaS and IaaS Public Cloud Services [Pillar Document](https://www.oracle.com/contracts/docs/paas_iaas_pub_cld_srvs_pillar_4021422.pdf?download=false).
 
 ## Billing and Commerce
 In this section, we cover questions related to billing and commerce for Oracle Database@Azure.
 
 ### How much will Oracle Database@Azure cost?
 
-Oracle Database@Azure is at parity with the Exadata Cloud costs in OCI. For list prices, refer to OCI’s Cloud Cost Estimator (oracle.com). For your specific costs tailored to your needs, work with your Oracle sales team.
+Oracle Database@Azure is at parity with the Exadata Cloud costs in OCI. For list prices, refer to [OCI’s Cloud Cost Estimator](https://www.oracle.com/cloud/costestimator.html). For your specific costs tailored to your needs, work with your Oracle sales team.
 
 ### Is Oracle Database@Azure eligible for MACC (Microsoft Azure Commit to Consume)?
 
@@ -76,10 +76,6 @@ Yes, the Oracle Database@Azure offering is Azure benefits eligible and hence eli
 ### What licensing options are available to deploy Oracle Databases with Oracle Database@Azure.
 
 You can Bring Your Own License (BYOL) or provision License included Oracle databases with Oracle Database@Azure.
-
-### Can we utilize multi-tenancy billing ID across different regions?
-
-The billing account ID used to target the private offer to a specific customer doesn't constrain where the service can be deployed.
 
 ### Can I procure Oracle Database@Azure even if the service isn't available in my region?
 
@@ -97,7 +93,7 @@ Ingress and Egress for managed services is via Azure OCI backbone and doesn't in
 In this section, we'll cover questions related to onboarding, provisioning, and migration to Oracle Database@Azure.
 ### To set up Oracle Database@Azure, what would be the role assignments needed for the Azure user?
 
-You can find the list of role assignments here.
+You can find the list of role assignments [here](https://learn.microsoft.com/en-us/azure/oracle/oracle-db/oracle-database-groups-roles)
 
 ### Can you describe the authentication/authorization standards supported by Oracle Database@Azure?
 
@@ -105,7 +101,7 @@ Oracle Database@Azure is based on SAML and OpenID standards. OCI Oracle Identity
 
 ### Where can I find best practices to plan and deploy Oracle Database@Azure?
 
-Refer to our landing zone architecture documentation to plan and deploy your oracle workloads with Oracle Database@Azure here.
+Refer to our landing zone architecture documentation to plan and deploy your oracle workloads with Oracle Database@Azure [here](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/oracle-iaas/?wt.mc_id=knwlserapi_inproduct_azportal#landing-zone-architecture-for-oracle-databaseazure)
 
 ### Does Azure have any tools to assist with understanding Oracle database sizing, license usage and TCO for both Oracle Database@Azure and Oracle IaaS?
 
@@ -115,7 +111,7 @@ For Oracle Database on Azure VMs, we currently have the Oracle Migration Assista
 
 ### What tools can be used for database migration? Could you help share other details about licensing and charges for these tools?
 
-There are multiple tools available from Oracle: ZDM, Data Guard, Data pump, GoldenGate, and more. For more information, contact your Oracle representative for commercials.
+There are multiple tools available from Oracle: ZDM, Data Guard, Data pump, GoldenGate, and [more](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-migration-planning?wt.mc_id=knwlserapi_inproduct_azportal#migrate-oracle-workloads-to-azure). For more information, contact your Oracle representative for commercials.
 
 ### When using Oracle GoldenGate for migration, do I need to purchase a GoldenGate license?
 
@@ -149,7 +145,7 @@ Oracle will manage and host the data on Oracle Cloud Infrastructure hosted in Az
 
 In case you enable backup to Azure, that data reside in the respective Azure storage – Azure NetApp Files, Blob storage.
 
-We ensure compliance with both companies’ data privacy and compliance policies through physical isolation of systems within Azure datacenters and access enforced assignment policies. For more information on compliance, refer to [Overview - Oracle Database@Azure | Microsoft Learn](database-overview.md) or Oracle compliance website.
+We ensure compliance with both companies’ data privacy and compliance policies through physical isolation of systems within Azure datacenters and access enforced assignment policies. For more information on compliance, refer to [Overview - Oracle Database@Azure | Microsoft Learn](database-overview.md) or [Oracle compliance website](https://docs.oracle.com/en-us/iaas/Content/multicloud/compliance.htm).
 
 ### How is data security managed? Is the data encrypted in transit and at rest?
 
