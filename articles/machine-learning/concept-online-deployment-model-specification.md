@@ -139,11 +139,11 @@ def init():
 
 ## Deployment configuration for models that are available in the model catalog
 
-@seokjin To add here
+For models in the model catalog, except for models under Azure OpenAI collection, you can use the model IDs that is shown in the model card to deploy them. Model IDs are in the format of `azureml://registries/{registry_name}/models/{model_name}/versions/{model_version}`. Some model cards include example notebooks that show how to use model ID for the deployment.
 
 ## Deployment configuration for models that are available in your organization's registry
 
-@seokjin To add here
+Each model in the organization registries has model ID in the format of `azureml://registries/{registry_name}/models/{model_name}/versions/{model_version}`. Note that you may also use environments that are registered in the same registry.
 
 ## Related content
 
