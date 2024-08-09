@@ -233,6 +233,9 @@ items:
     - name: 🆕 Composed models
       displayName: custom, assign, modelId, model ID
       href:  concept-composed-models.md
+    - name: 🆕 Incremental classifier
+      displayName: custom, classification, training
+      href: concept-incremental-classifier.md  
     - name: Custom template model
       displayName: structure, selection, labels, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-template.md
@@ -242,9 +245,6 @@ items:
     - name: Custom classification model
       displayName: custom, train, classification, splitting
       href: concept-custom-classifier.md
-    - name: 🆕 Incremental classifier
-      displayName: custom, classification, training
-      href: concept-incremental-classifier.md
     - name: Custom labels
       displayName: structure, selection, labels, tables, tabular, train
       href: concept-custom-label.md
