@@ -14,7 +14,7 @@ ms.date: 08/03/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-To get started with dataflows, you need to configure endpoints. An endpoint is the connection point for the dataflow. You can use an endpoint as a source or destination for the dataflow. Some endpoint types can be used as [both sources and destinations](#endpoint-types-for-use-as-sources-and-destinations), while others are for [destinations only](#endpoint-types-for-destinations-only). A dataflow needs at least one source endpoint and one destination endpoint.
+To get started with dataflows, you need to configure endpoints. An endpoint is the connection point for the dataflow. You can use an endpoint as a source or destination for the dataflow. Some endpoint types can be used as [both sources and destinations](#endpoint-types-for-use-as-sources-and-destinations), while others are for [destinations only](#endpoint-type-for-destinations-only). A dataflow needs at least one source endpoint and one destination endpoint.
 
 The following example shows a custom resource definition with all of the configuration options. The required fields are dependent on the endpoint type. Review the sections for each endpoint type for configuration guidance.
 
@@ -77,7 +77,7 @@ spec:
 | `mqttSettings.retain`                      | Whether or not to keep the retain setting. Values: `keep` or `never`. Defaults to `keep`. |
 | `mqttSettings.sessionExpirySeconds`        | Session expiry in seconds. Defaults to `3600`.|
 | `mqttSettings.qos`                         | Quality of service. Values: `0` or `1`. Defaults to `1`.|
-| `mqttSettings.protocol`                    | Use MQTT or websockets. Values: `mqtt` or `websockets`. Defaults to `mqtt`.|
+| `mqttSettings.protocol`                    | Use MQTT or web sockets. Values: `mqtt` or `websockets`. Defaults to `mqtt`.|
 | `mqttSettings.maxInflightMessages`         | The maximum number of messages to keep in flight. For subscribe, it's the receive maximum. For publish, it's the maximum number of messages to send before waiting for an acknowledgment. Default is `100`. |
 
 ## Endpoint types for use as sources and destinations
