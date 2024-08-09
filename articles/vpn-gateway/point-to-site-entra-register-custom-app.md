@@ -5,7 +5,7 @@ description: Learn how to create or modify a custom audience App ID or upgrade a
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 08/05/2024
+ms.date: 08/09/2024
 ms.author: cherylmc
 ---
 
@@ -19,7 +19,23 @@ This article provides high-level steps. The screenshots to register an applicati
 
 ## Prerequisites
 
-This article assumes that you already have a Microsoft Entra tenant and the permissions to create an Enterprise Application, typically the Cloud Application administrator role or higher. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant) and [Assign user roles with Microsoft Entra ID](/entra/fundamentals/users-assign-role-azure-portal).
+* This article assumes that you already have a Microsoft Entra tenant and the permissions to create an Enterprise Application, typically the Cloud Application administrator role or higher. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant) and [Assign user roles with Microsoft Entra ID](/entra/fundamentals/users-assign-role-azure-portal).
+
+* This article assumes that you're using the **Microsoft-registered App ID Azure Public** audience value `c632b3df-fb67-4d84-bdcf-b95ad541b5c8` to configure your custom app. This value has global consent, which means you don't need to manually register it to provide consent for your organization. We recommend that you use this value.
+
+  * At this time, there's only one [supported audience value](point-to-site-about.md#entra-id) for the Microsoft-registered app.
+
+  * If the Microsoft-registered audience value isn't compatible with your configuration, you can still use the older manually registered ID values. For more information about supported audience values and the associated Azure VPN Clients, see the [supported audience value](point-to-site-about.md#entra-id) table.
+
+* If you need to use a manually registered app ID value instead, you must give consent to allow the app to sign in and read user profiles before proceeding with this configuration.
+
+  1. To grant admin consent for your organization, modify the following command to contain the desired `client_id` value. In the example, the client_id value is for Azure Public. See the [table](point-to-site-about.md#entra-id) for additional supported values.
+
+     ```https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent```
+
+  1. Copy and paste the URL that pertains to your deployment location in the address bar of your browser.
+  1. Select the account that has the **Global administrator** role if prompted.
+  1. On the **Permissions** requested page, select **Accept**.
 
 [!INCLUDE [Configure custom audience](../../includes/vpn-gateway-custom-audience.md)]
 
