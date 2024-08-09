@@ -3,7 +3,7 @@ title: Automation services in Azure - overview
 description: This article tells what are the Automation services in Azure and how to compare and use it to automate the lifecycle of infrastructure and applications.
 services: automation
 keywords: azure automation services, automanage, Bicep, Blueprints, Guest Config, Policy, Functions
-ms.date: 09/08/2024
+ms.date: 08/09/2024
 ms.topic: overview
 ---
 
