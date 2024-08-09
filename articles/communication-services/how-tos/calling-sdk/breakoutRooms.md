@@ -38,7 +38,7 @@ The following tables show support of breakout rooms for specific call type and i
 
 
 
-## Operations
+### Operations
 The following tables show support of individual APIs in calling SDK to individual identity types. 
 
 |Operations                   | Communication Services user | Microsoft 365 user |
