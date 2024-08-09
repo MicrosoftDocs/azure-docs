@@ -1,11 +1,11 @@
 ---
 title: Networking overview using SSL and TLS
 description: Learn about secure connectivity with Flexible Server using SSL and TLS.
-author: GennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 05/02/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 

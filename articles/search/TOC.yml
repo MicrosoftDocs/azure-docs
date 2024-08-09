@@ -15,12 +15,16 @@
   items:
   - name: Vector search
     href: search-get-started-vector.md
+  - name: Generative search (RAG)
+    href: search-get-started-rag.md
   - name: Full text search
     href: search-get-started-text.md
-  - name: Semantic reranking
+  - name: Semantic ranking
     href: search-get-started-semantic.md
-  - name: Chat with your data (Azure OpenAI Studio)
-    href:  /azure/ai-services/openai/use-your-data-quickstart?context=/azure/search/context/context
+  - name: Azure OpenAI Studio
+    items:
+    - name: Chat with your data 
+      href: /azure/ai-services/openai/use-your-data-quickstart?context=/azure/search/context/context
   - name: Portal
     items:
     - name: Keyword search wizard
@@ -53,40 +57,44 @@
       href: search-get-started-terraform.md
 - name: Tutorials
   items:
-  - name: Add search to static web apps
-    items: 
-    - name: C#
+  - name: Dev tutorials
+    items:
+    - name: Add search to static web apps
       items: 
-      - name: Overview
-        href: tutorial-csharp-overview.md
-      - name: Create a search index
-        href: tutorial-csharp-create-load-index.md
-      - name: Deploy static web app
-        href: tutorial-csharp-deploy-static-web-app.md
-      - name: Explore the code
-        href: tutorial-csharp-search-query-integration.md          
-    - name: JavaScript 
-      items:         
-      - name: Overview
-        href: tutorial-javascript-overview.md
-      - name: Create a search index
-        href: tutorial-javascript-create-load-index.md
-      - name: Deploy static web app
-        href: tutorial-javascript-deploy-static-web-app.md
-      - name: Explore the code
-        href: tutorial-javascript-search-query-integration.md
-    - name: Python 
-      items:         
-      - name: Overview
-        href: tutorial-python-overview.md
-      - name: Create a search index
-        href: tutorial-python-create-load-index.md
-      - name: Deploy static web app
-        href: tutorial-python-deploy-static-web-app.md
-      - name: Explore the code
-        href: tutorial-python-search-query-integration.md
-  - name: Add search to ASP.NET Core (MVC)
-    href: tutorial-csharp-create-mvc-app.md             
+      - name: C#
+        items: 
+        - name: Overview
+          href: tutorial-csharp-overview.md
+        - name: Create a search index
+          href: tutorial-csharp-create-load-index.md
+        - name: Deploy static web app
+          href: tutorial-csharp-deploy-static-web-app.md
+        - name: Explore the code
+          href: tutorial-csharp-search-query-integration.md          
+      - name: JavaScript 
+        items:         
+        - name: Overview
+          href: tutorial-javascript-overview.md
+        - name: Create a search index
+          href: tutorial-javascript-create-load-index.md
+        - name: Deploy static web app
+          href: tutorial-javascript-deploy-static-web-app.md
+        - name: Explore the code
+          href: tutorial-javascript-search-query-integration.md
+      - name: Python 
+        items:         
+        - name: Overview
+          href: tutorial-python-overview.md
+        - name: Create a search index
+          href: tutorial-python-create-load-index.md
+        - name: Deploy static web app
+          href: tutorial-python-deploy-static-web-app.md
+        - name: Explore the code
+          href: tutorial-python-search-query-integration.md
+    - name: Add search to ASP.NET Core (MVC)
+      href: tutorial-csharp-create-mvc-app.md
+    - name: Query from Power Apps   
+    href: search-howto-powerapps.md     
   - name: Indexing tutorials
     items:
     - name: Index any data
@@ -101,6 +109,8 @@
       href: tutorial-multiple-data-sources.md
     - name: Index encrypted blobs
       href: search-howto-index-encrypted-blobs.md
+    - name: Create a custom analyzer
+      href: tutorial-create-custom-analyzer.md
   - name: Skills tutorials
     items:
     - name: C#
@@ -109,10 +119,6 @@
       href: cognitive-search-tutorial-blob.md
     - name: Debug a skillset
       href: cognitive-search-tutorial-debug-sessions.md
-  - name: Create a custom analyzer
-    href: tutorial-create-custom-analyzer.md
-  - name: Query from Power Apps   
-    href: search-howto-powerapps.md
 - name: Samples
   items:
   - name: C# samples
@@ -143,7 +149,7 @@
       href: search-indexer-overview.md
   - name: Applied AI
     items:
-    - name: Built-in vectorization (preview)
+    - name: Built-in vectorization
       href: vector-search-integrated-vectorization.md
     - name: AI enrichment during indexing
       href: cognitive-search-concept-intro.md
@@ -190,6 +196,8 @@
     items:
     - name: Create a search service
       href: search-create-service-portal.md
+    - name: Choose a region
+      href: search-region-support.md
     - name: Choose a tier
       href: search-sku-tier.md
     - name: Service limits
@@ -218,16 +226,16 @@
         href: search-howto-move-across-regions.md
   - name: Index management
     items:
-    - name: Create a search index
+    - name: Create an index
       href: search-how-to-create-search-index.md
-    - name: Create an index alias
-      href: search-how-to-alias.md
     - name: Load an index
       href: search-how-to-load-search-index.md
-    - name: Index large data sets
-      href: search-howto-large-index.md
-    - name: Drop and rebuild an index
+    - name: Update or rebuild an index
       href: search-howto-reindex.md
+    - name: Alias an index
+      href: search-how-to-alias.md
+    - name: Import large data sets
+      href: search-howto-large-index.md
     - name: Indexers
       items:
       - name: Create an indexer
@@ -332,17 +340,17 @@
     items:
     - name: Create a vector index
       href: vector-search-how-to-create-index.md
-    - name: Index binary data for vector search (preview)
+    - name: Index binary data for vector search
       href: vector-search-how-to-index-binary-data.md
     - name: Query vectors
       href: vector-search-how-to-query.md
     - name: Filter vectors
       href: vector-search-filters.md
-    - name: Vector quotas and staying under limits
+    - name: Vector quotas and limits
       href: vector-search-index-size.md
-    - name: Configure quantization and storage (preview)
+    - name: Reduce vector size
       href: vector-search-how-to-configure-compression-storage.md
-    - name: Configure a vectorizer for queries (preview)
+    - name: Configure a vectorizer for queries
       href: vector-search-how-to-configure-vectorizer.md
     - name: Chunk documents
       href: vector-search-how-to-chunk-documents.md
@@ -420,30 +428,20 @@
       href: index-add-scoring-profiles.md
   - name: Security
     items:
-    - name: Enable role-based access control
+    - name: Configure network access
+      href: service-configure-firewall.md
+    - name: Enable role-based access
       href: search-security-enable-roles.md
-    - name: Configure a managed identity
-      href: search-howto-managed-identities-data-sources.md
-    - name: Inbound connections
-      items:
-      - name: Connect using API keys
-        href: search-security-api-keys.md
-      - name: Connect using Azure roles
-        href: search-security-rbac.md
-      - name: Code without keys
-        href: keyless-connections.md       
-      - name: Configure apps for Microsoft Entra ID
-        href: search-howto-aad.md
-      - name: Configure an IP firewall
-        href: service-configure-firewall.md
-      - name: Create a private endpoint
-        href: service-create-private-endpoint.md
-      - name: Troubleshoot private connections
-        href: troubleshoot-shared-private-link-resources.md
+    - name: Assign roles (users)
+      href: search-security-rbac.md
+    - name: Assign roles (apps)
+      href: keyless-connections.md
+    - name: Authenticate with keys
+      href: search-security-api-keys.md
     - name: Outbound connections
       items:
-      - name: Connect as a trusted service
-        href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Configure a managed identity
+        href: search-howto-managed-identities-data-sources.md
       - name: Connect using a managed identity
         items:
         - name: Azure Storage
@@ -456,18 +454,26 @@
           href: search-index-azure-sql-managed-instance-with-managed-identity.md
       - name: Connect through a firewall
         href: search-indexer-howto-access-ip-restricted.md
+      - name: Connect as a trusted service
+        href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect through a shared private link
         href: search-indexer-howto-access-private.md
       - name: Connect to a SQL managed instance private endpoint
         href: search-indexer-how-to-access-private-sql.md
-    - name: Data encryption
-      items:
-      - name: Customer-managed keys
-        href: search-security-manage-encryption-keys.md
-      - name: Find encrypted objects
-        href: search-security-get-encryption-keys.md
     - name: Document-level security
       href: search-security-trimming-for-azure-search.md
+    - name: Advanced options
+      items:
+      - name: Create a private endpoint
+        href: service-create-private-endpoint.md
+      - name: Troubleshoot private connections
+        href: troubleshoot-shared-private-link-resources.md
+      - name: Data encryption
+        items:
+        - name: Customer-managed keys
+          href: search-security-manage-encryption-keys.md
+        - name: Find encrypted objects
+          href: search-security-get-encryption-keys.md
   - name: Development
     items:
     - name: API versions

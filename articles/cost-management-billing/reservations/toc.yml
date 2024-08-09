@@ -117,7 +117,7 @@
     - name: Dedicated Host
       href: /azure/virtual-machines/prepay-dedicated-hosts-reserved-instances?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Defender for Cloud - Prepurchase
-      href: /azure/defender-for-cloud/prepurchase-plan
+      href: /azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Disk Storage
       href: /azure/virtual-machines/disks-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Microsoft Fabric

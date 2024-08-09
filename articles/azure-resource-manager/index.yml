@@ -9,6 +9,7 @@ metadata:
   title: Azure Resource Manager documentation
   description: Azure Resource Manager is the deployment and management service for Azure.
   ms.service: azure-resource-manager
+  ms.author: jgao
   ms.topic: hub-page
   ms.date: 06/20/2024
 

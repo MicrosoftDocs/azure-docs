@@ -3,13 +3,13 @@ title: Configure a private endpoint
 titleSuffix: Azure Machine Learning
 description: 'Use a private endpoint to securely access your Azure Machine Learning workspace from a virtual network.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: devx-track-azurecli, sdkv2
-ms.author: meerakurup 
-author: meerakurup 
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 01/02/2024
 ---
 

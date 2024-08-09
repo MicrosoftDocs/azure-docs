@@ -12,7 +12,7 @@ metadata:
   ms.reviewer: mjbrown
   ms.service: cosmos-db
   ms.topic: landing-page
-  ms.date: 02/21/2024
+  ms.date: 07/05/2024
 highlightedContent:
   items:
     - title: Introduction to Azure Cosmos DB
@@ -120,16 +120,18 @@ additionalContent:
               url: nosql/model-partition-example.md
             - text: Azure Cosmos DB service quotas
               url: concepts-limits.md
-        - title: Analytics with Azure Synapse Link
+        - title: Analytics and BI
           links:
+            - text: Analytics and BI overview
+              url: analytics-and-business-intelligence-overview.md
+            - text: Analytics and BI use cases
+              url: analytics-and-business-intelligence-use-cases.md
+            - text: Mirroring in Microsoft Fabric
+              url: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
+            - text: API for NoSQL mirroring tutorial in Microsoft Fabric
+              url: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context
             - text: Azure Synapse Link for Azure Cosmos DB
               url: synapse-link.md
-            - text: Azure Cosmos DB Analytical Store
-              url: analytical-store-introduction.md
-            - text: Azure Synapse Link use cases
-              url: synapse-link-use-cases.md
-            - text: Configure Azure Synapse Link
-              url: configure-synapse-link.md
     - title: Training & certification
       items:
         - title: Create an API for NoSQL application

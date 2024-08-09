@@ -3,7 +3,7 @@ title: 'Configure P2S VPN gateway for Microsoft Entra ID authentication - manual
 titleSuffix: Azure VPN Gateway
 description: Learn how to set up a Microsoft Entra tenant and P2S gateway for P2S Microsoft Entra authentication - OpenVPN protocol.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: cherylmc
@@ -12,9 +12,9 @@ ms.author: cherylmc
 
 # Configure P2S VPN Gateway for Microsoft Entra ID authentication – manually registered app
 
-This article helps you configure your Microsoft Entra tenant and point-to-site (P2S) VPN Gateway settings for Microsoft Entra ID authentication. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md). To authenticate using Microsoft Entra ID authentication, you must include the OpenVPN tunnel type in your point-to-site configuration.
+This article helps you configure a point-to-site (P2S) VPN gateway for Microsoft Entra ID authentication and manually register the Azure VPN client. This type of configuration is supported only for OpenVPN protocol connections.
 
-[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+You can also create this type of P2S VPN Gateway configuration using the steps for the new [Microsoft-registered VPN Client app](point-to-site-entra-gateway.md). Using the newer version bypasses the steps to register the Azure VPN Client with your Microsoft Entra tenant. It also supports more client operating systems. However, it might not yet support certain audience values. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ If you already have an existing P2S gateway, the steps in this article help you 
    * Global administrator account
    * User account
 
-   The global administrator account will be used to grant consent to the Azure VPN app registration. The user account can be used to test OpenVPN authentication.
+   The global administrator account is used to grant consent to the Azure VPN app registration. The user account can be used to test OpenVPN authentication.
 1. Assign one of the accounts the **Global administrator** role. For steps, see  [Assign administrator and non-administrator roles to users with Microsoft Entra ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 ## Authorize the Azure VPN application

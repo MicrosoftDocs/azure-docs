@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Database for PostgreSQL - Azure portal
 description: Learn how to manage an Azure Database for PostgreSQL server from the Azure portal.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila

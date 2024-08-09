@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/sentinel/cef-name-mapping.md",
+            "redirect_url": "/azure/sentinel/cef-syslog-ama-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sentinel/detect-threats-built-in.md#use-analytics-rule-templates",
             "redirect_url": "/azure/sentinel/create-analytics-rule-from-template",
             "redirect_document_id": true
@@ -1624,6 +1629,22 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/fortinet.md",
             "redirect_url": "/azure/sentinel/data-connectors/deprecated-fortinet-via-legacy-agent",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-stealthwatch.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/hyas-protect.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+        }
+,
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/tenable-io-vulnerability-management.md",
+            "redirect_url": "/azure/sentinel/data-connectors/tenable-vulnerability-management",
+            "redirect_document_id": false
         }
     ]
 }

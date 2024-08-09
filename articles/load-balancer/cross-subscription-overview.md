@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Learn about cross-subscription load balancing with Azure Load Balancer, and the scenarios it supports.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: overview
 ms.date: 06/18/2024
 ms.author: mbender

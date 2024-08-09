@@ -4,7 +4,7 @@ description: This article shows you how to move Azure Event Grid domains to anot
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 05/14/2024
-ms.service: event-grid
+ms.service: azure-event-grid
 ms.topic: how-to
 ms.custom:
   - subject-relocation
@@ -13,7 +13,11 @@ ms.custom:
 
 # Relocate Azure Event Grid domains to another region
 
- This article covers the recommended approach, guidelines, and practices to relocate Event Grid domains to another region. 
+This article covers the recommended approach, guidelines, and practices to relocate Event Grid domains to another region. 
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
+
 
 
 The high-level steps are: 

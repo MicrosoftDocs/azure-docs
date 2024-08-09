@@ -5,7 +5,7 @@ author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
 ms.date: 04/30/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 #customer intent: As a user, I want to learn how to stop/start an Azure Database for PostgreSQL flexible server instance using the Azure portal so that I can manage my server efficiently.

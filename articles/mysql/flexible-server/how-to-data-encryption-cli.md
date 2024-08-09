@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: how-to
 ms.custom:
@@ -48,15 +48,15 @@ az login
 az account set --subscription \<subscription id\>
 ```
 
-- In Azure Key Vault, create a key vault and a key. The key vault must have the following properties to use as a customer-managed key:
+- In Azure Key Vault, create a key vault or managed HSM and a key. The key vault or managed HSM must have the following properties to use as a customer-managed key:
 
-[Soft delete](../../key-vault/general/soft-delete-overview.md):
+[Soft delete](/azure/key-vault/general/soft-delete-overview):
 
 ```azurecli-interactive
 az resource update --id $(az keyvault show --name \ \<key\_vault\_name\> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
 ```
 
-[Purge protected](../../key-vault/general/soft-delete-overview.md#purge-protection):
+[Purge protected](/azure/key-vault/general/soft-delete-overview#purge-protection):
 
 ```azurecli-interactive
 az keyvault update --name \<key\_vault\_name\> --resource-group \<resource\_group\_name\> --enable-purge-protection true

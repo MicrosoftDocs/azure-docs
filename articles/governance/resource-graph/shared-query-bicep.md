@@ -67,15 +67,15 @@ Create a resource group and deploy the Bicep file with Azure CLI or Azure PowerS
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name exampleRG --location eastus
-az deployment group create --resource-group exampleRG --template-file main.bicep
+az group create --name demoSharedQuery --location eastus
+az deployment group create --resource-group demoSharedQuery --template-file main.bicep
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name exampleRG -Location eastus
-New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile main.bicep
+New-AzResourceGroup -Name demoSharedQuery -Location eastus
+New-AzResourceGroupDeployment -ResourceGroupName demoSharedQuery -TemplateFile main.bicep
 ```
 
 ---
@@ -89,13 +89,13 @@ Use Azure CLI or Azure PowerShell to list the deployed resources in the resource
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az resource list --resource-group exampleRG
+az resource list --resource-group demoSharedQuery
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-AzResource -ResourceGroupName exampleRG 
+Get-AzResource -ResourceGroupName demoSharedQuery 
 ```
 
 ---
@@ -116,18 +116,18 @@ You can verify the shared query works using Azure Resource Graph Explorer. To ch
 
 You can also run the query from your resource group. 
 
-1. In Azure, go to the resource group, _exampleRG_.
+1. In Azure, go to the resource group, _demoSharedQuery_.
 1. From the **Overview** tab, select the query _Count VMs by OS_.
 1. Select the **Results** tab.
 
 ## Clean up resources
 
-When you no longer need the resource that you created, delete the resource group using Azure CLI or Azure PowerShell. And if you signed into Azure portal to run the query, be sure to sign out.
+When you no longer need the resource that you created, delete the resource group using Azure CLI or Azure PowerShell. When a resource group is deleted, the resource group and all its resources are deleted. And if you signed into Azure portal to run the query, be sure to sign out.
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group delete --name exampleRG
+az group delete --name demoSharedQuery
 ```
 
 To sign out of your Azure CLI session:
@@ -139,7 +139,7 @@ az logout
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name exampleRG
+Remove-AzResourceGroup -Name demoSharedQuery
 ```
 
 To sign out of your Azure PowerShell session:
@@ -152,9 +152,7 @@ Disconnect-AzAccount
 
 ## Next steps
 
-In this quickstart, you created a Resource Graph shared query using Bicep.
-
-To learn more about shared queries, continue to the tutorial for:
+In this quickstart, you created a Resource Graph shared query using Bicep. To learn more about the Resource Graph language, continue to the query language details page.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and share an Azure Resource Graph query in the Azure portal](./tutorials/create-share-query.md)
+> [Understanding the Azure Resource Graph query language](./concepts/query-language.md)

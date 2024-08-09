@@ -14,7 +14,7 @@ ms.author: eur
 
 The Speech SDK (software development kit) exposes many of the [Speech service capabilities](overview.md), so you can develop speech-enabled applications. The Speech SDK is available [in many programming languages](quickstarts/setup-platform.md) and across platforms. The Speech SDK is ideal for both real-time and non-real-time scenarios, by using local devices, files, Azure Blob Storage, and input and output streams.
 
-In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service. For example, use the [Speech to text REST API](rest-speech-to-text.md) for [batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md).
+In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service. For example, use the [Speech to text REST API](rest-speech-to-text.md) for [batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md) model management.
 
 ## Supported languages
 

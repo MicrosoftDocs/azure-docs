@@ -6,7 +6,7 @@ author: sethmanheim
 manager: femila
 editor: jwargo
 
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 01/04/2019

@@ -3,7 +3,7 @@ title: Azure API Management backends | Microsoft Docs
 description: Learn about backends in Azure API Management. Backend entities encapsulate information about backend services, promoting reusability across APIs and governance.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/13/2024
 ms.author: danlep
@@ -89,6 +89,7 @@ The backend circuit breaker is an implementation of the [circuit breaker pattern
 > [!NOTE]
 > * Currently, the backend circuit breaker isn't supported in the **Consumption** tier of API Management.
 > * Because of the distributed nature of the API Management architecture, circuit breaker tripping rules are approximate. Different instances of the gateway do not synchronize and will apply circuit breaker rules based on the information on the same instance.
+> * Currently, only one rule can be configured for a backend circuit breaker.
 
 ### Example
 
@@ -261,9 +262,10 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 ---
 
 
-## Limitation
+## Limitations
 
-For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog. 
+- For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog.
+- Currently, only one rule can be configured for a backend circuit breaker.  
 
 ## Related content
 

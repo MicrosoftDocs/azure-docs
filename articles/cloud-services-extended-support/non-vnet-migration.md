@@ -1,17 +1,17 @@
 ---
 title: Migrate cloud services not in a virtual network to a virtual network
-description: How to migrate non-vnet cloud services to a virtual network
+description: How to migrate nonvnet cloud services to a virtual network
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mattmcinnes
-ms.date: 01/24/2024
+ms.date: 07/24/2024
 ---
 
 # Migrate cloud services not in a virtual network to a virtual network
 
-Some legacy cloud services are still running without Vnet support. While there's a process for migrating directly through the portal, there are certain considerations that should be made prior to migration. This article walks you through the process of migrating a non Vnet supporting Cloud Service to a Vnet supporting Cloud Service.
+Some legacy cloud services are still running without virtual network support. While there's a process for migrating directly through the portal, there are certain considerations that should be made before migration. This article walks you through the process of migrating a non virtual network supporting Cloud Service to a virtual network supporting Cloud Service.
 
 ## Advantages of this approach
 
@@ -22,10 +22,10 @@ Some legacy cloud services are still running without Vnet support. While there's
 
 ## Migration procedure using the Azure portal
 
-1. Create a non vnet classic cloud service in the same region as the vnet you want to migrate to. In the Azure portal, select the 'Staging' drop-down.
+1. Create a non virtual network classic cloud service in the same region as the virtual network you want to migrate to. In the Azure portal, select the 'Staging' drop-down.
     ![Screenshot of the staging drop-down in the Azure portal.](./media/vnet-migrate-staging.png)
 
-1. Create a deployment with same configuration as existing deployment by selecting 'Upload' next to the staging drop-down. The platform creates a Default Vnet deployment in staging slot.
+1. Create a deployment with same configuration as existing deployment by selecting 'Upload' next to the staging drop-down. The platform creates a Default virtual network deployment in staging slot.
     ![Screenshot of the upload button in the Azure portal.](./media/vnet-migrate-upload.png)
 
 1. Once staging deployment is created, the URL, IP address, and label populate.

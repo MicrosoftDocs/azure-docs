@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to create a VPN Gateway site-to-sit
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: tutorial
 ms.date: 04/16/2024
 
@@ -57,6 +57,8 @@ After you create your virtual network, you can optionally configure Azure DDoS P
 
 [!INCLUDE [Create gateway subnet](../../includes/vpn-gateway-create-gateway-subnet-portal-include.md)]
 
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
+
 ## <a name="VNetGateway"></a>Create a VPN gateway
 
 In this step, you create the virtual network gateway for your virtual network. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
@@ -81,25 +83,20 @@ Create a virtual network gateway (VPN gateway) by using the following values:
 
 [!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
 
-You can see the deployment status on the **Overview** page for your gateway. A gateway can take up to 45 minutes to fully create and deploy. After the gateway is created, you can view the IP address that was assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the **Overview** page for your gateway. After the gateway is created, you can view the IP address assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="view"></a>View the public IP address
 
-You can view the gateway public IP address on the **Overview** page for your gateway.
+To view public IP addresses associated to your virtual network gateway, navigate to your gateway in the portal.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot that shows the public IP address." lightbox= "./media/tutorial-create-gateway-portal/address.png":::
-
-To see more information about the public IP address object, select the name/IP address link next to **Public IP address**.
+1. On the portal page for your virtual network gateway, under **Settings**, open the **Properties** page.
+1. To view more information about the IP address object, click the associated IP address link.
 
 ## <a name="LocalNetworkGateway"></a>Create a local network gateway
 
-The local network gateway is a specific object that represents your on-premises location (the site) for routing purposes. You give the site a name by which Azure can refer to it, and then specify the IP address of the on-premises VPN device to which you create a connection. You also specify the IP address prefixes that are routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
-
-
-> [!Note]
-> The local network gateway object is deployed in Azure, not to your on-premises location.
+The local network gateway is a specific object deployed to Azure that represents your on-premises location (the site) for routing purposes. You give the site a name by which Azure can refer to it, and then specify the IP address of the on-premises VPN device to which you create a connection. You also specify the IP address prefixes that are routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
 
 Create a local network gateway by using the following values:
 

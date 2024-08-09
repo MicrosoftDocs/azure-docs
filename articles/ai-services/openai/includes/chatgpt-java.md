@@ -8,16 +8,14 @@ ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/26/2023
+ms.date: 07/03/2024
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples) | [Retrieval Augmented Generation (RAG) enterprise chat template](/azure/developer/java/quickstarts/get-started-app-chat-template) | [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/chatgpt-intellij) 
+[Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.10) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples) | [Retrieval Augmented Generation (RAG) enterprise chat template](/azure/developer/java/quickstarts/get-started-app-chat-template) | [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/chatgpt-intellij) 
 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to the Azure OpenAI service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 * The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 - The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 - An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4` models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
@@ -55,7 +53,7 @@ When prompted to choose a **DSL**, select **Kotlin**.
 
 ## Install the Java SDK
 
-This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
+This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://central.sonatype.com/search?q=azure-ai-openai).
 
 Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **OpenAIQuickstart**. It imports the Azure AI Vision library.
 
@@ -71,7 +69,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-openai", version = "1.0.0-beta.3")
+    implementation(group = "com.azure", name = "azure-ai-openai", version = "1.0.0-beta.10")
     implementation("org.slf4j:slf4j-simple:1.7.9")
 }
 ```
@@ -91,43 +89,50 @@ dependencies {
 
 1. Open *OpenAIQuickstart.java* in your preferred editor or IDE and paste in the following code.
 
-    ```java    
+    ```java
+    package com.azure.ai.openai.usage;
+
     import com.azure.ai.openai.OpenAIClient;
     import com.azure.ai.openai.OpenAIClientBuilder;
     import com.azure.ai.openai.models.ChatChoice;
     import com.azure.ai.openai.models.ChatCompletions;
     import com.azure.ai.openai.models.ChatCompletionsOptions;
-    import com.azure.ai.openai.models.ChatMessage;
-    import com.azure.ai.openai.models.ChatRole;
+    import com.azure.ai.openai.models.ChatRequestAssistantMessage;
+    import com.azure.ai.openai.models.ChatRequestMessage;
+    import com.azure.ai.openai.models.ChatRequestSystemMessage;
+    import com.azure.ai.openai.models.ChatRequestUserMessage;
+    import com.azure.ai.openai.models.ChatResponseMessage;
     import com.azure.ai.openai.models.CompletionsUsage;
     import com.azure.core.credential.AzureKeyCredential;
+    import com.azure.core.util.Configuration;
     
     import java.util.ArrayList;
     import java.util.List;
     
-    public class GetChatCompletionsSample {
-    
+   
+    public class OpenAIQuickstart {
+
         public static void main(String[] args) {
-            String azureOpenaiKey = System.getenv("AZURE_OPENAI_API_KEY");;
-            String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");;
-            String deploymentOrModelId = "gpt-35-turbo"; //Change to match your deployment name
+            String azureOpenaiKey = Configuration.getGlobalConfiguration().get("AZURE_OPENAI_API_KEY");
+            String endpoint = Configuration.getGlobalConfiguration().get("AZURE_OPENAI_ENDPOINT");
+            String deploymentOrModelId = "{azure-open-ai-deployment-model-id}";
     
-          OpenAIClient client = new OpenAIClientBuilder()
+            OpenAIClient client = new OpenAIClientBuilder()
                 .endpoint(endpoint)
                 .credential(new AzureKeyCredential(azureOpenaiKey))
                 .buildClient();
     
-            List<ChatMessage> chatMessages = new ArrayList<>();
-            chatMessages.add(new ChatMessage(ChatRole.SYSTEM, "You are a helpful assistant"));
-            chatMessages.add(new ChatMessage(ChatRole.USER, "Does Azure OpenAI support customer managed keys?"));
-            chatMessages.add(new ChatMessage(ChatRole.ASSISTANT, "Yes, customer managed keys are supported by Azure OpenAI?"));
-            chatMessages.add(new ChatMessage(ChatRole.USER, "Do other Azure AI services support this too?"));
+            List<ChatRequestMessage> chatMessages = new ArrayList<>();
+            chatMessages.add(new ChatRequestSystemMessage("You are a helpful assistant."));
+            chatMessages.add(new ChatRequestUserMessage("Does Azure OpenAI support customer managed keys?"));
+            chatMessages.add(new ChatRequestAssistantMessage("Yes, customer managed keys are supported by Azure OpenAI?"));
+            chatMessages.add(new ChatRequestUserMessage("Do other Azure AI services support this too?"));    
     
             ChatCompletions chatCompletions = client.getChatCompletions(deploymentOrModelId, new ChatCompletionsOptions(chatMessages));
     
             System.out.printf("Model ID=%s is created at %s.%n", chatCompletions.getId(), chatCompletions.getCreatedAt());
             for (ChatChoice choice : chatCompletions.getChoices()) {
-                ChatMessage message = choice.getMessage();
+                ChatResponseMessage message = choice.getMessage();
                 System.out.printf("Index: %d, Chat Role: %s.%n", choice.getIndex(), message.getRole());
                 System.out.println("Message:");
                 System.out.println(message.getContent());
@@ -139,11 +144,12 @@ dependencies {
                     + "number of completion token is %d, and number of total tokens in request and response is %d.%n",
                 usage.getPromptTokens(), usage.getCompletionTokens(), usage.getTotalTokens());
         }
-    }  
+    }
     ```
 
+
     > [!IMPORTANT]
-    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+    > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 1. Navigate back to the project root folder, and build the app with:
 
@@ -176,7 +182,7 @@ Usage: number of prompt token is 59, number of completion token is 36, and numbe
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

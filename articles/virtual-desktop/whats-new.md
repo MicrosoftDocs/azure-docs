@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 06/06/2024
+ms.date: 07/31/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -22,9 +22,71 @@ Make sure to check back here often to keep up with new updates.
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
 
+## July 2024 
+
+Here's what changed in July 2024: 
+
+### New Teams available on Windows Enterprise multi-session images with M365 apps pre-installed 
+
+Our Windows Enterprise multi-session images + Microsoft M365 apps are updated with the new Teams app pre-installed. Users accessing newly provisioned session hosts with the latest images, updated late July, enjoy the new experience. Learn more about [What's changing in the new Microsoft Teams](/microsoftteams/new-teams-whats-changing).  
+
+Learn more about Windows Enterprise multi-session in our [FAQ](windows-multisession-faq.yml). 
+
+## June 2024 
+
+Here's what changed in June 2024: 
+
+### Configuring the default chroma value for Azure Virtual Desktop is now in public preview
+
+The chroma value determines the color space used for encoding. By default, the chroma value is set to 4:2:0, which provides a good balance between image quality and network bandwidth. You can increase the default chroma value to 4:4:4 to improve image quality. You don't need to use GPU acceleration to change the default chroma value. 
+
+For more information, see [Configure default chroma value for Azure Virtual Desktop](configure-default-chroma-value.md). 
+
+### New Teams SlimCore changes are now available in preview
+
+Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using Windows App or the Remote Desktop client on a supported platform.  
+
+There are two versions of Teams, Classic Teams and [New Teams](/microsoftteams/new-teams-desktop-admin), and you can use either with Azure Virtual Desktop. New Teams has feature parity with Classic Teams, and improves performance, reliability, and security. 
+
+New Teams can use either SlimCore or the WebRTC Redirector Service. SlimCore is available in preview and you need to [opt in to the preview](/microsoftteams/public-preview-doc-updates?tabs=new-teams-client) to use it. If you use SlimCore, you should also install the WebRTC Redirector Service. This allows a user to fall back to WebRTC, such as if they roam between different devices that don't support the new optimization architecture. For more information about SlimCore and how to opt into the preview, see [New VDI solution for Teams](/microsoftteams/vdi-2). 
+
+For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md). 
+
+### Preferred application group type behavior for pooled host pools in Azure Virtual Desktop has been updated 
+
+An application group is a logical grouping of applications that are available on session hosts in a host pool. Application groups control whether a full desktop or which applications from a host pool are available to users to connect to. An application group can only be assigned to a single host pool, but you can assign multiple application groups to the same host pool. Users can be assigned to multiple application groups across multiple host pools, which enable you to vary the applications and desktops that users can access. 
+
+For more information, see [Preferred application group type behavior for pooled host pools in Azure Virtual Desktop](preferred-application-group-type.md). 
+
+### Additional data and metrics for Connection Reliability for Azure Virtual Desktop is now available 
+
+Using Azure Virtual Desktop Insights can help you understand your deployments of Azure Virtual Desktop. It can help with checks such as which client versions are connecting, opportunities for cost saving, or knowing if you have resource limitations or connectivity issues.  
+
+The reliability of a connection can have a significant impact on the end-user experience. Azure Virtual Desktop Insights can help you understand disconnection events and correlations between errors that affect end users.  
+
+For more information and instructions, see [Use cases for Azure Virtual Desktop Insights](insights-use-cases.md). 
+
+
+### Configuring RDP Shortpath for Azure Virtual Desktop now supports host pool settings 
+
+You can granularly control how RDP Shortpath is used by configuring the networking settings of a host pool using the Azure portal or Azure PowerShell. Configuring RDP Shortpath on the host pool enables you to optionally set which of the four RDP Shortpath options you want to use and is used alongside the session host configuration. 
+
+For more information, see [Configure RDP Shortpath for Azure Virtual Desktop](configure-rdp-shortpath.md). 
+
+### Adding and managing app attach applications in Azure Virtual Desktop is now available 
+
+App attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with app attach also gives you greater control over which applications your users can access in a remote session. 
+
+For more information and instructions, see [Add and manage app attach and MSIX app attach applications](app-attach-setup.md). 
+
+
 ## May 2024 
 
 Here's what changed in May 2024: 
+
+### Windows multi-session 11 with Microsoft 365 Apps gallery images now pre-install new Microsoft Teams 
+
+Windows multi-session 11 with Microsoft 365 Apps images in the Azure Marketplace now come with the new Microsoft Teams pre-installed (not Teams (Classic)). This applies to Windows Enterprise multi-session 11 23H2 and 22H2.  
 
 ### Configuring client device redirection for Windows App and the Remote Desktop app using Microsoft Intune is now in preview
 
@@ -1106,8 +1168,6 @@ We've optimized performance by reducing connection latency in the following Azur
 - Switzerland
 - Canada
 
-You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
-
 ### Azure Government Cloud availability
 
 The Azure Government Cloud is now generally available. Learn more at [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/).
@@ -1137,8 +1197,6 @@ Here's what changed in September 2020:
     - Germany
     - South Africa (for validation environments only)
 
-You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
-
 - We released version 1.2.1364 of the Windows Desktop client for Azure Virtual Desktop. In this update, we made the following changes:
     - Fixed an issue where single sign-on (SSO) didn't work on Windows 7.
     - Fixed an issue that caused the client to disconnect when a user who enabled media optimization for Teams tried to call or join a Teams meeting while another app had an audio stream open in exclusive mode.
@@ -1163,9 +1221,7 @@ Here's what changed in August 2020:
     - Norway
     - South Korea
 
-   You can use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to get a general idea of how these changes affect your users.
-
-- The Microsoft Store Remote Desktop Client (v10.2.1522+) is now generally available! This version of the Microsoft Store Remote Desktop Client is compatible with Azure Virtual Desktop. We've also introduced refreshed UI flows for improved user experiences. This update includes fluent design, light and dark modes, and many other exciting changes. We've also rewritten the client to use the same underlying remote desktop protocol (RDP) engine as the iOS, macOS, and Android clients. This lets us deliver new features at a faster rate across all platforms. [Download the client](https://www.microsoft.com/p/microsoft-remote-desktop/9wzdncrfj3ps?rtc=1&activetab=pivot:overviewtab) and give it a try!
+- The Microsoft Store Remote Desktop Client is now generally available. This version of the Microsoft Store Remote Desktop Client is compatible with Azure Virtual Desktop. We've also introduced refreshed UI flows for improved user experiences. This update includes fluent design, light and dark modes, and many other exciting changes. We've also rewritten the client to use the same underlying remote desktop protocol (RDP) engine as the iOS, macOS, and Android clients. This lets us deliver new features at a faster rate across all platforms. [Download the client](https://www.microsoft.com/p/microsoft-remote-desktop/9wzdncrfj3ps?rtc=1&activetab=pivot:overviewtab).
 
 - We fixed an issue in the Teams Desktop client (version 1.3.00.21759) where the client only showed the UTC time zone in the chat, channels, and calendar. The updated client now shows the remote session's time zone instead.
 

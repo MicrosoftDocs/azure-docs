@@ -2,7 +2,7 @@
 title: Compute benchmark scores for Azure Windows VMs
 description: Compare Coremark compute benchmark scores for Azure VMs running Windows Server.
 author:: DavidBerg-MSFT
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/25/2024

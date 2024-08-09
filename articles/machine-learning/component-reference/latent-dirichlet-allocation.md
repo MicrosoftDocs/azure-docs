@@ -3,7 +3,7 @@ title: "Latent Dirichlet Allocation: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Latent Dirichlet Allocation component to group otherwise unclassified text into categories.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Quickstart: Detect protected material (preview)
 
-The protected material text describes language that matches known text content (for example, song lyrics, articles, recipes, selected web content). This feature can be used to identify and block known text content from being displayed in language model output (English content only).
+Protected material text describes language that matches known text content (for example, song lyrics, articles, recipes, selected web content). This feature can be used to identify and block known text content from being displayed in language model output (English content only). For more information, see [Protected material concepts](./concepts/protected-material.md).
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ curl --location --request POST '<endpoint>/contentsafety/text:detectProtectedMat
 --header 'Ocp-Apim-Subscription-Key: <your_subscription_key>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "text": "to everyone, the best things in life are free. the stars belong to everyone, they gleam there for you and me. the flowers in spring, the robins that sing, the sunbeams that shine, they\'re yours, they\'re mine. and love can come to everyone, the best things in life are"
+  "text": "to everyone, the best things in life are free. the stars belong to everyone, they gleam there for you and me. the flowers in spring, the robins that sing, the sunbeams that shine"
 }'
 ```
 The below fields must be included in the url:
@@ -84,7 +84,7 @@ The JSON fields in the output are defined here:
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

@@ -1,7 +1,7 @@
 ---
 title: Upgrading a basic public IP address to standard SKU - Guidance
 description: Overview of upgrade options and guidance for migrating basic public IP to standard public IP for future basic public IP address retirement
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurecli
 ms.topic: overview
@@ -23,7 +23,7 @@ We recommend the following approach to upgrade to Standard SKU public IP address
 
 1. Learn about some of the [key differences](#basic-sku-vs-standard-sku) between Basic SKU public IP and Standard SKU public IP. 
 
-2. Identify the Basic SKU public IP to upgrade.
+2. Identify the [Basic SKU public IP](public-ip-upgrade-portal.md#upgrade-public-ip-address) in your organization that requires upgrade.
 
 3. Determine if you would need [Zone Redundancy](public-ip-addresses.md#availability-zone). 
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article provides information on how to configure Application Gateway Standard v1 with a private frontend IP address
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 08/09/2024
 ms.author: greglin

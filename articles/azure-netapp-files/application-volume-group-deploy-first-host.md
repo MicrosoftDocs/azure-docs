@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 06/18/2024
 ms.author: anfdocs
 ---
 # Deploy the first SAP HANA host using application volume group for SAP HANA

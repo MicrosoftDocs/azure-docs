@@ -1,10 +1,10 @@
 ---
 title: Boot integrity monitoring overview
-description: How to use the guest attestation extension to secure boot your VM. How to handle traffic blocking.
+description: Learn how to use the Guest Attestation extension to secure boot your virtual machine and how to handle traffic blocking.
 author: Howie425
 ms.author: howieasmerom
 ms.reviewer: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 04/10/2024
@@ -13,34 +13,38 @@ ms.custom: template-concept
 
 # Boot integrity monitoring overview
 
-To help Trusted Launch better prevent malicious rootkit attacks on virtual machines, guest attestation through Microsoft Azure Attestation (MAA) endpoint is used to monitor the boot sequence integrity. This attestation is critical to provide validity of a platform’s states. If your [Azure Trusted Virtual Machines](trusted-launch.md) has Secure Boot and vTPM enabled and attestation extensions installed, Microsoft Defender for Cloud verifies that the status and boot integrity of your VM is set up correctly. To learn more about MDC integration, see the [trusted launch integration with Microsoft Defender for Cloud](trusted-launch.md#microsoft-defender-for-cloud-integration).
+To help Azure Trusted Launch better prevent malicious rootkit attacks on virtual machines (VMs), guest attestation through an Azure Attestation endpoint is used to monitor the boot sequence integrity. This attestation is critical to provide the validity of a platform's states.
+
+Your [Trusted Launch VM](trusted-launch.md) needs Secure Boot and virtual Trusted Platform Module (vTPM) to be enabled so that the attestation extensions can be installed. Microsoft Defender for Cloud offers reports based on Guest Attestation verifying status and that the boot integrity of your VM is set up correctly. To learn more about Microsoft Defender for Cloud integration, see [Trusted Launch integration with Microsoft Defender for Cloud](trusted-launch.md#microsoft-defender-for-cloud-integration).
 
 > [!IMPORTANT]
-> Automatic Extension Upgrade is now available for Boot Integrity Monitoring - Guest Attestation extension. Learn more about [Automatic extension upgrade](automatic-extension-upgrade.md).
+> Automatic Extension Upgrade is now available for the Boot Integrity Monitoring - Guest Attestation extension. For more information, see [Automatic Extension Upgrade](automatic-extension-upgrade.md).
 
 ## Prerequisites
 
-An Active Azure Subscription + Trusted Launch Virtual Machine
+You need an active Azure subscription and a Trusted Launch VM.
 
 ## Enable integrity monitoring
+
+To enable integrity monitoring, follow the steps in this section.
 
 ### [Azure portal](#tab/portal)
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 1. Select the resource (**Virtual Machines**).
-1. Under **Settings**, select **configuration**. In the security type panel, select **integrity monitoring**.
+1. Under **Settings**, select **Configuration**. On the **Security type** pane, select **Integrity monitoring**.
 
-    :::image type="content" source="media/trusted-launch/verify-integrity-boot-on.png" alt-text="Screenshot showing integrity booting selected.":::
+    :::image type="content" source="media/trusted-launch/verify-integrity-boot-on.png" alt-text="Screenshot that shows Integrity monitoring selected.":::
 
 1. Save the changes.
 
-Now, under the virtual machines overview page, security type for integrity monitoring should state enabled.
+On the VM **Overview** page, the security type for integrity monitoring should appear as **Enabled**.
 
-This installs the guest attestation extension, which can be referred through settings within the extensions + applications tab.
+This action installs the Guest Attestation extension, which you can refer to via the settings on the **Extensions + Applications** tab.
 
 ### [Template](#tab/template)
 
-You can deploy the guest attestation extension for trusted launch VMs using a quickstart template:
+You can deploy the Guest Attestation extension for Trusted Launch VMs by using a quickstart template.
 
 #### Windows
 
@@ -76,6 +80,7 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
     ]
 }       
 ```
+
 #### Linux
 
 ```json
@@ -114,70 +119,81 @@ You can deploy the guest attestation extension for trusted launch VMs using a qu
 
 ### [CLI](#tab/cli)
 
-
-1. Create a virtual machine with Trusted Launch that has Secure Boot + vTPM capabilities through initial deployment of trusted launch virtual machine. To deploy guest attestation extension use (`--enable-integrity-monitoring`). Configuration of virtual machines are customizable by virtual machine owner (`az vm create`).
-1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure enable integrity monitoring is turned on (`--enable-integrity-monitoring`).
+1. Create a VM with Trusted Launch that has Secure Boot and vTPM capabilities through initial deployment of a Trusted Launch VM. To deploy the Guest Attestation extension, use `--enable-integrity-monitoring`. As the VM owner, you can customize VM configuration by using `az vm create`.
+1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure that integrity monitoring is turned on. You can use `--enable-integrity-monitoring`.
 
 > [!NOTE]
-> The Guest Attestation Extension needs to be configured explicitly.
+> The Guest Attestation extension must be configured explicitly.
 
 ### [PowerShell](#tab/powershell)
 
-If Secure Boot and vTPM are ON, boot integrity will be ON.
+If Secure Boot and vTPM are set to **ON**, then boot integrity is also set to **ON**.
 
-1. Create a virtual machine with Trusted Launch that has Secure Boot + vTPM capabilities through initial deployment of the trusted launch virtual machine. Configuration of virtual machines is customizable by virtual machine owner.
-1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure both SecureBoot and vTPM are on.
+1. Create a VM with Trusted Launch that has Secure Boot and vTPM capabilities through initial deployment of a Trusted Launch VM. As the VM owner, you can customize VM configuration.
+1. For existing VMs, you can enable boot integrity monitoring settings by updating. Make sure that both Secure Boot and vTPM are set to **ON**.
 
-For more information on creation or updating a virtual machine to include the boot integrity monitoring through the guest attestation extension, see [Deploy a VM with trusted launch enabled (PowerShell)](trusted-launch-portal.md#deploy-a-trusted-launch-vm).
+For more information on creating or updating a VM to include boot integrity monitoring through the Guest Attestation extension, see [Deploy a VM with Trusted Launch enabled (PowerShell)](trusted-launch-portal.md#deploy-a-trusted-launch-vm).
 
 ---
 
-## Troubleshooting guide for guest attestation extension installation
+## Troubleshooting guide for Guest Attestation extension installation
+
+This section addresses attestation errors and solutions.
 
 ### Symptoms
 
-The Microsoft Azure Attestation extensions won't properly work when customers set up a network security group or proxy. An error that looks similar to (Microsoft.Azure.Security.WindowsAttestation.GuestAttestation provisioning failed.)
+The Azure Attestation extension won't work properly when you set up a network security group (NSG) or a proxy. An error appears that looks similar to "`Microsoft.Azure.Security.WindowsAttestation.GuestAttestation` provisioning failed."
 
-:::image type="content" source="media/trusted-launch/guest-attestation-failing.png" lightbox="./media/trusted-launch/guest-attestation-failing.png" alt-text="Screenshot of an error screen that results from a failed GA Extension.":::
+:::image type="content" source="media/trusted-launch/guest-attestation-failing.png" lightbox="./media/trusted-launch/guest-attestation-failing.png" alt-text="Screenshot that shows an error that results from a failed Guest Attestation extension.":::
 
 ### Solutions
 
-In Azure, Network Security Groups (NSG) are used to help filter network traffic between Azure resources. NSGs contains security rules that either allow or deny inbound network traffic, or outbound network traffic from several types of Azure resources. For the Microsoft Azure Attestation endpoint, it should be able to communicate with the guest attestation extension. Without this endpoint, Trusted Launch can’t access guest attestation, which allows Microsoft Defender for Cloud to monitor the integrity of the boot sequence of your virtual machines.
+In Azure, NSGs are used to help filter network traffic between Azure resources. NSGs contain security rules that either allow or deny inbound network traffic, or outbound network traffic from several types of Azure resources. The Azure Attestation endpoint should be able to communicate with the Guest Attestation extension. Without this endpoint, Trusted Launch can't access guest attestation, which allows Microsoft Defender for Cloud to monitor the integrity of the boot sequence of your VMs.
 
-Unblocking Microsoft Azure Attestation traffic in **Network Security Groups** using service tags.
+To unblock Azure Attestation traffic in NSGs by using service tags:
 
-1. Navigate to the **virtual machine** that you want to allow outbound traffic.
-1. Under "Networking" in the left-hand sidebar, select the **networking settings** tab.
-1. Then select **create port rule**, and **Add outbound port rule**.  
-    :::image type="content" source="./media/trusted-launch/tvm-portrule.png" lightbox="./media/trusted-launch/tvm-portrule.png" alt-text="Screenshot of the add outbound port rule selection.":::
-1. To allow Microsoft Azure Attestation, make the destination a **service tag**. This allows for the range of IP addresses to update and automatically set allow rules for Microsoft Azure Attestation. The destination service tag is **AzureAttestation** and action is set to **Allow**.
-    :::image type="content" source="media/trusted-launch/unblocking-NSG.png" alt-text="Screenshot showing how to make the destination a service tag.":::
+1. Go to the VM that you want to allow outbound traffic.
+1. On the leftmost pane, under **Networking**, select **Networking settings**.
+1. Then select **Create port rule** > **Outbound port rule**.
 
-Firewalls protect a virtual network, which contains multiple Trusted Launch virtual machines. To unblock Microsoft Azure Attestation traffic in **Firewall** using application rule collection. 
+    :::image type="content" source="./media/trusted-launch/tvm-portrule.png" lightbox="./media/trusted-launch/tvm-portrule.png" alt-text="Screenshot that shows adding the Outbound port rule.":::
 
-1. Navigate to the Azure Firewall, that has traffic blocked from the Trusted Launch virtual machine resource. 
-2. Under settings, select Rules (classic) to begin unblocking guest attestation behind the Firewall.
-3. Select a **network rule collection** and add network rule.
-   :::image type="content" source="./media/trusted-launch/firewall-network-rule-collection.png" lightbox="./media/trusted-launch/firewall-network-rule-collection.png" alt-text="Screenshot of the adding application rule":::
-5. The user can configure their name, priority, source type, destination ports based on their needs. The name of the service tag is as follows: **AzureAttestation**, and action needs to be set as **allow**.
+1. To allow Azure Attestation, you make the destination a service tag. This setting allows for the range of IP addresses to update and automatically set rules that allow Azure Attestation. Set **Destination service tag** to **AzureAttestation** and set **Action** to **Allow**.
 
-To unblock Microsoft Azure Attestation traffic in **Firewall** using application rule collection. 
+    :::image type="content" source="media/trusted-launch/unblocking-NSG.png" alt-text="Screenshot that shows how to make the destination a service tag.":::
 
-1. Navigate to the Azure Firewall, that has traffic blocked from the Trusted Launch virtual machine resource.
-:::image type="content" source="./media/trusted-launch/firewall-rule.png" lightbox="./media/trusted-launch/firewall-rule.png" alt-text="Screenshot of the adding traffic for application rule route."::: The rules collection must contain at least one rule, navigate to Target FQDNs (fully qualified domain names).
-2. Select Application Rule collection and add an application rule.
-3. Select a name, a numeric priority for your application rules. The action for rule collection is set to ALLOW. To learn more about the application processing and values, read here.
-:::image type="content" source="./media/trusted-launch/firewall-application-rule.png" lightbox="./media/trusted-launch/firewall-application-rule.png" alt-text="Screenshot of the adding application rule route.":::
-4. Name, source, protocol, are all configurable by the user. Source type for single IP address, select IP group to allow multiple IP address through the firewall. 
+Firewalls protect a virtual network, which contains multiple Trusted Launch VMs. To unblock Azure Attestation traffic in a firewall by using an application rule collection:
 
-### Regional Shared Providers
+1. Go to the Azure Firewall instance that has traffic blocked from the Trusted Launch VM resource.
+1. Under **Settings**, select **Rules (classic)** to begin unblocking guest attestation behind the firewall.
+1. Under **Network rule collection**, select **Add network rule collection**.
 
-Azure Attestation provides a [regional shared provider](https://maainfo.azurewebsites.net/) in each available region. Customers can choose to use the regional shared provider for attestation or create their own providers with custom policies. Shared providers can be accessed by any Azure AD user, and the policy associated with it cannot be changed.
+   :::image type="content" source="./media/trusted-launch/firewall-network-rule-collection.png" lightbox="./media/trusted-launch/firewall-network-rule-collection.png" alt-text="Screenshot that shows adding an application rule.":::
+
+1. Configure the name, priority, source type, and destination ports based on your needs. Set **Service tag name** to **AzureAttestation** and set **Action** to **Allow**.
+
+To unblock Azure Attestation traffic in a firewall by using an application rule collection:
+
+1. Go to the Azure Firewall instance that has traffic blocked from the Trusted Launch VM resource.
+
+   :::image type="content" source="./media/trusted-launch/firewall-rule.png" lightbox="./media/trusted-launch/firewall-rule.png" alt-text="Screenshot that shows adding traffic for the application rule route.":::
+
+   The rules collection must contain at least one rule that targets fully qualified domain names (FQDNs).
+
+1. Select the application rule collection and add an application rule.
+1. Select a name and a numeric priority for your application rules. Set **Action** for the rule collection to **Allow**.
+
+   :::image type="content" source="./media/trusted-launch/firewall-application-rule.png" lightbox="./media/trusted-launch/firewall-application-rule.png" alt-text="Screenshot that shows adding the application rule route.":::
+
+1. Configure the name, source, and protocol. The source type is for a single IP address. Select the IP group to allow multiple IP addresses through the firewall.
+
+### Regional shared providers
+
+Azure Attestation provides a [regional shared provider](https://maainfo.azurewebsites.net/) in each available region. You can choose to use the regional shared provider for attestation or create your own providers with custom policies. Any Microsoft Entra user can access shared providers. The policy associated with it can't be changed.
 
 > [!NOTE]
-> Users can configure their source type, service, destination port ranges, protocol, priority, and name.
+> You can configure the source type, service, destination port ranges, protocol, priority, and name.
 
+## Related content
 
-## Next steps
-
-Learn more about [trusted launch](trusted-launch.md) and [deploying a trusted virtual machine](trusted-launch-portal.md).
+Learn more about [Trusted Launch](trusted-launch.md) and [deploying a Trusted Launch VM](trusted-launch-portal.md).

@@ -9,12 +9,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 06/03/2024
-ms.custom: subject-rbac-steps, references_regions, devx-track-azurepowershell
+ms.custom: subject-rbac-steps, devx-track-azurepowershell
 ---
 
-# Connect to Azure AI Search using role-based access controls
+# Connect to Azure AI Search using roles
 
-Azure provides a global [role-based access control authorization system](../role-based-access-control/role-assignments-portal.yml) for all services running on the platform. In Azure AI Search, you can assign Azure roles for:
+Azure provides a global authentication and [role-based authorization system](../role-based-access-control/role-assignments-portal.yml) for all services running on the platform. In Azure AI Search, you can assign Azure roles for:
 
 > [!div class="checklist"]
 > + [Service administration](#assign-roles-for-service-administration)
@@ -30,9 +30,9 @@ Role-based access is optional, but recommended. The alternative is [key-based au
 
 ## Prerequisites
 
-+ **Owner**, **User Access Administrator**, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
-
 + A search service in any region, on any tier, [enabled for role-based access](search-security-enable-roles.md).
+
++ Owner, User Access Administrator, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
 
 <a name = "built-in-roles-used-in-search"></a>
 
@@ -50,7 +50,6 @@ The following roles are built in. If these roles are insufficient, [create a cus
 | [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Data |  Read-only access for querying search indexes. This role is for apps and users who run queries. This role doesn't support read access to object definitions. For example, you can't read a search index definition or get search service statistics. By default, this role is for all indexes on a search service. See [Grant access to a single index](#grant-access-to-a-single-index) to narrow the scope.  |
 
 Combine these roles to get sufficient permissions for your use case.
-
 
 > [!NOTE]
 > If you disable Azure role-based access, built-in roles for the control plane (Owner, Contributor, Reader) continue to be available. Disabling role-based access removes just the data-related permissions associated with those roles. If data plane roles are disabled, Search Service Contributor is equivalent to control-plane Contributor.
@@ -140,7 +139,7 @@ Another combination of roles that provides full access is Contributor or Owner, 
 
 1. Select **+ Add** > **Add role assignment**.
 
-   ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+   ![Access control (IAM) page with Add role assignment menu open.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png)
 
 1. Select a role:
 
@@ -180,9 +179,11 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### Assign roles for read-only queries
 
-Use the Search Index Data Reader role for apps and processes that only need read-access to an index. This is a very specific role. It grants [GET or POST access](/rest/api/searchservice/documents) to the *documents collection of a search index* for search, autocomplete, and suggestions.
+Use the Search Index Data Reader role for apps and processes that only need read-access to an index. 
 
-It doesn't support GET or LIST operations on an index or other top-level objects, or GET service statistics.
+This is a very specific role. It grants [GET or POST access](/rest/api/searchservice/documents) to the *documents collection of a search index* for search, autocomplete, and suggestions. It doesn't support GET or LIST operations on an index or other top-level objects, or GET service statistics.
+
+This section provides basic steps for setting up the role assignment and is here for completeness, but we recommend [Use Azure AI Search without keys ](keyless-connections.md) for comprehensive instructions on configuring your app for role-based access.
 
 #### [**Azure portal**](#tab/roles-portal-query)
 
@@ -238,7 +239,7 @@ When [using PowerShell to assign roles](../role-based-access-control/role-assign
 
 Use a client to test role assignments. Remember that roles are cumulative and inherited roles that are scoped to the subscription or resource group level can't be deleted or denied at the resource (search service) level. 
 
-Make sure that you [register your client application with Microsoft Entra ID](search-howto-aad.md) and have role assignments in place before testing access. 
+[Configure your application for keyless connections](keyless-connections.md) and have role assignments in place before testing. 
 
 ### [**Azure portal**](#tab/test-portal)
 
@@ -276,7 +277,7 @@ This approach assumes Visual Studio Code with a REST client extension.
    az account get-access-token --query accessToken --output tsv
    ```
 
-1. In a new text file in Visual Studio Code, paste in these variables:
+1. Paste these variables in a new text file in Visual Studio Code.
 
    ```http
    @baseUrl = PASTE-YOUR-SEARCH-SERVICE-URL-HERE
@@ -284,10 +285,10 @@ This approach assumes Visual Studio Code with a REST client extension.
    @token = PASTE-YOUR-TOKEN-HERE
    ```
 
-1. Paste in and then send a request that uses the variables you've specified. For the "Search Index Data Reader" role, you can send a query. You can use any [supported API version](/rest/api/searchservice/search-service-api-versions).
+1. Paste and then send a request that uses the variables you've specified. For the "Search Index Data Reader" role, you can send a query. You can use any [supported API version](/rest/api/searchservice/search-service-api-versions).
 
    ```http
-   POST https://{{baseUrl}}/indexes/{{index-name}}/docs/search?api-version=2023-11-01 HTTP/1.1
+   POST https://{{baseUrl}}/indexes/{{index-name}}/docs/search?api-version=2024-07-01 HTTP/1.1
      Content-type: application/json
      Authorization: Bearer {{token}}
 
@@ -379,7 +380,7 @@ If you're already a Contributor or Owner of your search service, you can present
    Get-AzAccessToken -ResourceUrl https://search.azure.com
    ```
 
-1. In a new text file in Visual Studio Code, paste in these variables:
+1. Paste these variables into a new text file in Visual Studio Code.
 
    ```http
    @baseUrl = PASTE-YOUR-SEARCH-SERVICE-URL-HERE
@@ -390,7 +391,7 @@ If you're already a Contributor or Owner of your search service, you can present
 1. Paste in and then send a request to confirm access. Here's one that queries the hotels-quickstart index
 
    ```http
-   POST https://{{baseUrl}}/indexes/{{index-name}}/docs/search?api-version=2023-11-01 HTTP/1.1
+   POST https://{{baseUrl}}/indexes/{{index-name}}/docs/search?api-version=2024-07-01 HTTP/1.1
      Content-type: application/json
      Authorization: Bearer {{token}}
 
@@ -537,7 +538,7 @@ The PowerShell example shows the JSON syntax for creating a custom role that's a
 
 1. See [Create or update Azure custom roles using the REST API](../role-based-access-control/custom-roles-rest.md) for steps.
 
-1. Clone or create a role, or use JSON to specify the custom role (see the PowerShell tab for JSON syntax).
+1. Copy or create a role, or use JSON to specify the custom role (see the PowerShell tab for JSON syntax).
 
 ### [**Azure CLI**](#tab/custom-role-cli)
 
@@ -545,7 +546,7 @@ The PowerShell example shows the JSON syntax for creating a custom role that's a
 
 1. See [Create or update Azure custom roles using Azure CLI](../role-based-access-control/custom-roles-cli.md) for steps.
 
-1. Clone or create a role, or use JSON to specify the custom role (see the PowerShell tab for JSON syntax).
+1. See the PowerShell tab for JSON syntax.
 
 ---
 

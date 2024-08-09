@@ -3,13 +3,13 @@ title: "Authorization on batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how authentication works on Batch Endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: ccrestana
-ms.author: cacrest
+author: msakande
+ms.author: mopeakande
 ms.date: 10/10/2023
-ms.reviewer: mopeakande
+ms.reviewer: cacrest
 ms.custom: devplatv2
 ---
 

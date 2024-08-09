@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot connections - Azure Database for PostgreSQL - Single Server
 description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - Single Server.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila

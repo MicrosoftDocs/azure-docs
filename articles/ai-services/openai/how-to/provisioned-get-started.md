@@ -19,8 +19,6 @@ The following guide walks you through setting up a provisioned deployment with y
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - Obtained Quota for a provisioned deployment and purchased a commitment. 
 
 > [!NOTE]
@@ -96,7 +94,7 @@ The inferencing code for provisioned deployments is the same a standard deployme
 ```
 
 > [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 
 ## Understanding expected throughput

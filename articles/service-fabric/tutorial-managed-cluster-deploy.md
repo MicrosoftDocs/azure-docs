@@ -4,7 +4,7 @@ description: In this tutorial, you deploy a Service Fabric managed cluster for t
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 03/12/2024
 ---
@@ -68,7 +68,7 @@ For this step, provide your own values for the following  parameters:
 
 * **Cluster Name**: Enter a unique name for your cluster, such as *mysfcluster*.
 * **Admin Password**: Enter a password for the admin to be used for Remote Desktop Protocol (RDP) on the underlying VMs in the cluster.
-* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you don't have a certificate, follow [set and retrieve a certificate](../key-vault/certificates/quick-create-portal.md) to create a self-signed certificate.
+* **Client Certificate Thumbprint**: Provide the thumbprint of the client certificate that you would like to use to access your cluster. If you don't have a certificate, follow [set and retrieve a certificate](/azure/key-vault/certificates/quick-create-portal) to create a self-signed certificate.
 * **Cluster SKU**: Specify the [type of Service Fabric managed cluster](overview-managed-cluster.md#service-fabric-managed-cluster-skus) to deploy. *Basic* SKU clusters are meant for test deployments only, and don't allow for node type addition or removal.
 
 ```powershell

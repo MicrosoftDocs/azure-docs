@@ -1,13 +1,13 @@
 ---
 title: Azure Lighthouse and Azure managed applications
 description: Understand how Azure Lighthouse and Azure managed applications can be used together.
-ms.date: 12/07/2023
+ms.date: 07/10/2024
 ms.topic: conceptual
 ---
 
 # Azure Lighthouse and Azure managed applications
 
-Both Azure managed applications and Azure Lighthouse work by enabling a service provider to access resources that reside in the customer's tenant. It can be helpful to understand the differences in the way that they work, the scenarios that they help to enable, and how they can be used together.
+Both [Azure managed applications](../../azure-resource-manager/managed-applications/overview.md) and [Azure Lighthouse](../overview.md) work by enabling a service provider to access resources that reside in the customer's tenant. It can be helpful to understand the differences in the way that they work, the scenarios that they help to enable, and how they can be used together.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](enterprise.md) can use the same processes and tools.
@@ -40,7 +40,7 @@ In a managed application, the resources used by the application are bundled toge
 
 Managed applications support [customized Azure portal experiences](../../azure-resource-manager/managed-applications/concepts-view-definition.md) and [integration with custom providers](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md). These options can be used to deliver a more customized and integrated experience, making it easier for customers to perform some management tasks themselves.
 
-Managed applications can be [published to Azure Marketplace](../../marketplace/azure-app-offer-setup.md), either as a private offer for a specific customer's use, or as public offers that multiple customers can purchase. They can also be delivered to users within your organization by [publishing managed applications to your service catalog](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). You can deploy both service catalog and Marketplace instances using ARM templates, which can include a Commercial Marketplace partner's unique identifier to track [customer usage attribution](../../marketplace/azure-partner-customer-usage-attribution.md).
+Managed applications can be [published to Azure Marketplace](../../marketplace/azure-app-offer-setup.md), either as a private offer for a specific customer's use, or as public offers that multiple customers can purchase. They can also be delivered to users within your organization by [publishing managed applications to your service catalog](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). You can deploy both service catalog and Marketplace instances using ARM templates, which can include a commercial marketplace partner's unique identifier to track [customer usage attribution](../../marketplace/azure-partner-customer-usage-attribution.md).
 
 Azure managed applications are typically used for a specific customer need that can be achieved through a turnkey solution that is fully managed by the service provider.
 

@@ -26,7 +26,7 @@
       - name: Create a device group
         href: core/tutorial-use-device-groups.md
       - name: Connect an IoT Edge device
-        href: core/tutorial-connect-iot-edge-device.md
+        href: /training/modules/connect-iot-edge-device-to-iot-central/
       - name: Create a gateway device template
         href: core/tutorial-define-gateway-device-type.md
     - name: Extend your application
@@ -111,7 +111,7 @@
       href: core/howto-create-iot-central-application.md
     - name: Build and connect devices
       items:
-        - name: Set up a device template
+        - name: Create a device template
           href: core/howto-set-up-template.md
         - name: Edit a device template
           href: core/howto-edit-device-template.md
@@ -236,7 +236,7 @@
   - name: Code samples
     href: /samples/browse/?expanded=azure&products=azure-iot-central
   - name: Guided learning path
-    href: /training/paths/develop-iot-solutions-with-azure-iot-central/
+    href: /training/paths/evaluate-iot-scenario-with-iot-central/
   - name: Support and help options
     href: ../iot/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
   - name: Video resources

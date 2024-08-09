@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to create a Linux VM'
 description: In this quickstart, you learn how to use Terraform to create a Linux virtual machine
 author: tomarchermsft
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.date: 07/24/2023

@@ -7,7 +7,7 @@ ms.author: memladen
 author: toddysm
 ms.custom: mode-other, devx-track-azurecli
 ms.devlang: azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Quickstart: Deploy a connected registry to an IoT Edge device

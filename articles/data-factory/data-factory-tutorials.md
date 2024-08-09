@@ -3,8 +3,6 @@ title: Azure Data Factory tutorials
 description: A list of tutorials demonstrating Azure Data Factory concepts
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 01/05/2024
 ---

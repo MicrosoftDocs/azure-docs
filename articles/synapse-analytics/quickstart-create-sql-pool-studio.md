@@ -3,9 +3,9 @@ title: "Quickstart: Create a dedicated SQL pool using Synapse Studio"
 description: Create a dedicated SQL pool using Synapse Studio by following the steps in this guide.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.date: 02/21/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
 ms.custom: mode-ui

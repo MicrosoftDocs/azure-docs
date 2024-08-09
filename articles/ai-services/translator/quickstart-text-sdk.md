@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Azure AI Translator SDKs"
+title: "Quickstart: Azure AI Translator client libraries"
 titleSuffix: Azure AI services
 description: "Learn to translate text with the Translator service SDks in a programming language of your choice: C#, Java, JavaScript, or Python."
 #services: cognitive-services
@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 09/06/2023
+ms.date: 07/09/2024
 ms.author: lajanuar
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -21,7 +21,7 @@ zone_pivot_groups:  programming-languages-set-translator-sdk
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD049 -->
 
-# Quickstart: Azure AI Translator SDKs (preview)
+# Quickstart: Azure AI Translator client libraries (preview)
 
 > [!IMPORTANT]
 >
@@ -37,7 +37,7 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
 
 * After your resource deploys, select **Go to resource** and retrieve your key and endpoint.
 
-  * Get the key, endpoint, and region from the resource to connect your application to the Translator service. Paste these values into the code later in the quickstart. You can find them on the Azure portal **Keys and Endpoint** page:
+  * Get the key, endpoint, and region from the resource and connect your application to the Translator service. Paste these values into the code later in the quickstart. You can find them on the Azure portal **Keys and Endpoint** page:
 
     :::image type="content" source="media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 

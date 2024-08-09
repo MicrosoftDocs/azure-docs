@@ -4,9 +4,9 @@ description: In this article, get started with an overview of the Azure DNS Priv
 services: dns
 ms.custom: references_regions
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: overview
-ms.date: 12/05/2023
+ms.date: 07/01/2024
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -101,6 +101,7 @@ The following limits currently apply to Azure DNS Private Resolver:
 ### Virtual network restrictions 
 
 The following restrictions hold with respect to virtual networks:
+- VNets with [encryption](/azure/virtual-network/virtual-network-encryption-overview) enabled do not support Azure DNS Private Resolver.
 - A DNS resolver can only reference a virtual network in the same region as the DNS resolver.
 - A virtual network can't be shared between multiple DNS resolvers. A single virtual network can only be referenced by a single DNS resolver.
 

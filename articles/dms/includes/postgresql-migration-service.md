@@ -4,7 +4,7 @@ author: markingmyname
 ms.author: maghan
 ms.reviewer: randolphwest, adityaduvuri
 ms.date: 06/19/2024
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: include
 ---
 

@@ -7,7 +7,7 @@ ms.date: 04/02/2024
 
 #customer intent: As a developer, I want an instance of the Informatica data management cloud  so that I can use it with other Azure resources.
 ---
-# Quickstart: Create an advanced serverless deployment using Informatica Intelligent Data Management Cloud (Preview)
+# Quickstart: Create an advanced serverless deployment using Informatica Intelligent Data Management Cloud
 
 In this quickstart, you use the Azure portal to create advanced serverless runtime in your Informatica IDMC organization.
 
@@ -17,15 +17,13 @@ In this quickstart, you use the Azure portal to create advanced serverless runti
 
 - After an Organization is created, make sure to sign in to the Informatica Portal from Overview tab of the Organization. Creating a serverless runtime environment fails if you don't first sign in to Informatica portal at least once.
 
-- A NAT gateway is enabled for the subnet used for creation of serverless runtime environment. Refer to [Quickstart: Create a NAT gateway using the Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal).
-
 - A subnet used in serverless runtime environment must be delegated to _Informatica.DataManagement/organizations_.
 
  :::image type="content" source="media/informatica-create-advanced-serverless/informatica-subnet-delegation.png" alt-text="Screenshot showing how to delegate a subnet to the Informatica resource provider.":::
 
 ## Create an advanced serverless deployment
 
-In this section, you see how to create an advanced serverless deployment of Informatica Intelligent Data Management Cloud (Preview) (Informatica IDMC) using the Azure portal.
+In this section, you see how to create an advanced serverless deployment of Informatica Intelligent Data Management Cloud (Informatica IDMC) using the Azure portal.
 
 In the Informatica organization,  select **Serverless Runtime Environment** from the resource menu to navigate to _Advanced Serverless_ section where the existing list of serverless runtime environments are shown.
 

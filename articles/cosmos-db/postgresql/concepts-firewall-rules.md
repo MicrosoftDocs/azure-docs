@@ -3,7 +3,7 @@ title: Public access - Azure Cosmos DB for PostgreSQL
 description: This article describes public access for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2022

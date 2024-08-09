@@ -4,7 +4,7 @@ description: Learn how to use Azure PowerShell to install applications into Virt
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: extensions
 ms.date: 06/14/2024
 ms.reviewer: mimckitt
@@ -32,7 +32,7 @@ To see the Custom Script Extension in action, create a scale set that installs t
 
 ## Create a scale set
 
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.compute/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *East US* location:
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *East US* location:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location "East US"

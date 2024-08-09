@@ -3,7 +3,6 @@ title: Send and receive events by using Data Generator
 description: This quickstart shows you how to send and receive events to an Azure event hub by using Data Generator in the Azure portal.
 author:      Saglodha # GitHub alias
 ms.author:   saglodha # Microsoft alias
-ms.service:  event-hubs
 ms.topic:    quickstart
 ms.date:     06/07/2024
 #customer intent: As a developer, I want to send test events to an event hub in Azure Event Hubs and receive or view them.

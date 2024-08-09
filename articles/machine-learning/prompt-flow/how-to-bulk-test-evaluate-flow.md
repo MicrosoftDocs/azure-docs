@@ -3,15 +3,15 @@ title: Submit batch run and evaluate a flow in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to submit batch run and use built-in evaluation methods in prompt flow to evaluate how well your flow performs with a large dataset with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-author: ZikeiWong
-ms.author: ziqiwang
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: ziqiwang
 ms.date: 11/06/2023
 ---
 

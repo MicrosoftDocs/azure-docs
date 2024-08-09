@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create Resource Graph shared query using ARM template'
+title: "Quickstart: Create Resource Graph shared query using ARM template"
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Resource Graph shared query that counts virtual machines by OS.
 ms.date: 06/26/2024
 ms.topic: quickstart
@@ -91,9 +91,7 @@ To remove the shared query created, follow these steps:
 
 ## Next steps
 
-In this quickstart, you created a Resource Graph shared query.
-
-To learn more about shared queries, continue to the tutorial for:
+In this quickstart, you created a Resource Graph shared query. To learn more about the Resource Graph language, continue to the query language details page.
 
 > [!div class="nextstepaction"]
-> [Manage queries in Azure portal](./tutorials/create-share-query.md)
+> [Understanding the Azure Resource Graph query language](./concepts/query-language.md)
