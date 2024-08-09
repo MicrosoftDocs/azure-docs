@@ -9,15 +9,12 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 08/05/2024
 ---
 
 # Index binary vectors for vector search
 
-> [!IMPORTANT]
-> Binary data types are in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-03-01-preview&preserve-view=true) and later preview APIs provide the new data type.
-
-Beginning with the 2024-05-01-preview REST API, Azure AI Search supports a packed binary type of `Collection(Edm.Byte)` for further reducing the storage and memory footprint of vector data. You can use this data type for output from models such as [Cohere's Embed v3 binary embedding models](https://cohere.com/blog/introducing-embed-v3).
+Azure AI Search supports a packed binary type of `Collection(Edm.Byte)` for further reducing the storage and memory footprint of vector data. You can use this data type for output from models such as [Cohere's Embed v3 binary embedding models](https://cohere.com/blog/introducing-embed-v3). 
 
 There are three steps to configuring an index for binary vectors:
 
@@ -28,13 +25,17 @@ There are three steps to configuring an index for binary vectors:
 
 This article assumes you're familiar with [creating an index in Azure AI Search](search-how-to-create-search-index.md). It uses the REST APIs to illustrate each step, but you could also add a binary field to an index in the Azure portal.
 
+Binary data types are generally available starting with API version 2024-07-01 and are assigned to fields using the [Create Index](/rest/api/searchservice/indexes/create) or [Create Or Update Index](/rest/api/searchservice/indexes/create-or-update) APIs.
+
+> [!TIP]
+> If you're investigating binary vector support for its smaller footprint, you might also consider the vector quantization and storage reduction features in Azure AI Search. Inputs are float32 or float16 embeddings. Output is stored data in a much smaller format. For more information, see [Reduce vector size through quantization, narrow data types, and storage options](vector-search-how-to-configure-compression-storage.md).
+
 ## Prerequisites
 
 + Binary vectors, with 1 bit per dimension, packaged in uint8 values with 8 bits per value. These can be obtained by using models that directly generate "packaged binary" vectors, or by quantizing vectors into binary vectors client-side during indexing and searching.
 
 ## Limitations
 
-+ No scalar compression or integrated vectorization support.
 + No Azure portal support in the Import and vectorize data wizard.
 + No support for binary fields in the [AML skill](cognitive-search-aml-skill.md) that's used for integrated vectorization of models in the Azure AI Studio model catalog.
 
@@ -42,13 +43,13 @@ This article assumes you're familiar with [creating an index in Azure AI Search]
 
 Vector search algorithms are used to create the query navigation structures during indexing. For binary vector fields, vector comparisons are performed using the Hamming distance metric. 
 
-1. To add a binary field to an index, set up a [`Create or Update Index`](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) request using the **2024-05-01-preview REST API** or the Azure portal.
+1. To add a binary field to an index, set up a [`Create or Update Index`](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-07-01&preserve-view=true) request using the REST API or the Azure portal.
 
 1. In the index schema, add a `vectorSearch` section that specifies profiles and algorithms.
 
 1. Add one or more [vector search algorithms](vector-search-ranking.md) that have a similarity metric of `hamming`. It's common to use Hierarchical Navigable Small Worlds (HNSW), but you can also use Hamming distance with exhaustive K-nearest neighbors.
 
-1. Add one or more vector profiles that specify the algorithm. You can't specify scalar compression or a vectorizer in this preview.
+1. Add one or more vector profiles that specify the algorithm.
 
 The following example shows a basic `vectorSearch` configuration:
 
@@ -87,29 +88,28 @@ The fields collection of an index must include a field for the document key, vec
 
 Binary fields are of type `Collection(Edm.Byte)` and contain embeddings in packed form. For example, if the original embedding dimension is `1024`, the packed binary vector length is `ceiling(1024 / 8) = 128`. You get the packed form by setting the `vectorEncoding` property on the field.
 
-1. Add a field to the fields collection and give it name.
-1. Set data type to `Collection(Edm.Byte)`.
-1. Set `vectorEncoding` to `packedBit` for binary encoding. 
-1. Set `dimensions` to `1024`. Specify the original (unpacked) vector dimension.
-1. Set `vectorSearchProfile` to a profile you defined in the previous step.
+> [!div class="checklist"]
+> + Add a field to the fields collection and give it name.
+> + Set data type to `Collection(Edm.Byte)`.
+> + Set `vectorEncoding` to `packedBit` for binary encoding. 
+> + Set `dimensions` to `1024`. Specify the original (unpacked) vector dimension.
+> + Set `vectorSearchProfile` to a profile you defined in the previous step.
+> + Make the field searchable.
 
-The minimum definition of a fields collection should look similar to the following example:
+The following field definition is an example of the properties you should set:
 
 ```json
   "fields": [ 
-    { 
-      "name": "Id", 
-      "type": "Edm.String", 
-      "key": true, 
-      "searchable": true 
-    }, 
+    . . . 
     { 
       "name": "my-binary-vector-field", 
       "type": "Collection(Edm.Byte)", 
       "vectorEncoding": "packedBit", 
       "dimensions": 1024, 
-      "vectorSearchProfile": "myHnswProfile" 
-    } 
+      "vectorSearchProfile": "myHnswProfile",
+      "searchable": true
+    },
+   . . . 
   ]
 ```
 

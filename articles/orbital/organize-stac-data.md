@@ -99,7 +99,7 @@ The following sections describe the four stages in the architecture.
 
 The following Azure services are used in this architecture.
 
-- [Key Vault](../key-vault/general/basic-concepts.md) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+- [Key Vault](/azure/key-vault/general/basic-concepts) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 - [Service Bus](https://azure.microsoft.com/services/service-bus/) is part of a broader [Azure messaging](../service-bus-messaging/service-bus-messaging-overview.md) infrastructure that supports queueing, publish/subscribe, and more advanced integration patterns.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is dedicated to big data analytics, and is built on [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs).
 - [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) enables Azure resources to securely communicate with each other, the internet, and on-premises networks.

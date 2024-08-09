@@ -3,7 +3,7 @@ title: "Network isolation in batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy Batch Endpoints in private networks with isolation.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 author: msakande

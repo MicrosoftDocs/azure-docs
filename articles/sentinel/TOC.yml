@@ -1303,8 +1303,6 @@
       href: data-source-schema-reference.md
     - name: Security alert schema reference
       href: security-alert-schema.md
-    - name: CEF log field mapping
-      href: cef-name-mapping.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference

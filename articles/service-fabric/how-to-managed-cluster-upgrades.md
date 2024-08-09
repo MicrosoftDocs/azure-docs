@@ -4,7 +4,7 @@ description: Learn about options for upgrading your Azure Service Fabric managed
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---

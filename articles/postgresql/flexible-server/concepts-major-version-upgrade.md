@@ -3,8 +3,8 @@ title: Major version upgrades in Azure Database for PostgreSQL - Flexible Server
 description: Learn how to use Azure Database for PostgreSQL - Flexible Server to do in-place major version upgrades of PostgreSQL on a server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 7/15/2024
-ms.service: postgresql
+ms.date: 8/8/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
@@ -99,6 +99,7 @@ If pre-check operations fail for an in-place major version upgrade, the upgrade 
   - Extensions that serve as dependencies for the following extensions: `postgis`, `postgis_raster`, `postgis_sfcgal`, `postgis_tiger_geocoder`, `postgis_topology`, `address_standardizer`, `address_standardizer_data_us`, `fuzzystrmatch` (required for `postgis_tiger_geocoder`).
 
 - Servers configured with logical replication slots aren't supported.
+- Servers using SSDv2 storage do not support Major Version Upgrades.
 
 ## Next steps
 

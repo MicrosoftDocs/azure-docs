@@ -48,7 +48,7 @@ You have the following options to store the logs in your preferred location.
   * [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs)
 
 > [!NOTE]
-> The resource specific option is currently available in all **public regions**.<br>
+> The resource specific option is currently available in all **clouds**.<br>
 > Existing users can continue using Azure Diagnostics, or can opt for dedicated tables by switching the toggle in Diagnostic settings to **Resource specific**, or to **Dedicated** in API destination. Dual mode isn't possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. However, you can have multiple diagnostic settings where one data flow is to azure diagnostic and another is using resource specific at the same time. 
 
  **Selecting the destination table in Log analytics :** All Azure services eventually use the resource-specific tables. As part of this transition, you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle is set to **Resource specific** by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged. See the following example.
