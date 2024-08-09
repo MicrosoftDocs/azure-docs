@@ -1,39 +1,40 @@
 ---
-title: Specification of models to use in the deployment of an online endpoint
+title: Model specification for online deployments
 titleSuffix: Azure Machine Learning
-description: Learn to specify the model to use for deployments in Azure Machine Learning online endpoints.
+description: Specify the model to use in an Azure Machine Learning online endpoint's deployment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 06/28/2024
+ms.date: 08/09/2024
 reviewer: msakande
 ms.topic: concept-article
 ms.custom: how-to, devplatv2, cliv2, sdkv2
 ---
 
-# Model specification in an online deployment configuration
+# Specify model to deploy for use in online endpoint
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you learn to use the deployment configuration to specify models that you want to use in online deployments. When deploying a model to an Azure Machine Learning online endpoint, you need to specify the model one of two ways:
+In this article, you learn about the different ways to specify models that you want to use in online deployments. When deploying a model to an Azure Machine Learning online endpoint, you need to specify the model in one of two ways:
 
 - Provide the path to the model's location on your local computer
 - Provide a reference to a versioned model that is already registered in your workspace.
 
+How you specify your model for an online endpoint's deployment depends on where the model is stored.
 In Azure Machine Learning, after you create your deployment, the environment variable `AZUREML_MODEL_DIR` points to the storage location within Azure where your model is stored.
 
-## Deployment configurations with models that are stored locally
+## Deployment for models that are stored locally
 
-The following local folder structure illustrates how you can specify models that are available locally on your machine for use in an online deployment.
+This section uses this example of a local folder structure to show how you can specify models for use in an online deployment:
 
 :::image type="content" source="media/concept-online-deployment-model-specification/multi-models-1.png" alt-text="A screenshot showing a local folder structure containing multiple models." lightbox="media/concept-online-deployment-model-specification/multi-models-1.png":::
 
-### Deployment configuration with a single local model
+### Deployment for a single local model
 
-To use a single model that you have on your local machine in a deployment, specify the `path` to the `model` in your deployment YAML. The following code is an example of the deployment YAML with the path `/Downloads/multi-models-sample/models/model_1/v1/sample_m1.pkl`:
+To use a single model that you have on your local machine in a deployment, specify the `path` to the `model` in your deployment YAML configuration file. The following code is an example of the deployment YAML with the local path `/Downloads/multi-models-sample/models/model_1/v1/sample_m1.pkl`:
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json 
@@ -61,11 +62,11 @@ def init():
     model = joblib.load(model_path) 
 ```
 
-### Deployment configuration with several local models
+### Deployment for several local models
 
 Although the Azure CLI, Python SDK, and other client tools allow you to specify only one model per deployment in the deployment definition, you can still use multiple models in a deployment by registering a model folder that contains all the models as files or subdirectories. For more information on registering your assets, such as models, so that you can specify their registered names and versions during deployment, see [Register your model and environment](how-to-deploy-online-endpoints.md#register-your-model-and-environment).
 
-In the previous example folder structure, you notice that there are several models in the `models` folder. To use these models, in your deployment YAML, you specify the path to the `models` folder as follows:
+In the example local folder structure, you notice that there are several models in the `models` folder. To use these models, in your deployment YAML, you specify the path to the `models` folder as follows:
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json 
@@ -102,9 +103,9 @@ For an example of how to deploy several models to one deployment, see [Deploy mu
 > [!TIP]
 > If you have more than 1500 files to register, consider compressing the files or subdirectories as .tar.gz when registering the models. To consume the models, you can unpack the files or subdirectories in the `init()` function of the scoring script. Alternatively, when you register the models, set the `azureml.unpack` property to `True`, to automatically unpack the files or subdirectories. In either case, unpacking the files happens once in the initialization stage.
 
-## Deployment configuration with models that are registered in your workspace
+## Deployment for models that are registered in your workspace
 
-You can use registered models in your deployment specifications by referencing their names in your deployment YAML. For example, the following deployment YAML configuration specifies the registered `model` name as `azureml:local-multimodel:3`:
+You can use registered models in your deployment definition by referencing their names in your deployment YAML. For example, the following deployment YAML configuration specifies the registered `model` name as `azureml:local-multimodel:3`:
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json 
@@ -137,13 +138,14 @@ def init():
     model = joblib.load(model_path) 
 ```
 
-## Deployment configuration for models that are available in the model catalog
+## Deployment for models that are available in the model catalog
 
-For models in the model catalog, except for models under Azure OpenAI collection, you can use the model IDs that is shown in the model card to deploy them. Model IDs are in the format of `azureml://registries/{registry_name}/models/{model_name}/versions/{model_version}`. Some model cards include example notebooks that show how to use model ID for the deployment.
+For any model in the model catalog, except for models that are in the Azure OpenAI collection, you can use the model ID shown in the model's card for deployment. Model IDs are of the form `azureml://registries/{registry_name}/models/{model_name}/versions/{model_version}`. For example, a model ID for the _Meta Llama 3-8 B Instruct_ model is `azureml://registries/azureml-meta/models/Meta-Llama-3-8B-Instruct/versions/2`.
+Some model cards include example notebooks that show you how to use the model ID for the deployment.
 
-## Deployment configuration for models that are available in your organization's registry
+## Deployment for models that are available in your organization's registry
 
-Each model in the organization registries has model ID in the format of `azureml://registries/{registry_name}/models/{model_name}/versions/{model_version}`. Note that you may also use environments that are registered in the same registry.
+Each model in an organization's registry has a model ID of the form `azureml://registries/{registry_name}/models/{model_name}/versions/{model_version}`. You might also choose to use environments that are registered in the same registry.
 
 ## Related content
 
