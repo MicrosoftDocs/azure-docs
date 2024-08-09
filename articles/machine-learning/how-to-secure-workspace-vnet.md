@@ -3,7 +3,7 @@ title: Secure an Azure Machine Learning workspace with virtual networks
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning workspace and associated resources.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: None
 ms.author: larryfr

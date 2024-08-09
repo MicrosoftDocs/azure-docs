@@ -5,7 +5,7 @@ description:  Learn how to build a RAG-based copilot using the prompt flow SDK. 
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 7/18/2024
+ms.date: 8/6/2024
 ms.reviewer: lebaro
 ms.author: sgilley
 author: sdgilley
@@ -19,9 +19,9 @@ In this [Azure AI Studio](https://ai.azure.com) tutorial, you use the prompt flo
 This tutorial is part one of a two-part tutorial.
 
 > [!TIP]
-> This tutorial is based on code in the sample repo for a [copilot application that implements RAG](https://github.com/Azure-Samples/rag-data-openai-python-promptflow).
+> Be sure to set aside enough time to complete the prerequisites before starting this tutorial. If you're new to Azure AI Studio, you might need to spend additional time to get familiar with the platform. 
 
-This part one shows you how to enhance a basic chat application by adding retrieval augmented generation (RAG) to ground the responses in your custom data.
+This part one shows you how to enhance a basic chat application by adding [retrieval augmented generation (RAG)](../concepts/retrieval-augmented-generation.md) to ground the responses in your custom data.
 
 In this part one, you learn how to:
 
@@ -34,14 +34,15 @@ In this part one, you learn how to:
 
 ## Prerequisites
 
+> [!IMPORTANT]
+> You must have the necessary permissions to add role assignments in your Azure subscription. Granting permissions by role assignment is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help with completing the [assign access](#configure-access-for-the-azure-ai-search-service) section.
+
 - You need to complete the [Build a custom chat app in Python using the prompt flow SDK quickstart](../quickstarts/get-started-code.md) to set up your environment. 
 
     > [!IMPORTANT]
     > This tutorial builds on the code and environment you set up in the quickstart.
 
-- You need a local copy of product data. The [Azure-Samples/rag-data-openai-python-promptflow repository on GitHub](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/) contains sample retail product information that's relevant for this tutorial scenario. Clone the repository or [download the example Contoso Trek retail product data in a ZIP file](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/raw/main/tutorial/data.zip) to your local machine.
-
-- You must have the necessary permissions to add role assignments in your Azure subscription. Granting permissions by role assignment is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help with completing the [assign access](#configure-access-for-the-azure-ai-search-service) section.
+- You need a local copy of product data. The [Azure-Samples/rag-data-openai-python-promptflow repository on GitHub](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/) contains sample retail product information that's relevant for this tutorial scenario. [Download the example Contoso Trek retail product data in a ZIP file](https://github.com/Azure-Samples/rag-data-openai-python-promptflow/raw/main/tutorial/data.zip) to your local machine.
 
 ## Application code structure
 
@@ -110,7 +111,7 @@ AZURE_OPENAI_CONNECTION_NAME=<your AIServices or Azure OpenAI connection name>
 
 ## Deploy an embedding model
 
-For the RAG capability, we need to be able to embed the search query to search the Azure AI Search index we create. 
+For the [retrieval augmented generation (RAG)](../concepts/retrieval-augmented-generation.md) capability, we need to be able to embed the search query to search the Azure AI Search index we create. 
 
 1. Deploy an Azure OpenAI embedding model. Follow the [deploy Azure OpenAI models guide](../how-to/deploy-models-openai.md) and deploy the **text-embedding-ada-002** model. Use the same **AIServices** or **Azure OpenAI** connection that you used [to deploy the chat model](../quickstarts/get-started-playground.md#deploy-a-chat-model). 
 2. Add embedding model environment variables in your *.env* file. For the *AZURE_OPENAI_EMBEDDING_DEPLOYMENT* value, enter the name of the embedding model that you deployed. 
@@ -119,6 +120,8 @@ For the RAG capability, we need to be able to embed the search query to search t
     AZURE_OPENAI_EMBEDDING_DEPLOYMENT=embedding_model_deployment_name
     ```
 
+For more information about the embedding model, see the [Azure OpenAI Service embeddings documentation](../../ai-services/openai/how-to/embeddings.md).
+
 ## Create an Azure AI Search index
 
 The goal with this RAG-based application is to ground the model responses in your custom data. You use an Azure AI Search index that stores vectorized data from the embeddings model. The search index is used to retrieve relevant documents based on the user's question.
@@ -126,7 +129,7 @@ The goal with this RAG-based application is to ground the model responses in you
 You need an Azure AI Search service and connection in order to create a search index.
 
 > [!NOTE]
-> Creating an Azure AI Search service and subsequent search indexes has associated costs. You can see details about pricing and pricing tiers for the Azure AI Search service on the creation page, to confirm cost before creating the resource.
+> Creating an [Azure AI Search service](../../search/index.yml) and subsequent search indexes has associated costs. You can see details about pricing and pricing tiers for the Azure AI Search service on the creation page, to confirm cost before creating the resource.
 
 ### Create an Azure AI Search service
 
@@ -148,7 +151,7 @@ Otherwise, you can create an Azure AI Search service using the [Azure portal](ht
 ## [Azure CLI](#tab/cli)
 
 1. Open a terminal on your local machine.
-1. Type `az` and then enter to verify that the Azure CLI tool is installed. If it's installed, a help menu with `az` commands appears. If you get an error, make sure you followed the [steps for installing the Azure CLI in the quickstart](../quickstarts/get-started-code.md#install-the-azure-cli-and-login).
+1. Type `az` and then enter to verify that the Azure CLI tool is installed. If it's installed, a help menu with `az` commands appears. If you get an error, make sure you followed the [steps for installing the Azure CLI in the quickstart](../quickstarts/get-started-code.md#install-the-azure-cli-and-sign-in).
 1. Follow the steps to create an Azure AI Search service using the [`az search service create`](../../search/search-manage-azure-cli.md#create-or-delete-a-service) command.
 
 ---

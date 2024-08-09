@@ -20,7 +20,7 @@ There are multiple options for making the scene and asset files available to the
   * This option has the advantage that it is very cost-effective, as no VMs are required for the file system, plus blobfuse caching on the VMs avoids repeated downloads of the same files for multiple jobs and tasks.  Data movement is also simple as the files are simply blobs and standard APIs and tools, such as azcopy, can be used to copy file between an on-premises file system and Azure storage.
 * File system or file share:
   * Depending on VM operating system and performance/scale requirements, then options include [Azure Files](../storage/files/storage-files-introduction.md), using a VM with attached disks for NFS, using multiple VMs with attached disks for a distributed file system like GlusterFS, or using a third-party offering.
-  * [Avere Systems](https://www.averesystems.com/) is now part of Microsoft and will have solutions in the near future that are ideal for large-scale, high-performance rendering.  The Avere solution will enable an Azure-based NFS or SMB cache to be created that works in conjunction with blob storage or with on-premises NAS devices.
+  * Avere Systems is now part of Microsoft and will have solutions in the near future that are ideal for large-scale, high-performance rendering.  The Avere solution will enable an Azure-based NFS or SMB cache to be created that works in conjunction with blob storage or with on-premises NAS devices.
   * With a file system, files can be read or written directly to the file system or can be copied between file system and the pool VMs.
   * A shared file system allows a large number of assets shared between projects and jobs to be utilized, with rendering tasks only accessing what is required.
 
