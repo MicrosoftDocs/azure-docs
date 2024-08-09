@@ -227,7 +227,7 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_RE
 
 ### [Kubernetes](#tab/kubernetes)
 
-This feature is not yet supported in the Azure App Configuration Kubernetes Provider.
+The Azure App Configuration Kubernetes Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery is not disabled. It does not support or require user-provided replicas.
 
 ---
 
