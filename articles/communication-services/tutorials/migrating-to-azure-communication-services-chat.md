@@ -22,6 +22,17 @@ However, there are some key differences between them that may affect your choice
 
 This article doesn't cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../identity/access-tokens.md) for more information about access tokens.
 
+## Key considerations
+### Authentication and Security
+ACS integrates deeply with Azure Active Directory (AAD) for identity management, while Twilio uses its own identity system. You may need to rework how you handle user authentication.
+
+### Event Handling
+Twilio’s webhook-based approach may require a different architecture compared to ACS’s event-driven model.
+
+### Additional Services
+If your application relies on other Twilio services (like SMS, Voice, etc.), you’ll need to find equivalent Azure services or maintain hybrid solutions.
+Migrating may involve not just replacing API calls but also rethinking how your application interacts with these communication services within the broader context of your application's architecture.
+
 ## Key features available in Azure Communication Services Chat SDK
 
 | **Feature** | **JavaScript SDK** | **iOS SDK** | **Android SDK** | **.NET SDK** | **Java SDK** | **Python SDK** |
@@ -94,3 +105,6 @@ This article doesn't cover creating a service tier to manage tokens for your cha
 [!INCLUDE [Migrating to ACS on iOS SDK](./includes/twilio-to-acs-chat-ios-tutorial.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Chat with C# SDK](./includes/chat-csharp.md)]
+::: zone-end

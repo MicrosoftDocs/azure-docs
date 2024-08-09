@@ -26,12 +26,6 @@ For more information, see [Use Azure CLI to Create and Manage Access Tokens](../
 
 ## Setting up
 
-### Create a new android application
-
-1. Open Android Studio and select `Create a new project`. 
-2. On the next window, select `Empty Activity` as the project template.
-3. When choosing options, enter `ChatQuickstart` as the project name.
-4. Click next and choose the directory where you want the project to be created.
 
 ### Install the libraries
 
