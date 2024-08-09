@@ -41,7 +41,7 @@ ContainerLogV2
 - Azure CLI version 2.63.0 or higher.
 - AKS-preview CLI extension version must be 7.0.0b4 or higher if an aks-preview CLI extension is installed.
 - Cluster schema must be [configured for ContainerLogV2](./container-insights-logs-schema.md#enable-the-containerlogv2-schema).
-- See [Network firewall requirements for monitoring Kubernetes cluster](./kubernetes-monitoring-firewall.md).
+- See [Network and firewall requirements](#network-and-firewall-requirements).
 
 ## Limitations 
 
@@ -94,16 +94,31 @@ az aks create -g <cluster-name> -n <cluster-name> enable-addons -a monitoring --
 ```
 
 #### New AKS Private cluster
-See [Create a private Azure Kubernetes Service (AKS) cluster](/azure/aks/private-clusters?tabs=azure-portal) for details on creating an AKS Private cluster. Use the following additional parameters to configure high log scale mode with Azure Monitor Private Link Scope Resource ID. 
+See [Create a private Azure Kubernetes Service (AKS) cluster](/azure/aks/private-clusters?tabs=azure-portal) for details on creating an AKS Private cluster. Use the additional parameters `--enable-high-scale-mode` and `--ampls-resource-id` to configure high log scale mode with Azure Monitor Private Link Scope Resource ID. 
 
-- `--enable-high-scale-mode`
-- `--ampls-resource-id`
+
 
 ### [ARM](#tab/arm)
 See [Enable Container insights](./kubernetes-monitoring-enable.md?tabs=arm#enable-container-insights) for guidance on enabling Container Insights using an ARM template. To enable high scale logs mode, use `Microsoft-ContainerLogV2-HighScale` in the `streams` parameter.
 
 > [!WARNING]
 > Don't use both `Microsoft-ContainerLogV2` and `Microsoft-ContainerLogV2-HighScale` in the `streams` parameter. This will result in logs being collected in the standard mode.
+
+---
+
+## Network and firewall requirements
+In addition to the [network firewall requirements](See [Network firewall requirements for monitoring Kubernetes cluster](./kubernetes-monitoring-firewall.md)) for monitoring a Kubernetes cluster, additional configurations are needed for enabling High scale Mode. 
+
+Get the **Logs Ingestion** endpoint from the data collection endpoint (DCE) for the data collection rule (DCR) used by the cluster. The DCR name will be in the form `MSCI-<region>-<clusterName>`.  
+
+The endpoint will have a different format depending on the cloud as shown in the following table.
+
+| Cloud | Endpoint | Port |
+|:---|:--|:--|
+| Azure Public Cloud | `<dce-name>-<suffix>.<cluster-region-name>-<suffix>.ingest.monitor.azure.com` | 443 |
+| Microsoft Azure operated by 21Vianet cloud | `<dce-name>-<suffix>.<cluster-region-name>-<suffix>.ingest.monitor.azure.cn` | 443 |
+| Azure Government cloud | `<dce-name>-<suffix>.<cluster-region-name>-<suffix>.ingest.monitor.azure.us` | 443 |
+
 
 ## Next steps
 
