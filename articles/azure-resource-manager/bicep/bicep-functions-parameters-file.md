@@ -3,7 +3,7 @@ title: Bicep functions - parameters file
 description: This article describes the Bicep functions to be used in Bicep parameter files.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 08/09/2024
 ---
 
 # Parameters file function for Bicep
@@ -80,6 +80,28 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 ### Return value
 
 The string value of the environment variable or a default value.
+
+### Remarks
+
+The following command only sets the environment variable for the PowerShell process where you run the command from.  
+
+```PowerShell
+$env:testEnvironmentVariable = "Hello World!"
+```
+
+You get [BCP338](./diagnostics/bcp388.md). To set the environment variable at the user level, use the following command:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('testEnvironmentVariable','Hello World!', 'User')
+```
+
+To set the environment variable at the machine level, use the following command:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('testEnvironmentVariable','Hello World!', 'User')
+```
+
+For more information, see [Environment.SetEnvironmentVariable Method](/dotnet/api/system.environment.setenvironmentvariable).
 
 ### Examples
 
