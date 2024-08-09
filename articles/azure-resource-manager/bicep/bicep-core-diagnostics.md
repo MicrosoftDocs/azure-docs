@@ -67,7 +67,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP059     | Error | The name "{name}" is not a function. |
 | BCP060     | Error | The "variables" function is not supported. Directly reference variables by their symbolic names. |
 | BCP061     | Error | The "parameters" function is not supported. Directly reference parameters by their symbolic names. |
-| <a id='BCP062' />[BCP062](./diagnostics/bcp062.md) | Error | The referenced declaration with name <type-name> is not valid. |
+| <a id='BCP062' />[BCP062](./diagnostics/bcp062.md) | Error | The referenced declaration with name \<type-name> is not valid. |
 | BCP063     | Error | The name "{name}" is not a parameter, variable, resource or module. |
 | BCP064     | Error | Found unexpected tokens in interpolated expression. |
 | BCP065     | Error | Function "{functionName}" is not valid at this location. It can only be used as a parameter default value. |
