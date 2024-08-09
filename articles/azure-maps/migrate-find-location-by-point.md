@@ -7,7 +7,7 @@ ms.author: peterbr
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: search
 ---
 
 # Migrate Bing Maps Find a Location by Point API

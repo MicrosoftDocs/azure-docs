@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 06/28/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ms.custom: devx-track-js
 ---
 

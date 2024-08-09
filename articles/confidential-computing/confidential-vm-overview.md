@@ -3,8 +3,8 @@ title: About Azure confidential VMs
 description: Learn about Azure confidential virtual machines. These series are for tenants with high security and confidentiality requirements.
 author: ju-shim
 ms.author: mmcrey
+ms.reviewer: mattmcinnes
 ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
 ms.custom:
   - ignite-2023
 ms.topic: overview
@@ -31,7 +31,6 @@ Azure confidential VMs offer strong security and confidentiality for tenants. Th
 - Secure key release with cryptographic binding between the platform's successful attestation and the VM's encryption keys.
 - Dedicated virtual [Trusted Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) instance for attestation and protection of keys and secrets in the virtual machine.
 - Secure boot capability similar to [Trusted launch for Azure VMs](../virtual-machines/trusted-launch.md)
-- Ultra disk capability is supported on confidential VMs
 
 ## Confidential OS disk encryption
 
@@ -87,6 +86,7 @@ Confidential VMs support the following VM sizes:
 - General Purpose with local disk: DCadsv5-series, DCedsv5-series
 - Memory Optimized without local disk: ECasv5-series, ECesv5-series
 - Memory Optimized with local disk: ECadsv5-series, ECedsv5-series
+- NVIDIA H100 Tensor Core GPU powered NCCadsH100v5-series
 
 ### OS support
 Confidential VMs support the following OS options:
@@ -124,6 +124,7 @@ Confidential VMs *don't support*:
 - Microsoft Azure Virtual Machine Scale Sets with Confidential OS disk encryption enabled
 - Limited Azure Compute Gallery support
 - Shared disks
+- Ultra disks
 - Accelerated Networking
 - Live migration
 - Screenshots under boot diagnostics

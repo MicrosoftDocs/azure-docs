@@ -3,7 +3,7 @@ title: Use custom DNS server
 titleSuffix: Azure Machine Learning
 description: How to configure a custom DNS server to work with an Azure Machine Learning workspace and private endpoint.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: meerakurup 
 ms.author: larryfr
