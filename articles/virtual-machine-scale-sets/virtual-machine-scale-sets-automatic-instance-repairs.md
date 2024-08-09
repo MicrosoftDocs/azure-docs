@@ -71,7 +71,7 @@ The following table compares the differences between all three repair actions:
 
 | Repair action | VM instance ID preserved? | Private IP preserved? | Managed data disk preserved? | Managed OS disk preserved? | Local (temporary) disk preserved? |
 |--|--|--|--|--|--|
-| Replace | No | No | No | No | No |
+| Replace (default) | No | No | No | No | No |
 | Reimage | Yes | Yes | Yes | No | Yes |
 | Restart | Yes | Yes | Yes | Yes | Yes |
 
