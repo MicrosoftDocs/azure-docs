@@ -80,61 +80,6 @@ This feature is currently in preview. You need to register the feature before us
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-
-<!-- 
-
-## Create a customer-managed key with managed HSM account volume
-
-1. Grant yourself permission to create keys in HSM. 
-
-    ```azurecli
-    az keyvault role assignment create --hsm-name <hsm name> --role 'Managed HSM Crypto User' --assignee <user principal name> --scope /keys
-    ```
-
-1. Create the HSM key. Azure NetApp Files supports key lengths of 2048 or greater. 
-
-    ```azurecli
-    az keyvault key create --hsm-name <hsm name> --name <key name> --ops encrypt decrypt --kty RSA-HSM --size 4096
-    ```
-
-1. Create a new subnet in the Azure NetApp Files account’s VNet.
-    ```azurecli
-    az network vnet subnet create --vnet-name <vnet name> -g <resource group name> --name <subnet name> --address-prefixes <address prefix>
-    ```
-    
-1. Create a new private endpoint.
-    ```azurecli
-    az network private-endpoint create --name <private endpoint name> -g <resource group name> 
-    --location <location> --vnet-name <vnet name> --subnet <subnet’s name> --private-connection-resource-id <hsm resource id> --group-id 'managedhsm' --connection-name <private link name>
-    ```
-
-1. Authorize the HSM permissions on your Azure NetApp Files account. The role must be authorized to read, encrypt, and decrypt keys. You can use a predefined role or a custom role.  
-    ```azurecli
-    az keyvault role assignment create --hsm-name <hsm name> --role 'Managed HSM Crypto User' --assignee <user principal name> --scope /keys
-    ```
-
-1. Update the Azure NetApp Files account with the HSM key information.
-    * If if the account authorization is managed with a user-assigned identity: 
-    ```azurecli
-    az netappfiles account update --name <Azure NetApp Files account name> -g <resource_group name> --user-assigned-identity <managed identity resource id> --key-source Microsoft.Keyvault --key-vault-resource-id <hsm resource id> --key-vault-uri <hsm uri> --key-name <key name>
-    ```
-    * If if the account authorization is managed with a system-assigned identity: 
-    ```azurecli
-    az rest -m patch -u https://management.azure.com/<account-resource-id>?apiversion=
-    2022-11-01 -b 
-    "{'properties': {
-        'encryption': {
-            'keySource': 'Microsoft.KeyVault',
-            'keyVaultProperties': {
-                'keyVaultUri': '<HSM URI>',
-                'keyName': '<key name>',
-                'keyVaultResourceId': '<HSM resource ID>'
-            }
-        }
-    }"
-    ```
--->
-
 ## Configure customer-managed keys with managed HSM for system-assigned identity
 
 When you configure customer-managed keys with a system-assigned identity, Azure configures the NetApp account automatically by adding a system-assigned identity. The access policy is created on your Azure Key Vault with key permissions of Get, Encrypt, and Decrypt.

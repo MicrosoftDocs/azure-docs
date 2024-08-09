@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 07/23/2024
 ---
 
 # Copy and transform data in Azure Cosmos DB for NoSQL by using Azure Data Factory
@@ -261,9 +261,6 @@ These properties are supported for the linked service:
 ```
 ### User-assigned managed identity authentication
 
->[!NOTE]
->Currently, the user-assigned managed identity authentication is not supported in data flow.
-
 A data factory or Synapse pipeline can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity), which represents this specific service instance. You can directly use this managed identity for Azure Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Azure Cosmos DB instance.
 
 To use user-assigned managed identities for Azure resource authentication, follow these steps.
@@ -281,6 +278,9 @@ These properties are supported for the linked service:
 | database | Specify the name of the database. | Yes |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+| subscriptionId | Specify the subscription id for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
+| tenantId | Specify the tenant id for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
+| resourceGroup | Specify the resource group name for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
 
 **Example:**
 
@@ -295,7 +295,10 @@ These properties are supported for the linked service:
             "credential": {
                 "referenceName": "credential1",
                 "type": "CredentialReference"
-            }
+            },
+            "subscriptionId": "<subscription id>",
+            "tenantId": "<tenant id>",
+            "resourceGroup": "<resource group>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

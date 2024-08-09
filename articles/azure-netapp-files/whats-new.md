@@ -20,6 +20,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Volume encryption with customer-managed keys with managed HSM extends the [customer-managed keys](configure-customer-managed-keys.md), enabling you to store your keys in a more secure FIPS 140-2 Level 3 HSM service instead of the FIPS 140-2 Level 1 or 2 encryption offered with Azure Key Vault. 
 
+* [Volume enhancement: Azure NetApp Files now supports 50 GiB minimum volume sizes](azure-netapp-files-resource-limits.md) (preview)
+
+    You can now create an Azure NetApp Files volume as small as 50 GiB--a reduction from the initial minimum size of 100 GiB. 50 GiB volumes save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes.
+
 * [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) is now generally available (GA). 
 
 ## July 2024

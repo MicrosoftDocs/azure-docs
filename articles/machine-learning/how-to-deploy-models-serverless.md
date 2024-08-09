@@ -20,6 +20,8 @@ In this article, you learn how to deploy a model from the model catalog as a ser
 
 [Certain models in the model catalog](concept-endpoint-serverless-availability.md) can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
+This article uses a Meta Llama model deployment for illustration. However, you can use the same steps to deploy any of the [models in the model catalog that are available for serverless API deployment](concept-endpoint-serverless-availability.md).
+
 ## Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
@@ -115,8 +117,12 @@ Serverless API endpoints can deploy both Microsoft and non-Microsoft offered mod
 
     # [Studio](#tab/azure-studio)
 
-    1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety (preview)** to open the deployment wizard.
+    1. On the model's **Details** page, select **Deploy**. A **Deployment options** window opens up, giving you the choice between serverless API deployment and deployment using a managed compute.
+  
+        > [!NOTE]
+        > For models that can be deployed only via serverless API deployment, the serverless API deployment wizard opens up right after you select **Deploy** from the model's details page.
 
+    1. Select **Serverless API with Azure AI Content Safety (preview)** to open the serverless API deployment wizard.
     1. Select the checkbox to acknowledge the Microsoft purchase policy.    
 
         :::image type="content" source="media/how-to-deploy-models-serverless/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the serverless API option." lightbox="media/how-to-deploy-models-serverless/deploy-pay-as-you-go.png":::
@@ -125,7 +131,7 @@ Serverless API endpoints can deploy both Microsoft and non-Microsoft offered mod
     
     1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Pricing and terms** tab to learn about pricing for the selected model.
 
-     4. On the deployment wizard, select the link to Azure Marketplace Terms to learn more about the terms of use. You can also select the Marketplace offer details tab to learn about pricing for the selected model.
+    1. On the deployment wizard, select the link to Azure Marketplace Terms to learn more about the terms of use. You can also select the Marketplace offer details tab to learn about pricing for the selected model.
 
     1. Select **Subscribe and Deploy**.
 
