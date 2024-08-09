@@ -4,7 +4,7 @@ description: Archived release notes for Azure HDInsight. Get development tips an
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
-ms.date: 05/27/2024
+ms.date: 08/09/2024
 ---
 
 # Archived release notes
@@ -106,7 +106,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
-## Fixed issues
+**Fixed issues**
 
 * Added API in gateway to get token for Keyvault, as part of the SFI initiative.
 * In the new Log monitor `HDInsightSparkLogs` table, for log type `SparkDriverLog`, some of the fields were missing. For example, `LogLevel & Message`. This release adds the missing fields to schemas and fixed formatting for `SparkDriverLog`.
@@ -155,7 +155,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 * CVE Fixes for [HDInsight Resource Provider](./hdinsight-overview-versioning.md#hdinsight-resource-provider).
 
 
-## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
+**Coming soon**
 
 * [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
    * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
