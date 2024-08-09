@@ -22,7 +22,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Send speech to speaker
+## Create the application
 
 Follow these steps to create a console application and install the Speech SDK.
 

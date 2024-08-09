@@ -22,7 +22,7 @@ To set up your environment, install the Speech SDK for JavaScript. If you just w
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Send speech to speaker
+## Create the application
 
 Follow these steps to create a Node.js console application for speech synthesis.
 

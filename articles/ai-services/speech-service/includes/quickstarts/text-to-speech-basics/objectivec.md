@@ -24,7 +24,7 @@ The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.o
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Send speech to speaker
+## Create the application
 
 Follow these steps to synthesize speech in a macOS application.
 

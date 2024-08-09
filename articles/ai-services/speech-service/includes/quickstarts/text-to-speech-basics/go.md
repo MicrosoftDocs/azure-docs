@@ -22,7 +22,7 @@ Install the Speech SDK for the Go language. For detailed installation instructio
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Send speech to speaker
+## Create the application
 
 Follow these steps to create a Go module.
 

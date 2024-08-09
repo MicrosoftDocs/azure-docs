@@ -27,7 +27,7 @@ Install a version of [Python from 3.7 or later](https://www.python.org/downloads
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Send speech to speaker
+## Create the application
 
 Follow these steps to create a console application.
 

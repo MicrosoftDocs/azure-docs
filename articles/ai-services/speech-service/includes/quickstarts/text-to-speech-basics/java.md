@@ -60,7 +60,7 @@ To set up your environment, [install the Speech SDK](~/articles/ai-services/spee
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Send speech to speaker
+## Create the application
 
 Follow these steps to create a console application for speech recognition.
 
