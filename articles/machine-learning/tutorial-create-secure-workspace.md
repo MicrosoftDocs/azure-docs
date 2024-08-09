@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: None
 ms.author: larryfr
 author: Blackmist
-ms.date: 08/09/2024
+ms.date: 08/11/2023
 ms.topic: how-to
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -84,7 +84,7 @@ Use the following steps to create an Azure Virtual Machine to use as a jump box.
 
 Azure Bastion enables you to connect to the VM desktop through your browser.
 
-1. In the Azure portal, select the VM you created earlier. From the __Connect__ section of the page, select __Bastion__ and then __Deploy Bastion__.
+1. In the Azure portal, select the VM you created earlier. From the __Operations__ section of the page, select __Bastion__ and then __Deploy Bastion__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/virtual-machine-deploy-bastion.png" alt-text="Screenshot of the deploy Bastion option.":::
 
