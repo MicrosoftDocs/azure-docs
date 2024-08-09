@@ -74,7 +74,7 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
                 )
     ```
 
-* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
+* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You need extra code to authenticate to Azure if you're working in a sovereign cloud.
     
     [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
@@ -95,7 +95,7 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
 
 For more information, see [Workspace SDK reference](/python/api/azureml-core/azureml.core.workspace.workspace).
 
-If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
+If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), and the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 
 ### Networking    
@@ -147,7 +147,7 @@ from azureml.core import Workspace
 
 ### Download a configuration file
 
-If you'll be using a [compute instance](../quickstart-create-resources.md) in your workspace to run your code, skip this step.  The compute instance will create and store a copy of this file for you.
+If you are using a [compute instance](../quickstart-create-resources.md) in your workspace to run your code, skip this step.  The compute instance will create and store a copy of this file for you.
 
 If you plan to use code on your local environment that references this workspace (`ws`), write the configuration file:
     
@@ -161,7 +161,7 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 ## Connect to a workspace
 
-In your Python code, you create a workspace object to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You'll get a prompt to sign in if you aren't already authenticated.
+In your Python code, you create a workspace object to connect to your workspace.  This code reads the contents of the configuration file to find your workspace.  You get a prompt to sign in if you aren't already authenticated.
     
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
@@ -183,7 +183,7 @@ ws = Workspace.from_config()
     ws = Workspace.from_config(auth=interactive_auth)
     ```
 
-* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
+* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
@@ -195,7 +195,7 @@ ws = Workspace.from_config()
     ws = Workspace.from_config(auth=interactive_auth)
     ```
     
-If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](../how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
+If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](../how-to-setup-authentication.md), and the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 ## Find a workspace
 
