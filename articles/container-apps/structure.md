@@ -27,7 +27,7 @@ A Container Apps environment is a secure boundary around one or more container a
 
 | Workload profiles environment | Consumption-only environment |
 |---|---|
-| The workload profiles environment gives you the flexibility to select compute resources tailored to the needs of your applications.<br><br>Within this environment, you can choose from dedicated hardware resources or a consumption context where you only pay for use. These different contexts are known as individual *workload profiles*. | The Consumption-only environment runs your application using compute resources exclusively allocated on-demand. You only pay for resources consumed by your application. |
+| The workload profiles environment gives you the flexibility to select compute resources tailored to the needs of your applications.<br><br>Within this environment, you can choose from dedicated resources or a consumption context where you only pay for use. These different contexts are known as individual *workload profiles*. | The Consumption-only environment runs your application using compute resources exclusively allocated on-demand. You only pay for resources consumed by your application. |
 
 While Consumption-only environments are an option, for new Container Apps environments that need the consumption model, creating a Workload profiles environment with the built-in [consumption workload profile](#workload-profiles) is recommended.
 
