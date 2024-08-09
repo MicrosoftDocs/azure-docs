@@ -113,5 +113,6 @@ spotLightFeature.maxParticipantsToSpotlight;
 ## Troubleshooting
 |code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
-|403	| 46304 | ExpectedError  | Together mode was started in an unsupported calling scenario  | Ensure together mode is started only in group call or meeting scenarios |
-|403 | 46306	| ExpectedError | Together mode start API was called by a nonmicrosft M365 user  | Ensure a Microsoft M365 User starts together mode.|
+|400	| 45900 | ExpectedError  | All provided participant IDs are already spotlighted  | Only participants who are not currently spotlighted can be spotlighted |
+|400 | 45902	| ExpectedError | The maximum number of spotlighted participants has been reached | Only seven participants can be in the spotlight state at any given time |
+|403 | 45903	| ExpectedError | Only participants with the roles of organizer, coorganizer, or presenter can initiate a spotlight. | nsure that the participant invoking the `startSpotlight` API holds the role of organizer, co-organizer, or presenter |
