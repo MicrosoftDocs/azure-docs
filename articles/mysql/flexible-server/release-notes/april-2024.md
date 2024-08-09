@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Azure Database For MySQL Flexible Server April 2024 Maintenance
+# Azure Database For MySQL - Flexible Server April 2024 maintenance
 
 We're pleased to announce the April 2024 maintenance for Azure Database for MySQL Flexible Server. This maintenance incorporates several new features and improvement, along with known issue fix, minor version upgrade, and security patches.
 
