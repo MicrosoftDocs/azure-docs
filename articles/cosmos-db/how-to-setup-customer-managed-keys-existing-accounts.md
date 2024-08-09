@@ -97,6 +97,15 @@ Enabling CMK on an existing account is an asynchronous operation that kicks off 
 
 The Cosmos DB account can continue to be used and data can continue to be written without waiting for the asynchronous operation to succeed. CLI command for enabling CMK waits for the completion of encryption of data.
 
+In order to allow an existing Cosmos DB account to use to CMK, a scan needs to be done to ensure that the account doesn't have "Large IDs". A "Large ID" is a document id that exceeds 990 characters length. This scan is mandatory for the CMK migration and it is done by Microsoft automatically. During this process you may see an error.
+
+ERROR: (InternalServerError) Unexpected error on document scan for CMK Migration. Please retry the operation. 
+
+This happens when the scan process uses more RUs than the ones provisioned on the collection, throwing a 429 error. A solution for this problem will be to temporarily bump their RUs significantly. Alternatively, you could make use of the provided console application [hosted here](https://github.com/AzureCosmosDB/Cosmos-DB-Non-CMK-to-CMK-Migration-Scanner) in order to scan their collections.
+
+> [!NOTE]
+> If you wish to disable server-side validation for this during migration, please contact support. This is advisable only if you are sure that there are no Large IDs. If Large ID is encountered during encryption, the process will stop till the Large Id document has been addressed.
+
 If you have further questions, reach out to Microsoft Support.
 
 ## FAQs
@@ -112,6 +121,8 @@ Enabling CMK kicks off a background, asynchronous process to encrypt all the dat
 **Can you bump up the RU’s once CMK has been triggered?**
 
 It's suggested to bump up the RUs before you trigger CMK. Once CMK is triggered, then some control plane operations are blocked till the encryption is complete. This block may prevent the user from increasing the RU’s once CMK is triggered.
+
+In order to allow an existing Cosmos DB account to use to CMK, a Large ID scan is done mandatory by Microsoft automatically to address one of the known limitations listed earlier. This process also consumes additional RUs and its a good idea to bump up the RU's significantly to avoid error 429. 
 
 **Is there a way to reverse the encryption or disable encryption after triggering CMK?**
 
