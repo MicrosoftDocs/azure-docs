@@ -10,11 +10,11 @@ ms.author: eur
 |--|--|
 |Arabic (Egypt)|`ar-EG` |
 |Arabic (Saudi Arabia)|`ar-SA` |
-|Catalan|`ca-ES`<sup>1</sup>|
-|Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
+|Catalan|`ca-ES`|
+|Chinese (Cantonese, Traditional)|`zh-HK`|
 |Chinese (Mandarin, Simplified)|`zh-CN`|
 |Chinese (Taiwanese Mandarin, Traditional)|`zh-TW`|
-|Danish (Denmark)|`da-DK`<sup>1</sup>|
+|Danish (Denmark)|`da-DK`|
 |Dutch (Netherlands)|`nl-NL`|
 |English (Australia)|`en-AU`|
 |English (Canada)|`en-CA` |
@@ -39,7 +39,6 @@ ms.author: eur
 |Spanish (Spain)|`es-ES` | 
 |Swedish (Sweden)|`sv-SE`|
 |Tamil (India)|`ta-IN` | 
-|Thai (Thailand)|`th-TH`<sup>1</sup> | 
+|Thai (Thailand)|`th-TH` | 
 |Vietnamese (Vietnam)|`vi-VN` |
 
-<sup>1</sup> The language is in public preview for pronunciation assessment.

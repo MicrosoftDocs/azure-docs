@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ---
 
 # Create a dataset using a GeoJson package (Preview)

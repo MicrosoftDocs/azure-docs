@@ -3,7 +3,7 @@ title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 07/22/2024
 ms.author: allensu

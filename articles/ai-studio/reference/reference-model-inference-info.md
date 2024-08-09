@@ -110,7 +110,7 @@ The information about the deployed model.
 
 ### ModelType
 
-The infernce task associated with the mode.
+The inference task associated with the mode.
 
 
 | Name | Type | Description |

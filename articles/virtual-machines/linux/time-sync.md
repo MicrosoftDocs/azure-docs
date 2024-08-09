@@ -2,7 +2,7 @@
 title: Time sync for Linux VMs in Azure
 description: Time sync for Linux virtual machines.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: how-to

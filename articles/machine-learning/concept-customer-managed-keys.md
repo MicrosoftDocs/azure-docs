@@ -3,7 +3,7 @@ title: Customer-managed keys
 titleSuffix: Azure Machine Learning
 description: 'Learn about using customer-managed keys to improve data security with Azure Machine Learning.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: larryfr

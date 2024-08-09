@@ -478,6 +478,8 @@
       items:
       - name: .NET
         href: how-to-dotnet-vector-index-query.md
+      - name: .NET
+        href: how-to-javascript-vector-index-query.md
       - name: Python
         href: how-to-python-vector-index-query.md
       - name: Java
