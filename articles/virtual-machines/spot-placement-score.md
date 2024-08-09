@@ -1,12 +1,12 @@
 ---
 title: Spot Placement Score
-description: Learn how to use Azure Spot Virtual Machines to save on costs.
+description: Learn how to use Azure Spot Placement Score to evaluate deployment success.
 author: am4234m
 ms.author: aparnamishra
 ms.service: azure-virtual-machines
 ms.subservice: azure-spot-vm
 ms.topic: how-to
-ms.date: 08/07/2024
+ms.date: 08/09/2024
 ms.reviewer: ju-shim
 ---
 
@@ -77,37 +77,44 @@ POST https://management.azure.com/subscriptions/{subscription}/providers/Microso
 
 ```json 
 { 
-"desiredLocations": [" "],
+"desiredLocations": "",
 "desiredSizes": [{ 
-"sku": " " 
-}], 
-"desiredCount":  
+   "sku": "" 
+   }], 
+"desiredCount": "" 
 } 
+```
 
 ### [Azure CLI 2.0](#tab/cli)
 
-Access Spot Placement Score using Azure CLI.
+Access Spot Placement Score using Azure CLI command [az compute-recommender spot-placement-recommender](https://learn.microsoft.com/cli/azure/compute-recommender?view=azure-cli-latest#az-compute-recommender-spot-placement-recommender).
 
-az compute-recommender spot-placement-recommender [--availability-zones {0, 1, f, false, n, no, t, true, y, yes}]
-                                                  [--desired-count]
-                                                  [--desired-locations]
-                                                  [--desired-sizes]
-                                                  [--ids]
-                                                  [--location]
-                                                  [--subscription]
+```azurecli-interactive
+az compute-recommender spot-placement-recommender \
+    --availability-zones <> \
+    --desired-count <> \
+    --desired-locations <> \
+    --desired-sizes <> \
+    --ids <> \
+    --location <> \
+    --subscription <> \
+```
 
 ### [Azure PowerShell](#tab/powershell)
 
-Access the Spot Placement Score using Azure PowerShell through the `Invoke-AzSpotPlacementScore` command to call the API endpoint. Replace all parameters with your specific details:
+Access the Spot Placement Score using Azure PowerShell command [Invoke-AzSpotPlacementScore](https://learn.microsoft.com/powershell/module/az.compute/invoke-azspotplacementscore) to call the API endpoint. Replace all parameters with your specific details:
 
-Invoke-AzSpotPlacementScore 
-      -Location <String> 
-      [-SubscriptionId <String>] 
-      [-AvailabilityZone] 
-      [-DesiredCount <Int32>] 
-      [-DesiredLocation <String[]>] 
-      [-DesiredSize <IResourceSize[]>]
+```azurepowershell-interactive
+Invoke-AzSpotPlacementScore
+    -Location <String>
+    -SubscriptionId <String> 
+    -AvailabilityZone 
+    -DesiredCount <Int32> 
+    -DesiredLocation <String[]>
+    -DesiredSize <IResourceSize[]>
+```
 
+---
 
 ## Examples
 
@@ -166,7 +173,7 @@ The following scenario assumptions apply to this example:
 | 200 | Successful request | Spot Placement Score operations complete successfully. | 
 | 400 | Bad error request | At least one required input parameter isn't present, or the values of the provided parameters aren't valid. Produces a detailed error message about the failed request. |
 | 429 | Too many requests | Unable to generate placement score due to hitting a rate limit. | 
-| 500 | Internal server error | The placement score generation failed. Produces a detailed error message about the failed request.
+| 500 | Internal server error | The placement score generation failed. Produces a detailed error message about the failed request. |
 
 ## Next steps
 
