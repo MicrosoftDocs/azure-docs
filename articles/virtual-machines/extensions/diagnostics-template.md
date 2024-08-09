@@ -2,7 +2,7 @@
 title: Add monitoring & diagnostics to an Azure virtual machine
 description: Use an Azure Resource Manager template to create a new Windows virtual machine with Azure diagnostics extension.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.custom: devx-track-arm-template
 ms.author: gabsta

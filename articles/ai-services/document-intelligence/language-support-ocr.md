@@ -1430,7 +1430,7 @@ The following table lists layout model language support for extracting and analy
 :::moniker range="doc-intel-4.0.0"
 
 > [!IMPORTANT]
-> With Document Intelligence **v4.0:2024-02-29-preview, 2023-10-31-preview** and going forward, the general document model (prebuilt-document) is being added to layout (prebuilt-layout). To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
+> With Document Intelligence **v4.0:2024-07-31-preview, 2023-10-31-preview** and going forward, the general document model (prebuilt-document) is being added to layout (prebuilt-layout). To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
 
 | Key value pairs   | version| Model ID |
 |----------  |---------|--------|

@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: In this tutorial, learn how to create a public load balancer with an IP based backend pool using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 02/14/2024
 ms.custom: template-tutorial, engagement-fy23

@@ -2,9 +2,9 @@
 title: Release notes for Azure HDInsight 
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, Hive, and more.
 ms.custom: references_regions
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 07/08/2024
+ms.date: 08/09/2024
 ---
 
 # Azure HDInsight release notes
@@ -20,18 +20,7 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 ## Release Information
 
-### Release date: Jul 05, 2024
-
-> [!NOTE]
-> This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider)
-
-### Fixed issues 
-
-* HOBO tags overwrite user tags. 
-
-   * HOBO tags overwrite user tags on sub-resources in HDInsight cluster creation. 
-
-### Release date: Jun 19, 2024
+### Release date: Aug 09, 2024
 
 This release note applies to 
 
@@ -42,7 +31,7 @@ This release note applies to
 :::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version. 
 
 
-HDInsight release will be available to all regions over several days. This release note is applicable for image number **2406180258**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2407260448**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
 
 HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -57,17 +46,11 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
-## Fixed issues
-* Security enhancements
-    * Improvements on using Tags for clusters in line with the [SFI](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) requirements.
-    * Improvements in probes scripts as per the [SFI](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) requirements.
-* Improvements in the HDInsight Log Analytics with System Managed Identity support for HDInsight Resource Provider.
-* Addition of new activity to upgrade the `mdsd` agent version for old image (created before 2024).
-* Enabling MISE in gateway as part of the continued improvements for [MSAL Migration](/entra/identity-platform/msal-overview).
-* Incorporate Spark Thrift Server `Httpheader hiveConf` to the Jetty HTTP ConnectionFactory.
-* Revert RANGER-3753 and RANGER-3593.
-    
-    The `setOwnerUser` implementation given in Ranger 2.3.0 release has a critical regression issue when being used by Hive. In Ranger 2.3.0, when HiveServer2 tries to evaluate the policies, Ranger Client tries to get the owner of the hive table by calling the Metastore in the setOwnerUser function which essentially makes call to storage to check access for that table. This issue causes the queries to run slow when Hive runs on 2.3.0 Ranger.
+## Updates
+
+**[Adding Azure Monitor Agent](./azure-monitor-agent.md) for Log Analytics in HDInsight**
+
+Addition of `SystemMSI` and Automated DCR for Log analytics, given the deprecation of [New Azure Monitor experience (preview)](./hdinsight-hadoop-oms-log-analytics-tutorial.md) .
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 

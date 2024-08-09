@@ -5,7 +5,7 @@ author: whhender
 ms.author: whhender
 ms.reviewer: whhender
 ms.date: 10/16/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
 ---

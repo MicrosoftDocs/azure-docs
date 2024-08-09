@@ -27,7 +27,7 @@ A disk reservation is made per disk SKU. As a result, the reservation consumptio
 For example, assume you reserve one P40 disk that has 2 TiB of provisioned storage capacity. Also assume you allocate only two P30 disks. The P40 reservation in that case doesn't account for P30 consumption, and you pay the pay-as-you-go rate on the P30 disks.
 <br/>
 <br/>
-[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](~/reusable-content/ce-skilling/azure/includes/disk-storage-premium-ssd-sizes.md)]
 
 ## Purchase considerations
 

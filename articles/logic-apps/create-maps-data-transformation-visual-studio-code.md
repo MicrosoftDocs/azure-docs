@@ -2,7 +2,7 @@
 title: Create maps for data transformation
 description: Create maps to transform data between schemas in Azure Logic Apps using Visual Studio Code.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, alexzuniga, azla
 ms.topic: how-to

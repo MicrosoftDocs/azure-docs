@@ -30,6 +30,8 @@ items:
     href: encryption.md
   - name: Grafana settings
     href: grafana-settings.md
+  - name: Azure RBAC  
+    href: concept-role-based-access-control.md
 - name: How-to guides
   expanded: true
   items:

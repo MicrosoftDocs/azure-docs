@@ -157,7 +157,7 @@ However, a connection name can also refer to a collection of multiple configurat
 For example, the `connection` property for an Azure Blob trigger definition might be `Storage1`. As long as there's no single string value configured by an environment variable named `Storage1`,  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
 
 > [!NOTE]
-> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](/azure/key-vault/general/overview) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
 >
 > For example, `Storage1:blobServiceUri`.
 
@@ -194,7 +194,7 @@ The following components support identity-based connections:
 [cosmosv4]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4
 [tablesv1]: ./functions-bindings-storage-table.md#table-api-extension
 [signalr]: ./functions-bindings-signalr-service.md#install-extension
-[durable-identity]: ./durable/durable-functions-configure-durable-functions-with-credentials.md
+[durable-identity]: ./durable/durable-functions-configure-managed-identity.md
 [azuresql-identity]: ./functions-identity-access-azure-sql-with-managed-identity.md
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]

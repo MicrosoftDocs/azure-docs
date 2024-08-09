@@ -6,7 +6,7 @@ author: vhorne
 ms.author: victorh
 ms.date: 06/28/2022
 ms.topic: quickstart
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 

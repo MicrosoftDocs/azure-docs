@@ -33,7 +33,7 @@ In this how-to guide, you learn to use the [Translator service REST APIs](refere
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* An Azure AI multi-service or Translator resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or a [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal, to get your key and endpoint. After it deploys, select **Go to resource**.
+* An Azure AI multi-service or Translator resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or a [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource, in the Azure portal, to get your key and endpoint. After it deploys, select **Go to resource**.
 
 * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
@@ -42,7 +42,7 @@ In this how-to guide, you learn to use the [Translator service REST APIs](refere
     :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../key-vault/general/overview.md). For more information, *see* the Azure AI services [security](../security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, *see* the Azure AI services [security](../security-features.md).
 
 ## Headers
 

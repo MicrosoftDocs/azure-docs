@@ -3,7 +3,7 @@ title: Back up Azure Blobs using Azure CLI
 description: Learn how to back up Azure Blobs using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 05/30/2024
+ms.date: 07/24/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -60,7 +60,7 @@ After creating a vault, let's create a Backup policy to protect Azure Blobs in a
 
 ## Create a backup policy
 
-You can create a backup policy for *operational backup* and *vaulted backup (preview)* for Azure Blobs using Azure CLI.
+You can create a backup policy for *operational backup* and *vaulted backup* for Azure Blobs using Azure CLI.
 
 **Choose a backup tier**:
 
@@ -170,7 +170,7 @@ az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVau
   }
 ```
 
-# [Vaulted backup (preview)](#tab/vaulted-backup)
+# [Vaulted backup](#tab/vaulted-backup)
 
 [!INCLUDE [blob-backup-create-policy-cli.md](../../includes/blob-backup-create-policy-cli.md)]
 

@@ -278,13 +278,6 @@ productDirectory:
         - analytics
       url: synapse-analytics/index.yml
     # Card
-    - title: Data Catalog
-      summary: Get more value from your enterprise data assets
-      imageSrc: ./media/index/data-catalog.svg
-      azureCategories:
-        - analytics
-      url: data-catalog/index.yml
-    # Card
     - title: Microsoft Purview
       summary: Maximize business value with unified data governance
       imageSrc: ./media/index/purview.svg
@@ -418,7 +411,7 @@ productDirectory:
         - featured
         - compute
         - containers
-      url: aks/index.yml
+      url: /azure/aks/
     # Card
     - title: Azure Kubernetes Fleet Manager (Fleet)
       summary: Enable multi-cluster and at-scale scenarios for Azure Kubernetes Service clusters
@@ -1225,7 +1218,7 @@ productDirectory:
       imageSrc: ./media/index/defender.svg
       azureCategories:
         - security
-      url: defender-for-cloud/index.yml
+      url: /azure/defender-for-cloud/
     # Card
     - title: Microsoft Defender for IoT
       summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
@@ -1352,7 +1345,7 @@ productDirectory:
       imageSrc: ./media/index/dedicated-hsm.svg
       azureCategories:
         - security
-      url: dedicated-hsm/index.yml
+      url: /azure/dedicated-hsm/
     # Card
     - title: Microsoft Defender for External Attack Surface Management
       summary: Safeguard the digital experience by discovering all internet-exposed resources
@@ -1367,7 +1360,7 @@ productDirectory:
       imageSrc: ./media/index/key-vault.svg
       azureCategories:
         - security
-      url: key-vault/index.yml
+      url: /azure/key-vault/
     # Card
     - title: Archive Storage
       summary: Industry leading price point for storing rarely accessed data

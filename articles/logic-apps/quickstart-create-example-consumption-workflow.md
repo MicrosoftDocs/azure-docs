@@ -1,13 +1,13 @@
 ---
-title: Create example Consumption workflow using Azure portal
-description: Quickstart to create your first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
-services: logic-apps
+title: Create example Consumption workflow in Azure portal
+description: Learn to build your first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
+services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mode-ui
 ms.collection: ce-skilling-ai-copilot
-ms.date: 06/13/2024
+ms.date: 08/07/2024
 #Customer intent: As a developer, I want to create my first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -15,18 +15,19 @@ ms.date: 06/13/2024
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-To create an automated workflow that performs tasks with multiple cloud services, this quickstart shows how to create an example logic app workflow that integrates the following services, an RSS feed for a website and an email account.
+To create an automated workflow that performs tasks with multiple cloud services, this quickstart shows how to create an example workflow that integrates the following services, an RSS feed for a website and an email account, by using Azure Logic Apps.
 
 This example specifically creates a Consumption logic app resource and workflow that runs in multitenant Azure Logic Apps. The example uses the **RSS** connector and the **Office 365 Outlook** connector. The **RSS** connector provides a trigger that you can use to check an RSS feed, based on a specific schedule. The **Office 365 Outlook** connector provides an action that sends an email for each new RSS item.
 
-The following screenshot shows the high-level example workflow:
+When you finish, your workflow looks like the following high level example:
 
-:::image type="content" source="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png" alt-text="Screenshot shows example workflow with RSS trigger named When a feed item is published, and with the Outlook action named Send an email." lightbox="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png":::
+:::image type="content" source="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png" alt-text="Screenshot shows example Consumption workflow with RSS trigger named When a feed item is published plus the Outlook action named Send an email." lightbox="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png":::
 
 > [!TIP]
 >
 > To learn more, you can ask Azure Copilot these questions:
 >
+> - *What's Azure Logic Apps?*
 > - *What's a Consumption logic app workflow?*
 > - *What's the RSS connector?*
 > - *What's the Office 365 Outlook connector?*
@@ -35,22 +36,16 @@ The following screenshot shows the high-level example workflow:
 
 The connectors in this example are only two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
 
-> [!NOTE]
-> To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see 
-> [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md). 
-
-As you progress through this quickstart, you'll learn the following basic high-level steps:
-
-* Create a Consumption logic app resource that is hosted in multitenant Azure Logic Apps.
-* Add a trigger that specifies when to run the workflow.
-* Add an action that performs a task after the trigger fires.
-* Run your workflow.
-
 To create and manage a Consumption logic app workflow using other tools, see the following quickstarts:
 
 * [Create and manage logic app workflows in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 * [Create and manage logic app workflows in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 * [Create and manage logic apps workflows using the Azure CLI](quickstart-logic-apps-azure-cli.md)
+
+> [!NOTE]
+>
+> To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see 
+> [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md). 
 
 <a name="prerequisites"></a>
 
@@ -58,7 +53,9 @@ To create and manage a Consumption logic app workflow using other tools, see the
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An email account from a service that works with Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, review [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+* An email account from a service that works with Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+
+  This quickstart uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
 
   > [!NOTE]
   >
@@ -70,56 +67,50 @@ To create and manage a Consumption logic app workflow using other tools, see the
 
 * If you have a firewall that limits traffic to specific IP addresses, make sure that you set up your firewall to allow access for both the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses that Azure Logic Apps uses in the Azure region where you create your logic app workflow.
 
-  This example uses the **RSS** and **Office 365 Outlook** connectors, which [run in global multitenant Azure and are managed by Microsoft](../connectors/managed.md). These connectors require that you set up your firewall to allow access for all the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses) in the Azure region for your logic app resource.
+  This example uses the **RSS** and **Office 365 Outlook** connectors, which [are hosted and run in global multitenant Azure and are managed by Microsoft](../connectors/managed.md). These connectors require that you set up your firewall to allow access for all the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses) in the Azure region for your logic app resource.
 
 <a name="create-logic-app-resource"></a>
 
 ## Create a Consumption logic app resource
 
-1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps**, and select **Logic apps**.
+1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account.
+
+1. In the Azure portal search box, enter **logic app**, and select **Logic apps**.
 
    :::image type="content" source="media/quickstart-create-example-consumption-workflow/find-select-logic-apps.png" alt-text="Screenshot shows Azure portal search box with the words, logic apps, and shows the selection, Logic apps." lightbox="media/quickstart-create-example-consumption-workflow/find-select-logic-apps.png":::
 
 1. On the **Logic apps** page toolbar, select **Add**.
 
-1. On the **Create Logic App** page, first select the **Plan** type for your logic app resource. That way, only the options for that plan type appear.
+   The **Create Logic App** page appears and shows the following options:
 
-   1. In the **Plan** section, for **Plan type**, select **Consumption** to view only the Consumption logic app resource settings.
+   [!INCLUDE [logic-apps-host-plans](../../includes/logic-apps-host-plans.md)]
 
-      The **Plan type** not only specifies the logic app resource type, but also the billing model.
+1. On the **Create Logic App** page, select **Consumption (Multi-tenant)**.
 
-      | Plan type | Description |
-      |-----------|-------------|
-      | **Standard** | This logic app resource is the default selection and supports multiple workflows. These workflows run in single-tenant Azure Logic Apps and use the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-      | **Consumption** | This logic app resource type is the alternative selection and supports only a single workflow. This workflow runs in multitenant Azure Logic Apps and uses the [Consumption model for billing](logic-apps-pricing.md#consumption-pricing). |
-
-1. Provide the following information for your logic app resource:
+1. On the **Basics** tab, provide the following information about your logic app resource:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. |
+   | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Consumption-RG**. |
-   | **Logic App name** | Yes | <*logic-app-resource-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). <br><br>This example creates a logic app resource named **My-Consumption-Logic-App**. |
-   | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. |
-   | **Enable log analytics** | Yes | **No** | This option appears and applies only when you select the **Consumption** logic app type. <br><br>Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. |
-
-   When you're done, your settings look similar to the following example:
-
-   :::image type="content" source="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal and logic app resource creation page with details for new logic app." lightbox="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png":::
+   | **Logic App name** | Yes | <*logic-app-resource-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a logic app resource named **My-Consumption-Logic-App**. |
+   | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for your logic app. <br><br>This example uses **West US**. |
+   | **Enable log analytics** | Yes | **No** | Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. <br><br>**Note**: This option is available only with Consumption logic apps. |
 
    > [!NOTE]
    >
-   > If you selected an Azure region that supports availability zone redundancy, the **Zone redundancy** 
-   > section is automatically enabled. This preview section offers the choice to enable availability zone 
-   > redundancy for your logic app. However, currently supported Azure regions don't include **West US**, 
-   > so you can ignore this section for this example. For more information, see 
+   > Availability zones are automatically enabled for new and existing Consumption logic app workflows in 
+   > [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+   > For more information, see [Reliability in Azure Functions](../reliability/reliability-functions.md#availability-zone-support) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
-1. When you're ready, select **Review + Create**.
+   After you finish, your settings look similar to the following example:
 
-1. On the validation page that appears, confirm all the provided information, and select **Create**.
+   :::image type="content" source="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal and logic app resource creation page with details for new logic app." lightbox="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png":::
 
-1. After Azure successfully deploys your logic app resource, select **Go to resource**. Or, find and select your logic app resource by typing the name in the Azure search box.
+1. When you're ready, select **Review + create**. On the validation page that appears, confirm all the provided information, and select **Create**.
+
+1. After Azure successfully deploys your logic app resource, select **Go to resource**. Or, find and select your logic app resource by using the Azure search box.
 
    :::image type="content" source="media/quickstart-create-example-consumption-workflow/go-to-resource.png" alt-text="Screenshot shows the resource deployment page and selected button named Go to resource." lightbox="media/quickstart-create-example-consumption-workflow/go-to-resource.png":::
 
@@ -202,7 +193,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
          :::image type="content" source="media/quickstart-create-example-consumption-workflow/dynamic-content-see-more.png" alt-text="Screenshot shows open dynamic content list and selected option, See more." lightbox="media/quickstart-create-example-consumption-workflow/dynamic-content-see-more.png":::
 
-         When you're done, the email subject looks like the following example:
+         After you finish, the email subject looks like the following example:
 
          :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png" alt-text="Screenshot shows action named Send an email, with example email subject and included property named Feed title." lightbox="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png":::
 
@@ -232,7 +223,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
 ## Test your workflow
 
-To check that the workflow runs correctly, you can either wait for the trigger to fire based on your specifed schedule, or you can manually run the workflow.
+To check that the workflow runs correctly, you can either wait for the trigger to fire based on your specified schedule, or you can manually run the workflow.
 
 * On the designer toolbar, from the **Run** menu, select **Run**.
 
@@ -252,7 +243,7 @@ If you don't receive emails from the workflow as expected:
 
 ## Clean up resources
 
-When you're done with this quickstart, delete the sample logic app resource and any related resources by deleting the resource group that you created for this example.
+When you complete this quickstart, delete the sample logic app resource and any related resources by deleting the resource group that you created for this example.
 
 1. In the Azure search box, enter **resource groups**, and select **Resource groups**.
 

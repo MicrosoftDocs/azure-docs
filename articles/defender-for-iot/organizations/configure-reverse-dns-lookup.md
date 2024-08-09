@@ -26,7 +26,7 @@ Before performing the procedures in this article, you must have:
 
 ## Define DNS servers
 
-1. On your sensor console, select **System settings** > **Network monitoring** and under **Active Discovery**, select **Reverse DNS Lookup**.
+1. On your OT sensor console, select **System settings** > **Network monitoring** and under **Active Discovery**, select **Reverse DNS Lookup**.
 
 1. Use the **Schedule Reverse Lookup** options to define your scan as in fixed intervals, per hour, or at a specific time.
 

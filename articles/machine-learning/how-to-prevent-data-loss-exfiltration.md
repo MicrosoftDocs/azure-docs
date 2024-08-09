@@ -3,7 +3,7 @@ title: Configure data exfiltration prevention
 titleSuffix: Azure Machine Learning
 description: 'How to configure data exfiltration prevention for your storage accounts.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: larryfr

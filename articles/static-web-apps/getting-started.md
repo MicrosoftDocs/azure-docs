@@ -3,7 +3,7 @@ title: "Quickstart: Building your first static site with the Azure Static Web Ap
 description: Learn to deploy a static site to Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: quickstart
 ms.date: 04/02/2024
 ms.author: cshoe

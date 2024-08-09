@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file with a note about using the bulk delete API
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 10/3/2023
 ms.author: baanders

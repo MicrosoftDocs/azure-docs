@@ -12,6 +12,113 @@ ms.author: anfdocs
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
 
+## Definitions 
+
+Understanding the terminology related to performance and capacity in Azure NetApp Files is essential to understanding the metrics available:  
+
+- **Capacity pool**: A capacity pool is how capacity is billed in Azure NetApp Files. Capacity pools contain volume. 
+- **Volume quota**: The amount of capacity provisioned to an Azure NetApp Files volume. Volume quota is directly tied to automatic Quality of Service (QoS), which impacts the volume performance. For more information, see [QoS types for capacity pools](azure-netapp-files-understand-storage-hierarchy.md#qos_types).
+- **Throughput**: The amount of data transmitted across the wire (read/write/other) between Azure NetApp Files and the client. Throughput in Azure NetApp Files is measured in bytes per second. 
+- **Latency**: Latency is the amount of time for a storage operation to complete within storage from the time it arrives to the time it's processed and is ready to be sent back to the client. Latency in Azure NetApp Files is measured in milliseconds (ms). 
+
+## About storage performance operation metrics 
+
+An operation in Azure NetApp Files is defined as _something_ that happens during a client/server conversation. For instance, when a client requests a file to be read from Azure NetApp Files, read and other operations are sent and received between the client and server.  
+
+When monitoring the Azure NetApp Files volume, read and write operations are self-explanatory. Also included in the metrics is a metric called **Other IOPS**, meaning any operation that isn't a read or write. **Other IOPS** encompasses operations such as metadata, which is present alongside most read and write operations.
+
+The following types of metadata operations are included in the **Other IOPS** metric: 
+
+**NFSv3** 
+
+NFSv3 metadata calls included in **Other IOPS** as covered in [RFC-1813](https://www.rfc-editor.org/rfc/rfc1813): 
+
+- Procedure 0: NULL - Do nothing 
+- Procedure 1: GETATTR - Get file attributes 
+- Procedure 2: SETATTR - Set file attributes 
+- Procedure 3: LOOKUP - Lookup filename 
+- Procedure 4: ACCESS - Check Access Permission 
+- Procedure 5: READLINK - Read from symbolic link 
+- Procedure 8: CREATE - Create a file 
+- Procedure 9: MKDIR - Create a directory 
+- Procedure 10: SYMLINK - Create a symbolic link 
+- Procedure 11: MKNOD - Create a special device 
+- Procedure 12: REMOVE - Remove a File 
+- Procedure 13: RMDIR - Remove a Directory 
+- Procedure 14: RENAME - Rename a File or Directory 
+- Procedure 15: LINK - Create Link to an object 
+- Procedure 16: READDIR - Read From Directory 
+- Procedure 17: READDIRPLUS - Extended read from directory 
+- Procedure 18: FSSTAT - Get dynamic file system information 
+- Procedure 19: FSINFO - Get static file system Information 
+- Procedure 20: PATHCONF - Retrieve POSIX information 
+- Procedure 21: COMMIT - Commit cached data on a server to stable storage 
+
+**NFSv4.1** 
+
+NFSv4.1 metadata calls included in **Other IOPS** as covered in [RFC-7530](https://www.rfc-editor.org/rfc/rfc7530): 
+
+- Procedure 0: NULL – Do nothing 
+- Procedure 1: COMPOUND – Combining multiple NFS operations into a single request 
+- Operation 3: ACCESS – Check access rights 
+- Operation 4: CLOSE – Close file 
+- Operation 5: COMMIT – Commit cached data 
+- Operation 6: CREATE - Create a nonregular file object 
+- Operation 7: DELEGPURGE - Purge delegations awaiting recovery 
+- Operation 8: DELEGRETURN - Return delegation 
+- Operation 9: GETATTR - Get attributes 
+- Operation 10: GETFH - Get current filehandle 
+- Operation 11: LINK - Create link to a file 
+- Operation 12: LOCK - Create lock 
+- Operation 13: LOCKT - Test for Lock 
+- Operation 14: LOCKU - Unlock file 
+- Operation 15: LOOKUP - Look Up filename 
+- Operation 16: LOOKUPP - Look Up parent directory 
+- Operation 17: NVERIFY - Verify difference in attributes 
+- Operation 18: OPEN - Open a regular file 
+- Operation 19: OPENATTR - Open named attribute directory 
+- Operation 20: OPEN_CONFIRM - Confirm open 
+- Operation 21: OPEN_DOWNGRADE - Reduce open file access 
+- Operation 22: PUTFH - Set current filehandle 
+- Operation 23: PUTPUBFH - Set public filehandle 
+- Operation 24: PUTROOTFH - Set root filehandle 
+- Operation 26: READDIR - Read directory 
+- Operation 27: READLINK - Read symbolic link 
+- Operation 28: REMOVE - Remove file system object 
+- Operation 29: RENAME - Rename directory entry 
+- Operation 30: RENEW - Renew a lease 
+- Operation 32: SAVEFH - Save current filehandle 
+- Operation 33: SECINFO - Obtain available security 
+- Operation 34: SETATTR - Set attributes 
+- Operation 35: SETCLIENTID - Negotiate client ID 
+- Operation 36: SETCLIENTID_CONFIRM - Confirm client ID 
+- Operation 37: VERIFY - Verify same attributes 
+- Operation 39: RELEASE_LOCKOWNER – Release lock-owner state 
+
+**SMB (includes SMB2 and SMB3.x)** 
+
+SMB commands included in **Other IOPS** with opcode value: 
+
+| SMB command | Opcode value | 
+| - | - |
+| SMB2 NEGOTIATE | 0x0000 |
+| SMB2 SESSION_SETUP | 0x0001 |
+| SMB2 LOGOFF | 0x0002 |
+| SMB2 TREE_CONNECT | 0x0003 |
+| SMB2 TREE_DISCONNECT | 0x0004 |
+| SMB2 CREATE | 0x0005 |
+| SMB2 CLOSE | 0x0006 |
+| SMB2 FLUSH | 0x0007 |
+| SMB2 LOCK | 0x000A |
+| SMB2 IOCTL | 0x000B |
+| SMB2 CANCEL | 0x000C |
+| SMB2 ECHO | 0x000D |
+| SMB2 QUERY_DIRECTORY | 0x000E |
+| SMB2 CHANGE_NOTIFY | 0x000F | 
+| SMB2 QUERY_INFO | 0x0010 |
+| SMB2 SET_INFO | 0x0011 |
+| SMB2 OPLOCK_BREAK | 0x0012 | 
+
 ## Ways to access metrics 
 
 Azure NetApp Files metrics are natively integrated into Azure monitor. From within the Azure portal, you can find metrics for Azure NetApp Files capacity pools and volumes from two locations:
@@ -81,13 +188,17 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 > Volume latency for *Average Read Latency* and *Average Write Latency* is measured within the storage service and does not include network latency.
 
 - *Average Read Latency*   
-    The average time for reads from the volume in milliseconds.
+    The average roundtrip time (RTT) for reads from the volume in milliseconds.
 - *Average Write Latency*   
-    The average time for writes from the volume in milliseconds.
+    The average roundtrip time (RTT) for writes from the volume in milliseconds.
 - *Read IOPS*   
-    The number of reads to the volume per second.
+    The number of read operations to the volume per second.
 - *Write IOPS*   
-    The number of writes to the volume per second.
+    The number of write operations to the volume per second.
+- ***Other IOPS*** 
+    The number of [other operations](#about-storage-performance-operation-metrics) to the volume per second. 
+- *Total IOPS* 
+    A sum of the write, read, and other operations to the volume per second. 
 
 ## <a name="replication"></a>Volume replication metrics
 
@@ -99,7 +210,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
     The condition of the replication relationship. A healthy state is denoted by `1`. An unhealthy state is denoted by `0`.
 
 - *Is volume replication transferring*    
-    Whether the status of the volume replication is ‘transferring’. 
+    Whether the status of the volume replication is transferring. 
 
 - *Volume replication lag time* <br>
     Lag time is the actual amount of time the replication lags behind the source. It indicates the age of the replicated data in the destination volume relative to the source volume.
@@ -141,6 +252,9 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 
 * *Other throughput*   
     Other throughput (that isn't read or write) in bytes per second.
+
+* *Total throughput*
+    Sum of all throughput (read, write, and other) in bytes per second.
 
 ## Volume backup metrics  
 

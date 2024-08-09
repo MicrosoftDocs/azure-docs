@@ -17,10 +17,10 @@
     href: concepts-version-policy.md
   - name: Supported versions
     href: flexible-server/concepts-supported-versions.md
-
 - name: Azure Database for MySQL - Flexible Server
   items:
   - name: Overview
+    expanded: true
     items:
       - name: What's new?
         href: flexible-server/whats-new.md
@@ -39,7 +39,6 @@
       - name: Service tiers
         href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
-    expanded: true
     items:
       - name: Create an Azure Database for MySQL - Flexible Server instance
         items:
@@ -160,6 +159,8 @@
         href: flexible-server/concepts-azure-ad-authentication.md
       - name: Data encryption
         href: flexible-server/concepts-customer-managed-key.md
+      - name: Threat protection with Microsoft Defender for Cloud
+        href: /azure/defender-for-cloud/defender-for-databases-introduction?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
   - name: Integrations
     items:
     - name: Automation tasks
@@ -359,7 +360,6 @@
       - name: Pricing tiers
         href: single-server/concepts-pricing-tiers.md
   - name: Quickstarts
-    expanded: true
     items:
     - name: Create an Azure Database for MySQL - Single Server instance
       items:

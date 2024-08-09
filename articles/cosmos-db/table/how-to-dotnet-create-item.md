@@ -3,7 +3,7 @@ title: Create an item in Azure Cosmos DB for Table using .NET
 description: Learn how to create an item in your Azure Cosmos DB for Table account using the .NET SDK
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.devlang: csharp
 ms.topic: how-to

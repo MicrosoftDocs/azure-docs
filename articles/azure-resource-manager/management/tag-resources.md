@@ -61,6 +61,12 @@ You can retrieve information about tags by downloading the usage file available 
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
+## Unique tags pagination 
+
+When calling the [Unique Tags API](/rest/api/resources/tags/list) there is a limit to the size of each API response page that is returned. A tag that has a large set of unique values will require the API to fetch the next page to retrieve the remaining set of values. When this happens the tag key is shown again to indicate that the values are still under this key.  
+
+This can result in some tools, like the Azure portal, to show the tag key twice.  
+
 ## Limitations
 
 The following limitations apply to tags:

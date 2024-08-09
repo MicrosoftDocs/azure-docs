@@ -2073,7 +2073,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 ```C#
 // Add the client IP address to the activity as a tag.
 // only applicable in case of activity.Kind == Server
-activity.SetTag("http.client_ip", "<IP Address>");
+activity.SetTag("client.address", "<IP Address>");
 ```
 
 ##### [Java](#tab/java)
@@ -2532,7 +2532,7 @@ It's not possible to filter telemetry in Java native.
 
 ## Get the trace ID or span ID
     
-You might want to get the trace ID or span ID. If you have logs sent to a destination other than Application Insights, consider adding the trace ID or span ID. Doing so enables better correlation when debugging and diagnosing issues.
+You can obtain the `Trace ID` and `Span ID` of the currently active Span using following steps.
 
 ### [ASP.NET Core](#tab/aspnetcore)
 

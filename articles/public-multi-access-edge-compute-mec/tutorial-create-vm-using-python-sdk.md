@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a virtual machine in Azure public MEC using the Python 
 description: This tutorial demonstrates how to use Azure SDK management libraries in a Python script to create a resource group in Azure public multi-access edge compute (MEC) that contains a Linux virtual machine.
 author: moushumig
 ms.author: moghosal
-ms.service: public-multi-access-edge-compute-mec
+ms.service: azure-public-multiaccess-edge-compute
 ms.topic: tutorial
 ms.date: 11/22/2022
 ms.custom: template-tutorial, devx-track-python, devx-track-azurecli, linux-related-content

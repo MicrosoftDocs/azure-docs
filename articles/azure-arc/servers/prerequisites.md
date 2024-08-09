@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 06/19/2024
+ms.date: 07/29/2024
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -29,32 +29,36 @@ Take extra care when using Azure Arc on systems that are:
 * Restored from backup as a second instance of the server
 * Used to create a "golden image" from which other virtual machines are created
 
-If two agents use the same configuration, you will encounter inconsistent behaviors when both agents try to act as one Azure resource. The best practice for these situations is to use an automation tool or script to onboard the server to Azure Arc after it has been cloned, restored from backup, or created from a golden image.
+If two agents use the same configuration, you'll encounter inconsistent behaviors when both agents try to act as one Azure resource. The best practice for these situations is to use an automation tool or script to onboard the server to Azure Arc after its cloned, restored from backup, or created from a golden image.
 
 > [!NOTE]
 > For additional information on using Azure Arc-enabled servers in VMware environments, see the [VMware FAQ](vmware-faq.md).
 
 ## Supported operating systems
 
-Azure Arc supports the following Windows and Linux operating systems. Only x86-64 (64-bit) architectures are supported. The Azure Connected Machine agent does not run on x86 (32-bit) or ARM-based architectures.
+Azure Arc supports the following Windows and Linux operating systems. Only x86-64 (64-bit) architectures are supported. The Azure Connected Machine agent doesn't run on x86 (32-bit) or ARM-based architectures.
 
 * AlmaLinux 9
 * Amazon Linux 2 and 2023
-* Azure Linux (CBL-Mariner) 1.0, 2.0
+* Azure Linux (CBL-Mariner) 2.0
 * Azure Stack HCI
-* Debian 10, 11, and 12
+* Debian 11, and 12
 * Oracle Linux 7, 8, and 9
 * Red Hat Enterprise Linux (RHEL) 7, 8 and 9
 * Rocky Linux 8 and 9
 * SUSE Linux Enterprise Server (SLES) 12 SP3-SP5 and 15
-* Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
+* Ubuntu 18.04, 20.04, and 22.04 LTS
 * Windows 10, 11 (see [client operating system guidance](#client-operating-system-guidance))
 * Windows IoT Enterprise
 * Windows Server 2012, 2012 R2, 2016, 2019, and 2022
   * Both Desktop and Server Core experiences are supported
   * Azure Editions are supported on Azure Stack HCI
 
-The Azure Connected Machine agent hasn't been tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
+The Azure Connected Machine agent isn't tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
+
+> [!NOTE]
+> [Azure Connected Machine agent version 1.44](agent-release-notes.md#version-144---july-2024) is the last version to officially support Debian 10, Ubuntu 16.04, and Azure Linux (CBL-Mariner) 1.0.
+> 
 
 ## Limited support operating systems
 
@@ -65,6 +69,9 @@ The listed version is supported until the **End of Arc Support Date**. If critic
 | -- | -- | -- | -- | 
 | Windows Server 2008 R2 SP1 | 1.39 [Download](https://aka.ms/AzureConnectedMachineAgent-1.39)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
 | CentOS 7 and 8 | 1.42  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
+| Debian 10 | 1.44  | 07/15/2025 |  | 
+| Ubuntu 16.04 | 1.44  | 07/15/2025 |  | 
+| Azure Linux (CBL-Mariner) 1.0 | 1.44  | 07/15/2025 |  | 
 
 ### Connect new limited support servers
 

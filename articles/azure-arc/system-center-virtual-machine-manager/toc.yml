@@ -40,6 +40,8 @@
       href: enable-guest-management-at-scale.md
     - name: Install Arc agents using a script
       href: install-arc-agents-using-script.md
+    - name: Arc-enabled SCVMM VM extensions management
+      href: ../servers/manage-vm-extensions.md
   - name: Enable Extended Security Updates
     items:
     - name: Deliver ESUs for SCVMM VMs through Arc
@@ -52,7 +54,6 @@
       href: remove-scvmm-from-azure-arc.md
     - name: Perform recovery operations for Arc resource bridge
       href: disaster-recovery.md
-
 - name: Reference
   items:
   - name: Azure CLI
@@ -60,5 +61,10 @@
     - name: Azure Arc-enabled System Center VMM
       href: /cli/azure/scvmm
     - name: Azure Arc resource bridge
-      href:  /cli/azure/arcappliance
+      href: /cli/azure/arcappliance
+  - name: REST API
+    items:
+    - name: Azure Arc-enabled SCVMM REST API reference
+      href: /rest/api/azure-arc-scvmm/operation-groups
+
 

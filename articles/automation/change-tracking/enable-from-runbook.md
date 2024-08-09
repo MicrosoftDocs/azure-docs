@@ -4,7 +4,7 @@ description: This article tells how to enable Change Tracking and Inventory from
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 07/22/2024
 ---
 
 # Enable Change Tracking and Inventory from a runbook

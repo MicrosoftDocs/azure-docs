@@ -1,7 +1,7 @@
 ---
 title: 'Migrate from CouchBase to Azure Cosmos DB for NoSQL'
 description: Step-by-Step guidance for migrating from CouchBase to Azure Cosmos DB for NoSQL
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/11/2020
