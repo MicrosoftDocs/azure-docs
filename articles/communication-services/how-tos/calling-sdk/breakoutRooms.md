@@ -28,7 +28,7 @@ Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager r
 
 ## Support
 The following tables define support of breakout rooms in Azure Communication Services.
-## Identities & call types
+### Identities & call types
 The following tables show support of breakout rooms for specific call type and identity. 
 
 |Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
