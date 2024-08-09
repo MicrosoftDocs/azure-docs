@@ -102,12 +102,18 @@ Note: A template simplifies export creation by preselecting a set of commonly us
 2. Specify your Azure storage account subscription. Choose an existing resource group or create a new one.
 3. Select the Storage account name or create a new one.
 4. If you create a new storage account, choose an Azure region.
-5. Specify the storage container and directory path for the export file.
-6. File partitioning is enabled by default. It splits large files into smaller ones.
+1. Specify the storage container and directory path for the export file.
+1. Choose the **Format** as CSV or Parquet. 
+
+1. Choose the **Compression type** as None, Gzip for CSV file format, Snappy for parquet file format. 
+
+1. **File partitioning** is enabled by default. It splits large files into smaller ones.
 7. **Overwrite data** is enabled by default. For daily exports, it replaces the previous day's file with an updated file.
 8. Select **Next** to move to the **Review + create** tab.
 
-:::image type="content" source="./media/tutorial-improved-exports/destination-tab.png" alt-text="Screenshot showing Destination tab information." lightbox="./media/tutorial-improved-exports/destination-tab.png" :::
+![User's image](media/tutorial-improved-exports/image.png)
+
+
 
 ### Review and create
 
@@ -133,7 +139,9 @@ You can perform the following actions by selecting the ellipsis (**…**) on the
 - Delete - Permanently removes the export.
 - Refresh - Updates the Run history.
 
-:::image type="content" source="./media/tutorial-improved-exports/exports-list-details.png" alt-text="Screenshot showing the list of exports and details." lightbox="./media/tutorial-improved-exports/exports-list-details.png" :::
+![User's image](media/tutorial-improved-exports/image1.png)
+
+
 
 ### Schedule frequency
 
