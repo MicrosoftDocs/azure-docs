@@ -6,18 +6,6 @@ ms.topic: include
 ms.date: 06/22/2024
 ---
 
-WebSocket connection URI: `wss://{serviceName}.webpubsub.azure.com/clients/mqtt/hubs/{hub}?access_token={token}`.
-
-* {hub} is a mandatory parameter that provides isolation for different applications.
-* {token} is required by default. Alternatively, you can include the token in the `Authorization` header in the format `Bearer {token}`. You can bypass the token requirement by enabling anonymous access to the hub. <!--TODO MQTT allow anonymous access to the hub-->
-
-If client library doesn't accept a URI, then you probably need to split the information in the URI into multiple parameters:
-
-* Host: `{serviceName}.webpubsub.azure.com`
-* Path: `/clients/mqtt/hubs/{hub}?access_token={token}`
-* Port: 443
-* Transport: WebSockets with [TLS](https://wikipedia.org/wiki/Transport_Layer_Security).
-
 There are some limitations you should follow in your [MQTT](https://mqtt.org/mqtt-specification/) clients, otherwise the connection will be rejected. These MQTT protocol parameters include:
 * Protocol versions: 3.1.1 or 5.0.
 * Client ID format

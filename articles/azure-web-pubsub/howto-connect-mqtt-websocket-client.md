@@ -10,11 +10,23 @@ ms.topic: how-to
 
 # How To Connect MQTT Clients to Web PubSub
 
-MQTT is a lightweight pub/sub messaging protocol designed for devices with limited resources.
+MQTT is a lightweight pub/sub messaging protocol designed for devices with constrained resources.
 
 In this article, we introduce how to connect MQTT clients to the service, so that the clients can publish and subscribe messages.
 
 ## Connection Parameters
+
+WebSocket connection URI: `wss://{serviceName}.webpubsub.azure.com/clients/mqtt/hubs/{hub}?access_token={token}`.
+
+* {hub} is a mandatory parameter that provides isolation for different applications.
+* {token} is required by default. Alternatively, you can include the token in the `Authorization` header in the format `Bearer {token}`. You can bypass the token requirement by enabling anonymous access to the hub. <!--TODO MQTT allow anonymous access to the hub-->
+
+If client library doesn't accept a URI, then you probably need to split the information in the URI into multiple parameters:
+
+* Host: `{serviceName}.webpubsub.azure.com`
+* Path: `/clients/mqtt/hubs/{hub}?access_token={token}`
+* Port: 443
+* Transport: WebSockets with [TLS](https://wikipedia.org/wiki/Transport_Layer_Security).
 
 [!INCLUDE [MQTT-Connection-Parameters](includes/mqtt-connection-Parameters.md)]
 
@@ -61,9 +73,49 @@ You could also configure properties for the client connection when generating th
 
 You could also add custom claims into the access token, and these values are preserved as the `claims` property in [connect upstream request body](./reference-mqtt-cloud-events.md#system-connect-event).
 
-[Server SDKs](./howto-generate-client-access-url.md#generate-from-service-sdk) provides APIs to generate the access token for the clients.
+[Server SDKs](./howto-generate-client-access-url.md#generate-from-service-sdk) provides APIs to generate the access token for MQTT clients. Note that you must specify the client protocol to `Mqtt`.
 
-<!--TODO Give a simple sample for each language here, and also add link to the generation link-->
+# [JavaScript](#tab/javascript)
+
+1. Follow [Getting started with server SDK](./reference-server-sdk-js.md#getting-started) to create a `WebPubSubServiceClient` object `service`
+
+2. Generate Client Access URL by calling `WebPubSubServiceClient.getClientAccessToken`:
+
+     ```js
+     let token = await serviceClient.getClientAccessToken({ clientProtocol: "mqtt" });
+     ```
+
+# [C#](#tab/csharp)
+
+1. Follow [Getting started with server SDK](./reference-server-sdk-csharp.md#getting-started) to create a `WebPubSubServiceClient` object `service`
+
+2. Generate Client Access URL by calling `WebPubSubServiceClient.GetClientAccessUri`:
+
+     ```csharp
+     var url = service.GetClientAccessUri(clientProtocol: WebPubSubClientProtocol.Mqtt);
+     ```
+
+# [Python](#tab/python)
+
+1. Follow [Getting started with server SDK](./reference-server-sdk-python.md#install-the-package) to create a `WebPubSubServiceClient` object `service`
+
+2. Generate Client Access URL by calling `WebPubSubServiceClient.get_client_access_token`:
+
+     ```python
+     token = service.get_client_access_token(client_protocol="MQTT")
+     ```
+
+# [Java](#tab/java)
+
+1. Follow [Getting started with server SDK](./reference-server-sdk-java.md#getting-started) to create a `WebPubSubServiceClient` object `service`
+
+2. Generate Client Access URL by calling `WebPubSubServiceClient.getClientAccessToken`:
+
+     ```java
+     GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
+     option.setWebPubSubClientAccess(WebPubSubClientProtocol.MQTT);
+     WebPubSubClientAccessToken token = service.getClientAccessToken(option);
+     ```
 
 ### 2. Upstream Server Workflow
 

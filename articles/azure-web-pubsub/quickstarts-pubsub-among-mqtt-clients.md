@@ -24,7 +24,7 @@ This quickstart guide demonstrates how to
 - Install the dependencies for the language you plan to use
 
 > [!NOTE]
-> Except for the MQTT client libraires mentioned belows, you can choose any standard MQTT client libraries that meet the following requirements to connect to Web PubSub:
+> Except for the MQTT client libraries mentioned belows, you can choose any standard MQTT client libraries that meet the following requirements to connect to Web PubSub:
 > 1. Support WebSocket transport.
 > 2. Support MQTT protocol 3.1.1 or 5.0.
 
@@ -62,21 +62,17 @@ pip install paho-mqtt
 
 ## Connect to Web PubSub
 
+An MQTT uses a **Client Access URL** to connect and authenticate with your resource. This URL follows a pattern of `wss://<service_name>.webpubsub.azure.com/clients/mqtt/hubs/<hub_name>?access_token=<token>`.
+
+A client can have a few ways to obtain the Client Access URL. It's best practice to not hard code the Client Access URL in your code. In the production world, we usually set up an app server to return this URL on demand. [Generate Client Access URL](./howto-generate-client-access-url.md) describes the practice in detail.
+
+For this quick start, you can copy and paste one from Azure portal shown in the following diagram.
+
+![The diagram shows how to get MQTT client access url.](./media/quickstarts-pubsub-among-mqtt-clients/portal-mqtt-client-access-uri-generation.png)
+
+As shown in the preceding code, the client has the permissions to send messages to topic `group1` and to subscribe to topic `group2`.
+
 [!INCLUDE [MQTT-Connection-Parameters](includes/mqtt-connection-Parameters.md)]
-
-A client can have a few ways to obtain the Client Access URL. For this quick start, you generate the access token with a CLI tool. It's best practice to not hard code the Client Access URL in your code. In the production world, we usually set up an app server to return this URL on demand. [Generate Client Access URL](./howto-generate-client-access-url.md) describes the practice in detail.
-
-<!--TODO Replace with portal token generation tool after it's implemented-->
-
-```powershell
-npm install -g jwtgen
-jwtgen -a HS256 -s "{webpubsub_access_key}" -c "aud=wss://{service_name}.webpubsub.azure.com/clients/mqtt/hubs/{hub_name}"  -c 'role=["webpubsub.sendToGroup","webpubsub.joinLeaveGroup"]'  -e 3600000
-```
-
-> [!NOTE]
-> This step will be replaced by the client generation tool on Azure Portal once it's implemented. If you're using other shells, make sure each element of the roles surrounded by double quotation marks.
-
-As shown in the preceding code, the client has the permissions to send messages to and subscribe to any topic.
 
 The following code shows how to connect MQTT clients to WebPubSub with MQTT protocol version 5.0, clean start, 30-seconds session expiry interval.
 
@@ -159,7 +155,7 @@ To receive messages from topics, the client
 - must subscribe to the topic it wishes to receive messages from
 - has a callback to handle message event
 
-The following code shows a client subscribes to topics named `topic1`.
+The following code shows a client subscribes to topics named `group2`.
 
 # [JavaScript](#tab/javascript)
 
@@ -168,11 +164,11 @@ The following code shows a client subscribes to topics named `topic1`.
 
 // Provide callback to the message event.
 client.on("message", async (topic, payload, packet) => {
-    concole.log(topic, payload)
+    console.log(topic, payload)
 });
 
-// Subscribe to a topic "topic".
-client.subscribe("topic1", { qos: 1 }, (err, granted) => { console.log("subscribe", granted); })
+// Subscribe to a topic.
+client.subscribe("group2", { qos: 1 }, (err, granted) => { console.log("subscribe", granted); })
 
 ```
 
@@ -182,13 +178,13 @@ client.subscribe("topic1", { qos: 1 }, (err, granted) => { console.log("subscrib
 // ...code from the last step
 
 // Provide callback to the message event.
-mqttClient.ApplicationMessageReceivedAsync += (args) =>
+client.ApplicationMessageReceivedAsync += (args) =>
 {
     Console.WriteLine($"Received message on topic '{args.ApplicationMessage.Topic}': {System.Text.Encoding.UTF8.GetString(args.ApplicationMessage.PayloadSegment)}");
     return Task.CompletedTask;
 };
 // Subscribe to a topic "topic".
-await mqttClient.SubscribeAsync("topic1", MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce);
+await client.SubscribeAsync("group2", MQTTnet.Protocol.MqttQualityOfServiceLevel.AtLeastOnce);
 ```
 
 # [Python](#tab/python)
@@ -202,7 +198,7 @@ def subscriber_on_message(client, userdata, msg):
 client.on_message = subscriber_on_message
 
 # Subscribe to a topic "topic".
-client.subscribe("topic1")
+client.subscribe("group2")
 
 # Blocking call that processes network traffic, dispatches callbacks and
 # handles reconnecting.
@@ -214,15 +210,15 @@ client.loop_forever()
 ---
 
 ## Publish a message to a group
-In the previous step, we've set up everything needed to receive messages from `topic1`, now we send messages to that group.
+In the previous step, we've set up everything needed to receive messages from `group1`, now we send messages to that group.
 
 # [JavaScript](#tab/javascript)
 
 ```javascript
 // ...code from the last step
 
-// Send message "Hello World" in the "text" format to "topic1".
-client.publish("topic1", "Hello World!")
+// Send message "Hello World" in the "text" format to "group1".
+client.publish("group1", "Hello World!")
 ```
 
 # [C#](#tab/csharp)
@@ -230,8 +226,8 @@ client.publish("topic1", "Hello World!")
 ```csharp
 // ...code from the last step
 
-// Send message "Hello World" in the "text" format to "topic1".
-await client.PublishStringAsync("topic1", "Hello World!");
+// Send message "Hello World" in the "text" format to "group1".
+await client.PublishStringAsync("group1", "Hello World!");
 ```
 
 # [Python](#tab/python)
@@ -239,8 +235,8 @@ await client.PublishStringAsync("topic1", "Hello World!");
 ```python
 # ...code from the last step
 
-# Send message "Hello World" in the "text" format to "topic1".
-client.publish("topic1", "Hello World!")
+# Send message "Hello World" in the "text" format to "group1".
+client.publish("group1", "Hello World!")
 ```
 ---
 

@@ -24,9 +24,9 @@ You can use MQTT protocols in Web PubSub service for the following scenarios:
 
 **Standard MQTT Protocols Support**:
 
-Web PubSub service supports MQTT 3.1.1 and 5.0 protocols in a standard way that any MQTT SDK that support WebSocket transport can connect to Web PubSub. Users who wish to use Web PubSub in a programming language that doesn't have a native Web PubSub SDK can still connect and communicate using MQTT.
+Web PubSub service supports MQTT 3.1.1 and 5.0 protocols in a standard way that any MQTT SDK with WebSocket transport support can connect to Web PubSub. Users who wish to use Web PubSub in a programming language that doesn't have a native Web PubSub SDK can still connect and communicate using MQTT.
 
-**Communication Between Various Protocols**:
+**Cross-Protocol Communication**:
 
 MQTT clients can communicate with clients of other Web PubSub protocols. Find more details [here](./reference-mqtt-cross-protocol-communication.md)
 
