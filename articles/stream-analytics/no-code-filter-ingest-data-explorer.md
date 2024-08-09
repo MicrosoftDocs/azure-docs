@@ -22,7 +22,7 @@ This article describes how you can use the no code editor to easily create a Str
 1. In the [Azure portal](https://portal.azure.com), locate and select the Azure Event Hubs instance.
 1. Select **Features** > **Process Data** and then select **Start** on the **Filter and store data to Azure Data Explorer** card.
   
-    :::image type="content" source="./media/no-code-filter-ingest-data-explorer/event-hub-process-data-templates.png" alt-text="Screenshot showing the Filter and ingest to ADLS Gen2 card where you select Start." lightbox="./media/no-code-filter-ingest-data-explorer/event-hub-process-data-templates.png" :::
+    :::image type="content" source="./media/no-code-filter-ingest-data-explorer/event-hub-process-data-templates.png" alt-text="Screenshot showing the Filter and ingest to Azure Data Lake Storage Gen2 card where you select Start." lightbox="./media/no-code-filter-ingest-data-explorer/event-hub-process-data-templates.png" :::
 
 1. Enter a name for the Stream Analytics job, then select **Create**.  
     

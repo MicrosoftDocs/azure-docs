@@ -45,7 +45,7 @@ To start the job, you must specify:
 
 ## Next steps
 
-Now you know how to use the Stream Analytics no code editor to develop a job that reads from Event Hubs and calculates aggregates such as counts, averages and writes it to your Azure Cosmos DB resource.
+Now you know how to use the Stream Analytics no code editor to develop a job that reads from Event Hubs and calculates aggregates such as counts, averages, and writes it to your Azure Cosmos DB resource.
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)
