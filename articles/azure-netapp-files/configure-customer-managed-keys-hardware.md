@@ -25,12 +25,12 @@ Azure NetApp Files volume encryption with customer-managed keys with the managed
 * Customer-managed keys with managed HSM is supported using the 2022.11 or later API version.
 * Customer-managed keys with managed HSM is only supported for Azure NetApp Files accounts that don't have existing encryption. 
 * Before creating a volume using customer-managed key with managed HSM volume, you must have: 
-    * created an [Azure Key Vault](../key-vault/general/overview.md), containing at least one key.
+    * created an [Azure Key Vault](/azure/key-vault/general/overview), containing at least one key.
         * The key vault must have soft delete and purge protection enabled.
         * The key must be type RSA.
     * created a VNet with a subnet delegated to Microsoft.Netapp/volumes.
     * a user- or system-assigned identity for your Azure NetApp Files account. 
-    * [provisioned and activated a managed HSM.](../key-vault/managed-hsm/quick-create-cli.md)
+    * [provisioned and activated a managed HSM.](/azure/key-vault/managed-hsm/quick-create-cli)
 
 ## Supported regions
 
@@ -115,7 +115,7 @@ To use a system-assigned identity, the Azure Key Vault must be configured to use
         * "Microsoft.KeyVault/vaults/keys/read"
         * "Microsoft.KeyVault/vaults/keys/encrypt/action"
         * "Microsoft.KeyVault/vaults/keys/decrypt/action"
-    The user-assigned identity you select is added to your NetApp account. Due to RBAC being customizable, the Azure portal doesn't configure access to the key vault. For more information, see [Using Azure RBAC secret, key, and certificate permissions with Key Vault](../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault)
+    The user-assigned identity you select is added to your NetApp account. Due to RBAC being customizable, the Azure portal doesn't configure access to the key vault. For more information, see [Using Azure RBAC secret, key, and certificate permissions with Key Vault](/azure/key-vault/general/rbac-guide#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault)
 
     :::image type="content" source="./media/configure-customer-managed-keys/encryption-user-assigned.png" alt-text="Screenshot of user-assigned submenu." lightbox="./media/configure-customer-managed-keys/encryption-user-assigned.png":::
 
