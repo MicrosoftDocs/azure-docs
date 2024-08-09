@@ -25,7 +25,7 @@ Clone the sample repository locally and deploy the sample application to App Ser
 # Clone and prepare sample application
 git clone https://github.com/Azure-Samples/app-service-language-detector.git
 cd app-service-language-detector/python
-zip -r default.zip *.*
+zip -r default.zip .
 
 # Save app name as variable for convenience
 appName=<app-name>
