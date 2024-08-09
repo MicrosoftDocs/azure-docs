@@ -930,7 +930,7 @@ items:
         href: ./interactive-query/hive-migration-across-storage-accounts.md 
       - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
         href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
-        - name: Significant version changes in HDInsight 4.0 and advantages
+      - name: Significant version changes in HDInsight 4.0 and advantages
         href: ./benefits-of-migrating-to-hdinsight-40.md      
     - name: Troubleshoot
       items:
