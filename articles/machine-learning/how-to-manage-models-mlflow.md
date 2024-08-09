@@ -111,7 +111,7 @@ client.search_registered_models(order_by=["name ASC"])
 ```
 
 > [!NOTE]
-> **MLflow 2.0 advisory**: For MLflow versions earlier than 2.0, use the `MlflowClient.list_registered_models()` method instead.
+> For MLflow versions earlier than 2.0, use the `MlflowClient.list_registered_models()` method instead.
 
 ### Get specific model versions
 
@@ -144,7 +144,7 @@ To understand the differences between the functions `mlflow.<flavor>.load_model(
 MLflow supports stages for a model to manage the model lifecycle. The model version can transition from one stage to another. Stages are assigned to specific versions for a model. A model can have multiple versions on different stages.
 
 > [!IMPORTANT]
-> Stages can be accessed only by using the MLflow SDK. They aren't visible in the [Azure Machine Learning studio](https://ml.azure.com). They can't be retrieved by using the Azure Machine Learning SDK, the Azure Machine Learning CLI, or the Azure Machine Learning REST API. Deployment from a specific model stage isn't currently supported.
+> Stages can be accessed only by using the MLflow SDK. They aren't visible in the [Azure Machine Learning studio](https://ml.azure.com). Stages can't be retrieved by using the Azure Machine Learning SDK, the Azure Machine Learning CLI, or the Azure Machine Learning REST API. Deployment from a specific model stage isn't currently supported.
 
 ### Query model stages
 
@@ -163,7 +163,7 @@ client.get_latest_versions(model_name, stages=["Staging"])
 Multiple model versions can be in the same stage at the same time in MLflow. In the previous example, the method returns the latest version (most recently published) among all versions for the stage.
 
 > [!IMPORTANT]
-> When you work with the MLflow SDK, keep in mind that stage names are case sensitive.
+> In the MLflow SDK, stage names are case sensitive.
 
 ### Transition models
 
@@ -197,7 +197,7 @@ model = mlflow.pyfunc.load_model(f"models:/{model_name}/Staging")
 
 Editing registered models is supported in both MLflow and Azure Machine Learning, but there are some important differences. The following sections describe some options.
 
-> [!WARNING]
+> [!NOTE]
 > Renaming models isn't supported in Azure Machine Learning because model objects are immmutable.
 
 ### Edit model description and tags
@@ -256,11 +256,11 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 
 Table footnotes:
 
-- **1** Use Uniform Resource Identifiers (URIs) with the format `runs:/<ruin-id>/<path>`.
-- **2** Use URIs with the format `azureml://jobs/<job-id>/outputs/artifacts/<path>`.
-- **3** Registered models are immutable objects in Azure Machine Learning.
-- **4** Use the search box in Azure Machine Learning studio. Partial matching is supported.
-- **5** Use [registries](how-to-manage-registries.md) to move models across different workspaces and preserve lineage.
+- 1: Use Uniform Resource Identifiers (URIs) with the format `runs:/<ruin-id>/<path>`.
+- 2: Use URIs with the format `azureml://jobs/<job-id>/outputs/artifacts/<path>`.
+- 3: Registered models are immutable objects in Azure Machine Learning.
+- 4: Use the search box in Azure Machine Learning studio. Partial matching is supported.
+- 5: Use [registries](how-to-manage-registries.md) to move models across different workspaces and preserve lineage.
 
 ## Related content
 

@@ -6,7 +6,7 @@ ms.date: 08/08/2024
 ms.author: fasantia
 ---
 
-- Install the MLflow SDK package `mlflow` and the Azure Machine Learning plug-in for MLflow `azureml-mlflow`: 
+- Install the MLflow SDK package `mlflow` and the Azure Machine Learning `azureml-mlflow` plug-in for MLflow: 
 
    ```bash
    pip install mlflow azureml-mlflow
