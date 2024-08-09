@@ -8,7 +8,7 @@ ms.author: spelluru
 ---
 
 ## Considerations when using the Event Hubs Geo-replication feature
-Azure Event Hubs recently launched the [Geo-Replication](geo-replication.md) feature in public preview. This feature is different from the [Geo Disaster Recovery](event-hubs-geo-dr.md) feature of Azure Event Hubs.
+Azure Event Hubs recently launched the [Geo-Replication](../../event-hubs/geo-replication.md) feature in public preview. This feature is different from the [Geo Disaster Recovery](../../event-hubs/event-hubs-geo-dr.md) feature of Azure Event Hubs.
 
 When the failover type is **Forced** and replication consistency is **Asynchronous**, Stream Analytics job doesn't guarantee exactly once output to an Azure Event Hubs output. 
 
