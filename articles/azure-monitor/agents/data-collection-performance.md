@@ -76,7 +76,8 @@ Perf
 | summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer
 ```
 
-Additional query examples are available at [Queries for the Perf table](/azure/azure-monitor/reference/queries/perf).
+> [!NOTE]
+> Additional query examples are available at [Queries for the Perf table](/azure/azure-monitor/reference/queries/perf).
 
 ## Next steps
 
