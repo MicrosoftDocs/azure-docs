@@ -84,7 +84,8 @@ POST https://management.azure.com/subscriptions/{subscription}/providers/Microso
 
 } 
 
-### [Azure CLI](#tab/cli)
+### [Azure CLI 2.0](#tab/cli-1)
+
 You can use Spot Placement Score using Azure CLI by using the following:
 
 az compute-recommender spot-placement-recommender [--availability-zones {0, 1, f, false, n, no, t, true, y, yes}]
@@ -96,6 +97,7 @@ az compute-recommender spot-placement-recommender [--availability-zones {0, 1, f
                                                   [--subscription]
 
 ### [Azure PowerShell](#tab/powershell)
+
 You can use Spot Placement Score using Azure PowerShell by utilizing the Invoke-AzSpotPlacementScore cmdlet to call the API endpoint. Replace <SubscriptionId>, <Location>, <DesiredCount>, <DesiredSize> and <AvailabilityZone> with your specific details:
 
 Invoke-AzSpotPlacementScore 
