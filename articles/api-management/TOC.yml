@@ -217,7 +217,7 @@
         href: sap-api.md
     - name: Import gRPC API
       href: grpc-api.md
-    - name: Azure OpenAI
+    - name: Azure OpenAI and LLM APIs
       items:
       - name: Import Azure OpenAI API
         href: azure-openai-api-from-specification.md
@@ -543,6 +543,14 @@
       href: json-to-xml-policy.md
     - name: limit-concurrency
       href: limit-concurrency-policy.md
+    - name: llm-emit-token-metric
+      href: llm-emit-token-metric-policy.md
+    - name: llm-semantic-cache-lookup
+      href: llm-semantic-cache-lookup-policy.md
+    - name: llm-semantic-cache-store
+      href: llm-semantic-cache-store-policy.md
+    - name: llm-token-limit
+      href: llm-token-limit-policy.md
     - name: log-to-eventhub
       href: log-to-eventhub-policy.md
     - name: mock-response
