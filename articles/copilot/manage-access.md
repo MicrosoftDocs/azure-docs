@@ -1,7 +1,7 @@
 ---
 title:  Manage access to Microsoft Copilot in Azure
 description: Learn how administrators can manage user access to Microsoft Copilot in Azure.
-ms.date: 05/28/2024
+ms.date: 08/09/2024
 ms.topic: how-to
 ms.service: copilot-for-azure
 ms.custom:
@@ -15,7 +15,12 @@ author: JnHs
 > [!NOTE]
 > We're currently in the process of rolling out Microsoft Copilot in Azure (preview) to all Azure tenants. We'll remove this note once the functionality is available to all users.
 
-By default, Copilot in Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can choose to control access to Copilot in Azure for their organization. If you turn off access for your tenant, you can still grant access to specific Microsoft Entra users or groups.
+Depending on your tenant, Copilot in Azure may be available to all users by default, or it may be unable to all users by default. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can manage access to Copilot in Azure for their organization.
+
+If you disable access to Copilot in Azure for your tenant, you can optionally grant access to specific Microsoft Entra users or groups.
+
+> [!NOTE]
+> Users in a tenant will still see the **Copilot** button in the Azure portal, even if Copilot in Azure is not available for them to use.
 
 As always, Microsoft Copilot in Azure only has access to resources that the user has access to. It can only take actions that the user has permission to perform, and requires confirmation before making changes. Copilot in Azure complies with all existing access management rules and protections such as Azure role-based access control (Azure RBAC), Privileged Identity Management, Azure Policy, and resource locks.
 
@@ -43,6 +48,8 @@ Global Administrators for a tenant can change the **Access management** selectio
 
 > [!IMPORTANT]
 > In order to use Microsoft Copilot in Azure, your organization must allow websocket connections to `https://directline.botframework.com`. Please ask your network administrator to enable this connection.
+
+
 
 ## Next steps
 
