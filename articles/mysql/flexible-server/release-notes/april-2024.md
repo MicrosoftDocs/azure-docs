@@ -35,7 +35,7 @@ To check your engine version, run `SELECT VERSION();` command at the MySQL promp
 
 - Expose old_alter_table for 8.0.x.
 
-## Known issues fix(es)
+## Known issues fixes
 
 - Fixed the issue where `GTID RESET` operation's retry interval was excessively long.
 - Fixed the issue that data-in HA failover stuck because of system table corrupt

@@ -32,7 +32,7 @@ There will be no engine version changes in this maintenance update.
 
 - In alignment with our users' expectations for the audit log, we have introduced wildcard support for audit log usernames and added connection status for connection logs.
 
-## Known issues fix(es)
+## Known issues fixes
 
 ### Support Data-in Replication in Major Version Upgrade
 

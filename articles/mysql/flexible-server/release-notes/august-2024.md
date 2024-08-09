@@ -30,7 +30,7 @@ No new features are being introduced in this maintenance update.
 
 - Many security improvements have been made to the service during this maintenance.
 
-## Known issues fix(es)
+## Known issues fixes
 
 - Fix the issue that for some servers migrated from single server to flexible server, execute table partition leads to table corrupted
 - Fix the issue that for some servers with audit/slow log enabled, when a large number of logs are generated, these servers might be missing server metrics, and start operation might be stuck for these servers if they are in a stopped state.

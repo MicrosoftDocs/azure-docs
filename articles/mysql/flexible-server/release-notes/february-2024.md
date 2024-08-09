@@ -32,7 +32,7 @@ There will be no new features in this maintenance update.
 
 There will be no new improvement in this maintenance update.
 
-## Known issues fix(es)
+## Known issues fixes
 
 - Fix HA standby replication dead lock issue caused by slave_preserve_commit_order.
 - Fix promotion stuck issue when source server is unavailable or source region is down. Improve customer experience on replica promotion to better support disaster recovery.
