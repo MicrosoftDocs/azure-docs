@@ -10,6 +10,8 @@
     href: private-dns-overview.md
   - name: What is Azure DNS Private Resolver?
     href: dns-private-resolver-overview.md
+  - name: What is Azure Traffic Manager?
+    href: /azure/traffic-manager/traffic-manager-overview
 - name: Quickstarts
   items:
   - name: Public DNS
