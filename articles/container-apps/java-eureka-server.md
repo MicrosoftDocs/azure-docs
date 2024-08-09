@@ -100,7 +100,7 @@ Follow the following steps to create the resource group, client container app an
 
   :::image type="content" source="media/java-components/create-containerapp-eureka.png" alt-text="Screenshot of create container apps."  lightbox="media/java-components/create-containerapp-eureka.png":::
 
-3. In **Container** tab, select or enter the following values and leave others be the default.
+3. In **Container** tab, select or enter the following values and leave others be the default. The contaienr image value is `mcr.microsoft.com/javacomponents/samples/sample-service-eureka-client:latest`, which is a sample eureka client image provided by us.
 
   :::image type="content" source="media/java-components/select-eureka-image.png" alt-text="Screenshot of select image when create container apps."  lightbox="media/java-components/select-eureka-image.png":::
 
@@ -192,6 +192,7 @@ The binding also injects the following properties:
 
 ```bash
 "eureka.client.register-with-eureka":    "true"
+"eureka.client.fetch-registry":          "true"
 "eureka.instance.prefer-ip-address":     "true"
 ```
 
