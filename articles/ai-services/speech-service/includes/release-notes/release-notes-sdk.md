@@ -2,11 +2,36 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 11/01/2023
+ms.date: 08/01/2024
 ms.author: eur
 ---
 
-### Upcoming plans for Linux and Android users:
+### Speech SDK 1.40: 2024-August release
+
+Note: 1.39.0 is not missing, it was a internal release.
+
+#### New features
+
+*  Added support for streaming of G.722 compressed audio in speech recognition.
+*  Added support for pitch, rate and volume setting in input text streaming in speech synthesis.
+*  Added support for personal voice input text streaming by introducing PersonalVoiceSynthesisRequest in speech synthesis. Note: This API is in preview and may be subject to change in future versions.
+*  Added support for diarization of intermediate results when ConversationTranscriber is used.
+*  Removed CentOS/RHEL 7 support due to CentOS 7 EOL and the end of RHEL 7 Maintenance Support 2.
+*  Use of embedded speech models now requires a model license instead of a model key. If you are an existing embedded speech customer and want to upgrade, please contact your support person at Microsoft for details on model updates.
+
+#### Bug fixes
+
+*  Built Speech SDK binaries for Windows with the _DISABLE_CONSTEXPR_MUTEX_CONSTRUCTOR flag as mitigation for the Visual C++ runtime issue Access violation with std::mutex::lock after upgrading to VS 2022 version 17.10.0 - Developer Community (visualstudio.com). Note that Windows C++ applications using the Speech SDK may need to apply the same build configuration flag if their code uses std::mutex (see details in the linked issue).
+*  Fixed OpenSSL 3.x detection not working on Linux arm64 (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2420).
+*  Fixed the issue that when deploying a UWP app, libraries and model from MAS NuGet package wouldn't get copied to the deployment location.
+*  Fixed a content provider conflict in Android packages (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2463).
+*  Fixed postprocessing options not applying to intermediate speech recognition results.
+*  Fixed .NET 8 warning about distribution specific runtime identifiers (https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2244).
+
+#### Samples
+
+*  Updated embedded speech samples to use a model license instead of a key.
+
 
 ### Speech SDK 1.38.0: 2024-June release
 
