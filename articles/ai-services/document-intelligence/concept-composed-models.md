@@ -58,8 +58,6 @@ The new `model compose` operation requires you to train an explicit classifier a
 
 * **Assigned custom model maximum expanded to 500**. The new implementation of the `model compose` operation allows you to assign up to 500 trained custom models to a single composed model.
 
-::: moniker range="doc-intel-4.0.0"
-
 ## How to use model compose
 
 * Start by collecting samples of all your needed documents including samples with information that should be extracted or ignored.
@@ -79,8 +77,6 @@ Use the `splitMode` parameter to control the file splitting behavior:
 ## Billing and pricing
 
 Composed models are billed the same as individual custom models. The pricing is based on the number of pages analyzed by the downstream analysis model. Billing is based on the extraction price for the pages routed to an extraction model. With the addition of the explicit classification charges are incurred for the classification of all pages in the input file. For more information, see the [Document Intelligence pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/).
-
-::: moniker-end
 
 ::: moniker range="<=doc-intel-3.1.0"
 
