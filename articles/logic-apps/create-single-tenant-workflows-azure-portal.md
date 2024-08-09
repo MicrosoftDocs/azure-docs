@@ -112,7 +112,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Fabrikam-Workflows-RG**. |
-   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>**Note**: Your logic app's name automatically gets the suffix, **.azurewebsites.net**, because the Standard logic app resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. <br><br>This example creates a logic app resource amed **Fabrikam-Workflows**. |
+   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>**Note**: Your logic app's name automatically gets the suffix, **.azurewebsites.net**, because the Standard logic app resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. <br><br>This example creates a logic app resource named **Fabrikam-Workflows**. |
    | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for your logic app. <br><br>This example uses **West US**. |
    | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <br><br>This example uses the name **My-App-Service-Plan**. <br><br>**Note**: Don't use a Linux-based App Service plan. Only the Windows-based App Service plan is supported. |
    | **Pricing plan** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for your logic app and workflows. Your selection affects the pricing, compute, memory, and storage that your logic app and workflows use. <br><br>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
@@ -381,7 +381,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app's menu, under **Settings**, select **Configuration**.
+1. On the logic app menu, under **Settings**, select **Configuration**.
 
 1. On the **Application settings** tab, select **New application setting**.
 

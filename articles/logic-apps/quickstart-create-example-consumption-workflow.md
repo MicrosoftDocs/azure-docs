@@ -15,7 +15,7 @@ ms.date: 08/07/2024
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-This quickstart show how to create an example workflow that runs in multitenant Azure Logic Apps and performs tasks with multiple cloud services. The workflow checks an RSS feed for new articles, based on a specific schedule, and sends an email for each new RSS item. Specifically, you create a Consumption logic app resource and workflow that uses the the following items: 
+This quickstart show how to create an example workflow that runs in multitenant Azure Logic Apps and performs tasks with multiple cloud services. The workflow checks an RSS feed for new articles, based on a specific schedule, and sends an email for each new RSS item. Specifically, you create a Consumption logic app resource and workflow that uses the following items: 
 
 - The **RSS** connector, which provides a trigger to check an RSS feed.
 - The **Office 365 Outlook** connector, which provides an action to send email.
