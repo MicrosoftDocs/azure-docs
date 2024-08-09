@@ -3,7 +3,7 @@ title: Automation services in Azure - overview
 description: This article tells what are the Automation services in Azure and how to compare and use it to automate the lifecycle of infrastructure and applications.
 services: automation
 keywords: azure automation services, automanage, Bicep, Blueprints, Guest Config, Policy, Functions
-ms.date: 08/03/2022
+ms.date: 09/08/2024
 ms.topic: overview
 ---
 
@@ -67,6 +67,9 @@ The following table describes the scenarios and users for ARM template and Bicep
 
 
 ### Azure Blueprints (Preview)
+
+>[!Note]
+> On July 11, 2026, Azure Blueprints (Preview) will be deprecated. [Learn more](../governance/blueprints/overview.md) 
 
  Azure Blueprints (Preview) define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Blueprints are a declarative way to orchestrate the deployment of various resource templates and other artifacts such as, Role assignments, Policy assignments, ARM templates and Resource groups. [Learn more](../governance/blueprints/overview.md).
 
