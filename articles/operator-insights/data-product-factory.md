@@ -2,7 +2,7 @@
 title: What is the data product factory (preview) for Azure Operator Insights?
 description: Learn about the data product factory (preview) for Azure Operator Insights, and how it can help you design and create new Data Products.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: sergeyche
 ms.service: azure-operator-insights
 ms.topic: overview

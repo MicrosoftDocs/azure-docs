@@ -2,7 +2,7 @@
 title: Use Azure Operator Insights Data Product dashboards
 description: This article outlines how to access and use dashboards in the Azure Operator Insights Data Product.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: rathishr
 ms.service: azure-operator-insights
 ms.topic: how-to

@@ -2,7 +2,7 @@
 title: Monitoring - Affirmed MCC Data Product - Azure Operator Insights
 description: This article gives an overview of the Monitoring - Affirmed MCC Data Product provided by Azure Operator Insights.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: rathishr
 ms.service: azure-operator-insights
 ms.topic: concept-article

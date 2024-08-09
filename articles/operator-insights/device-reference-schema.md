@@ -2,7 +2,7 @@
 title: Device schema for the Azure Operator Insights QoE MCC Data Product
 description: Learn about the schema needed to implement the Device data type in the Quality of Experience – Affirmed MCC Data Product for Azure Operator Insights.
 author: parjai
-ms.author: parjai
+ms.author: rathishr
 ms.reviewer: rdunstan
 ms.topic: reference
 ms.service: azure-operator-insights

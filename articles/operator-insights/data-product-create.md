@@ -2,7 +2,7 @@
 title: Deploy an Azure Operator Insights Data Product
 description: In this article, learn how to deploy an Azure Operator Insights Data Product resource. 
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: rathishr
 ms.service: azure-operator-insights
 ms.topic: quickstart

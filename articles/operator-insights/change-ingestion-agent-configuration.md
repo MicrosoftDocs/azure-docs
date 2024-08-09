@@ -2,7 +2,7 @@
 title: Change configuration for ingestion agents for Azure Operator Insights
 description: Learn how to make and roll back configuration changes for Azure Operator Insights ingestion agents.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: sergeyche
 ms.service: azure-operator-insights
 ms.topic: how-to

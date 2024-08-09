@@ -2,7 +2,7 @@
 title: What is Azure Operator Insights?
 description: Azure Operator Insights is an Azure service for monitoring and analyzing data from multiple sources.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: rathishr
 ms.service: azure-operator-insights
 ms.topic: overview 

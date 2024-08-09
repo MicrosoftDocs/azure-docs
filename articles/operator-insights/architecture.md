@@ -2,7 +2,7 @@
 title: Architecture of Azure Operator Insights
 description: Learn about the architecture of Azure Operator Insights and how you can integrate with it to analyze date from your network.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: duncanarcher
 ms.service: azure-operator-insights
 ms.date: 04/05/2024

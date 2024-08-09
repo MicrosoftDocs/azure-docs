@@ -2,7 +2,7 @@
 title: Data types in Azure Operator Insights
 description: This article provides an overview of the data types used by Azure Operator Insights Data Products.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: rathishr
 ms.service: azure-operator-insights
 ms.topic: concept-article

@@ -2,7 +2,7 @@
 title: Configuration reference for Azure Operator Insights ingestion agent
 description: This article documents the complete set of configuration for the Azure Operator Insights ingestion agent.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: rathishr
 ms.service: azure-operator-insights
 ms.topic: conceptual

@@ -2,7 +2,7 @@
 title: Monitor and troubleshoot ingestion agents for Azure Operator Insights
 description: Learn how to detect, troubleshoot, and fix problems with Azure Operator Insights ingestion agents.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: sergeyche
 ms.service: azure-operator-insights
 ms.topic: troubleshooting-general #Don't change.

@@ -2,7 +2,7 @@
 title: Monitoring Azure Operator Insights
 description: Start here to learn how to monitor Azure Operator Insights
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: rathishr
 ms.service: azure-operator-insights
 ms.topic: conceptual

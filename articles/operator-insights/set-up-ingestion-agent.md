@@ -2,7 +2,7 @@
 title: Set up the Azure Operator Insights ingestion agent
 description: Set up the ingestion agent for Azure Operator Insights by installing it and configuring it to upload data to Data Products.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: sergeyche
 ms.service: azure-operator-insights
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: What's new with Azure Operator Insights ingestion agent
 description: This article has release notes for Azure Operator Insights ingestion agent. For many of the summarized issues, there are links to more details.
-ms.author: rdunstan
+ms.author: rathishr
 author: rcdun
 ms.topic: whats-new
 ms.date: 02/28/2024

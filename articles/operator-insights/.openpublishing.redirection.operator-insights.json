@@ -1,49 +1,154 @@
 {
   "redirections": [
     {
-        "source_path_from_root": "/articles/operator-insights/how-to-install-mcc-edr-agent.md",
-        "redirect_url": "/azure/operator-insights/set-up-ingestion-agent",
+        "source_path_from_root": "/articles/operator-insights/architecture.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
         "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/operator-insights/how-to-manage-mcc-edr-agent.md",
-      "redirect_url": "/azure/operator-insights/change-ingestion-agent-configuration",
-      "redirect_document_id": false
+        "source_path_from_root": "/articles/operator-insights/business-continuity-disaster-recovery.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/operator-insights/troubleshoot-mcc-edr-agent.md",
-      "redirect_url": "/azure/operator-insights/monitor-troubleshoot-ingestion-agent",
-      "redirect_document_id": false
+        "source_path_from_root": "/articles/operator-insights/change-ingestion-agent-configuration.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/operator-insights/mcc-edr-agent-configuration.md",
-      "redirect_url": "/azure/operator-insights/ingestion-agent-configuration-reference",
-      "redirect_document_id": false
+        "source_path_from_root": "/articles/operator-insights/concept-data-quality-monitoring.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/operator-insights/sftp-agent-overview.md",
-      "redirect_url": "/azure/operator-insights/ingestion-agent-overview",
-      "redirect_document_id": false
+        "source_path_from_root": "/articles/operator-insights/concept-data-types.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/operator-insights/how-to-install-sftp-agent.md",
-      "redirect_url": "/azure/operator-insights/set-up-ingestion-agent",
-      "redirect_document_id": false
-  },
-  {
-    "source_path_from_root": "/articles/operator-insights/how-to-manage-sftp-agent.md",
-    "redirect_url": "/azure/operator-insights/change-ingestion-agent-configuration",
-    "redirect_document_id": false
-  },
-  {
-    "source_path_from_root": "/articles/operator-insights/troubleshoot-sftp-agent.md",
-    "redirect_url": "/azure/operator-insights/monitor-troubleshoot-ingestion-agent",
-    "redirect_document_id": false
-  },
-  {
-    "source_path_from_root": "/articles/operator-insights/sftp-agent-configuration.md",
-    "redirect_url": "/azure/operator-insights/ingestion-agent-configuration-reference",
-    "redirect_document_id": false
-  }
-  ]
+        "source_path_from_root": "/articles/operator-insights/concept-data-visualization.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/concept-mcc-data-product.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/concept-monitoring-mcc-data-product.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/consumption-plane-configure-permissions.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/dashboards-use.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/data-product-create.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/data-product-factory.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/data-query.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/device-reference-schema.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/ingestion-agent-configuration-reference.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/ingestion-agent-overview.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/ingestion-agent-release-notes-archive.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/ingestion-agent-release-notes.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/ingestion-with-data-factory.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/managed-identity.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/map-hostnames-ip-addresses.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/monitor-operator-insights-data-reference.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/monitor-operator-insights.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/monitor-troubleshoot-ingestion-agent.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/operator-insights-faq.yml",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/overview.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/purview-setup.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/rotate-secrets-for-ingestion-agent.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/set-up-ingestion-agent.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/operator-insights/upgrade-ingestion-agent.md",
+        "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+        "redirect_document_id": false
+    }
+]
 }

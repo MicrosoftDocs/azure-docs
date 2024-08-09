@@ -2,7 +2,7 @@
 title: Map hostnames to IP addresses for the Azure Operator Insights ingestion agent.
 description: Configure the Azure Operator Insights ingestion agent to use fixed IP addresses instead of hostnames.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: sergeyche
 ms.service: azure-operator-insights
 ms.topic: how-to

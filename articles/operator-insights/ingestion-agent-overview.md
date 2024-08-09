@@ -2,7 +2,7 @@
 title: Overview of the Azure Operator Insights ingestion agent
 description: Understand how ingestion agents for Azure Operator Insights collect and upload data about your network to Azure.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: sergeyche
 ms.service: azure-operator-insights
 ms.topic: concept-article

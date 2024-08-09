@@ -2,7 +2,7 @@
 title: Use Azure Data Factory for Ingestion
 description: Set up Azure Data Factory to ingest data into an Azure Operator Insights Data Product.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: sergeyche
 ms.service: azure-operator-insights
 ms.topic: how-to

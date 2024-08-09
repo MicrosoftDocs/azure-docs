@@ -2,7 +2,7 @@
 title: Upgrade the Azure Operator Insights ingestion agent
 description: Learn how to upgrade the Azure Operator Insights ingestion agent to receive the latest new features or fixes.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: sergeyche
 ms.service: azure-operator-insights
 ms.topic: how-to

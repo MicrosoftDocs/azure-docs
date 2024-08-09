@@ -2,7 +2,7 @@
 title: Manage permissions to the KQL consumption URL for Azure Operator Insights
 description: Learn how to add and remove user permissions to the KQL consumption URL for Azure Operator Insights.
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: duncanarcher
 ms.service: azure-operator-insights
 ms.topic: how-to

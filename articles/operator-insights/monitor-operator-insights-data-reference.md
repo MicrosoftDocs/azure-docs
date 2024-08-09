@@ -2,7 +2,7 @@
 title: Monitoring Azure Operator Insights data reference
 description: Important reference material needed when you monitor Azure Operator Insights 
 author: rcdun
-ms.author: rdunstan
+ms.author: rathishr
 ms.reviewer: rathishr
 ms.topic: reference
 ms.service: azure-operator-insights
