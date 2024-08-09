@@ -81,6 +81,33 @@ There are two noticeable callouts in referencing the pipeline return values.
 ## Special Considerations
 
 While you can include multiple Set Pipeline Return Value activities in a pipeline, it is important to ensure that only one of them is executed in the pipeline.
+In ADF, the expression language does not directly support inline JSON objects. Instead, we need to concatenate strings and expressions properly.
+Example:
+In JSON format :
+``` json
+{
+  "datetime": "@{utcnow()}",
+  "date": "@{substring(utcnow(),0,10)}",
+  "year": "@{substring(utcnow(),0,4)}",
+  "month": "@{substring(utcnow(),5,2)}",
+  "day": "@{substring(utcnow(),8,2)}"
+}
+```
+The code must transform to:
+```
+@{
+  concat(
+    '{',
+    '"datetime": "', utcnow(), '", ',
+    '"date": "', substring(utcnow(),0,10), '", ',
+    '"year": "', substring(utcnow(),0,4), '", ',
+    '"month": "', substring(utcnow(),5,2), '", ',
+    '"day": "', substring(utcnow(),8,2), '"',
+    '}'
+  )
+}
+```
+
 
 :::image type="content" source="media/pipeline-return-value/pipeline-return-value-04-multiple.png" alt-text="Screenshot with Pipeline Return Value and Branching.":::
 
