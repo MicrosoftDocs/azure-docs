@@ -172,12 +172,12 @@ This section demonstrates two device twin queries. Device twin queries are SQL q
 
 Call [CreateQuery](/dotnet/api/microsoft.azure.devices.registrymanager.createquery) to submit a digital twins SQL query and obtain the twins result. You can optionally `CreateQuery` with a second parameter to specify a maximum number of items per page.
 
-The [IQuery](https://review.learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.iquery) Interface contains a [HasMoreResults](/dotnet/api/microsoft.azure.devices.iquery.hasmoreresults?#microsoft-azure-devices-iquery-hasmoreresults) boolean property that you can use to invoke the `GetNextAsTwinAsync` or `GetNextAsJsonAsync` method multiple times to retrieve all results.
+The [IQuery](/dotnet/api/microsoft.azure.devices.iquery) Interface contains a [HasMoreResults](/dotnet/api/microsoft.azure.devices.iquery.hasmoreresults?#microsoft-azure-devices-iquery-hasmoreresults) boolean property that you can use to invoke the `GetNextAsTwinAsync` or `GetNextAsJsonAsync` method multiple times to retrieve all results.
 
 To cycle through a list of digital twins results:
 
 * call [GetNextAsTwinAsync](/dotnet/api/microsoft.azure.devices.iquery.getnextastwinasync?#microsoft-azure-devices-iquery-getnextastwinasync) to retrieve the next paged result as [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) objects.
-* Call [GetNextAsJsonAsync](/dotnet/api/microsoft.azure.devices.iquery.getnextasjsonasync?view=azure-dotnet&#microsoft-azure-devices-iquery-getnextasjsonasync) to retrieve the next paged result as JSON strings.
+* Call [GetNextAsJsonAsync](/dotnet/api/microsoft.azure.devices.iquery.getnextasjsonasync?&#microsoft-azure-devices-iquery-getnextasjsonasync) to retrieve the next paged result as JSON strings.
 
 This example query selects only the device twins of devices located in the **Redmond43** plant.
 
