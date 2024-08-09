@@ -16,7 +16,7 @@ Azure Application Gateway Standard v1 can be configured with an Internet-facing 
 
 > [!NOTE]
 > Application Gateway v1 is being retired. See the [v1 retiredment announcement](/azure/application-gateway/v1-retirement).<br>
-> To configure a v2 application gateway with a private frontend IP address, see [Private Application Gateway deployment](/azure/application-gateway/application-gateway-private-deployment)
+> To configure a v2 application gateway with a private frontend IP address, see [Private Application Gateway deployment](/azure/application-gateway/application-gateway-private-deployment).
 
 Configuring the gateway using a frontend private IP address is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers within a multi-tier application that are in a security boundary that isn't exposed to the Internet but:
 
@@ -63,7 +63,7 @@ In this example, you create a new virtual network. You can create a virtual netw
 9. Select **Next:Backends**.
 10. Select **Add a backend pool**.
 11. For **Name**, type *appGatewayBackendPool*.
-12. For **Add backend pool without targets**, select **Yes**. You'll add the targets later.
+12. For **Add backend pool without targets**, select **Yes**. Targets are added later.
 13. Select **Add**.
 14. Select **Next:Configuration**.
 15. Under **Routing rules**, select **Add a routing rule**.
@@ -84,9 +84,9 @@ In this example, you create a new virtual network. You can create a virtual netw
 
 ## Add backend pool
 
-The backend pool is used to route requests to the backend servers that serve the request. The backend can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you use virtual machines as the target backend. You can either use existing virtual machines or create new ones. In this example, you create two virtual machines that Azure uses as backend servers for the application gateway.
+The backend pool is used to route requests to the backend servers that serve the request. The backend can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. In this example, you use virtual machines as the target backend. You can either use existing virtual machines or create new ones. In this example, you create two virtual machines that Azure uses as backend servers for the application gateway.
 
-To do this, you:
+To do this:
 
 1. Create two new virtual machines, *myVM* and *myVM2*, used as backend servers.
 2. Install IIS on the virtual machines to verify that the application gateway was created successfully.
