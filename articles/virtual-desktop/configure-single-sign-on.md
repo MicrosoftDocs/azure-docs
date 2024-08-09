@@ -31,7 +31,7 @@ Before you enable single sign-on, review the following information for using it 
 
 ### Disconnection when the session is locked
 
-When single sign-on is enabled and the remote session is locked, either by the user or by policy, the session is instead disconnected and a dialog is shown. Users can select the Reconnect option from the dialog when they are ready to connect again. This is done for security reason and to ensure full support of passwordless authentication. Disconnecting provides the following benefits:
+When single sign-on is enabled and the remote session is locked, either by the user or by policy, the session is instead disconnected and a dialog is shown to let users know. Users can choose the Reconnect option from the dialog when they are ready to connect again. This is done for security reasons and to ensure full support of passwordless authentication. Disconnecting provides the following benefits:
 
 - Consistent sign-in experience through Microsoft Entra ID when needed.
 - Single sign-on experience and reconnection without authentication prompt when allowed by conditional access policies.
@@ -41,11 +41,11 @@ When single sign-on is enabled and the remote session is locked, either by the u
 
 If you prefer to show the remote lock screen instead of disconnecting the session, your session hosts must use the following operating systems:
 
-  - Windows 11 single or multi-session with the [2024-05 Cumulative Updates for Windows 11 (KB5037770)](https://support.microsoft.com/kb/KB5037770) or later installed.
-  - Windows 10 single or multi-session, versions 20H2 or later with the [2024-06 Cumulative Updates for Windows 10 (KB5039211)](https://support.microsoft.com/kb/KB5039211) or later installed.
-  - Windows Server 2022 with the [2024-05 Cumulative Update for Microsoft server operating system (KB5037782)](https://support.microsoft.com/kb/KB5037782) or later installed.
+- Windows 11 single or multi-session with the [2024-05 Cumulative Updates for Windows 11 (KB5037770)](https://support.microsoft.com/kb/KB5037770) or later installed.
+- Windows 10 single or multi-session, versions 21H2 or later with the [2024-06 Cumulative Updates for Windows 10 (KB5039211)](https://support.microsoft.com/kb/KB5039211) or later installed.
+- Windows Server 2022 with the [2024-05 Cumulative Update for Microsoft server operating system (KB5037782)](https://support.microsoft.com/kb/KB5037782) or later installed.
 
- You can configure the session lock behavior of your session hosts by using Intune, Group Policy or the registry.
+You can configure the session lock behavior of your session hosts by using Intune, Group Policy or the registry.
 
 # [Intune](#tab/intune)
 
