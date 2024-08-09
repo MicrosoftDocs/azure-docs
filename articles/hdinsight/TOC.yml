@@ -689,10 +689,6 @@ items:
       href: ./kafka/connect-kafka-cluster-with-vm-in-different-vnet.md         
   - name: Concepts
     items:
-    - name: Migrate Apache Kafka workloads to Azure HDInsight 5.1
-      href: ./kafka/migrate-5-1-versions.md
-    - name: Migrate Kafka workloads to 4.0
-      href: ./kafka/migrate-versions.md
     - name: Storage and scalability
       href: ./kafka/apache-kafka-scalability.md
     - name: High availability of data
@@ -739,6 +735,12 @@ items:
         href: ./kafka/kafka-mirrormaker-2-0-guide.md
       - name: Connect HDInsight Kafka cluster with client VM in different VNet
         href: ./kafka/connect-kafka-with-vnet.md 
+    - name: Migrate
+      items:
+      - name: Migrate Apache Kafka workloads to Azure HDInsight 5.1
+        href: ./kafka/migrate-5-1-versions.md
+      - name: Migrate Kafka workloads to 4.0
+        href: ./kafka/migrate-versions.md   
     - name: Troubleshoot
       items:
       - name: Insufficient fault domains
@@ -795,6 +797,14 @@ items:
         href: ./hbase/apache-hbase-replication.md
       - name: Set up backup and replication for Apache HBase and Apache Phoenix
         href: ./hbase/apache-hbase-backup-replication.md
+      - name: Apache Phoenix performance best practices
+        href: ./hbase/apache-hbase-phoenix-performance.md
+      - name: Create Apache HBase cluster in Azure VNet
+        href: ./hbase/apache-hbase-provision-vnet.md
+      - name: Use Apache HBase HBCK2 Tool
+        href: ./hbase/how-to-use-hbck2-tool.md
+    - name: Migrate
+      items:
       - name: Migrate Apache HBase cluster to newer version
         href: ./hbase/apache-hbase-migrate-new-version.md
       - name: Migrate an Apache HBase cluster to an HDInsight 5.1
@@ -803,12 +813,7 @@ items:
         href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
       - name: Migrate Apache HBase to an HDInsight 5.1 and new storage account
         href: ./hbase/apache-hbase-migrate-hdinsight-5-1-new-storage-account.md
-      - name: Apache Phoenix performance best practices
-        href: ./hbase/apache-hbase-phoenix-performance.md
-      - name: Create Apache HBase cluster in Azure VNet
-        href: ./hbase/apache-hbase-provision-vnet.md
-      - name: Use Apache HBase HBCK2 Tool
-        href: ./hbase/how-to-use-hbck2-tool.md
+
     - name: Troubleshoot
       items:
       - name: Troubleshoot Apache HBase performance issues
@@ -913,16 +918,20 @@ items:
         href: ./interactive-query/hive-workload-management.md
     - name: Manage
       items:
-      - name: Significant version changes in HDInsight 4.0 and advantages
-        href: ./benefits-of-migrating-to-hdinsight-40.md
-      - name: Copy Hive tables across Storage Accounts
-        href: ./interactive-query/hive-migration-across-storage-accounts.md
+      - name: Optimize Apache Hive queries
+        href: ./hdinsight-hadoop-optimize-hive-query.md
+    - name: Migrate
+      items:
       - name: Migrate default Hive metastore to external metastore on Azure HDInsight
         href: ./interactive-query/hive-default-metastore-export-import.md
       - name: Migrate Hive workloads to HDInsight 4.0
         href: ./interactive-query/apache-hive-migrate-workloads.md
-      - name: Optimize Apache Hive queries
-        href: ./hdinsight-hadoop-optimize-hive-query.md
+      - name: Copy Hive tables across Storage Accounts
+        href: ./interactive-query/hive-migration-across-storage-accounts.md 
+      - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
+        href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
+        - name: Significant version changes in HDInsight 4.0 and advantages
+        href: ./benefits-of-migrating-to-hdinsight-40.md      
     - name: Troubleshoot
       items:
       - name: Apache Hive settings fix Out of Memory error
@@ -959,8 +968,6 @@ items:
         href: ./interactive-query/hdinsight-security-options-for-hive.md
       - name: Apache Hive LLAP Workload Management
         href: ./interactive-query/troubleshoot-workload-management-issues.md
-      - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
-        href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
   - name: Reference
     items:
     - name: Hive LLAP Workload Management commands
