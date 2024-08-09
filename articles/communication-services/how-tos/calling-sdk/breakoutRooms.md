@@ -61,7 +61,7 @@ The following tables show support of breakout rooms feature in individual Azure 
 |-------------|-----|--------|--------|--------|----------|--------|---------|
 |Is Supported | ✔️  |        |        |        |          |        |         |		
 
-## BreakoutRooms
+## Breakout rooms
 
 [!INCLUDE [BreakoutRooms Client-side JavaScript](./includes/breakoutRooms/breakoutRooms-web.md)]
 
