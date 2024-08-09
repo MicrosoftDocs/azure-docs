@@ -44,7 +44,7 @@ _deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString,
 
 ### Retrieve a device twin and examine reported properties
 
- Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.gettwinasync?#microsoft-azure-devices-client-deviceclient-gettwinasync) to retrieve the device twin properties. The result [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) includes the device twin reported properties.
+ Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.gettwinasync?#microsoft-azure-devices-client-deviceclient-gettwinasync) to retrieve the device twin properties. The result [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object includes the device twin reported properties. There are many `Twin` object [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&branch=main#properties) that you can access including Twin `Properties`, `Status`, `Tags`, and `Version`.
 
  This example retrieves device twin reported properties and prints the first twin value in JSON format.
 
@@ -134,11 +134,20 @@ static string connectionString = "{device connection string}";
 registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 ```
 
-### Update device twin tags
+### Update device twin fields
 
-Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync?#microsoft-azure-devices-registrymanager-gettwinasync(system-string-system-string)) to retrieve a device twin, then call [UpdateTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwinasync?#microsoft-azure-devices-registrymanager-updatetwinasync(system-string-microsoft-azure-devices-shared-twin-system-string)) to update its tags.
+You can apply a JSON patch to update or replace device twin tag and reported properties.
 
-This example updates a device twin with region and plant location information.
+To update a device twin:
+
+* Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync?#microsoft-azure-devices-registrymanager-gettwinasync(system-string-system-string)) to retrieve a device twin.
+
+* Apply updates:
+  * Call [UpdateTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwinasync?#microsoft-azure-devices-registrymanager-updatetwinasync(system-string-microsoft-azure-devices-shared-twin-system-string)) to apply a patch to update the device twin mutable fields.
+  * Call [ReplaceTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.replacetwinasync) to replace the entire device twin schema.
+  * Call [UpdateTwins2Async](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwins2async) to update a list of twins previously created within the system.
+
+This example retrieves the device twin, then applies a JSON patch to update the device twin fields with region and plant location information.
 
 ```csharp
 // Retrieve the device twin
@@ -161,11 +170,14 @@ await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
 
 This section demonstrates two device twin queries. Device twin queries are SQL queries that return a result set of device twins.
 
-Call [CreateQuery](/dotnet/api/microsoft.azure.devices.registrymanager.createquery) to submit a digital twins SQL query and obtain the twins result.
+Call [CreateQuery](/dotnet/api/microsoft.azure.devices.registrymanager.createquery) to submit a digital twins SQL query and obtain the twins result. You can optionally `CreateQuery` with a second parameter to specify a maximum number of items per page.
 
-To cycle through a list of digital twins results, call [GetNextAsTwinAsync](/dotnet/api/microsoft.azure.devices.iquery.getnextastwinasync?#microsoft-azure-devices-iquery-getnextastwinasync) to get each twin result.
+The [IQuery](https://review.learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.iquery) Interface contains a [HasMoreResults](/dotnet/api/microsoft.azure.devices.iquery.hasmoreresults?#microsoft-azure-devices-iquery-hasmoreresults) boolean property that you can use to invoke the `GetNextAsTwinAsync` or `GetNextAsJsonAsync` method multiple times to retrieve all results.
 
-When the **query** object is created, the code specifies a maximum number of returned documents. The **query** object contains a **HasMoreResults** boolean property that you can use to invoke the **GetNextAsTwinAsync** methods multiple times to retrieve all results. A method called **GetNextAsJson** is available for results that are not device twins, for example, results of aggregation queries.
+To cycle through a list of digital twins results:
+
+* call [GetNextAsTwinAsync](/dotnet/api/microsoft.azure.devices.iquery.getnextastwinasync?#microsoft-azure-devices-iquery-getnextastwinasync) to retrieve the next paged result as [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) objects.
+* Call [GetNextAsJsonAsync](/dotnet/api/microsoft.azure.devices.iquery.getnextasjsonasync?view=azure-dotnet&#microsoft-azure-devices-iquery-getnextasjsonasync) to retrieve the next paged result as JSON strings.
 
 This example query selects only the device twins of devices located in the **Redmond43** plant.
 

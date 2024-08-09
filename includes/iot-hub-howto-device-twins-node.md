@@ -95,7 +95,9 @@ if (err)
 
 ### Update reported device twin properties
 
-Format a variable with the device twin patch. In this example, the patch contains a device twin `connectivity` update value of `cellular`.
+Format a variable with the device twin patch.
+
+In this example, the patch contains a device twin `connectivity` update value of `cellular`.
 
 Use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update) to update the device twin with the patch provided as the first parameter.
 
@@ -137,13 +139,11 @@ npm init --yes
 npm install azure-iothub --save
 ```
 
-The [ServiceClient](/javascript/api/azure-iothub/client) class contains methods that services can use to receive file upload notifications.
+The [Registry](/javascript/api/azure-iothub/registry?#azure-iothub-registry-gettwin-1) object exposes all methods required to interact with device twins from a backend application.
 
 ### Connect to IoT hub
 
-The `Registry` object exposes all the methods required to interact with device twins from the service.
-
-Use [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring) to connect to IoT hub. See the prerequisites section for how to look up the IoT hub primary connection string.
+Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. See the prerequisites section for how to look up the IoT hub primary connection string.
 
 ```javascript
 'use strict';
@@ -152,17 +152,18 @@ var connectionString = '{iot hub connection string}';
 var registry = iothub.Registry.fromConnectionString(connectionString);
 ```
 
-### Retrieve device twin tags and update a device twin
+### Retrieve and update a device twin
 
-Use [getTwin](/javascript/api/azure-iothub/registry?#azure-iothub-registry-gettwin-1) to retrieve the device twin object.
+You can create a patch that contains tag and desired property updates for a device twin.
 
-In this example, the device twin is retrieved for `myDeviceId`.
+To update a device twin:
 
-Format a variable that contains the device twin patch.
+* Use [getTwin](/javascript/api/azure-iothub/registry?#azure-iothub-registry-gettwin-1) to retrieve the device twin object.
+* Format a patch that contains the device twin update. The patch is formatted in JSON and as described in [Twin class](/javascript/api/azure-iothub/twin?view=azure-node-latest&branch=main#azure-iothub-twin-update-1), a backend service patch can contain tag and desired property updates. For more patch format information, see [Tags and properties format](/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
 
-Use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1) to update a device twin tag.
+* Use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1) to update the device twin with the patch.
 
-In this example, the patch contains a device twin `location` update of `region: 'US', plant: 'Redmond43'`.
+In this example, the the device twin is retrieved for `myDeviceId`, then a patch is applied to the twins that contains `location` tags update of `region: 'US', plant: 'Redmond43'`.
 
 ```javascript
      registry.getTwin('myDeviceId', function(err, twin){
@@ -191,6 +192,8 @@ In this example, the patch contains a device twin `location` update of `region: 
 ```
 
 ### Create a device twin query
+
+You can create SQL-like device queries to gather information from device twins.
 
 Use [createQuery](/javascript/api/azure-iothub/registry?#azure-iothub-registry-createquery) to create a query that can be run on an IoT hub instance to find information about devices or jobs.
 
