@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Best practices for using customer-managed keys for the FHIR service
 
-Customer-managed keys (CMK) are encryption keys that you create and manage in your own key store. By using CMK, you can have more flexibility and control over the encryption and access of your organization’s data. You use [Azure Key Vault](../../key-vault/index.yml) to create and manage CMK and then use the keys to encrypt the data stored by the FHIR&reg; service. 
+Customer-managed keys (CMK) are encryption keys that you create and manage in your own key store. By using CMK, you can have more flexibility and control over the encryption and access of your organization’s data. You use [Azure Key Vault](/azure/key-vault/) to create and manage CMK and then use the keys to encrypt the data stored by the FHIR&reg; service. 
 
 ## Rotate keys often
 

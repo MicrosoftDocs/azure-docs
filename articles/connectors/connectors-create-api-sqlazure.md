@@ -66,7 +66,7 @@ For more information, review the [SQL Server managed connector reference](/conne
   > a role that has the least privilege necessary.
   >
   > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
-  > [Azure Key Vault](../key-vault/general/overview.md), which you can use with [app settings in Standard workflows](../logic-apps/edit-app-settings-host-settings.md). 
+  > [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings in Standard workflows](../logic-apps/edit-app-settings-host-settings.md). 
   > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
   > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
   > app settings within your [Standard logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
