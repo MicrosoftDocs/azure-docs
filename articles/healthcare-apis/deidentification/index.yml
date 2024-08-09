@@ -33,7 +33,7 @@ landingContent:
           - text: Azure Health De-identification client library for .NET
             url: quickstart-sdk-net.md
 
-  - title: How-tos
+  - title: How-to
     linkLists:
       - linkListType: how-to-guide
         links:

@@ -13,7 +13,7 @@ items:
         href: quickstart.md
       - name: Azure Health De-identification client library for .NET
         href: quickstart-sdk-net.md
-  - name: How-tos
+  - name: How-to
     expanded: true
     items:
       - name: Use managed identities
