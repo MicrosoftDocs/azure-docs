@@ -6,11 +6,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/nosql/how-to-javascript-vector-index-query.md",
-      "redirect_url": "/azure/cosmos-db/nosql",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cosmos-db/account-databases-containers-items.md",
       "redirect_url": "/azure/cosmos-db/resource-model",
       "redirect_document_id": true
