@@ -6,7 +6,7 @@ ms.reviewer: sgautam
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 06/27/2024
+ms.date: 08/09/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about transferring subscriptions so that I can transfer one.
 ---
@@ -58,9 +58,11 @@ Answers to the above questions can help you to communicate early with others to 
 
 Understanding the answers to source and destination offer type questions is crucial to determine the technical steps required and to recognize any potential restrictions in the transfer process. Limitations are covered in more detail in the next section.
 
+If you're not sure what type of subscription you have, see [Check the type of your account](view-all-accounts.md#check-the-type-of-your-account).
+
 ## Support plan transfers
 
-You can't transfer support plans. If you have a support plan, then you should cancel it. Then you can buy a new one for the new agreement. If you cancel an Azure support plan, you're billed for the rest of the month. Cancelling a support plan doesn't result in a prorated refund. For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/).
+You can't transfer support plans. If you have a support plan, then you should cancel it. Then you can buy a new one for the new agreement. If you cancel an Azure support plan, you get billed for the rest of the month. Cancelling a support plan doesn't result in a prorated refund. For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/).
 
 For information about how to cancel a support plan, see [Cancel your Azure subscription](cancel-azure-subscription.md).
 
