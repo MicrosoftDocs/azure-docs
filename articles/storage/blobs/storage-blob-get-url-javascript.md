@@ -5,7 +5,7 @@ description: Learn how to get a container or blob URL in Azure Storage by using 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 09/13/2022
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript

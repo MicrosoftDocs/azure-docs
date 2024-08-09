@@ -11,7 +11,7 @@ Applications or processes running directly on an Azure Arc-enabled servers can u
 
 Refer to the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, and understand the distinction between system-assigned and user-assigned identities.
 
-In this article, we show you how a server can use a system-assigned managed identity to access Azure [Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Microsoft Entra ID. For example, TLS/SSL certificates used by your IIS web servers can be stored in Azure Key Vault, and securely deploy the certificates to Windows or Linux servers outside of Azure.
+In this article, we show you how a server can use a system-assigned managed identity to access Azure [Key Vault](/azure/key-vault/general/overview). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Microsoft Entra ID. For example, TLS/SSL certificates used by your IIS web servers can be stored in Azure Key Vault, and securely deploy the certificates to Windows or Linux servers outside of Azure.
 
 ## Security overview
 
@@ -43,7 +43,7 @@ The system environment variable **IDENTITY_ENDPOINT** is used to discover the id
 - An Azure Key Vault to store and retrieve your credential, and assign the Azure Arc identity access to the KeyVault.
 
     - If you don't have a Key Vault created, see [Create Key Vault](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#create-a-key-vault-).
-    - To configure access by the managed identity used by the server, see [Grant access for Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) or [Grant access for Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). For step number 5, you are going to enter the name of the Azure Arc-enabled server. To complete this using PowerShell, see [Assign an access policy using PowerShell](../../key-vault/general/assign-access-policy-powershell.md).
+    - To configure access by the managed identity used by the server, see [Grant access for Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) or [Grant access for Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). For step number 5, you are going to enter the name of the Azure Arc-enabled server. To complete this using PowerShell, see [Assign an access policy using PowerShell](/azure/key-vault/general/assign-access-policy-powershell).
 
 ## Acquiring an access token using REST API
 
@@ -102,6 +102,6 @@ The response includes the access token you need to access any resource in Azure.
 
 ## Next steps
 
-- To learn more about Azure Key Vault, see [Key Vault overview](../../key-vault/general/overview.md).
+- To learn more about Azure Key Vault, see [Key Vault overview](/azure/key-vault/general/overview).
 
-- Learn how to assign a managed identity access to a resource [using PowerShell](../../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) or using [the Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+- Learn how to assign a managed identity access to a resource [using PowerShell](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource?pivots=identity-mi-access-powershell) or using [the Azure CLI](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource?pivots=identity-mi-access-cli).

@@ -4,7 +4,7 @@ description: This tutorial shows you how to use API Management to add an API man
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: tutorial
 ms.date: 06/30/2022
 ms.author: danlep

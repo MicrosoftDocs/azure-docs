@@ -3,7 +3,7 @@ title: 'CLI (v2) YAML schema overview'
 titleSuffix: Azure Machine Learning
 description: Overview and index of CLI (v2) YAML schemas.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2

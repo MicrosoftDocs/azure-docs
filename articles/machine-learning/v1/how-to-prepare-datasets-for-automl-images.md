@@ -2,8 +2,8 @@
 title: Prepare data for computer vision tasks v1
 titleSuffix: Azure Machine Learning
 description: Image data preparation for Azure Machine Learning automated ML to train computer vision models on classification, object detection,  and segmentation v1
-author: vadthyavath
-ms.author: rvadthyavath
+author: ssalgadodev
+ms.author: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to

@@ -3,7 +3,7 @@ title: Migrate from MongoDB to Azure Cosmos DB for MongoDB, using Databricks and
 description: Learn how to use Databricks Spark to migrate large datasets from MongoDB instances to Azure Cosmos DB.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.custom: devx-track-python
 ms.topic: how-to

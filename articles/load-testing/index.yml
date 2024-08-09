@@ -6,7 +6,7 @@ summary: Learn how to generate high-scale loads, identify app performance bot
 metadata:
   title: Azure Load Testing documentation
   description: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more. 
-  ms.service: load-testing
+  ms.service: azure-load-testing
   ms.topic: landing-page
   ms.author: ninallam
   author: ninallam

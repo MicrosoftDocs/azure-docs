@@ -5,7 +5,7 @@ author: pimorano
 ms.author: pimorano
 ms.reviewer: wiassaf
 ms.date: 02/21/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: quickstart
 ms.custom:

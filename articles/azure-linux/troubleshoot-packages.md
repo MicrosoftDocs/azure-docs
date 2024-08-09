@@ -11,7 +11,7 @@ ms.date: 05/10/2023
 
 # Troubleshoot issues with package upgrades on the Azure Linux Container Host
 
-The Azure Linux Container Host for AKS has `dnf-automatic` enabled by default, a systemd service that runs daily and automatically installs any recently published updated packages. This ensures that packages in the Azure Linux Container Host should automatically update when a fix is published. Note, that for some settings of [Node OS Upgrade Channel](../../articles/aks/auto-upgrade-node-image.md), `dnf-automatic` will be disabled by default.
+The Azure Linux Container Host for AKS has `dnf-automatic` enabled by default, a systemd service that runs daily and automatically installs any recently published updated packages. This ensures that packages in the Azure Linux Container Host should automatically update when a fix is published. Note, that for some settings of [Node OS Upgrade Channel](/azure/aks/auto-upgrade-node-image), `dnf-automatic` will be disabled by default.
 
 ## Symptoms
 
@@ -26,7 +26,7 @@ Some packages, such as the Linux Kernel, require a reboot for the updates to tak
 
 ## Solution
 
-To ensure that Kubernetes acts on the request for a reboot, we recommend setting up the [kured daemonset](../../articles/aks/node-updates-kured.md). [Kured](https://github.com/kubereboot/kured) monitors your nodes for the /var/run/reboot-required file and, when it's found, drains the work off the node and reboots it.
+To ensure that Kubernetes acts on the request for a reboot, we recommend setting up the [kured daemonset](/azure/aks/node-updates-kured). [Kured](https://github.com/kubereboot/kured) monitors your nodes for the /var/run/reboot-required file and, when it's found, drains the work off the node and reboots it.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: vaboya
 ms.author: victorh
 ms.date: 08/16/2021
 ms.topic: quickstart
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: mode-api, devx-track-azurepowershell
 ---
 

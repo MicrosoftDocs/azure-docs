@@ -4,7 +4,7 @@ description: This article shows you how to use Azure API Management to import a 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/27/2021
 ms.author: danlep
@@ -16,8 +16,7 @@ ms.author: danlep
 
 This article shows how to import an Azure Web App to Azure API Management and test the imported API, using the Azure portal.
 
-> [!NOTE]
-> You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Follow the [API Management Extension tutorial](visual-studio-code-tutorial.md) to install and get started.
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 In this article, you learn how to:
 

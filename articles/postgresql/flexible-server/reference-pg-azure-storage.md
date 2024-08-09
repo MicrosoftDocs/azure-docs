@@ -1,11 +1,11 @@
 ---
 title: Copy data with Azure Storage Extension on Azure Database for PostgreSQL.
 description: Copy, export or read data from Azure Blob Storage with the Azure Storage extension for Azure Database for PostgreSQL - Flexible Server.
-author: gennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: reference
 ms.custom:

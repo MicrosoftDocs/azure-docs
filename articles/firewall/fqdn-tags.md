@@ -3,7 +3,7 @@ title: FQDN tags overview for Azure Firewall
 description: An FQDN tag represents a group of fully qualified domain names (FQDNs) associated with well known Microsoft services.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: article
 ms.date: 06/07/2024
 ms.author: victorh

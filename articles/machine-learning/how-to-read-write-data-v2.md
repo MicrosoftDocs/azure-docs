@@ -3,7 +3,7 @@ title: Access data in a job
 titleSuffix: Azure Machine Learning
 description: Learn how to read and write data in Azure Machine Learning training jobs.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.author: franksolomon

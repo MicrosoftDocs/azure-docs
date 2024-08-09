@@ -2,7 +2,7 @@
 title: 'Azure VPN Gateway configuration settings'
 description: Learn about VPN Gateway resources and configuration settings.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 07/29/2024
 ms.author: cherylmc 
@@ -21,7 +21,7 @@ The values in this article specifically apply to VPN gateways (virtual network g
 
 ## <a name="gwtype"></a>Gateways and gateway types
 
-A virtual network gateway is composed of two or more Azure-managed VMs that are automatically configured and deployed to a specific subnet that you create called the **gateway subnet**. The gateway VMs contain routing tables and run specific gateway services. When you create a virtual network gateway, the gateway VMs are automatically deployed to the gateway subnet (always named *GatwaySubnet*), and configured with the settings that you specified. The process can take 45 minutes or more to complete, depending on the gateway SKU that you selected.
+A virtual network gateway is composed of two or more Azure-managed VMs that are automatically configured and deployed to a specific subnet that you create called the **gateway subnet**. The gateway VMs contain routing tables and run specific gateway services. When you create a virtual network gateway, the gateway VMs are automatically deployed to the gateway subnet (always named *GatewaySubnet*), and configured with the settings that you specified. The process can take 45 minutes or more to complete, depending on the gateway SKU that you selected.
 
 One of the settings that you specify when creating a virtual network gateway is the **gateway type**. The gateway type determines how the virtual network gateway is used and the actions that the gateway takes. A virtual network can have two virtual network gateways; one VPN gateway and one ExpressRoute gateway. The -GatewayType 'Vpn' specifies that the type of virtual network gateway created is a **VPN gateway**. This distinguishes it from an ExpressRoute gateway.
 

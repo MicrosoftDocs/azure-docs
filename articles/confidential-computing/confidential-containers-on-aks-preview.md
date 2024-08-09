@@ -36,18 +36,18 @@ But with these features of confidentiality, the product should additioanally its
 
 Aligning with Microsoft’s commitment to the open-source community, the underlying stack for Confidential Containers uses the [Kata CoCo](https://github.com/confidential-containers/confidential-containers) agent as the agent running in the node that hosts the pod running the confidential workload. With many TEE technologies requiring a boundary between the host and guest, [Kata Containers](https://katacontainers.io/) are the basis for the Kata CoCo initial work. Microsoft  also contributed back to the Kata Coco community to power containers  running inside a confidential utility VM.
 
-The Kata confidential container resides within the Azure Linux AKS Container Host. [Azure Linux](../aks/use-azure-linux.md) and the Cloud Hypervisor VMM (Virtual Machine Monitor) is the end-user facing/user space software that is used for creating and managing the lifetime of virtual machines.
+The Kata confidential container resides within the Azure Linux AKS Container Host. [Azure Linux](/azure/aks/use-azure-linux) and the Cloud Hypervisor VMM (Virtual Machine Monitor) is the end-user facing/user space software that is used for creating and managing the lifetime of virtual machines.
 
 ## Container level isolation in AKS
 
-By default, AKS all workloads share the same kernel and the same cluster admin. With the preview of Pod Sandboxing on AKS, the isolation grew a notch higher with the ability to provide kernel isolation for workloads on the same AKS node. You can read more about the feature [here](../aks/use-pod-sandboxing.md). Confidential Containers are the next step of this isolation and it uses the memory encryption capabilities of the underlying AMD SEV-SNP virtual machine sizes. These virtual machines are the [DCa_cc](../virtual-machines/dcasccv5-dcadsccv5-series.md) and [ECa_cc](../virtual-machines/ecasccv5-ecadsccv5-series.md) sizes with the capability of surfacing the hardware’s root of trust to the pods deployed on it.
+By default, AKS all workloads share the same kernel and the same cluster admin. With the preview of Pod Sandboxing on AKS, the isolation grew a notch higher with the ability to provide kernel isolation for workloads on the same AKS node. You can read more about the feature [here](/azure/aks/use-pod-sandboxing). Confidential Containers are the next step of this isolation and it uses the memory encryption capabilities of the underlying AMD SEV-SNP virtual machine sizes. These virtual machines are the [DCa_cc](../virtual-machines/dcasccv5-dcadsccv5-series.md) and [ECa_cc](../virtual-machines/ecasccv5-ecadsccv5-series.md) sizes with the capability of surfacing the hardware’s root of trust to the pods deployed on it.
 
 :::image type="content" source="media/confidential-containers/architechture-aks-conf-pods.png" alt-text="Diagram of various layers of the architecture forming Confidential Containers.":::
 
 ## Get started
 
-To get started and learn more about supported scenarios, refer to our AKS documentation [here](../aks/confidential-containers-overview.md).
+To get started and learn more about supported scenarios, refer to our AKS documentation [here](/azure/aks/confidential-containers-overview).
 
 ## Next step
 
-[Deploy a Confidential Container on AKS](../aks/deploy-confidential-containers-default-policy.md).
+[Deploy a Confidential Container on AKS](/azure/aks/deploy-confidential-containers-default-policy).

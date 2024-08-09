@@ -5,7 +5,7 @@ author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: concept-article
 ms.custom:
@@ -105,7 +105,7 @@ The detailed specifications of the available server types are as follows for the
 | Standard_E48ads_v5 | 48 | 384 | 528 | 48000 | 65536 | 906 |
 | Standard_E64ds_v4 | 64 | 504 | 693 | 64000 | 86016 | 1224 |
 | Standard_E64ads_v5 | 64 | 504 | 693 | 64000 | 86016 | 1224 |
-| Standard_E80ids_v4 | 80 | 504 | 693 | 72000 | 86016 | 1224 |
+| Standard_E80ds_v4 | 80 | 504 | 693 | 72000 | 86016 | 1224 |
 | Standard_E2ds_v5 | 2 | 16 | 22 | 5000 | 2731 | 37 |
 | Standard_E4ds_v5 | 4 | 32 | 44 | 10000 | 5461 | 75 |
 | Standard_E8ds_v5 | 8 | 64 | 88 | 18000 | 10923 | 151 |

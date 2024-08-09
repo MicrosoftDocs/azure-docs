@@ -1,7 +1,7 @@
 ---
 title: ND A100 v4-series 
 description: Specifications for the ND A100 v4-series VMs.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 author: sherrywangms
 ms.author: sherrywang

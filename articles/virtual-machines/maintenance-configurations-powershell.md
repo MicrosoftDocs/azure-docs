@@ -2,7 +2,7 @@
 title: Maintenance Configurations for Azure virtual machines using Azure PowerShell
 description: Learn how to control when maintenance is applied to your Azure VMs by using Maintenance Configurations and Azure PowerShell.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
 ms.date: 11/19/2020

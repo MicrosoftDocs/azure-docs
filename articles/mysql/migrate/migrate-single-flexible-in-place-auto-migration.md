@@ -5,7 +5,7 @@ author: adig
 ms.author: adig
 ms.reviewer: talawren, maghan
 ms.date: 07/19/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:
@@ -125,9 +125,9 @@ Here's the info you need to know post in-place migration:
 
 | **Property** | **Configuration** |
 | --- | --- |
-| Suppress specific alert types | Disable specific alert types with the Microsoft Defender for Cloud platform. For more information, visit [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md).<br /><br />Single Server users can use the API property:<br />`properties.disabledAlerts` |
-| Email notifications | Define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, visit [Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md).<br /><br />Single Server users can use the API properties:<br />`properties.emailAccountAdmins`,<br />`properties.emailAddresses` |
-| Export alerts for further processing and/or archiving | Alerts are stored in the Microsoft Defender for Cloud platform and exposed through the Azure Resource Graph.<br />You can export alerts to a different store and manage retention separately. For more information, visit [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md).<br /><br />Single Server users can use the API properties:<br />`properties.retentionDays`,<br />`properties.storageAccountAccessKey`,<br />`properties.storageEndpoint` |
+| Suppress specific alert types | Disable specific alert types with the Microsoft Defender for Cloud platform. For more information, visit [Suppress alerts from Microsoft Defender for Cloud guide](/azure/defender-for-cloud/alerts-suppression-rules).<br /><br />Single Server users can use the API property:<br />`properties.disabledAlerts` |
+| Email notifications | Define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, visit [Configure email notifications for security alerts](/azure/defender-for-cloud/configure-email-notifications).<br /><br />Single Server users can use the API properties:<br />`properties.emailAccountAdmins`,<br />`properties.emailAddresses` |
+| Export alerts for further processing and/or archiving | Alerts are stored in the Microsoft Defender for Cloud platform and exposed through the Azure Resource Graph.<br />You can export alerts to a different store and manage retention separately. For more information, visit [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](/azure/defender-for-cloud/continuous-export).<br /><br />Single Server users can use the API properties:<br />`properties.retentionDays`,<br />`properties.storageAccountAccessKey`,<br />`properties.storageEndpoint` |
 
 ## Frequently Asked Questions (FAQs)
 

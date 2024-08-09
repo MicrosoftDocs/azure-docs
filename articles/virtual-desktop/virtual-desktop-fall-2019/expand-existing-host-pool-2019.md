@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.date: 03/31/2021
 ms.author: helohr
-manager: femila
 ---
 # Expand an existing host pool with new session hosts in Azure Virtual Desktop (classic)
 

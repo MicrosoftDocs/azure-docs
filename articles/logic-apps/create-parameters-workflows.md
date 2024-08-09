@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 08/06/2024
 ---
 
 # Create cross-environment parameters for workflow inputs in Azure Logic Apps
@@ -40,14 +40,21 @@ In multi-tenant Consumption logic app workflows, after you create and use parame
 
 In single-tenant Standard logic app workflows, you can work with environment variables both at runtime and deployment by using parameters *and* app settings. App settings contain global configuration options for *all the workflows* in the same logic app resource. For more information, review [Edit host and app settings for single-tenant based logic apps](edit-app-settings-host-settings.md).
 
-> [!NOTE]
-> In Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, 
-> aren't supported. However, as an alternative option, you can use app settings with Azure Key Vault. 
-> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), 
-> such as connection strings and keys. Similar to ARM templates, where you can define environment 
-> variables at deployment time, you can define app settings within your 
-> [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture 
-> dynamically generated infrastructure values, such as connection endpoints, storage strings, and more.
+> [!IMPORTANT]
+>
+> When you have sensitive information, such as connection strings that include usernames and passwords, 
+> make sure to use the most secure authentication flow available. For example, in Standard logic app workflows, 
+> secure data types, such as `securestring` and `secureobject`, aren't supported. Microsoft recommends that you 
+> authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
+> when possible, and assign a role that has the least privilege necessary.
+>
+> If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+> [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
+> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+> strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+> app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+> You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+> For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
 However, app settings have size limits and can't be referenced from certain areas in Azure Logic Apps. Parameters offer a wider range of use cases than app settings, such as support for large value sizes and complex objects.
 
@@ -134,7 +141,6 @@ For example, if you use Visual Studio Code as your local development tool to run
    | **Name** | Yes | The name for the parameter to create. |
    | **Type** | Yes | The data type for the parameter, such as **Array**, **Bool**, **Float**, **Int**, **Object**, and **String**. <br><br>**Note**: In Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, aren't supported. |
    | **Value** | Yes | The value for the parameter. <br><br>In Standard logic app workflows, you have to specify the parameter value because the workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve the parameter values before loading. |
-   ||||
 
    The following example shows a definition for a string parameter:
 

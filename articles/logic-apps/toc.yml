@@ -36,9 +36,9 @@ items:
       href: create-single-tenant-workflows-visual-studio-code.md
 - name: Tutorials
   items:
-  - name: Create Consumption schedule-based workflows
+  - name: Create Consumption schedule-based workflow
     href: tutorial-build-schedule-recurring-logic-app-workflow.md
-  - name: Create Consumption approval-based workflows
+  - name: Create Consumption approval-based workflow
     href: tutorial-process-mailing-list-subscriptions-workflow.md
   - name: Create Consumption workflow with Azure Storage and Azure Functions
     href: tutorial-process-email-attachments-workflow.md
@@ -155,8 +155,6 @@ items:
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
-    - name: Export flows from Power Automate and deploy to Azure Logic Apps
-      href: export-from-microsoft-flow-logic-app-template.md
     - name: Migrate from BizTalk to Azure
       items:
       - name: Why migrate from BizTalk Server?
@@ -458,9 +456,11 @@ items:
       - name: Monitor workflows
         href: monitor-logic-apps-overview.md
       - name: View workflow status and run history
-        href: monitor-logic-apps.md
+        href: view-workflow-status-run-history.md
       - name: View health and performance metrics
         href: view-workflow-metrics.md
+      - name: Enable Health Check for Standard workflows
+        href: monitor-health-standard-workflows.md
       - name: Enable and view enhanced telemetry for Standard workflows
         href: enable-enhanced-telemetry-standard-workflows.md
       - name: Monitor and collect diagnostic data for workflows

@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Site Recovery with Azure Monitor Logs 
 description: Learn how to monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 05/13/2024
 ms.author: ankitadutta

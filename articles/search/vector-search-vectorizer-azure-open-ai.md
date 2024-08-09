@@ -8,15 +8,18 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 07/25/2024
+ms.date: 08/05/2024
 ---
 
 # Azure OpenAI vectorizer
 
-> [!IMPORTANT] 
-> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and all newer preview REST APIs support this feature.
-
 The **Azure OpenAI** vectorizer connects to a deployed embedding model on your [Azure OpenAI](/azure/ai-services/openai/overview) resource to generate embeddings at query time. Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. 
+
+Vectorizers are used at query time, but specified in index definitions, and referenced on vector fields through a vector profile. The Azure OpenAI vectorizer is called `AzureOpenAIVectorizer` in the API. 
+
++ Use the [**2024-07-01**](/rest/api/searchservice/indexes/create) REST API or an Azure SDK package that's been updated to provide the feature.
+
++ [Configure a vectorizer in a search index](vector-search-how-to-configure-vectorizer.md)provides usage instructions.
 
 > [!NOTE]
 > This vectorizer is bound to Azure OpenAI and is charged at the existing [Azure OpenAI pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing).

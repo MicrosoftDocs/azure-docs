@@ -6,11 +6,10 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
-  - ignite-2023
 monikerRange: '>=doc-intel-3.0.0'
 ---
 
@@ -31,13 +30,12 @@ monikerRange: '>=doc-intel-3.0.0'
 **This content applies to:** ![checkmark](media/yes-icon.png) **v3.0 (GA)** | **Latest versions:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true) ![purple-checkmark](media/purple-yes-icon.png) [**v3.1**](?view=doc-intel-3.1.0&preserve-view=true)
 ::: moniker-end
 
-Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured, and unstructured documents. Custom neural models are available in the [v3.0 and later models](v3-1-migration-guide.md) The table below lists common document types for each category:
+Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured and semi-structured documents. Custom neural models are available in the [v3.0 and later models](v3-1-migration-guide.md) The table below lists common document types for each category:
 
 | Documents | Examples |
 |---|--|
 | Structured| surveys, questionnaires|
 | Semi-structured | invoices, purchase orders |
-| Unstructured | contracts, letters |
 
 Custom neural models share the same labeling format and strategy as [custom template](concept-custom-template.md) models. Currently custom neural models only support a subset of the field types supported by custom template models.
 
@@ -46,30 +44,30 @@ Custom neural models share the same labeling format and strategy as [custom temp
  > [!IMPORTANT]
  > Starting with API version ```2024-02-29-preview``` custom neural models add support for overlapping fields and table cell confidence.
 
-Custom neural models currently only support key-value pairs and selection marks and structured fields (tables), future releases include support for signatures.
+Custom neural models currently support key-value pairs and selection marks and structured fields (tables).
 
-| Form fields | Selection marks | Tabular fields | Signature | Region | Overlapping fields |
+| Form fields | Selection marks | Tabular fields | Signature | Region labeling | Overlapping fields |
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> | Supported <sup>2</sup> |
 
-<sup>1</sup> Region labels in custom neural models use the results from the Layout API for specified region. This feature is different from template models where, if no value is present, text is generated at training time.
+<sup>1</sup> Region labels in custom neural models use the results from the Layout API for specified region. This feature is different from template models where, if no value is present, text is generated at training time.</br>
 <sup>2</sup> Overlapping fields are supported starting with REST API version `2024-02-29-preview`. Overlapping fields have some limits. For more information, *see* [overlapping fields](#overlapping-fields).
 
 ### Build mode
 
-The build custom model operation supports *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
+The `Build` operation supports *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
 
 Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but can vary in appearance across companies. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
 
-## Supported languages and locales
+### Overlapping fields
 
-*See* our [Language Support—custom models](language-support-custom.md) page for a complete list of supported languages.
+With the release of API versions ````2024-02-29-preview```` and later, custom neural models support overlapping fields:
 
 ## Overlapping fields
 
-With the release of API versions **2024-02-29-preview** and  later, custom neural models will support overlapping fields:
+With the release of API versions **2024-07-31-preview** and  later, custom neural models will support overlapping fields:
 
-To use the overlapping fields, your dataset needs to contain at least one sample with the expected overlap. To label an overlap, use **region labeling** to designate each of the spans of content (with the overlap) for each field. Labeling an overlap with field selection (highlighting a value) will fail in the studio as region labeling is the only supported labeling tool for indicating field overlaps. Overlap support includes:
+To use the overlapping fields, your dataset needs to contain at least one sample with the expected overlap. To label an overlap, use **region labeling** to designate each of the spans of content (with the overlap) for each field. Labeling an overlap with field selection (highlighting a value) fails in the Studio as region labeling is the only supported labeling tool for indicating field overlaps. Overlap support includes:
 
 * Complete overlap. The same set of tokens are labeled for two different fields.
 * Partial overlap. Some tokens belong to both fields, but there are tokens that are only part of one field or the other.
@@ -82,11 +80,11 @@ Overlapping fields have some limits:
 
 To use overlapping fields, label your dataset with the overlaps and train the model with the API version ```2024-02-29-preview``` or later.
 
-## Tabular fields adds table, row and cell confidence
+## Tabular fields
 
-With the release of API versions **2022-06-30-preview** and  later, custom neural models will support tabular fields (tables):
+With the release of API versions **2022-06-30-preview** and later, custom neural models support tabular fields (tables) to analyze table, row, and cell data with added confidence:
 
-* Models trained with API version 2022-08-31, or later will accept tabular field labels.
+* Models trained with API version 2022-06-30-preview, or later will accept tabular field labels.
 * Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables.
 * The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
 
@@ -100,15 +98,15 @@ Tabular fields are also useful when extracting repeating information within a do
 Tabular fields provide **table, row and cell confidence** starting with the ```2024-02-29-preview``` API:
 
 * Fixed or dynamic tables add confidence support for the following elements:
-
   * Table confidence, a measure of how accurately the entire table is recognized.
   * Row confidence, a measure of recognition of an individual row.
   * Cell confidence, a measure of recognition of an individual cell.
 
-* The recommended approach is to review the accuracy in a top-down manner starting with the table first, followed by the row and then the cell.
+* The recommended approach is to review the accuracy in a top-down manner starting with the table first, followed by the row and then the cell. See  [confidence and accuracy scores](concept-accuracy-confidence.md) to learn more about table, row, and cell confidence.
 
-See  [confidence and accuracy scores](concept-accuracy-confidence.md) to learn more about table, row, and cell confidence.
+### Supported languages and locales
 
+*See* our [Language Support—custom models](language-support-custom.md#custom-neural) for a complete list of supported languages.
 
 ## Supported regions
 
@@ -137,7 +135,7 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 > [!TIP]
 > You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
 >
-> Use the [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
+> Use the [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true) or [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
 
 :::moniker-end
 
@@ -165,7 +163,7 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 
 * Supported file formats:
 
-    |Model | PDF |Image: </br>jpeg/jpg, png, bmp, tiff, heif | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx), and HTML|
+    |Model | PDF |Image: </br>jpeg/`jpg`, `png`, `bmp`, `tiff`, `heif` | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx), and HTML|
     |--------|:----:|:-----:|:---------------:|
     |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview, or later)  |
@@ -193,26 +191,14 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 
 ## Best practices
 
-Custom neural models differ from custom template models in a few different ways. The custom template or model relies on a consistent visual template to extract the labeled data. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. When you're choosing between the two model types, start with a neural model, and test to determine if it supports your functional needs.
+Custom neural models differ from custom template models in a few different ways. The custom template or model relies on a consistent visual template to extract the labeled data. Custom neural models support structured, and semi-structured to extract fields. When you're choosing between the model types, start with a neural model, and test to determine if it supports your functional needs.
 
-### Dealing with variations
-
-Custom neural models can generalize across different formats of a single document type. As a best practice, create a single model for all variations of a document type. Add at least five labeled samples for each of the different variations to the training dataset.
-
-### Field naming
-
-When you label the data, labeling the field relevant to the value improves the accuracy of the key-value pairs extracted. For example, for a field value containing the supplier ID, consider naming the field *supplier_id*. Field names should be in the language of the document.
-
-### Labeling contiguous values
-
-Value tokens/words of one field must be either:
-
-* In a consecutive sequence in natural reading order, without interleaving with other fields
-* In a region that don't cover any other fields
-
-### Representative data
-
-Values in training cases should be diverse and representative. For example, if a field is named *date*, values for this field should be a date. Synthetic value like a random string can affect model performance.
+* **Dealing with variations** - Custom neural models can generalize across different formats of a single document type. As a best practice, create a single model for all variations of a document type. Add at least five labeled samples for each of the different variations to the training dataset.
+* **Field naming** - When you label the data, labeling the field relevant to the value improves the accuracy of the key-value pairs extracted. For example, for a field value containing the supplier ID, consider naming the field *supplier_id*. Field names should be in the language of the document.
+* **Labeling contiguous values** - Value tokens/words of one field must be either:
+  * In a consecutive sequence in natural reading order, without interleaving with other fields
+  * In a region that don't cover any other fields
+* **Representative data** - Values in training cases should be diverse and representative. For example, if a field is named *date*, values for this field should be a date. Synthetic value like a random string can affect model performance.
 
 ## Current Limitations
 
@@ -228,12 +214,12 @@ Custom neural models are available in the [v3.0 and later models](v3-1-migration
 |--|--|--|--|
 | Custom document | [Document Intelligence 3.1](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
+The `Build` operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 
 :::moniker range="doc-intel-4.0.0"
 
 ```REST
-https://{endpoint}/documentintelligence/documentModels:build?api-version=2024-02-29-preview
+https://{endpoint}/documentintelligence/documentModels:build?api-version=2024-07-31-preview
 
 {
   "modelId": "string",
@@ -284,6 +270,61 @@ https://{endpoint}/formrecognizer/documentModels/{modelId}:copyTo?api-version=20
   }
 }
 ```
+
+:::moniker-end
+
+:::moniker range="doc-intel-4.0.0"
+
+## Billing
+ 
+Starting with version `2024-07-31-preview`, you can train your custom neural model for longer durations than 30 minutes. Previous versions have been capped at 30 minutes per training instance, with a total of 20 free training instances per month. Now with `2024-07-31-preview`, you can receive **10 hours** of free model training, and train a model for as long as 10 hours. If you would like to train a model for longer than 10 hours, billing charges are calculated for model trainings that exceed 10 hours. You can choose to spend all of 10 free hours on a single build with a large set of data, or utilize it across multiple builds by adjusting the maximum duration value for the `build` operation by specifying `maxTrainingHours` as below:
+
+```bash
+
+POST /documentModels:build
+{
+  ...,
+  "maxTrainingHours": 10
+}
+```
+
+> [!NOTE]
+> For Document Intelligence versions `v3.1 (2023-07-31)` and `v3.0 (2022-08-31)`, custom neural model's paid training is not enabled. For the two older versions, you will get a maximum of 30 minutes training duration per model. If you would like to train more than 20 model instances, you can request for increase in the training limit.
+
+Each training hour is the amount of compute a single V100 GPU can perform in an hour. As each build takes different amount of time, billing is calculated for the actual time spent (excluding time in queue), with a minimum of 30 minutes per training job. The elapsed time is converted to V100 equivalent training hours and reported as part of the model.
+
+```bash
+
+GET /documentModels/{myCustomModel}
+{
+  "modelId": "myCustomModel",
+  "trainingHours": 0.23,
+  "docTypes": { ... },
+  ...
+}
+```
+
+This billing structure enables you to train larger data sets for longer durations with flexibility in the training hours.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+## Billing
+
+For Document Intelligence versions `v3.1 (2023-07-31)` and `v3.0 (2022-08-31)`, you will get a maximum of 30 minutes training duration per model, and a maximum of 20 trainings for free per month. If you would like to train more than 20 model instances, you can request for increase in the training limit.
+
+If you are interested in training models for longer durations than 30 minutes, we support **paid training** for our newest version, `v4.0 (2024-07-31)`. Using the latest version, you can train your model for a longer duration to process larger documents.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+## Billing
+
+For Document Intelligence versions `v3.1 (2023-07-31)` and `v3.0 (2022-08-31)`, you will get a maximum of 30 minutes training duration per model, and a maximum of 20 trainings for free per month. If you would like to train more than 20 model instances, you can request for increase in the training limit.
+
+If you are interested in training models for longer durations than 30 minutes, we support **paid training** for our newest version, `v4.0 (2024-07-31)`. Using the latest version, you can train your model for a longer duration to process larger documents.
 
 :::moniker-end
 

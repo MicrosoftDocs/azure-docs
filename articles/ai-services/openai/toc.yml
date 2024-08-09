@@ -101,6 +101,8 @@ items:
           href: ./how-to/assistants-logic-apps.md
       - name: File search
         href: ./how-to/file-search.md
+  - name: Batch
+    href: ./how-to/batch.md
   - name: Completions & chat completions
     items:
     - name: GPT-35-Turbo & GPT-4 
