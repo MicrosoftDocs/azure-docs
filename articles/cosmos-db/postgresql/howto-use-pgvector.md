@@ -3,7 +3,7 @@ title: How to enable and use pgvector - Azure Cosmos DB for PostgreSQL
 description: How to enable and use pgvector for Azure Cosmos DB for PostgreSQL
 ms.author: avijitgupta
 author: AvijitkGupta
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023
 ms.topic: how-to

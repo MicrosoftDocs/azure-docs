@@ -2,7 +2,7 @@
 title: CreateUiDefinition.json file for portal pane
 description: Describes how to create user interface definitions for the Azure portal. Used when defining Azure Managed Applications.
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 06/24/2024
 ---
 
 # CreateUiDefinition.json for Azure managed application's create experience
@@ -13,27 +13,27 @@ The template is as follows
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Azure.CreateUIDef",
-    "version": "0.1.2-preview",
-    "parameters": {
-        "config": {
-            "isWizard": false,
-            "basics": { }
-        },
-        "basics": [ ],
-        "steps": [ ],
-        "outputs": { },
-        "resourceTypes": [ ]
-    }
+  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+  "handler": "Microsoft.Azure.CreateUIDef",
+  "version": "0.1.2-preview",
+  "parameters": {
+    "config": {
+      "isWizard": false,
+      "basics": {}
+    },
+    "basics": [],
+    "steps": [],
+    "outputs": {},
+    "resourceTypes": []
+  }
 }
 ```
 
-A `CreateUiDefinition` always contains three properties:
+A _createUiDefinition.json_ file always contains three properties:
 
-* handler
-* version
-* parameters
+- handler
+- version
+- parameters
 
 The handler should always be `Microsoft.Azure.CreateUIDef`, and the latest supported version is `0.1.2-preview`.
 
@@ -49,54 +49,54 @@ The `config` property is optional. Use it to either override the default behavio
 
 ```json
 "config": {
-    "isWizard": false,
-    "basics": {
-        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
-        "subscription": {
-            "constraints": {
-                "validations": [
-                    {
-                        "isValid": "[not(contains(subscription().displayName, 'Test'))]",
-                        "message": "Can't use test subscription."
-                    },
-                    {
-                        "permission": "Microsoft.Compute/virtualmachines/write",
-                        "message": "Must have write permission for the virtual machine."
-                    },
-                    {
-                        "permission": "Microsoft.Compute/virtualMachines/extensions/write",
-                        "message": "Must have write permission for the extension."
-                    }
-                ]
-            },
-            "resourceProviders": [
-                "Microsoft.Compute"
-            ]
-        },
-        "resourceGroup": {
-            "constraints": {
-                "validations": [
-                    {
-                        "isValid": "[not(contains(resourceGroup().name, 'test'))]",
-                        "message": "Resource group name can't contain 'test'."
-                    }
-                ]
-            },
-            "allowExisting": true
-        },
-        "location": {
-            "label": "Custom label for location",
-            "toolTip": "provide a useful tooltip",
-            "resourceTypes": [
-                "Microsoft.Compute/virtualMachines"
-            ],
-            "allowedValues": [
-                "eastus",
-                "westus2"
-            ],
-            "visible": true
-        }
+  "isWizard": false,
+  "basics": {
+    "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
+    "subscription": {
+      "constraints": {
+        "validations": [
+          {
+            "isValid": "[not(contains(subscription().displayName, 'Test'))]",
+            "message": "Can't use test subscription."
+          },
+          {
+            "permission": "Microsoft.Compute/virtualmachines/write",
+            "message": "Must have write permission for the virtual machine."
+          },
+          {
+            "permission": "Microsoft.Compute/virtualMachines/extensions/write",
+            "message": "Must have write permission for the extension."
+          }
+        ]
+      },
+      "resourceProviders": [
+        "Microsoft.Compute"
+      ]
+    },
+    "resourceGroup": {
+      "constraints": {
+        "validations": [
+          {
+            "isValid": "[not(contains(resourceGroup().name, 'test'))]",
+            "message": "Resource group name can't contain 'test'."
+          }
+        ]
+      },
+      "allowExisting": true
+    },
+    "location": {
+      "label": "Custom label for location",
+      "toolTip": "provide a useful tooltip",
+      "resourceTypes": [
+        "Microsoft.Compute/virtualMachines"
+      ],
+      "allowedValues": [
+        "eastus",
+        "westus2"
+      ],
+      "visible": true
     }
+  }
 },
 ```
 
@@ -118,7 +118,7 @@ For `description`, provide a markdown-enabled string that describes your resourc
 
 The `subscription` and `resourceGroup` elements enable you to specify more validations. The syntax for specifying validations is identical to the custom validation for [text box](microsoft-common-textbox.md). You can also specify `permission` validations on the subscription or resource group.
 
-The subscription control accepts a list of resource provider namespaces. For example, you can specify **Microsoft.Compute**. It shows an error message when the user selects a subscription that doesn't support the resource provider. The error occurs when the resource provider isn't registered on that subscription, and the user doesn't have permission to register the resource provider.
+The subscription control accepts a list of resource provider namespaces. For example, you can specify `Microsoft.Compute`. It shows an error message when the user selects a subscription that doesn't support the resource provider. The error occurs when the resource provider isn't registered on that subscription, and the user doesn't have permission to register the resource provider.
 
 The resource group control has an option for `allowExisting`. When `true`, the users can select resource groups that already have resources. This flag is most applicable to solution templates, where default behavior mandates users must select a new or empty resource group. In most other scenarios, specifying this property isn't necessary.
 
@@ -136,14 +136,14 @@ The following example shows a text box that has been added to the default elemen
 
 ```json
 "basics": [
-    {
-        "name": "textBox1",
-        "type": "Microsoft.Common.TextBox",
-        "label": "Textbox on basics",
-        "defaultValue": "my text value",
-        "toolTip": "",
-        "visible": true
-    }
+  {
+    "name": "textBox1",
+    "type": "Microsoft.Common.TextBox",
+    "label": "Textbox on basics",
+    "defaultValue": "my text value",
+    "toolTip": "",
+    "visible": true
+  }
 ]
 ```
 
@@ -153,13 +153,13 @@ The steps property contains zero or more steps to display after basics. Each ste
 
 ```json
 "steps": [
-    {
-        "name": "demoConfig",
-        "label": "Configuration settings",
-        "elements": [
-          ui-elements-needed-to-create-the-instance
-        ]
-    }
+  {
+    "name": "demoConfig",
+    "label": "Configuration settings",
+    "elements": [
+       ui-elements-needed-to-create-the-instance
+    ]
+  }
 ]
 ```
 
@@ -171,11 +171,11 @@ To set the managed application resource name, you must include a value named `ap
 
 ```json
 "outputs": {
-    "vmName": "[steps('appSettings').vmName]",
-    "trialOrProduction": "[steps('appSettings').trialOrProd]",
-    "userName": "[steps('vmCredentials').adminUsername]",
-    "pwd": "[steps('vmCredentials').vmPwd.password]",
-    "applicationResourceName": "[steps('appSettings').vmName]"
+  "vmName": "[steps('appSettings').vmName]",
+  "trialOrProduction": "[steps('appSettings').trialOrProd]",
+  "userName": "[steps('vmCredentials').adminUsername]",
+  "pwd": "[steps('vmCredentials').vmPwd.password]",
+  "applicationResourceName": "[steps('appSettings').vmName]"
 }
 ```
 
@@ -185,13 +185,15 @@ To filter the available locations to only those locations that support the resou
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Azure.CreateUIDef",
-    "version": "0.1.2-preview",
-    "parameters": {
-        "resourceTypes": ["Microsoft.Compute/disks"],
-        "basics": [
-          ...
+  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+  "handler": "Microsoft.Azure.CreateUIDef",
+  "version": "0.1.2-preview",
+  "parameters": {
+    "resourceTypes": [
+      "Microsoft.Compute/disks"
+    ],
+    "basics": [
+        ...
 ```
 
 ## Functions

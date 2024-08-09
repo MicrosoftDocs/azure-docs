@@ -1,11 +1,11 @@
 ---
 title: Geo-replication
 description: This article describes the Geo-replication in Azure Database for PostgreSQL - Flexible Server.
-author: AlicjaKucharczyk
-ms.author: alkuchar
+author: akashraokm
+ms.author: akashrao
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
@@ -16,7 +16,7 @@ ms.custom:
 
 [!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-A read replica can be created in the same region as the primary server and in a different one. Geo-replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
+A read replica can be created in the same region as the primary server or in a different geographical region. Geo-replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
 You can have a primary server in any [Azure Database for PostgreSQL flexible server region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A primary server can also have replicas in any global region of Azure that supports Azure Database for PostgreSQL flexible server. Additionally, we support special regions [Azure Government](../../azure-government/documentation-government-welcome.md) and [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations). The special regions now supported are:
 
@@ -28,13 +28,13 @@ You can have a primary server in any [Azure Database for PostgreSQL flexible ser
 - **Microsoft Azure operated by 21Vianet regions**:
   - China North 3
   - China East 3
+  - China North 2
+  - China East 2
 
-> [!NOTE]
-> [Virtual endpoints](concepts-read-replicas-virtual-endpoints.md) and [promote to primary server features](concepts-read-replicas-promote.md) - are not currently supported in the special regions listed above.
 
 ## Paired regions for disaster recovery purposes
 
-While creating replicas in any supported region is possible, there are notable benefits when opting for replicas in paired regions, especially when architecting for disaster recovery purposes:
+While creating replicas in any supported region is possible, there are notable benefits for choosing replicas in paired regions, especially when architecting for disaster recovery purposes:
 
 - **Region Recovery Sequence**: In a geography-wide outage, recovery of one region from every paired set is prioritized, ensuring that applications across paired regions always have a region expedited for recovery.
 
@@ -44,7 +44,7 @@ While creating replicas in any supported region is possible, there are notable b
 
 - **Data Residency**: With a few exceptions, regions in a paired set reside within the same geography, meeting data residency requirements.
 
-- **Performance**: While paired regions typically offer low network latency, enhancing data accessibility and user experience, they might not always be the regions with the absolute lowest latency. If the primary objective is to serve data closer to users rather than prioritize disaster recovery, it's crucial to evaluate all available regions for latency. In some cases, a nonpaired region might exhibit the lowest latency. For a comprehensive understanding, you can reference [Azure's round-trip latency figures](../../networking/azure-network-latency.md#round-trip-latency-figures) to make an informed choice.
+- **Performance**: While paired regions typically offer low network latency, enhancing data accessibility and user experience, they might not always be the regions with the absolute lowest latency. If the primary objective is to serve data closer to users rather than prioritize disaster recovery, it's crucial to evaluate all available regions for latency. In some cases, a non-paired region might exhibit the lowest latency. For a comprehensive understanding, you can reference [Azure's round-trip latency figures](../../networking/azure-network-latency.md#round-trip-latency-figures) to make an informed choice.
 
 For a deeper understanding of the advantages of paired regions, refer to [Azure's documentation on cross-region replication](../../reliability/cross-region-replication-azure.md#azure-paired-regions).
 

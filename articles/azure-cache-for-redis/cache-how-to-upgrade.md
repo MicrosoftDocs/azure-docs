@@ -4,7 +4,7 @@ description: Learn how to upgrade the version of Azure Cache for Redis.
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: how-to
 ms.date: 05/21/2024
 ms.custom: template-how-to, devx-track-azurecli
@@ -36,7 +36,7 @@ This table contains the information for which Redis version are available in eac
 | Tier                         |        Available Redis version       |
 |:---------------------------- |:------------------------------------:|
 | Basic, Standard, Premium     |               6.0 (GA)               |
-| Enterprise, Enterprise Flash | Redis 6.2 (GA), Redis 7.2 (preview)  |
+| Enterprise, Enterprise Flash | Redis 6.0 (GA), Redis 7.2 (preview)  |
 
 ## How to upgrade - Basic, Standard, and Premium tiers
 

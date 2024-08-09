@@ -4,7 +4,7 @@ description: Learn about hardware specifications in Container Apps
 services: container-apps
 author: cachai2
 ms.author: cachai
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: reference
 ms.date: 08/30/2023
 ---
@@ -15,7 +15,7 @@ Workload profiles in Azure Container Apps run on specialized hardware with speci
 
 ## Image size limit
 
-[!INCLUDE [container-apps-limits](~/reusable-content/ce-skilling/azure/includes/container-apps/container-apps-limits.md)]
+[!INCLUDE [container-apps-limits](../../includes/container-apps/container-apps-limits.md)]
 
 For more information on differences in hardware selection, see the [workload profiles overview](workload-profiles-overview.md).
 

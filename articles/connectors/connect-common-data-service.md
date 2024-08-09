@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 # Connect to Microsoft Dataverse from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!IMPORTANT]
 >

@@ -6,8 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 03/20/2024
-ms.custom: MVC, engagement-fy23
+ms.date: 06/17/2024
+ms.custom: MVC, engagement-fy24
 ---
 
 # Migrate machines as physical servers to Azure
@@ -121,9 +121,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
 ### Download the replication appliance installer
 
-1. In the Azure Migrate project, select **Servers** > **Migration and modernization** > **Discover**.
-
-    ![Screenshot that shows discovering VMs.](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
+1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.
 
 1. In **Discover machines** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
@@ -150,8 +148,6 @@ The first step of migration is to set up the replication appliance. To set up th
     ![Screenshot that shows Finalize registration.](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
 The mobility service agent must be installed on the servers to get them discovered by using the replication appliance. Discovered machines appear in **Azure Migrate: Server Migration**. As VMs are discovered, the **Discovered servers** count rises.
-
-![Screenshot that shows Discovered servers.](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 
 > [!NOTE]
 > We recommend that you perform discovery and assessment prior to the migration by using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For detailed steps, see [Discover physical servers](tutorial-discover-physical.md).
@@ -190,10 +186,7 @@ Now, select machines for migration.
 > [!NOTE]
 > You can replicate up to 10 machines together. If you need to replicate more, replicate them simultaneously in batches of 10.
 
-1. In the Azure Migrate project, select **Servers** > **Migration and modernization** > **Replicate**.
-
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replicate.png" alt-text="Screenshot that shows selecting Replicate.":::
-
+1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicate**.
 1. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
 1. In **Process Server**, select the name of the replication appliance.
@@ -264,7 +257,6 @@ Now, select machines for migration.
 You can track job status in the portal notifications.
 
 You can monitor replication status by selecting **Replicating servers** in **Azure Migrate: Server Migration**.
-![Screenshot that shows the Replicating servers option.](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
 ## Run a test migration
 
@@ -276,11 +268,9 @@ When delta replication begins, you can run a test migration for the VMs before y
 
 To do a test migration:
 
-1. In **Migration goals**, select **Servers** > **Migration and modernization** > **Test migrated servers**.
+1. In **Migration goals**, select **Servers** > **Migration and modernization**, select **Replicated servers** under **Replications**.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png" alt-text="Screenshot that shows Test migrated servers.":::
-
-1. Right-click the VM you want to test and select **Test migrate**.
+1. In the **Replicating machines** tab, right-click the VM to test and select **Test migrate**.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/test-migrate-inline.png" alt-text="Screenshot that shows the result after selecting Test migrate." lightbox="./media/tutorial-migrate-physical-virtual-machines/test-migrate-expanded.png":::
 
@@ -301,10 +291,7 @@ To do a test migration:
 
 After you verify that the test migration works as expected, you can migrate the on-premises machines.
 
-1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicating servers**.
-
-    ![Screenshot that shows Replicating servers.](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
-
+1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization**, select **Replicated servers** under **Replications**.
 1. In **Replicating machines**, right-click the VM and select **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
 
@@ -319,7 +306,7 @@ After you verify that the test migration works as expected, you can migrate the 
 
 1. After the migration is finished, right-click the VM and select **Stop replication**. This action:
     - Stops replication for the on-premises machine.
-    - Removes the machine from the **Replicating servers** count in the Migration and modernization tool.
+    - Removes the machine from the **Replicated servers** count in the Migration and modernization tool.
     - Cleans up replication state information for the machine.
 1. Verify and [troubleshoot any Windows activation issues on the Azure VM](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).
 1. Perform any post-migration app tweaks, such as updating host names, database connection strings, and web server configurations.

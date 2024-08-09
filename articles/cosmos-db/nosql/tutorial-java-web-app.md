@@ -2,7 +2,7 @@
 title: 'Tutorial: Build a Java web app using Azure Cosmos DB and the API for NoSQL'
 description: 'Tutorial: This Java web application tutorial shows you how to use the Azure Cosmos DB and the API for NoSQL to store and access data from a Java application hosted on Azure Websites.'
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.topic: tutorial

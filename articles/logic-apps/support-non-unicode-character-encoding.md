@@ -1,7 +1,7 @@
 ---
 title: Convert non-Unicode encoded text for compatibility
 description: Handle non-Unicode characters in Azure Logic Apps by converting text payloads to UTF-8 with base64 encoding and Azure Functions.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 01/04/2024
@@ -9,7 +9,7 @@ ms.date: 01/04/2024
 
 # Support non-Unicode character encoding in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 When you work with text payloads, Azure Logic Apps infers the text is encoded in a Unicode format, such as UTF-8. You might have problems receiving, sending, or processing characters with different encodings in your workflow. For example, you might get corrupted characters in flat files when working with legacy systems that don't support Unicode.
 

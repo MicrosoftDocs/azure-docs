@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `on`            |
 | Allowed values | `on,off`               |
 | Parameter type | dynamic        |
-| Documentation  | [array_nulls](https://www.postgresql.org/docs/11/arrays.html)                                    |
+| Documentation  | [array_nulls](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-ARRAY-NULLS)                                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `safe_encoding` |
 | Allowed values | `safe_encoding,on,off` |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                  |
+| Documentation  | [backslash_quote](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-BACKSLASH-QUOTE)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `on`            |
 | Allowed values | `on,off`               |
 | Parameter type | dynamic        |
-| Documentation  | [escape_string_warning](https://www.postgresql.org/docs/11/runtime-config-query.html)            |
+| Documentation  | [escape_string_warning](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-ESCAPE-STRING-WARNING)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `off`           |
 | Allowed values | `on,off`               |
 | Parameter type | dynamic        |
-| Documentation  | [lo_compat_privileges](https://www.postgresql.org/docs/11/runtime-config-client.html)            |
+| Documentation  | [lo_compat_privileges](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `off`           |
 | Allowed values | `on,off`               |
 | Parameter type | dynamic        |
-| Documentation  | [operator_precedence_warning](https://www.postgresql.org/docs/11/runtime-config-compatible.html) |
+| Documentation  | [operator_precedence_warning](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `off`           |
 | Allowed values | `on,off`               |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                  |
+| Documentation  | [quote_all_identifiers](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `on`            |
 | Allowed values | `on,off`               |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                  |
+| Documentation  | [standard_conforming_strings](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-STANDARD-CONFORMING-STRINGS) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -136,7 +136,7 @@ ms.topic: include
 | Default value  | `on`            |
 | Allowed values | `on,off`               |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                  |
+| Documentation  | [synchronize_seqscans](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-SYNCHRONIZE-SEQSCANS)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

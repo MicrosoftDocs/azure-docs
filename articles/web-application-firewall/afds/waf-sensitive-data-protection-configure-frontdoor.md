@@ -1,18 +1,14 @@
 ---
-title: How to mask sensitive data on Azure Web Application Firewall on Azure Front Door (preview)
+title: How to mask sensitive data on Azure Web Application Firewall on Azure Front Door
 description: Learn how to mask sensitive data on Azure Web Application Firewall on Azure Front Door.
 author: vhorne
 ms.author: victorh
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 06/24/2024
 ---
 
-# How to mask sensitive data on Azure Web Application Firewall on Azure Front Door (preview)
-
-> [!IMPORTANT]
-> Web Application Firewall on Azure Front Door Sensitive Data Protection is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# How to mask sensitive data on Azure Web Application Firewall on Azure Front Door
 
 The Web Application Firewall's (WAF) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive data. Once identified, the tool scrubs that information from your logs and replaces it with _*******_.
 
@@ -39,7 +35,7 @@ For more information, see [What is Azure Web Application Firewall on Azure Front
 
 Use the following information to enable and configure Sensitive Data Protection.
 
-### Portal
+#### [Portal](#tab/browser)
 
 To enable Sensitive Data Protection:
 
@@ -56,6 +52,30 @@ To configure Log Scrubbing rules for Sensitive Data Protection:
 
 Repeat to add more rules.
 
+#### [PowerShell](#tab/powershell)
+
+Use the following Azure PowerShell commands to create and configure Log Scrubbing rules for Sensitive Data Protection:
+
+```azurepowershell
+New-AzFrontDoorWafLogScrubbingRuleObject -MatchVariable <String> -SelectorMatchOperator <String>
+ -State <String> [-Selector <String>] [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
+
+New-AzFrontDoorWafLogScrubbingSettingObject -ScrubbingRule <PSFrontDoorWafLogScrubbingRule[]> -State <String>
+ [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+```
+
+#### [CLI](#tab/cli)
+
+Use the following Command Line Interface commands to [create and configure](/cli/azure/network/front-door/waf-policy) Log Scrubbing rules for Sensitive Data Protection:
+
+```CLI
+az network front-door waf-policy update -g <MyResourceGroup> -n <MyPolicyName> --log-scrubbing "{scrubbing-rules:[{match-variable:<MatchVariable>,selector-match-operator:<Operator>}],state:<Enabled/Disabled>}"
+```
+
+
+---
+
 ## Verify Sensitive Data Protection
 
 To verify your Sensitive Data Protection rules, open the Front Door firewall log and search for _******_ in place of the sensitive fields.
@@ -63,3 +83,5 @@ To verify your Sensitive Data Protection rules, open the Front Door firewall log
 ## Next steps
 
 - [Azure Web Application Firewall monitoring and logging](../afds/waf-front-door-monitor.md)
+- [A Closer Look at Azure WAF’s Data Masking Capabilities for Azure Front Door](https://techcommunity.microsoft.com/t5/azure-network-security-blog/a-closer-look-at-azure-waf-s-data-masking-capabilities-for-azure/ba-p/4167558)
+

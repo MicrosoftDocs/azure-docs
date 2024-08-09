@@ -3,14 +3,14 @@ title: "Tutorial 5: Develop a feature set with a custom source"
 titleSuffix: Azure Machine Learning managed feature store - basics
 description: This is part 5 of the managed feature store tutorial series
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 
 ms.subservice: core
 ms.topic: tutorial
-author: ynpandey
-ms.author: yogipandey
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 11/28/2023
-ms.reviewer: franksolomon
+ms.reviewer: yogipandey
 ms.custom:
   - sdkv2
   - ignite2023

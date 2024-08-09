@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 08/06/2024
 ---
 
 # Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps (preview)
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -36,7 +36,6 @@ As an alternative storage option available for single-tenant Azure Logic Apps, S
 | **Control** | SQL provides granular control over database throughput, performance, and scaling during particular periods or for specific workloads. SQL pricing is based on CPU usage and throughput, which provides more predictable pricing than Azure Storage where costs are based on each operation. |
 | **Use existing assets** | If you're familiar with Microsoft tools, you can use their assets for modern integrations with SQL. You can reuse assets across traditional on-premises deployments and modern cloud implementations with Azure Hybrid Benefits. SQL also provides mature and well-supported tooling, such as SQL Server Management Studio (SSMS), command-line interfaces, and SDKs. |
 | **Compliance** | SQL provides more options than Azure Storage for you to back up, restore, fail over, and build in redundancies. You can apply the same enterprise-grade mechanisms as other enterprise applications to your logic app's storage. |
-|||
 
 <a name="when-use-sql"></a>
 
@@ -52,7 +51,6 @@ The following table describes some reasons why you might want to use SQL:
 | You prefer to use SQL over Azure Storage. | SQL is a well-known and reliable ecosystem that you can use to apply the same governance and management across your logic apps behind-the-scenes operations. |
 | You want to reuse existing SQL environments. | Use SQL as your storage provider if you already own SQL licenses that you want to reuse or modernize onto the cloud. You also might want to use the Azure Hybrid Benefits for your logic app integrations. |
 | Everything else | Use Azure Storage as your default storage provider. |
-|||
 
 ## Prerequisites
 
@@ -100,7 +98,7 @@ The following table describes some reasons why you might want to use SQL:
 
 1. Set up permissions for your SQL server.
 
-   Currently, the SQL Storage Provider supports SQL authentication in connection strings. You can also use Windows Authentication for local development and testing. At this time, support for Microsoft Entra ID and managed identities is not available.
+   Currently, the SQL Storage Provider supports SQL authentication in connection strings. You can also use Windows Authentication for local development and testing. At this time, support for Microsoft Entra ID and managed identities isn't available.
 
    You must use an identity that has permissions to create and manage workflow-related artifacts in the target SQL database. For example, an administrator has all the required permissions to create and manage these artifacts. The following list describes the artifacts that the single-tenant Azure Logic Apps runtime tries to create using the SQL connection string that you provide. Make sure that the identity used in the SQL connection string has the necessary permissions to create the following artifacts:
 
@@ -108,7 +106,22 @@ The following table describes some reasons why you might want to use SQL:
    - Add, alter, and delete tables in these schemas.
    - Add, alter, and delete user-defined table types in these schemas.
 
-   For more information about targeted permissions, review [SQL server permissions in the Database Engine](/sql/relational-databases/security/permissions-database-engine).
+   For more information about targeted permissions, see [SQL server permissions in the Database Engine](/sql/relational-databases/security/permissions-database-engine).
+
+   > [!IMPORTANT]
+   >
+   > When you have sensitive information, such as connection strings that include usernames and passwords, 
+   > make sure to use the most secure authentication flow available. Microsoft recommends that you 
+   > authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
+   > when possible, and assign a role that has the least privilege necessary.
+   >
+   > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+   > [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
+   > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+   > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+   > app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+   > You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+   > For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
 1. Connect to SQL.
 

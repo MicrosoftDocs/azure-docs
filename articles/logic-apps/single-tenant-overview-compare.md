@@ -71,7 +71,7 @@ When you use the new built-in connector operations, you create connections calle
 
 ### Direct access to resources in Azure virtual networks
 
-Workflows that run in either single-tenant Azure Logic Apps or in an *integration service environment* (ISE) can directly access secured resources such as virtual machines (VMs), other services, and systems that exist in an [Azure virtual network](../virtual-network/virtual-networks-overview.md).
+Workflows that run in either single-tenant Azure Logic Apps or in an *integration service environment (ISE)* can directly access secured resources such as virtual machines (VMs), other services, and systems that exist in an [Azure virtual network](../virtual-network/virtual-networks-overview.md).
 
 Both single-tenant Azure Logic Apps and an ISE are dedicated instances of the Azure Logic Apps service, use dedicated resources, and run separately from multitenant Azure Logic Apps. Running workflows in a dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 

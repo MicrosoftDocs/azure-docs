@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/11/2024
+ms.date: 08/08/2024
 ms.author: wgries
 ---
 
@@ -21,14 +21,15 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| V18.2 Release - [KB5023059](https://support.microsoft.com/topic/613d00dc-998b-4885-86b9-73750195baf5)| 18.2.0.0 | July 9, 2024 | Supported |
 | V18.1 Release - [KB5023057](https://support.microsoft.com/topic/961af341-40f2-4e95-94c4-f2854add60a5)| 18.1.0.0 | June 11, 2024 | Supported - Security Update |
 | V17.3 Release - [KB5039814](https://support.microsoft.com/topic/97bd6ab9-fa4c-42c0-a510-cdb1d23825bf)| 17.3.0.0 | June 11, 2024 | Supported - Security Update |
 | V18 Release - [KB5023057](https://support.microsoft.com/topic/feb374ad-6256-4eeb-9371-eb85071f756f)| 18.0.0.0 | May 8, 2024 | Supported |
 | V17.2 Release - [KB5023055](https://support.microsoft.com/topic/dfa4c285-a4cb-4561-b0ed-bbd4ae09d91d)| 17.2.0.0 | February 28, 2024 | Supported |
 | V17.1 Release - [KB5023054](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)| 17.1.0.0 | February 13, 2024 | Supported - Security Update |
-| V16.2 Release - [KB5023052](https://support.microsoft.com/topic/azure-file-sync-agent-v16-2-release-february-2024-security-only-update-8247bf99-8f51-4eb6-b378-b86b6d1d45b8)| 16.2.0.0 | February 13, 2024 | Supported - Security Update - Agent version will expire on July 29, 2024|
+| V16.2 Release - [KB5023052](https://support.microsoft.com/topic/azure-file-sync-agent-v16-2-release-february-2024-security-only-update-8247bf99-8f51-4eb6-b378-b86b6d1d45b8)| 16.2.0.0 | February 13, 2024 | Supported - Security Update - Agent version will expire on October 7, 2024|
 | V17.0 Release - [KB5023053](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)| 17.0.0.0 | December 6, 2023 | Supported |
-| V16.0 Release - [KB5013877](https://support.microsoft.com/topic/ffdc8fe2-c653-43c8-8b47-0865267fd520)| 16.0.0.0 | January 30, 2023 | Supported - Agent version will expire on July 29, 2024 |
+| V16.0 Release - [KB5013877](https://support.microsoft.com/topic/ffdc8fe2-c653-43c8-8b47-0865267fd520)| 16.0.0.0 | January 30, 2023 | Supported - Agent version will expire on October 7, 2024 |
 
 ## Unsupported versions
 
@@ -69,6 +70,15 @@ Perform one of the following options for your Windows Server 2012 R2 servers pri
 
 >[!NOTE]
 >Azure File Sync agent v17.3 is the last agent release currently planned for Windows Server 2012 R2. To continue to receive product improvements and bug fixes, upgrade your servers to Windows Server 2016 or later.
+
+## Version 18.2.0.0
+
+The following release notes are for Azure File Sync version 18.2.0.0 (released July 9, 2024). This release contains improvements for the Azure File Sync agent. These notes are in addition to the release notes listed for version 18.0.0.0 and 18.1.0.0.
+
+### Improvements and issues that are fixed
+
+- Rollup update for Azure File Sync agent [v18](#version-18000) and [v18.1](#version-18100-security-update) releases.
+- This release also includes sync reliability improvements.
 
 ## Version 18.1.0.0 (Security Update)
 
@@ -172,9 +182,6 @@ The Azure File Sync v17.2 release is a rollup update for the v17.0 and v17.1 rel
 
 - [Azure File Sync Agent v17 Release - December 2023](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)
 - [Azure File Sync Agent v17.1 Release - February 2024](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)
-
->[!NOTE]
->If your server has v17.1 agent installed, you don't need to install the v17.2 agent.
 
 ### Evaluation tool
 
@@ -327,7 +334,7 @@ The following items don't sync, but the rest of the system continues to operate 
 
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
-  
+
 ## Version 16.0.0.0
 
 The following release notes are for Azure File Sync version 16.0.0.0 (released January 30, 2023). This release contains improvements for the Azure File Sync service and agent.
@@ -365,7 +372,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent isn't supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2022.
 - The agent installation package is for a specific operating system version. If a server with an Azure File Sync agent installed is upgraded to a newer operating system version, you must uninstall the existing agent, restart the server, and install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, or Windows Server 2022).
-- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
+- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
 - The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
 ### Interoperability
@@ -391,7 +398,6 @@ The following items don't sync, but the rest of the system continues to operate 
 
 > [!NOTE]
 > Azure File Sync always encrypts data in transit. Data is always encrypted at rest in Azure.
-
 ### Server endpoint
 
 - A server endpoint can be created only on an NTFS volume. ReFS, FAT, FAT32, and other file systems aren't currently supported by Azure File Sync.
@@ -407,7 +413,6 @@ The following items don't sync, but the rest of the system continues to operate 
 
 > [!NOTE]  
 > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
-
 ### Cloud tiering
 
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.

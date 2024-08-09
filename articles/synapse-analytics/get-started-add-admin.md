@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Get started add an Administrator' 
 description: In this tutorial, you'll learn how to add another administrative user to your workspace.
-author: saveenr
-ms.author: saveenr
-ms.reviewer: sngun
-ms.service: synapse-analytics
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender
+ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/02/2021
@@ -13,13 +13,13 @@ ms.custom: subject-rbac-steps
 
 # Add an administrator to your Synapse workspace
 
-In this tutorial, you'll learn how to add an administrator to your Synapse workspace. This user will have full control over the workspace.
+In this tutorial, you'll learn how to add an administrator to your Synapse workspace. This user has full control over the workspace.
 
 ## Overview
 
-So far in the get started guide, we've focused on activities *you* do in the workspace. Because you created the workspace in STEP 1, you are an administrator of the Synapse workspace. Now, we will make another user Ryan (`ryan@contoso.com`) an administrator. When we are done, Ryan will be able to do everything you can do in the workspace.
+So far in the get started guide, we've focused on activities *you* do in the workspace. Because you created the workspace in STEP 1, you're an administrator of the Synapse workspace. Now, we'll make another user Ryan (`ryan@contoso.com`) an administrator. When we're done, Ryan will be able to do everything you can do in the workspace.
 
-## Azure RBAC: Owner role for the workspace
+## Azure role-based access control: Owner role for the workspace
 
 1. Open the Azure portal and open your Synapse workspace.
 1. On the left side, select **Access control (IAM)**.
@@ -36,10 +36,9 @@ So far in the get started guide, we've focused on activities *you* do in the wor
 
 1. Select **Save**. 
  
- 
-## Synapse RBAC: Synapse Administrator role for the workspace
+## Synapse role-based access control: Synapse Administrator role for the workspace
 
-Assign to `ryan@contoso.com` to Synapse RBAC **Synapse Administrator** role on the workspace.
+Assign to `ryan@contoso.com` to the **Synapse Administrator** role on the workspace.
 
 1. Open your workspace in Synapse Studio.
 1. On the left side, select  **Manage** to open the Manage hub.
@@ -49,7 +48,7 @@ Assign to `ryan@contoso.com` to Synapse RBAC **Synapse Administrator** role on t
 1. Add `ryan@contoso.com` to the **Synapse Administrator** role. 
 1. Then select **Apply**.
  
-## Azure RBAC: Role assignments on the workspace's primary storage account
+## Azure role-based access control: Role assignments on the workspace's primary storage account
 
 1. Open the workspace's primary storage account in the Azure portal.
 1. On the left side, select **Access control (IAM)**.

@@ -41,15 +41,15 @@ landingContent:
       - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
-            url: ../attestation/overview.md
+            url: /azure/attestation/overview
           - text: Azure Confidential Ledger
-            url: ../confidential-ledger/overview.md
+            url: /azure/confidential-ledger/overview
           - text: Trusted Hardware Identity Management
             url: ../security/fundamentals/trusted-hardware-identity-management.md
           - text: Trusted launch
             url: ../virtual-machines/trusted-launch.md
           - text: Azure Key Vault Managed HSM
-            url: ../key-vault/managed-hsm/index.yml
+            url: /azure/key-vault/managed-hsm/
           - text: Azure SQL Always Encrypted in secure enclaves
             url: https://learn.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves
           - text: Azure IoT Edge
@@ -105,8 +105,8 @@ landingContent:
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
       - linkListType: whats-new
         links:
-          - text: Confidential VMs with Intel TDX (Public Preview)
-            url: https://aka.ms/TDX-CVM-pubprev
+          - text: Azure confidential VMs with NVIDIA H100 Tensor Core GPUs (Public Preview)
+            url: https://aka.ms/cvm-h100-blog
 
   # Card
   - title: Container compute
@@ -131,7 +131,7 @@ landingContent:
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
           - text: Confidential VM node pools on AKS
-            url: ..\aks\use-cvm.md
+            url: /azure/aks/use-cvm
       - linkListType: reference
         links:
           - text: Azure architecture center confidential container scenarios

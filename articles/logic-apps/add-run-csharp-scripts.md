@@ -1,31 +1,33 @@
 ---
 title: Add and run C# scripts in Standard workflows
 description: Write and run C# scripts inline from Standard workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, kewear, azla
+ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 06/26/2024
 # Customer intent: As a logic app workflow developer, I want to write and run my own C# scripts so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
 # Add and run C# scripts inline with Standard workflows for Azure Logic Apps (Preview)
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To perform custom integration tasks inline with your Standard workflow in Azure Logic Apps, you can directly add and run simple C# scripts from your workflow in the Azure portal. For this task, use the **Inline Code** action named **Execute CSharp Script Code**. This action returns the result from the script so you can use that output in your workflow's subsequent actions.
+To perform custom integration tasks inline with your Standard workflow in Azure Logic Apps, you can directly add and run C# scripts from within your workflow. For this task, use the **Inline Code** action named **Execute CSharp Script Code**. This action returns the results from your script so that you can use this output in your workflow's subsequent actions.
 
 This capability provides the following benefits:
 
-- Write your own scripts to solve more complex integration problems without having to use Azure Functions.
+- Write your own scripts within the workflow designer so that you can solve more complex integration challenges without having to use Azure Functions. No other service plans are necessary.
 
   This benefit streamlines workflow development plus reduces the complexity and cost with managing more services.
 
-- Deploy scripts alongside your workflows. No other service plans are necessary.
+- Generate a dedicated code file, which provides a personalized scripting space within your workflow.
+
+- Deploy scripts alongside your workflows.
 
 This guide shows how to add the action in your workflow and add the C# script code that you want to run.
 
@@ -59,7 +61,7 @@ The following list describes some example scenarios where you can use a script h
 
 - The Azure portal saves your script as a C# script file (.csx) in the same folder as your **workflow.json** file, which stores the JSON definition for your workflow, and deploys the file to your logic app resource along with the workflow definition. Azure Logic Apps compiles this file to make the script ready for execution.
 
-  The .csx file format lets you write less "boilerplate" and focus just on writing a C# function. You can rename the .csx file for easier management during deployment. However, each time you rename the script, the new version overwrites the previous version.
+  The **.csx** file format lets you write less "boilerplate" and focus just on writing a C# function. You can rename the .csx file for easier management during deployment. However, each time you rename the script, the new version overwrites the previous version.
 
 - The script is local to the workflow. To use the same script in other workflows, [view the script file in the **KuduPlus** console](#view-script-file), and then copy the script to reuse in other workflows.
 
@@ -68,13 +70,13 @@ The following list describes some example scenarios where you can use a script h
 | Name | Limit | Notes |
 |------|-------|-------|
 | Script run duration | 10 minutes | If you have scenarios that need longer durations, use the product feedback option to provide more information about your needs. |
-| Output size | 100 MB | Output size depends on the output size limit for actions, which is generally 100 MB.
+| Output size | 100 MB | Output size depends on the output size limit for actions, which is generally 100 MB. |
 
 ## Add the Execute CSharp Script Code action
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **Inline Code Operations** action named **Execute CSharp Script Code action** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. In the designer, [follow these general steps to add the **Inline Code Operations** action named **Execute CSharp Script Code** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopluated sample code with your own script code.
 
@@ -134,12 +136,11 @@ The following list describes some example scenarios where you can use a script h
        var name = triggerOutputs?["body"]?["name"]?.ToString();
 
        /// To get the outputs from a preceding action, you can uncomment and repurpose the following code.
-       //var actionOutputs = (await context.GetActionResults("<action-name>").ConfigureAwait(false)).Outputs;
+       // var actionOutputs = (await context.GetActionResults("<action-name>").ConfigureAwait(false)).Outputs;
 
        /// The following logs appear in the Application Insights traces table.
-       //log.LogInformation("Outputting results.");
-
-       /// var name = null;
+       // log.LogInformation("Outputting results.");
+       // var name = null;
 
        return new Results
        {
@@ -155,25 +156,9 @@ The following list describes some example scenarios where you can use a script h
 
    For more information, see ["#r" - Reference external assemblies](/azure/azure-functions/functions-reference-csharp?tabs=functionsv2%2Cfixed-delay%2Cazure-cli#referencing-external-assemblies).
 
-1. When you're done, save your workflow.
+1. When you finish, save your workflow.
 
-<a name="view-script-file"></a>
-
-## View the script file
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource that has the workflow you want.
-
-1. On the logic app resource menu, under **Development Tools**, select **Advanced Tools**.
-
-1. On the **Advanced Tools** page, select **Go**, which opens the **KuduPlus** console.
-
-1. Open the **Debug console** menu, and select **CMD**.
-
-1. Go to your logic app's root location: **site/wwwroot**
-
-1. Go to your workflow's folder, which contains the .csx file, along this path: **site/wwwroot/{workflow-name}**
-
-1. Next to the file name, select **Edit** to open and view the file.
+After you run your workflow, you can review the workflow output in Application Insights, if enabled. For more information, see [View logs in Application Insights](#view-logs-in-application-insights).
 
 <a name="import-namespaces"></a>
 
@@ -207,7 +192,16 @@ using Microsoft.Extensions.Primitives;
 using Microsoft.Extensions.Logging;
 using Microsoft.Azure.Workflows.Scripting;
 using Newtonsoft.Json.Linq;
-public static async Task<Results> Run(WorkflowContext context, ILogger log)
+
+public static async Task<Results> Run(WorkflowContext context)
+{
+    <...>
+}
+
+public class Results
+{
+    <...>
+}
 ```
 
 The following list includes assemblies automatically added by the Azure Functions hosting environment:
@@ -226,6 +220,29 @@ System.Net.Http.Formatting
 Newtonsoft.Json
 ```
 
+<a name="log-output-stream"></a>
+
+## Log output to a stream
+
+In your **`Run`** method, include a parameter with **`ILogger`** type and **`log`** as the name, for example:
+
+```csharp
+public static void Run(WorkflowContext context, ILogger log)
+{
+    log.LogInformation($"C# script successfully executed.");
+}
+``` 
+
+<a name="log-output-application-insights"></a>
+
+## Log output to Application Insights
+
+To create custom metrics in Application Insights, use the **`LogMetric`** extension method on **`ILogger`**.
+
+The following example shows a sample method call: 
+
+`logger.LogMetric("TestMetric", 1234);`
+
 <a name="access-trigger-action-outputs"></a>
 
 ## Access workflow trigger and action outputs in your script
@@ -234,28 +251,45 @@ To access data from your workflow, use the following methods available for the *
 
 - **`GetTriggerResults`** method
 
-  To access trigger outputs, use this method to return an object that represents the trigger and its outputs, which are available through the **`Outputs`** property. This object has **JObject** type, and you can use square brackets (**[]**) indexer to access various properties in the trigger outputs.
+  To access trigger outputs, use this method to return an object that represents the trigger and its outputs, which are available through the **`Outputs`** property. This object has **JObject** type, and you can use the square brackets (**[]**) as an indexer to access various properties in the trigger outputs.
 
-  For example, the following sample code gets the data from the **`body`** property in the trigger outputs:
+  The following example gets the data from the **`body`** property in the trigger outputs:
 
   ```csharp
   public static async Task<Results> Run(WorkflowContext context, ILogger log)
   {
+
       var triggerOutputs = (await context.GetTriggerResults().ConfigureAwait(false)).Outputs;
       var body = triggerOutputs["body"];
+
+      return new Results;
+
+  }
+
+  public class Results
+  {
+      <...>
   }
   ```
 
 - **`GetActionResults`** method
 
-  To access action outputs, use this method to return an object that represents the action and its outputs, which are available through the **`Outputs`** property. This method accepts an action name as a parameter, for example:
+  To access action outputs, use this method to return an object that represents the action and its outputs, which are available through the **`Outputs`** property. This method accepts an action name as a parameter. The following example gets the data from the **`body`** property in the outputs from an action named *action-name*:
 
   ```csharp
   public static async Task<Results> Run(WorkflowContext context, ILogger log)
   {
 
-      var actionOutputs = (await context.GetActionResults("actionName").ConfigureAwait(false)).Outputs;
+      var actionOutputs = (await context.GetActionResults("action-name").ConfigureAwait(false)).Outputs;
       var body = actionOutputs["body"];
+
+      return new Results;
+
+  }
+
+  public class Results
+  {
+      <...>
   }
   ```
 
@@ -284,24 +318,9 @@ public static string GetEnvironmentVariable(string name)
 
 ## Return data to your workflow
 
-For this task, implement your **`Run`** method with a return type. If you want an asynchronous version, implement the **`Run`** method as a **`Task<>`**, and set the return value to the script action's outputs body, which any subsequent workflow actions can then reference.
+For this task, implement your **`Run`** method with a return type and **`return`** statement. If you want an asynchronous version, implement the **`Run`** method with a **`Task<return-type>`** attribute and the **`async`** keyword. The return value is set to the script action's outputs **`body`** property, which any subsequent workflow actions can then reference.
 
-```csharp
-public static void Run(WorkflowContext context, ILogger log)
-{
-    return new Results
-    {
-        Message = !string.IsNullOrEmpty(name) ? $"Returning results with status message."
-    };
-}
-
-public class Results
-{
-    public string Message {get; set;}
-}
-```
-
--or-
+The following example shows a **`Run`** method with a **`Task<Results>`** attribute, the **`async`** keyword, and a **`return`** statement:
 
 ```csharp
 public static async Task<Results> Run(WorkflowContext context, ILogger log)
@@ -318,28 +337,36 @@ public class Results
 }
 ```
 
-<a name="log-output-stream"></a>
+<a name="view-script-file"></a>
 
-## Log output to a stream
+## View the script file
 
-In your **`Run`** method, include a parameter with **`ILogger`** type and **`log`** as the name, for example:
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource that has the workflow you want.
 
-```csharp
-public static void Run(WorkflowContext context, ILogger log)
-{
-    log.LogInformation($"C# script successfully executed.");
-}
-``` 
+1. On the logic app resource menu, under **Development Tools**, select **Advanced Tools**.
 
-<a name="log-output-application-insights"></a>
+1. On the **Advanced Tools** page, select **Go**, which opens the **KuduPlus** console.
 
-## Log output to Application Insights
+1. Open the **Debug console** menu, and select **CMD**.
 
-To create custom metrics in Application Insights, use the **`LogMetric`** extension method on **`ILogger`**.
+1. Go to your logic app's root location: **site/wwwroot**
 
-The following example shows a sample method call: 
+1. Go to your workflow's folder, which contains the .csx file, along this path: **site/wwwroot/{workflow-name}**
 
-`logger.LogMetric("TestMetric", 1234);`
+1. Next to the file name, select **Edit** to open and view the file.
+
+## View logs in Application Insights
+
+1. In the [Azure portal](https://portal.azure.com), on the logic app resource menu, under **Settings**, select **Application Insights**, and then select your logic app.
+
+1. On the **Application Insights** menu, under **Monitoring**, select **Logs**.
+
+1. Create a query to find any traces or errors from your workflow execution, for example:
+
+   ```text
+   union traces, errors
+   | project TIMESTAMP, message
+   ```
 
 ## Compilation errors
 

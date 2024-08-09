@@ -5,7 +5,7 @@ description: Use vector store in Azure Cosmos DB for MongoDB vCore to enhance AI
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
   - ignite-2023
@@ -125,7 +125,7 @@ To create a vector index using the IVF (Inverted File) algorithm, use the follow
 | `dimensions` | integer | Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`. |
 
 > [!IMPORTANT]
-> Setting the _numLists_ parameter correctly is important for acheiving good accuracy and performance. We recommend that `numLists` is set to `documentCount/1000` for up to 1 million documents and to `sqrt(documentCount)` for more than 1 million documents.
+> Setting the _numLists_ parameter correctly is important for achieving good accuracy and performance. We recommend that `numLists` is set to `documentCount/1000` for up to 1 million documents and to `sqrt(documentCount)` for more than 1 million documents.
 >
 > As the number of items in your database grows, you should tune _numLists_ to be larger in order to achieve good latency performance for vector search.
 >
@@ -268,7 +268,7 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
     cosmosSearch: {
       kind: 'vector-hnsw',
       m: 40,
-      efConstruction: 64
+      efConstruction: 64,
       similarity: 'COS',
       dimensions: 3
     },
@@ -278,6 +278,14 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
 ```
 
 ## Example using an IVF Index
+
+Inverted File (IVF) Indexing is a method that organizes vectors into clusters. During a vector search, the query vector is first compared against the centers of these clusters. The search is then conducted within the cluster whose center is closest to the query vector.
+
+The `numList`s parameter determines the number of clusters to be created. A single cluster implies that the search is conducted against all vectors in the database, akin to a brute-force or kNN search. This setting provides the highest accuracy but also the highest latency.
+
+Increasing the `numLists` value results in more clusters, each containing fewer vectors. For instance, if `numLists=2`, each cluster contains more vectors than if `numLists=3`, and so on. Fewer vectors per cluster speed up the search (lower latency, higher queries per second). However, this increases the likelihood of missing the most similar vector in your database to the query vector. This is due to the imperfect nature of clustering, where the search might focus on one cluster while the actual “closest” vector resides in a different cluster.
+
+The `nProbes` parameter controls the number of clusters to be searched. By default, it’s set to 1, meaning it searches only the cluster with the center closest to the query vector. Increasing this value allows the search to cover more clusters, improving accuracy but also increasing latency (thus decreasing queries per second) as more clusters and vectors are being searched.
 
 The following examples show you how to index vectors, add documents that have vector properties, perform a vector search, and retrieve the index configuration.
 

@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [geqo](https://www.postgresql.org/docs/15/runtime-config-query.html)                |
+| Documentation  | [geqo](https://www.postgresql.org/docs/15/runtime-config-query.html#GUC-GEQO)                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `5`           |
 | Allowed values | `1-10`         |
 | Parameter type | dynamic        |
-| Documentation  | [geqo_effort](https://www.postgresql.org/docs/15/runtime-config-query.html)         |
+| Documentation  | [geqo_effort](https://www.postgresql.org/docs/15/runtime-config-query.html#GUC-GEQO-EFFORT)                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `0`           |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
-| Documentation  | [geqo_generations](https://www.postgresql.org/docs/15/runtime-config-query.html)    |
+| Documentation  | [geqo_generations](https://www.postgresql.org/docs/15/runtime-config-query.html#GUC-GEQO-GENERATIONS)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `0`           |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
-| Documentation  | [geqo_pool_size](https://www.postgresql.org/docs/15/runtime-config-query.html)      |
+| Documentation  | [geqo_pool_size](https://www.postgresql.org/docs/15/runtime-config-query.html#GUC-GEQO-POOL-SIZE)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `0`           |
 | Allowed values | `0-1`          |
 | Parameter type | dynamic        |
-| Documentation  | [geqo_seed](https://www.postgresql.org/docs/15/runtime-config-query.html)           |
+| Documentation  | [geqo_seed](https://www.postgresql.org/docs/15/runtime-config-query.html#GUC-GEQO-SEED)                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `2`           |
 | Allowed values | `1.5-2`        |
 | Parameter type | dynamic        |
-| Documentation  | [geqo_selection_bias](https://www.postgresql.org/docs/15/runtime-config-query.html) |
+| Documentation  | [geqo_selection_bias](https://www.postgresql.org/docs/15/runtime-config-query.html#GUC-GEQO-SELECTION-BIAS) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `12`          |
 | Allowed values | `2-2147483647` |
 | Parameter type | dynamic        |
-| Documentation  | [geqo_threshold](https://www.postgresql.org/docs/15/runtime-config-query.html)      |
+| Documentation  | [geqo_threshold](https://www.postgresql.org/docs/15/runtime-config-query.html#GUC-GEQO-THRESHOLD)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

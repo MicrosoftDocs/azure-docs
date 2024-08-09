@@ -2,12 +2,13 @@
 title: Speech service quotas and limits
 titleSuffix: Azure AI services
 description: Quick reference, detailed description, and best practices on the quotas and limits for the Speech service in Azure AI services.
-author: alexeyo26
+author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 1/22/2024
-ms.author: alexeyo
+ms.date: 5/21/2024
+ms.reviewer: alexeyo
 ---
 
 # Speech service quotas and limits
@@ -41,6 +42,14 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 | Concurrent request limit - base model endpoint | 1 <br/><br/>This limit isn't adjustable. | 100 (default value)<br/><br/>The rate is adjustable for Standard (S0) resources. See [more explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). |
 | Concurrent request limit - custom endpoint | 1 <br/><br/>This limit isn't adjustable. | 100 (default value)<br/><br/>The rate is adjustable for Standard (S0) resources. See [more explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). |
 | Max audio length for [real-time diarization](./get-started-stt-diarization.md). | N/A | 240 minutes per file  |
+
+#### Fast transcription
+
+| Quota | Free (F0) | Standard (S0) |
+|-----|-----|-----|
+| Maximum audio input file size | N/A | 200 MB |
+| Maximum audio length | N/A | 120 minutes per file  |
+| Maximum requests per minute | N/A | 300  |
 
 #### Batch transcription
 

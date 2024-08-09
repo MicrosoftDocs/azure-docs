@@ -1,13 +1,15 @@
 ---
 title: Restore a server with Azure CLI
 description: This article describes how to perform restore operations in Azure Database for MySQL - Flexible Server through the Azure CLI.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
-ms.topic: how-to
 author: VandhanaMehta
 ms.author: vamehta
-ms.date: 04/01/2021
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: how-to
+ms.custom:
+  - devx-track-azurecli
 ---
 
 # Point-in-time restore in Azure Database for MySQL - Flexible Server with Azure CLI

@@ -2,7 +2,7 @@
 title: Configure $convert-data settings for the FHIR service in Azure Health Data Services
 description: Learn how to configure settings for the $convert-data operation to convert healthcare data into FHIR R4 format.
 author: msjasteppe
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 05/13/2024
@@ -32,7 +32,7 @@ To access and use the default templates for your conversion requests, ensure tha
 >
 > The default templates are provided only to help you get started with your data conversion workflow. These default templates are not intended for production and might change when Microsoft releases updates for the FHIR service. To have consistent data conversion behavior across different versions of the FHIR service, you must do the following:
 >
-> 1. Host your own copy of the templates in an [Azure Container Registry](../../container-registry/container-registry-intro.md) (ACR) instance.
+> 1. Host your own copy of the templates in an [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md) instance.
 > 2. Register the templates to the FHIR service. 
 > 3. Use your registered templates in your API calls.
 > 4. Verify that the conversion behavior meets your requirements.
@@ -103,7 +103,7 @@ In the example code, two example custom fields `customfield_message` and `custom
  
 ## Host your own templates
 
-We recommend that you host your own copy of templates in an [Azure Container Registry](../../container-registry/container-registry-intro.md) (ACR) instance. ACR can be used to host your custom templates and support with versioning.
+We recommend that you host your own copy of templates in an [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md) instance. ACR can be used to host your custom templates and support with versioning.
 
 Hosting your own templates and using them for `$convert-data` operations involves the following seven steps:
 

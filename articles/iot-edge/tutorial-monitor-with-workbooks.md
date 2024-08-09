@@ -76,21 +76,45 @@ Follow these steps to deploy and configure the collector module:
 
 1. Select the device ID of the target device from the list of IoT Edge devices to open the device details page.
 
-1. On the upper menu bar, select **Set Modules** to open the three-step module deployment page.
+1. On the upper menu bar, select **Set Modules**.
 
 1. The first step of deploying modules from the portal is to declare which **Modules** should be on a device. If you are using the same device that you created in the quickstart, you should already see **SimulatedTemperatureSensor** listed. If not, add it now:
 
-   1. Select **Add** then choose **Marketplace Module** from the drop-down menu.
+    1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
+    1. Update the following module settings:
 
-   1. Search for and select **SimulatedTemperatureSensor**.
+        | Setting            | Value                                                                |
+        |--------------------|----------------------------------------------------------------------|
+        | IoT Module name    | `SimulatedTemperatureSensor`                                         |
+        | Image URI          | `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:latest` |
+        | Restart policy     | always                                                               |
+        | Desired status     | running                                                              |
+    
+    1. Select **Next: Routes** to continue to configure routes.
+    
+    1. Add a route that sends all messages from the simulated temperature module to IoT Hub.
+
+       | Setting                          | Value                                      |
+       |----------------------------------|--------------------------------------------|
+       | Name                             | `SimulatedTemperatureSensorToIoTHub`       |
+       | Value                            | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
 
 1. Add and configure the metrics collector module:
 
-   1. Select **Add** then choose **Marketplace Module** from the drop-down menu.
+   1. Select **Add** then choose **IoT Edge Module**.
    1. Search for and select **IoT Edge Metrics Collector**.
-   1. Select the metrics collector module from the list of modules to open its configuration details page.
+   1. Update the following module settings:
+
+        | Setting            | Value                                                                |
+        |--------------------|----------------------------------------------------------------------|
+        | IoT Module name    | `IoTEdgeMetricsCollector`                                         |
+        | Image URI          | `mcr.microsoft.com/azureiotedge-metrics-collector:latest` |
+        | Restart policy     | always                                                               |
+        | Desired status     | running                                                              |
+
+   If you want to use a different version or architecture of the metrics collector  module, find the available images in the [Microsoft Artifact Registry](https://mcr.microsoft.com/product/azureiotedge-metrics-collector).
    1. Navigate to the **Environment Variables** tab.
-   1. Update the following values:
+   1. Add the following text type environment variables:
 
       | Name | Value |
       | ---- | ----- |
@@ -99,13 +123,13 @@ Follow these steps to deploy and configure the collector module:
       | **LogAnalyticsWorkspaceId** | Your Log Analytics workspace ID that you retrieved in a previous section. |
       | **LogAnalyticsSharedKey** | Your Log Analytics key that you retrieved in a previous section. |
 
-   1. Delete the **OtherConfig** environment variable, which is a placeholder for extra configuration options you may want to add in the future. It's not necessary for this tutorial.
-   1. Select **Update** to save your changes.
+      For more information about environment variable settings, see [Metrics collector configuration](https://aka.ms/edgemon-config).
 
-1. Select **Next: Routes** to continue to the second step for deploying modules.
+   1. Select **Apply** to save your changes.
 
-1. The portal automatically adds a route for the metrics collector. You would use this route if you configured the collector module to send the metrics through IoT Hub, but in this tutorial we're sending the metrics directly to Log Analytics so don't need it. Delete the **FromMetricsCollectorToUpstream** route.
-
+    > [!NOTE]
+    > If you want the collector module to send the metrics through IoT Hub, you would add a route to upstream similar to `FROM /messages/modules/< FROM_MODULE_NAME >/* INTO $upstream`. However, in this tutorial we're sending the metrics directly to Log Analytics. Therefore, it's not needed.
+    
 1. Select **Review + create** to continue to the final step for deploying modules.
 
 1. Select **Create** to finish the deployment.

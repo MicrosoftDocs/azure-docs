@@ -150,6 +150,7 @@ Some property names have changed in the new Cost Details dataset available throu
 | ResourceGuid | meterId | Exact string values differ. |
 | ResourceLocation | resourceLocation |     |
 | ResourceLocationId | None |     |
+| ResourceName | None |     |
 | ResourceRate | effectivePrice |     |
 | ServiceAdministratorId | N/A |     |
 | ServiceInfo1 | serviceInfo1 |     |

@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [transform_null_equals](https://www.postgresql.org/docs/12/runtime-config-compatible.html) |
+| Documentation  | [transform_null_equals](https://www.postgresql.org/docs/12/runtime-config-compatible.html#GUC-TRANSFORM-NULL-EQUALS) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

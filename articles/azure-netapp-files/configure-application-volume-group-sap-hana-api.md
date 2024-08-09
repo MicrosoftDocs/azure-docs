@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 04/09/2023
+ms.date: 08/08/2024
 ms.author: b-ahibbard
 ---
 # Configure application volume groups for SAP HANA using REST API
@@ -87,7 +87,7 @@ In a create request, use the following URI format:
 
 The request body consists of the _outer_ parameters, the group properties, and an array of volumes to be created, each with their individual outer parameters and volume properties.
 
-The following table describes the request body parameters and group level properties required to create a SAP HANA application volume group.
+The following table describes the request body parameters and group level properties required to create an SAP HANA application volume group.
 
 | URI parameter | Description | Restrictions for SAP HANA |
 | ---- | ----- | ----- |
@@ -98,7 +98,7 @@ The following table describes the request body parameters and group level proper
 | `applicationIdentifier` | Application specific identifier string, following application naming rules | The SAP System ID, which should follow aforementioned naming rules, for example `SH9` | 
 | `volumes` | Array of volumes to be created (see the next table for volume-granular details) | Volume count depends upon host configuration: <ul><li>Single-host (3-5 volumes) <br /> **Required**: _data_, _log_ and _shared_ <br /> **Optional**: _data-backup_, _log-backup_ </li><li> Multiple-host (two volumes) <br /> **Required**: _data_ and _log_ </li></ul> |
 
-This table describes the request body parameters and volume properties for creating a volume in a SAP HANA application volume group.   
+This table describes the request body parameters and volume properties for creating a volume in an SAP HANA application volume group.   
 
 | Volume-level request parameter | Description | Restrictions for SAP HANA |
 | ---- | ----- | ----- |
@@ -107,13 +107,20 @@ This table describes the request body parameters and volume properties for creat
 | **Volume properties** | **Description** | **SAP HANA Value Restrictions** |
 | `creationToken` | Export path name, typically same as the volume name. | None. Example: `SH9-data-mnt00001` |
 | `throughputMibps` | QoS throughput | This must be between 1 Mbps and 4500 Mbps. You should set throughput based on volume type. | 
-| `usageThreshhold` | Size of the volume in bytes. This must be in the 100 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | None. You should set volume size depending on the volume type. | 
+| `usageThreshold` | Size of the volume in bytes. This must be in the 50 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | None. You should set volume size depending on the volume type. | 
 | `exportPolicyRule` | Volume export policy rule | At least one export policy rule must be specified for SAP HANA. Only the following rules values can be modified for SAP HANA, the rest _must_ have their default values: <ul><li>`unixReadOnly`: should be false</li><li>`unixReadWrite`: should be true</li><li>`allowedClients`: specify allowed clients. Use `0.0.0.0/0` for no restrictions.</li><li>`hasRootAccess`: must be true to install SAP.</li><li>`chownMode`: Specify `chown` mode.</li><li>`nfsv41`: true for data, log, and shared volumes, optionally true for data backup and log backup volumes</li><li>`nfsv3`: optionally true for data backup and log backup volumes</li><ul> All other rule values _must_ be left defaulted. |
 | `volumeSpecName` | Specifies the type of volume for the application volume group being created | SAP HANA volumes must have a value that is one of the following: <ul><li>"data"</li><li>"log"</li><li>"shared"</li><li>"data-backup"</li><li>"log-backup"</li></ul> | 
 | `proximityPlacementGroup` | Resource ID of the Proximity Placement Group (PPG) for proper placement of the volume. | <ul><li>The “data”, “log” and “shared” volumes must each have a PPG specified, preferably a common PPG.</li><li>A PPG must be specified for the “data-backup” and “log-backup” volumes, but it will be ignored during placement.</li></ul> |
 | `subnetId` | Delegated subnet ID for Azure NetApp Files. | In a normal case where there are sufficient resources available, the number of IP addresses required in the subnet depends on the order of the application volume group created in the subscription: <ol><li> First application volume group created: the creation usually requires to 3-4 IP addresses but can require up to 5</li><li> Second application volume group created: Normally requires two IP addresses</li><li></li>Third and subsequent application volume group created: Normally, more IP addresses are not required</ol> |
 | `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all SAP volumes are placed in a common capacity pool, however this is not a requirement. |
 | `protocolTypes` | Protocol to use | This should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
+
+The following properties are available with [Application volume group for SAP HANA extension one](application-volume-group-introduction.md#extension-1-features): 
+
+| Volume-level request parameter | Description | Restrictions for SAP HANA |
+| ---- | ----- | ----- |
+| `networkFeatures` | Network features | Both `basic` and `standard` are supported |
+| `zones` | Availability zone | Enter logical zone in the following format: `[“1”]` |
 
 ## Example API request content: application volume group creation
 
@@ -138,7 +145,7 @@ In the following examples, selected placeholders are specified. You should repla
 
 SAP HANA volume groups for the following examples can be created using a sample shell script that calls the API using curl:
 
-1. Extract the subscription ID. This automates the extraction of the subscription ID and generate the authorization token:
+1. Extract the subscription ID. This automates the extraction of the subscription ID and generates the authorization token:
     ```bash
     subId=$(az account list | jq ".[] | select (.name == \"Pay-As-You-Go\") | .id" -r)
     echo "Subscription ID: $subId"
@@ -162,6 +169,10 @@ To create the five volumes (data, log, shared, data-backup, log-backup) for a si
 >You need to replace the placeholders and adapt the parameters to meet your requirements.
 
 #### Example single-host SAP HANA application volume group creation request
+
+[!INCLUDE [Extension 1 interface call-out](./includes/extension-one.md)]
+
+##### [Without Extension 1](#tab/without-extension-1)
 
 This example pertains to data, log, shared, data-backup, and log-backup volumes demonstrating best practices for naming, sizing, and throughputs. This example serves as the primary volume if you're configuring an HSR pair. 
 
@@ -581,6 +592,244 @@ This example pertains to data, log, shared, data-backup, and log-backup volumes 
   }
 }
 ```
+
+##### [Extension 1](#tab/extension-1)
+
+The following example creates an application volume group for a single-host system via REST API call using Standard network feature and availability zone 1.
+
+1. Save the JSON template as `sh9.json`:
+    ```json
+    {
+        "location": "southcentralus",
+        "properties": {
+            "groupMetaData": {
+                "groupDescription": "test group new SAP-HANA-T16-00001",
+                "applicationType": "SAP-HANA",
+                "applicationIdentifier": "AS3",
+                "deploymentSpecId": "20542149-bfca-5618-1879-9863dc6767f1"
+            },
+            "volumes": [
+                {
+                    "name": "T16-data-cnt00001",
+                    "zones": ["1"],
+                    "tags": {
+                        "vol-tag": "data1"
+                    },
+                    "properties": {
+                        "creationToken": "T16-data-cnt00001",
+                        "networkFeatures": "standard",
+                        "serviceLevel": "premium",
+                        "throughputMibps": 1,
+                        "exportPolicy": {
+                            "rules": [
+                                {
+                                    "ruleIndex": 1,
+                                    "unixReadOnly": true,
+                                    "unixReadWrite": true,
+                                    "kerberos5ReadOnly": false,
+                                    "kerberos5ReadWrite": false,
+                                    "kerberos5iReadOnly": false,
+                                    "kerberos5iReadWrite": false,
+                                    "kerberos5pReadOnly": false,
+                                    "kerberos5pReadWrite": false,
+                                    "cifs": false,
+                                    "nfsv3": false,
+                                    "nfsv41": true,
+                                    "allowedClients": "0.0.0.0/0",
+                                    "hasRootAccess": true
+                                }
+                            ]
+                        },
+                        "protocolTypes": [
+                            "NFSv4.1"
+                        ],
+                        "subnetId": <SubnetId>,
+                        "usageThreshold": 107374182400,
+                        "volumeSpecName": "data",
+                        "capacityPoolResourceId": <CapacityPoolResourceId>
+                    }
+                },
+                {
+                    "name": "T16-log-cnt00001",
+                    "zones": ["1"],
+                    "tags": {
+                        "vol-tag": "log1"
+                    },
+                    "properties": {
+                        "creationToken": "T16-log-cnt00001",
+                        "networkFeatures": "standard",
+                        "serviceLevel": "premium",
+                        "throughputMibps": 1,
+                        "exportPolicy": {
+                            "rules": [
+                                {
+                                    "ruleIndex": 1,
+                                    "unixReadOnly": true,
+                                    "unixReadWrite": true,
+                                    "kerberos5ReadOnly": false,
+                                    "kerberos5ReadWrite": false,
+                                    "kerberos5iReadOnly": false,
+                                    "kerberos5iReadWrite": false,
+                                    "kerberos5pReadOnly": false,
+                                    "kerberos5pReadWrite": false,
+                                    "cifs": false,
+                                    "nfsv3": false,
+                                    "nfsv41": true,
+                                    "allowedClients": "0.0.0.0/0",
+                                    "hasRootAccess": true
+                                }
+                            ]
+                        },
+                        "protocolTypes": [
+                            "NFSv4.1"
+                        ],
+                        "subnetId": <SubnetId>,
+                        "usageThreshold": 107374182400,
+                        "volumeSpecName": "log",
+                        "capacityPoolResourceId": <CapacityPoolResourceId>
+                    }
+                },
+                {
+                    "name": "T16-shared-cnt00001",
+                    "zones": ["1"],
+                    "tags": {
+                        "vol-tag": "shared1"
+                    },
+                    "properties": {
+                        "creationToken": "T16-shared-cnt00001",
+                        "networkFeatures": "standard",
+                        "serviceLevel": "premium",
+                        "throughputMibps": 1,
+                        "exportPolicy": {
+                            "rules": [
+                                {
+                                    "ruleIndex": 1,
+                                    "unixReadOnly": true,
+                                    "unixReadWrite": true,
+                                    "kerberos5ReadOnly": false,
+                                    "kerberos5ReadWrite": false,
+                                    "kerberos5iReadOnly": false,
+                                    "kerberos5iReadWrite": false,
+                                    "kerberos5pReadOnly": false,
+                                    "kerberos5pReadWrite": false,
+                                    "cifs": false,
+                                    "nfsv3": false,
+                                    "nfsv41": true,
+                                    "allowedClients": "0.0.0.0/0",
+                                    "hasRootAccess": true
+                                }
+                            ]
+                        },
+                        "protocolTypes": [
+                            "NFSv4.1"
+                        ],
+                        "subnetId": <SubnetId>,
+                        "usageThreshold": 107374182400,
+                        "volumeSpecName": "shared",
+                        "capacityPoolResourceId": <CapacityPoolResourceId>
+                    }
+                },
+                {
+                    "name": "T16-data-backup-cnt00001",
+                    "zones": ["1"],
+                    "tags": {
+                        "vol-tag": "data-backup1"
+                    },
+                    "properties": {
+                        "creationToken": "T16-data-backup-cnt00001",
+                        "networkFeatures": "standard",
+                        "serviceLevel": "premium",
+                        "throughputMibps": 1,
+                        "exportPolicy": {
+                            "rules": [
+                                {
+                                    "ruleIndex": 1,
+                                    "unixReadOnly": true,
+                                    "unixReadWrite": true,
+                                    "kerberos5ReadOnly": false,
+                                    "kerberos5ReadWrite": false,
+                                    "kerberos5iReadOnly": false,
+                                    "kerberos5iReadWrite": false,
+                                    "kerberos5pReadOnly": false,
+                                    "kerberos5pReadWrite": false,
+                                    "cifs": false,
+                                    "nfsv3": false,
+                                    "nfsv41": true,
+                                    "allowedClients": "0.0.0.0/0",
+                                    "hasRootAccess": true
+                                }
+                            ]
+                        },
+                        "protocolTypes": [
+                            "NFSv4.1"
+                        ],
+                        "subnetId": <SubnetId>,
+                        "usageThreshold": 107374182400,
+                        "volumeSpecName": "data-backup",
+                        "capacityPoolResourceId": <CapacityPoolResourceId>
+                    }
+                },
+                {
+                    "name": "T16-log-backup-cnt00001",
+                    "zones": ["1"],
+                    "tags": {
+                        "vol-tag": "log-backup1"
+                    },
+                    "properties": {
+                        "creationToken": "T16-log-backup-cnt00001",
+                        "networkFeatures": "standard",
+                        "serviceLevel": "premium",
+                        "throughputMibps": 1,
+                        "exportPolicy": {
+                            "rules": [
+                                {
+                                    "ruleIndex": 1,
+                                    "unixReadOnly": true,
+                                    "unixReadWrite": true,
+                                    "kerberos5ReadOnly": false,
+                                    "kerberos5ReadWrite": false,
+                                    "kerberos5iReadOnly": false,
+                                    "kerberos5iReadWrite": false,
+                                    "kerberos5pReadOnly": false,
+                                    "kerberos5pReadWrite": false,
+                                    "cifs": false,
+                                    "nfsv3": false,
+                                    "nfsv41": true,
+                                    "allowedClients": "3.1.1.199",
+                                    "hasRootAccess": true
+                                }
+                            ]
+                        },
+                        "protocolTypes": [
+                            "NFSv4.1"
+                        ],
+                         "subnetId": <SubnetId>,
+                        "usageThreshold": 107374182400,
+                        "volumeSpecName": "log-backup",
+                        "capacityPoolResourceId": <CapacityPoolResourceId>
+                    }
+                }
+            ]
+        }
+    }
+    ```
+1. Extract the subscription ID:
+    ```rest
+    subId=$(az account list | jq ".[] | select (.name == \"Pay-As-You-Go\") | .id" -r)
+    echo "Subscription ID: $subId"
+    ```
+1. Create the access token:
+    ```rest
+    response=$(az account get-access-token)
+    token=$(echo $response | jq ".accessToken" -r)
+    echo "Token: $token"
+    ```
+3. Call the REST API using curl
+    ```rest      
+    echo "---"
+    curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json" -H "Accept:application/json" -d @sh9.json https://management.azure.com/subscriptions/$subId/resourceGroups/rg-westus/providers/Microsoft.NetApp/netAppAccounts/ANF-WestUS-test/volumeGroups/SAP-HANA-SH9-00001?api-version=2022-03-01 | jq .
+    ```
+---
 
 ### Example 2: Deploy volumes for an additional HANA Host for a multiple-host HANA configuration
 

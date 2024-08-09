@@ -4,8 +4,8 @@ description: Learn about recent updates to Azure Database for MySQL - Flexible S
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: vamehta, maghan
-ms.date: 05/21/2024
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:
@@ -24,6 +24,38 @@ This article summarizes new releases and features in the Azure Database for MySQ
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## August 2024
+
+
+- **Azure Database for MySQL Flexible Server now supports up to 8 TB in a single data file!**
+  
+  Azure Database for MySQL now supports single InnoDB data files up to **8 TB** in size, enabling users to store larger datasets within a single file. This enhancement reduces the need for data partitioning and streamlines database management, making it easier to handle substantial volumes of data using the InnoDB storage engine. [Learn more.](./concepts-server-parameters.md#innodb_file_per_table)
+
+- **Major version upgrade support for Burstable compute tier**
+  
+  Azure Database for MySQL now offers major version upgrades for Burstable SKU compute tiers. This support automatically upgrades the compute tier to General Purpose SKU before performing the upgrade, ensuring sufficient resources. Customers can choose to revert back to Burstable SKU after the upgrade. Additional costs may apply. [Learn more](how-to-upgrade.md#perform-a-planned-major-version-upgrade-from-mysql-57-to-mysql-80-using-the-azure-portal-for-burstable-sku-servers)
+
+
+- **Deprecated Metrics Announcement**
+
+  We would like to inform you about the deprecation of the following metrics in Azure Database for MySQL Flexible Server.
+  - Storage Throttle Count (deprecated)
+  - Available Memory Bytes (deprecated)
+  - MySQL Lock Row Lock Waits (deprecated)
+  
+  These metrics will no longer be supported and will be removed from the monitoring by the end of August 2024. We recommend updating your monitoring and alerting configurations to exclude these metrics and use alternative metrics that provide similar insights. For more information and guidance on alternative metrics, please refer to [azure monitoring documentation](./concepts-monitoring.md)
+  
+
+## July 2024
+
+- **Move from private access (virtual network integrated) network to public access or private link**
+
+  Azure Database for MySQL Flexible Server can be transitioned from private access (virtual network Integrated) to public access, with the option to use Private Link. This functionality enables servers to switch from virtual network integrated to Private Link/Public infrastructure seamlessly, without the need to alter the server name or migrate data, simplifying the process for customers. [Learn more](concepts-networking-vnet.md#move-from-private-access-virtual-network-integrated-network-to-public-access-or-private-link)
+  
+- **Managed HSM support for Azure Database for MySQL Flexible Server (Generally Available)**
+
+  We're excited to announce the General Availability (GA) of Azure Key Vault Managed HSM support for Customer Managed Keys (CMK) in Azure Database for MySQL Flexible Server. With Managed HSM you can import your own HSM-backed encryption keys using the CMK bring your own key (BYOK) feature to protect data at rest in your Azure Database for MySQL Flexible Server instances while maintaining data residency and full control of your HSM keys. [Learn more](/azure/mysql/flexible-server/concepts-customer-managed-key)
+  
 ## May 2024
 
 - **Accelerated Logs in Azure Database for MySQL Flexible Server is now Generally Available**
@@ -44,9 +76,9 @@ This article summarizes new releases and features in the Azure Database for MySQ
 
   The newly added metrics include MySQL Uptime, MySQL History list length, MySQL Deadlocks, Active Transactions, and MySQL Lock Timeouts. These metrics provide a more detailed view of your server's performance, enabling you to monitor and optimize your database operations more effectively. In addition to these new metrics, we've also improved the Memory percent metric. It now offers more precise calculations of memory usage for the MySQL server (mysqld) process. [Monitor Azure Database for MySQL - Flexible Server](concepts-monitoring.md)
 
-- **Microsoft Defender for Cloud supports Azure Database for MySQL flexible server (General Availability)**
+- **Microsoft Defender for Cloud supports Azure Database for MySQL Flexible Server (General Availability)**
 
-  We're excited to announce the general availability of the Microsoft Defender for Cloud feature for Azure Database for MySQL flexible server in all service tiers. The Microsoft Defender Advanced Threat Protection feature simplifies the security management of Azure Database for MySQL flexible server instances. It monitors the server for anomalous or suspicious database activities to detect potential threats and provides security alerts for you to investigate and take appropriate action, allowing you to actively improve the security posture of your database without being a security expert. [What is Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)
+  We're excited to announce the general availability of the Microsoft Defender for Cloud feature for Azure Database for MySQL flexible server in all service tiers. The Microsoft Defender Advanced Threat Protection feature simplifies the security management of Azure Database for MySQL flexible server instances. It monitors the server for anomalous or suspicious database activities to detect potential threats and provides security alerts for you to investigate and take appropriate action, allowing you to actively improve the security posture of your database without being a security expert. [What is Microsoft Defender for open-source relational databases](/azure/defender-for-cloud/defender-for-databases-introduction)
 - **On-demand backup and Export (Preview)**
 
   Azure Database for MySQL Flexible Server now allows triggering an on-demand server backup and exporting it to an Azure storage account (Azure blob storage). The feature is currently in public preview and available only in public cloud regions. [Learn more](./concepts-backup-restore.md#on-demand-backup-and-export-preview)
@@ -722,3 +754,4 @@ If you have questions about or suggestions for working with Azure Database for M
 - [Azure Database for MySQL flexible server pricing](https://azure.microsoft.com/pricing/details/mysql/server/)
 - [public documentation](index.yml)
 - [troubleshooting common migration errors](../howto-troubleshoot-common-errors.md)
+

@@ -5,7 +5,7 @@ author: adig
 ms.author: adig
 ms.reviewer: maghan
 ms.date: 05/21/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom:
@@ -221,8 +221,8 @@ Before you trigger the Azure Database for MySQL Import CLI command, consider the
 
     | Single Server Pricing Tier | Single Server VCores | Flexible Server Tier | Flexible Server SKU Name |
     | --- | --- | :---: | :---: |
-    | Basic | 1 | Burstable | Standard_B1s |
-    | Basic | 2 | Burstable | Standard_B2s |
+    | Basic | 1 | Burstable | Standard_B2ms |
+    | Basic | 2 | Burstable | Standard_B2ms |
     | General Purpose | 4 | GeneralPurpose | Standard_D4ds_v4 |
     | General Purpose | 8 | GeneralPurpose | Standard_D8ds_v4 |
     | General Purpose | 16 | GeneralPurpose | Standard_D16ds_v4 |

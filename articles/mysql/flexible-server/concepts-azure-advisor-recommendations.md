@@ -1,12 +1,13 @@
 ---
 title: Azure Advisor
 description: Learn about how Azure Advisor is applied to Azure Database for MySQL - Flexible Server and get answers to common questions.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: conceptual
 author: SudheeshGH
 ms.author: sunaray
-ms.date: 06/20/2022
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
 ---
 
 # Azure Advisor for Azure Database for MySQL - Flexible Server

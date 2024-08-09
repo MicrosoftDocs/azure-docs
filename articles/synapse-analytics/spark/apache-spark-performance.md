@@ -3,7 +3,7 @@ title: Optimize Spark jobs for performance
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics.
 author: juluczni
 ms.author: juluczni
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 02/15/2022
@@ -57,7 +57,7 @@ Spark provides its own native caching mechanisms, which can be used through diff
 Spark operates by placing data in memory, so managing memory resources is a key aspect of optimizing the execution of Spark jobs.  There are several techniques you can apply to use your cluster's memory efficiently.
 
 * Prefer smaller data partitions and account for data size, types, and distribution in your partitioning strategy.
-* In Synapse Spark (Runtime 3.1 or higher), Kryo data serialization is enabled by default Kryo data serialization.
+* In Synapse Spark (Runtime 3.1 or higher), **Kryo data serialization is enabled by default Kryo data serialization**.
 * You can customize the kryoserializer buffer size using Spark configuration based on your workload requirements:
 
   ```scala
@@ -86,8 +86,8 @@ To address 'out of memory' messages, try:
 
 Spark jobs are distributed, so appropriate data serialization is important for the best performance.  There are two serialization options for Spark:
 
-* Java serialization is the default.
-* Kryo serialization is a newer format and can result in faster and more compact serialization than Java.  Kryo requires that you register the classes in your program, and it doesn't yet support all Serializable types.
+* Java serialization
+* Kryo serialization is the default. It's a newer format and can result in faster and more compact serialization than Java.  Kryo requires that you register the classes in your program, and it doesn't yet support all Serializable types.
 
 ## Use bucketing
 

@@ -3,11 +3,11 @@ title: Plan for network isolation
 titleSuffix: Azure Machine Learning
 description: Demystify Azure Machine Learning network isolation with recommendations and automation templates
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 05/31/2024
 ms.topic: how-to
 ms.custom: build-2023

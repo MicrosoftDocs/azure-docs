@@ -32,7 +32,7 @@ This sample script exports key-values from an Azure App Configuration store.
 az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 ```
 
-[!INCLUDE [cli-script-cleanup](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

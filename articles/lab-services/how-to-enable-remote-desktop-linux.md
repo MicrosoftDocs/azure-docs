@@ -3,7 +3,7 @@ title: Enable graphical remote desktop for Linux labs
 titleSuffix: Azure Lab Services
 description: Learn how to enable remote desktop for Linux virtual machines in a lab in Azure Lab Services, and about options for best performance.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: linux-related-content
 author: RoseHJM
 ms.author: rosemalcolm
@@ -13,6 +13,8 @@ ms.date: 03/12/2024
 ---
 
 # Enable graphical remote desktop for Linux virtual machines in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 When you create a lab from a Linux image, Azure Lab Services automatically enables Secure Shell (SSH). A lab creator can connect to the template virtual machine (VM) from the command line. After you publish the template VM, students can also connect to their VMs using SSH.
 

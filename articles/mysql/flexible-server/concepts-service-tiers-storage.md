@@ -4,12 +4,12 @@ description: This article describes the compute and storage options in Azure Dat
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.date: 05/21/2024
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
+ms.topic: concept-article
 ms.custom:
   - build-2024
-ms.topic: concept-article
 # customer intent: As a reader, I want to understand the service tiers and compute options available in Azure Database for MySQL - Flexible Server.
 ---
 
@@ -53,8 +53,7 @@ The detailed specifications of the available server types are as follows for the
 
 | Compute size | vCores | Physical Memory Size (GiB) | Total Memory Size (GiB) | Max Supported IOPS | Max Connections | Temp Storage (SSD) GiB |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_B1s | 1 | 1 | 1.1 | 320 | 171 | 0 |
-| Standard_B1ms | 1 | 2 | 2.2 | 640 | 341 | 0 |
+|Standard_B1ms | 1 | 2 | 2.2 | 640 | 341 | 0 |
 | Standard_B2s | 2 | 4 | 4.4 | 1280 | 683 | 0 |
 | Standard_B2ms | 2 | 8 | 8.8 | 1700 | 1365 | 0 |
 | Standard_B4ms | 4 | 16 | 17.6 | 2400 | 2731 | 0 |
@@ -106,7 +105,7 @@ The detailed specifications of the available server types are as follows for the
 | Standard_E48ads_v5 | 48 | 384 | 528 | 48000 | 65536 | 906 |
 | Standard_E64ds_v4 | 64 | 504 | 693 | 64000 | 86016 | 1224 |
 | Standard_E64ads_v5 | 64 | 504 | 693 | 64000 | 86016 | 1224 |
-| Standard_E80ids_v4 | 80 | 504 | 693 | 72000 | 86016 | 1224 |
+| Standard_E80ds_v4 | 80 | 504 | 693 | 72000 | 86016 | 1224 |
 | Standard_E2ds_v5 | 2 | 16 | 22 | 5000 | 2731 | 37 |
 | Standard_E4ds_v5 | 4 | 32 | 44 | 10000 | 5461 | 75 |
 | Standard_E8ds_v5 | 8 | 64 | 88 | 18000 | 10923 | 151 |
@@ -221,7 +220,7 @@ Azure Database for MySQL flexible server offers pre-provisioned IOPS, allowing y
 
 ## Autoscale IOPS
 
-The cornerstone of Azure Database for MySQL flexible server is its ability to achieve the best performance for tier 1 workloads. This can be improved by enabling the server to automatically scale its database servers' performance (IO) seamlessly depending on the workload needs. This opt-in feature enables users to scale IOPS on demand without having to pre-provision a certain amount of IO per second. With the Autoscale IOPS featured enabled, you can now enjoy worry-free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs.
+The cornerstone of Azure Database for MySQL flexible server is its ability to achieve the best performance for tier 1 workloads. This can be improved by enabling the server to automatically scale its database servers' performance (IO) seamlessly depending on the workload needs. This opt-in feature enables users to scale IOPS on demand without having to pre-provision a certain amount of IO per second. With the Autoscale IOPS featured enabled, you can now enjoy worry-free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs. AutoScale IOPS automatically scales up to the ‘Max Supported IOPS’ for each service tier and compute size, as specified in the [service tiers documentation](#service-tiers-size-and-server-types). This ensures optimal performance without the need for manual scaling efforts
 
 With Autoscale IOPS, you pay only for the IO the server uses and no longer need to provision and pay for resources they aren't fully using, saving time and money. In addition, mission-critical Tier-1 applications can achieve consistent performance by making additional IO available to the workload anytime. Autoscale IOPS eliminates the administration required to provide the best performance at the least cost for Azure Database for MySQL flexible server customers.
 

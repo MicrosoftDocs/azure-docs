@@ -30,7 +30,7 @@ You must meet the following prerequisites before using Azure AI Health Insights 
 
 The host that runs the Docker container on your premises, should be an x64-based computer. It can also be a Docker hosting service in Azure, such as:
 
-* [Azure Kubernetes Service](../../articles/aks/index.yml).
+* [Azure Kubernetes Service](/azure/aks/).
 * [Azure Container Instances](../../articles/container-instances/index.yml).
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
@@ -52,8 +52,6 @@ Azure AI Health Insights container images can be found on the `mcr.microsoft.com
 - Onco-Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
 
 To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list` and `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/cancer-profiling/tags/list`.
-
-- Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the [docker hub clinical matching page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-clinical-matching) and [docker hub cancer profiling page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-cancer-profiling)  
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/health-insights/<model-name>:<tag-name>

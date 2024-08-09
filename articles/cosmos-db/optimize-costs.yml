@@ -8,7 +8,7 @@ metadata:
   description: |
     Optimize your costs for applications in development or production using Azure Cosmos DB.
   services: service
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: nosql
   ms.topic: landing-page
 

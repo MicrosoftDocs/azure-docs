@@ -3,7 +3,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 10/10/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: include
 ---
 
@@ -21,8 +21,8 @@ Check the following step-by-step tutorials for more information about each speci
 
 | Migration scenario | Migration mode
 |---------|---------|
-SQL Server to Azure SQL Managed Instance| [Online](../tutorial-sql-server-managed-instance-online-ads.md) / [Offline](../tutorial-sql-server-managed-instance-offline-ads.md)
-SQL Server to SQL Server on Azure Virtual Machine|[Online](../tutorial-sql-server-to-virtual-machine-online-ads.md) / [Offline](../tutorial-sql-server-to-virtual-machine-offline-ads.md)
-SQL Server to Azure SQL Database | [Offline](../tutorial-sql-server-azure-sql-database-offline.md)
+SQL Server to Azure SQL Managed Instance| [Online](/data-migration/sql-server/managed-instance/database-migration-service) / [Offline](/data-migration/sql-server/managed-instance/database-migration-service)
+SQL Server to SQL Server on Azure Virtual Machine|[Online](/data-migration/sql-server/virtual-machines/database-migration-service) / [Offline](/data-migration/sql-server/virtual-machines/database-migration-service)
+SQL Server to Azure SQL Database | [Offline](/data-migration/sql-server/database/database-migration-service)
 
 To learn more, see [Migrate databases with Azure SQL Migration extension for Azure Data Studio](../migration-using-azure-data-studio.md).

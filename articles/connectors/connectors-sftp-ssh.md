@@ -10,7 +10,7 @@ ms.date: 05/10/2024
 
 # Connect to an SFTP file server from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 This how-to guide shows how to access your [SSH File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server from a workflow in Azure Logic Apps. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream and uses the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol.
 

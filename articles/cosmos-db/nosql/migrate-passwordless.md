@@ -5,8 +5,8 @@ description: Learn to migrate existing applications away from connection strings
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
-ms.date: 06/01/2023
-ms.service: cosmos-db
+ms.date: 06/20/2024
+ms.service: azure-cosmos-db
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli
 ---
@@ -208,22 +208,15 @@ Complete the following steps in the Azure portal to associate an identity with y
 
 Grant permissions to the managed identity by assigning it the custom role you created, just like you did with your local development user.
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the [az cosmosdb show](/cli/azure/cosmosdb) command. You can filter the output properties using the `--query` parameter.
+Assign roles using the [`az role assignment`](/cli/azure/role/assignment) command of the Azure CLI.
 
 ```azurecli
-az cosmosdb show \
-    --resource-group '<resource-group-name>' \
-    --name '<cosmosdb-name>' \
-    --query id
-```
-
-Copy the output ID from the preceding command. You can then assign roles using the [az role assignment](/cli/azure/role/assignment) command of the Azure CLI.
-
-```azurecli
-az role assignment create \
-    --assignee "<your-managed-identity-name>" \
-    --role "PasswordlessReadWrite" \
-    --scope "<cosmosdb-resource-id>"
+az cosmosdb sql role assignment create \
+    --account-name <cosmosdb-account-name> \
+    --resource-group  <resource-group-name> \
+    --scope "/" \
+    --principal-id <managed-identity-id> \
+    --role-definition-id <your-custom-role-id>
 ```
 
 [!INCLUDE [Code changes to use user-assigned managed identity](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]

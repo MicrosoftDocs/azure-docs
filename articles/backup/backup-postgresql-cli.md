@@ -1,10 +1,10 @@
 ---
 title: Back up Azure Database for PostgreSQL with long-term-retention using Azure CLI
 description: Learn how to back up Azure Database for PostgreSQL using Azure CLI.
-ms.topic: conceptual
-ms.date: 02/25/2022
+ms.topic: how-to
+ms.date: 07/30/2024
 ms.custom: devx-track-azurecli
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -77,9 +77,9 @@ While disk backup offers multiple backups per day and blob backup is a _continuo
            -  Default tagging criteria (a default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
    -  Default Retention Rule (A rule that will be applied to all backups, by default, on the initial datastore)
 
-So, this object defines what type of backups are triggered, how they are triggered (via a schedule), what they are tagged with, where they land (a datastore), and the life cycle of the backup data in a datastore. The default PowerShell object for PostgreSQL says to trigger a *full* backup every week and they will reach the vault, where they are stored for three months.
+So, this object defines what type of backups are triggered, how they're triggered (via a schedule), what they're tagged with, where they land (a datastore), and the life cycle of the backup data in a datastore. The default PowerShell object for PostgreSQL says to trigger a *full* backup every week and they'll reach the vault, where they're stored for three months.
 
-If you want to add the *archive* tier to the policy, you have to decide when the data will be moved from vault to archive, how long will the data stay in the archive, and which of the scheduled backups should be tagged as _archivable_. Therefore, you have to add a *retention rule*, where the lifecycle of the backup data will be defined from vault datastore to archive datastore, and how long they will they stay in the *archive* datastore. Then you need add a *tag* that will mark the scheduled backups as _eligible to be archived_.
+If you want to add the *archive* tier to the policy, you have to decide when the data will be moved from vault to archive, how long will the data stay in the archive, and which of the scheduled backups should be tagged as _archivable_. Therefore, you have to add a *retention rule*, where the lifecycle of the backup data will be defined from vault datastore to archive datastore, and how long they'll they stay in the *archive* datastore. Then you need add a *tag* that will mark the scheduled backups as _eligible to be archived_.
 
 The resultant PowerShell object is as follows:
 
@@ -212,7 +212,7 @@ The policy template consists of a trigger (which decides what triggers the backu
 
 The default policy template offers a backup once per week. You can modify the schedule for the backup to happen multiple days per week. To modify the schedule, use the [az dataprotection backup-policy trigger set](/cli/azure/dataprotection/backup-policy/trigger#az-dataprotection-backup-policy-trigger-set) command.
 
-The following example modifies the weekly backup to back up happening on every Sunday, Wednesday, and Friday of every week. The schedule date array mentions the dates, and the days of the week of those dates are taken as days of the week. You also need to specify that these schedules should repeat every week. So, the schedule interval is "1" and the interval type is "Weekly".
+The following example modifies the weekly backup to back up happening on every Sunday, Wednesday, and Friday of every week. The schedule date array mentions the dates, and the days of the week of those dates are taken as days of the week. You also need to specify that these schedules should repeat every week. So, the schedule interval is *1* and the interval type is *Weekly*.
 
 ```azurecli
 az dataprotection backup-policy trigger create-schedule --interval-type Weekly --interval-count 1 --schedule-days 2021-08-15T22:00:00 2021-08-18T22:00:00 2021-08-20T22:00:00
@@ -271,7 +271,7 @@ az dataprotection backup-policy create --backup-policy-name FinalOSSPolicy --pol
 
 ## Configure backup
 
-Once the vault and policy are created, there're three critical points that you need to consider to protect an Azure PostgreSQL database.
+Once the vault and policy are created, there are three critical points that you need to consider to protect an Azure PostgreSQL database.
 
 ### Key entities involved
 

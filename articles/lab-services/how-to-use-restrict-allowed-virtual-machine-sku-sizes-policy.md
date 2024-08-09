@@ -9,6 +9,8 @@ ms.date: 08/28/2023
 
 # Restrict allowed virtual machine sizes for labs
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to restrict the list of allowed lab virtual machine sizes for creating new labs by using an Azure policy. As a platform administrator, you can use policies to lay out guardrails for teams to manage their own resources. [Azure Policy](/azure/governance/policy/) helps audit and govern resource state.
 
 [!INCLUDE [lab plans only note](./includes/lab-services-new-update-focused-article.md)]

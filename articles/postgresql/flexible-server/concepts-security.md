@@ -1,11 +1,11 @@
 ---
 title: Security
 description: Learn about security in the Flexible Server deployment option for Azure Database for PostgreSQL - Flexible Server.
-author: gennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
-ms.date: 05/23/2024
-ms.service: postgresql
+ms.date: 08/02/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
@@ -35,7 +35,7 @@ Azure Database for PostgreSQL - Flexible Server encrypts data in two ways:
    Although **it's highly not recommended**, if needed, due to legacy client incompatibility, you have an option to disable TLS\SSL for connections to Azure Database for PostgreSQL - Flexible Server by updating the `require_secure_transport` server parameter to OFF. You can also set TLS version by setting `ssl_max_protocol_version` server parameters.
 - **Data at rest**: For storage encryption, Azure Database for PostgreSQL - Flexible Server uses the FIPS 140-2 validated cryptographic module. Data is encrypted on disk, including backups and the temporary files created while queries are running.
 
-  The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. This is similar to other at-rest encryption technologies, like transparent data encryption in SQL Server or Oracle databases. Storage encryption is always on and can't be disabled.
+  The service uses [Galois/Counter Mode (GCM)](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode with AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. This is similar to other at-rest encryption technologies, like transparent data encryption in SQL Server or Oracle databases. Storage encryption is always on and can't be disabled.
 
 ## Network security
 
@@ -51,7 +51,7 @@ When you're running Azure Database for PostgreSQL - Flexible Server, you have tw
 
 ## Microsoft Defender for Cloud support
 
-**[Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-for-open-source-relational-databases) on anomalous activities so that you can detect potential threats and respond to them as they occur.
+**[Microsoft Defender for open-source relational databases](/azure/defender-for-cloud/defender-for-databases-introduction)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](/azure/defender-for-cloud/alerts-open-source-relational-databases) on anomalous activities so that you can detect potential threats and respond to them as they occur.
 When you enable this plan, Defender for Cloud provides alerts when it detects anomalous database access and query patterns and suspicious database activities.
 
 These alerts appear in Defender for Cloud's security alerts page and include:
@@ -63,7 +63,7 @@ These alerts appear in Defender for Cloud's security alerts page and include:
 
 ### Microsoft Defender for Cloud and Brute Force Attacks
 
-A brute force attack is among the most common and fairly successful hacking methods, despite being least sophisticated hacking methods. The theory behind such an attack is that if you take an infinite number of attempts to guess a password, you're bound to be right eventually. When Microsoft Defender for Cloud detects a brute force attack, it triggers an [alert](../../defender-for-cloud/defender-for-databases-introduction.md#what-kind-of-alerts-does-microsoft-defender-for-open-source-relational-databases-provide) to bring you awareness that a brute force attack took place. It also can separate simple brute force attack from brute force attack on a valid user or a successful brute force attack.
+A brute force attack is among the most common and fairly successful hacking methods, despite being least sophisticated hacking methods. The theory behind such an attack is that if you take an infinite number of attempts to guess a password, you're bound to be right eventually. When Microsoft Defender for Cloud detects a brute force attack, it triggers an [alert](/azure/defender-for-cloud/defender-for-databases-introduction#what-kind-of-alerts-does-microsoft-defender-for-open-source-relational-databases-provide) to bring you awareness that a brute force attack took place. It also can separate simple brute force attack from brute force attack on a valid user or a successful brute force attack.
 
 To get alerts from the Microsoft Defender plan, you'll first need to **enable it** as shown in the next section.
 
@@ -85,7 +85,7 @@ To get alerts from the Microsoft Defender plan, you'll first need to **enable it
 The best way to manage Azure Database for PostgreSQL - Flexible Server database access permissions at scale is using the concept of [roles](https://www.postgresql.org/docs/current/user-manag.html). A role can be either a database user or a group of database users. Roles can own the database objects and assign privileges on those objects to other roles to control who has access to which objects. It's also possible to grant membership in a role to another role, thus allowing the member role to use privileges assigned to another role.
 Azure Database for PostgreSQL - Flexible Server lets you grant permissions directly to the database users. **As a good security practice, it can be recommended that you create roles with specific sets of permissions based on minimum application and access requirements. You can then assign the appropriate roles to each user. Roles are used to enforce a *least privilege model* for accessing database objects.**
 
-The Azure Database for PostgreSQL - Flexible Server instance is created with the three default roles defined. You can see these roles by running the command:
+The Azure Database for PostgreSQL - Flexible Server instance is created with the three default roles defined, in addition to built-in roles PostgreSQL creates. You can see these roles by running the command:
 
 ```sql
 SELECT rolname FROM pg_roles;
@@ -135,9 +135,7 @@ oid            | 24827
 ```
 
 > [!IMPORTANT]
-> Important to note that number of superuser only permissions, such as creation of certain **[binary-coercible implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html)**, are not available with Azure Database for PostgreSQL - Flexible Server, since `azure_pg_admin` role doesn't align to permissions of PostgreSQL superuser role. 
-> A **[binary-coercible cast](https://www.postgresql.org/docs/current/sql-createcast.html)** is a type of cast that does not require any function to perform the conversion, because the source and target types have the same internal representation
-> Non binary-coercible casts, including containing options WITH `IN OUT` and `WITH FUNCTION` are supported.
+> Recently, we have enabled the ability to create **[CAST commands](https://www.postgresql.org/docs/current/sql-createcast.html)** in Azure Database for PostgreSQL Flexible Server. Please be aware that currently, the functionality is operating as expected with the exception of the DROP statement. In other words, it is currently not possible to drop a CAST once it has been created. We are actively working on adding this functionality and anticipate its availability in the near future.
 
 
 [Audit logging in Azure Database for PostgreSQL - Flexible Server](concepts-audit.md) is also available with Azure Database for PostgreSQL - Flexible Server to track activity in your databases.
@@ -268,6 +266,40 @@ For example,
 ALTER ROLE demouser PASSWORD 'Password123!';
 ALTER ROLE
 ```
+
+## Azure Policy Support
+
+[Azure Policy](../../governance/policy/overview.md) helps to enforce organizational standards and to assess compliance at-scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to the per-resource, per-policy granularity. It also helps to bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources.
+
+
+### Built-in Policy Definitions
+
+Built-in policies are developed and tested by Microsoft, ensuring they meet common standards and best practices, an be deployed quickly without the need for additional configuration, making them ideal for standard compliance requirements. Built-in policies often cover widely recognized standards and compliance frameworks.
+
+
+The section below provides an index of Azure Policy built-in policy definitions for Azure Database for PostgreSQL - Flexible Server. Use the link in the Source column to view the source on the Azure Policy GitHub repo.
+
+|**Name (Azure Portal)**|**Description**|**Effect(s)**|**Version(GitHub)**|
+|-----------------------|---------------|-------------|-------------------|
+|[A Microsoft Entra administrator should be provisioned for PostgreSQL flexible servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fce39a96d-bf09-4b60-8c32-e85d52abea0f)|Audit provisioning of a Microsoft Entra administrator for your PostgreSQL flexible server to enable Microsoft Entra authentication. Microsoft Entra authentication enables simplified permission management and centralized identity management of database users and other Microsoft services|AuditIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_ProvisionEntraAdmin_AINE.json)|
+|[Auditing with PgAudit should be enabled for PostgreSQL flexible servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4eb5e667-e871-4292-9c5d-8bbb94e0c908)|This policy helps audit any PostgreSQL flexible servers in your environment, which isn't enabled to use pgaudit.|AuditIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_EnablePgAudit_AINE.json)|
+|[Connection throttling should be enabled for PostgreSQL flexible servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdacf07fa-0eea-4486-80bc-b93fae88ac40)|This policy helps audit any PostgreSQL flexible servers in your environment without Connection throttling enabled. This setting enables temporary connection throttling per IP for too many invalid password login failures|AuditIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_ConnectionThrottling_Enabled_AINE.json)|
+|[Deploy Diagnostic Settings for PostgreSQL flexible servers to Log Analytics workspace](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F78ed47da-513e-41e9-a088-e829b373281d)|Deploys the diagnostic settings for PostgreSQL flexible servers to stream to a regional Log Analytics workspace when any PostgreSQL flexible servers, which is missing this diagnostic setting is created or updated|DeployIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_DiagnosticSettings_LogAnalytics_DINE.json)|
+|[Disconnections should be logged for PostgreSQL flexible servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d14b021-1bae-4f93-b36b-69695e14984a)|This policy helps audit any PostgreSQL flexible servers in your environment without log_disconnections enabled|AuditIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_EnableLogDisconnections_AINE.json)|
+|[Enforce SSL connection should be enabled for PostgreSQL flexible servers](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc29c38cb-74a7-4505-9a06-e588ab86620a)|Azure Database for PostgreSQL supports connecting your Azure Database for PostgreSQL flexible server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database flexible server and your client applications helps protect against 'man in the middle' attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your PostgreSQL flexible server|AuditIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_EnableSSL_AINE.json)|
+|[Geo-redundant backup should be enabled for Azure Database for PostgreSQL flexible servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee2f9fd-3968-44be-a863-bd62c9884423)|Azure Database for PostgreSQL flexible servers allows you to choose the redundancy option for your database server. It can be set to a geo-redundant backup storage in which the data is not only stored within the region in which your server is hosted, but is also replicated to a paired region to provide recovery option in case of a region failure. Configuring geo-redundant storage for backup is only allowed during server create|Audit, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_GeoRedundant_Audit.json)|
+|[Log checkpoints should be enabled for PostgreSQL flexible servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70be9e12-c935-49ac-9bd8-fd64b85c1f87)|This policy helps audit any PostgreSQL flexible servers in your environment without log_checkpoints setting enabled|AuditIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_EnableLogCheckpoint_AINE.json)|
+|[Log connections should be enabled for PostgreSQL flexible servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F086709ac-11b5-478d-a893-9567a16d2ae3)|This policy helps audit any PostgreSQL flexible servers in your environment without log_connections setting enabled|AuditIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_EnableLogConnections_AINE.json)|
+|[PostgreSQL FlexIble servers should use customer-managed keys to encrypt data at rest](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12c74c95-0efd-48da-b8d9-2a7d68470c92)|Use customer-managed keys to manage the encryption at rest of your PostgreSQL flexible servers. By default, the data is encrypted at rest with service-managed keys, but customer-managed keys are commonly required to meet regulatory compliance standards. Customer-managed keys enable the data to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management|Audit, Deny, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_EnableCMK_AINE.json)|
+|[PostgreSQL flexible servers should be running TLS version 1.2 or newer](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa43d5475-c569-45ce-a268-28fa79f4e87a)|This policy helps audit any PostgreSQL flexible servers in your environment, which is running with TLS version less than 1.2|AuditIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_MinTLS_AINE.json)|
+|[Private endpoint should be enabled for PostgreSQL flexible servers](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5375a5bb-22c6-46d7-8a43-83417cfb4460)|Private endpoint connections enforce secure communication by enabling private connectivity to Azure Database for PostgreSQL. Configure a private endpoint connection to enable access to traffic coming only from known networks and prevent access from all other IP addresses, including within Azure|AuditIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/PostgreSQL/FlexibleServers_EnablePrivateEndPoint_AINE.json)|
+
+
+### Custom Policy Definitions
+
+Custom policies can be precisely tailored to match the specific requirements of your organization, including unique security policies or compliance mandates. With custom policies you have complete control over the policy logic and parameters, allowing for sophisticated and fine-grained policy definitions.
+
+
 
 ## Related content
 

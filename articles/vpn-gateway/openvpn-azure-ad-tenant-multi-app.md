@@ -1,20 +1,24 @@
 ---
-title: 'Configure P2S for different user and group access: Microsoft Entra authentication and multi app'
+title: 'Configure P2S for different user and group access: Microsoft Entra ID authentication and multi app'
 titleSuffix: Azure VPN Gateway
 description: Learn how to set up a Microsoft Entra tenant for P2S OpenVPN authentication and register multiple apps in Microsoft Entra ID to allow different access for different users and groups.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: conceptual
-ms.date: 01/23/2024
+ms.date: 07/09/2024
 ms.author: cherylmc
 ms.custom: engagement-fy23
 ---
 
-# Configure P2S for access based on users and groups - Microsoft Entra authentication
+# Configure P2S for access based on users and groups - Microsoft Entra ID authentication - manual app registration
 
-When you use Microsoft Entra ID as the authentication method for P2S, you can configure P2S to allow different access for different users and groups. If you want different sets of users to be able to connect to different VPN gateways, you can register multiple apps in AD and link them to different VPN gateways. This article helps you set up a Microsoft Entra tenant for P2S Microsoft Entra authentication and create and register multiple apps in Microsoft Entra ID for allowing different access for different users and groups. For more information about point-to-site protocols and authentication, see [About point-to-site VPN](point-to-site-about.md).
+When you use Microsoft Entra ID as the authentication method for point-to-site (P2S), you can configure P2S to allow different access for different users and groups. This article helps you set up a Microsoft Entra tenant for P2S Microsoft Entra authentication and create and register multiple VPN apps in Microsoft Entra ID to allow different access for different users and groups. For more information about P2S protocols and authentication, see [About point-to-site VPN](point-to-site-about.md).
 
-[!INCLUDE [OpenVPN note](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-openvpn-auth-include.md)]
+Considerations:
+
+* You can't create this type of granular access if you have only one VPN gateway.
+* To assign different users and groups different access, register multiple apps with Microsoft Entra ID and then link them to different VPN gateways.
+* Microsoft Entra ID authentication is supported only for OpenVPN® protocol connections and requires the Azure VPN Client.
 
 <a name='azure-ad-tenant'></a>
 
@@ -34,24 +38,27 @@ The steps in this article require a Microsoft Entra tenant. If you don't have a 
    * Global administrator account
    * User account
 
-   The global administrator account will be used to grant consent to the Azure VPN app registration. The user account can be used to test OpenVPN authentication.
+   The global administrator account is used to grant consent to the Azure VPN app registration. The user account can be used to test OpenVPN authentication.
 
-1. Assign one of the accounts the **Global administrator** role. For steps, see  [Assign administrator and non-administrator roles to users with Microsoft Entra ID](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. Assign one of the accounts the **Global administrator** role. For steps, see  [Assign user roles with Microsoft Entra ID](/entra/fundamentals/users-assign-role-azure-portal).
 
 ## Authorize the Azure VPN application
 
-[!INCLUDE [Steps to authorize the Azure VPN app](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-azure-ad-tenant.md)]
+[!INCLUDE [Steps to authorize the Azure VPN app](../../includes/vpn-gateway-vwan-azure-ad-tenant.md)]
 
 ## Register additional applications
 
-In this section, you can register additional applications for various users and groups. Repeat the steps to create as many applications that are needed for your security requirements. Each application will be associated to a VPN gateway and can have a different set of users. Only one application can be associated to a gateway.
+In this section, you can register additional applications for various users and groups. Repeat the steps to create as many applications that are needed for your security requirements.
+
+* You must have more than one VPN gateway to configure this type of granular access.
+* Each application is associated to a different VPN gateway and can have a different set of users.
 
 ### Add a scope
 
 1. In the Azure portal, select **Microsoft Entra ID**.
 1. In the left pane, select **App registrations**.
 1. At the top of the **App registrations** page, select **+ New registration**.
-1. On the **Register an application** page, enter the **Name**. For example, MarketingVPN. You can always change the name later.
+1. On the **Register an application** page, enter the **Name**. For example, MarketingVPN or Group1. You can always change the name later.
    * Select the desired **Supported account types**.
    * At the bottom of the page, click **Register**.
 1. Once the new app has been registered, in the left pane, click **Expose an API**. Then click **+ Add a scope**.
@@ -83,7 +90,7 @@ When you enable authentication on the VPN gateway, you'll need the **Application
 
 1. Go to the **Overview** page.
 
-1. Copy the **Application (client) ID** from the **Overview** page and save it so that you can access this value later. You'll need this information to configure your VPN gateway(s).
+1. Copy the **Application (client) ID** from the **Overview** page and save it so that you can access this value later. You'll need this information to configure your VPN gateways.
 
    :::image type="content" source="./media/openvpn-azure-ad-tenant-multi-app/client-id.png" alt-text="Screenshot showing Client ID value." lightbox="./media/openvpn-azure-ad-tenant-multi-app/client-id.png":::
 
@@ -92,7 +99,7 @@ When you enable authentication on the VPN gateway, you'll need the **Application
 Assign the users to your applications. If you're specifying a group, the user must be a direct member of the group. Nested groups aren't supported.
 
 1. Go to your Microsoft Entra ID and select **Enterprise applications**.
-1. From the list, locate the application you just registered and click to open it.
+1. From the list, locate the application you registered and click to open it.
 1. Click **Properties**. On the **Properties** page, verify that **Enabled for users to sign in** is set to **Yes**. If not, change the value to **Yes**.
 1. For **Assignment required**, change the value to **Yes**. For more information about this setting, see [Application properties](../active-directory/manage-apps/application-properties.md#enabled-for-users-to-sign-in).
 1. If you've made changes, click **Save** to save your settings.
@@ -120,7 +127,7 @@ In this step, you configure P2S Microsoft Entra authentication for the virtual n
    For **Microsoft Entra ID** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values.
 
    * **Tenant**: `https://login.microsoftonline.com/{TenantID}`
-   * **Audience ID**: Use the value that you created in the previous section that corresponds to **Application (client) ID**. Don't use the application ID for "Azure VPN" Microsoft Entra Enterprise App - use application ID that you created and registered. If you use the application ID for the "Azure VPN" Microsoft Entra Enterprise App instead, this will grant all users access to the VPN gateway (which would be the default way to set up access), instead of granting only the users that you assigned to the application that you created and registered.
+   * **Audience ID**: Use the value that you created in the previous section that corresponds to **Application (client) ID**. Don't use the application ID for "Azure VPN" Microsoft Entra Enterprise App - use application ID that you created and registered. If you use the application ID for the "Azure VPN" Microsoft Entra Enterprise App instead, this grants all users access to the VPN gateway (which would be the default way to set up access), instead of granting only the users that you assigned to the application that you created and registered.
    * **Issuer**: `https://sts.windows.net/{TenantID}`  For the Issuer value, make sure to include a trailing **/** at the end.
 
 1. Once you finish configuring settings, click **Save** at the top of the page.
@@ -133,5 +140,5 @@ In this section, you generate and download the Azure VPN Client profile configur
 
 ## Next steps
 
-* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S VPN connections](point-to-site-entra-vpn-client-windows.md).
 * For frequently asked questions, see the **Point-to-site** section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).

@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [allow_in_place_tablespaces](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-ALLOW-IN-PLACE-TABLESPACES) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [allow_system_table_mods](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-ALLOW-SYSTEM-TABLE-MODS)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off,on,regress` |
 | Parameter type | dynamic        |
-| Documentation  |               |
+| Documentation  | [force_parallel_mode](https://www.postgresql.org/docs/11/runtime-config-query.html#GUC-FORCE-PARALLEL-MODE)                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [ignore_checksum_failure](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-IGNORE-CHECKSUM-FAILURE)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [ignore_system_indexes](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-IGNORE-SYSTEM-INDEXES)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [jit_debugging_support](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-JIT-DEBUGGING-SUPPORT)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [jit_dump_bitcode](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-JIT-DUMP-BITCODE)                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -136,7 +136,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`             |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [jit_expressions](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-JIT-EXPRESSIONS)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -153,7 +153,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [jit_profiling_support](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-JIT-PROFILING-SUPPORT)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -170,7 +170,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`             |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [jit_tuple_deforming](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-JIT-TUPLE-DEFORMING)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -187,7 +187,7 @@ ms.topic: include
 | Default value  | `0`           |
 | Allowed values | `0`              |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [post_auth_delay](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-POST-AUTH-DELAY)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -204,7 +204,7 @@ ms.topic: include
 | Default value  | `0`           |
 | Allowed values | `0`              |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [pre_auth_delay](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-PRE-AUTH-DELAY)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -221,7 +221,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [trace_notify](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-TRACE-NOTIFY)                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -238,7 +238,7 @@ ms.topic: include
 | Default value  | `log`         |
 | Allowed values | `log`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [trace_recovery_messages](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-TRACE-RECOVERY-MESSAGES)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -255,7 +255,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [trace_sort](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-TRACE-SORT)                                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -272,7 +272,7 @@ ms.topic: include
 | Default value  |               |
 | Allowed values |                  |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [wal_consistency_checking](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-WAL-CONSISTENCY-CHECKING)     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -289,7 +289,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`            |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [zero_damaged_pages](https://www.postgresql.org/docs/11/runtime-config-developer.html#GUC-ZERO-DAMAGED-PAGES)                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

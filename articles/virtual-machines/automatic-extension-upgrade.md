@@ -1,7 +1,7 @@
 ---
 title: Automatic Extension Upgrade for VMs and Scale Sets in Azure
 description: Learn how to enable the Automatic Extension Upgrade for your virtual machines and virtual machine scale sets in Azure.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.topic: how-to
 ms.reviewer: jushiman
@@ -26,27 +26,27 @@ Automatic Extension Upgrade is available for Azure VMs and Azure Virtual Machine
 ## How does Automatic Extension Upgrade work?
 The extension upgrade process replaces the existing extension version on a VM with a new version of the same extension when published by the extension publisher. The health of the VM is monitored after the new extension is installed. If the VM isn't in a healthy state within 5 minutes of the upgrade completion, the extension version is rolled back to the previous version.
 
-A failed extension update is automatically retried. A retry is attempted every few days automatically without user intervention.
+A failed extension upgrade is automatically retried. A retry is attempted every few days automatically without user intervention.
 
 ### Availability-first Updates
-The availability-first model for platform orchestrated updates ensures that availability configurations in Azure are respected across multiple availability levels.
+The availability-first model for platform orchestrated upgrades ensures that availability configurations in Azure are respected across multiple availability levels.
 
-For a group of virtual machines undergoing an update, the Azure platform orchestrates updates:
+For a group of virtual machines undergoing an upgrade, the Azure platform orchestrates upgrades:
 
 **Across regions:**
-- An update moves across Azure globally in a phased manner to prevent Azure-wide deployment failures.
-- A 'phase' can have one or more regions, and an update moves across phases only if eligible VMs in the previous phase update successfully.
-- Geo-paired regions won't be updated concurrently and can't be in the same regional phase.
-- The success of an update is measured by tracking the health of a VM post update. VM health is tracked through platform health indicators for the VM. For Virtual Machine Scale Sets, the VM health is tracked through application health probes or the Application Health extension, if applied to the scale set.
+- An upgrade moves across Azure globally in a phased manner to prevent Azure-wide deployment failures.
+- A 'phase' can have one or more regions, and an upgrade moves across phases only if eligible VMs in the previous phase upgrade successfully.
+- Geo-paired regions won't be upgraded concurrently and can't be in the same regional phase.
+- The success of an upgrade is measured by tracking the health of a VM post upgrade. VM health is tracked through platform health indicators for the VM. For Virtual Machine Scale Sets, the VM health is tracked through application health probes or the Application Health extension, if applied to the scale set.
 
 **Within a region:**
-- VMs in different Availability Zones aren't updated concurrently with the same update.
-- Single VMs that aren't part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.  
+- VMs in different Availability Zones aren't upgraded concurrently with the same upgrade.
+- Single VMs that aren't part of an availability set are batched on a best effort basis to avoid concurrent upgrades for all VMs in a subscription.  
 
 **Within a 'set':**
-- All VMs in a common availability set or scale set aren't updated concurrently.  
-- VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains aren't updated concurrently.  
-- VMs in a common virtual machine scale set are grouped in batches and updated within Update Domain boundaries. [Upgrade policies](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) defined on the scale set are honored during the update. If upgrade policy is set to Manual, VMs won't get updated even if automatic extension upgrade is enabled. 
+- All VMs in a common availability set or scale set aren't upgraded concurrently.  
+- VMs in a common availability set are upgraded within Update Domain boundaries and VMs across multiple Update Domains aren't upgraded concurrently.  
+- VMs in a common virtual machine scale set are grouped in batches and upgrded within Update Domain boundaries. [Upgrade policies](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) defined on the scale set are honored during the upgrade. If upgrade policy is set to Manual, VMs won't get upgraded even if automatic extension upgrade is enabled. 
 
 ### Upgrade process for Virtual Machine Scale Sets
 1. Before the upgrade process starts, the orchestrator ensures that no more than 20% of VMs in the entire scale set are unhealthy (for any reason).
@@ -256,6 +256,25 @@ If multiple extension upgrades are available for a virtual machine, the upgrades
 
 Automatic Extension Upgrades can also be applied when a VM or virtual machine scale set has multiple extensions configured with [extension sequencing](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Extension sequencing is applicable for the first-time deployment of the VM, and any future extension upgrades on an extension are applied independently.
 
+## Difference between enableAutomaticUpgrade and autoUpgradeMinorVersion
+1. AutoUpgradeMinorVersion:
+   - This property is used during VM creation and while upgrading the VM with a new configuration.  
+   - When set to “true,” it ensures that the latest minor version of the extension is automatically installed on the virtual machine.
+   - It overrides the TypeHandlerVersion with the latest stable minor version available.
+   - While upgrading the VM configuration, if a new minor version is available, then its considered a configuration change and the extension is reinstalled with latest minor version. 
+   - This helps keep newly created VMs up-to-date with the latest stable minor extension version.
+   - If you want to manually set the extension to a specific version, set this property to “false.”
+     
+2. EnableAutomaticUpgrade:
+   - This property affects existing virtual machines.
+   - It does not impact the version installed during VM creation.
+   - After VM creation, if the VM is not running the latest minor version of the extension, enabling this property triggers an automatic upgrade.
+   - Upgrades do not cause VM reboot, are rolled out in a safe rolling manner and failed upgrades are rolled back immediately to provide high service availability and reliablity. 
+   - It ensures that existing VMs stay secure and up-to-date by automatically updating them to the latest minor version.
+
+It is recommemded to enable both properties to keep all VMs secure and up-to-date. 
+
+Upgrades to major extension versions are never performed automatically by either property since they could cause breaking change. You must manually set the TypeHandlerVersion to a major version and manually upgrade each existing VM to the latest major version.
 
 ## Next steps
 > [!div class="nextstepaction"]

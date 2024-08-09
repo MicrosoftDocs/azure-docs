@@ -198,14 +198,14 @@ curl https://${WEBAPP_URL}/checklist
 curl https://${WEBAPP_URL}/checklist/1
 ```
 
-[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"]
-> [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+> [Java in App Service Linux dev guide](configure-language-java-deploy-run.md?pivots=platform-linux)
 
 Learn how to secure your app with a custom domain and certificate.
 

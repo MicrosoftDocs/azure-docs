@@ -3,7 +3,7 @@ title: Enterprise plan in Azure Marketplace
 description: Learn about the Azure Spring Apps Enterprise plan offering available in Azure Marketplace.
 author: KarlErickson
 ms.author: yuwzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 10/18/2023
 ms.custom: devx-track-java, engagement-fy23, references_regions

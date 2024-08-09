@@ -4,11 +4,12 @@ description: Move an Azure Database for MySQL - Flexible Server instance from on
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 08/23/2023
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.custom: subject-moving-resources
+ms.custom:
+  - subject-moving-resources
 ---
 
 # Move an Azure Database for MySQL - Flexible Server instance to another region by using the Azure portal

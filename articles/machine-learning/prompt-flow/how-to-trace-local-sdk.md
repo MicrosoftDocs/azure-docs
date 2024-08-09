@@ -7,9 +7,9 @@ ms.topic: how-to
 ms.custom:
   - build-2024
 ms.date: 5/21/2024
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenlujiao
 ---
 
 # How to trace your application with prompt flow SDK | Azure Machine Learning

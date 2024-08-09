@@ -2,10 +2,10 @@
 title: Troubleshoot Kubernetes compute for machine learning tasks
 description: Learn how to troubleshoot common Kubernetes compute errors for training jobs and model deployments.
 titleSuffix: Azure Machine Learning
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: ssalgado
-ms.service: machine-learning
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: chenlujiao
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 02/11/2024
 ms.topic: how-to
@@ -110,6 +110,8 @@ Below is a list of error types in **cluster scope** that you might encounter whe
 * [ERROR: GenericClusterError](#error-genericclustererror)
 * [ERROR: ClusterNotReachable](#error-clusternotreachable)
 * [ERROR: ClusterNotFound](#error-clusternotfound)
+* [ERROR: ClusterServiceNotFound](#error-clusterservicenotfound)
+* [ERROR: ClusterUnauthorized](#error-clusterunauthorized)
 
 #### ERROR: GenericClusterError
 
@@ -162,6 +164,33 @@ This error should occur when the system cannot find the AKS/Arc-Kubernetes clust
 You can check the following items to troubleshoot the issue:
 * First, check the cluster resource ID in the Azure portal to verify whether Kubernetes cluster resource still exists and is running normally.
 * If the cluster exists and is running, then you can try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
+
+#### ERROR: ClusterServiceNotFound
+
+The error message is as follows:
+
+````bash
+AzureML extension service not found in cluster.
+````
+
+This error should occur when the extension-owned ingress service doesn't have enough backend pods.
+
+You can:
+
+* Access the cluster and check the status of the service `azureml-ingress-nginx-controller` and its backend pod under the `azureml` namespace.
+* If the cluster doesn't have any running backend pods, check the reason by describing the pod. For example, if the pod doesn't have enough resources to run, you can delete some pods to free enough resources for the ingress pod.
+
+#### ERROR: ClusterUnauthorized
+
+The error message is as follows:
+
+````bash
+Request to Kubernetes cluster unauthorized.
+````
+
+This error should only occur in the TA-enabled cluster, which means the access token expired during the deployment.
+
+You can try again after several minutes.
 
 > [!TIP]
    > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).

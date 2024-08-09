@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 05/21/2024
+ms.date: 08/08/2024
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -39,7 +39,7 @@ For more information, see [Use the Azure Key Vault Secrets Provider extension to
 
 Microsoft Defender for Containers is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. It gathers information related to security like audit log data from the Kubernetes cluster, and provides recommendations and threat alerts based on gathered data.
 
-For more information, see [Enable Microsoft Defender for Containers](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json).
+For more information, see [Enable Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-kubernetes-azure-arc?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json).
 
 > [!IMPORTANT]
 > Defender for Containers support for Arc-enabled Kubernetes clusters is currently in public preview.
@@ -116,10 +116,64 @@ For more information, see [Tutorial: Deploy applications using GitOps with Flux 
 The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
 > [!IMPORTANT]
-> Eventually, a major version update (v2.x.x) for the `microsoft.flux` extension will be released. When this happens, clusters won't be auto-upgraded to this version, since [auto-upgrade is only supported for minor version releases](extensions.md#upgrade-extension-instance). If you're still using an older API version when the next major version is released, you'll need to update your manifests to the latest API versions, perform any necessary testing, then upgrade your extension manually. For more information about the new API versions (breaking changes) and how to update your manifests, see the [Flux v2 release notes](https://github.com/fluxcd/flux2/releases/tag/v2.0.0).
+> The [Flux v2.3.0 release](https://fluxcd.io/blog/2024/05/flux-v2.3.0/) includes API changes to the HelmRelease and HelmChart APIs, with deprecated fields removed, and an updated version of the kustomize package. An upcoming minor version update of Microsoft's Flux extension will include these changes, consistent with the upstream OSS Flux project.
+>
+> The [HelmRelease](https://fluxcd.io/flux/components/helm/helmreleases/) kind will be promoted from `v2beta1` to `v2` (GA). The `v2` API is backwards compatible with `v2beta1`, with the exception of these deprecated fields, which will be removed:
+>
+> - `.spec.chart.spec.valuesFile`: replaced by `.spec.chart.spec.valuesFiles`
+> - `.spec.postRenderers.kustomize.patchesJson6902`: replaced by `.spec.postRenderers.kustomize.patches`
+> - `.spec.postRenderers.kustomize.patchesStrategicMerge`: replaced by `.spec.postRenderers.kustomize.patches`
+> - `.status.lastAppliedRevision`: replaced by `.status.history.chartVersion`
+>
+> The [HelmChart](https://fluxcd.io/flux/components/source/helmcharts/) kind will be promoted from `v1beta2` to `v1` (GA). The `v1` API is backwards compatible with `v1beta2`, with the exception of the `.spec.valuesFile` field, which will be replaced by `.spec.valuesFiles`.
+>
+> Use the new fields which are already available in the current version of the APIs, instead of the fields that will be removed.
+>
+> The kustomize package will be updated to v5.4.0, which contains the following breaking changes:
+>
+> - [Kustomization build fails when resources key is missing](https://github.com/kubernetes-sigs/kustomize/issues/5337)
+> - [Components are now applied after generators and before transformers](https://github.com/kubernetes-sigs/kustomize/pull/5170) in [v5.1.0](https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv5.1.0)
+> - [Null yaml values are replaced by "null"](https://github.com/kubernetes-sigs/kustomize/pull/5519) in [v5.4.0](https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv5.4.0)
+>
+> To avoid issues due to breaking changes, we recommend updating your manifests as soon as possible to ensure that your Flux configurations remain compliant with this release.
+
 
 > [!NOTE]
 > When a new version of the `microsoft.flux` extension is released, it may take several days for the new version to become available in all regions.
+
+### 1.11.1 (August 2024)
+
+Flux version: [Release v2.3.0](https://github.com/fluxcd/flux2/releases/tag/v2.3.0)
+
+- source-controller: v1.3.0
+- kustomize-controller: v1.3.0
+- helm-controller: v1.0.1
+- notification-controller: v1.3.0
+- image-automation-controller: v0.32.1
+- image-reflector-controller: v0.38.0
+
+Changes made for this version:
+
+- Update flux OSS controllers.
+- Resolved the continuous restart issue of the Fluent Bit sidecar in `fluxconfig-agent` and `fluxconfig-controller`.
+- Addressed security vulnerabilities in `fluxconfig-agent` and `fluxconfig-controller` by updating the Go packages.
+- Enabled workload identity for the Kustomize controller. For setup instructions, see [Workload identity in AKS clusters](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2#workload-identity-in-aks-clusters).
+- Flux controller pods can now set the annotation `kubernetes.azure.com/set-kube-service-host-fqdn` in their pod specifications. This allows traffic to the API Server's domain name even when a Layer 7 firewall is present, facilitating deployments during extension installation. For more details, see [Configure annotation on Flux extension pods](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2#configure-annotation-on-flux-extension-pods).
+
+### 1.10.0 (June 2024)
+
+Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
+
+- source-controller: v1.2.5
+- kustomize-controller: v1.1.1
+- helm-controller: v0.36.2
+- notification-controller: v1.1.0
+- image-automation-controller: v0.36.1
+- image-reflector-controller: v0.30.0
+
+Changes made for this version:
+
+- The `FluxConfig` custom resource now includes support for [OCI repositories](https://fluxcd.io/flux/components/source/ocirepositories/). This enhancement means that Flux configurations can accommodate Git repository, Buckets, Azure Blob storage, or OCI repository as valid source types.
 
 ### 1.9.1 (April 2024)
 
@@ -137,44 +191,11 @@ Changes made for this version:
 - The log-level parameters for controllers (including `fluxconfig-agent` and `fluxconfig-controller`) are now customizable. For more information, see [Configurable log-level parameters](tutorial-use-gitops-flux2.md#configurable-log-level-parameters).
 - Helm chart changes to expose new SSH host key algorithm to connect to Azure DevOps. For more information, see [Azure DevOps SSH-RSA deprecation](tutorial-use-gitops-flux2.md#azure-devops-ssh-rsa-deprecation).
 
-### 1.8.4 (April 2024)
-
-Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
-
-- source-controller: v1.2.5
-- kustomize-controller: v1.1.1
-- helm-controller: v0.36.2
-- notification-controller: v1.1.0
-- image-automation-controller: v0.36.1
-- image-reflector-controller: v0.30.0
-
-Changes made for this version:
-
-- Updated source-controller to v1.2.5 [to address security vulnerability](https://github.com/advisories/GHSA-v554-xwgw-hc3w)
-
-### 1.8.3 (March 2024)
-
-> [!NOTE]
-> We recommend upgrading to version 1.8.4 or later due to a [security vulnerability](https://github.com/advisories/GHSA-v554-xwgw-hc3w) that has been fixed starting with 1.8.4.
-
-Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
-
-- source-controller: v1.1.2
-- kustomize-controller: v1.1.1
-- helm-controller: v0.36.2
-- notification-controller: v1.1.0
-- image-automation-controller: v0.36.1
-- image-reflector-controller: v0.30.0
-
-Changes made for this version:
-
-- The log-level parameters for controllers are now customizable. For more information, see [Configurable log-level parameters](tutorial-use-gitops-flux2.md#configurable-log-level-parameters).
-
 ## Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
 [Dapr](https://dapr.io/) is a portable, event-driven runtime that simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. The Dapr extension eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters.
 
-For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](../../aks/dapr.md).
+For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](/azure/aks/dapr).
 
 ## Azure AI Video Indexer
 

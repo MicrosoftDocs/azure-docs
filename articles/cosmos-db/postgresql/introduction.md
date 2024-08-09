@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for PostgreSQL
 description: Use Azure Cosmos DB for PostgreSQL to run your PostgreSQL relational data workloads at any scale using your existing skills.
 author: jonels-msft
 ms.author: jonels
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: overview
 ms.date: 10/01/2023

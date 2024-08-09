@@ -4,7 +4,7 @@ description: Quickstart showing how to an Azure Cosmos DB database and a contain
 author: seesharprun
 ms.author: sidandrews
 tags: azure-resource-manager, bicep
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 04/18/2022
@@ -39,6 +39,9 @@ Three Azure resources are defined in the Bicep file:
 - [Microsoft.DocumentDB/databaseAccounts/sqlDatabases](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases): Create an Azure Cosmos DB database.
 
 - [Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Create an Azure Cosmos DB container.
+
+> [!IMPORTANT]
+> The Azure Resource Manager provider, `Microsoft.DocumentDB/databaseAccounts`, has maintained the same name for many years. This ensures that templates written years ago are still compatible with the same provider even as the name of the service and sub-services have evolved.
 
 ## Deploy the Bicep file
 

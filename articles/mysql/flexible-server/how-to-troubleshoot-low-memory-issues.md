@@ -1,12 +1,13 @@
 ---
 title: Troubleshoot low memory issues
 description: Learn how to troubleshoot low memory issues in Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
 author: SudheeshGH
 ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
 ms.topic: troubleshooting
-ms.date: 06/20/2022
 ---
 
 # Troubleshoot low memory issues in Azure Database for MySQL - Flexible Server

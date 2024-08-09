@@ -31,6 +31,8 @@
     href: prioritize-data-connectors.md 
   - name: Plan roles and permissions
     href: roles.md
+  - name: Plan interactive and long-term data retention
+    href: log-plans.md
   - name: Plan costs
     href: billing.md
   - name: Availability and support
@@ -57,7 +59,7 @@
     href: use-multiple-workspaces.md
   - name: Enable User and Entity Behavior Analytics (UEBA)
     href: enable-entity-behavior-analytics.md
-  - name: Configure data retention and archive 
+  - name: Configure interactive and long-term data retention 
     href: configure-data-retention-archive.md
   - name: Deploy side-by-side
     href: deploy-side-by-side.md
@@ -240,7 +242,7 @@
       href: ../defender-for-iot/organizations/iot-solution.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
-  - name: Integrate Microsoft 365 Defender
+  - name: Integrate Microsoft Defender XDR
     href: microsoft-365-defender-sentinel-integration.md
   - name: Integrate Microsoft Defender for Cloud
     href: ingest-defender-for-cloud-incidents.md
@@ -260,6 +262,8 @@
     href: data-transformation.md
   - name: AMA migration for Microsoft Sentinel
     href: ama-migrate.md
+  - name: Ingest data to an auxiliary logs table
+    href: ../azure-monitor/logs/create-custom-table-auxiliary.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find data connector
     href: data-connectors-reference.md
   - name: All connectors
@@ -344,6 +348,8 @@
       href: data-connectors/recommended-pingfederate-via-ama.md
     - name: '[Recommended] Trend Micro Apex One via AMA'
       href: data-connectors/recommended-trend-micro-apex-one-via-ama.md
+    - name: 1Password (using Azure Functions)
+      href: data-connectors/1password.md
     - name: AbnormalSecurity (using Azure Functions)
       href: data-connectors/abnormalsecurity.md
     - name: AI Vectra Stream
@@ -442,8 +448,6 @@
       href: data-connectors/cisco-secure-endpoint-amp.md
     - name: Cisco Software Defined WAN
       href: data-connectors/cisco-software-defined-wan.md
-    - name: Cisco Stealthwatch
-      href: data-connectors/cisco-stealthwatch.md
     - name: Cisco UCS
       href: data-connectors/cisco-ucs.md
     - name: Cisco Umbrella (using Azure Functions)
@@ -468,6 +472,8 @@
       href: data-connectors/corelight-connector-exporter.md
     - name: Cortex XDR - Incidents
       href: data-connectors/cortex-xdr-incidents.md
+    - name: CrowdStrike Falcon Adversary Intelligence (using Azure Functions)
+      href: data-connectors/crowdstrike-falcon-adversary-intelligence.md
     - name: Crowdstrike Falcon Data Replicator (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-data-replicator.md
     - name: Crowdstrike Falcon Data Replicator V2 (using Azure Functions)
@@ -554,8 +560,6 @@
       href: data-connectors/hackerview-intergration.md
     - name: Holm Security Asset Data (using Azure Functions)
       href: data-connectors/holm-security-asset-data.md
-    - name: HYAS Protect (using Azure Functions)
-      href: data-connectors/hyas-protect.md
     - name: Imperva Cloud WAF (using Azure Functions)
       href: data-connectors/imperva-cloud-waf.md
     - name: Infoblox NIOS
@@ -762,8 +766,10 @@
       href: data-connectors/syslog-via-ama.md
     - name: Talon Insights
       href: data-connectors/talon-insights.md
-    - name: Tenable.io Vulnerability Management (using Azure Function)
-      href: data-connectors/tenable-io-vulnerability-management.md
+    - name: Tenable Identity Exposure
+      href: data-connectors/tenable-identity-exposure.md
+    - name: Tenable Vulnerability Management (using Azure Function)
+      href: data-connectors/tenable-vulnerability-management.md
     - name: Tenant-based Microsoft Defender for Cloud (Preview)
       href: data-connectors/tenant-based-microsoft-defender-for-cloud.md
     - name: TheHive Project - TheHive (using Azure Functions)
@@ -776,6 +782,8 @@
       href: data-connectors/threat-intelligence-platforms.md
     - name: Threat Intelligence Upload Indicators API (Preview)
       href: data-connectors/threat-intelligence-upload-indicators-api.md
+    - name: Transmit Security Connector (using Azure Functions)
+      href: data-connectors/transmit-security-connector.md
     - name: Trend Micro Deep Security
       href: data-connectors/trend-micro-deep-security.md
     - name: Trend Micro TippingPoint
@@ -842,6 +850,10 @@
         href: cef-syslog-ama-overview.md  
       - name: CEF and Syslog via AMA
         href: connect-cef-syslog-ama.md
+      - name: CEF - configure security device       
+        href: unified-connector-cef-device.md 
+      - name: Syslog - configure security device       
+        href: unified-connector-syslog-device.md    
       - name: CEF over Syslog sources (legacy)
         href: connect-common-event-format.md
       - name: Deploy a log forwarder (legacy)
@@ -866,7 +878,7 @@
       href: cloudwatch-lambda-function.yml
     - name: Google Cloud Platform connectors 
       href: connect-google-cloud-platform.md
-    - name: Azure Active Directory
+    - name: Microsoft Entra
       href: connect-azure-active-directory.md
     - name: Azure Stack VMs
       href: connect-azure-stack.md
@@ -874,7 +886,7 @@
       href: connect-azure-virtual-desktop.md
     - name: Microsoft Defender for Cloud
       href: connect-defender-for-cloud.md
-    - name: Microsoft 365 Defender
+    - name: Microsoft Defender XDR
       href: connect-microsoft-365-defender.md
     - name: Integrate Microsoft Purview
       href: purview-solution.md  
@@ -910,6 +922,8 @@
       href: normalization-manage-parsers.md
     - name: Modify content to use ASIM
       href: normalization-modify-content.md
+  - name: Aggregate data with summary rules
+    href: summary-rules.md
 - name: Integrate threat intelligence
   items:
   - name: Overview
@@ -950,6 +964,8 @@
       href: threat-detection.md
     - name: Scheduled analytics rules
       items:
+      - name: Overview
+        href: scheduled-rules-overview.md
       - name: Create a scheduled rule from a template
         href: create-analytics-rule-from-template.md
       - name: Create a scheduled rule from scratch
@@ -1058,6 +1074,8 @@
     href: investigate-incidents.md
   - name: Investigate incidents (Legacy)
     href: investigate-cases.md
+  - name: Investigate incidents in Copilot for Security
+    href: sentinel-security-copilot.md
   - name: Tutorial - Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Relate alerts to incidents
@@ -1141,10 +1159,12 @@
         href: automation/define-playbook-access-restrictions.md
       - name: Create and perform advanced incident tasks using playbooks
         href: automation/create-tasks-playbook.md
-- name: Optimize your security operations
+- name: SOC optimizations
   items:
-  - name: SOC optimizations overview
+  - name: Optimize your security operations
     href: soc-optimization/soc-optimization-access.md
+  - name: Use SOC optimizations programmatically
+    href: soc-optimization/soc-optimization-api.md
   - name: SOC optimization reference
     href: soc-optimization/soc-optimization-reference.md
 - name: Manage Microsoft Sentinel
@@ -1159,7 +1179,7 @@
       href: enroll-simplified-pricing-tier.md
     - name: Tutorial - Configure data retention policy
       href: configure-data-retention.md
-    - name: Basic logs best practices
+    - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
     href: /microsoft-365/security/defender/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
@@ -1217,8 +1237,6 @@
   items:
   - name: Service limits
     href: sentinel-service-limits.md
-  - name: Compare playbooks, workbooks, and notebooks
-    href: resources.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: Management references
@@ -1275,14 +1293,16 @@
           href: normalization-schema-web.md
         - name: Legacy network normalization schema
           href: normalization-schema-v1.md
+  - name: Automation and response references
+    items:
+    - name: SOAR content catalog
+      href: sentinel-soar-content.md
   - name: Data collection references
     items:
     - name: Data source schema reference
       href: data-source-schema-reference.md
     - name: Security alert schema reference
       href: security-alert-schema.md
-    - name: CEF log field mapping
-      href: cef-name-mapping.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
@@ -1319,12 +1339,10 @@
         href: data-connector-ui-definitions-reference.md
       - name: Data connectors API reference
         href: data-connector-connection-rules-reference.md
-    - name: Defender for Cloud Apps alerts not onboarded to Microsoft 365 Defender
-      href: ./microsoft-365-defender-sentinel-integration.md#microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules
-  - name: Automation and response references
-    items:
-    - name: SOAR content catalog
-      href: sentinel-soar-content.md
+  - name: Compare playbooks, workbooks, and notebooks
+    href: resources.md
+  - name: Operations guide
+    href: ops-guide.md
 - name: Resources
   items:
   - name: Sample workspace architecture

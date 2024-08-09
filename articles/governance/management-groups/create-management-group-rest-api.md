@@ -1,9 +1,10 @@
 ---
 title: "Quickstart: Create a management group with REST API"
 description: In this quickstart, you use REST API to create a management group to organize your resources into a resource hierarchy.
-ms.date: 08/17/2021
+ms.date: 07/19/2024
 ms.topic: quickstart
 ---
+
 # Quickstart: Create a management group with REST API
 
 Management groups are containers that help you manage access, policy, and compliance across multiple
@@ -23,19 +24,16 @@ directory. You receive a notification when the process is complete. For more inf
   account before you begin.
 
 - If you haven't already, install [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool
-  that sends HTTP requests to Azure Resource Manager-based REST APIs. Instead, you can use the "Try
-  It" feature in REST documentation or tooling like PowerShell's
-  [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) or
-  [Postman](https://www.postman.com).
+  that sends HTTP requests to Azure Resource Manager-based REST APIs.
 
-- Any Azure AD user in the tenant can create a management group without the management group write
+- Any Microsoft Entra ID user in the tenant can create a management group without the management group write
   permission assigned to that user if
-  [hierarchy protection](./how-to/protect-resource-hierarchy.md#setting---require-authorization)
+  [hierarchy protection](./how-to/protect-resource-hierarchy.md#setting-require-authorization)
   isn't enabled. This new management group becomes a child of the Root Management Group or the
-  [default management group](./how-to/protect-resource-hierarchy.md#setting---default-management-group)
+  [default management group](./how-to/protect-resource-hierarchy.md#setting-define-the-default-management-group)
   and the creator is given an "Owner" role assignment. Management group service allows this ability
   so that role assignments aren't needed at the root level. No users have access to the Root
-  Management Group when it's created. To avoid the hurdle of finding the Azure AD Global Admins to
+  Management Group when it's created. To avoid the hurdle of finding the Microsoft Entra ID Global Admins to
   start using management groups, we allow the creation of the initial management groups at the root
   level.
 

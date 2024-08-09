@@ -1,7 +1,7 @@
 ---
 title: Overview of VM Applications in the Azure Compute Gallery
 description: Learn more about VM application packages in an Azure Compute Gallery.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.date: 02/26/2024
@@ -187,7 +187,7 @@ sudo apt show powershell | grep Depends
 2. Check the output of the line **Depends** which lists the following packages:
 
 ```output
-Depends: libc6, libgcc1, libgssapi-krb5-2, libstdc++6, zlib1g, libicu72|libicu71|libicu70|libicu69|libicu68|libicu67|libicu66|libicu65|libicu63|libicu60|libicu57|libicu55|libicu52, libssl3|libssl1.1|libssl1.0.2|libssl1.
+Depends: libc6, lib32gcc-s1, libgssapi-krb5-2, libstdc++6, zlib1g, libicu72|libicu71|libicu70|libicu69|libicu68|libicu67|libicu66|libicu65|libicu63|libicu60|libicu57|libicu55|libicu52, libssl3|libssl1.1|libssl1.0.2|libssl1.
 ```
 
 3. Download each of these files using `sudo apt-get download <package_name>` and create a tar compressed archive with all files.
@@ -198,7 +198,7 @@ Depends: libc6, libgcc1, libgssapi-krb5-2, libstdc++6, zlib1g, libicu72|libicu71
 mkdir /tmp/powershell
 cd /tmp/powershell
 sudo apt-get download libc6
-sudo apt-get download libgcc1
+sudo apt-get download lib32gcc-s1
 sudo apt-get download libgssapi-krb5-2
 sudo apt-get download libstdc++6
 sudo apt-get download zlib1g
@@ -214,7 +214,7 @@ sudo tar -cvzf powershell.tar.gz *.deb
 mkdir /tmp/powershell
 cd /tmp/powershell
 sudo apt-get download libc6
-sudo apt-get download libgcc1
+sudo apt-get download lib32gcc-s1
 sudo apt-get download libgssapi-krb5-2
 sudo apt-get download libstdc++6
 sudo apt-get download zlib1g
@@ -230,7 +230,7 @@ sudo tar -cvzf powershell.tar.gz *.deb
 mkdir /tmp/powershell
 cd /tmp/powershell
 sudo apt-get download libc6
-sudo apt-get download libgcc1
+sudo apt-get download lib32gcc-s1
 sudo apt-get download libgssapi-krb5-2
 sudo apt-get download libstdc++6
 sudo apt-get download zlib1g
@@ -433,7 +433,7 @@ If I want to create a VM application package for `myApp.exe`, which ships as an 
 "move .\\myApp .\\myApp.exe & myApp.exe /S -config myApp_config"
 ```
 
-If the installer executable file doesn't support an uninstall parameter, you can sometimes look up the registry on a test machine to know here the uninstaller is located.
+If the installer executable file doesn't support an uninstall parameter, you can sometimes look up the registry on a test machine to know where the uninstaller is located.
 
 In the registry, the uninstall string is stored in `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\<installed application name>\UninstallString` so I would use the contents as my remove command:
 

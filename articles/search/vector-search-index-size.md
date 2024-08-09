@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 08/05/2024
 ---
 
 # Vector index size and staying under limits
@@ -20,7 +20,7 @@ For each vector field, Azure AI Search constructs an internal vector index using
 > A note about terminology. Internally, the physical data structures of a search index include raw content (used for retrieval patterns requiring non-tokenized content), inverted indexes (used for searchable text fields), and vector indexes (used for searchable vector fields). This article explains the limits for the internal vector indexes that back each of your vector fields.
 
 > [!TIP]
-> [Vector quantization and storage configuration](vector-search-how-to-configure-compression-storage.md) is now in preview. Use capabilities like narrow data types, scalar quantization, and elimination of redundant storage to stay under vector quota and storage quota.
+> [Vector quantization and storage configuration](vector-search-how-to-configure-compression-storage.md) is now generally available. Use capabilities like narrow data types, scalar quantization, and elimination of redundant storage to stay under vector quota and storage quota.
 
 ## Key points about quota and vector index size
 
@@ -94,7 +94,7 @@ Quotas for both storage and vector index size increase or decrease as you add or
 
 ### [**REST**](#tab/rest-vector-quota)
 
-Use the following data plane REST APIs (version 2023-10-01-preview, 2023-11-01, and later) for vector usage statistics:
+Data plane REST APIs (all newer APIs provide vector usage statistics):
 
 + [GET Service Statistics](/rest/api/searchservice/get-service-statistics/get-service-statistics) returns quota and usage for the search service all-up. 
 + [GET Index Statistics](/rest/api/searchservice/indexes/get-statistics) returns usage for a given index.
@@ -104,7 +104,7 @@ Usage and quota are reported in bytes.
 Here's GET Service Statistics:
 
 ```http
-GET {{baseUrl}}/servicestats?api-version=2023-11-01  HTTP/1.1
+GET {{baseUrl}}/servicestats?api-version=2024-07-01  HTTP/1.1
     Content-Type: application/json
     api-key: {{apiKey}}
 ```
@@ -146,7 +146,7 @@ Response includes metrics for `storageSize`, which doesn't distinguish between v
 You can also send a GET Index Statistics to get the physical size of the index on disk, plus the in-memory size of the vector fields.
 
 ```http
-GET {{baseUrl}}/indexes/vector-healthplan-idx/stats?api-version=2023-11-01  HTTP/1.1
+GET {{baseUrl}}/indexes/vector-healthplan-idx/stats?api-version=2024-07-01  HTTP/1.1
     Content-Type: application/json
     api-key: {{apiKey}}
 ```

@@ -3,10 +3,11 @@ title: Import and export
 description: This article explains common ways to import and export databases in Azure Database for MySQL - Flexible Server, by using tools such as MySQL Workbench.
 author: aditivgupta
 ms.author: adig
-ms.service: mysql
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 06/20/2022
 ---
 
 # Migrate your Azure Database for MySQL - Flexible Server database by using import and export

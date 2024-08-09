@@ -1,12 +1,13 @@
 ---
 title: Troubleshoot connectivity issues
 description: Learn how to troubleshoot connectivity issues in Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
 author: SudheeshGH
 ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
 ms.topic: troubleshooting
-ms.date: 07/22/2022
 ---
 
 # Troubleshoot connectivity issues in Azure Database for MySQL - Flexible Server

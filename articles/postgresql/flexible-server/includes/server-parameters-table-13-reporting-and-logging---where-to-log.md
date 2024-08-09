@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `PostgreSQL`                     |
 | Allowed values | `PostgreSQL`                     |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [event_source](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-EVENT-SOURCE)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `stderr`                         |
 | Allowed values | `stderr,csvlog`                  |
 | Parameter type | dynamic        |
-| Documentation  | [log_destination](https://www.postgresql.org/docs/13/runtime-config-logging.html) |
+| Documentation  | [log_destination](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-DESTINATION)                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `log`                            |
 | Allowed values | `log`                            |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [log_directory](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-DIRECTORY)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `0600`                           |
 | Allowed values | `0600`                           |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [log_file_mode](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-FILE-MODE)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `postgresql-%Y-%m-%d_%H%M%S.log` |
 | Allowed values | `postgresql-%Y-%m-%d_%H%M%S.log` |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [log_filename](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-FILENAME)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `off`                            |
 | Allowed values | `off`                            |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [logging_collector](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOGGING-COLLECTOR)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `60`                             |
 | Allowed values | `60`                             |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [log_rotation_age](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-ROTATION-AGE)                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -136,7 +136,7 @@ ms.topic: include
 | Default value  | `102400`                         |
 | Allowed values | `102400`                         |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [log_rotation_size](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-ROTATION-SIZE)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -153,7 +153,7 @@ ms.topic: include
 | Default value  | `off`                            |
 | Allowed values | `off`                            |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [log_truncate_on_rotation](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-TRUNCATE-ON-ROTATION) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -170,7 +170,7 @@ ms.topic: include
 | Default value  | `local0`                         |
 | Allowed values | `local0`                         |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [syslog_facility](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-SYSLOG-FACILITY)                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -187,7 +187,7 @@ ms.topic: include
 | Default value  | `postgres`                       |
 | Allowed values | `postgres`                       |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [syslog_ident](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-SYSLOG-IDENT)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -204,7 +204,7 @@ ms.topic: include
 | Default value  | `on`                             |
 | Allowed values | `on`                             |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [syslog_sequence_numbers](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-SYSLOG-SEQUENCE-NUMBERS)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -221,7 +221,7 @@ ms.topic: include
 | Default value  | `on`                             |
 | Allowed values | `on`                             |
 | Parameter type | read-only      |
-| Documentation  |                                                                                   |
+| Documentation  | [syslog_split_messages](https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-SYSLOG-SPLIT-MESSAGES)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

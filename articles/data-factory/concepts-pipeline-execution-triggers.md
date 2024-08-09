@@ -5,7 +5,6 @@ description: This article provides information about how to execute a pipeline i
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 01/05/2024
@@ -37,7 +36,7 @@ You will see the trigger configuration window, allowing you to choose the trigge
 Read more about [scheduled](#schedule-trigger-with-json), [tumbling window](#tumbling-window-trigger), [storage event](#event-based-trigger), and [custom event](#event-based-trigger) triggers below.
 
 
-## Manual execution (on-demand) with JSON
+## Manual execution with JSON
 
 The manual execution of a pipeline is also referred to as _on-demand_ execution.
 
@@ -87,22 +86,27 @@ For example, say you have a basic pipeline named **copyPipeline** that you want 
 
 In the JSON definition, the pipeline takes two parameters: **sourceBlobContainer** and **sinkBlobContainer**. You pass values to these parameters at runtime.
 
+## Manual execution with other APIs/SDKs
+
 You can manually run your pipeline by using one of the following methods:
+
 - .NET SDK
 - Azure PowerShell module
 - REST API
 - Python SDK
 
-### REST API
+### .NET SDK
 
-The following sample command shows you how to run your pipeline by using the REST API manually:
+The following sample call shows you how to run your pipeline by using the .NET SDK manually:
 
+```csharp
+client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
 ```
-POST
-https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
-```
 
-For a complete sample, see [Quickstart: Create a data factory by using the REST API](quickstart-create-data-factory-rest-api.md).
+For a complete sample, see [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md).
+
+> [!NOTE]
+> You can use the .NET SDK to invoke pipelines from Azure Functions, from your web services, and so on.
 
 ### Azure PowerShell
 
@@ -133,18 +137,20 @@ The response payload is a unique ID of the pipeline run:
 
 For a complete sample, see [Quickstart: Create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### .NET SDK
+### Python SDK
 
-The following sample call shows you how to run your pipeline by using the .NET SDK manually:
+For a complete sample, see [Quickstart: Create a data factory and pipeline using Python](quickstart-create-data-factory-python.md)
 
-```csharp
-client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
+### REST API
+
+The following sample command shows you how to run your pipeline by using the REST API manually:
+
+```
+POST
+https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
 ```
 
-For a complete sample, see [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md).
-
-> [!NOTE]
-> You can use the .NET SDK to invoke pipelines from Azure Functions, from your web services, and so on.
+For a complete sample, see [Quickstart: Create a data factory by using the REST API](quickstart-create-data-factory-rest-api.md).
 
 ## Trigger execution with JSON
 

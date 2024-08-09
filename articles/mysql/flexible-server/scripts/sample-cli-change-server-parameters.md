@@ -3,12 +3,15 @@ title: CLI script - List and change server parameters
 description: This Azure CLI sample script shows how to list and change server parameters of an Azure Database for MySQL - Flexible Server instance.
 author: shreyaaithal
 ms.author: shaithal
-ms.service: mysql
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
-ms.date: 02/10/2022 
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # List and change server parameters of Azure Database for MySQL - Flexible Server using Azure CLI

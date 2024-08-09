@@ -13,6 +13,10 @@
     href: files-nfs-protocol.md
   - name: What's new in Azure Files?
     href: files-whats-new.md
+- name: Architecture
+  items:
+  - name: Well-architected considerations
+    href: /azure/well-architected/service-guides/azure-files?toc=/azure/storage/files/toc.json&bc=/azure/storage/files/breadcrumb/toc.json
 - name: Tutorials
   items:
   - name: Create a Windows SMB file share

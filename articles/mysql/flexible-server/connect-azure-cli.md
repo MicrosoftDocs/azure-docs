@@ -1,13 +1,17 @@
 ---
-title: 'Quickstart: Connect using Azure CLI'
+title: "Quickstart: Connect using Azure CLI"
 description: This quickstart provides several ways to connect with and query Azure Database for MySQL - Flexible Server by using Azure CLI.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: quickstart
 author: shreyaaithal
 ms.author: shaithal
-ms.custom: mvc, mode-api, devx-track-azurecli
-ms.date: 05/03/2023
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: quickstart
+ms.custom:
+  - mvc
+  - mode-api
+  - devx-track-azurecli
 ---
 
 # Quickstart: Connect with Azure Database for MySQL - Flexible Server by using Azure CLI
@@ -121,8 +125,6 @@ newdatabase1> SELECT * FROM table1;
 Time: 0.149s
 newdatabase>exit;
 Goodbye!
-Local context is turned on. Its information is saved in working directory C:\mydir. You can run `az local-context off` to turn it off.
-Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
 ```
 
 ## Run Single Query
@@ -147,8 +149,6 @@ Successfully connected to mysqldemoserver1.
 Ran Database Query: 'select * from table1;'
 Retrieving first 30 rows of query output, if applicable.
 Closed the connection to mysqldemoserver1
-Local context is turned on. Its information is saved in working directory C:\Users\sumuth. You can run `az local-context off` to turn it off.
-Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
 Txt    Val
 -----  -----
 test   200

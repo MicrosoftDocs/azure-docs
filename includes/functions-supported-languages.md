@@ -19,7 +19,7 @@ Your function code runs in a separate .NET worker process. Use with [supported v
 
 ### [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
 
 Your function code runs in the same process as the Functions host process. Supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). To learn more, see [Develop .NET class library functions](../articles/azure-functions/functions-dotnet-class-library.md).  
 
@@ -29,7 +29,10 @@ Your function code runs in the same process as the Functions host process. Suppo
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [.NET 8 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle)<sup>1</sup> | GA | November 10, 2026 |
 | [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
+
+<sup>1</sup> Targeting .NET 8 with the in-process model is not yet enabled for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
 
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md). Also supports [C# script functions](../articles/azure-functions/functions-reference-csharp.md).
 

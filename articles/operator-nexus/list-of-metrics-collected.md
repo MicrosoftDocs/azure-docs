@@ -337,7 +337,7 @@ The collection interval for Network Fabric device metrics varies and you can fin
 | TemperatureInstant | Temperature Instantaneous | Resource Utilization | NA | NA | The instantaneous value of temperature in degrees Celsius of the component. | NA | Yes | Per minute |
 | PowerSupplyInputCurrent | Power Supply Input Current | Resource Utilization | Amps | Average | The input current draw of the power supply | NA | Yes | Per minute |
 | PowerSupplyInputVoltage | Power Supply Input Voltage | Resource Utilization | Volts | Average | The input voltage of the power supply | NA | Yes | Per minute |
-| PowerSupplyMaximumPowerCapacity | Power Supply Maximum Power Capacity | Resource Utilization | Watts | Average | Maximum power capacity of the power supply | NA | Yes | Per minute |
+| PowerSupplyCapacity | Power Supply Maximum Power Capacity | Resource Utilization | Watts | Average | Maximum power capacity of the power supply | NA | Yes | Per minute |
 | PowerSupplyOutputCurrent | Power Supply Output Current | Resource Utilization | Amps | Average | The output current supplied by the power supply | NA | Yes | Per minute |
 | PowerSupplyOutputPower| Power Supply Output Power | Resource Utilization | Watts | Average | The output power supplied by the power supply | NA | Yes | Per minute |
 | PowerSupplyOutputVoltage | Power Supply Output Voltage | Resource Utilization | Volts | Average | The output voltage supplied the power supply | NA | Yes | Per minute |

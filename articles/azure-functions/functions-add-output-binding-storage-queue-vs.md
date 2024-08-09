@@ -52,7 +52,7 @@ Because you're using a Queue storage output binding, you need the Storage bindin
     ```
     # [In-process model](#tab/in-process) 
 
-    [!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+    [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
     ```bash
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage 

@@ -83,13 +83,13 @@ items:
           href: ./hdinsight-high-availability-case-study.md
     - name: Understand managed identities
       href: ./hdinsight-managed-identities.md
+    - name: MSI Support to access Azure services
+      href: ./msi-support-to-access-azure-services.md
     - name: Compare storage options
       href: hdinsight-hadoop-compare-storage-options.md
       items:
       - name: Azure Storage overview 
         href: overview-azure-storage.md
-      - name: Azure Data Lake Storage Gen1 overview 
-        href: overview-data-lake-storage-gen1.md
       - name: Azure Data Lake Storage Gen2 overview 
         href: overview-data-lake-storage-gen2.md
   - name: How-to guides
@@ -127,8 +127,6 @@ items:
         href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
       - name: Use Data Lake Storage Gen2 with Azure CLI
         href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
-      - name: Use Data Lake Storage Gen1
-        href: hdinsight-hadoop-use-data-lake-storage-gen1.md
     - name: Extend clusters
       items:
       - name: Install HDInsight apps
@@ -259,12 +257,22 @@ items:
         href: ./hdinsight-config-for-vscode.md
     - name: Monitoring
       items:
-      - name: Monitor
+      - name: Monitor Azure HDInsight
         href: monitor-hdinsight.md
-      - name: Use Azure Monitor logs
-        href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
-      - name: Use selective logging to monitor logs
-        href: ./selective-logging-analysis.md
+      - name: Use Azure Monitor logs  
+        items:
+        - name: New Azure Monitor experience Migration
+          href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+        - name: Selective Logging
+          href: ./selective-logging-analysis-azure-logs.md
+        - name: Enable new Azure Monitor integration
+          href: ./log-analytics-migration.md  
+      - name: Use Azure Monitor Agent  
+        items:    
+        - name: Azure Monitor Agent Migration
+          href: ./azure-monitor-agent.md
+        - name: Selective Logging
+          href: ./selective-logging-analysis.md
       - name: Use queries with Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
       - name: Monitor cluster performance
@@ -273,8 +281,6 @@ items:
         href: ./hdinsight-cluster-availability.md
       - name: Cluster availability - Azure Monitor logs
         href: ./cluster-availability-monitor-logs.md
-      - name: Enable new Azure Monitor integration
-        href: ./log-analytics-migration.md
       - name: Monitoring data reference
         href: monitor-hdinsight-reference.md
     - name: Troubleshoot
@@ -481,8 +487,6 @@ items:
           href: ./spark/apache-spark-zeppelin-notebook.md
       - name: Use with other Azure services
         items: 
-        - name: Use with Data Lake Storage
-          href: ./spark/apache-spark-use-with-data-lake-store.md
         - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
         - name: Run Azure ML workloads with AutoML

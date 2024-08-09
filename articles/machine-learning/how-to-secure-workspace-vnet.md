@@ -3,12 +3,12 @@ title: Secure an Azure Machine Learning workspace with virtual networks
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network to secure your Azure Machine Learning workspace and associated resources.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
-ms.date: 10/19/2023
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
+ms.date: 07/08/2024
 ms.topic: how-to
 ms.custom: tracking-python, security, cliv2, sdkv2, engagement-fy23, build-2023
 ---
@@ -177,7 +177,7 @@ Azure key vault can be configured to use either a private endpoint or service en
 
 # [Private endpoint](#tab/pe)
 
-For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](../key-vault/general/private-link-service.md#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
+For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
 
 
 # [Service endpoint](#tab/se)
@@ -193,7 +193,7 @@ For information on using a private endpoint with Azure Key Vault, see [Integrate
 
     :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="The Firewalls and virtual networks section in the Key Vault pane":::
 
-For more information, see [Configure Azure Key Vault network settings](../key-vault/general/how-to-azure-key-vault-network-security.md).
+For more information, see [Configure Azure Key Vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 ---
 
@@ -256,9 +256,9 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 1. Configure the ACR for the workspace to [Allow access by trusted services](../container-registry/allow-access-trusted-services.md).
 
-1. Create an Azure Machine Learning compute cluster. This cluster is used to build Docker images when ACR is behind a virtual network. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md).
+1. If you are using [serverless compute](how-to-use-serverless-compute.md) (recommended) with your workspace, Azure Machine Learning will try to use the serverless compute to build the image. To configure the workspace to create the compute in your Azure Virtual Network, follow the guidance in the [Secure training environment](how-to-secure-training-vnet.md) article.
 
-1. Use one of the following methods to configure the workspace to build Docker images using the compute cluster.
+1. If you are __not__ using serverless compute, create an Azure Machine Learning compute cluster. This cluster is used to build Docker images when ACR is behind a virtual network. For more information, see [Create a compute cluster](how-to-create-attach-compute-cluster.md). Use one of the following methods to configure the workspace to build Docker images using the compute cluster.
 
     > [!IMPORTANT]
     > The following limitations apply When using a compute cluster for image builds:
@@ -273,7 +273,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     az ml workspace update --name myworkspace --resource-group myresourcegroup --image-build-compute mycomputecluster
     ```
 
-    You can switch back to serverless compute by executing the same command and referencing the compute as an empty space: `--image-build-compute ' '`.
+    You can switch back to serverless compute by executing the same command and referencing the compute as an empty space: `--image-build-compute ''`.
 
     # [Python SDK](#tab/python)
 

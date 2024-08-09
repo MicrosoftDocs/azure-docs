@@ -10,7 +10,7 @@ ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 12/05/2022
+ms.date: 06/27/2024
 ms.author: terrylan
 
 ---
@@ -66,7 +66,7 @@ Key Vault provides the option to store your keys in hardware security modules (H
 
 Learn more:
 
-* [What is Azure Key Vault?](../../key-vault/general/overview.md)
+* [What is Azure Key Vault?](/azure/key-vault/general/overview)
 * [Azure Key Vault blog](/archive/blogs/kv/)
 
 ## Virtual machine disk encryption
@@ -132,7 +132,7 @@ Learn more:
 
 * [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 * [Microsoft Defender for Cloud frequently asked questions](../../security-center/faq-general.yml)
-* [Microsoft Defender for Cloud planning and operations](../../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md)
+* [Microsoft Defender for Cloud planning and operations](/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide)
 
 ## Compliance
 

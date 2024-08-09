@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 01/11/2023
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -219,7 +219,7 @@ Use these steps to create the role assignment for your registration.
     | --- | --- |
     | Role | Select as appropriate |
     | Members > Assign access to | User, group, or service principal |
-    | Members > Members | **+ Select members**, then search for the name or [client ID](#collect-client-id-and-tenant-id) of the app registration |
+    | Members > Members | **+ Select members**, then search for the name of the app registration |
     
    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of the Roles tab in the Add role assignment page." lightbox="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png":::
 

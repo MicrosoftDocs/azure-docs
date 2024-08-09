@@ -4,9 +4,9 @@ titleSuffix: Azure Application Gateway
 description: Learn how to enable and manage logs for Azure Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: article
-ms.date: 05/17/2024
+ms.date: 06/17/2024
 ms.author: greglin 
 ---
 
@@ -34,13 +34,13 @@ You have the following options to store the logs in your preferred location.
 
 **Log Analytic workspace**: This option allows you to readily use the predefined queries, visualizations, and set alerts based on specific log conditions. The tables used by resource logs in log analytics workspace depend on what type of collection the resource is using:
    
-**Azure diagnostics**: Data is written to the [Azure Diagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). Azure Diagnostics table is shared between multiple resource type, with each of them adding their own custom fields. When number of custom fields ingested to Azure Diagnostics table exceeds 500, new fields aren't added as top level but added to "AdditionalFields" field as dynamic key value pairs. 
+* **Azure diagnostics**: Data is written to the [Azure Diagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). Azure Diagnostics table is shared between multiple resource type, with each of them adding their own custom fields. When number of custom fields ingested to Azure Diagnostics table exceeds 500, new fields aren't added as top level but added to "AdditionalFields" field as dynamic key value pairs. 
 
-**Resource-specific(recommended)**: Data is written to dedicated tables for each category of the resource. In resource specific mode, each log category selected in the diagnostic setting is assigned its own table within the chosen workspace. This has several benefits, including: 
- - Easier data manipulation in log queries 
- - Improved discoverability of schemas and their structures 
- - Enhanced performance in terms of ingestion latency and query times
- - The ability to assign [Azure role-based access control rights to specific tables](../azure-monitor/logs/manage-access.md?tabs=portal#set-table-level-read-access)
+* **Resource-specific(recommended)**: Data is written to dedicated tables for each category of the resource. In resource specific mode, each log category selected in the diagnostic setting is assigned its own table within the chosen workspace. This has several benefits, including: 
+  - Easier data manipulation in log queries 
+  - Improved discoverability of schemas and their structures 
+  - Enhanced performance in terms of ingestion latency and query times
+  - The ability to assign [Azure role-based access control rights to specific tables](../azure-monitor/logs/manage-access.md?tabs=portal#set-table-level-read-access)
 
  For Application Gateway, resource specific mode creates three tables: 
   * [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs)
@@ -48,7 +48,7 @@ You have the following options to store the logs in your preferred location.
   * [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs)
 
 > [!NOTE]
-> The resource specific option is currently available in all **public regions**.<br>
+> The resource specific option is currently available in all **clouds**.<br>
 > Existing users can continue using Azure Diagnostics, or can opt for dedicated tables by switching the toggle in Diagnostic settings to **Resource specific**, or to **Dedicated** in API destination. Dual mode isn't possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. However, you can have multiple diagnostic settings where one data flow is to azure diagnostic and another is using resource specific at the same time. 
 
  **Selecting the destination table in Log analytics :** All Azure services eventually use the resource-specific tables. As part of this transition, you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle is set to **Resource specific** by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged. See the following example.
@@ -158,12 +158,14 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |sslEnabled| Whether communication to the backend pools used TLS. Valid values are on and off.|
 |sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
 |sslProtocol| SSL/TLS protocol being used (if TLS is enabled).|
+|sslClientVerify | Shows the result of client certificate verification as SUCCESS or FAILED. Failed status will include error information.|
+|sslClientCertificateFingerprint|The SHA1 thumbprint of the client certificate for an established TLS connection.|
+|sslClientCertificateIssuerName|The issuer DN string of the client certificate for an established TLS connection.|
 |serverRouted| The backend server that application gateway routes the request to.|
 |serverStatus| HTTP status code of the backend server.|
 |serverResponseLatency| Latency of the response (in **seconds**) from the backend server.|
 |host| Address listed in the host header of the request. If rewritten using header rewrite, this field contains the updated host name|
 |originalRequestUriWithArgs| This field contains the original request URL |
-|requestUri| This field contains the URL after the rewrite operation on Application Gateway |
 |upstreamSourcePort| The source port used by Application Gateway when initiating a connection to the backend target|
 |originalHost| This field contains the original request host name|
 |error_info|The reason for the 4xx and 5xx error. Displays an error code for a failed request. More details in [Error code information.](./application-gateway-diagnostics.md#error-code-information) |

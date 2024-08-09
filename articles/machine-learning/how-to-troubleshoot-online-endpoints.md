@@ -3,11 +3,11 @@ title: Troubleshooting online endpoints deployment
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 10/24/2023
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, sdkv2
@@ -204,6 +204,7 @@ The following list is of common deployment errors that are reported as part of t
 * [ImageBuildFailure](#error-imagebuildfailure)
     * [Azure Container Registry (ACR) authorization failure](#container-registry-authorization-failure)
     * [Image build compute not set in a private workspace with VNet](#image-build-compute-not-set-in-a-private-workspace-with-vnet)
+    * [Image build timing out](#image-build-timing-out)
     * [Generic or unknown failure](#generic-image-build-failure)
 * [OutOfQuota](#error-outofquota)
     * [CPU](#cpu-quota)
@@ -262,6 +263,13 @@ Container registries that are behind a virtual network may also encounter this e
 #### Image build compute not set in a private workspace with VNet
 
 If the error message mentions `"failed to communicate with the workspace's container registry"` and you're using virtual networks and the workspace's Azure Container Registry is private and configured with a private endpoint, you need to [enable Azure Container Registry](how-to-managed-network.md#configure-image-builds) to allow building images in the virtual network. 
+
+### Image build timing out
+
+Image build timeouts are often due to an image becoming too large to be able to complete building within the timeframe of deployment creation.
+To verify if this is your issue, check your image build logs at the location that the error may specify. The logs are cut off at the point that the image build timed out.
+
+To resolve this, please [build your image separately](/azure/devops/pipelines/ecosystems/containers/publish-to-acr?view=azure-devops&tabs=javascript%2Cportal%2Cmsi) so that the image only needs to be pulled during deployment creation.
 
 #### Generic image build failure
 
@@ -648,7 +656,7 @@ You might get the following error during the Kubernetes model deployments:
 
 To mitigate this error, you can:
 
-* Rotate AKS certificate for the cluster. For more information, see [Certificate Rotation in Azure Kubernetes Service (AKS)](../aks/certificate-rotation.md).
+* Rotate AKS certificate for the cluster. For more information, see [Certificate Rotation in Azure Kubernetes Service (AKS)](/azure/aks/certificate-rotation).
 * The new certificate should be updated to after 5 hours, so you can wait for 5 hours and redeploy it.
 
 

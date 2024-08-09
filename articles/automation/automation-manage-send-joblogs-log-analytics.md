@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 05/01/2024
 ms.topic: conceptual
 ms.custom: engagement-fy24
+ms.service: azure-automation
 ---
 
 # Forward Azure Automation diagnostic logs to Azure Monitor

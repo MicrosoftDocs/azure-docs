@@ -22,8 +22,6 @@
   items:
     - name: Query data using Gremlin
       href: tutorial-query.md
-    - name: Create Jupyter notebooks
-      href: ../nosql/tutorial-create-notebook.md
     - name: Kusto Query Language (KQL) transformations
       displayName: KQL, workspace, data
       href: ../tutorial-log-transformation.md
@@ -55,6 +53,8 @@
           href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
         - name: Find existing free-tier accounts
           href: ../scripts/cli/common/free-tier.md
+        - name: Migrate all resources to autoscale
+          href: ../scripts/cli/common/convert-to-autoscale.md
     - name: Azure PowerShell
       items:
         - name: Overview
@@ -227,12 +227,6 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
-    - name: Jupyter notebooks
-      items:
-        - name: Overview
-          href: ../notebooks-overview.md
-        - name: FAQ
-          href: ../notebooks-faq.yml
     - name: Emulator
       href: ../emulator.md
     - name: Network bandwidth
@@ -355,13 +349,13 @@
           href: ../sql/create-support-request-quota-increase.md
     - name: Monitor
       items:
-        - name: Monitor
+        - name: Monitor Azure Cosmos DB
           href: ../monitor.md
         - name: Use Azure monitor metrics
           items:
-            - name: Azure Monitor for Azure Cosmos DB
+            - name: Azure Cosmos DB insights
               href: ../insights-overview.md
-            - name: Scenarios to monitor
+            - name: Monitor and debug using metrics
               href: ../use-metrics.md
             - name: Monitor server-side latency
               href: ../monitor-server-side-latency.md

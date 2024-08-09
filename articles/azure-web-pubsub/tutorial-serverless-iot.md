@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub-cli](~/reusable-content/ce-skilling/azure/includes/iot-hub-include-create-hub-cli.md)]
+[!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
 ## Create a Web PubSub instance
 

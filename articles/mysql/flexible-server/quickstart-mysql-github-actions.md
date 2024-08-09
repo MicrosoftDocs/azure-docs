@@ -1,13 +1,17 @@
 ---
-title: 'Quickstart: Connect with GitHub Actions'
+title: "Quickstart: Connect with GitHub Actions"
 description: Use Azure Database for MySQL - Flexible Server from a GitHub Actions workflow.
 author: juliakm
-ms.service: mysql
+ms.author: jukullam
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.author: jukullam
-ms.custom: github-actions-azure, mode-other, devx-track-azurecli
-ms.date: 02/15/2023
+ms.custom:
+  - github-actions-azure
+  - mode-other
+  - devx-track-azurecli
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure Database for MySQL - Flexible Server

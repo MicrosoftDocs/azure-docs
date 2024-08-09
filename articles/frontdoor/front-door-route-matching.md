@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door matches incoming requests to a route configuration.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 12/04/2023
 ms.author: duau

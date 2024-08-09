@@ -6,7 +6,6 @@ ms.topic: troubleshooting
 ms.custom: devx-track-arm-template
 ms.date: 03/30/2020
 ms.author: helohr
-manager: femila
 ---
 # Tenant and host pool creation in Azure Virtual Desktop (classic)
 
@@ -69,9 +68,6 @@ Example of raw error:
 **Cause:** The user who's signed in hasn't been assigned the TenantCreator role in their Microsoft Entra ID.
 
 **Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Microsoft Entra tenant](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). After following the instructions, you'll have a user assigned to the TenantCreator role.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot of TenantCreator role assigned.](../media/TenantCreatorRoleAssigned.png)
 
 ## Creating Azure Virtual Desktop session host VMs
 
@@ -374,8 +370,7 @@ New-RdsRoleAssignment -TenantName <Azure Virtual Desktop tenant name> -RoleDefin
 
 ### Error: User requires Microsoft Entra multifactor authentication (MFA)
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of your deployment failed due to lack of multifactor authentication (MFA)](../media/MFARequiredError.png)
+:::image type="content" source="../media/MFA-Required-Error-inline.png" alt-text="Screenshot of your deployment failed due to lack of multifactor authentication (MFA)." lightbox="../media/MFA-Required-Error-expanded.png":::
 
 Example of raw error:
 

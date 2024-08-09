@@ -2,13 +2,12 @@
 title: Best practices for Azure Maps Search service
 titleSuffix: Microsoft Azure Maps
 description: Learn how to apply the best practices when using the Search service from Microsoft Azure Maps.
-author: eriklindeman
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 10/28/2021
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: search
 ---
 
 # Best practices for Azure Maps Search service

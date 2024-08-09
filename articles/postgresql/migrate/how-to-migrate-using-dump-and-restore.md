@@ -1,7 +1,7 @@
 ---
 title: Dump and restore - Azure Database for PostgreSQL - Flexible Server
 description: You can extract a PostgreSQL database into a dump file. Then, you can restore from a file created by pg_dump in Azure Database for PostgreSQL Single Server or Flexible Server.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.author: alkuchar
@@ -41,6 +41,9 @@ The Azure portal streamlines this process via the Connect blade by offering prec
 
 ## Prerequisites
 If you're using a Single Server, or don't have access to the Flexible Server portal, read through this documentation page. It contains information that is similar to what is presented in the Connect blade for Flexible Server on the portal. 
+
+> [!NOTE]
+> Because `pg_dump`, `psql`, `pg_restore` and `pg_dumpall` utilities all rely on libpq, you can use any of the supported [environment variables](https://www.postgresql.org/docs/current/libpq-envars.html) it offers, or you can use the [password file](https://www.postgresql.org/docs/current/libpq-pgpass.html) to avoid being prompted for the password every time you run any of these commands.
 
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](../single-server/quickstart-create-server-database-portal.md), including firewall rules to allow access.

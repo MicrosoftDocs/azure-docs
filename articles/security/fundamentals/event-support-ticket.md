@@ -14,7 +14,7 @@ ms.author: terrylan
 ---
 # Log a security issue
 
-Visit the [Microsoft Security Response Center](https://msrc.microsoft.com/create-report) (MSRC) to report a security specific issue.
+Visit the [Microsoft Security Response Center (MSRC)](https://msrc.microsoft.com/create-report) to report a security specific issue.
 
 You can also create a tailored, Azure support request in the Azure portal. Visit the Azure portal [here](https://ms.portal.azure.com/#create/Microsoft.Support). Follow the prompts to receive recommended solutions or to log a support request.
 

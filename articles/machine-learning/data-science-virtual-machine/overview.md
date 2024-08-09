@@ -6,10 +6,10 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: linux-related-content
-author: jesscioffi
-ms.author: jcioffi
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: overview
-ms.reviewer: franksolomon
+ms.reviewer: jcioffi
 ms.date: 04/26/2024
 ---
 

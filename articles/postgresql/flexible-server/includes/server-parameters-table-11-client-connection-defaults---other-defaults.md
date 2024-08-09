@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `$libdir`     |
 | Allowed values | `$libdir`      |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [dynamic_library_path](https://www.postgresql.org/docs/11/runtime-config-client.html#GUC-DYNAMIC-LIBRARY-PATH)     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `0`           |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
-| Documentation  |               |
+| Documentation  | [gin_fuzzy_search_limit](https://www.postgresql.org/docs/11/runtime-config-client.html#GUC-GIN-FUZZY-SEARCH-LIMIT) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

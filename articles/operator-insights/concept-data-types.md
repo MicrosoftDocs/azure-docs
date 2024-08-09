@@ -4,7 +4,7 @@ description: This article provides an overview of the data types used by Azure O
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 10/25/2023
 

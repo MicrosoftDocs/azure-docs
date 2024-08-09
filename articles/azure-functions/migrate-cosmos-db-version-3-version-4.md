@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
-ms.date: 05/07/2024
+ms.date: 07/10/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -62,7 +62,7 @@ Update your `.csproj` project file to use the latest extension version for your 
 
 ### [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -210,7 +210,7 @@ namespace CosmosDBSamples
 ```
 
 > [!NOTE]
-> If your scenario relied on the dynamic nature of the `Document` type to identify different schemas and types of events, you can use a base abstract type with the common properties across your types or dynamic types like `JObject` that allow to access properties like `Document` did.
+> If your scenario relied on the dynamic nature of the `Document` type to identify different schemas and types of events, you can use a base abstract type with the common properties across your types or dynamic types like `JObject` (when using `Microsoft.Azure.WebJobs.Extensions.CosmosDB`) and `JsonNode` (when using `Microsoft.Azure.Functions.Worker.Extensions.CosmosDB`) that allow to access properties like `Document` did.
 
 Additionally, if you are using the Output Binding, please review the [change in item ID generation](#changes-to-item-id-generation) to verify if you need additional code changes.
 

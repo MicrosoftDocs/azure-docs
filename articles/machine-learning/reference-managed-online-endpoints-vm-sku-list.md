@@ -3,19 +3,19 @@ title: Managed online endpoints VM SKU list
 titleSuffix: Azure Machine Learning
 description: Lists the VM SKUs that can be used for managed online endpoints in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom: devplatv2
 ms.date: 10/18/2023
 ---
 
 # Managed online endpoints SKU list
 
-This table shows the VM SKUs that are supported for Azure Machine Learning managed online endpoints.
+The following table shows the virtual machine (VM) stock keeping units (SKUs) that are supported for Azure Machine Learning managed online endpoints. Each SKU is a unique alphanumeric code assigned to a particular VM that can be purchased.
 
 * The full SKU names listed in the table can be used for Azure CLI or Azure Resource Manager templates (ARM templates) requests to create and update deployments.
 

@@ -1,12 +1,13 @@
 ---
 title: Scheduled maintenance
 description: This article describes the scheduled maintenance feature in Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: conceptual
 author: xboxeer
 ms.author: yuzheng1
-ms.date: 05/24/2022
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
 ---
 
 # Scheduled maintenance in Azure Database for MySQL - Flexible Server
@@ -52,7 +53,10 @@ You can define system-managed schedule or custom schedule for each flexible serv
 * With system-managed schedule, the system will pick any one-hour window between 11pm and 7am in your server's region time.
 
 > [!IMPORTANT]
-> Previously, a 7-day deployment gap between system-managed and custom-managed schedules was maintained. Due to evolving maintenance demands and the introduction of the [maintenance reschedule feature (Public preview)](#maintenance-reschedule-public-preview), we can no longer guarantee this 7-day gap.
+> Starting from 31st August 2024, Azure Database for MySQL will no longer support custom maintenance windows for burstable SKU instances. This change is due to the need for simplifying maintenance processes, ensuring optimal performance, and our analysis indicating that the number of users utilizing custom maintenance windows on burstable SKUs is minimal. Existing burstable SKU instances with custom maintenance window configurations will remain unaffected; however, users will not be able to modify these custom maintenance window settings moving forward.
+> 
+> For customers requiring custom maintenance windows, we recommend upgrading to General Purpose or Business Critical SKUs to continue using this feature.
+
 
 
 In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update is reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it 5 days in advance.
@@ -70,6 +74,7 @@ To achieve the optimal performance promised by this feature, certain conditions 
 
  - **Primary Keys in All Tables:** Ensuring that every table has a primary key is critical. Lack of primary keys can significantly increase replication lag, impacting the downtime.
  - **Low Workload During Maintenance Times:** Maintenance periods should coincide with times of low workload on the server to ensure the downtime remains minimal. We encourage you to use the [custom maintenance window](how-to-maintenance-portal.md#specify-maintenance-schedule-options) feature to schedule maintenance during off-peak hours.
+ - **Downtime Guarantees：** While we strive to keep the maintenance downtime as low as possible, we do not guarantee that it will always be less than 60 seconds in all circumstances. Various factors, such as high workload or specific server configurations, can lead to longer downtime. In the worst-case scenario, downtime might be similar to that of a standalone server.
 
 ## Maintenance reschedule (Public preview)
 

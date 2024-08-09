@@ -3,7 +3,7 @@ title: 'Configure a virtual network gateway for ExpressRoute using Azure portal'
 description: This article walks you through adding a virtual network gateway to a virtual network for ExpressRoute using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 10/31/2023
 ms.author: duau
@@ -20,7 +20,7 @@ ms.custom:
 
 This article walks you through the steps to add and remove a virtual network gateway for a pre-existing virtual network (virtual network). The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
-:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing an ExpressRoute gateway connected to the ExpressRoute circuit.":::
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing an ExpressRoute gateway connected to the ExpressRoute circuit." lightbox="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png":::
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ The steps for this tutorial use the values in the following configuration refere
 
 1. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the autofilled **Address range** values to match your configuration requirements. **You need to create the GatewaySubnet with a /27 or larger** (/26, /25, and so on.). /28 or smaller subnets are not supported for new deployments. If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger.
 
-    If you're using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, select **Add IP6 address space** and enter **IPv6 address range** values.
+    If you're using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, select **Add IPv6 address space** and enter **IPv6 address range** values.
 
     Then, select **OK** to save the values and create the gateway subnet.
 

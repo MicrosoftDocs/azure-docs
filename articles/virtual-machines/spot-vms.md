@@ -3,10 +3,10 @@ title: Use Azure Spot Virtual Machines
 description: Learn how to use Azure Spot Virtual Machines to save on costs.
 author: ju-shim
 ms.author: jushiman
-ms.service: virtual-machines
-ms.subservice: spot
+ms.service: azure-virtual-machines
+ms.subservice: azure-spot-vm
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 06/14/2024
 ms.reviewer: cynthn
 ---
 
@@ -23,13 +23,13 @@ The amount of available capacity can vary based on size, region, time of day, an
 
 ## Eviction policy
 
-VMs can be evicted based on capacity or the max price you set. When creating an Azure Spot Virtual Machine, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
+Spot VMs can be stopped if Azure needs capacity for other pay-as-you-go workloads or when the price of the spot instance exceeds the maximum price that you have set. When creating an Azure Spot Virtual Machine, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
 The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing you to redeploy it later. However, there's no guarantee that the allocation will succeed. The deallocated VMs will count against your quota and you'll be charged storage costs for the underlying disks. 
 
 If you would like your VM to be deleted when it's evicted, you can set the eviction policy to *delete*. The evicted VMs are deleted together with their underlying disks, so you'll not continue to be charged for the storage. 
 
-You can opt in to receive in-VM notifications through [Azure Scheduled Events](./linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction.
+You can opt in to receive in-VM notifications through [Azure Scheduled Events](./linux/scheduled-events.md). These are delivered on a best effort basis up to 30 seconds prior to the eviction.
 
 
 | Option | Outcome |
@@ -38,7 +38,7 @@ You can opt in to receive in-VM notifications through [Azure Scheduled Events](.
 | Max price is set to < the current price. | The VM isn't deployed. You'll get an error message that the max price needs to be >= current price. |
 | Restarting a stopped/deallocated VM if the max price is >= the current price | If there's capacity and quota, then the VM is deployed. |
 | Restarting a stopped/deallocated VM if the max price is < the current price | You'll get an error message that the max price needs to be >= current price. | 
-| Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
+| Price for the VM has gone up and is now > the max price. | The VM gets evicted. Azure will attempt scheduled event delivery up to 30 seconds before actual eviction. | 
 | After eviction, the price for the VM goes back to being < the max price. | The VM won't be automatically restarted. You can restart the VM yourself, and it will be charged at the current price. |
 | If the max price is set to `-1` | The VM won't be evicted for pricing reasons. The max price will be the current price, up to the price for standard VMs. You'll never be charged above the standard price.| 
 | Changing the max price | You need to deallocate the VM to change the max price. Deallocate the VM, set a new max price, then update the VM. |
@@ -60,7 +60,7 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 
 -	Enterprise Agreement 
 -	Pay-as-you-go offer code (003P)
--	Sponsored (0036P and 0136P)
+-	Sponsored (0036P and 0136P) - not available in Fairfax
 - For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 

@@ -1,5 +1,5 @@
 ---
-title: Using Azure Functions for Azure Cache for Redis (preview)
+title: Using Azure Functions for Azure Cache for Redis
 description: Learn how to use Azure Functions Azure Cache for Redis
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -8,10 +8,10 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 03/01/2024
+ms.date: 07/11/2024
 ---
 
-# Overview of Azure functions for Azure Cache for Redis (preview)
+# Overview of Azure functions for Azure Cache for Redis
 
 This article describes how to use Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures.
 
@@ -57,7 +57,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 ### [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 

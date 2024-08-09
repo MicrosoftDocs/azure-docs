@@ -3,8 +3,8 @@ title: TLS policy overview for Azure Application Gateway
 description: Learn how to configure TLS policy for Azure Application Gateway and reduce encryption and decryption overhead from a backend server farm.
 services: application gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.topic: conceptual
+ms.service: azure-application-gateway
+ms.topic: concept-article
 ms.date: 06/06/2023
 ms.author: greglin
 ---

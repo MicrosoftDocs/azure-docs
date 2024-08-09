@@ -3,7 +3,7 @@ title: 'View BGP status and metrics'
 titleSuffix: Azure VPN Gateway
 description: Learn how to view important BGP-related information for troubleshooting.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: cherylmc 
@@ -67,7 +67,7 @@ In the Azure portal, you can view BGP peers, learned routes, and advertised rout
 
 Use **Get-AzVirtualNetworkGatewayBGPPeerStatus** to view all BGP peers and the status.
 
-[!INCLUDE [VPN Gateway PowerShell instructions](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [VPN Gateway PowerShell instructions](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkGatewayBgpPeerStatus -ResourceGroupName resourceGroup -VirtualNetworkGatewayName gatewayName

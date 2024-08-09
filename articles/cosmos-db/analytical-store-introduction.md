@@ -14,6 +14,11 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
+ > [!IMPORTANT]
+ > Mirroring in Microsoft Fabric is now available in preview for NoSql API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance, ability to unify your data estate with Fabric OneLake and open access to your data in OneLake with Delta Parquet format. If you are considering Azure Synapse Link, we recommend that you try mirroring to assess overall fit for your organization. To get started with mirroring, click [here](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context). 
+
+To get started with Azure Synapse Link, please visit [“Getting started with Azure Synapse Link”](synapse-link.md)
+
 Azure Cosmos DB analytical store is a fully isolated column store for enabling large-scale analytics against operational data in your Azure Cosmos DB, without any impact to your transactional workloads. 
 
 Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. This article describes in detailed about analytical storage.
@@ -38,13 +43,13 @@ When you enable analytical store on an Azure Cosmos DB container, a new column-s
 
 ## Column store for analytical workloads on operational data
 
-Analytical workloads typically involve aggregations and sequential scans of selected fields. By storing the data in a column-major order, the analytical store allows a group of values for each field to be serialized together. This format reduces the IOPS required to scan or compute statistics over specific fields. It dramatically improves the query response times for scans over large data sets. 
+Analytical workloads typically involve aggregations and sequential scans of selected fields. The data analytical store is stored in a column-major order, allowing values of each field to be serialized together, where applicable. This format reduces the IOPS required to scan or compute statistics over specific fields. It dramatically improves the query response times for scans over large data sets. 
 
 For example, if your operational tables are in the following format:
 
 :::image type="content" source="./media/analytical-store-introduction/sample-operational-data-table.png" alt-text="Example operational table" border="false":::
 
-The row store persists the above data in a serialized format, per row, on the disk. This format allows for faster transactional reads, writes, and operational queries, such as, "Return information about Product1". However, as the dataset grows large and if you want to run complex analytical queries on the data it can be expensive. For example, if you want to get "the sales  trends for a product under the category named 'Equipment' across different business units and months", you need to run a complex query. Large scans on this dataset can get expensive in terms of provisioned throughput and can also impact the performance of the transactional workloads powering your real-time applications and services.
+The row store persists the above data in a serialized format, per row, on the disk. This format allows for faster transactional reads, writes, and operational queries, such as, "Return information about Product 1". However, as the dataset grows large and if you want to run complex analytical queries on the data it can be expensive. For example, if you want to get "the sales  trends for a product under the category named 'Equipment' across different business units and months", you need to run a complex query. Large scans on this dataset can get expensive in terms of provisioned throughput and can also impact the performance of the transactional workloads powering your real-time applications and services.
 
 Analytical store, which is a column store, is better suited for such queries because it serializes similar fields of data together and reduces the disk IOPS.
 
@@ -74,7 +79,7 @@ At the end of each execution of the automatic sync process, your transactional d
 
 ## Scalability & elasticity
 
-By using horizontal partitioning, Azure Cosmos DB transactional store can elastically scale the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in auto-sync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it's 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. 
+Azure Cosmos DB transactional store uses horizontal partitioning to elastically scale the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in auto-sync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it's 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. 
 
 ## <a id="analytical-schema"></a>Automatically handle schema updates
 
@@ -404,7 +409,7 @@ sql_results.show()
 
 ##### Using full fidelity schema with SQL
 
-Considering the same documents of the Spark example above, customers can use the following syntax example:
+You can use the following syntax example, with the same documents of the Spark example above:
 
 ```SQL
 SELECT rating,timestamp_string,timestamp_utc
@@ -420,7 +425,7 @@ timestamp_utc float '$.timestamp.float64'
 WHERE timestamp is not null or timestamp_utc is not null
 ```
 
-Starting from the query above, customers can implement transformations using `cast`, `convert` or any other T-SQL function to manipulate your data. Customers can also hide complex datatype structures by using views.
+You can implement transformations using `cast`, `convert` or any other T-SQL function to manipulate your data. You can also hide complex datatype structures by using views.
 
 ```SQL
 create view MyView as
@@ -448,11 +453,11 @@ WHERE  timestamp_string is not null
 ```
 
 
-##### Working with the MongoDB `_id` field
+##### Working with MongoDB `_id` field
 
-the MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, full fidelity schema will preserve its characteristics, creating a challenge for its visualization in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
+MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, full fidelity schema will preserve its characteristics, creating a challenge for its visualization in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
 
-###### Working with the MongoDB `_id` field in Spark
+###### Working with MongoDB `_id` field in Spark
 
 The example below works on Spark 2.x and 3.x versions:
 
@@ -473,7 +478,7 @@ val dfConverted = df.withColumn("objectId", col("_id.objectId")).withColumn("con
 display(dfConverted)
 ```
 
-###### Working with the MongoDB `_id` field in SQL
+###### Working with MongoDB `_id` field in SQL
 
 ```SQL
 SELECT TOP 100 id=CAST(_id as VARBINARY(1000))
@@ -482,6 +487,11 @@ FROM OPENROWSET('CosmosDB',
                 HTAP) WITH (_id VARCHAR(1000)) as HTAP
 ```
 
+##### Working with MongoDB `id` field
+
+The `id` property in MongoDB containers is automatically overridden with the Base64 representation of the "_id" property both in analytical store. The "id" field is intended for internal use by MongoDB applications. Currently, the only workaround is to rename the "id" property to something other than "id". 
+
+
 #### Full fidelity schema for API for NoSQL or Gremlin accounts
 
 It's possible to use full fidelity Schema for API for NoSQL accounts, instead of the default option, by setting the schema type when enabling Synapse Link on an Azure Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
@@ -489,7 +499,7 @@ It's possible to use full fidelity Schema for API for NoSQL accounts, instead of
 * Currently, if you enable Synapse Link in your NoSQL API account using the Azure portal, it will be enabled as well-defined schema.
 * Currently, if you want to use full fidelity schema with NoSQL or Gremlin API accounts, you have to set it at account level in the same CLI or PowerShell command that will enable Synapse Link at account level.
 * Currently Azure Cosmos DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts have full fidelity schema representation type.
-* Full Fidelity schema data types map mentioned above isn't valid for NoSQL API accounts, that use JSON datatypes. As an example, `float` and `integer` values are represented as `num` in analytical store.
+* Full Fidelity schema data types map mentioned above isn't valid for NoSQL API accounts that use JSON datatypes. As an example, `float` and `integer` values are represented as `num` in analytical store.
 * It's not possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
 * Currently, containers schemas in analytical store are defined when the container is created, even if Synapse Link has not been enabled in the database account.
   * Containers or graphs created before Synapse Link was enabled with full fidelity schema at account level will have well-defined schema.
@@ -551,7 +561,7 @@ Data tiering refers to the separation of data between storage infrastructures op
 After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure `transactional TTL` property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  `analytical TTL` allows you to manage the lifecycle of data retained in the analytical store, independent from the transactional store. By enabling analytical store and configuring transactional and analytical `TTL` properties, you can seamlessly tier and define the data retention period for the two stores.
 
 > [!NOTE]
-> When `analytical TTL` is bigger than `transactional TTL`, your container will have data that only exists in analytical store. This data is read only and currently we don't support document level `TTL` in analytical store. If your container data may need an update or a delete at some point in time in the future, don't use `analytical TTL` bigger than `transactional TTL`. This capability is recommended for data that won't need updates or deletes in the future.
+> When `analytical TTL` is set to a value larger than `transactional TTL` value, your container will have data that only exists in analytical store. This data is read only and currently we don't support document level `TTL` in analytical store. If your container data may need an update or a delete at some point in time in the future, don't use `analytical TTL` bigger than `transactional TTL`. This capability is recommended for data that won't need updates or deletes in the future.
 
 > [!NOTE]
 > If your scenario doesn't demand physical deletes, you can adopt a logical delete/update approach. Insert in transactional store another version of the same document that only exists in analytical store but needs a logical delete/update. Maybe with a flag indicating that it's a delete or an update of an expired document. Both versions of the same document will co-exist in analytical store, and your application should only consider the last one.
@@ -562,9 +572,9 @@ After the analytical store is enabled, based on the data retention needs of the 
 Analytical store relies on Azure Storage and offers the following protection against physical failure:
 
  * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year.
- * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in Zone-redundant Storage. ZRS offers durability for storage resources of at least 99.9999999999% (12 9's) over a given year.
+ * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. You need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in Zone-redundant Storage. ZRS offers durability for storage resources of at least 99.9999999999% (12 9's) over a given year.
 
-For more information about Azure Storage durability, click [here](/azure/storage/common/storage-redundancy).
+For more information about Azure Storage durability, see [this link.](/azure/storage/common/storage-redundancy)
 
 ## Backup
 
@@ -577,7 +587,7 @@ Synapse Link, and analytical store by consequence, has different compatibility l
 
 * Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account.
 * Synapse Link for database accounts using continuous backup mode is GA.
-* Continuous backup mode for Synapse Link enabled accounts is in public preview. Currently, customers that disabled Synapse Link from containers can't migrate to continuous backup.
+* Continuous backup mode for Synapse Link enabled accounts is in public preview. Currently, you can't migrate to continuous backup if you disabled Synapse Link on any of your collections in a Cosmos DB account.
 
 ### Backup policies
 
@@ -640,7 +650,7 @@ Analytical store partitioning is completely independent of partitioning in�
 
 The analytical store is optimized to provide scalability, elasticity, and performance for analytical workloads without any dependency on the compute run-times. The storage technology is self-managed to optimize your analytics workloads without manual efforts.
 
-By decoupling the analytical storage system from the analytical compute system, data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. As of today, Azure Synapse Analytics supports Apache Spark and serverless SQL pool with Azure Cosmos DB analytical store.
+Data in Azure Cosmos DB analytical store can be queried simultaneously from the different analytics runtimes supported by Azure Synapse Analytics. Azure Synapse Analytics supports Apache Spark and serverless SQL pool with Azure Cosmos DB analytical store.
 
 > [!NOTE]
 > You can only read from analytical store using Azure Synapse Analytics runtimes. And the opposite is also true, Azure Synapse Analytics runtimes can only read from analytical store. Only the auto-sync process can change data in analytical store. You can write data back to Azure Cosmos DB transactional store using Azure Synapse Analytics Spark pool, using the built-in Azure Cosmos DB OLTP SDK.

@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  |               |
 | Allowed values | `[A-Za-z0-9._-]*`       |
 | Parameter type | dynamic        |
-| Documentation  | [application_name](https://www.postgresql.org/docs/11/libpq-connect.html)                        |
+| Documentation  | [application_name](https://www.postgresql.org/docs/11/libpq-connect.html#LIBPQ-CONNECT-APPLICATION-NAME)                |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on,off`                |
 | Parameter type | dynamic        |
-| Documentation  | [debug_pretty_print](https://www.postgresql.org/docs/11/runtime-config-logging.html)             |
+| Documentation  | [debug_pretty_print](https://www.postgresql.org/docs/11/runtime-config-logging.html#id-1.6.6.11.5.3.3.1.3)              |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`                |
 | Parameter type | dynamic        |
-| Documentation  | [debug_print_parse](https://www.postgresql.org/docs/11/runtime-config-logging.html)              |
+| Documentation  | [debug_print_parse](https://www.postgresql.org/docs/11/runtime-config-logging.html#id-1.6.6.11.5.3.2.1.3)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`                |
 | Parameter type | dynamic        |
-| Documentation  | [debug_print_plan](https://www.postgresql.org/docs/11/runtime-config-logging.html)               |
+| Documentation  | [debug_print_plan](https://www.postgresql.org/docs/11/runtime-config-logging.html#id-1.6.6.11.5.3.2.1.3)                |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`                |
 | Parameter type | dynamic        |
-| Documentation  | [debug_print_rewritten](https://www.postgresql.org/docs/11/runtime-config-logging.html)          |
+| Documentation  | [debug_print_rewritten](https://www.postgresql.org/docs/11/runtime-config-logging.html#id-1.6.6.11.5.3.2.1.3)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `-1`          |
 | Allowed values | `-1-2147483647`         |
 | Parameter type | dynamic        |
-| Documentation  | [log_autovacuum_min_duration](https://www.postgresql.org/docs/11/runtime-config-autovacuum.html) |
+| Documentation  | [log_autovacuum_min_duration](https://www.postgresql.org/docs/11/runtime-config-autovacuum.html#id-1.6.6.13.4.2.1.3)    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on,off`                |
 | Parameter type | dynamic        |
-| Documentation  | [log_checkpoints](https://www.postgresql.org/docs/11/runtime-config-logging.html)                |
+| Documentation  | [log_checkpoints](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-CHECKPOINTS)                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -136,7 +136,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`                    |
 | Parameter type | read-only      |
-| Documentation  | [log_connections](https://www.postgresql.org/docs/11/runtime-config-logging.html)                |
+| Documentation  | [log_connections](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-CONNECTIONS)                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -153,7 +153,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`                    |
 | Parameter type | read-only      |
-| Documentation  | [log_disconnections](https://www.postgresql.org/docs/11/runtime-config-logging.html)             |
+| Documentation  | [log_disconnections](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -170,7 +170,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`                |
 | Parameter type | dynamic        |
-| Documentation  | [log_duration](https://www.postgresql.org/docs/11/runtime-config-logging.html)                   |
+| Documentation  | [log_duration](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-DURATION)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -187,7 +187,7 @@ ms.topic: include
 | Default value  | `default`     |
 | Allowed values | `terse,default,verbose` |
 | Parameter type | dynamic        |
-| Documentation  | [log_error_verbosity](https://www.postgresql.org/docs/11/runtime-config-logging.html)            |
+| Documentation  | [log_error_verbosity](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -204,7 +204,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`                   |
 | Parameter type | read-only      |
-| Documentation  |                                                                                                  |
+| Documentation  | [log_hostname](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-HOSTNAME)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -221,7 +221,7 @@ ms.topic: include
 | Default value  | `%t-%c-`      |
 | Allowed values | `[^']*`                 |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                  |
+| Documentation  | [log_line_prefix](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-LINE-PREFIX)                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -238,7 +238,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`                |
 | Parameter type | dynamic        |
-| Documentation  | [log_lock_waits](https://www.postgresql.org/docs/11/runtime-config-logging.html)                 |
+| Documentation  | [log_lock_waits](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-LOCK-WAITS)                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -255,7 +255,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`                    |
 | Parameter type | read-only      |
-| Documentation  |                                                                                                  |
+| Documentation  | [log_replication_commands](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-REPLICATION-COMMANDS) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -272,7 +272,7 @@ ms.topic: include
 | Default value  | `none`        |
 | Allowed values | `none,ddl,mod,all`      |
 | Parameter type | dynamic        |
-| Documentation  | [log_statement](https://www.postgresql.org/docs/11/runtime-config-logging.html)                  |
+| Documentation  | [log_statement](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-STATEMENT)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -289,7 +289,7 @@ ms.topic: include
 | Default value  | `-1`          |
 | Allowed values | `-1-2147483647`         |
 | Parameter type | dynamic        |
-| Documentation  | [log_temp_files](https://www.postgresql.org/docs/11/runtime-config-logging.html)                 |
+| Documentation  | [log_temp_files](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-TEMP-FILES)                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -306,7 +306,7 @@ ms.topic: include
 | Default value  | `UTC`         |
 | Allowed values | `UTC`                   |
 | Parameter type | read-only      |
-| Documentation  |                                                                                                  |
+| Documentation  | [log_timezone](https://www.postgresql.org/docs/11/runtime-config-logging.html#GUC-LOG-TIMEZONE)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

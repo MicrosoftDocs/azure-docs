@@ -5,14 +5,13 @@ description: Learn to migrate existing applications away from Shared Key authori
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 06/12/2023
-ms.service: event-hubs
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Migrate an application to use passwordless connections with Azure Event Hubs
 
-[!INCLUDE [passwordless-intro](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/passwordless-intro.md)]
+[!INCLUDE [passwordless-intro](../../includes/passwordless/migration-guide/passwordless-intro.md)]
 
 ## Configure your local development environment
 
@@ -306,7 +305,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. Choose **Add role assignment**
 
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/passwordless/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/passwordless/migration-add-role.png" :::
+    :::image type="content" source="../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../includes/passwordless/media/migration-add-role.png" :::
 
 1. In the **Role** search box, search for *Azure Event Hubs Data Sender*, which is a common role used to manage data operations for queues. You can assign whatever role is appropriate for your use case. Select the *Azure Event Hubs Data Sender* from the list and choose **Next**.
 
@@ -314,7 +313,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. In the flyout, search for the managed identity you created by name and select it from the results. Choose **Select** to close the flyout menu.
 
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/passwordless/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/passwordless/migration-select-identity.png":::
+    :::image type="content" source="../../includes/passwordless/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../../includes/passwordless/media/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 

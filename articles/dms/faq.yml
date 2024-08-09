@@ -6,7 +6,7 @@ metadata:
   author: abhims14
   ms.author: abhishekum
   ms.reviewer: randolphwest
-  ms.service: dms
+  ms.service: azure-database-migration-service
   ms.custom: mvc
   ms.topic: faq
   ms.date: 04/18/2023
@@ -79,7 +79,7 @@ sections:
   - name: Security
     questions:
       - question: |
-          What services are created and consumed when an instance of DMS is created and run?
+          What services are created and consumed when an instance of DMS(classic) is created and run?
         answer: |
           The following list contains the Azure resources that may be created behind the scenes to perform a data migration. The services used may vary by migration scenario.
           
@@ -269,8 +269,14 @@ sections:
         answer: |
           You can do a few things to speed up your database migration using the service:
           
+          For DMS(Classic)-
           * Use the multi CPU General Purpose Pricing Tier when you create your service instance to allow the service to take advantage of multiple vCPUs for parallelization and faster data transfer.
           * Temporarily scale up your Azure SQL Database target instance to the Premium tier SKU during the data migration operation to minimize Azure SQL Database throttling that may affect data transfer activities when using lower-level SKUs.
+
+          For DMS-
+          * If you are copying backups from local fileshare to Azure blob storage OR while performing migration to Target Azure SQL DB, DMS uses SHIR node as its compute. So ensure to monitor the resource usage of that SHIR node.
+          * Temporarily scale up your Azure SQL Database target instance to the Premium tier SKU during the data migration operation to minimize Azure SQL Database disk throttling that may affect data transfer activities when using lower-level SKUs.
+          * For more detailed information, refer [blog](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/improving-sql-db-migration-performance-azure-database-migration/ba-p/3968094).
           
 additionalContent: |
 

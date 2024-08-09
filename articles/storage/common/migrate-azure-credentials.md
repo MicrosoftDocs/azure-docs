@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 # Migrate an application to use passwordless connections with Azure Blob Storage
 
-[!INCLUDE [passwordless-intro](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/passwordless-intro.md)]
+[!INCLUDE [passwordless-intro](../../../includes/passwordless/migration-guide/passwordless-intro.md)]
 
 ## Configure roles and users for local development authentication
 

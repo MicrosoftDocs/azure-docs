@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB
 description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Azure Cosmos DB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: conceptual
 ms.date: 04/20/2023
@@ -85,7 +85,7 @@ Go through the spreadsheet and verify each collection against the [supported fea
 > [!NOTE]
 > Database Migration Assistant is a legacy utility meant to assist you with the pre-migration steps. We recommend you to use the [Azure Cosmos DB Migration for MongoDB extension](#azure-cosmos-db-migration-for-mongodb-extension) for all pre-migration steps.
 
-You may use the [Database Migration Assistant](programmatic-database-migration-assistant-legacy.md) (DMA) utility to assist you with pre-migration steps.
+You may use the [Database Migration Assistant (DMA)](programmatic-database-migration-assistant-legacy.md) utility to assist you with pre-migration steps.
 
 ## Pre-migration mapping
 

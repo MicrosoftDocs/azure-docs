@@ -1,10 +1,10 @@
 ---
 title: High availability with Apache Kafka - Azure HDInsight 
 description: Learn how to ensure high availability with Apache Kafka on Azure HDInsight. Learn how to rebalance partition replicas in Kafka so that they are on different fault domains within the Azure region that contains HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 05/23/2023
+ms.date: 06/15/2024
 ---
 
 # High availability of your data with Apache Kafka on HDInsight

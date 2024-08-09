@@ -11,7 +11,7 @@ ms.date: 01/04/2024
 
 # Custom connectors in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Without writing any code, you can quickly create automated integration workflows when you use the prebuilt connector operations in Azure Logic Apps. A connector helps your workflows connect and access data, events, and actions across other apps, services, systems, protocols, and platforms. Each connector offers operations as triggers, actions, or both that you can add to your workflows. By using these operations, you expand the capabilities for your cloud apps and on-premises apps to work with new and existing data.
 
@@ -21,23 +21,22 @@ When you use a connector operation for the first time in a workflow, some connec
 
 Sometimes though, you might want to call REST APIs that aren't available as prebuilt connectors. To support more tailored scenarios, you can create your own [*custom connectors*](/connectors/custom-connectors/) to offer triggers and actions that aren't available as prebuilt operations.
 
-This article provides an overview about custom connectors for [Consumption logic app workflows and Standard logic app workflows](logic-apps-overview.md). Each logic app type is powered by a different Azure Logic Apps runtime, respectively hosted in multi-tenant Azure and single-tenant Azure. For more information about connectors in Azure Logic Apps, review the following documentation:
+This article provides an overview about custom connectors for [Consumption logic app workflows and Standard logic app workflows](logic-apps-overview.md). Each logic app type is powered by a different Azure Logic Apps runtime, respectively hosted in multitenant Azure and single-tenant Azure. For more information about connectors in Azure Logic Apps, review the following documentation:
 
 * [About connectors in Azure Logic Apps](../connectors/introduction.md)
 * [Built-in connectors in Azure Logic Apps](../connectors/built-in.md)
 * [Managed connectors in Azure Logic Apps](../connectors/managed.md)
 * [Connector overview](/connectors/connectors)
-* [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+* [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
 
 <a name="custom-connector-consumption"></a>
 
 ## Consumption logic apps
 
-In [multi-tenant Azure Logic Apps](logic-apps-overview.md), you can create [custom connectors from Swagger-based or SOAP-based APIs](/connectors/custom-connectors/) up to [specific limits](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits) for use in Consumption logic app workflows. The [Connectors documentation](/connectors/connectors) provides more overview information about how to create custom connectors for Consumption logic apps, including complete basic and advanced tutorials. The following list also provides direct links to information about custom connectors for Consumption logic apps:
+In [multitenant Azure Logic Apps](logic-apps-overview.md), you can create [custom connectors from Swagger-based or SOAP-based APIs](/connectors/custom-connectors/) up to [specific limits](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits) for use in Consumption logic app workflows. The [Connectors documentation](/connectors/connectors) provides more overview information about how to create custom connectors for Consumption logic apps, including complete basic and advanced tutorials. The following list also provides direct links to information about custom connectors for Consumption logic apps:
 
   * [Create an Azure Logic Apps connector](/connectors/custom-connectors/create-logic-apps-connector)
   * [Create a custom connector from an OpenAPI definition](/connectors/custom-connectors/define-openapi-definition)
-  * [Create a custom connector from a Postman collection](/connectors/custom-connectors/define-postman-collection)
   * [Use a custom connector from a logic app](/connectors/custom-connectors/use-custom-connector-logic-apps)
   * [Share custom connectors in your organization](/connectors/custom-connectors/share)
   * [Submit your connectors for Microsoft certification](/connectors/custom-connectors/submit-certification)
@@ -47,7 +46,7 @@ In [multi-tenant Azure Logic Apps](logic-apps-overview.md), you can create [cust
 
 ## Standard logic apps
 
-In [single-tenant Azure Logic Apps](logic-apps-overview.md), the redesigned Azure Logic Apps runtime powers Standard logic app workflows. This runtime differs from the multi-tenant Azure Logic Apps runtime that powers Consumption logic app workflows. The single-tenant runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), which provides a key capability for you to create your own [built-in connectors](../connectors/built-in.md) for anyone to use in Standard workflows. In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+In [single-tenant Azure Logic Apps](logic-apps-overview.md), the redesigned Azure Logic Apps runtime powers Standard logic app workflows. This runtime differs from the multitenant Azure Logic Apps runtime that powers Consumption logic app workflows. The single-tenant runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md), which provides a key capability for you to create your own [built-in connectors](../connectors/built-in.md) for anyone to use in Standard workflows. In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
 When single-tenant Azure Logic Apps officially released, new built-in connectors included Azure Blob Storage, Azure Event Hubs, Azure Service Bus, and SQL Server. Over time, this list of built-in connectors continues to grow. However, if you need connectors that aren't available in Standard logic app workflows, you can [create your own built-in connectors](create-custom-built-in-connector-standard.md) using the same extensibility model that's used by *service provider-based* built-in connectors in Standard workflows.
 
@@ -114,6 +113,21 @@ Custom built-in trigger capabilities support adding or exposing an [Azure Functi
 ### Methods to implement
 
 The following sections provide more information about the methods that your connector needs to implement. For the complete sample, review [Sample CosmosDbServiceOperationProvider.cs](https://github.com/Azure/logicapps-connector-extensions/blob/CosmosDB/src/CosmosDB/Providers/CosmosDbServiceOperationProvider.cs) and [Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps](create-custom-built-in-connector-standard.md).
+
+> [!IMPORTANT]
+>
+> When you have sensitive information, such as connection strings that include usernames and passwords, 
+> make sure to use the most secure authentication flow available. For example, Microsoft recommends that 
+> you authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
+> when support is available, and assign a role that has the least required privilege.
+>
+> If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+> [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
+> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+> strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+> app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+> You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+> For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
 #### GetService()
 

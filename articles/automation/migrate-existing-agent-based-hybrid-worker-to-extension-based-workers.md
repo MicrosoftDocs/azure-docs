@@ -3,10 +3,11 @@ title: Migrate an existing agent-based hybrid workers to extension-based-workers
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/17/2024
+ms.date: 06/29/2024
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-azurepowershell
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
+ms.service: azure-automation
 ---
 
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers
@@ -54,7 +55,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 
 | Windows (x64)  | Linux (x64) |
 |---|---|
-| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro| &#9679; Debian GNU/Linux 8,9,10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, 8, and 9 <br> &#9679; CentOS Linux 7 and 8 <br> &#9679; SUSE Linux Enterprise Server (SLES) 15 <br> &#9679; Rocky Linux 9 </br> &#9679; Oracle Linux 7 and 8 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*. |
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro| &#9679; Debian GNU/Linux 8,9,10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, 8, and 9 <br> &#9679; SUSE Linux Enterprise Server (SLES) 15 <br> &#9679; Rocky Linux 9 </br> &#9679; Oracle Linux 7 and 8 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*. |
 
 ### Other Requirements
 
@@ -914,15 +915,13 @@ New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Locati
 
 #### [Linux Hybrid Worker](#tab/lin-hrw)
 
-Run the following commands on agent-based Linux Hybrid Worker:
+1. Run the following commands on agent-based Linux Hybrid Worker:
 
-1. ```bash
-      sudo bash
+   ```bash
+   sudo bash
+   rm -r /home/nxautomation
    ```
 
-1. ```bash
-      rm -r /home/nxautomation
-   ```
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.

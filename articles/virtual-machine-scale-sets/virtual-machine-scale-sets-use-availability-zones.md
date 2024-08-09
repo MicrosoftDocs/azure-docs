@@ -4,9 +4,9 @@ description: Learn how to create Azure Virtual Machine Scale Sets that use Avail
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: availability
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -172,43 +172,6 @@ You can modify a scale to expand the set of zones over which to spread VM instan
 
 This feature can be used with API version 2023-03-01 or greater.
 
-### Enable your subscription to use zonal expansion feature
-
-You must register for four feature flags on your subscription:
-
-### [Azure CLI](#tab/cli-1)
-
-
-```azurecli
-az feature register --namespace Microsoft.Compute --name VmssAllowRegionalToZonalMigration
-az feature register --namespace Microsoft.Compute --name VmssAllowExpansionOfAvailabilityZones
-az feature register --namespace Microsoft.Compute --name VmssFlexAllowExpansionOfAvailabilityZones
-az feature register --namespace Microsoft.Compute --name VmssFlexAllowRegionalToZonalMigration
-```
-
-You can check the registration status of each feature by using:
-
-```azurecli
-az feature show --namespace Microsoft.Compute --name \<feature-name\>
-```
-
-### [Azure PowerShell](#tab/powershell-1)
-
-
-```powershell
-Register-AzProviderPreviewFeature -Name VmssAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name VmssAllowExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name VmssFlexAllowExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name VmssFlexAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
-```
-
-You can check the registration status of each feature by using:
-
-```powershell
-Get-AzProviderPreviewFeature -Name <feature-name> -ProviderNamespace Microsoft.Compute
-```
----
-
 ### Expand scale set to use availability zones
 You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availability zones supported by the region. For regions that support zones, the minimum number of zones is 3.
 
@@ -289,13 +252,6 @@ PATCH /subscriptions/subscriptionid/resourceGroups/resourcegroupo/providers/Micr
 You can update the zones parameter and the scale set capacity in the same ARM template or REST API call.
 
 When you are satisfied that the new instances are ready, scale in your scale set to remove the original regional instances. You can either manually delete the specific regional instances, or scale in by reducing the scale set capacity. When scaling in via reducing scale set capacity, the platform will always prefer removing the regional instances, then follow the scale in policy.
-
-#### Automate with Rolling upgrades + MaxSurge
-
-With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md), new zonal instances are created and brought up-to-date with the latest scale model in batches. Once a batch of new instances is added to the scale set and report as healthy, a batch of old instances are automated removed from the scale set. Upgrades continue until all instances are brought up-to-date.
-
-> [!IMPORTANT]
-> Rolling upgrades with MaxSurge is currently under Public Preview. It is only available for VMSS Uniform Orchestration Mode.
 
 ### Known issues and limitations
 

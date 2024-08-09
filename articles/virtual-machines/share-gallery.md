@@ -2,7 +2,7 @@
 title: Share resources in an Azure Compute Gallery
 description: Learn how to share resources explicitly or to all Azure users using role-based access control.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 02/14/2023
@@ -55,10 +55,10 @@ If you share gallery resources to someone outside of your Azure tenant, they wil
 ### [Portal](#tab/portal)
 
 1. On the page for your gallery, in the menu on the left, select **Access control (IAM)**. 
-1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
+1. Under **Add**, select **Add role assignment**. The **Add role assignment** page will open. 
 1. Under **Role**, select **Reader**.
-1. Under **assign access to**, leave the default of **Microsoft Entra user, group, or service principal**.
-1. Under **Select**, type in the email address of the person that you would like to invite.
+1. Ensure that the user is selected in the Members tab.For **Assign access to**, keep the default of **User, group, or service principal**.
+1. Click **Select** members and choose a user account from the page that opens on the right.
 1. If the user is outside of your organization, you'll see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
 
 

@@ -27,7 +27,7 @@ In this article, you learn how to manage access (authorization) to an Azure AI S
 
 In the Azure AI Studio, there are two levels of access: the hub and the project. The hub is home to the infrastructure (including virtual network setup, customer-managed keys, managed identities, and policies) and where you configure your Azure AI services. Hub access can allow you to modify the infrastructure, create new hubs, and create projects. Projects are a subset of the hub that act as workspaces that allow you to build and deploy AI systems. Within a project you can develop flows, deploy models, and manage project assets. Project access lets you develop AI end-to-end while taking advantage of the infrastructure setup on the hub.
 
-:::image type="content" source="../media/concepts/azureai-hub-project-relationship.png" alt-text="Diagram of the relationship between AI Studio resources." lightbox="../media/concepts/azureai-hub-project-relationship.png":::
+:::image type="content" source="../media/concepts/resource-provider-connected-resources.svg" alt-text="Diagram of the relationship between AI Studio resources.":::
 
 One of the key benefits of the hub and project relationship is that developers can create their own projects that inherit the hub security settings. You might also have developers who are contributors to a project, and can't create new projects.
 
@@ -150,7 +150,57 @@ az role assignment create --role "Azure AI Developer" --assignee "joe@contoso.co
 If the built-in roles are insufficient, you can create custom roles. Custom roles might have the read, write, delete, and compute resource permissions in that AI Studio. You can make the role available at a specific project level, a specific resource group level, or a specific subscription level. 
 
 > [!NOTE]
-> You must be an owner of the resource at that level to create custom roles within that resource. 
+> You must be an owner of the resource at that level to create custom roles within that resource.
+
+The following JSON example defines a custom AI Studio developer role at the subscription level:
+
+```json
+{
+    "properties": {
+        "roleName": "AI Studio Developer",
+        "description": "Custom role for AI Studio. At subscription level",
+        "assignableScopes": [
+            "/subscriptions/<your-subscription-id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/write",
+                    "Microsoft.MachineLearningServices/workspaces/endpoints/write",
+                    "Microsoft.Storage/storageAccounts/write",
+                    "Microsoft.Resources/deployments/validate/action",
+                    "Microsoft.KeyVault/vaults/write",
+                    "Microsoft.Authorization/roleAssignments/read",
+                    "Microsoft.Authorization/roleDefinitions/read",
+                    "Microsoft.CognitiveServices/*/read"
+                ],
+                "notActions": [
+                    "Microsoft.MachineLearningServices/workspaces/delete",
+                    "Microsoft.MachineLearningServices/workspaces/write",
+                    "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+                    "Microsoft.MachineLearningServices/workspaces/hubs/write",
+                    "Microsoft.MachineLearningServices/workspaces/hubs/delete",
+                    "Microsoft.MachineLearningServices/workspaces/featurestores/write",
+                    "Microsoft.MachineLearningServices/workspaces/featurestores/delete"
+                ],
+                "dataActions": [
+                    "Microsoft.CognitiveServices/accounts/OpenAI/*/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/search/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
 
 ## Scenario: Use a customer-managed key
 
@@ -188,6 +238,105 @@ Azure Application Insights is an optional dependency for Azure AI Studio hub. Th
 |------------|-------------|
 | `Microsoft.Insights/Components/Write` | Write to an application insights component configuration. |
 | `Microsoft.OperationalInsights/workspaces/write` | Create a new workspace or links to an existing workspace by providing the customer ID from the existing workspace. |
+
+## Scenario: Provisioned throughput unit procurer
+
+The following example defines a custom role that can procure [provisioned throughput units (PTU)](/azure/ai-services/openai/concepts/provisioned-throughput).
+
+```json
+{
+    "properties": {
+        "roleName": "PTU procurer",
+        "description": "Custom role to purchase PTU",
+        "assignableScopes": [
+            "/subscriptions/<your-subscription-id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/read",
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/write",
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/delete",
+                    "Microsoft.CognitiveServices/locations/commitmentTiers/read",
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/read",
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/write",
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/delete",
+                    "Microsoft.Features/features/read",
+                    "Microsoft.Features/providers/features/read",
+                    "Microsoft.Features/providers/features/register/action",
+                    "Microsoft.Insights/logDefinitions/read",
+                    "Microsoft.Insights/metricdefinitions/read",
+                    "Microsoft.Insights/metrics/read",
+                    "Microsoft.ResourceHealth/availabilityStatuses/read",
+                    "Microsoft.Resources/deployments/operations/read",
+                    "Microsoft.Resources/subscriptions/operationresults/read",
+                    "Microsoft.Resources/subscriptions/read",
+                    "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+## Scenario: Azure OpenAI Assistants API
+
+The following example defines a role for a developer using [Azure OpenAI Assistants](/azure/ai-services/openai/how-to/assistant).
+
+```json
+{
+    "id": "",
+    "properties": {
+        "roleName": "CognitiveServices OpenAI Assistants API Developer",
+        "description": "Custom role to work with AOAI Assistants API",
+        "assignableScopes": [
+            "<your-scope>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.CognitiveServices/*/read",
+                    "Microsoft.Authorization/roleAssignments/read",
+                    "Microsoft.Authorization/roleDefinitions/read"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.CognitiveServices/accounts/OpenAI/*/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/search/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/write",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/delete",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/files/write",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/files/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/files/delete",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/write",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/delete",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/write",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/files/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/steps/read"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
 
 ## Next steps
 

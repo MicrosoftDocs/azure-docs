@@ -2,8 +2,8 @@
 title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup
 ms.topic: conceptual
-ms.date: 02/09/2024
-ms.service: backup
+ms.date: 06/19/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -36,7 +36,7 @@ Azure Backup follows strict security guidelines laid down by Azure; permissions 
 
 ### Key-vault based authentication model
 
-The Azure Backup service needs to connect to the Azure PostgreSQL while taking each backup. While ‘username + password’ (or connection string), corresponding to the database, are used to make this connection, these credentials aren’t stored with Azure Backup. Instead, these credentials need to be securely seeded by the database admin in the [Azure key vault as a secret](../key-vault/secrets/about-secrets.md). The workload admin is responsible to manage and rotate credentials; Azure Backup calls for the most recent secret details from the key vault to take the backup.
+The Azure Backup service needs to connect to the Azure PostgreSQL while taking each backup. While ‘username + password’ (or connection string), corresponding to the database, are used to make this connection, these credentials aren’t stored with Azure Backup. Instead, these credentials need to be securely seeded by the database admin in the [Azure key vault as a secret](/azure/key-vault/secrets/about-secrets). The workload admin is responsible to manage and rotate credentials; Azure Backup calls for the most recent secret details from the key vault to take the backup.
  
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-based-authentication-model.png" alt-text="Diagram showing the workload or database flow.":::
 
@@ -98,7 +98,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
    - Using Azure role-based access control (Azure RBAC) authorization (that is, Permission model is set to Azure role-based access control):
 
      - Under Access control, grant the backup vault’s MSI _Key Vault Secrets User_ access on the key vault. Bearers of that role will be able to read secrets.
-     - [Grant permission to applications to access an Azure key vault using Azure RBAC](../key-vault/general/rbac-guide.md?tabs=azure-cli).
+     - [Grant permission to applications to access an Azure key vault using Azure RBAC](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
 
    :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-inline.png" alt-text="Screenshot showing the option to provide secret user access." lightbox="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-expanded.png":::
 
@@ -107,7 +107,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
    - Using access policies (that is, Permission model is set to Vault access policy):
 
      - Set Get and List permissions on secrets.
-     - Learn about [Assign an Azure Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal)
+     - Learn about [Assign an Azure Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal)
 
      :::image type="content" source="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-inline.png" alt-text="Screenshot showing the option to grant permission using Permission model is set to Vault access policy model." lightbox="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-expanded.png":::  
  

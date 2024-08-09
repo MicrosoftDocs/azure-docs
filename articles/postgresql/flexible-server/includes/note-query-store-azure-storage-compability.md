@@ -1,6 +1,6 @@
 ---
 author: AlicjaKucharczyk
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ms.date: 01/22/2024

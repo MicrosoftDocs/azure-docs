@@ -7,7 +7,7 @@ metadata:
   ms.author: sidandrews
   ms.reviewer: mjbrown
   ms.date: 02/26/2024
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: nosql
   ms.topic: how-to
   ms.custom:
@@ -185,6 +185,9 @@ procedureSection:
 
       > [!NOTE]
       > If you perform a manual failover operation while an asynchronous throughput scaling operation is in progress, the throughput scale-up operation will be paused. It resumes automatically when the failover operation is complete. For more information, see [Best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus)
+
+      > [!WARNING]
+      > In the event of a write region outage, where the Azure Cosmos DB account promotes a secondary region to be the new primary write region via *service-managed failover*, the original write region will **not be promoted back as the write region automatically** once it's recovered. It is your responsibility to switch back to the recovered region as the write region using [PowerShell, the Azure CLI, or the Azure portal](#perform-manual-failover-on-an-azure-cosmos-db-account) (once safe to do so, as described above).  
     steps:
       - |
         Go to your Azure Cosmos DB account and open the **Replicate data globally** menu.

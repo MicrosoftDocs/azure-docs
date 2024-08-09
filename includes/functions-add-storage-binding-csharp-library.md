@@ -21,7 +21,7 @@ The `Connection` property sets the connection string for the storage account. In
 
 # [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
 
 Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
 

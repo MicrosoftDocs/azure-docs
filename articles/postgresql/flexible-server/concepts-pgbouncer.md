@@ -3,9 +3,8 @@ title: PgBouncer in Azure Database for PostgreSQL - Flexible Server
 description: This article provides an overview of the built-in PgBouncer feature.
 author: varun-dhawan
 ms.author: varundhawan
-ms.reviewer: maghan
-ms.date: 05/22/2024
-ms.service: postgresql
+ms.date: 06/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
@@ -126,6 +125,8 @@ Using an application-side pool together with PgBouncer on the database server ca
 * You can't use statement pool modes along with prepared statements. Current version of PgBouncer added support for prepared statements inside of transaction mode. This support can enabled and configured via [max_prepared_statements parameter](./concepts-server-parameters.md). Setting this parameter above default value of 0 will turn on support for prepared statements. This support only only applies to protocol-level prepared statements. For most programming languages, this means that we are using the *[libpq](https://www.postgresql.org/docs/current/libpq.html)* function *PQprepare* on the client, sending protocol level commands that PgBouncer can intercept, rather than issuing a dynamic SQL command similar to *PREPARE proc AS*, which is sending text that PgBouncer will not interpret correctly.  To check other limitations of your chosen pool mode, refer to the [PgBouncer documentation](https://www.pgbouncer.org/features.html).
 
 * If PgBouncer is deployed as a feature, it becomes a potential single point of failure. If the PgBouncer feature is down, it can disrupt the entire database connection pool and cause downtime for the application. To mitigate the single point of failure, you can set up multiple PgBouncer instances behind a load balancer for high availability on Azure VMs.
+
+* Token Size Restriction with AAD Authentication - Users with a large number of group memberships won’t be able to connect through PgBouncer due to a token size restriction. Applications, services, and users with a small number of groups work.
 
 * PgBouncer is a lightweight application that uses a single-threaded architecture. This design is great for most application workloads. But in applications that create a large number of short-lived connections, this design might affect pgBouncer performance and limit your ability to scale your application. You might need to try one of these approaches:
 

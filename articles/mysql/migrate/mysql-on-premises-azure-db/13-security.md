@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 05/21/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: migration-guide
 ms.topic: how-to
 ---
@@ -54,7 +54,7 @@ AzureDiagnostics
 
 Data in the MySQL instance is encrypted at rest by default. Any automated backups are also encrypted to prevent potential leakage of data to unauthorized parties. This encryption is typically performed with a key that is created when the instance is created. In addition to this default encryption key, administrators have the option to [bring your own key (BYOK).](../../concepts-data-encryption-mysql.md)
 
-When using a customer-managed key strategy, it's vital to understand responsibilities around key lifecycle management. Customer keys are stored in an [Azure Key Vault](../../../key-vault/general/basic-concepts.md) and then accessed via policies. it's vital to follow all recommendations for key management, the loss of the encryption key equates to the loss of data access.
+When using a customer-managed key strategy, it's vital to understand responsibilities around key lifecycle management. Customer keys are stored in an [Azure Key Vault](/azure/key-vault/general/basic-concepts) and then accessed via policies. it's vital to follow all recommendations for key management, the loss of the encryption key equates to the loss of data access.
 
 In addition to a customer-managed key, use service-level keys to [add double encryption](../../concepts-infrastructure-double-encryption.md). Implementing this feature can provide highly encrypted data at rest, but it does come with encryption performance penalties. Testing should be performed.
 

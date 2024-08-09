@@ -3,7 +3,7 @@ title: Managed identities in Azure Container Apps
 description: Using managed identities in Container Apps
 services: container-apps
 author: v-jaswel
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/25/2023
@@ -46,8 +46,7 @@ User-assigned identities are ideal for workloads that:
 
 ## Limitations
 
-- Managed identities in scale rules isn't supported. You need to include connection strings or keys in the `secretRef` of the scaling rule.
-- [Init containers](containers.md#init-containers) can't access managed identities.
+[Init containers](containers.md#init-containers) can't access managed identities in [consumption-only environments](environment.md#types) and [dedicated workload profile environments](environment.md#types)
 
 ## Configure managed identities
 
@@ -106,6 +105,18 @@ identity:
 ```
 
 Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete YAML template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=yaml#container-app-examples).
+
+# [Bicep](#tab/bicep)
+
+A Bicep template can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your Bicep template.
+
+```bicep
+identity: {
+  type: 'SystemAssigned'
+}
+```
+
+Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete Bicep template example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
 
 ---
 
@@ -188,7 +199,28 @@ identity:
 For a complete YAML template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=yaml#container-app-examples).
 
 > [!NOTE]
-> An application can have both system-assigned and user-assigned identities at the same time. In this case, the type property would be `SystemAssigned,UserAssigned`.
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
+
+# [Bicep](#tab/bicep)
+
+To add one or more user-assigned identities, add an `identity` section to your Bicep template. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
+
+Specify each user-assigned identity by adding an item to the `userAssignedIdentities` object with the identity's resource identifier as the key. Use an empty object as the value.
+
+```bicep
+identity: {
+  type: 'UserAssigned'
+  userAssignedIdentities: {
+    <IDENTITY1_RESOURCE_ID>: {}
+    <IDENTITY2_RESOURCE_ID>: {}
+  }
+}
+```
+
+For a complete Bicep template example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
+
+> [!NOTE]
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
 
 ---
 
@@ -206,7 +238,7 @@ With managed identities, an app can obtain tokens to access Azure resources that
 Container Apps provides an internally accessible [REST endpoint](managed-identity.md?tabs=cli%2Chttp#rest-endpoint-reference) to retrieve tokens. The REST endpoint is available from within the app with a standard HTTP `GET` request, which you can send with a generic HTTP client in your preferred language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint. You can connect to other Azure services by adding a credential object to the service-specific client.
 
 > [!NOTE]
-> When using Azure Identity client library, you need to explicitly specify the user-assigned managed identity client id.
+> When using Azure Identity client library, you need to explicitly specify the user-assigned managed identity client ID.
 
 # [.NET](#tab/dotnet)
 
@@ -318,6 +350,104 @@ To get a token for a resource, make an HTTP `GET` request to the endpoint, inclu
 
 ---
 
+## <a name="scale-rules"></a>Use managed identity for scale rules
+
+You can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property instead of the `auth` property in your scale rule. Acceptable values for the `identity` property are either the Azure resource ID of a user-assigned identity, or `system` to use a system-assigned identity.
+
+> [!NOTE]
+> Managed identity authentication in scale rules is in public preview. It's available in API version `2024-02-02-preview`.
+
+The following ARM template example shows how to use a managed identity with an Azure Queue Storage scale rule:
+
+The queue storage account uses the `accountName` property to identify the storage account, while the `identity` property specifies which managed identity to use. You do not need to use the `auth` property.
+
+```json
+"scale": {
+    "minReplicas": 1,
+    "maxReplicas": 10,
+    "rules": [{
+        "name": "myQueueRule",
+        "azureQueue": {
+            "accountName": "mystorageaccount",
+            "queueName": "myqueue",
+            "queueLength": 2,
+            "identity": "<IDENTITY1_RESOURCE_ID>"
+        }
+    }]
+}
+```
+To learn more about using managed identity with scale rules, see [Set scaling rules in Azure Container Apps](scale-app.md?pivots=azure-portal#authentication-2).
+
+## Control managed identity availability
+
+Container Apps allows you to specify [init containers](containers.md#init-containers) and main containers. By default, both main and init containers in a consumption workload profile environment can use managed identity to access other Azure services. In consumption-only environments and dedicated workload profile environments, only main containers can use managed identity. Managed identity access tokens are available for every managed identity configured on the container app. However, in some situations only the init container or the main container require access tokens for a managed identity. Other times, you may use a managed identity only to access your Azure Container Registry to pull the container image, and your application itself doesn't need to have access to your Azure Container Registry.
+
+Starting in API version `2024-02-02-preview`, you can control which managed identities are available to your container app during the init and main phases to follow the security principle of least privilege. The following options are available:
+
+- `Init`: Available only to init containers. Use this when you want to perform some initialization work that requires a managed identity, but you no longer need the managed identity in the main container. This option is currently only supported in [workload profile consumption environments](environment.md#types)
+- `Main`: Available only to main containers. Use this if your init container does not need managed identity.
+- `All`: Available to all containers. This value is the default setting.
+- `None`: Not available to any containers. Use this when you have a managed identity that is only used for ACR image pull, scale rules, or Key Vault secrets and does not need to be available to the code running in your containers.
+
+The following ARM template example shows how to configure a container app on a workload profile consumption environment that:
+
+- Restricts the container app's system-assigned identity to main containers only.
+- Restricts a specific user-assigned identity to init containers only.
+- Uses a specific user-assigned identity for Azure Container Registry image pull without allowing the code in the containers to use that managed identity to access the registry. In this example, the containers themselves don't need to access the registry.
+
+This approach limits the resources that can be accessed if a malicious actor were to gain unauthorized access to the containers.
+
+```json
+{
+    "location": "eastus2",
+    "identity":{
+    "type": "SystemAssigned, UserAssigned",
+        "userAssignedIdentities": {
+            "<IDENTITY1_RESOURCE_ID>":{},
+            "<ACR_IMAGEPULL_IDENTITY_RESOURCE_ID>":{}
+         }
+     },
+    "properties": {
+        "workloadProfileName":"Consumption",
+        "environmentId": "<CONTAINER_APPS_ENVIRONMENT_ID>",
+        "configuration": {
+            "registries": [
+            {
+                "server": "myregistry.azurecr.io",
+                "identity": "ACR_IMAGEPULL_IDENTITY_RESOURCE_ID"
+            }],
+            "identitySettings":[
+            {
+                "identity": "ACR_IMAGEPULL_IDENTITY_RESOURCE_ID",
+                "lifecycle": "None"
+            },
+            {
+                "identity": "<IDENTITY1_RESOURCE_ID>",
+                "lifecycle": "Init"
+            },
+            {
+                "identity": "system",
+                "lifecycle": "Main"
+            }]
+        },
+        "template": {
+            "containers":[
+                {
+                    "image":"myregistry.azurecr.io/main:1.0",
+                    "name":"app-main"
+                }
+            ],
+            "initContainers":[
+                {
+                    "image":"myregistry.azurecr.io/init:1.0",
+                    "name":"app-init",
+                }
+            ]
+        }
+    }
+}
+```
+
 ## View managed identities
 
 You can show the system-assigned and user-assigned managed identities using the following Azure CLI command. The output shows the managed identity type, tenant IDs and principal IDs of all managed identities assigned to your container app.
@@ -378,6 +508,16 @@ To remove all identities, set the `type` of the container app's identity to `Non
 ```yaml
 identity:
     type: None
+```
+
+# [Bicep](#tab/bicep)
+
+To remove all identities, set the `type` of the container app's identity to `None` in the Bicep template:
+
+```bicep
+identity: {
+  type: 'None'
+}
 ```
 
 ---

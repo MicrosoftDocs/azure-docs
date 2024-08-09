@@ -84,10 +84,10 @@ For more information about connection properties, see [Create an Azure SQL Manag
 
 1. Call the `az rest` command to use the [Management REST API](/rest/api/searchmanagement) of Azure AI Search. 
 
-   Because shared private link support for SQL managed instances is still in preview, you need a preview version of the REST API. Use `2021-04-01-preview` for this step`.
+   Because shared private link support for SQL managed instances is still in preview, you need a preview version of the REST API. Use `2021-04-01-preview` or a later preview API version for this step. We recommend using the latest preview API version.
 
    ```azurecli
-   az rest --method put --uri https://management.azure.com/subscriptions/{{search-service-subscription-ID}}/resourceGroups/{{search service-resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2021-04-01-preview --body @create-pe.json
+   az rest --method put --uri https://management.azure.com/subscriptions/{{search-service-subscription-ID}}/resourceGroups/{{search service-resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2024-06-01-preview --body @create-pe.json
    ```
 
    Provide the subscription ID, resource group name, and service name of your Azure AI Search resource.
@@ -131,7 +131,7 @@ This article assumes a [REST client](search-get-started-rest.md) and uses the RE
     Provide the connection string that you copied earlier.
 
     ```http
-    POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
+    POST https://myservice.search.windows.net/datasources?api-version=2024-07-01
      Content-Type: application/json
      api-key: admin-key
      {
@@ -157,7 +157,7 @@ This article assumes a [REST client](search-get-started-rest.md) and uses the RE
    [Indexer execution](search-indexer-securing-resources.md#indexer-execution-environment) occurs in either a private environment that's specific to the search service, or a multi-tenant environment that's used internally to offload expensive skillset processing for multiple customers. **When connecting over a private endpoint, indexer execution must be private.**
 
    ```http
-    POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
+    POST https://myservice.search.windows.net/indexers?api-version=2024-07-01
      Content-Type: application/json
      api-key: admin-key
        {

@@ -4,7 +4,7 @@ description: Learn how MongoDB native tools can be used to migrate small dataset
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.topic: tutorial
 ms.date: 08/26/2021

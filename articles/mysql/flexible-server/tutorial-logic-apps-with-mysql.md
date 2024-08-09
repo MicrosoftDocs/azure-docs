@@ -1,12 +1,13 @@
 ---
 title: Create a logic app
 description: Create an automated workflow using Azure Logic Apps with Azure Database for MySQL - Flexible Server.
-ms.service: mysql
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: mksuni
-ms.author: sumuth 
-ms.date: 12/15/2022
 ---
 
 # Tutorial: Create a logic app with Azure Database for MySQL - Flexible Server

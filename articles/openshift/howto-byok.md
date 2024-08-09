@@ -17,7 +17,7 @@ By default, the OS disks of the virtual machines in an Azure Red Hat OpenShift c
 
 Clusters created with customer-managed keys have a default storage class enabled with their keys. Therefore, both OS disks and data disks are encrypted by these keys. The customer-managed keys are stored in Azure Key Vault. 
 
-For more information about using Azure Key Vault to create and maintain keys, see [Server-side encryption of Azure Disk Storage](../key-vault/general/basic-concepts.md) in the Microsoft Azure documentation.
+For more information about using Azure Key Vault to create and maintain keys, see [Server-side encryption of Azure Disk Storage](/azure/key-vault/general/basic-concepts) in the Microsoft Azure documentation.
 
 With host-based encryption, the data stored on the VM host of your Azure Red Hat OpenShift agent nodes' VMs is encrypted at rest and flows encrypted to the Storage service. Host-base encryption means the temp disks are encrypted at rest with platform-managed keys. 
 
@@ -33,8 +33,8 @@ The Azure Red Hat OpenShift Engineering team can't access the keys. Therefore, t
 For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](../virtual-machines/disk-encryption.md) in the Microsoft Azure documentation.
 
 ## Prerequisites
-* [Verify your permissions](tutorial-create-cluster.md#verify-your-permissions). You must have either Contributor and User Access Administrator permissions or Owner permissions.
-* If you have multiple Azure subscriptions, register the resource providers. For registration details, see [Register the resource providers](tutorial-create-cluster.md#register-the-resource-providers).
+* [Verify your permissions](create-cluster.md#verify-your-permissions). You must have either Contributor and User Access Administrator permissions or Owner permissions.
+* If you have multiple Azure subscriptions, register the resource providers. For registration details, see [Register the resource providers](create-cluster.md#register-the-resource-providers).
 * You will need to have the EncryptionAtHost feature enabled on your subscription. You can enable it by running:
 
     ```azurecli-interactive
@@ -47,7 +47,7 @@ For details about using Disk Encryption Sets to manage your encryption keys, see
     ```
 
 ## Create a virtual network containing two empty subnets
-Create a virtual network containing two empty subnets. If you have an existing virtual network that meets your needs, you can skip this step. To review the procedure of creating a virtual network, see [Create a virtual network containing two empty subnets](tutorial-create-cluster.md#create-a-virtual-network-containing-two-empty-subnets).
+Create a virtual network containing two empty subnets. If you have an existing virtual network that meets your needs, you can skip this step. To review the procedure of creating a virtual network, see [Create a virtual network containing two empty subnets](create-cluster.md#create-a-virtual-network-containing-two-empty-subnets).
 
 ## Create an Azure Key Vault instance
 You must use an Azure Key Vault instance to store your keys. Create a new Key Vault with purge protection enabled. Then, create a new key within the Key Vault to store your own custom key.

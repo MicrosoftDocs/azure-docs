@@ -3,14 +3,13 @@ title: Region availability for models in Serverless API endpoints
 titleSuffix: Azure Machine Learning
 description: Learn about the regions where each model is available for deployment in serverless API endpoints.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 05/09/2024
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
  - serverless

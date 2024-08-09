@@ -3,7 +3,7 @@ title: Linter rule - secure params in nested deploy
 description: Linter rule - secure params in nested deploy
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - secure params in nested deploy
@@ -26,7 +26,7 @@ The following example fails this test because a secure parameter is referenced i
 @secure()
 param secureValue string
 
-resource nested 'Microsoft.Resources/deployments@2021-04-01' = {
+resource nested 'Microsoft.Resources/deployments@2024-03-01' = {
   name: 'nested'
   properties: {
     mode: 'Incremental'
@@ -38,7 +38,7 @@ resource nested 'Microsoft.Resources/deployments@2021-04-01' = {
         {
           name: 'outerImplicit'
           type: 'Microsoft.Network/networkSecurityGroups'
-          apiVersion: '2019-11-01'
+          apiVersion: '2023-11-01'
           location: '[resourceGroup().location]'
           properties: {
             securityRules: [
@@ -64,7 +64,7 @@ You can fix it by setting the deployment's properties.expressionEvaluationOption
 @secure()
 param secureValue string
 
-resource nested 'Microsoft.Resources/deployments@2021-04-01' = {
+resource nested 'Microsoft.Resources/deployments@2024-03-01' = {
   name: 'nested'
   properties: {
     mode: 'Incremental'
@@ -79,7 +79,7 @@ resource nested 'Microsoft.Resources/deployments@2021-04-01' = {
         {
           name: 'outerImplicit'
           type: 'Microsoft.Network/networkSecurityGroups'
-          apiVersion: '2019-11-01'
+          apiVersion: '2023-11-01'
           location: '[resourceGroup().location]'
           properties: {
             securityRules: [
@@ -97,7 +97,6 @@ resource nested 'Microsoft.Resources/deployments@2021-04-01' = {
     }
   }
 }
-
 ```
 
 ## Next steps

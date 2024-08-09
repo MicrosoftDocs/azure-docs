@@ -3,11 +3,13 @@ title: Set up a lab with R and RStudio on Linux using Azure Lab Services
 description: Learn how to set up labs to teach R using RStudio on Linux
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: linux-related-content
 ---
 
 # Set up a lab to teach R on Linux
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 

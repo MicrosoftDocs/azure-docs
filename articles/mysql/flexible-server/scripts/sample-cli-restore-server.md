@@ -3,12 +3,15 @@ title: CLI script - Restore
 description: This Azure CLI sample script shows how to restore a single Azure Database for MySQL - Flexible Server instance to a previous point in time.
 author: shreyaaithal
 ms.author: shaithal
-ms.service: mysql
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
-ms.date: 02/10/2022
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # Restore an Azure Database for MySQL - Flexible Server instance using Azure CLI

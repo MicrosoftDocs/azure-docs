@@ -4,7 +4,7 @@ description: An overview of how to securely run microservices applications on Se
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -24,7 +24,7 @@ The first step to making API-level trust decisions is authentication. Authentica
 
 If services can be accessed directly, an authentication service like Microsoft Entra ID or a dedicated authentication microservice acting as a security token service (STS) can be used to authenticate users. Trust decisions are shared between services with security tokens or cookies. 
 
-For ASP.NET Core, the primary mechanism for [authenticating users](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) is the ASP.NET Core Identity membership system. ASP.NET Core Identity stores user information (including sign-in information, roles, and claims) in a data store configured by the developer. ASP.NET Core Identity supports two-factor authentication.  External authentication providers are also supported, so users can sign in using existing authentication processes from providers like Microsoft, Google, Facebook, or Twitter.
+For ASP.NET Core, the primary mechanism for [authenticating users](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) is the ASP.NET Core Identity membership system. ASP.NET Core Identity stores user information (including sign-in information, roles, and claims) in a data store configured by the developer. ASP.NET Core Identity supports two-factor authentication.  External authentication providers are also supported, so users can sign in using existing authentication processes from providers like Microsoft, Google, Facebook, or X.
 
 ### Authorization
 After authentication, services need to authorize user access or determine what a user is able to do. This process allows a service to make APIs available to some authenticated users, but not to all. Authorization is orthogonal and independent from authentication, which is the process of ascertaining who a user is. Authentication may create one or more identities for the current user.
@@ -117,7 +117,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 * [Learn about cluster security](service-fabric-cluster-security.md)
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/general/overview.md
+[key-vault-get-started]:/azure/key-vault/general/overview
 [config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 

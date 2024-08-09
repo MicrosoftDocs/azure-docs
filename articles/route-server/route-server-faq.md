@@ -3,7 +3,7 @@ title: Azure Route Server frequently asked questions (FAQ)
 description: Find answers to frequently asked questions about Azure Route Server.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: faq
 ms.date: 08/18/2023
 ---
@@ -153,7 +153,7 @@ No, Azure Route Server doesn't support network security group association to the
 
 Azure Route Server has the following limits (per deployment).
 
-[!INCLUDE [route server limits](~/reusable-content/ce-skilling/azure/includes/route-server-limits.md)]
+[!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
 For information on troubleshooting routing problems in a virtual machine, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 

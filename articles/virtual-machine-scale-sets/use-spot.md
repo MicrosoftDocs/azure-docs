@@ -4,9 +4,9 @@ description: Learn how to create Azure Virtual Machine Scale Sets that use Azure
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
-ms.subservice: spot
-ms.date: 11/22/2022
+ms.service: azure-virtual-machine-scale-sets
+ms.subservice: azure-spot-vm
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 

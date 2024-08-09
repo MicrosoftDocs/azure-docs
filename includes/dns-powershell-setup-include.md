@@ -3,7 +3,7 @@
  description: include file for PowerShell for Azure DNS
  services: dns
  author: subsarma
- ms.service: dns
+ ms.service: azure-dns
  ms.topic: include file for PowerShell for Azure DNS
  ms.date: 04/28//2021
  ms.author: subsarma
@@ -14,7 +14,7 @@
 
 ### Before you begin
 
-[!INCLUDE [requires-azurerm](~/reusable-content/ce-skilling/azure/includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](./requires-azurerm.md)]
 
 Verify that you have the following items before beginning your configuration.
 

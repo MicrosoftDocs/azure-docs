@@ -4,9 +4,9 @@ description: Learn how to configure automatic repairs policy for VM instances in
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: instance-protection
-ms.date: 07/25/2023
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -66,7 +66,7 @@ The automatic instance repairs process goes as follows:
 
 > [!CAUTION]
 > The `repairAction` setting, is currently under PREVIEW and not suitable for production workloads. To preview the **Restart** and **Reimage** repair actions, you must register your Azure subscription with the AFEC flag `AutomaticRepairsWithConfigurableRepairActions` and your compute API version must be 2021-11-01 or higher.
-> For more information, see [set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md).
+> For more information, see [feature registration](#feature-registration).
 
 There are three available repair actions for automatic instance repairs – Replace, Reimage (Preview), and Restart (Preview). The default repair action is Replace, but you can switch to Reimage (Preview) or Restart (Preview) by enrolling in the preview and modifying the `repairAction` setting under `automaticRepairsPolicy` object.
 
@@ -272,15 +272,32 @@ az vmss update \
 
 ---
 
+## Feature Registration
+
+Before configuring `repairAction` setting under `automaticRepairsPolicy`, register the feature providers to your subscription.
+
+### [Azure CLI](#tab/cli-3)
+
+```azurecli-interactive
+az feature register --name AutomaticRepairsWithConfigurableRepairActions --namespace Microsoft.Compute
+```
+### [Azure PowerShell](#tab/powershell-3)
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName "AutomaticRepairsWithConfigurableRepairActions" -ProviderNamespace "Microsoft.Compute"
+```
+
+---
+
 ## Configure a repair action on automatic repairs policy
 
 > [!CAUTION]
 > The `repairAction` setting, is currently under PREVIEW and not suitable for production workloads. To preview the **Restart** and **Reimage** repair actions, you must register your Azure subscription with the AFEC flag `AutomaticRepairsWithConfigurableRepairActions` and your compute API version must be 2021-11-01 or higher.
-> For more information, see [set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md).
+> For more information, see [feature registration](#feature-registration).
 
 The `repairAction` setting under `automaticRepairsPolicy` allows you to specify the desired repair action performed in response to an unhealthy instance. If you are updating the repair action on an existing automatic repairs policy, you must first disable automatic repairs on the scale set and re-enable with the updated repair action. This process is illustrated in the examples below.
 
-### [REST API](#tab/rest-api-3)
+### [REST API](#tab/rest-api-4)
 
 This example demonstrates how to update the repair action on a scale set with an existing automatic repairs policy. Use API version 2021-11-01 or higher.
 
@@ -315,7 +332,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
 }
 ```
 
-### [Azure CLI](#tab/cli-3)
+### [Azure CLI](#tab/cli-4)
 
 This example demonstrates how to update the repair action on a scale set with an existing automatic repairs policy, using *[az vmss update](/cli/azure/vmss#az-vmss-update)*.
 
@@ -337,7 +354,7 @@ az vmss update \
   --automatic-repairs-action Replace
 ```
 
-### [Azure PowerShell](#tab/powershell-3)
+### [Azure PowerShell](#tab/powershell-4)
 
 This example demonstrates how to update the repair action on a scale set with an existing automatic repairs policy, using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). Use PowerShell Version 7.3.6 or higher.
 
@@ -362,7 +379,7 @@ Update-AzVmss `
 
 ## Viewing and updating the service state of automatic instance repairs policy
 
-### [REST API](#tab/rest-api-4)
+### [REST API](#tab/rest-api-5)
 
 Use [Get Instance View](/rest/api/compute/virtualmachinescalesets/getinstanceview) with API version 2019-12-01 or higher for Virtual Machine Scale Set to view the *serviceState* for automatic repairs under the property *orchestrationServices*.
 
@@ -392,7 +409,7 @@ POST '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provide
 }
 ```
 
-### [Azure CLI](#tab/cli-4)
+### [Azure CLI](#tab/cli-5)
 
 Use [get-instance-view](/cli/azure/vmss#az-vmss-get-instance-view) cmdlet to view the *serviceState* for automatic instance repairs.
 
@@ -411,7 +428,7 @@ az vmss set-orchestration-service-state \
     --name MyScaleSet \
     --resource-group MyResourceGroup
 ```
-### [Azure PowerShell](#tab/powershell-4)
+### [Azure PowerShell](#tab/powershell-5)
 
 Use [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet with parameter *InstanceView* to view the *ServiceState* for automatic instance repairs.
 

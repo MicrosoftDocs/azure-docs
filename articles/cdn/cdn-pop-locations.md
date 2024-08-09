@@ -31,7 +31,7 @@ This article lists current metros containing point of presence (POP) locations, 
 > [!NOTE]
 > A location might contain more than one POP, noted by the number in parentheses.
 
-[!INCLUDE [front-door-edge-location](~/reusable-content/ce-skilling/azure/includes/front-door-edge-locations.md)]
+[!INCLUDE [front-door-edge-location](../../includes/front-door-edge-locations.md)]
 
 ## Partners
 

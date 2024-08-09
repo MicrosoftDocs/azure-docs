@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 05/06/2024
+ms.date: 07/19/2024
 ms.custom: references_regions
 ---
 
@@ -20,6 +20,13 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
+
+## July 2024
+
+### General Availability: Azure Automation supports PowerShell 7.2 runbooks in Government clouds
+
+Azure Automation now supports PowerShell 7.2 runbooks in Government clouds.
+
 
 ## April 2024
  

@@ -5,7 +5,7 @@ ms.devlang: java
 author: KarlErickson
 ms.topic: tutorial
 ms.author: karler
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.date: 06/04/2024
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
 ---
@@ -276,7 +276,7 @@ az containerapp list --resource-group $RESOURCE_GROUP
 
 When the new webpage shows your list of fruits, your app is connecting to the database using the managed identity. You should now be able to edit fruit list as before.
 
-[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 

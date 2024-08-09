@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  |               |
 | Allowed values |                |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [archive_cleanup_command](https://www.postgresql.org/docs/14/runtime-config-wal.html#GUC-ARCHIVE-CLEANUP-COMMAND) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  |               |
 | Allowed values |                |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [recovery_end_command](https://www.postgresql.org/docs/14/runtime-config-wal.html#GUC-RECOVERY-END-COMMAND)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  |               |
 | Allowed values |                |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  |                                                                                                                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

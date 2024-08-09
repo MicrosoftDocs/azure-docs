@@ -11,7 +11,7 @@ ms.date: 03/26/2024
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 > [!NOTE]
-> HDInsight on AKS uses Azure CNI Overlay network model by default. For more information, see [Azure CNI Overlay networking](../aks/concepts-network-azure-cni-overlay.md).
+> HDInsight on AKS uses Azure CNI Overlay network model by default. For more information, see [Azure CNI Overlay networking](/azure/aks/concepts-network-azure-cni-overlay).
 
 This article outlines the networking information to help manage the network policies at enterprise and make necessary changes to the network security groups (NSGs) for smooth functioning of HDInsight on AKS.
 

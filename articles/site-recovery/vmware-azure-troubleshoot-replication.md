@@ -3,7 +3,7 @@ title: Troubleshoot replication issues for disaster recovery of VMware VMs and p
 description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: troubleshooting
 ms.date: 04/26/2023
 ms.author: ankitadutta

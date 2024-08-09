@@ -122,6 +122,8 @@
       href: flexible-server/concepts-compliance.md
     - name: Limits
       href: flexible-server/concepts-limits.md
+    - name: Identity
+      href: flexible-server/concepts-Identity.md
     - name: Encryption with customer managed keys
       href: flexible-server/concepts-data-encryption.md
     - name: Scheduled maintenance
@@ -502,7 +504,8 @@
       items:
       - name: Azure portal, CLI, REST API
         href: flexible-server/how-to-read-replicas-portal.md
-        displayName: replica
+      - name: Read replica with Terraform
+        href: flexible-server/how-to-read-replicas-virtual-endpoints-terraform.md
   - name: Extensions
     items:
     - name: Overview
@@ -543,33 +546,43 @@
   - name: Migration Service
     items:
     - name: Overview
-      href: migrate/migration-service/concepts-migration-service-postgresql.md
+      href: migrate/migration-service/overview-migration-service-postgresql.md
     - name: Tutorials
       items:
       - name: Migrate from Single Server
         href: migrate/migration-service/tutorial-migration-service-single-to-flexible.md
-      - name: Migrate from on-premises or Azure VM
-        href: migrate/migration-service/tutorial-migration-service-iaas.md
-      - name: Migrate from AWS RDS
-        href: migrate/migration-service/tutorial-migration-service-aws.md
+      - name: Migrate from an Azure VM or an on-premises PostgreSQL server offline
+        href: migrate/migration-service/tutorial-migration-service-iaas-offline.md
+      - name: Migrate from an Azure VM or an on-premises PostgreSQL server online
+        href: migrate/migration-service/tutorial-migration-service-iaas-online.md
+      - name: Migrate from AWS RDS offline
+        href: migrate/migration-service/tutorial-migration-service-aws-offline.md
+      - name: Migrate from AWS RDS online
+        href: migrate/migration-service/tutorial-migration-service-aws-online.md
     - name: Concepts
       items:
       - name: Premigration validation
         href: migrate/migration-service/concepts-premigration-migration-service.md
       - name: User roles and permissions
         href: migrate/migration-service/concepts-user-roles-migration-service.md
+      - name: Runtime Server
+        href: migrate/migration-service/concepts-migration-service-runtime-server.md
       - name: Best practices
         href: migrate/migration-service/best-practices-migration-service-postgresql.md
       - name: Known issues and limitations
         href: migrate/migration-service/concepts-known-issues-migration-service.md
     - name: How-to guides
       items:
-      - name: Network setup
+      - name: How to set up Azure CLI
+        href: migrate/migration-service/how-to-setup-azure-cli-commands-postgresql.md
+      - name: How to set up the network
         href: migrate/migration-service/how-to-network-setup-migration-service.md
     - name: Troubleshoot
       items:
-      - name: Premigration error codes
+      - name: Troubleshoot errors
         href: migrate/migration-service/troubleshoot-error-codes-premigration.md
+  - name: Automigration from Azure Database for PostgreSQL - Single Server to Flexible Server
+    href: migrate/automigration-single-to-flexible-postgresql.md
   - name: Migrate data with pg_dump
     href: migrate/how-to-migrate-using-dump-and-restore.md
   - name: Minimal-downtime migration with DMS
@@ -686,7 +699,7 @@
         href: single-server/concepts-connectivity-architecture.md
         displayName: security, architecture
       - name: Threat protection with Microsoft Defender for Cloud
-        href: ../defender-for-cloud/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
+        href: /azure/defender-for-cloud/defender-for-databases-usage?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md

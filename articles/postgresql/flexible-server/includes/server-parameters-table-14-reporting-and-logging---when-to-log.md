@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `-1`          |
 | Allowed values | `-1`                                                                           |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [log_min_duration_sample](https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-MIN-DURATION-SAMPLE)         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `-1`          |
 | Allowed values | `-1-2147483647`                                                                |
 | Parameter type | dynamic        |
-| Documentation  | [log_min_duration_statement](https://www.postgresql.org/docs/14/runtime-config-logging.html) |
+| Documentation  | [log_min_duration_statement](https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `error`       |
 | Allowed values | `debug5,debug4,debug3,debug2,debug1,info,notice,warning,error,log,fatal,panic` |
 | Parameter type | dynamic        |
-| Documentation  | [log_min_error_statement](https://www.postgresql.org/docs/14/runtime-config-logging.html)    |
+| Documentation  | [log_min_error_statement](https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-MIN-ERROR-STATEMENT)         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `warning`     |
 | Allowed values | `debug5,debug4,debug3,debug2,debug1,info,notice,warning,error,log,fatal,panic` |
 | Parameter type | dynamic        |
-| Documentation  | [log_min_messages](https://www.postgresql.org/docs/14/runtime-config-logging.html)           |
+| Documentation  | [log_min_messages](https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `1`           |
 | Allowed values | `1`                                                                            |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [log_statement_sample_rate](https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-STATEMENT-SAMPLE-RATE)     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `0`           |
 | Allowed values | `0`                                                                            |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [log_transaction_sample_rate](https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-TRANSACTION-SAMPLE-RATE) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

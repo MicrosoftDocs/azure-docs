@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 06/14/2024
 ms.reviewer: ju-shim
 ---
 
@@ -57,6 +57,63 @@ A Virtual Machine Scale Set with 10 instances and a standby pool with a max read
 If the scale set reduces the instance count to 5, the standby pool would fill to 10 instances. 
 
 - Max ready capacity (15) - Virtual Machine Scale Set instance count (5) = Standby pool size (10)
+
+## Standby pool instances
+When a virtual machine is in a standby pool, the `isVmInStandbyPool` parameter is set to true. When the virtual machine is moved from the pool instance the scale set, the parameter is automatically updated to false. This can be useful in determining when a virtual machine is ready to recieve traffic or not. 
+
+### [CLI](#tab/cli)
+
+```cli
+az vm get-instance-view --resource-group myResourceGroup --name myInstance
+
+    "extensions": null,
+    "hyperVGeneration": "V2",
+    "isVmInStandbyPool": true,
+    "maintenanceRedeployStatus": null,
+    "statuses": [
+      {
+        "code": "ProvisioningState/succeeded",
+        "displayStatus": "Provisioning succeeded",
+        "level": "Info",
+        "message": null,
+        "time": "2024-08-02T17:22:46.295536+00:00"
+      },
+      {
+        "code": "PowerState/deallocated",
+        "displayStatus": "VM deallocated",
+        "level": "Info",
+        "message": null,
+        "time": null
+      }
+    ],
+```
+
+### [REST](#tab/rest)
+
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myInstance/instanceView?api-version=2024-03-01
+
+{
+  "bootDiagnostics": {},
+  "isVMInStandbyPool": true,
+  "hyperVGeneration": "V2",
+  "statuses": [
+    {
+      "code": "ProvisioningState/succeeded",
+      "level": "Info",
+      "displayStatus": "Provisioning succeeded",
+      "time": "2024-08-02T17:22:46.2955369+00:00"
+    },
+    {
+      "code": "PowerState/deallocated",
+      "level": "Info",
+      "displayStatus": "VM deallocated"
+    }
+  ]
+}
+```
+
+---
 
 
 ## Availability zones

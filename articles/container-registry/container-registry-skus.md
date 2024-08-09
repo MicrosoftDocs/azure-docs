@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Azure Container Registry service tiers
@@ -31,7 +31,7 @@ For example :
 
 The following table details the features and registry limits of the Basic, Standard, and Premium service tiers.
 
-[!INCLUDE [container-instances-limits](~/reusable-content/ce-skilling/azure/includes/container-registry-limits.md)]
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## Registry throughput and throttling
 

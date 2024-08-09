@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `partition`   |
 | Allowed values | `partition,on,off` |
 | Parameter type | dynamic        |
-| Documentation  | [constraint_exclusion](https://www.postgresql.org/docs/13/runtime-config-query.html)      |
+| Documentation  | [constraint_exclusion](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `0.1`         |
 | Allowed values | `0-1`              |
 | Parameter type | dynamic        |
-| Documentation  | [cursor_tuple_fraction](https://www.postgresql.org/docs/13/runtime-config-query.html)     |
+| Documentation  | [cursor_tuple_fraction](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-CURSOR-TUPLE-FRACTION)         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `100`         |
 | Allowed values | `1-10000`          |
 | Parameter type | dynamic        |
-| Documentation  | [default_statistics_target](https://www.postgresql.org/docs/13/runtime-config-query.html) |
+| Documentation  | [default_statistics_target](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `8`           |
 | Allowed values | `1-2147483647`     |
 | Parameter type | dynamic        |
-| Documentation  | [from_collapse_limit](https://www.postgresql.org/docs/13/runtime-config-query.html)       |
+| Documentation  | [from_collapse_limit](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on, off`          |
 | Parameter type | dynamic        |
-| Documentation  | [jit](https://www.postgresql.org/docs/13/runtime-config-query.html)                       |
+| Documentation  | [jit](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-JIT)                                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `8`           |
 | Allowed values | `1-2147483647`     |
 | Parameter type | dynamic        |
-| Documentation  | [join_collapse_limit](https://www.postgresql.org/docs/13/runtime-config-query.html)       |
+| Documentation  | [join_collapse_limit](https://www.postgresql.org/docs/13/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `auto`        |
 | Allowed values | `auto`             |
 | Parameter type | read-only      |
-| Documentation  |                                                                                           |
+| Documentation  | [plan_cache_mode](https://www.postgresql.org/docs/13/runtime-config-query.html#id-1.6.6.10.5.2.9.1.3)                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

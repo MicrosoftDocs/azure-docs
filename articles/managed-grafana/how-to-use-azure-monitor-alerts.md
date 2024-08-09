@@ -1,7 +1,7 @@
 ---
 title: Use Azure Monitor alerts with Azure Managed Grafana
 description: Learn how to set up Azure Monitor alerts and use them with Azure Managed Grafana
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
