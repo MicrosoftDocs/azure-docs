@@ -111,7 +111,7 @@ For Oracle Database on Azure VMs, we currently have the Oracle Migration Assista
 
 ### What tools can be used for database migration? Could you help share other details about licensing and charges for these tools?
 
-There are multiple tools available from Oracle: ZDM, Data Guard, Data pump, GoldenGate, and more. For more information, see[Migrate Oracle workloads to Azure](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-migration-planning?wt.mc_id=knwlserapi_inproduct_azportal#migrate-oracle-workloads-to-azure). Contact your Oracle representative for commercials.
+There are multiple tools available from Oracle: ZDM, Data Guard, Data pump, GoldenGate, and more. For more information, see[Migrate Oracle workloads to Azure](/azure/cloud-adoption-framework/scenarios/oracle-iaas/oracle-migration-planning?wt.mc_id=knwlserapi_inproduct_azportal#migrate-oracle-workloads-to-azure). Contact your Oracle representative for commercials.
 
 ### When using Oracle GoldenGate for migration, do I need to purchase a GoldenGate license?
 
