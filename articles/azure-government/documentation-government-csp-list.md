@@ -498,8 +498,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|
 |[Pax8](https://www.pax8.com/en-us/microsoft/)|
-|[Synnex](https://www.synnexcorp.com)|
-|[Tech Data Corporation](https://www.techdata.com/)|
+|[TD Synnex](https://tdsynnex.com/)|
 
 ## Approved LSPs
 
