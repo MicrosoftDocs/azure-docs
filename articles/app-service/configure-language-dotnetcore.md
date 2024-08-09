@@ -227,7 +227,7 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 
 ## Rewrite or redirect URL
 
-To rewrite or redirect URL, use the [URL rewriting middleware in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/url-rewriting).
+To rewrite or redirect URL, use the [URL rewriting middleware in ASP.NET Core](/aspnet/core/fundamentals/url-rewriting).
 
 ## Open SSH session in browser
 
