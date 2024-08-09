@@ -37,7 +37,7 @@ Before you can create a route table, create a resource group with [az group crea
 # Create a resource group.
 az group create \
   --name test-rg \
-  --location eastus
+  --location eastus2
 ```
 
 Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *route-table-public*.
@@ -108,7 +108,7 @@ az network vnet subnet update \
 
 An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization. We create a basic NVA from a general purpose Ubuntu VM, for demonstration purposes.
 
-Create a VM to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *nic-nva* and a subnet-public IP address to the VM, by default. The `--subnet-public-ip-address ""` parameter instructs Azure not to create and assign a subnet-public IP address to the VM, since the VM doesn't need to be connected to from the internet. 
+Create a VM to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *nic-nva* and a subnet-public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a subnet-public IP address to the VM, since the VM doesn't need to be connected to from the internet. 
 
 The following example creates a VM and adds a user account. The `--generate-ssh-keys` parameter causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, that key is used. If not, one is generated and stored in `~/.ssh`. Finally, we deploy the latest `Ubuntu 22.04` image.
 
@@ -117,7 +117,7 @@ az vm create \
   --resource-group test-rg \
   --name vm-nva \
   --image Ubuntu2204 \
-  --subnet-public-ip-address "" \
+  --public-ip-address "" \
   --subnet subnet-dmz \
   --vnet-name vnet-1 \
   --generate-ssh-keys
@@ -186,7 +186,7 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/vm-private",
-  "location": "eastus",
+  "location": "eastus2",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.1.4",
