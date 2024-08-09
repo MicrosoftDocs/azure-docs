@@ -7,13 +7,13 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 08/08/2024
 ms.author: banders
 ---
 
 # Reactivate a disabled Azure subscription
 
-Your Azure subscription can get disabled because your credit has expired or if you reached your spending limit. It can also get disabled if you have an overdue bill, hit your credit card limit, or because the Account Administrator canceled the subscription. See what issue applies to you and follow the steps in this article to get your subscription reactivated.
+Your Azure subscription can get disabled because your credit expired or you reached your spending limit. It can also get disabled if you have an overdue bill, hit your credit card limit, or because the Account Administrator canceled the subscription. Some subscriptions can also get automatically disabled. See what issue applies to you and follow the steps in this article to get your subscription reactivated.
 
 ## Your credit is expired
 
@@ -43,7 +43,7 @@ To resolve the issue, [switch to a different credit card](change-credit-card.md)
 
 If you're the Account Administrator or subscription Owner and you canceled a pay-as-you-go subscription, you can reactivate it in the Azure portal.
 
-If you're a billing administrator (partner billing administrator or Enterprise Administrator), you may not have the required permission to reactive the subscription. If this situation applies to you, contact the Account Administrator, or subscription Owner and ask them to reactivate the subscription.
+If you're a billing administrator (partner billing administrator or Enterprise Administrator), you might not have the required permission to reactive the subscription. If this situation applies to you, contact the Account Administrator, or subscription Owner and ask them to reactivate the subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to Subscriptions and then select the canceled subscription.
@@ -59,6 +59,12 @@ After your subscription is reactivated, there might be a delay in creating or ma
 ## Upgrade a disabled free account
 
 If you use resources that aren’t free and your subscription gets disabled because you run out of credit, and then you upgrade your subscription, the resources get enabled after upgrade. This situation results in you getting charged for the resources used. For more information about upgrading a free account, see [Upgrade your Azure account](upgrade-azure-subscription.md).
+
+## Subscription blocked or automatically deleted
+
+If you have a subscription that was blocked due to inactivity, see [What happens if my subscription is blocked?](avoid-unused-subscriptions.md#what-happens-if-my-subscription-is-blocked) If your subscription was deleted due to inactivity, it can't be reactivated. You must create a new subscription.
+
+If you had an Access to Active Azure Directory subscription (MS-AZR-0110P) that was retired and deactivated and you want to reactivate it, Azure support can’t reactivate it for you. Microsoft deprecated the subscription offer. The subscription type was used to access the Azure portal. The subscription type is no longer needed because the Azure portal now uses your Microsoft Entra ID identity for access (previously named Azure Active Directory). So, Azure deprecated the subscription offer. You can sign up for new a subscription at [Azure sign up](https://signup.azure.com/signup).
 
 ## Need help? Contact us.
 
