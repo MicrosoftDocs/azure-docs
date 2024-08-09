@@ -275,6 +275,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 :::moniker range="doc-intel-4.0.0"
 
 ***Model ID: prebuilt-mortgage***
+
   | Model ID | Language  Locale code | Default |
   |--------|:----------------------|:---------|
   |**prebuilt-mortgage-1003**|English (United States)|English (United States) `en-US`|
