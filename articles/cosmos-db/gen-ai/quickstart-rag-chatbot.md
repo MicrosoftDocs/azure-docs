@@ -3,7 +3,7 @@
 title: Quickstart - Build a RAG Chatbot
 description: Learn how to build a RAG chatbot in Python
 author: TheovanKraay
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 06/26/2024

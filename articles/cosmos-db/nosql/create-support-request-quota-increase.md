@@ -4,7 +4,7 @@ description: Learn how to request a quota increase for Azure Cosmos DB resources
 author: kanshiG
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.topic: how-to
 ms.date: 04/27/2022
 ---

@@ -5,13 +5,17 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 05/16/2024
+ms.date: 08/08/2024
 ---
 
 # Deploy Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Azure Virtual Desktop for Azure Stack HCI is currently in preview for Azure Government and Azure China. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The following features are currently in preview:
+> - Azure Virtual Desktop on Azure Stack HCI for Azure Government and Azure China.
+> - Azure Extended Zones on Azure Virtual Desktop.
+>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Stack HCI by using the Azure portal, Azure CLI, or Azure PowerShell. To deploy Azure Virtual Desktop you:
 - Create a host pool.
@@ -43,7 +47,7 @@ In addition, you need:
    | Resource type | RBAC role |
    |--|--|
    | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
-   | Session hosts (Azure) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+   | Session hosts (Azure and Azure Extended Zones) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
    | Session hosts (Azure Stack HCI) | [Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
@@ -63,6 +67,12 @@ In addition, you need:
    - At least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
    
    - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
+
+To deploy session hosts to [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones), you also need: 
+
+   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
+   
+   - An existing [Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network that the session hosts are being deployed to. 
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -201,6 +211,26 @@ Here's how to create a host pool using the Azure portal.
       | Password | Enter a password for the local administrator account. |
       | Confirm password | Reenter the password. |
    </details>
+
+   <details>
+       <summary>To add session hosts on <b>Azure Extended Zones</b>, select to expand this section.</summary>
+
+      | Parameter | Value/Description |
+      |--|--|
+      | Add virtual machines | Select **Yes**. This shows several new options. |
+      | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
+      | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+      | Virtual machine type | Select **Azure virtual machine**. |
+      | Virtual machine location | Select the Azure region where you want to deploy your session hosts. This must be the same region that your virtual network is in. Then select **Deploy to an Azure Extended Zone**. |
+      | **Azure Extended Zones** |  |
+      | Azure Extended Zone | Select **Los Angeles**. |
+      | Place the session host(s) behind an existing load balancing solution? | Check the box. This will show options for selecting a load balancer and a backend pool.|
+      | Select a load balancer | Select an existing load balancer on the virtual network that the session hosts are being deployed to. |
+      | Select a backend pool | Select a backend pool on the load balancer to that you want to place the sessions host(s) into. |
+      | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
+      | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
+   </details>
+
 
    Once you've completed this tab, select **Next: Workspace**.
 

@@ -4,7 +4,7 @@ description: Learn how to detect, troubleshoot, and fix problems with Azure Oper
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: troubleshooting-general #Don't change.
 ms.date: 02/29/2024
 

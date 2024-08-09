@@ -2,7 +2,7 @@
 title: Troubleshoot replication latency - Azure Database for MySQL - Flexible Server
 description: Learn how to troubleshoot replication latency by using Azure Database for MySQL - Flexible Server read replicas.
 keywords: mysql, troubleshoot, replication latency in seconds
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 author: VandhanaMehta
 ms.author: vamehta

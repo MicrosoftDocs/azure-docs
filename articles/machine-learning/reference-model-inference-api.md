@@ -3,7 +3,7 @@ title: Azure AI Model Inference API
 titleSuffix: Azure Machine Learning
 description: Learn about how to use the Azure AI Model Inference API
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024
@@ -94,7 +94,7 @@ import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.core.credentials import AzureKeyCredential
 
-model = ChatCompletionsClient(
+client = ChatCompletionsClient(
     endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
     credential=AzureKeyCredential(os.environ["AZUREAI_ENDPOINT_KEY"]),
 )
@@ -107,7 +107,7 @@ import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.identity import AzureDefaultCredential
 
-model = ChatCompletionsClient(
+client = ChatCompletionsClient(
     endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
     credential=AzureDefaultCredential(),
 )
@@ -149,7 +149,49 @@ const client = new ModelClient(
 );
 ```
 
-Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/AAp1kxa) to get yourself started.
+Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/js/reference) to get yourself started.
+
+# [C#](#tab/csharp)
+
+Install the Azure AI inference library with the following command:
+
+```dotnetcli
+dotnet add package Azure.AI.Inference --prerelease
+```
+
+For endpoint with support for Microsoft Entra ID (formerly Azure Active Directory), install the `Azure.Identity` package:
+
+```dotnetcli
+dotnet add package Azure.Identity
+```
+
+Import the following namespaces:
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.AI.Inference;
+```
+
+Then, you can use the package to consume the model. The following example shows how to create a client to consume chat completions:
+
+```csharp
+ChatCompletionsClient client = new ChatCompletionsClient(
+    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+    new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
+);
+```
+
+For endpoint with support for Microsoft Entra ID (formerly Azure Active Directory):
+
+```csharp
+ChatCompletionsClient client = new ChatCompletionsClient(
+    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+    new DefaultAzureCredential(includeInteractiveCredentials: true)
+);
+```
+
+Explore our [samples](https://aka.ms/azsdk/azure-ai-inference/csharp/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/csharp/reference) to get yourself started.
 
 # [REST](#tab/rest)
 
@@ -175,7 +217,7 @@ The following example shows a request passing the parameter `safe_prompt` suppor
 # [Python](#tab/python)
 
 ```python
-response = model.complete(
+response = client.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
         UserMessage(content="How many languages are in the world?"),
@@ -208,6 +250,22 @@ var response = await client.path("/chat/completions").post({
 });
 
 console.log(response.choices[0].message.content)
+```
+
+# [C#](#tab/csharp)
+
+```csharp
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+    AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
+};
+
+response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
 # [REST](#tab/rest)
@@ -259,7 +317,7 @@ from azure.ai.inference.models import SystemMessage, UserMessage, ChatCompletion
 from azure.core.exceptions import HttpResponseError
 
 try:
-    response = model.complete(
+    response = client.complete(
         messages=[
             SystemMessage(content="You are a helpful assistant."),
             UserMessage(content="How many languages are in the world?"),
@@ -310,6 +368,36 @@ catch (error) {
     else 
     {
         throw error
+    }
+}
+```
+
+# [C#](#tab/csharp)
+
+```csharp
+try
+{
+    requestOptions = new ChatCompletionsOptions()
+    {
+        Messages = {
+            new ChatRequestSystemMessage("You are a helpful assistant"),
+            new ChatRequestUserMessage("How many languages are in the world?"),
+        },
+        ResponseFormat = new ChatCompletionsResponseFormatJSON()
+    };
+
+    response = client.Complete(requestOptions);
+    Console.WriteLine(response.Value.Choices[0].Message.Content);
+}
+catch (RequestFailedException ex)
+{
+    if (ex.Status == 422)
+    {
+        Console.WriteLine($"Looks like the model doesn't support a parameter: {ex.Message}");
+    }
+    else
+    {
+        throw;
     }
 }
 ```
@@ -373,7 +461,7 @@ from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessa
 from azure.core.exceptions import HttpResponseError
 
 try:
-    response = model.complete(
+    response = client.complete(
         messages=[
             SystemMessage(content="You are an AI assistant that helps people find information."),
             UserMessage(content="Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
@@ -420,6 +508,37 @@ catch (error) {
         {
             throw error
         }
+    }
+}
+```
+
+# [C#](#tab/csharp)
+
+```csharp
+try
+{
+    requestOptions = new ChatCompletionsOptions()
+    {
+        Messages = {
+            new ChatRequestSystemMessage("You are an AI assistant that helps people find information."),
+            new ChatRequestUserMessage(
+                "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."
+            ),
+        },
+    };
+
+    response = client.Complete(requestOptions);
+    Console.WriteLine(response.Value.Choices[0].Message.Content);
+}
+catch (RequestFailedException ex)
+{
+    if (ex.ErrorCode == "content_filter")
+    {
+        Console.WriteLine($"Your query has trigger Azure Content Safeaty: {ex.Message}");
+    }
+    else
+    {
+        throw;
     }
 }
 ```
@@ -478,7 +597,13 @@ Explore our [samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sd
 
 The client library `@azure-rest/ai-inference` does inference, including chat completions, for AI models deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
 
-Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/AAp1kxa) to get yourself started.
+Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/js/reference) to get yourself started.
+
+# [C#](#tab/csharp)
+
+The client library `Azure.Ai.Inference` does inference, including chat completions, for AI models deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
+
+Explore our [samples](https://aka.ms/azsdk/azure-ai-inference/csharp/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/csharp/reference) to get yourself started.
 
 # [REST](#tab/rest)
 

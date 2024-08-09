@@ -86,7 +86,7 @@ In this example, use the `AudioDataStream` constructor to get a stream from the 
 ```python
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 result = speech_synthesizer.speak_text_async("I'm excited to try text to speech").get()
-stream = AudioDataStream(result)
+stream = speechsdk.AudioDataStream(result)
 ```
 
 At this point, you can implement any custom behavior by using the resulting `stream` object.

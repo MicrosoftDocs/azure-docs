@@ -3,7 +3,7 @@ title: Your MongoDB app reimagined
 description: Easily transition your MongoDB apps to attain planet scale and high availability while maintaining continuity.
 author: wmwxwa
 ms.author: wangwilliam
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: conceptual
 ms.date: 04/10/2024

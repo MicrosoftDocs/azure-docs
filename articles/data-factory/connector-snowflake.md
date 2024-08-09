@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Snowflake using Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/24/2024
+ms.date: 07/25/2024
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -679,8 +678,10 @@ To determine the version of the Snowflake connector used in your existing Snowfl
 
 The V2 version offers several enhancements over the legacy version, including:
 
-Autoscaling: Automatically adjusts resources based on traffic load.
-Multi-Availability Zone Operation: Provides resilience by operating across multiple availability zones.
+Autoscaling: Automatically adjusts resources based on traffic load.<br/>
+
+Multi-Availability Zone Operation: Provides resilience by operating across multiple availability zones.<br/>
+
 Static IP Support: Enhances security by allowing the use of static IP addresses.
 
 ## Related content

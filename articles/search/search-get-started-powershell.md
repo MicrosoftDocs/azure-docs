@@ -52,7 +52,7 @@ All requests require an API key on every request sent to your service. Having a 
 1. Create a `$url` object that specifies the service's indexes collection. Replace the service name (`YOUR-SEARCH-SERVICE-NAME`) with a valid search service.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2023-11-01&`$select=name"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2024-07-01&`$select=name"
     ```
 
 1. Run `Invoke-RestMethod` to send a GET request to the service and verify the connection. Add `ConvertTo-Json` so that you can view the responses sent back from the service.
@@ -112,7 +112,7 @@ This index is named `hotels-quickstart` and has the field definitions you see in
 1. Set the URI to the indexes collection on your service and the `hotels-quickstart` index.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2023-11-01"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2024-07-01"
     ```
 
 1. Run the command with `$url`, `$headers`, and `$body` to create the index on the service.
@@ -264,7 +264,7 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 1. Set the endpoint to the `hotels-quickstart` docs collection and include the index operation (`indexes/hotels-quickstart/docs/index`).
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2023-11-01"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2024-07-01"
     ```
 
 1. Run the command with `$url`, `$headers`, and `$body` to load documents into the `hotels-quickstart` index.
@@ -317,7 +317,7 @@ Be sure to use single quotation marks on search `$urls`. Query strings include `
    This string executes an empty search (`search=*`), returning an unranked list (search score = 1.0) of arbitrary documents. By default, Azure AI Search returns 50 matches at a time. As structured, this query returns an entire document structure and values. Add `$count=true` to get a count of all documents in the results.
 
     ```powershell
-    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2023-11-01&search=*&$count=true'
+    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2024-07-01&search=*&$count=true'
     ```
 
 1. Run the command to send the `$url` to the service.
@@ -368,21 +368,21 @@ Try a few other query examples to get a feel for the syntax. You can do a string
 # Query example 1
 # Search the entire index for the terms 'restaurant' and 'wifi'
 # Return only the HotelName, Description, and Tags fields
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2023-11-01&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2024-07-01&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
 # Apply a filter to the index to find hotels rated 4 or higher
 # Returns the HotelName and Rating. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2023-11-01&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2024-07-01&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 
 # Query example 3
 # Take the top two results, and show only HotelName and Category in the results
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2023-11-01&search=boutique&$top=2&$select=HotelName,Category'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2024-07-01&search=boutique&$top=2&$select=HotelName,Category'
 
 # Query example 4
 # Sort by a specific field (Address/City) in ascending order
 
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2023-11-01&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2024-07-01&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
 
 ## Clean up resources

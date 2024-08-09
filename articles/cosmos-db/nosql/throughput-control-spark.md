@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB Spark connector: Throughput control'
 description: Learn how you can control throughput for bulk data movements in the Azure Cosmos DB Spark connector.
 author: TheovanKraay
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/22/2022

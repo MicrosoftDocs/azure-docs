@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file for Azure Digital Twins - control plane SDKs
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 04/14/2023
 ms.author: baanders

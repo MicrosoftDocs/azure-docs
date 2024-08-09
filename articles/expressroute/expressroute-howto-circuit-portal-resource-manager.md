@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.date: 05/14/2024
 ms.topic: quickstart
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: mode-ui
 zone_pivot_groups: expressroute-experience
 ---

@@ -4,7 +4,7 @@ description: Azure Resource Manager templates for using Azure Site Recovery feat
 services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: sample
 ms.date: 07/08/2024
 ms.author: ankitadutta

@@ -3,7 +3,7 @@ title:  "Neural Network Regression: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Neural Network Regression component in Azure Machine Learning to create a regression model using a customizable neural network algorithm..
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

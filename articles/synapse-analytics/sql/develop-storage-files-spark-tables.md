@@ -1,7 +1,7 @@
 ---
 title: Synchronize Apache Spark for external table definitions in serverless SQL pool
 description: Overview of how to query Spark tables using serverless SQL pool
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 02/15/2022

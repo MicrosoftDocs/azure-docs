@@ -7,7 +7,7 @@ ms.author: duau
 manager: KumudD
 ms.date: 04/19/2021
 ms.topic: quickstart
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---

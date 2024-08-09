@@ -6,7 +6,7 @@ summary: Azure Managed Instance for Apache Cassandra provides automated deployme
 metadata:
   title: Azure Managed Instance for Apache Cassandra
   description: Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. It accelerates hybrid scenarios and reduces ongoing maintenance.
-  ms.service: managed-instance-apache-cassandra
+  ms.service: azure-managed-instance-apache-cassandra
   ms.topic: landing-page
   author: TheovanKraay
   ms.author: thvankra

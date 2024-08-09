@@ -3,7 +3,7 @@ title: Azure Instance Metadata Service for virtual machines
 description: Learn about the Azure Instance Metadata Service and how it provides information about currently running virtual machine instances in Linux.
 author: KumariSupriya
 manager: paulmey
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 04/11/2023

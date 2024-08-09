@@ -4,7 +4,7 @@ description: Learn about getting started with Azure Service Fabric in Java using
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-extended-java
 services: service-fabric
 ms.date: 07/14/2022

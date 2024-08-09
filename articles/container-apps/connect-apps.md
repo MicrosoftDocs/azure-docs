@@ -3,9 +3,9 @@ title: Connect applications in Azure Container Apps
 description: Learn to deploy multiple applications that communicate together in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 07/12/2024
+ms.date: 07/23/2024
 ms.author: cshoe
 ---
 
@@ -39,13 +39,17 @@ The following diagram shows how these values are used to compose a container app
 
 [!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 
-## Dapr location
+### Dapr location
 
 Developing microservices often requires you to implement patterns common to distributed architecture. Dapr allows you to secure microservices with mutual Transport Layer Security (TLS) (client certificates), trigger retries when errors occur, and take advantage of distributed tracing when Azure Application Insights is enabled.
 
 A microservice that uses Dapr is available through the following URL pattern:
 
 :::image type="content" source="media/connect-apps/azure-container-apps-location-dapr.png" alt-text="Azure Container Apps container app location with Dapr.":::
+
+## Call a container app by name
+
+You can call a container app by doing by sending a request to `http://<CONTAINER_APP_NAME>` from another app in the environment.
 
 ## Next steps
 

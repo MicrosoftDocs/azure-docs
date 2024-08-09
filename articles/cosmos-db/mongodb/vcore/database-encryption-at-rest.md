@@ -3,7 +3,7 @@ title: Encryption at rest in Azure Cosmos DB for MongoDB vCore
 description: Learn how Azure Cosmos DB for MongoDB vCore provides encryption of data at rest and how it's implemented.
 author: khelanmodi
 ms.author: khelanmodi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.topic: conceptual
 ms.date: 03/12/2024
 ---

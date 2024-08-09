@@ -3,7 +3,7 @@ title: Public IP addresses in Azure
 titleSuffix: Azure Virtual Network
 description: Learn about public IP addresses in Azure.
 services: virtual-network
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
 author: mbender-ms

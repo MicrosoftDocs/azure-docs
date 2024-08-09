@@ -4,7 +4,7 @@ description: Create resource lock for a database and collection for API for Mong
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.custom: devx-track-azurecli
 ms.topic: sample

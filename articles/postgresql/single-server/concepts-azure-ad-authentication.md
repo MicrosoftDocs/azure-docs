@@ -1,7 +1,7 @@
 ---
 title: Active Directory authentication - Azure Database for PostgreSQL - Single Server
 description: Learn about the concepts of Microsoft Entra ID for authentication with Azure Database for PostgreSQL - Single Server
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: conceptual
 ms.author: sunila
