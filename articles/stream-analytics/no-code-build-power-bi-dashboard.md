@@ -79,6 +79,7 @@ Now, you have the Azure Stream Analytics job running and the data is continuousl
 5. Then, you can adjust its size and get the continuously updated dashboard as shown in the following example.
     :::image type="content" source="./media/no-code-build-power-bi-dashboard/pbi-dashboard-report.png" alt-text="Screenshot of the pbi dashboard report." lightbox="./media/no-code-build-power-bi-dashboard/pbi-dashboard-report.png" :::
 
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
 
 ## Next steps
 
