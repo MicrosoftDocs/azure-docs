@@ -5,7 +5,7 @@ description: Evaluate and deploy a RAG-based copilot with the prompt flow SDK. T
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 7/18/2024
+ms.date: 8/6/2024
 ms.reviewer: lebaro
 ms.author: sgilley
 author: sdgilley
@@ -18,9 +18,6 @@ In this [Azure AI Studio](https://ai.azure.com) tutorial, you use the prompt flo
 
 This tutorial is part two of a two-part tutorial.
 
-> [!TIP]
-> This tutorial is based on code in the sample repo for a [copilot application that implements RAG](https://github.com/Azure-Samples/rag-data-openai-python-promptflow).
-
 In this part two, you learn how to:
 
 > [!div class="checklist"]
@@ -32,7 +29,7 @@ In this part two, you learn how to:
 
 - You must complete [part 1 of the tutorial series](copilot-sdk-build-rag.md) to build the copilot application.
 
-- You must have the necessary permissions to add role assignments in your Azure subscription. Granting permissions by role assignment is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help with completing the [assign access](#assign-access-for-the-endpoint) section.
+- You must have the necessary permissions to add role assignments in your Azure subscription. Granting permissions by role assignment is only allowed by the **Owner** of the specific Azure resources. You might need to ask your Azure subscription owner (who might be your IT admin) for help with endpoint access later in the tutorial.
 
 ## Evaluate the quality of copilot responses
 
@@ -69,7 +66,7 @@ Now define an evaluation script that will:
 - Load the sample `.jsonl` dataset.
 - Generate a target function wrapper around our copilot logic.
 - Run the evaluation, which takes the target function, and merges the evaluation dataset with the responses from the copilot.
-- Generate a set of GPT-assisted metrics (Relevance, Groundedness, and Coherence) to evaluate the quality of the copilot responses.
+- Generate a set of GPT-assisted metrics (relevance, groundedness, and coherence) to evaluate the quality of the copilot responses.
 - Output the results locally, and logs the results to the cloud project.
 
 The script allows you to review the results locally, by outputting the results in the command line, and to a json file.
@@ -216,15 +213,13 @@ We recommend you test your application in the Azure AI Studio. If you prefer to 
 
 Note your endpoint name, which you need for the next steps.
 
-### Assign access for the endpoint
+### Endpoint access for Azure OpenAI resource
+
+You might need to ask your Azure subscription owner (who might be your IT admin) for help with this section.
 
 While you wait for your application to deploy, you or your administrator can assign role-based access to the endpoint. These roles allow the application to run without keys in the deployed environment, just like it did locally.
 
-Previously, you provided your account with a specific role to be able to access the resource using Microsoft Entra ID authentication. Now, assign the endpoint that same role.
-
-### Endpoint access for Azure OpenAI resource
-
-You or your administrator needs to grant your endpoint the **Cognitive Services OpenAI User** role on the Azure AI Services resource that you're using. This role lets your endpoint call the Azure OpenAI service.
+Previously, you provided your account with a specific role to be able to access the resource using Microsoft Entra ID authentication. Now, assign the endpoint that same **Cognitive Services OpenAI User** role.
 
 > [!NOTE]
 > These steps are similar to how you assigned a role for your user identity to use the Azure OpenAI Service in the [quickstart](../quickstarts/get-started-code.md).
@@ -261,6 +256,8 @@ To grant yourself access to the Azure AI Services resource that you're using:
 > It may take a few minutes for the access to propagate. If you get an unauthorized error when testing in the next step, try again after a few minutes.
 
 ### Endpoint access for Azure AI Search resource
+
+You might need to ask your Azure subscription owner (who might be your IT admin) for help with this section.
 
 Similar to how you assigned the **Search Index Data Contributor** [role to your Azure AI Search service](./copilot-sdk-build-rag.md#configure-access-for-the-azure-ai-search-service), you need to assign the same role for your endpoint.
 
@@ -327,5 +324,5 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 
 ## Related content
 
-> [!div class="nextstepaction"]
-> [Learn more about prompt flow](../how-to/prompt-flow.md)
+- [Learn more about prompt flow](../how-to/prompt-flow.md)
+- For a sample copilot application that implements RAG, see [Azure-Samples/rag-data-openai-python-promptflow](https://github.com/Azure-Samples/rag-data-openai-python-promptflow)

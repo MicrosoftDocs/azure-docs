@@ -5,7 +5,7 @@ description: Learn how to move an Azure Machine Learning workspace between Azure
 services: machine-learning
 author: Blackmist
 ms.author: larryfr
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: deeikele
 ms.topic: how-to

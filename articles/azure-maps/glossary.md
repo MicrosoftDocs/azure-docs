@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 09/18/2018
 ms.topic: glossary
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Glossary

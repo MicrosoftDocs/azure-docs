@@ -3,7 +3,7 @@ title: Failover & disaster recovery
 titleSuffix: Azure Machine Learning
 description: Learn how to plan for disaster recovery and maintain business continuity for Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: larryfr

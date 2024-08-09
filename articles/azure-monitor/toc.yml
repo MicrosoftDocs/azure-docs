@@ -418,6 +418,8 @@ items:
     - name: Best practices
       displayName: containers, kubernetes
       href: best-practices-containers.md
+    - name: Analyze and reduce costs
+      href: containers/container-insights-cost.md
     - name: Enable Container Insights and Managed Prometheus
       items:
       - name: Onboard cluster
@@ -439,15 +441,11 @@ items:
         href: containers/container-insights-transition-solution.md
     - name: Configure Container Insights (logs)
       items:
-      - name: Configure data collection
-        items:
-        - name: Configure with ConfigMap
-          displayName: Container insights
-          href: containers/container-insights-data-collection-configmap.md
-        - name: Configure with  Data collection rule
-          displayName: Container insights
-          href: containers/container-insights-data-collection-dcr.md
-      - name: Log schema
+      - name: Collect logs
+        href: containers/container-insights-data-collection-configure.md
+      - name: Filter logs
+        href: containers/container-insights-data-collection-filter.md
+      - name: Container log schema
         href: containers/container-insights-logs-schema.md
       - name: Data transformations
         displayName: Container insights
@@ -558,8 +556,6 @@ items:
       - name: Log alert rules
         displayName: Container insights
         href: containers/container-insights-log-alerts.md
-    - name: Manage cost and usage
-      href: containers/container-insights-cost.md
     - name: Disable monitoring
       href: containers/kubernetes-monitoring-disable.md      
     - name: Troubleshooting
