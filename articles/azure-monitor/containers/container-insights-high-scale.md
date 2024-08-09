@@ -6,12 +6,12 @@ ms.date: 08/06/2024
 ---
 
 # High scale logs collection in Container Insights (Preview) 
-High scale logs mode is a feature in Container Insights enables you to collect container console (stdout & stderr) logs with high throughput from their AKS cluster nodes. This feature is intended for Azure Kubernetes Service clusters sending more than 5,000 logs/sec per node.
+High scale mode is a feature in Container Insights that enables you to collect container console (stdout & stderr) logs with high throughput from your AKS cluster nodes. This feature is intended for Azure Kubernetes Service clusters sending more than 5,000 logs/sec per node.
 
 ## Overview
-When high scale mode is enabled, Container Insights performs multiple configuration changes resulting in a higher overall throughput. This includes using and upgraded agent and Azure Monitor pipeline with scale improvements. These changes are all made by Azure Monitor and don't require input or configuration after the feature is enabled.   
+When high scale mode is enabled, Container Insights performs multiple configuration changes resulting in a higher overall throughput. This includes using an upgraded agent and Azure Monitor data pipeline with scale improvements. These changes are all made in the background by Azure Monitor and don't require input or configuration after the feature is enabled.   
 
-High scale logs collection is suited for environments sending more than 5,000 logs/sec from a single node in their Kubernetes clusters and has been designed and tested for sending up to 50 K log/sec per node.  High scale mode impacts only the data collection layer. The rest of the Container insights experience remains the same, with logs being ingested into same `ContainerLogV2` table. Queries and alerts continue to work since the same data is being collected.
+High scale logs collection is suited for environments sending more than 5,000 logs/sec per node in their Kubernetes clusters and has been designed and tested for sending up to 50,000 logs/sec per node.  High scale mode impacts only the data collection layer. The rest of the Container insights experience remains the same, with logs being ingested into same `ContainerLogV2` table. Existing queries and alerts continue to work since the same data is being collected.
 
 To achieve the maximum supported logs throughput, you should use high-end VM SKUs with 16 CPU cores or more for your AKS cluster nodes. Using low end VM SKUs will impact your logs throughput.  
 
@@ -51,7 +51,7 @@ The following scenarios aren't supported during the Preview release. These will 
 - Azure Arc-enabled Kubernetes
 - HTTP proxy with trusted certificate
 - Onboarding through Azure portal, Azure Policy, Terraform and Bicep 
-- Configuring through **Monitor Settings** from AKS Insights  
+- Configuring through **Monitor Settings** in the AKS Insights portal experience  
 - Automatic migration from existing Container Insights   
 
 ## Enable high scale logs collection
@@ -60,7 +60,7 @@ Use the following steps to enable high scale logs collection for your cluster.
 ### Update configmap
 The first step is to update configmap for the cluster to instruct the container insights ama-logs deamonset pods to run in high log scale mode. 
 
-Follow the guidance in [Configure and deploy ConfigMap](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to download and update ConfigMap for the cluster. The only different you need to make for high scale logs is to add the following entry under `agent-settings`: 
+Follow the guidance in [Configure and deploy ConfigMap](./container-insights-data-collection-configmap.md#configure-and-deploy-configmap) to download and update ConfigMap for the cluster. The only change you need to make for high scale logs is to add the following entry under `agent-settings`: 
 
 ```yml
 [agent_settings.high_log_scale] 
@@ -121,5 +121,5 @@ The endpoint has a different format depending on the cloud as shown in the follo
 
 
 ## Next steps
-
+- Share any feedback or issues with High Scale mode at [https://aka.ms/cihsfeedback](https://aka.ms/cihsfeedback).
 
