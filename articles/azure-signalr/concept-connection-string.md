@@ -4,7 +4,7 @@ description: This article gives an overview of connection strings in Azure Signa
 author: chenkennt
 ms.service: azure-signalr-service
 ms.topic: conceptual
-ms.date: 03/29/2023
+ms.date: 08/09/2024
 ms.author: kenchen
 ---
 
@@ -174,7 +174,7 @@ For more information about how access tokens are generated and validated, see th
 
 A connection string contains the HTTP endpoint for the app server to connect to Azure SignalR Service. The server returns the HTTP endpoint to the clients in a negotiation response, so the client can connect to the service.
 
-In some applications, there might be an extra component in front of Azure SignalR Service. All client connections need to go through that component first. For example, [Azure Application Gateway](../application-gateway/overview.md) is a common service that provides additional network security.
+In some applications, there might be an extra component in front of Azure SignalR Service. All client connections need to go through that component first. For example, [Azure Application Gateway](../application-gateway/overview.md) is a common service that provides more network security.
 
 In such cases, the client needs to connect to an endpoint that's different from Azure SignalR Service. Instead of manually replacing the endpoint at the client side, you can add `ClientEndpoint` to the connection string:
 
