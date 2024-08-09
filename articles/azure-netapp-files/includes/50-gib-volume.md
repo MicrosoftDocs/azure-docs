@@ -2,7 +2,7 @@
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 07/23/2024
+ms.date: 08/08/2024
 ms.author: anfdocs
 ms.custom: include file
 
@@ -14,7 +14,7 @@ ms.custom: include file
 
 The ability to set a volume quota between 50 and 100 GiB is currently in preview. You must register for the feature before you can create a 50 GiB volume. 
 
-1. Register the feature
+1. Register the feature:
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANF50GiBVolumeSize
