@@ -23,9 +23,9 @@ This article provides high-level steps. The screenshots to register an applicati
 
 * This article assumes that you're using the **Microsoft-registered App ID Azure Public** audience value `c632b3df-fb67-4d84-bdcf-b95ad541b5c8` to configure your custom app. This value has global consent, which means you don't need to manually register it to provide consent for your organization. We recommend that you use this value.
 
-  * At this time, there's only one [supported audience value](point-to-site-about.md#entra-id) for the Microsoft-registered app.
+  * At this time, there's only one supported audience value for the Microsoft-registered app. See the [supported audience value table](point-to-site-about.md#entra-id) for additional supported values.
 
-  * If the Microsoft-registered audience value isn't compatible with your configuration, you can still use the older manually registered ID values. For more information about supported audience values and the associated Azure VPN Clients, see the [supported audience value](point-to-site-about.md#entra-id) table.
+  * If the Microsoft-registered audience value isn't compatible with your configuration, you can still use the older manually registered ID values.
 
 * If you need to use a manually registered app ID value instead, you must give consent to allow the app to sign in and read user profiles before proceeding with this configuration.
 
