@@ -1,5 +1,6 @@
 ---
 title: Learn about Grafana settings
+titleSuffix: "Azure Managed Grafana"
 description: Learn about Grafana settings in Azure Managed Grafana, including Viewers can Edit and External Enabled.
 author: maud-lv
 ms.author: malev

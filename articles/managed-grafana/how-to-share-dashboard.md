@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: how-to 
-ms.date: 07/10/2023
+ms.date: 08/09/2024
 ---
 
 # Share a Grafana dashboard or panel
@@ -77,7 +77,7 @@ The **Snapshot** tab lets you share an interactive dashboard or panel publicly. 
 
 ### Create a library panel
 
-The **Library panel** tab lets you create a library panel that can be reused in other Grafana dashboards. Do this in a single step by selecting The **Create library panel** at the bottom of the tab. Optionally update the panel library name and select another folder to save it in.
+The **Library panel** tab lets you create a library panel that can be reused in other Grafana dashboards. Do this in a single step by selecting the **Create library panel** at the bottom of the tab. Optionally update the panel library name and select another folder to save it in.
 
 Once you've created a library panel, reuse it in other dashboards of the same Grafana instance by going to **Dashboards > New dashboard > Add panel from panel library**.
 
