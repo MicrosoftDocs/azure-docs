@@ -9,7 +9,7 @@ ms.reviewer: sidandrews
 ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: quickstart
-ms.date: 06/20/2024
+ms.date: 08/08/2024
 ---
 
 # Quickstart: Create an Azure Cosmos DB for MongoDB vCore cluster by using the Azure portal
@@ -43,7 +43,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. On the **Create Azure Cosmos DB for MongoDB cluster** page, select the **Configure** option within the **Cluster tier** section.
 
-    :::image type="content" source="media/quickstart-portal/select-cluster-option.png" alt-text="Screenshot of the configure cluster option for a new Azure Cosmos DB for MongoDB cluster.":::
+    :::image type="content" source="media/quickstart-portal/select-cluster-option.png" alt-text="Screenshot of the 'configure cluster' option for a new Azure Cosmos DB for MongoDB cluster.":::
 
 1. On the **Scale** page, leave the options set to their default values:
 
@@ -63,7 +63,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
     | Resource group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
     | Cluster name | A unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *mongocluster.cosmos.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3 and 40 characters in length. |
     | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB for MongoDB cluster. Use the location that is closest to your users to give them the fastest access to the data. |
-    | MongoDB version | Version of MongoDB to run in your cluster |  This controls the mongo version your applications will use. |
+    | MongoDB version | Version of MongoDB to run in your cluster |  This controls the mongo version your application uses. |
     | Admin username | Provide a username to access the cluster | This user is created on the cluster as a user administrator. |
     | Password | Use a unique password to pair with the username | Password must be at least eight characters and at most 128 characters. |
 
@@ -115,7 +115,7 @@ When you're done with Azure Cosmos DB for MongoDB vCore cluster, you can delete 
 
 1. On the resource group page, select **Delete resource group**.
 
-    :::image type="content" source="media/quickstart-portal/select-delete-resource-group-option.png" alt-text="Screenshot of the delete resource group option in the menu for a specific resource group.":::
+    :::image type="content" source="media/quickstart-portal/select-delete-resource-group-option.png" alt-text="Screenshot of the 'delete resource group' option in the menu for a specific resource group.":::
 
 1. In the deletion confirmation dialog, enter the name of the resource group to confirm that you intend to delete it. Finally, select **Delete** to permanently delete the resource group.
 
