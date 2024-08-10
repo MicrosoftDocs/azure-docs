@@ -3,7 +3,7 @@ title: "Join Data: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Join Data component in Azure Machine Learning designer to merge two datasets together.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

@@ -6,7 +6,7 @@ metadata:
   author: abhims14
   ms.author: abhishekum
   ms.reviewer: randolphwest
-  ms.service: dms
+  ms.service: azure-database-migration-service
   ms.custom: mvc
   ms.topic: faq
   ms.date: 04/18/2023

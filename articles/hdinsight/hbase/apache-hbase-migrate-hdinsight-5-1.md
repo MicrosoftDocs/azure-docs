@@ -1,7 +1,7 @@
 ---
 title: Migrate an HBase cluster to an HDInsight 5.1 - Azure HDInsight
 description: Learn how to migrate Apache HBase clusters in Azure HDInsight to an HDInsight 5.1.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 10/03/2023

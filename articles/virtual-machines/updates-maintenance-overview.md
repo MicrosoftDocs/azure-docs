@@ -3,7 +3,7 @@ title: Guest updates and host maintenance overview
 description: Learn about the updates and maintenance options available with virtual machines in Azure
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: overview
 ms.date: 03/20/2024
 ms.reviewer: cynthn

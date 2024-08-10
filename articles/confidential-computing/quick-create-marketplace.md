@@ -2,8 +2,8 @@
 title: Quickstart - Create Intel SGX VM in the Azure Marketplace
 description: Get started with your deployments by learning how to quickly create an Intel SGX VM with Marketplace.
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 11/01/2021
 ms.author: jushiman

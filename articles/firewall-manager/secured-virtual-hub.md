@@ -2,7 +2,7 @@
 title: What is a secured virtual hub?
 description: Learn about secured virtual hubs
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: conceptual
 ms.date: 06/13/2023

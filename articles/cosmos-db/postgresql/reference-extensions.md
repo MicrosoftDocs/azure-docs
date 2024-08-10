@@ -3,7 +3,7 @@ title: Extensions – Azure Cosmos DB for PostgreSQL
 description: Describes the ability to extend the functionality of your database by using extensions in Azure Cosmos DB for PostgreSQL
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023
 ms.topic: conceptual

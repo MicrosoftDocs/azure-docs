@@ -3,7 +3,7 @@ title: "Tutorial: Connect to a managed Config Server for Spring in Azure Contain
 description: Learn how to connect a Config Server for Spring to your container app.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.topic: tutorial
 ms.date: 03/13/2024

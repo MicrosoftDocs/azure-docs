@@ -286,6 +286,8 @@
           href: howto-baremetal-run-data-extract.md
     - name: Troubleshoot Control Plane Quorum
       href: troubleshoot-control-plane-quorum.md
+    - name: Troubleshoot Bare Metal Machine Provisioning
+      href: troubleshoot-bare-metal-machine-provisioning.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference

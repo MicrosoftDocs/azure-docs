@@ -4,9 +4,9 @@ description: Reference for the validate-azure-ad-token policy available for use 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 06/24/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -98,7 +98,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 

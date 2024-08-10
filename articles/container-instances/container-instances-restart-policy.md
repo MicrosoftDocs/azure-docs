@@ -4,7 +4,7 @@ description: Learn how to use Azure Container Instances to execute tasks that ru
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom:
 services: container-instances
 ms.date: 06/17/2022
@@ -44,7 +44,7 @@ az container create \
 
 ## Run to completion example
 
-To see the restart policy in action, create a container instance from the Microsoft [aci-wordcount][aci-wordcount-image] image, and specify the `OnFailure` restart policy. This example container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits.
+To see the restart policy in action, create a container instance from the Microsoft aci-wordcount image, and specify the `OnFailure` restart policy. This example container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits.
 
 Run the example container with the following [az container create][az-container-create] command:
 

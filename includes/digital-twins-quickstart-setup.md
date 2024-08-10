@@ -3,7 +3,7 @@
  description: include file for creating an Azure Digital Twins instance in the quickstarts
  services: digital-twins
  author: baanders
- ms.service: digital-twins
+ ms.service: azure-digital-twins
  ms.topic: include
  ms.date: 5/9/2022
  ms.author: baanders

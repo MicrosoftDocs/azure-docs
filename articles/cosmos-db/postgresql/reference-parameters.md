@@ -3,7 +3,7 @@ title: Server parameters – Azure Cosmos DB for PostgreSQL
 description: Parameters in the Azure Cosmos DB for PostgreSQL SQL API
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
 ms.date: 12/17/2023

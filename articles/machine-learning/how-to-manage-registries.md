@@ -3,7 +3,7 @@ title: Create and manage registries
 titleSuffix: Azure Machine Learning
 description: Learn how create registries with the CLI, REST API, Azure portal and Azure Machine Learning studio
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: larryfr
 author: Blackmist

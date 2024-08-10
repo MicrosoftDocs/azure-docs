@@ -48,6 +48,11 @@ Document Intelligence supports more sophisticated and modular analysis capabilit
 
 * [`languages`](#language-detection)
 
+Starting with `2024-07-31-preview` release, the Read model supports searchable PDF output:
+
+* [`Searchable PDF](#searchable-pdf)
+
+
 :::moniker-end
 
 :::moniker range="doc-intel-4.0.0"
@@ -58,7 +63,7 @@ Document Intelligence supports more sophisticated and modular analysis capabilit
 >
 > * Add-on capabilities are currently not supported for Microsoft Office file types.
 
-The following add-on capabilities are available for`2024-02-29-preview`, `2024-02-29-preview`, and later releases:
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for `2023-10-31-preview`, and later releases:
 
 * [`keyValuePairs`](#key-value-pairs)
 
@@ -72,7 +77,7 @@ The following add-on capabilities are available for`2024-02-29-preview`, `2024-0
 
 ## Version availability
 
-|Add-on Capability| Add-On/Free|[2024-02-29-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
+|Add-on Capability| Add-On/Free|[2024-02-29-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
 |----------------|-----------|---|--|---|---|
 |Font property extraction|Add-On| ✔️| ✔️| n/a| n/a|
 |Formula extraction|Add-On| ✔️| ✔️| n/a| n/a|
@@ -926,6 +931,44 @@ for lang_idx, lang in enumerate(result.languages):
 ::: moniker-end
 
 ::: moniker range="doc-intel-4.0.0"
+
+## Searchable PDF
+
+The searchable PDF capability enables you to convert an analog PDF, such as scanned-image PDF files, to a PDF with embedded text. The embedded text enables deep text search within the PDF's extracted content by overlaying the detected text entities on top of the image files. 
+
+  > [!IMPORTANT]
+  >
+  > * Currently, the searchable PDF capability is only supported by Read OCR model `prebuilt-read`. When using this feature, please specify the `modelId` as `prebuilt-read`, as other model types will return error for this preview version.
+  > * Searchable PDF is included with the 2024-07-31-preview `prebuilt-read` model with no usage cost for general PDF consumption.
+
+### Use searchable PDF
+
+To use searchable PDF, make a `POST` request using the `Analyze` operation and specify the output format as `pdf`:
+
+```bash
+
+POST /documentModels/prebuilt-read:analyze?output=pdf
+{...}
+202
+```
+
+Once the `Analyze` operation is complete, make a `GET` request to retrieve the `Analyze` operation results.
+
+Upon successful completion, the PDF can be retrieved and downloaded as `application/pdf`. This operation allows direct downloading of the embedded text form of PDF instead of Base64-encoded JSON.
+
+```bash
+
+// Monitor the operation until completion.
+GET /documentModels/prebuilt-read/analyzeResults/{resultId}
+200
+{...}
+
+// Upon successful completion, retrieve the PDF as application/pdf.
+GET /documentModels/prebuilt-read/analyzeResults/{resultId}/pdf
+200 OK
+Content-Type: application/pdf
+```
+
 
 ## Key-value Pairs
 

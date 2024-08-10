@@ -2,11 +2,11 @@
 title: Deploy Azure Cloud Services (extended support) - Azure PowerShell
 description: Deploy Azure Cloud Services (extended support) by using Azure PowerShell.
 ms.topic: quickstart
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 06/18/2024
+ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -41,18 +41,18 @@ Complete the following steps as prerequisites to creating your deployment by usi
 
 ## Deploy Cloud Services (extended support)
 
-Use any of the following PowerShell cmdlet options to deploy Cloud Services (extended support):
+To deploy Cloud Services (extended support), use any of the following PowerShell cmdlet options:
 
 - Quick-create a deployment by using a [storage account](#quick-create-a-deployment-by-using-a-storage-account)
 
   - This parameter set inputs the package (.cspkg or .zip) file, the configuration (.cscfg) file, and the definition (.csdef) file for the deployment as inputs with the storage account.
-  - The Cloud Services (extended support) role profile, network profile, and OS profile are created by the cmdlet with minimal input.
+  - The cmdlet creates the Cloud Services (extended support) role profile, network profile, and OS profile with minimal input.
   - To input a certificate, you must specify a key vault name. The certificate thumbprints in the key vault are validated against the certificates that you specify in the configuration (.cscfg) file for the deployment.
 
 - Quick-create a deployment by using a [shared access signature URI](#quick-create-a-deployment-by-using-an-sas-uri)
 
   - This parameter set inputs the shared access signature (SAS) URI of the package (.cspkg or .zip) file with the local paths to the configuration (.cscfg) file and definition (.csdef) file. No storage account input is required.
-  - The cloud service role profile, network profile, and OS profile are created by the cmdlet with minimal input.
+  - The cmdlet creates the cloud service role profile, network profile, and OS profile minimal input.
   - To input a certificate, you must specify a key vault name. The certificate thumbprints in the key vault are validated against the certificates that you specify in the configuration (.cscfg) file for the deployment.
 
 - Create a deployment by using a [role profile, OS profile, network profile, and extension profile with shared access signature URIs](#create-a-deployment-by-using-profile-objects-and-sas-uris)
@@ -178,7 +178,7 @@ New-AzCloudService
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -CertificatePolicy $Policy 
     ```
 
-1. Create an OS profile in-memory object. An OS profile specifies the certificates that are associated with Cloud Services (extended support) roles. This is the certificate that you created in the preceding step.
+1. Create an OS profile in-memory object. An OS profile specifies the certificates that are associated with Cloud Services (extended support) roles, which is the certificate that you created in the preceding step.
 
     ```azurepowershell-interactive
     $keyVault = Get-AzKeyVault -ResourceGroupName ContosOrg -VaultName ContosKeyVault 
@@ -187,7 +187,7 @@ New-AzCloudService
     $osProfile = @{secret = @($secretGroup)} 
     ```
 
-1. Create a role profile in-memory object. A role profile defines a role's SKU-specific properties such as name, capacity, and tier. In this example, two roles are defined: frontendRole and backendRole. Role profile information must match the role configuration that's defined in the deployment configuration (.cscfg) file and definition (.csdef) file.
+1. Create a role profile in-memory object. A role profile defines a role's SKU-specific properties such as name, capacity, and tier. In this example, two roles are defined: frontendRole and backendRole. Role profile information must match the role configuration defined in the deployment configuration (.cscfg) file and definition (.csdef) file.
 
     ```azurepowershell-interactive
     $frontendRole = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 

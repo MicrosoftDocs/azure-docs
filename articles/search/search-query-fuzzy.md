@@ -60,7 +60,7 @@ Fuzzy queries are constructed using the full Lucene query syntax, invoking the [
 Here's an example of a query request that invokes fuzzy search. It includes four terms, two of which are misspelled:
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2024-07-01
 {
     "search": "seatle~ waterfront~ view~ hotle~",
     "queryType": "full",

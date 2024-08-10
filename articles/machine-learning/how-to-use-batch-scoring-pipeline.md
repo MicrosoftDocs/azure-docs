@@ -3,7 +3,7 @@ title: "Operationalize a scoring pipeline on batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to operationalize a pipeline that performs batch scoring with preprocessing.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 author: msakande

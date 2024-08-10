@@ -2,7 +2,7 @@
 title: Azure HDInsight supported node configurations
 description: Learn the minimum and recommended configurations for HDInsight cluster nodes.
 keywords: vm sizes, cluster sizes, cluster configuration
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 07/12/2024

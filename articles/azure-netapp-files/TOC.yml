@@ -45,6 +45,8 @@
         href: understand-data-encryption.md
       - name: Understand guidelines for Active Directory Domain Services
         href: understand-guidelines-active-directory-domain-service-site.md
+      - name: Understand DNS 
+        href: domain-name-system-concept.md
       - name: Understand the use of LDAP
         href: lightweight-directory-access-protocol.md
       - name: Understand NFS group memberships and supplemental groups
@@ -311,6 +313,8 @@
         href: configure-network-features.md
       - name: Configure customer-managed keys 
         href: configure-customer-managed-keys.md
+      - name: Configure customer-managed keys with managed HSM
+        href: configure-customer-managed-keys-hardware.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes

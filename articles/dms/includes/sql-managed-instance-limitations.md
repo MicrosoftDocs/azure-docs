@@ -2,7 +2,7 @@
 author: abhims14
 ms.author: abhishekum
 ms.date: 03/21/2022
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: include
 ms.custom:
   - sql-migration-content

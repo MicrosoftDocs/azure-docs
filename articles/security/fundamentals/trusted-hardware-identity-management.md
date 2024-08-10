@@ -271,5 +271,5 @@ Follow these steps to request AMD collateral in a confidential container:
 
 ## Next steps
 
-- Learn more about [Azure Attestation documentation](../../attestation/overview.md).
+- Learn more about [Azure Attestation documentation](/azure/attestation/overview).
 - Learn more about [Azure confidential computing](https://azure.microsoft.com/blog/introducing-azure-confidential-computing).

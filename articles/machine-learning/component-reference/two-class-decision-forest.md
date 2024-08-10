@@ -3,7 +3,7 @@ title:  "Two-Class Decision Forest: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Two-Class Decision Forest component in Azure Machine Learning to create a machine learning model based on the decision forests algorithm.  
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

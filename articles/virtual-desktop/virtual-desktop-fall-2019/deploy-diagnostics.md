@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.custom: has-azure-ad-ps-ref
 ms.date: 12/15/2020
 ms.author: helohr
-manager: femila
 ---
 
 # Deploy the Azure Virtual Desktop (classic) diagnostics tool

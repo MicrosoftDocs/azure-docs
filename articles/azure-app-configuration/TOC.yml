@@ -211,7 +211,7 @@
           href: concept-enable-rbac.md
         - name: Assign an Azure Managed Identity
           href: overview-managed-identity.md
-        - name: Disable access key authentication
+        - name: Manage access key authentication
           href: howto-disable-access-key-authentication.md
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md

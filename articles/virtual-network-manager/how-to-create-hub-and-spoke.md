@@ -3,7 +3,7 @@ title: 'Create a hub and spoke topology in Azure - Portal'
 description: Learn how to create a hub and spoke network topology for multiple virtual networks with Azure Virtual Network Manager using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 06/20/2024
 ms.custom: template-concept, engagement-fy23

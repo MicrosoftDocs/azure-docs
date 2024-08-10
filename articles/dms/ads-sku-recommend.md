@@ -4,7 +4,7 @@ description: Discover how to utilize the Azure SQL Migration extension in Azure 
 author: abhims14
 ms.author: abhishekum
 ms.date: 05/09/2022
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: conceptual
 ms.custom:
   - references_regions

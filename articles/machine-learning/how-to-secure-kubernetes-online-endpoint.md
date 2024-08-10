@@ -5,7 +5,7 @@ titleSuffix: Azure Machine Learning
 author: msakande
 ms.author: mopeakande
 ms.reviewer: chenlujiao
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 10/10/2022
 ms.topic: how-to

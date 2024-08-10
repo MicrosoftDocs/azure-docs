@@ -7,7 +7,7 @@ ms.author: duau
 manager: KumudD
 ms.date: 06/28/2022
 ms.topic: quickstart
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
