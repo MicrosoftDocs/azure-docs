@@ -108,14 +108,14 @@ az network vnet subnet update \
 
 An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization. We create a basic NVA from a general purpose Ubuntu VM, for demonstration purposes.
 
-Create a VM to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *nic-nva* and a subnet-public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a subnet-public IP address to the VM, since the VM doesn't need to be connected to from the internet. 
+Create a VM to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *vm-nvaVMNic* and a subnet-public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a subnet-public IP address to the VM, since the VM doesn't need to be connected to from the internet. 
 
 The following example creates a VM and adds a user account. The `--generate-ssh-keys` parameter causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, that key is used. If not, one is generated and stored in `~/.ssh`. Finally, we deploy the latest `Ubuntu 22.04` image.
 
 ```azurecli-interactive
 az vm create \
   --resource-group test-rg \
-  --name vm-nva \
+  --name vm-nvaVMNic \
   --image Ubuntu2204 \
   --public-ip-address "" \
   --subnet subnet-dmz \
