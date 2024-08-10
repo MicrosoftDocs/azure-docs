@@ -197,7 +197,7 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
 
 ## Enable Microsoft Entra ID sign in for the virtual machines
 
-The following code example deploys a Linux VM and then installs the extension to enable a Microsoft Entra ID sign-in for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
+The following code example installs the extension to enable a Microsoft Entra ID sign-in for a Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
 
 ```bash
 az vm extension set \
