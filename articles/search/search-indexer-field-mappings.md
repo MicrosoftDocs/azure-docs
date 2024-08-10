@@ -30,7 +30,7 @@ Field mappings apply to:
 
 + Physical data structures on both sides of the data path. Logical data structures created by skills reside only in memory. Use [outputFieldMappings](cognitive-search-output-field-mapping.md) to map in-memory nodes to output fields in a search index.
 
-+ Parent AI Search indexes only. For "secondary" indexes with "child" documents or "chunks", refer to the [advanced field mapping scenarios]().
++ Parent AI Search indexes only. For "secondary" indexes with "child" documents or "chunks", refer to the [advanced field mapping scenarios](advancedFieldMappingScenarios).
   
 + Top-level search fields only, where the `targetFieldName` is either a simple field or a collection. A target field can't be a complex type.
 
@@ -449,6 +449,7 @@ The field mapping needs to be specified as shown below.
 ]
  ```
 
+<a name="advancedFieldMappingScenarios"></a>
 ## Advanced field mapping scenarios
 
 In scenarios where you have "one-to-many" document relationships, such as data chunking or splitting, follow these guidelines for mapping fields from parent documents to "child" documents (chunks):
