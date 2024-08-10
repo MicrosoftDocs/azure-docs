@@ -7,8 +7,8 @@ metadata:
   description: Learn about Azure Operator Insights for analyzing network data from multiple sources.
   ms.service: azure-operator-insights
   ms.topic: landing-page
-  author: rcdun
-  ms.author: rdunstan
+  author: rathishrms
+  ms.author: rathishr
   ms.reviewer: rathishr
   ms.date: 11/02/2023
 
