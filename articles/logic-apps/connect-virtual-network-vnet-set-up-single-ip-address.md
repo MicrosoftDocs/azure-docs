@@ -111,4 +111,4 @@ This topic shows how to route outbound traffic through an Azure Firewall, but yo
 
 ## Related content
 
-* [Azure Firewall FAQ](../firewall/firewall-faq.yml)  
+* [Azure Firewall FAQ](../firewall/firewall-faq.yml)
