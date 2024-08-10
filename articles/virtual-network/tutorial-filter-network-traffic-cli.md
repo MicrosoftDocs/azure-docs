@@ -100,7 +100,7 @@ az network nsg rule create \
   --destination-port-range 22
 ```
 
-In this article, SSH (port 22) is exposed to the internet for the *asg-mgmt-servers* VM. For production environments, instead of exposing port 22 to the internet, it's recommended that you connect to Azure resources that you want to manage using a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [private](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) network connection.
+In this article, the *asg-mgmt-servers* asg exposes SSH (port 22) to the internet. For production environments, use a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [private](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) network connection to manage Azure resources instead of exposing port 22 to the internet.
 
 ## Create a virtual network
 
@@ -128,7 +128,7 @@ az network vnet subnet create \
 
 Create two VMs in the virtual network so you can validate traffic filtering in a later step. 
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that will serve as a web server. The `--asgs asg-web-servers` option causes Azure to make the network interface it creates for the VM a member of the *asg-web-servers* application security group.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a web server. The `--asgs asg-web-servers` option causes Azure to make the network interface it creates for the VM a member of the *asg-web-servers* application security group.
 
 The `--nsg ""` option is specified to prevent Azure from creating a default network security group for the network interface Azure creates when it creates the VM. The following example creates a VM and adds a user account. The `--generate-ssh-keys` parameter causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, that key is used. If not, one is generated and stored in `~/.ssh`. Finally, we deploy the latest `Ubuntu 22.04` image.
 
@@ -199,7 +199,7 @@ az vm extension set \
 
 ## Test traffic filters
 
-Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-mgmt* VM. In the previous steps, we enabled Microsoft Entra ID sign-in for the VMs. You can login to the virtual machines using your Microsoft Entra ID credentials or you can use the SSH key that you used to create the VMs. In the following example, we use the SSH key to login to the VMs.
+Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-mgmt* VM. In the previous steps, we enabled Microsoft Entra ID sign-in for the VMs. You can sign-in to the virtual machines using your Microsoft Entra ID credentials or you can use the SSH key that you used to create the VMs. In the following example, we use the SSH key to sign-in to the VMs.
 
 For more information about how to SSH to a Linux VM and sign in with Microsoft Entra ID, see [Sign in to a Linux virtual machine in Azure by using Microsoft Entra ID and OpenSSH](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux).
 
@@ -216,7 +216,7 @@ export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm
 ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
 ```
 
-The connection succeeds, because port 22 is allowed inbound from the Internet to the *asg-mgmt-servers* application security group that the network interface attached to the *vm-mgmt* VM is in.
+The connection succeeds because the network interface attached to the *vm-mgmt* VM is in the *asg-mgmt-servers* application security group, which allows port 22 inbound from the Internet.
 
 Use the following command to SSH to the *vm-web* VM from the *vm-mgmt* VM:
 
@@ -242,7 +242,7 @@ The *vm-web* VM is allowed outbound to the Internet to retrieve nginx because a 
 curl vm-web
 ```
 
-Logout of the *vm-mgmt* VM. To confirm that you can access the *vm-web* web server from outside of Azure, enter `curl <publicIpAddress>` from your own computer. The connection succeeds, because port 80 is allowed inbound from the Internet to the *asg-web-servers* application security group that the network interface attached to the *vm-web* VM is in.
+Sign out of the *vm-mgmt* VM. To confirm that you can access the *vm-web* web server from outside of Azure, enter `curl <publicIpAddress>` from your own computer. The connection succeeds because the *asg-web-servers* application security group, which the network interface attached to the *vm-web* VM is in, allows port 80 inbound from the Internet.
 
 ## Clean up resources
 
@@ -259,4 +259,4 @@ az group delete \
 
 In this article, you created a network security group and associated it to a virtual network subnet. To learn more about network security groups, see [Network security group overview](./network-security-groups-overview.md) and [Manage a network security group](manage-network-security-group.md).
 
-Azure routes traffic between subnets by default. You may instead, choose to route traffic between subnets through a VM, serving as a firewall, for example. To learn how, see [Create a route table](tutorial-create-route-table-cli.md).
+Azure routes traffic between subnets by default. You can instead, choose to route traffic between subnets through a VM, serving as a firewall, for example. To learn how, see [Create a route table](tutorial-create-route-table-cli.md).
