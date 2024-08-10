@@ -66,7 +66,7 @@ az network nsg create \
 
 ### Create security rules
 
-Create a security rule with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule that allows traffic inbound from the internet to the *myWebServers* application security group over ports 80 and 443:
+Create a security rule with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule that allows traffic inbound from the internet to the *asg-web-servers* application security group over ports 80 and 443:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -83,7 +83,7 @@ az network nsg rule create \
   --destination-port-range 80 443
 ```
 
-The following example creates a rule that allows traffic inbound from the Internet to the *myMgmtServers* application security group over port 22:
+The following example creates a rule that allows traffic inbound from the Internet to the *asg-mgmt-servers* application security group over port 22:
 
 ```azurecli-interactive
 az network nsg rule create \
