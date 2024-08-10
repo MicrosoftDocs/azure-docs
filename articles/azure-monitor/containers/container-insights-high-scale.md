@@ -114,6 +114,11 @@ az aks create -g <cluster-name> -n <cluster-name> enable-addons -a monitoring --
 
 See [Create a private Azure Kubernetes Service (AKS) cluster](/azure/aks/private-clusters?tabs=azure-portal) for details on creating an AKS Private cluster. Use the additional parameters `--enable-high-scale-mode` and `--ampls-resource-id` to configure high log scale mode with Azure Monitor Private Link Scope Resource ID. 
 
+## Migration
+If Container insights is already enabled for your cluster, then you need to disable it and then re-enable it with high scale mode.
+
+- Since high scale mode uses a different data pipeline, you must ensure that pipeline endpoints are not blocked by a firewall or other network connections.
+- High scale mode uses a different DCR for data collection. If you've created any DCRs that use *Microsoft.ContainerLogV2*, you must replace this with *Microsoft.ContainerLogV2-HighScale* or data will be duplicated. 
 
 
 ## Next steps
