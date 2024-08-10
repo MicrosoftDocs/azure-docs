@@ -1,14 +1,10 @@
 ---
 title: Filter network traffic - Azure CLI
 description: In this article, you learn how to filter network traffic to a subnet, with a network security group, using the Azure CLI.
-services: virtual-network
 author: asudbring
-
 ms.service: azure-virtual-network
-ms.devlang: azurecli
 ms.topic: how-to
-ms.tgt_pltfrm: virtual-network
-ms.date: 03/30/2018
+ms.date: 08/09/2024
 ms.author: allensu
 ms.custom: devx-track-azurecli
 # Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
