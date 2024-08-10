@@ -23,7 +23,7 @@ You apply settings to your session hosts. It doesn't depend on a specific Remote
 
 To configure the clipboard transfer direction, you need:
 
-- Host pool RDP properties must allow [clipboard redirection](configure-device-redirections.md#clipboard-redirection), otherwise it will be completely blocked.
+- Host pool RDP properties must allow [clipboard redirection](redirection-configure-clipboard.md), otherwise it will be completely blocked.
 
 - Depending on the method you use to configure the clipboard transfer direction:
 

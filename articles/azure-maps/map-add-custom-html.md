@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 05/17/2023
 ms.topic: how-to
 ms.service: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Add HTML markers to the map

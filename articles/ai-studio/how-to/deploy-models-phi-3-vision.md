@@ -3,10 +3,11 @@ title: How to use Phi-3 chat models with vision with Azure AI Studio
 titleSuffix: Azure AI Studio
 description: Learn how to use Phi-3 chat models with vision with Azure AI Studio.
 ms.service: azure-ai-studio
+manager: scottpolly
 ms.topic: how-to
 ms.date: 08/08/2024
-ms.reviewer: fasantia
-reviewer: santiagxf
+ms.reviewer: kritifaujdar
+reviewer: fkriti
 ms.author: mopeakande
 author: msakande
 ms.custom: references_regions, generated
@@ -21,6 +22,8 @@ The Phi-3 family of small language models (SLMs) is a collection of instruction-
 
 
 ::: zone pivot="programming-language-python"
+
+## Phi-3 chat models with vision
 
 Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
 
@@ -113,7 +116,7 @@ The response is as follows:
 ```python
 print("Model name:", model_info.model_name)
 print("Model type:", model_info.model_type)
-print("Model provider name:", model_info.model_provider)
+print("Model provider name:", model_info.model_provider_name)
 ```
 
 ```console
@@ -190,14 +193,12 @@ To visualize the output, define a helper function to print the stream.
 ```python
 def print_stream(result):
     """
-    Prints the chat completion with streaming. Some delay is added to simulate 
-    a real-time conversation.
+    Prints the chat completion with streaming.
     """
     import time
     for update in result:
         if update.choices:
             print(update.choices[0].delta.content, end="")
-            time.sleep(0.05)
 ```
 
 You can visualize how streaming generates content:
@@ -341,6 +342,8 @@ Usage:
 
 
 ::: zone pivot="programming-language-javascript"
+
+## Phi-3 chat models with vision
 
 Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
 
@@ -683,6 +686,8 @@ Usage:
 
 ::: zone pivot="programming-language-csharp"
 
+## Phi-3 chat models with vision
+
 Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
 
 
@@ -1020,6 +1025,8 @@ Usage:
 
 
 ::: zone pivot="programming-language-rest"
+
+## Phi-3 chat models with vision
 
 Phi-3 Vision is a lightweight, state-of-the-art open multimodal model built upon datasets which include - synthetic data and filtered publicly available websites - with a focus on very high-quality, reasoning dense data both on text and vision. The model belongs to the Phi-3 model family, and the multimodal version comes with 128K context length (in tokens) it can support. The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures.
 
