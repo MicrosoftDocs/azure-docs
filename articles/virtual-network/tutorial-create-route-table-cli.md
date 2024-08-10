@@ -115,7 +115,7 @@ The following example creates a VM and adds a user account. The `--generate-ssh-
 ```azurecli-interactive
 az vm create \
   --resource-group test-rg \
-  --name vm-nvaVMNic \
+  --name vm-nva \
   --image Ubuntu2204 \
   --public-ip-address "" \
   --subnet subnet-dmz \
@@ -125,11 +125,11 @@ az vm create \
 
 The VM takes a few minutes to create. Don't continue to the next step until Azure finishes creating the VM and returns output about the VM.
 
-For a network interface nic-nva to be able to forward network traffic sent to it, that isn't destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
+For a network interface **vm-nvaVMNic** to be able to forward network traffic sent to it, that isn't destined for its own IP address, IP forwarding must be enabled for the network interface. Enable IP forwarding for the network interface with [az network nic update](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
-  --name nic-nva \
+  --name vm-nvaVMNic \
   --resource-group test-rg \
   --ip-forwarding true
 ```
@@ -217,7 +217,11 @@ az vm extension set \
 
 ## Route traffic through an NVA
 
-Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-private* VM.
+Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-private* VM. In the previous steps, we enabled Microsoft Entra ID sign-in for the VMs. You can login to the virtual machines using your Microsoft Entra ID credentials or you can use the SSH key that you used to create the VMs. In the following example, we use the SSH key to login to the VMs.
+
+For more information about how to ssh to a Linux VM and sign in with Microsoft Entra ID, see [Sign in to a Linux virtual machine in Azure by using Microsoft Entra ID and OpenSSH](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux).
+
+```bash
 
 ### Store IP address of VM in order to SSH
 
@@ -247,11 +251,12 @@ traceroute vm-public
 The response is similar to the following example:
 
 ```output
+azureuser@vm-private:~$ traceroute vm-public
 traceroute to vm-public (10.0.0.4), 30 hops max, 60 byte packets
-1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
+ 1  vm-public.internal.cloudapp.net (10.0.0.4)  2.613 ms  2.592 ms  2.553 ms
 ```
 
-You can see that traffic is routed directly from the *vm-private* VM to the *vm-public* VM. Azure's default routes, route traffic directly between subnets.
+You can see that traffic is routed directly from the *vm-private* VM to the *vm-public* VM. Azure's default routes, route traffic directly between subnets. Close the SSH session to the *vm-private* VM.
 
 ### Store IP address of VM in order to SSH
 
@@ -268,7 +273,8 @@ ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
 Use the following command to install trace route on the *vm-public* VM:
 
 ```bash
-sudo apt-get install traceroute
+sudo apt update
+sudo apt install traceroute
 ```
 
 Use the following command to test routing for network traffic to the *vm-private* VM from the *vm-public* VM.
@@ -280,21 +286,25 @@ traceroute vm-private
 The response is similar to the following example:
 
 ```output
+azureuser@vm-public:~$ traceroute vm-private
 traceroute to vm-private (10.0.1.4), 30 hops max, 60 byte packets
-1  10.0.2.4 (10.0.2.4)  0.781 ms  0.780 ms  0.775 ms
-2  10.0.1.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
+ 1  vm-nva.internal.cloudapp.net (10.0.2.4)  1.010 ms  1.686 ms  1.144 ms
+ 2  vm-private.internal.cloudapp.net (10.0.1.4)  1.925 ms  1.911 ms  1.898 ms
 ```
 
 You can see that the first hop is 10.0.2.4, which is the NVA's private IP address. The second hop is 10.0.1.4, the private IP address of the *vm-private* VM. The route added to the *route-table--public* route table and associated to the *subnet-public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *subnet-private* subnet.
 
-Close the SSH sessions to both the *vm-public* and *vm-private* VMs.
+Close the SSH session to the *vm-public* VM.
 
 ## Clean up resources
 
 When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
 
 ```azurecli-interactive
-az group delete --name test-rg --yes
+az group delete \
+    --name test-rg \
+    --yes \
+    --no-wait
 ```
 
 ## Next steps
