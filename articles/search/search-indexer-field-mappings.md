@@ -464,10 +464,10 @@ If you are indexing both parent documents and "child" documents:
 + Use field mappings to map fields to the parent documents.
 + Use [index projections](index-projections-concept-intro.md) to map fields to the "child" documents.
 
-### 3. Mapping function-transformed values to both parent and/or "child" documents
+### 3. Mapping function-transformed values to parent and/or "child" documents
 
-If a field in the parent document requires a transformation (using the mapping functions](#mappingFunctions) such as encoding) and needs to be mapped to the parent and/or "child" documents:
-+ Apply the transformation using field mappings' functions in the indexer.
+If a field in the parent document requires a transformation (using the [mapping functions](#mappingFunctions) such as encoding) and needs to be mapped to the parent and/or "child" documents:
++ Apply the transformation using field mappings' [functions](#mappingFunctions) in the indexer.
 + Use [index projections](index-projections-concept-intro.md) in the skillset to map the transformed field to the "child" documents.
 
 ## See also
