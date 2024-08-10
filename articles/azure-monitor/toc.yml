@@ -431,6 +431,9 @@ items:
       - name: Firewall requirements
         displayName: Container insights, Prometheus
         href: containers/kubernetes-monitoring-firewall.md
+      - name: Private Link
+        displayName: Container insights, Kubernetes
+        href: containers/kubernetes-monitoring-private-link.md
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Legacy authentication
@@ -517,9 +520,6 @@ items:
       - name: Troubleshoot remote-write
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-troubleshooting.md
-    - name: Private link
-      displayName: Private Link, container insights      
-      href: containers/container-insights-private-link.md    
     - name: Monitor
       items:
       - name: Monitor performance
@@ -938,8 +938,6 @@ items:
           href: essentials/azure-monitor-workspace-scaling-best-practice.md
         - name: Private endpoints for Azure Monitor workspaces
           href: essentials/azure-monitor-workspace-private-endpoint.md
-        - name: Private link for Prometheus data ingestion
-          href: essentials/private-link-data-ingestion.md
         - name: Private link data query of Prometheus metrics
           displayName: Private link data query
           href: /azure/managed-grafana/how-to-connect-to-data-source-privately
