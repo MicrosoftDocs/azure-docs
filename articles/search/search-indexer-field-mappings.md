@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/29/2024
+ms.date: 08/09/2024
 ---
 
 # Field mappings and transformations using Azure AI Search indexers
@@ -30,8 +30,10 @@ Field mappings apply to:
 
 + Physical data structures on both sides of the data path. Logical data structures created by skills reside only in memory. Use [outputFieldMappings](cognitive-search-output-field-mapping.md) to map in-memory nodes to output fields in a search index.
 
-+ Search indexes only. To populate a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
-
++ Parent AI Search indexes only.
+  - To populate a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
+  - To map parent document fields to a secondary index, which contains "child" documents or "chunks" for "one-to-many" document scenarios (such as data chunking/splitting), use [index projections](index-projections-concept-intro.md).
+  
 + Top-level search fields only, where the `targetFieldName` is either a simple field or a collection. A target field can't be a complex type.
 
 ## Supported scenarios
