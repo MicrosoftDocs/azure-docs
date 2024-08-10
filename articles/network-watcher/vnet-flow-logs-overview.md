@@ -221,7 +221,7 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 ## Supported scenarios
 
-The following table lists the support scope of flow logs.
+The following table outlines the support scope of flow logs.
 
 | Scope | Network security group flow logs | Virtual network flow logs |
 | --- | --- | --- |
