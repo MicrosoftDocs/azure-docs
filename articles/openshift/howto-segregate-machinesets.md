@@ -125,9 +125,8 @@ spec:
             resourceID: ""
             sku: XXX_XX
             version: XX.XX.XXX
-          internalLoadBalancer: ""
           kind: AzureMachineProviderSpec
-          location: useast
+          location: XXXXX
           metadata:
             creationTimestamp: null
           natRule: null
@@ -138,10 +137,7 @@ spec:
               storageAccountType: Premium_LRS
             osType: Linux
           publicIP: false
-          publicLoadBalancer: XXX-XXX-XXX
-          resourceGroup: aro-fq5v3vye
-          sshPrivateKey: ""
-          sshPublicKey: ""
+          resourceGroup: aro-XXX
           subnet: XXX-XXX
           userDataSecret:
             name: worker-user-data
