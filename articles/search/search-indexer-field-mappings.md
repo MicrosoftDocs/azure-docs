@@ -30,9 +30,7 @@ Field mappings apply to:
 
 + Physical data structures on both sides of the data path. Logical data structures created by skills reside only in memory. Use [outputFieldMappings](cognitive-search-output-field-mapping.md) to map in-memory nodes to output fields in a search index.
 
-+ Parent AI Search indexes only.
-  - To populate a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
-  - To map parent document fields to a secondary index, which contains "child" documents or "chunks" for "one-to-many" document scenarios (such as data chunking/splitting), use [index projections](index-projections-concept-intro.md).
++ Parent AI Search indexes only. For "secondary" indexes with "child" documents or "chunks", refer to the [advanced field mapping scenarios]().
   
 + Top-level search fields only, where the `targetFieldName` is either a simple field or a collection. A target field can't be a complex type.
 
@@ -450,6 +448,26 @@ The field mapping needs to be specified as shown below.
   }
 ]
  ```
+
+## Advanced field mapping scenarios
+
+In scenarios where you have "one-to-many" document relationships, such as data chunking or splitting, follow these guidelines for mapping fields from parent documents to "child" documents (chunks):
+
+### 1. Skipping parent document indexing
+
+If you are skipping the indexing of parent documents (by setting `projectionMode` to `skipIndexingParentDocuments` in the skillset's `indexProjections`), use [index projections](index-projections-concept-intro.md) to map fields from the parent documents to the "child" documents.
+
+### 2. Indexing both parent and "child" documents
+
+If you are indexing both parent documents and "child" documents:
++ Use field mappings to map fields to the parent documents.
++ Use [index projections](index-projections-concept-intro.md) to map fields to the "child" documents.
+
+### 3. Mapping function-transformed values to both parent and/or "child" documents
+
+If a field in the parent document requires a transformation (using the mapping functions](#mappingFunctions) such as encoding) and needs to be mapped to the parent and/or "child" documents:
++ Apply the transformation using field mappings' functions in the indexer.
++ Use [index projections](index-projections-concept-intro.md) in the skillset to map the transformed field to the "child" documents.
 
 ## See also
 
