@@ -202,7 +202,7 @@ The following code example installs the extension to enable a Microsoft Entra ID
 ```bash
 az vm extension set \
     --publisher Microsoft.Azure.ActiveDirectory \
-    --name AADSSHLoginForLinux \
+    --name AADSSHsign-inForLinux \
     --resource-group test-rg \
     --vm-name vm-private
 ```
@@ -210,14 +210,14 @@ az vm extension set \
 ```bash
 az vm extension set \
     --publisher Microsoft.Azure.ActiveDirectory \
-    --name AADSSHLoginForLinux \
+    --name AADSSHsign-inForLinux \
     --resource-group test-rg \
     --vm-name vm-public
 ```
 
 ## Route traffic through an NVA
 
-Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-private* VM. In the previous steps, we enabled Microsoft Entra ID sign-in for the VMs. You can login to the virtual machines using your Microsoft Entra ID credentials or you can use the SSH key that you used to create the VMs. In the following example, we use the SSH key to login to the VMs.
+Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-private* VM. In the previous steps, we enabled Microsoft Entra ID sign-in for the VMs. You can sign-in to the virtual machines using your Microsoft Entra ID credentials or you can use the SSH key that you used to create the VMs. In the following example, we use the SSH key to sign-in to the VMs.
 
 For more information about how to SSH to a Linux VM and sign in with Microsoft Entra ID, see [Sign in to a Linux virtual machine in Azure by using Microsoft Entra ID and OpenSSH](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux).
 
