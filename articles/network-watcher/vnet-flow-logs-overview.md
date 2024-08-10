@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 08/09/2024
+ms.date: 08/10/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---
@@ -227,13 +227,13 @@ The following table outlines the support scope of flow logs.
 | --- | --- | --- |
 | Bytes and packets in stateless flows | Not supported | Supported |
 | Identification of virtual network encryption  | Not supported | Supported |
+| Azure API management  | Not supported | Supported |
+| Azure Application Gateway | Not supported | Supported |
+| Azure Bastion | Supported | Supported |
 | Azure Virtual Network Manager | Not supported | Supported |
 | ExpressRoute gateway | Not supported | Supported |
-| VPN gateway | Not supported | Supported |
-| Azure Application Gateway | Not supported | Supported |
 | Virtual machine scale sets | Supported | Supported |
-| Azure API management  | Not supported | Supported |
-| Azure Bastion | Supported | Supported |
+| VPN gateway | Not supported | Supported |
 
 ## Availability
 
