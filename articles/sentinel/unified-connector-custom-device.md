@@ -10,11 +10,11 @@ ms.date: 07/31/2024
 
 # Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications
 
-Microsoft Sentinel's **Custom Logs via AMA** data connector supports log collection from several different network and security appliances and devices. This article supplies the installation instructions that are unique to the specific security appliances and devices that use this data connector, as provided by their manufacturers. Contact the manufacturer for updates, more information, or where information is unavailable for your security appliance or device.
+Microsoft Sentinel's **Custom Logs via AMA** data connector supports log collection from several different network and security applications. This article supplies the configuration instructions for this data connector that are unique to the specific security applications that use the connector, as provided by their manufacturers. Contact the manufacturer for updates, more information, or where information is unavailable for your security application.
 
-This article shows you how to ingest data from these devices to your Microsoft Sentinel workspace. These steps include installation of the **Custom Logs via AMA** data connector in Microsoft Sentinel. After the connector is installed, use the instructions appropriate to your device, shown later in this article, to complete the setup.
+This article shows you how to ingest data from these applications to your Microsoft Sentinel workspace. These steps include installation of the **Custom Logs via AMA** data connector in Microsoft Sentinel. After the connector is installed, use the instructions appropriate to your application, shown later in this article, to complete the setup.
 
-For more information about the related Microsoft Sentinel solution for each of these appliances or devices, search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for the **Product Type** > **Solution Templates** or review the solution from the **Content hub** in Microsoft Sentinel.
+For more information about the related Microsoft Sentinel solution for each of these applications, search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for the **Product Type** > **Solution Templates** or review the solution from the **Content hub** in Microsoft Sentinel.
 
 > [!IMPORTANT]
 > - The **Custom Logs via AMA** data connector is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -37,11 +37,11 @@ The instructions for installing and configuring these data connectors for your d
 
 1. Configure your device to send its logs to the machine where the Azure Monitor Agent is installed.
 
-These general steps (except for the last one) are described in detail in [Ingest syslog, CEF, and custom-format messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-custom-ama.md).
+These general steps (except for the last one) are described in detail in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md).
 
-## Specific instructions per device type
+## Specific instructions per application type
 
-The per-device information you need to complete these steps is presented in the rest of this article. Some device types require more specific steps, or extra steps such as data transformations, which are also shown here.
+The per-application information you need to complete these steps is presented in the rest of this article. Some of these applications are on self-contained appliances and require a different type of configuration, starting with the use of a log forwarder.
 
 **The following devices' instructions are provided here:**
 
@@ -77,7 +77,7 @@ Follow these steps to ingest log messages from Apache HTTP Server:
 
 1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### Apache Tomcat
 
@@ -93,7 +93,7 @@ Follow these steps to ingest log messages from Apache Tomcat:
 
 1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### Cisco Meraki
 
@@ -135,6 +135,8 @@ Follow these steps to ingest log messages from Cisco Meraki:
             }
             ```
             (Replace `<LOG_FILE_Name>` with the name of the log file you created.)
+
+            To learn more about filtering conditions for rsyslog, see [rsyslog: Filter conditions](https://rsyslog.readthedocs.io/en/latest/configuration/filters.html)
 
         1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
 
@@ -202,7 +204,7 @@ Follow these steps to ingest log messages from Cisco Meraki:
 
 1. Configure and connect the Cisco Meraki device(s): follow the [instructions provided by Cisco](https://documentation.meraki.com/General_Administration/Monitoring_and_Reporting/Meraki_Device_Reporting_-_Syslog%2C_SNMP%2C_and_API) for sending syslog messages. Use the IP address or hostname of the virtual machine where the Azure Monitor Agent is installed. 
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### JBoss Enterprise Application platform
 
@@ -217,7 +219,7 @@ Follow these steps to ingest log messages from JBoss Enterprise Application plat
 
 1. Deploy Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### JuniperIDP
 
@@ -232,7 +234,7 @@ Follow these steps to ingest log messages from JuniperIDP:
 
 1. Deploy Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### MarkLogic Audit
 
@@ -257,7 +259,7 @@ Follow these steps to ingest log messages from MarkLogic Audit:
     1. Validate by selecting OK.
     1. Refer to MarkLogic documentation for [more details and configuration options](https://docs.marklogic.com/guide/admin/auditing).
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### MongoDB Audit
 
@@ -280,7 +282,7 @@ Follow these steps to ingest log messages from MongoDB Audit:
     1. Set the `path` parameter to `/data/db/auditlog.json`.
     1. Refer to MongoDB documentation for [more parameters and details](https://www.mongodb.com/docs/manual/tutorial/configure-auditing/).
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### NGINX HTTP Server
 
@@ -296,7 +298,7 @@ Follow these steps to ingest log messages from NGINX HTTP Server:
 
 1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### Oracle WebLogic Server 
 
@@ -313,7 +315,7 @@ Follow these steps to ingest log messages from Oracle WebLogic Server:
 
 1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### PostgreSQL Events
 
@@ -335,7 +337,7 @@ Follow these steps to ingest log messages from PostgreSQL Events:
     1. Set `logging_collector=on`
     1. Refer to PostgreSQL documentation for [more parameters and details](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### SecurityBridge Threat Detection for SAP
 
@@ -351,7 +353,7 @@ Follow these steps to ingest log messages from SecurityBridge Threat Detection f
 
 1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### SquidProxy
 
@@ -368,7 +370,7 @@ Follow these steps to ingest log messages from SquidProxy:
 
 1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### Ubiquiti UniFi
 
@@ -431,7 +433,7 @@ Follow these steps to ingest log messages from Ubiquiti UniFi:
     1. Follow the [instructions provided by Ubiquiti](https://help.ui.com/hc/en-us/categories/6583256751383) to enable syslog and optionally debugging logs.
     1. Select Settings > System Settings > Controller Configuration > Remote Logging and enable syslog. 
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### AI Vectra stream
 
@@ -446,7 +448,7 @@ Follow these steps to ingest log messages from AI Vectra stream:
 
 1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### VMware vCenter
 
@@ -544,7 +546,7 @@ Follow these steps to ingest log messages from VMware vCenter:
     1. Follow the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-9633A961-A5C3-4658-B099-B81E0512DC21.html) for sending syslog messages.
     1. Use the IP address or hostname of the machine where the Azure Monitor Agent is installed.
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ### Zscaler Private Access (ZPA)
 
@@ -607,7 +609,7 @@ Follow these steps to ingest log messages from Zscaler Private Access (ZPA):
     1. Follow the [instructions provided by ZPA](https://help.zscaler.com/zpa/configuring-log-receiver). Select JSON as the log template.
     1. Select Settings > System Settings > Controller Configuration > Remote Logging and enable syslog. 
 
-[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ## Related content
 
