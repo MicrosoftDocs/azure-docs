@@ -95,20 +95,7 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 
 ## Data collection and ingestion pipeline
 
-This table lists the tools Azure Monitor provides for collecting data from various resource types.  
-
-| Resource type |Collected data |
-| --- |--- |
-| **Azure** | **Azure tenant** - Microsoft Entra audit logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
-| **Application** | Application performance monitoring data. |
-| **Container**| Container performance data. |
-| **Virtual machine** | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
-| **Non-Azure source** | File-based logs and any data you collect from a monitored resource.|
-
-
-> [!IMPORTANT]
-> For most data collection in Logs, you incur ingestion and retention costs. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before you enable any data collection.
-
+:::image type="content" source="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" lightbox="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" alt-text="A diagram that shows data being collected from data sources and transformed and sent to tables in a Log Analytics workspace.":::
 
 ## Working with Microsoft Sentinel and Microsoft Defender for Cloud
 
