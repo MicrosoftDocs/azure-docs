@@ -6,7 +6,7 @@ ms.author: edbaynash
 services: azure-monitor
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/19/2023
+ms.date: 08/11/2024
 ms.reviewer: lualderm
 ---
 
