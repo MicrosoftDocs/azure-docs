@@ -55,7 +55,7 @@ When creating your user:
 - Make sure to create a system user.
 - Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the user.
 
-For more information, see the [SAP documentation](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/2c158dc83732454cb8830b3010e2c322/6c25624a03114f48a4c7a60105752cd4.html)
+For more information, see the [SAP documentation](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/2c158dc83732454cb8830b3010e2c322/6c25624a03114f48a4c7a60105752cd4.html). <!--we need a better link-->
 
 ### Required ABAP authorizations
 
@@ -265,7 +265,7 @@ If needed, you can [Remove the user role and any optional CR installed on your A
 
 Some installations of SAP systems might not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters. If you want to ingest SAP HANA DB logs, make sure to also enable auditing for SAP HANA DB.
 
-For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094). <!--need a better link-->
+For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094).
 <!--this is where we'd redirect to from sap auditing-->
 
 ## Deploy optional CRs
@@ -291,7 +291,7 @@ The SAP PAHI table includes data on the history of the SAP system, the database,
 > [!TIP]
 > For optimal results, in your machine's *systemconfig.json* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md#abap-table-selector).
 
-If the PAHI table is updated regularly, the `SAP_COLLECTOR_FOR_PERFMONITOR` job is scheduled and runs hourly. If the `SAP_COLLECTOR_FOR_PERFMONITOR` job doesn't exist, make sure to configure it as needed. For more information, see [SAP documentation](https://help.sap.com/doc/saphelp_ewm900/9.0/en-US/c4/3a735b505211d189550000e829fbbd/frameset.htm).
+If the PAHI table is updated regularly, the `SAP_COLLECTOR_FOR_PERFMONITOR` job is scheduled and runs hourly. If the `SAP_COLLECTOR_FOR_PERFMONITOR` job doesn't exist, make sure to configure it as needed. For more information, see the SAP documentation: [Database Collector in Background Processing](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/c4/3a735b505211d189550000e829fbbd/frameset.htm) and [Configuring the Data Collector](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/3364beced9d145a5ad185c89a1e04658/c43a818c505211d189550000e829fbbd.html)
 
 ## Configure your system to use SNC for secure connections
 
@@ -310,7 +310,7 @@ When configuring SNC:
 
 If you're turning off the SAP data connector agent and stopping log ingestion from your SAP system, we recommend that you also remove the user role and optional CRs installed on your ABAP system.
 
-To do so, import the deletion CR *NPLK900259* into your ABAP system. For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/e1/5d9acae75c11d2b451006094b9ea64/frameset.htm).
+To do so, import the deletion CR *NPLK900259* into your ABAP system. For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/e1/5d9acae75c11d2b451006094b9ea64/frameset.htm). <!--we want a better link-->
 
 ## Next step
 
