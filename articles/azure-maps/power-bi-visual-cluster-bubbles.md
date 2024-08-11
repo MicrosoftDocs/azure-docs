@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 02/27/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Add a cluster bubble layer

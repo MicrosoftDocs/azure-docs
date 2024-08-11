@@ -6,8 +6,7 @@ ms.author: sipa
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Tutorial: Migrate a web app from Bing Maps

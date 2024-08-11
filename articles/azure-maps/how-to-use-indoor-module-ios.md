@@ -6,8 +6,8 @@ ms.author: sipa
 ms.date: 12/10/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: ios-sdk
 ms.custom: devx-track-js
-services: azure-maps
 ---
 
 # Indoor maps in the iOS SDK (Preview)
