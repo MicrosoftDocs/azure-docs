@@ -1,11 +1,11 @@
 ---
 title: Differences between Standard and Consumption logic apps
 description: Learn the differences between Standard workflows (single-tenant) and Consumption workflows (multitenant) in Azure Logic Apps.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 08/11/2024
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -314,6 +314,8 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 * **Backup and restore for workflow run history**: **Standard** logic apps currently don't support backup and restore for workflow run history.
 
 * **Deployment targets**: You can't deploy a **Standard** logic app resource to an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) nor to Azure deployment slots.
+
+* **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/developer/terraform/overview)?
 
 * **Azure API Management**: You currently can't import a **Standard** logic app resource into Azure API Management. However, you can import a **Consumption** logic app resource.
 
