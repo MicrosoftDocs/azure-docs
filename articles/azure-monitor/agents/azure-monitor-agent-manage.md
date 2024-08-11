@@ -373,8 +373,7 @@ The AgentSettings DCR currently supports configuring the following parameters:
 
 | Parameter | Description | Valid values |
 | --------- | ----------- | ----------- |
-
-| `DiscQuotaInMb` | Defines the amount of disk space used by the Azure Monitor Agent log files and cache. | 1,000-50,000 (or 1-50 GB) |
+| `MaxDiskQuotaInMB` | Defines the amount of disk space used by the Azure Monitor Agent log files and cache. | 1000-50000 (in MB) |
 | `TimeReceivedForForwardedEvents` | Changes WEF column in the Sentinel WEF table to use TimeReceived instead of TimeGenerated data | 0 or 1 |
 
 ### Setting up AgentSettings DCR
@@ -399,7 +398,7 @@ N/A
 
 1. **Create a DCR via template deployment:**
 
-    The following example changes the maximum amount of disk space used by AMA cache to 5 GB.
+    The following example sets the maximum amount of disk space used by AMA cache to 5000 MB.
 
     ```json
     {
@@ -432,7 +431,7 @@ N/A
     ```
     
     > [!NOTE]
-    > You can use the Get DataCollectionRule API to get the DCR payload you created with this template.
+    > Use the Get DataCollectionRule API to get the DCR payload you created with this template.
     
 1. **Associate DCR with your machine:**
 
