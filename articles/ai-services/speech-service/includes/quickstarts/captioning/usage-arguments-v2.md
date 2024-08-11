@@ -11,7 +11,7 @@ Connection options include:
 - `--key`: Your Speech resource key. Overrides the SPEECH_KEY environment variable. You must set the environment variable (recommended) or use the `--key` option.
 - `--region REGION`: Your Speech resource region. Overrides the SPEECH_REGION environment variable. You must set the environment variable (recommended) or use the `--region` option. Examples: `westus`, `northeurope`
 
-IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 Input options include:
 

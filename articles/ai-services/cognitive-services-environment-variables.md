@@ -14,7 +14,7 @@ ms.author: eur
 
 This guide shows you how to set and retrieve environment variables for your Azure AI services credentials when you test applications.
 
-IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 ## Set an environment variable
 

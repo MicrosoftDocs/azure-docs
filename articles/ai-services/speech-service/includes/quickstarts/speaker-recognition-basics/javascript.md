@@ -83,7 +83,7 @@ const ticks_per_second = 10000000;
 
 These statements import the required libraries and get your Speech service subscription key and region from your environment variables. They also specify paths to audio files that you'll use in the following tasks.
 
-IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 ## Create a helper function
 

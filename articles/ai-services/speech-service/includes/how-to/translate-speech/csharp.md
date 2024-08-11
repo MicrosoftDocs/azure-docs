@@ -30,7 +30,7 @@ public class Program
 
 For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables.md).
 
-IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 ## Create a speech translation configuration
 
