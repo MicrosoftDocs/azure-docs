@@ -49,7 +49,7 @@ $port = New-AzContainerInstancePortObject -Port 80 -Protocol TCP
 Now that you have a resource group and port, you can run a container that's exposed to the internet in Azure. To create a container instance with Azure PowerShell, you'll first need to create a `ContainerInstanceObject` by providing a name, image, and port for the container. In this quickstart, you use the public `mcr.microsoft.com/azuredocs/aci-helloworld` image.
 
 ```azurepowershell-interactive
-New-AzContainerInstanceObject -Name myContainer -Image mcr.microsoft.com/azuredocs/aci-helloworld -Port @($port)
+$container = New-AzContainerInstanceObject -Name myContainer -Image mcr.microsoft.com/azuredocs/aci-helloworld -Port @($port)
 ```
 
 Next, use the [New-AzContainerGroup][New-AzContainerGroup] cmdlet. You need to provide a name for the container group, your resource group's name, a location for the container group, the container instance you just created, the operating system type, and a unique IP address DNS name label.
@@ -57,7 +57,7 @@ Next, use the [New-AzContainerGroup][New-AzContainerGroup] cmdlet. You need to p
 Execute a command similar to the following to start a container instance. Set a `-IPAddressDnsNameLabel` value that's unique within the Azure region where you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
 ```azurepowershell-interactive
-$containerGroup = New-AzContainerGroup -ResourceGroupName myResourceGroup -Name myContainerGroup -Location EastUS -Container myContainer -OsType Windows -IPAddressDnsNameLabel aci-quickstart-win -IpAddressType Public -IPAddressPort @($port)
+$containerGroup = New-AzContainerGroup -ResourceGroupName myResourceGroup -Name myContainerGroup -Location EastUS -Container @($container) -OsType Windows -IPAddressDnsNameLabel aci-quickstart-win -IpAddressType Public -IPAddressPort @($port)
 ```
 
 Check the deployment state with the [Get-AzContainerGroup][Get-AzContainerGroup] cmdlet:
