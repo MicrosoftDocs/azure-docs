@@ -211,7 +211,11 @@ While using the [SpeechSynthesizer](/java/api/com.microsoft.cognitiveservices.sp
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=java), but replace the contents of that *SpeechSynthesis.java* file with the following Java code:
+Here's an example that shows how to subscribe to events for speech synthesis. 
+
+IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
+
+You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=java), but replace the contents of that *SpeechSynthesis.java* file with the following Java code:
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;

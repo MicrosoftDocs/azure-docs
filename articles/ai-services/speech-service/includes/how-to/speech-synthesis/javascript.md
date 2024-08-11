@@ -348,7 +348,11 @@ While using the [SpeechSynthesizer](/javascript/api/microsoft-cognitiveservices-
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=javascript), but replace the contents of that *SpeechSynthesis.js* file with the following JavaScript code.
+Here's an example that shows how to subscribe to events for speech synthesis. 
+
+IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
+
+You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=javascript), but replace the contents of that *SpeechSynthesis.js* file with the following JavaScript code.
 
 ```javascript
 (function() {

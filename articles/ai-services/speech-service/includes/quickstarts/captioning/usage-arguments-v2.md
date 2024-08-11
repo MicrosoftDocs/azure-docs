@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 05/03/2022
+ms.date: 8/11/2024
 ms.author: eur
 ---
 
@@ -10,6 +10,8 @@ Connection options include:
 
 - `--key`: Your Speech resource key. Overrides the SPEECH_KEY environment variable. You must set the environment variable (recommended) or use the `--key` option.
 - `--region REGION`: Your Speech resource region. Overrides the SPEECH_REGION environment variable. You must set the environment variable (recommended) or use the `--region` option. Examples: `westus`, `northeurope`
+
+IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
 
 Input options include:
 

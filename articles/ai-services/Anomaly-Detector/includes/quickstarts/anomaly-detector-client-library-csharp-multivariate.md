@@ -72,6 +72,8 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 Create and assign persistent environment variables for your key and endpoint.
 
+IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
+
 # [Command Line](#tab/command-line)
 
 ```CMD

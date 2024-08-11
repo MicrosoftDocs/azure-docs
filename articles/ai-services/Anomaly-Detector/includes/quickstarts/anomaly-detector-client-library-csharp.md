@@ -76,6 +76,8 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 Create and assign persistent environment variables for your key and endpoint.
 
+IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
+
 # [Command Line](#tab/command-line)
 
 ```CMD
@@ -185,8 +187,7 @@ namespace anomaly_detector_quickstart
 
 ```
 
-> [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information about credential security, see the Azure AI services [security](../../../security-features.md) article.
+Run the application with the following command:
 
 ```cmd
 dotnet run program.cs

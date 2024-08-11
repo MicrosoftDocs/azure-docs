@@ -339,7 +339,11 @@ While using the [SpeechSynthesizer](https://pkg.go.dev/github.com/Microsoft/cogn
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=go), but replace the contents of that `speech-synthesis.go` file with the following Go code:
+Here's an example that shows how to subscribe to events for speech synthesis. 
+
+IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
+
+You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=go), but replace the contents of that `speech-synthesis.go` file with the following Go code:
 
 ```go
 package main

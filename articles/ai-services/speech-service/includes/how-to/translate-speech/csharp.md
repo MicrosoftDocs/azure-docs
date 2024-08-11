@@ -30,6 +30,8 @@ public class Program
 
 For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables.md).
 
+IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
+
 ## Create a speech translation configuration
 
 To call the Speech service by using the Speech SDK, you need to create a [`SpeechTranslationConfig`][speechtranslationconfig] instance. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.

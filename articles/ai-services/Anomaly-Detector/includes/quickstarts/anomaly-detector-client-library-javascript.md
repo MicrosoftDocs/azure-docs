@@ -25,9 +25,7 @@ Use the Anomaly Detector client library for JavaScript to:
 
 * An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 * The current version of <a href="https://nodejs.org/" target="_blank">Node.js</a>
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button.
-    * You'll need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll use the key and endpoint to create environment variables.
-    You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Set up
 
@@ -75,6 +73,8 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 ### Create environment variables
 
 Create and assign persistent environment variables for your key and endpoint.
+
+IMPORTANT: Don't include the API key directly in your code, and never post it publicly.
 
 # [Command Line](#tab/command-line)
 
@@ -130,7 +130,7 @@ const { AzureKeyCredential } = require("@azure/core-auth");
 const { parse } = require("csv-parse/sync");
 const fs = require("fs");
 
-// You will need to set this environment variables or edit the following values
+// Retrieve the endpoint and key from the environment variables.
 const apiKey = process.env["ANOMALY_DETECTOR_API_KEY"] || "";
 const endpoint = process.env["ANOMALY_DETECTOR_ENDPOINT"] || "";
 const timeSeriesDataPath = "./request-data.csv";
