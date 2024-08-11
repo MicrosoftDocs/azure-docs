@@ -69,7 +69,14 @@ To get started with Jamba Instruct deployed as a serverless API, explore our int
     For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
 
-# [AI21 Jamba](#tab/jamba-)
+# [AI21 Jamba](#tab/jamba-1.5)
+
+
+
+
+# [AI21 Jamba](#tab/jamba-1.5-instruct)
+
+
 
 
 ---
@@ -101,12 +108,23 @@ These steps demonstrate the deployment of AI21-Jamba-Instruct. To create a deplo
 
 To learn about billing for the AI21-Jamba-Instruct model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-jamba-instruct-deployed-as-a-serverless-api).
 
-# [AI21 Jamba](#tab/jamba-)
+# [AI21 Jamba](#tab/jamba-1.5)
+
+
+
+
+
+# [AI21 Jamba](#tab/jamba-1.5-instruct)
+
+
+
 
 
 ---
 
 ### Consume Jamba Instruct as a serverless API
+
+# [AI21 Jamba Instruct](#tab/jamba-instruct)
 
 You can consume Jamba Instruct models as follows:
 
@@ -119,6 +137,19 @@ You can consume Jamba Instruct models as follows:
 1. Make an API request.
 
 For more information on using the APIs, see the [reference](#reference-for-jamba-instruct-deployed-as-a-serverless-api) section.
+
+# [AI21 Jamba Instruct](#tab/jamba-1.5)
+
+
+
+
+
+# [AI21 Jamba Instruct](#tab/jamba-1.5-instruct)
+
+
+
+
+---
 
 ## Reference for Jamba Instruct deployed as a serverless API
 
