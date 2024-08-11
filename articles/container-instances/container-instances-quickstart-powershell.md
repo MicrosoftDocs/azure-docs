@@ -57,10 +57,10 @@ Next, use the [New-AzContainerGroup][New-AzContainerGroup] cmdlet. You need to p
 Execute a command similar to the following to start a container instance. Set a `-IPAddressDnsNameLabel` value that's unique within the Azure region where you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
 ```azurepowershell-interactive
-$containerGroup = New-AzContainerInstanceObject -ResourceGroupName myResourceGroup -Name myContainerGroup -Location EastUS -Container myContainer -OsType Windows -IPAddressDnsNameLabel aci-quickstart-win -IpAddressType Public -IPAddressPort @($port)
+$containerGroup = New-AzContainerGroup -ResourceGroupName myResourceGroup -Name myContainerGroup -Location EastUS -Container myContainer -OsType Windows -IPAddressDnsNameLabel aci-quickstart-win -IpAddressType Public -IPAddressPort @($port)
 ```
 
-Within a few seconds, you should receive a response from Azure. The container's `ProvisioningState` is initially **Creating**, but should move to **Succeeded** within a minute or two. Check the deployment state with the [Get-AzContainerGroup][Get-AzContainerGroup] cmdlet:
+Check the deployment state with the [Get-AzContainerGroup][Get-AzContainerGroup] cmdlet:
 
 ```azurepowershell-interactive
 Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name myContainerGroup
