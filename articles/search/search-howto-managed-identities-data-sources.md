@@ -312,7 +312,7 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
 
 [**Azure OpenAI embedding skill**](cognitive-search-skill-azure-openai-embedding.md) and [**Azure OpenAI vectorizer:**](vector-search-how-to-configure-vectorizer.md)
 
- An Azure OpenAI embedding skill and vectorizer in AI Search target the endpoint of an Azure OpenAI service hosting an embedding model. The endpoint is specified in the [Azure OpenAI embedding skill definition](cognitive-search-skill-azure-openai-embedding.md) and/or in the [Azure OpenAI vectorizer definition](vector-search-how-to-configure-vectorizer.md). The system-managed identity is used if configured and if the "apikey" and "authIdentity" are empty. The "authIdentity" property is used for user-assigned managed identity only.
+ An Azure OpenAI embedding skill and vectorizer in AI Search target the endpoint of an Azure OpenAI Service hosting an embedding model. The endpoint is specified in the [Azure OpenAI embedding skill definition](cognitive-search-skill-azure-openai-embedding.md) and/or in the [Azure OpenAI vectorizer definition](vector-search-how-to-configure-vectorizer.md). The system-managed identity is used if configured and if the "apikey" and "authIdentity" are empty. The "authIdentity" property is used for user-assigned managed identity only.
 
 **System-managed identity example:**
  
