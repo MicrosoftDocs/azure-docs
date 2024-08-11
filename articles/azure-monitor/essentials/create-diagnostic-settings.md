@@ -224,7 +224,7 @@ Every effort is made to ensure all log data is sent correctly to your destinatio
 
 ### Inactive resources
 
-When a resource is inactive and exporting zero-value metrics, the diagnostic setting export mechanism back off incrementally to avoid unnecessary costs of exporting and storing zero values. The back-off may lead to a delay in the export of the next non-zero value. 
+When a resource is inactive and exporting zero-value metrics, the diagnostic settings export mechanism back off incrementally to avoid unnecessary costs of exporting and storing zero values. The back-off may lead to a delay in the export of the next non-zero value. 
 
 When a resource is inactive for one hour, the export mechanism backs off to 15 minutes. This means that there is a potential latency of up to 15 minutes for the next nonzero value to be exported. The maximum backoff time of two hours is reached after seven days of inactivity. Once the resource starts exporting nonzero values, the export mechanism reverts to the original export latency of three minutes. 
 
