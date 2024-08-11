@@ -42,7 +42,7 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 ### Ensure you have an OpenAI deployment
 
-The example shows how to run OpenAI models hosted in Azure OpenAI service. To successfully do it, you need an OpenAI resource correctly deployed in Azure and a deployment for the model you want to use.
+The example shows how to run OpenAI models hosted in Azure OpenAI Service. To successfully do it, you need an OpenAI resource correctly deployed in Azure and a deployment for the model you want to use.
 
 :::image type="content" source="./media/how-to-use-batch-model-openai-embeddings/aoai-deployments.png" alt-text="An screenshot showing the Azure OpenAI studio with the list of model deployments available.":::
 

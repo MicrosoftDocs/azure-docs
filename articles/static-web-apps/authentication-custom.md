@@ -247,14 +247,14 @@ Next, use the following sample to configure the provider in the [configuration f
 
 For more information on how to configure Google as an authentication provider, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-google.md).
 
-# [X (Twitter)](#tab/twitter)
+# [X](#tab/x)
 
 To create the registration, begin by creating the following [application settings](application-settings.yml):
 
 | Setting Name | Value |
 | --- | --- |
-| `X_CONSUMER_KEY` | The X (Twitter) consumer key. |
-| `X_CONSUMER_SECRET_APP_SETTING_NAME` | The name of the application setting that holds the X (Twitter) consumer secret. |
+| `X_CONSUMER_KEY` | The X consumer key. |
+| `X_CONSUMER_SECRET_APP_SETTING_NAME` | The name of the application setting that holds the X consumer secret. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
@@ -273,7 +273,7 @@ Next, use the following sample to configure the provider in the [configuration f
 }
 ```
 
-For more information on how to configure Twitter as an authentication provider, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-twitter.md).
+For more information on how to configure X as an authentication provider, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-twitter.md).
 
 # [OpenID Connect](#tab/openid-connect)
 
@@ -392,7 +392,7 @@ Invitations are specific to individual authorization-providers, so consider the 
 | ---------------------- | ---------------- |
 | Microsoft Entra ID | email address    |
 | GitHub                 | username         |
-| Twitter                | username         |
+| X                | username         |
 
 Use the following steps to create an invitation.
 
@@ -401,7 +401,7 @@ Use the following steps to create an invitation.
 3. Select **Invite**.
 4. Select an _Authorization provider_ from the list of options.
 5. Add either the username or email address of the recipient in the _Invitee details_ box.
-   - For GitHub and Twitter, enter the username. For all others, enter the recipient's email address.
+   - For GitHub and X, enter the username. For all others, enter the recipient's email address.
 6. Select the domain of your static site from the _Domain_ drop-down menu.
    - The domain you select is the domain that appears in the invitation. If you have a custom domain associated with your site, choose the custom domain.
 7. Add a comma-separated list of role names in the _Role_ box.

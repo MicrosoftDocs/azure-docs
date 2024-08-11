@@ -2,7 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 06/25/2024
+ms.date: 08/08/2024
 ---
 # Nodes and pools in Azure Batch
 
@@ -71,9 +71,6 @@ When you create a Batch pool, you specify the Azure virtual machine configuratio
 ### Virtual Machine Configuration
 
 The **Virtual Machine Configuration** specifies that the pool is composed of Azure virtual machines. These VMs may be created from either Linux or Windows images.
-
-> [!IMPORTANT]
-> Currently, Batch does not support [Trusted Launch VMs](../virtual-machines/trusted-launch.md). 
 
 The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs. When including data disks, you need to mount and format the disks from within a VM to use them.
 

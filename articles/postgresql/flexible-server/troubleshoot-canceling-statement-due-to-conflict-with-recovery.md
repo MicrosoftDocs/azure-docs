@@ -1,8 +1,8 @@
 ---
 title: Canceling statement due to conflict with recovery
 description: Provides resolutions for a read replica error - Canceling statement due to conflict with recovery.
-author: AlicjaKucharczyk
-ms.author: alkuchar
+author: akashraokm
+ms.author: akashrao
 ms.reviewer: maghan
 ms.date: 04/27/2024
 ms.service: azure-database-postgresql

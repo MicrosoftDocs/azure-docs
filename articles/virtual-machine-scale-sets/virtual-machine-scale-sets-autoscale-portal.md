@@ -4,7 +4,7 @@ description: How to create autoscale rules for Virtual Machine Scale Sets in the
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/14/2024
 ms.reviewer: mimckitt

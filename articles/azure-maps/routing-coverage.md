@@ -2,12 +2,12 @@
 title: Routing coverage
 titleSuffix: Microsoft Azure Maps
 description: Learn what level of coverage Azure Maps provides in various regions for routing, routing with traffic, and truck routing. 
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui
 ms.date: 10/21/2022
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: routing
 zone_pivot_groups: azure-maps-coverage
 ---
 
