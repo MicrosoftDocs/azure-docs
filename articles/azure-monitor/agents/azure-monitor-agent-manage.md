@@ -396,9 +396,9 @@ N/A
 
     [Install AMA](#installation-options) on your VM.
 
-1. **Create a DCR via template deployment:**
+1. **Create a DCR:**
 
-    The following example sets the maximum amount of disk space used by AMA cache to 5000 MB.
+    This example sets the maximum amount of disk space used by AMA cache to 5000 MB.
 
     ```json
     {
@@ -430,24 +430,70 @@ N/A
     }
     ```
     
-    > [!NOTE]
-    > Use the Get DataCollectionRule API to get the DCR payload you created with this template.
-    
-1. **Associate DCR with your machine:**
+1. **Associate the DCR with your machine:**
 
-    This can be done with a template or by using the [Create API](/rest/api/monitor/data-collection-rule-associations/create) with the following details:
-  
-    * **AssociationName:** agentSettings
-    * **ResourceUri:** Full ARM ID of the VM
-    * **api-version:** 2023-03-11 (Old API version is also fine)
-    * **Body:**
-        ```json
-            {
-            "properties": {
-                "dataCollectionRuleId": “Full ARM ID for agent setting DCR”
-                }
-            }
-        ```
+   Use these ARM template and parameter files:
+
+    **ARM template file**
+    
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "vmName": {
+          "type": "string",
+          "metadata": {
+            "description": "The name of the virtual machine."
+          }
+        },
+        "associationName": {
+          "type": "string",
+          "metadata": {
+            "description": "The name of the association."
+          }
+        },
+        "dataCollectionRuleId": {
+          "type": "string",
+          "metadata": {
+            "description": "The resource ID of the data collection rule."
+          }
+        }
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+          "apiVersion": "2021-09-01-preview",
+          "scope": "[format('Microsoft.Compute/virtualMachines/{0}', parameters('vmName'))]",
+          "name": "[parameters('associationName')]",
+          "properties": {
+            "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
+            "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+          }
+        }
+      ]
+    }
+    ```
+    
+    **Parameter file**
+    
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "vmName": {
+          "value": "my-azure-vm"
+        },
+        "associationName": {
+          "value": "my-windows-vm-my-dcr"
+        },
+        "dataCollectionRuleId": {
+          "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+        }
+       }
+    }
+    ```
 
 1. **Activate the settings:**
 
