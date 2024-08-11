@@ -93,9 +93,13 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 > [!NOTE]
 > The Auxiliary table plan is in public preview. For current limitations and supported regions, see [Public preview limitations](create-custom-table-auxiliary.md#public-preview-limitations).<br> The Basic and Auxiliary table plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
-## Data collection and ingestion pipeline
+## Collect, transform, and route data
+
+Azure Monitor's data collection capabilites let you collect data from all of your applications and resources running in Azure, other clouds, and on-premises. A powerful ingestion pipeline enables flitering, transforming, and routing data to destination tables in your Log Analytics workspace to optimize costs, analytics capabilities, and query performance.
 
 :::image type="content" source="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" lightbox="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" alt-text="A diagram that shows data being collected from data sources and transformed and sent to tables in a Log Analytics workspace.":::
+
+For more information on data collection and transformation, see [Azure Monitor data sources and data collection methods](../data-sources.md) and [Data collection transformations in Azure Monitor](../essentials/data-collection-transformations.md).
 
 ## Working with Microsoft Sentinel and Microsoft Defender for Cloud
 
