@@ -95,7 +95,7 @@ Use the following built-in analytics rules to have Microsoft Sentinel start trig
 - **SAP - (PREVIEW) HANA DB -Deactivation of Audit Trail**
 - **SAP - (PREVIEW) HANA DB -User Admin actions**
 
-For more information, see [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md).
+For more information, see [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md).
 
 ## Related content
 

@@ -68,12 +68,6 @@ While the Microsoft Sentinel for SAP solution is free to install, there's an ext
 
 For more information, see [View the roles of your connected production systems](../monitor-sap-system-health.md) and [Microsoft Sentinel solution for SAP applications](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/).
 
-<!--do we need this?
-## Trademark attribution
-
-SAP S/4HANA and SAP are trademarks or registered trademarks of SAP SE or its affiliates in Germany and in other countries/regions. 
--->
-
 ## Related content
 
 For more information, see:

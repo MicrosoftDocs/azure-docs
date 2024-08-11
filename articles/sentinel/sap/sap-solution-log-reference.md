@@ -289,7 +289,7 @@ For more information, see [Built-in SAP analytics rules for monitoring the SAP a
 
 The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule.
 
-For more information, see [Monitor SAP audit logs with Microsoft Sentinel](configure-audit-log-rules.md). <!--fix xref-->
+For more information, see [Monitor the SAP audit log](sap-solution-security-content.md#monitor-the-sap-audit-log).
 
 ### SAPUsersGetVIP
 

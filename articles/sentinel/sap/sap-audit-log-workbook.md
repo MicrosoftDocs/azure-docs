@@ -36,8 +36,6 @@ Before you can start using the **SAP - Security Audit log and Initial Access** w
 
 - At least one incident in your Microsoft Sentinel workspace, with at least one entry available in the `SecurityIncident` table. This doesn't need to be an SAP incident, and you can generate a demo incident using a basic analytics rule if you don't have another one.
 
-<!--don't we also need the rules configured? as in [Monitor SAP audit logs with Microsoft Sentinel](configure-audit-log-rules.md)-->
-
 ## Supported filters
 
 The **SAP - Security Audit log and Initial Access** workbook supports the following filters to help you focus on the data you need:
@@ -138,7 +136,7 @@ The following table describes each metric on the **Audit log alerts** tab:
 |**Alert severity trends per system ID** |Shows a list of systems, with a graph of *Medium* and *High* severity event trends per system. <br><br>For example, the *012* system had many *High* severity events over the entire period, and a few *Medium* severity events, with a spike that shows more *Medium* severity events in the middle of the period. |
 |**Audit trend per user** |Shows a combination of Microsoft Sentinel and Microsoft Entra data, listing users according to risk, with the most risky users at the top.  <br><br>For each user the workbook shows the following data: <br>-  A timeline of *High* and *Medium* severity events<br>- The user's email address<br>- The Microsoft Entra risk indicator<br>-  The number of incidents and alerts in Microsoft Sentinel <br><br> Select a row to see a list of alerts and incidents for that user under **Incidents/alerts overview for user**. <br><br>View Microsoft Entra risk events under **Azure audit and signin risks for user**. |
 |**Risk score per system** | Visually represents each system in a cell shape, showing the risk score for each system and grouping systems by type. <br><br>The system's color indicates the system's risk score: Green for a lower risk score and red for a higher risk score. <br><br>Select a system to see a list of SAP events per system.|
-|**Events by MITRE ATT&CK® tactics** |Shows a list of SAP events grouped by MITRE ATT&CK tactics, like *Initial Access* or *Defense Evasion*. <br><br>Hover over the graph to show the number of sign-ins for different dates. |
+|**Events by MITRE ATT&CK tactics** |Shows a list of SAP events grouped by MITRE ATT&CK tactics, like *Initial Access* or *Defense Evasion*. <br><br>Hover over the graph to show the number of sign-ins for different dates. |
 |**Events by category** |Shows a list of SAP event trends grouped by category, like *RFC Start* or *Logon*. <br><br>Hover over the graph to show the sign-in number for different dates. |
 |**Events by authorization group** |Shows a list of SAP event trends grouped by the SAP authorization group, like *USER* or *SUPER*.<br><br>Hover over the graph to show the number of sign-ins for different dates. |
 |**Events by user type** |Shows a list of SAP event trends grouped by the SAP user type, like *Dialog* or *System*. <br><br>Hover over the graph to show the number of sign-ins for different dates. |
