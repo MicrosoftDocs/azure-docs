@@ -184,12 +184,12 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.FromPaths(paths.ToArray());
 // For speech to text
 embeddedSpeechConfig.SetSpeechRecognitionModel(
     "Microsoft Speech Recognizer en-US FP Model V8",
-    Environment.GetEnvironmentVariable("MODEL_KEY"));
+    Environment.GetEnvironmentVariable("EMBEDDED_SPEECH_MODEL_LICENSE"));
 
 // For text to speech
 embeddedSpeechConfig.SetSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    Environment.GetEnvironmentVariable("VOICE_KEY"));
+    Environment.GetEnvironmentVariable("EMBEDDED_SPEECH_MODEL_LICENSE"));
 embeddedSpeechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 ::: zone-end
@@ -209,12 +209,12 @@ auto embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
 // For speech to text
 embeddedSpeechConfig->SetSpeechRecognitionModel((
     "Microsoft Speech Recognizer en-US FP Model V8",
-    GetEnvironmentVariable("MODEL_KEY"));
+    GetEnvironmentVariable("EMBEDDED_SPEECH_MODEL_LICENSE"));
 
 // For text to speech
 embeddedSpeechConfig->SetSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    GetEnvironmentVariable("VOICE_KEY"));
+    GetEnvironmentVariable("EMBEDDED_SPEECH_MODEL_LICENSE"));
 embeddedSpeechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 ```
 
@@ -232,12 +232,12 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.fromPaths(paths);
 // For speech to text
 embeddedSpeechConfig.setSpeechRecognitionModel(
     "Microsoft Speech Recognizer en-US FP Model V8",
-    System.getenv("MODEL_KEY"));
+    System.getenv("EMBEDDED_SPEECH_MODEL_LICENSE"));
 
 // For text to speech
 embeddedSpeechConfig.setSpeechSynthesisVoice(
     "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
-    System.getenv("VOICE_KEY"));
+    System.getenv("EMBEDDED_SPEECH_MODEL_LICENSE"));
 embeddedSpeechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 ```
 
