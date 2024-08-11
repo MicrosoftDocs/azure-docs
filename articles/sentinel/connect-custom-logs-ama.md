@@ -21,6 +21,8 @@ Many applications log data to text files instead of standard logging services li
 
 For more information about existing solutions for Microsoft Sentinel that support this type of log collection, see [Custom Logs via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-custom-device.md).
 
+For more information about ingesting custom logs from text files, see [Collect logs from a text file with Azure Monitor Agent](../azure-monitor/agents/data-collection-log-text.md).
+
 > [!IMPORTANT]
 > - The **Custom Logs via AMA** data connector is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -32,9 +34,9 @@ Before you begin, you must have the resources configured and the appropriate per
 
 ### Microsoft Sentinel prerequisites
 
-- Install the Microsoft Sentinel solution that matches your device or appliance and make sure you have the permissions to complete the steps in this article. You can find these solutions in the **Content hub** in Microsoft Sentinel, and they all include the **Custom Logs via AMA** connector.
+- Install the Microsoft Sentinel solution that matches your application and make sure you have the permissions to complete the steps in this article. You can find these solutions in the **Content hub** in Microsoft Sentinel, and they all include the **Custom Logs via AMA** connector.
 
-    If there isn't a solution available for your device, install the **Custom Logs via AMA** solution.
+    For the list of applications that have solutions in the content hub, see [Specific instructions per application](unified-connector-custom-device.md#specific-instructions-per-device-type). If there isn't a solution available for your application, install the **Custom Logs via AMA** solution.
 
     For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 

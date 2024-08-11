@@ -216,3 +216,77 @@ https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/
   }
 ```
 
+## Custom logs from text files
+
+The following examples are for DCRs using the AMA to collect custom logs from text files.
+
+### Custom text logs DCR
+
+These examples are of the API request for creating a DCR.
+
+#### Custom text logs DCR creation request body
+
+The following is an example of a DCR creation request for a custom log text file. Replace *`{PLACEHOLDER_VALUES}`* with actual values.
+
+The `outputStream` parameter is required only if the transform changes the schema of the stream.
+
+```json
+{
+    "type": "Microsoft.Insights/dataCollectionRules",
+    "name": "{FRIENDLY_DCR_NAME}",
+    "location": "{WORKSPACE_LOCATION}",
+    "apiVersion": "2022-06-01",
+    "properties": {
+        "streamDeclarations": {
+            "Custom-Text-stream": {
+                "columns": [
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "RawData",
+                        "type": "string"
+                    },
+                ]
+            }
+        },
+        "dataSources": {
+            "logFiles": [
+                {
+                    "streams": [ 
+                        "Custom-Text-stream" 
+                    ],
+                    "filePatterns": [ 
+                        "{LOCAL_PATH_FILE_1}","{LOCAL_PATH_FILE_2}" 
+                    ],
+                    "format": "text",
+                    "name": "Custom-Text-dataSource"
+                }
+            ],
+        },
+        "destinations": {
+            "logAnalytics": [
+                {
+                    "workspaceResourceId": "{WORKSPACE_ID}",
+                    "name": "{WORKSPACE_NAME}"
+                }
+            ],
+        },
+        "dataFlows": [
+            {
+                "streams": [
+                    "Custom-Text-dataSource" 
+                ],
+                "destinations": [ 
+                    "[WORKSPACE_NAME}" 
+                ],
+                "transformKql": "source",
+                "outputStream": "{OUTPUT_STREAM_NAME}"
+            }
+        ]
+    }
+}
+```
+
+

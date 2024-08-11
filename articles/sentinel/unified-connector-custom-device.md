@@ -1,6 +1,6 @@
 ---
-title: Custom logs via AMA connector - Configure appliances and devices
-description: Learn how to configure specific devices that use the Custom Logs via AMA data connector for Microsoft Sentinel.
+title: Custom logs via AMA connector - Configure data ingestion to Microsoft Sentinel from specific applications
+description: Learn how to configure data ingestion into Microsoft Sentinel from specific or custom applications that produce logs as text files, using the Custom Logs via AMA data connector or manual configuration.
 author: yelevin
 ms.author: yelevin
 ms.topic: reference
@@ -8,11 +8,11 @@ ms.custom: linux-related-content
 ms.date: 07/31/2024
 ---
 
-# Custom Logs via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion
+# Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications
 
 Microsoft Sentinel's **Custom Logs via AMA** data connector supports log collection from several different network and security appliances and devices. This article supplies the installation instructions that are unique to the specific security appliances and devices that use this data connector, as provided by their manufacturers. Contact the manufacturer for updates, more information, or where information is unavailable for your security appliance or device.
 
-To ingest data from these devices to your Microsoft Sentinel workspace, complete the steps in [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-custom-ama.md). Those steps include the installation of the **Custom Logs via AMA** data connector in Microsoft Sentinel. After the connector is installed, use the instructions appropriate to your device, shown later in this article, to complete the setup.
+This article shows you how to ingest data from these devices to your Microsoft Sentinel workspace. These steps include installation of the **Custom Logs via AMA** data connector in Microsoft Sentinel. After the connector is installed, use the instructions appropriate to your device, shown later in this article, to complete the setup.
 
 For more information about the related Microsoft Sentinel solution for each of these appliances or devices, search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for the **Product Type** > **Solution Templates** or review the solution from the **Content hub** in Microsoft Sentinel.
 
