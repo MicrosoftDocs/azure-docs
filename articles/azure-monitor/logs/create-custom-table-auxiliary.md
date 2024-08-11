@@ -17,6 +17,10 @@ The [Auxiliary table plan](../logs/data-platform-logs.md#table-plans) lets you i
 
 This article explains how to create a custom table with the Auxiliary plan in your Log Analytics workspace and set up a data collection rule that sends data to this table.
 
+Here's a video that explains some of the uses and benefits of the Auxiliary table plan:
+
+> [!VIDEO https://www.youtube.com/embed/GbD2Q3K_6Vo?cc_load_policy=1&cc_lang_pref=auto]
+
 > [!IMPORTANT]
 > See [public preview limitations](#public-preview-limitations) for supported regions and limitations related to Auxiliary tables and data collection rules.  
 
