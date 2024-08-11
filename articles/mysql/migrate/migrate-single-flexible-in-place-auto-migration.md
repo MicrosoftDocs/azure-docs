@@ -35,6 +35,11 @@ The in-place migration provides a highly resilient and self-healing offline migr
 
 If you own a Single Server workload with no complex features (Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for automigration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
 
+> [!NOTE]  
+> The auto migration of Basic Tier servers is currently on hold. No new Basic Tier servers will be scheduled for migration at this time due to Out-Of-Memory  (OOM) errors encountered during the process. Our engineering team is actively working on a solution. Eligible servers will be rescheduled for migration
+> once the fix is implemented.
+> You can try to migrate Basic Tier server using [Select the right tools for migration to Azure Database for MySQL](./how-to-decide-on-right-migration-tools.md)
+
 ## Configure migration alerts
 
 Servers eligible for in-place automigration are sent an advance notification by the service.
