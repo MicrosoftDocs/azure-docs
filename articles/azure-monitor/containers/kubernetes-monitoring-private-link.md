@@ -42,7 +42,7 @@ If you choose to use an Azure Firewall to limit the egress from your cluster, yo
   - `*.ingest.monitor.azure.com`
 - Enable the Azure Firewall to access the Azure Monitor Private Link scope and DCE that's used for data ingestion.
 
-## Private link ingestion for remote write
+### Private link ingestion for remote write
 Use the following steps to set up remote write for a Kubernetes cluster over a private link virtual network and an Azure Monitor Private Link scope.
 
 1. Create your Azure virtual network.
