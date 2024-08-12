@@ -11,7 +11,7 @@ Run the following Azure CLI commands, setting variables where indicated with the
 > The Migrate to `stv2` REST API is available starting in API Management REST API version `2022-04-01-preview`.
 
 > [!NOTE]
-> The following script is written for the bash shell. To run the script in PowerShell, prefix the variable name with the `$` character when setting the variables Example: `$APIM_NAME=...`.
+> The following script is written for the bash shell. To run the script in PowerShell, prefix the variable name with the `$` character when setting the variables. Example: `$APIM_NAME=...`.
 
 ```azurecli
 APIM_NAME={name of your API Management instance}

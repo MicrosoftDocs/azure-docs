@@ -22,9 +22,11 @@ There are two different in-place migration scenarios, depending on whether or no
 
 ## In-place migration scenarios
 
-* [**Scenario 1: Migrate a non-VNet-injected API Management instance**](migrate-stv1-to-stv2-no-vnet.md) - Migrate your instance to the `stv2` platform using the portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API.   
+Migrate your instance in-place to the `stv2` platform using the **Platform migration** blade in the portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API.
 
-* [**Scenario 2: Migrate a VNet-injected API Management instance**](migrate-stv1-to-stv2-vnet.md) - Migrate your instance to the `stv2` platform by using the portal, the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API, or triggering update with new subnet settings.
+* [**Scenario 1: Migrate a non-VNet-injected API Management instance**](migrate-stv1-to-stv2-no-vnet.md)    
+
+* [**Scenario 2: Migrate a VNet-injected API Management instance**](migrate-stv1-to-stv2-vnet.md) 
 
 ## Alternative: Side-by-side deployment
 

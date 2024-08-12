@@ -99,6 +99,8 @@ With the Migrate to stv2 REST API, you migrate your API Management instance to t
 
 [!INCLUDE [api-management-migration-cli-steps](../../includes/api-management-migration-cli-steps.md)]
 
+---
+
 If your API Management instance is deployed in multiple regions, repeat the preceding steps to continue migrating VNet settings for the remaining locations of your instance.
 
 
@@ -188,7 +190,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **Can I preserve the IP address of the instance?**
 
-   Currently, you can preserve the IP address only when using the [Migrate to stv2 REST API](#migrate-using-the-migrate-to-stv2-rest-api).
+   Currently, you can preserve the IP address only when migrating by using the [Migrate to stv2 REST API](#migrate-the-instance-to-stv2-platform).
    
 - **Is there a migration path without modifying the existing instance?**
  
@@ -228,7 +230,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **Can I upgrade my stv1 instance to the same subnet?**
 
-   - Currently, you can only upgrade to the same subnet in a single pass when using the [Migrate to stv2 REST API](#migrate-using-the-migrate-to-stv2-rest-api). Currently, if you use the **Platform migration** blade in the portal, you need to migrate to a new subnet and then migrate back to the original subnet:
+   - Currently, you can only upgrade to the same subnet in a single pass when using the [Migrate to stv2 REST API](#migrate-the-instance-to-stv2-platform). Currently, if you use the **Platform migration** blade in the portal, you need to migrate to a new subnet and then migrate back to the original subnet:
        - The old gateway takes between 15 mins to 45 mins to vacate the subnet, so that you can initiate the move. However, you can enable a migration setting to retain the old gateway for 48 hours.
        - Ensure that the old subnet's networking for [NSG](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
        - Subnet IP address allocation is nondeterministic, therefore the original ILB (ingress) IP for "internal mode" deployments may change when you move back to the original subnet. This would require a DNS change if you're using A records.
