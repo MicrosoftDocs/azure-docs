@@ -32,6 +32,8 @@
       href: /azure/cosmos-db/postgresql/resources-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for PostgreSQL
       href: /azure/postgresql/single-server/concept-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure OpenAI
+      href: azure-openai.md
     - name: Azure SQL Edge
       href: discount-sql-edge.md
     - name: Database for MySQL
