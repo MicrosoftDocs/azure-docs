@@ -27,7 +27,7 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 ## Prerequisites
 
 - This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, use the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
-- An Azure Data Factory resource created and configured. If you haven't created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](../data-factory/quickstart-create-data-factory-portal.md) to create one.
+- An Azure Data Factory resource created and configured. If you haven't created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal](../data-factory/quickstart-create-data-factory-portal.md) to create one.
 - After creating it, browse to the data factory in the Azure portal:
 
   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot of the home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
@@ -36,14 +36,14 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 
 ## Authenticating against batch endpoints
 
-Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke](../data-factory/control-flow-web-activity.md) activity. Batch endpoints support Microsoft Entra ID for authorization and hence the request made to the APIs require a proper authentication handling.
+Azure Data Factory can invoke the REST APIs of batch endpoints by using the *Web Invoke* activity. Batch endpoints support Microsoft Entra ID for authorization and hence the request made to the APIs require a proper authentication handling. For more information, see [Web activity in Azure Data Factory and Azure Synapse Analytics](../data-factory/control-flow-web-activity.md).
 
 You can use a service principal or a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate against Batch Endpoints. We recommend using a managed identity as it simplifies the use of secrets.
 
 # [Using a Managed Identity](#tab/mi)
 
 1. You can use Azure Data Factory managed identity to communicate with Batch Endpoints. In this case, you only need to make sure that your Azure Data Factory resource was deployed with a managed identity.
-1. If you don't have an Azure Data Factory resource or it was already deployed without a managed identity, follow the following steps to create it: [Managed identity for Azure Data Factory](../data-factory/data-factory-service-identity.md#system-assigned-managed-identity).
+1. If you don't have an Azure Data Factory resource or it was already deployed without a managed identity, follow the following steps to create it: [System-assigned managed identity](../data-factory/data-factory-service-identity.md#system-assigned-managed-identity).
 
    > [!WARNING]
    > Changing the resource identity once deployed is not possible in Azure Data Factory. After the resource is created, you need to recreate it if you need to change the identity of it.
@@ -56,7 +56,7 @@ You can use a service principal or a [managed identity](../active-directory/mana
 
 # [Using a Service Principal](#tab/sp)
 
-1. Create a service principal following the steps at [Register an application with Microsoft Entra ID and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. Create a service principal following the steps at [Register a Microsoft Entra app and create a service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. Create a secret to use for authentication as explained at [Option 3: Create a new client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
 1. Take note of the client secret **Value** that is generated. This value is only displayed once.
 1. Take note of the `client ID` and the `tenant id` in the **Overview** pane of the application.
@@ -134,7 +134,7 @@ To create this pipeline in your existing Azure Data Factory and invoke batch end
 
 1. Select **Pipeline** > **Import from pipeline template**
 
-1. You're prompted to select a `zip` file. Uses [the following template if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip) or [the following one if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-SP.zip).
+1. You're prompted to select a `zip` file. Uses [this file if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip) or [this file if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-SP.zip).
 
 1. A preview of the pipeline shows up in the portal. Select **Use this template**.
 
@@ -170,7 +170,7 @@ When you call Azure Machine Learning batch deployments, consider the following l
 
 - Only Azure Machine Learning data stores or Azure Storage Accounts (Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2) are supported as inputs. If your input data is in another source, use the Azure Data Factory Copy activity before the execution of the batch job to sink the data to a compatible store.
 - Batch endpoint jobs don't explore nested folders and hence can't work with nested folder structures. If your data is distributed in multiple folders, you have to flatten the structure.
-- Make sure that your scoring script provided in the deployment can handle the data as it is expected to be fed into the job. If the model is MLflow, read the limitation in terms of the file type supported by the moment at [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+- Make sure that your scoring script provided in the deployment can handle the data as it is expected to be fed into the job. If the model is MLflow, for the limitations on supported file types, see [Deploy MLflow models in batch deployments](how-to-mlflow-batch.md).
 
 ### Data outputs
 
@@ -179,6 +179,6 @@ When you call Azure Machine Learning batch deployments, consider the following l
 
 ## Related content
 
-- [Use low priority VMs in batch deployments](how-to-use-low-priority-batch.md)
+- [Using low priority VMs in batch deployments](how-to-use-low-priority-batch.md)
 - [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md)
 - [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md)
