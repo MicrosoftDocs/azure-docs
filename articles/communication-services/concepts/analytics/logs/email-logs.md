@@ -94,7 +94,10 @@ Communication Services offers the following types of logs that you can enable:
 
 ## Email Status Update operational logs
 
-*Email status update operational logs* provide in-depth insights into message and recipient level delivery status updates on your sendmail API requests. These logs offer message-specific details, such as the time of delivery, as well as recipient-level details, such as email addresses and delivery status updates. By tracking these logs, you can ensure full visibility into your email delivery process, quickly identifying any issues that may arise and taking corrective action as necessary.
+*Email status update operational logs* provide in-depth insights into message-level and recipient-level delivery status updates on your sendmail API requests.
+- Message-level status updates provide the status of the long running email send operation (similar to the status updates you receive through calling our GET APIs) through the `DeliveryStatus` property. These are marked by the absence of `RecipientId` property since these update are for the entire message and not applicable to a specific recipient in that message request. Possible values for `DeliveryStatus` are: `Dropped`, `OutForDelivery`, `Queued`.
+- Recipient-level status updates provide the status of email delivery for each individual recipient to whom the email was sent in a single message through the `DeliveryStatus` property. These contain a `RecipientId` property with the recipient's email address. Possible valuse for `DeliveryStatus` are: `Delivered`, `Expanded`, `Failed`, `Quarantined`, `FilteredSpam`, `Suppressed`, `Bounced`
+By tracking these logs, you can ensure full visibility into your email delivery process, quickly identifying any issues that may arise and taking corrective action as necessary.
 
 | Property | Description |
 | -------- | ---------------|
@@ -104,8 +107,8 @@ Communication Services offers the following types of logs that you can enable:
 | `OperationVersion` | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | `Category` | The log category of the event. The category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
 | `CorrelationID` | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId, which is returned from a successful SendMail request. |
-| `RecipientId` | The email address for the targeted recipient. If this is a message-level event, the property will be empty. |
-| `DeliveryStatus` | The terminal status of the message. |
+| `RecipientId` | The email address for the targeted recipient. It's only present for recipient-level events. If this is a message-level event, the property will be empty. |
+| `DeliveryStatus` | The terminal status of the message. Possible valuse for message-level event are: `Dropped`, `OutForDelivery`, `Queued`. Possible valuse for a recipient-level event are: `Delivered`, `Expanded`, `Failed`, `Quarantined`, `FilteredSpam`, `Suppressed`, `Bounced` |
 | `SmtpStatusCode` | SMTP status code returned from the recipient email server in response to a send mail request.
 | `EnhancedSmtpStatusCode` | Enhanced SMTP status code returned from the recipient email server.
 | `SenderDomain` | The domain portion of the SenderAddress used in sending emails.
