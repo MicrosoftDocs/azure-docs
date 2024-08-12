@@ -324,7 +324,7 @@ Attempt to mount the Azure file share to the directory you created. This article
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/file-share /mnt/file-share --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Access is denied, and you receive a `mount error(13): Permission denied` error, because the *vm-public* VM is deployed within the *Public* subnet. The *Public* subnet does not have a service endpoint enabled for Azure Storage, and the storage account only allows network access from the *Private* subnet, not the *Public* subnet.
+Access is denied, and you receive a `mount error(13): Permission denied` error, because the *vm-public* VM is deployed within the *subnet-public* subnet. The *subnet-public* subnet does not have a service endpoint enabled for Azure Storage, and the storage account only allows network access from the *subnet-private* subnet, not the *subnet-public* subnet.
 
 Exit the SSH session to the *vm-public* VM.
 
@@ -336,7 +336,7 @@ az storage share list \
   --account-key <account-key>
 ```
 
-Access is denied and you receive a *This request is not authorized to perform this operation* error, because your computer is not in the *Private* subnet of the *vnet-1* virtual network.
+Access is denied and you receive a *This request is not authorized to perform this operation* error, because your computer is not in the *subnet-private* subnet of the *vnet-1* virtual network.
 
 ## Clean up resources
 
