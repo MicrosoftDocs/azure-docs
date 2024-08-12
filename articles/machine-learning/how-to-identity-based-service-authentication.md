@@ -42,11 +42,10 @@ The Azure Machine Learning workspace uses a __managed identity__ to communicate 
 | Managed identity type | Role assignment creation | Purpose |
 | ---- | :----: | :----: |
 | System-assigned (SAI) | Managed by Microsoft | Lifecycle tied to resource; single resource use; simple to get started |
-| System-assigned+user-assigned (SAI+UAI) | Managed by you | Independent lifecycle for user-assigned identity, multi-resource use, controls least privileged access. Access data in training jobs. |
+| System-assigned+user-assigned (SAI+UAI) | [Managed by you](#user-assigned-managed-identity) | Independent lifecycle for user-assigned identity, multi-resource use, controls least privileged access. Access data in training jobs. |
 
 Once a workspace is created with SAI identity type, it can be updated to SAI+UAI, but not back from SAI+UAI to SAI. You may assign multiple user-assigned identities to the same workspace. 
 
-To learn more about managed identity in Azure, see [Manage user-assigned managed identities](../entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
 
 ## Azure Container Registry and identity types
 
