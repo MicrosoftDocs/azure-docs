@@ -161,9 +161,9 @@ Costs shown in Cost Management are rounded. Costs returned by the Query API aren
 
 ## Historical data might not match invoice
 
-Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure pay-as-you-go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. The historical data (closed month data) shown in Cost Management is based on your estimated consumption charges only. For the offers listed below, Cost Management historical data doesn't include payments and credits. Additionally, price changes might affect it. *The price shown on your invoice might differ from the price used for cost estimation.*
+Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure pay-as-you-go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. The historical data (closed month data) shown in Cost Management is based on your estimated consumption charges only. For the following listed offers, Cost Management historical data doesn't include payments and credits. Additionally, price changes might affect it. *The price shown on your invoice might differ from the price used for cost estimation.*
 
-For example, you're invoiced on January 5 for a service consumed in the month of December. It has a price of $86 per unit. On January 1, the unit price changed to $100. When you view your estimated charges in Cost Management, you see that your cost is the result of your consumed quantity * $100 (not $86, as shown in your  invoice).
+For example, you get invoiced on January 5 for a service consumed in the month of December. It has a price of $86 per unit. On January 1, the unit price changed to $100. When you view your estimated charges in Cost Management, you see that your cost is the result of your consumed quantity * $100 (not $86, as shown in your  invoice).
 
 >[!NOTE]
 >The price change might result in a a price decrease, not only an increase, as explained in this example.
