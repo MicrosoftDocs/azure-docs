@@ -70,7 +70,7 @@ To create a Microsoft Entra Admin user, follow the following steps.
 
 ### Grant permissions to User assigned managed identity
 
-The following sample PowerShell script grants the necessary permissions for a UMI. This sample assigns permissions to the UMI `umiservertest`. 
+The following sample PowerShell script grants the necessary permissions for a UMI. Make sure  you replace <tenantId> and <managedIdentity> with you own values.
 
 To run the script, you must sign in as a user with a Global Administrator or Privileged Role Administrator role.
 
@@ -368,7 +368,7 @@ When logging in, group members use their personal access tokens but sign in with
 
 <a name='create-microsoft-entra-id-managed-identitity-as-user-in-azure-database-for-mysql'></a>
 
-## Create Microsoft Entra ID Managed Identitity as user in Azure Database for MySQL
+## Create Microsoft Entra ID Managed Identity as user in Azure Database for MySQL
 
 To add a Microsoft Entra Managed Identity (system MI or user MI) as a user in your Azure Database for MySQL database, perform the following steps after connecting:
 
@@ -393,13 +393,15 @@ To add a Microsoft Entra Managed Identity (system MI or user MI) as a user in yo
 > 1. MySQL ignores leading and trailing spaces, so the user name should not have any leading or trailing spaces.  
 > 2. Authenticating a user through Microsoft Entra ID does not give the user any permissions to access objects within the Azure Database for MySQL database. You must grant the user the required permissions manually.
 
-<a name='create-microsoft-entra-id-managed-identitity-as-user-in-azure-database-for-mysql'></a>
+<a name='conencting-with-microsoft-entra-id-managed-identitity-from-a-linux-azure-virtual-machine'></a>
 
-## Connecting with Microsoft Entra ID Managed Identitity from an Linux Azure Virtual Machine
+## Connecting with Microsoft Entra ID Managed Identitity from a Linux Azure Virtual Machine
 
-NOTE: This steps only apply for a Linux Azure Virtual Machine that is linked to the Microsoft Entra Managed Identity mapped to an user in Azure Database for MySQL Flexible Server. The processes to obtaing the from aonther resource such as an Azure Web App or using some programming languages refer to [How to use managed identities for Azure resources on an Azure VM to acquire an access token](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-use-vm-token)
+NOTE: This steps only apply for a Linux Azure Virtual Machine that is linked to the Microsoft Entra Managed Identity mapped to an user in Azure Database for MySQL Flexible Server. The processes to obtaing it from another resource such as an Azure Web App or using some programming languages refer to [How to use managed identities for Azure resources on an Azure VM to acquire an access token](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-use-vm-token)
 
-To connect using an Azure Database for MySQL Flexible Server user mapped to a Microsoft Entra Managed Identity (system MI or user MI) from a Linux Azure Virutal Machine and mysql CLI, you can use this shorthand to connect:
+To connect using an Azure Database for MySQL Flexible Server user mapped to a Microsoft Entra Managed Identity (system MI or user MI) from a Linux Azure Virtual Machine and mysql CLI, you can use this shorthand to connect:
+
+NOTE: Replace <ApplicationID> with the applicationID of the Managed Identity 
 
 ```
 mysql -h <servername>.mysql.database.azure.com \
@@ -407,8 +409,6 @@ mysql -h <servername>.mysql.database.azure.com \
 --enable-cleartext-plugin \
 --password=`curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=<applicationID>' -H Metadata:true | jq -r .access_token`
 ```
-
-NOTE: Replace <ApplicationID> with the applicationID of the Managed Identity 
 
 ## Compatibility with application drivers
 
