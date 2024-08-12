@@ -62,7 +62,8 @@ Create a [SpeechSynthesizer](/python/api/azure-cognitiveservices-speech/azure.co
 
    ```python
    speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
-   speech_synthesizer.speak_text_async("I'm excited to try text to speech")
+   speech_synthesis_result = speech_synthesizer.speak_text_async("I'm excited to try text to speech").get()
+    
    ```
 
 When you run the program, it creates a synthesized *.wav* file, which is written to the location that you specify. This result is a good example of the most basic usage. Next, you can customize output and handle the output response as an in-memory stream for working with custom scenarios.
@@ -94,8 +95,8 @@ In this example, use the `AudioDataStream` constructor to get a stream from the 
 
 ```python
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
-result = speech_synthesizer.speak_text_async("I'm excited to try text to speech").get()
-stream = speechsdk.AudioDataStream(result)
+speech_synthesis_result = speech_synthesizer.speak_text_async("I'm excited to try text to speech").get()
+stream = speechsdk.AudioDataStream(speech_synthesis_result)
 ```
 
 At this point, you can implement any custom behavior by using the resulting `stream` object.
@@ -121,8 +122,8 @@ This example specifies the high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by 
 speech_config.set_speech_synthesis_output_format(speechsdk.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm)
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
-result = speech_synthesizer.speak_text_async("I'm excited to try text to speech").get()
-stream = speechsdk.AudioDataStream(result)
+speech_synthesis_result = speech_synthesizer.speak_text_async("I'm excited to try text to speech").get()
+stream = speechsdk.AudioDataStream(speech_synthesis_result)
 stream.save_to_wav_file("path/to/write/file.wav")
 ```
 
@@ -155,9 +156,9 @@ To start using SSML for customization, make a minor change that switches the voi
    speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
    ssml_string = open("ssml.xml", "r").read()
-   result = speech_synthesizer.speak_ssml_async(ssml_string).get()
+   speech_synthesis_result = speech_synthesizer.speak_ssml_async(ssml_string).get()
 
-   stream = speechsdk.AudioDataStream(result)
+   stream = speechsdk.AudioDataStream(speech_synthesis_result)
    stream.save_to_wav_file("path/to/write/file.wav")
    ```
 
