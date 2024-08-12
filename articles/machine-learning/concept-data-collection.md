@@ -5,7 +5,7 @@ description: Collect inference data from models deployed on Azure Machine Learni
 services: machine-learning
 author: msakande
 ms.author: mopeakande
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.reviewer: alehughes
 ms.topic: conceptual 

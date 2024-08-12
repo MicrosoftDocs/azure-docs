@@ -3,7 +3,7 @@ title:  "Train Model: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn  how to use the **Train Model** component in Azure Machine Learning to train a classification or regression model. 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

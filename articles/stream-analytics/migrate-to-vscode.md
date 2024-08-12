@@ -5,7 +5,7 @@ author: zhenxilin
 ms.author: zhenxilin
 ms.date: 08/23/2022
 ms.topic: how-to
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ---
 
 # How to Migrate ASA projects to Visual Studio Code

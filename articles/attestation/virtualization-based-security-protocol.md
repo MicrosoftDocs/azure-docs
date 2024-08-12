@@ -3,7 +3,7 @@ title: Virtualization-based security (VBS) protocol for Azure Attestation
 description: VBS attestation protocol 
 services: attestation
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: reference
 ms.date: 01/23/2023
 ms.author: mbaldwin

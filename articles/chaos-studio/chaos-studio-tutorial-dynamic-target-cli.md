@@ -4,7 +4,7 @@ description: Create an experiment that uses dynamic targeting with the Azure CLI
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: how-to
 ms.date: 12/12/2022
 ms.custom: template-how-to, devx-track-azurecli

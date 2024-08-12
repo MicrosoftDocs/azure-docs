@@ -2,7 +2,7 @@
 title: NCv2-series - Azure Virtual Machines
 description: Specifications for the NCv2-series VMs.
 author: vikancha-MSFT
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020

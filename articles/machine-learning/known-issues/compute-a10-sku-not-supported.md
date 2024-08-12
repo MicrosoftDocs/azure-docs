@@ -5,7 +5,7 @@ description: While trying to create a compute instance with A10 SKU, users encou
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 08/14/2023
 ms.custom: known-issue

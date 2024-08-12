@@ -5,7 +5,7 @@ summary: Learn how to use Azure Lab Services to quickly set up a development, te
 metadata:
   title: Azure Lab Services documentation
   description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a lab for your team or students in the cloud.
-  ms.service: lab-services
+  ms.service: azure-lab-services
   ms.topic: landing-page
   author: ntrogh
   ms.author: nicktrog

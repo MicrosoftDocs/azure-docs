@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Release notes for the Azure Machine Learning compute instance images
 author: deeikele
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.author: deeikele
 ms.reviewer: fsolomon
@@ -19,6 +19,22 @@ In this article, learn about Azure Machine Learning compute instance image relea
 Azure Machine Learning checks and validates any machine learning packages that might require an upgrade. Updates incorporate the latest OS-related patches from Canonical as the original Linux OS publisher. In addition to patches applied by the original publisher, Azure Machine Learning updates system packages when updates are available. For details on the patching process, see [Vulnerability Management](./concept-vulnerability-management.md).
 
 Main updates provided with each image version are described in the below sections.
+
+## August 2, 2024
+
+Image version: 24.07.01
+ 
+Release Notes:
+ 
+Ray: `2.31.0`
+
+nvidia-docker2
+
+Tensorflow: `2.15.0`
+
+pandas: `1.3.5`
+
+libcurl: `8.4.0`
 
 ## July 3, 2024
 

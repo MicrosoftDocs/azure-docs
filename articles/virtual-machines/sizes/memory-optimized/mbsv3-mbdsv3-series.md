@@ -56,7 +56,7 @@ The increased remote storage performance of these VMs is ideal for storage throu
 
 • IOPS/MBps listed here refer to uncached mode for data disks.
 
-• To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](https://learn.microsoft.com/azure/virtual-machines/disks-performance).
+• To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](/azure/virtual-machines/disks-performance).
 
 • IOPS spec is defined using common small random block sizes like 4KiB or 8KiB. Maximum IOPS is defined as "up-to" and measured using 4KiB random reads workloads.
 

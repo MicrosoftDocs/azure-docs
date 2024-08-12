@@ -13,9 +13,6 @@ ms.custom: mvc, devx-track-azurecli, linux-related-content
 
 # Tutorial: Create and Manage Linux VMs with the Azure CLI
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
@@ -91,7 +88,7 @@ exit
 
 ## Understand VM images
 
-The Azure Marketplace includes many images that can be used to create VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.
+The Azure Marketplace includes many images that can be used to create VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for an Ubuntu image, which is then used to deploy a second virtual machine.
 
 To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image) command.
 
@@ -104,13 +101,12 @@ The command output returns the most popular VM images on Azure.
 ```output
 Architecture    Offer                         Publisher               Sku                                 Urn                                                                             UrnAlias                 Version
 --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------  -----------------------  ---------
-x64             CentOS                        OpenLogic               7.5                                 OpenLogic:CentOS:7.5:latest                                                     CentOS                   latest
 x64             debian-10                     Debian                  10                                  Debian:debian-10:10:latest                                                      Debian                   latest
 x64             flatcar-container-linux-free  kinvolk                 stable                              kinvolk:flatcar-container-linux-free:stable:latest                              Flatcar                  latest
 x64             opensuse-leap-15-3            SUSE                    gen2                                SUSE:opensuse-leap-15-3:gen2:latest                                             openSUSE-Leap            latest
 x64             RHEL                          RedHat                  7-LVM                               RedHat:RHEL:7-LVM:latest                                                        RHEL                     latest
 x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                    SLES                     latest
-x64             UbuntuServer                  Canonical               18.04-LTS                           Canonical:UbuntuServer:18.04-LTS:latest                                         UbuntuLTS                latest
+x64             0001-com-ubuntu-server-jammy  Canonical               18.04-LTS                           Canonical:UbuntuServer:18.04-LTS:latest                                         UbuntuLTS                latest
 x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                     Win2022Datacenter        latest
 x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest  Win2022AzureEditionCore  latest
 x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                     Win2019Datacenter        latest
@@ -120,30 +116,25 @@ x64             WindowsServer                 MicrosoftWindowsServer  2012-Datac
 x64             WindowsServer                 MicrosoftWindowsServer  2008-R2-SP1                         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest                         Win2008R2SP1             latest
 ```
 
-A full list can be seen by adding the `--all` parameter. The image list can also be filtered by `--publisher` or `–-offer`. In this example, the list is filtered for all images, published by OpenLogic, with an offer that matches *CentOS*.
+A full list can be seen by adding the `--all` parameter. The image list can also be filtered by `--publisher` or `–-offer`. In this example, the list is filtered for all images, published by OpenLogic, with an offer that matches *0001-com-ubuntu-server-jammy*.
 
 ```azurecli-interactive
-az vm image list --offer CentOS --publisher OpenLogic --all --output table
+az vm image list --offer 0001-com-ubuntu-server-jammy --publisher Canonical --all --output table
 ```
 
 Example partial output:
 
 ```output
-Architecture    Offer                      Publisher    Sku              Urn                                                       Version
---------------  -------------------------  -----------  ---------------  --------------------------------------------------------  ---------------
-x64             CentOS                     OpenLogic    8_2              OpenLogic:CentOS:8_2:8.2.2020111800                       8.2.2020111800
-x64             CentOS                     OpenLogic    8_2-gen2         OpenLogic:CentOS:8_2-gen2:8.2.2020062401                  8.2.2020062401
-x64             CentOS                     OpenLogic    8_2-gen2         OpenLogic:CentOS:8_2-gen2:8.2.2020100601                  8.2.2020100601
-x64             CentOS                     OpenLogic    8_2-gen2         OpenLogic:CentOS:8_2-gen2:8.2.2020111801                  8.2.2020111801
-x64             CentOS                     OpenLogic    8_3              OpenLogic:CentOS:8_3:8.3.2020120900                       8.3.2020120900
-x64             CentOS                     OpenLogic    8_3              OpenLogic:CentOS:8_3:8.3.2021020400                       8.3.2021020400
-x64             CentOS                     OpenLogic    8_3-gen2         OpenLogic:CentOS:8_3-gen2:8.3.2020120901                  8.3.2020120901
-x64             CentOS                     OpenLogic    8_3-gen2         OpenLogic:CentOS:8_3-gen2:8.3.2021020401                  8.3.2021020401
-x64             CentOS                     OpenLogic    8_4              OpenLogic:CentOS:8_4:8.4.2021071900                       8.4.2021071900
-x64             CentOS                     OpenLogic    8_4-gen2         OpenLogic:CentOS:8_4-gen2:8.4.2021071901                  8.4.2021071901
-x64             CentOS                     OpenLogic    8_5              OpenLogic:CentOS:8_5:8.5.2022012100                       8.5.2022012100
-x64             CentOS                     OpenLogic    8_5              OpenLogic:CentOS:8_5:8.5.2022101800                       8.5.2022101800
-x64             CentOS                     OpenLogic    8_5-gen2         OpenLogic:CentOS:8_5-gen2:8.5.2022012101                  8.5.2022012101
+Architecture    Offer                              Publisher    Sku              Urn                                                                       Version
+--------------  ---------------------------------  -----------  ---------------  ------------------------------------------------------------------------  ---------------
+x64             0001-com-ubuntu-server-jammy       Canonical    22_04-lts        Canonical:0001-com-ubuntu-server-jammy:22_04-lts:22.04.202204200          22.04.202204200
+x64             0001-com-ubuntu-server-jammy       Canonical    22_04-lts        Canonical:0001-com-ubuntu-server-jammy:22_04-lts:22.04.202205060          22.04.202205060
+x64             0001-com-ubuntu-server-jammy       Canonical    22_04-lts        Canonical:0001-com-ubuntu-server-jammy:22_04-lts:22.04.202205280          22.04.202205280
+x64             0001-com-ubuntu-server-jammy       Canonical    22_04-lts        Canonical:0001-com-ubuntu-server-jammy:22_04-lts:22.04.202206040          22.04.202206040
+x64             0001-com-ubuntu-server-jammy       Canonical    22_04-lts        Canonical:0001-com-ubuntu-server-jammy:22_04-lts:22.04.202206090          22.04.202206090
+x64             0001-com-ubuntu-server-jammy       Canonical    22_04-lts        Canonical:0001-com-ubuntu-server-jammy:22_04-lts:22.04.202206160          22.04.202206160
+x64             0001-com-ubuntu-server-jammy       Canonical    22_04-lts        Canonical:0001-com-ubuntu-server-jammy:22_04-lts:22.04.202206220          22.04.202206220
+x64             0001-com-ubuntu-server-jammy       Canonical    22_04-lts        Canonical:0001-com-ubuntu-server-jammy:22_04-lts:22.04.202207060          22.04.202207060
 ```
 
 
@@ -151,10 +142,10 @@ x64             CentOS                     OpenLogic    8_5-gen2         OpenLog
 > [!NOTE]
 > Canonical has changed the **Offer** names they use for the most recent versions. Before Ubuntu 20.04, the **Offer** name is UbuntuServer. For Ubuntu 20.04 the **Offer** name is `0001-com-ubuntu-server-focal` and for Ubuntu 22.04 it's `0001-com-ubuntu-server-jammy`.
 
-To deploy a VM using a specific image, take note of the value in the *Urn* column, which consists of the publisher, offer, SKU, and optionally a version number to [identify](cli-ps-findimage.md#terminology) the image. When specifying the image, the image version number can be replaced with `latest`, which selects the latest version of the distribution. In this example, the `--image` parameter is used to specify the latest version of a CentOS 8.5.
+To deploy a VM using a specific image, take note of the value in the *Urn* column, which consists of the publisher, offer, SKU, and optionally a version number to [identify](cli-ps-findimage.md#terminology) the image. When specifying the image, the image version number can be replaced with `latest`, which selects the latest version of the distribution. In this example, the `--image` parameter is used to specify the latest version of a Ubuntu 22.04.
 
 ```azurecli-interactive
-az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:8_5:latest --generate-ssh-keys
+az vm create --resource-group myResourceGroupVM --name myVM2 --image Canonical:0001-com-ubnutu-server-jammy:22_04-lts:latest --generate-ssh-keys
 ```
 
 ## Understand VM sizes

@@ -2,27 +2,31 @@
 title: 'Azure VPN Gateway topologies and design'
 description: Learn about VPN Gateway topologies and designs you can use to connect on-premises locations to virtual networks.
 author: cherylmc
-ms.service: vpn-gateway
-ms.topic: article
-ms.date: 05/15/2024
+ms.service: azure-vpn-gateway
+ms.topic: concept-article
+ms.date: 07/30/2024
 ms.author: cherylmc
 
 ---
 # VPN Gateway topology and design
 
-There are many different configuration options available for VPN Gateway connections. Use the diagrams and descriptions in the following sections to help you select the connection topology that meets your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as guidelines.
+There are many different configuration options available for VPN Gateway connections. To help you select the connection topology that meets your requirements, use the diagrams and descriptions in the following sections. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as guidelines.
 
 ## <a name="s2smulti"></a>Site-to-site VPN
 
-A site-to-site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. Site-to-site connections can be used for cross-premises and hybrid configurations. A site-to-site connection requires a VPN device located on-premises that has a public IP address assigned to it. For information about selecting a VPN device, see the [VPN Gateway FAQ - VPN devices](vpn-gateway-vpn-faq.md#s2s).
+A site-to-site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. Site-to-site connections can be used for cross-premises and hybrid configurations. A site-to-site connection requires a VPN device located on-premises that has a public IP address assigned to it.
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram of site-to-site VPN Gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
 
-VPN Gateway can be configured in active-standby mode using one public IP or in active-active mode using two public IPs. In active-standby mode, one IPsec tunnel is active and the other tunnel is in standby. In this setup, traffic flows through the active tunnel, and if some issue happens with this tunnel, the traffic switches over to the standby tunnel. Setting up VPN Gateway in active-active mode is *recommended* in which both the IPsec tunnels are simultaneously active, with data flowing through both tunnels at the same time. Another advantage of active-active mode is that customers experience higher throughputs.
-
-You can create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type (known as a dynamic gateway when working with classic VNets). Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This type of connection is sometimes referred to as a "multi-site" connection.
+You can create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type. Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This type of connectivity design is sometimes referred to as *multi-site*.
 
 :::image type="content" source="./media/design/multi-site.png" alt-text="Diagram of site-to-site VPN Gateway cross-premises connections with multiple sites." lightbox="./media/design/multi-site.png":::
+
+If you want to create a design for highly available gateway connectivity, you can configure your gateway to be in active-active mode. This mode lets you configure two active tunnels (one from each gateway virtual machine instance) to the same VPN device to create highly available connectivity. In addition to being a highly available connectivity design, another advantage of active-active mode is that customers experience higher throughputs.
+
+* For information about selecting a VPN device, see the [VPN Gateway FAQ - VPN devices](vpn-gateway-vpn-faq.md#s2s).
+* For information about highly available connections, see [Designing highly available connections](vpn-gateway-highlyavailable.md).
+* For information about active-active mode, see [About active-active mode gateways](about-active-active-gateways.md).
 
 ### Deployment models and methods for S2S
 
@@ -74,9 +78,9 @@ You can configure a site-to-site VPN as a secure failover path for ExpressRoute,
 
 [!INCLUDE [ExpressRoute coexist table](../../includes/vpn-gateway-table-coexist-include.md)]
 
-## <a name="highly-available"></a>Highly available connections
+## Highly available connections
 
-For planning and design for highly available connections, see [Highly available connections](vpn-gateway-highlyavailable.md).
+For planning and designing highly available connections, including active-active mode configurations, see [Design highly available gateway connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md).
 
 ## Next steps
 

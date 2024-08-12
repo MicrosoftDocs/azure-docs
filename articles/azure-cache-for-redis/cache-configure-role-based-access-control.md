@@ -5,7 +5,7 @@ description: Learn how to configure role-based access control with Data Access P
 author: flang-msft
 
 ms.custom: references_regions
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 06/05/2023
 ms.author: franlanglois

@@ -4,7 +4,7 @@ description: Learn how to create, retrieve, and delete secrets from an Azure key
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/20/2023
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.devlang: csharp

@@ -3,7 +3,7 @@ title: Health probes in Azure Container Apps
 description: Check startup, liveness, and readiness with Azure Container Apps health probes
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: cshoe

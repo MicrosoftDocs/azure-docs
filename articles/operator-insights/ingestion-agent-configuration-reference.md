@@ -4,7 +4,7 @@ description: This article documents the complete set of configuration for the Az
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: conceptual
 ms.date: 12/06/2023
 ---

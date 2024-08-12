@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 tags: 'rotation'
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/20/2023

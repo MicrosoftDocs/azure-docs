@@ -460,6 +460,9 @@
       - name: Configure clipboard transfer direction
         displayName: security
         href: clipboard-transfer-direction-data-types.md
+      - name: Configure forensic evidence
+        displayName: security, purview
+        href: purview-forensic-evidence.md
   - name: Connect
     items:
     - name: Windows App

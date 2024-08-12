@@ -4,7 +4,7 @@ description: Use this tutorial to learn how to automate the rotation of a secret
 services: key-vault
 author: msmbaldwin
 tags: 'rotation'
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/30/2024

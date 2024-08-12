@@ -42,7 +42,7 @@
   - name: Azure Kubernetes Service
     items: 
     - name: Integrate Azure Key Vault with Kubernetes
-      href: ../../aks/csi-secrets-store-driver.md
+      href: /azure/aks/csi-secrets-store-driver
   - name: Azure Databricks
     items: 
     - name: Access Azure Blob Storage using Azure Databricks and Azure Key Vault

@@ -2,7 +2,7 @@
 title: Find nonproduction API requests with Dev Proxy
 description: Learn how to check if your app is using production-level APIs defined in Azure API Center using Dev Proxy.
 author: waldekmastykarz
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 07/17/2024
 ms.author: wmastyka 

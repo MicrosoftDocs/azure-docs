@@ -268,7 +268,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    metadata:
      name: ephemeralpvc
      annotations:
-       "acstor.azure.com/accept-ephemeral-storage=true"
+       acstor.azure.com/accept-ephemeral-storage: "true"
    spec:
      accessModes:
        - ReadWriteOnce
@@ -420,7 +420,22 @@ kubectl delete sp -n acstor <storage-pool-name>
 
 ### Optimize performance when using local NVMe
 
-[!INCLUDE [container-storage-nvme-performance](../../../includes/container-storage-nvme-performance.md)]
+Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Advanced**. These tiers offer a different range of IOPS, and your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
+
+| **Tier** | **Number of vCPUs** |
+|---------------|--------------------------|
+| `Basic` | 12.5% of total VM cores | 
+| `Standard` (default) | 25% of total 
+| `Advanced` | 50% of total VM cores |
+
+> [!NOTE]
+> RAM and hugepages consumption will stay consistent across all tiers: 1 GiB of RAM and 2 GiB of hugepages.
+
+Once you've identified the performance tier that aligns best to your needs, you can run the following command to update the performance tier of your Azure Container Storage installation. Replace `<performance tier>` with basic, standard, or advanced.
+
+```azurecli-interactive
+az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type> --ephemeral-disk-nvme-perf-tier <performance-tier>
+```
 
 ## See also
 

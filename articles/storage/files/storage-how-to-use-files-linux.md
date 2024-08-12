@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/26/2024
+ms.date: 08/05/2024
 ms.author: kendownie
 ---
 
@@ -289,9 +289,9 @@ HTTP_ENDPOINT=$(az storage account show \
 SMB_PATH=$(echo $HTTP_ENDPOINT | cut -c7-${#HTTP_ENDPOINT})$FILE_SHARE_NAME
 
 if [ -z "$(grep $SMB_PATH\ $MNT_PATH /etc/fstab)" ]; then
-    echo "$SMB_PATH $MNT_PATH cifs _netdev,nofail,credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30" | sudo tee -a /etc/fstab > /dev/null
+    echo "$SMB_PATH $MNT_PATH cifs _netdev,nofail,credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30,mfsymlinks" | sudo tee -a /etc/fstab > /dev/null
 else
-    echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You may want to double check /etc/fstab to ensure the configuration is as desired."
+    echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You might want to double check /etc/fstab to ensure the configuration is as desired."
 fi
 
 sudo mount -a
@@ -346,7 +346,7 @@ HTTP_ENDPOINT=$(az storage account show \
     --query "primaryEndpoints.file" --output tsv | tr -d '"')
 SMB_PATH=$(echo $HTTP_ENDPOINT | cut -c7-$(expr length $HTTP_ENDPOINT))$FILE_SHARE_NAME
 
-echo "$FILE_SHARE_NAME -fstype=cifs,credentials=$SMB_CREDENTIAL_FILE :$SMB_PATH" > /etc/auto.fileshares
+echo "$FILE_SHARE_NAME -fstype=cifs,credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30,mfsymlinks :$SMB_PATH" > /etc/auto.fileshares
 
 echo "/fileshares /etc/auto.fileshares --timeout=60" > /etc/auto.master
 ```

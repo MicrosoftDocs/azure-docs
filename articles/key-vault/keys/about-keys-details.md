@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 manager: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/17/2023

@@ -3,7 +3,7 @@ title: Query items in Azure Cosmos DB for NoSQL using .NET
 description: Learn how to query items in your Azure Cosmos DB for NoSQL container using the .NET SDK.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to

@@ -2,10 +2,10 @@
 title: Get started with Azure Synapse Link for Azure SQL Database
 description: Learn how to connect an Azure SQL database to an Azure Synapse workspace with Azure Synapse Link.
 author: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 11/16/2022
+ms.date: 07/30/2024
 ms.author: whhender
 ms.reviewer: whhender, wiassaf
 ---
@@ -120,6 +120,23 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-edit-link.png" alt-text="Screenshot that shows where to edit the Azure Synapse Link connection from Synapse Studio.":::
 
+1. In the **Action on existing target table** dropdown list, choose the option most appropriate for your scenario if the table already exists in the destination. 
+
+   - **Drop and recreate table**: The existing target table will be dropped and recreated.
+   - **Fail on non-empty table**: If target table contains data, link connection for the given table will fail.
+   - **Merge with existing data**: Data will be merged into the existing table.
+
+   > [!NOTE]
+   > If you want to merge multiple sources into the same destination by choosing "Merge with existing data", make sure the sources contain different data to avoid conflict and unexpected result.
+
+1. Specify whether to **enable transaction consistency across tables**. 
+
+   - When this option is enabled, a transaction spanning across multiple tables on the source database is always replicated to the destination database in a single transaction. This, however, will create overhead on the overall replication throughput. 
+   - When the option is disabled, each table will replicate changes in its own transaction boundary to the destination in parallel connections, thus improving overall replication throughput. 
+   
+   > [!NOTE]
+   > When you want to enable transaction consistency across tables, please also make sure the transaction isolation levels in your Synapse dedicated SQL pool is READ COMMITTED SNAPSHOT ISOLATION.
+
 1. Select **Publish all** to save the new link connection to the service.
 
 ## Start the Azure Synapse Link connection
@@ -186,7 +203,8 @@ To stop the Azure Synapse Link connection in Synapse Studio, do the following:
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Screenshot of the pane for stopping a link connection.":::
 
    > [!NOTE]
-   > If you restart a link connection after stopping it, it will start from a full initial load from your source database, and incremental change feeds will follow.
+   > * If you restart a link connection after stopping it, it will start from a full initial load from your source database, and incremental change feeds will follow.
+   > * If you choose "**Merge with existing data**" as the action on existing target table, when you stop the link connection and restart it, the record deletions in source during that period won't be deleted in the destination. In such case, to ensure data consistency, consider to use pause/resume instead of stop/start, or to clean up the destination tables before you restart the link connection.
 
 ## Next steps
 

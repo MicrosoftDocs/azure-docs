@@ -97,7 +97,7 @@ After you create your cluster resource, you can edit properties such as *sku*, *
 Deleted clusters take two weeks to be completely removed. You can have up to seven clusters per subscription and region, five active, and two deleted in past two weeks.
 
 > [!NOTE]
-> Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
+> Creating a cluster involves multiple resources and operation typically complete in two hours.
 > Dedicated cluster is billed once provisioned regardless data ingestion and it's recommended to prepare the deployment to expedite the provisioning and workspaces link to cluster. Verify the following:
 > - A list of initial workspace to be linked to cluster is identified
 > - You have permissions to subscription intended for the cluster and any workspace to be linked
@@ -407,8 +407,8 @@ N/A
 
 > [!NOTE]
 > - Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
-> - Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
-> - When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove sku in workspace template to prevent conflict during workspace deployment.
+> - Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which typically complete in two hours.
+> - When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove SKU in workspace template to prevent conflict during workspace deployment.
 > - Other than the billing aspects that is governed by the cluster plan, all workspace configurations and query aspects remain unchanged during and after the link.
 
 You need 'write' permissions to both the workspace and the cluster resource for workspace link operation:

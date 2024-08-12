@@ -74,6 +74,28 @@ Search for trace messages and custom events sent by Profiler to your Application
 
    If no records are displayed, Profiler isn't running or took too long to respond. Make sure [Profiler is enabled on your Azure service](./profiler.md).
 
+## Profiler is on, but no traces captured
+
+Even when the Profiler is enabled, it may not capture or upload traces, especially in these situations:
+
+1. **No incoming requests to your application:**   
+     You can manually invoke your application or create an [availability test](../app/availability.md), or a [load test](../../load-testing/overview-what-is-azure-load-testing.md). 
+
+1. **No incoming telemetry acknowledged by Application Insights:**  
+    - If there is traffic coming to your application: validate that there are incoming requests showing in Application Insights [Live Metrics](../app/live-stream.md). 
+    - If the `Incoming Requests` charts are empty (no data or showing zero): [troubleshoot Application Insights](/troubleshoot/azure/azure-monitor/app-insights/telemetry/asp-net-troubleshoot-no-data). 
+    - If you are hosting your .NET application on Azure App Service: [try the App Service .NET troubleshooting steps](../app/azure-web-apps-net.md#troubleshooting).
+
+1. **Profiler setting for Sampling is turned off:**   
+    If still no profiler traces are available, check the Profiler Sampling setting.   
+      1. Open **Application Insights** > **Performance** blade. 
+      1. Click on **Profiler**.
+      1. Click on the **Triggers** button. 
+      1. In the Trigger Settings, ensure the **Sampling** toggle is on.
+
+1. **Still no traces uploaded?**  
+    [Create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot), or ask [Azure community support](/answers/products/azure?product=all). You can also submit product feedback to [Azure feedback community](https://feedback.azure.com/d365community).
+
 ## Double counting in parallel threads
 
 When two or more parallel threads are associated with a request, the total time metric in the stack viewer might be more than the duration of the request. In that case, the total thread time is more than the actual elapsed time.

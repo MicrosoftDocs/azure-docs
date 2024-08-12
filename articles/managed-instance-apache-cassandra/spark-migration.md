@@ -3,7 +3,7 @@ title: Migrate to Azure Managed Instance for Apache Cassandra using Apache Spark
 description: Learn how to migrate to Azure Managed Instance for Apache Cassandra using Apache Spark.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: tutorial
 ms.date: 11/02/2021
 ---
