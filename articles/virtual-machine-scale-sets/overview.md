@@ -4,7 +4,7 @@ description: Learn about Azure Virtual Machine Scale Sets and how to automatical
 author: ju-shim
 ms.author: jushiman
 ms.topic: overview
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice:
 ms.date: 06/14/2024
 ms.reviewer: mimckitt

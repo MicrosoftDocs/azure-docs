@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 04/09/2023
+ms.date: 08/08/2024
 ms.author: b-ahibbard
 ---
 # Configure application volume groups for SAP HANA using REST API
@@ -87,7 +87,7 @@ In a create request, use the following URI format:
 
 The request body consists of the _outer_ parameters, the group properties, and an array of volumes to be created, each with their individual outer parameters and volume properties.
 
-The following table describes the request body parameters and group level properties required to create a SAP HANA application volume group.
+The following table describes the request body parameters and group level properties required to create an SAP HANA application volume group.
 
 | URI parameter | Description | Restrictions for SAP HANA |
 | ---- | ----- | ----- |
@@ -98,7 +98,7 @@ The following table describes the request body parameters and group level proper
 | `applicationIdentifier` | Application specific identifier string, following application naming rules | The SAP System ID, which should follow aforementioned naming rules, for example `SH9` | 
 | `volumes` | Array of volumes to be created (see the next table for volume-granular details) | Volume count depends upon host configuration: <ul><li>Single-host (3-5 volumes) <br /> **Required**: _data_, _log_ and _shared_ <br /> **Optional**: _data-backup_, _log-backup_ </li><li> Multiple-host (two volumes) <br /> **Required**: _data_ and _log_ </li></ul> |
 
-This table describes the request body parameters and volume properties for creating a volume in a SAP HANA application volume group.   
+This table describes the request body parameters and volume properties for creating a volume in an SAP HANA application volume group.   
 
 | Volume-level request parameter | Description | Restrictions for SAP HANA |
 | ---- | ----- | ----- |
@@ -107,7 +107,7 @@ This table describes the request body parameters and volume properties for creat
 | **Volume properties** | **Description** | **SAP HANA Value Restrictions** |
 | `creationToken` | Export path name, typically same as the volume name. | None. Example: `SH9-data-mnt00001` |
 | `throughputMibps` | QoS throughput | This must be between 1 Mbps and 4500 Mbps. You should set throughput based on volume type. | 
-| `usageThreshhold` | Size of the volume in bytes. This must be in the 100 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | None. You should set volume size depending on the volume type. | 
+| `usageThreshold` | Size of the volume in bytes. This must be in the 50 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | None. You should set volume size depending on the volume type. | 
 | `exportPolicyRule` | Volume export policy rule | At least one export policy rule must be specified for SAP HANA. Only the following rules values can be modified for SAP HANA, the rest _must_ have their default values: <ul><li>`unixReadOnly`: should be false</li><li>`unixReadWrite`: should be true</li><li>`allowedClients`: specify allowed clients. Use `0.0.0.0/0` for no restrictions.</li><li>`hasRootAccess`: must be true to install SAP.</li><li>`chownMode`: Specify `chown` mode.</li><li>`nfsv41`: true for data, log, and shared volumes, optionally true for data backup and log backup volumes</li><li>`nfsv3`: optionally true for data backup and log backup volumes</li><ul> All other rule values _must_ be left defaulted. |
 | `volumeSpecName` | Specifies the type of volume for the application volume group being created | SAP HANA volumes must have a value that is one of the following: <ul><li>"data"</li><li>"log"</li><li>"shared"</li><li>"data-backup"</li><li>"log-backup"</li></ul> | 
 | `proximityPlacementGroup` | Resource ID of the Proximity Placement Group (PPG) for proper placement of the volume. | <ul><li>The “data”, “log” and “shared” volumes must each have a PPG specified, preferably a common PPG.</li><li>A PPG must be specified for the “data-backup” and “log-backup” volumes, but it will be ignored during placement.</li></ul> |
@@ -145,7 +145,7 @@ In the following examples, selected placeholders are specified. You should repla
 
 SAP HANA volume groups for the following examples can be created using a sample shell script that calls the API using curl:
 
-1. Extract the subscription ID. This automates the extraction of the subscription ID and generate the authorization token:
+1. Extract the subscription ID. This automates the extraction of the subscription ID and generates the authorization token:
     ```bash
     subId=$(az account list | jq ".[] | select (.name == \"Pay-As-You-Go\") | .id" -r)
     echo "Subscription ID: $subId"

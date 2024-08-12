@@ -14,6 +14,10 @@ ms.reviewer: adi.biran
 
 Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across large datasets. This article describes how to create a search job and how to query its resulting data.
 
+This video explains when and how to use search jobs:
+ 
+> [!VIDEO https://www.youtube.com/embed/5iShgXRu1sU?cc_load_policy=1&cc_lang_pref=auto]
+
 ## Permissions required
 
 | Action | Permissions required |
