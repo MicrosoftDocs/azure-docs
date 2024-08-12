@@ -4,9 +4,9 @@ titlesuffix: Azure Traffic Manager
 description: Learn how to configure the Multivalue routing method with nested endpoints and the min-child feature.
 author: greg-lindsay
 ms.author: greglin
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 04/28/2022
+ms.date: 08/08/2024
 ms.custom: template-how-to, devx-track-arm-template
 ---
 

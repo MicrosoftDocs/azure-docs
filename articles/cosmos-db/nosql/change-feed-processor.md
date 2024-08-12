@@ -4,7 +4,7 @@ description: Learn how to use the Azure Cosmos DB change feed processor to read 
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual

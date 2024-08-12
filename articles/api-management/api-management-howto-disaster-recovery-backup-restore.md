@@ -5,7 +5,7 @@ description: Learn how to use backup and restore operations in Azure API Managem
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/31/2023
 ms.author: danlep 

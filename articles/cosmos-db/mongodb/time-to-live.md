@@ -3,7 +3,7 @@ title: MongoDB per-document TTL feature in Azure Cosmos DB
 description: Learn how to set time to live value for documents using Azure Cosmos DB's API for MongoDB, to automatically purge them from the system after a period of time.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript

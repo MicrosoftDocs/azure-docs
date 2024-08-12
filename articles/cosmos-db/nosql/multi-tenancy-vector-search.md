@@ -3,7 +3,7 @@
 title: Multitenancy in Azure Cosmos DB
 description: Learn concepts for building multitenant gen-ai apps in Azure Cosmos DB
 author: TheovanKraay
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 06/26/2024

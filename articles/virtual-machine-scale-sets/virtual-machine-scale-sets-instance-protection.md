@@ -4,7 +4,7 @@ description: Learn how to protect Azure Virtual Machine Scale Set instances from
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: instance-protection
 ms.date: 06/14/2024
 ms.reviewer: mimckitt

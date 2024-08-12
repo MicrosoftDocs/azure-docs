@@ -46,7 +46,7 @@ To connect to an Azure SQL Edge Database Engine from a network machine, you need
     }
     ```
 
-- **SA password for the Azure SQL Edge instance**: This is the value specified for the `SA_PASSWORD` environment variable during deployment of Azure SQL Edge.
+- **SA password for the Azure SQL Edge instance**: This is the value specified for the `MSSQL_SA_PASSWORD` environment variable during deployment of Azure SQL Edge.
 
 ## Connect to the Database Engine from within the container
 

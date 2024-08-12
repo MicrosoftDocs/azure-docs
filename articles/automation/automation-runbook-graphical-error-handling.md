@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 02/27/2022
 ms.topic: conceptual 
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Handle errors in graphical runbooks

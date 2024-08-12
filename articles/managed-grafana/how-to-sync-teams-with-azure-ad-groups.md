@@ -2,7 +2,7 @@
 title: Configure Grafana team sync with Microsoft Entra groups
 description: Learn how to configure Grafana Teams and allow access to Grafana folders and dashboards using Microsoft Entra groups in Azure Managed Grafana.
 #customer intent: As a Grafana administrator, I want to use Microsoft Entra groups to set up Grafana teams and control access to specific folders and dashboards.
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev

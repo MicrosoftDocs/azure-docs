@@ -1,19 +1,20 @@
 ---
-title: HC-series specs include
+title: HC series specs include
 description: Include file containing specifications of HC-series VM sizes.
-services: virtual-machines
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
-ms.date: 04/19/2024
+ms.date: 08/01/2024
 ms.author: mattmcinnes
+ms.reviewer: mattmcinnes
 ms.custom: include file
 ---
-| Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
+| Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor        | 32 - 44<sup>vCores   | Intel® Xeon® Platinum 8168 (Skylake)                |
-| Memory           | 352<sup>GiB    | 191<sup>GBps</sup>                               |
-| Data Disks       | 4<sup>Disks     |                                            |
-| Network          | 8<sup>vNICs       | Mellanox EDR Infiniband 100<sup>Gbps</sup>     |
-| Accelerators     | None                  |                                           |
+| Processor      | 44 - 32 vCPUs     | Intel Xeon Platinum 8168 (Skylake) [x86-64] |
+| Memory         | 352 GiB        |    |
+| Local Storage  | 1 Disk         | 700 GiB  |
+| Remote Storage | 4 Disks        |  |
+| Network        | 8 NICs        |  |
+| Accelerators   | None            |     |

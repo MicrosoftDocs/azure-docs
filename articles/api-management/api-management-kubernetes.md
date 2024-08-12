@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 manager: cfowler
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: danlep
@@ -47,7 +47,7 @@ While an AKS cluster is always deployed in a virtual network (VNet), an API Mana
 
 ### Option 1: Expose Services publicly
 
-Services in an AKS cluster can be exposed publicly using [Service types](../aks/concepts-network.md) of NodePort, LoadBalancer, or ExternalName. In this case, Services are accessible directly from public internet. After deploying API Management in front of the cluster, we need to ensure all inbound traffic goes through API Management by applying authentication in the microservices. For instance, API Management can include an access token in each request made to the cluster. Each microservice is responsible for validating the token before processing the request. 
+Services in an AKS cluster can be exposed publicly using [Service types](/azure/aks/concepts-network) of NodePort, LoadBalancer, or ExternalName. In this case, Services are accessible directly from public internet. After deploying API Management in front of the cluster, we need to ensure all inbound traffic goes through API Management by applying authentication in the microservices. For instance, API Management can include an access token in each request made to the cluster. Each microservice is responsible for validating the token before processing the request. 
 
 
 This might be the easiest option to deploy API Management in front of AKS, especially if you already have authentication logic implemented in your microservices. 
@@ -67,7 +67,7 @@ Cons:
 
 Although Option 1 might be easier, it has notable drawbacks as mentioned above. If an API Management instance doesn't reside in the cluster VNet, Mutual TLS authentication (mTLS) is a robust way of ensuring the traffic is secure and trusted in both directions between an API Management instance and an AKS cluster. 
 
-Mutual TLS authentication is [natively supported](./api-management-howto-mutual-certificates.md) by API Management and can be enabled in Kubernetes by [installing an Ingress Controller](../aks/ingress-own-tls.md) (Fig. 3). As a result, authentication will be performed in the Ingress Controller, which simplifies the microservices. Additionally, you can add the IP addresses of API Management to the allowed list by Ingress to make sure only API Management has access to the cluster. If API Management [Premium Tier](./api-management-using-with-internal-vnet.md) or [Standard V2](./integrate-vnet-outbound.md) tier is used, network level isolation can be achieved. 
+Mutual TLS authentication is [natively supported](./api-management-howto-mutual-certificates.md) by API Management and can be enabled in Kubernetes by [installing an Ingress Controller](/azure/aks/ingress-own-tls) (Fig. 3). As a result, authentication will be performed in the Ingress Controller, which simplifies the microservices. Additionally, you can add the IP addresses of API Management to the allowed list by Ingress to make sure only API Management has access to the cluster. If API Management [Premium Tier](./api-management-using-with-internal-vnet.md) or [Standard V2](./integrate-vnet-outbound.md) tier is used, network level isolation can be achieved. 
 
  
 ![Publish via an ingress controller](./media/api-management-aks/ingress-controller.png)
@@ -114,5 +114,5 @@ Cons:
 
 ## Next steps
 
-* Learn more about [Network concepts for applications in AKS](../aks/concepts-network.md)
+* Learn more about [Network concepts for applications in AKS](/azure/aks/concepts-network)
 * Learn more about [How to use API Management with virtual networks](./virtual-network-concepts.md)

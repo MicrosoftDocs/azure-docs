@@ -192,7 +192,7 @@ After discovery is finished, you can begin the replication of Hyper-V VMs to Azu
 1. In **Review and start replication**, review the settings and select **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
-> You can update replication settings any time before replication starts in **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
+> You can update replication settings any time before replication starts in **Manage** > **Replicated machines**. Settings can't be changed after replication starts.
 
 ## Provision for the first time
 
@@ -208,9 +208,7 @@ If this is the first VM you're replicating in the Azure Migrate project, the Mig
 
 You can track job status in the portal notifications.
 
-You can monitor replication status by selecting **Replicating servers** in **Migration and modernization**.
-
-![Screenshot that shows Monitor replication.](./media/tutorial-migrate-hyper-v/replicating-servers.png)
+You can monitor replication status by selecting **Replicated servers** in **Migration and modernization**.
 
 ## Run a test migration
 
@@ -222,21 +220,15 @@ When delta replication begins, you can run a test migration for the VMs before y
 
 To do a test migration:
 
-1. In **Migration goals**, select **Servers, databases, and web apps** > **Migration and modernization** > **Test migrated servers**.
+1. In **Migration goals**, select **Servers, databases, and web apps** > **Migration and modernization**, select **Replicated servers** under **Replications**.
 
-     ![Screenshot that shows Test migrated servers in Migration and modernization.](./media/tutorial-migrate-hyper-v/test-migrated-servers.png)
-
-1. Right-click the VM to test and select **Test migrate**.
-
-    ![Screenshot that shows the Test migration screen.](./media/tutorial-migrate-hyper-v/test-migrate.png)
+1. In the **Replicating machines** tab, right-click the VM to test and select **Test migrate**.
 
 1. In **Test Migration**, select the Azure virtual network in which the Azure VM will be located after the migration. We recommend that you use a nonproduction virtual network.
 1. You can upgrade the Windows Server OS during test migration. For Hyper-V VMs, automatic detection of an OS isn't yet supported. To upgrade, select the **Check for upgrade** option. In the pane that appears, select the current OS version and the target version to which you want to upgrade. If the target version is available, it's processed accordingly. [Learn more](how-to-upgrade-windows.md).
 1. The Test Migration job starts. Monitor the job in the portal notifications.
 1. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has the suffix **-Test**.
 1. After the test is finished, right-click the Azure VM in **Replications** and select **Clean up test migration**.
-
-    ![Screenshot that shows the Clean up migration option.](./media/tutorial-migrate-hyper-v/clean-up.png)
     > [!NOTE]
     > You can now register your servers running SQL Server with SQL VM RP to take advantage of automated patching, automated backup, and simplified license management by using the SQL IaaS Agent Extension.
     >- Select **Manage** > **Replications** > **Machine containing SQL server** > **Compute and Network** and select **yes** to register with SQL VM RP.
@@ -246,11 +238,9 @@ To do a test migration:
 
 After you verify that the test migration works as expected, you can migrate the on-premises machines.
 
-1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicating servers**.
+1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization**, select **Replicated servers** under **Replications**.
 
-    ![Screenshot that shows Replicating servers.](./media/tutorial-migrate-hyper-v/replicate-servers.png)
-
-1. In **Replicating machines**, right-click the VM and select **Migrate**.
+1. In the **Replicating machines** tab, right-click the VM to test and select **Migrate**.
 
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
     - By default, Azure Migrate and Modernize shuts down the on-premises VM and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This action ensures no data loss.
@@ -263,7 +253,7 @@ After you verify that the test migration works as expected, you can migrate the 
 
 1. After the migration is finished, right-click the VM and select **Stop replication**. This action:
     - Stops replication for the on-premises machine.
-    - Removes the machine from the **Replicating servers** count in the Migration and modernization tool.
+    - Removes the machine from the **Replicated servers** count in the Migration and modernization tool.
     - Cleans up replication state information for the VM.
 1. Verify and [troubleshoot any Windows activation issues on the Azure VM](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).
 1. Perform any post-migration app tweaks, such as updating host names, database connection strings, and web server configurations.

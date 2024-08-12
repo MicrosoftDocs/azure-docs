@@ -4,8 +4,6 @@ description: Learn how to control flow of data in Azure Data Factory pipeline by
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 10/20/2023
 ---

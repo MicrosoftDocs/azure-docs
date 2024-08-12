@@ -4,7 +4,7 @@ description: Differences between the Azure Service Fabric on Linux and Azure Ser
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: linux-related-content
 services: service-fabric
 ms.date: 05/13/2024

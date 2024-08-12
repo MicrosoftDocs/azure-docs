@@ -2,7 +2,7 @@
 title: Connection configurations for Azure Cosmos DB Java SDK v4
 description: Learn how to tune connection configurations to improve Azure Cosmos DB database performance for Java SDK v4
 author: kushagraThapar
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.topic: how-to

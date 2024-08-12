@@ -3,7 +3,7 @@ title:       Dalsv6 and Daldsv6-series
 description: Specifications for Dalsv6 and Daldsv6-series VMS
 author:      iamwilliew 
 ms.author:   wwilliams
-ms.service:  virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic:    conceptual
 ms.date:     01/29/2024

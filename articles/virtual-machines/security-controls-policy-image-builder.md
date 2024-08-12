@@ -6,7 +6,7 @@ ms.topic: sample
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.custom: subject-policy-compliancecontrols
 

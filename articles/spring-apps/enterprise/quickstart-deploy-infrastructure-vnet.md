@@ -3,7 +3,7 @@ title: Quickstart - Provision Azure Spring Apps using an Azure Resource Manager 
 description: This quickstart shows you how to use an ARM template to deploy an Azure Spring Apps cluster into an existing virtual network.
 services: azure-resource-manager
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-java, mode-arm, devx-track-arm-template
 ms.author: rhudson

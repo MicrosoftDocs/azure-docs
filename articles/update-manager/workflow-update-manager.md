@@ -77,7 +77,7 @@ AUM performs the following steps:
 
 ## Updates data stored in Azure Resource Graph
 
-Update Manager extension pushes all the pending updates information and update installation results to [Azure Resource Graph](https://learn.microsoft.com/azure/governance/resource-graph/overview) where data is retained for below time periods:
+Update Manager extension pushes all the pending updates information and update installation results to [Azure Resource Graph](/azure/governance/resource-graph/overview) where data is retained for below time periods:
 
 |Data              | Retention period in Azure Resource graph                                       |
 |------------------|---------------------------------------------------|

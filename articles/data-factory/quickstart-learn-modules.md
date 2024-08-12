@@ -2,8 +2,6 @@
 title: A summary of introductory training modules
 description: Get started learning about Azure Data Factory fast with our introductory training modules.
 author: jonburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: quickstart
 ms.date: 05/15/2024
 ms.author: jburchel

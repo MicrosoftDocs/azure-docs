@@ -1,9 +1,7 @@
 ---
 title: Azure Virtual Desktop identities and authentication - Azure
 description: Identities and authentication methods for Azure Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/16/2024
 ms.author: helohr
@@ -121,7 +119,7 @@ To access Microsoft Entra resources with Windows Hello for Business or security 
 
 #### In-session smart card authentication
 
-To use a smart card in your session, make sure you've installed the smart card drivers on the session host and enabled [smart card redirection](configure-device-redirections.md#smart-card-redirection). Review the [client comparison chart](compare-remote-desktop-clients.md?pivots=azure-virtual-desktop#in-session-authentication) to make sure your client supports smart card redirection.
+To use a smart card in your session, make sure you've installed the smart card drivers on the session host and enabled [smart card redirection](redirection-configure-smart-cards.md). Review the comparison charts for [Windows App](/windows-app/compare-platforms-features?pivots=azure-virtual-desktop#device-redirection) and the [Remote Desktop app](compare-remote-desktop-clients.md?pivots=azure-virtual-desktop#device-redirection) to make you can use smart card redirection.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Azure Application Gateway configuration overview
 description: This article describes how to configure the components of Azure Application Gateway
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 09/09/2020
 ms.author: greglin

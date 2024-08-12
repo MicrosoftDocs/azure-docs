@@ -5,7 +5,7 @@ description: In this article, get started using the Azure Monitor CLI to collect
 services: load-balancer
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to 
 ms.date: 06/27/2024
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli

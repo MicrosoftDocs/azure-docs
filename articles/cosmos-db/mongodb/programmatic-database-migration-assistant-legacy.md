@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB
 description: This doc provides an overview of the Database Migration Assistant legacy utility.
 author: sandeep-nair
 ms.author: sandnair
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: conceptual
 ms.date: 04/20/2023

@@ -237,40 +237,6 @@ items:
         href: app/transaction-search-and-diagnostics.md
     - name: Code analysis
       items:
-      - name: Profiler
-        items:
-        - name: Overview
-          displayName: profiling, debugging, code performance, perf
-          href: profiler/profiler-overview.md
-        - name: Enable Profiler
-          items:
-          - name: Azure App Service
-            href: profiler/profiler.md
-          - name: Azure Functions app
-            href: profiler/profiler-azure-functions.md
-          - name: Azure Cloud Service
-            href: profiler/profiler-cloudservice.md
-          - name: Azure Service Fabric app
-            href: profiler/profiler-servicefabric.md
-          - name: Azure Virtual Machines
-            href: profiler/profiler-vm.md
-          - name: ASP.NET Core app hosted in Linux on App Service
-            href: profiler/profiler-aspnetcore-linux.md
-          - name: ASP.NET Core app running in container
-            href: profiler/profiler-containers.md
-        - name: View Profiler data
-          displayName: profiling, debugging, code performance, perf
-          href: profiler/profiler-data.md
-        - name: Configure
-          items:
-          - name: Configure Profiler
-            href: profiler/profiler-settings.md
-          - name: Configure BYOS (Bring Your Own Storage)
-            href: profiler/profiler-bring-your-own-storage.md
-        - name: Track Requests
-          href: profiler/profiler-trackrequests.md
-        - name: Troubleshooting
-          href: profiler/profiler-troubleshooting.md
       - name: Code Optimizations
         displayName: opt insights, optimization insights, code optimization, perflens
         items:
@@ -282,6 +248,40 @@ items:
           href: insights/view-code-optimizations.md
         - name: Troubleshooting
           href: insights/code-optimizations-troubleshoot.md
+        - name: Profiler
+          items:
+          - name: Overview
+            displayName: profiling, debugging, code performance, perf
+            href: profiler/profiler-overview.md
+          - name: Enable Profiler
+            items:
+            - name: Azure App Service
+              href: profiler/profiler.md
+            - name: Azure Functions app
+              href: profiler/profiler-azure-functions.md
+            - name: Azure Cloud Service
+              href: profiler/profiler-cloudservice.md
+            - name: Azure Service Fabric app
+              href: profiler/profiler-servicefabric.md
+            - name: Azure Virtual Machines
+              href: profiler/profiler-vm.md
+            - name: ASP.NET Core app hosted in Linux on App Service
+              href: profiler/profiler-aspnetcore-linux.md
+            - name: ASP.NET Core app running in container
+              href: profiler/profiler-containers.md
+          - name: View Profiler data
+            displayName: profiling, debugging, code performance, perf
+            href: profiler/profiler-data.md
+          - name: Configure
+            items:
+            - name: Configure Profiler
+              href: profiler/profiler-settings.md
+            - name: Configure BYOS (Bring Your Own Storage)
+              href: profiler/profiler-bring-your-own-storage.md
+          - name: Track Requests
+            href: profiler/profiler-trackrequests.md
+          - name: Troubleshooting
+            href: profiler/profiler-troubleshooting.md
       - name: Snapshot Debugger
         items:
         - name: Overview
@@ -418,6 +418,8 @@ items:
     - name: Best practices
       displayName: containers, kubernetes
       href: best-practices-containers.md
+    - name: Analyze and reduce costs
+      href: containers/container-insights-cost.md
     - name: Enable Container Insights and Managed Prometheus
       items:
       - name: Onboard cluster
@@ -429,6 +431,9 @@ items:
       - name: Firewall requirements
         displayName: Container insights, Prometheus
         href: containers/kubernetes-monitoring-firewall.md
+      - name: Private Link
+        displayName: Container insights, Kubernetes
+        href: containers/kubernetes-monitoring-private-link.md
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Legacy authentication
@@ -439,15 +444,11 @@ items:
         href: containers/container-insights-transition-solution.md
     - name: Configure Container Insights (logs)
       items:
-      - name: Configure data collection
-        items:
-        - name: Configure with ConfigMap
-          displayName: Container insights
-          href: containers/container-insights-data-collection-configmap.md
-        - name: Configure with  Data collection rule
-          displayName: Container insights
-          href: containers/container-insights-data-collection-dcr.md
-      - name: Log schema
+      - name: Collect logs
+        href: containers/container-insights-data-collection-configure.md
+      - name: Filter logs
+        href: containers/container-insights-data-collection-filter.md
+      - name: Container log schema
         href: containers/container-insights-logs-schema.md
       - name: Data transformations
         displayName: Container insights
@@ -464,7 +465,7 @@ items:
         - name: Custom configuration
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-configuration.md
-        - name: Configure collection using Service and Pod Monitor Custom Resources (Preview)
+        - name: Configure collection using Service and Pod Monitor Custom Resources
           displayName: Prometheus
           href: containers/prometheus-metrics-scrape-crd.md
         - name: Create and validate custom scrape config
@@ -519,9 +520,6 @@ items:
       - name: Troubleshoot remote-write
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-troubleshooting.md
-    - name: Private link
-      displayName: Private Link, container insights      
-      href: containers/container-insights-private-link.md    
     - name: Monitor
       items:
       - name: Monitor performance
@@ -558,8 +556,6 @@ items:
       - name: Log alert rules
         displayName: Container insights
         href: containers/container-insights-log-alerts.md
-    - name: Manage cost and usage
-      href: containers/container-insights-cost.md
     - name: Disable monitoring
       href: containers/kubernetes-monitoring-disable.md      
     - name: Troubleshooting
@@ -596,21 +592,20 @@ items:
         displayName: data collection rule, dcr, Azure Monitor pipeline
         href: essentials/data-collection-rule-overview.md
       - name: Best practices
-        displayName: data collection, data collection rules
+        displayName: data collection rules, DCR
         href: essentials/data-collection-rule-best-practices.md
-      - name: View DCRs
+      - name: View and associate
+        displayName: data collection rules, DCR
         href: essentials/data-collection-rule-view.md
-      - name: Create and edit DCRs
-        items:
-        - name: Create
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-create-edit.md
-        - name: Edit tutorial
-          displayName: data collection rules
-          href: essentials/data-collection-rule-edit.md
-        - name: Structure
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-structure.md
+      - name: Create and edit
+        displayName: Data collection rules, DCR
+        href: essentials/data-collection-rule-create-edit.md
+      - name: Edit DCR tutorial
+        displayName: data collection rules
+        href: essentials/data-collection-rule-edit.md
+      - name: Structure
+        displayName: Data collection rules, DCR
+        href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
@@ -709,7 +704,7 @@ items:
           - name: SNMP traps
             displayName: data collection rule,Azure Monitor agent
             href: agents/data-collection-snmp-data.md
-          - name: Collect Windows Firewall logs
+          - name: Windows Firewall logs
             displayName: data collection rule,Azure Monitor Agent,firewall logs
             href: agents/data-sources-firewall-logs.md
           - name: Configure a syslog forwarder
@@ -943,8 +938,6 @@ items:
           href: essentials/azure-monitor-workspace-scaling-best-practice.md
         - name: Private endpoints for Azure Monitor workspaces
           href: essentials/azure-monitor-workspace-private-endpoint.md
-        - name: Private link for Prometheus data ingestion
-          href: essentials/private-link-data-ingestion.md
         - name: Private link data query of Prometheus metrics
           displayName: Private link data query
           href: /azure/managed-grafana/how-to-connect-to-data-source-privately

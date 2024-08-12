@@ -9,10 +9,6 @@ ms.date: 07/18/2024
 
 # Configure the clipboard transfer direction and types of data that can be copied in Azure Virtual Desktop
 
-> [!IMPORTANT]
-> Configuring the clipboard transfer direction in Azure Virtual Desktop is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Clipboard redirection in Azure Virtual Desktop allows users to copy and paste content, such as text, images, and files between the user's device and the remote session in either direction. You might want to limit the direction of the clipboard for users, to help prevent data exfiltration or malicious files being copied to a session host. You can configure whether users can use the clipboard from session host to client, or client to session host, and the types of data that can be copied, from the following options:
 
 - Disable clipboard transfers from session host to client, client to session host, or both.
@@ -27,9 +23,7 @@ You apply settings to your session hosts. It doesn't depend on a specific Remote
 
 To configure the clipboard transfer direction, you need:
 
-- Session hosts running Windows 11 Insider Preview Build 25898 or the most recent version of Windows Insider Build (Dev Channel). You must join the [Windows Insider Program](https://support.microsoft.com/en-us/windows/join-the-windows-insider-program-and-manage-insider-settings-ef20bb3d-40f4-20cc-ba3c-a72c844b563c) to activate the Dev Channel Preview Build.
-  
-- Host pool RDP properties must allow [clipboard redirection](configure-device-redirections.md#clipboard-redirection), otherwise it will be completely blocked.
+- Host pool RDP properties must allow [clipboard redirection](redirection-configure-clipboard.md), otherwise it will be completely blocked.
 
 - Depending on the method you use to configure the clipboard transfer direction:
 
@@ -92,7 +86,7 @@ To configure the clipboard using Intune, follow these steps. This process create
     - **Restrict clipboard transfer from client to server**: Select **Enabled**.
     - **Restrict clipboard transfer from client to server**: Select the type of clipboard data you want to prevent or allow. Your options:
 
-      - Disable clipboard transfers from server to client
+      - Disable clipboard transfers from client to server
       - Allow plain text
       - Allow plain text and images
       - Allow plain text, images, and Rich Text Format

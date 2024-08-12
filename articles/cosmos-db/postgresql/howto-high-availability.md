@@ -3,7 +3,7 @@ title: Configure high availability - Azure Cosmos DB for PostgreSQL
 description: How to enable or disable high availability
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 11/28/2023

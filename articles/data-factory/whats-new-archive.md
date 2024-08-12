@@ -3,8 +3,6 @@ title: What's new archive
 description: This page archives older months' highlights of new features and recent improvements for Azure Data Factory. Data Factory is a managed cloud service that's built for complex hybrid extract-transform-and-load (ETL), extract-load-and-transform (ELT), and data integration projects.
 author: pennyzhou-msft
 ms.author: xupzhou
-ms.service: data-factory
-ms.subservice: concepts
 ms.topic: overview
 ms.custom: references_regions
 ms.date: 08/11/2023
@@ -119,10 +117,6 @@ Azure Data Lake Storage Gen2 connector now supports shared access signature auth
 - Anonymous authentication type supported for Azure Blob storage [Learn more](connector-azure-blob-storage.md?tabs=data-factory#anonymous-authentication)
 - Updated SAP template to easily move SAP data to ADLSGen2 in Delta format [Learn more](industry-sap-templates.md)
 
-### Monitoring
-
-Container monitoring view available in default ADF studio [Learn more](how-to-manage-studio-preview-exp.md#container-view)
-
 ### Orchestration
 
 - Set pipeline output value (Public preview) [Learn more](tutorial-pipeline-return-value.md)
@@ -189,10 +183,10 @@ Continued region expansion - Azure Data Factory is now available in China North 
 - Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
 
 ### User Interface
-3 Pipeline designer enhancements added to ADF Studio preview experience
+2 Pipeline designer enhancements added to ADF Studio preview experience
 - Dynamic content flyout - make it easier to set dynamic content in your pipeline activities without using the expression builder  [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#dynamic-content-flyout)
 - Error message relocation to status column - make it easier for you to view errors when you see a Failed pipeline run [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#error-message-relocation-to-status-column)
-- Container view - in Author Tab, Pipeline can change output view from list to container [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#container-view)
+
 
 ### Continuous integration and continuous deployment
 

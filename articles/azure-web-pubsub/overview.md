@@ -10,9 +10,7 @@ ms.date: 07/26/2024
 
 # What is Azure Web PubSub service?
 
-Azure Web PubSub Service makes it easy to build web applications where server and clients need to exchange data in real-time. Real-time data exchange is the bedrock of certain time-sensitive apps developers build and maintain. Developers have used the service in a variety of applications and industries, for exmaple, in chat apps, real-time dashboards, multi-player games, online auctions, multi-user collaborative apps, location tracking, notifications, and more. 
-
-With the recent surge in interest in AI, Web PubSub has become an invaluable tool to developers building AI-enabled applications for token streaming. The service is battle-tested to scale to tens of millions of concurrent connections and offers ultra-low latency. 
+Azure Web PubSub Service makes it easy to build web applications where server and clients need to exchange data in real-time. Real-time data exchange is the bedrock of certain time-sensitive apps developers build and maintain. Developers have used the service in a variety of applications and industries, for example, in chat apps, real-time dashboards, multi-player games, online auctions, multi-user collaborative apps, location tracking, notifications, and more. 
 
 When an app's usage is small, developers typically opt for a polling mechanism to provide real-time communication between server and clients - clients send repeated HTTP requests to server over a time interval. However, developers often report that while polling mechanism is straightforward to implement, it suffers three important drawbacks. 
 - Outdated data. 
@@ -23,6 +21,10 @@ These drawbacks are the primary motivations that drive developers to look for al
 
 ## What is Azure Web PubSub service used for?
 
+### Streaming token in AI-assisted chatbot
+With the recent surge in interest in AI, Web PubSub has become an invaluable tool to developers building AI-enabled applications for token streaming. The service is battle-tested to scale to tens of millions of concurrent connections and offers ultra-low latency. 
+
+### Delivering real-time updates
 Any app scenario where updates at the data resource need to be delivered to other components across network can benefit from using Azure Web PubSub. As the name suggests, the service facilities the communication between a publisher and subscribers. A publisher is a component that publishes data updates. A subscriber is a component that subscribes to data updates. 
 
 Azure Web PubSub service is used in a multitude of industries and app scenarios where data is time-sensitive. Here's a partial list of some common use cases. 
@@ -31,7 +33,7 @@ Azure Web PubSub service is used in a multitude of industries and app scenarios 
 |----------------------|----------------------|
 |High frequency data updates | Multi-player games, social media voting, opinion polling, online auctioning |
 |Live dashboards and monitoring | Company dashboard, financial market data, instant sales update, game leaderboard, IoT monitoring |
-|Cross-platform chat| Live chat room, AI-assisted chatbot, online customer support, real-time shopping assistant, messenger, in-game chat |
+|Cross-platform chat| Live chat room, online customer support, real-time shopping assistant, messenger, in-game chat |
 |Location tracking | Vehicle asset tracking, delivery status tracking, transportation status updates, ride-hailing apps |  
 |Multi-user collaborative apps | coauthoring, collaborative whiteboard and team meeting apps |
 |Cross-platform push notifications | Social media, email, game status, travel alert | 

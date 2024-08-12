@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: In this tutorial, learn how to configure port forwarding using Azure Load Balancer to create a connection to multiple virtual machines in an Azure virtual network.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 09/27/2023
 ms.custom: template-tutorial

@@ -16,11 +16,11 @@ items:
   - name: Create an Azure AI services resource
     href: multi-service-resource.md
     displayName: applied, cognitive, form
-  - name: Create a new resource using Bicep
+  - name: Create an Azure AI services resource using Bicep
     href: create-account-bicep.md
-  - name: Create a new resource using an ARM template
+  - name: Create an Azure AI services resource using an ARM template
     href: create-account-resource-manager-template.md  
-  - name: Create a new resource using Terraform
+  - name: Create an Azure AI services resource using Terraform
     href: create-account-terraform.md
 - name: Concepts
   items:
@@ -67,7 +67,7 @@ items:
       - name: Azure Container Registry
         href: ../container-registry/container-registry-get-started-azure-cli.md
       - name: Azure Kubernetes Service (AKS)
-        href: ../aks/tutorial-kubernetes-prepare-app.md
+        href: /azure/aks/tutorial-kubernetes-prepare-app
   - name: Security
     items:
     - name: Security features

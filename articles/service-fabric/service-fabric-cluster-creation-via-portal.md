@@ -4,7 +4,7 @@ description: Learn how to set up a secure Service Fabric cluster in Azure using 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -121,7 +121,7 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
 ### 3. Security
 ![Screenshot of security configurations on Azure portal.][BasicSecurityConfigs]
 
-To make setting up a secure test cluster easy for you, we have provided the **Basic** option. If you already have a certificate and have uploaded it to your [key vault](../key-vault/index.yml) (and enabled the key vault for deployment), then use the **Custom** option
+To make setting up a secure test cluster easy for you, we have provided the **Basic** option. If you already have a certificate and have uploaded it to your [key vault](/azure/key-vault/) (and enabled the key vault for deployment), then use the **Custom** option
 
 #### Basic Option
 Follow the screens to add or reuse an existing key vault and add a certificate. The addition of the certificate is a synchronous process and so you will have to wait for the certificate to be created.
@@ -203,7 +203,7 @@ At this point, you have a secure cluster using certificates for management authe
 
 <!-- Links -->
 [azure-powershell]: /powershell/azure/
-[key-vault-get-started]: ../key-vault/general/overview.md
+[key-vault-get-started]: /azure/key-vault/general/overview
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
