@@ -18,9 +18,7 @@ The autoinstrumentation process varies by language and platform, but often invol
 :::image type="content"source="./media/azure-web-apps/enable.png" alt-text=" Screenshot that shows the Application Insights tab with Enable selected.":::
 
 > [!TIP]
-> The autoinstrumentation process varies by language and platform, so we do not cover it in depth in this article. Select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information.
-
-If your language and platform are supported, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information. In many cases, autoinstrumentation is enabled by default.
+> The autoinstrumentation process varies by language and platform, so we do not cover it in depth in this article. If your language and platform are supported, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for detailed information. In many cases, autoinstrumentation is enabled by default.
 
 ## What are the autoinstrumentation advantages?
 
