@@ -3,7 +3,7 @@ title: Set up Automated ML for tabular data in the studio
 titleSuffix: Azure Machine Learning
 description: Learn how to set up Automated ML training jobs for tabular data without a single line of code by using Automated ML in Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 author: ssalgadodev
 ms.author: ssalgado
