@@ -79,6 +79,8 @@ An [Azure Key Vault](/azure/key-vault/general/manage-with-cli2) instance is requ
     | Resource | Select your vault. |
     | Role | Select *Key Vault Secrets User**. |
 
+1. Select the System-assigned Managed-Identity of the ACA Environment.
+
 1. Select **Save**.
 
 For more detail on RBAC vs. legacy access policies, see [Azure role-based access control (Azure RBAC) vs. access policies](/azure/key-vault/general/rbac-access-policy).
@@ -92,7 +94,7 @@ Before you run the following command, replace the placeholder tokens surrounded 
 ```azurecli
 az containerapp env certificate upload \
   --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME> \
+  --name <CONTAINER_APP_ENV_NAME> \
   --akv-url <KEY_VAULT_URL> \
   --certificate-identity <CERTIFICATE_IDENTITY>
 ```
@@ -102,7 +104,7 @@ For more information regarding the command parameters, see the following table.
 | Parameter | Description |
 |---|---|
 | `--resource-group` | Your resource group name. |
-| `--name` | Your container app name. |
+| `--name` | Your container app environment name. |
 | `--akv-url` | The URL for your secret identifier. This URL is the value you set aside in a previous step. |
 | `--certificate-identity` | The ID for your managed identity. This value can either be `system`, or the ID for your user-assigned managed identity. |
 
