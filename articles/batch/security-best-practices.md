@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 06/27/2024
+ms.date: 08/08/2024
 ms.topic: conceptual
 ---
 
@@ -31,6 +31,10 @@ with the Batch service. Due to the reduced scope of inbound/outbound connections
 outbound access for baseline operation, the recommendation is to use the simplified node communication model. The classic
 node communication model will be
 [retired on March 31, 2026](batch-pools-to-simplified-compute-node-communication-model-migration-guide.md).
+
+Pools should also be configured with enhanced security settings, including
+[Trusted Launch](../virtual-machines/trusted-launch.md) (requires Gen2 VM images and a compatible VM size),
+enabling secure boot, vTPM, and encryption at host (requires a compatible VM size).
 
 ### Batch account authentication
 
@@ -175,7 +179,7 @@ Clients communicating with the Batch service should be configured to use Transpo
 
 Some of the information specified in Batch APIs, such as account certificates, job and task metadata, and task command lines, is automatically encrypted when stored by the Batch service. By default, this data is encrypted using Azure Batch platform-managed keys unique to each Batch account.
 
-You can also encrypt this data using [customer-managed keys](batch-customer-managed-key.md). [Azure Key Vault](../key-vault/general/overview.md) is used to generate and store the key, with the key identifier registered with your Batch account.
+You can also encrypt this data using [customer-managed keys](batch-customer-managed-key.md). [Azure Key Vault](/azure/key-vault/general/overview) is used to generate and store the key, with the key identifier registered with your Batch account.
 
 ### Encrypt compute node disks
 

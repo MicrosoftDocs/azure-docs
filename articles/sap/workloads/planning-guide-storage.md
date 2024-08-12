@@ -19,7 +19,7 @@ Remark about the units used throughout this article. The public cloud vendors mo
 
 ## Microsoft Azure Storage resiliency
 
-Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Premium SSD v2, and Ultra disk keeps the base VHD (with OS) and VM attached data disks or VHDs (Virtual Hard Disk) in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica if there's a storage node failure, is transparent. As a result of this redundancy, it's **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs (Serive Level Agreements) as other native Azure storage.
+Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Premium SSD v2, and Ultra disk keeps the base VHD (with OS) and VM attached data disks or VHDs (Virtual Hard Disk) in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica if there's a storage node failure, is transparent. As a result of this redundancy, it's **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs (Service Level Agreements) as other native Azure storage.
 
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that applies to some of the different storage types Azure has to offer. 
 
@@ -129,7 +129,7 @@ The capability matrix for SAP workload looks like:
 | Backup storage | Suitable | For short term storage of backups |
 | Shares/shared disk | Not available | Needs Azure Premium Files or third party |
 | Resiliency | LRS | No GRS or ZRS available for disks |
-| Latency | Low-to medium | - |
+| Latency | Low to medium | - |
 | IOPS SLA | Yes | - |
 | IOPS linear to capacity | semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](../../virtual-machines/sizes.md) |
@@ -269,7 +269,7 @@ For information about service levels, see [Service levels for Azure NetApp Files
 For optimal results, use [Application volume group for SAP HANA](../../azure-netapp-files/application-volume-group-introduction.md) to deploy the volumes. Application volume group places volumes in optimal locations in the Azure infrastructure using affinity and anti-affinity rules to reduce contention and to allow for the best throughput and lowest latency.
 
 > [!NOTE]
-> Capacity pools are a basic provisioning unit for Azure NetApp Files. Capacity pools are offered beginning at 1 TiB in size; you can expand a capacity pool in 1-TiB increments. Capacity pools are the parent unit for volumes; the smallest volume size is 100 GiB. For pricing, see [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/)
+> Capacity pools are a basic provisioning unit for Azure NetApp Files. Capacity pools are offered beginning at 1 TiB in size; you can expand a capacity pool in 1-TiB increments. Capacity pools are the parent unit for volumes. For sizing information, see  [Azure NetApp Files resource limits](../../azure-netapp-files/azure-netapp-files-resource-limits.md). For pricing, see [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
 Azure NetApp Files is supported for several SAP workload scenarios:
 

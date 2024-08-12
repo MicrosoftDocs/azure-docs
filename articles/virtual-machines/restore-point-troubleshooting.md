@@ -3,7 +3,7 @@ title: Troubleshoot restore point failures
 description: Symptoms, causes, and resolutions of restore point failures related to agent, extension, and disks.
 ms.topic: troubleshooting
 ms.date: 04/12/2023
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom:
 ---
 
