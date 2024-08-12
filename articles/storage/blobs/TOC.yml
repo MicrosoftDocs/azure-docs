@@ -1346,126 +1346,38 @@ items:
       href: data-lake-storage-introduction.md
     - name: Blob Storage feature support
       href: storage-feature-support-in-storage-accounts.md
-  - name: Tutorials
+  - name: Architecture
     items:
-    - name: Use with Synapse SQL
-      href: data-lake-storage-use-sql.md
-    - name: Use with Databricks and Spark
-      href: data-lake-storage-use-databricks-spark.md
-    - name: Use with Apache Hive and HDInsight
-      href: data-lake-storage-tutorial-extract-transform-load-hive.md
-    - name: Use with Databricks Delta and Event Grid
-      href: data-lake-storage-events.md
-    - name: Use with other Azure services
-      href: data-lake-storage-integrate-with-services-tutorials.md
-  - name: Concepts
+    - name: Azure Blob File System driver for Hadoop
+      href: data-lake-storage-abfs-driver.md
+    - name: Azure Blob File System URI
+      href: data-lake-storage-introduction-abfs-uri.md
+    - name: About hierarchical namespaces
+      href: data-lake-storage-namespace.md
+  - name: Compatibility
     items:
-    - name: Authorization
-      items:
-      - name: Authorize data operations
-        href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        items:
-        - name: Authorize with Microsoft Entra ID
-          items:
-          - name: Authorize with Microsoft Entra ID and Azure RBAC
-            href: authorize-access-azure-active-directory.md
-          - name: Configure role assignment conditions with Azure ABAC
-            href: storage-auth-abac.md
-            items:
-            - name: Actions and attributes for conditions
-              href: storage-auth-abac-attributes.md
-            - name: Security for conditions
-              href: storage-auth-abac-security.md
-            - name: Example conditions
-              href: storage-auth-abac-examples.md
-    - name: Best practices
-      href: data-lake-storage-best-practices.md
-    - name: Query acceleration
-      href: data-lake-storage-query-acceleration.md
-    - name: Premium tier for Data Lake Storage
-      href: premium-tier-for-data-lake-storage.md
-    - name: Architecture
-      items:
-      - name: Azure Blob File System driver for Hadoop
-        href: data-lake-storage-abfs-driver.md
-      - name: Azure Blob File System URI
-        href: data-lake-storage-introduction-abfs-uri.md
-      - name: About hierarchical namespaces
-        href: data-lake-storage-namespace.md
-    - name: Security
-      items:
-      - name: Access control model
-        href: data-lake-storage-access-control-model.md
-      - name: Access control lists
-        href: data-lake-storage-access-control.md
-    - name: Compatibility
-      items:
-      - name: Multi-protocol access
-        href: data-lake-storage-multi-protocol-access.md
-      - name: Supported Blob storage features
-        href: storage-feature-support-in-storage-accounts.md
-      - name: Supported Azure services
-        href: data-lake-storage-supported-azure-services.md
-      - name: Supported open source platforms
-        href: data-lake-storage-supported-open-source-platforms.md
-    - name: Monitoring
-      items:
-      - name: Monitor Blob storage
-        href: ./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json
-      - name: Transition from classic metrics
-        href: ../common/storage-metrics-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Monitoring (classic)
-        items:
-        - name: Storage Analytics
-          href: ../common/storage-analytics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Logs
-          href: ../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Monitor, diagnose, and troubleshoot
-          href: /troubleshoot/azure/azure-storage/storage-monitoring-diagnosing-troubleshooting?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-  - name: How to
+    - name: Multi-protocol access
+      href: data-lake-storage-multi-protocol-access.md
+    - name: Supported Blob storage features
+      href: storage-feature-support-in-storage-accounts.md
+    - name: Supported Azure services
+      href: data-lake-storage-supported-azure-services.md
+    - name: Supported open source platforms
+      href: data-lake-storage-supported-open-source-platforms.md
+  - name: Getting started
     items:
     - name: Create a storage account
       href: create-data-lake-storage-account.md
-    - name: Migrate accounts and data stores
-      items:
-      - name: Migrate HDFS stores
-        items:
-        - name: Migrate an HDFS store offline
-          href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
-        - name: Migrate an HDFS store online
-          href: migrate-gen2-wandisco-live-data-platform.md
-    - name: Transfer data
-      items:
-      - name: AzCopy
-        items:
-        - name: Get started
-          href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Authorize with Microsoft Entra ID
-          href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Optimize performance
-          href: ../common/storage-use-azcopy-optimize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Use logs to find errors and resume jobs
-          href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Upload'
-          href: ../common/storage-use-azcopy-blobs-upload.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Download'
-          href: ../common/storage-use-azcopy-blobs-download.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Copy between accounts'
-          href: ../common/storage-use-azcopy-blobs-copy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Synchronize'
-          href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Properties and metadata'
-          href: ../common/storage-use-azcopy-blobs-properties-metadata.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Amazon S3 buckets'
-          href: ../common/storage-use-azcopy-s3.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Google Cloud Storage buckets'
-          href: ../common/storage-use-azcopy-google-cloud.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Azure Data Factory
-        href: ../../data-factory/connector-azure-data-lake-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Transfer data with the DistCp tool
-        href: data-lake-storage-use-distcp.md
-      - name: Transfer data with the Data Movement library
-        href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Premium tier for Data Lake Storage
+      href: premium-tier-for-data-lake-storage.md
+    - name: Best practices
+      href: data-lake-storage-best-practices.md
+  - name: Security
+    items:
+    - name: Access control model
+      href: data-lake-storage-access-control-model.md
+    - name: Access control lists
+      href: data-lake-storage-access-control.md
     - name: Manage access control
       items:
       - name: Azure portal
@@ -1484,7 +1396,54 @@ items:
         href: data-lake-storage-acl-python.md
       - name: JavaScript
         href: data-lake-storage-acl-javascript.md
-    - name: Work with data
+  - name: Data transfer and migration
+    items:
+    - name: Compare data transfer solutions
+      href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      items:
+      - name: Large dataset, low network bandwidth
+        href: ../common/storage-solution-large-dataset-low-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Large dataset, moderate to high network bandwidth
+        href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Small dataset, low to moderate network bandwidth
+        href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Periodic data transfer
+        href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: AzCopy
+      items:
+      - name: Get started
+        href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Authorize with Microsoft Entra ID
+        href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Optimize performance
+        href: ../common/storage-use-azcopy-optimize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Use logs to find errors and resume jobs
+        href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 'Examples: Upload'
+        href: ../common/storage-use-azcopy-blobs-upload.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 'Examples: Download'
+        href: ../common/storage-use-azcopy-blobs-download.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 'Examples: Copy between accounts'
+        href: ../common/storage-use-azcopy-blobs-copy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 'Examples: Synchronize'
+        href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 'Examples: Properties and metadata'
+        href: ../common/storage-use-azcopy-blobs-properties-metadata.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 'Examples: Amazon S3 buckets'
+        href: ../common/storage-use-azcopy-s3.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 'Examples: Google Cloud Storage buckets'
+        href: ../common/storage-use-azcopy-google-cloud.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Azure Data Factory
+      href: ../../data-factory/connector-azure-data-lake-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Transfer data with the DistCp tool
+      href: data-lake-storage-use-distcp.md
+    - name: Migrate HDFS stores
+      items:
+      - name: Migrate an HDFS store offline
+        href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+      - name: Migrate an HDFS store online
+        href: migrate-gen2-wandisco-live-data-platform.md
+    - name: File and directory operations
       items:
       - name: Storage Explorer
         href: data-lake-storage-explorer.md
@@ -1500,10 +1459,26 @@ items:
         href: data-lake-storage-directory-file-acl-python.md
       - name: JavaScript
         href: data-lake-storage-directory-file-acl-javascript.md
-      - name: Query acceleration
-        href: data-lake-storage-query-acceleration-how-to.md
       - name: Hadoop File System CLI
         href: data-lake-storage-use-hdfs-data-lake-storage.md
+  - name: Query acceleration
+    items:
+    - name: About query acceleration
+      href: data-lake-storage-query-acceleration.md
+    - name: Use queries to retrieve data
+      href: data-lake-storage-query-acceleration-how-to.md
+  - name: Azure service integration
+    items:
+    - name: Use with Synapse SQL
+      href: data-lake-storage-use-sql.md
+    - name: Use with Databricks and Spark
+      href: data-lake-storage-use-databricks-spark.md
+    - name: Use with Apache Hive and HDInsight
+      href: data-lake-storage-tutorial-extract-transform-load-hive.md
+    - name: Use with Databricks Delta and Event Grid
+      href: data-lake-storage-events.md
+    - name: Use with other Azure services
+      href: data-lake-storage-integrate-with-services-tutorials.md    
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
   - name: Reference
