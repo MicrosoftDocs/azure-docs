@@ -50,13 +50,13 @@ The following service limits are applicable during preview:
 - Each document processed by a job can't exceed 2 MB.
 
 ## Pricing
-As with other Azure Health Data Services, you pay only for what you use. You're given a monthly allotment that enables you to try the product for free.
+As with other Azure Health Data Services, you pay only for what you use. You have a monthly allotment that enables you to try the product for free.
 
 | Transformation Operation (per MB) | Up to 50 MB | Over 50 MB |
 | ---------------- | ------ | ---- |
 | Unstructured text de-identification | $0 | $0.05 |
 
-When you choose to store documents in Azure Blob Storage, you'll be charged based on Azure Storage pricing.
+When you choose to store documents in Azure Blob Storage, you are charged based on Azure Storage pricing.
 
 ## Responsible use of AI
 
