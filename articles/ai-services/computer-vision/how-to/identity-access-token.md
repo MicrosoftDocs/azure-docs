@@ -125,10 +125,10 @@ public class LimitedAccessTokenPolicy : HttpPipelineSynchronousPolicy
     /// <param name="limitedAccessToken">LimitedAccessToken to bypass the limited access program, requires ISV sponsership.</param>
     public LimitedAccessTokenPolicy(string limitedAccessToken)
     {
-        this.LimitedAccessToken = limitedAccessToken;
+        _limitedAccessToken = limitedAccessToken;
     }
 
-    private readonly string LimitedAccessToken;
+    private readonly string _limitedAccessToken;
 
     /// <summary>
     /// Add the authentication header to each outgoing request
@@ -136,7 +136,7 @@ public class LimitedAccessTokenPolicy : HttpPipelineSynchronousPolicy
     /// <param name="message">The outgoing message</param>
     public override void OnSendingRequest(HttpMessage message)
     {
-        message.Request.Headers.Add("LimitedAccessToken", $"Bearer {LimitedAccessToken}");
+        message.Request.Headers.Add("LimitedAccessToken", $"Bearer {_limitedAccessToken}");
     }
 }
 ```
@@ -154,7 +154,7 @@ static void Main(string[] args)
     // use Face client in an API call
     using (var stream = File.OpenRead("photo.jpg"))
     {
-        var response = faceClient.DetectAsync(BinaryData.FromStream(stream), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: true).Result;
+        var response = faceClient.Detect(BinaryData.FromStream(stream), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: true);
 
         Console.WriteLine(JsonConvert.SerializeObject(response.Value));
     }
