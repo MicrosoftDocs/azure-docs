@@ -51,9 +51,11 @@ The following service limits are applicable during preview:
 
 ## Pricing
 As with other Azure Health Data Services, you pay only for what you use. You are granted a monthly allotment that enables you to try the product for free.
+
 | Transformation Operation (per MB) | Up to 50 MB | Over 50 MB |
 | ---------------- | ------ | ---- |
 | Unstructured de-identification | $0 | $0.05 |
+
 When using the de-identification service's asynchronous endpoint, data in Azure Blob Storage will incur storage charges.
 
 ## Responsible use of AI
