@@ -3,7 +3,7 @@ title: Deploy a Premium SSD v2 managed disk
 description: Learn how to deploy a Premium SSD v2 and about its regional availability.
 author: roygara
 ms.author: rogarana
-ms.date: 08/09/2024
+ms.date: 08/12/2024
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -225,7 +225,9 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 # [Azure portal](#tab/portal)
 
-Currently, adjusting disk performance is only supported with the Azure CLI or Azure PowerShell module.
+1. Navigate to the disk you'd like to modify in the [Azure portal](https://portal.azure.com/).
+1. Select **Size + Performance**
+1. Change either the Disk IOPS or Disk throughput (MB/s) as you like, then select **Save**.
 
 ---
 
