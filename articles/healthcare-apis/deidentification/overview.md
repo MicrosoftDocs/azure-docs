@@ -38,7 +38,7 @@ The de-identification service (preview) offers many benefits, including:
 The de-identification service (preview) offers two ways to interact with the REST API or Client library (Azure SDK).
 
 - Directly submit raw unstructured text for analysis. The API output is returned in your application.
-- Submit a job to asynchronously endpoint process files in bulk from Azure blob storage using tag, redact, or surrogation with consistency within a job.
+- Submit a job to asynchronously endpoint process files in bulk from Azure Blob Storage using tag, redact, or surrogation with consistency within a job.
 
 ## Input requirements and service limits
 
@@ -48,6 +48,13 @@ The following service limits are applicable during preview:
 - Requests can't exceed 50 KB.
 - Jobs can process no more than 1,000 documents.
 - Each document processed by a job can't exceed 2 MB.
+
+## Pricing
+As with other Azure Health Data Services, you pay only for what you use. You are granted a monthly allotment that enables you to try the product for free.
+| Transformation Operation (per MB) | Up to 50 MB | Over 50 MB |
+| ---------------- | ------ | ---- |
+| Unstructured de-identification | $0 | $0.05 |
+When using the de-identification service's asynchronous endpoint, data in Azure Blob Storage will incur storage charges.
 
 ## Responsible use of AI
 
