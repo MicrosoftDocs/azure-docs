@@ -1,7 +1,7 @@
 ---
 title:  Manage access to Microsoft Copilot in Azure
 description: Learn how administrators can manage user access to Microsoft Copilot in Azure.
-ms.date: 08/09/2024
+ms.date: 08/12/2024
 ms.topic: how-to
 ms.service: copilot-for-azure
 ms.custom:
@@ -15,12 +15,12 @@ author: JnHs
 > [!NOTE]
 > We're currently in the process of rolling out Microsoft Copilot in Azure (preview) to all Azure tenants. We'll remove this note once the functionality is available to all users.
 
-Depending on your tenant, Copilot in Azure may be available to all users by default, or it may be unable to all users by default. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can manage access to Copilot in Azure for their organization.
+By default, Copilot in Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can manage access to Copilot in Azure for their organization. If access to Copilot in Azure is disabled for a tenant, access can optionally be granted to specific Microsoft Entra users or groups.
 
-If you disable access to Copilot in Azure for your tenant, you can optionally grant access to specific Microsoft Entra users or groups.
+Users in a tenant will still see the **Copilot** button in the Azure portal, even if Copilot in Azure is not available for them to use.
 
 > [!NOTE]
-> Users in a tenant will still see the **Copilot** button in the Azure portal, even if Copilot in Azure is not available for them to use.
+> In some cases, you may not have access to Copilot in Azure by default. For more information, reach out to your account team or your administrator. 
 
 As always, Microsoft Copilot in Azure only has access to resources that the user has access to. It can only take actions that the user has permission to perform, and requires confirmation before making changes. Copilot in Azure complies with all existing access management rules and protections such as Azure role-based access control (Azure RBAC), Privileged Identity Management, Azure Policy, and resource locks.
 
