@@ -117,7 +117,7 @@ See [Create a private Azure Kubernetes Service (AKS) cluster](/azure/aks/private
 If Container insights is already enabled for your cluster, then you need to disable it and then re-enable it with high scale mode.
 
 - Since high scale mode uses a different data pipeline, you must ensure that pipeline endpoints are not blocked by a firewall or other network connections.
-- High scale mode requires a data collection endpoint (DCE) for ingestion in addition to the standard DCR for data collection. If you've created any DCRs that use `Microsoft.ContainerLogV2`, you must replace this with `Microsoft.ContainerLogV2-HighScale` or data will be duplicated. You should also create a DCE ingestion and link it to the DCR if the DCR isn't already using one. Refer to Container Insights onboarding through Azure Resource Manager for reference for the dependencies. 
+- High scale mode requires a data collection endpoint (DCE) for ingestion in addition to the standard DCR for data collection. If you've created any DCRs that use `Microsoft.ContainerLogV2`, you must replace this with `Microsoft.ContainerLogV2-HighScale` or data will be duplicated. You should also create a DCE for ingestion and link it to the DCR if the DCR isn't already using one. Refer to Container Insights onboarding through Azure Resource Manager for reference for the dependencies. 
 
 
 ## Next steps
