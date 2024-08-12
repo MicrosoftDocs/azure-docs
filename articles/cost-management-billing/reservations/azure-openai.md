@@ -46,7 +46,7 @@ For example, assume that your total consumption of provisioned throughput units 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations** and then select **Azure OpenAI**  
-    :::image type="content" source="./media/azure-open-ai/purchase-open-ai.png" border="true" alt-text="Screenshot showing the Purchase reservations page." lightbox="./media/azure-open-ai/purchase-open-ai.png" :::
+    :::image type="content" source="./media/azure-openai/purchase-openai.png" border="true" alt-text="Screenshot showing the Purchase reservations page." lightbox="./media/azure-openai/purchase-openai.png" :::
 3. Select a subscription. Use the Subscription list to choose the subscription that gets used to pay for the reservation. The payment method of the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or pay-as-you-go (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
     - For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
     - For a pay-as-you-go subscription, the charges are billed to the credit card or invoice payment method on the subscription.
@@ -59,7 +59,7 @@ For example, assume that your total consumption of provisioned throughput units 
         - For pay-as-you-go customers, the shared scope is all pay-as-you-go subscriptions created by the account administrator.
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
 5. Select a region to choose an Azure region that gets covered by the reservation and select **Add to cart**.  
-    :::image type="content" source="./media/azure-open-ai/select-provisioned-throughput.png" border="true" alt-text="Screenshot showing the Select product to purchase page." lightbox="./media/azure-open-ai/select-provisioned-throughput.png" :::
+    :::image type="content" source="./media/azure-openai/select-provisioned-throughput.png" border="true" alt-text="Screenshot showing the Select product to purchase page." lightbox="./media/azure-openai/select-provisioned-throughput.png" :::
 6. In the cart, choose the quantity of provisioned throughout units that you want to purchase. For example, a quantity of 64 would cover up to 64 deployed provisioned throughout units every hour.
 7. Select **Next: Review + Buy** and review your purchase choices and their prices.
 8. Select **Buy now**.
