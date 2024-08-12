@@ -24,6 +24,29 @@ Since the video stream resolution of a participant is increased when spotlighted
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 
+## Support
+The following tables define support of spotlight in Azure Communication Services.
+
+### Identities & call types
+The following tables show support of call and identity types. 
+
+|Identities                                         | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
+|--------------------------------------|---------------|------|----------|------------|------------------------|--------------------------|
+|Communication Services user	| ✔️	          |   ✔️   |          |        ✔️    |	                      |	    ✔️                     |
+|Microsoft 365 user	                        | ✔️	          |    ✔️  |          |        ✔️    |                        |        ✔️                  |
+
+### Operations
+The following tables show support of individual APIs in calling SDK to individual identity types. 
+
+|Operations                   | Communication Services user | Microsoft 365 user |
+|-----------------------------|------------------------------|-------------------|
+| startSpotlight | ✔️ [1] | ✔️ [1] |
+| stopSpotlight | ✔️ | ✔️ |
+| stopAllSpotlight |  ✔️ [1] | ✔️ [1] | 
+| getSpotlightedParticipants |  ✔️ | ✔️ | 
+
+[1] In Teams meeting scenarios, these APIs are only available for users with role organizer, co-organizer, or presenter.
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
 ::: zone-end
