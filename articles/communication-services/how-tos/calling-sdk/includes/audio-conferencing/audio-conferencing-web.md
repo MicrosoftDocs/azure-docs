@@ -9,7 +9,6 @@ ms.date: 09/28/2023
 **For meeting scenario the following API can be called by Microsoft 365 or Communication Services users with the following role**
 
 |APIs| Organizer | Co-Organizer | Presenter | Attendee |
-|----------------------------------------------|--------|--------|--------|--------|
 | getTeamsMeetingAudioConferencingDetails | ✔️ | ✔️  | ✔️ | ✔️ |
 
 TeamsMeetingAudioConferencing is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
