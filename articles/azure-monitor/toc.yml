@@ -335,8 +335,6 @@ items:
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
       - name: Application Insights product feedback
         href: https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0
-      - name: Troubleshooting articles
-        href: /troubleshoot/azure/azure-monitor/welcome-azure-monitor
   - name: Monitor virtual machines
     items:
     - name: Best practices
