@@ -36,7 +36,7 @@ The first step is to write an application that uses a Dapr SDK to publish/subscr
 
 After you finish writing the Dapr application, build the container:
 
-1. To package the application into a container, run the following command:
+1. Package the application into a container with the following command:
 
     ```bash
     docker build . -t my-dapr-app
@@ -50,9 +50,9 @@ After you finish writing the Dapr application, build the container:
 
 ## Deploy a Dapr application
 
-The following [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) definition contains volumes for SAT authentication and TLS certificate chain, as well as utilizing Dapr sidecar injection to automatically add the pluggable components to the Pod.
+The following [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) definition contains volumes for SAT authentication and TLS certificate chain, and utilizes Dapr sidecar injection to automatically add the pluggable components to the Pod.
 
-The following definition components will typically require customization to your specific application:
+The following definition components might require customization to your specific application:
 
 > | Component | Description |
 > |-|-|
@@ -126,7 +126,7 @@ The following definition components will typically require customization to your
     kubectl get pods -w
     ```
 
-    The pod should report 3 containers running after a short interval, as shown in the following example output:
+    The pod should report three containers running after a short interval, as shown in the following example output:
 
     ```output
     NAME                          READY   STATUS              RESTARTS   AGE
@@ -136,7 +136,7 @@ The following definition components will typically require customization to your
 
 ## Troubleshooting
 
-If the application doesn't start or you see the containers in `CrashLoopBackoff`, the logs for the `daprd` container often contains useful information.
+If the application doesn't start or you see the containers in `CrashLoopBackoff` state, the log for the `daprd` container often contains useful information.
 
 Run the following command to view the logs for the daprd component:
 

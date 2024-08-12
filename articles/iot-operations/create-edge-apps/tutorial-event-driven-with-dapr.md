@@ -19,10 +19,10 @@ In this walkthrough, you deploy a Dapr application to the cluster. The Dapr appl
 The Dapr application performs the following steps:
 
 1. Subscribes to the `sensor/data` topic for sensor data.
-1. When data is receiving on the topic, it's forwarded to the MQTT broker state store.
-1. Every **10 seconds**, it fetches the data from the state store and calculates the *min*, *max*, *mean*, *median*, and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
-1. Data older than **30 seconds** is expired from the state store.
-1. The result is published to the `sensor/window_data` topic in JSON format.
+1. When data is receiving on the topic, it's published to the MQTT broker state store.
+2. Every **10 seconds**, it fetches the data from the state store and calculates the *min*, *max*, *mean*, *median*, and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
+3. Data older than **30 seconds** is expired from the state store.
+4. The result is published to the `sensor/window_data` topic in JSON format.
 
 > [!NOTE]
 > This tutorial [disables Dapr CloudEvents](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-raw/) which enables it to publish and subscribe using raw MQTT.
@@ -120,7 +120,7 @@ To start, create a yaml file that uses the following definitions:
 
 Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQTT broker using an MQTT client on the `sensor/data` topic.
 
-1. Deploy the simulator from the Explore IoT Operations repository:
+1. Deploy the simulator from the *Explore IoT Operations* repository:
 
     ```bash
     kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/tutorials/mq-event-driven-dapr/simulate-data.yaml    
@@ -205,7 +205,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 
 ## Verify the Dapr application output
 
-1. Open a shell to the mosquitto client pod:
+1. Open a shell to the Mosquitto client pod:
 
     ```bash
     kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
@@ -252,7 +252,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 
 ## Optional - Create the Dapr application
 
-The above tutorial uses a prebuilt container of the Dapr application. If you would like to modify and build the code yourself, follow these steps:
+ThIs tutorial uses a prebuilt container of the Dapr application. If you would like to modify and build the code yourself, follow these steps:
 
 ### Prerequisites
 
@@ -290,7 +290,7 @@ The above tutorial uses a prebuilt container of the Dapr application. If you wou
 
 ## Troubleshooting
 
-If the application doesn't start or you see the containers in `CrashLoopBackoff`, the logs for the `daprd` container often contains useful information.
+If the application doesn't start or you see the containers in `CrashLoopBackoff`, the `daprd` container log often contains useful information.
 
 Run the following command to view the logs for the daprd component:
 

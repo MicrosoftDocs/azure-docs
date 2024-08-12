@@ -16,52 +16,49 @@ ms.date: 07/02/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-[MQTTnet](https://dotnet.github.io/MQTTnet/) is an open-source, high performance .NET library for MQTT based communication. This article uses a Kubernetes service account token and MQTTnet to connect to MQTT broker. You should use service account tokens to connect to in-cluster clients.
+[MQTTnet](https://dotnet.github.io/MQTTnet/) is an open-source, high performance .NET library for MQTT based communication. This article uses a Kubernetes service account token and MQTTnet to connect to MQTT broker. You should use service account tokens to connect in-cluster applications.
 
 ## Sample code
 
 The [sample code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/mqtt-client-dotnet/Program.cs) performs the following steps:
 
-1. Creates an MQTT client using the `MQTTFactory` class:
+1. Creates an MQTT client using the `MqttFactory` class:
 
     ```csharp
     var mqttFactory = new MqttFactory();
     var mqttClient = mqttFactory.CreateMqttClient();
     ```
 
-1. The following Kubernetes pod specification mounts the service account token to the specified path on the container file system. The mounted token is used as the password with well-known username `K8S-SAT`:
+1. The [Kubernetes pod specification](#pod-specification) mounts the service account on the container file system. The contents of the file are read:
+##3. The mounted token is used as the password with well-known username `K8S-SAT`:
 
     ```csharp
-    string token_path = "/var/run/secrets/tokens/mqtt-client-token";
+    static string token_path = "/var/run/secrets/tokens/mqtt-client-token";
     ...
 
-    static async Task<int> MainAsync()
-    {
-        ...
-
-        // Read SAT Token
-        var satToken = File.ReadAllText(token_path);
+    // Read SAT Token
+    var satToken = File.ReadAllText(token_path);
     ```
 
-1. All options for the MQTT client are bundled in the class named `MqttClientOptions`. It's possible to fill options manually in code via the properties but you should use the `MqttClientOptionsBuilder` as advised in the [client](https://github.com/dotnet/MQTTnet/wiki/Client) documentation. The following code shows how to use the builder with the following options:
+1. The MQTT client options are configured using the `MqttClientOptions` class. Using the `MqttClientOptionsBuilder` as advised in the [client](https://github.com/dotnet/MQTTnet/wiki/Client) documentation is the advised way of setting the options:
 
     ```csharp
-    # Create TCP based options using the builder amd connect to broker
+    // Create TCP based options using the builder amd connect to broker
     var mqttClientOptions = new MqttClientOptionsBuilder()
         .WithTcpServer(broker, 1883)
-        .WithProtocolVersion(MqttProtocolVersion.V500)
-        .WithClientId("sampleid")
-        .WithCredentials("K8S-SAT", satToken)
+        .WithProtocolVersion(MqttProtocolVersion.V311)
+        .WithClientId("mqtt-client-dotnet")
+        .WithCredentials("K8S-SAT", satToken);        
         .Build();
     ```
 
-1. After setting up the MQTT client options, a connection can be established. The following code shows how to connect with a server. You can replace the *CancellationToken.None* with a valid *CancellationToken*, if needed.
+5. After setting up the MQTT client options, a connection can be established. The following code shows how to connect with a server. You can replace the *CancellationToken.None* with a valid *CancellationToken*, if needed.
 
     ```csharp
     var response = await mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
     ```
 
-1. MQTT messages can be created using the properties directly or via using `MqttApplicationMessageBuilder`. This class has some useful overloads that allow dealing with different payload formats. The API of the builder is a fluent API. The following code shows how to compose an application message and publish them to a topic called *sampletopic*:
+6. MQTT messages can be created using the properties directly or via using `MqttApplicationMessageBuilder`. This class has some useful overloads that allow dealing with different payload formats. The API of the builder is a fluent API. The following code shows how to compose an application message and publish them to an article called *sampletopic*:
 
     ```csharp
     var applicationMessage = new MqttApplicationMessageBuilder()
@@ -126,5 +123,5 @@ To run the sample, follow the instructions in its [README](https://github.com/Az
 
 ## Related content
 
-- [MQTT broker overview](../manage-mqtt-broker/overview-iot-mq.md)
-- [Develop with MQTT broker](edge-apps-overview.md)
+- [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)
+- [Develop highly available distributed applications](edge-apps-overview.md)
