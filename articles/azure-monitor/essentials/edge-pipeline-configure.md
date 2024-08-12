@@ -128,7 +128,7 @@ Once the volume is created in the appropriate namespace, configure it using para
 > [!CAUTION]
 > Each replica of the edge pipeline stores data in a location in the persistent volume specific to that replica. Decreasing the number of replicas while the cluster is disconnected from the cloud will prevent that data from being backfilled when connectivity is restored.
 
-Data is retrieved from the cache using first-in-first-ou (FIFO). Any data older than 48 hours will be discarded.
+Data is retrieved from the cache using first-in-first-out (FIFO). Any data older than 48 hours will be discarded.
 
 ## Enable and configure pipeline
 The current options for enabling and configuration are detailed in the tabs below.
@@ -868,7 +868,7 @@ Retrieve the heartbeat records using a log query as in the following example:
 Once your edge pipeline extension and instance are installed, then you need to configure your clients to send data to the pipeline.
 
 ### Retrieve ingress endpoint
-Each client requires the external IP address of the Azure Monitor Pipeline service. Use the following command to retrieve this address:
+Each client requires the external IP address of the Azure Monitor pipeline service. Use the following command to retrieve this address:
 
 ```azurecli
 kubectl get services -n <namespace where azure monitor pipeline was installed>
