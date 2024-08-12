@@ -52,7 +52,7 @@ const togetherModeStreams = togetherModeFeature.togetherModeStream;
 |size		| 	The stream size. The higher the stream size, the better the video quality. |
 
 ### Start together mode for all participants
-Users with role organizer, coorganizer, or presenter can start together mode for everyone in the meeting. When together mode starts, all subscribers to `togetherModeStreamsUpdated` event receive notification that allows participants to render together mode.
+Users with role organizer, co-organizer, or presenter can start together mode for everyone in the meeting. When together mode starts, all subscribers to `togetherModeStreamsUpdated` event receive notification that allows participants to render together mode.
 
 ```js
 togetherModeFeature.start();
