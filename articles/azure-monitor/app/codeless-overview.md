@@ -15,7 +15,7 @@ The term "autoinstrumentation" is a portmanteau, a linguistic blend where parts 
 
 The autoinstrumentation process varies by language and platform, but often involves a toggle button in the Azure portal. The following example shows a toggle button for [Azure App Service](../../app-service/getting-started.md#getting-started-with-azure-app-service) autoinstrumentation.
 
-:::image type="content"source="./media/azure-web-apps/enable.png" alt-text=" Screenshot that shows the Application Insights tab with Enable selected.":::
+:::image type="content"source="./media/azure-web-apps/enable.png" alt-text=" Screenshot that shows the Application Insights tab with Enable selected." lightbox="./media/azure-web-apps/enable.png":::
 
 > [!TIP]
 > *We do not provide autoinstrumentation specifics for all languages and platforms in this article.* For detailed information, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers). In many cases, autoinstrumentation is enabled by default.
