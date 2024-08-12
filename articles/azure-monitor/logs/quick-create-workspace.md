@@ -4,21 +4,16 @@ description: Learn how to create a Log Analytics workspace to enable management 
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 07/02/2023
+ms.date: 08/12/2024
 ms.reviewer: yossiy
 
 # Customer intent: As a DevOps engineer or IT expert, I want to set up a workspace to collect logs from multiple data sources from Azure, on-premises, and third-party cloud deployments.
 ---
 # Create a Log Analytics workspace
 
-This article shows you how to create a Log Analytics workspace. When you collect logs and data, the information is stored in a workspace. A workspace has a unique workspace ID and resource ID. The workspace name must be unique for a given resource group. After you've created a workspace, configure data sources and solutions to store their data there.
+A Log Analytics workspace is a data store into which you can collect any type of log data from all of your Azure and non-Azure resources and applications. We recommend that you send all log data to one Log Analytics workspace, unless you have specific business needs that require you to create multiple workspaces, as described in [Design a Log Analytics workspace architecture](.workspace-design.md).  
 
-You need a Log Analytics workspace if you collect data from:
-
-* Azure resources in your subscription.
-* On-premises computers monitored by System Center Operations Manager.
-* Device collections from Configuration Manager.
-* Diagnostics or log data from Azure Storage.
+This article explains how to create a Log Analytics workspace. 
 
 ## Prerequisites
 
