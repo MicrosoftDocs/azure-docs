@@ -8,7 +8,8 @@ ms.author: dobett
 ---
 
 > [!IMPORTANT]
-> Azure IoT Operations Preview – enabled by Azure Arc is currently in PREVIEW. You shouldn't use this preview software in production environments.
+> Azure IoT Operations Preview – enabled by Azure Arc is currently in PREVIEW.
+> You shouldn't use this preview software in production environments.
 >
 > You will need to deploy a new Azure IoT Operations installation when a generally available release is made available; you won't be able to upgrade a preview installation.
 >
