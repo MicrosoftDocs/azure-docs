@@ -34,7 +34,7 @@ Identify all the function app resources used on the source region, which potenti
 - [TLS/SSL certificates and settings](../app-service/configure-ssl-certificate.md)
 - [Configured networking options](../azure-functions/functions-networking-options.md)
 - [Managed identities](../app-service/overview-managed-identity.md)
-- [Configured application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md) - users with the enough access can copy all the source application settings by using the Advanced Edit feature in the portal
+- [Configured application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
 - [Scaling configurations](../azure-functions/functions-scale.md#scale)
 
 When preparing to move your app to a new region, there are a few parts of the architecture that require special consideration and planning. 
@@ -121,8 +121,8 @@ You can also use any other publishing method supported by Functions. Most tool-b
 
 ## Clean up
 
-After the move is complete, delete the function app and hosting plan from the source region. You pay for function apps in Premium or Dedicated plans, even when the app itself isn't running. If you have recreated other services in the new region, you should also delete the older services when you're certain that they're no longer needed.
+After the move is complete, delete the function app and hosting plan from the source region. You pay for function apps in Premium or Dedicated plans, even when the app itself isn't running. If you have recreated other services in the new region, you should also delete the older services after you're certain that they're no longer needed.
 
-## Next steps
+## Related resources
 
-+ Review the [Azure Architecture Center](/azure/architecture/browse/?expanded=azure&products=azure-functions) for examples of Azure Functions running in multiple regions as part of more advanced solution architectures
+Review the [Azure Architecture Center](/azure/architecture/browse/?expanded=azure&products=azure-functions) for examples of function apps running in multiple regions as part of more advanced and geo-redundant solution architectures.
