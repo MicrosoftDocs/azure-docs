@@ -22,7 +22,7 @@ When using app settings, you should be aware of the following considerations:
 
 + Changes to function app settings require your function app to be restarted.
 
-+ In setting names, double-underscore (`__`) and semicolon (`:`) are considered reserved values. Double-underscores are interpreted as hierarchical delimiters on both Windows and Linux, and colons are interpreted in the same way only on Linux. For example, the setting `AzureFunctionsWebHost__hostid=somehost_123456` would be interpreted as the following JSON object:
++ In setting names, double-underscore (`__`) and colon (`:`) are considered reserved values. Double-underscores are interpreted as hierarchical delimiters on both Windows and Linux, and colons are interpreted in the same way only on Linux. For example, the setting `AzureFunctionsWebHost__hostid=somehost_123456` would be interpreted as the following JSON object:
 
     ```json
     "AzureFunctionsWebHost": {

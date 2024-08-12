@@ -1,5 +1,5 @@
 ---
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: include
 ms.date: 04/02/2024
 author: ccrestana
