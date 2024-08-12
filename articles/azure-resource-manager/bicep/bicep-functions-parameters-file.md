@@ -83,13 +83,13 @@ The string value of the environment variable or a default value.
 
 ### Remarks
 
-The following command sets the environment variable only for the PowerShell process in which it is executed.
+The following command sets the environment variable only for the PowerShell process in which it's executed. You get [BCP338](./diagnostics/bcp338.md) from Visual Studio Code.
 
 ```PowerShell
 $env:testEnvironmentVariable = "Hello World!"
 ```
 
-You will get [BCP338](./diagnostics/bcp338.md). To set the environment variable at the user level, use the following command:
+To set the environment variable at the user level, use the following command:
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable('testEnvironmentVariable','Hello World!', 'User')
