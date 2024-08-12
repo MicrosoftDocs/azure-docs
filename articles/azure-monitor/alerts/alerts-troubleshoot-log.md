@@ -68,7 +68,7 @@ If your log search alert didn't fire when it should have, check the following it
         - [Custom logs tables](../agents/data-sources-custom-logs.md) haven't been created because the data flow hasn't started.
     - Changes in the [query language](/azure/kusto/query/) include a revised format for commands and functions, so the query provided earlier is no longer valid.
     
-   Azure Service Health monitors the health of your cloud resources, including log search alert rules. When a log search alert rule is healthy, the rule runs and the query executes successfully. Using [Resource health](https://learn.microsoft.com/azure/azure-monitor/alerts/log-alert-rule-health) you learn about the issues affecting your log search alert rules.
+   Azure Service Health monitors the health of your cloud resources, including log search alert rules. When a log search alert rule is healthy, the rule runs and the query executes successfully. You can use [resource health for log search alert rules](https://learn.microsoft.com/azure/azure-monitor/alerts/log-alert-rule-health) to learn about the issues affecting your log search alert rules.
 
 1. **Was the the log search alert rule disabled?**
 
