@@ -1,6 +1,7 @@
 - name: Azure Files documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Files?
     href: storage-files-introduction.md
@@ -12,7 +13,6 @@
     href: files-nfs-protocol.md
   - name: What's new in Azure Files?
     href: files-whats-new.md
-  expanded: true
 - name: Architecture
   items:
   - name: Well-architected considerations
