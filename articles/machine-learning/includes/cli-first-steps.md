@@ -2,7 +2,7 @@
 title: Include file
 description: Include file
 author: sdgilley
-ms.service: machine-learning
+ms.service: azure-machine-learning
 services: machine-learning
 ms.topic: include
 ms.date: 05/03/2024
