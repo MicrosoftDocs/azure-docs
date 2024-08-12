@@ -91,7 +91,7 @@ Using the IncomingCall event from Event Grid, a call can be redirected to one or
 Create Call action can be used to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
 
 **Connect Call** (in preview)
-Connect Call action can be used to connect to an ongoing call and take call actions on it. You can also use this action to connect and manage a Rooms call programmatically, like performing PSTN dial outs for Room using your service.  
+Connect Call action can be used to connect to an ongoing call and take call actions on it. You can also use this action to connect and [manage a Rooms call programmatically](./../../quickstarts/rooms/manage-rooms-call.md), like performing PSTN dial outs for Room using your service. 
 
 ### Mid-call actions
 
