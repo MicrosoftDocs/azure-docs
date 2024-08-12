@@ -3,7 +3,7 @@ title: Best practices for Azure Operator Service Manager
 description: Understand best practices for Azure Operator Service Manager to onboard and deploy a network function (NF).
 author: msftadam
 ms.author: adamdor
-ms.date: 08/09/2024
+ms.date: 08/12/2024
 ms.topic: best-practice
 ms.service: azure-operator-service-manager
 ---
@@ -300,8 +300,9 @@ Any user trying to install cert-manager on the cluster, as part of a workload de
 ### Other Configuration Changes to Consider
 
 In addition to disabling the NfApp associated with the old user cert-manager, we have found other changes may be needed;
-1.	If any other NfApps have DependsOn references to the old user cert-manager NfApp, these will need to be removed. 
-2.	If any other NfApps reference the old user cert-manager namespace value, this will need to be changed to the new azurehybridnetwork namespace value.  
+1.	If one NfApp contains both cert-manager and the CA installation, these must broken into two NfApps, so that the partner can disable cert-manager but enable CA installation.
+2.	If any other NfApps have DependsOn references to the old user cert-manager NfApp, these will need to be removed. 
+3.	If any other NfApps reference the old user cert-manager namespace value, this will need to be changed to the new azurehybridnetwork namespace value.  
 
 ### Cert-Manager Version Compatibility & Management
 
