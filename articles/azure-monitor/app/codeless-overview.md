@@ -13,12 +13,12 @@ Autoinstrumentation enables [Application Insights](app-insights-overview.md) to 
 
 The term "autoinstrumentation" is a portmanteau, a linguistic blend where parts of multiple words combine into a new word. "Autoinstrumentation" combines "auto" and "instrumentation." It sees widespread use in software observability and describes the process of adding instrumentation code to applications without manual coding by developers.
 
-The autoinstrumentation process varies by language and platform, but often involves a toggle button in the Azure portal. The following example shows a toggle button for App Service autoinstrumentation.
+The autoinstrumentation process varies by language and platform, but often involves a toggle button in the Azure portal. The following example shows a toggle button for [Azure App Service](../../app-service/getting-started.md#getting-started-with-azure-app-service) autoinstrumentation.
 
 :::image type="content"source="./media/azure-web-apps/enable.png" alt-text=" Screenshot that shows the Application Insights tab with Enable selected.":::
 
 > [!TIP]
-> The autoinstrumentation process varies by language and platform, so we do not cover it in depth in this article. If your language and platform are supported, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for detailed information. In many cases, autoinstrumentation is enabled by default.
+> *We do not provide autoinstrumentation specifics for all languages and platforms in this article.* For detailed information, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers). In many cases, autoinstrumentation is enabled by default.
 
 ## What are the autoinstrumentation advantages?
 
