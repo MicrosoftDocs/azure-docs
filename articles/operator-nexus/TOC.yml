@@ -169,6 +169,8 @@
               href: howto-monitor-interface-packet-rate.md
             - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
               href: howto-delete-layer-3-isolation-domains.md
+            - name: How to replace network devices in Azure Operator Nexus Network Fabric
+              href: howto-replace-network-devices.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
