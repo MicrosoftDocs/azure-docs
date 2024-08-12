@@ -1,6 +1,6 @@
 ---
 author: nibaccam
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: include
 ms.date: 08/13/2021
 ms.author: nibaccam
