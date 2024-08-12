@@ -11,7 +11,6 @@ ms.date: 08/12/2024
 
 The following tables map Common Event Format (CEF) field names to the names they use in Microsoft Sentinel's CommonSecurityLog, and might be helpful when you're working with a CEF data source in Microsoft Sentinel. For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md).
 
-A Microsoft Sentinel workspace is required in order to [ingest CEF data](connect-common-event-format.md#prerequisites) into Log Analytics.
 
 ## A - C
 
