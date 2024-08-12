@@ -4,7 +4,7 @@ description: Learn about the different upgrade policies available for Virtual Ma
 author: mimckitt
 ms.author: mimckitt
 ms.topic: overview
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 6/14/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy

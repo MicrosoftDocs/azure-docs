@@ -4,7 +4,7 @@ description: Learn how to quickly create a Windows virtual machine scale with an
 author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.collection: linux
 ms.date: 06/14/2024
 ms.reviewer: mimckitt
