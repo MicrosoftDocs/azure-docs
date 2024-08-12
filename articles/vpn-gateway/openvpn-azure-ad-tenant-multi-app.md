@@ -3,7 +3,7 @@ title: 'Configure P2S for different user and group access: Microsoft Entra ID au
 titleSuffix: Azure VPN Gateway
 description: Learn how to set up a Microsoft Entra tenant for P2S OpenVPN authentication and register multiple apps in Microsoft Entra ID to allow different access for different users and groups.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: conceptual
 ms.date: 07/09/2024
 ms.author: cherylmc

@@ -4,15 +4,15 @@ metadata:
   description: Answers to frequently asked questions about Azure confidential computing.
   author: stempesta
   ms.topic: faq
-  ms.service: virtual-machines
-  ms.subservice: confidential-computing
+  ms.service: azure-virtual-machines
+  ms.subservice: azure-confidential-computing
   ms.date: 11/1/2021
   ms.author: stempesta
 title: Frequently asked questions for application enclaves on Intel SGX confidential VMs
 summary: |
   This article provides answers to some of the most common questions about running [confidential computing workloads on Intel SGX Azure virtual machines](overview.md).
 
-  If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select Get support.
+  If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on X](https://x.com/azuresupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select Get support.
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: Quickstart for adding feature flags to ASP.NET Core apps
 titleSuffix: Azure App Configuration
-description: This tutorial will guide you through the process of integrating feature flags from Azure App Configuration into your ASP.NET Core apps.
+description: Learn to implement feature flags in your ASP.NET Core application using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
 services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration

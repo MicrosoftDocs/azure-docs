@@ -3,7 +3,7 @@ title: 'Tutorial: ML pipelines for training'
 titleSuffix: Azure Machine Learning
 description: In this tutorial, you build a machine learning pipeline for image classification with SDK v1. Focus on machine learning instead of infrastructure and automation.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: tutorial
 author: lgayhardt

@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-twenty-eight
 
 # Develop Azure AI services applications with Key Vault
 
-Learn how to develop Azure AI services applications securely by using [Azure Key Vault](../key-vault/general/overview.md). 
+Learn how to develop Azure AI services applications securely by using [Azure Key Vault](/azure/key-vault/general/overview). 
 
 Key Vault reduces the risk that secrets may be accidentally leaked, because you avoid storing security information in your application. 
 
@@ -22,8 +22,8 @@ Key Vault reduces the risk that secrets may be accidentally leaked, because you 
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
-* An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-* [A multi-service resource or a resource for a specific service](./multi-service-resource.md?pivots=azportal)
+* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* [An Azure AI services resource](./multi-service-resource.md?pivots=azportal)
 
 ::: zone-end
 
@@ -32,8 +32,8 @@ Key Vault reduces the risk that secrets may be accidentally leaked, because you 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Python 3.7 or later](https://www.python.org/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
-* An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-* [A multi-service resource or a resource for a specific service](./multi-service-resource.md?pivots=azportal)
+* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* [An Azure AI services resource](./multi-service-resource.md?pivots=azportal)
 
 ::: zone-end
 
@@ -42,8 +42,8 @@ Key Vault reduces the risk that secrets may be accidentally leaked, because you 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Java Development Kit (JDK) version 8 or above](/azure/developer/java/fundamentals/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
-* An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-* [A multi-service resource or a resource for a specific service](./multi-service-resource.md?pivots=azportal)
+* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* [An Azure AI services resource](./multi-service-resource.md?pivots=azportal)
 
 ::: zone-end
 
@@ -52,8 +52,8 @@ Key Vault reduces the risk that secrets may be accidentally leaked, because you 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free).
 * [Current Node.js v14 LTS or later](https://nodejs.org/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
-* An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-* [A multi-service resource or a resource for a specific service](./multi-service-resource.md?pivots=azportal)
+* An [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+* [An Azure AI services resource](./multi-service-resource.md?pivots=azportal)
 
 ::: zone-end
 
@@ -75,7 +75,7 @@ Some Azure AI services require different information to authenticate API calls, 
 
 ## Add your credentials to your key vault
 
-For your application to retrieve and use your credentials to authenticate API calls, you will need to add them to your [key vault secrets](../key-vault/secrets/about-secrets.md). 
+For your application to retrieve and use your credentials to authenticate API calls, you will need to add them to your [key vault secrets](/azure/key-vault/secrets/about-secrets). 
 
 Repeat these steps to generate a secret for each required resource credential. For example, a key and endpoint. These secret names will be used later to authenticate your application.
 
@@ -594,8 +594,8 @@ If you're using a multi-service resource or Language resource, you can update [y
 
 ## Next steps
 
-* See [What are Azure AI services](./what-are-ai-services.md) for available features you can develop along with [Azure Key Vault](../key-vault/general/index.yml).  
+* See [What are Azure AI services](./what-are-ai-services.md) for available features you can develop along with [Azure Key Vault](/azure/key-vault/general/).  
 * For additional information on secure application development, see:
-    * [Best practices for using Azure Key Vault](../key-vault/general/best-practices.md)
+    * [Best practices for using Azure Key Vault](/azure/key-vault/general/best-practices)
     * [Azure AI services security](security-features.md)
     * [Azure security baseline for Azure AI services](/security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/ai-services/TOC.json)

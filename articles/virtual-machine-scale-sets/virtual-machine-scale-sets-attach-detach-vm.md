@@ -4,7 +4,7 @@ description: How to attach or detach a virtual machine to or from a Virtual Mach
 author: fitzgeraldsteele 
 ms.author: fisteele 
 ms.topic: overview
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.custom: devx-track-azurecli
 ms.date: 06/14/2024
 ms.reviewer: jushiman

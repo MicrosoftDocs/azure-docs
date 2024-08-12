@@ -1,10 +1,11 @@
 ---
 title: Troubleshoot Monitor Azure Virtual Desktop - Azure
 description: How to troubleshoot issues with Azure Virtual Desktop Insights.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 09/12/2023
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Troubleshoot Azure Virtual Desktop Insights
 
@@ -20,7 +21,7 @@ This article presents known issues and solutions for common problems in Azure Vi
 If the configuration workbook isn't working properly to automate setup, you can use these resources to set up your environment manually:
 
 - To manually enable diagnostics or access the Log Analytics workspace, see [Send Azure Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
-- To install the Azure Monitor Agent extension on a session host manually, see [Azure Monitor Agent virtual machine extension for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md#install).
+- To install the Azure Monitor Agent extension on a session host manually, see [Azure Monitor Agent virtual machine extension for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md#installation-options).
 - To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 - To validate the Data Collection Rules in use, see [View data collection rules](../azure-monitor/essentials/data-collection-rule-view.md).
 

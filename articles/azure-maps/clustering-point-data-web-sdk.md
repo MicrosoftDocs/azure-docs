@@ -4,10 +4,9 @@ description: Learn how to cluster point data on maps. See how to use the Azure M
 author: sinnypan
 ms.author: sipa
 ms.date: 07/29/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Clustering point data in the Web SDK

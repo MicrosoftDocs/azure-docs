@@ -4,8 +4,8 @@ titleSuffix: Azure Confidential Computing
 description: Confidential AI services and solutions
 services: virtual-machines
 author: kapilv
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: conceptual
 ms.date: 05/17/2023
 ms.author: kapilv

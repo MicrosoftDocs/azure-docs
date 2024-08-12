@@ -3,7 +3,7 @@ title: Create a collection in Azure Cosmos DB for MongoDB using .NET
 description: Learn how to work with a collection in your Azure Cosmos DB for MongoDB database using the .NET SDK.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: how-to

@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 09/12/2023
 ms.topic: tutorial
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: engagement-fy23, devx-track-azurecli
 
 # CustomerIntent: As a developer, I want to create a data flow from devices through Azure Digital Twins so that I can have a connected digital twin solution.

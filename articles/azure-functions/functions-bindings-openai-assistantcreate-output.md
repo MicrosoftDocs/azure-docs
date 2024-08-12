@@ -2,8 +2,14 @@
 title: Azure OpenAI assistant create output binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant create output binding to create Azure OpenAI assistants from your function code executions.
 ms.topic: reference
-ms.custom: build-2024, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 05/20/2024
+ms.custom: 
+  - build-2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilotms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -47,7 +53,7 @@ This example demonstrates the creation process, where the HTTP PUT function that
 
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantApis.ts" range="7-29" :::
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="7-29" :::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

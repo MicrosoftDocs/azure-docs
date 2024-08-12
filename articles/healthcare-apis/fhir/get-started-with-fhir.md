@@ -2,7 +2,7 @@
 title: Get started with the FHIR service in Azure Health Data Services
 description: Learn how to set up the FHIR service in Azure Health Data Services with steps to create workspaces, register apps, and manage data.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 06/06/2022

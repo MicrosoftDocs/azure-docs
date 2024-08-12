@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 4/15/2024
+ms.date: 7/15/2024
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
@@ -68,35 +68,35 @@ To create an endpoint and deploy a model, use the `spx csr endpoint create` comm
 Here's an example Speech CLI command to create an endpoint and deploy a model:
 
 ```azurecli-interactive
-spx csr endpoint create --api-version v3.1 --project YourProjectId --model YourModelId --name "My Endpoint" --description "My Endpoint Description" --language "en-US"
+spx csr endpoint create --api-version v3.2 --project YourProjectId --model YourModelId --name "My Endpoint" --description "My Endpoint Description" --language "en-US"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/98375aaa-40c2-42c4-b65c-f76734fc7790",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/ae8d1643-53e4-4554-be4c-221dcfb471c5"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/9e240dc1-3d2d-4ac9-98ec-1be05ba0e9dd"
   },
   "links": {
-    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/98375aaa-40c2-42c4-b65c-f76734fc7790/files/logs",
-    "restInteractive": "https://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "restConversation": "https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "restDictation": "https://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketInteractive": "wss://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketConversation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketDictation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790"
+    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/a07164e8-22d1-4eb7-aa31-bf6bb1097f37/files/logs",
+    "restInteractive": "https://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "restConversation": "https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "restDictation": "https://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketInteractive": "wss://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketConversation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketDictation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/d40f2eb8-1abf-4f72-9008-a5ae8add82a4"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "properties": {
     "loggingEnabled": true
   },
-  "lastActionDateTime": "2022-05-19T15:27:51Z",
+  "lastActionDateTime": "2024-07-15T16:29:36Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-05-19T15:27:51Z",
+  "createdDateTime": "2024-07-15T16:29:36Z",
   "locale": "en-US",
   "displayName": "My Endpoint",
   "description": "My Endpoint Description"
@@ -128,7 +128,7 @@ Make an HTTP POST request using the URI as shown in the following [Endpoints_Cre
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/d40f2eb8-1abf-4f72-9008-a5ae8add82a4"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "properties": {
     "loggingEnabled": true
@@ -136,38 +136,38 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "displayName": "My Endpoint",
   "description": "My Endpoint Description",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/ae8d1643-53e4-4554-be4c-221dcfb471c5"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/ae8d1643-53e4-4554-be4c-221dcfb471c5"
   },
   "locale": "en-US",
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/98375aaa-40c2-42c4-b65c-f76734fc7790",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/ae8d1643-53e4-4554-be4c-221dcfb471c5"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/9e240dc1-3d2d-4ac9-98ec-1be05ba0e9dd"
   },
   "links": {
-    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/98375aaa-40c2-42c4-b65c-f76734fc7790/files/logs",
-    "restInteractive": "https://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "restConversation": "https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "restDictation": "https://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketInteractive": "wss://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketConversation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketDictation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790"
+    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/a07164e8-22d1-4eb7-aa31-bf6bb1097f37/files/logs",
+    "restInteractive": "https://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "restConversation": "https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "restDictation": "https://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketInteractive": "wss://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketConversation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketDictation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/d40f2eb8-1abf-4f72-9008-a5ae8add82a4"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "properties": {
     "loggingEnabled": true
   },
-  "lastActionDateTime": "2022-05-19T15:27:51Z",
+  "lastActionDateTime": "2024-07-15T16:29:36Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-05-19T15:27:51Z",
+  "createdDateTime": "2024-07-15T16:29:36Z",
   "locale": "en-US",
   "displayName": "My Endpoint",
   "description": "My Endpoint Description"
@@ -204,38 +204,38 @@ To redeploy the custom endpoint with a new model, use the `spx csr model update`
 Here's an example Speech CLI command that redeploys the custom endpoint with a new model:
 
 ```azurecli-interactive
-spx csr endpoint update --api-version v3.1 --endpoint YourEndpointId --model YourModelId
+spx csr endpoint update --api-version v3.2 --endpoint YourEndpointId --model YourModelId
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/98375aaa-40c2-42c4-b65c-f76734fc7790",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/1e47c19d-12ca-4ba5-b177-9e04bd72cf98"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/9e240dc1-3d2d-4ac9-98ec-1be05ba0e9dd"
   },
   "links": {
-    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/98375aaa-40c2-42c4-b65c-f76734fc7790/files/logs",
-    "restInteractive": "https://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "restConversation": "https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "restDictation": "https://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketInteractive": "wss://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketConversation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketDictation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790"
+    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/a07164e8-22d1-4eb7-aa31-bf6bb1097f37/files/logs",
+    "restInteractive": "https://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "restConversation": "https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "restDictation": "https://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketInteractive": "wss://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketConversation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketDictation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/639d5280-8995-40cc-9329-051fd0fddd46"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "properties": {
     "loggingEnabled": true
   },
-  "lastActionDateTime": "2022-05-19T23:01:34Z",
-  "status": "NotStarted",
-  "createdDateTime": "2022-05-19T15:41:27Z",
+  "lastActionDateTime": "2024-07-15T16:30:12Z",
+  "status": "Succeeded",
+  "createdDateTime": "2024-07-15T16:29:36Z",
   "locale": "en-US",
   "displayName": "My Endpoint",
-  "description": "My Updated Endpoint Description"
+  "description": "My Endpoint Description"
 }
 ```
 
@@ -258,40 +258,40 @@ Make an HTTP PATCH request using the URI as shown in the following example. Repl
 ```azurecli-interactive
 curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/1e47c19d-12ca-4ba5-b177-9e04bd72cf98"
-  }
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/YourEndpointId"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/9e240dc1-3d2d-4ac9-98ec-1be05ba0e9dd"
+  },
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/YourEndpointId"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/98375aaa-40c2-42c4-b65c-f76734fc7790",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/1e47c19d-12ca-4ba5-b177-9e04bd72cf98"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/9e240dc1-3d2d-4ac9-98ec-1be05ba0e9dd"
   },
   "links": {
-    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/98375aaa-40c2-42c4-b65c-f76734fc7790/files/logs",
-    "restInteractive": "https://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "restConversation": "https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "restDictation": "https://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketInteractive": "wss://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketConversation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketDictation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790"
+    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/a07164e8-22d1-4eb7-aa31-bf6bb1097f37/files/logs",
+    "restInteractive": "https://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "restConversation": "https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "restDictation": "https://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketInteractive": "wss://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketConversation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketDictation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/639d5280-8995-40cc-9329-051fd0fddd46"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "properties": {
     "loggingEnabled": true
   },
-  "lastActionDateTime": "2022-05-19T23:01:34Z",
-  "status": "NotStarted",
-  "createdDateTime": "2022-05-19T15:41:27Z",
+  "lastActionDateTime": "2024-07-15T16:30:12Z",
+  "status": "Succeeded",
+  "createdDateTime": "2024-07-15T16:29:36Z",
   "locale": "en-US",
   "displayName": "My Endpoint",
-  "description": "My Updated Endpoint Description"
+  "description": "My Endpoint Description"
 }
 ```
 
@@ -323,7 +323,7 @@ To get logs for an endpoint, use the `spx csr endpoint list` command. Construct 
 Here's an example Speech CLI command that gets logs for an endpoint:
 
 ```azurecli-interactive
-spx csr endpoint list --api-version v3.1 --endpoint YourEndpointId
+spx csr endpoint list --api-version v3.2 --endpoint YourEndpointId
 ```
 
 The locations of each log file with more details are returned in the response body.
@@ -337,38 +337,38 @@ To get logs for an endpoint, start by using the [Endpoints_Get](/rest/api/speech
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourEndpointId` with your endpoint ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/YourEndpointId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/YourEndpointId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/98375aaa-40c2-42c4-b65c-f76734fc7790",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/1e47c19d-12ca-4ba5-b177-9e04bd72cf98"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/9e240dc1-3d2d-4ac9-98ec-1be05ba0e9dd"
   },
   "links": {
-    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/98375aaa-40c2-42c4-b65c-f76734fc7790/files/logs",
-    "restInteractive": "https://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "restConversation": "https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "restDictation": "https://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketInteractive": "wss://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketConversation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790",
-    "webSocketDictation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=98375aaa-40c2-42c4-b65c-f76734fc7790"
+    "logs": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/a07164e8-22d1-4eb7-aa31-bf6bb1097f37/files/logs",
+    "restInteractive": "https://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "restConversation": "https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "restDictation": "https://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketInteractive": "wss://eastus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketConversation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37",
+    "webSocketDictation": "wss://eastus.stt.speech.microsoft.com/speech/recognition/dictation/cognitiveservices/v1?cid=a07164e8-22d1-4eb7-aa31-bf6bb1097f37"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/2f78cdb7-58ac-4bd9-9bc6-170e31483b26"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "properties": {
     "loggingEnabled": true
   },
-  "lastActionDateTime": "2022-05-19T23:41:05Z",
+  "lastActionDateTime": "2024-07-15T16:30:12Z",
   "status": "Succeeded",
-  "createdDateTime": "2022-05-19T23:41:05Z",
+  "createdDateTime": "2024-07-15T16:29:36Z",
   "locale": "en-US",
   "displayName": "My Endpoint",
-  "description": "My Updated Endpoint Description"
+  "description": "My Endpoint Description"
 }
 ```
 
@@ -376,7 +376,7 @@ Make an HTTP GET request using the "logs" URI from the previous response body. R
 
 
 ```curl
-curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/YourEndpointId/files/logs" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/endpoints/YourEndpointId/files/logs" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 The locations of each log file with more details are returned in the response body.

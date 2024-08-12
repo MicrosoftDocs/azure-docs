@@ -3,7 +3,7 @@ title: Considerations for deployment in Azure public MEC
 description: Learn about considerations for customers to plan for before they deploy applications in an Azure public multi-access edge compute (MEC) solution.
 author: m0nikama
 ms.author: monikama
-ms.service: public-multi-access-edge-compute-mec
+ms.service: azure-public-multiaccess-edge-compute
 ms.topic: conceptual
 ms.date: 11/22/2022
 ms.custom: template-concept

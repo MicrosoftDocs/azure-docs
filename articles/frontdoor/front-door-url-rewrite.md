@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article helps you understand how URL rewrites works in Azure Front Door.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 06/01/2023
 ms.author: duau

@@ -15,16 +15,14 @@ This article covers configuration settings for the Azure Monitor OpenTelemetry d
 
 ## Connection string
 
-A connection string in Application Insights defines the target location for sending telemetry data, ensuring it reaches the appropriate resource for monitoring and analysis.
-
+A connection string in Application Insights defines the target location for sending telemetry data.
 ### [ASP.NET Core](#tab/aspnetcore)
 
 Use one of the following three ways to configure the connection string:
 
-- Add `UseAzureMonitor()` to your application startup, in your `program.cs` class.
+- Add `UseAzureMonitor()` to your `program.cs` file:
 
     ```csharp
-    // Create a new ASP.NET Core web application builder.    
     var builder = WebApplication.CreateBuilder(args);
 
     // Add the OpenTelemetry telemetry service to the application.
@@ -33,10 +31,8 @@ Use one of the following three ways to configure the connection string:
         options.ConnectionString = "<Your Connection String>";
     });
 
-    // Build the ASP.NET Core web application.
     var app = builder.Build();
 
-    // Start the ASP.NET Core web application.    
     app.Run();
     ```
 
@@ -202,12 +198,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add the OpenTelemetry telemetry service to the application.
 // This service will collect and send telemetry data to Azure Monitor.
-builder.Services.AddOpenTelemetry().UseAzureMonitor();
-
-// Configure the OpenTelemetry tracer provider to add the resource attributes to all traces.
-builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => 
-    builder.ConfigureResource(resourceBuilder => 
-        resourceBuilder.AddAttributes(resourceAttributes)));
+builder.Services.AddOpenTelemetry()
+    .UseAzureMonitor()
+    // Configure the ResourceBuilder to add the custom resource attributes to all signals.
+    // Custom resource attributes should be added AFTER AzureMonitor to override the default ResourceDetectors.
+    .ConfigureResource(resourceBuilder => resourceBuilder.AddAttributes(_testResourceAttributes));
 
 // Build the ASP.NET Core web application.
 var app = builder.Build();
@@ -408,7 +403,7 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 ---
 
 > [!TIP]
-> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#metrics), which are unaffected by sampling.
+> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance panes. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#add-custom-metrics), which are unaffected by sampling.
 
 <a name='enable-entra-id-formerly-azure-ad-authentication'></a>
 
@@ -616,6 +611,8 @@ const credential = new ManagedIdentityCredential();
 // Create a new AzureMonitorOpenTelemetryOptions object and set the credential property to the credential object.
 const options: AzureMonitorOpenTelemetryOptions = {
     azureMonitorExporterOptions: {
+        connectionString:
+            process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
         credential: credential
     }
 };
@@ -626,19 +623,60 @@ useAzureMonitor(options);
 
 ### [Python](#tab/python)
 
+Azure Monitor OpenTelemetry Distro for Python support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
+
+- We recommend `DefaultAzureCredential` for local development.
+- We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
+  - For system-assigned, use the default constructor without parameters.
+  - For user-assigned, provide the `client_id` to the constructor.
+- We recommend `ClientSecretCredential` for service principals.
+  - Provide the tenant ID, client ID, and client secret to the constructor.
+
+If using `ManagedIdentityCredential`
 ```python
 # Import the `ManagedIdentityCredential` class from the `azure.identity` package.
 from azure.identity import ManagedIdentityCredential
 # Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
 
-# Configure OpenTelemetry to use Azure Monitor with a managed identity credential.
-# This will allow OpenTelemetry to authenticate to Azure Monitor without requiring you to provide a connection string.
+# Configure the Distro to authenticate with Azure Monitor using a managed identity credential.
+credential = ManagedIdentityCredential(client_id="<client_id>")
 configure_azure_monitor(
-    credential=ManagedIdentityCredential(),
+    connection_string="your-connection-string",
+    credential=credential,
 )
+
+tracer = trace.get_tracer(__name__)
+
+with tracer.start_as_current_span("hello with aad managed identity"):
+    print("Hello, World!")
+
 ```
 
+If using `ClientSecretCredential`
+```python
+# Import the `ClientSecretCredential` class from the `azure.identity` package.
+from azure.identity import ClientSecretCredential
+# Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
+
+# Configure the Distro to authenticate with Azure Monitor using a client secret credential.
+credential = ClientSecretCredential(
+    tenant_id="<tenant_id",
+    client_id="<client_id>",
+    client_secret="<client_secret>",
+)
+configure_azure_monitor(
+    connection_string="your-connection-string",
+    credential=credential,
+)
+
+with tracer.start_as_current_span("hello with aad client secret identity"):
+    print("Hello, World!")
+
+```
 ---
 
 ## Offline Storage and Automatic Retries

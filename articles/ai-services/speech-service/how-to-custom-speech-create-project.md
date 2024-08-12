@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 4/15/2024
+ms.date: 7/15/2024
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
@@ -44,20 +44,20 @@ To create a project, use the `spx csr project create` command. Construct the req
 Here's an example Speech CLI command that creates a project:
 
 ```azurecli-interactive
-spx csr project create --api-version v3.1 --name "My Project" --description "My Project Description" --language "en-US"
+spx csr project create --api-version v3.2 --name "My Project" --description "My Project Description" --language "en-US"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52",
   "links": {
-    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/evaluations",
-    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/datasets",
-    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/models",
-    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/endpoints",
-    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/transcriptions"       
+    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52/evaluations",
+    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52/datasets",
+    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52/models",
+    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52/endpoints",
+    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52/transcriptions"
   },
   "properties": {
     "datasetCount": 0,
@@ -66,7 +66,7 @@ You should receive a response body in the following format:
     "transcriptionCount": 0,
     "endpointCount": 0
   },
-  "createdDateTime": "2022-05-17T22:15:18Z",
+  "createdDateTime": "2024-07-14T17:15:55Z",
   "locale": "en-US",
   "displayName": "My Project",
   "description": "My Project Description"
@@ -97,20 +97,20 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "displayName": "My Project",
   "description": "My Project Description",
   "locale": "en-US"
-} '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/projects"
+} '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/projects"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52",
   "links": {
-    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/evaluations",
-    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/datasets",
-    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/models",
-    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/endpoints",
-    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/1cdfa276-0f9d-425b-a942-5f2be93017ed/transcriptions"       
+    "evaluations": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52/evaluations",
+    "datasets": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52/datasets",
+    "models": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52/models",
+    "endpoints": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52/endpoints",
+    "transcriptions": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52/transcriptions"
   },
   "properties": {
     "datasetCount": 0,
@@ -119,7 +119,7 @@ You should receive a response body in the following format:
     "transcriptionCount": 0,
     "endpointCount": 0
   },
-  "createdDateTime": "2022-05-17T22:15:18Z",
+  "createdDateTime": "2024-07-14T17:15:55Z",
   "locale": "en-US",
   "displayName": "My Project",
   "description": "My Project Description"

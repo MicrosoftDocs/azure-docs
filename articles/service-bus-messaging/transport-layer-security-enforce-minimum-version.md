@@ -2,10 +2,7 @@
 title: Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace
 titleSuffix: Azure Service Bus
 description: Configure a service bus namespace to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Service Bus.
-services: service-bus
 author: EldertGrootenboer
-
-ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/26/2022
 ms.author: egrootenboer

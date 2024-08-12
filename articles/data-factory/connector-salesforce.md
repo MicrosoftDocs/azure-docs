@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/25/2024
+ms.date: 07/11/2024
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
@@ -210,8 +209,8 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SalesforceV2Object**.  | Yes |
-| objectApiName | The Salesforce object name to retrieve data from. | No for source (if "SOQLQuery" in source is specified), Yes for sink |
-| reportId | The ID of the Salesforce report to retrieve data from. It isn't supported in sink. There are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. | No for source (if "SOQLQuery" in source is specified), not support sink |
+| objectApiName | The Salesforce object name to retrieve data from. | No for source (if "query" in source is specified), Yes for sink |
+| reportId | The ID of the Salesforce report to retrieve data from. It isn't supported in sink. There are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. | No for source (if "query" in source is specified), not support sink |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -248,7 +247,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceV2Source**. | Yes |
-| SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query isn't specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset is retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
+| query | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query isn't specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset is retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
 | includeDeletedObjects | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is false. <br>Allowed values: **false** (default), **true**.   | No |
 
 > [!IMPORTANT]
@@ -278,7 +277,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
         "typeProperties": {
             "source": {
                 "type": "SalesforceV2Source",
-                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
+                "query": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
                 "includeDeletedObjects": false
             },
             "sink": {

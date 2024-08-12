@@ -6,7 +6,7 @@ ms.topic: article
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: devx-track-azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # How to consume and maintain public content with Azure Container Registry Tasks
@@ -44,9 +44,9 @@ This walkthrough sets up:
    1. Import and validate the `node` image to the company/team shared registry
    1. Build and deploy the `hello-world` image
 1. **ACR task definitions**, including configurations for:
-1. A collection of **registry credentials**, which are pointers to a key vault
-1. A collection of **secrets**, available within an `acr-task.yaml`, which are pointers to a key vault
-1. A collection of **configured values** used within an `acr-task.yaml`
+    * A collection of **registry credentials**, which are pointers to a key vault
+    * A collection of **secrets**, available within an `acr-task.yaml`, which are pointers to a key vault
+    * A collection of **configured values** used within an `acr-task.yaml`
 1. An **Azure key vault** to secure all secrets
 1. An **Azure container instance**, which hosts the `hello-world` build application
 
@@ -56,7 +56,7 @@ The following steps configure values for resources created and used in the walkt
 
 ### Set environment variables
 
-Configure variables unique to your environment. We follow best practices for placing resources with durable content in their own resource group to minimize accidental deletion. However, you can place these in a single resource group if desired.
+Configure variables unique to your environment. We follow best practices for placing resources with durable content in their own resource group to minimize accidental deletion. However, you can place these variables in a single resource group if desired.
 
 The examples in this article are formatted for the bash shell.
 
@@ -739,7 +739,7 @@ az group delete -n $ACI_RG --no-wait -y
 
 ## Next steps
 
-In this article. you used ACR tasks to create an automated gating workflow to introduce updated base images to your environment. See related information to manage images in Azure Container Registry.
+In this article, you used ACR tasks to create an automated gating workflow to introduce updated base images to your environment. See related information to manage images in Azure Container Registry.
 
 
 * [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md)

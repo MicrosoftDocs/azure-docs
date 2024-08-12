@@ -5,7 +5,7 @@ author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---

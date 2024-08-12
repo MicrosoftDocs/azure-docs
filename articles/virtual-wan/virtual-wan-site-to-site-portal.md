@@ -3,7 +3,7 @@ title: 'Tutorial: Create site-to-site connections using Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Learn how to use Azure Virtual WAN to create a site-to-site VPN connection to Azure.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 01/31/2024
 ms.author: cherylmc

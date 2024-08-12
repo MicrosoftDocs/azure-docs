@@ -3,7 +3,7 @@ title: Generative AI in Azure Data Manager for Agriculture
 description: Learn how to use generative AI features in Azure Data Manager for Agriculture. 
 author: gourdsay
 ms.author: angour
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 3/19/2024
 ms.custom: template-concept
@@ -30,7 +30,7 @@ Our copilot templates make generative AI in agriculture a reality.
 
 - An instance of [Azure Data Manager for Agriculture](quickstart-install-data-manager-for-agriculture.md)
 - An instance of [Azure OpenAI Service](../ai-services/openai/how-to/create-resource.md) created in your Azure subscription
-- [Azure Key Vault](../key-vault/general/quick-create-portal.md)
+- [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
 - [Azure Container Registry](../container-registry/container-registry-get-started-portal.md)
 
 ## High-level architecture

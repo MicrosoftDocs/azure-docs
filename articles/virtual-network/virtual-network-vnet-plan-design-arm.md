@@ -4,7 +4,7 @@ description: Learn how to plan for virtual networks based on your isolation, con
 services: virtual-network
 author: asudbring
 manager: mtillman
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: allensu

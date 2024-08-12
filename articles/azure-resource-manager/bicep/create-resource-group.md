@@ -22,7 +22,7 @@ targetScope='subscription'
 param resourceGroupName string
 param resourceGroupLocation string
 
-resource newRG 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+resource newRG 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: resourceGroupName
   location: resourceGroupLocation
 }
@@ -65,7 +65,7 @@ param resourceGroupLocation string
 param storageName string
 param storageLocation string
 
-resource newRG 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+resource newRG 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: resourceGroupName
   location: resourceGroupLocation
 }
@@ -86,7 +86,7 @@ The module uses a Bicep file named **storage.bicep** with the following contents
 param storageLocation string
 param storageName string
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageName
   location: storageLocation
   sku: {

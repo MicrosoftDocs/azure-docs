@@ -2,7 +2,7 @@
 title: Receive activity log alerts on Azure service notifications using Azure portal
 description: Learn how to use the Azure portal to set up activity log alerts for service health notifications by using the Azure portal.
 ms.topic: quickstart
-ms.date: 06/27/2019
+ms.date: 07/31/2024
 ---
 
 # Create activity log alerts on service notifications using the Azure portal
@@ -29,10 +29,6 @@ You also can configure who the alert should be sent to:
 To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](../azure-monitor/alerts/alerts-activity-log.md).
-
-## Watch a video on setting up your first Azure Service Health alert
-
->[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## Create a Service Health alert using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Service Health**.

@@ -4,7 +4,7 @@ description: Learn how to update running containers in your Azure Container Inst
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 04/25/2024
 ---

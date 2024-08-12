@@ -5,7 +5,7 @@ description: Learn how to set up a sample MLOps environment in Azure Machine Lea
 services: machine-learning
 ms.author: larryfr
 author: Blackmist
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.reviewer: kritifaujdar
 ms.subservice: mlops
 ms.date: 11/03/2023

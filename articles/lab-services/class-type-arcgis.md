@@ -5,14 +5,16 @@ author: nicolela
 ms.topic: how-to
 ms.date: 02/28/2022
 ms.custom: devdivchpfy22
-ms.service: lab-services
+ms.service: azure-lab-services
 ---
 
 # Set up a lab for ArcMap\ArcGIS Desktop
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) is a type of geographic information system (GIS).  ArcGIS is used to make\analyze maps and work with geographic data that is provided by the [Environmental Systems Research Institute (ESRI)](https://www.esri.com/home).  Although ArcGIS Desktop includes several applications, this article shows how to set up labs for using ArcMap.  [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) is used to make, edit, and analyze 2D maps.
+[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) is a type of geographic information system (GIS).  ArcGIS is used to make\analyze maps and work with geographic data that is provided by the [Environmental Systems Research Institute](https://www.esri.com/home) (ESRI).  Although ArcGIS Desktop includes several applications, this article shows how to set up labs for using ArcMap.  [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) is used to make, edit, and analyze 2D maps.
 
 To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

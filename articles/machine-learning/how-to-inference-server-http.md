@@ -6,7 +6,7 @@ author: msakande
 ms.author: mopeakande
 ms.reviewer: alehughes
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: inference server, local development, local debugging, devplatv2

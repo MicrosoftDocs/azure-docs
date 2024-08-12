@@ -13,15 +13,19 @@ ms.custom:
 
 | Size Series | Series Type | Deployment Status |
 |:-:|:-:|:-:|
-| Dalsv6                                                         | General Purpose                | Preview        |
-| Easv6                                                          | Memory Optimized               | Preview        |
-| [DCesv5](../../virtual-machines/dcesv5-dcedsv5-series.md)                                                         | General Purpose                | Preview        |
-| [ECesv5](../../virtual-machines/ecesv5-ecedsv5-series.md)                                                          | Memory Optimized               | Preview        |
+| [Dlsv6/Dldsv6](../../virtual-machines/dlsv6-dldsv6-series.md)  | General Purpose              | Preview    |
+| [Dsv6/Ddsv6](../../virtual-machines/dsv6-ddsv6-series.md)      | General Purpose              | Preview    |
+| [Esv6/Edsv6](../../virtual-machines/esv6-edsv6-series.md)      | Memory Optimized             | Preview    |
+| [Edv5/Edsv5](../../virtual-machines/edv5-edsv5-series.md)      | Memory Optimized             | Production |
+| [Dalsv6/Daldsv6](../../virtual-machines/dalsv6-daldsv6-series.md) | General Purpose           | Preview    |
+| [Easv6/Eadsv6](../../virtual-machines/easv6-eadsv6-series.md)  | Memory Optimized             | Preview    |
+| [DCesv5](../../virtual-machines/dcesv5-dcedsv5-series.md)      | General Purpose              | Preview    |
+| [ECesv5](../../virtual-machines/ecesv5-ecedsv5-series.md)      | Memory Optimized             | Preview    |
 | [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| High Memory to CPU Optimized | Production  |
-| Falsv6/Famsv6                                                  | Compute Optimized              | Preview    |
+| [Falsv6/Famsv6](../../virtual-machines/fasv6-falsv6-series.md) | Compute Optimized              | Preview    |
 | [Dlsv5](../../virtual-machines/dlsv5-dldsv5-series.md)         | General Purpose                | Production |
-| [Dsv5](../../virtual-machines/dv5-dsv5-series.md)              | General Purpose                | Production |
-| [Esv5](../../virtual-machines/ev5-esv5-series.md)              | Memory Optimized               | Production |
+| [Dv5/Dsv5](../../virtual-machines/dv5-dsv5-series.md)          | General Purpose                | Production |
+| [Ev5/Esv5](../../virtual-machines/ev5-esv5-series.md)          | Memory Optimized               | Production |
 | [Ebsv5](../../virtual-machines/ebdsv5-ebsv5-series.md)         | Managed disks optimized        | Production |
 | [Lsv3](../../virtual-machines/lsv3-series.md)                  | Local storage optimized        | Production |
 | [Dplsv5](../../virtual-machines/dplsv5-dpldsv5-series.md)      | General Purpose                | Production |
