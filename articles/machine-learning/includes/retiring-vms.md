@@ -1,6 +1,6 @@
 ---
 author: sdgilley
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.custom: build-2023
 ms.topic: include
 ms.date: 06/12/2023
