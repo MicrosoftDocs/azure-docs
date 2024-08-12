@@ -26,6 +26,8 @@ This article shows you several ways to get the Client Access URL.
 
 In the Keys tab in Azure portal, there's a Client URL Generator tool to quickly generate a Client Access URL for you, as shown in the following diagram. Values input here aren't stored.
 
+Note that for MQTT clients, you should select "MQTT Client" in the dropdown menu in front of the "Client Access URL" text box.
+
 :::image type="content" source="./media/howto-websocket-connect/generate-client-url.png" alt-text="Screenshot of the Web PubSub Client URL Generator.":::
 
 ## Generate from service SDK
