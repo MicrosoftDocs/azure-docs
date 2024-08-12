@@ -110,6 +110,6 @@ togetherModeFeature.on('togetherModeSeatingUpdated', seatUpdate);
 ## Troubleshooting
 |code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
-|403		| 46303	| ExpectedError  | The participant’s role doesn't have the necessary permissions to invoke the `togetherMode` start API. | Make sure the participant initiating the `togetherMode` start API has the role of organizer, coorganizer, or presenter |
+|403		| 46303	| ExpectedError  | The participant’s role doesn’t have the necessary permissions to invoke the `togetherMode` start API. | Only Microsoft 365 users with role organizer, co-organizer and presenter can start together mode. You can check the role of a user via 'role' property on instance of `Call` class. |
 |403	| 46304 | ExpectedError  | Together mode was started in an unsupported calling scenario.  | Ensure together mode is started only in group call or meeting scenarios. |
 |403 | 46306	| ExpectedError | Together mode `start` API was called by an Azure Communication Services user.  | Only Microsoft 365 users with role organizer, co-organizer and presenter can start together mode. |
