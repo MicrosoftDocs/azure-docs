@@ -128,7 +128,7 @@ az network vnet subnet create \
 
 Create two VMs in the virtual network so you can validate traffic filtering in a later step. 
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a web server. The `--asgs asg-web-servers` option causes Azure to make the network interface it creates for the VM a member of the *asg-web-servers* application security group. The `--nsg ""` option is specified to prevent Azure from creating a default network security group for the network interface Azure creates when it creates the VM. The command will prompt you to create a password for the VM. SSH keys are not used in this example to facilitate the later steps in this article. In a production environment, use SSH keys for security.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a web server. The `--asgs asg-web-servers` option causes Azure to make the network interface it creates for the VM a member of the *asg-web-servers* application security group. The `--nsg ""` option is specified to prevent Azure from creating a default network security group for the network interface Azure creates when it creates the VM. The command prompts you to create a password for the VM. SSH keys aren't used in this example to facilitate the later steps in this article. In a production environment, use SSH keys for security.
 
 ```azurecli-interactive
 az vm create \
