@@ -237,7 +237,7 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 | Microsoft-ContainerInventory | ContainerInventory |
 | Microsoft-ContainerLog | ContainerLog |
 | Microsoft-ContainerLogV2 | ContainerLogV2 |
-| Microsoft-ContainerLogV2-HighScale | ContainerLogV2<br>(High scale mode)<sup>1</sup> |
+| Microsoft-ContainerLogV2-HighScale | ContainerLogV2 (High scale mode)<sup>1</sup> |
 | Microsoft-ContainerNodeInventory | ContainerNodeInventory |
 | Microsoft-InsightsMetrics | InsightsMetrics |
 | Microsoft-KubeEvents | KubeEvents |
