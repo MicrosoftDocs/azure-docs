@@ -35,6 +35,17 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 * You must be familiar with creating and working with [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
+## Workspace identity types
+
+The Azure Machine Learning workspace uses a __managed identity__ to communicate with other services. Multiple identity types are supported for Azure Machine Learning.
+
+| Managed identity type | Role assignment creation | Description |
+| ---- | :----: | :----: |
+| System-assigned | Managed by Microsoft | Lifecycle tied to resource; single resource use; simple to get started |
+| System-assigned+user-assigned | Managed by you | Independent lifecycle for user-assigned identity, multi-resource use, controls least privileged access. |
+
+To learn more about managed identity in Azure, see [Manage user-assigned managed identities](../entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+
 ## Azure Container Registry and identity types
 
 The following table lists the support matrix when authenticating to __Azure Container Registry__, depending on the authentication method and the __Azure Container Registry's__ [public network access configuration](/azure/container-registry/container-registry-access-selected-networks). 
