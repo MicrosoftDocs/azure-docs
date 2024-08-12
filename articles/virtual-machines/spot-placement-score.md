@@ -6,7 +6,7 @@ ms.author: aparnamishra
 ms.service: azure-virtual-machines
 ms.subservice: azure-spot-vm
 ms.topic: how-to
-ms.date: 08/09/2024
+ms.date: 08/11/2024
 ms.reviewer: ju-shim
 ---
 
@@ -90,7 +90,9 @@ POST https://management.azure.com/subscriptions/{subscription}/providers/Microso
 } 
 ```
 Some important terminology to consider:
+
 **Restricted SKU** is returned if the Spot VM SKU is not available for the subscription.
+
 **Data Not Found** is returned when the data necessary to generate a score or recommendation is either not found in upstream databases, or is found but the data lifespan is greater than what our service considers "fresh".
 
 ### [Azure CLI 2.0](#tab/cli)
