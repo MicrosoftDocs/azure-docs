@@ -13,7 +13,7 @@ Autoinstrumentation enables [Application Insights](app-insights-overview.md) to 
 
 The term "autoinstrumentation" is a portmanteau, a linguistic blend where parts of multiple words combine into a new word. "Autoinstrumentation" combines "auto" and "instrumentation." It sees widespread use in software observability and describes the process of adding instrumentation code to applications without manual coding by developers.
 
-The autoinstrumentation process varies by language, but most often involves a toggle button in the Azure portal.
+The autoinstrumentation process varies by language and platform, but often involves a toggle button in the Azure portal.
 
 :::image type="content"source="./media/azure-web-apps/enable.png" alt-text=" Screenshot that shows the Application Insights tab with Enable selected.":::
 
@@ -78,7 +78,7 @@ For other methods to instrument your application with the Application Insights J
 
 #### Should the term "autoinstrumentation" be hyphenated?
 
-We follow the [Microsoft Style Guide](https://learn.microsoft.com/style-guide/punctuation/dashes-hyphens/hyphens#prefixes) for product documentation published to the Microsoft Learn platform.
+We follow the [Microsoft Style Guide](/style-guide/punctuation/dashes-hyphens/hyphens#prefixes) for product documentation published to the [Microsoft Learn](https://learn.microsoft.com/) platform.
 
 In general, we don’t include a hyphen after the "auto" prefix.
 
