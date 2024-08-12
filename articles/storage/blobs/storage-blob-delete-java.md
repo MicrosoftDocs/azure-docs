@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 08/05/2024
+ms.date: 08/12/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
@@ -28,8 +28,7 @@ This article shows how to delete blobs with the [Azure Storage client library fo
 
 ## Delete a blob
 
-> [!NOTE]
-> When blob soft delete is enabled for a storage account, you can't perform a permanent deletion using client library methods. Using the methods in this article, a soft-deleted blob, blob version, or snapshot remains available until the retention period expires, at which time it's permanently deleted. To learn more about the underlying REST API operation, see [Delete Blob (REST API)](/rest/api/storageservices/delete-blob).
+[!INCLUDE [storage-dev-guide-delete-blob-note](../../../includes/storage-dev-guides/storage-dev-guide-delete-blob-note.md)]
 
 To delete a blob, call either of the following methods:
 
