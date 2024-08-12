@@ -874,7 +874,7 @@ Each client requires the external IP address of the Azure Monitor Pipeline servi
 kubectl get services -n <namespace where azure monitor pipeline was installed>
 ```
 
-- If the application producing logs is external to the cluster, copy the *external-ip* value of the service *<pipeline name>-service* or *<pipeline name>-external-service* with the load balancer type. 
+- If the application producing logs is external to the cluster, copy the *external-ip* value of the service *\<pipeline name\>-service* or *\<pipeline name\>-external-service* with the load balancer type. 
 - If the application is on a pod within the cluster, copy the *cluster-ip* value. 
 
 > [!NOTE]
