@@ -335,8 +335,6 @@ items:
         href: https://stackoverflow.com/questions/tagged/azure-application-insights
       - name: Application Insights product feedback
         href: https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0
-      - name: Troubleshooting articles
-        href: /troubleshoot/azure/azure-monitor/welcome-azure-monitor
   - name: Monitor virtual machines
     items:
     - name: Best practices
@@ -431,6 +429,9 @@ items:
       - name: Firewall requirements
         displayName: Container insights, Prometheus
         href: containers/kubernetes-monitoring-firewall.md
+      - name: Private Link
+        displayName: Container insights, Kubernetes
+        href: containers/kubernetes-monitoring-private-link.md
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Legacy authentication
@@ -517,9 +518,6 @@ items:
       - name: Troubleshoot remote-write
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-troubleshooting.md
-    - name: Private link
-      displayName: Private Link, container insights      
-      href: containers/container-insights-private-link.md    
     - name: Monitor
       items:
       - name: Monitor performance
@@ -938,8 +936,6 @@ items:
           href: essentials/azure-monitor-workspace-scaling-best-practice.md
         - name: Private endpoints for Azure Monitor workspaces
           href: essentials/azure-monitor-workspace-private-endpoint.md
-        - name: Private link for Prometheus data ingestion
-          href: essentials/private-link-data-ingestion.md
         - name: Private link data query of Prometheus metrics
           displayName: Private link data query
           href: /azure/managed-grafana/how-to-connect-to-data-source-privately

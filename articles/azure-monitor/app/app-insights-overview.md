@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 12/15/2023
+ms.date: 08/12/2024
 ---
 
 # Application Insights overview
@@ -112,7 +112,7 @@ This section lists all supported platforms and frameworks.
 * [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
 * [Power BI for workspace-based resources](../logs/log-powerbi.md)
 
-### Unsupported SDKs
+### Unsupported Software Development Kits (SDKs)
 Many community-supported Application Insights SDKs exist. Azure Monitor only provides support when you use the supported instrumentation options listed in this article.
 
 We're constantly assessing opportunities to expand our support for other languages. For the latest news, see [Azure updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights).
@@ -152,13 +152,13 @@ From [client webpages](./javascript-sdk.md):
   * Exception details and message accompanying the error
   * Line & column number of error
   * URL where error was raised
-* Network Dependency Requests made by your app XHR and Fetch (fetch collection is disabled by default) requests, include information on:
-  * Url of dependency source
-  * Command & Method used to request the dependency
-  * Duration of the request
-  * Result code and success status of the request
-  * ID (if any) of user making the request
-  * Correlation context (if any) where request is made
+  * Network Dependency Requests made by your app XML Http Request (XHR) and Fetch (fetch collection is disabled by default) requests, include information on:
+      * Url of dependency source
+      * Command & Method used to request the dependency
+      * Duration of the request
+      * Result code and success status of the request
+      * ID (if any) of user making the request
+      * Correlation context (if any) where request is made
 * User information (for example, Location, network, IP)
 * Device information (for example, Browser, OS, version, language, model)
 * Session information
@@ -197,7 +197,9 @@ Use the [REST API](/rest/api/application-insights/) to run [Log Analytics](../lo
 
 ### Can I send telemetry to the Application Insights portal?
 
-We recommend that you use our SDKs and use the [SDK API](./api-custom-events-metrics.md). There are variants of the SDK for various [platforms](./app-insights-overview.md#supported-languages). These SDKs handle processes like buffering, compression, throttling, and retries. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.   
+We recommend the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md).
+
+The [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are available publicly.
 
 ### How long does it take for telemetry to be collected?
 
@@ -215,15 +217,13 @@ Data is sent to an Application Insights [Log Analytics workspace](../logs/log-an
 
 #### Privacy
 
-Application Insights doesn't handle sensitive data by default, as long as you don't put sensitive data in URLs as plain text and ensure your custom code doesn't collect personal or other sensitive details. During development and testing, check the sent data in your IDE and browser's debugging output windows.
+Application Insights doesn't handle sensitive data by default. We recommend you don't put sensitive data in URLs as plain text and ensure your custom code doesn't collect personal or other sensitive details. During development and testing, check the sent data in your IDE and browser's debugging output windows.
 
-For archived information on this topic, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
+For archived information, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
 
 ### What is the Application Insights pricing model?
 
-Application Insights is billed through the Log Analytics workspace into which its log data ingested. 
-The default Pay-as-you-go Log Analytics pricing tier includes 5 GB per month of free data allowance per billing account. 
-Learn more about [Azure Monitor logs pricing options](https://azure.microsoft.com/pricing/details/monitor/).
+Application Insights is billed through the Log Analytics workspace into which its log data ingested. The default Pay-as-you-go Log Analytics pricing tier includes 5 GB per month of free data allowance per billing account. Learn more about [Azure Monitor logs pricing options](https://azure.microsoft.com/pricing/details/monitor/).
           
 ### Are there data transfer charges between an Azure web app and Application Insights?
 
@@ -234,7 +234,7 @@ This answer depends on the distribution of our endpoints, *not* on where your Ap
 
 ### Do I incur network costs if my Application Insights resource is monitoring an Azure resource (that is, telemetry producer) in a different region?
 
-Yes, you may incur more network costs, which vary depending on the region the telemetry is coming from and where it's going. 
+Yes, you can incur more network costs, which vary depending on the region the telemetry is coming from and where it's going. 
 Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
 
 ## Help and support
@@ -243,9 +243,9 @@ Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/b
 
 For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 
-### Microsoft Q&A questions forum
+### Microsoft Questions and Answers (Q&A) forum
 
-Post general questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
+Post general questions to the [Microsoft Questions and Answers (Q&A) forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 
@@ -257,7 +257,8 @@ Leave product feedback for the engineering team in the [Feedback Community](http
 
 ### Troubleshooting
 
-Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/welcome-azure-monitor) for Application Insights.
+- [OpenTelemetry Distro](opentelemetry-enable.md#troubleshooting)
+- [Application Map](app-map.md#troubleshooting-tips)
 
 ## Next steps
 
