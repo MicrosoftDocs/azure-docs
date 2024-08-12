@@ -6,7 +6,7 @@ services: machine-learning
 ms.author: ssalgado
 author: ssalgadodev
 ms.reviewer: joburges
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: devplatv2, sdkv2, cliv2
