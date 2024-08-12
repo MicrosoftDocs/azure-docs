@@ -11,7 +11,16 @@ ms.reviewer: abinetabate
 
 Autoinstrumentation enables [Application Insights](app-insights-overview.md) to make [telemetry](data-model-complete.md) like metrics, requests, and dependencies available in your [Application Insights resource](create-workspace-resource.md). It provides easy access to experiences such as the [application dashboard](overview-dashboard.md) and [application map](app-map.md).
 
+The term "autoinstrumentation" is a portmanteau, a linguistic blend where parts of multiple words combine into a new word. "Autoinstrumentation" combines "auto" and "instrumentation." It sees widespread use in software observability and describes the process of adding instrumentation code to applications without manual coding by developers.
+
+The autoinstrumentation process varies by language, but most often involves a toggle button in the Azure portal.
+
+:::image type="content"source="./media/azure-web-apps/enable.png" alt-text=" Screenshot that shows the Application Insights tab with Enable selected.":::
+
 If your language and platform are supported, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information. In many cases, autoinstrumentation is enabled by default.
+
+> [!TIP]
+> We do not cover the autoinstrumentation process in depth for all languages in this article. Select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information.
 
 ## What are the autoinstrumentation advantages?
 
@@ -64,6 +73,14 @@ When using supported Software Development Kits (SDKs), you can enable SDK inject
    | [Java](./java-standalone-config.md#browser-sdk-loader-preview) |
 
 For other methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).
+
+## Frequently asked questions
+
+#### Should the term "autoinstrumentation" be hyphenated?
+
+We follow the [Microsoft Style Guide](https://learn.microsoft.com/style-guide/punctuation/dashes-hyphens/hyphens#prefixes) for product documentation published to the Microsoft Learn platform.
+
+In general, we don’t include a hyphen after the "auto" prefix.
 
 ## Next steps
 
