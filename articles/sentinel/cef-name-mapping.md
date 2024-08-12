@@ -252,6 +252,6 @@ The following **CommonSecurityLog** fields are added by Microsoft Sentinel to en
 |**SourceSystem**     | Always defined as **OpsManager**.        |
 
 
-## Next steps
+## Related content
 
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
