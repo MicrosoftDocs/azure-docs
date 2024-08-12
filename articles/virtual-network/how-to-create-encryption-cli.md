@@ -6,7 +6,7 @@ author: asudbring
 ms.service: azure-virtual-network
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 08/13/2024
 ms.author: allensu
 ---
 
