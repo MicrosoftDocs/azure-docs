@@ -288,6 +288,9 @@
       href: troubleshoot-control-plane-quorum.md
     - name: Troubleshoot Bare Metal Machine Provisioning
       href: troubleshoot-bare-metal-machine-provisioning.md
+    - name: Troubleshoot Nexus Kubernetes pods
+      href: troubleshoot-nexus-kubernetes-pods.md
+
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference
