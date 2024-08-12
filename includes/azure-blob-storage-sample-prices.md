@@ -18,7 +18,6 @@ The following table includes sample (fictitious) prices for each request to the 
 | List and container operations (per 10,000)                      | $0.055         | $0.055         | $0.065         | $.055   |
 | All other operations (per 10,000)                               | $0.0044        | $0.0044        | $0.0052        | $.0044  |
 | Price of data retrieval (per GB)                                | Free           | $0.01          | $0.03          | $.022   |
-
 | Price of Data storage first 50 TB (pay-as-you-go)               | $0.0208        | $0.0115        | $0.0045        | $0.002  |
 | Price of Data storage next 450 TB (pay-as-you-go)               | $0.020         | $0.0115        | $0.0045        | $0.002  |
 | Price of 100 TB (1-year reserved capacity)                      | $1,747         | $966           | Not available  | $183    |
