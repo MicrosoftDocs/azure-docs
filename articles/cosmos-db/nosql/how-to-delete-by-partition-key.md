@@ -3,7 +3,7 @@ title:  Delete items by partition key value using the Azure Cosmos DB SDK (previ
 description: Learn how to delete items by partition key value using the Azure Cosmos DB SDKs
 author: AbhinavTrips
 ms.author: abtripathi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 05/23/2023

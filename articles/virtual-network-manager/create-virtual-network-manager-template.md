@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 08/15/2023
 ms.topic: quickstart
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-arm-template
 ---
 

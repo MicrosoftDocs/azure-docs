@@ -5,7 +5,7 @@ description: Learn how to delete and restore a blob with TypeScript in your Azur
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/21/2023
+ms.date: 08/12/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript
@@ -16,7 +16,7 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 [!INCLUDE [storage-dev-guide-selector-delete-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-blob.md)]
 
-This article shows how to delete blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
+This article shows how to delete blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob), and how to restore [soft-deleted](soft-delete-blob-overview.md) blobs during the retention period.
 
 ## Prerequisites
 
@@ -26,6 +26,8 @@ This article shows how to delete blobs with the [Azure Storage client library fo
     - [Undelete Blob](/rest/api/storageservices/undelete-blob#authorization)
 
 ## Delete a blob
+
+[!INCLUDE [storage-dev-guide-delete-blob-note](../../../includes/storage-dev-guides/storage-dev-guide-delete-blob-note.md)]
 
 To delete a blob, create a [BlobClient](storage-blob-typescript-get-started.md#create-a-blobclient-object) then call either of these methods:
 

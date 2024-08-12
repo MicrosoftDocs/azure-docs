@@ -6,7 +6,7 @@ author: hariramt
 ms.author: hariramt
 ms.reviewer: maghan, adityaduvuri
 ms.date: 06/19/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: migration-guide
 ms.topic: tutorial
 ms.custom:

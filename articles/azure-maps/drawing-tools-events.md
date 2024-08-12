@@ -4,9 +4,9 @@ description: This article demonstrates how to add a drawing toolbar to a map usi
 author: sinnypan
 ms.author: sipa
 ms.date: 05/23/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Drawing tools events
@@ -28,13 +28,6 @@ The following image shows a screenshot of the complete working sample that demon
 
 :::image type="content" source="./media/drawing-tools-events/drawing-tools-events.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
 
-<!------------------------------------------------------------------
-<br/>
-
-> [!VIDEO https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true]
-
--------------------------------------------------------------------->
-
 ## Examples
 
 Let's see some common scenarios that use the drawing tools events.
@@ -47,25 +40,13 @@ For a complete working sample of how to use the drawing tools to draw polygon ar
 
 :::image type="content" source="./media/drawing-tools-events/select-data-in-drawn-polygon-area.png" alt-text="Screenshot showing a map displaying points within polygon areas.":::
 
-<!-------------------------------------------------------------------
-<br/>
-
-> [!VIDEO https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result]
----------------------------------------------------------------->
-
 ### Draw and search in polygon area
 
-This code searches for points of interests inside the area of a shape after the user finished drawing the shape. You can modify and execute the code by clicking 'Edit on Code pen' on the top-right corner of the frame. The `drawingcomplete` event is used to trigger the search logic. If the user draws a rectangle or polygon, a search inside geometry is performed. If a circle is drawn, the radius and center position is used to perform a point of interest search. The `drawingmodechanged` event is used to determine when the user switches to the drawing mode, and this event clears the drawing canvas.
+This code searches for points of interests inside the area of a shape after the user finished drawing the shape. The `drawingcomplete` event is used to trigger the search logic. If the user draws a rectangle or polygon, a search inside geometry is performed. If a circle is drawn, the radius and center position is used to perform a point of interest search. The `drawingmodechanged` event is used to determine when the user switches to the drawing mode, and this event clears the drawing canvas.
 
 For a complete working sample of how to use the drawing tools to search for points of interests within drawn areas, see [Draw and search polygon area] in the [Azure Maps Samples]. For the source code for this sample, see [Draw and search polygon area sample code].
 
 :::image type="content" source="./media/drawing-tools-events/draw-and-search-polygon-area.png" alt-text="Screenshot showing a map displaying the Draw and search in polygon area sample.":::
-
-<!-------------------------------------------------------------------
-<br/>
-
-> [!VIDEO https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true]
----------------------------------------------------------------->
 
 ### Create a measuring tool
 
@@ -74,10 +55,6 @@ The following code shows how the drawing events can be used to create a measurin
 For a complete working sample of how to use the drawing tools to measure distances and areas, see [Create a measuring tool] in the [Azure Maps Samples]. For the source code for this sample, see [Create a measuring tool sample code].
 
 :::image type="content" source="./media/drawing-tools-events/create-a-measuring-tool.png" alt-text="Screenshot showing a map displaying the measuring tool sample.":::
-
-<!-------------------------------------------------------------------
-> [!VIDEO https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true]
----------------------------------------------------------------->
 
 ## Next steps
 
@@ -103,7 +80,6 @@ Check out more code samples:
 [Code sample page]: https://samples.azuremaps.com/
 [Create a measuring tool sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Create%20a%20measuring%20tool/Create%20a%20measuring%20tool.html
 [Create a measuring tool]: https://samples.azuremaps.com/drawing-tools-module/create-a-measuring-tool
-[Draw and search polygon area sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Draw%20and%20search%20polygon%20area/Draw%20and%20search%20polygon%20area.html
 [Draw and search polygon area]: https://samples.azuremaps.com/drawing-tools-module/draw-and-search-polygon-area
 [Drawing tools events sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20tools%20events/Drawing%20tools%20events.html
 [Drawing tools events]: https://samples.azuremaps.com/drawing-tools-module/drawing-tools-events

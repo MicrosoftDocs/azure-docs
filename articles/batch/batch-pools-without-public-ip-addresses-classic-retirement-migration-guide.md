@@ -3,7 +3,7 @@ title: Migrate pools without public IP addresses (classic) in Batch
 description: Learn how to migrate Azure Batch pools without public IP addresses (classic) and plan for feature end of support.
 author: harperche
 ms.author: harpercheng
-ms.service: batch
+ms.service: azure-batch
 ms.topic: how-to
 ms.date: 09/01/2022
 ---

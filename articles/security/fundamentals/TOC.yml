@@ -177,7 +177,7 @@
       href: database-security-checklist.md
   - name: Storage security guide
     href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
-  - name: Customer Lockbox for Microsoft Azure
+  - name: Customer Lockbox
     items:
     - name: Overview
       href: customer-lockbox-overview.md

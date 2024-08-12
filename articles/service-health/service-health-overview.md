@@ -2,7 +2,7 @@
 title: Service Health portal classic experience overview | Microsoft Docs
 description: Learn how the Service Health portal provides you with a customizable dashboard which tracks the health of your Azure services in the regions where you use them. 
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 07/31/2024
 
 
 ---

@@ -5,7 +5,7 @@ author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: concept-article
 ms.custom:
@@ -45,7 +45,7 @@ Database servers with mission-critical workloads demand robust performance, requ
 
 - The Accelerated logs feature is currently available only in specific regions. [Learn more about supported regions](#regions).
 
-- After the accelerated logs feature is activated, any previously configured value for the ["binlog_expire_seconds"](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds) server parameter will be disregarded and not considered.
+- After the accelerated logs feature is activated, any previously configured value for the ["binlog_expire_logs_seconds"](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds) server parameter will be disregarded and not considered.
 
 ## Regions
 

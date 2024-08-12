@@ -1,7 +1,7 @@
 ---
 title: Data encryption - Azure portal - for Azure Database for PostgreSQL - Single server
 description: Learn how to set up and manage data encryption for your Azure Database for PostgreSQL Single server by using the Azure portal.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.custom: devx-track-azurecli
 ms.author: sunila
@@ -24,13 +24,13 @@ Learn how to use the Azure portal to set up and manage data encryption for your 
 * You must have an Azure subscription and be an administrator on that subscription.
 * In Azure Key Vault, create a key vault and key to use for a customer-managed key.
 * The key vault must have the following properties to use as a customer-managed key:
-  * [Soft delete](../../key-vault/general/soft-delete-overview.md)
+  * [Soft delete](/azure/key-vault/general/soft-delete-overview)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Purge protected](../../key-vault/general/soft-delete-overview.md#purge-protection)
+  * [Purge protected](/azure/key-vault/general/soft-delete-overview#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -90,7 +90,7 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Screenshot of Azure Database for PostgreSQL, with revalidation step highlighted":::
 
-   You will have to give the key vault access to the new server. For more information, see [Enable Azure RBAC permissions on Key Vault](../../key-vault/general/rbac-guide.md?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
+   You will have to give the key vault access to the new server. For more information, see [Enable Azure RBAC permissions on Key Vault](/azure/key-vault/general/rbac-guide?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
 
 4. After registering the service principal, revalidate the key again, and the server resumes its normal functionality.
 

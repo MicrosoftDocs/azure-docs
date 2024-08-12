@@ -3,7 +3,7 @@ title: 'CLI (v2) Azure Arc-enabled Kubernetes online deployment YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Azure Arc-enabled Kubernetes online deployment YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.custom: build-2023
 ms.topic: reference

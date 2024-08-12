@@ -1,7 +1,7 @@
 ---
 title: App development best practices - Azure Database for PostgreSQL single server
 description: Learn about best practices for building an app by using Azure Database for PostgreSQL single server.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: conceptual
 author: sunilagarwal

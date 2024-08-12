@@ -27,18 +27,20 @@
     href: vpn-gateway-vpn-faq.md
   - name: About VPN Gateway design
     href: design.md
+  - name: Design highly available gateway connections
+    href: vpn-gateway-highlyavailable.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About gateway SKUs
     href: about-gateway-skus.md
+  - name: About active-active mode gateways
+    href: about-active-active-gateways.md
   - name: About VPN devices
     href: vpn-gateway-about-vpn-devices.md
   - name: About cryptographic requirements
     href: vpn-gateway-about-compliance-crypto.md
   - name: About BGP and VPN Gateway
     href: vpn-gateway-bgp-overview.md
-  - name: About highly available connections
-    href: vpn-gateway-highlyavailable.md
   - name: About point-to-site VPN
     href: point-to-site-about.md
   - name: About point-to-site VPN routing
@@ -70,7 +72,7 @@
       - name: Azure portal
         href: tutorial-create-gateway-portal.md
       - name: Azure PowerShell
-        href: create-routebased-vpn-gateway-powershell.md
+        href: create-gateway-powershell.md
       - name: Azure CLI
         href: create-routebased-vpn-gateway-cli.md
       - name: Create a Basic SKU gateway
@@ -187,6 +189,8 @@
           href: point-to-site-entra-gateway.md
         - name: Configure P2S - manually registered VPN client
           href: openvpn-azure-ad-tenant.md
+        - name: Create or modify custom audience app ID
+          href: point-to-site-entra-register-custom-app.md
         - name: Configure access based on users and groups
           href: openvpn-azure-ad-tenant-multi-app.md
         - name: Configure Multi-Factor Authentication (MFA)
@@ -201,7 +205,7 @@
           href: point-to-site-entra-vpn-client-mac.md
       - name: Generate VPN client profile configuration files
         href: about-vpn-profile-download.md
-      - name: Change Audience values - gateway and clients
+      - name: Migrate manually registered client to Microsoft-registered client
         href: point-to-site-entra-gateway-update.md
     - name: RADIUS authentication
       items:

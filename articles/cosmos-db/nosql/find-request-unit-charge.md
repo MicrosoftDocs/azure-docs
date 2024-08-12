@@ -2,7 +2,7 @@
 title: Find request unit charge for a SQL query in Azure Cosmos DB
 description: Find the request unit charge for SQL queries against containers created with Azure Cosmos DB, using the Azure portal, .NET, Java, Python, or Node.js.
 author: jcocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/02/2022

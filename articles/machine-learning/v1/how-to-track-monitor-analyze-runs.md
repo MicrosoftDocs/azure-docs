@@ -3,7 +3,7 @@ title: Track, monitor, and analyze runs
 titleSuffix: Azure Machine Learning
 description: Learn how to start, monitor, and track your machine learning experiment runs with the Azure Machine Learning Python SDK.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 author: sdgilley
 ms.author: sgilley

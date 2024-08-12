@@ -93,9 +93,9 @@ The application must be assigned the Monitoring Metrics Publisher role on the da
 
 ### Create an Azure key vault and generate a certificate
 
-1. If you don't already have an Azure key vault, [create a vault](../../key-vault/general/quick-create-portal.md#create-a-vault).
-1. Create a certificate by using the guidance in [Add a certificate to Key Vault](../../key-vault/certificates/quick-create-portal.md#add-a-certificate-to-key-vault).
-1. Download the certificate in CER format by using the guidance in [Export a certificate from Key Vault](../../key-vault/certificates/quick-create-portal.md#export-certificate-from-key-vault).
+1. If you don't already have an Azure key vault, [create a vault](/azure/key-vault/general/quick-create-portal#create-a-vault).
+1. Create a certificate by using the guidance in [Add a certificate to Key Vault](/azure/key-vault/certificates/quick-create-portal#add-a-certificate-to-key-vault).
+1. Download the certificate in CER format by using the guidance in [Export a certificate from Key Vault](/azure/key-vault/certificates/quick-create-portal#export-certificate-from-key-vault).
 
 <a name='add-certificate-to-the-azure-active-directory-application'></a>
 
@@ -138,7 +138,7 @@ This step is required only if you didn't turn on Azure Key Vault Provider for Se
     az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <identity-client-id>
     ```
 
-1. Create `SecretProviderClass` by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault. For information about what values to use, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-identity-access.md).
+1. Create `SecretProviderClass` by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault. For information about what values to use, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-identity-access).
 
     [!INCLUDE [secret-provider-class-yaml](../includes/secret-procider-class-yaml.md)]
 

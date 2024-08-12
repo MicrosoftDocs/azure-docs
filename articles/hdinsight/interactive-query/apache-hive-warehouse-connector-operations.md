@@ -3,7 +3,7 @@ title: Apache Spark operations supported by Hive Warehouse Connector in Azure HD
 description: Learn about the different capabilities of Hive Warehouse Connector on Azure HDInsight.
 author: apurbasroy
 ms.author: apsinhar
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 08/21/2023
 ---

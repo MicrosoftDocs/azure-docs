@@ -3,7 +3,7 @@ title: Connect virtual networks with VNet peering - Azure PowerShell
 description: In this article, you learn how to connect virtual networks with virtual network peering, using Azure PowerShell.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.date: 04/15/2024

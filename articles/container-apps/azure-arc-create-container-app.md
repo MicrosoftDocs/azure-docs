@@ -3,7 +3,7 @@ title: 'Tutorial: Create a container app on Azure Arc'
 description: Get started with Azure Container Apps on Azure Arc-enabled Kubernetes deploying your first app.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 3/20/2023

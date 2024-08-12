@@ -2,9 +2,26 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 2/16/2024
+ms.date: 8/7/2024
 ms.author: eur
 ---
+
+### 2024-August release
+
+Add support for the latest model versions:
+- Speech language identification 1.14.0
+    - Upgrade .Net 8.0
+    - Mitigate Vulnerabilities
+- Neural text to speech 3.3.0
+    - Upgrade .Net 8.0
+    - Mitigate Vulnerabilities
+- Speech to text 4.18.0    
+    - Upgrade .Net 8.0
+    - Mitigate Vulnerabilities
+    - Upgrade Recognition Engine
+    - Fix the issue where `PropertyId.Speech_SegmentationSilenceTimeoutMs` was being ignored.
+    - Update Deprecated Models
+    - Remove the `uk-UA` locale
 
 ### 2024-February release
 

@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ---
 
 # Azure Data Share monitoring data reference

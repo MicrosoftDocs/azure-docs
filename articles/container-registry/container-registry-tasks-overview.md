@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 01/24/2024
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Automate container image builds and maintenance with Azure Container Registry tasks

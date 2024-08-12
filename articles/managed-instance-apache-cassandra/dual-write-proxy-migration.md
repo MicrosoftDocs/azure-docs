@@ -3,7 +3,7 @@ title: Live migration to Azure Managed Instance for Apache Cassandra using Apach
 description: Learn how to migrate to Azure Managed Instance for Apache Cassandra by using Apache Spark and a dual-write proxy.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: tutorial
 ms.date: 11/02/2021
 ---

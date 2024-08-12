@@ -1,21 +1,21 @@
 ---
-title: Dapr integration with Azure Container Apps
+title: Microservice APIs powered by Dapr
 description: Learn more about using Dapr on your Azure Container App service to develop applications.
 ms.author: hannahhunter
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 04/22/2024
+ms.date: 08/05/2024
 ---
 
-# Dapr integration with Azure Container Apps
+# Microservice APIs powered by Dapr
 
-[Distributed Application Runtime (Dapr)][dapr-concepts] provides APIs that run as a sidecar process that helps you write and implement simple, portable, resilient, and secured microservices. Dapr works together with Azure Container Apps as an abstraction layer to provide a low-maintenance, serverless, and scalable platform. [Enabling Dapr on your container app][dapr-enable] creates a secondary process alongside your application code that simplifies application intercommunication with Dapr via HTTP or gRPC.
+Azure Container Apps provides APIs powered by [Distributed Application Runtime (Dapr)][dapr-concepts] that help you write and implement simple, portable, resilient, and secured microservices. Dapr works together with Azure Container Apps as an abstraction layer to provide a low-maintenance and scalable platform. Azure Container Apps offers a selection of fully managed Dapr APIs, components, and features, catered specifically to microservice scenarios. Simply [enable and configure Dapr][dapr-enable] as usual in your container app environment.
 
-## Dapr in Azure Container Apps
+## How the microservices APIs work with your container app
 
-Configure Dapr for your container apps environment with a [Dapr-enabled container app][dapr-enable], a [Dapr component configured for your solution][dapr-components], and a Dapr sidecar invoking communication between them. The following diagram demonstrates these core concepts related to Dapr in Azure Container Apps.
+Configure microservices APIs for your container apps environment with a [Dapr-enabled container app][dapr-enable], a [Dapr component configured for your solution][dapr-components], and a Dapr sidecar invoking communication between them. The following diagram demonstrates these core concepts, using the pub/sub API as an example.
 
 :::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works in Container Apps.":::
 
@@ -60,7 +60,7 @@ Azure Container Apps ensures compatibility with Dapr open source tooling, such a
 - **Actor reminders**: Require a minReplicas of 1+ to ensure reminders is always active and fires correctly.
 - **Jobs**: Dapr isn't supported for jobs.
 
-## Next Steps
+## Next steps
 
 - [Enable Dapr in your container app.][dapr-enable]
 - [Learn how Dapr components work in Azure Container Apps.][dapr-components]

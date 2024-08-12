@@ -3,7 +3,7 @@ title: "Quickstart: Get started with Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning to train and deploy a model in a cloud-based Python Jupyter Notebook.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: quickstart
 author: sdgilley

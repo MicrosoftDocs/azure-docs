@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article provides information on how to configure Application Gateway's layer 4 proxy service for non-HTTP workloads.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 02/26/2024
 ms.author: greglin

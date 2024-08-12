@@ -4,7 +4,7 @@ description: This article walks through how to modify a managed cluster node typ
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/17/2024
 ---
