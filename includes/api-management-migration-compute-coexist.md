@@ -8,7 +8,7 @@ ms.author: danlep
 
 ## Confirm settings before old gateway is purged
 
-After successful migration of a VNet-injected API Management instance, the old and the new compute created during migration coexist for a short period of time, approximately 15 mins, which is a small window of time you can use to validate the deployment and that your applications work as expected. (*This window can be extended to 48 hours by contacting Azure support in advance.*) 
+After successful migration of a VNet-injected API Management instance, the old and the new compute created during migration coexist for a short period of time, approximately 15 mins by default, which is a small window of time you can use to validate the deployment and that your applications work as expected. When migrating using the **Platform migration** blade in the portal, optionally enable a migration setting to retain the old gateway for 48 hours. 
 
 * During this window, the old and new gateways are both online and serving traffic. You are not billed during this time. 
 * Use this window to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address and subnet address space.

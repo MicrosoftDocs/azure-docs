@@ -2,23 +2,9 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 08/09/2024
+ms.date: 08/12/2024
 ms.author: danlep
 ---
 
-Run the following Azure CLI commands, setting variables where indicated with the name of your API Management instance and the name of the resource group in which it was created.
-> [!NOTE]
-> The Migrate to `stv2` REST API is available starting in API Management REST API version `2022-04-01-preview`.
-> [!NOTE]
-> The following script is written for the bash shell. To run the script in PowerShell, prefix the variable names with the `$` character. Example: `$APIM_NAME`.
-
-```azurecli
-APIM_NAME={name of your API Management instance}
-RG_NAME={name of your resource group}
-# Get resource ID of API Management instance
-APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)
-# Call REST API to migrate to stv2 and change VIP address
-az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "NewIp"}'
-# Alternate call to migrate to stv2 and preserve VIP address
-# az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "PreserveIp"}'
-``` 
+> [!IMPORTANT]
+> Support for API Management instances hosted on the `stv1` platform is being retired. In global Azure, the [retirement date is 31 August 2024](../articles/api-management/breaking-changes/stv1-platform-retirement-august-2024.md). In Azure Government and in Azure operated by 21Vianet (Azure in China), the [retirement date is 28 February 2025](../articles/api-management/breaking-changes/stv1-platform-retirement-february-2025.md). If you have instances hosted on the `stv1` platform, migrate them to the `stv2` platform before the retirement date to avoid service disruptions.
