@@ -6,7 +6,7 @@ author: MartinPankraz
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.date: 14/08/2024
+ms.date: 8/14/2024
 ms.author: mapankra
 ---
 # Enable SAP Principal Propagation and SSO for Power Platform 
