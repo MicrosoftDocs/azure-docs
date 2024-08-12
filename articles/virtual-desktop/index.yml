@@ -6,10 +6,9 @@ summary: Securely deliver virtual desktops and applications remotely with maximu
 metadata:
   title: Azure Virtual Desktop documentation
   description: Azure Virtual Desktop securely delivers virtual desktops and applications remotely and provides users with the only multi-session Windows 11 and Windows 10 experience.
-  ms.service: azure-virtual-desktop
   ms.topic: landing-page
-  author: Heidilohr
-  ms.author: helohr
+  author: dknappettmsft
+  ms.author: daknappe
   ms.date: 02/28/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new

@@ -35,7 +35,7 @@ Here's more information about neural text to speech features in the Speech servi
 
 * **Real-time speech synthesis**: Use the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md) to convert text to speech by using [prebuilt neural voices](language-support.md?tabs=tts) or [custom neural voices](custom-neural-voice.md).
 
-* **Asynchronous synthesis of long audio**: Use the [batch synthesis API](batch-synthesis.md) (Preview) to asynchronously synthesize text to speech files longer than 10 minutes (for example, audio books or lectures). Unlike synthesis performed via the Speech SDK or Speech to text REST API, responses aren't returned in real-time. The expectation is that requests are sent asynchronously, responses are polled for, and synthesized audio is downloaded when the service makes it available.
+* **Asynchronous synthesis of long audio**: Use the [batch synthesis API](batch-synthesis.md) to asynchronously synthesize text to speech files longer than 10 minutes (for example, audio books or lectures). Unlike synthesis performed via the Speech SDK or Speech to text REST API, responses aren't returned in real-time. The expectation is that requests are sent asynchronously, responses are polled for, and synthesized audio is downloaded when the service makes it available.
 
 * **Prebuilt neural voices**: Microsoft neural text to speech capability uses deep neural networks to overcome the limits of traditional speech synthesis regarding stress and intonation in spoken language. Prosody prediction and voice synthesis happen simultaneously, which results in more fluid and natural-sounding outputs. Each prebuilt neural voice model is available at 24 kHz and high-fidelity 48 kHz. You can use neural voices to:
 

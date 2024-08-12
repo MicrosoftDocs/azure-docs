@@ -36,6 +36,8 @@
             href: flexible-server/release-notes/may-2024.md
           - name: June 2024
             href: flexible-server/release-notes/june-2024.md
+          - name: August 2024
+            href: flexible-server/release-notes/august-2024.md
       - name: Service tiers
         href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
@@ -160,7 +162,7 @@
       - name: Data encryption
         href: flexible-server/concepts-customer-managed-key.md
       - name: Threat protection with Microsoft Defender for Cloud
-        href: ../defender-for-cloud/defender-for-databases-introduction.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
+        href: /azure/defender-for-cloud/defender-for-databases-introduction?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
   - name: Integrations
     items:
     - name: Automation tasks

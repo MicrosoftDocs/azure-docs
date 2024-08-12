@@ -13,8 +13,8 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 > [!IMPORTANT]
 > App Service Environment v1 and v2 [will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-4/). After that date, those versions will no longer be supported and any remaining App Service Environment v1 and v2s and the applications running on them will be deleted. 
-
-There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1 or v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+>
+> There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1 or v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
 >
 > As of 29 January 2024, you can no longer create new App Service Environment v1 or v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
 >
@@ -52,7 +52,6 @@ There's a new version of App Service Environment that is easier to use and runs 
 |Subnet delegation   |Not required         |Not required         |[Must be delegated to `Microsoft.Web/hostingEnvironments`](networking.md#subnet-requirements)       |
 |Subnet size|An App Service Environment v1 with no App Service plans uses 12 addresses before you create an app. If you use an ILB App Service Environment v1, then it uses 13 addresses before you create an app. As you scale out, infrastructure roles are added at every multiple of 15 and 20 of your App Service plan instances.  |An App Service Environment v2 with no App Service plans uses 12 addresses before you create an app. If you use an ILB App Service Environment v2, then it uses 13 addresses before you create an app. As you scale out, infrastructure roles are added at every multiple of 15 and 20 of your App Service plan instances.  |Any particular subnet has five addresses reserved for management purposes. In addition to the management addresses, App Service Environment v3 dynamically scales the supporting infrastructure, and uses between 4 and 27 addresses, depending on the configuration and load. You can use the remaining addresses for instances in the App Service plan. The minimal size of your subnet can be a /27 address space (32 addresses).  |
 |DNS fallback |Azure DNS |Azure DNS |[Ensure that you have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers](migrate.md#in-place-migration-feature-limitations) |
-|Azure Application Gateway version compatibility |[v1](../../application-gateway/overview.md), [v2](../../application-gateway/overview-v2.md) |[v1](../../application-gateway/overview.md), [v2](../../application-gateway/overview-v2.md) |[v2](../../application-gateway/overview-v2.md) |
 
 ### Scaling
 

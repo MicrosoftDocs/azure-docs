@@ -55,7 +55,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
     > [!IMPORTANT]
     > You might see a prompt to "enable full-text query \[...\] for more detailed logging" if the **full-text query** feature is not enabled in your account. You can safely ignore this warning if you do not wish to enable this feature. For more information, see [enable full-text query](monitor-resource-logs.md#enable-full-text-query-for-logging-query-text).
 
-1. In the **Diagnostic settings** pane, name the setting **example-setting** and then select the **QueryRuntimeStatistics** category. Send the logs to a **Log Analytics Workspace** selecting your existing workspace. Finally, select **Resource specific** as the destination option.
+1. In the **Diagnostic settings** pane, name the setting **example-setting** and then select the **QueryRuntimeStatistics** category. Enable **Send to Log Analytics Workspace** checkbox, selecting your existing workspace. Finally, select **Resource specific** as the destination option.
 
     :::image type="content" source="media/monitor-resource-logs/configure-diagnostic-setting.png" alt-text="Screenshot of the various options to configure a diagnostic setting.":::
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn about migrating a virtual network from the classic deployment model to the Resource Manager model.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 01/25/2022
 ms.custom: template-how-to, devx-track-azurepowershell

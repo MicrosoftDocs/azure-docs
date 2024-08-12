@@ -25,8 +25,6 @@ When access to an Azure Container Registry (ACR) is [restricted using a private 
 ## Limitations
 * Windows containers don't support system-assigned managed identity-authenticated image pulls with ACR, only user-assigned.
 
-* The Azure container registry must have [Public Access set to either 'Select networks' or 'None'](../container-registry/container-registry-access-selected-networks.md). To set the Azure container registry's Public Access to 'All networks', visit ACI's article on [how to authenticate with ACR with service principal based authentication](container-instances-using-azure-container-registry.md).
-
 ## Configure registry authentication
 
 Your container registry must have Trusted Services enabled. To find instructions on how to enable trusted services, see [Allow trusted services to securely access a network-restricted container registry][allow-access-trusted-services].

@@ -3,12 +3,11 @@ title: How to secure an Azure Maps application with a SAS token
 titleSuffix: Azure Maps
 description: Create an Azure Maps account secured with SAS token authentication.
 author: pbrasil
-ms.author: peterbr 
+ms.author: peterbr
 ms.date: 06/08/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-manager: philema
+ms.subservice: authentication
 ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
@@ -21,7 +20,7 @@ This article describes how to create an Azure Maps account with a securely store
 - An Azure subscription. If you don't already have an Azure account, [sign up for a free one](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - **Owner** role permission on the Azure subscription. You need the **Owner** permissions to:
 
-  - Create a key vault in [Azure Key Vault](../key-vault/general/basic-concepts.md).
+  - Create a key vault in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
   - Create a user-assigned managed identity.
   - Assign the managed identity a role.
   - Create an Azure Maps account.
@@ -34,7 +33,7 @@ A SAS token credential grants the access level it specifies to anyone who holds 
 
 This scenario safely stores a SAS token as a secret in Key Vault, and distributes the token into a public client. Application lifecycle events can generate new SAS tokens without interrupting active connections that use existing tokens.
 
-For more information about configuring Key Vault, see the [Azure Key Vault developer's guide](../key-vault/general/developers-guide.md).
+For more information about configuring Key Vault, see the [Azure Key Vault developer's guide](/azure/key-vault/general/developers-guide).
 
 The following example scenario uses two Azure Resource Manager (ARM) template deployments to do the following steps:
 

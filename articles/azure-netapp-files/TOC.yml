@@ -313,6 +313,8 @@
         href: configure-network-features.md
       - name: Configure customer-managed keys 
         href: configure-customer-managed-keys.md
+      - name: Configure customer-managed keys with managed HSM
+        href: configure-customer-managed-keys-hardware.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes

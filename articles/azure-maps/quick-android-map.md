@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: azure-maps
-services: azure-maps
-ms.custom: mvc, mode-other, devx-track-java
+ms.subservice: android-sdk
+ms.custom: mvc, devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -442,5 +442,5 @@ In this quickstart, you created your Azure Maps account and created a demo appli
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Microsoft Azure]: https://azure.microsoft.com
 [Next Steps]: #next-steps
-[Set up Azure Key Vault with key rotation and auditing]: ../key-vault/secrets/tutorial-rotation-dual.md
+[Set up Azure Key Vault with key rotation and auditing]: /azure/key-vault/secrets/tutorial-rotation-dual
 [Tutorial: Load GeoJSON data into Azure Maps Android SDK]: tutorial-load-geojson-file-android.md
