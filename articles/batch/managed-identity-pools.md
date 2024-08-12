@@ -69,43 +69,41 @@ To create a Batch pool with a user-assigned managed identity through the Azure p
 To create a Batch pool with a user-assigned managed identity with the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library), use the following example code:
 
 ```csharp
-var poolParameters = new Pool(name: "yourPoolName")
-    {
-        VmSize = "standard_d2_v3",
-        ScaleSettings = new ScaleSettings
-        {
-            FixedScale = new FixedScaleSettings
-            {
-                TargetDedicatedNodes = 1
-            }
-        },
-        DeploymentConfiguration = new DeploymentConfiguration
-        {
-            VirtualMachineConfiguration = new VirtualMachineConfiguration(
-                new ImageReference(
-                    "Canonical",
-                    "0001-com-ubuntu-server-jammy",
-                    "22_04-lts",
-                    "latest"),
-                "batch.node.ubuntu 22.04")
-        },
-        Identity = new BatchPoolIdentity
-        {
-            Type = PoolIdentityType.UserAssigned,
-            UserAssignedIdentities = new Dictionary<string, UserAssignedIdentities>
-            {
-                ["Your Identity Resource Id"] =
-                    new UserAssignedIdentities()
-            }
-        }
-    };
+var credential = new DefaultAzureCredential();
+ArmClient _armClient = new ArmClient(credential);
+        
+var batchAccountIdentifier = ResourceIdentifier.Parse("your-batch-account-resource-id");   
+BatchAccountResource batchAccount = _armClient.GetBatchAccountResource(batchAccountIdentifier);
 
-var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
-    poolName:"yourPoolName",
-    resourceGroupName: "yourResourceGroupName",
-    accountName: "yourAccountName",
-    parameters: poolParameters,
-    cancellationToken: default(CancellationToken)).ConfigureAwait(false);
+var poolName = "HelloWorldPool";
+var imageReference = new BatchImageReference()
+{
+    Publisher = "canonical",
+    Offer = "0001-com-ubuntu-server-jammy",
+    Sku = "22_04-lts",
+    Version = "latest"
+};
+string nodeAgentSku = "batch.node.ubuntu 22.04";
+
+var batchAccountPoolData = new BatchAccountPoolData()
+{
+    VmSize = "Standard_DS1_v2",
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
+    {
+        VmConfiguration = new BatchVmConfiguration(imageReference, nodeAgentSku)
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings()
+        {
+            TargetDedicatedNodes = 1
+        }
+    }
+};
+
+ArmOperation<BatchAccountPoolResource> armOperation = batchAccount.GetBatchAccountPools().CreateOrUpdate(
+    WaitUntil.Completed, poolName, batchAccountPoolData);
+BatchAccountPoolResource pool = armOperation.Value;
 ```
 
 ## Use user-assigned managed identities in Batch nodes
