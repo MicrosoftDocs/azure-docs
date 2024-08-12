@@ -79,6 +79,9 @@ You could also add custom claims into the access token, and these values are pre
 
 1. Follow [Getting started with server SDK](./reference-server-sdk-js.md#getting-started) to create a `WebPubSubServiceClient` object `service`
 
+> [!NOTE]
+> Generating MQTT client access URL is supported since [version 1.1.3](https://www.npmjs.com/package/@azure/web-pubsub/v/1.1.3?activeTab=versions).
+
 2. Generate Client Access URL by calling `WebPubSubServiceClient.getClientAccessToken`:
 
      ```js
@@ -88,6 +91,9 @@ You could also add custom claims into the access token, and these values are pre
 # [C#](#tab/csharp)
 
 1. Follow [Getting started with server SDK](./reference-server-sdk-csharp.md#getting-started) to create a `WebPubSubServiceClient` object `service`
+
+> [!NOTE]
+> Generating MQTT client access URL is supported since [version 1.4.0](https://www.nuget.org/packages/Azure.Messaging.WebPubSub/1.4.0).
 
 2. Generate Client Access URL by calling `WebPubSubServiceClient.GetClientAccessUri`:
 
@@ -99,6 +105,9 @@ You could also add custom claims into the access token, and these values are pre
 
 1. Follow [Getting started with server SDK](./reference-server-sdk-python.md#install-the-package) to create a `WebPubSubServiceClient` object `service`
 
+> [!NOTE]
+> Generating MQTT client access URL is supported since [version 1.2.0](https://pypi.org/project/azure-messaging-webpubsubservice/1.2.0/).
+
 2. Generate Client Access URL by calling `WebPubSubServiceClient.get_client_access_token`:
 
      ```python
@@ -108,6 +117,10 @@ You could also add custom claims into the access token, and these values are pre
 # [Java](#tab/java)
 
 1. Follow [Getting started with server SDK](./reference-server-sdk-java.md#getting-started) to create a `WebPubSubServiceClient` object `service`
+
+> [!NOTE]
+> Generating MQTT client access URL is supported since [version 1.3.0](https://central.sonatype.com/artifact/com.azure/azure-messaging-webpubsub/1.3.0).
+
 
 2. Generate Client Access URL by calling `WebPubSubServiceClient.getClientAccessToken`:
 
