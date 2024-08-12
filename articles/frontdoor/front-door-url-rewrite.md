@@ -6,7 +6,7 @@ services: front-door
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.date: 08/012/2024
+ms.date: 08/12/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
