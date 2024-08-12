@@ -18,7 +18,8 @@ Azure NetApp Files provides capacity pool and volume usage metrics. You can also
 ## How do I determine if a directory is approaching the limit size?
 
 You can use the `stat` command from a client to see whether a directory is approaching the [maximum size limit](azure-netapp-files-resource-limits.md#resource-limits) for directory metadata (320 MB).
-See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#directory-limit) for the limit and calculation. 
+
+See [Understand directory sizes in Azure NetApp Files](directory-sizes-concept.md) for the limit and calculation. 
 
 ## Does snapshot space count towards the usable / provisioned capacity of a volume?
 

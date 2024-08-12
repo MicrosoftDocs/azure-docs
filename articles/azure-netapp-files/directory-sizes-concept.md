@@ -1,10 +1,10 @@
 ---
 title: Understand directory sizes in Azure NetApp Files 
-description: This article shows you how to create an SMB3 volume in Azure NetApp Files. Learn about requirements for Active Directory connections and Domain Services.
+description: Learn how metadata impacts directory sizes in Azure NetApp Files. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 07/23/2024
 ms.author: anfdocs
 ---

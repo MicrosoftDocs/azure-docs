@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/09/2024
 ms.author: anfdocs
 ---
-## Understand `maxfiles` limits in Azure NetApp Files
+# Understand `maxfiles` limits in Azure NetApp Files
 
 Azure NetApp Files volumes have a value called `maxfiles` that refers to the maximum number of files and folders (also known as inodes) a volume can contain. When the `maxfiles` limit is reached, clients receive "out of space" messages when attempting to create new files or folders. If you experience this issue, contact Microsoft technical support.
 

@@ -72,7 +72,7 @@
         - name: Understand maxfiles 
           href: maxfiles-concept.md
         - name: Understand maximum directory sizes 
-          href: directory-size-concept.md
+          href: directory-sizes-concept.md
     - name: Ways to monitor Azure NetApp Files
       href: monitor-azure-netapp-files.md
     - name: Metrics for Azure NetApp Files
