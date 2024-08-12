@@ -9,13 +9,15 @@ ms.date: 08/08/2024
 
 # Add session hosts to a host pool
 
+> [!IMPORTANT]
 > The following features are currently in preview:
-> - Azure Virtual Desktop on Azure Stack HCI for Azure Government and Azure operated by 21Vianet (Azure in China).
+>
+> - Azure Virtual Desktop on Azure Stack HCI for Azure Government and for Azure operated by 21Vianet (Azure in China).
 > - Azure Virtual Desktop on Azure Extended Zones.
 >
 > For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-After you create a host pool, workspace, and an application group, you need to add session hosts to the host pool for your users to connect to. You might also need to add more session hosts for extra capacity.
+After you create a host pool, a workspace, and an application group, you need to add session hosts to the host pool for your users to connect to. You might also need to add more session hosts for extra capacity.
 
 You can create new virtual machines (VMs) to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. Alternatively, you can create VMs outside the Azure Virtual Desktop service, such as with an automated pipeline, and then add them as session hosts to a host pool. When you're using the Azure CLI or Azure PowerShell, you need to create the VMs outside Azure Virtual Desktop, and then add them as session hosts to a host pool separately.
 
@@ -27,7 +29,7 @@ This article shows you how to generate a registration key by using the Azure por
 
 For a general idea of what's required, such as operating systems, virtual networks, and identity providers, review the [prerequisites for Azure Virtual Desktop](prerequisites.md). In addition:
 
-- You need an existing host pool. Each host pool must only contain session hosts on Azure or on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
+- You need an existing host pool. Each host pool must contain session hosts only on Azure or only on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
 
 - If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that you used. All session hosts in a host pool should have the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
 
@@ -41,7 +43,7 @@ For a general idea of what's required, such as operating systems, virtual networ
 
    Alternatively, you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role.
 
-- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when you're creating and adding session hosts by using the Azure portal. [PowerShell DSC](/powershell/dsc/overview) requires it.
+- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) when you're creating and adding session hosts by using the Azure portal. [PowerShell DSC](/powershell/dsc/overview) requires it.
 
 - To add session hosts on Azure Stack HCI, you also need:
 
@@ -167,14 +169,14 @@ Here's how to create session hosts and register them to a host pool by using the
 
       | Parameter | Value/Description |
       |--|--|
-      | **Resource group** | This value defaults to the same resource group as your host pool, but you can select an alternative existing one from the dropdown list. |
+      | **Resource group** | This value defaults to the same resource group as your host pool, but you can select a different one from the dropdown list. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | **Virtual machine location** | Select the Azure region where you want to deploy your session hosts. It must be the same region that contains your virtual network. |
       | **Availability options** | Select from [availability zones](../reliability/availability-zones-overview.md), [availability set](../virtual-machines/availability-set-overview.md), or **No infrastructure redundancy required**. If you select **availability zones** or **availability set**, complete the extra parameters that appear.  |
       | **Security type** | Select from **Standard**, [Trusted launch virtual machines](../virtual-machines/trusted-launch.md), or [Confidential virtual machines](../confidential-computing/confidential-vm-overview.md).<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
       | **Image** | Select the OS image that you want to use from the list, or select **See all images** to see more. The full list includes any images that you created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.yml). |
-      | **Virtual machine size** | Select a size. If you want to use different size, select **Change size**, and then select from the list. |
-      | **Hibernate** | Select the box to enable hibernation. Hibernation is available only for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Microsoft Teams media optimizations, you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001). FSLogix and app attach currently don't support hibernation. Don't enable hibernation if you're using FSLogix or app attach for your personal host pools.|
+      | **Virtual machine size** | Select a size. If you want to use a different size, select **Change size**, and then select from the list. |
+      | **Hibernate** | Select the box to enable hibernation. Hibernation is available only for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Microsoft Teams media optimizations, you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).<br /><br />FSLogix and app attach currently don't support hibernation. Don't enable hibernation if you're using FSLogix or app attach for your personal host pools.|
       | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can deploy up to 400 session hosts at this point if you want (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
       | **OS disk type** | Select the disk type to use for your session hosts. We recommend that you use only **Premium SSD** for production workloads. |
       | **OS disk size** | Select a size for the OS disk.<br /><br />If you enable hibernation, ensure that the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |
@@ -270,7 +272,7 @@ Select the relevant tab for your scenario and follow the steps.
 
 1. Make sure the virtual machines that you want to use as session hosts are joined to Microsoft Entra ID or an Active Directory domain (Active Directory Domain Services or Microsoft Entra Domain Services).
 
-1. If your virtual machines are running a Windows Server OS, you need to install the *Remote Desktop Session Host* role, and then restart the virtual machine. For more information, see [Install roles, role services, and features by using the add Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).
+1. If your virtual machines are running a Windows Server OS, you need to install the *Remote Desktop Session Host* role, and then restart the virtual machine. For more information, see [Install roles, role services, and features by using the Add Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).
 
 1. Sign in to your virtual machine as an administrator.
 
@@ -284,7 +286,7 @@ Select the relevant tab for your scenario and follow the steps.
 
 1. Run the `Microsoft.RDInfra.RDAgent.Installer-x64-<version>.msi` file to install the Remote Desktop Services Infrastructure Agent.
 
-1. Follow the prompts. When the installer prompts for the registration token, paste it into the text box, which appears on a single line. Select **Next**, and then complete the installation.
+1. Follow the prompts. When the installer prompts you for the registration token, paste it into the text box, which appears on a single line. Select **Next**, and then complete the installation.
 
    :::image type="content" source="media/add-session-hosts-host-pool/agent-install-token.png" alt-text="Screenshot that shows the box for entering a registration token." lightbox="media/add-session-hosts-host-pool/agent-install-token.png":::
 
@@ -298,17 +300,17 @@ Select the relevant tab for your scenario and follow the steps.
 
 # [Command line](#tab/cmd)
 
-You can use `msiexec` to install the agent and the boot loader from the command line by using automated deployment tools, such as Intune or Configuration Manager from Microsoft Endpoint Manager. In the following examples, be sure to change the `<placeholder>` values for your own.
+You can use `msiexec` to install the agent and the boot loader from the command line by using automated deployment tools, such as Intune or Configuration Manager. In the following examples, be sure to change the `<placeholder>` values for your own.
 
 1. Make sure the virtual machines that you want to use as session hosts are joined to Microsoft Entra ID or an Active Directory domain (Active Directory Domain Services or Microsoft Entra Domain Services).
 
-1. If your virtual machines are running a Windows Server OS, you need to install the *Remote Desktop Session Host* role by running the following command as an administrator, which also restarts the virtual machines:
+1. If your virtual machines are running a Windows Server OS, you need to install the *Remote Desktop Session Host* role by running the following command as an administrator, which also restarts the virtual machines.
 
    ```powershell
    Install-WindowsFeature -Name RDS-RD-Server -Restart
    ```
 
-1. Download the installation files for the agent and the agent boot loader,and unblock them by running the following commands. The files are downloaded to the current working directory.
+1. Download the installation files for the agent and the agent boot loader, and unblock them by running the following commands. The files are downloaded to the current working directory.
 
    ```powershell
    $uris = @(
@@ -333,7 +335,7 @@ You can use `msiexec` to install the agent and the boot loader from the command 
    ```
 
    > [!TIP]
-   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-available-versions).
+   > This version of the Azure Virtual Desktop Agent is the latest downloadable version in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent?](whats-new-agent.md#latest-available-versions).
 
 1. To install the Remote Desktop Services Infrastructure Agent, run the following command as an administrator:
 
@@ -347,7 +349,7 @@ You can use `msiexec` to install the agent and the boot loader from the command 
    msiexec /i Microsoft.RDInfra.RDAgentBootLoader.Installer-x64.msi /quiet
    ```
 
-1. After a short time, the virtual machines should now be listed as session hosts in the host pool. The status of the session hosts might initially appear as **Unavailable**. If a newer agent version is available, it upgrades automatically.
+1. After a short time, the virtual machines are listed as session hosts in the host pool. The status of the session hosts might initially appear as **Unavailable**. If a newer agent version is available, it's upgraded automatically.
 
 1. After the status of the session hosts is **Available**, restart the virtual machines.
 
@@ -355,13 +357,13 @@ You can use `msiexec` to install the agent and the boot loader from the command 
 
 ## Post-deployment tasks
 
-After you add session hosts to your host pool, there's some extra configuration you might need to do, which is covered in the following sections.
+After you add session hosts to your host pool, you might need to do some extra configuration, as described in the following sections.
 
 [!INCLUDE [include-session-hosts-post-deployment](includes/include-session-hosts-post-deployment.md)]
 
 ## Next steps
 
-Now that you've expanded your existing host pool, you can sign in to an Azure Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
+Now that you've expanded your existing host pool, you can sign in to an Azure Virtual Desktop client to test the hosts as part of a user session. You can connect to a session by using any of the following clients:
 
 - [Connect with the Windows Desktop client](./users/connect-windows.md)
 - [Connect with the web client](./users/connect-web.md)
