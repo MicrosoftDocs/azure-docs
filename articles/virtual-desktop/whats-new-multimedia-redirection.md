@@ -25,7 +25,7 @@ The following table shows the latest available version of the MMR extension for 
 
 In this release, we've made the following changes:
 
-- Fix for a deadlock issue and telemetry processing.
+- Fixed a deadlock issue and improved telemetry processing.
 
 ## Updates for version 1.0.2311.2004
 
