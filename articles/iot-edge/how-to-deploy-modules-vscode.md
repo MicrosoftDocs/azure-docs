@@ -1,9 +1,9 @@
 ---
-title: Deploy modules from Visual Studio Code - Azure IoT Edge
+title: Deploy modules from Visual Studio Code
 description: Use Visual Studio Code with Azure IoT Edge for Visual Studio Code to push an IoT Edge module from your IoT Hub to your IoT Edge device, as configured by a deployment manifest.
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/13/2020
+ms.date: 08/12/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -14,8 +14,6 @@ services: iot-edge
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
-
-This article shows how to create a JSON deployment manifest, then use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy IoT Edge modules at scale using Visual Studio Code](how-to-deploy-vscode-at-scale.md).
 
 ## Prerequisites
 
@@ -151,4 +149,4 @@ Right-click the name of a module to view and edit the module twin.
 
 ## Next steps
 
-Learn how to [Deploy and monitor IoT Edge modules at scale using Visual Studio Code](how-to-deploy-at-scale.md)
+Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).
