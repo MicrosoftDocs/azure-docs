@@ -1,6 +1,6 @@
 ---
 title: Restrict network access to PaaS resources - Azure CLI
-description: In this article, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure CLI.
+description: This article teaches you how to use the Azure CLI to restrict network access to Azure resources like Azure Storage and Azure SQL Database with virtual network service endpoints.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
@@ -58,7 +58,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-Create an additional subnet in the virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet). In this example, a service endpoint for *Microsoft.Storage* is created for the subnet: 
+Create another subnet in the virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet). In this example, a service endpoint for `Microsoft.Storage` is created for the subnet: 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -160,7 +160,7 @@ az storage account create \
 
 After the storage account is created, retrieve the connection string for the storage account into a variable with [az storage account show-connection-string](/cli/azure/storage/account). The connection string is used to create a file share in a later step.
 
-For the purposes of this tutorial, the connection string is used to connect to the storage account. Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+For the purposes of this tutorial, the connection string is used to connect to the storage account. Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 For more information about connecting to a storage account using a managed identity, see [Use a managed identity to access Azure Storage](/entra/identity/managed-identities-azure-resources/tutorial-linux-managed-identities-vm-access?pivots=identity-linux-mi-vm-access-storage).
 
@@ -191,7 +191,7 @@ az storage share create \
 
 ### Deny all network access to a storage account
 
-By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account). Once network access is denied, the storage account is not accessible from any network.
+By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account). Once network access is denied, the storage account isn't accessible from any network.
 
 ```azurecli-interactive
 az storage account update \
@@ -217,7 +217,7 @@ To test network access to a storage account, deploy a VM to each subnet.
 
 ### Create the first virtual machine
 
-Create a VM in the *subnet-public* subnet with [az vm create](/cli/azure/vm). If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
+Create a VM in the *subnet-public* subnet with [az vm create](/cli/azure/vm). If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
 
 ```azurecli-interactive
 az vm create \
@@ -294,7 +294,7 @@ Confirm that the VM has no outbound connectivity to any other public IP addresse
 ping bing.com -c 4
 ```
 
-You receive no replies, because the network security group associated to the *subnet-private* subnet does not allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
+You receive no replies, because the network security group associated to the *subnet-private* subnet doesn't allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
 
 Exit the SSH session to the *vm-private* VM.
 
@@ -318,13 +318,13 @@ Create a directory for a mount point:
 sudo mkdir /mnt/file-share
 ```
 
-Attempt to mount the Azure file share to the directory you created. This article assumes you deployed the latest version of Ubuntu. If you are using earlier versions of Ubuntu, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for additional instructions about mounting file shares. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account):
+Attempt to mount the Azure file share to the directory you created. This article assumes you deployed the latest version of Ubuntu. If you're using earlier versions of Ubuntu, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for more instructions about mounting file shares. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/file-share /mnt/file-share --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Access is denied, and you receive a `mount error(13): Permission denied` error, because the *vm-public* VM is deployed within the *subnet-public* subnet. The *subnet-public* subnet does not have a service endpoint enabled for Azure Storage, and the storage account only allows network access from the *subnet-private* subnet, not the *subnet-public* subnet.
+Access is denied, and you receive a `mount error(13): Permission denied` error, because the *vm-public* VM is deployed within the *subnet-public* subnet. The *subnet-public* subnet doesn't have a service endpoint enabled for Azure Storage, and the storage account only allows network access from the *subnet-private* subnet, not the *subnet-public* subnet.
 
 Exit the SSH session to the *vm-public* VM.
 
@@ -336,7 +336,7 @@ az storage share list \
   --account-key <account-key>
 ```
 
-Access is denied and you receive a *This request is not authorized to perform this operation* error, because your computer is not in the *subnet-private* subnet of the *vnet-1* virtual network.
+Access is denied and you receive a **This request isn't authorized to perform this operation** error, because your computer isn't in the *subnet-private* subnet of the *vnet-1* virtual network.
 
 ## Clean up resources
 
@@ -353,4 +353,4 @@ az group delete \
 
 In this article, you enabled a service endpoint for a virtual network subnet. You learned that service endpoints can be enabled for resources deployed with multiple Azure services. You created an Azure Storage account and limited network access to the storage account to only resources within a virtual network subnet. To learn more about service endpoints, see [Service endpoints overview](virtual-network-service-endpoints-overview.md) and [Manage subnets](virtual-network-manage-subnet.md).
 
-If you have multiple virtual networks in your account, you may want to connect two virtual networks together so the resources within each virtual network can communicate with each other. To learn how, see [Connect virtual networks](tutorial-connect-virtual-networks-cli.md).
+If you have multiple virtual networks in your account, you might want to connect two virtual networks together so the resources within each virtual network can communicate with each other. To learn how, see [Connect virtual networks](tutorial-connect-virtual-networks-cli.md).
