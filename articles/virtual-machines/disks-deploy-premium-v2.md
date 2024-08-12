@@ -227,7 +227,7 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 1. Navigate to the disk you'd like to modify in the [Azure portal](https://portal.azure.com/).
 1. Select **Size + Performance**
-1. Change either the Disk IOPS or Disk throughput (MB/s) as you like, then select **Save**.
+1. Set the values for **Disk IOPS** or **Disk throughput (MB/s)** or both, to meet your needs, then select **Save**.
 
 ---
 
