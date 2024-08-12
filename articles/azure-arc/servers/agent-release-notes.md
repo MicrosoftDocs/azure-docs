@@ -2,7 +2,7 @@
 title: What's new with Azure Connected Machine agent
 description: This article has release notes for Azure Connected Machine agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 07/16/2024
+ms.date: 08/12/2024
 ms.custom: references_regions
 ---
 
@@ -19,6 +19,20 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 > [!WARNING]
 > Only Connected Machine agent versions within the last 1 year are officially supported by the product group. Customers should update to an agent version within this window.
 > 
+
+Version 1.45 - August 2024
+
+Download for [Windows](https://aka.ms/AzureConnectedMachineAgent) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- Fixed an issue where EnableEnd telemetry would sometimes be sent too soon.
+- Added sending a failed timed-out EnableEnd telemetry log if extension takes longer than the allowed time to complete.
+
+### New features
+
+- Azure Arc proxy now supports HTTP traffic.
+- Mew proxy.bypass value 'AMA' added to support AMA VM extension proxy bypass.
 
 ## Version 1.44 - July 2024
 
