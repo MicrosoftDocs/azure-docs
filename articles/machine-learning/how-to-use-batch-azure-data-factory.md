@@ -1,7 +1,7 @@
 ---
 title: "Run batch endpoints from Azure Data Factory"
 titleSuffix: Azure Machine Learning
-description: Learn how to use Azure Data Factory to invoke Batch Endpoints.
+description: Learn how to use Azure Data Factory to invoke Batch Endpoints. Azure Data Factory supports pipelines to orchestrate and manage multiple data transformations.
 services: machine-learning
 ms.service: azure-machine-learning
 ms.subservice: inferencing
@@ -27,7 +27,7 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 ## Prerequisites
 
 - This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, use the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
-- An Azure Data Factory resource created and configured. If you haven't created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal](../data-factory/quickstart-create-data-factory-portal.md) to create one.
+- An Azure Data Factory resource created and configured. To create a data factory, follow the steps in [Quickstart: Create a data factory by using the Azure portal](../data-factory/quickstart-create-data-factory-portal.md) to create one.
 - After creating it, browse to the data factory in the Azure portal:
 
   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot of the home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
@@ -77,7 +77,7 @@ The pipeline looks as follows:
 
 :::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" alt-text="Diagram that shows th high level structure of the pipeline you're creating.":::
 
-It's composed of the following activities:
+The pipeline contains the following activities:
 
 - **Run Batch-Endpoint**: It's a Web Activity that uses the batch endpoint URI to invoke it. It passes the input data URI where the data is located and the expected output file.
 - **Wait for job**: It's a loop activity that checks the status of the created job and waits for its completion, either as **Completed** or **Failed**. This activity, in turns, uses the following activities:
@@ -98,7 +98,7 @@ The pipeline requires the following parameters to be configured:
 
 :::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="Diagram that shows th high level structure of the pipeline you're creating.":::
 
-It's composed of the following activities:
+The pipeline contains the following activities:
 
 - **Authorize**: It's a Web Activity that uses the service principal created in [Authenticating against batch endpoints](#authenticating-against-batch-endpoints) to obtain an authorization token. This token is used to invoke the endpoint later.
 - **Run Batch-Endpoint**: It's a Web Activity that uses the batch endpoint URI to invoke it. It passes the input data URI where the data is located and the expected output file.
@@ -134,7 +134,10 @@ To create this pipeline in your existing Azure Data Factory and invoke batch end
 
 1. Select **Pipeline** > **Import from pipeline template**
 
-1. You're prompted to select a `zip` file. Uses [this file if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip) or [this file if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-SP.zip).
+1. Select a *.zip* file.
+
+   - Use [this file if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip).
+   - Use [this file if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-SP.zip).
 
 1. A preview of the pipeline shows up in the portal. Select **Use this template**.
 
