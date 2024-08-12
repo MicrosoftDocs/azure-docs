@@ -3,8 +3,8 @@ title: Planned connector deprecations for Azure Data Factory
 description: This page describes future deprecations for some connectors of Azure Data Factory.
 author: pennyzhou-msft
 ms.author: xupzhou
-ms.service: azure-data-factory
-ms.subservice: concepts
+ms.service: data-factory
+ms.subservice: concept-article
 ms.topic: overview
 ms.custom: references_regions
 ms.date: 10/11/2023
