@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 08/12/2024
 ms.author: jianleishen
 ---
 # Copy data from Vertica using Azure Data Factory or Synapse Analytics
@@ -66,7 +66,76 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for Vertica linked service:
+If you use the recommended driver version, the following properties are supported for Vertica linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to: **Vertica** | Yes |
+| server | The name or the IP address of the server to which you want to connect. | Yes |
+| port | The port number of the server listener. | No, default is 5433 |
+| database | Name of the Vertica database. | Yes |
+| uid | The user ID that is used to connect to the database.  | Yes |
+| pwd | The password that the application uses to connect to the database. | Yes |
+| version | The version when you select the recommended driver version. The value is `2.0`. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. You can only use the self-hosted integration runtime and its version should be 5.44.8969.2 or above. |No |
+
+**Example:**
+
+```json
+{
+    "name": "VerticaLinkedService",
+    "properties": {
+        "type": "Vertica",
+        "version": "2.0",
+        "typeProperties": {
+            "Server": "<server>",
+            "port": 5433,
+            "uid": "<username>",
+            "database": "<database>",
+            "pwd": {
+                "type": "SecureString",
+                "value": "<password>"
+             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "VerticaLinkedService",
+    "properties": {
+        "type": "Vertica",
+        "version": "2.0",
+        "typeProperties": {
+            "Server": "<server>",
+            "port": 5433,
+            "uid": "<username>",
+            "database": "<database>",
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+If you use the legacy driver version, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -92,32 +161,6 @@ The following properties are supported for Vertica linked service:
 }
 ```
 
-**Example: store password in Azure Key Vault**
-
-```json
-{
-    "name": "VerticaLinkedService",
-    "properties": {
-        "type": "Vertica",
-        "typeProperties": {
-            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;",
-            "pwd": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
 ## Dataset properties
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Vertica dataset.
@@ -129,7 +172,6 @@ To copy data from Vertica, set the type property of the dataset to **VerticaTabl
 | type | The type property of the dataset must be set to: **VerticaTable** | Yes |
 | schema | Name of the schema. |No (if "query" in activity source is specified)  |
 | table | Name of the table. |No (if "query" in activity source is specified)  |
-| tableName | Name of the table with schema. This property is supported for backward compatibility. Use `schema` and `table` for new workload. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -159,7 +201,7 @@ To copy data from Vertica, set the source type in the copy activity to **Vertica
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **VerticaSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "schema+table" in dataset is specified) |
 
 **Example:**
 
