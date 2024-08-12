@@ -8,7 +8,6 @@ ms.author: cnwankwo
 
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-**For meeting and group call scenario the following API can be called only by Microsoft 365 users with the following role**
 
 |APIs| Organizer | Co-Organizer | Presenter | Attendee |
 | start | ✔️ | ✔️  | ✔️ | |
