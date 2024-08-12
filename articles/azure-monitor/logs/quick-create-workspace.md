@@ -11,7 +11,7 @@ ms.reviewer: yossiy
 ---
 # Create a Log Analytics workspace
 
-A Log Analytics workspace is a data store into which you can collect any type of log data from all of your Azure and non-Azure resources and applications. We recommend that you send all log data to one Log Analytics workspace, unless you have specific business needs that require you to create multiple workspaces, as described in [Design a Log Analytics workspace architecture](.workspace-design.md).  
+A Log Analytics workspace is a data store into which you can collect any type of log data from all of your Azure and non-Azure resources and applications. We recommend that you send all log data to one Log Analytics workspace, unless you have specific business needs that require you to create multiple workspaces, as described in [Design a Log Analytics workspace architecture](./workspace-design.md).  
 
 This article explains how to create a Log Analytics workspace. 
 
