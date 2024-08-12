@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Azure Database For MySQL - Flexible Server August 2024 maintenance
 
-We're pleased to announce the June 2024 maintenance of the Azure Database for MySQL Flexible Server. This maintenance updates all existing 8.0.34 and, after, engine version servers to the 8.0.37 engine version, along with several security improvements and known issue fixes.
+We're pleased to announce the August 2024 maintenance of the Azure Database for MySQL Flexible Server. This maintenance updates all existing 8.0.34 and, after, engine version servers to the 8.0.37 engine version, along with several security improvements and known issue fixes.
 
 ## Engine version changes
 
