@@ -87,7 +87,7 @@ To run `appcat`, make sure you have a supported JDK installed. The tool supports
 * Eclipse Temurin™ JDK 11
 * Eclipse Temurin™ JDK 17
 
-Once you have a valid JDK installed, make sure its installation directory is properly configured in the `JAVA_HOME` environment variable.
+After you have a valid JDK installed, make sure its installation directory is properly configured in the `JAVA_HOME` environment variable.
 
 To continue, download and unzip the package in a folder of your choice. You then get the following directory structure:
 
@@ -326,7 +326,7 @@ The complete guide for Rules Development is available at [azure.github.io/appcat
 
 ### 6.3.0.9
 
-This release contains the following fixes, and includes a set of new rules. For more information, see below.
+This release contains the following fixes and includes a set of new rules. For more information, see below.
 
 - Resolved an issue with the `localhost-java-00001` rule.
 - Introduced new rules for identifying technologies such as AWS S3, AWS SQS, Alibaba Cloud OSS, Alibaba Cloud SMS, Alibaba Scheduler X, Alibaba Cloud Seata, and Alibaba Rocket MQ.
