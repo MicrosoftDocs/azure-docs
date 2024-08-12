@@ -4,7 +4,7 @@ description: Learn how to move your Log Analytics workspace to another subscript
 ms.topic: conceptual
 ms.service:  azure-monitor
 ms.reviewer: yossiy
-ms.date: 10/30/2023
+ms.date: 12/08/2024
 ms.custom: devx-track-azurepowershell
 
 ---
