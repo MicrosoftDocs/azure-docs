@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 08/12/2024
 ms.custom: template-how-to
 # Customer intent: As a network administrator, I want to create and configure a Azure NAT Gateway after moving resources to another region.
 ---
@@ -44,7 +44,7 @@ After you move all the resources associated with the original NAT gateway instan
     | **Instance details** |   |
     | Name | Enter **nat-gateway**. |
     | Region | Select the name of the new region. |
-    | Availability Zone | Select **None**. Instead, you can select the zone of the moved resources if applicable. |
+    | Availability Zone | Select **No Zone**. Instead, you can select the zone of the moved resources if applicable. |
     | Idle timeout (minutes) | Enter **10**. |
 
 4. Select the **Outbound IP** tab, or select **Next: Outbound IP** at the bottom of the page.
