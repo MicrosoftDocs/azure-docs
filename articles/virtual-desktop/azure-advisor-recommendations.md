@@ -1,10 +1,11 @@
 ---
 title: Azure Advisor Azure Virtual Desktop Walkthrough - Azure
 description: How to resolve Azure Advisor recommendations for Azure Virtual Desktop.
-author: Heidilohr
+ms.author: dknappettmsft
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # How to resolve Azure Advisor recommendations
 

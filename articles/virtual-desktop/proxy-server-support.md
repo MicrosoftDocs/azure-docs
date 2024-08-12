@@ -1,10 +1,11 @@
 ---
 title: Proxy server guidelines Azure Virtual Desktop - Azure
 description: Some guidelines and recommendations for using proxy servers in Azure Virtual Desktop deployments.
-author: Heidilohr
+ms.author: dknappettmsft
 ms.topic: conceptual
 ms.date: 08/08/2022
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # Proxy server guidelines for Azure Virtual Desktop

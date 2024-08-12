@@ -2,10 +2,11 @@
 metadata:
   title: Azure Virtual Desktop autoscale FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
-  author: Heidilohr
+  ms.author: dknappettmsft
   ms.topic: faq
   ms.date: 02/28/2024
-  ms.author: helohr 
+  ms.author: daknappe
+ms.custom: docs_inherited 
 title: Azure Virtual Desktop autoscale FAQ
 summary: This article answers frequently asked questions about how to use autoscale for Azure Virtual Desktop.
 

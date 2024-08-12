@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop Insights glossary - Azure
 description: A glossary of terms and concepts related to Azure Virtual Desktop Insights.
-author: Heidilohr
+ms.author: dknappettmsft
 ms.topic: conceptual
 ms.date: 09/12/2023
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Azure Virtual Desktop Insights glossary
 

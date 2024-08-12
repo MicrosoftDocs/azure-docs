@@ -1,10 +1,11 @@
 ---
 title: Manage session hosts with Microsoft Intune - Azure Virtual Desktop
 description: Recommended ways for you to manage your Azure Virtual Desktop session hosts.
-author: heidilohr
+ms.author: dknappettmsft
 ms.topic: conceptual
 ms.date: 04/11/2023
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Manage session hosts with Microsoft Intune
 

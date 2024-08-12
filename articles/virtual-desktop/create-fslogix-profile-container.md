@@ -1,10 +1,11 @@
 ---
 title: Configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files
 description: Learn how to configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files.
-author: Heidilohr
+ms.author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files
 

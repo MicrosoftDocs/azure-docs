@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop identities and authentication - Azure
 description: Identities and authentication methods for Azure Virtual Desktop.
-author: Heidilohr
+ms.author: dknappettmsft
 ms.topic: conceptual
 ms.date: 07/16/2024
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Supported identities and authentication methods
 

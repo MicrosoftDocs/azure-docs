@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop (classic) troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up an Azure Virtual Desktop (classic) tenant environment.
-author: Heidilohr
+ms.author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 03/30/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 #  Azure Virtual Desktop (classic) troubleshooting overview, feedback, and support
 

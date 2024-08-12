@@ -1,10 +1,11 @@
 ---
 title: Device redirections in Azure Virtual Desktop - Azure
 description: How to resolve issues with device redirections in Azure Virtual Desktop.
-author: Heidilohr
+ms.author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 11/14/2023
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Troubleshoot device redirections for Azure Virtual Desktop
 

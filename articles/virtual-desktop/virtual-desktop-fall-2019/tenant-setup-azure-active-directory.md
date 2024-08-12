@@ -1,10 +1,11 @@
 ---
 title: Create a tenant in Azure Virtual Desktop (classic) - Azure
 description: Describes how to set up Azure Virtual Desktop (classic) tenants in Microsoft Entra ID.
-author: Heidilohr
+ms.author: dknappettmsft
 ms.topic: tutorial
 ms.date: 03/30/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Tutorial: Create a tenant in Azure Virtual Desktop (classic)
 

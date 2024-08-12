@@ -1,10 +1,11 @@
 ---
 title: Troubleshoot service connection Azure Virtual Desktop - Azure
 description: How to resolve issues while setting up service connections in an Azure Virtual Desktop tenant environment.
-author: Heidilohr
+ms.author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Azure Virtual Desktop service connections
 

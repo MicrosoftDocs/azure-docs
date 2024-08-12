@@ -1,10 +1,11 @@
 ---
 title: Storage FSLogix profile container Azure Virtual Desktop - Azure
 description: Options for storing your Azure Virtual Desktop FSLogix profile on Azure Storage.
-author: Heidilohr
+ms.author: dknappettmsft
 ms.topic: conceptual
 ms.date: 10/27/2022
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Storage options for FSLogix profile containers in Azure Virtual Desktop
 
