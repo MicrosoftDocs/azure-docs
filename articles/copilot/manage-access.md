@@ -20,7 +20,7 @@ By default, Copilot in Azure is available to all users in a tenant. However, [Gl
 Users in a tenant will still see the **Copilot** button in the Azure portal, even if Copilot in Azure is not available for them to use.
 
 > [!NOTE]
-> In some cases, your tenant may not have access to Copilot in Azure by default. For more information, reach out to your account team or your administrator. Global administrators can enable access by following the steps below.
+> In some cases, your tenant may not have access to Copilot in Azure by default. For more information, reach out to your account team or your administrator. Global Administrators can enable access by following the steps below.
 
 As always, Microsoft Copilot in Azure only has access to resources that the user has access to. It can only take actions that the user has permission to perform, and requires confirmation before making changes. Copilot in Azure complies with all existing access management rules and protections such as Azure role-based access control (Azure RBAC), Privileged Identity Management, Azure Policy, and resource locks.
 
