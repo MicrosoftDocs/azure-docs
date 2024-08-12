@@ -167,25 +167,7 @@ The following chart shows the impact on monthly spending given various read perc
 
 ## Sample prices
 
-This article uses the following fictitious prices. 
-
-> [!IMPORTANT]
-> These prices are meant only as examples, and should not be used to calculate your costs.
-
-| Price factor                                        | Archive   | Cold      | Cool      |
-|-----------------------------------------------------|-----------|-----------|-----------|
-| Price of write operations (per 10,000)              | $0.11     | $0.18     | $0.10     |
-| Price of a single write operation (cost / 10,000)   | $0.000011 | $0.000018 | $0.00001  |
-| Data prices (pay-as-you-go)                         | $0.0020   | $0.0045   | $0.0115   |
-| Price of read operations (per 10,000)               | $5.50     | $0.10     | $0.01     |
-| Price of a single read operation (cost / 10,000)    | $0.00055  | $0.00001  | $0.000001 |
-| Price of high priority read operations (per 10,000) | $50.00    | N/A       | N/A       |
-| Price of data retrieval (per GB)                    | $0.02     | $0.03     | $0.01     |
-| Price of high priority data retrieval (per GB)      | $0.10     | N/A       | N/A       |
-
-For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). 
-
-For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
+[!INCLUDE [Sample prices for Azure Blob Storage and Azure Data Lake Storage](../../../includes/azure-blob-storage-sample-prices.md)]
 
 ## Next steps
 

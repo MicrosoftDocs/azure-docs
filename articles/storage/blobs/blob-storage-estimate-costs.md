@@ -152,35 +152,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 ## Sample prices
 
-The following table includes sample (fictitious) prices for each request to the Blob Service endpoint (`blob.core.windows.net`). For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-| Price factor                                                    | Hot     | Cool    | Cold          | Archive |
-|-----------------------------------------------------------------|---------|---------|---------------|---------|
-| Price of write operations (per 10,000)                          | $0.055  | $0.10   | $0.18         | $.11    |
-| Price of read operations (per 10,000)                           | $0.0044 | $0.01   | $0.10         | $5.50   |
-| List and container operations (per 10,000)                      | $0.055  | $0.055  | $0.065        | $.055   |
-| All other operations (per 10,000)                               | $0.0044 | $0.0044 | $0.0052       | $.0044  |
-| Price of data retrieval (per GB)                                | Free    | $0.01   | $0.03         | $.022   |
-| Network bandwidth between regions within North America (per GB) | $0.02   | $0.02   | $0.02         | $0.02   |
-| Price of Data storage first 50 TB (pay-as-you-go)               | $0.0208 | $0.0115 | $0.0045       | $0.002  |
-| Price of Data storage next 450 TB (pay-as-you-go)               | $0.020  | $0.0115 | $0.0045       | $0.002  |
-| Price of 100 TB (1-year reserved capacity)                      | $1,747  | $966    | Not available | $183    |
-| Price of 100 TB (3-year reserved capacity)                      | $1,406  | $872    | Not available | $168    |
-
-The following table includes sample prices (fictitious) prices for each request to the Data Lake Storage endpoint (`dfs.core.windows.net`). For official prices, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). 
-
-| Price factor                                                    | Hot     | Cool    | Cold          | Archive |
-|-----------------------------------------------------------------|---------|---------|---------------|---------|
-| Price of write operations (every 4MiB, per 10,000)              | $0.07120 | $0.13   | $0.234        | $0.143  |
-| Price of read operations (every 4MiB, per 10,000)               | $0.0057 | $0.013  | $0.13         | $7.15   |
-| Iterative write operations (per 100)                            | $0.0715 | $0.0715 | $0.0715       | $0.0715 |
-| Iterative read operations (per 10,000)                          | $0.0715 | $0.0715 | $0.0845       | $0.0715 |
-| Price of data retrieval (per GB)                                | Free    | $0.01   | $0.03         | $0.022  |
-| Network bandwidth between regions within North America (per GB) | $0.02   | $0.02   | $0.02         | $0.02   |
-| Data storage prices first 50 TB (pay-as-you-go)                 | $0.021  | $0.012  | $0.0045       | $0.002  |
-| Data storage prices next 450 TB (pay-as-you-go)                 | $0.020  | $0.012  | $0.0045       | $0.002  |
-| Price of 100 TB (1-year reserved capacity)                      | $1,747  | $966    | Not available | $183    |
-| Price of 100 TB (3-year reserved capacity)                      | $1,406  | $872    | Not available | $168    |
+[!INCLUDE [Sample prices for Azure Blob Storage and Azure Data Lake Storage](../../../includes/azure-blob-storage-sample-prices.md)]
 
 ## See also
 

@@ -230,24 +230,7 @@ The following table contains all of the estimates presented in this article. All
 
 ## Sample prices
 
-The following table includes sample (fictitious) prices for each request to the Blob Service endpoint (`blob.core.windows.net`). For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-| Price factor                               | Hot     | Cool    | Cold    | Archive |
-|--------------------------------------------|---------|---------|---------|---------|
-| Price of write transactions (per 10,000)   | $0.055  | $0.10   | $0.18   | $0.10   |
-| Price of read transactions (per 10,000)    | $0.0044 | $0.01   | $0.10   | $5.50   |
-| Price of data retrieval (per GiB)          | Free    | $0.01   | $0.03   | $0.022  |
-| List and container operations (per 10,000) | $0.055  | $0.050  | $0.065  | $0.055  |
-| All other operations (per 10,000)          | $0.0044 | $0.0044 | $0.0052 | $0.0044 |
-
-The following table includes sample prices (fictitious) prices for each request to the Data Lake Storage endpoint (`dfs.core.windows.net`). For official prices, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). 
-
-| Price factor                                         | Hot     | Cool    | Cold    | Archive |
-|------------------------------------------------------|---------|---------|---------|---------|
-| Price of write transactions (every 4 MiB, per 10,000) | $0.0720 | $0.13   | $0.234  | $0.143  |
-| Price of read transactions (every 4 MiB, per 10,000)  | $0.0057 | $0.013  | $0.13   | $7.15   |
-| Price of data retrieval (per GiB)                    | Free    | $0.01   | $0.03   | $0.022  |
-| Iterative Read operations (per 10,000)               | $0.0715 | $0.0715 | $0.0845 | $0.0715 |
+[!INCLUDE [Sample prices for Azure Blob Storage and Azure Data Lake Storage](../../../includes/azure-blob-storage-sample-prices.md)]
 
 ## See also
 
