@@ -231,6 +231,9 @@
       - name: Uniform Resource Identifier schemes
         displayName: uri schemes
         href: uri-scheme.md
+    - name: Redirect peripherals and resources
+      displayName: devices, microphone, audio, usb, drives, clipboard, printers, scanners, cameras, webcams, smart cards, smartcards, webauthn, location, plug and play, mtp, ptp, serial, com, ports,
+      href: redirection-remote-desktop-protocol.md
     - name: Multimedia redirection
       displayName: mmr
       href: multimedia-redirection-intro.md
@@ -514,8 +517,41 @@
       - name: Install the Remote Desktop client for Windows on a per-user basis
         displayName: apps, clients, remote desktop, rdp, connect, intune, configuration manager, configmgr, sccm, mem, mdm, per user
         href: install-windows-client-per-user.md
-    - name: Configure session host and host pool redirection
-      href: configure-device-redirections.md
+    - name: Configure redirection
+      items:
+      - name: Audio and video
+        displayName: devices, peripherals, redirections, speakers, microphone, headset, multimedia, playback
+        href: redirection-configure-audio-video.md
+      - name: Cameras, webcams, and video capture
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-camera-webcam-video-capture.md
+      - name: Clipboard
+        displayName: devices, peripherals, redirections, copy, paste
+        href: redirection-configure-clipboard.md
+      - name: Drives and storage
+        displayName: devices, peripherals, redirections, usb, drives, storage, flash drive
+        href: redirection-configure-drives-storage.md
+      - name: Location
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-location.md
+      - name: MTP and PTP
+        displayName: devices, peripherals, redirections, plug n play, digital cameras, media players
+        href: redirection-configure-plug-play-mtp-ptp.md
+      - name: Printers
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-printers.md
+      - name: Serial/COM ports
+        displayName: devices, peripherals, redirections, rs232
+        href: redirection-configure-serial-com-ports.md
+      - name: Smart cards
+        displayName: devices, peripherals, redirections, identity
+        href: redirection-configure-smart-cards.md
+      - name: USB
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-usb.md
+      - name: WebAuthn
+        displayName: devices, peripherals, redirections, identity
+        href: redirection-configure-webauthn.md
     - name: Configure client redirection using Intune
       href: client-device-redirection-intune.md
     - name: Set up email discovery

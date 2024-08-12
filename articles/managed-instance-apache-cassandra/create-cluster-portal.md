@@ -290,8 +290,8 @@ For external data centers, such as those hosted on-premises, they can be include
 > Cluster type should be used as "NonProduction" only to save development costs. They may come with smaller SKU's, and should NOT be used to run production workloads.
 
 > [!WARNING] 
-> Cluster type defined as "Nonproduction" will not have SLA guarantees applied to it.
-> Do not execute any schema or write operations during de-allocation - this can lead to data loss and in rare cases schema corruption requiring manual intervention from the support team.
+> - Cluster type defined as "Nonproduction" will not have SLA guarantees applied to it.
+> - Do not execute any schema or write operations during de-allocation - this can lead to data loss and in rare cases schema corruption requiring manual intervention from the support team.
 
    :::image type="content" source="./media/create-cluster-portal/pause-cluster.png" alt-text="Screenshot of pausing a cluster." lightbox="./media/create-cluster-portal/pause-cluster.png" border="true":::
 

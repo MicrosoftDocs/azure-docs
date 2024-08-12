@@ -1292,7 +1292,7 @@
         "articles/virtual-desktop/**/*.md": "azure-virtual-desktop",
         "articles/virtual-desktop/**/*.yml": "azure-virtual-desktop",
         "articles/virtual-machines/*.md": "azure-virtual-machines",
-        "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets",
+        "articles/virtual-machine-scale-sets/*.md": "azure-virtual-machine-scale-sets",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",
