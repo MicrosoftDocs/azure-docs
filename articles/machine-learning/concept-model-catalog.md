@@ -133,23 +133,9 @@ Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmen
 
 ### Regional availability of offers and models 
 
-Pay-as-you-go deployment is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see "offer availability region" in the table in the next section). If the offer is available in the relevant region, the user then must have a Workspace in the Azure region where the model is available for deployment or fine-tuning, as applicable (see "Workspace region" columns in the table below). 
+PPay-as-you-go billing is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available. If the offer is available in the relevant region, the user then must have a Hub/Project in the Azure region where the model is available for deployment or fine-tuning, as applicable. See [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md) for detailed information.
 
-Model | Offer availability region | Workspace Region for Deployment | Workspace Region for Finetuning
---|--|--|--
-Llama-3-70B-Instruct <br> Llama-3-8B-Instruct | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central, North Central US, South Central US, West US, East US, West US 3 | Not available
-Llama-2-7b <br> Llama-2-13b <br> Llama-2-70b | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, East US, West US 3, West US, North Central US, South Central US | West US 3
-Llama-2-7b-chat <br> Llama-2-13b-chat <br> Llama-2-70b-chat | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, East US, West US 3, West US, North Central US, South Central US | Not available
-Mistral Small | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
-Mistral Large (2402) <br> Mistral Large (2407) | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Brazil <br> Hong Kong <br> Israel|  East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
-Mistral Nemo | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Brazil <br> Hong Kong <br> Israel|  East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
-Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Japan | East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
-Cohere-rerank-3-english <br> Cohere-rerank-3-multilingual | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)| East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
-TimeGEN-1 | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Mexico <br> Israel| East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
-jais-30b-chat | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central, North Central US, South Central US, East US, West US 3, West US | Not available
-Phi-3-mini-4k-instruct <br> Phi-3-mini-128k-instruct | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
-Phi-3-small-8k-instruct <br> Phi-3-small-128k-Instruct | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
-Phi-3-medium-4k-instruct, Phi-3-medium-128k-instruct  | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
+
 
 ### Content safety for models deployed via MaaS  
 

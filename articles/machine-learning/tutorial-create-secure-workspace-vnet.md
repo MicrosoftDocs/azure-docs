@@ -3,7 +3,7 @@ title: Create a secure workspace with Azure Virtual Network
 titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and required Azure services inside an Azure Virtual Network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: None
 ms.author: larryfr

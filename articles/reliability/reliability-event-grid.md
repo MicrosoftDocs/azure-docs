@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.date: 07/02/2024
 ---
  

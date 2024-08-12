@@ -23,7 +23,7 @@ You apply settings to your session hosts. It doesn't depend on a specific Remote
 
 To configure the clipboard transfer direction, you need:
 
-- Host pool RDP properties must allow [clipboard redirection](configure-device-redirections.md#clipboard-redirection), otherwise it will be completely blocked.
+- Host pool RDP properties must allow [clipboard redirection](redirection-configure-clipboard.md), otherwise it will be completely blocked.
 
 - Depending on the method you use to configure the clipboard transfer direction:
 
@@ -86,7 +86,7 @@ To configure the clipboard using Intune, follow these steps. This process create
     - **Restrict clipboard transfer from client to server**: Select **Enabled**.
     - **Restrict clipboard transfer from client to server**: Select the type of clipboard data you want to prevent or allow. Your options:
 
-      - Disable clipboard transfers from server to client
+      - Disable clipboard transfers from client to server
       - Allow plain text
       - Allow plain text and images
       - Allow plain text, images, and Rich Text Format

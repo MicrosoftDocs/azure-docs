@@ -14,7 +14,7 @@ ms.author: pafarley
 
 After you've created and trained a Custom Vision project, you may want to copy your project to another resource. If your app or business depends on a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. Then if a regional outage occurs, you can access your project in the region where it was copied.
 
-The **[ExportProject](/rest/api/customvision/training/projects/export?view=rest-customvision-training-v3.3&tabs=HTTP)** and **[ImportProject](/rest/api/customvision/training/projects/import?view=rest-customvision-training-v3.3&tabs=HTTP)** APIs enable this scenario by allowing you to copy projects from one Custom Vision account into others. This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service, like the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) for Visual Studio Code, to issue the requests.
+The **[ExportProject](/rest/api/customvision/projects/export)** and **[ImportProject](/rest/api/customvision/projects/import)** APIs enable this scenario by allowing you to copy projects from one Custom Vision account into others. This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service, like the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) for Visual Studio Code, to issue the requests.
 
 > [!TIP]
 > For an example of this scenario using the Python client library, see the [Move Custom Vision Project](https://github.com/Azure-Samples/custom-vision-move-project/tree/master/) repository on GitHub.
@@ -39,7 +39,7 @@ The process for copying a project consists of the following steps:
 
 ## Get the project ID
 
-First call **[GetProjects](/rest/api/customvision/training/projects/get?view=rest-customvision-training-v3.3&tabs=HTTP)** to see a list of your existing Custom Vision projects and their IDs. Use the training key and endpoint of your source account.
+First call **[GetProjects](/rest/api/customvision/projects/get)** to see a list of your existing Custom Vision projects and their IDs. Use the training key and endpoint of your source account.
 
 ```curl
 curl -v -X GET "{endpoint}/customvision/v3.3/Training/projects"
@@ -77,7 +77,7 @@ You'll get a `200\OK` response with a list of projects and their metadata in the
 
 ## Export the project
 
-Call **[ExportProject](/rest/api/customvision/training/projects/export?view=rest-customvision-training-v3.3&tabs=HTTP)** using the project ID and your source training key and endpoint.
+Call **[ExportProject](/rest/api/customvision/projects/export)** using the project ID and your source training key and endpoint.
 
 ```curl
 curl -v -X GET "{endpoint}/customvision/v3.3/Training/projects/{projectId}/export"
@@ -102,7 +102,7 @@ You'll get a `200/OK` response with metadata about the exported project and a re
 
 ## Import the project
 
-Call **[ImportProject](/rest/api/customvision/training/projects/import?view=rest-customvision-training-v3.3&tabs=HTTP)** using your target training key and endpoint, along with the reference token. You can also give your project a name in its new account.
+Call **[ImportProject](/rest/api/customvision/projects/import)** using your target training key and endpoint, along with the reference token. You can also give your project a name in its new account.
 
 ```curl
 curl -v -G -X POST "{endpoint}/customvision/v3.3/Training/projects/import"

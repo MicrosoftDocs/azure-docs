@@ -6,7 +6,7 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.reviewer: rasavage
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.date: 08/01/2023
 ms.topic: how-to
