@@ -34,7 +34,7 @@ Attach a virtual machine to a Virtual Machine Scale Set at the time of VM creati
 #### [Azure portal](#tab/portal-1)
 
 1. Go to **Virtual Machines**.
-1. Select **Create**
+1. Select **Create**.
 2. Select **Azure virtual machine**.
 3. In the **Basics** tab, open the **Availability options** dropdown and select **Virtual Machine Scale Set**.
 4. In the **Virtual Machine Scale Set** dropdown, select the scale set to which you want to add this virtual machine.
