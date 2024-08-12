@@ -129,6 +129,7 @@ You could also add custom claims into the access token, and these values are pre
      option.setWebPubSubClientAccess(WebPubSubClientProtocol.MQTT);
      WebPubSubClientAccessToken token = service.getClientAccessToken(option);
      ```
+---
 
 ### 2. Upstream Server Workflow
 
