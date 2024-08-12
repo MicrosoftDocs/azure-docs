@@ -80,7 +80,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).PossibleOutboundIpAddresses
 ```
 
-For Function Apps, see [Function app outbound IP addresses](/azure/azure-functions/ip-addresses?tabs=azure-powershell#find-outbound-ip-addresses).
+For function apps, see [Function app outbound IP addresses](/azure/azure-functions/ip-addresses?tabs=azure-powershell#find-outbound-ip-addresses).
 
 ## Get a static outbound IP
 
