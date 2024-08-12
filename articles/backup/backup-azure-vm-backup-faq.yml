@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 04/12/2024
+  ms.date: 08/12/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -400,6 +400,9 @@ sections:
         answer: |
           **Expiry Time** of recovery points are updated when Garbage Collector (GC) runs, which is *every 24 hours*. Once you update the backup policy, it can take up to *24 hours* to show the updates in the **Expiry Time**, if there're no delays in GC jobs.
 
+      - question: Why the expiry time for latest recovery points doesn't appear in the Azure portal for VMs?
+        answer: |
+          The expiry time for the latest recovery point doesn't appear because it has infinite retention until a newer one gets created. The expiry time of other recovery points will be available in the Azure Portal after 24 hours of creation, depending on when the garbage collection runs (that will be within 24 hours).
 
 
       
