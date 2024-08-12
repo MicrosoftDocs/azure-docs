@@ -74,7 +74,7 @@ Find the Spot Placement Score in the Spot tab of the Virtual Machine Scale Sets 
 
 ### [REST API](#tab/rest-api)
 
-Use the following REST API to get your Spot Placement Score. The Placement Score API supports the following versions: *2024-03-01-preview* and *2024-06-01-preview*. 
+Use the following REST API to get your Spot Placement Score. The Placement Score API supports the following versions: *2024-03-01-preview* and *2024-06-01-preview*. You will need to add the RBAC role "Compute Recommendations Role" and select the members to enable the subscription they want to run the API on (https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 ```
 POST https://management.azure.com/subscriptions/{subscription}/providers/Microsoft.Compute/locations/{region}/placementScores/spot/generate?api-version={api-version} 
@@ -89,8 +89,9 @@ POST https://management.azure.com/subscriptions/{subscription}/providers/Microso
 "desiredCount": "" 
 } 
 ```
-
-Restricted SKU Data Not Found
+Some important terminology to consider:
+**Restricted SKU** is returned if the Spot VM SKU is not available for the subscription.
+**Data Not Found** is returned when the data necessary to generate a score or recommendation is either not found in upstream databases, or is found but the data lifespan is greater than what our service considers "fresh".
 
 ### [Azure CLI 2.0](#tab/cli)
 
@@ -126,11 +127,6 @@ Invoke-AzSpotPlacementScore
 ## Examples
 
 The following examples have scenario assumptions and a table with the results score to help you understand how Spot Placement Score works.
-
-Some important terminology to notice before referring to these examples:
-
-- **sku.capacity** is the total number of VMs in the Virtual Machine Scale Set
-- **Base (standard) VMs** are the number of standard non-Spot VMs, akin to a minimum VM number
 
 ### Scenario 1
 This is an example of a request returning regionally scoped placement scores for multiple desired VM sizes and regions.
