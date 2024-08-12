@@ -67,20 +67,20 @@ You can create an Azure support request to increase the adjustable limits from t
 1. Under the **How can we help you** heading, enter "regional capacity quota" in the text field then select **Go**. 
 
     :::image type="content" source="./media/azure-netapp-files-resource-limits/support-how-can-we-help.png" alt-text="Screenshot that shows the How can we help heading." lightbox="./media/azure-netapp-files-resource-limits/support-how-can-we-help.png":::
-
+    
     1. Under the **Current selection** heading, search for "Azure NetApp Files" in the text field for **Which service are you having an issue with?**.
     1. Select **Azure NetApp Files** then **Next**. 
 
-    :::image type="content" source="./media/azure-netapp-files-resource-limits/support-service.png" alt-text="Screenshot of choosing a service option." lightbox="./media/azure-netapp-files-resource-limits/support-service.png":::
-
+        :::image type="content" source="./media/azure-netapp-files-resource-limits/support-service.png" alt-text="Screenshot of choosing a service option." lightbox="./media/azure-netapp-files-resource-limits/support-service.png":::
+    
     1. Under **Which resource are you having an issue with?**, locate and select your subscription. Then locate and select your resource (the NetApp account).
     
-    :::image type="content" source="./media/azure-netapp-files-resource-limits/support-resource.png" alt-text="Screenshot with the option to select your subscription and resource." lightbox="./media/azure-netapp-files-resource-limits/support-resource.png":::
-
+        :::image type="content" source="./media/azure-netapp-files-resource-limits/support-resource.png" alt-text="Screenshot with the option to select your subscription and resource." lightbox="./media/azure-netapp-files-resource-limits/support-resource.png":::
+    
     1. Under **Are you having one of the following issues?**, select **Storage: Azure NetApp Files limits** then **Next**.
     
-    :::image type="content" source="./media/azure-netapp-files-resource-limits/support-issue.png" alt-text="Screenshot showing the option to choose Azure NetApp Files limits as an issue." lightbox="./media/azure-netapp-files-resource-limits/support-issue.png":::
-
+        :::image type="content" source="./media/azure-netapp-files-resource-limits/support-issue.png" alt-text="Screenshot showing the option to choose Azure NetApp Files limits as an issue." lightbox="./media/azure-netapp-files-resource-limits/support-issue.png":::
+    
     1. Select **Create a support request**. 
 
 1. Under the **Problem description** tab, provide the required information:
@@ -88,8 +88,8 @@ You can create an Azure support request to increase the adjustable limits from t
     2. For **Subscription**, select your subscription. 
     3. For **Quota Type**, select **Storage: Azure NetApp Files limits**.  
 
-![Screenshot that shows the Problem Description tab.](./media/shared/support-problem-descriptions.png)
-
+    ![Screenshot that shows the Problem Description tab.](./media/shared/support-problem-descriptions.png)
+    
 1. Under the **Additional details** tab, select **Enter details** in the Request Details field.  
 
     ![Screenshot that shows the Details tab and the Enter Details field.](./media/shared/quota-additional-details.png)
