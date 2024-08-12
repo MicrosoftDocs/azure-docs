@@ -36,7 +36,7 @@ Download for [Windows](https://aka.ms/AzureConnectedMachineAgent) or [Linux](man
 
 ## Version 1.44 - July 2024
 
-Download for [Windows](https://aka.ms/AzureConnectedMachineAgent) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/d/a/f/daf3cc3e-043a-430a-abae-97142323d4d7/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
