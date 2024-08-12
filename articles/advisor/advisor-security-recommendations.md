@@ -10,7 +10,7 @@ Azure Advisor provides you with a consistent, consolidated view of recommendatio
 
 Defender for Cloud helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It periodically analyzes the security state of your Azure resources. When Defender for Cloud identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the controls you need. 
 
-For more information about security recommendations, see [Review your security recommendations in Microsoft Defender for Cloud](../defender-for-cloud/review-security-recommendations.md).
+For more information about security recommendations, see [Review your security recommendations in Microsoft Defender for Cloud](/azure/defender-for-cloud/review-security-recommendations).
 
 ## How to access Security recommendations in Azure Advisor
 
@@ -28,4 +28,3 @@ To learn more about Advisor recommendations, see:
 * [Advisor reliability recommendations](advisor-reference-reliability-recommendations.md)
 * [Advisor operational excellence recommendations](advisor-reference-operational-excellence-recommendations.md)
 * [Advisor REST API](/rest/api/advisor/)
- 

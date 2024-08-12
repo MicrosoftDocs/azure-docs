@@ -3,7 +3,7 @@ title: Understand threat intelligence
 titleSuffix: Microsoft Sentinel
 description: Understand how threat intelligence feeds are connected to, managed, and used in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
 author: austinmccollum
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 3/06/2024
 ms.author: austinmc
 appliesto:
@@ -45,7 +45,7 @@ Threat Intelligence also provides useful context within other Microsoft Sentinel
 Just like all the other event data in Microsoft Sentinel, threat indicators are imported using data connectors. Here are the data connectors in Microsoft Sentinel provided specifically for threat indicators.
 
 - **Microsoft Defender Threat Intelligence data connector** to ingest Microsoft's threat indicators 
-- **Threat Intelligence - TAXII** for industry-standard STIX/TAXII feeds and 
+- **Threat Intelligence - TAXII** for industry-standard STIX/TAXII feeds
 - **Threat Intelligence upload indicators API** for integrated and curated TI feeds using a REST API to connect 
 - **Threat Intelligence Platform data connector** also connects TI feeds using a REST API, but is on the path for deprecation
  
@@ -99,11 +99,13 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 ## View and manage your threat indicators
 
-View and manage your indicators in the **Threat Intelligence** page. Sort, filter, and search your imported threat indicators without even writing a Log Analytics query. This feature also allows you to create threat indicators directly within the Microsoft Sentinel interface, as well as perform two of the most common threat intelligence administrative tasks: indicator tagging and creating new indicators related to security investigations.
+View and manage your indicators in the **Threat Intelligence** page. Sort, filter, and search your imported threat indicators without even writing a Log Analytics query. 
 
-Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply a tag to indicators related to a particular incident, or to those representing threats from a particular known actor or well-known attack campaign. Tag threat indicators individually, or multi-select indicators and tag them all at once. Here is an example screenshot of tagging multiple indicators with an incident ID. Since tagging is free-form, a recommended practice is to create standard naming conventions for threat indicator tags. Indicators allow applying multiple tags.
+:::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot of advanced search interface with source and pattern conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
 
-:::image type="content" source="media/understand-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/understand-threat-intelligence/threat-intel-tagging-indicators.png":::
+Perform two of the most common threat intelligence tasks: indicator tagging and creating new indicators related to security investigations. Create or edit the threat indicators directly within the Threat Intelligence page when you only need to quickly manage a few.
+
+Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply tags to an indicator related to a particular incident, or representing threats from a particular known actor or well-known attack campaign. Once you search for the indicators you want to work with, tag them individually, or multi-select indicators and tag them all at once with one or more tags. Since tagging is free-form, a recommended practice is to create standard naming conventions for threat indicator tags.
 
 Validate your indicators and view your successfully imported threat indicators from the Microsoft Sentinel enabled log analytics workspace. The **ThreatIntelligenceIndicator** table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features such as **Analytics** and **Workbooks**.
 

@@ -1,7 +1,7 @@
 ---
 title: Post-migration optimization steps with Azure Cosmos DB's API for MongoDB
 description: This doc provides the post-migration optimization techniques from MongoDB to Azure Cosmos DB's APi for MongoDB.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.author: gahllevy
 ---
 
 # Post-migration optimization steps when using Azure Cosmos DB's API for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!IMPORTANT]  
 > Please read this entire guide before carrying out your post-migration steps.
@@ -19,7 +19,7 @@ ms.author: gahllevy
 
 This MongoDB post-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](pre-migration-steps.md), migration, and post-migration, as shown below.
 
-![Diagram of migration steps.](./media/pre-migration-steps/overall-migration-steps.png)
+![Diagram of migration steps.](~/reusable-content/ce-skilling/azure/media/cosmos-db/overall-migration-steps.png)
 
 ## Overview of post-migration
 

@@ -2,8 +2,8 @@
 title: Multi-user authorization using Resource Guard
 description: An overview of Multi-user authorization using Resource Guard.
 ms.topic: conceptual
-ms.date: 03/26/2024
-ms.service: backup
+ms.date: 06/11/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -19,7 +19,7 @@ Multi-user authorization (MUA) for Azure Backup allows you to add an additional 
 Azure Backup uses the Resource Guard as an additional authorization mechanism for a Recovery Services vault or a Backup vault. Therefore, to perform a critical operation (described below) successfully, you must have sufficient permissions on the associated Resource Guard as well.
 
 > [!Important]
-> To function as intended, the Resource Guard must be owned by a different user, and the vault admin must not have Contributor permissions. You can place Resource Guard in a subscription or tenant different from the one containing the vaults to provide better protection.
+> To function as intended, the Resource Guard must be owned by a different user, and the **vault admin** mustn't have **Contributor**, **Backup MUA Admin**, or **Backup MUA Operator** permissions on the Resource Guard. You can place Resource Guard in a subscription or tenant different from the one containing the vaults to provide better protection.
 
 ## Critical operations
 
@@ -32,21 +32,29 @@ The following table lists the operations defined as critical operations and can 
 
 # [Recovery Services vault](#tab/recovery-services-vault)
 
-**Operation** | **Mandatory/ Optional**
---- | ---
-Disable soft delete | Mandatory
-Disable MUA protection | Mandatory
-Modify backup policy (reduced retention) | Optional
-Modify protection (reduced retention) | Optional
-Stop protection with delete data | Optional
-Change MARS security PIN | Optional
+| Operation | Mandatory/ Optional | Description |
+| --- | --- | --- |
+| **Disable soft delete or security features** | Mandatory | Disable soft delete setting on a vault. |
+| **Remove MUA protection** | Mandatory | Disable MUA protection on a vault. |
+| **Delete protection** | Optional | Delete protection by stopping backups and performing delete data. |
+| **Modify protection** | Optional | Add a new backup policy with reduced retention or change policy frequency to increase [RPO](azure-backup-glossary.md#recovery-point-objective-rpo). |
+| **Modify policy** | Optional | Modify backup policy to reduce retention or change policy frequency to increase [RPO](azure-backup-glossary.md#recovery-point-objective-rpo). |
+| **Get backup security PIN** | Optional | Change MARS security PIN. |
+| **Stop backup and retain data** | Optional | Delete protection by stopping backups and performing retain data forever or retain as per policy. |
+| **Disable immutability** | Optional | Disable immutability setting on a vault. |
+
 
 # [Backup vault](#tab/backup-vault)
 
-**Operation** | **Mandatory/ Optional**
---- | ---
-Disable MUA protection | Mandatory
-Delete backup instance | Optional
+| Operation | Mandatory/ Optional | Description |
+| --- | --- | --- |
+| **Disable soft delete** | Mandatory | Disable soft delete setting on a vault. |
+| **Remove MUA protection** | Mandatory | Disable MUA protection on a vault. |
+| **Delete Backup Instance** | Optional | Delete protection by stopping backups and performing delete data. |
+| **Stop backup and retain forever** | Optional | Delete protection by stopping backups and performing retain data forever. |
+| **Stop backup and retain as per policy** | Optional | Delete protection by stopping backups and performing retain data as per policy. |
+| **Disable immutability** | Optional | Disable immutability setting on a vault. |
+
 
 ---
 
@@ -69,7 +77,7 @@ Here's the flow of events in a typical scenario:
 1. The Backup admin creates the Recovery Services vault or the Backup vault.
 2. The Security admin creates the Resource Guard.
 
-   The Resource Guard can be in a different subscription or a different tenant with respect to the vault. Ensure that the Backup admin doesn't have Contributor permissions on the Resource Guard.
+   The Resource Guard can be in a different subscription or a different tenant with respect to the vault. Ensure that the Backup admin doesn't have **Contributor**, **Backup MUA Admin**, or **Backup MUA Operator** permissions on the Resource Guard.
 
 3. The Security admin grants the Reader role to the Backup Admin for the Resource Guard (or a relevant scope). The Backup admin requires the reader role to enable MUA on the vault.
 4. The Backup admin now configures the vault to be protected by MUA via the Resource Guard.
@@ -81,7 +89,7 @@ Here's the flow of events in a typical scenario:
 
 
 >[!Note]
->- If you grant the **Contributor** role on the Resource Guard access temporarily to the Backup Admin, it also provides the delete permissions on the Resource Guard. We recommend you to provide **Backup MUA Operator** permissions only.
+>- If you grant the **Contributor** or **Backup MUA Admin** role on the Resource Guard access temporarily to the Backup Admin, it also provides the delete permissions on the Resource Guard. We recommend you to provide **Backup MUA Operator** permissions only.
 >- MUA provides protection on the above listed operations performed on the vaulted backups only. Any operations performed directly on the data source (that is, the Azure resource/workload that is protected) are beyond the scope of the Resource Guard. 
 
 ## Usage scenarios
@@ -89,7 +97,7 @@ Here's the flow of events in a typical scenario:
 The following table lists the scenarios for creating your Resource Guard and vaults (Recovery Services vault and Backup vault), along with the relative protection offered by each.
 
 >[!Important]
-> The Backup admin must not have Contributor permissions to the Resource Guard in any scenario.
+> The **Backup admin** must not have **Contributor**, **Backup MUA Admin**, or **Backup MUA Operator** permissions to the Resource Guard in any scenario as this overrides adding MUA protection on the vault.
 
 **Usage scenario** | **Protection due to MUA** | **Ease of implementation** | **Notes**
 --- | --- |--- |--- |

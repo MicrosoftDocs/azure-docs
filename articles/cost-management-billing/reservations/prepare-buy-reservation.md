@@ -26,7 +26,9 @@ You can't buy a reservation if you have a custom role that mimics owner role or 
 
 Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to Policies menu to change settings.
 
-EA admins must have owner or reservation purchaser access on at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
+Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the Policies menu under Billing Profile to change settings.
+
+EA admins or Billing Profile Owners must have owner or reservation purchaser access on at least one EA or MCA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
 
 A reservation discount only applies to resources associated with subscriptions purchased through Enterprise, Cloud Solution Provider (CSP), Microsoft Customer Agreement and individual plans with pay-as-you-go rates.
 
@@ -77,7 +79,6 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Azure Backup](../../backup/backup-azure-reserved-pricing-optimize-cost.md)
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Azure Data Factory](../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
 - [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
 - [Azure Database for PostgreSQL](../../postgresql/concept-reserved-pricing.md)
 - [Azure Blob storage](../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
@@ -88,13 +89,14 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Databricks](prepay-databricks-reserved-capacity.md)
 - [Data Explorer](/azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
+- [Defender for Cloud - Pre-Purchase](/azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Disk Storage](../../virtual-machines/disks-reserved-capacity.md)
 - [Microsoft Fabric](fabric-capacity.md)
 - [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Synapse Analytics - data warehouse](prepay-sql-data-warehouse-charges.md)
-- [Synapse Analytics - Prepurchase](synapse-analytics-pre-purchase-plan.md)
+- [Synapse Analytics - Pre-Purchase](synapse-analytics-pre-purchase-plan.md)
 - [Virtual machines](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Virtual machine software](buy-vm-software-reservation.md)
 

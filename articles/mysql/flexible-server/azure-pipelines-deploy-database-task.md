@@ -1,12 +1,13 @@
 ---
 title: Azure Pipelines task
 description: Enable an Azure Database for MySQL - Flexible Server CLI task for using with Azure Pipelines.
-ms.service: mysql
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: sumuth
-author: mksuni
-ms.date: 08/09/2021
 ---
 
 # Azure Pipelines for Azure Database for MySQL - Flexible Server

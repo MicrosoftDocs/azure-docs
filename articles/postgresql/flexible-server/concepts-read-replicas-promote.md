@@ -1,18 +1,18 @@
 ---
-title: Promote read replicas 
+title: Promote read replicas
 description: This article describes the promote action for read replica feature in Azure Database for PostgreSQL - Flexible Server.
-author: AlicjaKucharczyk
-ms.author: alkuchar
+author: akashraokm
+ms.author: akashrao
 ms.reviewer: maghan
-ms.date: 03/06/2024
-ms.service: postgresql
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
 # Promote read replicas in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Promote refers to the process where a replica is commanded to end its replica mode and transition into full read-write operations.
 
@@ -33,7 +33,7 @@ The diagram illustrates the configuration of the servers before the promotion an
 
 When you choose this option, the replica is promoted to become an independent server and is removed from the replication process. As a result, both the primary and the promoted server function as two independent read-write servers. It should be noted that while virtual endpoints can be configured, they aren't a necessity for this operation. The newly promoted server is no longer part of any existing virtual endpoints, even if the reader endpoint was previously pointing to it. Thus, it's essential to update your application's connection string to direct to the newly promoted replica if the application should connect to it.
 
-The diagram illustrates the configuration of the servers before the promotion and the resulting state after the promotion to independent server operation is successfully completed.
+The diagram shows how the servers are set up before they're promoted and their configuration after successfully becoming independent servers.
 
 :::image type="content" source="./media/concepts-read-replica/promote-to-independent-server.png" alt-text="Diagram that shows promote to independent server and remove from replication operation." lightbox="./media/concepts-read-replica/promote-to-independent-server.png":::
 
@@ -59,11 +59,11 @@ Learn how to [promote replica to primary](how-to-read-replicas-portal.md#promote
 
 Read replicas are treated as separate servers in terms of control plane configurations. This approach provides flexibility for read scale scenarios. However, when using replicas for disaster recovery purposes, users must ensure the configuration is as desired.
 
-The promote operation won't carry over specific configurations and parameters. Here are some of the notable ones:
+The promote operation does not carry over specific configurations and parameters. Here are some of the notable ones:
 
-- **PgBouncer**: [The built-in PgBouncer](concepts-pgbouncer.md) connection pooler's settings and status aren't replicated during the promotion process. If PgBouncer was enabled on the primary but not on the replica, it will remain disabled on the replica after promotion. Should you want PgBouncer on the newly promoted server, you must enable it either prior to or following the promotion action.
-- **Geo-redundant backup storage**: Geo-backup settings aren't transferred. Since replicas can't have geo-backup enabled, the promoted primary (formerly the replica) won't have it post-promotion. The feature can only be activated at the standard server's creation time (not a replica).
-- **Server Parameters**: If their values differ on the primary and read replica, they won't be changed during promotion. It's essential to note that parameters influencing shared memory size must have the same values on both the primary and replicas. This requirement is detailed in the [Server parameters](concepts-read-replicas.md#server-parameters) section.
+- **PgBouncer**: [The built-in PgBouncer](concepts-pgbouncer.md) connection pooler's settings and status aren't replicated during the promotion process. If PgBouncer was enabled on the primary but not on the replica, it will remain disabled on the replica after promotion. Should you want PgBouncer on the newly promoted server, you must enable it either before or following the promotion action.
+- **Geo-redundant backup storage**: Geo-backup settings aren't transferred. Since replicas cannot have geo-backup enabled, the promoted primary (formerly the replica) does not have it after promotion. The feature can only be activated at the standard server's creation time (not a replica).
+- **Server Parameters**: If their values differ on the primary and read replica, they will not change during promotion. It's essential to note that parameters influencing shared memory size must have the same values on both the primary and replicas. This requirement is detailed in the [Server parameters](concepts-read-replicas.md#server-parameters) section.
 - **Microsoft Entra authentication**: If the primary had [Microsoft Entra authentication](concepts-azure-ad-authentication.md) configured, but the replica was set up with PostgreSQL authentication, then after promotion, the replica won't automatically switch to Microsoft Entra authentication. It retains the PostgreSQL authentication. Users need to manually configure Microsoft Entra authentication on the promoted replica either before or after the promotion process.
 - **High Availability (HA)**: Should you require [HA](concepts-high-availability.md) after the promotion, it must be configured on the freshly promoted primary server, following the role reversal.
 
@@ -75,7 +75,7 @@ In both the Planned and Forced promotion scenarios, it's required that servers (
 
 During such regional outages, the Forced promotion method can be implemented regardless of the primary server's current status. This approach allows for swift action in response to potential regional disasters, bypassing normal checks on server availability. 
 
-It's important to note that if the former primary server enters an irrecoverable state during promotion of its replica, the only solution is to delete the former primary server and recreate the replica server. 
+Note that if the former primary server fails beyond recovery during the promotion of its replica, the only option is to delete the former primary and recreate the replica server. 
 
 ### Multiple replicas visibility during promotion in nonpaired regions
 
@@ -89,7 +89,7 @@ When dealing with multiple replicas and if the primary region lacks a [paired re
 
 * **If I have an HA-enabled primary and a read replica, and I promote the replica, then switch back to the original primary, will the server still be in HA?**
  
-    No, we disable HA during the initial promotion since we do not support HA-enabled read replicas. Promoting a read replica to a primary means that the original primary is changing its role to a replica. If you are switching back, you will need to enable HA on your original primary server.
+    No, we disable HA during the initial promotion since we don't support HA-enabled read replicas. Promoting a read replica to a primary means that the original primary is changing its role to a replica. If you're switching back, you need to enable HA on your original primary server.
 
 ## Related content
 

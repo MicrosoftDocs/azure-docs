@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: release-notes
-ms.date: 1/21/2024
+ms.date: 6/6/2024
 ms.custom: references_regions
 ---
 
@@ -17,9 +17,10 @@ Azure AI Speech is updated on an ongoing basis. To stay up-to-date with recent d
 
 ## Recent highlights
 
+* Video translation is now available in the Azure AI Speech service. For more information, see [What is video translation?](./video-translation-overview.md).
+* Personal voice is now generally available. For more information, see [What is personal voice?](./personal-voice-overview.md).
 * The Azure AI Speech service supports OpenAI text to speech voices. For more information, see [What are OpenAI text to speech voices?](./openai-voices.md). 
 * The custom voice API is available for creating and managing [professional](./professional-voice-create-project.md) and [personal](./personal-voice-create-project.md) custom neural voice models. 
-* Azure AI Speech now supports OpenAI's Whisper model via the batch transcription API. To learn more, check out the [Create a batch transcription](./batch-transcription-create.md#use-a-whisper-model) guide. 
 
 ## Release notes
 

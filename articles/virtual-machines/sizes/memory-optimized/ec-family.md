@@ -1,8 +1,8 @@
 ---
-title: EC sub-family VM size series 
-description: Overview of the 'EC' sub-family of virtual machine sizes
+title: EC family VM size series 
+description: List of sizes in the EC family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/16/2024
@@ -47,5 +47,8 @@ ms.author: mattmcinnes
 
 [!INCLUDE [ecesv5-ecedsv5-series-specs](./includes/ecesv5-ecedsv5-series-specs.md)]
 
+
+### Previous-generation EC family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#memory-optimized-previous-gen-sizes).
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

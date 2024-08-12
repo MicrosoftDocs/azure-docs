@@ -2,7 +2,7 @@
 title: How to configure the Azure Cosmos DB integrated cache
 description: Learn how to configure the Azure Cosmos DB integrated cache
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/29/2022
@@ -132,7 +132,7 @@ container.query_items(
 ---
 
 
-## Bypass the integrated cache (Preview)
+## Bypass the integrated cache
 
 Use the `BypassIntegratedCache` request option to control which requests use the integrated cache. Writes, point reads, and queries that bypass the integrated cache won't use cache storage, saving space for other items. Requests that bypass the cache are still routed through the dedicated gateway. These requests are served from the backend and cost RUs.
 
@@ -140,7 +140,7 @@ Bypassing the cache is supported in these versions of each SDK:
 
 | SDK | Supported versions |
 | --- | ------------------ |
-| **.NET SDK v3** | *>= 3.35.0-preview* |
+| **.NET SDK v3** | *>= 3.39.0* |
 | **Java SDK v4** | *>= 4.49.0* |
 | **Node.js SDK** | Not supported |
 | **Python SDK**  | Not supported |

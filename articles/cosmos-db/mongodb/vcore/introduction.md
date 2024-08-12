@@ -5,12 +5,12 @@ description: Learn about vCore-based Azure Cosmos DB for MongoDB, a fully manage
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 08/28/2023
+ms.date: 06/20/2024
 ---
 
 # What is Azure Cosmos DB for MongoDB (vCore architecture)?
@@ -30,7 +30,7 @@ Developers can rest easy knowing that they have access to one unified support te
 
 ## Low total cost of ownership (TCO)
 
-Azure Cosmos DB for MongoDB's scalable architecture is designed to deliver the best performance and cost efficiency for your workloads. Visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to learn more about pricing for each cluster tier or price out a cluster in the Azure portal. With optional high availability (HA), there's no need to pay for resources you don't need for workloads such as development and testing. With HA disabled, cost savings are passed on to you in the form of a reduced per-hour cost.
+Azure Cosmos DB for MongoDB's scalable architecture is designed to deliver the best performance and cost efficiency for your workloads. Visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to learn more about pricing for each cluster tier or price out a cluster in the Azure portal. With optional [in-region high availability (HA)](./high-availability.md), there's no need to pay for resources you don't need for workloads such as development and testing. With HA disabled, cost savings are passed on to you in the form of a reduced per-hour cost.
 
 Here are the current tiers for the service:
 

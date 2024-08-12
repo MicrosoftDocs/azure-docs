@@ -223,7 +223,7 @@ SMTP relay lets Microsoft 365 relay emails on your behalf by using a connector t
     
     :::image type="content" source="media/exchange-online-integration/connector-created-sec-3-10-3.png" alt-text="Microsoft 365 Admin Center review security settings":::
 
-11. Now that you're done with configuring your Microsoft 365 settings, go to your domain registrar's website to update your DNS records. Edit your **Sender Policy Framework** (SPF) record. Include the IP address that you noted in step 1. The finished string should look similar to this `v=spf1 ip4:10.5.3.2 include:spf.protection.outlook.com \~all`, where 10.5.3.2 is your public IP address. Skipping this step may cause emails to be flagged as spam and end up in the recipient's Junk Email folder.
+11. Now that you're done with configuring your Microsoft 365 settings, go to your domain registrar's website to update your DNS records. Edit your **Sender Policy Framework (SPF)** record. Include the IP address that you noted in step 1. The finished string should look similar to this `v=spf1 ip4:10.5.3.2 include:spf.protection.outlook.com \~all`, where 10.5.3.2 is your public IP address. Skipping this step may cause emails to be flagged as spam and end up in the recipient's Junk Email folder.
 
 ### Steps in SAP Application server
 

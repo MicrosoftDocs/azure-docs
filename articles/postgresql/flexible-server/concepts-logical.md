@@ -4,17 +4,17 @@ description: Learn about using logical replication and logical decoding in Azure
 author: AwdotiaRomanowna
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 01/23/2024
-ms.service: postgresql
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server supports the following logical data extraction and replication methodologies:
 

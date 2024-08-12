@@ -1,26 +1,27 @@
 ---
 title: Networking overview with Private Link connectivity
 description: Learn about connectivity and networking options for Azure Database for PostgreSQL - Flexible Server with Private Link.
-author: GennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
-ms.date: 04/01/2024
-ms.service: postgresql
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Azure Database for PostgreSQL - Flexible Server networking with Private Link 
 
 **Azure Private Link** allows you to create private endpoints for Azure Database for PostgreSQL flexible server to bring it inside your Virtual Network (virtual network). That functionality is introduced **in addition** to already [existing networking capabilities provided by VNET Integration](./concepts-networking-private.md), which is currently in general availability with Azure Database for PostgreSQL flexible server. With **Private Link**, traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.
 
+> [!NOTE]  
+> Private Links are available only for servers that have public access networking. They can't be created for servers that have private access (VNET integration).
+> 
+> Private Links can be configured only for servers that were created after the release of this feature. Any server that existed before the release of the feature can't be set with Private Links.
 
-
-
-
-Private Link is exposed to users through two  Azure resource types:
+Private Link is exposed to users through two Azure resource types:
 
 - Private Endpoints (Microsoft.Network/PrivateEndpoints)
 - Private Link Services (Microsoft.Network/PrivateLinkServices)
@@ -30,7 +31,7 @@ Private Link is exposed to users through two  Azure resource types:
 A **Private Endpoint** adds a network interface to a resource, providing it with a private IP address assigned from your VNET (Virtual Network). Once applied, you can communicate with this resource exclusively via the virtual network (VNET).
 For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](../../private-link/private-link-overview.md). A **private endpoint** is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and Subnet.
 
-The same public service instance can be referenced by multiple private endpoints in different VNets/subnets, even if they belong to different users/subscriptions (including within differing Microsoft Entra ID tenants) or if they have overlapping address spaces.
+The same public service instance can be referenced by multiple private endpoints in different VNets/subnets, even if they  have overlapping address spaces.
 
 
 ## Key Benefits of Azure Private Link
@@ -107,7 +108,7 @@ When using a private endpoint, you need to connect to the same Azure service but
 ### Hybrid DNS for Azure and on-premises resources
 
 **Domain Name System (DNS)** is a critical design topic in the overall landing zone architecture. Some organizations might want to use their existing investments in DNS, while others may want to adopt native Azure capabilities for all their DNS needs. 
-You can use [Azure DNS Private Resolver service](../../dns/dns-private-resolver-overview.md) in conjunction with Azure Private DNS Zones for cross-premises name resolution. DNS Private Resolver  can forward DNS request to another DNS server and  also provides an IP address that can be used by external DNS server to forward requests. So external On-Premises DNS servers are able to resolve name located in a private DNS zone.
+You can use [Azure DNS Private Resolver service](../../dns/dns-private-resolver-overview.md) in conjunction with Azure Private DNS Zones for cross-premises name resolution. DNS Private Resolver  can forward DNS request to another DNS server and  also provides an IP address that can be used by external DNS server to forward requests. So external on-premises DNS servers are able to resolve name located in a private DNS zone.
 
 More information on using [Private DNS Resolver]() with on-premises DNS forwarder to forward DNS traffic to Azure DNS see this [document](../../private-link/private-endpoint-dns-integration.md#on-premises-workloads-using-a-dns-forwarder), as well as this [document](../../private-link/tutorial-dns-on-premises-private-resolver.md) . Solutions described allow to extend on-premises network that already has a DNS solution in place to resolve resources in Azure. 
 Microsoft architecture.
@@ -116,7 +117,7 @@ Microsoft architecture.
 
 Private DNS zones are typically hosted centrally in the same Azure subscription where the hub VNet deploys. This central hosting practice is driven by cross-premises DNS name resolution and other needs for central DNS resolution such as Active Directory. In most cases, only networking and identity administrators have permissions to manage DNS records in the zones.
 
-In such architecture following is usually configured:
+In such architecture following is configured:
 * On-premises DNS servers have conditional forwarders configured for each private endpoint public DNS zone, pointing to the Private DNS Resolver hosted in the hub VNet.
 * The Private DNS Resolver hosted in the hub VNet use the Azure-provided DNS (168.63.129.16) as a forwarder.
 * The hub VNet must be linked to the Private DNS zone names for Azure services (such as *privatelink.postgres.database.azure.com*, for Azure Database for PostgreSQL - Flexible Server).
@@ -159,7 +160,7 @@ Further details on troubleshooting private are also available in this [guide](..
 
 ## Troubleshooting DNS resolution with Private Endpoint based networking
 
-Following are basic areas to check if you are having DNS resolution issues using Private Endpoint based networking:
+Following are basic areas to check if you're having DNS resolution issues using Private Endpoint based networking:
 
 1. **Validate DNS Resolution:** Check if the DNS server or service used by the private endpoint and the connected resources is functioning correctly. Ensure the private endpoint's DNS settings are accurate. For more information on private endpoints and DNS zone settings see this [doc](../../private-link/private-endpoint-dns.md)
 2. **Clear DNS Cache:** Clear the DNS cache on the private endpoint or client machine to ensure the latest DNS information is retrieved and avoid inconsistent errors.

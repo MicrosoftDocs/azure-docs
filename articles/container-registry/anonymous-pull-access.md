@@ -4,7 +4,7 @@ description: Optionally enable anonymous pull access to make content in your Azu
 ms.topic: how-to
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.date: 10/31/2023
 #customer intent: As a user, I want to learn how to enable anonymous pull access in Azure container registry so that I can make my registry content publicly available.
 ---
@@ -28,7 +28,10 @@ By default, access to pull or push content from an Azure container registry is o
 > [!WARNING]
 > Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using [repository-scoped tokens](container-registry-repository-scoped-permissions.md), all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.
 
+
 ## Configure anonymous pull access 
+
+Users can enable, disable and query the status of anonymous pull access using the Azure CLI. The following examples demonstrate how to enable, disable, and query the status of anonymous pull access.
 
 ### Enable anonymous pull access
 
@@ -59,7 +62,20 @@ Disable anonymous pull access by setting `--anonymous-pull-enabled` to `false`.
 az acr update --name myregistry --anonymous-pull-enabled false
 ```
 
+### Query the status of anonymous pull access
+
+Users can query the status of "anonymous-pull" using the [az acr show command][az-acr-show] with the --query parameter. Here's an example:
+
+```azurecli-interactive
+az acr show -n <registry_name> --query anonymousPullEnabled
+```
+
+The command will return a boolean value indicating whether "Anonymous Pull" is enabled (true) or disabled (false). This will streamline the process for users to verify the status of features within ACR.
+
 ## Next steps
 
 * Learn about using [repository-scoped tokens](container-registry-repository-scoped-permissions.md).
 * Learn about options to [authenticate](container-registry-authentication.md) to an Azure container registry.
+
+
+[az-acr-show]: /cli/azure/acr#az-acr-show

@@ -2,8 +2,7 @@
 title: Oracle Database@Azure support information 
 description: Learn about how to get support for your Oracle Database@Azure.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.date: 1/24/2024

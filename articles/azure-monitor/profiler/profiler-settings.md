@@ -3,7 +3,7 @@ title: Configure Application Insights Profiler | Microsoft Docs
 description: Use the Application Insights Profiler settings pane to see Profiler status and start profiling sessions
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
-ms.date: 09/22/2023
+ms.date: 07/11/2024
 ---
 
 # Configure Application Insights Profiler
@@ -52,7 +52,7 @@ Within Profiler, you can configure and view Profiler. The **Application Insights
 
 Select **Profile now** to start a profiling session on demand. When you select this link, all Profiler agents that are sending data to this Application Insights instance start to capture a profile. After 5 to 10 minutes, the profile session is shown in the list.
 
-To manually trigger a Profiler session, you need, at minimum, *write* access on your role for the Application Insights component. In most cases, you get write access automatically. If you're having issues, you need the **Application Insights Component Contributor** subscription scope role added. For more information, see [Resources, roles, and access control in Application Insights](../app/resources-roles-access-control.md).
+To manually trigger a Profiler session, you need, at minimum, *write* access on your role for the Application Insights component. In most cases, you get write access automatically. If you're having issues, you need the **Application Insights Component Contributor** subscription scope role added. For more information, see [Roles, permissions, and security in Azure Monitor](../roles-permissions-security.md).
 
 ## Trigger settings
 
@@ -100,7 +100,7 @@ Memory % | Percentage of memory used while Profiler was running.
 
 ## Next steps
 
-[Enable Profiler and view traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[Enable Profiler and view traces](profiler.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/profiler-on-demand.png
 [performance-blade]: ./media/profiler-settings/performance-blade.png

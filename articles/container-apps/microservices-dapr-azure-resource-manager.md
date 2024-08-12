@@ -3,7 +3,7 @@ title: "Tutorial: Deploy a Dapr application to Azure Container Apps with an Azur
 description: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template.
 services: container-apps
 author: asw101
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 06/29/2022
 ms.author: cshoe
@@ -52,103 +52,11 @@ The following architecture diagram illustrates the components that make up this 
 - An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub Account. If you don't already have one, sign up for [free](https://github.com/join).
 
-## Setup
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-First, sign in to Azure.
+[!INCLUDE [container-apps-set-environment-variables.md](../../includes/container-apps-set-environment-variables.md)]
 
-# [Bash](#tab/bash)
-
-```azurecli
-az login
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Connect-AzAccount
-```
-
----
-
-# [Bash](#tab/bash)
-
-Ensure you're running the latest version of the CLI via the upgrade command and then install the Azure Container Apps extension for the Azure CLI.
-
-```azurecli
-az upgrade
-
-az extension add --name containerapp --upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-You must have the latest `az` module installed. Ignore any warnings about modules currently in use.
-
-```azurepowershell
-Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
-```
-
-Now install the Az.App module.
-
-```azurepowershell
-Install-Module -Name Az.App
-```
-
----
-
-Now that the current extension or module is installed, register the `Microsoft.App` namespace.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az provider register --namespace Microsoft.App
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.App
-```
-
----
-
-Next, set the following environment variables:
-
-# [Bash](#tab/bash)
-
-```azurecli
-RESOURCE_GROUP="my-container-apps"
-LOCATION="centralus"
-CONTAINERAPPS_ENVIRONMENT="my-environment"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-$ResourceGroupName = 'my-container-apps'
-$Location = 'centralus'
-$ContainerAppsEnvironment = 'my-environment'
-```
-
----
-
-With these variables defined, you can create a resource group to organize the services needed for this tutorial.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az group create \
-  --name $RESOURCE_GROUP \
-  --location $LOCATION
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzResourceGroup -Location $Location -Name $ResourceGroupName
-```
-
----
+[!INCLUDE [container-apps-create-resource-group.md](../../includes/container-apps-create-resource-group.md)]
 
 ## Prepare the GitHub repository
 
@@ -175,7 +83,7 @@ The template deploys:
 - a Dapr component for the blob storage account
 - the node, Dapr-enabled container app with a user-assigned managed identity: [hello-k8s-node](https://hub.docker.com/r/dapriosamples/hello-k8s-node)
 - the python, Dapr-enabled container app: [hello-k8s-python](https://hub.docker.com/r/dapriosamples/hello-k8s-python)
-- an Active Directory role assignment for the node app used by the Dapr component to establish a connection to blob storage
+- a Microsoft Entra ID role assignment for the node app used by the Dapr component to establish a connection to blob storage
 
 Navigate to the _acadapr-templates_ directory and run the following command:
 

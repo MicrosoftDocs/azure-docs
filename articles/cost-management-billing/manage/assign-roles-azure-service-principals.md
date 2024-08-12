@@ -21,7 +21,14 @@ Before you begin, ensure that you're familiar with the following articles:
 
 - [Enterprise agreement roles](understand-ea-roles.md)
 - [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps)
-- [How to call REST APIs with Postman](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+
+You need a way to call REST APIs. Some popular ways to query the API are:
+
+- [Visual studio](/aspnet/core/test/http-files)
+- [Insomnia](https://insomnia.rest/)
+- [Bruno](https://www.usebruno.com/)
+- PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
+- [Curl](https://curl.se/docs/httpscripting.html)
 
 ## Create and authenticate your service principal
 
@@ -40,7 +47,7 @@ Here's an example of the application registration page.
 
 You need the service principal's object ID and the tenant ID. You need this information for permission assignment operations later in this article. All applications are registered in Microsoft Entra ID in the tenant. Two types of objects get created when the app registration is completed:
 
-- Application object - The application ID is what you see under Enterprise Applications. The ID should *not* be used to grant any EA roles.
+- Application object - The application ID is what you see under Enterprise Applications. *Don't* use the ID to grant any EA roles.
 - Service Principal object - The Service Principal object is what you see in the Enterprise Registration window in Microsoft Entra ID. The object ID is used to grant EA roles to the service principal.
 
 1. Open Microsoft Entra ID, and then select **Enterprise applications**.
@@ -61,19 +68,19 @@ You need the service principal's object ID and the tenant ID. You need this info
 
 ## Permissions that can be assigned to the service principal
 
-Later in this article, you'll give permission to the Microsoft Entra app to act by using an EA role. You can assign only the following roles to the service principal, and you need the role definition ID, exactly as shown.
+Later in this article, you give permission to the Microsoft Entra app to act by using an EA role. You can assign only the following roles to the service principal, and you need the role definition ID, exactly as shown.
 
 | Role | Actions allowed | Role definition ID |
 | --- | --- | --- |
 | EnrollmentReader | Enrollment readers can view data at the enrollment, department, and account scopes. The data contains charges for all of the subscriptions under the scopes, including across tenants. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
-| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which will in turn have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
+| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
 | DepartmentReader | Download the usage details for the department they administer. Can view the usage and charges associated with their department. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 
-- An EnrollmentReader role can be assigned to a service principal only by a user who has an enrollment writer role. The EnrollmentReader role assigned to a service principal isn't shown in the Azure portal. It's created by programmatic means and is only for programmatic use.
+- An EnrollmentReader role can be assigned to a service principal only by a user who has an enrollment writer role. The EnrollmentReader role assigned to a service principal isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
 - A DepartmentReader role can be assigned to a service principal only by a user who has an enrollment writer or department writer role.
-- A SubscriptionCreator role can be assigned to a service principal only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the Azure portal. It's created by programmatic means and is only for programmatic use.
-- The EA purchaser role isn't shown in the Azure portal. It's created by programmatic means and is only for programmatic use.
+- A SubscriptionCreator role can be assigned to a service principal only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
+- The EA purchaser role isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
 
 When you grant an EA role to a service principal, you must use the `billingRoleAssignmentName` required property. The parameter is a unique GUID that you must provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
@@ -101,7 +108,7 @@ A service principal can have only one role.
 
       | Parameter | Where to find it |
       | --- | --- |
-      | `properties.principalId` | It is the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
+      | `properties.principalId` | It's the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
       | `properties.principalTenantId` | See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` |
 
@@ -111,7 +118,7 @@ A service principal can have only one role.
 
 1. Select **Run** to start the command.
 
-   :::image type="content" source="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" alt-text="Screenshot showing a example role assignment with example information that is ready to run." lightbox="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" :::
+   :::image type="content" source="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" alt-text="Screenshot showing an example role assignment with example information that is ready to run." lightbox="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" :::
 
    A `200 OK` response shows that the service principal was successfully added.
 
@@ -151,7 +158,7 @@ For the EA purchaser role, use the same steps for the enrollment reader. Specify
 
       | Parameter | Where to find it |
       | --- | --- |
-      | `properties.principalId` | It is the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
+      | `properties.principalId` | It's the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
       | `properties.principalTenantId` | See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/db609904-a47f-4794-9be8-9bd86fbffd8a` |
 
@@ -185,7 +192,7 @@ Now you can use the service principal to automatically access EA APIs. The servi
 
    - `enrollmentAccountName`: This parameter is the account **ID**. Find the account ID for the account name in the Azure portal on the **Cost Management + Billing** page.
 
-      For this example, we used the GTM Test Account. The ID is `196987`.
+      For this example, we used the `GTM Test Account`. The ID is `196987`.
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/account-id.png" alt-text="Screenshot showing the account ID." lightbox="./media/assign-roles-azure-service-principals/account-id.png" :::
 
@@ -195,7 +202,7 @@ Now you can use the service principal to automatically access EA APIs. The servi
 
       | Parameter | Where to find it |
       | --- | --- |
-      | `properties.principalId` | It is the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
+      | `properties.principalId` | It's the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
       | `properties.principalTenantId` | See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/{enrollmentAccountID}/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
 
@@ -207,19 +214,19 @@ Now you can use the service principal to automatically access EA APIs. The servi
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments - Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" :::
 
-   A `200 OK` response shows that the service principal has been successfully added.
+   A `200 OK` response shows that the service principal was successfully added.
 
 Now you can use the service principal to automatically access EA APIs. The service principal has the SubscriptionCreator role.
 
 ## Verify service principal role assignments
 
-Service principal role assignments are not visible in the Azure portal. You can view enrollment account role assignments, including the subscription creator role, with the [Billing Role Assignments - List By Enrollment Account - REST API (Azure Billing)](/rest/api/billing/2019-10-01-preview/billing-role-assignments/list-by-enrollment-account) API. Use the API to verify that the role assignment was successful.
+Service principal role assignments aren't visible in the Azure portal. You can view enrollment account role assignments, including the subscription creator role, with the [Billing Role Assignments - List By Enrollment Account - REST API (Azure Billing)](/rest/api/billing/2019-10-01-preview/billing-role-assignments/list-by-enrollment-account) API. Use the API to verify that the role assignment was successful.
 
 ## Troubleshoot
 
-You must identify and use the Enterprise application object ID where you granted the EA role. If you use the Object ID from some other application, API calls will fail. Verify that you’re using the correct Enterprise application object ID.
+You must identify and use the Enterprise application object ID where you granted the EA role. If you use the Object ID from some other application, API calls fail. Verify that you’re using the correct Enterprise application object ID.
 
-If you receive the following error when making your API call, then you may be incorrectly using the service principal object ID value located in App Registrations. To resolve this error, ensure you're using the service principal object ID from Enterprise Applications, not App Registrations.
+If you receive the following error when making your API call, then you might be incorrectly using the service principal object ID value located in App Registrations. To resolve this error, ensure you're using the service principal object ID from Enterprise Applications, not App Registrations.
 
 `The provided principal Tenant Id = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx and principal Object Id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx are not valid`
 

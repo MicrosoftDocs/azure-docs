@@ -1,12 +1,13 @@
 ---
 title: Prepay for Azure Database for PostgreSQL - Flexible Server compute resources with reserved capacity
 description: Learn about reserved compute pricing and how to purchase Azure Database for PostgreSQL flexible server reserved capacity.
-ms.service: postgresql
+author: kabharati
+ms.author: kabharati
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: sunila
-author: sunilagarwal
-ms.date: 02/03/2024
 ---
 
 # Prepay for Azure Database for PostgreSQL - Flexible Server compute resources with reserved capacity

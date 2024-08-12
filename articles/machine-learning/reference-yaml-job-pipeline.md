@@ -3,14 +3,14 @@ title: 'CLI (v2) pipeline job YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) pipeline job YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: update-code2, cliv2
-author: cloga
-ms.author: lochen
+ms.custom: update-code4, cliv2
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 03/06/2024
-ms.reviewer: franksolomon
+ms.reviewer: lochen
 ---
 
 # CLI (v2) pipeline job YAML schema
@@ -37,7 +37,7 @@ You can find the source JSON schema at https://azuremlschemas.azureedge.net/late
 | `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |
 | `outputs` | object | Dictionary of output configurations of the pipeline job. The key is a name for the output within the context of the job. The value is the output configuration. <br><br> The outputs of an individual step job in the pipeline can reference these pipeline outputs with the `${{ parents.outputs.<output_name> }}` expression. For more information about binding the outputs of a pipeline step to the outputs of the top-level pipeline job, visit the [Expression syntax for binding inputs and outputs between steps in a pipeline job](reference-yaml-core-syntax.md#binding-inputs-and-outputs-between-steps-in-a-pipeline-job). | |
 | `outputs.<output_name>` | object | You can leave the object empty. In this case, by default, the output will be of type `uri_folder`, and Azure Machine Learning will system-generate an output location for the output based on this templatized path: `{settings.datastore}/azureml/{job-name}/{output-name}/`. File(s) to the output directory will be written via a read-write mount. To specify a different output mode, provide an object that contains the [job output specification](#job-outputs). | |
-| `identity` | object | Accessing of data uses the identity. It can be [User Identity Configuration](#useridentityconfiguration), [Managed Identity Configuration](#managedidentityconfiguration) or None. For UserIdentityConfiguration, the identity of job submitter is used to access input data and write the result to the output folder. Otherwise, UserIdentityConfiguration uses the managed identity of the compute target. | |
+| `identity` | object | The identity is used for data accessing. It can be [UserIdentityConfiguration](#useridentityconfiguration), [ManagedIdentityConfiguration](#managedidentityconfiguration) or None. If it's UserIdentityConfiguration, the identity of job submitter will be used to access input data and write result to output folder, otherwise the managed identity of the compute target will be used. | |
 
 ### Attributes of the `settings` key
 

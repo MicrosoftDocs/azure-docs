@@ -4,11 +4,13 @@ description: Learn how to set up Microsoft Entra authentication for Azure Databa
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 11/21/2022
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: how-to
+ms.custom:
+  - devx-track-azurecli
+  - has-azure-ad-ps-ref
 ---
 
 # Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server
@@ -116,11 +118,11 @@ Exit
 # Assign the app roles
 
 $AAD_AppRole = $AAD_SP.AppRoles | Where-Object {$_.Value -eq "User.Read.All"}
-New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId  -PrincipalId $MSI.ObjectId  -ResourceId $AAD_SP.ObjectId[0]  -Id $AAD_AppRole.Id 
+New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId -PrincipalId $MSI.ObjectId -ResourceId $AAD_SP.ObjectId -Id $AAD_AppRole.Id 
 $AAD_AppRole = $AAD_SP.AppRoles | Where-Object {$_.Value -eq "GroupMember.Read.All"}
-New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId  -PrincipalId $MSI.ObjectId  -ResourceId $AAD_SP.ObjectId[0]  -Id $AAD_AppRole.Id
+New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId -PrincipalId $MSI.ObjectId -ResourceId $AAD_SP.ObjectId -Id $AAD_AppRole.Id
 $AAD_AppRole = $AAD_SP.AppRoles | Where-Object {$_.Value -eq "Application.Read.All"}
-New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId  -PrincipalId $MSI.ObjectId  -ResourceId $AAD_SP.ObjectId[0]  -Id $AAD_AppRole.Id
+New-AzureADServiceAppRoleAssignment -ObjectId $MSI.ObjectId -PrincipalId $MSI.ObjectId -ResourceId $AAD_SP.ObjectId -Id $AAD_AppRole.Id
 ```
 
 In the final steps of the script, if you have more UMIs with similar names, you have to use the proper `$MSI[ ]array` number. An example is `$AAD_SP.ObjectId[0]`.
@@ -409,8 +411,14 @@ Most drivers are supported; however, make sure to use the settings for sending t
     - Net::MySQL: Not supported
 
 - Go
-    - go-sql-driver: Supported, add `?tls=true&allowCleartextPasswords=true` to connection string
+  - go-sql-driver: Supported, add `?tls=true&allowCleartextPasswords=true` to connection string
+    
+- PHP
 
+  - mysqli extension: Supported
+  
+  - PDO_MYSQL driver: Supported
+  
 ## Next steps
 
 - Review the concepts for [Microsoft Entra authentication with Azure Database for MySQL flexible server](concepts-azure-ad-authentication.md)

@@ -4,7 +4,7 @@ description: Authentication options for a private Azure container registry, incl
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.date: 10/31/2023
 ---
 
@@ -28,7 +28,7 @@ The following table lists available authentication methods and typical scenarios
 | [Individual AD identity](#individual-login-with-azure-ad)                | `az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell                             | Interactive push/pull by developers, testers                                    | Yes                              | AD token must be renewed every 3 hours     |
 | [AD service principal](#service-principal)                  | `docker login`<br/><br/>`az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell<br/><br/> Registry login settings in APIs or tooling<br/><br/> [Kubernetes pull secret](container-registry-auth-kubernetes.md)                                           | Unattended push from CI/CD pipeline<br/><br/> Unattended pull to Azure or external services  | Yes                              | SP password default expiry is 1 year       |
 | [Managed identity for Azure resources](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell                                       | Unattended push from Azure CI/CD pipeline<br/><br/> Unattended pull to Azure services<br/><br/>   | Yes                              | Use only from select Azure services that [support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
-| [AKS cluster managed identity](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Attach registry when AKS cluster created or updated  | Unattended pull to AKS cluster in the same or a different subscription                                                 | No, pull access only             | Only available with AKS cluster<br/><br/>Can't be used for cross-tenant authentication            |
+| [AKS cluster managed identity](/azure/aks/cluster-container-registry-integration?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Attach registry when AKS cluster created or updated  | Unattended pull to AKS cluster in the same or a different subscription                                                 | No, pull access only             | Only available with AKS cluster<br/><br/>Can't be used for cross-tenant authentication            |
 | [AKS cluster service principal](authenticate-aks-cross-tenant.md)                    | Enable when AKS cluster created or updated  | Unattended pull to AKS cluster from registry in another AD tenant                                                  | No, pull access only             | Only available with AKS cluster            |
 | [Admin user](#admin-account)                            | `docker login`                                          | Interactive push/pull by individual developer or tester<br/><br/>Portal deployment of image from registry to Azure App Service or Azure Container Instances                      | No, always pull and push access  | Single account per registry, not recommended for multiple users         |
 | [Repository-scoped access token](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` in Azure CLI<br/><br/> `Connect-AzContainerRegistry` in Azure PowerShell<br/><br/> [Kubernetes pull secret](container-registry-auth-kubernetes.md)    | Interactive push/pull to repository by individual developer or tester<br/><br/> Unattended pull from repository by individual system or external device                  | Yes                              | Not currently integrated with AD identity  |
@@ -49,7 +49,7 @@ az acr login --name <acrName>
 When you log in with `az acr login`, the CLI uses the token created when you executed `az login` to seamlessly authenticate your session with your registry. To complete the authentication flow, the Docker CLI and Docker daemon must be installed and running in your environment. `az acr login` uses the Docker client to set a Microsoft Entra token in the `docker.config` file. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands in your session do not require a username or password.
 
 > [!TIP]
-> Also use `az acr login` to authenticate an individual identity when you want to push or pull artifacts other than Docker images to your registry, such as [OCI artifacts](container-registry-oci-artifacts.md).
+> Also use `az acr login` to authenticate an individual identity when you want to push or pull artifacts other than Docker images to your registry, such as [OCI artifacts](container-registry-manage-artifact.md).
 
 For registry access, the token used by `az acr login` is valid for **3 hours**, so we recommend that you always log in to the registry before running a `docker` command. If your token expires, you can refresh it by using the `az acr login` command again to reauthenticate.
 
@@ -104,7 +104,7 @@ Connect-AzContainerRegistry -Name <acrName>
 When you log in with `Connect-AzContainerRegistry`, PowerShell uses the token created when you executed `Connect-AzAccount` to seamlessly authenticate your session with your registry. To complete the authentication flow, the Docker CLI and Docker daemon must be installed and running in your environment. `Connect-AzContainerRegistry` uses the Docker client to set a Microsoft Entra token in the `docker.config` file. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands in your session do not require a username or password.
 
 > [!TIP]
-> Also use `Connect-AzContainerRegistry` to authenticate an individual identity when you want to push or pull artifacts other than Docker images to your registry, such as [OCI artifacts](container-registry-oci-artifacts.md).
+> Also use `Connect-AzContainerRegistry` to authenticate an individual identity when you want to push or pull artifacts other than Docker images to your registry, such as [OCI artifacts](container-registry-manage-artifact.md).
 
 For registry access, the token used by `Connect-AzContainerRegistry` is valid for **3 hours**, so we recommend that you always log in to the registry before running a `docker` command. If your token expires, you can refresh it by using the `Connect-AzContainerRegistry` command again to reauthenticate.
 
@@ -170,6 +170,25 @@ You can enable the admin user in the Azure portal by navigating your registry, s
 
 ![Enable admin user UI in the Azure portal][auth-portal-01]
 
+## Log in with an alternative container tool instead of Docker
+In some scenarios, you need to use alternative container tools like `podman` instead of the common container tool `docker`. For example: [Docker is no longer available in RHEL 8 and 9][docker-deprecated-redhat-8-9], so you have to switch your container tool.  
+
+The default container tool is set to `docker` for `az acr login` commands. If you don't set the default container tool and the `docker` command is missing in your environment, the following error will be popped:
+```bash
+az acr login --name <acrName>
+2024-03-29 07:30:10.014426 An error occurred: DOCKER_COMMAND_ERROR
+Please verify if Docker client is installed and running.
+```
+
+To change the default container tool that the `az acr login` command uses, you can set the environment variable `DOCKER_COMMAND`. For example: 
+```azurecli
+DOCKER_COMMAND=podman \
+az acr login --name <acrName>
+```
+
+> [!NOTE]
+> You need the Azure CLI version 2.59.0 or later installed and configured to use this feature. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
 ## Next steps
 
 * [Push your first image using the Azure CLI](container-registry-get-started-azure-cli.md)
@@ -178,3 +197,9 @@ You can enable the admin user in the Azure portal by navigating your registry, s
 
 <!-- IMAGES -->
 [auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png
+
+<!-- EXTERNAL LINKS -->
+[docker-deprecated-redhat-8-9]: https://access.redhat.com/solutions/3696691
+
+<!-- INTERNAL LINKS -->
+[install-azure-cli]: /cli/azure/install-azure-cli

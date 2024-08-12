@@ -1,18 +1,20 @@
 ---
 title: Choose hosting type
 description: Provides guidelines for choosing the right Azure Database for PostgreSQL - Flexible Server hosting option for your deployments.
-ms.service: postgresql
-ms.subservice: flexible-server
-ms.topic: overview
 author: varun-dhawan
 ms.author: varundhawan
-ms.custom: mvc
-ms.date: 02/03/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
+ms.subservice: flexible-server
+ms.topic: overview
+ms.custom:
+  - mvc
 ---
 
 # Choose the right Azure Database for PostgreSQL - Flexible Server hosting option in Azure
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 [!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
@@ -48,7 +50,7 @@ Azure Database for PostgreSQL flexible server is currently available as a servic
 
 With Azure Database for PostgreSQL flexible server, Microsoft automatically configures, patches, and upgrades the database software. These automated actions reduce your administration costs. Also, Azure Database for PostgreSQL flexible server has [automated backup-link]() capabilities. These capabilities help you achieve significant cost savings, especially when you have a large number of databases. In contrast, with PostgreSQL on Azure VMs you can choose and run any PostgreSQL version. However, you need to pay for the provisioned VM, storage cost associated with the data, backup, monitoring data and log storage and the costs for the specific PostgreSQL license type used (if any).
 
-Azure Database for PostgreSQL flexible server provides built-in high availability at the zonal-level (within an AZ) for any kind of node-level interruption while still maintaining the [SLA guarantee](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/) for the service. Azure Database for PostgreSQL flexible server provides [uptime SLAs](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/) with and without zone-redundant configuration. However, for database high availability within VMs, you use the high availability options like [Streaming Replication](https://www.postgresql.org/docs/12/warm-standby.html#STREAMING-REPLICATION) that are available on a PostgreSQL database. Using a supported high availability option doesn't provide another SLA. But it does let you achieve greater than 99.99% database availability at more cost and administrative overhead.
+Azure Database for PostgreSQL flexible server provides built-in high availability at the zonal-level (within an AZ) for any kind of node-level interruption while still maintaining the [SLA guarantee](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/) for the service. Azure Database for PostgreSQL flexible server provides [uptime SLAs](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/) with and without zone-redundant configuration. However, for database high availability within VMs, you use the high availability options like [Streaming Replication](https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION) that are available on a PostgreSQL database. Using a supported high availability option doesn't provide another SLA. But it does let you achieve greater than 99.99% database availability at more cost and administrative overhead.
 
 For more information on pricing, see the following articles:
 - [Azure Database for PostgreSQL flexible server pricing](https://azure.microsoft.com/pricing/details/postgresql/server/)

@@ -1,11 +1,11 @@
 ---
 title: Azure Blob storage trigger for Azure Functions
-description: Learn how to run an Azure Function as Azure Blob storage data changes.
+description: Learn how to use Azure Function to run your custom code based on changes in an Azure Blob storage container. 
 ms.topic: reference
-ms.date: 09/08/2023
+ms.date: 05/14/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -14,7 +14,9 @@ zone_pivot_groups: programming-languages-set-functions
 The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as [input to the function](./functions-bindings-storage-blob-input.md).
 
 > [!TIP] 
-> There are several ways to execute your function code based on changes to blobs in a storage container, and the Blob storage trigger might not be the best option. To learn more about alternate triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
+> There are several ways to execute your function code based on changes to blobs in a storage container. If you choose to use the Blob storage trigger, note that there are two implementations offered: a polling-based one (referenced in this article) and an event-based one. It is recommended that you use the [event-based implementation](./functions-event-grid-blob-trigger.md) as it has lower latency than the other. Also, the Flex Consumption plan supports only the event-based Blob storage trigger. 
+
+> For details about differences between the two implementations of the Blob storage trigger, as well as other triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
 
@@ -170,10 +172,17 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-
-The following example shows a blob trigger binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
-
 # [v2](#tab/python-v2)
+
+This example uses SDK types to directly access the underlying [`BlobClient`](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object provided by the Blob storage trigger: 
+
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-14,31-39"::: 
+
+For examples of using other SDK types, see the [`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py) and [`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py) samples.
+
+To learn more, including how to enable SDK type bindings in your project, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings-preview).
+
+This example logs information from the incoming blob metadata.
 
 ```python
 import logging
@@ -445,8 +454,18 @@ Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the valu
 ::: zone pivot="programming-language-powershell"  
 Access the blob data via a parameter that matches the name designated by binding's name parameter in the _function.json_ file.
 ::: zone-end  
-::: zone pivot="programming-language-python"  
+::: zone pivot="programming-language-python" 
 Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream). Refer to the [trigger example](#example) for details.
+ 
+Functions also supports Python SDK type bindings for Azure Blob storage, which lets you work with blob data using these underlying SDK types:
+
++ [`BlobClient`](/python/api/azure-storage-blob/azure.storage.blob.blobclient)
++ [`ContainerClient`](/python/api/azure-storage-blob/azure.storage.blob.containerclient)
++ [`StorageStreamDownloader`](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader)
+
+> [!IMPORTANT]  
+> SDK types support for Python is currently in preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings-preview).
+
 ::: zone-end  
 
 [!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
@@ -534,7 +553,7 @@ If all 5 tries fail, Azure Functions adds a message to a Storage queue named *we
 ## Memory usage and concurrency 
 
 ::: zone pivot="programming-language-csharp" 
-When you bind to an [output type](#usage) that doesn't support steaming, such as `string`, or `Byte[]`, the runtime must load the entire blob into memory more than one time during processing. This can result in higher-than expected memory usage when processing blobs. When possible, use a stream-supporting type. Type support depends on the C# mode and extension version. For more information, see [Binding types](./functions-bindings-storage-blob.md#binding-types).
+When you bind to an [output type](#usage) that doesn't support streaming, such as `string`, or `Byte[]`, the runtime must load the entire blob into memory more than one time during processing. This can result in higher-than expected memory usage when processing blobs. When possible, use a stream-supporting type. Type support depends on the C# mode and extension version. For more information, see [Binding types](./functions-bindings-storage-blob.md#binding-types).
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java" 
 At this time, the runtime must load the entire blob into memory more than one time during processing. This can result in higher-than expected memory usage when processing blobs. 

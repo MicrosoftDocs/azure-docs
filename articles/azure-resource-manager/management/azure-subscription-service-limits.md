@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 07/19/2024
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -49,7 +49,7 @@ The following limits apply to [management groups](../../governance/management-gr
 
 The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### Resource group limits
 
@@ -61,7 +61,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
 
-## API Center (preview) limits
+## API Center limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
 
@@ -71,6 +71,7 @@ This section provides information about limits that apply to Azure API Managemen
 
 * [API Management classic tiers](#limits---api-management-classic-tiers)
 * [API Management v2 tiers](#limits---api-management-v2-tiers)
+* [API Management workspaces](#limits---api-management-workspaces)
 * [Developer portal in API Management v2 tiers](#limits---developer-portal-in-api-management-v2-tiers)
 
 ### Limits - API Management classic tiers
@@ -81,10 +82,14 @@ This section provides information about limits that apply to Azure API Managemen
 
 [!INCLUDE [api-management-service-limits-v2](../../../includes/api-management-service-limits-v2.md)]
 
+### Limits - API Management workspaces
+
+[!INCLUDE [api-management-workspace-limits](../../../includes/api-management-workspace-limits.md)]
+
+
 ### Limits - Developer portal in API Management v2 tiers
 
 [!INCLUDE [api-management-developer-portal-limits-v2](../../../includes/api-management-developer-portal-limits-v2.md)]
-
 
 ## App Service limits
 
@@ -102,7 +107,6 @@ This section provides information about limits that apply to Azure API Managemen
 
 [!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
 
-
 ## Azure Cloud Services limits
 
 [!INCLUDE [azure-cloud-services-limits](../../../includes/azure-cloud-services-limits.md)]
@@ -117,11 +121,11 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 **Limits per subscription**
 
-[!INCLUDE [azure-search-limits-per-subscription](../../../includes/azure-search-limits-per-subscription.md)]
+[!INCLUDE [azure-search-limits-per-subscription](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-subscription.md)]
 
 **Limits per search service**
 
-[!INCLUDE [azure-search-limits-per-service](../../../includes/azure-search-limits-per-service.md)]
+[!INCLUDE [azure-search-limits-per-service](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-service.md)]
 
 To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](../../search/search-limits-quotas-capacity.md).
 
@@ -197,7 +201,7 @@ For more information, see [Functions Hosting plans comparison](../../azure-funct
 
 ## Azure Kubernetes Service limits
 
-[!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
+[!INCLUDE [container-service-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
 
 ## Azure Lab Services
 
@@ -380,7 +384,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Key Vault limits
 
-[!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault-limits.md)]
 
 ## Managed identity limits
 
@@ -503,7 +507,7 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ### Virtual machine disk limits
 
-[!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
+[!INCLUDE [azure-storage-limits-vm-disks](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks.md)]
 
 For more information, see [Virtual machine sizes](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -521,13 +525,13 @@ need to increase the quota, contact Azure support.
 
 ### Managed virtual machine disks
 
-[!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
+[!INCLUDE [azure-storage-limits-vm-disks-managed](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks-managed.md)]
 
 ### Unmanaged virtual machine disks
 
-[!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
+[!INCLUDE [azure-storage-limits-vm-disks-standard](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks-standard.md)]
 
-[!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
+[!INCLUDE [azure-storage-limits-vm-disks-premium](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks-premium.md)]
 
 ## StorSimple System limits
 
@@ -564,6 +568,10 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 ## Virtual Machine Scale Sets limits
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
+
+## Virtual Network Manager limits
+
+[!INCLUDE [virtual-network-manager-limits](../../../includes/azure-virtual-network-manager-limits.md)]
 
 ## Dev tunnels limits
 

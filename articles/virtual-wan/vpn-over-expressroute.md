@@ -4,7 +4,7 @@ description: Learn how to use Azure Virtual WAN to create a site-to-site VPN con
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: cherylmc 
@@ -17,7 +17,7 @@ This article shows you how to use Azure Virtual WAN to establish an IPsec/IKE VP
 
 The following diagram shows an example of VPN connectivity over ExpressRoute private peering:
 
-:::image type="content" source="./media/vpn-over-expressroute/vwan-vpn-over-er.png" alt-text="Diagram of VPN over ExpressRoute.":::
+:::image type="content" source="./media/vpn-over-expressroute/vwan-vpn-over-er.png" alt-text="Diagram of VPN over ExpressRoute." lightbox="./media/vpn-over-expressroute/vwan-vpn-over-er.png":::
 
 The diagram shows a network within the on-premises network connected to the Azure hub VPN gateway over ExpressRoute private peering. The connectivity establishment is straightforward:
 

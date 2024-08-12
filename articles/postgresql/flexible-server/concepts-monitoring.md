@@ -3,15 +3,16 @@ title: Monitoring and metrics
 description: Review the monitoring and metrics features in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.service: postgresql
+ms.reviewer: maghan
+ms.date: 07/31/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 4/3/2024
 ---
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL flexible server provides various monitoring options to provide insight into how your server is performing.
 
@@ -35,13 +36,13 @@ The following metrics are available for an Azure Database for PostgreSQL flexibl
 |**CPU Credits Consumed**        |`cpu_credits_consumed`       |Count     |Number of credits used by the flexible server. Applies to the Burstable tier.                                                                                                                                                                                                                                                                                                               |Yes            |
 |**CPU Credits Remaining**       |`cpu_credits_remaining`      |Count     |Number of credits available to burst. Applies to the Burstable tier.                                                                                                                                                                                                                                                                                                                        |Yes            |
 |**CPU percent**                 |`cpu_percent`                |Percent   |Percentage of CPU in use.                                                                                                                                                                                                                                                                                                                                                                   |Yes            |
-|**Database Size (preview)**     |`database_size_bytes`        |Bytes     |Database size in bytes.                                                                                                                                                                                                                                                                                                                                                                     |Yes            |
+|**Database Size**               |`database_size_bytes`        |Bytes     |Database size in bytes.                                                                                                                                                                                                                                                                                                                                                                     |Yes            |
 |**Disk Queue Depth**            |`disk_queue_depth`           |Count     |Number of outstanding I/O operations to the data disk.                                                                                                                                                                                                                                                                                                                                      |Yes            |
 |**IOPS**                        |`iops`                       |Count     |Number of I/O operations to disk per second.                                                                                                                                                                                                                                                                                                                                                |Yes            |
 |**Maximum Used Transaction IDs**|`maximum_used_transactionIDs`|Count     |Maximum number of transaction IDs in use.                                                                                                                                                                                                                                                                                                                                                   |Yes            |
 |**Memory percent**              |`memory_percent`             |Percent   |Percentage of memory in use.                                                                                                                                                                                                                                                                                                                                                                |Yes            |
-|**Network Out**                 |`network_bytes_egress`       |Bytes     |Amount of outgoing network traffic.                                                                                                                                                                                                                                                                                                                                                         |Yes            |
-|**Network In**                  |`network_bytes_ingress`      |Bytes     |Amount of incoming network traffic.                                                                                                                                                                                                                                                                                                                                                         |Yes            |
+|**Network Out**                 |`network_bytes_egress`       |Bytes     |Total sum of outgoing network traffic on the server for a selected period. This metric includes outgoing traffic from your database and from Azure Database for Postgres flexible server, including features like monitoring, logs, WAL archive, replication etc.															       |Yes            |
+|**Network In**                  |`network_bytes_ingress`      |Bytes     |Total sum of incoming network traffic on the server for a selected period. This metric includes incoming traffic to your database and to Azure Database for Postgres flexible server, including features like monitoring, logs, WAL archive, replication etc.                                                                                                                               |Yes            |
 |**Read IOPS**                   |`read_iops`                  |Count     |Number of data disk I/O read operations per second.                                                                                                                                                                                                                                                                                                                                         |Yes            |
 |**Read Throughput**             |`read_throughput`            |Bytes     |Bytes read per second from disk.                                                                                                                                                                                                                                                                                                                                                            |Yes            |
 |**Storage Free**                |`storage_free`               |Bytes     |Amount of storage space that's available.                                                                                                                                                                                                                                                                                                                                                   |Yes            |
@@ -179,9 +180,9 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 
 #### How to enable PgBouncer metrics
 
-- PgBouncer metrics are disabled by default.
-- For PgBouncer metrics to work, both the server parameters `pgbouncer.enabled` and `metrics.pgbouncer_diagnostics` must be enabled.
+- To monitor PgBouncer metrics, ensure that the [pgbouncer](./concepts-pgbouncer.md) feature is enabled via the server parameter `pgbouncer.enabled` and metrics parameter `metrics.pgbouncer_diagnostics` is enabled.
 - These parameters are dynamic and don't require an instance restart.
+- PgBouncer metrics are disabled by default.
 
 #### List of PgBouncer metrics
 

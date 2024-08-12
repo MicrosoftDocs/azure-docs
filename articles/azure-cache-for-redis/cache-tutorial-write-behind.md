@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure Functions and Azure Ca
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: tutorial
 ms.date: 04/12/2024
 #CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
@@ -198,7 +198,7 @@ You need to update the _local.settings.json_ file to include the connection stri
 }
 ```
 
-To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. The string is in the **Access Keys** area of **Settings**.
+To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. Locate the string is in the **Access Keys** area on the Resource menu.
 
 To find the SQL database connection string, go to the resource menu in the SQL database resource. Under **Settings**, select **Connection strings**, and then select the **ADO.NET** tab.
 The string is in the **ADO.NET (SQL authentication)** area.

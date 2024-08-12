@@ -1,18 +1,18 @@
 ---
-title: Troubleshoot - Azure IoT Edge | Microsoft Docs 
+title: Troubleshoot Azure IoT Edge 
 description: Use this article to learn standard diagnostic skills for Azure IoT Edge, like retrieving component status and logs
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/25/2022
-ms.topic: conceptual
+ms.date: 06/05/2024
+ms.topic: troubleshooting-general
 ms.service: iot-edge
 services: iot-edge
 ---
 
 # Troubleshoot your IoT Edge device
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and diagnostics.
 
@@ -44,13 +44,13 @@ In a scenario using nested IoT Edge devices, you can get access to the diagnosti
 sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:1.2
 ```
 
-For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/main/doc/troubleshoot-checks.md).
 
 ## Gather debug information with 'support-bundle' command
 
 When you need to gather logs from an IoT Edge device, the most convenient way is to use the `support-bundle` command. By default, this command collects module, IoT Edge security manager and container engine logs, `iotedge check` JSON output, and other useful debug information. It compresses them into a single file for easy sharing. The `support-bundle` command is available in [release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) and later.
 
-Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs. For example `6h` will get logs since the last six hours, `6d` since the last six days, `6m` since the last six minutes and so on. Include the `--help` flag to see a complete list of options.
+Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs. For example `6h` gets logs since the last six hours, `6d` since the last six days, `6m` since the last six minutes and so on. Include the `--help` flag to see a complete list of options.
 
 ```bash
 sudo iotedge support-bundle --since 6h
@@ -91,7 +91,7 @@ To get the latest edgeAgent module twin, run the following command from [Azure C
    az iot hub module-twin show --device-id <edge_device_id> --module-id '$edgeAgent' --hub-name <iot_hub_name>
    ```
 
-This command will output all the edgeAgent [reported properties](./module-edgeagent-edgehub.md). Here are some helpful ones monitor the status of the device:
+This command outputs all the edgeAgent [reported properties](./module-edgeagent-edgehub.md). Here are some helpful ones monitor the status of the device:
 
 * runtime status
 * runtime start time
@@ -198,7 +198,7 @@ You can also restart modules remotely from the Azure portal. For more informatio
 
 ## Check your firewall and port configuration rules
 
-Azure IoT Edge allows communication from an on-premises server to Azure cloud using supported IoT Hub protocols, see [choosing a communication protocol](../iot-hub/iot-hub-devguide-protocols.md). For enhanced security, communication channels between Azure IoT Edge and Azure IoT Hub are always configured to be Outbound. This configuration is based on the [Services Assisted Communication pattern](/archive/blogs/clemensv/service-assisted-communication-for-connected-devices), which minimizes the attack surface for a malicious entity to explore. Inbound communication is only required for [specific scenarios](#anchortext) where Azure IoT Hub needs to push messages to the Azure IoT Edge device. Cloud-to-device messages are protected using secure TLS channels and can be further secured using X.509 certificates and TPM device modules. The Azure IoT Edge Security Manager governs how this communication can be established, see [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
+Azure IoT Edge allows communication from an on-premises server to Azure cloud using supported IoT Hub protocols. For more information, see [choosing a communication protocol](../iot-hub/iot-hub-devguide-protocols.md). For enhanced security, communication channels between Azure IoT Edge and Azure IoT Hub are always configured to be Outbound. This configuration is based on the [Services Assisted Communication pattern](/archive/blogs/clemensv/service-assisted-communication-for-connected-devices), which minimizes the attack surface for a malicious entity to explore. Inbound communication is only required for [specific scenarios](#anchortext) where Azure IoT Hub needs to push messages to the Azure IoT Edge device. Cloud-to-device messages are protected using secure TLS channels and can be further secured using X.509 certificates and TPM device modules. The Azure IoT Edge Security Manager governs how this communication can be established, see [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
 
 While IoT Edge provides enhanced configuration for securing Azure IoT Edge runtime and deployed modules, it's still dependent on the underlying machine and network configuration. Hence, it's imperative to ensure proper network and firewall rules are set up for secure edge to cloud communication. The following table can be used as a guideline when configuration firewall rules for the underlying servers where Azure IoT Edge runtime is hosted:
 
@@ -206,7 +206,7 @@ While IoT Edge provides enhanced configuration for securing Azure IoT Edge runti
 |--|--|--|--|--|
 |MQTT|8883|BLOCKED (Default)|BLOCKED (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open when using MQTT as the communication protocol.<li>1883 for MQTT isn't supported by IoT Edge. <li>Incoming (Inbound) connections should be blocked.</ul>|
 |AMQP|5671|BLOCKED (Default)|OPEN (Default)|<ul> <li>Default communication protocol for IoT Edge. <li> Must be configured to be Open if Azure IoT Edge isn't configured for other supported protocols or AMQP is the desired communication protocol.<li>5672 for AMQP isn't supported by IoT Edge.<li>Block this port when Azure IoT Edge uses a different IoT Hub supported protocol.<li>Incoming (Inbound) connections should be blocked.</ul></ul>|
-|HTTPS|443|BLOCKED (Default)|OPEN (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open on 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <li><a id="anchortext">Incoming (Inbound) connection</a> should be Open only for specific scenarios: <ul> <li>  If you have a transparent gateway with downstream devices that may send method requests. In this case, Port 443 doesn't need to be open to external networks to connect to IoTHub or provide IoTHub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open Incoming (Inbound) from the internal network. <li> For Client to Device (C2D) scenarios.</ul><li>80 for HTTP isn't supported by IoT Edge.<li>If non-HTTP protocols (for example, AMQP or MQTT) can't be configured in the enterprise; the messages can be sent over WebSockets. Port 443 will be used for WebSocket communication in that case.</ul>|
+|HTTPS|443|BLOCKED (Default)|OPEN (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open on 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <li><a id="anchortext">Incoming (Inbound) connection</a> should be Open only for specific scenarios: <ul> <li>  If you have a transparent gateway with downstream devices that may send method requests. In this case, Port 443 doesn't need to be open to external networks to connect to IoTHub or provide IoTHub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open Incoming (Inbound) from the internal network. <li> For Client to Device (C2D) scenarios.</ul><li>80 for HTTP isn't supported by IoT Edge.<li>If non-HTTP protocols (for example, AMQP or MQTT) can't be configured in the enterprise; the messages can be sent over WebSockets. Port 443 is used for WebSocket communication in that case.</ul>|
 
 
 ## Last resort: stop and recreate all containers

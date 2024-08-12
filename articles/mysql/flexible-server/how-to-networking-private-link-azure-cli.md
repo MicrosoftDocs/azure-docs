@@ -4,11 +4,12 @@ description: Learn how to configure private link for Azure Database for MySQL - 
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 05/23/2023
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
 ms.topic: how-to
+ms.custom:
+  - devx-track-azurecli
 ---
 
 # Create and manage Private Link for Azure Database for MySQL - Flexible Server using Azure CLI

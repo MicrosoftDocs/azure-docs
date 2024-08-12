@@ -4,9 +4,9 @@ description: Reference for the emit-metric policy available for use in Azure API
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -60,14 +60,14 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 * Product ID
 * User ID
 * Subscription ID
-* Location ID
+* Location
 * Gateway ID
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 

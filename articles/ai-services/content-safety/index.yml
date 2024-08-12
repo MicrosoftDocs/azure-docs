@@ -44,12 +44,19 @@ landingContent:
         links:
           - text: Harm categories
             url: concepts/harm-categories.md
+          - text: Custom categories
+            url: concepts/custom-categories.md
       - linkListType: quickstart
         links:
           - text: Using Content Safety Studio
             url: studio-quickstart.md?pivots=content-safety-studio
           - text: Using the REST API or client SDKs
             url: quickstart-image.md?pivots=programming-language-rest
+      - linkListType: how-to-guide
+        links:
+          - text: Use custom categories
+            url: how-to/custom-categories.md
+
 
   - title: Text moderation
     linkLists:
@@ -57,6 +64,8 @@ landingContent:
         links:
           - text: Harm categories
             url: concepts/harm-categories.md
+          - text: Custom categories
+            url: concepts/custom-categories.md
           - text: Groundedness detection
             url: concepts/groundedness.md
       - linkListType: quickstart
@@ -69,6 +78,8 @@ landingContent:
             url: quickstart-groundedness.md
       - linkListType: how-to-guide
         links:
+          - text: Use custom categories
+            url: how-to/custom-categories.md
           - text: Use a blocklist
             url: how-to/use-blocklist.md
 

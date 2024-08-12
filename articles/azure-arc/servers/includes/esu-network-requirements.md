@@ -1,7 +1,7 @@
 ---
 ms.service: azure-arc
 ms.topic: include
-ms.date: 02/16/2024
+ms.date: 06/04/2024
 ---
 
 If you're using Azure Arc-enabled servers only for Extended Security Updates for either or both of the following products:
@@ -24,6 +24,7 @@ You can enable the following subset of endpoints:
 |`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
 |`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | Always for automatic updates, or temporarily if downloading certificates manually. | Public |
 |`*.<region>.arcdataservices.com`| Azure Arc data processing service and service telemetry.| SQL Server ESUs | Public|
+|`*.blob.core.windows.net` | Download Sql Server Extension package | SQL Server ESUs | Not required if using Private Link |
 
 #### [Azure Government](#tab/azure-government)
 
@@ -36,6 +37,7 @@ You can enable the following subset of endpoints:
 |`*.his.arc.azure.us`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
 |`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | Always for automatic updates, or temporarily if downloading certificates manually. | Public |
+|`*.blob.core.usgovcloudapi.net` | Download Sql Server Extension package | SQL Server ESUs | Not required if using Private Link |
 
 #### [Microsoft Azure operated by 21Vianet](#tab/azure-china)
 

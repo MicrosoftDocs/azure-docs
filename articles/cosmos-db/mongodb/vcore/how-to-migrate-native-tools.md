@@ -5,7 +5,7 @@ description: Use MongoDB native tools to migrate small datasets from existing Mo
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
   - ignite-2023
@@ -16,7 +16,7 @@ ms.date: 10/24/2023
 
 # Migrate MongoDB to Azure Cosmos DB for MongoDB vCore offline using MongoDB native tools
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 In this tutorial, you use MongoDB native tools to perform an offline (one-time) migration of a database from an on-premises or cloud instance of MongoDB to Azure Cosmos DB for MongoDB vCore. The MongoDB native tools are a set of binaries that facilitate data manipulation on an existing MongoDB instance. The focus of this doc is on migrating data out of a MongoDB instance using *mongoexport/mongoimport* or *mongodump/mongorestore*. Since the native tools connect to MongoDB using connection strings, you can run the tools anywhere. The native tools can be the simplest solution for small datasets where total migration time isn't a concern.
 
@@ -157,13 +157,13 @@ Migrate a collection from the source MongoDB instance to the target Azure Cosmos
 
     ```bash
     mongorestore \ 
-       --db <database-name> \
-       --collection <collection-name> \
-       --ssl \
-       --uri <target-connection-string> \
-       <dump-directory>/<database-name>/<collection-name>.bson
+        --ssl \
+        --uri <target-connection-string> \
+        <dump-directory>/<database-name>/<collection-name>.bson
     ```
-
+    > [!NOTE]  
+    > You can also restore a specific collection or collections from the dump-directory /directory. For example, the following operation restores a single collection from corresponding data files in the dump-directory / directory. ``` mongorestore --nsInclude=test.purchaseorders <dump-directory>/  ```
+    
 1. Monitor the terminal output from *mongoimport*. The output prints lines of text to the terminal with updates on the restore operation's status.
 
 ---

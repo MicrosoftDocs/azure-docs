@@ -1,13 +1,13 @@
 ---
 title: Upgrading a basic public IP address to standard SKU - Guidance
 description: Overview of upgrade options and guidance for migrating basic public IP to standard public IP for future basic public IP address retirement
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurecli
 ms.topic: overview
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/24/2023
+ms.date: 05/09/2024
 # Customer intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
 ---
 
@@ -23,7 +23,7 @@ We recommend the following approach to upgrade to Standard SKU public IP address
 
 1. Learn about some of the [key differences](#basic-sku-vs-standard-sku) between Basic SKU public IP and Standard SKU public IP. 
 
-2. Identify the Basic SKU public IP to upgrade.
+2. Identify the [Basic SKU public IP](public-ip-upgrade-portal.md#upgrade-public-ip-address) in your organization that requires upgrade.
 
 3. Determine if you would need [Zone Redundancy](public-ip-addresses.md#availability-zone). 
 
@@ -40,7 +40,7 @@ We recommend the following approach to upgrade to Standard SKU public IP address
   | Virtual Machine or Virtual Machine Scale Sets (flex model) | Disassociate IP(s) and utilize the upgrade options detailed after the table. For virtual machines, you can use the [upgrade script](public-ip-upgrade-vm.md). |
   | Load Balancer (Basic SKU) | New LB SKU required. Use the upgrade script [Upgrade Basic Load Balancer to Standard SKU](../../load-balancer/upgrade-basic-standard-with-powershell.md) to upgrade to Standard Load Balancer |
 | VPN Gateway (using Basic IPs) |At this time, it's not necessary to upgrade. When an upgrade is necessary, we'll update this decision path with migration information and send out a service health alert. |
-| ExpressRoute Gateway (using Basic IPs) | New ExpressRoute Gateway required. Create a [new ExpressRoute Gateway with a Standard SKU IP](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md). For non-production workloads, use this [migration script (Preview)](../../expressroute/gateway-migration.md). |
+|  ExpressRoute Gateway (using Basic IPs) | New ExpressRoute Gateway is required. Follow the [ExpressRoute Gateway migration guidance](../../expressroute/gateway-migration.md) for upgrading from Basic to Standard SKU.  |
   | Application Gateway (v1 SKU) | New AppGW SKU required. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
 
 > [!NOTE]

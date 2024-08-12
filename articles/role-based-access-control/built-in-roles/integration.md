@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/13/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -1877,11 +1877,11 @@ You can manage all aspects of a Standard logic app and workflows. You can't chan
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/*/read |  |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/certificates/* | Create and manage a certificate. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/connectionGateways/* | Create and manages a Connection Gateway. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/connections/* | Create and manages a Connection. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/customApis/* | Creates and manages a Custom API. |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/listSitesAssignedToHostName/read | Get names of sites assigned to hostname. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/serverFarms/* | Create and manage an App Service Plan. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/* | Create and manage a web app. |
 > | **NotActions** |  |
@@ -1908,11 +1908,11 @@ You can manage all aspects of a Standard logic app and workflows. You can't chan
         "Microsoft.Resources/subscriptions/operationresults/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
+        "Microsoft.Web/*/read",
         "Microsoft.Web/certificates/*",
         "Microsoft.Web/connectionGateways/*",
         "Microsoft.Web/connections/*",
         "Microsoft.Web/customApis/*",
-        "Microsoft.Web/listSitesAssignedToHostName/read",
         "Microsoft.Web/serverFarms/*",
         "Microsoft.Web/sites/*"
       ],
@@ -1942,32 +1942,23 @@ You can create and edit workflows, connections, and settings for a Standard logi
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/*/read |  |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/connections/* | Create and manages a Connection. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/customApis/* | Creates and manages a Custom API. |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/config/appsettings/read | Get Web App settings. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/config/list/Action | List Web App's security sensitive settings, such as publishing credentials, app settings and connection strings |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/config/Read | Get Web App configuration settings |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/config/Write | Update Web App's configuration settings |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/config/web/appsettings/delete | Delete Web Apps App Setting |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/config/web/appsettings/read | Get Web App Single App setting. |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/config/web/appsettings/write | Create or Update Web App Single App setting |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/deployWorkflowArtifacts/action | Create the artifacts in a Logic App. |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/hostruntime/* | Get or list hostruntime artifacts for the web app or function app. |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/listworkflowsconnections/action | List logic app's connections by its ID in a Logic App. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/publish/Action | Publish a Web App |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/Read | Get the properties of a Web App |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/config/appsettings/read | Get Web App Slot's single App setting. |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/config/appsettings/write | Create or Update Web App Slot's Single App setting |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/config/list/Action | List Web App Slot's security sensitive settings, such as publishing credentials, app settings and connection strings |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/config/Read | Get Web App Slot's configuration settings |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/config/web/appsettings/delete | Delete Web App Slot's App Setting |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/deployWorkflowArtifacts/action | Create the artifacts in a deployment slot in a Logic App. |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/listworkflowsconnections/action | List logic app's connections by its ID in a deployment slot in a Logic App. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/publish/Action | Publish a Web App Slot |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot in a Logic App. |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get logic app's configuration information by its ID in a deployment slot in a Logic App. |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/workflows/* |  |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/workflowsconfiguration/* |  |
 > | **NotActions** |  |
@@ -1994,32 +1985,23 @@ You can create and edit workflows, connections, and settings for a Standard logi
         "Microsoft.Resources/subscriptions/operationresults/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
-        "Microsoft.Web/connectionGateways/*/read",
+        "Microsoft.Web/*/read",
         "Microsoft.Web/connections/*",
         "Microsoft.Web/customApis/*",
-        "Microsoft.Web/serverFarms/read",
-        "microsoft.web/sites/config/appsettings/read",
         "Microsoft.Web/sites/config/list/Action",
-        "Microsoft.Web/sites/config/Read",
         "microsoft.web/sites/config/Write",
         "microsoft.web/sites/config/web/appsettings/delete",
-        "microsoft.web/sites/config/web/appsettings/read",
         "microsoft.web/sites/config/web/appsettings/write",
         "microsoft.web/sites/deployWorkflowArtifacts/action",
         "microsoft.web/sites/hostruntime/*",
         "microsoft.web/sites/listworkflowsconnections/action",
         "Microsoft.Web/sites/publish/Action",
-        "Microsoft.Web/sites/Read",
-        "microsoft.web/sites/slots/config/appsettings/read",
         "microsoft.web/sites/slots/config/appsettings/write",
         "Microsoft.Web/sites/slots/config/list/Action",
-        "Microsoft.Web/sites/slots/config/Read",
         "microsoft.web/sites/slots/config/web/appsettings/delete",
         "microsoft.web/sites/slots/deployWorkflowArtifacts/action",
         "microsoft.web/sites/slots/listworkflowsconnections/action",
         "Microsoft.Web/sites/slots/publish/Action",
-        "microsoft.web/sites/slots/workflows/read",
-        "microsoft.web/sites/slots/workflowsconfiguration/read",
         "microsoft.web/sites/workflows/*",
         "microsoft.web/sites/workflowsconfiguration/*"
       ],
@@ -2036,7 +2018,7 @@ You can create and edit workflows, connections, and settings for a Standard logi
 
 ## Logic Apps Standard Operator (Preview)
 
-You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings.
+You can enable and disable the logic app, resubmit workflow runs, as well as create connections. You can't edit workflows or settings.
 
 [Learn more](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
 
@@ -2049,28 +2031,18 @@ You can enable, resubmit, and disable workflows as well as create connections. Y
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/connections/*/read | Read Connections. |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/customApis/*/read | Read Custom API. |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/*/read |  |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/applySlotConfig/Action | Apply web app slot configuration from target slot to the current web app |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/config/Read | Get Web App configuration settings |
 > | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/hostruntime/* | Get or list hostruntime artifacts for the web app or function app. |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/Read | Get the properties of a Web App |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/restart/Action | Restart a Web App |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/config/Read | Get Web App Slot's configuration settings |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/restart/Action | Restart a Web App Slot |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/slotsswap/Action | Swap Web App deployment slots |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/start/Action | Start a Web App Slot |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/stop/Action | Stop a Web App Slot |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot in a Logic App. |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get logic app's configuration information by its ID in a deployment slot in a Logic App. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/slotsdiffs/Action | Get differences in configuration between web app and slots |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/slotsswap/Action | Swap Web App deployment slots |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/start/Action | Start a Web App |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/stop/Action | Stop a Web App |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/workflows/read | List the workflows in a Logic App. |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/workflowsconfiguration/read | Get logic app's configuration information by its ID in a Logic App. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/write | Create a new Web App or update an existing one |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2084,7 +2056,7 @@ You can enable, resubmit, and disable workflows as well as create connections. Y
   "assignableScopes": [
     "/"
   ],
-  "description": "You can enable, resubmit, and disable workflows as well as create connections. You can't edit workflows or settings.",
+  "description": "You can enable and disable the logic app, resubmit workflow runs, as well as create connections. You can't edit workflows or settings.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/b70c96e9-66fe-4c09-b6e7-c98e69c98555",
   "name": "b70c96e9-66fe-4c09-b6e7-c98e69c98555",
   "permissions": [
@@ -2096,28 +2068,18 @@ You can enable, resubmit, and disable workflows as well as create connections. Y
         "Microsoft.Resources/subscriptions/operationresults/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
-        "Microsoft.Web/connectionGateways/*/read",
-        "Microsoft.Web/connections/*/read",
-        "Microsoft.Web/customApis/*/read",
-        "Microsoft.Web/serverFarms/read",
+        "Microsoft.Web/*/read",
         "Microsoft.Web/sites/applySlotConfig/Action",
-        "Microsoft.Web/sites/config/Read",
         "microsoft.web/sites/hostruntime/*",
-        "Microsoft.Web/sites/Read",
         "Microsoft.Web/sites/restart/Action",
-        "Microsoft.Web/sites/slots/config/Read",
         "Microsoft.Web/sites/slots/restart/Action",
         "Microsoft.Web/sites/slots/slotsswap/Action",
         "Microsoft.Web/sites/slots/start/Action",
         "Microsoft.Web/sites/slots/stop/Action",
-        "microsoft.web/sites/slots/workflows/read",
-        "microsoft.web/sites/slots/workflowsconfiguration/read",
         "Microsoft.Web/sites/slotsdiffs/Action",
         "Microsoft.Web/sites/slotsswap/Action",
         "Microsoft.Web/sites/start/Action",
         "Microsoft.Web/sites/stop/Action",
-        "microsoft.web/sites/workflows/read",
-        "microsoft.web/sites/workflowsconfiguration/read",
         "Microsoft.Web/sites/write"
       ],
       "notActions": [],
@@ -2146,16 +2108,7 @@ You have read-only access to all resources in a Standard logic app and workflows
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/connectionGateways/*/read | Read Connection Gateways. |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/connections/*/read | Read Connections. |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/customApis/*/read | Read Custom API. |
-> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/triggers/read | List Web Apps Hostruntime Workflow Triggers. |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/runs/read | List Web Apps Hostruntime Workflow Runs. |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/workflows/read | List the workflows in a Logic App. |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/workflowsconfiguration/read | Get logic app's configuration information by its ID in a Logic App. |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/workflows/read | List the workflows in a deployment slot in a Logic App. |
-> | [microsoft.web](../permissions/web-and-mobile.md#microsoftweb)/sites/slots/workflowsconfiguration/read | Get logic app's configuration information by its ID in a deployment slot in a Logic App. |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/*/read |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2180,16 +2133,7 @@ You have read-only access to all resources in a Standard logic app and workflows
         "Microsoft.Resources/subscriptions/operationresults/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
-        "Microsoft.Web/connectionGateways/*/read",
-        "Microsoft.Web/connections/*/read",
-        "Microsoft.Web/customApis/*/read",
-        "Microsoft.Web/serverFarms/read",
-        "microsoft.web/sites/hostruntime/webhooks/api/workflows/triggers/read",
-        "microsoft.web/sites/hostruntime/webhooks/api/workflows/runs/read",
-        "microsoft.web/sites/workflows/read",
-        "microsoft.web/sites/workflowsconfiguration/read",
-        "microsoft.web/sites/slots/workflows/read",
-        "microsoft.web/sites/slots/workflowsconfiguration/read"
+        "Microsoft.Web/*/read"
       ],
       "notActions": [],
       "dataActions": [],

@@ -1,13 +1,13 @@
 ---
 title: Change log for Azure Cosmos DB API for MongoDB
 description: Notifies our customers of any minor/medium updates that were pushed
-author: seesharprun
-ms.author: sidandrews
+author: avijitgupta
+ms.author: avijitgupta
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: release-notes
-ms.date: 03/28/2023
+ms.date: 07/30/2024
 ---
 
 # Change log for Azure Cosmos DB for MongoDB
@@ -16,7 +16,20 @@ The Change log for the API for MongoDB is meant to inform you about our feature 
 
 ## Azure Cosmos DB for MongoDB updates
 
-### Azure Cosmos DB for MongoDB vCore (with 5.0 support) (Preview)
+### Azure Cosmos DB for MongoDB RU supports versions 7.0
+
+Azure Cosmos DB for MongoDB RU now supports MongoDB versions 7.0, offering expanded coverage for MongoDB.
+
+[Read more on Mongo 7.0](./feature-support-70.md)
+
+### Azure Cosmos DB for MongoDB RU supports versions 5.0 & 6.0
+
+Azure Cosmos DB for MongoDB RU now supports MongoDB versions 5.0 and 6.0, offering expanded coverage for MongoDB.
+
+[Read more on Mongo 5.0](./feature-support-50.md)
+[Read more on Mongo 6.0](./feature-support-60.md)
+
+### Azure Cosmos DB for MongoDB vCore (with 5.0 support)
 
 Azure Cosmos DB for MongoDB vCore supports many new features such as distributed ACID transactions, higher limits for unsharded collections and for shards themselves, improved performance for aggregation pipelines and complex queries, and more.
 

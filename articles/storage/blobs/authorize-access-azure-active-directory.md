@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 05/10/2024
 
 ---
 
@@ -14,11 +14,9 @@ ms.date: 03/17/2023
 
 Azure Storage supports using Microsoft Entra ID to authorize requests to blob data. With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. The security principal is authenticated by Microsoft Entra ID to return an OAuth 2.0 token. The token can then be used to authorize a request against the Blob service.
 
-Authorization with Microsoft Entra ID provides superior security and ease of use over Shared Key authorization. Microsoft recommends using Microsoft Entra authorization with your blob applications when possible to assure access with minimum required privileges.
-
 Authorization with Microsoft Entra ID is available for all general-purpose and Blob storage accounts in all public regions and national clouds. Only storage accounts created with the Azure Resource Manager deployment model support Microsoft Entra authorization.
 
-Blob storage additionally supports creating shared access signatures (SAS) that are signed with Microsoft Entra credentials. For more information, see [Grant limited access to data with shared access signatures](../common/storage-sas-overview.md).
+[!INCLUDE [storage-auth-recommendations](../../../includes/storage-auth-recommendations.md)]
 
 <a name='overview-of-azure-ad-for-blobs'></a>
 

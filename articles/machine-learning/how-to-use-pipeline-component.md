@@ -3,12 +3,12 @@ title: How to use pipeline component in pipeline
 titleSuffix: Azure Machine Learning
 description: How to use pipeline component to build nested pipeline job in Azure Machine Learning pipeline using CLI v2 and Python SDK
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: cloga
-ms.author: lochen
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: lochen
 ms.date: 04/12/2023
 ms.custom:
   - sdkv2

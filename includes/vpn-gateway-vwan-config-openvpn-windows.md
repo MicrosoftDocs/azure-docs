@@ -1,7 +1,7 @@
 ---
  title: include file
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 05/04/2023
  ms.author: cherylmc
@@ -9,14 +9,14 @@
 #Customer intent: this file is used for both virtual wan and vpn gateway articles.
 ---
 
-[!INCLUDE [OpenVPN client version 2.6 not supported](vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
+[!INCLUDE [OpenVPN client version 2.6 not supported](./vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
 
 1. Download and install the OpenVPN client (version 2.4 or higher) from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html). Version 2.6 is not yet supported.
 1. Locate the VPN client profile configuration package that you generated and downloaded to your computer. Extract the package. Go to the OpenVPN folder and open the *vpnconfig.ovpn* configuration file using Notepad.
 1. Next, locate the child certificate you created. If you don't have the certificate, use one of the following links for steps to export the certificate. You'll use the certificate information in the next step.
 
-   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) instructions
-   * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport) instructions
+   * [VPN Gateway](/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport) instructions
+   * [Virtual WAN](/azure/virtual-wan/certificates-point-to-site#clientexport) instructions
 1. From the child certificate, extract the private key and the base64 thumbprint from the *.pfx*. There are multiple ways to do this. Using OpenSSL on your computer is one way. The *profileinfo.txt* file contains the private key and the thumbprint for the CA and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
    ```

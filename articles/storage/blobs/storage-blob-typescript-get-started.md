@@ -8,8 +8,8 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/21/2023
-ms.custom: template-how-to, devx-track-ts, devguide-ts, passwordless-js, devx-track-js
+ms.date: 08/05/2024
+ms.custom: template-how-to, devx-track-ts, devguide-ts, passwordless-js
 ---
 
 
@@ -109,7 +109,7 @@ Each type of resource is represented by one or more associated JavaScript client
 
 The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object is the top object in the SDK. This client allows you to manipulate the service, containers and blobs.
 
-## [Passwordless](#tab/azure-ad)
+## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 Once your Azure storage account identity roles and your local environment are set up, create a TypeScript file which includes the [``@azure/identity``](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to Blob Storage. Use that credential to authenticate with a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object.
 
@@ -129,6 +129,9 @@ The `dotenv` package is used to read your storage account name and key from a `.
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
 ## [SAS token](#tab/sas-token)
 
 Create a Uri to your resource by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) with the Uri. The SAS token is a series of name/value pairs in the querystring in the format such as:
@@ -141,13 +144,15 @@ Depending on which tool you use to generate your SAS token, the querystring `?` 
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-service-connect-from-sas-token.ts" :::
 
-The `dotenv` package is used to read your storage account name and sas token from a `.env` file. This file should not be checked into source control.
+The `dotenv` package is used to read your storage account name and SAS token from a `.env` file. This file should not be checked into source control.
 
 To generate and manage SAS tokens, see any of these articles:
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
-
 - [Create a service SAS for a container or blob](sas-service-create.md)
+
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. To learn more, see [Create a user delegation SAS with JavaScript](storage-blob-create-user-delegation-sas-javascript.md).
 
 ---
 
@@ -163,7 +168,7 @@ Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient
 
 ### Create ContainerClient directly
 
-#### [Passwordless](#tab/azure-ad)
+#### [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-container-client-from-default-azure-credential.ts" :::
 
@@ -172,11 +177,16 @@ Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-container-client-from-account-name-and-key.ts" :::
 
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
 
 #### [SAS token](#tab/sas-token)
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-container-client-from-sas-token.ts" :::
 
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. To learn more, see [Create a user delegation SAS with JavaScript](storage-blob-create-user-delegation-sas-javascript.md).
 
 -----------------
 
@@ -200,7 +210,7 @@ List of Blob clients:
 
 ### Create BlobClient directly
 
-#### [Passwordless](#tab/azure-ad)
+#### [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-default-azure-credential.ts" :::
 
@@ -208,9 +218,15 @@ List of Blob clients:
 
 :::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-account-name-and-key.ts" :::
 
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
 #### [SAS token](#tab/sas-token)
 
 :::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/auth-blob-client-from-blob-sas-token.ts":::
+
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. To learn more, see [Create a user delegation SAS with JavaScript](storage-blob-create-user-delegation-sas-javascript.md).
 
 -----------------
 

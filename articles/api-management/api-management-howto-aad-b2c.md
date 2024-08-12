@@ -5,7 +5,7 @@ description: Learn how to authorize users of the developer portal in Azure API M
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/28/2023
 ms.author: danlep

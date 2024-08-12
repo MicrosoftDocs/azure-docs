@@ -11,10 +11,7 @@ ms.author: askaur
 ---
 # Call Automation Overview
 
-Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network (PSTN) channels. The SDKs, available in C#, Java, JavaScript, and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions such as answer, transfer, play audio, start recording, and so on, to steer and control calls based on your business logic.
-
-> [!NOTE]
-> Call Automation currently doesn't support [Rooms](../rooms/room-concept.md) calls.
+Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. The SDKs, available in C#, Java, JavaScript and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
 
 ## Common use cases
 
@@ -42,6 +39,7 @@ The following features are currently available in the Azure Communication Servic
 |                       | Place new outbound call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Reject an incoming call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Connect to an ongoing call or Room                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Cancel adding an endpoint to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -86,7 +84,11 @@ These actions are performed before the destination endpoint listed in the `Incom
 
 **Redirect** – Using the `IncomingCall` event from Event Grid, you can redirect a call to one or more endpoints creating a single or simultaneous ringing (sim-ring) scenario. Redirect action doesn't answer the call. The call is redirected or forwarded to another destination endpoint to be answered.
 
-**Create Call** – Use the `CreateCall` action to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
+**Create Call**
+Create Call action can be used to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
+
+**Connect Call**
+Connect Call action can be used to connect to an ongoing call and take call actions on it. You can also use this action to connect and manage a Rooms call programmatically, like performing PSTN dial outs for Room using your service.  
 
 ### Mid-call actions
 
@@ -143,29 +145,30 @@ The Call Automation events are sent to the web hook callback URI specified when 
 
 | Event             | Description |
 | ----------------- | ------------ |
-| `CallConnected` | Successfully started a call using `Answer` or `Create` actions, or successfully connected to an ongoing call using `Connect` action  |
-| `CallDisconnected`  | Disconnected call leg  |
-| `CallTransferAccepted`  | Transferred call leg to another endpoint  |
-| `CallTransferFailed`  | Transfer failed for call leg  |
-| `AddParticipantSucceeded`  | Added a participant  |
-| `AddParticipantFailed`  | Failed to add a participant  |
-| `CancelAddParticipantSucceeded`  | Canceled adding a participant   |
-| `CancelAddParticipantFailed`  | Failed to cancel adding a participant  |
-| `RemoveParticipantSucceeded`  | Successfully removed a participant from the call  |
-| `RemoveParticipantFailed`  | Failed to remove a participant from the call  |
-| `ParticipantsUpdated`    | Participant status changed while the call leg was connected to a call  |
-| `PlayCompleted` | Successfully played the audio file provided  |
-| `PlayFailed` | Failed to play audio  |
-| `PlayCanceled` | Canceled the requested play action  |
-| `RecognizeCompleted` | Successfully recognized user input  |
-| `RecognizeCanceled` | Canceled the requested recognize action  |
-| `RecognizeFailed` | Failed to recognize user input <br/>*for more information about recognize action events, see the how-to guide for [gathering user input](../../how-tos/call-automation/recognize-action.md)*|
-| `RecordingStateChanged` | Recording status changed from active to inactive or vice versa |
-| ContinuousDtmfRecognitionToneReceived | `StartContinuousDtmfRecognition` completed successfully and received a DTMF tone from the participant |
-| `ContinuousDtmfRecognitionToneFailed` | `StartContinuousDtmfRecognition` completed but an error occurred while handling a DTMF tone from the participant |
-| `ContinuousDtmfRecognitionStopped` | Successfully executed `StopContinuousRecognition` |
-| `SendDtmfCompleted` | `SendDTMF` completed successfully and sent DTMF tones to the target participant |
-| `SendDtmfFailed` | An error occurred while sending the DTMF tones |
+| CallConnected      | The call has successfully started (when using Answer or Create action) or your application has successfully connected to an ongoing call (when using Connect action)|
+| CallDisconnected       | Your application has been disconnected from the call |
+| ConnectFailed       | Your application failed to connect to a call (for connect call action only)|
+| CallTransferAccepted         | Transfer action has successfully completed and the transferee is connected to the target participant |
+| CallTransferFailed  | The transfer action has failed  |
+| AddParticipantSucceeded| Your application has successfully added a participant to the call  |
+| AddParticipantFailed   | Your application was unable to add a participant to the call (due to an error or the participant didn't accept the invite |
+| CancelAddParticipantSucceeded| Your application canceled an AddParticipant request successfully (i.e. the participant was not added to the call) |
+| CancelAddParticipantFailed   | Your application was unable to cancel an AddParticipant request (this could be because the request has already been processed)  |
+| RemoveParticipantSucceeded| Your application has successfully removed a participant from the call  |
+| RemoveParticipantFailed   | Your application was unable to remove a participant from the call  |
+| ParticipantsUpdated    | The status of a participant changed while your application was connected to a call  |
+| PlayCompleted | Your application successfully played the audio file provided |
+| PlayFailed | Your application failed to play audio |
+| PlayCanceled | The requested play action has been canceled |
+| RecognizeCompleted | Recognition of user input was successfully completed |
+| RecognizeCanceled | The requested recognize action has been canceled |
+| RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our how-to guide for [gathering user input](../../how-tos/call-automation/recognize-action.md)*|
+|RecordingStateChanged | Status of recording action has changed from active to inactive or vice versa |
+| ContinuousDtmfRecognitionToneReceived | StartContinuousDtmfRecognition completed successfully and a DTMF tone was received from the participant |
+| ContinuousDtmfRecognitionToneFailed | StartContinuousDtmfRecognition completed but an error occurred while handling a DTMF tone from the participant |
+| ContinuousDtmfRecognitionStopped | Successfully executed StopContinuousRecognition |
+| SendDtmfCompleted | SendDTMF completed successfully and the DTMF tones were sent to the target participant |
+| SendDtmfFailed | An error occurred while sending the DTMF tones |
 
 To understand which events are published for different actions, see [Actions for call control](../../how-tos/call-automation/actions-for-call-control.md). The article provides code samples and sequence diagrams for various call control flows. 
 

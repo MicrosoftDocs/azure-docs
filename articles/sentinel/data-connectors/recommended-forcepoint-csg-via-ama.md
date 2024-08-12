@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # [Recommended] Forcepoint CSG via AMA connector for Microsoft Sentinel

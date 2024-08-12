@@ -5,23 +5,20 @@ description: Learn how to use Microsoft Entra ID with Azure Cache for Redis.
 author: flang-msft
 
 ms.custom: references_regions
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
-ms.date: 02/07/2024
+ms.date: 07/17/2024
 ms.author: franlanglois
 
 ---
 
-# Use Microsoft Entra ID (preview) for cache authentication
+# Use Microsoft Entra ID for cache authentication
 
-Azure Cache for Redis offers two methods to authenticate to your cache instance:
-
-- [Access keys](cache-configure.md#access-keys)
-- [Microsoft Entra ID (preview)](cache-configure.md#preview-microsoft-entra-authentication)
+Azure Cache for Redis offers two methods to [authenticate](cache-configure.md#authentication) to your cache instance: Access keys and Microsoft Entra ID
 
 Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
 
-Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra ID (preview)](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) supported in open source Redis.
+Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra ID)](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) supported in open source Redis.
 
 To use the ACL integration, your client application must assume the identity of a Microsoft Entra entity, like service principal or managed identity, and connect to your cache. In this article, you learn how to use your service principal or managed identity to connect to your cache, and how to grant your connection predefined permissions based on the Microsoft Entra artifact being used for the connection.
 
@@ -29,7 +26,7 @@ To use the ACL integration, your client application must assume the identity of 
 
 | **Tier**         | Basic, Standard, Premium | Enterprise, Enterprise Flash |
 |:-----------------|:------------------------:|:----------------------------:|
-| **Availability** | Yes (preview)            | No                           |
+| **Availability** | Yes             | No                           |
 
 ## Prerequisites and limitations
 
@@ -47,7 +44,7 @@ To use the ACL integration, your client application must assume the identity of 
 
 1. Select **Authentication** from the Resource menu.
 
-1. In the working pane, select **(PREVIEW) Enable Microsoft Entra Authentication**.
+1. In the working pane, select **Enable Microsoft Entra Authentication**.
 
 1. Select **Enable Microsoft Entra Authentication**, and enter the name of a valid user. The user you enter is automatically assigned _Data Owner Access Policy_ by default when you select **Save**. You can also enter a managed identity or service principal to connect to your cache instance.
 
@@ -60,13 +57,42 @@ To use the ACL integration, your client application must assume the identity of 
 
 For information on using Microsoft Entra ID with Azure CLI, see the [references pages for identity](/cli/azure/redis/identity).
 
+## Disable access key authentication on your cache
+
+Using Microsoft Entra ID is the secure way to connect your cache. We recommend using Microsoft Entra ID and disabling access keys.
+
+When you disable access key Authentication for a cache, all existing client connections are terminated, whether they use access keys or Microsoft Entra ID auth-based. You're advised to follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting MS Entra-based connections, if any.
+
+Before you disable access keys:
+
+- Before you disable access keys, Microsoft Entra ID authorization must be enabled.
+- Disabling access keys is only available for Basic, Standard, and Premium tier caches.
+- For geo-replicated caches, before you disable accces keys, you must: 1) unlink the caches, 2) disable access keys, and finally, 3) relink the caches.
+
+If you have a cache where access keys are used, and you want to disable access keys, follow this procedure.
+
+1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to disable access keys.
+
+1. Select **Authentication** from the Resource menu.
+
+1. In the working pane, select **Access keys**.
+
+1. Select **Disable Access Keys Authentication**. Then, select **Save**.
+
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-disable-access-keys.png" alt-text="Screenshot showing access keys in the working pane with a red box around Disable Access Key Authentication. ":::
+
+1. You're asked to confirm that you want to update your configuration. Select **Yes**.
+
+> [!IMPORTANT]
+> When the **Disable Access Key Authentication**" setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra ID, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting MS Entra-based connections. For more information, see [Connection resilience](cache-best-practices-connection.md).
+
 ## Using data access configuration with your cache
 
 If you would like to use a custom access policy instead of Redis Data Owner, go to the **Data Access Configuration** on the Resource menu. For more information, see [Configure a custom data access policy for your application](cache-configure-role-based-access-control.md#configure-a-custom-data-access-policy-for-your-application).
 
 1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to add to the Data Access Configuration.
 
-1. Select **(PREVIEW) Data Access Configuration** from the Resource menu.
+1. Select **Data Access Configuration** from the Resource menu.
 
 1. Select **Add** and choose **New Redis User**.
 
@@ -74,7 +100,7 @@ If you would like to use a custom access policy instead of Redis Data Owner, go 
 
    :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-new-redis-user.png" alt-text="Screenshot showing the available Access Policies.":::
 
-1. Choose either the **User or service principal** or **Managed Identity** to determine how to assign access to your Azure Cache for Redis instance. If you select **User or service principal**,and you want to add a _user_, you must first [enable Microsoft Entra Authentication](#enable-microsoft-entra-id-authentication-on-your-cache).
+1. Choose either the **User or service principal** or **Managed Identity** to determine how to assign access to your Azure Cache for Redis instance. If you select **User or service principal**, and you want to add a _user_, you must first [enable Microsoft Entra Authentication](#enable-microsoft-entra-id-authentication-on-your-cache).
 
 1. Then, select **Select members** and select  **Select**. Then, select **Next : Review + Assign**.
    :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-select-members.png" alt-text="Screenshot showing members to add as New Redis Users.":::
@@ -87,8 +113,6 @@ If you would like to use a custom access policy instead of Redis Data Owner, go 
 ## Configure your Redis client to use Microsoft Entra ID
 
 Because most Azure Cache for Redis clients assume that a password and access key are used for authentication, you likely need to update your client workflow to support authentication using Microsoft Entra ID. In this section, you learn how to configure your client applications to connect to Azure Cache for Redis using a Microsoft Entra token.
-
-<!-- :::image type="content" source="media/cache-azure-active-directory-for-authentication/azure-ad-token.png" alt-text="Architecture diagram showing the flow of a token from Microsoft Entra ID to a customer application to a cache."::: -->
 
 ### Microsoft Entra Client Workflow
 
@@ -134,4 +158,3 @@ The following table includes links to code samples, which demonstrate how to con
 
 - [Configure role-based access control with Data Access Policy](cache-configure-role-based-access-control.md)
 - [Reference pages for identity](/cli/azure/redis/identity)
-

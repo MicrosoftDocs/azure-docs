@@ -40,6 +40,7 @@ Edge Storage Accelerator (ESA) serves as a native persistent storage system for 
 
 Edge Storage Accelerator is only available in the following Azure regions:
 
+- East US
 - East US 2
 - West US 3
 - West Europe

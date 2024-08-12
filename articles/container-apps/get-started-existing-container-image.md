@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an existing container image with the command line'
 description: Deploy an existing container image to Azure Container Apps with the Azure CLI or PowerShell.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 08/31/2022
@@ -29,50 +29,11 @@ This article demonstrates how to deploy an existing container to Azure Container
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-To create the environment, run the following command:
+[!INCLUDE [container-apps-set-environment-variables.md](../../includes/container-apps-set-environment-variables.md)]
 
-# [Azure CLI](#tab/azure-cli)
+[!INCLUDE [container-apps-create-resource-group.md](../../includes/container-apps-create-resource-group.md)]
 
-```azurecli-interactive
-az containerapp env create \
-  --name $CONTAINERAPPS_ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
-
-```azurepowershell-interactive
-$WorkspaceArgs = @{
-    Name = 'myworkspace'
-    ResourceGroupName = $ResourceGroupName
-    Location = $Location
-    PublicNetworkAccessForIngestion = 'Enabled'
-    PublicNetworkAccessForQuery = 'Enabled'
-}
-New-AzOperationalInsightsWorkspace @WorkspaceArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
-$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
-```
-
-To create the environment, run the following command:
-
-```azurepowershell-interactive
-$EnvArgs = @{
-    EnvName = $ContainerAppsEnvironment
-    ResourceGroupName = $ResourceGroupName
-    Location = $Location
-    AppLogConfigurationDestination = 'log-analytics'
-    LogAnalyticConfigurationCustomerId = $WorkspaceId
-    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
-}
-
-New-AzContainerAppManagedEnv @EnvArgs
-```
-
----
+[!INCLUDE [container-apps-create-environment.md](../../includes/container-apps-create-environment.md)]
 
 ## Create a container app
 
@@ -90,7 +51,7 @@ The example shown in this article demonstrates how to use a custom container ima
 
 ::: zone pivot="container-apps-private-registry"
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help` or [visit the online reference](/cli/azure/containerapp#az-containerapp-create). To generate credentials for an Azure Container Registry, use [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show).
 
@@ -159,7 +120,7 @@ New-AzContainerApp @ContainerAppArgs
 
 ::: zone pivot="container-apps-public-registry"
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az containerapp create \
@@ -205,7 +166,7 @@ To verify a successful deployment, you can query the Log Analytics workspace. Yo
 
 Use the following commands to view console log messages.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
@@ -232,7 +193,7 @@ If you're not going to continue to use this application, run the following comma
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
 
-# [Azure CLI](#tab/azure-cli)
+# [Bash](#tab/bash)
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP

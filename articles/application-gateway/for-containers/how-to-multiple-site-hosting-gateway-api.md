@@ -3,7 +3,7 @@ title: Multi-site hosting with Application Gateway for Containers - Gateway API
 description: Learn how to host multiple sites with Application Gateway for Containers using the Gateway API.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
 ms.date: 02/27/2024
@@ -15,7 +15,7 @@ ms.author: greglin
 This document helps you set up an example application that uses the resources from Gateway API to demonstrate hosting multiple sites on the same Kubernetes Gateway resource / Application Gateway for Containers frontend. Steps are provided to:
 
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTP listener.
-- Create two [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resources that each reference a unique backend service.
+- Create two [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute) resources that each reference a unique backend service.
 
 ## Background
 

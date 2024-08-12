@@ -3,7 +3,7 @@ title: Connect Azure Communications Gateway to Microsoft Teams Direct Routing
 description:  After deploying Azure Communications Gateway, you can configure it to connect to the Microsoft Phone System for Microsoft Teams Direct Routing.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: integration
 ms.date: 03/22/2024
 ms.custom:
@@ -59,9 +59,9 @@ Microsoft Teams only sends traffic to domains that you confirm that you own. You
 1. Select your Communications Gateway resource. Check that you're on the **Overview** of your Azure Communications Gateway resource.
 1. Select **Properties**.
 1. Find the field named **Domain**. This name is your deployment's _base domain name_.
-1. Work out the _per-region domain names_ for connecting to Microsoft Teams Direct Routing. These use the form `1-r<region-number>.<base-domain-name>`.
-    - A production deployment has two service regions and therefore two per-region domain names: `1-r1.<base-domain-name>` and `1-r2.<base-domain-name>`
-    - A lab deployment has one service region and therefore one per-region domain name: `1-r1.<base-domain-name>`.
+1. Work out the _per-region domain names_ for connecting to Microsoft Teams Direct Routing. These use the form `1r<region-number>.<base-domain-name>`.
+    - A production deployment has two service regions and therefore two per-region domain names: `1r1.<base-domain-name>` and `1r2.<base-domain-name>`
+    - A lab deployment has one service region and therefore one per-region domain name: `1r1.<base-domain-name>`.
 1. Note down the base domain name and the per-region domain names. You'll need these values in the next steps.
 
 > [!IMPORTANT]
@@ -70,11 +70,6 @@ Microsoft Teams only sends traffic to domains that you confirm that you own. You
 ## Register the base domain name in your tenant
 
 You need to register the base domain for Azure Communications Gateway in your tenant and verify it. Registering and verifying the base domain proves that you control the domain.
-
-> [!TIP]
-> If the base domain name is a subdomain of a domain already registered and verified in this tenant:
-> - You must register Azure Communications Gateway's base domain name.
-> - Microsoft 365 automatically verifies the base domain name.
 
 Follow the instructions [to add a domain to your tenant](/microsoftteams/direct-routing-sbc-multiple-tenants#add-a-base-domain-to-the-tenant-and-verify-it). Use the base domain name that you found in [Find your Azure Communication Gateway's domain names for connecting to Microsoft Teams Direct Routing](#find-your-azure-communication-gateways-domain-names-for-connecting-to-microsoft-teams-direct-routing).
 
@@ -96,9 +91,6 @@ Before your onboarding team can finish onboarding you to the Microsoft Teams Dir
 If you don't already have an onboarding team, contact azcog-enablement@microsoft.com, providing your Azure subscription ID and contact details.
 
 ## Finish verifying the base domain name in Microsoft 365
-
-> [!NOTE]
-> If Microsoft 365 did not prompt you to verify the domain in [Register the base domain name in your tenant](#register-the-base-domain-name-in-your-tenant), skip this step.
 
 After your onboarding team confirms that the DNS records have been set up, finish verifying the base domain name in the Microsoft 365 admin center.
 
@@ -155,4 +147,4 @@ Confirm that the SIP OPTIONS status of each SIP trunk is Active.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure a test customer](configure-test-customer-teams-direct-routing.md)
+> [Prepare for live traffic](prepare-for-live-traffic-teams-direct-routing.md)

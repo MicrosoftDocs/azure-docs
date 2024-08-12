@@ -3,7 +3,7 @@ title: Set up VMware disaster recovery using PowerShell in Azure Site Recovery
 description: Learn how to set up replication and failover to Azure for disaster recovery of VMware VMs using PowerShell in Azure Site Recovery.
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 03/07/2024
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 # Set up disaster recovery of VMware VMs to Azure with PowerShell
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 In this article, you see how to replicate and fail over VMware virtual machines to Azure using Azure PowerShell.
 
@@ -29,7 +29,7 @@ You learn how to:
 > - Perform a failover. Configure failover settings, perform a settings for replicating virtual machines.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

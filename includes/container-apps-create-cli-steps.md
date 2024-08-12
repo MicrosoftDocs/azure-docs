@@ -1,14 +1,14 @@
 ---
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: include
-ms.date: 01/26/2022
+ms.date: 04/30/2024
 ms.author: cshoe
 ---
 
 ## Setup
 
-To begin, sign in to Azure. Run the following command, and follow the prompts to complete the authentication process.
+To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
 
 # [Bash](#tab/bash)
 
@@ -24,31 +24,55 @@ Connect-AzAccount
 
 ---
 
+To ensure you're running the latest version of the CLI, run the upgrade command.
+
 # [Bash](#tab/bash)
 
-Next, install the Azure Container Apps extension for the CLI.
-
 ```azurecli
-az extension add --name containerapp --upgrade
+az upgrade
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
-
-You must have the latest Az module installed.  Ignore any warnings about modules currently in use.
 
 ```azurepowershell
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
 ```
 
-Now install the Az.App module.
+Ignore any warnings about modules currently in use.
+
+---
+
+Next, install or update the Azure Container Apps extension for the CLI.
+
+If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in Azure PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az extension add --name containerapp --upgrade
+```
+
+> [!NOTE]
+> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](../articles/container-apps/whats-new.md), install the Container Apps extension with `--allow-preview true`.
+> ```azurecli
+> az extension add --name containerapp --upgrade --allow-preview true
+> ```
+
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Install-Module -Name Az.App
 ```
 
+Make sure to update the `Az.App` module to the latest version.
+
+```azurepowershell
+Update-Module -Name Az.App
+```
+
 ---
 
-Now that the current extension or module is installed, register the `Microsoft.App` namespace.
+Now that the current extension or module is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
 
 > [!NOTE]
 > Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
@@ -59,18 +83,6 @@ Now that the current extension or module is installed, register the `Microsoft.A
 az provider register --namespace Microsoft.App
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.App
-```
-
----
-
-Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace if you have not used it before.
-
-# [Bash](#tab/bash)
-
 ```azurecli
 az provider register --namespace Microsoft.OperationalInsights
 ```
@@ -78,51 +90,11 @@ az provider register --namespace Microsoft.OperationalInsights
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.App
+```
+
+```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.OperationalInsights
 ```
 
 ---
-
-Next, set the following environment variables:
-
-# [Bash](#tab/bash)
-
-```azurecli
-RESOURCE_GROUP="my-container-apps"
-LOCATION="canadacentral"
-CONTAINERAPPS_ENVIRONMENT="my-environment"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-$ResourceGroupName = 'my-container-apps'
-$Location = 'canadacentral'
-$ContainerAppsEnvironment = 'my-environment'
-```
-
----
-
-With these variables defined, you can create a resource group to organize the services related to your new container app.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az group create \
-  --name $RESOURCE_GROUP \
-  --location $LOCATION
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzResourceGroup -Location $Location -Name $ResourceGroupName
-```
-
----
-
-With the CLI upgraded and a new resource group available, you can create a Container Apps environment and deploy your container app.
-
-## Create an environment
-
-An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.

@@ -3,14 +3,14 @@ title: 'CLI (v2) command component YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) command component YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, update-code2
-author: cloga
-ms.author: lochen
+ms.custom: cliv2, update-code7
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 08/08/2022
-ms.reviewer: lagayhar
+ms.reviewer: lochen
 ---
 
 # CLI (v2) command component YAML schema

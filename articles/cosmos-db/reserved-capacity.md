@@ -1,6 +1,6 @@
 ---
-title: Reserved capacity in Azure Cosmos DB to Optimize cost
-description: Learn how to buy Azure Cosmos DB reserved capacity to save on your compute costs.
+title: Azure Cosmos DB pricing & discounts with Reserved Capacity
+description: Azure Cosmos DB pricing allows for various forms of optimization. You may receive discounts of up to 63% savings with Reserved Capacity.
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -9,16 +9,19 @@ ms.author: sidandrews
 ms.reviewer: rosouz
 ---
 
-# Optimize cost with reserved capacity in Azure Cosmos DB
+# Azure Cosmos DB pricing & discounts with Reserved Capacity
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Azure Cosmos DB reserved capacity helps you save money by committing to a reservation for Azure Cosmos DB resources for either one year or three years. With Azure Cosmos DB reserved capacity, you can get a discount on the throughput provisioned for Azure Cosmos DB resources. Examples of resources are databases and containers (tables, collections, and graphs).
+Azure Cosmos DB Reserved Capacity allows you to benefit from discounted prices on the throughput provisioned for your Azure Cosmos DB resources. You can enjoy up to 63% savings by committing to a reservation for Azure Cosmos DB resources for either one year or three years. Examples of resources are databases and containers (tables, collections, and graphs).
 
-## Overview
+> [!IMPORTANT]
+> Currently, Azure Pricing Calculator is only showing reservations bigger than one million RU/s. This temporary limitation is being fixed and reservations of any size, starting with 100 RU/s, will soon be available. The Azure Portal isn't affected by this issue.
 
-The size of the reserved capacity purchase should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources use on an hourly basis. For example: Purchase 10,000 RU/s reserved capacity if that is your consistent hourly usage pattern. 
+## How Azure Cosmos DB pricing and discounts work with Reserved Capacity
 
-In this example, any provisioned throughput above 10,000 RU/s is billed with your pay-as-you-go rate. If the provisioned throughput is below 10,000 RU/s in an hour, then the extra reserved capacity for that hour is wasted.
+The size of the Reserved Capacity purchase should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources use on an hourly basis.
+
+For example: Purchase 10,000 RU/s Reserved Capacity if that is your consistent hourly usage pattern. In this case, provisioned throughput exceeding 10,000 RU/s is billed with your pay-as-you-go rate. However, if your usage pattern is consistently below 10,000 RU/s in an hour, you should reduce your Reserved Capacity accordingly to avoid waste.
 
 Note that:
 
@@ -29,29 +32,29 @@ Note that:
 After you buy a reservation, it's applied immediately to any existing Azure Cosmos DB resources that match the terms of the reservation. If you don’t have any existing Azure Cosmos DB resources, the reservation applies when you deploy a new Azure Cosmos DB instance that matches the terms of the reservation. In both cases, the period of the reservation starts immediately after a successful purchase.
 
 When your reservation expires, your Azure Cosmos DB instances continue to run and are billed at the regular pay-as-you-go rates.
-You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [upfront or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). 
+You can buy Azure Cosmos DB Reserved Capacity from the [Azure portal](https://portal.azure.com). Pay for the reservation [upfront or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). 
 
-## Required permissions
+### Required permissions
 
-The required permissions to purchase reserved capacity for Azure Cosmos DB are:
+The required permissions to purchase Reserved Capacity for Azure Cosmos DB are:
 
 * To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
-* For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Cosmos DB reserved capacity.
+* For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Cosmos DB Reserved Capacity.
 
-## Reservations consumption
+### Reservations consumption
 
 As soon as you buy a reservation, the throughput charges that match the reservation attributes are no longer charged at the pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article.
 
 Azure Cosmos DB consumes reservations in two different ways:
 
- * Autoscale database operations consume reserved capacity at a rate of 100 RU/s x 1.5 x N regions. So, if you need 10,000 RU/s for all your regions, purchase 15,000 RU/s.
- * Standard database operations consume reserved capacity at a rate of 100 RU/s x N regions. So, if you need 10,000 RU/s for all your regions, purchase 10,0000 RU/s.
+ * Autoscale database operations consume Reserved Capacity at a rate of 100 RU/s x 1.5 x N regions. So, if you need 10,000 RU/s for all your regions, purchase 15,000 RU/s.
+ * Standard database operations consume Reserved Capacity at a rate of 100 RU/s x N regions. So, if you need 10,000 RU/s for all your regions, purchase 10,0000 RU/s.
 
 
-## Discounts
+## Azure Cosmos DB pricing discount tiers with Reserved Capacity
 
-Azure Cosmos DB reserved capacity can significantly reduce your Azure Cosmos DB costs, up to 63% on regular prices, with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Cosmos DB resources, including performance and availability.
+Azure Cosmos DB Reserved Capacity can significantly reduce your Azure Cosmos DB costs, up to 63% on regular prices, with a one-year or three-year upfront commitment. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Cosmos DB resources, including performance and availability.
 
 We offer both fixed and progressive discounts options. Note that you can mix and match different reservations options and sizes in the same purchase.
 
@@ -95,7 +98,7 @@ This option, using multiples of our bigger reservation sizes, allows you to rese
 | 30,000,000 RU/s | 43.4% | 58.3% |
 | 30,000,000 Multi-master RU/s | 48.4% | 63.3% |
 
-You can maximize savings with the biggest reservation for your scenario. Example: You need 2 million RU/s, one year term. If you purchase two units of the 1,000,000 RU/s reservation, your discount is 27.0%. If you purchase one unit of the 2,000,000 RU/s reservation, you have exactly the same reserved capacity, but a 28.5% discount.
+You can maximize savings with the biggest reservation for your scenario. Example: You need 2 million RU/s, one year term. If you purchase two units of the 1,000,000 RU/s reservation, your discount is 27.0%. If you purchase one unit of the 2,000,000 RU/s reservation, you have exactly the same Reserved Capacity, but a 28.5% discount.
 
 Create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to purchase any quantity of the reservations bigger than 1,000,000 RU/s.
 
@@ -103,17 +106,17 @@ Create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Suppo
 
 Imagine this hypothetical scenario: A company is working on a new application but isn't sure about the throughput requirements, they purchased RU/s on 3 different days.
 
-* On day 1 they purchased reserved capacity for their development environment:
+* On day 1 they purchased Reserved Capacity for their development environment:
   * Total of 800 RU/s: eight units of the 100 RU/s option, with a 20% discount. 
   * Scoped to the development resource group.
   * One year term, since the project lasts for nine months.
   * They paid upfront, it's a small value.
-* On day 30 they purchased reserved capacity for their tests environment:
+* On day 30 they purchased Reserved Capacity for their tests environment:
   * 750,000 RU/s: 7,500 units of the 100 RU/s option, with a 20% discount.
   * Scoped to the test subscription.
   * One year term.
   * They choose to pay monthly.
-* On day 180 they purchased reserved capacity for the production environment:
+* On day 180 they purchased Reserved Capacity for the production environment:
   * 3,500,000 RU/s: One unit of the 3,000,000 RU/s option, with a 43.2% discount. And 5,000 units of the 100 RU/s option, with a 20% discount.
   * Scoped to the production subscription.
   * Three-years term, to maximize the discounts.
@@ -129,7 +132,7 @@ Imagine this hypothetical scenario: A company needs a 10,950,000 three-years res
 
 ## Determine the required throughput before purchase
 
-We calculate purchase recommendations based on your hourly usage pattern. Usage over the last 7, 30, and 60 days is analyzed, and reserved capacity purchase that maximizes your savings is recommended. You can view recommended reservation sizes in the Azure portal using the following steps:
+We calculate purchase recommendations based on your hourly usage pattern. Usage over the last 7, 30, and 60 days is analyzed, and Reserved Capacity purchase that maximizes your savings is recommended. You can view recommended reservation sizes in the Azure portal using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -156,7 +159,7 @@ This recommendation to purchase a 30,000 RU/s reservation indicates that, among 
 For a 30,000 RU/s reservation, in standard provisioned throughput, you should buy 300 units of the 100 RU/s option.
 
 
-## Buy Azure Cosmos DB reserved capacity
+## How to buy Reserved Capacity
 
 1. Divide the reservation size you want by 100 to calculate the number of units of the 100 RU/s option you need. The maximum quantity is 9,999 units, or 999,900 RU/s. For one million RU/s or more, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for up to 63% discounts.
 
@@ -171,9 +174,9 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
 
    |Field  |Description  |
    |---------|---------|
-   |Scope   |  	Option that controls how many subscriptions can use the billing benefit associated with the reservation. It also controls how the reservation is applied to specific subscriptions. <br/><br/>  If you select **Shared**, the reservation discount is applied to Azure Cosmos DB instances that run in any subscription within your billing context. The billing context is based on how you signed up for Azure. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For pay-as-you-go customers, the shared scope is all individual subscriptions with pay-as-you-go rates created by the account administrator. </br></br>If you select **Management group**, the reservation discount is applied to Azure Cosmos DB instances that run in any of the subscriptions that are a part of both the management group and billing scope. <br/><br/>  If you select **Single subscription**, the reservation discount is applied to Azure Cosmos DB instances in the selected subscription. <br/><br/> If you select **Single resource group**, the reservation discount is applied to Azure Cosmos DB instances in the selected subscription and the selected resource group within that subscription. <br/><br/> You can change the reservation scope after you buy the reserved capacity.  |
-   |Subscription  |   Subscription used to pay for the Azure Cosmos DB reserved capacity. The payment method on the selected subscription is used in charging the costs. The subscription must be one of the following types: <br/><br/>  Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P): For an Enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. <br/><br/> Individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P): For an individual subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription.    |
-   | Resource Group | Resource group to which the reserved capacity discount is applied. |
+   |Scope   |  	Option that controls how many subscriptions can use the billing benefit associated with the reservation. It also controls how the reservation is applied to specific subscriptions. <br/><br/>  If you select **Shared**, the reservation discount is applied to Azure Cosmos DB instances that run in any subscription within your billing context. The billing context is based on how you signed up for Azure. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For pay-as-you-go customers, the shared scope is all individual subscriptions with pay-as-you-go rates created by the account administrator. </br></br>If you select **Management group**, the reservation discount is applied to Azure Cosmos DB instances that run in any of the subscriptions that are a part of both the management group and billing scope. <br/><br/>  If you select **Single subscription**, the reservation discount is applied to Azure Cosmos DB instances in the selected subscription. <br/><br/> If you select **Single resource group**, the reservation discount is applied to Azure Cosmos DB instances in the selected subscription and the selected resource group within that subscription. <br/><br/> You can change the reservation scope after you buy the Reserved Capacity.  |
+   |Subscription  |   Subscription used to pay for the Azure Cosmos DB Reserved Capacity. The payment method on the selected subscription is used in charging the costs. The subscription must be one of the following types: <br/><br/>  Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P): For an Enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. <br/><br/> Individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P): For an individual subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription.    |
+   | Resource Group | Resource group to which the Reserved Capacity discount is applied. |
    |Term  |   One year or three years.   |
    |Throughput Type   |  Throughput is provisioned as request units. You can buy a reservation for the provisioned throughput for both setups - single region writes and multi-master writes. The throughput type has two values to choose from: 100 RU/s per hour and 100 multi-region writes RU/s per hour.|
    | Reserved Capacity Units| The amount of throughput that you want to reserve. You can calculate this value by determining the throughput needed for all your Azure Cosmos DB resources (for example, databases or containers) per region. You then multiply it by the number of regions that you associate with your Azure Cosmos DB database. For example: If you have five regions with 1 million RU/sec in every region, select 5 million RU/s for the reservation capacity purchase. |
@@ -191,13 +194,13 @@ For a 30,000 RU/s reservation, in standard provisioned throughput, you should bu
 
 You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-## Exceeding reserved capacity
+### Exceeding Reserved Capacity
 
 When you reserve capacity for your Azure Cosmos DB resources, you are reserving [provisioned throughput](set-throughput.md). If the provisioned throughput is exceeded, requests beyond that provisioning amount are billed using pay-as-you go rates. For more information on reservations, see the [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) article. For more information on provisioned throughput, see [provisioned throughput types](how-to-choose-offer.md#overview-of-provisioned-throughput-types).
 
 ## Limitations
 
- * Currently we don't support reservations for vCore based services.
+ * Currently we don't support reservations for vCore-based services.
  * Currently we don't support reservations for Serverless accounts.
  * Currently we don't support reservations for storage or network.
 
@@ -205,7 +208,7 @@ When you reserve capacity for your Azure Cosmos DB resources, you are reserving 
 
 The reservation discount is applied automatically to the Azure Cosmos DB resources that match the reservation scope and attributes. You can update the scope of the reservation through the Azure portal, PowerShell, Azure CLI, or the API.
 
-*  To learn how reserved capacity discounts are applied to Azure Cosmos DB, see [Understand the Azure reservation discount](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
+*  To learn how Reserved Capacity discounts are applied to Azure Cosmos DB, see [Understand the Azure reservation discount](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
 
 * To learn more about Azure reservations, see the following articles:
 

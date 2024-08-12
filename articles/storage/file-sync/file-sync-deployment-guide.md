@@ -1,10 +1,10 @@
 ---
-title: Deploy Azure File Sync
-description: Learn how to deploy Azure File Sync from start to finish using the Azure portal, PowerShell, or the Azure CLI.
+title: How to deploy Azure File Sync
+description: Learn how to deploy Azure File Sync storage sync service using the Azure portal, Azure PowerShell, or the Azure CLI.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 08/02/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -27,18 +27,22 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
 3. At least one supported instance of **Windows Server** to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
-4. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
+4. The following Windows updates must be installed on the **Windows Server**: 
+    - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
+    - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
+    - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
+5. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
 
     > [!NOTE]
     > The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks. See [Failover Clustering](file-sync-planning.md#failover-clustering) for Azure File Sync.
 
-5. Although cloud management can be done with the Azure portal, advanced registered server functionality is provided through PowerShell cmdlets that are intended to be run locally in either PowerShell 5.1 or PowerShell 6+. PowerShell 5.1 ships by default on Windows Server 2016 and above. On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
+6. Although cloud management can be done with the Azure portal, advanced registered server functionality is provided through PowerShell cmdlets that are intended to be run locally in either PowerShell 5.1 or PowerShell 6+. On Windows Server 2012 R2, you can verify that you're running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    If your **PSVersion** value is less than 5.1.\*, as will be the case with most fresh installations of Windows Server 2012 R2, you'll need to upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
+    If your **PSVersion** value is less than 5.1.\*, you'll need to upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
     PowerShell 6+ can be used with any supported system, and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
 
@@ -49,33 +53,36 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
     - [Create a file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json) for a step-by-step description of how to create a file share.
 2. The following **storage account** settings must be enabled to allow Azure File Sync access to the storage account:  
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
-    -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
+    -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select **Configuration** under the **Settings** section. 
 3. At least one supported instance of **Windows Server** to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
-
-4. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
+4. The following Windows updates must be installed on the **Windows Server**: 
+    - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
+    - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
+    - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
+5. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
 
     > [!NOTE]
     > The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks. See [Failover Clustering](file-sync-planning.md#failover-clustering) for Azure File Sync.
 
-5. PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you are registering (this can be done directly or via PowerShell remoting). PowerShell 5.1 ships by default on Windows Server 2016 and above. On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
+6. PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you're registering (you can do this directly or via PowerShell remoting). On Windows Server 2012 R2, verify that you're running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    If your **PSVersion** value is less than 5.1.\*, as will be the case with most fresh installations of Windows Server 2012 R2, you'll need to upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
+    If your **PSVersion** value is less than 5.1.\*, you'll need to upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
     PowerShell 6+ can be used with any supported system, and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
 
-6. If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
+7. If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
 
     > [!IMPORTANT]
-    > If you are installing .NET 4.7.2+ on Windows Server Core, you must install with the `quiet` and `norestart` flags or the installation will fail. For example, if installing .NET 4.8, the command would look like the following:
+    > If you're installing .NET 4.7.2+ on Windows Server Core, you must install with the `quiet` and `norestart` flags, or the installation will fail. For example, if installing .NET 4.8, the command would look like the following:
     > ```PowerShell
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-7. The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
+8. The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
     > [!NOTE]
     > The Az.StorageSync module is now installed automatically when you install the Az PowerShell module.
@@ -89,13 +96,16 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
 3. At least one supported instance of **Windows Server** to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
-
-4. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
+4. The following Windows updates must be installed on the **Windows Server**: 
+    - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
+    - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
+    - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
+5. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
 
     > [!NOTE]
     > The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks. See [Failover Clustering](file-sync-planning.md#failover-clustering) for Azure File Sync.
 
-5. [Install the Azure CLI](/cli/azure/install-azure-cli)
+6. [Install the Azure CLI](/cli/azure/install-azure-cli)
 
    If you prefer, you can also use Azure Cloud Shell to complete the steps in this tutorial.  Azure Cloud Shell is an interactive shell environment that you use through your browser.  Start Cloud Shell by using one of these methods:
 
@@ -105,7 +115,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
    - Select the **Cloud Shell** button on the menu bar at the upper right corner in the [Azure portal](https://portal.azure.com)
 
-6. Sign in.
+7. Sign in.
 
    Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
 
@@ -115,25 +125,25 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
     Follow the steps displayed in your terminal to complete the authentication process.
 
-7. Install the [az filesync](/cli/azure/storagesync) Azure CLI extension.
+8. Install the [az filesync](/cli/azure/storagesync) Azure CLI extension.
 
    ```azurecli
    az extension add --name storagesync
    ```
 
-   After installing the **storagesync** extension reference, you will receive the following warning.
+   After installing the **storagesync** extension reference, you'll receive the following warning.
 
    ```output
    The installed extension 'storagesync' is experimental and not covered by customer support. Please use with discretion.
    ```
 
-8. Although cloud management can be done with the Azure CLI, advanced registered server functionality is provided through PowerShell cmdlets that are intended to be run locally in either PowerShell 5.1 or PowerShell 6+. PowerShell 5.1 ships by default on Windows Server 2016 and above. On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
+9. Although cloud management can be done with the Azure CLI, advanced registered server functionality is provided through PowerShell cmdlets that are intended to be run locally in either PowerShell 5.1 or PowerShell 6+. On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    If your **PSVersion** value is less than 5.1.\*, as will be the case with most fresh installations of Windows Server 2012 R2, you'll need to upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
+    If your **PSVersion** value is less than 5.1.\*, you'll need to upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
     PowerShell 6+ can be used with any supported system, and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
 
@@ -174,7 +184,7 @@ if ($installType -ne "Server Core") {
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
 
     # Force Internet Explorer closed, if open. This is required to fully apply the setting.
-    # Save any work you have open in the IE browser. This will not affect other browsers,
+    # Save any work you have open in the Internet Explorer browser. This will not affect other browsers,
     # including Microsoft Edge.
     Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 }
@@ -188,23 +198,23 @@ Follow the instructions for the Azure portal or PowerShell.
 
 ## Deploy the Storage Sync Service
 
-The deployment of Azure File Sync starts with placing a **Storage Sync Service** resource into a resource group of your selected subscription. We recommend provisioning as few of these as needed. You will create a trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.
+The deployment of Azure File Sync starts with placing a **Storage Sync Service** resource into a resource group of your selected subscription. We recommend provisioning as few of these as needed. You'll create a trust relationship between your servers and this resource. A server can only be registered to one Storage Sync Service. As a result, we recommend deploying as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services can't sync with each other.
 
 > [!NOTE]
 > The Storage Sync Service inherits access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
 
 # [Portal](#tab/azure-portal)
 
-To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), click *Create a resource* and then search for Azure File Sync. In the search results, select **Azure File Sync**, and then select **Create** to open the **Deploy Storage Sync** tab.
+To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), select *Create a resource*, and then search for Azure File Sync. In the search results, select **Azure File Sync**, and then select **Create** to open the **Deploy Storage Sync** tab.
 
 On the pane that opens, enter the following information:
 
 - **Name**: A unique name (per region) for the Storage Sync Service.
 - **Subscription**: The subscription in which you want to create the Storage Sync Service. Depending on your organization's configuration strategy, you might have access to one or more subscriptions. An Azure subscription is the most basic container for billing for each cloud service (such as Azure Files).
-- **Resource group**: A resource group is a logical group of Azure resources, such as a storage account or a Storage Sync Service. You can create a new resource group or use an existing resource group for Azure File Sync. (We recommend using resource groups as containers to isolate resources logically for your organization, such as grouping HR resources or resources for a specific project.)
+- **Resource group**: A resource group is a logical group of Azure resources, such as a storage account or a Storage Sync Service. You can create a new resource group or use an existing resource group for Azure File Sync. We recommend using resource groups as containers to isolate resources logically for your organization, such as grouping HR resources or resources for a specific project.
 - **Location**: The region in which you want to deploy Azure File Sync. Only supported regions are available in this list.
 
-When you are finished, select **Create** to deploy the Storage Sync Service.
+When you're finished, select **Create** to deploy the Storage Sync Service.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -266,14 +276,14 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 
 # [Portal](#tab/azure-portal)
 
-You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation.
+You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation or to silently install the agent, see [How to perform a silent installation for a new Azure File Sync agent installation](file-sync-agent-silent-installation.md). 
 
 > [!IMPORTANT]
-> If you are using Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must be registered to work with Azure File Sync. 
+> If you're using Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must be registered to work with Azure File Sync. 
 
 We recommend that you do the following:
-- Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent), to simplify troubleshooting and server maintenance.
-- Enable Microsoft Update to keep Azure File Sync up to date. All updates, to the Azure File Sync agent, including feature updates and hotfixes, occur from Microsoft Update. We recommend installing the latest update to Azure File Sync. For more information, see [Azure File Sync update policy](file-sync-planning.md#azure-file-sync-agent-update-policy).
+- Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent) to simplify troubleshooting and server maintenance.
+- Enable Microsoft Update to keep Azure File Sync up to date. All updates to the Azure File Sync agent, including feature updates and hotfixes, occur from Microsoft Update. We recommend installing the latest update to Azure File Sync. For more information, see [Azure File Sync update policy](file-sync-planning.md#azure-file-sync-agent-update-policy).
 
 When the Azure File Sync agent installation is finished, the Server Registration UI automatically opens. You must have a Storage Sync Service before registering; see the next section on how to create a Storage Sync Service.
 
@@ -330,11 +340,11 @@ Follow the instructions for the Azure portal or PowerShell.
 Registering your Windows Server with a Storage Sync Service establishes a trust relationship between your server (or cluster) and the Storage Sync Service. A server can only be registered to one Storage Sync Service and can sync with other servers and Azure file shares associated with the same Storage Sync Service.
 
 > [!NOTE]
-> Server registration uses your Azure credentials to create a trust relationship between the Storage Sync Service and your Windows Server, however subsequently the server creates and uses its own identity that is valid as long as the server stays registered and the current Shared Access Signature token (Storage SAS) is valid. A new SAS token cannot be issued to the server once the server is unregistered, thus removing the server's ability to access your Azure file shares, stopping any sync.
+> Server registration uses your Azure credentials to create a trust relationship between the Storage Sync Service and your Windows Server. Subsequently, the server creates and uses its own identity that is valid as long as the server stays registered and the current Shared Access Signature (SAS) token is valid. A new SAS token can't be issued to the server once the server is unregistered, thus removing the server's ability to access your Azure file shares, stopping any sync.
 
 The administrator registering the server must be a member of the management roles **Owner** or **Contributor** for the given Storage Sync Service. This can be configured under **Access Control (IAM)** in the Azure portal for the Storage Sync Service.
 
-It is also possible to differentiate administrators able to register servers from those allowed to also configure sync in a Storage Sync Service. For that you would need to create a custom role where you list the administrators that are only allowed to register servers and give your custom role the following permissions:
+It's also possible to differentiate administrators able to register servers from those allowed to also configure sync in a Storage Sync Service. To do this, you must create a custom role where you list the administrators that are only allowed to register servers and give your custom role the following permissions:
 
 - "Microsoft.StorageSync/storageSyncServices/registeredServers/write"
 - "Microsoft.StorageSync/storageSyncServices/read"
@@ -343,9 +353,9 @@ It is also possible to differentiate administrators able to register servers fro
 
 # [Portal](#tab/azure-portal)
 
-The Server Registration UI should open automatically after installation of the Azure File Sync agent. If it doesn't, you can open it manually from its file location: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. When the Server Registration UI opens, select **Sign-in** to begin.
+The Server Registration UI should open automatically after the Azure File Sync agent installs. If it doesn't, you can open it manually from its file location: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`. When the Server Registration UI opens, select **Sign-in** to begin.
 
-After you sign in, you are prompted for the following information:
+After you sign in, you're prompted for the following information:
 
 ![A screenshot of the Server Registration UI](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
@@ -353,7 +363,7 @@ After you sign in, you are prompted for the following information:
 - **Resource Group**: The resource group that contains the Storage Sync Service.
 - **Storage Sync Service**: The name of the Storage Sync Service with which you want to register.
 
-After you have selected the appropriate information, select **Register** to complete the server registration. As part of the registration process, you are prompted for an additional sign-in.
+Select the appropriate information and then select **Register** to complete the server registration. As part of the registration process, you're prompted for an additional sign-in.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -373,12 +383,12 @@ Follow the instructions for the Azure portal or PowerShell.
 
 A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on a  registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to appropriately describe your desired sync topology.
 
-A cloud endpoint is a pointer to an Azure file share. All server endpoints will sync with a cloud endpoint, making the cloud endpoint the hub. The storage account for the Azure file share must be located in the same region as the Storage Sync Service. The entirety of the Azure file share will be synced, with one exception: A special folder, comparable to the hidden "System Volume Information" folder on an NTFS volume, will be provisioned. This directory is called ".SystemShareInformation". It contains important sync metadata that will not sync to other endpoints. Do not use or delete it!
+A cloud endpoint is a pointer to an Azure file share. All server endpoints will sync with a cloud endpoint, making the cloud endpoint the hub. The storage account for the Azure file share must be located in the same region as the Storage Sync Service. The entirety of the Azure file share will be synced, with one exception: A special folder, comparable to the hidden "System Volume Information" folder on an NTFS volume, will be provisioned. This directory is called ".SystemShareInformation". It contains important sync metadata that won't sync to other endpoints. Don't use or delete it!
 
 > [!IMPORTANT]
 > You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-change-detection).
 
-The administrator creating the cloud endpoint must be a member of the management role **Owner** for the storage account that contains the Azure file share the cloud endpoint is pointing to. This can be configured under **Access Control (IAM)** in the Azure portal for the storage account.
+The administrator creating the cloud endpoint must be a member of the management role **Owner** for the storage account that contains the Azure file share the cloud endpoint is pointing to. Configure this under **Access Control (IAM)** in the Azure portal for the storage account.
 
 # [Portal](#tab/azure-portal)
 
@@ -395,7 +405,7 @@ In the pane that opens, enter the following information to create a sync group w
 
 # [PowerShell](#tab/azure-powershell)
 
-To create the sync group, execute the following PowerShell. Remember to replace `<my-sync-group>` with the desired name of the sync group.
+To create the sync group, execute the following PowerShell. Replace `<my-sync-group>` with the desired name of the sync group.
 
 ```powershell
 $syncGroupName = "<my-sync-group>"
@@ -466,10 +476,10 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume. A server endpoint is subject to the following conditions:
 
-- A server endpoint must be a path on a registered server (rather than a mounted share). Network attached storage (NAS) is not supported.
-- Although the server endpoint can be on the system volume, server endpoints on the system volume may not use cloud tiering.
-- Changing the path or drive letter after you established a server endpoint on a volume is not supported. Make sure you are using a final path on your registered server.
-- A registered server can support multiple server endpoints, however a sync group can only have one server endpoint per registered server at any given time. Other server endpoints within the sync group must be on different registered servers.
+- A server endpoint must be a path on a registered server (rather than a mounted share). Network attached storage (NAS) isn't supported.
+- Although the server endpoint can be on the system volume, server endpoints on the system volume can't use cloud tiering.
+- Changing the path or drive letter after you established a server endpoint on a volume isn't supported. Make sure you're using a final path on your registered server.
+- A registered server can support multiple server endpoints. However, a sync group can only have one server endpoint per registered server at any given time. Other server endpoints within the sync group must be on different registered servers.
 
 [!INCLUDE [storage-files-sync-create-server-endpoint](../../../includes/storage-files-sync-create-server-endpoint.md)]
 
@@ -501,23 +511,23 @@ Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]]
 ```
 
 VSS snapshots are taken of an entire volume. 
-By default, up to 64 snapshots can exist for a given volume, granted there is enough space to store the snapshots. VSS handles this automatically. The default snapshot schedule takes two snapshots per day, Monday through Friday. That schedule is configurable via a Windows Scheduled Task. The above PowerShell cmdlet does two things:
+By default, up to 64 snapshots can exist for a given volume, as long as there's enough space to store the snapshots. VSS handles this automatically. The default snapshot schedule takes two snapshots per day, Monday through Friday. That schedule is configurable via a Windows Scheduled Task. The above PowerShell cmdlet does two things:
 1. It configures Azure File Sync's cloud tiering on the specified volume to be compatible with previous versions and guarantees that a file can be restored from a previous version, even if it was tiered to the cloud on the server.
 1. It enables the default VSS schedule. You can then decide to modify it later.
 
 > [!NOTE]
 > There are two important things to note:
 > - If you use the  -Force parameter, and VSS is currently enabled, then it will overwrite the current VSS snapshot schedule and replace it with the default schedule. Ensure you save your custom configuration before running the cmdlet.
-> - If you are using this cmdlet on a cluster node, you must also run it on all the other nodes in the cluster!
+> - If you're using this cmdlet on a cluster node, you must also run it on all the other nodes in the cluster.
 
-In order to see if self-service restore compatibility is enabled, you can run the following cmdlet.
+In order to see if self-service restore compatibility is enabled, you can run the following cmdlet:
 
 ```powershell
 Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 ```
 
 It will list all volumes on the server as well as the number of cloud tiering compatible days for each. This number is automatically calculated based on the maximum possible snapshots per volume and the default snapshot schedule. So by default, all previous versions presented to an information worker can be used to restore from. The same is true if you change the default schedule to take more snapshots.
-However, if you change the schedule in a way that will result in an available snapshot on the volume that is older than the compatible days value, then users will not be able to use this older snapshot (previous version) to restore from.
+However, if you change the schedule in a way that will result in an available snapshot on the volume that is older than the compatible days value, then users won't be able to use this older snapshot (previous version) to restore from.
 
 > [!NOTE]
 > Enabling self-service restore can have an impact on your Azure storage consumption and bill. This impact is limited to files currently tiered on the server. Enabling this feature ensures that there is a file version available in the cloud that can be referenced via a previous versions (VSS snapshot) entry.
@@ -526,8 +536,8 @@ However, if you change the schedule in a way that will result in an available sn
 
 The default maximum number of VSS snapshots per volume (64) as well as the default schedule to take them, result in a maximum of 45 days of previous versions an information worker can restore from, depending on how many VSS snapshots you can store on your volume.
 
-If a maximum of 64 VSS snapshots per volume is not the correct setting for you, then [change that value via a registry key](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
-For the new limit to take effect, you need to re-run the cmdlet to enable previous version compatibility on every volume it was previously enabled, with the -Force flag to take the new maximum number of VSS snapshots per volume into account. This will result in a newly calculated number of compatible days. Please note that this change will only take effect on newly tiered files and overwrite any customizations on the VSS schedule you might have made.
+If a maximum of 64 VSS snapshots per volume isn't the correct setting for you, then [change that value via a registry key](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+For the new limit to take effect, you need to re-run the cmdlet to enable previous version compatibility on every volume it was previously enabled, with the -Force flag to take the new maximum number of VSS snapshots per volume into account. This will result in a newly calculated number of compatible days. This change will only take effect on newly tiered files and will overwrite any customizations on the VSS schedule you might have made.
 
 VSS snapshots by default can consume up to 10% of the volume space. To adjust the amount of storage that can be used for VSS snapshots, use the [vssadmin resize shadowstorage](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc788050(v=ws.11)) command.
 
@@ -535,23 +545,23 @@ VSS snapshots by default can consume up to 10% of the volume space. To adjust th
 
 ## Optional: Proactively recall new and changed files from an Azure file share
 
-Azure File Sync has a mode that allows globally distributed companies to have the server cache in a remote region pre-populated even before local users are accessing any files. When enabled on a server endpoint, this mode will cause this server to recall files that have been created or changed in the Azure file share.
+Azure File Sync has a mode that allows globally distributed companies to have the server cache in a remote region pre-populated even before local users access any files. When enabled on a server endpoint, this mode will cause the server to recall files that have been created or changed in the Azure file share.
 
 ### Scenario
 
-A globally distributed company has branch offices in the US and in India. In the morning (US time) information workers create a new folder and new files for a brand new project and work all day on it. Azure File Sync will sync folder and files to the Azure file share (cloud endpoint). Information workers in India will continue working on the project in their timezone. When they arrive in the morning, the local Azure File Sync enabled server in India needs to have these new files available locally, such that the India team can efficiently work off of a local cache. Enabling this mode prevents the initial file access to be slower because of on-demand recall and enables the server to proactively recall the files as soon as they were changed or created in the Azure file share.
+A globally distributed company has branch offices in the US and in India. In the morning (US time), information workers create a new folder and new files for a brand new project and work all day on it. Azure File Sync will sync folder and files to the Azure file share (cloud endpoint). Information workers in India will continue working on the project in their timezone. When they arrive in the morning, the local Azure File Sync enabled server in India needs to have these new files available locally, such that the India team can efficiently work off of a local cache. Enabling this mode prevents the initial file access from being slower because of on-demand recall and enables the server to proactively recall the files as soon as they're changed or created in the Azure file share.
 
 > [!IMPORTANT]
-> It is important to realize that tracking changes in the Azure file share that closely on the server can increase your egress traffic and bill from Azure. If files recalled to the server are not actually needed locally, then unnecessary recall to the server can have negative consequences. Use this mode when you know pre-populating the cache on a server with recent changes in the cloud will have a positive effect on users or applications using the files on that server.
+> Tracking changes in the Azure file share that closely on the server can increase your egress traffic and bill from Azure. If files recalled to the server aren't actually needed locally, then unnecessary recall to the server isn't recommended. Only use this mode when you know pre-populating the cache on a server with recent changes in the cloud will have a positive effect on users or applications using the files on that server.
 
 ### Enable a server endpoint to proactively recall what changed in an Azure file share
 
 # [Portal](#tab/proactive-portal)
 
-1. In the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, select the correct sync group and then identify the server endpoint for which you want to closely track changes in the Azure file share (cloud endpoint).
-1. In the cloud tiering section, find the "Azure file share download" topic. You will see the currently selected mode and can change it to track Azure file share changes more closely and proactively recall them to the server.
+1. In the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, select the correct sync group, and then identify the server endpoint for which you want to closely track changes in the Azure file share (cloud endpoint).
+1. In the cloud tiering section, find the **Azure file share download** topic. You'll see the currently selected mode, and you can change it to track Azure file share changes more closely and proactively recall them to the server.
 
-:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="An image showing the Azure file share download behavior for a server endpoint currently in effect and a button to open a menu that allows to change it.":::
+:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="An image showing the Azure file share download behavior for a server endpoint currently in effect and a button to open a menu that allows you to change it.":::
 
 # [PowerShell](#tab/proactive-powershell)
 
@@ -567,9 +577,10 @@ Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode 
 ---
 
 ## Optional: SMB over QUIC on a server endpoint
-Although the Azure file share (cloud endpoint) is a full SMB endpoint capable of direct access from the cloud or on-premises, customers that desire accessing the file share data cloud-side often deploy an Azure File Sync server endpoint on a Windows Server instance hosted on an Azure VM. The most common reason to have an additional server endpoint rather than accessing the Azure file share directly is that changes made directly on the Azure file share may take up to 24 hours or longer to be discovered by Azure File Sync, while changes made on a server endpoint are discovered nearly immediately and synced to all other server and cloud-endpoints.
 
-This configuration is extremely common in environments where a substantial portion of users are not on-premises, such as when users are working from home or from the road. Traditionally, accessing any file share with SMB over the public internet, including both file shares hosted on Windows File Server or on Azure Files directly, is very difficult since most organizations and ISPs block port 445. You can work around this limitation with [private endpoints and VPNs](file-sync-networking-overview.md#private-endpoints), however Windows Server 2022 Azure Edition provides an additional access strategy: SMB over the QUIC transport protocol. 
+Although the Azure file share (cloud endpoint) is a full SMB endpoint capable of direct access from the cloud or on-premises, customers that desire accessing the file share data cloud-side often deploy an Azure File Sync server endpoint on a Windows Server instance hosted on an Azure VM. The most common reason to have an additional server endpoint rather than accessing the Azure file share directly is that changes made directly on the Azure file share can take up to 24 hours or longer to be discovered by Azure File Sync, while changes made on a server endpoint are discovered nearly immediately and synced to all other server and cloud endpoints.
+
+This configuration is extremely common in environments where a substantial portion of users are remote. Traditionally, accessing any file share with SMB over the public internet, including both file shares hosted on Windows File Server or on Azure Files directly, can be difficult because many organizations and ISPs block port 445. You can work around this limitation with [private endpoints and VPNs](file-sync-networking-overview.md#private-endpoints), however Windows Server 2022 Azure Edition provides an additional access strategy: SMB over the QUIC transport protocol. 
 
 SMB over QUIC communicates over port 443, which most organizations and ISPs have open to support HTTPS traffic. Using SMB over QUIC greatly simplifies the networking required to access a file share hosted on an Azure File Sync server endpoint for clients using Windows 11 or greater. To learn more about how to setup and configure SMB over QUIC on Windows Server Azure Edition, see [SMB over QUIC for Windows File Server](/windows-server/storage/file-server/smb-over-quic). 
 
@@ -598,24 +609,25 @@ If you don't have extra storage for initial onboarding and would like to attach 
 1. Let sync finish reconciliation process on all endpoints.
 1. Once reconciliation is complete, you can open shares for changes.
 
-Currently, pre-seeding approach has a few limitations:
+Currently, pre-seeding has a few limitations:
+
 - Data changes on the server before the sync topology is fully up and running can cause conflicts on the server endpoints.
-- After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.
+- After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time it takes to complete this process varies depending on factors like network speed, available bandwidth, and the number of files and folders. For the rough estimation in the preview release, the detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system can be significantly longer when data is pre-seeded in the cloud.
 
 ## Migrate a DFS Replication (DFS-R) deployment to Azure File Sync
 
 To migrate a DFS-R deployment to Azure File Sync:
 
-1. Create a sync group to represent the DFS-R topology you are replacing.
+1. Create a sync group to represent the DFS-R topology you're replacing.
 1. Start on the server that has the full set of data in your DFS-R topology to migrate. Install Azure File Sync on that server.
-1. Register that server and create a server endpoint for the first server to be migrated. Do not enable cloud tiering.
+1. Register that server and create a server endpoint for the first server to be migrated. Don't enable cloud tiering.
 1. Let all of the data sync to your Azure file share (cloud endpoint).
 1. Install and register the Azure File Sync agent on each of the remaining DFS-R servers.
 1. Disable DFS-R.
-1. Create a server endpoint on each of the DFS-R servers. Do not enable cloud tiering.
+1. Create a server endpoint on each of the DFS-R servers. Don't enable cloud tiering.
 1. Ensure sync completes and test your topology as desired.
 1. Retire DFS-R.
-1. Cloud tiering may now be enabled on any server endpoint as desired.
+1. You may now enable cloud tiering on any server endpoint as desired.
 
 For more information, see [Azure File Sync interop with Distributed File System (DFS)](file-sync-planning.md#distributed-file-system-dfs).
 

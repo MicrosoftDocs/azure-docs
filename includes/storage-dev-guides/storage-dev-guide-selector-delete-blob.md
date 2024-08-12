@@ -17,3 +17,4 @@ ms.custom: include file
 > - [JavaScript](../../articles/storage/blobs/storage-blob-delete-javascript.md)
 > - [TypeScript](../../articles/storage/blobs/storage-blob-delete-typescript.md)
 > - [Python](../../articles/storage/blobs/storage-blob-delete-python.md)
+> - [Go](../../articles/storage/blobs/storage-blob-delete-go.md)

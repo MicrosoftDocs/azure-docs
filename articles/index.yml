@@ -278,13 +278,6 @@ productDirectory:
         - analytics
       url: synapse-analytics/index.yml
     # Card
-    - title: Data Catalog
-      summary: Get more value from your enterprise data assets
-      imageSrc: ./media/index/data-catalog.svg
-      azureCategories:
-        - analytics
-      url: data-catalog/index.yml
-    # Card
     - title: Microsoft Purview
       summary: Maximize business value with unified data governance
       imageSrc: ./media/index/purview.svg
@@ -418,7 +411,7 @@ productDirectory:
         - featured
         - compute
         - containers
-      url: aks/index.yml
+      url: /azure/aks/
     # Card
     - title: Azure Kubernetes Fleet Manager (Fleet)
       summary: Enable multi-cluster and at-scale scenarios for Azure Kubernetes Service clusters
@@ -450,6 +443,13 @@ productDirectory:
         - compute
         - web
       url: spring-apps/index.yml
+    # Card
+    - title: Azure Compute Fleet (Preview)
+      summary: Easily provision and manage Azure compute capacity at scale
+      imageSrc: ./media/index/virtual-machine.svg
+      azureCategories:
+        - compute
+      url: ./azure-compute-fleet/overview.md
     # Card
     - title: Azure VMware Solution
       summary: Run your VMware workloads natively on Azure
@@ -1218,7 +1218,7 @@ productDirectory:
       imageSrc: ./media/index/defender.svg
       azureCategories:
         - security
-      url: defender-for-cloud/index.yml
+      url: /azure/defender-for-cloud/
     # Card
     - title: Microsoft Defender for IoT
       summary: Continuous asset management and threat detection for both unmanaged and managed IoT/OT devices
@@ -1333,7 +1333,7 @@ productDirectory:
         - security
       url: nat-gateway/index.yml
     # Card
-    - title: Networking
+    - title: All networking services
       summary: Provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network.
       imageSrc: ./media/index/azure-networking.svg
       azureCategories:
@@ -1345,7 +1345,7 @@ productDirectory:
       imageSrc: ./media/index/dedicated-hsm.svg
       azureCategories:
         - security
-      url: dedicated-hsm/index.yml
+      url: /azure/dedicated-hsm/
     # Card
     - title: Microsoft Defender for External Attack Surface Management
       summary: Safeguard the digital experience by discovering all internet-exposed resources
@@ -1360,7 +1360,7 @@ productDirectory:
       imageSrc: ./media/index/key-vault.svg
       azureCategories:
         - security
-      url: key-vault/index.yml
+      url: /azure/key-vault/
     # Card
     - title: Archive Storage
       summary: Industry leading price point for storing rarely accessed data
@@ -1548,7 +1548,7 @@ productDirectory:
        - hybrid
       url: /azure/aks/hybrid/aks-edge-overview  
     # Card
-    - title: Microsoft Copilot for Azure (Preview)
+    - title: Microsoft Copilot in Azure (Preview)
       summary: Simplify operations and management from cloud to edge with an AI companion
       imageSrc: ./media/index/azure-copilot.svg
       azureCategories:

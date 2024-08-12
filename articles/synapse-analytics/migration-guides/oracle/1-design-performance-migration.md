@@ -1,7 +1,7 @@
 ---
 title: "Design and performance for Oracle migrations"
 description: Learn how Oracle and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
@@ -160,7 +160,7 @@ Microsoft recommends moving your existing data model as-is to Azure and using th
 
 You can automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the performance hit on the existing Oracle environment, which may already be running close to capacity.
 
-The [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can automate many parts of the migration process, including in some cases functions and procedural code. SSMA supports Azure Synapse as a target environment.
+The [SQL Server Migration Assistant (SSMA)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) for Oracle can automate many parts of the migration process, including in some cases functions and procedural code. SSMA supports Azure Synapse as a target environment.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process." lightbox="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1-lrg.png":::
 
@@ -464,7 +464,7 @@ You can only use one field per table for partitioning. That field is frequently 
 
 - Data retrieval from all files within a folder and subfolders.
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
-- [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) (ADLS) and Azure Blob Storage.
+- [Azure Data Lake Storage (ADLS)](../../../storage/blobs/data-lake-storage-introduction.md) and Azure Blob Storage.
 - CSV, PARQUET, and ORC file formats.
 
 >[!TIP]

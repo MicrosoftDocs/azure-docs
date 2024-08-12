@@ -1,14 +1,15 @@
 ---
-title: Runtime environment in Azure Automation
+title: Runtime environment (preview) in Azure Automation
 description: This article provides an overview on Runtime environment in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2024
+ms.date: 07/17/2024
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
+ms.service: azure-automation
 ---
 
-# Runtime environment in Azure Automation
+# Runtime environment (preview) in Azure Automation
 
 This article provides an overview on Runtime environment, scope and its capabilities.
 
@@ -83,6 +84,7 @@ You can't edit these Runtime environments. However, any changes that are made in
 - Runtime environment can't be configured through Azure Automation extension for Visual Studio Code.
 - Deleted Runtime environments cannot be recovered.  
 - The feature is only supported through Azure portal and [REST API](/rest/api/automation/runtime-environments?view=rest-automation-2023-05-15-preview&preserve-view=true).
+- Management of modules for Azure Automation State Configuration is not supported through Runtime environment experience. You can continue using the old experience for managing modules and packages for Azure Automation State Configuration.
 
 ## Switch between new and old experience
 

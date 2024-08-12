@@ -78,7 +78,7 @@ Learn how to [cancel a previous support plan](../manage/subscription-transfer.md
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [Learn how about the charges on your invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA)
 - [Take a step-by-step invoice tutorial](../understand/review-customer-agreement-bill.md)

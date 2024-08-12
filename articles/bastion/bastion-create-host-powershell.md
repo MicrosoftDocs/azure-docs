@@ -3,9 +3,9 @@ title: 'Deploy Bastion:PowerShell'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion using PowerShell.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 10/05/2023
+ms.date: 04/05/2024
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
@@ -13,13 +13,15 @@ ms.custom: devx-track-azurepowershell
 
 # Deploy Bastion using Azure PowerShell
 
-This article shows you how to deploy Azure Bastion with the Standard SKU using PowerShell. Azure Bastion is a PaaS service that's maintained for you, not a bastion host that you install on your VM and maintain yourself. An Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+This article shows you how to deploy Azure Bastion using PowerShell. Azure Bastion is a PaaS service that's maintained for you, not a bastion host that you install on your VM and maintain yourself. An Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 Once you deploy Bastion to your virtual network, you can connect to your VMs via private IP address. This seamless RDP/SSH experience is available to all the VMs in the same virtual network. If your VM has a public IP address that you don't need for anything else, you can remove it.
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using PowerShell, and connect to a VM. You can also deploy Bastion by using the following other methods:
+In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using PowerShell, and connect to a VM. The examples show Bastion deployed using the Standard SKU tier, but you can use a different Bastion SKU, depending on the features you'd like to use. For more information, see [Bastion SKUs](configuration-settings.md#skus).
+
+You can also deploy Bastion by using the following other methods:
 
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure CLI](create-host-cli.md)
@@ -42,7 +44,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 You can use the following example values when creating this configuration, or you can substitute your own.
 
-** Example VNet and VM values:**
+**Example VNet and VM values:**
 
 |**Name** | **Value** |
 | --- | --- |
@@ -60,7 +62,7 @@ You can use the following example values when creating this configuration, or yo
 | Name | VNet1-bastion |
 | Subnet Name | FrontEnd |
 | Subnet Name | AzureBastionSubnet|
-| AzureBastionSubnet addresses | A subnet within your VNet address space with a subnet mask /26 or larger.<br> For example, 10.1.1.0/26.  |
+| AzureBastionSubnet addresses | A subnet within your virtual network address space with a subnet mask /26 or larger.<br> For example, 10.1.1.0/26.  |
 | Tier/SKU | Standard |
 | Public IP address |  Create new |
 | Public IP address name | VNet1-ip  |
@@ -72,10 +74,10 @@ You can use the following example values when creating this configuration, or yo
 This section helps you create a virtual network, subnets, and deploy Azure Bastion using Azure PowerShell.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 >
 
-1. Create a resource group, a virtual network, and a front end subnet to which you'll deploy the VMs that you'll connect to via Bastion. If you're running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
+1. Create a resource group, a virtual network, and a front end subnet to which you deploy the VMs that you'll connect to via Bastion. If you're running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name TestRG1 -Location EastUS ` 
@@ -114,7 +116,7 @@ This section helps you create a virtual network, subnets, and deploy Azure Basti
    -AllocationMethod Static -Sku Standard
    ```
 
-1. Create a new Azure Bastion resource in the AzureBastionSubnet using the [New-AzBastion](/powershell/module/az.network/new-azbastion) command. The following example uses the **Basic SKU**. However, you can also deploy Bastion using the Standard SKU by changing the -Sku value to "Standard". The Standard SKU lets you configure more Bastion features and connect to VMs using more connection types. You can also deploy Bastion automatically using the [Developer SKU](quickstart-developer-sku.md). For more information, see [Bastion SKUs](configuration-settings.md#skus).
+1. Create a new Azure Bastion resource in the AzureBastionSubnet using the [New-AzBastion](/powershell/module/az.network/new-azbastion) command. The following example uses the **Basic SKU**. However, you can also deploy Bastion using a different SKU by changing the -Sku value. The SKU you select determines the Bastion features and connect to VMs using more connection types. For more information, see [Bastion SKUs](configuration-settings.md#skus).
 
    ```azurepowershell-interactive
    New-AzBastion -ResourceGroupName "TestRG1" -Name "VNet1-bastion" `
@@ -162,4 +164,4 @@ Azure Bastion doesn't use the public IP address to connect to the client VM. If 
 ## Next steps
 
 * To use Network Security Groups with the Azure Bastion subnet, see [Work with NSGs](bastion-nsg.md).
-* To understand VNet peering, see [VNet peering and Azure Bastion](vnet-peering.md).
+* To understand VNet peering, see [Virtual Network peering and Azure Bastion](vnet-peering.md).

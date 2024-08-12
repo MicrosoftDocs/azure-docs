@@ -3,14 +3,14 @@ title: DevOps for a data ingestion pipeline
 titleSuffix: Azure Machine Learning
 description: Learn how to apply DevOps practices to build a data ingestion pipeline to prepare data using Azure Data Factory and Azure Databricks.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: UpdateFrequency5, data4ml
-ms.author: iefedore
-author: eedorenko
+ms.author: larryfr
+author: Blackmist
 manager: davete
-ms.reviewer: larryfr
+ms.reviewer: iefedore
 ms.date: 08/17/2022
 # Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 ---

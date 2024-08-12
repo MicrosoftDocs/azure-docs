@@ -2,7 +2,7 @@
 title: Resource Manager templates for Azure Cosmos DB for Table
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for Table.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.custom: devx-track-arm-template
 ms.topic: how-to

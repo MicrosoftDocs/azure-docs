@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 04/22/2024
+ms.date: 07/29/2024
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -30,14 +30,14 @@ More information and configuration options are provided in the following section
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.5.2.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.5.4.jar`.
 
 You can specify your own configuration file path by using one of these two options:
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.5.2.jar` is located.
+If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.5.4.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the JSON configuration via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
@@ -60,7 +60,7 @@ Or you can set the connection string by using the Java system property `applicat
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.5.2.jar` is located.
+If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.5.4.jar` is located.
 
 ```json
 {
@@ -326,7 +326,7 @@ Add `applicationinsights-core` to your application:
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>3.5.2</version>
+  <version>3.5.4</version>
 </dependency>
 ```
 
@@ -426,6 +426,29 @@ Starting from verion 3.3.1, you can capture spans for a method in your applicati
         "methodName": "myMethod"
       }
     ]
+  }
+}
+```
+
+## Locally disabling ingestion sampling (preview)
+
+By default, when the effective sampling percentage in the Java agent is 100%
+and [ingestion sampling](./sampling-classic-api.md#ingestion-sampling) has been configured on your Application Insights resource,
+then the ingestion sampling percentage will be applied.
+
+Note that this behavior applies to both fixed-rate sampling of 100% and also applies to rate-limited sampling when the
+request rate doesn't exceed the rate limit (effectively capturing 100% during the continuously sliding time window).
+
+Starting from 3.5.3, you can disable this behavior
+(and keep 100% of telemetry in these cases even when ingestion sampling has been configured
+on your Application Insights resource):
+
+```json
+{
+  "preview": {
+    "sampling": {
+      "ingestionSamplingEnabled": false
+    }
   }
 }
 ```
@@ -691,6 +714,9 @@ Starting from version 3.0.3, specific autocollected telemetry can be suppressed 
     "kafka": {
       "enabled": false
     },
+    "logging": {
+      "enabled": false
+    },
     "micrometer": {
       "enabled": false
     },
@@ -720,6 +746,7 @@ You can also suppress these instrumentations by setting these environment variab
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_RABBITMQ_ENABLED`
@@ -832,6 +859,8 @@ To work around this issue, you can configure Application Insights Java 3.x to us
 
 You can also set the http proxy using the environment variable `APPLICATIONINSIGHTS_PROXY`, which takes the format `https://<host>:<port>`. It then takes precedence over the proxy specified in the JSON configuration.
 
+You can provide a user and a password for your proxy with the `APPLICATIONINSIGHTS_PROXY` environment variable: `https://<user>:<password>@<host>:<port>`.
+
 Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties if they're set, and `http.nonProxyHosts`, if needed.
 
 ## Recovery from ingestion failures
@@ -873,7 +902,7 @@ In the preceding configuration example:
 
 * `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 * `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.5.2.jar` is located.
+`applicationinsights-agent-3.5.4.jar` is located.
 
 Starting from version 3.0.2, you can also set the self-diagnostics `level` by using the environment variable
 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`. It then takes precedence over the self-diagnostics level specified in the JSON configuration.

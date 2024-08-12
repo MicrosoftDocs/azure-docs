@@ -3,13 +3,13 @@ title: Deploy ML models to Azure Kubernetes Service with CLI and SDK v1
 titleSuffix: Azure Machine Learning
 description: 'Use CLI (v1) and SDK (v1) to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: bozhlin
 ms.date: 03/08/2024
 ---
 
@@ -32,8 +32,6 @@ When deploying to AKS, you deploy to an AKS cluster that's *connected to your wo
 
 > [!IMPORTANT]
 > We recommend that you debug locally before deploying to the web service. For more information, see [Troubleshooting with a local model deployment](how-to-troubleshoot-deployment-local.md).
->
-> You can also refer to [Deploy to local notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local) on GitHub.
 
 [!INCLUDE [endpoints-option](../includes/machine-learning-endpoints-preview-note.md)]
 
@@ -88,10 +86,9 @@ In Azure Machine Learning, deployment is used in the more general sense of makin
 The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. Scaling of azureml-fe is based on the AKS cluster purpose and size (number of nodes). The cluster purpose and nodes are configured when you [create or attach an AKS cluster](../how-to-create-attach-kubernetes.md). There's one azureml-fe service per cluster, which might be running on multiple pods.
 
 > [!IMPORTANT]
-> When using a cluster configured as `dev-test`, the self-scaler is *disabled*. Even for FastProd/DenseProd clusters, Self-Scaler is only enabled when telemetry shows that it's needed.
-
-> [!NOTE]
-> The maximum request payload is 100MB.
+> * When using a cluster configured as `dev-test`, the self-scaler is *disabled*. Even for FastProd/DenseProd clusters, Self-Scaler is only enabled when telemetry shows that it's needed.
+> * Azure Machine Learning doesn't automatically upload or store logs from any containers, including system containers. For comprehensive debugging, it's recommended that you [enable Container Insights for your AKS cluster](../../azure-monitor/containers/kubernetes-monitoring-enable.md#enable-container-insights). This allows you to save, manage, and share container logs with the AML team when needed. Without this, AML can't guarantee support for issues related to azureml-fe.
+> * The maximum request payload is 100MB.
 
 Azureml-fe scales both up (vertically) to use more cores, and out (horizontally) to use more pods. When making the decision to scale up, the time that it takes to route incoming inference requests is used. If this time exceeds the threshold, a scale-up occurs. If the time to route incoming requests continues to exceed the threshold, a scale-out occurs.
 
@@ -113,7 +110,7 @@ The following diagram shows the connectivity requirements for AKS inferencing. B
 
 :::image type="content" source="media/how-to-deploy-aks/aks-network.png" alt-text="Diagram that shows connectivity requirements for AKS inferencing.":::
 
-For general AKS connectivity requirements, see [Limit network traffic with Azure Firewall in AKS](../../aks/limit-egress-traffic.md).
+For general AKS connectivity requirements, see [Limit network traffic with Azure Firewall in AKS](/azure/aks/limit-egress-traffic).
 
 For accessing Azure Machine Learning services behind a firewall, see [Configure inbound and outbound network traffic](../how-to-access-azureml-behind-firewall.md).
 
@@ -288,7 +285,7 @@ The component that handles autoscaling for Azure Machine Learning model deployme
 > [!IMPORTANT]
 > * **Don't enable Kubernetes Horizontal Pod Autoscaler (HPA) for model deployments**. Doing so causes the two auto-scaling components to compete with each other. Azureml-fe is designed to auto-scale models deployed by Azure Machine Learning, where HPA would have to guess or approximate model utilization from a generic metric like CPU usage or a custom metric configuration.
 > 
-> * **Azureml-fe does not scale the number of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](../../aks/cluster-autoscaler.md).
+> * **Azureml-fe does not scale the number of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](/azure/aks/cluster-autoscaler).
 
 Autoscaling can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the AKS web service. The following example demonstrates how to enable autoscaling:
 
@@ -376,7 +373,7 @@ Microsoft Defender for Cloud provides unified security management and advanced t
 
 ## Related content
 
-* [Use Azure role-based access control for Kubernetes authorization](../../aks/manage-azure-rbac.md)
+* [Use Azure role-based access control for Kubernetes authorization](/azure/aks/manage-azure-rbac)
 * [Secure an Azure Machine Learning inferencing environment with virtual networks](how-to-secure-inferencing-vnet.md)
 * [Use a custom container to deploy a model to an online endpoint](../how-to-deploy-custom-container.md)
 * [Troubleshooting remote model deployment](how-to-troubleshoot-deployment.md)

@@ -7,13 +7,15 @@ ms.date: 03/28/2023
 
 # Manage labs in Azure Lab Services when using lab accounts
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article describes how to create and delete a lab. It also shows you how to view all the labs in a lab account.
 
 ## Prerequisites
 
-To set up a lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. The account you used to create a lab account is automatically added to this role. A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+To set up a lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. The account you used to create a lab account is automatically added to this role. A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](how-to-add-lab-creator.md).
 
 ## Create a lab
 
@@ -43,7 +45,7 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
         > Make a note of user name and password. They won't be shown again.
     3. Disable **Use same password for all virtual machines** option if you want students to set their own passwords. This step is **optional**.
 
-        An educator can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled and students are prompted to set a password when they sign in for the first time.  
+        An educator can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled and students are prompted to set a password when they sign in for the first time.
 
         :::image type="content" source="./media/how-to-manage-classroom-labs/virtual-machine-credentials.png" alt-text="Screenshot that shows the Virtual machine credentials page of the New lab wizard.":::
 
@@ -63,10 +65,10 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
 8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
 
     1. Start the template VM.
-    1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using an SSH terminal or a graphical remote desktop.  Additional setup is required to use a graphical remote desktop. For more information, see [Enable graphical remote desktop for Linux virtual machines in Azure Lab Services](how-to-enable-remote-desktop-linux.md).
+    1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using an SSH terminal or a graphical remote desktop. Extra setup is required to use a graphical remote desktop. For more information, see [Enable graphical remote desktop for Linux virtual machines in Azure Lab Services](how-to-enable-remote-desktop-linux.md).
     1. Select **Reset password** to reset the password for the VM. The VM must be running before the reset password button is available.
     1. Install and configure software on your template VM.
-    1. **Stop** the VM.  
+    1. **Stop** the VM.
 
 9. On **Template** page, select **Publish** on the toolbar.
 

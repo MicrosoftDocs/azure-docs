@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Configure customer-managed keys for your existing Azure Cosmos DB account with Azure Key Vault
 
-[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
 Enabling a second layer of encryption for data at rest using [Customer Managed Keys](./how-to-setup-customer-managed-keys.md) while creating a new Azure Cosmos DB account has been Generally available for some time now. As a natural next step, we now have the capability to enable CMK on existing Azure Cosmos DB accounts.
 
@@ -29,7 +29,8 @@ Enabling CMK kicks off a background, asynchronous process to encrypt all the exi
 
 All the prerequisite steps needed while configuring Customer Managed Keys for new accounts is applicable to enable CMK on your existing account. Refer to the steps [here](./how-to-setup-customer-managed-keys.md?tabs=azure-portal#prerequisites)
 
-It is important to note that enabling encryption on your Azure Cosmos DB account will add a small overhead to your document's ID, limiting the maximum size of the document ID to 990 bytes instead of 1024 bytes. If your account has any documents with IDs larger than 990 bytes, the encryption process will fail until those documents are deleted.
+> [!NOTE]
+> It is important to note that enabling encryption on your Azure Cosmos DB account will add a small overhead to your document's ID, limiting the maximum size of the document ID to 990 bytes instead of 1024 bytes. If your account has any documents with IDs larger than 990 bytes, the encryption process will fail until those documents are deleted.
  
 To verify if your account is compliant, you can use the provided console application [hosted here](https://github.com/AzureCosmosDB/Cosmos-DB-Non-CMK-to-CMK-Migration-Scanner) to scan your account. Make sure that you are using the endpoint from your 'sqlEndpoint' account property, no matter the API selected. 
 
@@ -57,9 +58,6 @@ The output of this CLI command for enabling CMK waits for the completion of encr
 
 For enabling CMK on existing account that has continuous backup and point in time restore enabled, we need to follow some extra steps. Follow step 1 to step 5 and then follow instructions to enable CMK on existing account.
 
-> [!NOTE]
-> System-assigned identity and continuous backup mode is currently under Public Preview and may change in the future. Currently, only user-assigned managed identity is supported for enabling CMK on continuous backup accounts.
-
 
 
 1. Configure managed identity to your cosmos account [Configure managed identities with Microsoft Entra ID for your Azure Cosmos DB account](./how-to-setup-managed-identity.md)
@@ -68,13 +66,13 @@ For enabling CMK on existing account that has continuous backup and point in tim
 
     **For System managed identity :**
     ```
-    az cosmosdb update --resource-group $resourceGroupName  --name $accountName  --default-identity "SystemAssignedIdentity=subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyRG/providers/Microsoft.ManagedIdentity/ systemAssignedIdentities/MyID"
+    az cosmosdb update--resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
     ```
 
     **For User managed identity  :**
 
     ```
-    az cosmosdb update -n $sourceAccountName -g $resourceGroupName --default-identity "UserAssignedIdentity=subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyID"
+    az cosmosdb update -n $sourceAccountName -g $resourceGroupName --default-identity "UserAssignedIdentity=/subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyID"
     ```
 
 1. Configure Keyvault as given in documentation [here](./how-to-setup-customer-managed-keys.md?tabs=azure-cli#configure-your-azure-key-vault-instance) 
@@ -87,8 +85,8 @@ For enabling CMK on existing account that has continuous backup and point in tim
     ```
 ## Known limitations
 
-- Enabling CMK is available only at a Cosmos DB account level and not at collections.
 - We don't support enabling CMK on existing Azure Cosmos DB for Apache Cassandra accounts.
+- Enabling CMK is available only at a Cosmos DB account level and not at collections.
 - We don't support enabling CMK on existing accounts that are enabled for Materialized Views and [all versions and deletes change feed mode](nosql/change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview).
 - Ensure account must not have documents with large IDs greater than 990 bytes before enabling CMK. If not, you'll get an error due to max supported limit of 1024 bytes after encryption.
 - During encryption of existing data, [control plane](./audit-control-plane-logs.md) actions such as "add region" is blocked. These actions are unblocked and can be used right after the encryption is complete.
@@ -98,6 +96,15 @@ For enabling CMK on existing account that has continuous backup and point in tim
 Enabling CMK on an existing account is an asynchronous operation that kicks off a background task that encrypts all existing data. As such, the REST API request to enable CMK provides in its response an "Azure-AsyncOperation" URL. Polling this URL with GET requests return the status of the overall operation, which eventually Succeed. This mechanism is fully described in [this](/azure/azure-resource-manager/management/async-operations) article.
 
 The Cosmos DB account can continue to be used and data can continue to be written without waiting for the asynchronous operation to succeed. CLI command for enabling CMK waits for the completion of encryption of data.
+
+In order to allow an existing Cosmos DB account to use to CMK, a scan needs to be done to ensure that the account doesn't have "Large IDs". A "Large ID" is a document id that exceeds 990 characters length. This scan is mandatory for the CMK migration and it is done by Microsoft automatically. During this process you may see an error.
+
+ERROR: (InternalServerError) Unexpected error on document scan for CMK Migration. Please retry the operation. 
+
+This happens when the scan process uses more RUs than the ones provisioned on the collection, throwing a 429 error. A solution for this problem will be to temporarily bump their RUs significantly. Alternatively, you could make use of the provided console application [hosted here](https://github.com/AzureCosmosDB/Cosmos-DB-Non-CMK-to-CMK-Migration-Scanner) in order to scan their collections.
+
+> [!NOTE]
+> If you wish to disable server-side validation for this during migration, please contact support. This is advisable only if you are sure that there are no Large IDs. If Large ID is encountered during encryption, the process will stop till the Large Id document has been addressed.
 
 If you have further questions, reach out to Microsoft Support.
 
@@ -114,6 +121,8 @@ Enabling CMK kicks off a background, asynchronous process to encrypt all the dat
 **Can you bump up the RU’s once CMK has been triggered?**
 
 It's suggested to bump up the RUs before you trigger CMK. Once CMK is triggered, then some control plane operations are blocked till the encryption is complete. This block may prevent the user from increasing the RU’s once CMK is triggered.
+
+In order to allow an existing Cosmos DB account to use to CMK, a Large ID scan is done mandatory by Microsoft automatically to address one of the known limitations listed earlier. This process also consumes additional RUs and its a good idea to bump up the RU's significantly to avoid error 429. 
 
 **Is there a way to reverse the encryption or disable encryption after triggering CMK?**
 

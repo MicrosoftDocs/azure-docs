@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/12/2024
+ms.date: 08/05/2024
 ---
 
 # Relevance in vector search
@@ -32,9 +32,7 @@ Only vector fields marked as `searchable` in the index, or as `searchFields` in 
 
 Exhaustive KNN calculates the distances between all pairs of data points and finds the exact `k` nearest neighbors for a query point. It's intended for scenarios where high recall is of utmost importance, and users are willing to accept the trade-offs in query latency. Because it's computationally intensive, use exhaustive KNN for small to medium datasets, or when precision requirements outweigh query performance considerations. 
 
-A seconary use case is to build a dataset to evaluate approximate nearest neighbor algorithm recall. Exhaustive KNN can be used to build the ground truth set of nearest neighbors.
-
-Exhaustive KNN support is available through [2023-11-01 REST API](/rest/api/searchservice/search-service-api-versions#2023-11-01), [2023-10-01-Preview REST API](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview), and in Azure SDK client libraries that target either REST API version.
+A secondary use case is to build a dataset to evaluate approximate nearest neighbor algorithm recall. Exhaustive KNN can be used to build the ground truth set of nearest neighbors.
 
 ### When to use HNSW
 
@@ -136,5 +134,6 @@ If you aren't getting relevant results, experiment with changes to [query config
 ## Next steps
 
 + [Try the quickstart](search-get-started-vector.md)
++ [Create and configure a vector index](vector-search-how-to-create-index.md)
 + [Learn more about embeddings](vector-search-how-to-generate-embeddings.md)
 + [Learn more about data chunking](vector-search-how-to-chunk-documents.md)

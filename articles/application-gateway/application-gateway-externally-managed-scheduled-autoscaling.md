@@ -4,7 +4,7 @@ title: Externally managed scheduled autoscaling for Application Gateway v2
 description: This article introduces the Azure Application Standard_v2 and WAF_v2 SKU scheduled autoscaling feature.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 10/30/2023
 ms.author: greglin
@@ -56,6 +56,7 @@ Next, create the following two schedules:
 - WeekdayMorning – Run the IncreaseMin runbook from Mon-Fri at 5:00AM PST 
 - WeekdayEvening – Run the DecreaseMin runbook from Mon-Fri at 9:00PM PST 
 
+
 ## FAQs
 
 - What is the SLA for timely job executions?  
@@ -80,7 +81,8 @@ Next, create the following two schedules:
   daily to coincide with peak and non-peak usage pattern.
    
 > [!NOTE]
-> Send email to agschedule-autoscale@microsoft.com if you have questions or need help to set up managed and scheduled autoscale for your deployments. 
+> Send email to agschedule-autoscale@microsoft.com if you have questions or need help to set up managed and scheduled autoscale for your deployments. If you run into some issue while setting up runbook please refer to [Troubleshoot Runbook Issues](../automation/troubleshoot/runbooks.md). You can setup runbook related alerts by following [Monitoring Azure Automation runbooks with metric alerts](../automation/automation-alert-metric.md).
+
 
 ## Next steps
 

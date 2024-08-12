@@ -25,7 +25,7 @@ If you use:
 
 ::: zone pivot="postgresql"
 
-The following Azure CLI command uses a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
+The following Azure CLI command uses a `--client-type` parameter, it can be java, dotnet, python, etc. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
 
 ### [User-assigned managed identity](#tab/user)
 
@@ -37,7 +37,7 @@ az webapp connection create postgres-flexible \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
     --user-identity client-id=XX subs-id=XX \
-    --client-type java
+    --client-type $CLIENT_TYPE
 ```
 
 ### [System-assigned managed identity](#tab/system)
@@ -50,7 +50,7 @@ az webapp connection create postgres-flexible \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
     --system-identity \
-    --client-type java
+    --client-type $CLIENT_TYPE
 ```
 
 ### [Service principal](#tab/sp)
@@ -63,7 +63,7 @@ az webapp connection create postgres-flexible \
     --server $POSTGRESQL_HOST \
     --database $DATABASE_NAME \
     --service-principal client-id=XX secret=XX\
-    --client-type java
+    --client-type $CLIENT_TYPE
 ```
 
 ::: zone-end
@@ -185,12 +185,39 @@ az webapp connection create sql \
 This Service Connector command completes the following tasks in the background:
 
 * Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service/Azure Spring Apps/Azure Container Apps.
+* Enable Microsoft Entra Authentication for the database server if it's not enabled before.
 * Set the Microsoft Entra admin to the current signed-in user.
 * Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
 * Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
   * For App Service, the configurations are set in the **App Settings** blade.
   * For Spring Apps, the configurations are set when the application is launched.
   * For Container Apps, the configurations are set to the environment variables. You can get all configurations and their values in the **Service Connector** blade in the Azure portal.
+ 
+
+Service Connector will assign the following privileges to the user, you can revoke them and adjust the privileges based on your requirements.
+
+::: zone pivot="postgresql"
+```
+GRANT ALL PRIVILEGES ON DATABASE "$DATABASE_NAME" TO "username"; 
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "username"; 
+
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "username"; 
+```
+::: zone-end
+
+::: zone pivot="mysql"
+```
+
+GRANT ALL PRIVILEGES ON $DATABASE_NAME.* TO 'username'@'%'; 
+```
+::: zone-end
+
+::: zone pivot="sql"
+```
+GRANT CONTROL ON DATABASE::"$DATABASE_NAME" TO "username";
+```
+::: zone-end
 
 ## Connect to a database with Microsoft Entra authentication
 

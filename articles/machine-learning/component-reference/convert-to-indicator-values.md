@@ -3,7 +3,7 @@ title:  "Convert to Indicator Values"
 titleSuffix: Azure Machine Learning
 description: Use the Convert to Indicator Values component in Azure Machine Learning designer to convert categorical columns into a series of binary indicator columns.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

@@ -1,17 +1,18 @@
 ---
 title: Overview of business continuity
 description: Learn about the concepts of business continuity with Azure Database for PostgreSQL - Flexible Server.
-ms.author: sunila
-author: sunilagarwal
-ms.service: postgresql
+author: gbowerman
+ms.author: guybo
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 1/4/2024
 ---
 
 # Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 **Business continuity** in Azure Database for PostgreSQL flexible server refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In most of the cases, Azure Database for PostgreSQL flexible server handles disruptive events that might happen in the cloud environment and keep your applications and business processes running. However, there are some events that can't be handled automatically such as:
 
@@ -38,7 +39,7 @@ The following table compares RTO and RPO in a **typical workload** scenario:
 
 | **Capability** | **Burstable** | **General Purpose** | **Memory optimized** |
 | :------------: | :-------: | :-----------------: | :------------------: |
-| Point in Time Restore from backup | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min| Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min |
+| Point in Time Restore from backup | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 5 min| Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 5 min | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 5 min |
 | Geo-restore from geo-replicated backups | RTO - Varies <br/>RPO < 1 h  | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
 | Read replicas | RTO - Minutes* <br/>RPO < 5 min* | RTO - Minutes* <br/>RPO < 5 min*| RTO - Minutes* <br/>RPO < 5 min*|
 

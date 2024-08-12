@@ -6,14 +6,14 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/06/2023
-ms.custom: engagement-fy23
+ms.date: 08/07/2024
+ms.custom: engagement-fy25
 ---
 
 # Migration and modernization: Common questions
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article answers common questions about the Migration and modernization tool. If you've other questions, check these resources:
 
@@ -320,5 +320,4 @@ When replication starts for a VM, an initial replication cycle occurs in which f
 You can work out the bandwidth requirement based on the volume of data needed to be moved in the wave and time within which you would like initial replication to complete (ideally you’d want initial replication to have completed at least 3-4 days prior to the actual migration window to give you sufficient time to perform a test migration prior to the actual window and to keep downtime to a minimum during the window).
 
 ## Next steps
-
-Read the [Azure Migrate overview](migrate-services-overview.md).
+Learn more about migrating [VMware VMs](./vmware/tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [Physical servers](tutorial-migrate-physical-virtual-machines.md).

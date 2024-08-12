@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.custom: engagement-fy24
-ms.date: 04/04/2024
+ms.custom: engagement-fy25
+ms.date: 08/06/2024
 ---
 
 # Azure Migrate appliance: Common questions
@@ -111,6 +111,10 @@ A project can have multiple appliances registered to it. However, one appliance 
 1. In the Azure Migrate project, select **Overview** from the Azure Migrate: Discovery & assessment.
 1. In **Overview**, select **Appliances** in left menu to see the appliances registered with the project and the connectivity status of the agents on the appliance.
 
+## Can I change the Azure user account from the Azure Migrate appliance once registered with the project?
+If you registered the appliance to Migrate project using a particular user account, it cannot be changed. You can try re-registering the appliance with the new project using another user account via PowerShell script but it will break all the operations in the old project.
+
+
 ## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
 
 Yes. You can add both the Azure Migrate appliance (used for assessment and agentless VMware migration), and the replication appliance (used for agent-based migration of servers running in VMware) to the same vCenter server. But make sure that you are not setting up both appliances on the same server and that is currently not supported.
@@ -182,11 +186,11 @@ To fix this issue, follow these steps to ensure that your appliance can validate
 
 1. To ensure that your appliance is ready to validate Azure Migrate MSIs, follow these steps:
     1. Download a sample MSI from [Microsoft Download Center](https://download.microsoft.com/download/9/b/8/9b8abdb7-a784-4a25-9da7-31ce4d80a0c5/MicrosoftAzureAutoUpdate.msi) on the appliance.
-    1. Right-click on it and go to Digital Signatures tab. 
+    1. Right-click on it and go to **Digital Signatures** tab. 
         
         :::image type="content" source="./media/common-questions-appliance/digital-sign-inline.png" alt-text="Screenshot of digital signature tab." lightbox="./media/common-questions-appliance/digital-sign-expanded.png":::
 
-    1. Select Details and check that the Digital Signature Information for the certificate is OK as highlighted in the following screenshot: 
+    1. Select **Details** and check that the **Digital Signature Information** for the certificate is **OK** as highlighted in the following screenshot: 
     
         :::image type="content" source="./media/common-questions-appliance/digital-sign-inline.png" alt-text="Screenshot of digital signature tab." lightbox="./media/common-questions-appliance/digital-sign-expanded.png":::
 
@@ -215,9 +219,9 @@ For a newly created Migrate appliance, the default expiry period for the associa
 1. On the appliance VM, open an elevated privileged PowerShell Command Prompt.
 1. Navigate to the Config Manager installation folder: 
 
-    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation ```
+    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation```
 
-1. Execute the following script to rotate the AAD app certificate and extend its validity for an additional 6 months:
+1. Execute the following script to rotate the Microsoft Entra ID app certificate and extend its validity for an additional 6 months:
 
     ```PS C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell\AzureMigrateCertificateRotation>.\AzureMigrateRotateCertificate.ps1```
 
@@ -229,4 +233,4 @@ For a newly created Migrate appliance, the default expiry period for the associa
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+[Learn more](migrate-appliance.md) about the Azure Migrate appliance.

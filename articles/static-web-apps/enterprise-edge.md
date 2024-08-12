@@ -3,9 +3,9 @@ title: Enterprise-grade edge in Azure Static Web Apps
 description: Learn about Azure Static Web Apps enterprise-grade edge.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 06/24/2024
 ms.author: cshoe
 ---
 
@@ -64,7 +64,7 @@ A manual setup gives you full control over the CDN configuration including the c
 
 1. Go to your static web app in the Azure portal.
 
-1. Select **Enterprise-grade edge** in the left menu.
+1. Select **Enterprise-grade edge** from the menu.
 
 1. Check the box labeled **Enable enterprise-grade edge**.
 
@@ -78,9 +78,9 @@ A manual setup gives you full control over the CDN configuration including the c
 
 ```azurecli
 
-az extension add -n enterprise-edge
+az extension add --name enterprise-edge
 
-az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
+az staticwebapp enterprise-edge enable --name my-static-webapp --resource-group my-resource-group
 ```
 
 ---
@@ -88,7 +88,7 @@ az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 ## Limitations
 
 - Private Endpoint can't be used with enterprise-grade edge.
-- Custom domains configured using A Records (DNS) aren't supported with enterprise-grade edge.
+- Custom domains configured using `A` records (DNS) aren't supported with enterprise-grade edge.
 
 ## Next steps
 

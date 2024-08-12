@@ -1,10 +1,10 @@
 ---
-title: Use Microsoft Entra ID to access Azure file shares over SMB for hybrid identities using Kerberos authentication
+title: Microsoft Entra Kerberos for hybrid identities on Azure Files
 description: Learn how to enable identity-based Kerberos authentication for hybrid user identities over Server Message Block (SMB) for Azure Files through Microsoft Entra ID. Your users can then access Azure file shares by using their Microsoft Entra credentials.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -12,7 +12,7 @@ recommendations: false
 
 # Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files
 
-This article focuses on enabling and configuring Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID. Cloud-only identities aren't currently supported.
+This article focuses on enabling and configuring Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID. **Cloud-only identities aren't currently supported**.
 
 This configuration allows hybrid users to access Azure file shares using Kerberos authentication, using Microsoft Entra ID to issue the necessary Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring unimpeded network connectivity to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined clients. However, configuring Windows access control lists (ACLs)/directory and file-level permissions for a user or group requires unimpeded network connectivity to the on-premises domain controller.
 
@@ -45,7 +45,11 @@ To learn how to create and configure a Windows VM and log in by using Microsoft 
 
 Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](../../active-directory/devices/hybrid-join-plan.md). Microsoft Entra Kerberos isn’t supported on clients joined to Microsoft Entra Domain Services or joined to AD only.
 
+The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) and IP Helper service (`iphlpsvc`) are required for Microsoft Entra Kerberos authentication. Their state should be set to running.
+
 This feature doesn't currently support user accounts that you create and manage solely in Microsoft Entra ID. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID.
+
+This feature doesn't currently support cross-tenant access for B2B users or guest users. Users from an Entra tenant other than the one configured won't be able to access the file share.
 
 You must disable multifactor authentication (MFA) on the Microsoft Entra app representing the storage account.
 
@@ -76,7 +80,7 @@ To enable Microsoft Entra Kerberos authentication using the [Azure portal](https
 
    :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/enable-azure-ad-kerberos.png" alt-text="Screenshot of the Azure portal showing Active Directory configuration settings for a storage account. Microsoft Entra Kerberos is selected." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/enable-azure-ad-kerberos.png" border="true":::
 
-1. **Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you need to specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name should be listed in the output under `DNSRoot` and your domain GUID should be listed under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need unimpeded network connectivity to the on-premises AD.
+1. **Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you must specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name should be listed in the output under `DNSRoot` and your domain GUID should be listed under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need unimpeded network connectivity to the on-premises AD.
 
 1. Select **Save**.
 
@@ -184,10 +188,10 @@ There are two options for configuring directory and file-level permissions with 
 - **Windows File Explorer:** If you choose this option, then the client must be domain-joined to the on-premises AD.
 - **icacls utility:** If you choose this option, then the client doesn't need to be domain-joined, but needs unimpeded network connectivity to the on-premises AD.
 
-To configure directory and file-level permissions through Windows File Explorer, you also need to specify domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or from an on-premises AD-joined client. If you prefer to configure using icacls, this step is not required.
+To configure directory and file-level permissions through Windows File Explorer, you also need to specify domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or from an on-premises AD-joined client. If you prefer to configure using icacls, this step isn't required.
 
 > [!IMPORTANT]
-> You can set file/directory level ACLs for identities which are not synced to Microsoft Entra ID. However, these ACLs will not be enforced because the Kerberos ticket used for authentication/authorization will not contain these not-synced identities. In order to enforce set ACLs, identities need to be synced to Microsoft Entra ID.
+> You can set file/directory level ACLs for identities which aren't synced to Microsoft Entra ID. However, these ACLs won't be enforced because the Kerberos ticket used for authentication/authorization won't contain these not-synced identities. In order to enforce set ACLs, identities must be synced to Microsoft Entra ID.
 
 > [!TIP]
 > If Microsoft Entra hybrid joined users from two different forests will be accessing the share, it's best to use icacls to configure directory and file-level permissions. This is because Windows File Explorer ACL configuration requires the client to be domain joined to the Active Directory domain that the storage account is joined to.

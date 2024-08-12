@@ -4,10 +4,10 @@ description: Learn how to retrieve the IP addresses of an Azure API Management s
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 01/29/2024
-ms.author: apimpm
+ms.date: 05/15/2024
+ms.author: danlep
 ms.custom: fasttrack-edit
 ---
 
@@ -17,7 +17,7 @@ ms.custom: fasttrack-edit
 
 In this article we describe how to retrieve the IP addresses of Azure API Management service. IP addresses can be public or private if the service is in a virtual network. You can use IP addresses to create firewall rules, filter the incoming traffic to the backend services, or restrict the outbound traffic.
 
-## IP addresses of API Management service
+## Public IP addresses
 
 Every API Management service instance in Developer, Basic, Standard, or Premium tier has public IP addresses, which are exclusive only to that service instance (they are not shared with other resources).
 
@@ -53,7 +53,7 @@ In [multi-regional deployments](api-management-howto-deploy-multi-region.md), ea
 
 If your API Management service is inside a virtual network, it will have two types of IP addresses: public and private.
 
-* Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the *external* VNet configuration, they are also used for runtime API traffic. In the *internal* VNet configuration, public IP addresses are only used for Azure internal management operations and don't expose your instance to the internet. 
+* Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the *external* VNet configuration, they are also used for runtime API traffic. In the *internal* VNet configuration, public IP addresses are only used for Azure internal management operations and don't expose your instance to the internet.
 
 * Private virtual IP (VIP) addresses, available **only** in the [internal VNet mode](api-management-using-with-internal-vnet.md), are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane for direct API access. You can use them for setting up DNS records within the network.
 
@@ -89,7 +89,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 
 API Management uses a public IP address for a connection outside the VNet or a peered VNet, and it uses a private IP address for a connection in the VNet or a peered VNet.
 
-* When API management is deployed in an external or internal virtual network and API management connects to private (intranet-facing) backends, internal IP addresses (dynamic IP, or DIP addresses) from the subnet are used for the runtime API traffic. When a request is sent from API Management to a private backend, a private IP address will be visible as the origin of the request. 
+* When API Management is deployed in an external or internal virtual network and API Management connects to private (intranet-facing) backends, internal IP addresses (dynamic IP, or DIP addresses) from the subnet are used for the runtime API traffic. When a request is sent from API Management to a private backend, a private IP address will be visible as the origin of the request. 
 
     Therefore, if IP restriction lists secure resources within the VNet or a peered VNet, it is recommended to use the whole API Management [subnet range](virtual-network-injection-resources.md#subnet-size) with an IP rule - and (in internal mode) not just the private IP address associated with the API Management resource.
 
@@ -133,9 +133,15 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * The service subscription is disabled or warned (for example, for nonpayment) and then reinstated. [Learn more about subscription states](/azure/cost-management-billing/manage/subscription-states)
 * (Developer and Premium tiers) Azure Virtual Network is added to or removed from the service.
 * (Developer and Premium tiers) API Management service is switched between external and internal VNet deployment mode.
-* (Developer and Premium tiers) API Management service is moved to a different subnet, or [migrated](migrate-stv1-to-stv2.md) from the `stv1` to the `stv2` compute platform.
+* (Developer and Premium tiers) API Management service is moved to a different subnet, [migrated](migrate-stv1-to-stv2.md) from the `stv1` to the `stv2` compute platform, or configured with a different public IP address resource.
 * (Premium tier) [Availability zones](../reliability/migrate-api-mgt.md) are enabled, added, or removed.
 * (Premium tier) In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
-
+    
     > [!IMPORTANT]
-    > When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different [public IP address](api-management-using-with-vnet.md?tabs=stv2#prerequisites) resource than the one configured previously. You may swap back to the original IP address if needed.
+    > [!INCLUDE [api-management-publicip-change](../../includes/api-management-publicip-change.md)]
+
+## Related content
+
+- [Deploy API Management to a virtual network - external mode](api-management-using-with-vnet.md)
+- [Deploy API Management to a virtual network - internal mode](api-management-using-with-internal-vnet.md)
+- [Using a virtual network with Azure API Management](virtual-network-concepts.md)

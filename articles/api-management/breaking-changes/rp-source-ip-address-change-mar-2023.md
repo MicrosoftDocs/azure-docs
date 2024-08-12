@@ -3,7 +3,7 @@ title: Azure API Management IP address change (March 2023) | Microsoft Docs
 description: Azure API Management is updating the source IP address of the resource provider in certain regions.  If your service is hosted in a Microsoft Azure Virtual Network, you may need to update network settings to continue managing your service.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 02/07/2022
 ms.author: danlep

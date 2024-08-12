@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # ACR Tasks reference: YAML
@@ -202,6 +202,29 @@ steps:
   - build: -t $Registry/hello-world -f hello-world.dockerfile ./subDirectory
 ```
 
+### Dynamic variable passing in ACR Tasks
+
+When working with Azure container registry (ACR) tasks, you may find yourself needing to pass different values to your build process without changing the task definition by using the `--set` flag with the `az acr task run` command. 
+
+#### Example: Setting image tag at runtime
+
+Suppose you have an ACR task defined in a `acr-task.yml` file with a placeholder for the image tag:
+
+```yaml
+steps:
+  - build: -t $Registry/hello-world:{{.Values.tag}}
+```
+
+You can trigger the task and set the `tag` variable to `v2` at runtime using the following Azure CLI command:
+
+```azurecli
+az acr task run --registry myregistry --name mytask --set tag=v2
+```
+
+This command will start the ACR task named `mytask` and build the image using the `v2` tag, overriding the placeholder in the `acr-task.yml` file.
+
+This approach allows for customization in your CI/CD pipelines, enabling you to dynamically adjust parameters based on your current needs without altering the task definitions.
+
 ## push
 
 Push one or more built or retagged images to a container registry. Supports pushing to private registries like Azure Container Registry, or to the public Docker Hub.
@@ -384,6 +407,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
 [!code-yml[task](~/acr-tasks/mounts-secrets.yaml)]
+
 
 ## Task step properties
 

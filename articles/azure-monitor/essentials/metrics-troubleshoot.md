@@ -28,11 +28,25 @@ In Azure, [Azure role-based access control (Azure RBAC)](../../role-based-access
 
 **Solution:** Ensure that you have sufficient permissions for the resource from which you're exploring metrics.
 
+### You receive the error message "Access permission denied"
+
+You may encounter this message when querying from an Azure Kubernetes Service (AKS) or Azure Monitor workspace. Since Prometheus metrics for your AKS are stored in Azure Monitor workspaces, this error can be caused by various reasons:
+
+* You may not have the permissions to query from the Azure Monitor workspace being used to emit metrics.
+* You may have an adblock software enabled that blocks `monitor.azure.com` traffic.
+* Your Azure Monitor workspace Networking settings don't support query access.
+
+**Solution(s):** One or more of the following fixes may be required to fix the error.
+
+* Check that you have sufficient permissions to perform microsoft.monitor/accounts/read assigned through Access Control (IAM) in your Azure Monitor workspace.
+* You may need to pause or disable your adblock in order to view data. Or you can set your adblock allow `monitor.azure.com` traffic.
+* You might need to enable private access through your private endpoint or change settings to allow public access.
+
 ### Your resource didn't emit metrics during the selected time range
 
 Some resources don’t constantly emit their metrics. For example, Azure doesn't collect metrics for stopped virtual machines. Other resources might emit their metrics only when some condition occurs. For example, a metric showing processing time of a transaction requires at least one transaction. If there were no transactions in the selected time range, the chart is naturally empty. Additionally, while most of the metrics in Azure are collected every minute, there are some that are collected less frequently. See the metric documentation to get more details about the metric that you're trying to explore.
 
-**Solution:** Change the time of the chart to a wider range. You may start from “Last 30 days” using a larger time granularity (or relying on the “Automatic time granularity” option).
+**Solution:** Change the time of the chart to a wider range. You may start from "Last 30 days" using a larger time granularity (or relying on the "Automatic time granularity" option).
 
 ### You picked a time range greater than 30 days
 
@@ -50,7 +64,7 @@ By [locking the boundaries of chart y-axis](../essentials/metrics-charts.md#lock
 
 Collection of **Guest (classic)** metrics requires configuring the Azure Diagnostics Extension or enabling it using the **Diagnostic Settings** panel for your resource.
 
-**Solution:** If Azure Diagnostics Extension is enabled but you're still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). See also the troubleshooting steps for [Cannot pick Guest (classic) namespace and metrics](#cannot-pick-guest-namespace-and-metrics)
+**Solution:** If Azure Diagnostics Extension is enabled but you're still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). See also the troubleshooting steps for [can't pick Guest (classic) namespace and metrics](#cannot-pick-guest-namespace-and-metrics)
 
 ### Chart is segmented by a property that the metric doesn't define
 
@@ -64,7 +78,7 @@ Filters apply to all of the charts on the pane. If you set a filter on another c
 
 **Solution:** Check the filters for all the charts on the pane. If you want different filters on different charts, create the charts in different panes. Save the charts as separate favorites. If you want, you can pin the charts to the dashboard so you can see them together.
 
-## “Error retrieving data” message on dashboard
+## "Error retrieving data" message on dashboard
 
 This problem may happen when your dashboard was created with a metric that was later deprecated and removed from Azure. To verify that it's the case, open the **Metrics** tab of your resource, and check the available metrics in the metric picker. If the metric isn't shown, the metric has been removed from Azure. Usually, when a metric is deprecated, there's a better new metric that provides with a similar perspective on the resource health.
 
@@ -72,7 +86,7 @@ This problem may happen when your dashboard was created with a metric that was l
 
 ## Chart shows dashed line
 
-Azure metrics charts use dashed line style to indicate that there's a missing value (also known as “null value”) between two known time grain data points. For example, if in the time selector you picked “1 minute” time granularity but the metric was reported at 07:26, 07:27, 07:29, and 07:30 (note a minute gap between second and third data points), then a dashed line connects 07:27 and 07:29 and a solid line connects all other data points. The dashed line drops down to zero when the metric uses **count** and **sum** aggregation. For the **avg**, **min** or **max** aggregations, the dashed line connects two nearest known data points. Also, when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.
+Azure metrics charts use dashed line style to indicate that there's a missing value (also known as "null value") between two known time grain data points. For example, if in the time selector you picked "1 minute" time granularity but the metric was reported at 07:26, 07:27, 07:29, and 07:30 (note a minute gap between second and third data points), then a dashed line connects 07:27 and 07:29 and a solid line connects all other data points. The dashed line drops down to zero when the metric uses **count** and **sum** aggregation. For the **avg**, **min** or **max** aggregations, the dashed line connects two nearest known data points. Also, when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.
   :::image type="content" source="./media/metrics-troubleshoot/dashed-line.png" lightbox="./media/metrics-troubleshoot/dashed-line.png" alt-text="Screenshot that shows how when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.":::
 
 **Solution:** This behavior is by design. It's useful for identifying missing data points. The line chart is a superior choice for visualizing trends of high-density metrics but may be difficult to interpret for the metrics with sparse values, especially when corelating values with time grain is important. The dashed line makes reading of these charts easier but if your chart is still unclear, consider viewing your metrics with a different chart type. For example, a scattered plot chart for the same metric clearly shows each time grain by only visualizing a dot when there's a value and skipping the data point altogether when the value is missing:
@@ -130,7 +144,7 @@ In many cases, the perceived drop in the metric values is a misunderstanding of 
 
 Virtual machines and virtual machine scale sets have two categories of metrics: **Virtual Machine Host** metrics that are collected by the Azure hosting environment, and **Guest  (classic)** metrics that are collected by the [monitoring agent](../agents/agents-overview.md) running on your virtual machines. You install the monitoring agent by enabling [Azure Diagnostic Extension](../agents/diagnostics-extension-overview.md).
 
-By default, Guest (classic) metrics are stored in Azure Storage account, which you pick from the **Diagnostic settings** tab of your resource. If Guest metrics aren't collected or metrics explorer cannot access them, you'll only see the **Virtual Machine Host** metric namespace:
+By default, Guest (classic) metrics are stored in Azure Storage account, which you pick from the **Diagnostic settings** tab of your resource. If Guest metrics aren't collected or metrics explorer can't access them, you'll only see the **Virtual Machine Host** metric namespace:
 
 :::image type="content" source="./media/metrics-troubleshoot/vm-metrics.png" lightbox="./media/metrics-troubleshoot/vm-metrics.png" alt-text="metric image":::
 
@@ -138,7 +152,7 @@ By default, Guest (classic) metrics are stored in Azure Storage account, which y
 
 1. Confirm that [Azure Diagnostic Extension](../agents/diagnostics-extension-overview.md) is enabled and configured to collect metrics.
     > [!WARNING]
-    > You cannot use [Log Analytics agent](../agents/log-analytics-agent.md) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest (classic)** into a storage account.
+    > You can't use [Log Analytics agent](../agents/log-analytics-agent.md) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest (classic)** into a storage account.
 
 1. Ensure that **Microsoft.Insights** resource provider is [registered for your subscription](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 

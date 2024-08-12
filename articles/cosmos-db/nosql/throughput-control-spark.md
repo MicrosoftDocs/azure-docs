@@ -1,8 +1,8 @@
 ---
-title: Azure Cosmos DB Spark Connector - Throughput Control
-description: Learn about controlling throughput for bulk data movements in the Azure Cosmos DB Spark Connector
+title: 'Azure Cosmos DB Spark connector: Throughput control'
+description: Learn how you can control throughput for bulk data movements in the Azure Cosmos DB Spark connector.
 author: TheovanKraay
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/22/2022
@@ -10,37 +10,31 @@ ms.author: thvankra
 
 ---
 
-# Azure Cosmos DB Spark Connector - throughput control
+# Azure Cosmos DB Spark connector: Throughput control
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-The [Spark Connector](quickstart-spark.md) allows you to communicate with Azure Cosmos DB using [Apache Spark](https://spark.apache.org/). This article describes how the throughput control feature works. Check out our [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples) to get started using throughput control.
+The [Spark connector](quickstart-spark.md) allows you to communicate with Azure Cosmos DB by using [Apache Spark](https://spark.apache.org/). This article describes how the throughput control feature works. Check out our [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples) to get started using throughput control.
 
-> [!TIP]
-> This article documents the use of global throughput control groups in the Azure Cosmos DB Spark Connector, but the functionality is also available in the [Java SDK](./sdk-java-v4.md). In the SDK, you can also use both global and local Throughput Control groups to limit the RU consumption in the context of a single client connection instance. For example, you can apply this to different operations within a single microservice, or maybe to a single data loading program. Take a look at documentation on how to [use throughput control](quickstart-java.md) in the Java SDK.
+This article documents the use of global throughput control groups in the Azure Cosmos DB Spark connector, but the functionality is also available in the [Java SDK](./sdk-java-v4.md). In the SDK, you can use global and local throughput control groups to limit the request unit (RU) consumption in the context of a single client connection instance. For example, you can apply this approach to different operations within a single microservice, or maybe to a single data loading program. For more information, see how to [use throughput control](quickstart-java.md) in the Java SDK.
 
 > [!WARNING]
-> Please note that throughput control is not yet supported for gateway mode. 
-> Currently, for [serverless Azure Cosmos DB accounts](../serverless.md), attempting to use `targetThroughputThreshold` to define a percentage will result in failure. You can only provide an absolute value for target throughput/RU using `spark.cosmos.throughputControl.targetThroughput`.  
+> Throughput control isn't supported for gateway mode. Currently, for [serverless Azure Cosmos DB accounts](../serverless.md), attempting to use `targetThroughputThreshold` to define a percentage results in failure. You can only provide an absolute value for target throughput/RU by using `spark.cosmos.throughputControl.targetThroughput`.
 
 ## Why is throughput control important?
 
- Having throughput control helps to isolate the performance needs of applications running against a container, by limiting the amount of [request units](../request-units.md) that can be consumed by a given Spark client. 
+ Throughput control helps to isolate the performance needs of applications that run against a container. Throughput control limits the amount of [RUs](../request-units.md) that a specific Spark client can consume.
 
-There are several advanced scenarios that benefit from client-side throughput control:
+Several advanced scenarios benefit from client-side throughput control:
 
-- **Different operations and tasks have different priorities** - there can be a need to prevent normal transactions from being throttled due to data ingestion or copy activities. Some operations and/or tasks aren't sensitive to latency, and are more tolerant to being throttled than others.
+- **Different operations and tasks have different priorities:** There can be a need to prevent normal transactions from being throttled because of data ingestion or copy activities. Some operations or tasks aren't sensitive to latency and are more tolerant to being throttled than others.
+- **Provide fairness/isolation to different users or tenants:** An application usually has many users. Some users might send too many requests, which consume all available throughput and cause others to get throttled.
+- **Load balancing of throughput between different Azure Cosmos DB clients:** In some use cases, it's important to make sure all the clients get a fair (equal) share of the throughput.
 
-- **Provide fairness/isolation to different end users/tenants** - An application will usually have many end users. Some users may send too many requests, which consume all available throughput, causing others to get throttled.
-
-- **Load balancing of throughput between different Azure Cosmos DB clients** - in some use cases, it's important to make sure all the clients get a fair (equal) share of the throughput
-
-
-Throughput control enables the capability for more granular level RU rate limiting as needed.
+Throughput control enables the capability for more granular-level RU rate limiting, as needed.
 
 ## How does throughput control work?
 
-Throughput control for the Spark Connector is configured by first creating a container that will define throughput control metadata, with a partition key of `groupId`, and `ttl` enabled. Here we create this container using Spark SQL, and call it `ThroughputControl`:
-
+To configure throughput control for the Spark connector, you first create a container that defines throughput control metadata. The partition key is `groupId` and `ttl` is enabled. Here, you create this container by using Spark SQL and call it `ThroughputControl`:
 
 ```sql
     %sql
@@ -50,13 +44,12 @@ Throughput control for the Spark Connector is configured by first creating a con
     TBLPROPERTIES(partitionKeyPath = '/groupId', autoScaleMaxThroughput = '4000', indexingPolicy = 'AllProperties', defaultTtlInSeconds = '-1');
 ```
 
-> [!NOTE]
-> The above example creates a container with [autoscale](../provision-throughput-autoscale.md). If you prefer standard provisioning, you can replace `autoScaleMaxThroughput` with `manualThroughput` instead. 
+The preceding example creates a container with [autoscale](../provision-throughput-autoscale.md). If you prefer standard provisioning, you can replace `autoScaleMaxThroughput` with `manualThroughput`.
 
 > [!IMPORTANT]
-> The partition key must be defined as `/groupId`, and `ttl` must be enabled, for the throughput control feature to work. 
+> The partition key must be defined as `/groupId` and `ttl` must be enabled for the throughput control feature to work.
 
-Within the Spark config of a given application, we can then specify parameters for our workload. The below example sets throughput control as `enabled`, as well as defining a throughput control group `name` and a `targetThroughputThreshold`. We also define the `database` and `container` in which through control group is maintained:  
+Within the Spark configuration of a specific application, you can then specify parameters for the workload. The following example sets throughput control as `enabled`. The example defines a throughput control group `name` parameter and a `targetThroughputThreshold` parameter. You also define the `database` and `container` parameters in which the throughput control group is maintained:
 
 ```scala
     "spark.cosmos.throughputControl.enabled" -> "true",
@@ -66,7 +59,7 @@ Within the Spark config of a given application, we can then specify parameters f
     "spark.cosmos.throughputControl.globalControl.container" -> "ThroughputControl"
 ```
 
-In the above example, the `targetThroughputThreshold` is defined as **0.95**, so rate limiting will occur (and requests will be retried) when clients consume more than 95% (+/- 5-10 percent) of the throughput that is allocated to the container. This configuration is stored as a document in the throughput container that looks like the below:
+In the preceding example, the `targetThroughputThreshold` parameter is defined as **0.95**. Rate limiting occurs (and requests are retried) when clients consume more than 95 percent (+/- 5-10 percent) of the throughput allocated to the container. This configuration is stored as a document in the throughput container, which looks like this example:
 
 ```json
     {
@@ -82,13 +75,17 @@ In the above example, the `targetThroughputThreshold` is defined as **0.95**, so
         "_ts": 1651835869
     }
 ```
-> [!NOTE]
-> Throughput control does not do RU pre-calculation of each operation. Instead, it tracks the RU usages *after* the operation based on the response header. As such, throughput control is based on an approximation - and **does not guarantee** that amount of throughput will be available for the group at any given time. This means that if the configured RU is so low that a single operation can use it all, then throughput control cannot avoid the RU exceeding the configured limit. Therefore, throughput control works best when the configured limit is higher than any single operation that can be executed by a client in the given control group. With that in mind, when reading via query or change feed, you should configure the page size in `spark.cosmos.read.maxItemCount` (default 1000) to be a modest amount, so that client throughput control can be re-calculated with higher frequency, and therefore reflected more accurately at any given time. However, when using throughput control for a write-job using bulk, the number of documents executed in a single request will automatically be tuned based on the throttling rate to allow the throughput control to kick-in as early as possible.
+
+Throughput control doesn't do RU precalculation of each operation. Instead, it tracks the RU usages *after* the operation based on the response header. As such, throughput control is based on an approximation and *doesn't guarantee* that amount of throughput is available for the group at any certain time.
+
+For this reason, if the configured RU is so low that a single operation can use it all, throughput control can't avoid the RU exceeding the configured limit. Throughput control works best when the configured limit is higher than any single operation that a client in the specific control group can execute.
+
+When you read via query or change feed, you should configure the page size in `spark.cosmos.read.maxItemCount` (default 1000) to be a modest amount. In this way, the client throughput control can be recalculated with higher frequency and reflected more accurately at any specific time. When you use throughput control for a write job using bulk, the number of documents executed in a single request is automatically tuned based on the throttling rate to allow the throughput control to begin as early as possible.
 
 > [!WARNING]
-> The `targetThroughputThreshold` is **immutable**. If you change the target throughput threshold value, this will create a new throughput control group (but as long as you use Version 4.10.0 or later it can have the same name). You need to restart all Spark jobs that are using the group if you want to ensure they all consume the new threshold immediately (otherwise they will pick-up the new threshold after the next restart).
+> The `targetThroughputThreshold` parameter is *immutable*. If you change the target throughput threshold value, a new throughput control group is created. (If you use version 4.10.0 or later, it can have the same name.) You need to restart all Spark jobs that are using the group if you want to ensure that they all consume the new threshold immediately. Otherwise, they pick up the new threshold after the next restart.
 
-For each Spark client that uses the throughput control group, a record will be created in the `ThroughputControl` container - with a ttl of a few seconds - so the documents will vanish pretty quickly if a Spark client isn't actively running anymore -  which looks like the below:
+For each Spark client that uses the throughput control group, a record is created in the `ThroughputControl` container, with a `ttl` of a few seconds. As a result, the documents vanish quickly if a Spark client isn't actively running anymore. Here's an example:
 
 ```json
     {
@@ -107,11 +104,10 @@ For each Spark client that uses the throughput control group, a record will be c
     }
 ```
 
-In each client record, the `loadFactor` attribute represents the load on the given client, relative to other clients in the throughput control group. The `allocatedThroughput` attribute shows how many RUs are currently allocated to this client. The Spark Connector will adjust allocated throughput for each client based on its load. This will ensure that each client gets a share of the throughput available that is proportional to its load, and all clients together don't consume more than the total allocated for the throughput control group to which they belong. 
+In each client record, the `loadFactor` attribute represents the load on the specific client, relative to other clients in the throughput control group. The `allocatedThroughput` attribute shows how many RUs are currently allocated to this client. The Spark connector adjusts allocated throughput for each client based on its load. In this way, each client gets a share of the throughput available that's proportional to its load. All clients together don't consume more than the total allocated for the throughput control group to which they belong.
 
+## Related content
 
-## Next steps
-
-* [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples).
-* [Manage data with Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL](quickstart-spark.md).
+* See [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples).
+* Learn how to [manage data with Azure Cosmos DB Spark 3 OLTP connector for API for NoSQL](quickstart-spark.md).
 * Learn more about [Apache Spark](https://spark.apache.org/).

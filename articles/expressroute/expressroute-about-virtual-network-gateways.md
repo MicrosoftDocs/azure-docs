@@ -3,7 +3,7 @@ title: About ExpressRoute virtual network gateways
 description: Learn about virtual network gateways for ExpressRoute, their SKUs, types, and other specifications and features.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 03/18/2024
 ms.author: duau
@@ -71,14 +71,12 @@ Before you create an ExpressRoute gateway, you must create a gateway subnet. The
 
 > [!NOTE]
 > [!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
->
-
 > - We don't recommend deploying Azure DNS Private Resolver into a virtual network that has an ExpressRoute virtual network gateway and setting wildcard rules to direct all name resolution to a specific DNS server. Such a configuration can cause management connectivity issues.
 
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
 
-When you're planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Further more, you might want to make sure your gateway subnet contains enough IP addresses to accommodate possible future configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.). If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger. If you're creating a dual stack gateway subnet, we recommend that you also use an IPv6 range of /64 or larger. This set up accommodates most configurations.
+When you're planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Further more, you might want to make sure your gateway subnet contains enough IP addresses to accommodate possible future configurations. We recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.). If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger. If you're creating a dual stack gateway subnet, we recommend that you also use an IPv6 range of /64 or larger. This set up accommodates most configurations.
 
 The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 
@@ -90,7 +88,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ### <a name="zrgw"></a>Zone-redundant gateway SKUs
 
-You can also deploy ExpressRoute gateways in Azure Availability Zones. This configuration physically and logically separates them into different Availability Zones, protecting your on-premises network connectivity to Azure from zone-level failures.
+You can also deploy ExpressRoute gateways in Azure Availability Zones. This configuration physically and logically separates them into different Availability Zones, protecting your on-premises network connectivity to Azure from zone-level failures. 
 
 ![Zone-redundant ExpressRoute gateway](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
 
@@ -101,6 +99,8 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
 * ErGw3AZ
 
 The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you can deploy the gateway in a specific zone. This type of gateway is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same Availability Zone.
+
+To learn about migrating an ExpressRoute gateway, see [Gateway migration](gateway-migration.md).
 
 ## VNet to VNet and VNet to Virtual WAN connectivity
 
@@ -119,6 +119,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > [!IMPORTANT]
 > * Throughput and control plane capacity may be half compared to connectivity to non-private-endpoint resources.
 > * During a maintenance period, you may experience intermittent connectivity issues to private endpoint resources.
+> * Customers need to ensure their on-premises configuration, including router & firewall settings are correctly setup to ensure that packets for the IP 5-tuple transits via a single next hop (Microsoft Enterprise Edge router - MSEE) unless there is a maintenance event. If a customer's on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, then the customer will experience connectivity issues.
 
 ### Private endpoint connectivity and planned maintenance events
 

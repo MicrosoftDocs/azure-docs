@@ -3,7 +3,7 @@ title: Azure N-series GPU driver setup for Linux
 description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in Azure
 services: virtual-machines
 author: vikancha-MSFT
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.collection: linux
 ms.topic: how-to
@@ -16,7 +16,7 @@ ms.reviewer: padmalathas, mattmcinnes
 # Install NVIDIA GPU drivers on N-series VMs running Linux
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -59,26 +59,32 @@ Ubuntu packages NVIDIA proprietary drivers. Those drivers come directly from NVI
    ```bash
    sudo ubuntu-drivers install
    ```
+   Reboot the VM after the GPU driver is installed.
 3. Download and install the CUDA toolkit from NVIDIA:
     > [!NOTE]
-   >  The example shows the CUDA package path for Ubuntu 22.04 LTS. Replace the path specific to the version you plan to use.
+   >  The example shows the CUDA package path for Ubuntu 24.04 LTS. Replace the path specific to the version you plan to use.
    >
-   >  Visit the [NVIDIA Download Center](https://developer.download.nvidia.com/compute/cuda/repos/) or the [NVIDIA CUDA Resources page](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_network) for the full path specific to each version.
+   >  Visit the [NVIDIA Download Center](https://developer.download.nvidia.com/compute/cuda/repos/) or the [NVIDIA CUDA Resources page](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=24.04&target_type=deb_network) for the full path specific to each version.
    >
    ```bash
-   wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+   wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
    sudo apt install -y ./cuda-keyring_1.1-1_all.deb
    sudo apt update
-   sudo apt -y install cuda-toolkit-12-3
+   sudo apt -y install cuda-toolkit-12-5
    ```
 
    The installation can take several minutes.
 
-4. Verify that the GPU is correctly recognized (you may need to reboot your VM for system changes to take effect):
+4. Reboot the VM after installation completes:
+   ```bash
+   sudo reboot
+   ```
+
+5. Verify that the GPU is correctly recognized (after reboot):
    ```bash
    nvidia-smi
    ```
-
+   
 #### NVIDIA driver updates
 
 We recommend that you periodically update NVIDIA drivers after deployment.

@@ -3,15 +3,15 @@ title: How to use streaming endpoints deployed from prompt Flow
 titleSuffix: Azure Machine Learning
 description: Learn how use streaming when you consume the endpoints in Azure Machine Learning prompt flow.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: how-to
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 11/02/2023
 ---
 
@@ -74,7 +74,7 @@ To learn how to deploy your flow as an online endpoint, see  [Deploy a flow to o
 
 > [!NOTE]
 > 
-> Deploy with Runtime environment version later than version `20230710.v2`.
+> Deploy with Runtime environment version later than version `20230816.v10`.
 
 You can check your runtime version and update runtime in the run time detail page.
 
@@ -258,17 +258,27 @@ If the response code is "424 Model Error", it means that the error is caused by 
 
 ### Consume using Python
 
+In this sample usage, we are using the `SSEClient` class. This class is not a built-in Python class and needs to be installed separately. You can install it via pip:
+
+```bash
+pip install sseclient-py
+```
+
 A sample usage would like:
 
 ```python
+import requests
+from sseclient import SSEClient
+from requests.exceptions import HTTPError
+
 try:
     response = requests.post(url, json=body, headers=headers, stream=stream)
     response.raise_for_status()
 
     content_type = response.headers.get('Content-Type')
     if "text/event-stream" in content_type:
-        event_stream = EventStream(response.iter_lines())
-        for event in event_stream:
+        client = SSEClient(response)
+        for event in client.events():
             # Handle event, i.e. print to stdout
     else:
         # Handle json response
@@ -279,15 +289,15 @@ except HTTPError:
 
 ### Consume using JavaScript
 
-There are several libraries to consume server-sent events in JavaScript. For example, this is the [sse.js library](https://www.npmjs.com/package/sse.js?activeTab=code).
+There are several libraries to consume server-sent events in JavaScript. Here is [one of them as an example](https://www.npmjs.com/package/sse.js?activeTab=code).
 
 ## A sample chat app using Python
 
-Here's a sample chat app written in Python.
+[Here's a sample chat app written in Python](https://github.com/microsoft/promptflow/blob/main/docs/media/how-to-guides/how-to-enable-streaming-mode/scripts/chat_app.py).
 
 :::image type="content" source="./media/how-to-enable-streaming-mode/chat-app.gif" alt-text="Gif a sample chat app using Python."lightbox ="./media/how-to-enable-streaming-mode/chat-app.gif":::
 
-## Advance usage - hybrid stream and non-stream flow output
+## Advanced usage - hybrid stream and non-stream flow output
 
 Sometimes, you might want to get both stream and non-stream results from a flow output. For example, in the “Chat with Wikipedia” flow, you might want to get not only LLM’s answer, but also the list of URLs that the flow searched. To do this, you need to modify the flow to output a combination of stream LLM’s answer and non-stream URL list.
 
@@ -297,7 +307,7 @@ In the sample "Chat With Wikipedia" flow, the output is connected to the LLM nod
 
 The output of the flow will be a non-stream field as the base and a stream field as the delta. Here's an example of request and response.
 
-### Advance usage - 0. The client sends a message to the server
+### Advanced usage - 0. The client sends a message to the server
 
 ```JSON
 POST https://<your-endpoint>.inference.ml.azure.com/score

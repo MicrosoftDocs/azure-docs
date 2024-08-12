@@ -57,7 +57,7 @@ Markdown is a structured and formatted markup language and a popular input for e
 
 ## Get started
 
-The Document Intelligence Layout model **2024-02-29-preview** and **2023-10-31-preview** supports the following development options:
+The Document Intelligence Layout model **2024-07-31-preview** and **2023-10-31-preview** supports the following development options:
 
 * [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio).
 
@@ -147,6 +147,9 @@ docs_string = docs[0].page_content
 splits = text_splitter.split_text(docs_string)
 splits
 ```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Retrieval_Augmented_Generation_(RAG)_samples/sample_rag_langchain.ipynb)
+
 
 ## Next steps
 

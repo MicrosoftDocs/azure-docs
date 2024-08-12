@@ -5,7 +5,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 10/10/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: conceptual
 ms.custom:
   - references_regions
@@ -39,9 +39,9 @@ For information about specific migration scenarios and Azure SQL targets, see th
 
 | Migration scenario | Migration mode
 |---------|---------|
-SQL Server to Azure SQL Managed Instance| [Online](./tutorial-sql-server-managed-instance-online-ads.md) / [Offline](./tutorial-sql-server-managed-instance-offline-ads.md)
-SQL Server to SQL Server on an Azure virtual machine|[Online](./tutorial-sql-server-to-virtual-machine-online-ads.md) / [Offline](./tutorial-sql-server-to-virtual-machine-offline-ads.md)
-SQL Server to Azure SQL Database | [Offline](./tutorial-sql-server-azure-sql-database-offline.md)
+SQL Server to Azure SQL Managed Instance| [Online](/data-migration/sql-server/managed-instance/database-migration-service) / [Offline](/data-migration/sql-server/managed-instance/database-migration-service)
+SQL Server to SQL Server on an Azure virtual machine|[Online](/data-migration/sql-server/virtual-machines/database-migration-service) / [Offline](/data-migration/sql-server/virtual-machines/database-migration-service)
+SQL Server to Azure SQL Database | [Offline](/data-migration/sql-server/database/database-migration-service)
 
 > [!IMPORTANT]
 > If your target is Azure SQL Database, you can migrate database Schema and data both using Database Migration Service via Azure Portal. Also, you can use tools like the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio to deploy the database schema before you begin the data migration.
@@ -96,15 +96,15 @@ The following sections walk through the prerequisites for each supported Azure S
 
 ### [Azure SQL Managed Instance](#tab/azure-sql-mi)
 
-[!INCLUDE [dms-ads-sqlmi-prereq](../../includes/dms-ads-sqlmi-prereq.md)]
+[!INCLUDE [dms-ads-sqlmi-prereq](./includes/dms-ads-sqlmi-prereq.md)]
 
 ### [SQL Server on Azure Virtual Machine](#tab/azure-sql-vm)
 
-[!INCLUDE [dms-ads-sqlvm-prereq](../../includes/dms-ads-sqlvm-prereq.md)]
+[!INCLUDE [dms-ads-sqlvm-prereq](./includes/dms-ads-sqlvm-prereq.md)]
 
 ### [Azure SQL Database](#tab/azure-sql-db)
 
-[!INCLUDE [dms-ads-sqldb-prereq](../../includes/dms-ads-sqldb-prereq.md)]
+[!INCLUDE [dms-ads-sqldb-prereq](./includes/dms-ads-sqldb-prereq.md)]
 
 ---
 

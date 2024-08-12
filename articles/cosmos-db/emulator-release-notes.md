@@ -4,10 +4,10 @@ titleSuffix: Azure Cosmos DB
 description: View the release notes for the latest version and previous versions of the Azure Cosmos DB Windows (local) emulator.
 author: sajeetharan
 ms.author: sasinnat
-ms.reviewer: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: release-notes
-ms.date: 09/11/2023
+ms.date: 06/20/2024
 ---
 
 # Release notes for the Azure Cosmos DB Windows (local) emulator
@@ -15,26 +15,39 @@ ms.date: 09/11/2023
 The Azure Cosmos DB emulator is updated at a regular cadence with release notes provided in this article.
 
 > [!div class="nextstepaction"]
-> [Download latest version (``2.14.16``)](https://aka.ms/cosmosdb-emulator)
+> [Download latest version (``2.14.19``)](https://aka.ms/cosmosdb-emulator)
 
 ## Supported versions
 
 Only the most recent version of the Azure Cosmos DB emulator is actively supported.
 
-## Latest version ``2.14.16``
+## Latest version ``2.14.19``
 
-> *Released January 24, 2024*
+> *Released Aug 6, 2024*
 
-- This release fixes an issue which was causing emulator to bind with `loopback` instead of `public interface` even after passing /AllowNetworkAccess command line option.
+- Update Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB.
+- Update data explorer to support vector search
 
 ## Previous releases
 
 > [!WARNING]
 > Previous versions of the emulator are not supported by the product group.
 
+### ``2.14.18`` (May 21, 2024)
+
+- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB.
+
+### ``2.14.17`` (May 16, 2024)
+
+- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB.
+
+### ``2.14.16`` (January 24, 2024)
+
+- This release fixes an issue, which was causing emulator to bind with `loopback` instead of `public interface` even after passing /AllowNetworkAccess command line option.
+
 ### ``2.14.12`` (March 20, 2023)
 
-- This release fixes an issue impacting Gremlin and Table endpoint API types. Prior to this fix a client application fails with a 500 status code when trying to connect to the public emulator's endpoint.
+- This release fixes an issue impacting Gremlin and Table endpoint API types. Before this fix, client applications failed with a 500 status code when trying to connect to the public emulator's endpoint.
 
 ### ``2.14.11`` (January 27, 2023)
 
@@ -52,13 +65,13 @@ Only the most recent version of the Azure Cosmos DB emulator is actively support
 
 - This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. In addition to this update, there are a couple of issues addressed in this release:
   - Update Data Explorer to the latest content and fix a broken link for the quick start sample documentation.
-  - Add option to enable the API for MongoDB and configure version for the Linux Azure Cosmos DB emulator by setting the environment variable: `AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT` in the Docker container. Valid settings are: ``3.2``, ``3.6``, ``4.0`` and ``4.2``
+  - Add option to enable the API for MongoDB and configure version for the Linux Azure Cosmos DB emulator by setting the environment variable: `AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT` in the Docker container. Valid settings are: ``3.2``, ``3.6``, ``4.0``, and ``4.2``
 
 ### ``2.14.6`` (March 7, 2022)
 
 - This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. In addition to this update, there are a couple of issues addressed in this release:
   - Fix for an issue related to high CPU usage when the emulator is running.
-  - Add PowerShell option to set the API for MongoDB and version: `-MongoApiVersion`. Valid settings are: ``3.2``, ``3.6`` and ``4.0``
+  - Add PowerShell option to set the API for MongoDB and version: `-MongoApiVersion`. Valid settings are: ``3.2``, ``3.6``, and ``4.0``
 
 ### ``2.14.5`` (January 18, 2022)
 
@@ -70,7 +83,7 @@ Only the most recent version of the Azure Cosmos DB emulator is actively support
 
 ### ``2.14.3`` (September 8, 2021)
 
-- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. It also addresses issues with performance data that's collected and resets the base image for the Linux Azure Cosmos DB emulator Docker image.
+- This release updates the Azure Cosmos DB Emulator background services to match the latest online functionality of the Azure Cosmos DB. It also addresses issues with performance data and resets the base image for the Linux Azure Cosmos DB emulator Docker image.
 
 ### ``2.14.2`` (August 12, 2021)
 
@@ -137,7 +150,7 @@ Only the most recent version of the Azure Cosmos DB emulator is actively support
 
 ### ``2.9.1``
 
-- This release fixes couple issues in the query API support and restores compatibility with older OSs such as Windows Server 2012.
+- This release fixes couple issues in the query API support and restores compatibility with older operating systems such as Windows Server 2012.
 
 ### ``2.9.0``
 
@@ -168,4 +181,4 @@ Only the most recent version of the Azure Cosmos DB emulator is actively support
 ## Next steps
 
 - [Learn more about the Azure Cosmos DB emulator](emulator.md)
-- [Get started using the Azure Comsos DB emulator for development](how-to-develop-emulator.md)
+- [Get started using the Azure Cosmos DB emulator for development](how-to-develop-emulator.md)

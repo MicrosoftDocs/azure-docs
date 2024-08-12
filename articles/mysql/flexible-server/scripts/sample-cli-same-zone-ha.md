@@ -3,12 +3,15 @@ title: CLI script - Configure same-zone high availability
 description: This Azure CLI sample script shows how to configure same-zone high availability in an Azure Database for MySQL - Flexible Server instance.
 author: shreyaaithal
 ms.author: shaithal
-ms.service: mysql
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
-ms.date: 05/24/2022
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # Configure same-zone high availability in Azure Database for MySQL - Flexible Server using Azure CLI
@@ -24,7 +27,7 @@ Currently, Same-Zone high availability is supported only for the General purpose
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -32,7 +35,7 @@ Currently, Same-Zone high availability is supported only for the General purpose
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

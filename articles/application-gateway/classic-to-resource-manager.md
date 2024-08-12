@@ -3,9 +3,9 @@ title: Application Gateway classic to Resource Manager
 description: Learn about moving Application Gateway resources from the classic deployment model to the Resource Manager deployment model.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 02/10/2022
+ms.date: 06/27/2024
 ms.author: greglin
 ---
 
@@ -33,6 +33,9 @@ For more information on how to set up an Application Gateway resource after VNet
 ### What is Azure Service Manager and what does it mean by classic?
 
 The word "classic" in classic networking service refers to networking resources managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations.
+
+> [!NOTE]
+> To view all the classic resources in your subscription, Open the **All Resources** blade and look for a **(Classic)** suffix after the resource name.
 
 ### What is Azure Resource Manager?
 

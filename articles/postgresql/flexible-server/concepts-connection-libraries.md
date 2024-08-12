@@ -1,17 +1,18 @@
 ---
 title: Connection libraries
 description: This article describes several libraries and drivers that you can use when coding applications to connect and query Azure Database for PostgreSQL - Flexible Server.
-ms.service: postgresql
+author: olmoloce
+ms.author: olmoloce
+ms.reviewer: maghan
+ms.date: 05/17/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: olmoloce
-author: olmoloce
-ms.date: 01/23/2024
 ---
 
 # Connection libraries for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article lists libraries and drivers that developers can use to develop applications to connect to and query Azure Database for PostgreSQL flexible server.
 
@@ -28,8 +29,8 @@ Most language client libraries used to connect to Azure Database for PostgreSQL 
 | Ruby | [Pg gem](https://deveiate.org/code/pg/) | Ruby Interface | [Download](https://rubygems.org/downloads/pg-0.20.0.gem) |
 | Go | [Package pq](https://godoc.org/github.com/lib/pq) | Pure Go postgres driver | [Install](https://github.com/lib/pq/blob/master/README.md) |
 | C\#/ .NET | [Npgsql](https://www.npgsql.org/) | ADO.NET Data Provider | [Download](https://dotnet.microsoft.com/download) |
-| ODBC | [psqlODBC](https://odbc.postgresql.org/) | ODBC Driver | [Download](https://www.postgresql.org/ftp/odbc/versions/) |
-| C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | Primary C language interface | Included |
+| ODBC | [psqlODBC](https://odbc.postgresql.org/) | ODBC Driver | [Download](https://www.postgresql.org/ftp/odbc/releases/) |
+| C | [libpq](https://www.postgresql.org/docs/current/static/libpq.html) | Primary C language interface | Included |
 | C++ | [libpqxx](http://pqxx.org/) | New-style C++ interface | [Download](https://pqxx.org/libpqxx/) |
 
 ## Next steps

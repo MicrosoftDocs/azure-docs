@@ -4,11 +4,14 @@ description: This article walks you through using the Azure portal to create and
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 11/21/2022
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: mvc, mode-ui, linux-related-content
+ms.custom:
+  - mvc
+  - mode-ui
+  - linux-related-content
 ---
 
 # Connect Azure Database for MySQL - Flexible Server with private access connectivity method
@@ -71,11 +74,11 @@ Since the server is in a virtual network, you can only connect to the server fro
 1. Select **Ubuntu Server 18.04 LTS**
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
 
-   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine." lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png":::
+   > :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-machines/project-details.png":::
 
 1. Under **Instance details**, type *myVM* for the **Virtual machine name**, choose the same **Region** as your database server.
 
-   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size." lightbox="../../virtual-machines/linux/media/quick-create-portal/instance-details.png":::
+   > :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-machines/instance-details.png":::
 
 1. Under **Administrator account**, select **SSH public key**.
 
@@ -83,11 +86,11 @@ Since the server is in a virtual network, you can only connect to the server fro
 
 1. For **SSH public key source**, leave the default of **Generate new key pair**, and then type *myKey* for the **Key pair name**.
 
-   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/administrator-account.png" alt-text="Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials." lightbox="../../virtual-machines/linux/media/quick-create-portal/administrator-account.png":::
+   > :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/administrator-account.png" alt-text="Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-machines/administrator-account.png":::
 
 1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
 
-   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png" alt-text="Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on." lightbox="../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png":::
+   > :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/inbound-port-rules.png" alt-text="Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-machines/inbound-port-rules.png":::
 
 1. Select **Networking** page to configure the virtual network. For the virtual network, choose the **vnetenvironment1** created for the Azure Database for MySQL flexible server instance.
 
@@ -114,7 +117,7 @@ Since the server is in a virtual network, you can only connect to the server fro
    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-create-success.png" alt-text="Screenshot of deployment success." lightbox="./media/quickstart-create-connect-server-vnet/vm-create-success.png":::
 
 1. On the page for your new VM, select the public IP address and copy it to your clipboard.
-   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/ip-address.png" alt-text="Screenshot showing how to copy the IP address for the virtual machine." lightbox="../../virtual-machines/linux/media/quick-create-portal/ip-address.png":::
+   > :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/ip-address.png" alt-text="Screenshot showing how to copy the IP address for the virtual machine." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-machines/ip-address.png":::
 
 ## Install MySQL client tools
 

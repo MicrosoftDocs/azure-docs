@@ -1,9 +1,9 @@
 ---
 title: Compare storage options for use with Azure HDInsight clusters
 description: Provides an overview of storage types and how they work with Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 06/12/2023
+ms.date: 06/14/2024
 ---
 
 # Compare storage options for use with Azure HDInsight clusters
@@ -12,7 +12,6 @@ You can choose between a few different Azure storage services when creating HDIn
 
 * [Azure Blob storage with HDInsight](./overview-azure-storage.md)
 * [Azure Data Lake Storage Gen2 with HDInsight](./overview-data-lake-storage-gen2.md)
-* [Azure Data Lake Storage Gen1 with HDInsight](./overview-data-lake-storage-gen1.md)
 
 This article provides an overview of these storage types and their unique features.
 
@@ -68,7 +67,6 @@ You can validate that HDInsight is properly configured to store data in a single
 ## Next steps
 
 * [Azure Storage overview in HDInsight](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen1 overview in HDInsight](./overview-data-lake-storage-gen1.md)
 * [Azure Data Lake Storage Gen2 overview in HDInsight](./overview-data-lake-storage-gen2.md)
 * [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introduction to Azure Storage](../storage/common/storage-introduction.md)

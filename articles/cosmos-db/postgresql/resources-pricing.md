@@ -3,7 +3,7 @@ title: Pricing – Azure Cosmos DB for PostgreSQL
 description: Pricing and how to save with Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 12/12/2023

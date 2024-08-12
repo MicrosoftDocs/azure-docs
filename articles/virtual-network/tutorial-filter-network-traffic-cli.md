@@ -4,7 +4,7 @@ description: In this article, you learn how to filter network traffic to a subne
 services: virtual-network
 author: asudbring
 
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
@@ -23,7 +23,7 @@ You can filter network traffic inbound to and outbound from a virtual network su
 * Deploy virtual machines (VM) into a subnet
 * Test traffic filters
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

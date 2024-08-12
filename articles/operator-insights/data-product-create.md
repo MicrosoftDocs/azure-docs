@@ -4,7 +4,7 @@ description: In this article, learn how to deploy an Azure Operator Insights Dat
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: quickstart
 ms.date: 10/16/2023
 ms.custom: template-quickstart, devx-track-azurecli #Required; leave this attribute/value as-is.
@@ -114,7 +114,7 @@ An Azure Key Vault instance stores your Customer Managed Key (CMK) for data encr
 
 # [Portal](#tab/azure-portal)
 
-1. [Create an Azure Key Vault resource](../key-vault/general/quick-create-portal.md) in the same subscription and resource group that you set up in [Create a resource group](#create-a-resource-group).
+1. [Create an Azure Key Vault resource](/azure/key-vault/general/quick-create-portal) in the same subscription and resource group that you set up in [Create a resource group](#create-a-resource-group).
 1. Provide your user account with the Key Vault Administrator role on the Azure Key Vault resource. This is done via the **Access Control (IAM)** tab on the Azure Key Vault resource.
 1. Navigate to the object and select **Keys**. Select **Generate/Import**.
 1. Enter a name for the key and select **Create**.
@@ -229,7 +229,7 @@ You create the Azure Operator Insights Data Product resource.
     1. Select the user-assigned managed identity that you set up as a prerequisite.
     1. Carefully paste the Key Identifier URI that was created when you set up Azure Key Vault as a prerequisite.
    
-1. To add owner(s) for the Data Product, which will also appear in Microsoft Purview, select **Add owner**, enter the email address, and select **Add owners**.
+1. To add one or more owners for the Data Product, which will also appear in Microsoft Purview, select **Add owner**, enter the email address, and select **Add owners**.
 1. In the Tags tab of the **Create a Data Product** page, select or enter the name/value pair used to categorize your Data Product resource.
 1. Select **Review + create**.
 1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time, all the underlying components are provisioned. After this process completes, you can work with your data ingestion, explore sample dashboards and queries, and so on.
@@ -245,7 +245,7 @@ az network-analytics data-product create --name <DataProductName> --resource-gro
 Use the following values for \<ProductName\> and \<ProductMajorVersion>.
 
 
-|Date Product  |\<ProductName\> |\<ProductMajorVersion>|
+|Data Product  |\<ProductName\> |\<ProductMajorVersion>|
 |---------|---------|---------|
 |Quality of Experience - Affirmed MCC GIGW |`Quality of Experience - Affirmed MCC GIGW`|`1.0`|
 |Quality of Experience - Affirmed MCC PGW or GGSN |`Quality of Experience - Affirmed MCC PGW or GGSN`|`1.0`|
@@ -276,9 +276,9 @@ Once your Data Product instance is created, you can deploy a sample insights das
 1. Copy the consumption URL from the Data Product overview screen into the clipboard.
 1. Open a web browser, paste in the URL and select enter.
 1. When the URL loads, select on the Dashboards option on the left navigation pane.
-1. Select the **New Dashboard** drop down and select **Import dashboard from file**. Browse to select the JSON file downloaded previously, provide a name for the dashboard and select **Create**.
+1. Select the **New Dashboard** drop down and select **Import dashboard from file**. Browse to select the JSON file downloaded previously, provide a name for the dashboard, and select **Create**.
 1. Select the three dots (...) at the top right corner of the consumption URL page and select **Data Sources**.
-1. Select the pencil icon next to the Data source name in order to edit the data source. 
+1. Select the pencil icon next to the Data source name to edit the data source. 
 1. Under the Cluster URI section, replace the URL with your Data Product consumption URL and select connect.
 1. In the Database drop-down, select your Database. Typically, the database name is the same as your Data Product instance name. Select **Apply**.
 
@@ -344,7 +344,9 @@ az group delete --name "ResourceGroup"
 
 ## Next step
 
-Upload data to your Data Product. If you're planning to do this with the Azure Operator Insights ingestion agent:
+Upload data to your Data Product:
 
-1. Read the documentation for your Data Product to determine the requirements.
-1. [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
+1. Read the documentation for your Data Product to determine any requirements for ingestion.
+2. Set up an ingestion solution:
+    - To use the Azure Operator Insights ingestion agent, [install and configure the agent](set-up-ingestion-agent.md).
+    - To use [Azure Data Factory](/azure/data-factory/), follow [Use Azure Data Factory to ingest data into an Azure Operator Insights Data Product](ingestion-with-data-factory.md).

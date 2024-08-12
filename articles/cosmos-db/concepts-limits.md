@@ -46,7 +46,7 @@ An Azure Cosmos DB container (or shared throughput database) using manual throug
 
 The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Allocate throughput on containers and databases](set-throughput.md).
 
-The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
+The actual minimum RU/s might vary depending on your account configuration. You can use [Azure Monitor metrics](monitor.md#analyze-azure-cosmos-db-metrics) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
 #### Minimum throughput on container
 
@@ -138,11 +138,11 @@ The following table lists resource limits per subscription or account.
 
 | Resource | Limit |
 | --- | --- |
-| Maximum number of accounts per subscription | 50 by default. ¹ |
+| Maximum number of accounts per subscription | 250 by default ¹ |
 | Maximum number of databases & containers per account | 500 ² |
 | Maximum throughput supported by an account for metadata operations | 240 RU/s |
 
-¹ You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md) up to 1,000 max.
+¹ Default limits differ for Microsoft internal customers. You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md) up to 1,000 max. Cosmos DB reserves the right to delete any empty database accounts i.e. no databases/collections.
 ² This limit cannot be increased. Total count of both with an account. (1 database and 499 containers, 250 databases and 250 containers, etc.)
 
 ### Request limits
@@ -290,8 +290,9 @@ The following table lists the limits specific to MongoDB feature support. Other 
 | Maximum execution time for MongoDB operations (for 3.6 and 4.0 server version)| 60 seconds|
 | Maximum level of nesting for embedded objects / arrays on index definitions | 6 |
 | Idle connection timeout for server side connection closure ² | 30 minutes |
+| Time limit for MongoDB shell in the Azure portal | 120 minutes in a 24hr period |
 
-¹ Large document sizes up to 16 MB require feature enablement in Azure portal. Read the [feature documentation](../cosmos-db/mongodb/feature-support-42.md#data-types) to learn more.
+¹ Large document sizes up to 16 MB require feature enablement in the Azure portal. Read the [feature documentation](../cosmos-db/mongodb/feature-support-42.md#data-types) to learn more.
 
 ² We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md).  This timeout ensures that an intermediate load balancer idle doesn't close connections between the client machine and Azure Cosmos DB.
 

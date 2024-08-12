@@ -1,12 +1,13 @@
 ---
 title: Monitoring
 description: This article describes the metrics for monitoring and alerting for Azure Database for MySQL - Flexible Server, including CPU, storage, and connection statistics.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: conceptual
 author: code-sidd
 ms.author: sisawant
-ms.date: 9/21/2020
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
 ---
 
 # Monitor Azure Database for MySQL - Flexible Server
@@ -42,11 +43,15 @@ Several reasons that follow can cause this behavior:
 
 For more detailed information on troubleshooting metrics, refer to the [Azure Monitor metrics troubleshooting guide.](../../azure-monitor/essentials/metrics-troubleshoot.md)
 
+> [!NOTE] 
+> Metrics that are marked as deprecated are scheduled to be removed from azure portal. It's recommended to ignore these metrics for monitoring your Azure Database for MySQL flexible server.
+
 ## List of metrics
 These metrics are available for Azure Database for MySQL flexible server:
 
 |Metric display name|Metric|Unit|Description|
 |---|---|---|---|
+|MySQL Uptime|uptime|Seconds|This metric indicates the length of time that the MySQL server has been running.|
 |Host CPU percent|cpu_percent|Percent|Host CPU percent is total utilization of CPU to process all the tasks on your server over a selected period. This metric includes workload of your Azure Database for MySQL flexible server instance and Azure MySQL process. High CPU percent can help you find if your database server has more workload than it can handle. This metric is equivalent to total CPU utilization similar to utilization of CPU on any virtual machine.|
 |CPU Credit Consumed|cpu_credits_consumed| Count|**This is for Burstable Tier Only** CPU credit is calculated based on workload. See [B-series burstable virtual machine sizes](/azure/virtual-machines/sizes-b-series-burstable) for more information.|
 |CPU Credit Remaining|cpu_credits_remaining|Count|**This is for Burstable Tier Only** CPU remaining is calculated based on workload. See [B-series burstable virtual machine sizes](/azure/virtual-machines/sizes-b-series-burstable) for more information.|
@@ -55,12 +60,12 @@ These metrics are available for Azure Database for MySQL flexible server:
 |Active Connections|active_connection|Count|The number of active connections to the server. Active connections are the total number of [threads connected](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Threads_connected) to your server, which also includes threads from [azure_superuser](../single-server/how-to-create-users.md).|
 |Storage IO percent|io_consumption_percent|Percent|The percentage of IO in use over selected period. IO percent is for both read and write IOPS.|
 |Storage IO Count|storage_io_count|Count|The total count of I/O operations (both read and write) utilized by server per minute.|
-|Host Memory Percent|memory_percent|Percent|The total percentage of memory in use on the server, including memory utilization from both database workload and other Azure MySQL processes. This metric provides evaluation of the server's memory utilization, excluding reusable memory like buffer and cache.|
-|Available Memory Bytes|available_memory_bytes|Bytes|This metric represents the amount of memory that is currently available for use on the server.|
+|Memory Percent|memory_percent|Percent|This metric represents the percentage of memory occupied by the Azure MySQL (mysqld) server process. This metric is calculated from the Total Memory Size (GB) available on your Azure Database for MySQL flexible server.|
 |Total connections|total_connections|Count|The number of client connections to your Azure Database for MySQL flexible server instance. Total Connections is sum of connections by clients using TCP/IP protocol over a selected period.|
 |Aborted Connections|aborted_connections|Count|Total number of failed attempts to connect to your Azure Database for MySQL flexible server instance, for example, failed connection due to bad credentials. For more information on aborted connections, you can refer to this [documentation](https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html).|
 |Queries|queries|Count|Total number of queries executed per minute on your server. Total count of queries per minute on your server from your database workload and Azure MySQL processes.|
 |Slow_queries|slow_queries|Count|The total count of slow queries on your server in the selected time range.|
+|Active Transactions|active_transactions|Count|This metric represents the total number of transactions currently running within MySQL. Active transactions include all transactions that have started but not yet committed or rolled back.|
 
 
 ## Storage Breakdown Metrics
@@ -127,7 +132,9 @@ These metrics are available for Azure Database for MySQL flexible server:
 |Innodb_buffer_pool_pages_free|Innodb_buffer_pool_pages_free|Count|The total count of free pages in InnoDB buffer pool.|
 |Innodb_buffer_pool_pages_data|Innodb_buffer_pool_pages_data|Count|The total count of pages in the InnoDB buffer pool containing data. The number includes both dirty and clean pages.|
 |Innodb_buffer_pool_pages_dirty|Innodb_buffer_pool_pages_dirty|Count|The total count of pages in the InnoDB buffer pool containing dirty pages.|
-
+|MySQL History List Length|trx_rseg_history_len|Count|This metric calculates the number of changes in the database, specifically the number of records containing previous changes. It's related to the rate of changes to data, causing new row versions to be created. An increasing history list length can impact the performance of the database.|
+|MySQL Lock Timeouts|lock_timeouts|Count| This metric represents the number of times a query has timed out due to a lock. This typically occurs when a query is waiting for a lock on a row or table that is held by another query for a longer time than the `innodb_lock_wait_timeout` setting.|
+|MySQL Lock Deadlocks|lock_deadlock|Count| This metric represents the number of [deadlocks](https://dev.mysql.com/doc/refman/8.0/en/innodb-deadlocks.html) on your Azure Database for MySQL flexible server instance in the selected time period.|
 
 
 ## Server logs

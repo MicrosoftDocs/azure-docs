@@ -3,7 +3,7 @@ title: Get ready to use Azure Communications Gateway's Provisioning API
 description: Learn how to integrate with the Provisioning API for Azure Communications Gateway. The Provisioning API allows you to configure customers and associated numbers.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 03/29/2024
 ---
@@ -33,7 +33,7 @@ Whether you integrate with the Provisioning API depends on your chosen communica
 
 You must have completed [Deploy Azure Communications Gateway](deploy.md).
 
-You must have access to a machine with an IP address that is permitted to access the Provisioning API (preview). This allowlist of IP addresses (or ranges) was configured as part of [deploying Azure Communications Gateway](deploy.md#collect-configuration-values-for-each-communications-service).
+You must have access to a machine with an IP address that is permitted to access the Provisioning API (preview). This allowlist of IP addresses (or ranges) was configured as part of [deploying Azure Communications Gateway](deploy.md#create-an-azure-communications-gateway-resource).
 
 ## Learn about the Provisioning API (preview) and plan your BSS client changes
 

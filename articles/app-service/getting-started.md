@@ -1,19 +1,23 @@
 ---
 title: Getting started with Azure App Service
-description: Take the first steps toward working with Azure App Service.
+description: Take the first steps toward working with Azure App Service. This is a longer description that meets the length requirement.
 ms.author: msangapu
 author: msangapu-msft
 ms.topic: overview
-ms.custom: devx-track-extended-java, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
 ms.date: 8/31/2023
 zone_pivot_groups: app-service-getting-started-stacks
 ---
 
 # Getting started with Azure App Service
 
-## Introduction
+[Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications.
+
 ::: zone pivot="stack-net"
-[Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications. Use the following resources to get started with .NET.
+
+## ASP.NET or ASP.NET Core
+
+Use the following resources to get started with .NET.
 
 | Action | Resources |
 | --- | --- |
@@ -24,9 +28,13 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Connect to a database** | - [.NET with Azure SQL Database](./app-service-web-tutorial-dotnet-sqldatabase.md)<br>- [.NET Core with Azure SQL DB](./tutorial-dotnetcore-sqldb-app.md)|
 | **Custom containers** |- [Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=dotnet&pivots=container-linux-vscode)<br>- [Windows - Visual Studio](./quickstart-custom-container.md?tabs=dotnet&pivots=container-windows-vs)|
 | **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual Network](./configure-vnet-integration-enable.md)|
+
 ::: zone-end
 ::: zone pivot="stack-python"
-[Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications. Use the following resources to get started with Python.
+
+## Python
+
+Use the following resources to get started with Python.
 
 | Action | Resources |
 | --- | --- |
@@ -37,9 +45,13 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Connect to a database** | - [Postgres - CLI](./tutorial-python-postgresql-app.md?tabs=flask%2Cwindows&pivots=deploy-azd)<br>- [Postgres - Azure portal](./tutorial-python-postgresql-app.md?tabs=flask%2Cwindows&pivots=deploy-portal)|
 | **Custom containers** |- [Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=python&pivots=container-linux-vscode)|
 | **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual Network](./configure-vnet-integration-enable.md)|
+
 ::: zone-end
 ::: zone pivot="stack-nodejs"
-[Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications. Use the following resources to get started with Node.js.
+
+## Node.js
+
+Use the following resources to get started with Node.js.
 
 | Action | Resources |
 | --- | --- |
@@ -50,22 +62,30 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Connect to a database** | - [MongoDB](./tutorial-nodejs-mongodb-app.md)|
 | **Custom containers** |- [Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=node&pivots=container-linux-vscode)|
 | **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual Network](./configure-vnet-integration-enable.md)|
+
 ::: zone-end
 ::: zone pivot="stack-java"
-[Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications. Use the following resources to get started with Java.
+
+## Java 
+
+Use the following resources to get started with Java.
 
 | Action | Resources |
 | --- | --- |
-| **Create your first Java app** | Using one of the following tools:<br><br>- [Maven deploy with an embedded web server](./quickstart-java.md?pivots=java-maven-quarkus)<br>- [Maven deploy to a Tomcat server](./quickstart-java.md?pivots=java-maven-tomcat)<br>- [Maven deploy to a JBoss server](./quickstart-java.md?pivots=java-maven-jboss) |
-| **Deploy your app** | - [With Maven](configure-language-java.md?pivots=platform-linux#maven)<br>- [With Gradle](configure-language-java.md?pivots=platform-linux#gradle)<br>- [Deploy War](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With popular IDEs (VS Code, IntelliJ, and Eclipse)](configure-language-java.md?pivots=platform-linux#ides)<br>- [Deploy WAR or JAR packages directly](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With GitHub Actions](./deploy-github-actions.md) |
+| **Create your first Java app** | Using one of the following tools:<br><br>- [Maven deploy with an embedded web server](./quickstart-java.md?pivots=java-javase)<br>- [Maven deploy to a Tomcat server](./quickstart-java.md?pivots=java-tomcat)<br>- [Maven deploy to a JBoss server](./quickstart-java.md?pivots=java-jboss) |
+| **Deploy your app** | - [With Maven](configure-language-java-deploy-run.md?pivots=platform-linux#maven)<br>- [With Gradle](configure-language-java-deploy-run.md?pivots=platform-linux#gradle)<br>- [Deploy War](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With popular IDEs (VS Code, IntelliJ, and Eclipse)](configure-language-java-deploy-run.md?pivots=platform-linux#ides)<br>- [Deploy WAR or JAR packages directly](./deploy-zip.md?tabs=cli#deploy-warjarear-packages)<br>- [With GitHub Actions](./deploy-github-actions.md) |
 | **Monitor your app**| - [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** |- [Java Spring with Cosmos DB](./tutorial-java-spring-cosmosdb.md)|
 | **Custom containers** |- [Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=python&pivots=container-linux-vscode)|
 | **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual Network](./configure-vnet-integration-enable.md)|
+
 ::: zone-end
 ::: zone pivot="stack-php"
-[Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications. Use the following resources to get started with PHP.
+
+## PHP
+
+Use the following resources to get started with PHP.
 
 | Action | Resources |
 | --- | --- |
@@ -76,6 +96,7 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Connect to a database** | - [MySQL with PHP](./tutorial-php-mysql-app.md)|
 | **Custom containers** |- [Multi-container](./quickstart-multi-container.md)<br>- [Sidecar containers](tutorial-custom-container-sidecar.md)|
 | **Review best practices** | - [Scale your app]()<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual Network](./configure-vnet-integration-enable.md)|
+
 ::: zone-end
 
 ## Next steps

@@ -2,7 +2,7 @@
 title: Upgrade an Azure Red Hat OpenShift cluster
 description: Learn how to upgrade an Azure Red Hat OpenShift cluster running OpenShift 4
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 6/12/2023
 author: johnmarco
 ms.author: johnmarc

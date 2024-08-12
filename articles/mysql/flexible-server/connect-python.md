@@ -1,14 +1,18 @@
 ---
-title: 'Quickstart: Connect using Python'
+title: "Quickstart: Connect using Python"
 description: This quickstart provides several Python code samples you can use to connect and query data from Azure Database for MySQL - Flexible Server.
-ms.service: mysql
+author: shreyaaithal
+ms.author: shaithal
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: shreyaaithal 
-ms.author: shaithal 
+ms.custom:
+  - mvc
+  - mode-api
+  - devx-track-python
 ms.devlang: python
-ms.custom: mvc, mode-api, devx-track-python
-ms.date: 9/21/2020
 ---
 
 # Quickstart: Use Python to connect and query data in Azure Database for MySQL - Flexible Server

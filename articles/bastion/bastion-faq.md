@@ -2,10 +2,11 @@
 title: 'Azure Bastion FAQ'
 description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
-ms.service: bastion
-ms.topic: conceptual
+ms.service: azure-bastion
+ms.topic: faq
 ms.date: 04/01/2024
 ms.author: cherylmc
+ms.custom: references_regions
 ---
 
 # Azure Bastion FAQ
@@ -30,9 +31,10 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="az"></a>Does Azure Bastion support availability zones?
 
-Some regions support the ability to deploy Azure Bastion in an availability zone (or multiple, for zone redundancy).
-To deploy zonally, you can select the availability zones you want to deploy under instance details when you deploy Bastion using manually specified settings. You can't change zonal availability after Bastion is deployed.
+[!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
+
 If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
+
 For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
@@ -106,17 +108,11 @@ No, Bastion connectivity to Azure Virtual Desktop isn't supported.
 
 Review any error messages and [raise a support request in the Azure portal](../azure-portal/supportability/how-to-create-azure-support-request.md) as needed. Deployment failures can result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers might encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
 
-### <a name="dr"></a>How do I incorporate Azure Bastion in my Disaster Recovery plan?
-
-Azure Bastion is deployed within virtual networks or peered virtual networks, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site virtual network. If there's an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
-
 ### <a name="move-virtual-network"></a>Does Bastion support moving a VNet to another resource group?
 
 No. If you move your virtual network to another resource group (even if it's in the same subscription), you'll need to first delete Bastion from virtual network, and then proceed to move the virtual network to the new resource group. Once the virtual network is in the new resource group, you can deploy Bastion to the virtual network.
 
-### <a name="zone-redundant"></a>Does Bastion support zone redundancies?
 
-Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions might or might not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
 
 ### <a name="azure-ad-guests"></a>Does Bastion support Microsoft Entra guest accounts?
 
@@ -233,7 +229,7 @@ Yes, existing sessions on the target Bastion resource will disconnect during mai
 
 ### I'm connecting to a VM using a JIT policy, do I need additional permissions?
 
-If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.yml).
+If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](/azure/defender-for-cloud/just-in-time-access-usage).
 
 ## <a name="peering"></a>VNet peering FAQs
 

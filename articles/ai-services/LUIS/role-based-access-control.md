@@ -75,14 +75,12 @@ A user that should only be validating and reviewing LUIS applications, typically
     :::column-end:::
     :::column span="":::
       All GET APIs under: 
-        * [LUIS Programmatic v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
-        * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
+        * [LUIS Programmatic v3.0-preview](/rest/api/luis/operation-groups?view=rest-luis-v3.0-preview)
+        * [LUIS Programmatic v2.0 APIs](/rest/api/luis/operation-groups?view=rest-luis-v2.0)
 
       All the APIs under: 
         * LUIS Endpoint APIs v2.0
-        * [LUIS Endpoint APIs v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8)
-        * [LUIS Endpoint APIs v3.0-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8)
-
+        * [LUIS Endpoint APIs v3.0](/rest/api/luis/operation-groups?view=rest-luis-v3.0)
       All the Batch Testing Web APIs
     :::column-end:::
 :::row-end:::
@@ -113,16 +111,16 @@ A user that is responsible for building and modifying LUIS application, as a col
 
       All POST, PUT and DELETE APIs under:
 
-        * [LUIS Programmatic v3.0-preview](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f)
-        * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2d)
+        * [LUIS Programmatic v3.0-preview](/rest/api/luis/operation-groups?view=rest-luis-v3.0-preview)
+        * [LUIS Programmatic v2.0 APIs](/rest/api/luis/operation-groups?view=rest-luis-v2.0)
 
         Except for
-        * [Delete application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c39)
-        * [Move app to another LUIS authoring Azure resource](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-        * [Publish an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c3b)
-        * [Update application settings](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58aeface39e2bb03dcd5909e)
-        * [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32228e8473de116325515)
-        * [Remove an assigned LUIS azure accounts from an application](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5be32554f8591db3a86232e1)
+        * [Delete application](/rest/api/luis/apps/delete)
+        * Move app to another LUIS authoring Azure resource
+        * [Publish an application](/rest/api/luis/apps/publish)
+        * [Update application settings](/rest/api/luis/apps/update-settings)
+        * [Assign a LUIS azure accounts to an application](/rest/api/luis/azure-accounts/assign-to-app)
+        * [Remove an assigned LUIS azure accounts from an application](/rest/api/luis/azure-accounts/remove-from-app)
     :::column-end:::
 :::row-end:::
 

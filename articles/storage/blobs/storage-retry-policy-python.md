@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/15/2024
+ms.date: 08/05/2024
 ms.custom: devx-track-python, devguide-python
 ---
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-python, devguide-python
 
 Any application that runs in the cloud or communicates with remote services and resources must be able to handle transient faults. It's common for these applications to experience faults due to a momentary loss of network connectivity, a request timeout when a service or resource is busy, or other factors. Developers should build applications to handle transient faults transparently to improve stability and resiliency. 
 
-This article shows you how to use the Azure Storage client library for Python to set up a retry policy for an application that connects to Azure Blob Storage. Retry policies define how the application handles failed requests, and should always be tuned to match the business requirements of the application and the nature of the failure.
+In this article, you learn how to use the Azure Storage client library for Python to set up a retry policy for an application that connects to Azure Blob Storage. Retry policies define how the application handles failed requests, and should always be tuned to match the business requirements of the application and the nature of the failure.
 
 ## Configure retry options
 
@@ -73,9 +73,7 @@ The following code example shows how to configure the retry options using an ins
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_retry.py" id="Snippet_retry_linear":::
 
-## Next steps
-
-Now that you understand how to implement a retry policy using the Azure Storage client library for Python, see the following articles for detailed architectural guidance:
+## Related content
 
 - For architectural guidance and general best practices for retry policies, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 - For guidance on implementing a retry pattern for transient failures, see [Retry pattern](/azure/architecture/patterns/retry).

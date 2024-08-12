@@ -247,8 +247,6 @@ Begin by going to [Vision Studio](https://portal.vision.cognitive.azure.com/) an
 
 Then, sign in with your Azure account and select your Vision resource. If you don't have one, you can create one from this screen.
 
-> [!IMPORTANT]
-> To train a custom model in Vision Studio, your Azure subscription needs to be approved for access. Please request access using [this form](https://aka.ms/visionaipublicpreview).
 
 :::image type="content" source="../media/customization/select-resource.png" alt-text="Screenshot of the select resource screen.":::
 

@@ -36,20 +36,19 @@ This article describes the **HPE ProLiant DL20 Gen 11** appliance for OT sensors
 |Power|HPE 800 W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit |
 |Rack support|HPE Easy Install Rail 12 Kit |
 
-## DL20 Gen11 (NHP 2LFF) - Bill of Materials
+## DL20 Gen11 (NHP 2LFF) - Bill of materials
 
 |Quantity|PN|Description|
 |----|---|----|
 |1|	P65390-B21 | HPE ProLiant DL20 Gen 11 2LFF Non-hot Plug Configure-to-order Server|
-|1|	P65390-B21 B19 | HPE DL20 Gen11 2LFF NHP CTO Server |
-|1|	P65224-B21 | Intel Xcon E-2434 3.4-GHz 4-core 55 W FIO Processor for HPE|
-|2|	P64336-B21 | HPE 16 GB (1 x 16 GB) Single Rank x8 DDR5-4800 CAS-40-39-39 Unbuffered Standard Memory Kit|
-|4|	P28586-B21 | HPE 1 TB SATA 6 G  Business Critical 7.2 K LFF RW 1-year Warranty Multi Vendor HDD |
+|1|	P65390-B21 B19 | HPE DL20 Gen11 2LFF NHP CTO Svr |
+|1|	P65224-B21 | Intel Xeon E-2434 3.4-GHz 4-core 55 W FIO Processor for HPE|
+|1|	P64336-B21 | HPE 16 GB (1 x 16 GB) Single Rank x8 DDR5-4800 CAS-40-39-39 Unbuffered Standard Memory Kit|
+|1|	801882-B21 | HPE 1 TB SATA 6 G  Business Critical 7.2 K LFF RW 1-year Warranty Multi Vendor HDD |
 |1|	P52753-B21 | HPE ProLiant DL320 Genll x 16 FHHL Riser Kit|
 |1|	P51178-B21 | Broadcom BCM5719 Ethernet 1-Gb 4-port BASE-T Adapter for HPE |
-|1| 389692-B21 | HPE Customer Defined RAID Setting Service |
-|1|	P03178-B21 | HPE 800 W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit|
-|1| AF573A | HPE C13 - C14 WW 250V 10 Amp Flint gray 2.0 mm Jumper Cord |
+|1|	865438-B21 | HPE 800 W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit|
+|1| AF573A | HPE C13 - C14 WW 250V 10 Amp Flint Gray 2.0 m Jumper Cord |
 |1|	512485-B21 | HPE iLO Advanced 1-server License with 1 yr Support on iLO Licensed Features |
 |1|	P64576-B21 | HPE Easy Install Rail 12 Kit |
 |1|	P65407-B21 | HPE ProLiant DL20 Gen11 LP iLO/M.2 Enablement Kit |

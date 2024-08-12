@@ -2,7 +2,7 @@
 title: 'App Service Environment version comparison'
 description: This article provides an overview of the App Service Environment versions and feature differences between them.
 author: seligj95
-ms.date: 4/22/2024
+ms.date: 7/16/2024
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -12,11 +12,13 @@ ms.topic: article
 App Service Environment has three versions. App Service Environment v3 is the latest version and provides advantages and feature differences over earlier versions.
 
 > [!IMPORTANT]
-> App Service Environment v1 and v2 [will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). After that date, those versions will no longer be supported and any remaining App Service Environment v1 and v2s and the applications running on them will be deleted. 
-
-There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1 or v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+> App Service Environment v1 and v2 [will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-4/). After that date, those versions will no longer be supported and any remaining App Service Environment v1 and v2s and the applications running on them will be deleted. 
+>
+> There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1 or v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
 >
 > As of 29 January 2024, you can no longer create new App Service Environment v1 or v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
+>
+> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
 ## Comparison between versions
@@ -27,6 +29,7 @@ There's a new version of App Service Environment that is easier to use and runs 
 |---------|---------|---------|---------|
 |Hardware     |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)  |
 |[Available SKUs](https://azure.microsoft.com/pricing/details/app-service/windows/)  |P1, P2, P3, P4         |I1, I2, I3         |I1v2, I2v2, I3v2, I4v2, I5v2, I6v2        |
+|CPU|Physical cores|Physical cores|Virtual CPu (vCPU)|
 |Maximum instance count     |55 hosts (default front-ends + workers)         |100 instances per App Service plan. Maximum of 200 instances across all plans.         |100 instances per App Service plan. Maximum of 200 instances across all plans.         |
 |Zone redundancy     |No         |No - [zone pinning](zone-redundancy.md) to one zone is available         |[Yes](../../reliability/migrate-app-service-environment.md)         |
 |Dedicated host group     |No         |No         |[Yes](creation.md#deployment-considerations) (not compatible with zone redundancy)         |

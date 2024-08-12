@@ -2,12 +2,12 @@
 title: CREATE EXTERNAL TABLE AS SELECT (CETAS) in Synapse SQL
 description: Using CREATE EXTERNAL TABLE AS SELECT (CETAS) with Synapse SQL
 author: filippopovic
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 02/17/2023
 ms.author: fipopovi
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 
 # CETAS with Synapse SQL

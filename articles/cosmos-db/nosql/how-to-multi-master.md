@@ -2,13 +2,13 @@
 title: How to configure multi-region writes in Azure Cosmos DB
 description: Learn how to configure multi-region writes for your applications by using different SDKs in Azure Cosmos DB.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 03/10/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, devx-track-dotnet, devx-track-extended-java
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, devx-track-dotnet, devx-track-extended-java, devx-track-ts
 ---
 
 # Configure multi-region writes in your applications that use Azure Cosmos DB

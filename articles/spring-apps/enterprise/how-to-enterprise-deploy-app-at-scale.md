@@ -3,7 +3,7 @@ title: Scale out to deploy over 500 and up to 1000 application instances using A
 description: Learn how to deploy applications at scale in the Enterprise plan for Azure Spring Apps and learn about the restrictions.
 author: karlerickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 07/05/2023
 ---

@@ -1,18 +1,19 @@
 ---
 title: Understand Azure Files performance
-description: Learn about the factors that can impact Azure file share performance and how to optimize performance for your workload.
+description: Learn about the factors that can impact Azure file share performance such as IOPS, throughput, latency, and queue depth, and how to optimize performance for your workload.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/06/2023
+ms.date: 05/13/2024
 ms.author: kendownie
 ---
 
-# Understand Azure Files performance
+# Understand and optimize Azure file share performance
 
 Azure Files can satisfy performance requirements for most applications and use cases. This article explains the different factors that can affect file share performance and how to optimize the performance of Azure file shares for your workload.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -20,6 +21,7 @@ Azure Files can satisfy performance requirements for most applications and use c
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Glossary
+
 Before reading this article, it's helpful to understand some key terms relating to storage performance:
 
 -   **IO operations per second (IOPS)**
@@ -149,6 +151,7 @@ By using eight threads instead of one, the above workload can be reduced from 14
 | Thread 8          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 
 ## See also
+
 - [Troubleshoot Azure file shares performance issues](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json)
 - [Monitoring Azure Files](storage-files-monitoring.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)

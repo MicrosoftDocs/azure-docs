@@ -2,7 +2,7 @@
 title: Create and manage Azure Cosmos DB for Table with Bicep
 description: Use Bicep to create and configure Azure Cosmos DB for Table.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.custom: devx-track-bicep
 ms.topic: how-to

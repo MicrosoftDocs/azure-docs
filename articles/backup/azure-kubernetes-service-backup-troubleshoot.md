@@ -3,7 +3,7 @@ title: Troubleshoot Azure Kubernetes Service backup
 description: Symptoms, causes, and resolutions of the Azure Kubernetes Service backup and restore operations.
 ms.topic: troubleshooting
 ms.date: 02/29/2024
-ms.service: backup
+ms.service: azure-backup
 ms.custom:
   - ignite-2023
 author: AbhishekMallick-MS
@@ -25,9 +25,9 @@ This article provides troubleshooting steps that help you resolve Azure Kubernet
    ```
 
 
-**Cause**: The extension has been installed successfully, but the pods aren't spawning. This happens because the required compute and memory aren't available for the pods.
+**Cause**: The extension is installed successfully, but the pods aren't spawning because the required compute and memory aren't available for the pods.
 
-**Resolution**: To resolve the issue, increase the number of nodes in the cluster. This allows sufficient compute and memory to be available for the pods to spawn.
+**Resolution**: To resolve the issue, increase the number of nodes in the cluster, allowing sufficient compute and memory to be available for the pods to spawn.
 To scale node pool on Azure portal, follow these steps:
 
 1. On the Azure portal, open the *AKS cluster*.
@@ -45,7 +45,7 @@ To scale node pool on Azure portal, follow these steps:
    Endpoint http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=4e95dcc5-a769-4745-b2d9-
    ```
 
-**Cause**: When you enable pod-managed identity on your AKS cluster, an *AzurePodIdentityException* named *aks-addon-exception* is added to the *kube-system* namespace. An *AzurePodIdentityException* allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the NMI server.
+**Cause**: When you enable pod-managed identity on your AKS cluster, an *AzurePodIdentityException* named *aks-addon-exception* is added to the *kube-system* namespace. An *AzurePodIdentityException* allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint are not intercepted by the NMI server.
 
 The extension pods aren't exempt, and require the Microsoft Entra pod identity to be enabled manually.
 
@@ -76,19 +76,34 @@ The extension pods aren't exempt, and require the Microsoft Entra pod identity t
    ```Error
    {"Message":"Error in the getting the Configurations: error {Post \https://centralus.dp.kubernetesconfiguration.azure.com/subscriptions/ subscriptionid /resourceGroups/ aksclusterresourcegroup /provider/managedclusters/clusters/ aksclustername /configurations/getPendingConfigs?api-version=2021-11-01\: dial tcp: lookup centralus.dp.kubernetesconfiguration.azure.com on 10.63.136.10:53: no such host}","LogType":"ConfigAgentTrace","LogLevel":"Error","Environment":"prod","Role":"ClusterConfigAgent","Location":"centralus","ArmId":"/subscriptions/ subscriptionid /resourceGroups/ aksclusterresourcegroup /providers/Microsoft.ContainerService/managedclusters/ aksclustername ","CorrelationId":"","AgentName":"ConfigAgent","AgentVersion":"1.8.14","AgentTimestamp":"2023/01/19 20:24:16"}`
    ```
-**Cause**: Specific FQDN/application rules are required to use cluster extensions in the AKS clusters. [Learn more](../aks/outbound-rules-control-egress.md#cluster-extensions).
+**Cause**: Specific FQDN/application rules are required to use cluster extensions in the AKS clusters. [Learn more](/azure/aks/outbound-rules-control-egress#cluster-extensions).
 
 This error appears due to absence of these FQDN rules because of which configuration information from the Cluster Extensions service wasn't available.
 
 **Resolution**: To resolve the issue, you need to create a *CoreDNS-custom override* for the *DP* endpoint to pass through the public network.
 
-1. To fetch *Existing CoreDNS-custom* YAML in your cluster (save it on your local for reference later), run the following command:
+1. Get Existing CoreDNS-custom YAML in your cluster (save it on your local for reference later)::
 
    ```azurecli-interactive
    kubectl get configmap coredns-custom -n kube-system -o yaml
    ```
 
-2. To override mapping for *Central US DP* endpoint to public IP (download the YAML file attached), run the following command:
+2. Override mapping for centralus DP endpoint to Public IP (use the below YAML):
+   
+    ```yaml
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: coredns-custom 
+      namespace: kube-system
+    data:
+        aksdp.override: |
+              hosts { 
+                  20.40.200.153 centralus.dp.kubernetesconfiguration.azure.com
+                  fallthrough
+               }
+    ``` 
+    Now run the below command to apply the update yaml file:
 
    ```azurecli-interactive
    kubectl apply -f corednsms.yaml
@@ -150,6 +165,24 @@ These error codes appear due to issues on the Backup Extension installed in the 
 
 **Recommended action**: The health of the extension is required to be verified via running the command `kubectl get pods -n dataprotection.microsoft`. If the pods aren't in running state, then increase the number of nodes in the cluster by *1* or increase the compute limits. Then wait for a few minutes and run the command again, which should change the state of the pods to *running*. If the issue persists, delete and reinstall the extension.
 
+### BackupPluginPodRestartedDuringBackupError
+
+**Cause**: Backup Extension Pod (dataprotection-microsoft-kubernetes-agent) in your AKS cluster experiencing instability due to insufficient CPU/Memory resources on its current node, leading to OOM (Out of Memory) kill incidents. This could be because of lower compute requested by the backup extension pod.
+
+**Recommended action**: To address this, we recommend increasing the compute values allocated to this pod. By doing so, it will be automatically provisioned on a different node within your AKS cluster with ample compute resources available.
+
+The current value of compute for this pod is:
+
+resources.requests.cpu is 500m
+resources.requests.memory is 128Mi
+Kindly modify the memory allocation to 512Mi by updating the 'resources.requests.memory' parameter. If the issue persists, it is advisable to increase the 'resources.requests.cpu' parameter to 900m, post the memory allocation. You can increase the values for the parameters by following below steps:
+
+1. Navigate to the AKS cluster blade in the Azure portal.
+2. Click on "Extensions+Applications" and select "azure-aks-backup" extension.
+3. Update the configuration settings in the portal by adding the following key-value pair.
+    resources.requests.cpu 900m
+    resources.requests.memory 512Mi
+
 ### BackupPluginDeleteBackupOperationFailed
 
 **Cause**: The Backup extension should be running to delete the backups. 
@@ -200,11 +233,17 @@ These error codes appear due to issues based on the Backup extension installed i
 
 **Cause**: During extension installation, a Backup Storage Location is to be provided as input that includes a storage account and blob container. The Backup extension should have *Storage Blob Data Contributor* role on the Backup Storage Location (storage account). The Extension Identity gets this role assigned.
 
-**Recommended action**: The error appears if the Extension Identity doesn't have right permissions to access the storage account. This  error appears if AKS backup extension is installed the first time when configuring protection operation. This happens for the time taken for the granted permissions to propagate to the AKS backup extension. As a workaround, wait an hour and retry the protection configuration. Otherwise, use Azure portal or CLI to reassign this missing permission on the storage account.
+**Recommended action**: The error appears if the Extension Identity doesn't have right permissions to access the storage account. This error appears if AKS backup extension is installed the first time when configuring protection operation. This happens for the time taken for the granted permissions to propagate to the AKS backup extension. As a workaround, wait an hour and retry the protection configuration. Otherwise, use Azure portal or CLI to reassign this missing permission on the storage account.
+
+### UserErrorSnapshotResourceGroupHasLocks
+
+**Cause**: This error code appears when a Delete or Read Lock has been applied on the Snapshot Resource Group provided as input for Backup Extension.
+
+**Recommended action**: In case if you are configuring a new backup instance, use a resource group without a delete or read lock. If the backup instance already configured then remove the lock from the snapshot resource group. 
 
 ## Vaulted backup based errors
 
-This error code can appear while you enable AKS backup to store backups in a vault standard datastore.
+These error codes can appear while you enable AKS backup to store backups in a vault standard datastore.
 
 ### DppUserErrorVaultTierPolicyNotSupported
 
@@ -238,7 +277,7 @@ This error code can appear while you enable AKS backup to store backups in a vau
 
 **Cause**: There is a limited number of snapshots for a Persistent Volume that can exist at a point-in-time. For Azure Disk-based Persistent Volumes, the limit is *500 snapshots*. This error appears when snapshots for specific Persistent Volumes aren't taken due to existence of snapshots higher than the supported limits.
 
-**Recommended action**: Update the Backup Policy to reduce the retention duration and wait for older recovery points to be deleted by the Backup vault.
+**Recommended action**: Update the Backup Policy to reduce the retention duration and wait for Backup Vault to delete the older recovery points.
 
 ### CSISnapshottingTimedOut
 
@@ -268,7 +307,7 @@ This error code can appear while you enable AKS backup to store backups in a vau
 
 **Error code**: UserErrorPVCHasNoVolume
 
-**Cause**: The Persistent Volume Claim (PVC) in context does not have a Persistent Volume attached to it. So, the PVC will not be backed up.
+**Cause**: The Persistent Volume Claim (PVC) in context doesn't have a Persistent Volume attached to it. So, the PVC won't be backed up.
 
 **Recommended action**: Attach a volume to the PVC, if it needs to be backed up.
 
@@ -276,7 +315,7 @@ This error code can appear while you enable AKS backup to store backups in a vau
 
 **Error code**: UserErrorPVCNotBoundToVolume
 
-**Cause**: The PVC in context is in *Pending* state and doesn't have a Persistent Volume attached to it. So, the PVC will not be backed up. 
+**Cause**: The PVC in context is in *Pending* state and doesn't have a Persistent Volume attached to it. So, the PVC won't be backed up. 
 
 **Recommended action**: Attach a volume to the PVC, if it needs to be backed up.
 

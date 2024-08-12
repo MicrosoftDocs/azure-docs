@@ -4,7 +4,7 @@ description: Compare API Management tiers based on the features they offer. See 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/13/2024
 ms.author: danlep

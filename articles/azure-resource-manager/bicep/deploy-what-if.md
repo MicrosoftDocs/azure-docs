@@ -211,7 +211,39 @@ The following results show the two different output formats:
 
 To see how what-if works, let's runs some tests. First, deploy a Bicep file that creates a virtual network. You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-before.bicep":::
+```bicep
+resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+  name: 'vnet-001'
+  location: resourceGroup().location
+  tags: {
+    CostCenter: '12345'
+    Owner: 'Team A'
+  }
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/16'
+      ]
+    }
+    enableVmProtection: false
+    enableDdosProtection: false
+    subnets: [
+      {
+        name: 'subnet001'
+        properties: {
+          addressPrefix: '10.0.0.0/24'
+        }
+      }
+      {
+        name: 'subnet002'
+        properties: {
+          addressPrefix: '10.0.1.0/24'
+        }
+      }
+    ]
+  }
+}
+```
 
 To deploy the Bicep file, use:
 
@@ -243,7 +275,32 @@ az deployment group create \
 
 After the deployment completes, you're ready to test the what-if operation. This time you deploy a Bicep file that changes the virtual network. It's missing one of the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-after.bicep":::
+```bicep
+resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+  name: 'vnet-001'
+  location: resourceGroup().location
+  tags: {
+    CostCenter: '12345'
+  }
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/15'
+      ]
+    }
+    enableVmProtection: false
+    enableDdosProtection: false
+    subnets: [
+      {
+        name: 'subnet002'
+        properties: {
+          addressPrefix: '10.0.1.0/24'
+        }
+      }
+    ]
+  }
+}
+```
 
 To view the changes, use:
 

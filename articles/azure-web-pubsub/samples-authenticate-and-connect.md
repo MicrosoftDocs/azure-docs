@@ -26,7 +26,7 @@ While the client's role is often limited, the application server's role goes bey
 ::: zone pivot="method-sdk-csharp"
 | Use case | Description |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| [Using connection string](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | Applies to application server only.
+| [Using connection string](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp) | Applies to application server only.
 | [Using Client Access Token](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/wwwroot/index.html#L13) | Applies to client only. Client Access Token is generated on the application server.
 | Using Microsoft Entra ID | Using Microsoft Entra ID for authorization offers improved security and ease of use compared to Access Key authorization.
 | [Anonymous connection](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/clientWithCert/client/Program.cs#L15) | Anonymous connection allows clients to connect with Azure Web PubSub directly without going to an application server for a Client Access Token first. This is useful for clients that have limited networking capabilities, like an EV charging point.

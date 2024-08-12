@@ -4,7 +4,7 @@ description: Scale a Service Fabric cluster in or out to match demand by setting
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurepowershell
 services: service-fabric
 ms.date: 07/14/2022
@@ -18,7 +18,7 @@ ms.date: 07/14/2022
 Scaling compute resources to source your application work load requires intentional planning, will nearly always take longer than an hour to complete for a production environment, and does require you to understand your workload and business context; in fact if you have never done this activity before, it's recommended you start by reading and understanding [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md), before continuing the remainder of this document. This recommendation is to avoid unintended LiveSite issues, and it's also recommended you successfully test the operations you decide to perform against a non-production environment. At any time you can [report production issues or request paid support for Azure](service-fabric-support.md#create-an-azure-support-request). For engineers allocated to perform these operations that possess appropriate context, this article will describe scaling operations, but you must decide and understand which operations are appropriate for your use case; such as what resources to scale (CPU, Storage, Memory), what direction to scale (Vertically or Horizontally), and what operations to perform (Resource Template deployment, Portal, PowerShell/CLI).
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Scale a Service Fabric cluster in or out using auto-scale rules or manually
 Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate virtual machine scale set. Each node type can then be scaled in or out independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [Service Fabric node types](service-fabric-cluster-nodetypes.md) document. Since the Service Fabric node types in your cluster are made of virtual machine scale sets at the backend, you need to set up auto-scale rules for each node type/virtual machine scale set.

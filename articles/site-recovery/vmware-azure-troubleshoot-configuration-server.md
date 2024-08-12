@@ -1,10 +1,9 @@
 ---
-title: Troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
+title: Troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery
 description: This article provides troubleshooting information for deploying the configuration server for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
 author: ankitaduttaMSFT
-manager: gaggupta
-ms.service: site-recovery
-ms.topic: article
+ms.service: azure-site-recovery
+ms.topic: troubleshooting
 ms.author: ankitadutta
 ms.date: 05/27/2021
 
@@ -62,7 +61,7 @@ To resolve vCenter discovery failures, add the vCenter server to the byPass list
 - Download PsExec tool from [here](/sysinternals/downloads/psexec) to access System user content.
 - Open Internet Explorer in system user content by running the following command line
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
-- Add proxy settings in IE and restart tmanssvc service.
+- Add proxy settings in Internet Explorer and restart tmanssvc service.
 - To configure DRA proxy settings, run 
     cd C:\Program Files\Microsoft Azure Site Recovery Provider
 - Next, execute DRCONFIGURATOR.EXE /configure /AddBypassUrls [add IP Address/FQDN of vCenter Server provided during **Configure vCenter Server/vSphere ESXi server** step of [Configuration Server deployment](vmware-azure-deploy-configuration-server.md#configure-settings)]

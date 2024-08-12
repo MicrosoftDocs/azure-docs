@@ -5,25 +5,20 @@ description: Learn about the Azure Communication Services Closed Captions.
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.topic: concept
-ms.date: 02/27/2024
+ms.topic: concept-article
+ms.date: 07/08/2024
 ms.author: kpunjabi
 ms.custom: public_preview
 ---
 
 # Closed Captions overview
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
->[!NOTE]
->Closed Captions will not be billed at the beginning of its Public Preview. This is for a limited time only, usage of Captions will likely be billed starting from June.
-
 Closed captions are a textual representation of a voice or video conversation that is displayed to users in real-time. Azure Communication Services Closed captions offer developers the ability to allow users to select when they wish to toggle captions on or off. These captions are only available during the call/meeting for the user that has selected to enable captions, Azure Communication Services does **not** store these captions anywhere. Here are main scenarios where Closed Captions are useful:
 
 ## Common use cases
 
 ### Building accessible experiences
-Accessibility – For people with hearing impairments or who are new to the language to participate in calls and meetings. A key feature requirement in the Telemedical industry is to help patients communicate effectively with their health care providers.
+Accessibility – For people with hearing impairments or who are new to the language to participate in calls and meetings. A key feature requirement in the Telemedical industry is to help patients communicate effectively with their health care providers. This can also be useful when you have scenarios where users might be joining from a PSTN phone number, this will allow your application to receive the captioning data for those users too so that everyone's input is available during these interactions.
 
 ### Teams interoperability 
 Use Teams – Organizations using Azure Communication Services and Teams can use Teams closed captions to improve their applications by providing closed captions capabilities to users. Those organizations can keep using Microsoft Teams for all calls and meetings without third party applications providing this capability. Learn more about how you can use captions in [Teams interoperability](../interop/enable-closed-captions.md) scenarios.
@@ -46,8 +41,6 @@ Interoperability between Azure Communication Services and Microsoft Teams enable
  
 Microsoft indicates to you via the Azure Communication Services API that recording or closed captions has commenced, and you must communicate this fact, in real-time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred due to your failure to comply with this obligation.
 
-## Known limitations
-- Closed captions feature isn't supported on Firefox. 
 
 ## Next steps
 

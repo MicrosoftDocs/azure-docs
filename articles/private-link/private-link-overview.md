@@ -3,7 +3,7 @@ title: What is Azure Private Link?
 description: Overview of Azure Private Link features, architecture, and implementation. Learn how Azure Private Endpoints and Azure Private Link service works and how to use them.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: overview
 ms.date: 03/18/2024
 ms.author: abell
