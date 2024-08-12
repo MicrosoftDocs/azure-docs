@@ -7,26 +7,6 @@ ms.author: cnwankwo
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-Communication Services or Microsoft 365 users can call the spotlight APIs based on role type and conversation type
-
-**In a one to one call or group call scenario, the following APIs are supported for both Communication Services and Microsoft 365 users**
-
-|APIs| Organizer | Presenter | Attendee |
-|----------------------------------------------|--------|--------|--------|
-| startSpotlight | ✔️ | ✔️  | ✔️ |
-| stopSpotlight | ✔️ | ✔️ | ✔️ |
-| stopAllSpotlight |  ✔️ | ✔️ | ✔️ |
-| getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
-
-**For meeting scenario the following APIs are supported for both Communication Services and Microsoft 365 users**
-
-|APIs| Organizer | Presenter | Attendee |
-|----------------------------------------------|--------|--------|--------|
-| startSpotlight | ✔️ | ✔️  |  |
-| stopSpotlight | ✔️ | ✔️ | ✔️ |
-| stopAllSpotlight |  ✔️ | ✔️ |  |
-| getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
-
 Spotlight is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
 ```js
