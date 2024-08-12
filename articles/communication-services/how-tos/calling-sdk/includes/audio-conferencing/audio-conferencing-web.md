@@ -6,7 +6,31 @@ ms.date: 09/28/2023
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-**For meeting scenario the following API can be called by Microsoft 365 or Communication Services users with the following role**
+## Support
+The following tables define support of audio conferencing in Azure Communication Services.
+
+### Identities & call types
+The following tables show support of call and identity types. 
+
+|Identities                                         | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
+|--------------------------------------|---------------|------|----------|------------|------------------------|--------------------------|
+|Communication Services user	| ✔️	          |      |          |            |	                      |	                         |
+|Microsoft 365 user	                        | ✔️	          |      |          |            |                        |                          |
+
+### Operations
+
+The following tables show support of individual APIs in calling SDK to individual identity types. 
+
+|Operations                   | Communication Services user | Microsoft 365 user |
+|-----------------------------|------------------------------|-------------------|
+|Get audio conferencing details		| ✔️	| ✔️  |  	
+
+### SDKs
+The following tables show support of breakout rooms feature in individual Azure Communication Services SDKs.
+
+|  Platforms     | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+|---------------|-----|--------|--------|--------|----------|--------|---------|
+|Is Supported | ✔️  |        |        |        |          |        |         |		
 
 
 TeamsMeetingAudioConferencing is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
