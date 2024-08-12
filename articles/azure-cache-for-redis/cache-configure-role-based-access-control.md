@@ -131,7 +131,7 @@ The following list contains some examples of permission strings for various scen
 
 ## Configure your Redis client to use Microsoft Entra ID
 
-Now that you have configured Redis User and Data access policy for configuring role based access control, you need to update your client workflow to support authenticating using a specific user/password. To learn how to configure your client application to connect to your cache instance as a specific Redis User, see [Configure your Redis client to use Microsoft Entra ID](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-microsoft-entra-id).
+Now that you have configured Redis User and Data access policy for configuring role based access control, you need to update your client workflow to support authenticating using a specific user/password. To learn how to configure your client application to connect to your cache instance as a specific Redis User, see [Configure your Redis client to use Microsoft Entra](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-microsoft-entra).
 
 ## Next steps
 
