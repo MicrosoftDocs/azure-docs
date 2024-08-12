@@ -115,7 +115,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
      | `--disable-rsync-rules` |  | Disable the resource sync rules on the deployment feature flag if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group. |
      | `--name` | String | Provide a name for your Azure IoT Operations instance. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output. |
      | `--no-progress` |  | Disables the deployment progress display in the terminal. |
-     | `--simulate-pc` |  | Include the OPC PLC simulator that ships with the OPC UA connector. |
+     | `--simulate-plc` |  | Include the OPC PLC simulator that ships with the OPC UA connector. |
      | `--sp-app-id`,<br>`--sp-object-id`,<br>`--sp-secret` | Service principal app ID, service principal object ID, and service principal secret | Include all or some of these parameters to use an existing service principal, app registration, and secret instead of allowing `init` to create new ones. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually). |
 
 ### [Azure portal](#tab/portal)
