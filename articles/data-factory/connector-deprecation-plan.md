@@ -4,8 +4,8 @@ description: This page describes future deprecations for some connectors of Azur
 author: pennyzhou-msft
 ms.author: xupzhou
 ms.service: data-factory
-ms.subservice: concept-article
-ms.topic: overview
+ms.subservice: data-movement
+ms.topic: concepts
 ms.custom: references_regions
 ms.date: 10/11/2023
 ---
