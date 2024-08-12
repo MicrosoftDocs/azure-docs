@@ -79,7 +79,7 @@ The following image shows a high level overview of what happens during migration
 
     * Select either **Return to original subnet as soon as possible** or **Stay in the new subnet and keep stv1 compute around for 48 hours** after migration. If you choose the former, the `stv1` compute will be deleted approximately 15 minutes after migration, allowing you to proceed directly with [manual migration back to the original subnet](#optional-migrate-back-to-original-subnet) if desired. If you choose the latter, the `stv1` compute is retained for 48 hours. You can use this period to validate your network settings and connectivity.
 
-        :::image type="content" source="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png" alt-text="Screenshot of options to retain stv1 compute in the portal." :::
+        :::image type="content" source="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png" alt-text="Screenshot of options to retain stv1 compute in the portal." lightbox="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png":::
 
 1. In **Step 3**, confirm you want to migrate, and select **Migrate**. 
     The status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
