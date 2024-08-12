@@ -27,95 +27,95 @@ To receive  breakout room details, subscribe to the `breakoutRoomsUpdated` event
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 ```
 
-### Handling breakoutRoom events
+### Handle breakoutRoom events
 
 Event **breakoutRoomsUpdated** provides instance of one of the following classes as an input parameter. You can use property `type` to distinguish between individual event types.
 
 1. Class `BreakoutRoomsEvent`: This event is triggered when a user with a role organizer, co-organizer, or breakout room manager creates or updates the breakout rooms. Microsoft 365 users with role organizer, co-organizer or  breakout room manager can receive this type of event. Developers can use the breakout rooms in property `data` to render details about all breakout rooms. This class has property `type` equal to `"breakoutRooms"`.
   ```js
-  export interface BreakoutRoomsEvent {
-    /**
-     * Breakout room event type
-     */
-    type: "breakoutRooms",
-    /**
-     * list of Breakout rooms
-     */
-    data: BreakoutRoom[] | undefined;
-  }
+      export interface BreakoutRoomsEvent {
+        /**
+         * Breakout room event type
+        */
+        type: "breakoutRooms",
+        /**
+         * list of Breakout rooms
+        */
+        data: BreakoutRoom[] | undefined;
+      }
 ```
 
 2. Class `BreakoutRoomsSettingsEvent`: This event is triggered when a user with a role organizer, co-organizer, or breakout room manager updates the breakout room's settings. Developers can use this information to render the time when breakout room ends or decide whether to render button to join main room. This class has property `type` equal to `"breakoutRoomSettings"`.
 ```js
-export interface BreakoutRoomSettingsEvent {
-  /**
-   * Breakout room event type
-   */
-  type: "breakoutRoomSettings",
-   /**
-   * Breakout Room setting details
-   */
-  data: BreakoutRoomSettings | undefined;
-}
+    export interface BreakoutRoomSettingsEvent {
+      /**
+      * Breakout room event type
+      */
+      type: "breakoutRoomSettings",
+      /**
+      * Breakout Room setting details
+      */
+      data: BreakoutRoomSettings | undefined;
+    }
 ```
 
 3. Class `AssignedBreakoutRoomsEvent`: This event is triggered when user is assigned to a breakout room, or assigned breakout room is updated. Users can join the breakout room when property `state` is set to `open`, leave the breakout room when property `state` is set to `closed` or render details of the breakout room. This class has property `type` equal to `"assignedBreakoutRoom"`.
 ```js
-export interface AssignedBreakoutRoomEvent {
-  /**
-   * Breakout room event type
-   */
-  type: "assignedBreakoutRoom";
-   /**
-   * Assigned breakout room details
-   */
-  data: BreakoutRoom | undefined;
-}
+    export interface AssignedBreakoutRoomEvent {
+      /**
+       * Breakout room event type
+       */
+      type: "assignedBreakoutRoom";
+      /**
+       * Assigned breakout room details
+       */
+      data: BreakoutRoom | undefined;
+    }
 ```
 
 
 4. Class `JoinBreakoutRoomsEvent` : This event is triggered when the participant is joining breakout room call. This can happen when user is automatically moved to breakout room (i.e., if `assignedBreakoutRoom` has property `state` set to `open` and `autoMoveParticipantToBreakoutRoom` is set to `true`) or when user explicitly joins breakout room (i.e., calls method `join` on the instance `assignedBreakoutRoom` when `autoMoveParticipantToBreakoutRoom` is set to `false`). Property `data` contains the breakout room `call` instance, that developers can use to control breakout room call. This class has property `type` equal to `"join"`.
 ```js
-export interface JoinBreakoutRoomEvent {
-  /**
-   * Breakout room event type
-   */
-  type: "join";
-   /**
-   * Breakoutroom call object
-   */
-  data: Call | TeamsCall;
-}
+    export interface JoinBreakoutRoomEvent {
+      /**
+       * Breakout room event type
+       */
+      type: "join";
+      /**
+       * Breakoutroom call object
+       */
+      data: Call | TeamsCall;
+    }
 ```
 The following code shows you valuable information received in the breakout room events:
 ```js
-const breakoutRoomsUpdatedListener = (event) => {
-switch(event.type) {
-    case "breakoutRooms":
-      const breakoutRooms = event.data;
-      console.log(`Breakout rooms are created or updated. There are ${breakoutRooms.length} breakout rooms in total.`);
-      breakoutRooms.forEach((room)=>{
-      console.log(`- ${room.displayName}`);
-      });    
-      break;
-    case "assignedBreakoutRooms":
-      const assignedRoom = event.data;
-      console.log(`You are assigned to breakout room named: ${assignedRoom.displayName}`);      
-      console.log(`Assigned breakout room thread Id: ${assignedRoom.threadId}`);
-      console.log(`Automatically move participants to breakout room: ${assignedRoom.autoMoveParticipantToBreakoutRoom}`);
-      console.log(`Assigned breakout room state : ${assignedRoom.state }`);      
-      break;
-    case "breakoutRoomsSettings":
-      const breakoutRoomSettings = event.data;
-      console.log(`Breakout room ends at: ${breakoutRoomSettings.roomEndTime}`);
-      console.log(`Disable the user to return to main meeting from breakout room call : ${breakoutRoomSettings.disableReturnToMainMeeting}`);         
-      break;
-    case "join":
-      const breakoutRoomCall = event.data;
-      console.log(`You have joined breakout room with call ID: ${breakoutRoomCall.id}`);      
-      break;
-  }
-}
+    const breakoutRoomsUpdatedListener = (event) => {
+    switch(event.type) {
+        case "breakoutRooms":
+          const breakoutRooms = event.data;
+          console.log(`Breakout rooms are created or updated. There are ${breakoutRooms.length} breakout rooms in total.`);
+          breakoutRooms.forEach((room)=>{
+          console.log(`- ${room.displayName}`);
+          });    
+          break;
+        case "assignedBreakoutRooms":
+          const assignedRoom = event.data;
+          console.log(`You are assigned to breakout room named: ${assignedRoom.displayName}`);      
+          console.log(`Assigned breakout room thread Id: ${assignedRoom.threadId}`);
+          console.log(`Automatically move participants to breakout room: ${assignedRoom.autoMoveParticipantToBreakoutRoom}`);
+          console.log(`Assigned breakout room state : ${assignedRoom.state }`);      
+          break;
+        case "breakoutRoomsSettings":
+          const breakoutRoomSettings = event.data;
+          console.log(`Breakout room ends at: ${breakoutRoomSettings.roomEndTime}`);
+          console.log(`Disable the user to return to main meeting from breakout room call : ${breakoutRoomSettings.disableReturnToMainMeeting}`);         
+          break;
+        case "join":
+          const breakoutRoomCall = event.data;
+          console.log(`You have joined breakout room with call ID: ${breakoutRoomCall.id}`);      
+          break;
+      }
+    }
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 ```
 ### List available breakout rooms

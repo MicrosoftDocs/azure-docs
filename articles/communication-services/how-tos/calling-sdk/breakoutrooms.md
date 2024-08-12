@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Integrate Microsoft Teams breakout rooms
 titleSuffix: An Azure Communication Services tutorial
-description: Use Azure Communication Services SDKs to access BreakoutRooms
+description: Use Azure Communication Services SDKs to access BreakoutRooms.
 author: sravanthivelidandla
 ms.author: insravan
 ms.service: azure-communication-services
@@ -21,14 +21,14 @@ In this article, you learn how to implement Microsoft Teams breakout rooms with 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
-- Teams meeting organizer needs to have assigned Teams meeting policy that enables breakout rooms.[Teams meeting policy](/powershell/module/teams/set-csteamsmeetingpolicy?view=teams-ps&preserve-view=true)
+- Teams meeting organizer needs to assign Teams meeting policy that enables breakout rooms.[Teams meeting policy](/powershell/module/teams/set-csteamsmeetingpolicy?view=teams-ps&preserve-view=true)
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager roles can manage the breakout rooms.
+Only Microsoft 365 Users with Organizer, Co-Organizer, or Breakout Room manager roles can manage the breakout rooms.
 
 ## Support
 The following tables define support of breakout rooms in Azure Communication Services.
-### Identities & call types
+### Identities and call types
 The following tables show support of breakout rooms for specific call type and identity. 
 
 |Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
@@ -63,7 +63,7 @@ The following tables show support of breakout rooms feature in individual Azure 
 
 ## Breakout rooms
 
-[!INCLUDE [BreakoutRooms Client-side JavaScript](./includes/breakoutRooms/breakoutRooms-web.md)]
+[!INCLUDE [BreakoutRooms Client-side JavaScript](./includes/breakoutrooms/breakoutrooms-web.md)]
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)

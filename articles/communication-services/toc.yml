@@ -469,7 +469,7 @@ items:
     - name: Teams interoperability
       items:
       - name: Breakout rooms
-        href: how-tos/calling-sdk/breakoutRooms.md
+        href: how-tos/calling-sdk/breakoutrooms.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
