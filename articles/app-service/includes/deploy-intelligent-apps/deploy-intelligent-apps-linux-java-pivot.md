@@ -8,7 +8,7 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to create applications using Azure OpenAI and OpenAI. In the following tutorial, we're adding an Azure OpenAI service to a Java 17 Spring Boot application using the Azure SDK.
+You can use Azure App Service to create applications using Azure OpenAI and OpenAI. In the following tutorial, we're adding Azure OpenAI Service to a Java 17 Spring Boot application using the Azure SDK.
 
 #### Prerequisites
 

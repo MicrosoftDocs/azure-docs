@@ -6,7 +6,7 @@ services: machine-learning
 author: rsavage2
 ms.author: rasavage
 ms.reviewer: ssalgado
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.custom: UpdateFrequency5, sdkv1
 ms.topic: how-to
