@@ -6,16 +6,16 @@ author: MartinPankraz
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 14/08/2024
 ms.author: mapankra
 ---
 # Enable SAP Principal Propagation and SSO for Power Platform 
 
-Working with SAP datasets in low code solutions is a common requirement for customers.
+Working with SAP interfaces in low code solutions is a common requirement for customers.
 
-This article describes the required foundational configurations and components to interact with SAP datasets via OData and the legacy RFC/BAPI interfaces.
+This article describes the required foundational configurations and components to interact with SAP systems via OData and the legacy RFC/BAPI interfaces.
 
-The article puts emphasis on end-to-end user mapping between the known Microsoft Entra identity in Power Platform and the SAP backend user. This mechanism is often referred to as SAP Principal Propagation. See [this community post]() for more details.
+The article puts emphasis on secure authorization using Microsoft Entra identity in Power Platform and for the SAP backend user. This mechanism is often referred to as SAP Principal Propagation. See [this community post](https://community.powerplatform.com/blogs/post/?postid=c6a609ab-3556-ef11-a317-6045bda95bf0) for more details.
 
 > [!IMPORTANT]
 > SAP Principal Propagation ensures user-mapping to the licensed named SAP user. For any SAP license related questions please contact your SAP representative.
@@ -45,7 +45,7 @@ Prinicipal Propagation is a mechanism well established in the SAP ecosystem. The
 
 The focus of the described configuration is on the Azure API Management, SAP Gateway, SAP OAuth 2.0 Server with AS ABAP, and OData sources, but the concepts used apply to any web-based resource.
 
-Learn more from this article on the [Power Platform community]().
+Learn more from this article on the [Power Platform community](https://community.powerplatform.com/blogs/post/?postid=c6a609ab-3556-ef11-a317-6045bda95bf0).
 
 > [!NOTE]
 > An existing trust setup between your SAP backend and Entra ID using an enterprise app registration is required. The configuration needs to support the OAuth2SAMLBearer flow. See [this Microsoft learn article](/entra/identity/saas-apps/sap-netweaver-tutorial) and this SAP blog for details on the initial steps.
@@ -58,10 +58,12 @@ For the Entra ID token exchange required by SAP ([OAuth2SAMLBearer flow](https:/
 
 ## Next steps
 
-[Work with SAP OData APIs in Azure API Management](../../api-management/sap-api.md)
+[Understand SAP Principal Propagation using API Management in detail | blog](https://community.powerplatform.com/blogs/post/?postid=c6a609ab-3556-ef11-a317-6045bda95bf0)
 
-[Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
+[Work with SAP OData APIs in Azure API Management | Microsoft Learn](../../api-management/sap-api.md)
 
-[Integrate API Management in an internal virtual network with Application Gateway](../../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
+[Protect APIs with Application Gateway and API Management | Microsoft Learn](/azure/architecture/reference-architectures/apis/protect-apis)
 
-[Understand Azure Application Gateway and Web Application Firewall for SAP](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
+[Integrate API Management in an internal virtual network with Application Gateway | Microsoft Learn](../../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
+
+[Understand Azure Application Gateway and Web Application Firewall for SAP | blog](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)

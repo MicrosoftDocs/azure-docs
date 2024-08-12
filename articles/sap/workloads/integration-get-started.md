@@ -37,7 +37,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [SAP RISE managed workloads](rise-integration-services.md) | Learn how to integrate your SAP RISE managed workloads with Azure services. |
 | [Microsoft Office](#microsoft-office) | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud, and Data Warehouse Cloud integration and more. |
 | [Microsoft Teams](#microsoft-teams) | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
-| [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
+| [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available out-of-the-box SAP solutions enabling your business users to achieve more with less. |
 | [Microsoft Universal Print](#microsoft-universal-print) | Learn about the available cloud native printing capabilities for SAP. |
 | [SAP Fiori](#sap-fiori) | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
 | [Microsoft Entra ID (formerly Azure Active Directory)](#microsoft-entra-id-formerly-azure-ad) | Ensure end-to-end SAP user authentication and authorization with Microsoft Entra ID. Single sign-on (SSO) and multifactor authentication (MFA) are the foundation for a secure and seamless user experience. |
@@ -98,15 +98,16 @@ For more information about integration with Microsoft Teams, see [Native SAP app
 
 For more information about integration with Microsoft Power Platform, see the following Power Automate resources:
 
+- [SAP Principal Propagation using Azure API Management | blog](https://community.powerplatform.com/blogs/post/?postid=c6a609ab-3556-ef11-a317-6045bda95bf0)
 - [Overview of SAP integration](/power-automate/sap-integration/overview)
-- [Understand prebuilt solution available for integrating SAP with Power Platform](/power-automate/sap-integration/solutions)
 - [Finance and operations templates for SAP process mining with Power Automate Process Advisor](/power-automate/process-mining-finance-ops-templates)
-- [Hyperautomation special video series for SAP based integration and automation with Power Automate](https://flow.microsoft.com/blog/hyperautomation-special-video-series-for-sap-based-integration-automation-with-power-automate/)
-- [RPA Playbook for SAP GUI Automation with Power Automate](https://flow.microsoft.com/blog/rpa-playbook-for-sap-gui-automation-with-power-automate-api-flows-ui-flows-and-power-automate-desktop/)
+- [Hyperautomation for SAP based integration and automation with Power Automate | video series](https://flow.microsoft.com/blog/hyperautomation-special-video-series-for-sap-based-integration-automation-with-power-automate/)
+- [RPA Playbook for SAP GUI Automation with Power Automate | blog](https://flow.microsoft.com/blog/rpa-playbook-for-sap-gui-automation-with-power-automate-api-flows-ui-flows-and-power-automate-desktop/)
 
 Also see the following SAP resources:
+- [SAP Principal Propagation via SAP API Management (Integration Suite)](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/integrating-low-code-solutions-with-microsoft-using-sap-integration-suite/ba-p/13789298)
 - [Snoozing SAP systems with Power Apps](https://blogs.sap.com/2021/02/10/hey-sap-systems-my-powerapp-says-snooze-but-only-if-youre-ready-yet/)
-- [Use SAP Business Rules Service (part of SAP Workflow) to expose SAP business logic to Power Apps](https://blogs.sap.com/2020/07/31/scp-business-rules-put-to-the-test-with-microsoft-power-platform/)
+- [Use Business Rules capability of SAP Build Process Automation to expose SAP business logic to Power Apps](https://blogs.sap.com/2020/07/31/scp-business-rules-put-to-the-test-with-microsoft-power-platform/)
 
 ### Microsoft Universal Print
 
