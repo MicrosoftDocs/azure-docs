@@ -59,11 +59,11 @@ This example shows how to retrieve embeddings stored at a specified file that is
 ::: zone pivot="programming-language-typescript"
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/nodejs/src/app.ts" range="7-31":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="7-31":::
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/nodejs/src/app.ts" range="37-61":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="37-61":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
