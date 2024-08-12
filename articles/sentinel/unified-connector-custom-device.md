@@ -23,19 +23,18 @@ For more information about the related Microsoft Sentinel solution for each of t
 
 ## General instructions
 
-The instructions for installing and configuring these data connectors for your devices follow a general pattern:
+The steps for configuring text log ingestion fall into two categories:
+- Applications that are in
+
+from applications and appliances follow a general pattern:
 
 1. Create the destination table in Log Analytics (or Advanced Hunting if you're in the Defender portal).
 
-    The table's name must end with `_CL` and it must consist of only the following two fields:
-    - **TimeGenerated** (of type *DateTime*): the timestamp of the creation of the log message.
-    - **Message** (of type *String*): the log message in its entirety.
+1. Create the data collection rule (DCR) for your application or appliance.
 
-1. Create the data collection rule (DCR) for your device, according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file)..
+1. Deploy the Azure Monitor Agent to the machine hosting the application, or to the machine that collects logs from appliances if it's not already deployed.
 
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
-
-1. Configure your device to send its logs to the machine where the Azure Monitor Agent is installed.
+1. Configure your appliance to send its logs to the machine where the Azure Monitor Agent is installed.
 
 These general steps (except for the last one) are described in detail in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md).
 
