@@ -51,7 +51,7 @@ Global batch is currently supported in the following regions:
 The following models support global batch:
 
 | Model | Version | Supported |
-|---|---|
+|---|---|---|
 |`gpt-4o` | 2024-05-13 |Yes (text + vision) |
 |`gpt-4o-mini` | 2024-07-18  | Yes (text + vision) |
 |`gpt-4` | turbo-2024-04-09 | Yes (text only) |
