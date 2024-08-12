@@ -13,14 +13,14 @@ Autoinstrumentation enables [Application Insights](app-insights-overview.md) to 
 
 The term "autoinstrumentation" is a portmanteau, a linguistic blend where parts of multiple words combine into a new word. "Autoinstrumentation" combines "auto" and "instrumentation." It sees widespread use in software observability and describes the process of adding instrumentation code to applications without manual coding by developers.
 
-The autoinstrumentation process varies by language and platform, but often involves a toggle button in the Azure portal.
+The autoinstrumentation process varies by language and platform, but often involves a toggle button in the Azure portal. The following example shows a toggle button for App Service autoinstrumentation.
 
 :::image type="content"source="./media/azure-web-apps/enable.png" alt-text=" Screenshot that shows the Application Insights tab with Enable selected.":::
 
-If your language and platform are supported, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information. In many cases, autoinstrumentation is enabled by default.
-
 > [!TIP]
-> We do not cover the autoinstrumentation process in depth for all languages in this article. Select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information.
+> The autoinstrumentation process varies by language and platform, so we do not cover it in depth in this article. Select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information.
+
+If your language and platform are supported, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information. In many cases, autoinstrumentation is enabled by default.
 
 ## What are the autoinstrumentation advantages?
 
@@ -78,7 +78,7 @@ For other methods to instrument your application with the Application Insights J
 
 #### Should the term "autoinstrumentation" be hyphenated?
 
-We follow the [Microsoft Style Guide](/style-guide/punctuation/dashes-hyphens/hyphens#prefixes) for product documentation published to the [Microsoft Learn](https://learn.microsoft.com/) platform.
+We follow the [Microsoft Style Guide](/style-guide/punctuation/dashes-hyphens/hyphens#prefixes) for product documentation published to the [Microsoft Learn](/) platform.
 
 In general, we don’t include a hyphen after the "auto" prefix.
 
