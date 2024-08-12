@@ -78,7 +78,7 @@ const seatingMap = togetherModeFeature.togetherModeSeatingMap;
 ```
 
 ### Manage scene size
-The `sceneSize` property specifies the dimensions (width and height) of the HTML container that houses the `togetherMode` video stream.. The seating positions of participants are calculated based on the dimensions of the scene size. If scene size isn't provided, the calculation defaults to a width of 1,280 pixels and a height of 720 pixels.
+The `sceneSize` property specifies the dimensions (width and height) of the HTML container that houses the `togetherMode` video stream. The seating positions of participants are calculated based on the dimensions of the scene size. If scene size isn't provided, the calculation defaults to a width of 1,280 pixels and a height of 720 pixels.
 
 ```js
 const togetherModeContainerSize = { width: 500, height: 500 };
