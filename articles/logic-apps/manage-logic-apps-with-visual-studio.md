@@ -152,7 +152,7 @@ When you set the **Integration Account** property in Visual Studio and save your
 
 ## Change deployment location
 
-In Visual Studio, if your logic app exists as a JSON (.json) file within an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) that you use to automate deployment, that logic app is set to a location type and a specific location. This location is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md).
+In Visual Studio, if your logic app exists as a JSON (.json) file within an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) that you use to automate deployment, that logic app is set to a location type and a specific location. This location is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md).
 
 To change your logic app's location type or location, you have to open your logic app's workflow definition (.json) file from Solution Explorer by using the Logic App Designer. You can't change these properties by using Cloud Explorer.
 

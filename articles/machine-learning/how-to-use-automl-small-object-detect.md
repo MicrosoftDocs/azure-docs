@@ -5,7 +5,7 @@ description: Set up Azure Machine Learning automated ML to train small object de
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: phmantri
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 03/25/2024

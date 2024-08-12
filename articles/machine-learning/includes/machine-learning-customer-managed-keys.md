@@ -1,6 +1,6 @@
 ---
 author: Blackmist
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.custom:
   - ignite-2023
 ms.topic: include
