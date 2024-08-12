@@ -103,7 +103,7 @@ Follow these steps to delete the Azure Synapse Analytics workspace.
 > [!WARNING]
 > Deleting an Azure Synapse Analytics workspace removes the analytics engines and the data stored in the database of the contained SQL pools and workspace metadata. It will no longer be possible to connect to the SQL or Apache Spark endpoints. All code artifacts will be deleted (queries, notebooks, job definitions, and pipelines).
 >
-> Deleting the workspace won't affect the data in the Data Lake Store Gen2 linked to the workspace.
+> Deleting the workspace won't affect the data in the Data Lake Storage Gen2 account linked to the workspace.
 
 If you want to delete the Azure Synapse Analytics workspace, complete the following command:
 
