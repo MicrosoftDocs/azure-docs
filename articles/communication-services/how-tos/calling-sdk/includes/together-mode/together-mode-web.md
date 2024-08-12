@@ -9,7 +9,6 @@ ms.author: cnwankwo
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 
-|APIs| Organizer | Co-Organizer | Presenter | Attendee |
 | start | ✔️ | ✔️  | ✔️ | |
 
 `TogetherMode` is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
