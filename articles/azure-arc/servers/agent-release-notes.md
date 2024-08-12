@@ -20,7 +20,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 > Only Connected Machine agent versions within the last 1 year are officially supported by the product group. Customers should update to an agent version within this window.
 > 
 
-Version 1.45 - August 2024
+## Version 1.45 - August 2024
 
 Download for [Windows](https://aka.ms/AzureConnectedMachineAgent) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
