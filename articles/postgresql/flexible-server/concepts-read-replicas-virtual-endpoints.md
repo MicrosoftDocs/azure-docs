@@ -1,8 +1,8 @@
 ---
 title: Virtual endpoints
 description: This article describes the virtual endpoints for read replica feature in Azure Database for PostgreSQL - Flexible Server.
-author: AlicjaKucharczyk
-ms.author: alkuchar
+author: akashraokm
+ms.author: akashrao
 ms.reviewer: maghan
 ms.date: 6/10/2024
 ms.service: azure-database-postgresql
@@ -77,9 +77,10 @@ This section explains how to use Virtual Endpoints in Azure Database for Postgre
 
 ## Related content
 
-- [create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints).
+- [Create virtual endpoints](how-to-read-replicas-portal.md#create-virtual-endpoints).
 - [Read replicas - overview](concepts-read-replicas.md)
 - [Geo-replication](concepts-read-replicas-geo.md)
 - [Promote read replicas](concepts-read-replicas-promote.md)
 - [Create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md)
 - [Cross-region replication with virtual network](concepts-networking.md#replication-across-azure-regions-and-virtual-networks-with-private-networking)
+- [Create virtual endpoints for read replicas with Terraform](how-to-read-replicas-virtual-endpoints-terraform.md)

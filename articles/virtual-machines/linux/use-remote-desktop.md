@@ -3,7 +3,7 @@ title: Use xrdp with Linux
 description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
 services: virtual-machines
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.custom: linux-related-content
 ms.topic: how-to
