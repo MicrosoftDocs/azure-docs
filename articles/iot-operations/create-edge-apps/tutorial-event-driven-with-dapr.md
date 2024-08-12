@@ -19,10 +19,10 @@ In this walkthrough, you deploy a Dapr application to the cluster. The Dapr appl
 The Dapr application performs the following steps:
 
 1. Subscribes to the `sensor/data` topic for sensor data.
-1. When data is receiving on the topic, it's forwarded to the MQTT broker state store.
-1. Every **10 seconds**, it fetches the data from the state store and calculates the *min*, *max*, *mean*, *median*, and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
-1. Data older than **30 seconds** is expired from the state store.
-1. The result is published to the `sensor/window_data` topic in JSON format.
+1. When data is receiving on the topic, it's published to the MQTT broker state store.
+2. Every **10 seconds**, it fetches the data from the state store and calculates the *min*, *max*, *mean*, *median*, and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
+3. Data older than **30 seconds** is expired from the state store.
+4. The result is published to the `sensor/window_data` topic in JSON format.
 
 > [!NOTE]
 > This tutorial [disables Dapr CloudEvents](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-raw/) which enables it to publish and subscribe using raw MQTT.
@@ -106,28 +106,21 @@ To start, create a yaml file that uses the following definitions:
 1. Confirm that the application deployed successfully. The pod should report all containers are ready after a short interval, as shown with the following command:
 
     ```bash
-    kubectl get pods -n azure-iot-operations
+    kubectl get pods -l app=mq-event-driven-dapr -n azure-iot-operations
     ```
 
     With the following output:
 
     ```output
-    NAME                          READY   STATUS              RESTARTS   AGE
-    ...
-    mq-event-driven-dapr          3/3     Running             0          30s
+    NAME                         READY   STATUS              RESTARTS   AGE
+    mq-event-driven-dapr         3/3     Running             0          30s
     ```
 
 ## Deploy the simulator
 
 Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQTT broker using an MQTT client on the `sensor/data` topic.
 
-1. Patch BrokerListener to allow unauthenticated connection, to simplify injection of simulated data:
-
-    ```bash
-    kubectl patch BrokerListener listener -n azure-iot-operations --type=json -p='[{ "op": "add", "path": "/spec/ports/1", "value": {"port":1883} }]'
-    ```
-
-1. Deploy the simulator from the Explore IoT Operations repository:
+1. Deploy the simulator from the *Explore IoT Operations* repository:
 
     ```bash
     kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/tutorials/mq-event-driven-dapr/simulate-data.yaml    
@@ -212,7 +205,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 
 ## Verify the Dapr application output
 
-1. Open a shell to the mosquitto client pod:
+1. Open a shell to the Mosquitto client pod:
 
     ```bash
     kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
@@ -259,7 +252,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 
 ## Optional - Create the Dapr application
 
-The above tutorial uses a prebuilt container of the Dapr application. If you would like to modify and build the code yourself, follow these steps:
+ThIs tutorial uses a prebuilt container of the Dapr application. If you would like to modify and build the code yourself, follow these steps:
 
 ### Prerequisites
 
@@ -274,7 +267,7 @@ The above tutorial uses a prebuilt container of the Dapr application. If you wou
     git clone https://github.com/Azure-Samples/explore-iot-operations
     ```
 
-1. Change to the Dapr tutorial directory in the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository:
+1. Change to the Dapr tutorial directory:
 
     ```bash
     cd explore-iot-operations/tutorials/mq-event-driven-dapr/src
@@ -297,12 +290,12 @@ The above tutorial uses a prebuilt container of the Dapr application. If you wou
 
 ## Troubleshooting
 
-If the application doesn't start or you see the pods in `CrashLoopBackoff`, the logs for `daprd` are most helpful. The `daprd` is a container that is automatically deployed with your Dapr application.
+If the application doesn't start or you see the containers in `CrashLoopBackoff`, the `daprd` container log often contains useful information.
 
-Run the following command to view the logs:
+Run the following command to view the logs for the daprd component:
 
 ```bash
-kubectl logs dapr-workload daprd
+kubectl logs -l app=mq-event-driven-dapr -n azure-iot-operations -c daprd
 ```
 
 ## Next steps
