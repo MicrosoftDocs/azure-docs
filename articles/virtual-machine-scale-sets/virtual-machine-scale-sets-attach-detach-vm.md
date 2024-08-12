@@ -168,11 +168,11 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm -VirtualMachin
 ## Moving Virtual Machines between scale sets
 
 To move a VM from one scale set to another, use the following steps:
-1. [Detach](#detaching-a-vm-from-a-virtual-machine-scale-set) the VM from scale set A.
-2. Once the detach completes, [attach](#attach-an-existing-vm-to-a-virtual-machine-scale-set) the VM to scale set B.
+1. [Detach](#detaching-a-virtual-machine-from-a-virtual-machine-scale-set) the VM from scale set A.
+2. Once the detach completes, [attach](#attach-an-existing-virtual-machine-to-a-virtual-machine-scale-set) the VM to scale set B.
 
 ### Limitations
-The limitations for VMs to be [attached](#limitations-for-attaching-an-existing-vm-to-a-scale-set) or [detached](#limitations-for-detaching-a-vm-from-a-scale-set) to or from a scale set remain the same. 
+The limitations for VMs to be [attached](#limitations-for-attaching-an-existing-virtual-machine-to-a-scale-set) or [detached](#limitations-for-detaching-a-virtual-machine-from-a-scale-set) to or from a scale set remain the same. 
 
 ## Troubleshooting
 
