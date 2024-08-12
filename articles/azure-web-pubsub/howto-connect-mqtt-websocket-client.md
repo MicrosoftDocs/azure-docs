@@ -126,7 +126,7 @@ You could also add custom claims into the access token, and these values are pre
 
      ```java
      GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
-     option.setWebPubSubClientAccess(WebPubSubClientProtocol.MQTT);
+     option.setWebPubSubClientProtocol(WebPubSubClientProtocol.MQTT);
      WebPubSubClientAccessToken token = service.getClientAccessToken(option);
      ```
 ---
