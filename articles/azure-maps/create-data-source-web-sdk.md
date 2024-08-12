@@ -6,8 +6,7 @@ ms.author: sipa
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Create a data source

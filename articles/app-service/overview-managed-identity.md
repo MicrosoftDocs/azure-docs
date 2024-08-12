@@ -288,7 +288,7 @@ Content-Type: application/json
     "expires_on": "1586984735",
     "resource": "https://vault.azure.net",
     "token_type": "Bearer",
-    "client_id": "5E29463D-71DA-4FE0-8E69-999B57DB23B0"
+    "client_id": "00001111-aaaa-2222-bbbb-3333cccc4444"
 }
 ```
 

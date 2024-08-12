@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 08/06/2024
 ## As a developer, I want to access my SQL database from my logic app workflow.
 ---
 
@@ -59,8 +59,19 @@ For more information, review the [SQL Server managed connector reference](/conne
 
   > [!IMPORTANT]
   >
-  > If you use an SQL Server connection string that you copied directly from the Azure portal, 
-  > you have to manually add your password to the connection string.
+  > If you use an SQL Server connection string that you copied directly from the Azure portal, you have to manually 
+  > add your password to the connection string. For sensitive information, such as this string, make sure to use the 
+  > most secure authentication flow available. Microsoft recommends that you authenticate access to Azure resources 
+  > with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) when possible, and assign 
+  > a role that has the least privilege necessary.
+  >
+  > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+  > [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings in Standard workflows](../logic-apps/edit-app-settings-host-settings.md). 
+  > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+  > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+  > app settings within your [Standard logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+  > You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+  > For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
   * For an SQL database in Azure, the connection string has the following format:
 

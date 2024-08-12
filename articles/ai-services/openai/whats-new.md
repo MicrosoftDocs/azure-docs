@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 08/05/2024
+ms.date: 08/06/2024
 recommendations: false
 ---
 
@@ -19,6 +19,24 @@ recommendations: false
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
 ## August 2024
+
+### Latest GPT-4o model available in the early access playground (preview)
+
+On August 6, 2024, OpenAI [announced](https://openai.com/index/introducing-structured-outputs-in-the-api/) the latest version of their flagship GPT-4o model version `2024-08-06`. GPT-4o `2024-08-06` has all the capabilities of the previous version as well as:
+
+* An enhanced ability to support complex structured outputs.
+* Max output tokens have been increased from 4,096 to 16,384.
+
+Azure customers can test out GPT-4o `2024-08-06` today in the new AI Studio early access playground (preview).
+
+Unlike the previous early access playground, the AI Studio early access playground (preview) does not require you to have a resource in a specific region.
+
+> [!NOTE]
+> Prompts and completions made through the early access playground (preview) may be processed in any Azure OpenAI region, and are currently subject to a 10 request per minute per Azure subscription limit. This limit may change in the future.
+>
+> Azure OpenAI Service abuse monitoring is enabled for all early access playground users even if approved for modification; default content filters are enabled and cannot be modified.
+
+To test out GPT-4o `2024-08-06`, sign-in to the Azure AI early access playground (preview) using this [link](https://aka.ms/oai/docs/earlyaccessplayground).
 
 ### Global batch deployments are now available
 

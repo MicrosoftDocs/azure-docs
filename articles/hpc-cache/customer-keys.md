@@ -58,7 +58,7 @@ Key vault access permissions:
 
 * The user that creates the Azure HPC Cache must have permissions equivalent to the [Key Vault contributor role](../role-based-access-control/built-in-roles.md#key-vault-contributor). The same permissions are needed to set up and manage Azure Key Vault.
 
-  Read [Secure access to a key vault](../key-vault/general/security-features.md) for more information.
+  Read [Secure access to a key vault](/azure/key-vault/general/security-features) for more information.
 
 ## Choose a managed identity option for the cache
 <!-- check for cross-references from here and create -->
@@ -77,7 +77,7 @@ With a user-assigned managed identity, you can supply an identity that already h
 
 * Learn more about [Managed identities](../active-directory/managed-identities-azure-resources/overview.md)
 
-* Learn [Azure Key Vault basics](../key-vault/general/basic-concepts.md)
+* Learn [Azure Key Vault basics](/azure/key-vault/general/basic-concepts)
 
 ## 1. Set up Azure Key Vault
 
@@ -85,7 +85,7 @@ You can set up a key vault and key before you create the cache, or do it as part
 
 At cache creation time you must specify a vault, key, and key version to use for the cache's encryption.
 
-Read the [Azure Key Vault documentation](../key-vault/general/overview.md) for details.
+Read the [Azure Key Vault documentation](/azure/key-vault/general/overview) for details.
 
 > [!NOTE]
 > The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Make sure that the region you choose [supports both products](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
@@ -113,7 +113,7 @@ The user who creates the cache must have privileges equal to the [Key Vault cont
 
 1. After selecting a vault, select the individual key from the available options, or create a new key. The key must be a 2048-bit RSA key.
 
-1. Specify the version for the selected key. Learn more about versioning in the [Azure Key Vault documentation](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
+1. Specify the version for the selected key. Learn more about versioning in the [Azure Key Vault documentation](/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning).
 
 These settings are optional:
 
