@@ -1,7 +1,7 @@
 ---
 title: Enable Insights to monitor Azure Virtual Desktop
 description: Learn how to enable Insights to monitor Azure Virtual Desktop and send diagnostic data to a Log Analytics workspace.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 09/12/2023
 ms.author: daknappe

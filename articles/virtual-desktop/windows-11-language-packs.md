@@ -1,7 +1,7 @@
 ---
 title: Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desktop - Azure
 description: How to install language packs for Windows 11 Enterprise VMs in Azure Virtual Desktop.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 10/20/2023
 ms.author: daknappe

@@ -1,7 +1,7 @@
 ---
 title: Azure Virtual Desktop (classic) diagnostics log analytics - Azure
 description: How to use log analytics with the Azure Virtual Desktop (classic) diagnostics feature.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: daknappe

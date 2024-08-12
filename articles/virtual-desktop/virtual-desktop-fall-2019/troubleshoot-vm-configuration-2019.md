@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Virtual Desktop (classic) session host - Azure
 description: How to resolve issues when you're configuring Azure Virtual Desktop (classic) session host virtual machines.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: daknappe

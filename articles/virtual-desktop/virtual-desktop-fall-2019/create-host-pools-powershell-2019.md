@@ -1,7 +1,7 @@
 ---
 title: Create Azure Virtual Desktop (classic) host pool PowerShell - Azure
 description: How to create a host pool in Azure Virtual Desktop (classic) with PowerShell cmdlets.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 08/08/2022
 ms.author: daknappe

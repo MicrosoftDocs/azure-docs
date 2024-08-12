@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Files Virtual Desktop - Azure
 description: How to troubleshoot issues with Azure Files in Azure Virtual Desktop.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 08/19/2021
 ms.author: daknappe

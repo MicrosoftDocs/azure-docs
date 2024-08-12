@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Monitor Azure Virtual Desktop - Azure
 description: How to troubleshoot issues with Azure Virtual Desktop Insights.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 09/12/2023
 ms.author: daknappe

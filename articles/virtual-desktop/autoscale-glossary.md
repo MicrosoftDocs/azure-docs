@@ -1,7 +1,7 @@
 ---
 title: Azure Virtual Desktop autoscale glossary for Azure Virtual Desktop - Azure
 description: A glossary of terms and concepts for the Azure Virtual Desktop autoscale feature.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 11/01/2023
 ms.author: daknappe

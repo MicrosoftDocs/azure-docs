@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot connections to Microsoft Entra joined VMs -  Azure Virtual Desktop
 description: How to resolve issues when connecting to Microsoft Entra joined VMs in Azure Virtual Desktop.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 08/24/2022
 ms.author: daknappe

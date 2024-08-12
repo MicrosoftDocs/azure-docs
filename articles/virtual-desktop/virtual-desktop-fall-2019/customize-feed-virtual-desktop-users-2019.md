@@ -1,7 +1,7 @@
 ---
 title: Customize feed for Azure Virtual Desktop (classic) users - Azure
 description: How to customize feed for Azure Virtual Desktop (classic) users with PowerShell cmdlets.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: daknappe

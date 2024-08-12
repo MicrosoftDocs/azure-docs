@@ -1,7 +1,7 @@
 ---
 title: Set up Kerberos Key Distribution Center proxy Azure Virtual Desktop - Azure
 description: How to set up an Azure Virtual Desktop host pool to use a Kerberos Key Distribution Center proxy.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 05/04/2021
 ms.author: daknappe

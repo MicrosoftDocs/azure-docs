@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Virtual Desktop (classic) web client - Azure
 description: How to connect to Azure Virtual Desktop (classic) using the web client.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/21/2022
 ms.author: daknappe

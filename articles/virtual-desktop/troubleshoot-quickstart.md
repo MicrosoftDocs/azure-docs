@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot quickstart Azure Virtual Desktop
 description: How to troubleshoot issues with the Azure Virtual Desktop quickstart.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 08/06/2021
 ms.author: daknappe

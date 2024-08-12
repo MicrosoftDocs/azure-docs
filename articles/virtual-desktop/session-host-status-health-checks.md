@@ -1,7 +1,7 @@
 ---
 title: Session host statuses and health checks in Azure Virtual Desktop
 description: Learn about the different statuses and health checks for session hosts in Azure Virtual Desktop.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 03/05/2024
 ms.author: daknappe

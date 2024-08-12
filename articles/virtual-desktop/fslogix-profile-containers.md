@@ -1,7 +1,7 @@
 ---
 title: User profile management for Azure Virtual Desktop with FSLogix profile containers
 description: Learn about using User profile management for Azure Virtual Desktop with FSLogix profile containers to manage user profiles and personalization.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: daknappe

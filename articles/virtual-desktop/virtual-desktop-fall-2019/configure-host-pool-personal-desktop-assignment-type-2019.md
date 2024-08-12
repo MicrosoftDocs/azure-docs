@@ -1,7 +1,7 @@
 ---
 title: Azure Virtual Desktop (classic) personal desktop assignment type - Azure
 description: How to configure the assignment type for an Azure Virtual Desktop (classic) personal desktop host pool.
-ms.author: dknappettmsft
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: daknappe
