@@ -4,7 +4,7 @@ description: An overview of services provided by Azure DNS.
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: overview
-ms.date: 08/10/2024
+ms.date: 08/12/2024
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
@@ -22,19 +22,21 @@ Azure DNS supports both internet-facing DNS domains and private DNS zones, and p
 
 - **[Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)** is a DNS-based traffic load balancer. This service allows you to distribute traffic to your public facing applications across the global Azure regions.
 
-Using Azure DNS, you can:
+Azure DNS enables multiple scenarios, including:
 
 * [Host and resolve public domains](/azure/dns/dns-delegate-domain-azure-dns)
-* [Manage DNS resolution in your virtual networks](/azure/dns/private-dns-privatednszone) 
+* [Manage DNS resolution in your virtual networks](/azure/dns/private-dns-privatednszone)
+* [Enable autoregistration for VMs](/azure/dns/private-dns-autoregistration)
 * [Enable name resolution between Azure and your on-premises resources](/azure/dns/private-resolver-hybrid-dns)
+* [Secure hybrid networking](/azure/architecture/networking/architecture/azure-dns-private-resolver#use-dns-private-resolver)
 * [Monitor DNS metrics and alerts](/azure/dns/dns-alerts-metrics)
 * [Integrate with your other Azure services](/azure/dns/dns-for-azure-services)
+* [Perform Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)
 * Protect your [public](/azure/dns/dns-protect-zones-recordsets) and [private](/azure/dns/dns-protect-private-zones-recordsets) DNS zones and records
 * Enable automatic [fault tolerance](/azure/dns/private-resolver-reliability) and [failover](/azure/dns/tutorial-dns-private-resolver-failover) for DNS resolution
 * [Load-balance your applications](/azure/traffic-manager/traffic-manager-how-it-works)
 * Increase application [availability](/azure/traffic-manager/traffic-manager-monitoring) and [performance](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
 * [Monitor your application traffic patterns](/azure/traffic-manager/traffic-manager-traffic-view-overview)
-* And more ...
 
 ## Next steps
 
