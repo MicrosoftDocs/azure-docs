@@ -99,7 +99,7 @@ python quickstart.py
 You can get sample audio files, such as *wikipediaOcelot.wav*, from the [Azure AI Speech SDK repository at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/audiofiles).
 
 > [!IMPORTANT]
-> For production, store and access your credentials using a secure method, such as [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see [Azure AI services security](../../security-features.md).
+> For production, store and access your credentials using a secure method, such as [Azure Key Vault](/azure/key-vault/general/overview). For more information about credential security, see [Azure AI services security](../../security-features.md).
 
 ## Output
 
