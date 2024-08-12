@@ -54,7 +54,7 @@ As with other Azure Health Data Services, you pay only for what you use. You are
 
 | Transformation Operation (per MB) | Up to 50 MB | Over 50 MB |
 | ---------------- | ------ | ---- |
-| Unstructured de-identification | $0 | $0.05 |
+| Unstructured text de-identification | $0 | $0.05 |
 
 When using the de-identification service's asynchronous endpoint, data in Azure Blob Storage will incur storage charges.
 
