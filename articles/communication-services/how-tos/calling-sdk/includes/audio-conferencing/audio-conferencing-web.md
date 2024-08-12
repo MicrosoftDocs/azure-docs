@@ -52,6 +52,6 @@ try {
 |code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
 |400	| 45950 | ExpectedError  | Audio conferencing feature is available only in meetings | Audio conferencing details can only be retrieved in meeting scenario |
-|405 | 45951	| ExpectedError | ACS service disabled audio conferencing |  Contact ACS service support for assistance and guidance |
+|405 | 45951	| ExpectedError | ACS service disabled audio conferencing |  Create Azure Support ticket to request assistance |
 |403 | 45952	| ExpectedError | Audio conferencing details aren't available before joining the meeting  | Ensure that the call object is in the `connected` state before invoking the API to retrieve the audio conferencing details |
 |403 | 45953	| ExpectedError | Audio conferencing details aren't available in lobby  | Ensure that the call object is in the `connected` state before invoking the API to retrieve the audio conferencing details |
