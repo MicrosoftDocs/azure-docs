@@ -4,7 +4,7 @@ description: In this article, you learn how to limit and restrict network access
 services: virtual-network
 author: asudbring
 manager: mtillman
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
