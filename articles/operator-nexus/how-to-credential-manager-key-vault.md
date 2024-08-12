@@ -42,7 +42,7 @@ These examples describe how to configure a managed identity for a Cluster Manage
         --analytics-workspace-id "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
         --fabric-controller-id "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName" \
         --managed-resource-group-configuration name="my-managed-rg" --tags key1="myvalue1" key2="myvalue2" \
-        --resource-group <Resource Group Name> --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAI
+        --resource-group <Resource Group Name> --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAI"
 ```
 
 - Add system assigned identity to Cluster Manager
