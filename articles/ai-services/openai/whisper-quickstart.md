@@ -1,12 +1,12 @@
 ---
-title: 'Speech to text with Azure OpenAI Service'
+title: Convert speech to text with Azure OpenAI Service
 titleSuffix: Azure OpenAI
-description: Use the Azure OpenAI Whisper model for speech to text.
+description: Learn how to use the Azure OpenAI Whisper model for speech-to-text conversion.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom: devx-track-python
 ms.topic: quickstart
-ms.date: 3/19/2024
+ms.date: 8/09/2024
 ms.reviewer: v-baolianzou
 ms.author: eur
 author: eric-urban
@@ -16,20 +16,23 @@ zone_pivot_groups: openai-whisper
 
 # Quickstart: Speech to text with the Azure OpenAI Whisper model
 
-In this quickstart, you use the Azure OpenAI Whisper model for speech to text. 
+In this quickstart, you use the [Azure OpenAI Whisper model](../speech-service/whisper-overview.md) for speech to text conversion. The Whisper model can transcribe human speech in numerous languages, and it can also translate other languages into English.
 
-The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to transcribe a file larger than 25 MB, you can use the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md#use-a-whisper-model) API.
+The file size limit for the Whisper model is 25 MB. If you need to transcribe a file larger than 25 MB, you can use the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md#use-a-whisper-model) API.
+
+> [!NOTE]
+> The OpenAI Whisper model is currently in Limited Access Public Preview.
 
 ## Prerequisites
 
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
-- An Azure OpenAI resource with a `whisper` model deployed in a supported region. [Whisper model regional availability](./concepts/models.md#whisper-models). For more information, see [Create a resource and deploy a model with Azure OpenAI](how-to/create-resource.md).
+- An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
+- An Azure OpenAI resource with a `whisper` model deployed in a [supported region](./concepts/models.md#whisper-models). For more information, see [Create a resource and deploy a model with Azure OpenAI](how-to/create-resource.md).
 
 ## Set up
 
 ### Retrieve key and endpoint
 
-To successfully make a call against Azure OpenAI, you'll need an **endpoint** and a **key**.
+To successfully make a call against Azure OpenAI, you need an *endpoint* and a *key*.
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -103,5 +106,5 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 ## Next steps
 
-* Learn more about how to work with Whisper models with the Azure AI Speech [batch transcription](../speech-service/batch-transcription-create.md) API.
-* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)
+* To learn how to submit audio data in batches, see [Create a batch transcription](../speech-service/batch-transcription-create.md).
+* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples).

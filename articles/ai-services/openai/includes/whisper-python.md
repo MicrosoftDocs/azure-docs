@@ -11,8 +11,8 @@ ms.date: 3/19/2024
 
 ### Prerequisites
 
-- <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
-- The following Python libraries: os
+- [Python 3.8 or later](https://www.python.org)
+- The following Python library: os
 
 ### Set up
 
@@ -34,9 +34,9 @@ pip install openai==0.28.1
 
 ---
 
-1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
+1. Create a new Python file called *quickstart.py*. Then open it up in your preferred editor or IDE.
 
-1. Replace the contents of quickstart.py with the following code. Modify the code to add your deployment name:
+1. Replace the contents of *quickstart.py* with the following code. Modify the code to add your deployment name:
 
 # [OpenAI Python 1.x](#tab/python-new)
 
@@ -62,8 +62,6 @@ pip install openai==0.28.1
 ```
 
 # [OpenAI Python 0.28.1](#tab/python)
-
-
 
 ```python
     import openai
@@ -92,13 +90,16 @@ pip install openai==0.28.1
 
 ---
 
-Run the application with the python command on your quickstart file:
+Run the application using the `python` command on your quickstart file:
 
+```python
+python quickstart.py
+```
 
-You can get sample audio files from the [Azure AI Speech SDK repository at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/audiofiles).
+You can get sample audio files, such as *wikipediaOcelot.wav*, from the [Azure AI Speech SDK repository at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/audiofiles).
 
 > [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see [Azure AI services security](../../security-features.md).
 
 ## Output
 
