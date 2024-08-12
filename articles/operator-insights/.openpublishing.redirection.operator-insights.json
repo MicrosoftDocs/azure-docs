@@ -189,6 +189,16 @@
     "source_path_from_root": "/articles/operator-insights/upgrade-ingestion-agent.md",
     "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
     "redirect_document_id": false
+},
+{
+    "source_path_from_root": "/articles/operator-insights/index.yml",
+    "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+    "redirect_document_id": false
+},
+{
+    "source_path_from_root": "/articles/operator-insights/operator-insights-faq.yml",
+    "redirect_url": "https://azure.microsoft.com/en-in/products/category/analytics",
+    "redirect_document_id": false
 }
   ]
 }
