@@ -36,7 +36,7 @@ To use the ACL integration, your client application must assume the identity of 
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
 > [!IMPORTANT]
-> After a connection is established by using a Microsoft Entra token, client applications must periodically refresh the Microsoft Entra token before expiry. Then the apps must send an `AUTH` command to the Redis server to avoid disrupting connections. For more information, see [Configure your Redis client to use Microsoft Entra](#configure-your-redis-client-to-use-microsoft-entra-id).
+> After a connection is established by using a Microsoft Entra token, client applications must periodically refresh the Microsoft Entra token before expiry. Then the apps must send an `AUTH` command to the Redis server to avoid disrupting connections. For more information, see [Configure your Redis client to use Microsoft Entra](#configure-your-redis-client-to-use-microsoft-entra).
 
 ## Enable Microsoft Entra authentication on your cache
 
@@ -104,7 +104,7 @@ If you want to use a custom access policy instead of Redis Data Owner, go to **D
 
    :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-new-redis-user.png" alt-text="Screenshot showing the available Access Policies.":::
 
-1. Choose either **User or service principal** or **Managed Identity** to determine how to assign access to your Azure Cache for Redis instance. If you select **User or service principal** and you want to add a user, you must first [enable Microsoft Entra authentication](#enable-microsoft-entra-id-authentication-on-your-cache).
+1. Choose either **User or service principal** or **Managed Identity** to determine how to assign access to your Azure Cache for Redis instance. If you select **User or service principal** and you want to add a user, you must first [enable Microsoft Entra authentication](#enable-microsoft-entra-authentication-on-your-cache).
 
 1. Then, choose **Select members** and choose **Select**. Then, select **Next: Review + assign**.
 
