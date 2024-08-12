@@ -106,5 +106,9 @@ Migrating may involve not just replacing API calls but also rethinking how your 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Chat with C# SDK](./includes/chat-csharp.md)]
+[!INCLUDE [Migrating to ACS on C# SDK](./includes/twilio-to-acs-chat-csharp-tutorial.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Migrating to ACS on Java SDK](./includes/twilio-to-acs-chat-java-tutorial.md)]
 ::: zone-end
