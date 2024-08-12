@@ -10,10 +10,12 @@ ms.date: 08/11/2024
 ms.reviewer: ju-shim
 ---
 
+
+# Spot Placement Score (Preview)
+
 > [!IMPORTANT]
 > The Spot Placement Score feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-# Spot Placement Score
 Spot Placement Score evaluates the likelihood of success for individual Spot deployments by considering parameters like desired Spot Virtual Machine (VM) count, VM size, and your deployment region or zone. This feature enables you to generate a placement score to deploy a desired number of Spot Virtual Machines (VMs) across various combinations of regions, zones, and VM sizes. By inputting lists of up to eight regions and five VM sizes, you can obtain placement scores categorized as either High, Medium, or Low. A score of High indicates that the deployment is highly likely to succeed while a score of Low indicates that the deployment has a low chance of success. These scores are based on analyses of Spot capacity allocation probability and the survivability of the specified number of Spot VMs within each region and VM size combination. This functionality enhances deployment planning by providing predictive insights into deployment success and optimizing resource allocation for your Spot VMs. 
  
 Using Spot Placement Score, you can achieve the following: 
@@ -74,7 +76,7 @@ Find the Spot Placement Score in the Spot tab of the Virtual Machine Scale Sets 
 
 ### [REST API](#tab/rest-api)
 
-Use the following REST API to get your Spot Placement Score. The Placement Score API supports the following versions: *2024-03-01-preview* and *2024-06-01-preview*. You need to add the Role-Based Access Control (RBAC) role "Compute Recommendations Role" and select the members to enable the subscription they want to run the API on (https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Use the following REST API to get your Spot Placement Score. The Placement Score API supports the following versions: *2024-03-01-preview* and *2024-06-01-preview*. You need to add the Role-Based Access Control (RBAC) role "Compute Recommendations Role" and select the members to enable the subscription they want to run the API on (/azure/role-based-access-control/role-assignments-portal).
 
 ```
 POST https://management.azure.com/subscriptions/{subscription}/providers/Microsoft.Compute/locations/{region}/placementScores/spot/generate?api-version={api-version} 
@@ -97,7 +99,7 @@ Some important terminology to consider:
 
 ### [Azure CLI 2.0](#tab/cli)
 
-Access Spot Placement Score using Azure CLI command [az compute-recommender spot-placement-recommender](https://learn.microsoft.com/cli/azure/compute-recommender?view=azure-cli-latest#az-compute-recommender-spot-placement-recommender).
+Access Spot Placement Score using Azure CLI command [az compute-recommender spot-placement-recommender](/cli/azure/compute-recommender#az-compute-recommender-spot-placement-recommender).
 
 ```azurecli-interactive
 az compute-recommender spot-placement-recommender \
@@ -112,7 +114,7 @@ az compute-recommender spot-placement-recommender \
 
 ### [Azure PowerShell](#tab/powershell)
 
-Access the Spot Placement Score using Azure PowerShell command [Invoke-AzSpotPlacementScore](https://learn.microsoft.com/powershell/module/az.compute/invoke-azspotplacementscore) to call the API endpoint. Replace all parameters with your specific details:
+Access the Spot Placement Score using Azure PowerShell command [Invoke-AzSpotPlacementScore](/powershell/module/az.compute/invoke-azspotplacementscore) to call the API endpoint. Replace all parameters with your specific details:
 
 ```azurepowershell-interactive
 Invoke-AzSpotPlacementScore
