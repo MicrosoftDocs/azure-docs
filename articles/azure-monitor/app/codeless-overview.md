@@ -35,7 +35,7 @@ The following table shows the current state of autoinstrumentation availability.
 Links are provided to more information for each supported scenario.
 
 > [!NOTE]
-> If your hosting environment or resource provider is not listed in the following table, autoinstrumentation is not supported. You can manually instrument your code using Application Insights SDKs or Azure Monitor OpenTelemetry Distros. For more information, see [Data Collection Basics of Azure Monitor Application Insights](opentelemetry-overview.md).
+> If your hosting environment or resource provider is not listed in the following table, then autoinstrumentation is not supported. In this case, we recoomend manually instrumenting using the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md). For more information, see [Data Collection Basics of Azure Monitor Application Insights](opentelemetry-overview.md).
 
 |Environment/Resource provider                    | .NET Framework                                                                                                                                        | .NET Core / .NET                                                                                                                                      | Java                                                                                                                                                      | Node.js                                                                                                                                                                                      | Python                                                                                           |
 |-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
@@ -58,19 +58,6 @@ Links are provided to more information for each supported scenario.
 
 > [!NOTE]
 > Autoinstrumentation was known as "codeless attach" before October 2021.
-
-## JavaScript (Web) SDK Loader Script injection by configuration
-
-When using supported Software Development Kits (SDKs), you can enable SDK injection in configuration to automatically inject JavaScript (Web) SDK Loader Script onto each page.
-
-
-   | Language   
-   |	:---	|
-   | [ASP.NET Core](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
-   | [Node.js](./nodejs.md#browser-sdk-loader) |
-   | [Java](./java-standalone-config.md#browser-sdk-loader-preview) |
-
-For other methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).
 
 ## Frequently asked questions
 
