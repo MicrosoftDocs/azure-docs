@@ -254,4 +254,5 @@ The following **CommonSecurityLog** fields are added by Microsoft Sentinel to en
 
 ## Related content
 
-For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
+- [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
+- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)
