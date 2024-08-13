@@ -17,9 +17,9 @@ ms.date: 08/23/2024
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-Azure Logic Apps provides prebuilt integration workflow templates that you can use to accelerate the process of building integration applications. These templates follow commonly used patterns and help developers streamline development by providing a starting point or baseline with predefined business logic and configurations.
+Azure Logic Apps provides prebuilt integration workflow templates that you can use to accelerate the process of building integration applications. These templates follow commonly used patterns and help you streamline development by providing a starting point or baseline with predefined business logic and configurations.
 
-Not only can you use workflow templates to kickstart your development, you can create workflow templates for your own use or to share with others. Your template package can include artifacts such as schemas, maps, and assemblies. To publish your template to the templates gallery in the Azure portal, create a template package using this how-to guide, and then go to the [Azure Logic Apps workflow templates repository in GitHub](https://github.com/Azure/LogicAppsTemplates) to create a pull request with your template package.
+Not only can you kickstart development with workflow templates, you can create workflow templates for your own use or share them with others. Your template can include artifacts such as schemas, maps, and custom assemblies. To add your template to the templates gallery in the Azure portal, create a template package by using this how-to guide. When you're done, visit the [Azure Logic Apps workflow templates repository in GitHub](https://github.com/Azure/LogicAppsTemplates) where you can create a pull request for your template package and have the Azure Logic Apps team review your template.
 
 ## Limitations
 
@@ -43,7 +43,7 @@ You can also include any other files to maintain and support your template, for 
 
 ## Create a template package folder
 
-- Before you create the template package folder, review [Names and style conventions](#names-and-style-conventions).
+- Before you create the template package folder, get familiar with [Names and style conventions](#names-and-style-conventions).
 
 - To correctly register your template package folder, you must add the folder name to the [root-level manifest.json file in the workflow templates GitHub repository](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
 
@@ -51,7 +51,7 @@ You can also include any other files to maintain and support your template, for 
 
 The **workflow.json** file contains the underlying definition for a workflow in JSON format. To create the **workflow.json** file, you need to copy and save your workflow definition as a file named **workflow.json**.
 
-For the easiest and best way to get the workflow definition, create your workflow using the designer. Make sure to review the [workflow best practices](#workflow-best-practices) and [names and style conventions](#names-and-style-conventions). As a starting point, you can use the prebuilt workflow templates from the template gallery in the Azure portal.
+For the easiest and best way to get the workflow definition, create your workflow using the designer. Make sure to review [Workflow best practices](#workflow-best-practices) along with [Names and style conventions](#names-and-style-conventions). As a starting point, you can use the prebuilt workflow templates from the template gallery in the Azure portal.
 
 As you build your workflow, the designer automatically includes references to any added built-in, service provider connections, managed API connections, or libraries in the underlying workflow definition.
 
@@ -67,7 +67,7 @@ To get the workflow definition after you're done, follow these steps in the [Azu
 
 ## Parameter references in workflow.json
 
-When you reference parameters in the **workflow.json** file, you must reflect names that use the suffix **_#workflowname#** in the following way:
+When you reference parameters in the **workflow.json** file, you must reflect the parameter names that use the suffix **_#workflowname#** in the following way:
 
 **`"name": "@parameters('<parameter-name>_#workflowname#')"`**
 
@@ -77,7 +77,7 @@ For example:
 
 ## Connection references in workflow.json
 
-When you reference connections in the **workflow.json** file, you must reflect names that use the suffix **_#workflowname#** in the following way:
+When you reference connections in the **workflow.json** file, you must reflect the connection names that use the suffix **_#workflowname#** in the following way:
 
 ```json
 "referenceName": "<connector-ID>_#workflowname#",
@@ -109,13 +109,13 @@ For more information about the connector ID, see [Find the connector ID](#find-c
 
 ### Create a workflow template image
 
-In the Azure portal, each workflow template has an overview pane in the workflow templates gallery. This pane includes a read-only preview image for the workflow that the template creates plus other template information. 
+In the Azure portal, each workflow template has an overview pane in the workflow templates gallery. This pane includes a read-only preview image for the workflow that the template creates plus other template information.
 
-To provide this preview image, follow these steps:
+To create this preview image, follow these steps:
 
 1. In the designer, set up your workflow for creating two screenshots.
 
-   You need to create a version each for the browser light theme and for the browser dark theme.
+   You need to create a version each for the browser light theme and dark theme.
 
 1. Create the workflow screenshots using your preferred screen capture tool. Avoid including too much whitespace around the workflow.
 
@@ -132,7 +132,7 @@ To provide this preview image, follow these steps:
 
 ### Create a manifest.json file
 
-The **manifest.json** file describes the relationship between a workflow and related components. Currently, you need to manually create this file, or you can repurpose the **manifest.json** file from an existing prebuilt template in the [Azure Logic Apps workflow template repository in GitHub](https://github.com/Azure/LogicAppsTemplates). Make sure to review the [names and style conventions](#names-and-style-conventions) as you create the **manifest.json** file.
+The **manifest.json** file describes the relationship between a workflow and related components. Currently, you need to manually create this file, or you can repurpose the **manifest.json** file from an existing prebuilt template in the [Azure Logic Apps workflow template repository in GitHub](https://github.com/Azure/LogicAppsTemplates). As you create the **manifest.json** file, make sure to review the [names and style conventions](#names-and-style-conventions).
 
 The following table describes the attributes in the **manifest.json** file:
 
