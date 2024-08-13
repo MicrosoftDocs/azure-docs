@@ -77,38 +77,71 @@ Until we have the tooling available, creating this file will be a manual process
 | **`details`** | No | See description. | Template information to use for filtering the templates gallery. <br><br>- **`By`**: The template publisher, for example, **`Microsoft`**. <br><br>- **`Type`**: **`Workflow`** <br><br>- **`Trigger`**: The trigger type, for example, **`Recurrence`**, **`Event`**, or **`Request`**. |
 | **`artifacts`** | No | <*artifacts-array*> | All the relevant files in the template package and includes the following attributes: <br><br>- **`type`**: The file type, which determines the appropriate location for where to copy the file, for example **`workflow`**. <br><br>- **`file`**: The file name and extension. | 
 | **`images`** | Yes | **`snapshot-light.png`**, **`snapshot-dark.png`** | The workflow screenshots for light and dark browser themes. Don't include a lot of whitespace around the workflow. |
-| **`parameters`** | Yes | <*workflow-parameters-array*> | The parameters to use for workflow creation. For each parameter, you need to specify the following properties: <br><br>- **`name`**: The parameter name must have the suffix, **`_#workflowname#`**, use only alphanumeric characters and underscores, and follow this format: <br><br>**`<parameter_name>_#workflowname#`** <br><br>- **`displayName`**: The parameter's friendly display name. See [Names and style conventions](#names-style-conventions). <br><br>- **`type`**: The parameter's data type, for example **`String`** or **`Int`**. <br><br>- **`default`**: The parameter's default value, if any. If none, leave this value as an empty string. <br><br>- **`description`** The parameter's details and other important or helpful information. <br><br>- **`required`**: **`true`** or **`false`** |
-| **`connections`** | Yes, but can be empty if no connections exist. | <*workflow-connections-array*> | The connections to use in workflow creation. Each connection has the following key properties: <br><br>-**`connectorId`**: <br><br>- **`kind`**: The connection's runtime host, which is either **`inapp`** (built-in or native), **`shared`** (Azure) | 
+| **`parameters`** | Yes | <*workflow-parameters-array*> | The parameters to use for workflow creation. For each parameter, you need to specify the following properties: <br><br>- **`name`**: The parameter name must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<parameter-name>_#workflowname#`** <br><br>- **`displayName`**: The parameter's friendly display name. See [Names and style conventions](#names-style-conventions). <br><br>- **`type`**: The parameter's data type, for example **`String`** or **`Int`**. <br><br>- **`default`**: The parameter's default value, if any. If none, leave this value as an empty string. <br><br>- **`description`** The parameter's details and other important or helpful information. <br><br>- **`required`**: **`true`** or **`false`** |
+| **`connections`** | Yes, but can be empty if no connections exist. | <*connections-array*> | The connections to use in workflow creation. Each connection has the following properties: <br><br>-**`connectorId`**: The connector ID must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<connector-ID>_#workflowname#`** <br><br>To find the connector ID, see [Find the connector ID](#find-connector-id). <br><br>- **`kind`**: The connector's runtime host type, which is either **`inapp`** for built-in operations and service provider-based connectors or **`shared`** for managed, Azure-hosted connectors. In the connectors gallery, built-in operations and service provider-based connectors are labeled as **In App**, while managed connectors are labeled as **Shared**. |
+| **`featuredConnections`** | No | <*featured-connections-array*> | By default, the template gallery shows icons for the prebuilt operations and connectors in Azure Logic Apps used by each template. To include icons for any other operations, you can use the **`featuredConnections`** attribute. Each operation must have the following properties: <br><br>- **`kind`**: The operation kind <br><br>- **`type`**: The operation type <br><br>To find these values, see [Find the operation kind and type for featuredConnections section](#find-featured-connections-properties). |
 
-To get the connector ID, go to the Connections page of your Logic App. In the Connections page, go to JSON View tab. You can copy the ID of the connection from here. For shared connections, strip the private information such as subscription ID, Resource Group Name 
+<a name="find-connector-id"></a>
 
-Requirement: Key must be followed by _#workflowname# (i.e. “AI_search” => “AI_search _#workflowname#). This must be reflected in workflow.json when referring connections 
+### Find the connector ID
 
-Requirement:  
+To find the connector ID to use for a connection in the **manifest.json** file, follow these steps:
 
-Name must be followed by _#workflowname#  
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-i.e. “AI_search” => “AI_search _#workflowname#” 
+1. On the logic app menu, under **Workflows**, select **Connections**.
 
-Name with _#workflowname# must be reflected in workflow.json when referring to connections 
+1. Select the **JSON View** tab.
 
-i.e. “referenceName” : “AI_search _#workflowname#” 
+1. Based on the connection type, follow these steps:
 
-i.e. “connectionName”: “AI_search _#workflowname#” 
+   - For managed, "shared" connections hosted and run in Azure, find the **`managedApiConnections`** section. Under the **`connection`** attribute, copy and save the **`id`** value without any personal and sensitive data, such as the subscription ID, resource group name, and so on.
+
+   - For service provider-based connections hosted on the Azure Logic Apps runtime, find the **`serviceProviderConnections`** section. 
+
+<a name="find-featured-connections-operation-properties"></a>
+
+### Find the operation properties for featuredConnections
+
+To find the properties for other operations to use in the **`featureConnections`** section for the **manifest.json** file, follow these steps:
+
+ , This is an array and you can specify the operation type and operation kind. You can get these values from the workflow definition file. For example, for below workflow, highlighted properties should be used 
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+
+1. On the logic app menu, under **Workflows**, select **Connections**.
+
+1. Select the **JSON View** tab.
 
 
+## Parameter and connection references in workflow.jon
 
-
-### Parameter references in workflow.jon
+### Parameter references
 
 When you reference parameters in the **workflow.json** file, you must reflect names that use the suffix **_#workflowname#** in the following way:
 
-**`@parameters("<parameter_name>_#workflowname#")`**
+**`"name": "@parameters('<parameter-name>_#workflowname#')"`**
 
-FeaturedConnections 
+For example:
 
-The gallery view of templates shows the icons for connectors used in the template. By default, we would show the icons for Service Providers (In App) and Managed Connectors (Shared). If you would like to include icons for any other actions, you can use the Featured Connections property 
+**`"name": "@parameters('sharepoint-folder-path_#workflowname#')"`**
 
-This is an array and you can specify the operation type and operation kind. You can get these values from the workflow definition file. For example, for below workflow, highlighted properties should be used 
+### Connection references
+
+When you reference connections in the **workflow.json** file, you must reflect names that use the suffix **_#workflowname#** in the following way:
+
+```json
+"referenceName": "<connector-ID>_#workflowname*",
+"connectionName": "<connector-ID>_#workflowname"
+```
+
+For example:
+
+```json
+"referenceName": "AI_search_#workflowname*",
+"connectionName": "AI_search_#workflowname"
+```
+
+
 
  ## Names and style conventions
