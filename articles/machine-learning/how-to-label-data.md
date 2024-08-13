@@ -177,7 +177,7 @@ If your project is of type "Instance Segmentation (Polygon)," specify one or mor
 
 1. Select for each point in the polygon. When you complete the shape, select twice to finish, as shown in this animation:
 
-    :::image type="content" source="./media/how-to-label-data/polygon.gif" lightbox="./media/how-to-label-data/polygon.gif" alt-text="Create polygons for Cat and Dog":::
+    :::image type="content" source="./media/how-to-label-data/polygon.gif" lightbox="./media/how-to-label-data/polygon.gif" alt-text="Create polygons for Cat and Dog.":::
 
 To delete a polygon, select the X-shaped target that appears next to the polygon after creation.
 
