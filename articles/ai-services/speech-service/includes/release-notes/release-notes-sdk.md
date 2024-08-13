@@ -8,7 +8,7 @@ ms.author: eur
 
 ### Speech SDK 1.40: 2024-August release
 
-Note: 1.39.0 is not missing, it was a internal release.
+Note: 1.39.0 isn't missing, it was an internal release.
 
 #### New features
 
@@ -17,7 +17,7 @@ Note: 1.39.0 is not missing, it was a internal release.
 *  Added support for personal voice input text streaming by introducing PersonalVoiceSynthesisRequest in speech synthesis. Note: This API is in preview and may be subject to change in future versions.
 *  Added support for diarization of intermediate results when ConversationTranscriber is used.
 *  Removed CentOS/RHEL 7 support due to [CentOS 7 EOL](https://www.redhat.com/topics/linux/centos-linux-eol) and [the end of RHEL 7 Maintenance Support 2](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
-*  Use of embedded speech models now requires a model license instead of a model key. If you are an existing embedded speech customer and want to upgrade, please contact your support person at Microsoft for details on model updates.
+*  Use of embedded speech models now requires a model license instead of a model key. If you're an existing embedded speech customer and want to upgrade, please contact your support person at Microsoft for details on model updates.
 
 #### Bug fixes
 
@@ -176,7 +176,7 @@ Note: 1.39.0 is not missing, it was a internal release.
 
 #### Bug fixes
 * Fixed keyword recognition result offsets so that they correctly match the input audio stream since the beginning. The fix applies to both stand-alone keyword recognition and keyword-triggered speech recognition.
-* Fixed Synthesizer stopSpeaking does not return immediately [SPXSpeechSynthesizer stopSpeaking() method cannot return immediately on iOS 17 - Issue #2081 ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2081)
+* Fixed Synthesizer stopSpeaking doesn't return immediately [SPXSpeechSynthesizer stopSpeaking() method cannot return immediately on iOS 17 - Issue #2081 ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2081)
 * Fixed Mac catalyst import issue on Swift module Support for mac catalyst with apple silicon. [Issue #1948](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1948)
 * JS: AudioWorkletNode module loads [now uses a trusted URL](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/732), with fallback for CDN browser includes.
 * JS: Packed lib files now targets ES6 JS, with support for ES5 JS removed.
@@ -213,13 +213,13 @@ Note: 1.39.0 is not missing, it was a internal release.
 
 #### New Features
 
-* Support for [real-time diarization](../../get-started-stt-diarization.md) is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, JavaScript, Python and Objective-C/Swift.
+* Support for [real-time diarization](../../get-started-stt-diarization.md) is available in public preview with the Speech SDK 1.31.0. This feature is available in the following SDKs: C#, C++, Java, JavaScript, Python, and Objective-C/Swift.
 
 * Synchronized speech synthesis word boundary and viseme events with audio playback
 
 #### Breaking changes
 
-* The former "conversation transcription" scenario is renamed to "meeting transcription". For example, use `MeetingTranscriber` instead of `ConversationTranscriber`, and use `CreateMeetingAsync` instead of `CreateConversationAsync`. Although the names of SDK objects and methods have changed, the renaming does not change the feature itself. Use meeting transcription objects for transcription of meetings with user profiles and voice signatures. See [Meeting transcription](../../meeting-transcription.md) for more information. The "conversation translation" objects and methods are not affected by these changes. You can still use the `ConversationTranslator` object and its methods for meeting translation scenarios.
+* The former "conversation transcription" scenario is renamed to "meeting transcription". For example, use `MeetingTranscriber` instead of `ConversationTranscriber`, and use `CreateMeetingAsync` instead of `CreateConversationAsync`. Although the names of SDK objects and methods have changed, the renaming doesn't change the feature itself. Use meeting transcription objects for transcription of meetings with user profiles and voice signatures. See [Meeting transcription](../../meeting-transcription.md) for more information. The "conversation translation" objects and methods aren't affected by these changes. You can still use the `ConversationTranslator` object and its methods for meeting translation scenarios.
 
 - For real-time diarization, a new `ConversationTranscriber` object is introduced. The new "conversation transcription" object model and call patterns are similar to continuous recognition with the `SpeechRecognizer` object. A key difference is that the `ConversationTranscriber` object is designed to be used in a conversation scenario where you want to differentiate multiple speakers (diarization). User profiles and voice signatures aren't applicable. See the [real-time diarization quickstart](../../get-started-stt-diarization.md) for more information.
 
@@ -320,7 +320,7 @@ This table shows the previous and new object names for real-time diarization and
 
 #### Bug fixes
 
-* **C# on Windows** - Fix potential race condition/deadlock in Windows audio extension. In scenarios that both dispose of the audio renderer quickly and also use the Synthesizer method to stop speaking, the underlying event was not reset by stop, and could cause the renderer object to never be disposed, all while it could be holding a global lock for disposal, freezing the dotnet GC thread.
+* **C# on Windows** - Fix potential race condition/deadlock in Windows audio extension. In scenarios that both dispose of the audio renderer quickly and also use the Synthesizer method to stop speaking, the underlying event wasn't reset by stop, and could cause the renderer object to never be disposed, all while it could be holding a global lock for disposal, freezing the dotnet GC thread.
 
 #### Samples
 
@@ -545,7 +545,7 @@ This table shows the previous and new object names for real-time diarization and
 - **C++, C#**: IntentRecognizer using pattern matching is now supported in C#. In addition, scenarios with custom entities, optional groups, and entity roles are now supported in C++ and C#.
 - **C++, C#**: Improved diagnostics trace logging using new classes FileLogger, MemoryLogger, and EventLogger. SDK logs are an important tool for Microsoft to diagnose customer-reported issues. These new classes make it easier for customers to integrate Speech SDK logs into their own logging system.
 - **All programming languages**: PronunciationAssessmentConfig now has properties to set the desired phoneme alphabet (IPA or SAPI) and N-Best Phoneme Count (avoiding the need to author a configuration JSON as per [GitHub issue 1284](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1284)). Also, syllable level output is now supported.
-- **Android, iOS and macOS (all programming languages)**: GStreamer is no longer needed to support limited-bandwidth networks. SpeechSynthesizer now uses the operating system's audio decoding capabilities to decode compressed audio streamed from the text to speech service.
+- **Android, iOS, and macOS (all programming languages)**: GStreamer is no longer needed to support limited-bandwidth networks. SpeechSynthesizer now uses the operating system's audio decoding capabilities to decode compressed audio streamed from the text to speech service.
 - **All programming languages**: SpeechSynthesizer now supports three new raw output Opus formats (without container), which are widely used in live streaming scenarios.
 - **JavaScript**: Added getVoicesAsync() API to SpeechSynthesizer to retrieve the list of supported synthesis voices ([GitHub issue 1350](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1350))
 - **JavaScript**: Added getWaveFormat() API to AudioStreamFormat to support non-PCM wave formats ([GitHub issue 452](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/452))
@@ -985,7 +985,7 @@ Stay healthy!
    > Customers must configure OpenSSL according to [these instructions](../../how-to-configure-openssl-linux.md).
  - Linux ARM32 support for Debian and Ubuntu.
  - DialogServiceConnector now supports an optional "bot ID" parameter on BotFrameworkConfig. This parameter allows the use of multiple Direct Line Speech bots with a single Speech resource. Without the parameter specified, the default bot (as determined by the Direct Line Speech channel configuration page) will be used.
- - DialogServiceConnector now has a SpeechActivityTemplate property. The contents of this JSON string will be used by Direct Line Speech to pre-populate a wide variety of supported fields in all activities that reach a Direct Line Speech bot, including activities automatically generated in response to events like speech recognition.
+ - DialogServiceConnector now has a SpeechActivityTemplate property. The contents of this JSON string will be used by Direct Line Speech to prepopulate a wide variety of supported fields in all activities that reach a Direct Line Speech bot, including activities automatically generated in response to events like speech recognition.
  - TTS now uses subscription key for authentication, reducing the first byte latency of the first synthesis result after creating a synthesizer.
  - Updated speech recognition models for 19 locales for an average word error rate reduction of 18.6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, nb-NO, fi-FL, ru-RU, pl-PL, ca-ES, zh-TW, th-TH, pt-PT, tr-TR). The new models bring significant improvements across multiple domains including Dictation, Call-Center Transcription, and Video Indexing scenarios.
 
@@ -1082,7 +1082,7 @@ Stay healthy!
 
 - Added beta support for Xamarin on Universal Windows Platform (UWP), Android, and iOS
 - Added iOS support for Unity
-- Added `Compressed` input support for ALaw, Mulaw, FLAC, on Android, iOS and Linux
+- Added `Compressed` input support for ALaw, Mulaw, FLAC, on Android, iOS, and Linux
 - Added `SendMessageAsync` in `Connection` class for sending a message to service
 - Added `SetMessageProperty` in `Connection` class for setting property of a message
 - TTS added bindings for Java (JRE and Android), Python, Swift, and Objective-C
