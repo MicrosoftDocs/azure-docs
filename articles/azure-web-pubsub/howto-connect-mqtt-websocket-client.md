@@ -1,6 +1,6 @@
 ---
-title: How to Connect MQTT Clients to Web PubSub
-description: How to Connect MQTT Clients to Web PubSub
+title: How to Connect MQTT Clients to Azure Web PubSub
+description: How to Connect MQTT Clients to Azure Web PubSub
 author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
@@ -8,13 +8,13 @@ ms.date: 06/17/2024
 ms.topic: how-to
 ---
 
-# How To Connect MQTT Clients to Web PubSub
+# How To connect MQTT clients to Azure Web PubSub
 
 MQTT is a lightweight pub/sub messaging protocol designed for devices with constrained resources.
 
 In this article, we introduce how to connect MQTT clients to the service, so that the clients can publish and subscribe messages.
 
-## Connection Parameters
+## Connection parameters
 
 WebSocket connection URI: `wss://{serviceName}.webpubsub.azure.com/clients/mqtt/hubs/{hub}?access_token={token}`.
 
@@ -55,7 +55,7 @@ These workflows can be used individually or in combination. If they're used in t
 
 This is the default workflow, shown as follows:
 
-![MQTT Auth Workflow With JWT](./media/howto-develop-mqtt-websocket-clients/mqtt-jwt-auth-workflow.png)
+![Diagram of MQTT Auth Workflow With JWT.](./media/howto-connect-mqtt-websocket-client/mqtt-jwt-auth-workflow.png)
 
 1. The client negotiates with your auth server. The auth server contains the authorization middleware, which handles the client request and signs a JWT for the client to connect to the service.
 1. The auth server returns the JWT to the client.
@@ -135,7 +135,7 @@ You could also add custom claims into the access token, and these values are pre
 
 The MQTT client sends an MQTT CONNECT packet after it establishes a WebSocket connection with the service, then the service calls an API in the upstream server. The upstream server can auth the client according to the username and password fields in the MQTT connection request, and the TLS certificate from the client.
 
-![MQTT Auth Workflow With Upstream Server](./media/howto-develop-mqtt-websocket-clients/mqtt-upstream-auth-workflow.png)
+![Diagram of MQTT Auth Workflow With Upstream Server](./media/howto-connect-mqtt-websocket-client/mqtt-upstream-auth-workflow.png)
 
 This workflow needs explicit configuration.
 * [Tutorial - Authenticate and authorize MQTT clients based on client certificates](./tutorial-upstream-auth-mqtt-client.md)

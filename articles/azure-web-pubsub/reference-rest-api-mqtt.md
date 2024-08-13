@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 07/23/2024
 ---
 
-# REST API Specification for MQTT
+# REST API specification for MQTT
 
 This document clarifies the meanings of the Web PubSub data-plane REST API in the context of MQTT. The existing Web PubSub REST API documentation is focused on Web PubSub’s own protocols, which may make its application to MQTT unclear.
 

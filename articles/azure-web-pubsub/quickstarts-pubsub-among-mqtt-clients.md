@@ -25,8 +25,8 @@ This quickstart guide demonstrates how to
 
 > [!NOTE]
 > Except for the MQTT client libraries mentioned belows, you can choose any standard MQTT client libraries that meet the following requirements to connect to Web PubSub:
-> 1. Support WebSocket transport.
-> 2. Support MQTT protocol 3.1.1 or 5.0.
+> * Support WebSocket transport.
+> * Support MQTT protocol 3.1.1 or 5.0.
 
 # [JavaScript](#tab/javascript)
 
@@ -72,7 +72,7 @@ For this quick start, you can copy and paste one from Azure portal shown in the 
 
 As shown in the preceding code, the client has the permissions to send messages to topic `group1` and to subscribe to topic `group2`.
 
-[!INCLUDE [MQTT-Connection-Parameters](includes/mqtt-connection-Parameters.md)]
+[!INCLUDE [MQTT-Connection-Parameters](includes/mqtt-connection-parameters.md)]
 
 The following code shows how to connect MQTT clients to WebPubSub with MQTT protocol version 5.0, clean start, 30-seconds session expiry interval.
 
@@ -144,10 +144,10 @@ client.connect(host, port, clean_start = True, properties=connect_properties)
 
 ### Troubleshooting
 
-If your client failed to connect, you could use the live trace tool for troubleshooting. See [instructions](./howto-troubleshoot-resource-logs.md#launch-the-live-trace-tool) to launch the tool.
+If your client failed to connect, you could use the Azure Monitor for troubleshooting. See [Monitor Azure Web PubSub](./howto-azure-monitor.md) for more details.
 
- You can check the connection parameters and get more detailed error messages there. For example, the following screenshot shows that the connection was rejected because it set an invalid keep alive interval.
-![the diagram shows a screenshot of Web PubSub live trace app for a successful MQTT connection](./media/quickstarts-pubsub-among-mqtt-clients/live-trace.png)
+You can check the connection parameters and get more detailed error messages from the Azure Monitor. For example, the following screenshot of Azure Log Analytics shows that the connection was rejected because it set an invalid keep alive interval.
+![Screenshot of Azure Log Analytics.](./media/quickstarts-pubsub-among-mqtt-clients/diagnostic-log.png)
 
 ## Subscribe to a topic
 

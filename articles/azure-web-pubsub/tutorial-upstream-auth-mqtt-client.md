@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Authenticate and authorize MQTT clients with event handlers
+title: Tutorial - Authenticate and authorize MQTT clients with Azure Web PubSub event handlers
 description: A tutorial to walk through how to authenticate and authorize MQTT clients based on client certificates, username, and password.
 author: Y-Sindo
 ms.author: zityang
@@ -22,7 +22,7 @@ In this tutorial, you'll learn how to write a .NET web server to authenticate an
 
 ## Deploy Azure Web PubSub Service
 
-Here are the Bicep/ARM templates to deploy an Azure Web PubSub service with client certificate authentication enabled and event handlers configured.
+Here are the Bicep/Azure Resource Manager templates to deploy an Azure Web PubSub service with client certificate authentication enabled and event handlers configured.
 
 We configure the `connect` event handler to tell the service the webhook endpoint for authenticating and authorizing clients. We set it to `tunnel:///MqttConnect`. `tunnel://` is a special syntax leveraging the [awps-tunnel](./howto-web-pubsub-tunnel-tool.md) tool to expose your local auth server to public network. `/MqttConnect` is the endpoint that will be exposed by your local auth server.
 
@@ -72,7 +72,7 @@ resource hub 'Microsoft.SignalRService/WebPubSub/hubs@2023-03-01-preview' = {
 }
 ```
 
-# [ARM](#tab/arm)
+# [Azure Resource Manager](#tab/arm)
 
 ```json
 {

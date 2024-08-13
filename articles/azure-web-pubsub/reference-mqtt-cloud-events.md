@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 07/16/2024
 ---
 
-# CloudEvents Extension for Azure Web PubSub MQTT Event Handler with HTTP Protocol
+# CloudEvents extension for Azure Web PubSub MQTT event handler with HTTP protocol
 
 The Web PubSub service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md).
 
@@ -320,9 +320,9 @@ The service converts specific messages published by MQTT clients to HTTP request
 
 #### Trigger Conditions
 
-1. An MQTT client publishes a message to a topic in the format `$webpubsub/server/events/{eventName}`. `{eventName}` cannot contain the `/` character.
-2. The MQTT client has permission to publish to that topic.
-3. If the client's protocol is MQTT 5.0, and the PUBLISH packet contains a content type field, the content type value should be a valid MIME type because it will be converted to the `Content-Type` header of an HTTP request.
+* An MQTT client publishes a message to a topic in the format `$webpubsub/server/events/{eventName}`. `{eventName}` cannot contain the `/` character.
+* The MQTT client has permission to publish to that topic.
+* If the client's protocol is MQTT 5.0, and the PUBLISH packet contains a content type field, the content type value should be a valid MIME type because it will be converted to the `Content-Type` header of an HTTP request.
 
 #### Request Format
 
@@ -382,7 +382,7 @@ mqtt-{request-property-1}: {request-property-value1}
 
 ```
 
-#### Response format:
+#### Response format
 
 The following table shows the usage of different fields in the HTTP response.
 

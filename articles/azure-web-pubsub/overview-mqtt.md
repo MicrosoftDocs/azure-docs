@@ -8,33 +8,31 @@ ms.date: 07/15/2024
 ms.service: azure-web-pubsub
 ms.topic: overview
 ---
-# Overview: MQTT in Azure Web PubSub Service
-
-## Introduction
+# Overview: MQTT in Azure Web PubSub service
 
 [MQTT](https://mqtt.org/) is a lightweight pub/sub messaging protocol designed for devices with constrained resources. Azure Web PubSub service now natively supports MQTT over WebSocket transport.
 
 You can use MQTT protocols in Web PubSub service for the following scenarios:
 
-1. Pub/Sub among MQTT clients and Web PubSub native clients.
-1. Broadcast messages to MQTT clients.
-1. Get notifications for MQTT client lifetime events.
+* Pub/Sub among MQTT clients and Web PubSub native clients.
+* Broadcast messages to MQTT clients.
+* Get notifications for MQTT client lifetime events.
 
 ## Key Features
 
-**Standard MQTT Protocols Support**:
+### Standard MQTT Protocols Support
 
 Web PubSub service supports MQTT 3.1.1 and 5.0 protocols in a standard way that any MQTT SDK with WebSocket transport support can connect to Web PubSub. Users who wish to use Web PubSub in a programming language that doesn't have a native Web PubSub SDK can still connect and communicate using MQTT.
 
-**Cross-Protocol Communication**:
+### Cross-Protocol Communication
 
 MQTT clients can communicate with clients of other Web PubSub protocols. Find more details [here](./reference-mqtt-cross-protocol-communication.md)
 
-**Easy MQTT adoption for Current Web PubSub Users**:
+### Easy MQTT adoption for Current Web PubSub Users
 
 Current users of Azure Web PubSub can use MQTT protocol with minimal modifications to their existing upstream servers. The Web PubSub REST API is already equipped to handle MQTT connections, simplifying the transition process.
 
-**Client-to-Server Request/Response Model**:
+### Client-to-Server Request/Response Model
 
 In addition to the client-to-client pub/sub model provided by the MQTT protocols, Web PubSub also support a client-to-server request/response model. Basically Web PubSub converts a specific kind of MQTT application messages into HTTP requests to registered webhooks, and sends the HTTP responses as application messages back to the MQTT clients.
 
@@ -43,24 +41,24 @@ For more details, see [MQTT custom event handler protocol](./reference-mqtt-clou
 ## MQTT Feature Support Status
 Web PubSub support MQTT protocol version 3.1.1 and 5.0. The supported features include but not limited to:
 
-1. All the levels of Quality Of Service including at most once, at least once and exactly once.
-1. Persistent session. MQTT sessions are preserved for up to 30 seconds when client connections are interrupted.
-1. Last Will & Testament
-1. Client Certificate Authentication
+* All the levels of Quality Of Service including at most once, at least once and exactly once.
+* Persistent session. MQTT sessions are preserved for up to 30 seconds when client connections are interrupted.
+* Last Will & Testament
+* Client Certificate Authentication
 
 ### Additional Features Supported For MQTT 5.0
 
-1. Message Expiry Interval and Session Expiry Interval
-2. Subscription Identifier.
-3. Assigned Client ID.
-4. Flow Control
-5. Server-Sent Disconnect
+* Message Expiry Interval and Session Expiry Interval
+* Subscription Identifier.
+* Assigned Client ID.
+* Flow Control
+* Server-Sent Disconnect
 
 ### Not Supported Feature
-1. Wildcard subscription
-1. Retained messages
-1. Topic alias
-1. Shared subscription
+* Wildcard subscription
+* Retained messages
+* Topic alias
+* Shared subscription
 
 ## How MQTT Is Adapted Into Web PubSub's System
 
@@ -76,12 +74,12 @@ In general, a server to authenticate and authorize MQTT clients is required. The
 
 * Workflow 1: The MQTT client gets a [JWT(JSON Web Token)](https://jwt.io) from somewhere with its credential, usually from an auth server. Then the client includes the token in the WebSocket upgrading request to the Web PubSub service, and the Web PubSub service validates the token and auth the client. This workflow is enabled by default.
 
-![MQTT Auth Workflow With JWT](./media/howto-develop-mqtt-websocket-clients/mqtt-jwt-auth-workflow.png)
+![Diagram of MQTT Auth Workflow With JWT.](./media/howto-develop-mqtt-websocket-clients/mqtt-jwt-auth-workflow.png)
 
 * Workflow 2: The MQTT client sends an MQTT CONNECT packet after it establishes a WebSocket connection with the service, then the service calls an API in the upstream server. The upstream server can auth the client according to the username and password fields in the MQTT connection request, and the TLS certificate from the client. This workflow needs explicit configuration.
 <!--Add link to tutorial and configuration-->
 
-![MQTT Auth Workflow With Upstream Server](./media/howto-develop-mqtt-websocket-clients/mqtt-upstream-auth-workflow.png)
+![Diagram of MQTT Auth Workflow With Upstream Server.](./media/howto-develop-mqtt-websocket-clients/mqtt-upstream-auth-workflow.png)
 
 These two workflows can be used individually or in combination. If they're used in together, the auth result in the latter workflow would be honored by the service.
 
@@ -97,8 +95,8 @@ You can register event handlers to get notification when a Web PubSub client con
 ## REST API Support
 
 You can use REST API to do the following things:
-1. Publish messages to a topic, a connection, a Web PubSub user, or all the connections.
-1. Manage client permissions and subscriptions.
+* Publish messages to a topic, a connection, a Web PubSub user, or all the connections.
+* Manage client permissions and subscriptions.
 
 [REST API specification for MQTT](./reference-rest-api-mqtt.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Cross-protocol communication between MQTT clients and Web PubSub clients
+title: Cross-protocol communication between MQTT clients and Azure Web PubSub clients
 description: Describes the behavior of cross-protocol communication between MQTT clients and Web PubSub clients
 keywords: MQTT, MQTT on Azure Web PubSub, MQTT over WebSocket
 author: Y-Sindo

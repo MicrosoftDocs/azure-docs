@@ -43,7 +43,7 @@
       href: tutorial-permission.md
     - name: Build a serverless chat app with Azure Functions
       href: quickstart-serverless.md
-    - name: Authenticate and authorize MQTT Client
+    - name: Authenticate and authorize MQTT client
       href: tutorial-upstream-auth-mqtt-client.md
 - name: How-to guides
   expanded: false
@@ -87,7 +87,7 @@
         - name: Protect the access key
           href: howto-secure-rotate-access-key.md
         - name: Application firewall
-          href: howto-configure-application-firewall.md  
+          href: howto-configure-application-firewall.md
         - name: Use Azure Service Tags
           href: howto-service-tags.md
         - name: Use Azure private endpoints
@@ -154,7 +154,7 @@
     - name: Tutorials
       expanded: true
       items:
-        - name: Authenticate and authorize MQTT Client
+        - name: Authenticate and authorize MQTT client
           href: tutorial-upstream-auth-mqtt-client.md
     - name: How-to guides
       items:
@@ -166,7 +166,7 @@
           href: reference-mqtt-cloud-events.md
         - name: REST API for MQTT
           href: reference-rest-api-mqtt.md
-        - name: Cross-protocol Communication
+        - name: Cross-protocol communication
           href: reference-mqtt-cross-protocol-communication.md
 - name: Socket.IO
   expanded: false
