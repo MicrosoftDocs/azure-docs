@@ -134,7 +134,7 @@ sections:
         answer: |
          **Yes.**
 
-         If your Document Intelligence resource is configured with a firewall or virtual network, you need to add the dedicated IP address 20.3.165.95 to the firewall allowlist for your Document Intelligence resource.
+         If your Document Intelligence resource is configured with a firewall or virtual network, you need to add the dedicated IP address 20.3.165.95 to the firewall allowlist for your Document Intelligence resource.  Please note that some functions in custom projects (e.g. auto-label, project management and human in the loop) won't work if the public network access is disabled.
 
       - question: |
           Can I reuse or customize the labeling experience from Document Intelligence Studio and build it into my own application?
