@@ -29,13 +29,13 @@ For more information, see [Use Azure CLI to Create and Manage Access Tokens](../
 
 ### Install the Azure Communication Services Chat SDK
 
-Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
+Use the `npm install` command to install the Azure Communication Services SDK for JavaScript.
 
 ```console
 npm install @azure/communication-chat --save
 ```
 
-The `--save` option lists the library as a dependency in your **package.json** file.
+The `--save` option adds the library as a dependency in your **package.json** file.
 
 
 ### Remove the Twilio SDK from the project
@@ -74,7 +74,7 @@ client.on('stateChanged', (state) => {
 });
 ```
 #### Azure Communication Services
-Similar to Twilio, the first ster is to get an **access token** as well as use the Communications Service **endpoint** that was generated as part of prerequisite steps. Replace those in code.
+Similar to Twilio, the first step is to get an **access token** as well as the Communication Service **endpoint** that was generated as part of the prerequisite steps. Replace those in the code.
 
 ```JavaScript
 import { ChatClient } from '@azure/communication-chat';
@@ -92,8 +92,7 @@ console.log('Azure Communication Chat client created!');
 ### Start a chat thread
 
 #### Twilio
-This is how you start a chat thread in Twilio Conversations.
-Use `FriendlyName` to give human-readable name for this conversation.
+This is how you start a chat thread in Twilio Conversations. Use `FriendlyName` to give a human-readable name to this conversation.
 
 ```JavaScript
 let conversation = await client.createConversation({
@@ -137,7 +136,7 @@ async function createChatThread() {
 ### Get a chat thread client
 
 #### Twilio
-This is how you get chat thread (conversation) in Twilio.
+This is how you get a chat thread (conversation) in Twilio.
 ```JavaScript
 if (selectedConversation) {
       conversationContent = (
@@ -166,7 +165,7 @@ Chat Thread client for threadId: <threadId>
 ```
 
 ### Add a user as a participant to the chat thread
-Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other participants.
+Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread and add/remove other participants.
 
 #### Twilio
 This is how you add a participant to a chat thread.
@@ -209,10 +208,10 @@ await chatThreadClient.addParticipants(addParticipantsRequest);
 Replace **NEW_PARTICIPANT_USER_ID** with a [new user ID](../../identity/access-tokens.md)
 
 ### Send a message to a chat thread
-Unlike Twilio ACS does not have separate function to send text message or media.
+Unlike Twilio, ACS does not have separate functions for sending text messages or media.
 
 #### Twilio
-This is how you send text message in Twilio.
+This is how you send a text message in Twilio.
 ```JavaScript
 // Send Text Message
 await conversation
@@ -278,10 +277,10 @@ console.log(`Message sent!, message id:${messageId}`);
 ```
 
 ### Receive chat messages from a chat thread
-Unlike Twilio ACS does not have separate function to receive text message or media. Azure Communication Services uses Azure Event Grid to handle events. To learn more please refer to [following tutorial](MicrosoftDocs/azure-docs-pr/articles/event-grid/event-schema-communication-services.md)
+Unlike Twilio, ACS does not have separate functions to receive text messages or media. Azure Communication Services uses Azure Event Grid to handle events. To learn more, please refer to [following tutorial](MicrosoftDocs/azure-docs-pr/articles/event-grid/event-schema-communication-services.md)
 
 #### Twilio
-This is how you receive text message in Twilio.
+This is how you receive a text message in Twilio.
 ```JavaScript
 // Receive text message
  let paginator =
@@ -292,6 +291,7 @@ This is how you receive text message in Twilio.
 const messages = paginator.items;
 ```
 This is how you receive media in Twilio.
+
 ```JavaScript
 // Receive media
 // Return all media attachments (possibly empty array), without temporary urls
@@ -331,7 +331,7 @@ For more details, see [Message Types](../../../concepts/chat/concepts.md#message
 
 
 #### Subscribe to connection status of real time notifications
-Similar to Twilio Azure Communication Services allows to subscribe to event notifications.
+Similar to Twilio, Azure Communication Services allows you to subscribe to event notifications.
 
 Subscription to events `realTimeNotificationConnected` and `realTimeNotificationDisconnected` allows you to know when the connection to the call server is active.
 
