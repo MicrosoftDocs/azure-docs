@@ -43,7 +43,7 @@ const togetherModeStreams = togetherModeFeature.togetherModeStream;
 
 | Together Mode Stream Properties | Description|
 |----------------------------------------------|--------|
-|id		| unique number used to identify the stream. |
+|id		| Unique number used to identify the stream. |
 |mediaStreamType		| Returns the stream type. For together mode, the mediaStreamType is`video`. |
 |isReceiving		| Returns a boolean value indicating if video packets are received.  |
 |size		| 	The stream size. The higher the stream size, the better the video quality. |
