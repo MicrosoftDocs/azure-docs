@@ -106,7 +106,7 @@ Task agent pools require access to the following Azure services. The following f
 
 Customers basing their deployments with MCR can refer to [MCR/MAR firewall rules.](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md)
 
-#### Advanced Network Configuration
+#### Advanced network configuration
 
 If the standard Firewall/NSG (Network Security Group) rules are deemed too permissive, and more fine-grained control is required for outbound connections, consider the following approach:
 
@@ -126,7 +126,7 @@ At minimum, the following service endpoints will be required
 > [!NOTE] 
 > Currently a service endpoint for Azure Monitor does not exist. If outbound traffic for Azure Monitor is not configured, the agent pool will be unable to emit diagnostic logs but may appear to still operate normally. In this case ACR will be unable to help fully troubleshoot any issues encountered so it is important that the network administrator take this into account when planning the network configuration.
  
-Also, it is important to note that all of ACR Tasks have pre-cached images for some of the more common use cases. Tasks will only cache a single version at a time meaning that if the full tagged image reference is used, than the build agent will attempt to pull the image. (For example a common use case is `cmd: mcr.microsoft.com/acr/acr-cli:<tag>` however the pre-cached version is frequently updated which means the actual version on the machine will likely be higher) In this case the network configuration must configure a route for outbound traffic to the target registry host which in the example above would be mcr.microsoft.com. The same rules would apply to any other external public registry (docker.io, quay.io, ghcr.io, etc.)
+Also, it is important to note that all of ACR Tasks have pre-cached images for some of the more common use cases. Tasks will only cache a single version at a time, meaning that if the full tagged image reference is used, then the build agent will attempt to pull the image. For example, a common use case is `cmd: mcr.microsoft.com/acr/acr-cli:<tag>`. However, the pre-cached version is frequently updated, which means the actual version on the machine will likely be higher. In this case, the network configuration must configure a route for outbound traffic to the target registry host which in the example above would be mcr.microsoft.com. The same rules would apply to any other external public registry (docker.io, quay.io, ghcr.io, etc.).
 
 ### Create pool in VNet
 
