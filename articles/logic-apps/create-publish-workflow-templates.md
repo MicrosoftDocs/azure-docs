@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2024
+ms.date: 08/26/2024
 #Customer intent: As a developer, I want to create and share workflow templates for use with Azure Logic Apps.
 ---
 
@@ -22,11 +22,9 @@ Azure Logic Apps provides prebuilt integration workflow templates that you can u
 ## Prerequisites
 
 
-
-
 ## Limitations
 
-- Workflow templates currently support Standard logic apps and single workflows. 
+- Workflow templates currently support only Standard logic apps and single workflows. 
 
 ## What templates to build?
 
@@ -34,37 +32,82 @@ The following list provides some example ideas:
 
 ## What does a template package include?
 
-Every template includes the following files:
+The following table describes the required and optional files in a template package:
 
 | File name | Required | Description |
 |-----------|----------|-------------|
-| **workflow.json** | Yes | The workflow definition in JSON format. |
-| **manifest.json** | Yes | |
-| **snapshot-light.png** | Yes | |
-| **snapshot-dark.png** | Yes | |
-| **<*map-name*>.json**, **.xml**, or **.xslt** | No | |
-| **<*custom-assembly*>.dll** | No | |
-| **readme.md** | No | |
+| **workflow.json** | Yes | A JSON file with your workflow definition. |
+| **manifest.json** | Yes | A JSON file with information about your workflow and related components. |
+| **<*image-name*>-dark.png** | Yes | An image file with the workflow as a read-only screenshot in **.png** format and works with a browser's dark theme. |
+| **<*image-name*>-light.png** | Yes | An image file with the workflow as a read-only screenshot in **.png** format and works with a browser's light theme. |
+| **<*map-name*>.json**, **.xml**, or **.xslt** | No | Any artifacts such as maps and schemas that support your workflow template. |
+| **<*custom-assembly*>.dll** | No | Any custom assemblies that support your workflow template. |
+| **readme.md** | No | A Markdown file with instructions, procedures, or other information for your workflow template. |
 
-You can also include any other files to maintain your template, for example, files that contain test or sample data.
+You can also include any other files to maintain and support your template, for example, files with test or sample data.
 
-## Create a workflow template
+## Create a template package folder
 
-Create the workflow for which you want to create the template. Your workflow likely will have references to Service Providers, API connections or libraries. In this section, we’ll explain how to templatize your entire solution.
+- Before you create the template package folder, review [Names and style conventions](#names-and-style-conventions).
+
+- To correctly register your template package folder, you must add the folder name to [manifest.json file at the *root* level for the workflow templates GitHub repository](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
 
 ### Create a workflow.json file
 
-Workflow.json is the workflow definition. You can simply copy the workflow definition from the code view and save it as workflow.json. Here is an example -  
+The **workflow.json** file contains the underlying definition for a workflow in JSON format. To create the **workflow.json** file, you need to copy and save your workflow definition as a file named **workflow.json**.
 
-To include the folder name for your template, you must update this [manifest.json file in the template gallery's GitHub repository](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
+For the easiest and best way to get this definition, create your workflow using the designer. As you build your workflow, the designer automatically includes references to any built-in, service provider-based connections, managed API connections, or libraries in the underlying workflow definition.
 
-## Create a workflow overview image
+As a starting point for building your workflow, you can use the provided prebuilt workflow templates from the template gallery in the Azure portal or in the [workflow templates repository in GitHub](https://github.com/Azure/LogicAppsTemplates/tree/main).
 
-In the overview page of the templates, we intend to show the read only view of the workflow. You can take a screenshot of your workflow and provide that image file. You can name it anything  - just make sure to use that name in the manifest.json in the images section 
+To get the workflow definition after you're done, follow these steps in the [Azure portal](https://portal.azure.com) with your opened workflow:
 
-## Create a manifest.json file
+1. On the workflow menu, under **Developer**, select **Code**.
 
-Until we have the tooling available, creating this file will be a manual process. The information that goes in this file describes the workflow and its related components. You can use the manifest.json from one of the existing templates here instead of starting from scratch. 
+1. From the code view window, copy the entire workflow definition, for example:
+
+   :::image type="content" source="media/create-publish-workflow-templates/standard-workflow-code=view.png" alt-text="Screenshot shows Azure portal, code view window, and Request-Response workflow defintion." lightbox="media/create-publish-workflow-templates/standard-workflow-code=view.png":::
+
+1. In an empty file named **workflow.json**, save the workflow definition.
+
+## Best practices for workflows
+
+- Use the built-in operation versions as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
+
+  - A built-in, service provider-based version, which appears in the connectors gallery with the **In App** label. This version is hosted and run with the Azure Logic Apps runtime, offering better performance, throughput, and other benefits.
+
+  - A Microsoft-managed API version, which appears in the connectors gallery with the **Shared** label. This version is hosted and run in multitenant Azure using shared global resources.
+
+- Avoid harcoding properties and their values in trigger and action definitions.
+
+- Provide more context about trigger and action definitions by adding descriptive and helpful comments.
+
+### Create a workflow template image
+
+In the Azure portal, each workflow template has an overview pane in the workflow templates gallery. This pane includes a read-only preview image for the workflow that the template creates plus other template information. 
+
+To provide this preview image, follow these steps:
+
+1. In the designer, set up your workflow for creating two screenshots.
+
+   You need to create a version each for the browser light theme and for the browser dark theme.
+
+1. Create the workflow screenshots using your preferred screen capture tool. Avoid including a lot of empty whitespace around the workflow.
+
+1. Save each image using the **.png** file name extension and any name that you want, following the [Names and style conventions](#names-style-conventions).
+
+1. In the **manifest.json** file for your workflow template package, add the same image names to the  **`images`** section without the **.png** file name extension, for example:
+
+   ```json
+   "images": {
+       "dark": "workflow-dark",
+       "light": "workflow-light"
+   }
+   ```
+
+### Create a manifest.json file
+
+Currently, no tooling exists to create the Until we have the tooling available, creating this file will be a manual process. The information that goes in this file describes the workflow and its related components. You can use the manifest.json from one of the existing templates here instead of starting from scratch. 
 
 | Attribute name | Required | Value | Description |
 |----------------|----------|-------|-------------|
@@ -76,7 +119,7 @@ Until we have the tooling available, creating this file will be a manual process
 | **`tags`** | No | <*template-tags-array*> | The template tags to use for searching or filtering templates. |
 | **`details`** | No | See description. | Template information to use for filtering the templates gallery. <br><br>- **`By`**: The template publisher, for example, **`Microsoft`**. <br><br>- **`Type`**: **`Workflow`** <br><br>- **`Trigger`**: The trigger type, for example, **`Recurrence`**, **`Event`**, or **`Request`**. |
 | **`artifacts`** | No | <*artifacts-array*> | All the relevant files in the template package and includes the following attributes: <br><br>- **`type`**: The file type, which determines the appropriate location for where to copy the file, for example **`workflow`**. <br><br>- **`file`**: The file name and extension. | 
-| **`images`** | Yes | **`snapshot-light.png`**, **`snapshot-dark.png`** | The workflow screenshots for light and dark browser themes. Don't include a lot of whitespace around the workflow. |
+| **`images`** | Yes | **`<image-file-name>-light.png`**, **`<image-file-name>-dark.png`** | The workflow image file names for both browser light and dark theme versions: <br><br>- **`light`**: Image name for light theme, for example, "  <br><br>- **`dark`**:  |
 | **`parameters`** | Yes | <*workflow-parameters-array*> | The parameters to use for workflow creation. For each parameter, you need to specify the following properties: <br><br>- **`name`**: The parameter name must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<parameter-name>_#workflowname#`** <br><br>- **`displayName`**: The parameter's friendly display name. See [Names and style conventions](#names-style-conventions). <br><br>- **`type`**: The parameter's data type, for example **`String`** or **`Int`**. <br><br>- **`default`**: The parameter's default value, if any. If none, leave this value as an empty string. <br><br>- **`description`** The parameter's details and other important or helpful information. <br><br>- **`required`**: **`true`** or **`false`** |
 | **`connections`** | Yes, but can be empty if no connections exist. | <*connections-array*> | The connections to use in workflow creation. Each connection has the following properties: <br><br>-**`connectorId`**: The connector ID must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<connector-ID>_#workflowname#`** <br><br>To find the connector ID, see [Find the connector ID](#find-connector-id). <br><br>- **`kind`**: The connector's runtime host type, which is either **`inapp`** for built-in operations and service provider-based connectors or **`shared`** for managed, Azure-hosted connectors. In the connectors gallery, built-in operations and service provider-based connectors are labeled as **In App**, while managed connectors are labeled as **Shared**. |
 | **`featuredConnections`** | No | <*featured-connections-array*> | By default, the template gallery shows icons for the prebuilt operations and connectors in Azure Logic Apps used by each template. To include icons for any other operations, you can use the **`featuredConnections`** attribute. Each operation must have the following properties: <br><br>- **`kind`**: The operation kind <br><br>- **`type`**: The operation type <br><br>To find these values, see [Find the operation kind and type for featuredConnections section](#find-featured-connections-properties). |
@@ -142,6 +185,50 @@ For example:
 "connectionName": "AI_search_#workflowname"
 ```
 
+## Add workflow templates to GitHub repository
+
+To add your templates to GitHub, here are steps on how you can setup GitHub and create a PR 
+
+Login to GitHub with your credentials 
+
+Navigate to GitHub repo for the templates - Azure/LogicAppsTemplates: Templates for Logic Apps Workflow Gallery (github.com) 
+
+Create your fork of the repo –  
+Navigate to your fork and copy the repo URL to lone it locally 
+
+ 
+
+You can use different approaches/tools to add code to your repo. I have download Git and using that to add code to the rep. Next, Create your local copy using this command  
+
+git clone https://github.com/<yourGitHub>/LogicAppsTemplates.git 
+
+Make changes locally. When you are ready to checkin. Follow these steps 
+
+git add . 
+
+git commit -a -m “short description about the commit” 
+
+git push
 
 
- ## Names and style conventions
+<a name="names-style-conventions"></a>
+
+## Names and style conventions
+
+| Item or area | Convention |
+|--------------|------------|
+| Sensitive data | Don't include any personal and sensitive information, such as subscription IDs, usernames, passwords, and so on, in template files, screenshots, descriptions, or test data. |
+| Folder names | For easier readability, use lowercase and hyphens. See [Capitalization – Microsoft Style Guide](/style-guide/capitalization). |
+| Image file names | Use the **.png** as the file name extension, lowercase, and hyphens, for example, **workflow-light.png**. |
+| Product, service, technology, and brand names | Follow the official spelling and capitalization. For example: <br><br>- When you refer to the service name or platform, use "Azure Logic Apps", not "Logic Apps". <br><br>- When you refer to the resource or instance, use "logic apps" or "logic app", not "Logic App" or "Logic Apps". <br><br>- When you refer to the sequence of trigger and actions, use "logic app workflow" or "workflow". |
+| Abbreviations and acronynms | Use the expanded name for product, service, technology, brand names, and uncommon technical terms, not abbreviations or acronyms. Common acronyms, such as "HTTP" and "URL", are acceptable. For example, use "Visual Studio Code", not "VS Code". See [Acronyms – Microsoft Style Guide](/style-guide/acronyms). |
+| Other text | Use sentence case for titles, headings, and body content, which means that you capitalize only the first letter unless you have product, service, technology, or brand name. Don't capitalize ordinary nouns and articles, such as "a", "an", "and", "or", "the", and so on. |
+| Voice | - Use second person voice (you, your), rather than third person (users, developers, customers) unless you need to refer to specific roles. See [Person – Microsoft Style Guide](/style-guide/grammar/person). <br><br>- Use an active, direct, but friendly tone when possible. Active voice focuses on the subject and verb in text, while passive voice focuses on the object in text. |
+| Vocabulary | - Use simple, common, everyday words, such as  "use", rather than "utilize" or "leverage". Don't use words, phrases, jargon, colloquialisms, idioms, or slang that don't translate well across languages. <br><br>-	Use "please" only for specific scenarios. See [please – Microsoft Style Guide](/style-guide/a-z-word-list-term-collections/p/please). <br><br>- Use "for example" or "such as", not "e.g." or "i.e.". <br><br>- Don't use directional terms such as "here", "above", "below", "right", and "left", which aren't accessible friendly. |
+| Punctuation | -	For a series of items, include the last comma before the word "and", for example, "apples, oranges, and bananas". See [Commas – Microsoft Style Guide](/style-guide/punctuation/commas). <br><br>-	End full sentences with appropriate punctuation. Avoid exclamation points. See [Punctuation – Microsoft Style Guide](/style-guide/punctuation/). |
+| Formatting | - For code, follow the style convention for that code's language. <br><br>- Don't use hardcoded links, which break if the URLs change. In your PR request, ask for a redirection link to use instead. <br><br>- For links, use the following format: "`For more information, see [descriptive link text](URL)]`.". <br><br>- Use descriptive link text, not generic or vague link text, such as "`See [here](URL)`." <br><br>- Use numbers only for steps in a procedure, not for lists that have no specific order. See [Lists – Microsoft Style Guide](/style-guide/scannable-content/lists). <br><br>- Use only one space after punctuation unless you're indenting code. |
+
+For more guidance, see the [Microsoft Style Guide](/style-guide/welcome/) and [Global writing tips](/style-guide/global-communications/writing-tips).
+
+## Related content
+
