@@ -3,7 +3,7 @@ title: Add and run PowerShell in Standard workflows
 description: Write and run PowerShell script code in Standard workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
 ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, shahparth, azla
+ms.reviewer: estfan, swghimire, shahparth, azla
 ms.topic: how-to
 ms.date: 08/13/2024
 # Customer intent: As a logic app workflow developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
@@ -107,7 +107,7 @@ After you run your workflow, you can review the workflow output in Application I
 
 ## Access workflow trigger and action outputs in your script
 
-The output values from the trigger and preceding actions are returned using a custom object, which have multiple parameters. To access these outputs and make sure that you return the value that you want, use the [**Get-TriggerOutput**](#get-triggeroutput), [**Get-ActionOutput**](#get-actionoutput), and [**Push-WorkflowOutput**](#push-workflowoutput) cmdlets plus any appropriate parameters described in the following table, for example:
+The output values from the trigger and preceding actions are returned using a custom object, which has multiple parameters. To access these outputs and make sure that you return the value that you want, use the [**Get-TriggerOutput**](#get-triggeroutput), [**Get-ActionOutput**](#get-actionoutput), and [**Push-WorkflowOutput**](#push-workflowoutput) cmdlets plus any appropriate parameters described in the following table, for example:
 
 ```powershell
 $trigger = Get-TriggerOutput
