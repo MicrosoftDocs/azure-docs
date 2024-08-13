@@ -34,9 +34,9 @@ The [azure-iot-device](/javascript/api/azure-iot-device) package contains object
 
 Follow this procedure for uploading a file from a device to IoT hub:
 
-* Get Blob shared access signatures
-* Upload the file to Azure Storage
-* Send file upload status notification to IoT hub
+1. Get Blob shared access signatures
+1. Upload the file to Azure Storage
+1. Send file upload status notification to IoT hub
 
 ### Create modules
 
@@ -131,18 +131,18 @@ You can create a backend application to check the IoT hub service client for dev
 
 To create a file upload notification application:
 
-* Connect to the IoT hub service client
-* Check for a file upload notification
+1. Connect to the IoT hub service client
+1. Check for a file upload notification
 
 ### Connect to the IoT hub service client
 
 The [ServiceClient](/javascript/api/azure-iothub/client) class contains methods that services can use to receive file upload notifications.
 
-Connect to IoT hub using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring). See the prerequisites section for how to look up the IoT hub primary connection string.
+Connect to IoT hub using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring). Pass the IoT hub primary connection string.
 
 ```javascript
 const Client = require('azure-iothub').Client;
-const connectionString = "{IoT hub connection string}";
+const connectionString = "{IoT hub primary connection string}";
 const serviceClient = Client.fromConnectionString(connectionString);
 ```
 
@@ -161,8 +161,8 @@ serviceClient.open(function (err) {
 
 To check for file upload notifications:
 
-* Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that are called when notification messages are received.
-* Process file upload notifications in the callback method.
+1. Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that are called when notification messages are received.
+1. Process file upload notifications in the callback method.
 
 This example sets up a `receiveFileUploadNotification` notification  callback receiver. The receiver interprets the file upload status information and prints a status message to the console.
 

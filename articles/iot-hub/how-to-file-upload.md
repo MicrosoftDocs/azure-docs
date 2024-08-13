@@ -16,8 +16,8 @@ ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]
 
 This article demonstrates how to:
 
-* Use [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure Blob Storage](../storage/index.yml), using an Azure IoT device and service SDKs.
-* Notify IoT Hub that the file was successfully uploaded and create a backend service to receive file upload notifications from IoT Hub.
+* Use file upload capabilities of IoT Hub to upload a file to Azure Blob Storage, using an Azure IoT device and service SDKs.
+* Notify IoT Hub that the file was successfully uploaded and create a backend service to receive file upload notifications from IoT Hub, using the Azure IoT service SDKs.
 
 In some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. The file upload capabilities in IoT Hub enable you to move large or complex data to the cloud. For example:
 
@@ -33,7 +33,6 @@ This article is meant to complement runnable SDK samples that are referenced fro
 For more information, see:
 
 * [Overview of file uploads with IoT Hub](iot-hub-devguide-file-upload.md)
-* [Configure IoT Hub file uploads using the Azure portal](iot-hub-configure-file-upload.md)
 * [Introduction to Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
@@ -41,13 +40,13 @@ For more information, see:
 
 ## Prerequisites
 
-* **An IoT hub**. Create one using the [Azure portal, CLI, or PowerShell](create-hub.md). Some SDK calls require the IoT Hub connection string, so make a note of the connection string.
+* **An IoT hub**. Some SDK calls require the IoT Hub primary connection string, so make a note of the connection string.
 
-* **A registered device**. Register one in the [Azure portal](create-connect-device.md).
+* **A registered device**. Some SDK calls require the device primary connection string, so make a note of the connection string.
 
-* IoT Hub **Service Connect**  permission - To receive file upload notification messages, your backend service needs the **Service Connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission. For more information, see [Connect to an IoT hub](/azure/iot-hub/create-hub?&tabs=portal#connect-to-an-iot-hub).
+* IoT Hub **Service Connect** permission - To receive file upload notification messages, your backend service needs the **Service Connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission. For more information, see [Connect to an IoT hub](/azure/iot-hub/create-hub?&tabs=portal#connect-to-an-iot-hub).
 
-* Configure file upload in your IoT hub by linking an **Azure Storage account** and **Azure Blob Storage container** associated with IoT Hub. You can configure these using the [Azure portal](/azure/iot-hub/iot-hub-configure-file-upload), [Azure CLI](/azure/iot-hub/iot-hub-configure-file-upload-cli), or [Azure PowerShell](/azure/iot-hub/iot-hub-configure-file-upload-powershell).
+* Configure file upload in your IoT hub by linking an **Azure Storage account** and **Azure Blob Storage container**. You can configure these using the [Azure portal](/azure/iot-hub/iot-hub-configure-file-upload), [Azure CLI](/azure/iot-hub/iot-hub-configure-file-upload-cli), or [Azure PowerShell](/azure/iot-hub/iot-hub-configure-file-upload-powershell).
 
 :::zone pivot="programming-language-csharp"
 

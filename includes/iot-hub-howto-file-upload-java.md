@@ -24,10 +24,10 @@ This section describes how to upload a file from a device to an IoT hub using th
 
 Follow this procedure to upload a file from a device to IoT hub:
 
-* Connect to the device
-* Get a SAS URI from IoT hub
-* Upload the file to Azure Storage
-* Send file upload status notification to IoT hub
+1. Connect to the device
+1. Get a SAS URI from IoT hub
+1. Upload the file to Azure Storage
+1. Send file upload status notification to IoT hub
 
 ### Connection protocol
 
@@ -39,7 +39,7 @@ IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
 
 ### Connect to the device
 
-Instantiate the `DeviceClient` to connect to the device using the device primary connection string. See the prerequisites section for how to look up the device primary connection string.
+Instantiate the `DeviceClient` to connect to the device using the device primary connection string.
 
 ```java
 String connString = "{IoT hub connection string}";
@@ -118,8 +118,8 @@ You can create a backend application to receive file upload notifications.
 
 To create a file upload notification application:
 
-* Connect to the IoT hub service client
-* Check for a file upload notification
+1. Connect to the IoT hub service client
+1. Check for a file upload notification
 
 The [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class contains methods that services can use to receive file upload notifications.
 
@@ -127,7 +127,7 @@ The [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class con
 
 Create a `IotHubServiceClientProtocol` object. The connection uses the `AMQPS` protocol.
 
-Call `createFromConnectionString` to connect to IoT hub. Pass the IoT hub primary connection string. See the prerequisites section for how to look up the IoT hub primary connection string.
+Call `createFromConnectionString` to connect to IoT hub. Pass the IoT hub primary connection string.
 
 ```java
 private static final String connectionString = "{IoT hub primary connection string}";
@@ -139,9 +139,9 @@ ServiceClient sc = ServiceClient.createFromConnectionString(connectionString, pr
 
 To check for file upload status:
 
-* Create a [getFileUploadNotificationReceiver](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver) object
-* Use [open](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-open()) to connect to IoT hub
-* Call [receive](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-receive()) to check for the file upload status. This method returns a [fileUploadNotification](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotification) object. If an upload notice is received, you can view upload status fields using [fileUploadNotification](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotification) methods.
+1. Create a [getFileUploadNotificationReceiver](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver) object
+1. Use [open](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-open()) to connect to IoT hub
+1. Call [receive](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotificationreceiver?#com-microsoft-azure-sdk-iot-service-fileuploadnotificationreceiver-receive()) to check for the file upload status. This method returns a [fileUploadNotification](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotification) object. If an upload notice is received, you can view upload status fields using [fileUploadNotification](/java/api/com.microsoft.azure.sdk.iot.service.fileuploadnotification) methods.
 
 For example:
 

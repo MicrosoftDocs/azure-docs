@@ -31,10 +31,10 @@ This section describes how to upload a file from a device to an IoT hub using th
 
 Follow this procedure to upload a file from a device to IoT hub:
 
-* Connect to the device
-* Get Blob Storage information
-* Upload the file to Blob Storage
-* Notify IoT hub of upload status
+1. Connect to the device
+1. Get Blob Storage information
+1. Upload the file to Blob Storage
+1. Notify IoT hub of upload status
 
 ### Import libraries
 
@@ -47,9 +47,11 @@ from azure.storage.blob import BlobClient
 
 ### Connect to the device
 
-Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to add the device primary connection string. See the prerequisites section for how to look up the device primary connection string.
+To connect to the device:
 
-Then call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client.
+1. Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to add the device primary connection string.
+
+1. Call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client.
 
 For example:
 
@@ -77,8 +79,8 @@ blob_info = device_client.get_storage_info_for_blob(blob_name)
 
 To upload a file into Blob Storage:
 
-* Use [from_blob_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-from-blob-url) to create a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-from-blob-url) object from a blob URL.
-* Call [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-upload-blob) to upload the file into the Blob Storage.
+1. Use [from_blob_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-from-blob-url) to create a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-from-blob-url) object from a blob URL.
+1. Call [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient?#azure-storage-blob-blobclient-upload-blob) to upload the file into the Blob Storage.
 
 This example parses the `blob_info` structure to create a URL that it uses to initialize an [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient). Then it calls `upload_blob` to upload the file into Blob Storage.
 

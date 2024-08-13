@@ -24,14 +24,14 @@ This section describes how to upload a file from a device to an IoT hub using th
 
 Follow this procedure to upload a file from a device to IoT hub:
 
-* Connect to IoT hub
-* Get a SAS URI from IoT hub
-* Upload the file to Azure storage
-* Notify IoT hub of the file upload status
+1. Connect to IoT hub
+1. Get a SAS URI from IoT hub
+1. Upload the file to Azure storage
+1. Notify IoT hub of the file upload status
 
 ### Connect to the device
 
-Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) to connect to the device. See the prerequisites section for how to look up the device primary connection string.
+Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) to connect to the device. Pass the device primary connection string.
 
 `AMQP` is the default transport protocol.
 
@@ -61,9 +61,9 @@ Uri uploadUri = sasUri.GetBlobUri();
 
 To upload a file to Azure storage:
 
-* Create a [blockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient) object, passing a file upload URI
+1. Create a [blockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient) object, passing a file upload URI
 
-* Use the [UploadAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync?#azure-storage-blobs-specialized-blockblobclient-uploadasync(system-io-stream-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken)) method to upload a file to Blob Storage, passing the SAS URI. You can optionally add Blob upload options and cancellation token parameters.
+1. Use the [UploadAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync?#azure-storage-blobs-specialized-blockblobclient-uploadasync(system-io-stream-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken)) method to upload a file to Blob Storage, passing the SAS URI. You can optionally add Blob upload options and cancellation token parameters.
 
 The Azure Blob client always uses HTTPS as the protocol to upload the file to Azure Storage.
 
@@ -111,10 +111,10 @@ The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class con
 
 To receive file upload notification:
 
-* Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring) to connect to IoT hub. Pass the IoT hub connection string. See the prerequisites section for how to look up the IoT hub primary connection string.
-* Create a [CancellationToken](/dotnet/api/azure.core.httpmessage.cancellationtoken?#azure-core-httpmessage-cancellationtoken).
-* Call [GetFileNotificationReceiver](/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver.
-* Use a loop with [ReceiveAsync](/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification.
+1. Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring) to connect to IoT hub. Pass the IoT hub primary connection string.
+1. Create a [CancellationToken](/dotnet/api/azure.core.httpmessage.cancellationtoken?#azure-core-httpmessage-cancellationtoken).
+1. Call [GetFileNotificationReceiver](/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver.
+1. Use a loop with [ReceiveAsync](/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification.
 
 For example:
 
