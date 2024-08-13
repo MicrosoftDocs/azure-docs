@@ -5,7 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 07/16/2024
+ms.date: 08/15/2024
 ---
 
 # Download a Windows VHD from Azure

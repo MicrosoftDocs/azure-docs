@@ -3,7 +3,7 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 07/16/2024
+ms.date: 08/15/2024
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.tgt_pltfrm: linux
