@@ -233,7 +233,7 @@ The `import` operation fails and returns `400 Bad Request`. The response body co
 Solution: Verify that the link to the Azure storage is correct. Check the network and firewall settings to make sure that the FHIR server can access the storage. If your service is in a virtual network, ensure that the storage is in the same virtual network or in a virtual network peered with the FHIR service's virtual network.
 
 **SearchParameter resources cannot be processed by import**
-Solution: Import operation returns a HTTP 400 error when a search parameter resource is ingested via the import process. This change is intended to prevent search parameters from being placed in an invalid state when ingested with an import operation.
+Solution: The import operation returns a HTTP 400 error when a search parameter resource is ingested via the import process. This change is intended to prevent search parameters from being placed in an invalid state when ingested with an import operation.
 
 #### 403 Forbidden
 
