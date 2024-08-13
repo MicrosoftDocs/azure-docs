@@ -99,30 +99,18 @@ To create a virtual network, use the following steps:
         > [!WARNING]
         > Do not use the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network, and will result in errors if used for your VNet. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
-    1. Select the __Default__ subnet and then select __Remove subnet__.
+    1. Select the __Default__ subnet and then select the __edit icon__.
     
         :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet.":::
 
-    1. To create a subnet to contain the workspace, dependency services, and resources used for _training_, select __+ Add subnet__ and set the subnet name, starting address, and subnet size. The following are the values used in this tutorial:
-        * __Name__: Training
-        * __Starting address__: 172.16.0.0
-        * __Subnet size__: /24 (256 addresses)
+    1. Change the subnet __Name__ to __Training__. Leave the other values at the default settings, then select __Save__ to save the changes.
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet.":::
-
-    1. To create a subnet for compute resources used to _score_ your models, select __+ Add subnet__ again, and set the name and address range:
+    1. To create a subnet for compute resources used to _score_ your models, select __+ Add subnet__ and set the name and address range:
         * __Subnet name__: Scoring
-        * __Starting address__: 172.16.1.0
+        * __Starting address__: 172.16.2.0
         * __Subnet size__: /24 (256 addresses)
 
         :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet.":::
-
-    1. To create a subnet for _Azure Bastion_, select __+ Add subnet__ and set the template, starting address, and subnet size:
-        * __Subnet template__: Azure Bastion
-        * __Starting address__: 172.16.2.0
-        * __Subnet size__: /26 (64 addresses)
-
-        :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/vnet-add-azure-bastion-subnet.png" alt-text="Screenshot of Azure Bastion subnet.":::
 
 1. Select __Review + create__.
 
@@ -139,7 +127,7 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-storage.png" alt-text="Screenshot of storage account basic config.":::
 
-1. From the __Networking__ tab, select __Private endpoint__ and then select __+ Add private endpoint__.
+1. From the __Networking__ tab, select __Disable public access__ and then select __+ Add private endpoint__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-enable-private-endpoint.png" alt-text="Screenshot of the form to add the blob private network.":::
 
@@ -154,7 +142,7 @@ To create a virtual network, use the following steps:
     * __Private DNS integration__: Yes
     * __Private DNS Zone__: privatelink.blob.core.windows.net
 
-    Select __OK__ to create the private endpoint.
+    Select __Add__ to create the private endpoint.
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
@@ -177,18 +165,16 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-file-private-endpoint-resource.png" alt-text="Screenshot of the resource form when selecting a sub-resource of 'file'.":::
 
-1. Select __Next : Configuration__, and then use the following values:
+1. Select __Next : Virtaul Network__, and then use the following values:
     * __Virtual network__: The network you created previously
     * __Subnet__: Training
-    * __Integrate with private DNS zone__: Yes
-    * __Private DNS zone__: privatelink.file.core.windows.net
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/storage-file-private-endpoint-config.png" alt-text="Screenshot of the configuration form when adding the file private endpoint.":::
 
-1. Select __Review + Create__. Verify that the information is correct, and then select __Create__.
+1. Continue through the tabs selecting defaults until you reach __Review + Create__. Verify that the information is correct, and then select __Create__.
 
 > [!TIP]
-> If you plan to use a [batch endpoint](concept-endpoints.md) or an Azure Machine Learning pipeline that uses a [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md), it is also required to configure private endpoints target **queue** and **table** sub-resources. ParallelRunStep uses queue and table under the hood for task scheduling and dispatching.
+> If you plan to use a [batch endpoint](concept-endpoints.md) or an Azure Machine Learning pipeline that uses a [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md), it is also required to configure private endpoints target __queue__ and __table__ sub-resources. ParallelRunStep internally uses queue and table for task scheduling and dispatching.
 
 ## Create a key vault
 
@@ -197,7 +183,7 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-key-vault.png" alt-text="Screenshot of the basics form when creating a new key vault.":::
 
-1. From the __Networking__ tab, select __Private endpoint__ and then select __+ Add__.
+1. From the __Networking__ tab, deselect __Enable public access__ and then select __+ create a private endpoint__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/key-vault-networking.png" alt-text="Screenshot of the networking form when adding a private endpoint for the key vault.":::
 
@@ -209,10 +195,10 @@ To create a virtual network, use the following steps:
     * __Target sub-resource__: Vault
     * __Virtual network__: The virtual network you created earlier.
     * __Subnet__: Training (172.16.0.0/24)
-    * __Private DNS integration__: Yes
-    * __Private DNS Zone__: privatelink.vaultcore.azure.net
+    * __Enable Private DNS integration__: Yes
+    * __Private DNS Zone__: Select the resource group that contains the virtual network and key vault.
 
-    Select __OK__ to create the private endpoint.
+    Select __Add__ to create the private endpoint.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/key-vault-private-endpoint.png" alt-text="Screenshot of the key vault private endpoint configuration form.":::
 
@@ -238,20 +224,13 @@ To create a virtual network, use the following steps:
     * __Virtual network__: The virtual network you created earlier.
     * __Subnet__: Training (172.16.0.0/24)
     * __Private DNS integration__: Yes
-    * __Private DNS Zone__: privatelink.azurecr.io
+    * __Resource group__: Select the resource group that contains the virtual network and container registry.
 
     Select __OK__ to create the private endpoint.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-private-endpoint.png" alt-text="Screenshot of the configuration form for the container registry private endpoint.":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
-1. After the container registry has been created, select __Go to resource__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-go-to-resource.png" alt-text="Screenshot of the 'go to resource' button.":::
-
-1. From the left of the page, select __Access keys__, and then enable __Admin user__. This setting is required when using Azure Container Registry inside a virtual network with Azure Machine Learning.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-admin-user.png" alt-text="Screenshot of the container registry access keys form, with the 'admin user' option enabled.":::
 
 ## Create a workspace
 
@@ -268,7 +247,7 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-machine-learning-workspace.png" alt-text="Screenshot of the basic workspace configuration form.":::
 
-1. From the __Networking__ tab, select __Private with Internet Outbound__. In the __Workspace inbound access__ section, select __+ add__.
+1. From the __Networking__ tab, select __Private with Internet Outbound__. In the __Workspace inbound access__ section, select __+ Add__.
 
 1. On the __Create private endpoint__ form, use the following values: 
     * __Subscription__: The same Azure subscription that contains the previous resources you've created.
@@ -288,7 +267,7 @@ To create a virtual network, use the following steps:
 1. From the __Networking__ tab, in the __Workspace outbound access__ section, select __Use my own virtual network__.
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 1. Once the workspace has been created, select __Go to resource__.
-1. From the __Settings__ section on the left, select __Private endpoint connections__ and then select the link in the __Private endpoint__ column:
+1. From the __Settings__ section on the left, select __Networking__, __Private endpoint connections__, and then select the link in the __Private endpoint__ column:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/workspace-private-endpoint-connections.png" alt-text="Screenshot of the private endpoint connections for the workspace.":::
 
@@ -333,15 +312,7 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 > * [Migrate to workspace-based Application Insights resources](../azure-monitor/app/convert-classic-resource.md).
 > * [Configure your Azure Monitor private link](../azure-monitor/logs/private-link-configure.md).
 
-1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace. From __Overview__, select the __Application Insights__ link.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/workspace-application-insight.png" alt-text="Screenshot of the Application Insights link.":::
-
-1. In the __Properties__ for Application Insights, check the __WORKSPACE__ entry to see if it contains a value. If it _doesn't_, select __Migrate to Workspace-based__, select the __Subscription__ and __Log Analytics Workspace__ to use, then select __Apply__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/migrate-workspace-based.png" alt-text="Screenshot of the link to migrate to workspace-based.":::
-
-1. In the Azure portal, select __Home__, and then search for __Private link__. Select the __Azure Monitor Private Link Scope__ result and then select __Create__.
+1. In the [Azure portal](https://portal.azure.com), select __Home__, and then search for __Private link__. Select the __Azure Monitor Private Link Scope__ result and then select __Create__.
 1. From the __Basics__ tab, select the same __Subscription__, __Resource Group__, and __Resource group region__ as your Azure Machine Learning workspace. Enter a __Name__ for the instance, and then select __Review + Create__. To create the instance, select __Create__.
 1. Once the Azure Monitor Private Link Scope instance has been created, select the instance in the Azure portal. From the __Configure__ section, select __Azure Monitor Resources__ and then select __+ Add__.
 
@@ -427,9 +398,9 @@ Use the following steps to create an Azure Virtual Machine to use as a jump box.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/use-bastion.png" alt-text="Screenshot of the Use Bastion button.":::
 
-## Create a compute cluster and compute instance
+## Create a compute instance
 
-A compute cluster is used by your training jobs. A compute instance provides a Jupyter Notebook experience on a shared compute resource attached to your workspace.
+A compute instance provides a Jupyter Notebook experience on a shared compute resource attached to your workspace.
 
 1. From an Azure Bastion connection to the jump box, open the __Microsoft Edge__ browser on the remote desktop.
 1. In the remote browser session, go to __https://ml.azure.com__. When prompted, authenticate using your Microsoft Entra account.
@@ -440,20 +411,6 @@ A compute cluster is used by your training jobs. A compute instance provides a J
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-select-workspace.png" alt-text="Screenshot of the select Machine Learning workspace form.":::
 
-1. From studio, select __Compute__, __Compute clusters__, and then __+ New__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-cluster.png" alt-text="Screenshot of the compute clusters page, with the 'new' button selected.":::
-
-1. From the __Virtual Machine__ dialog, select __Next__ to accept the default virtual machine configuration.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-vm.png" alt-text="Screenshot of the compute cluster virtual machine configuration.":::
-    
-1. From the __Configure Settings__ dialog, enter __cpu-cluster__ as the __Compute name__. Set the __Subnet__ to __Training__ and then select __Create__ to create the cluster.
-
-    > [!TIP]
-    > Compute clusters dynamically scale the nodes in the cluster as needed. We recommend leaving the minimum number of nodes at 0 to reduce costs when the cluster is not in use.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-settings.png" alt-text="Screenshot of the configure settings form.":::
 
 1. From studio, select __Compute__, __Compute instance__, and then __+ New__.
 
