@@ -36,6 +36,9 @@ To modify the backup policy settings:
     > [!NOTE] 
     > After backups are configured and have taken effect for the scheduled frequency, you can't change the backup retention count to `0`. The backup retention count requires a minimum number of `1` for the backup policy. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) for details.  
 
+    >[!NOTE]
+    > Scheduled backups aren't supported on destination volumes in [cross-region](cross-region-replication-introduction.md) or [cross-zone](cross-zone-replication-introduction.md) replication relationships. Backups on destination volumes can only be taken from manual snapshots replicated from the source volume. For more information, see [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md#requirements-and-considerations).
+
 ## Suspend a backup policy  
 
 A backup policy can be suspended so that it does not perform any new backup operations against the associated volumes. This action enables you to temporarily suspend backups if existing backups need to be maintained but not retired because of versioning.   

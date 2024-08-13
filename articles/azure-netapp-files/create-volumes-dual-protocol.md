@@ -22,7 +22,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
-* [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
+* <a name="50-gib"></a> [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
 * The [non-browsable shares](#non-browsable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
 
 1. Register the feature: 
