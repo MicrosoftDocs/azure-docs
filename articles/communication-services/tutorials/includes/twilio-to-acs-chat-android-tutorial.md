@@ -30,7 +30,7 @@ For more information, see [Use Azure CLI to Create and Manage Access Tokens](../
 ### Install the libraries
 
 To start the migration from Twilio Conversations chat, the first step is to install the Azure Communication Services Chat SDK for Android to your project. The Azure Communication Services Chat SDK can be integrated as a `gradle` dependency.
-1. Add chat sdk
+1. Add the Chat SDK
 ```groovy
 implementation 'com.azure.android:azure-communication-common:' + $azureCommunicationCommonVersion
 implementation 'com.azure.android:azure-communication-chat:' + $azureCommunicationChatVersion
@@ -62,11 +62,11 @@ Please check out [Azure Function integration](../../../tutorials/integrate-azure
 
 ### Authenticating to the SDK
 
-To be able to use the Azure Communication Services Chat SDK, you need to authenticate using an access token.
+To use the Azure Communication Services Chat SDK, you need to authenticate using an access token.
 
 #### Twilio
 
-The following code snippets presume the availability of a valid access token for Twilio Services.
+The following code snippets assume the availability of a valid access token for Twilio services.
 
 ```java
 void retrieveAccessTokenFromServer(final Context context, String identity,
@@ -227,7 +227,7 @@ threadId = chatThreadProperties.getId();
 ### Get a chat thread client
 
 #### Twilio
-The following code snippet helps to get chat thread client in Twilio.
+The following code snippet helps to get a chat thread client in Twilio.
 ```java
 conversationsClient.getConversation(DEFAULT_CONVERSATION_NAME, new CallbackListener<Conversation>() {
             @Override
@@ -248,7 +248,7 @@ conversationsClient.getConversation(DEFAULT_CONVERSATION_NAME, new CallbackListe
 ```
 
 #### Azure Communication Services
-Now that we've created a Chat thread we'll obtain a `ChatThreadAsyncClient` to perform operations within the thread. Replace the comment `<CREATE A CHAT THREAD CLIENT>` with the following code:
+Now that we've created a chat thread, we'll obtain a `ChatThreadAsyncClient` to perform operations within the thread. Replace the comment `<CREATE A CHAT THREAD CLIENT>` with the following code:
 
 ```java
 ChatThreadAsyncClient chatThreadAsyncClient = new ChatThreadClientBuilder()
@@ -261,7 +261,7 @@ ChatThreadAsyncClient chatThreadAsyncClient = new ChatThreadClientBuilder()
 ```
 
 ### Send a message to a chat thread
-Unlike Twilio ACS does not have separate function to send text message or media.
+Unlike Twilio, ACS does not have separate functions for sending text messages or media.
 
 #### Twilio
 This is how you send a text message in Twilio.
@@ -282,7 +282,7 @@ void sendMessage(String messageBody) {
     }
 ```
 
-This is how you send a media in Twilio.
+This is how you send media in Twilio.
 ```java
 // Messages messagesObject;
 messagesObject.sendMessage(
@@ -351,7 +351,7 @@ chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getI
 ```
 
 ### Receive chat messages from a chat thread
-Unlike Twilio ACS does not have separate function to send receive message or media.
+Unlike Twilio, ACS does not have separate functions for receiving text messages or media.
 
 #### Twilio
 This is how you receive a text message in Twilio.
@@ -364,7 +364,7 @@ public void onMessageAdded(final Message message) {
             }
         }
 ```
-This is how you receive a media in Twilio. 
+This is how you receive media in Twilio.
 ```java
 if (message.hasMedia()) {
     message.getMediaContentTemporaryUrl(new CallbackListener<String>() {
