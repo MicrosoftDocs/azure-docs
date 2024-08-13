@@ -169,7 +169,7 @@ Here's how to create a host pool by using the Azure portal:
       | **Network security group** | Select whether you want to use a network security group (NSG).<br /><br />- **None** doesn't create a new NSG.<br /><br />- **Basic** creates a new NSG for the VM network adapter.<br /><br />- **Advanced** enables you to select an existing NSG.<br /><br />We recommend that you don't create an NSG here, but [create an NSG on the subnet instead](../virtual-network/manage-network-security-group.md). |
       | **Public inbound ports** | You can select a port to allow from the list. Azure Virtual Desktop doesn't require public inbound ports, so we recommend that you select **No**. |
       | **Domain to join** |  |
-      | **Select which directory you would like to join** | Select from **Microsoft Entra ID** or **Active Directory** and complete the relevant parameters for the selected option.  |
+      | **Select which directory you would like to join** | Select from **Microsoft Entra ID** or **Active Directory**, and complete the relevant parameters for the selected option.  |
       | **Virtual Machine Administrator account** |  |
       | **Username** | Enter a name to use as the local administrator account for the new session hosts. |
       | **Password** | Enter a password for the local administrator account. |
