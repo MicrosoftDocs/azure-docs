@@ -34,7 +34,7 @@ Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Mic
 ## Prerequisites  
 
 - In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level.
-- You must have either the **Global administrator** or **Security administrator** Microsoft Entra roles in order to grant permissions to your TIP product or to any other custom application that uses direct integration with the Microsoft Graph Security tiIndicators API.
+- You must have at least the **Security administrator** Microsoft Entra role in order to grant permissions to your TIP product or to any other custom application that uses direct integration with the Microsoft Graph Security tiIndicators API.
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 
 ## Instructions
@@ -90,7 +90,8 @@ You can get this information from your Microsoft Entra ID through a process call
 
 #### Get consent from your organization to grant these permissions
 
-1. To get consent, you need a Microsoft Entra Global Administrator to select the **Grant admin consent for your tenant** button on your app’s **API permissions** page. If you do not have the Global Administrator role on your account, this button will not be available, and you will need to ask a Global Administrator from your organization to perform this step. 
+<!--does this need to be a global admin?-->
+1. To get consent, you need a Microsoft Entra Global Administrator to select the **Grant admin consent for your tenant** button on your app’s **API permissions** page. If you do not have the Global Administrator role on your account, this button will not be available, and you will need to ask a Global Administrator from your organization to perform this step.
 
     :::image type="content" source="media/connect-threat-intelligence-tip/threat-intel-api-permissions-2.png" alt-text="Grant consent":::
 

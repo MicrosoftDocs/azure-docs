@@ -18,7 +18,7 @@ This article presents information that is common to the group of API-based data 
 ## Prerequisites
 
 - You must have read and write permissions on the Log Analytics workspace.
-- You must have the Global administrator or Security administrator role on your Microsoft Sentinel workspace's tenant.
+- You must have at least a Security administrator role on your Microsoft Sentinel workspace's tenant.
 - Data connector specific requirements:
   
   |Data connector  |Licensing, costs, and other prerequisites  |

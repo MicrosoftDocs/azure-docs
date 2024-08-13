@@ -37,7 +37,7 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Micros
 
 - Your user must be assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
 
-- Your user must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles on the tenant you want to stream the logs from.
+- Your user must have at least a [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) role on the tenant you want to stream the logs from.
 
 - Your user must have read and write permissions to the Microsoft Entra diagnostic settings in order to be able to see the connection status.
 - Install the solution for **Microsoft Entra ID** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
