@@ -45,7 +45,7 @@ You can also include any other files to maintain and support your template, for 
 
 - Before you create the template package folder, get familiar with [Names and style conventions](#names-and-style-conventions).
 
-- To help keep the template repository easier to browse, organize, and maintain, use the following syntax for your folder and use as few words as possible to avoid running into file path limits:
+- To help keep the template repository easier to browse, organize, and maintain, use the following syntax for your folder and use as few words as possible to avoid exceeding file path length limits:
 
   **<*workflow-task*>-<*product*>-<*pattern-or-protocol*>**
 
@@ -109,7 +109,7 @@ For more information about the connector ID, see [Find the connector ID](#find-c
 
   - A Microsoft-managed API version, which appears in the connectors gallery with the **Shared** label. This version is hosted and run in multitenant Azure using shared global resources.
 
-- Avoid hardcoded properties and their values in trigger and action definitions.
+- Don't use hardcoded properties and their values in trigger and action definitions.
 
 - Provide more context about trigger and action definitions by adding descriptive and helpful comments.
 
@@ -123,7 +123,7 @@ To create this preview image, follow these steps:
 
    You need to create a version each for the browser light theme and dark theme.
 
-1. Create the workflow screenshots using your preferred screen capture tool. Avoid including too much whitespace around the workflow.
+1. Create the workflow screenshots using your preferred screen capture tool. Don't include too much whitespace around the workflow.
 
 1. Save each image using the **.png** file name extension and any name that you want, following the [Names and style conventions](#names-style-conventions).
 
@@ -286,7 +286,7 @@ To publish your template to the templates gallery in the Azure portal, set up Gi
 | Other text | - Use sentence case for titles, headings, and body content, which means that you capitalize only the first letter unless you have product, service, technology, or brand name. <br><br>- Don't capitalize ordinary nouns and articles, such as "a", "an", "and", "or", "the", and so on. |
 | Voice | - Use second person voice (you and your), rather than third person (users, developers, customers) unless you need to refer to specific roles. See [Person – Microsoft Style Guide](/style-guide/grammar/person). <br><br>- Use an active, direct, but friendly tone when possible. Active voice focuses on the subject and verb in text, while passive voice focuses on the object in text. |
 | Vocabulary | - Use simple, common, everyday words, such as  "use", rather than "utilize" or "leverage". <br><br>- Don't use words, phrases, jargon, colloquialisms, idioms, or slang that don't translate well across languages. <br><br>-	Use "please" only for specific scenarios. See [please – Microsoft Style Guide](/style-guide/a-z-word-list-term-collections/p/please). <br><br>- Use "for example" or "such as", not "e.g." or "i.e.". <br><br>- Don't use directional terms such as "here", "above", "below", "right", and "left", which aren't accessible friendly. |
-| Punctuation | -	For a series of items, include the last comma before the word "and", for example, "apples, oranges, and bananas". See [Commas – Microsoft Style Guide](/style-guide/punctuation/commas). <br><br>-	End full sentences with appropriate punctuation. Avoid exclamation points. See [Punctuation – Microsoft Style Guide](/style-guide/punctuation/). |
+| Punctuation | -	For a series of items, include the last comma before the conjunction, such as "and". For example, "apples, oranges, and bananas". See [Commas – Microsoft Style Guide](/style-guide/punctuation/commas). <br><br>- End full sentences with appropriate punctuation. Don't use exclamation points. See [Punctuation – Microsoft Style Guide](/style-guide/punctuation/). |
 | Formatting | - For code, follow the style convention for that code's language. <br><br>- Don't use hardcoded links, which break if the URLs change. In your PR request, ask for a redirection link to use instead. <br><br>- For links, use the following format: "`For more information, see [descriptive link text](URL)]`.". <br><br>- Use descriptive link text, not generic or vague link text, such as "`See [here](URL)`." <br><br>- Use numbers only for steps in a procedure, not for lists that have no specific order. See [Lists – Microsoft Style Guide](/style-guide/scannable-content/lists). <br><br>- Use only one space after punctuation unless you're indenting code. |
 
 For more guidance, see the [Microsoft Style Guide](/style-guide/welcome/) and [Global writing tips](/style-guide/global-communications/writing-tips).
