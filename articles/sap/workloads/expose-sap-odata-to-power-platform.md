@@ -41,7 +41,7 @@ Learn more about the supported authentication types on the [power platform docum
 
 ### Guidance for SAP Principal Propagation
 
-Prinicipal Propagation is a mechanism well established in the SAP ecosystem. The SAP OData Connector supports this mechanism by providing a first-party Entra Id app registration with client id `6bee4d13-fd19-43de-b82c-4b6401d174c3` and scope `user_impersonation`. Use the field `Microsoft Entra ID Resource URI (Application ID URI)` to maintain your globally unique resource URI of the Entra ID app registration authorized to access the SAP OData service.
+Principal Propagation is a mechanism well established in the SAP ecosystem. The SAP OData Connector supports this mechanism by providing a first-party Entra ID app registration with client ID `6bee4d13-fd19-43de-b82c-4b6401d174c3` and scope `user_impersonation`. Use the field `Microsoft Entra ID Resource URI (Application ID URI)` to maintain your globally unique resource URI of the Entra ID app registration authorized to access the SAP OData service.
 
 The focus of the described configuration is on the Azure API Management, SAP Gateway, SAP OAuth 2.0 Server with AS ABAP, and OData sources, but the concepts used apply to any web-based resource.
 
