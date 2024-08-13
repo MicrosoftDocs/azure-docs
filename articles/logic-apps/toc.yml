@@ -107,8 +107,16 @@ items:
       href: add-run-csharp-scripts.md
     - name: Add and run PowerShell scripts
       href: add-run-powershell-scripts.md
+    - name: Parse or chunk content
+      href: parse-document-chunk-text.md
     - name: Secure traffic between Standard workflows and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: Edit app and host settings
+      href: edit-app-settings-host-settings.md
+    - name: Enable stateful mode for stateless built-in connectors
+      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
+    - name: Create custom built-in connectors
+      href: create-custom-built-in-connector-standard.md
     - name: Develop for rules engine integration
       items:
       - name: Overview for rules engine integration
@@ -131,12 +139,6 @@ items:
         href: rules-engine/test-rulesets.md
       - name: Create a rules engine project
         href: rules-engine/create-rules-engine-project.md
-    - name: Edit app and host settings
-      href: edit-app-settings-host-settings.md
-    - name: Enable stateful mode for stateless built-in connectors
-      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
-    - name: Create custom built-in connectors
-      href: create-custom-built-in-connector-standard.md
     - name: Set up deployment slots
       href: set-up-deployment-slots.md
     - name: DevOps deployment
