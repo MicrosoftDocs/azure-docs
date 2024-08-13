@@ -175,9 +175,6 @@ While using the [SpeechSynthesizer](/python/api/azure-cognitiveservices-speech/a
 
 Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=python), but replace the contents of that *speech-synthesis.py* file with the following Python code:
 
-> [!TIP]
-> When using the sample code to subscribe to synthesizer events, running multiple processes can cause concurrency issues, affecting thread execution and performance. Consider your computer's current workload to avoid unnecessary debugging.
-
 ```python
 import os
 import azure.cognitiveservices.speech as speechsdk
