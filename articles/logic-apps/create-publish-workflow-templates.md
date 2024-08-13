@@ -19,7 +19,7 @@ ms.date: 08/23/2024
 
 Azure Logic Apps provides prebuilt integration workflow templates that you can use to accelerate the process of building integration applications. These templates follow commonly used patterns and help you streamline development by providing a starting point or baseline with predefined business logic and configurations.
 
-Not only can you kickstart development with workflow templates, you can create workflow templates for your own use or share them with others. Your template can include artifacts such as schemas, maps, and custom assemblies. To add your template to the templates gallery in the Azure portal, create a template package by using this how-to guide. When you're done, visit the [Azure Logic Apps workflow templates repository in GitHub](https://github.com/Azure/LogicAppsTemplates) where you can create a pull request for your template package and have the Azure Logic Apps team review your template.
+Not only can you kickstart development with workflow templates, you can create workflow templates for your own use or share them with others. Your template can include artifacts such as schemas, maps, and custom assemblies. To add your template to the templates gallery in the Azure portal, create a template package by using this how-to guide. When you're done, visit the [workflow template repository in GitHub for Azure Logic Apps](https://github.com/Azure/LogicAppsTemplates) where you can create a pull request for your template package and have the Azure Logic Apps team review your template.
 
 ## Limitations
 
@@ -45,11 +45,11 @@ You can also include any other files to maintain and support your template, for 
 
 - Before you create the template package folder, get familiar with [Names and style conventions](#names-and-style-conventions).
 
-- To help keep the template repository easier to browse, organize, and maintain, use the following syntax for your folder and use as few words as possible to avoid exceeding file path length limits:
+- To keep the template repository easier to browse, organize, and maintain, use the following syntax for your folder name and the fewest number of words to avoid exceeding the character limit for file paths:
 
-  **<*workflow-task*>-<*product*>-<*pattern-or-protocol*>**
+  **<*workflow-task*>-<*product*>-<*pattern-or-protocol*, if any>**
 
-  For examples, see the [Azure Logic Apps workflow templates repository in GitHub](https://github.com/Azure/LogicAppsTemplates). 
+  For examples, see the [workflow template repository for Azure Logic Apps in GitHub](https://github.com/Azure/LogicAppsTemplates). 
 
 - To correctly register your template package folder, you must add the folder name to the [repository's root-level manifest.json file](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
 
@@ -218,7 +218,7 @@ To publish your template to the templates gallery in the Azure portal, set up Gi
 
    For more information, see [Get started with your GitHub account](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account).
 
-1. Go to the [Azure Logic Apps workflow templates repository named **LogicAppsTemplates** in GitHub](https://github.com/Azure/LogicAppsTemplates).
+1. Go to the [workflow template repository named **LogicAppsTemplates** for Azure Logic Apps in GitHub](https://github.com/Azure/LogicAppsTemplates).
 
 1. Create your own [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks), which is a remote copy of the **LogicAppsTemplates** repository in GitHub.
 
@@ -278,7 +278,7 @@ To publish your template to the templates gallery in the Azure portal, set up Gi
 
 | Area | Convention |
 |------|------------|
-| Sensitive data | Don't include any personal and sensitive information, such as subscription IDs, usernames, passwords, and so on, in template files, screenshots, descriptions, or test data. |
+| Sensitive data | Don't include or upload personal and sensitive data in template files, screenshots, descriptions, or test data. For example, this data includes subscription IDs, usernames, passwords, and so on. |
 | Folder names | For easier readability, use lowercase and hyphens when possible. See [Capitalization – Microsoft Style Guide](/style-guide/capitalization). |
 | Image file names | Use the **.png** as the file name extension, lowercase, and hyphens, for example, **workflow-light.png**. |
 | Product, service, technology, and brand names | Follow the official spelling and capitalization. For example: <br><br>- When you refer to the service name or platform, use "Azure Logic Apps", not "Logic Apps". <br><br>- When you refer to the resource or instance, use "logic apps" or "logic app", not "Logic App" or "Logic Apps". <br><br>- When you refer to the sequence of trigger and actions, use "logic app workflow" or "workflow". |

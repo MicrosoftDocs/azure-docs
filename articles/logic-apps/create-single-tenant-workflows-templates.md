@@ -33,11 +33,11 @@ Workflow templates are currently available only for Standard logic apps and sing
 
 - Access or sign-in credentials for each connection that the template creates for the workflow.
 
-- To authenticate access for connections that support using a managed identity, you need set up your logic app resource and the managed identity with the necessary permissions.
+- To authenticate access for connections that support using a managed identity, you need to set up your logic app resource and the managed identity with the necessary permissions.
 
-  A managed identity provides the best option for keeping your data secure because you don't need to provide account or user credentials to sign in. The managed identity removes the burden on you to rotate credentials, secrets, access tokens, and so on because Azure manages this identity. This option also reduces security risks because unauthorized users won't have access to your sign-in credentials.
+  A managed identity provides the best option for keeping your data secure because you don't need to provide account or user credentials to sign in. Azure manages this identity and removes the burden on you to rotate credentials, secrets, access tokens, and so on. The managed identity option also reduces security risks because unauthorized users doesn't have access to individual sign-in details.
 
-  Before you can use a managed identity for authentication, you need set up your logic app resource and the managed identity with the necessary permissions. For more information, see the following documentation:
+  Before you can use a managed identity for authentication, you need to set up your logic app resource and the managed identity with the necessary permissions. For more information, see the following documentation:
 
   - [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)?
 
@@ -53,7 +53,7 @@ Workflow templates are currently available only for Standard logic apps and sing
 
    :::image type="content" source="media/create-single-tenant-workflows-templates/templates-gallery.png" alt-text="Screenshot shows Azure portal and workflow templates gallery for Standard workflows." lightbox="media/create-single-tenant-workflows-templates/templates-gallery.png":::
 
-1. Browse the gallery or find the template you want using the search box or filters.
+1. Browse the gallery or find the template you want by using the search box or filters.
 
 1. Select your template, which opens the templates overview pane.
 
@@ -67,7 +67,7 @@ After the **Create a new workflow** pane appears, the **Connections** tab lists 
 
 1. To create each listed connection, in the **Connection** column, select **Connect**.
 
-1. For each connection type, follow the prompts to provide the necesary connection information.
+1. For each connection type, follow the prompts to provide the neccesary connection information.
 
    If a connection type supports using a managed identity to authenticate access, choose this option. 
 
