@@ -52,7 +52,7 @@ This example writes an HTTP input stream to a semantic document store at the pro
 ::: zone pivot="programming-language-typescript"
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/nodejs/src/app.ts" range="7-38":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="7-38":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

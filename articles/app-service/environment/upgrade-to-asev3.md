@@ -51,8 +51,11 @@ App Service Environment v3 is the latest version of App Service Environment. It'
 
 There are two automated migration features available to help you upgrade to App Service Environment v3. 
 
-- **In-place migration feature** migrates your App Service Environment to App Service Environment v3 in-place. In-place means that your App Service Environment v3 replaces your existing App Service Environment in the same subnet. There's application downtime during the migration because a subnet can only have a single App Service Environment at a given time. For more information about this feature, see [Automated upgrade using the in-place migration feature](migrate.md).
+- **In-place migration feature** migrates your App Service Environment to App Service Environment v3 in-place and is the recommended migration option. In-place means that your App Service Environment v3 replaces your existing App Service Environment in the same subnet. There's application downtime during the migration because a subnet can only have a single App Service Environment at a given time. For more information about this feature, see [Automated upgrade using the in-place migration feature](migrate.md).
 - **Side-by-side migration feature** creates a new App Service Environment v3 in a different subnet that you choose and recreates all of your App Service plans and apps in that new environment. Your existing environment is up and running during the entire migration. Once the new App Service Environment v3 is ready, you can redirect traffic to the new environment and complete the migration. There's no application downtime during the migration. For more information about this feature, see [Automated upgrade using the side-by-side migration feature](side-by-side-migrate.md).
+    > [!NOTE]
+    > Side-by-side migration comes with additional challenges compared to in-place migration. For customers who need to decide between the two options, the recommendation is to use in-place migration since there are fewer steps and less complexity. If you decide to use side-by-side migration, review the [common sources of issues when migrating using the side-by-side migration feature](side-by-side-migrate.md#common-sources-of-issues-when-migrating-using-the-side-by-side-migration-feature) section to avoid common pitfalls.
+    >
 - **Manual migration options** are available if you can't use the automated migration features. For more information about these options, see [Migration alternatives](migration-alternatives.md).
 
 ### Why do some customers see performance differences after migrating?
@@ -69,7 +72,7 @@ When migrating to App Service Environment v3, we map App Service plan tiers as f
 
 ### Migration path decision tree
 
-Use the following decision tree to determine which migration path is right for you.
+Use the following decision tree to determine which migration path is right for you. The recommendation for all customers is to use the in-place migration feature if your App Service Environment meets the criteria for an automated migration. In-place migration is the simplest and fastest way to upgrade to App Service Environment v3.
 
 :::image type="content" source="./media/migration/migration-path-decision-tree.png" alt-text="Screenshot of the decision tree for helping decide which App Service Environment upgrade option to use." lightbox="./media/migration/migration-path-decision-tree-expanded.png":::
 

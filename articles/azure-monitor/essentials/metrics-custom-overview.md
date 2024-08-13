@@ -31,7 +31,7 @@ In general, there's no cost to ingest standard metrics (platform metrics) into a
 Custom metrics are retained for the [same amount of time as platform metrics](../essentials/data-platform-metrics.md#retention-of-metrics).
 
 > [!NOTE]
-> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-preaggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database by using the custom metrics API to allow the more complex alerting. Learn more about the [Application Insights pricing model](../cost-usage.md) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
+> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data.
 
 ## Custom metric definitions
 

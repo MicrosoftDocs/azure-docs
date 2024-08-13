@@ -14,6 +14,8 @@ ms.author: jordanselig
 >
 > If you're looking for information on the in-place migration feature, see [Migrate to App Service Environment v3 by using the in-place migration feature](migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
+> Side-by-side migration comes with additional challenges compared to in-place migration. For customers who need to decide between the two options, the recommendation is to use in-place migration since there are fewer steps and less complexity. If you decide to use side-by-side migration, review the [common sources of issues when migrating using the side-by-side migration feature](#common-sources-of-issues-when-migrating-using-the-side-by-side-migration-feature) section to avoid common pitfalls.
+>
 
 App Service can automate migration of your App Service Environment v1 and v2 to an [App Service Environment v3](overview.md). There are different migration options. Review the [migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree) to decide which option is best for your use case. App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue. 
 

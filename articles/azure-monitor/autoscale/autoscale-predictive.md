@@ -71,7 +71,7 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 
 ## Enable using an Azure Resource Manager template
 
-1. Retrieve the virtual machine scale set resource ID and resource group of your virtual machine scale set.  For example: /subscriptions/e954e48d-abcd-abcd-abcd-3e0353cb45ae/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2
+1. Retrieve the virtual machine scale set resource ID and resource group of your virtual machine scale set.  For example: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2
 
 1. Update the *autoscale_only_parameters* file with the virtual machine scale set resource ID and any autoscale setting parameters.
 
@@ -81,7 +81,49 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment -name binzAutoScaleDeploy -resourcegroupname cpatest2 -templatefile autoscale_only.json -templateparameterfile autoscale_only_parameters.json
 ```
 
-:::image type="content" source="media/autoscale-predictive/powershell-template-7.png" alt-text="Screenshot that shows PowerShell command output from the preceding command when you run Azure Resource Manager templates to deploy predictive autoscale.":::
+
+```powershell
+PS C:\works\autoscale\predictive_autoscale\arm_template> new-azurermresourcegroupdeployment -name binzAutoScaleDeploy - resourcegroupname patest2 -templatefile autoscale_only_binz.json -templateparameterfile autoscale_only_parameters_binz.json
+
+        DeploymentName        : binzAutoScaleDeploy
+        ResourceGroupName     : patest2
+        ProvisioningState     : Succeeded
+        Timestamp             : 3/30/2021 10:11:02 PM
+        Mode                  : Incremental
+        TemplateLink
+        Parameters            :
+
+                                Name              Type                           Value
+                                ================  =============================  ====================
+                                targetVmssResourceld String	                        /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2
+                                location	      String                         East US
+                                minimumCapacity   Int                            1
+                                maximumCapacity   Int                            4
+                                defaultCapacity   Int                            4
+                                metricThresholdToScaleOut  Int                             50
+                                metricTimeWindowForScaleOut  String                          PT5M
+                                metricThresholdToScaleln  Int                              30   
+                                metricTimeWindowForScaleln  String                           PT5M 
+                                changeCountScaleOut  Int                             1
+                                changeCountScaleln  Int                             1
+                                predictiveAutoscaleMode String                            Enabled
+                           
+Outputs                        :
+                                Name              Type                           Value
+                                ================  ============================== ====================
+                            
+                                targetVmssResourceld  String	/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2 
+                                settingLocation  String	                        East US
+                                predictiveAutoscaleMode  String	                    Enabled
+
+DeloymentDebugLoglevel         :
+
+PS C:\works\autoscale\predictive_autoscale\arm_template>
+
+```
+
+
+
 
 **autoscale_only.json**
 ```json
@@ -253,7 +295,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
     "contentVersion": "1.0.0.0",
 	"parameters": {
 		"targetVmssResourceId": {
-			"value": "/subscriptions/e954e48d-b252-b252-b252-3e0353cb45ae/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2"
+			"value": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2"
 		},
 		"location": {
 			"value": "East US"
