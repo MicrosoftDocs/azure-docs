@@ -79,3 +79,9 @@ This error can come up while executing the Migration/Deboarding Runbook in Azure
 
 Delete custom Az Modules and ensure that default Az Module is updated to 8.0.0 for PowerShell 5.1
 
+## Next steps
+
+- [Migration using Azure portal](migration-using-portal.md)
+- [Migration using runbook scripts](migration-using-runbook-scripts.md)
+- [Manual migration guidance](migration-manual.md)
+- [Key points during migration](migration-key-points.md)
