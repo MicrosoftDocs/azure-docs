@@ -25,7 +25,7 @@ Duplicate class com.skype.rt.XXX found in modules jetified-azure-communication-c
 This issue was caused by conflicting `.jar` and `.so` files included in the Calling SDK package `com.azure.android:azure-communication-calling` and a transitive dependency package that the Chat SDK package `com.azure.android:azure-communication-chat` imports, `com.microsoft:trouter-client-android`.
 
 ## Solution
-Starting from Android Calling SDK version `2.11.0`, support has been added for Contoso to run both the Calling and Chat SDK's in the same Android application. This was achieved by making the Calling SDK depend on `com.microsoft:trouter-client-android` and removing the conflicting `.jar` and `.so` files included in the Calling SDK.
+Starting from Android Calling SDK version `2.11.0`, support has been added for Contoso to run both the Calling and Chat SDK's in the same Android application. This was achieved by making the Calling SDK depend on `com.microsoft:trouter-client-android`, similar to how the Chat SDK depends on the Trouter package, and removing the conflicting `.jar` and `.so` files included in the Calling SDK.
 
 ## Implementation steps
 
