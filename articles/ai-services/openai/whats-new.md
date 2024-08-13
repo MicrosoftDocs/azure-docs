@@ -490,7 +490,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 - Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
 - [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-types). 
-- [View your chat history in the deployed web app](./how-to/use-web-app.md#chat-history)
+- [View your chat history in the deployed web app](./how-to/use-web-app.md#enabling-chat-history-using-cosmos-db)
 
 ## July 2023
 
