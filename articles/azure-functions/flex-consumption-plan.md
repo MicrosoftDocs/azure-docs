@@ -139,6 +139,7 @@ Keep these other considerations in mind when using Flex Consumption plan during 
   + Continuous deployment using GitHub Actions (`functions-action@v1`) 
 + **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#dependency-management) aren't supported by Flex Consumption. You must instead [define your own custom modules](functions-reference-powershell.md#custom-modules).
++ **Diagnostic settings**: Diagnostic settings are not currently supported.
  
 ## Related articles 
 
