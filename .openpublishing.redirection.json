@@ -1,6 +1,36 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storage/files/files-samples-dotnet-v11.md",
+      "redirect_url": "/previous-versions/azure/storage/files/files-samples-dotnet-v11",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/files-samples-java-v8.md",
+      "redirect_url": "/previous-versions/azure/storage/files/files-samples-java-v8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/files-samples-python-v2.md",
+      "redirect_url": "/previous-versions/azure/storage/files/files-samples-python-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/storage-c-plus-plus-how-to-use-files.md",
+      "redirect_url": "/previous-versions/azure/storage/files/storage-c-plus-plus-how-to-use-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/queues/queues-v11-samples-dotnet.md",
+      "redirect_url": "/previous-versions/azure/storage/queues/queues-v11-samples-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/queues/queues-v2-samples-python.md",
+      "redirect_url": "/previous-versions/azure/storage/queues/queues-v2-samples-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/files/storage-files-migration-storsimple-1200.md",
       "redirect_url": "/previous-versions/azure/storage/files/storage-files-migration-storsimple-1200",
       "redirect_document_id": false
@@ -4803,6 +4833,11 @@
     {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md",
       "redirect_url": "/azure/vpn-gateway/about-site-to-site-tunneling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/openvpn-azure-ad-tenant-multi-app.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-entra-users-access",
       "redirect_document_id": false
     },
     {

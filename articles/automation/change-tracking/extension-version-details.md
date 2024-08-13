@@ -5,6 +5,7 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 05/22/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Change tracking and inventory extension version details and known issues
