@@ -61,7 +61,7 @@ For a general idea of what's required, such as operating systems, virtual networ
 
   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
 
-  - An existing [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network where you're deploying the session hosts.
+  - An existing [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network to which you're deploying the session hosts.
 
 - If you want to use the Azure CLI or Azure PowerShell locally, see [Use the Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -156,7 +156,7 @@ Here's how to create session hosts and register them to a host pool by using the
 
 1. On the search bar, enter **Azure Virtual Desktop** and select the matching service entry.
 
-1. Select **Host pools**, and then select the name of the host pool where you want to add session hosts.
+1. Select **Host pools**, and then select the name of the host pool to which you want to add session hosts.
 
 1. On the host pool overview, select **Session hosts**, and then select **+ Add**.
 
@@ -235,9 +235,9 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Virtual machine location** | Select the Azure region where you want to deploy your session hosts. It must be the same region that contains your virtual network. Then select **Deploy to an Azure Extended Zone**. |
       | **Azure Extended Zones** |  |
       | **Azure Extended Zone** | Select **Los Angeles**. |
-      | **Place the session host(s) behind an existing load balancing solution?** | Select the box. This action shows options for selecting a load balancer and a backend pool.|
-      | **Select a load balancer** | Select an existing load balancer on the virtual network where you're deploying the session hosts. |
-      | **Select a backend pool** | Select a backend pool on the load balancer where you want to place the sessions hosts. |
+      | **Place the session host(s) behind an existing load balancing solution?** | Select the box. This action shows options for selecting a load balancer and a back-end pool.|
+      | **Select a load balancer** | Select an existing load balancer on the virtual network to which you're deploying the session hosts. |
+      | **Select a backend pool** | Select a back-end pool on the load balancer in which you want to place the sessions hosts. |
       | **Availability options** | Select from [availability zones](../reliability/availability-zones-overview.md), [availability set](../virtual-machines/availability-set-overview.md), or **No infrastructure dependency required**. If you select **availability zones** or **availability set**, complete the extra parameters that appear.  |
       | **Security type** | Select from **Standard**, [Trusted launch virtual machines](../virtual-machines/trusted-launch.md), or [Confidential virtual machines](../confidential-computing/confidential-vm-overview.md).<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
    </details>
@@ -361,7 +361,7 @@ After you add session hosts to your host pool, you might need to do some extra c
 
 [!INCLUDE [include-session-hosts-post-deployment](includes/include-session-hosts-post-deployment.md)]
 
-## Next steps
+## Related content
 
 Now that you've expanded your existing host pool, you can sign in to an Azure Virtual Desktop client to test the hosts as part of a user session. You can connect to a session by using any of the following clients:
 
