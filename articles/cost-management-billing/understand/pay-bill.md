@@ -121,7 +121,7 @@ Alternatively, if your invoice is under the threshold amount for your currency, 
 > [!NOTE]
 > When multiple invoices are remitted in a single wire transfer, you must specify the invoice numbers for all of the invoices.
 
-### Bank details for sending wire transfer payments
+### Bank details used to send wire transfer payments
 <a name="wire-bank-details"></a>
 
 If your default payment method is wire transfer, check your invoice for payment instructions. Find payment instructions for your country/region in the following list:
