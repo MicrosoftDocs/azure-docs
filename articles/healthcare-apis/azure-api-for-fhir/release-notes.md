@@ -22,7 +22,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 ### FHIR service
 
 **Bug Fixes** 
-Implemented a fix to address issues wherein large export jobs incorrectly displayed a "completed" status while child jobs were still processing. The solution involves incorporating a delay to mitigate the occurrence of such status inconsistencies.This enhancement aims to improve export job reliability. 
+A fix was implemented to address issues with large exports incorrectly displaying a "completed" status while child tasks are still processing. The solution incorporates a delay to mitigate the occurrence of these status errors, improving export reliability. 
 
 
 ## **July 2024**
