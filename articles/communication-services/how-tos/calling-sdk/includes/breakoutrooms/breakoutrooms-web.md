@@ -74,7 +74,7 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
 ```
 
 
-4. Class `JoinBreakoutRoomsEvent` : This event is triggered when the participant is joining breakout room call. This can happen when user is automatically moved to breakout room (i.e., if `assignedBreakoutRoom` has property `state` set to `open` and `autoMoveParticipantToBreakoutRoom` is set to `true`) or when user explicitly joins breakout room (i.e., calls method `join` on the instance `assignedBreakoutRoom` when `autoMoveParticipantToBreakoutRoom` is set to `false`). Property `data` contains the breakout room `call` instance, that developers can use to control breakout room call. This class has property `type` equal to `"join"`.
+4. Class `JoinBreakoutRoomsEvent` : This event is triggered when the participant is joining breakout room call. This event can happen when user is automatically moved to breakout room (that is, if `assignedBreakoutRoom` has property `state` set to `open` and `autoMoveParticipantToBreakoutRoom` is set to `true`) or when user explicitly joins breakout room (that is, calls method `join` on the instance `assignedBreakoutRoom` when `autoMoveParticipantToBreakoutRoom` is set to `false`). Property `data` contains the breakout room `call` instance, that developers can use to control breakout room call. This class has property `type` equal to `"join"`.
 ```js
     export interface JoinBreakoutRoomEvent {
       /**
@@ -188,51 +188,51 @@ Breakout rooms have the following properties:
 ```js
 const displayName : string = breakoutRoom.displayName;
 ```
-- `displayName` : Name of the breakout room. This is a read-only property.
+- `displayName` : Name of the breakout room. This property is read-only.
 
 ```js
 const threadId : string = breakoutRoom.threadId;
 ```
-- `threadId` : You can use chat thread ID to join chat of the breakout room. This is a read-only property.
+- `threadId` : You can use chat thread ID to join chat of the breakout room. This property is read-only.
 
 ```js
 const state : BreakoutRoomState = breakoutRoom.state;
 ```
-- `state` : State of the breakout room. It can be either `open` or `closed`. Users would be able to join the breakout room only when the state is `open`. This is a read-only property.
+- `state` : State of the breakout room. It can be either `open` or `closed`. Users would be able to join the breakout room only when the state is `open`. This property is read-only.
 
 ```js
 const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom; 
 ```
-- `autoMoveParticipantToBreakoutRoom` : Boolean value which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `open`. This is a read-only property.
+- `autoMoveParticipantToBreakoutRoom` : Boolean value, which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `open`. This property is read-only.
 
 ```js
 const call : Call | TeamsCall = breakoutRoom.call;
 ```
-- `call` : Breakout room call object. This is returned when the user joins the breakout room call automatically or by calling `join` method on `assignedBreakoutRoom` object. This is a read-only property.
+- `call` : Breakout room call object. This is returned when the user joins the breakout room call automatically or by calling `join` method on `assignedBreakoutRoom` object. This property is read-only.
 
 ```js
 const invitees : Invitee[] = breakoutRoom.invitees;
 ```
-- `invitees` : The list of invitees who are assigned to the breakout room. This is a read-only property.
+- `invitees` : The list of invitees who are assigned to the breakout room. This property is read-only.
 
 ### Breakout room  settings
 Breakout rooms share setting that has the following properties:
 ```js
 const disableReturnToMainMeeting : boolean = breakoutRoomsSettings.disableReturnToMainMeeting;
 ```
-- `disableReturnToMainMeeting` : Disable participants to return to the main meeting from the breakout room call. This is a read-only property.
+- `disableReturnToMainMeeting` : Disable participants to return to the main meeting from the breakout room call. This property is read-only.
 
 ```js
 const roomEndTime : TimestampInfo = breakoutRoomsSettings.roomEndTime;
 ```
-- `roomEndTime`: Breakout room end time set by the Microsoft 365 user with role organizer, co-organizer, or breakout room manager of the main meeting. This is a read-only property.
+- `roomEndTime`: Breakout room end time set by the Microsoft 365 user with role organizer, co-organizer, or breakout room manager of the main meeting. This property is read-only.
 
 ### Troubleshooting
 
 |Error code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
 |400		| 46250	| ExpectedError  | Breakout Rooms feature is only available in Teams meetings. | Implement your own breakout room mechanism or use Teams meetings. |
-|405	| 46251 | ExpectedError  | Breakout Rooms feature is currently disabled by Azure Communication Services.  | Try the APIs in a couple of days. |
+|405	| 46251 | ExpectedError  | Azure Communication Services currently disabled this feature.  | Try the APIs in a couple of days. |
 |500 | 46254	| UnexpectedServerError | Unable to join breakout room due to an unexpected error. | Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |500| 46255 | UnexpectedServerError | Unable to hold main meeting. | Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |412 | 46256| ExpectedError | Unable to join Breakout Room as the room is closed. | Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.|
