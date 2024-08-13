@@ -32,8 +32,8 @@ VM naming is further broken down into the 'Series' name and the 'Size' name. Siz
 | Category | Description | Links |
 |---| --- | --- |
 | **Type** | 	Basic categorization by intended workload. | [General purpose](#general-purpose) <br>[Compute optimized](#compute-optimized) <br>[Memory optimized](#memory-optimized) <br>[Storage optimized](#storage-optimized) <br>[GPU accelerated](#gpu-accelerated) <br>[FPGA accelerated](#fpga-accelerated) |
-| **Series** | Group of sizes with similar hardware and features.| [Enter the 'Series' tab here.](#name-structure-breakdown) |
-| **Size** | Specific VM configuration, including vCPUs, memory, and accelerators. | [Enter the 'Size' tab here.](#name-structure-breakdown) |
+| **Series** | Group of sizes with similar hardware and features.| [Series](#series) |
+| **Size** | Specific VM configuration, including vCPUs, memory, and accelerators. | [Size](#size) |
 
 ### Name structure breakdown
 
