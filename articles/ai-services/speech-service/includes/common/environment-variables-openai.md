@@ -8,7 +8,7 @@ ms.author: eur
 
 Your application must be authenticated to access Azure AI services resources. For production, use a secure way of storing and accessing your credentials. For example, after you get a key for your Speech resource, write it to a new environment variable on the local machine running the application.
 
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 To set the environment variables, open a console window, and follow the instructions for your operating system and development environment.
 

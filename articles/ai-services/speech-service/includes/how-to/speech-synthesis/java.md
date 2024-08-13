@@ -213,7 +213,7 @@ While using the [SpeechSynthesizer](/java/api/com.microsoft.cognitiveservices.sp
 
 Here's an example that shows how to subscribe to events for speech synthesis. 
 
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=java), but replace the contents of that *SpeechSynthesis.java* file with the following Java code:
 

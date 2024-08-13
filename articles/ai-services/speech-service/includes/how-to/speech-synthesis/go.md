@@ -341,7 +341,7 @@ While using the [SpeechSynthesizer](https://pkg.go.dev/github.com/Microsoft/cogn
 
 Here's an example that shows how to subscribe to events for speech synthesis. 
 
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=go), but replace the contents of that `speech-synthesis.go` file with the following Go code:
 
