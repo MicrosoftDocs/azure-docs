@@ -1,8 +1,8 @@
 ---
 title: Manage read replicas - Azure portal, REST API
 description: Learn how to manage read replicas for Azure Database for PostgreSQL - Flexible Server from the Azure portal, CLI, and REST API.
-author: AlicjaKucharczyk
-ms.author: alkuchar
+author: akashraokm
+ms.author: akashrao
 ms.reviewer: maghan
 ms.date: 04/27/2024
 ms.service: azure-database-postgresql

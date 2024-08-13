@@ -8,7 +8,7 @@ ms.date: 05/06/2024
 
 # Use Azure Key Vault to pass secure parameter value during Bicep deployment
 
-Instead of putting a secure value (like a password) directly in your Bicep file or parameters file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. When a [module](./modules.md) expects a `string` parameter with `secure:true` modifier, you can use the [getSecret function](bicep-functions-resource.md#getsecret) to obtain a key vault secret. The value is never exposed because you only reference its key vault ID.
+Instead of putting a secure value (like a password) directly in your Bicep file or parameters file, you can retrieve the value from an [Azure Key Vault](/azure/key-vault/general/overview) during a deployment. When a [module](./modules.md) expects a `string` parameter with `secure:true` modifier, you can use the [getSecret function](bicep-functions-resource.md#getsecret) to obtain a key vault secret. The value is never exposed because you only reference its key vault ID.
 
 > [!IMPORTANT]
 > This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can exist in a different subscription than the resource group you're deploying to.
@@ -90,11 +90,11 @@ Set-AzKeyVaultAccessPolicy `
 
 For more information about creating key vaults and adding secrets, see:
 
-- [Set and retrieve a secret by using CLI](../../key-vault/secrets/quick-create-cli.md)
-- [Set and retrieve a secret by using PowerShell](../../key-vault/secrets/quick-create-powershell.md)
-- [Set and retrieve a secret by using the portal](../../key-vault/secrets/quick-create-portal.md)
-- [Set and retrieve a secret by using .NET](../../key-vault/secrets/quick-create-net.md)
-- [Set and retrieve a secret by using Node.js](../../key-vault/secrets/quick-create-node.md)
+- [Set and retrieve a secret by using CLI](/azure/key-vault/secrets/quick-create-cli)
+- [Set and retrieve a secret by using PowerShell](/azure/key-vault/secrets/quick-create-powershell)
+- [Set and retrieve a secret by using the portal](/azure/key-vault/secrets/quick-create-portal)
+- [Set and retrieve a secret by using .NET](/azure/key-vault/secrets/quick-create-net)
+- [Set and retrieve a secret by using Node.js](/azure/key-vault/secrets/quick-create-node)
 
 ## Grant access to the secrets
 
@@ -282,6 +282,6 @@ If you need to use a version of the secret other than the current version, inclu
 
 ## Next steps
 
-- For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/general/overview.md)
+- For general information about key vaults, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 - For complete examples of referencing key secrets, see [key vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples) on GitHub.
 - For a Learn module that covers passing a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).

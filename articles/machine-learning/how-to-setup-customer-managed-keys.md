@@ -3,7 +3,7 @@ title: Use customer-managed keys
 titleSuffix: Azure Machine Learning
 description: 'Learn how to improve data security with Azure Machine Learning by using customer-managed keys.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.custom:
   - engagement-fy23
@@ -50,7 +50,7 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 
 ## Create Azure Key Vault
 
-To create the key vault, see [Create a key vault](../key-vault/general/quick-create-portal.md). When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
+To create the key vault, see [Create a key vault](/azure/key-vault/general/quick-create-portal). When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
 
 > [!IMPORTANT]
 > The key vault must be in the same Azure subscription that will contain your Azure Machine Learning workspace.
@@ -63,8 +63,8 @@ To create the key vault, see [Create a key vault](../key-vault/general/quick-cre
 > If you plan to use a user-assigned managed identity for your workspace, the managed identity must also be assigned these roles and access policies.
 >
 > For more information, see the following articles:
-> * [Provide access to key vault keys, certificates, and secrets](../key-vault/general/rbac-guide.md)
-> * [Assign a key vault access policy](../key-vault/general/assign-access-policy.md)
+> * [Provide access to key vault keys, certificates, and secrets](/azure/key-vault/general/rbac-guide)
+> * [Assign a key vault access policy](/azure/key-vault/general/assign-access-policy)
 > * [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md)
 
 1. From the [Azure portal](https://portal.azure.com), select the key vault instance. Then select __Keys__ from the left.

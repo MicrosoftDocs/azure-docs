@@ -78,7 +78,7 @@ ms.custom: "include file"
 
 | Category | Limit | Comments |
 |:---|:---|:---|
-| Maximum columns in a table         | 500 | Contact support for more |
+| Maximum columns in a table         | 500 | **AzureDiagnostics** -- columns above the limit are added to dynamic 'AdditionalFields' column <br> **Custom log created by Data collector API** -- columns above the limit are added to dynamic 'AdditionalFields' column <br> **Custom log** -- contact support for more |
 | Maximum number of custom log tables | 500 | Contact support for more |
 | Maximum characters for column name | 45 | |
 

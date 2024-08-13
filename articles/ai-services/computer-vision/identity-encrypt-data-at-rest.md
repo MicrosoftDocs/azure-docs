@@ -25,5 +25,5 @@ The Face service automatically encrypts your data when it's persisted to the clo
 ## Next steps
 
 * For a full list of services that support CMK, see [Customer-Managed Keys for Azure AI services](../encryption/cognitive-services-encryption-keys-portal.md)
-* [What is Azure Key Vault?](../../key-vault/general/overview.md)?
+* [What is Azure Key Vault?](/azure/key-vault/general/overview)?
 

@@ -114,9 +114,6 @@ You can use the following policy to disable access to Azure OpenAI global standa
 
 To learn about creating resources and deploying models refer to the [resource creation guide](./create-resource.md).
 
-## Retrieve batch job output file
-
-
 
 ## See also
 

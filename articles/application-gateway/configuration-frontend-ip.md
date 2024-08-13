@@ -38,9 +38,6 @@ A frontend IP address is associated to a *listener*, which checks for incoming r
 
 You can create private and public listeners with the same port number. However, be aware of any network security group (NSG) associated with the Application Gateway subnet. Depending on your NSG's configuration, you might need an allow-inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs. When you use the same port, your application gateway changes the **Destination** of the inbound flow to the frontend IPs of your gateway.
 
-> [!NOTE]
-> Currently, the use of the same port number for public and private TCP/TLS protocol or IPv6 listeners is not supported.
-
  **Inbound rule**:
 
 - **Source**: According to your requirement

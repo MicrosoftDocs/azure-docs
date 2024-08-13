@@ -15,7 +15,7 @@ ms.custom: cogserv-non-critical-vision
 
 # View or delete user data in Custom Vision
 
-Custom Vision collects user data to operate the service, but customers have full control to viewing and delete their data using the Custom Vision [Training APIs](https://go.microsoft.com/fwlink/?linkid=865446).
+Custom Vision collects user data to operate the service, but customers have full control to viewing and delete their data using the Custom Vision [Training APIs](/rest/api/customvision/train-project).
 
 [!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
@@ -23,11 +23,11 @@ To learn how to view or delete different kinds of user data in Custom Vision, se
 
 | Data | View operation | Delete operation |
 | ---- | ---------------- | ---------------- |
-| Account info (Keys) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Delete using Azure portal (for Azure Subscriptions). Or use **Delete Your Account** button in [CustomVision.ai](https://customvision.ai) settings page (for Microsoft Account Subscriptions) | 
-| Iteration details | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
-| Iteration performance details | [GetIterationPerformance](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| List of iterations | [GetIterations](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
-| Projects and project details | [GetProject](https://go.microsoft.com/fwlink/?linkid=865446) and [GetProjects](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Image tags | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) and [GetTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Images | [GetTaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (provides uri for image download) and [GetUntaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (provides uri for image download) | [DeleteImages](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Exported iterations | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Deleted upon account deletion |
+| Account info (Keys) | [GetAccountInfo](/rest/api/aiservices/accountmanagement/accounts/get) | Delete using Azure portal (for Azure Subscriptions). Or use **Delete Your Account** button in [CustomVision.ai](https://customvision.ai) settings page (for Microsoft Account Subscriptions) | 
+| Iteration details | [GetIteration](/rest/api/customvision/get-iteration) | [DeleteIteration](/rest/api/customvision/delete-iteration) |
+| Iteration performance details | [GetIterationPerformance](/rest/api/customvision/get-iteration-performance) | [DeleteIteration](/rest/api/customvision/delete-iteration) | 
+| List of iterations | [GetIterations](/rest/api/customvision/get-iterations) | [DeleteIteration](/rest/api/customvision/delete-iteration) |
+| Projects and project details | [GetProject](/rest/api/customvision/get-project) and [GetProjects](/rest/api/customvision/get-projects) | [DeleteProject](/rest/api/customvision/delete-project) | 
+| Image tags | [GetTag](/rest/api/customvision/get-tag) and [GetTags](/rest/api/customvision/get-tags) | [DeleteTag](/rest/api/customvision/delete-tag) | 
+| Images | [GetTaggedImages](/rest/api/customvision/get-tagged-images) (provides uri for image download) and [GetUntaggedImages](/rest/api/customvision/get-untagged-images) (provides uri for image download) | [DeleteImages](/rest/api/customvision/delete-images) | 
+| Exported iterations | [GetExports](/rest/api/customvision/get-exports) | Deleted upon account deletion |
