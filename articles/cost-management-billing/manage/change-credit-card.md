@@ -17,7 +17,7 @@ This article applies to customers who signed up for Azure online by using a cred
 In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You can also delete a payment method that you use to pay for an Azure subscription. To make these changes, you need these credentials:
 
 - For a Microsoft Online Subscription Program (pay-as-you-go) account, you must be an [account administrator](add-change-subscription-administrator.md#whoisaa).
-- For a Microsoft Customer Agreement (MCA) account, you must have the correct [MCA permissions](understand-mca-roles.md).
+- For a Microsoft Customer Agreement account, you must have the correct [Microsoft Customer Agreement permissions](understand-mca-roles.md).
 
 The supported payment methods for Azure are credit card, debit card, and wire transfer. Azure doesn't support virtual or prepaid cards. To get approved to pay by wire transfer, see [Pay for your Azure subscription by wire transfer](pay-by-invoice.md).
 
@@ -106,7 +106,7 @@ The following sections apply to customers who have a Microsoft Customer Agreemen
 If you have a Microsoft Customer Agreement, your credit card is associated with a billing profile. To change the payment method for a billing profile, one of these conditions must apply:
 
 - You're the person who signed up for Azure and created the billing account.
-- You have the correct [MCA permissions](understand-mca-roles.md).
+- You have the correct [Microsoft Customer Agreement permissions](understand-mca-roles.md).
 
 ### Change the default credit card
 
@@ -166,7 +166,7 @@ Whatever your Azure subscription type, you must cancel it to delete its associat
 
 Removing a payment method for other Azure subscription types, like Microsoft Partner Agreement and Enterprise Agreement, isn't supported.
 
-### Delete an MCA payment method
+### Delete a Microsoft Customer Agreement payment method
 
 Only the user who created the Microsoft Customer Agreement account can delete a payment method.
 
@@ -189,7 +189,7 @@ To delete a payment method for a Microsoft Customer Agreement:
     - If the payment method isn't in use, the **Delete** option is available. Select it to delete the credit card information.
     - If the payment method is in use, it must be replaced or detached. Continue reading the following sections. They explain how to detach the payment method.
 
-### Detach an MCA payment method
+### Detach a Microsoft Customer Agreement payment method
 
 If a Microsoft Customer Agreement billing profile is using your payment method, the following message appears.
 

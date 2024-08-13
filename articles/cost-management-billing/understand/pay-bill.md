@@ -15,7 +15,7 @@ ms.author: banders
 
 This article applies to:
 
-- Customers who have a Microsoft Customer Agreement (MCA).
+- Customers who have a Microsoft Customer Agreement.
 - Customers who signed up for Azure through the Azure website to create a Microsoft Online Subscription Program account. This type of account is also called a *pay-as-you-go* account.
 
 If you're unsure of your billing account type, see [Check the type of your account](#check-the-type-of-your-account) later in this article.
@@ -282,7 +282,7 @@ If your default payment method is wire transfer, check your invoice for payment 
 
 ## Pay now in the Azure portal
 
-To pay invoices in the Azure portal, you must have the correct [MCA permissions](../manage/understand-mca-roles.md) or be the account administrator. The account administrator is the user who originally signed up for the MCA account.
+To pay invoices in the Azure portal, you must have the correct [Microsoft Customer Agreement permissions](../manage/understand-mca-roles.md) or be the account administrator. The account administrator is the user who originally signed up for the Microsoft Customer Agreement account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Cost Management + Billing**.
