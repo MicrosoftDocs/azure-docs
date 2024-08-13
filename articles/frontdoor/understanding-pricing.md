@@ -1,11 +1,11 @@
 ---
 title: Compare pricing between Azure Front Door tiers
-description: This article describes the billing model for Azure Front Door and compares the pricing for the Standard, Premium and (classic) tiers.
+description: This article describes the billing model for Azure Front Door and compares the pricing for the Standard, Premium, and (classic) tiers.
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.date: 05/30/2023
+ms.date: 08/12/2024
 ms.author: duau
 ---
 
@@ -14,7 +14,7 @@ ms.author: duau
 > [!NOTE]
 > Prices shown in this article are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/frontdoor/)
 
-Azure Front Door has three tiers: Standard, Premium, and (classic). This article describes the billing model for Azure Front Door and compares the pricing for the Standard, Premium and (classic) tiers. When migrating from Azure Front Door (classic) to Standard or Premium, we recommend you do a cost analysis to understand the pricing differences between the tiers. We show you how to evaluate cost that you can apply your environment.
+Azure Front Door has three tiers: Standard, Premium, and (classic). This article describes the billing model for Azure Front Door and compares the pricing for the Standard, Premium, and (classic) tiers. When migrating from Azure Front Door (classic) to Standard or Premium, we recommend you do a cost analysis to understand the pricing differences between the tiers. We show you how to evaluate cost that you can apply your environment.
 
 ## Pricing model comparison
 
@@ -47,7 +47,7 @@ The following are general guidance for getting the right metrics to estimate the
 
     | Azure Front Door Standard/Premium meter | How to calculate from Azure Front Door (classic) metrics |
     |--|--|
-    | Base fee | - If you need managed WAF rules, bot protection, or Private Link: **$330/month** </br> - If you only need custom WAF rules: **$35/month** |
+    | Base fee | - If you need managed WAF (Web Application Firewall) rules, bot protection, or Private Link: **$330/month** </br> - If you only need custom WAF rules: **$35/month** |
     | Requests | **For Standard:** </br>1. Go to your Azure Front Door (classic) profile, select **Metrics** from under *Monitor* in the left side menu pane. </br>2. Select the **Request Count** from the *Metrics* drop-down menu. </br> 3. To view regional metrics, you can apply a split to the data by selecting **Client Country** or **Client Region**. </br> 4. If you select *Client Country*, you need to map them to the corresponding Azure Front Door pricing zone. </br> :::image type="content" source="./media/understanding-pricing/request-count.png" alt-text="Screenshot of the request count metric for Front Door (classic)." lightbox="./media/understanding-pricing/request-count.png"::: </br> **For Premium:** </br>You can look at the **Request Count** and the **WAF Request Count** metric in the Azure Front Door (classic) profile. </br> :::image type="content" source="./media/understanding-pricing/waf-request-count.png" alt-text="Screenshot of the Web Application Firewall request count metric for Front Door (classic)." lightbox="./media/understanding-pricing/waf-request-count.png"::: |
     | Egress from Azure Front Door edge to client | You can obtain this data from your Azure Front Door (classic) invoice or from the **Billable Response Size** metric in the Azure Front Door (classic) profile. To get a more accurate estimation, apply split by *Client Count* or *Client Region*.</br> :::image type="content" source="./media/understanding-pricing/billable-response-size.png" alt-text="Screenshot of the billable response size metric for Front Door (classic)." lightbox="./media/understanding-pricing/billable-response-size.png"::: |
     | Ingress from Azure Front Door edge to origin | You can obtain this data from your Azure Front Door (classic) invoice. Refer to the quantities for Data transfer from client to edge location as an estimation. |
@@ -121,9 +121,9 @@ Azure Front Door Premium is ~45% cheaper than Azure Front Door (classic) for sta
 |--|--|--|
 | Base fee | $0 | $35 |
 | Egress from Azure Front Door edge to client | $39,500 = (10 TB * $ 0.34/GB) + (40 TB * $ 0.29/GB) + (100 TB * $ 0.245/GB) | $12,790 = (10 TB * $ 0.109/GB) + (40 TB * $ 0.085/GB) + (100 TB * $ 0.083/GB) |
-| Egress from Azure Front Door edge to origin | $0 | $0.72= 4.5GB * $0.16/GB | 
-| Ingress from client to Azure Front Door edge | $0.05 = 4.5GB * $0.01  | $0 |
-| Ingress from origin to Azure Front Door edge | $900 = 0.1 TB * $ 0/GB + 7.5TB * $ 0.12/GB | $0 |
+| Egress from Azure Front Door edge to origin | $0 | $0.72= 4.5 GB * $0.16/GB | 
+| Ingress from client to Azure Front Door edge | $0.05 = 4.5 GB * $0.01  | $0 |
+| Ingress from origin to Azure Front Door edge | $900 = 0.1 TB * $ 0/GB + 7.5 TB * $ 0.12/GB | $0 |
 | Requests | $0 | $1.62 = 1.5 million requests * $0.0108 per 10,000 requests |
 | Routing rules | $$43.8 = ($0.03 * 2 rules) * 730 hrs  | $0 |
 | Total | $40,444 | $12,827.34 |
@@ -181,7 +181,7 @@ In this comparison, Azure Front Door Premium is ~5% more expensive than Azure Fr
 | WAF managed/ defaults rule set requests processed | $20 = 20 million requests * $1 per million requests | $0 |
 | Total | $17,551 .30| $29,945 |
 
-In this comparison, Azure Front Door Premium is 1.7x more expensive than Azure Front Door (classic) because of the higher base fee for each profile. The outbound data transfer is 45% less for Azure Front Door Premium compared to Azure Front Door (classic). With Premium tier, you don't have to pay for route rules which account for $7,700 of the total cost. 
+In this comparison, Azure Front Door Premium is 1.7x more expensive than Azure Front Door (classic) because of the higher base fee for each profile. The outbound data transfer is 45% less for Azure Front Door Premium compared to Azure Front Door (classic). With Premium tier, you don't have to pay for route rules, which account for $7,700 of the total cost. 
 
 #### Suggestion to reduce cost
 
