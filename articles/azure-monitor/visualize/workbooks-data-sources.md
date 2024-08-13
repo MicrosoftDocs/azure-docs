@@ -14,7 +14,8 @@ ms.reviewer: gardnerjr
 
 Workbooks can extract data from these data sources:
 
- - [Logs](#logs)
+ - [Logs (Analytics Tables), Application Insights](#logs-analytics-tables-application-insights)
+ - [Logs (Basic, Auxiliary)](#logs-basic-and-auxiliary-tables)
  - [Metrics](#metrics)
  - [Azure Resource Graph](#azure-resource-graph)
  - [Azure Resource Manager](#azure-resource-manager)
@@ -28,11 +29,11 @@ Workbooks can extract data from these data sources:
  - [Change Analysis](#change-analysis)
  - [Prometheus](#prometheus)
 
-## Logs
+## Logs (Analytics Tables), Application Insights
 
 With workbooks, you can query logs from the following sources:
 
-* Azure Monitor Logs (Application Insights resources and Log Analytics workspaces)
+* Azure Monitor Logs (Application Insights resources and Log Analytics workspaces analytics tables)
 * Resource-centric data (activity logs)
 
 You can use Kusto query language (KQL) queries that transform the underlying resource data to select a result set that can be visualized as text, charts, or grids.
@@ -46,6 +47,22 @@ See also: [Log Analytics query optimization tips](../logs/query-optimization.md)
 See also: [Workbooks best practices and hints for logs queries](workbooks-create-workbook.md#best-practices-for-querying-logs)
 
 Tutorial: [Making resource centric log queries in workbooks](workbooks-create-workbook.md#tutorial---resource-centric-logs-queries-in-workbooks)
+
+## Logs (Basic and Auxiliary Tables)
+
+Workbooks also supports querying Log Analytics Basic and Auxiliary tables through a separate "Logs (basic)" data source. Basic and Auxiliary logs tables reduce the cost of ingesting high-volume verbose logs and let you query the data they store with some limitations. 
+
+
+> [!NOTE]
+> Basic and Auxiliary logs and the workbook data source has limitations compared to the Log (Analytics) data source, most notably
+>  * *Extra cost*, including per-query costs.  See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for details.
+> * Basic logs does not support the full KQL language
+> * Basic logs only operates on single Log Analyics Workspace, it does not have cross-resource or resource centric query support.
+> * Basic logs does not support "set in query" style time ranges, an explicit time range (or parameter) must be specified.
+
+For a full list of details and limitations, see [Query data in a Basic and Auxiliary table in Azure Monitor Logs](../logs/basic-logs-query.md)
+
+See also: [Log Analytics query optimization tips](../logs/query-optimization.md)
 
 ## Metrics
 
