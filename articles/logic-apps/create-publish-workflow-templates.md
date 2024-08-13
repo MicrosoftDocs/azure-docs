@@ -51,9 +51,9 @@ You can also include any other files to maintain and support your template, for 
 
 The **workflow.json** file contains the underlying definition for a workflow in JSON format. To create the **workflow.json** file, you need to copy and save your workflow definition as a file named **workflow.json**.
 
-For the easiest and best way to get the workflow definition, create your workflow using the designer. Make sure to review the [workflow best practices](#workflow-best-practices) and [names and style conventions](#names-and-style-conventions). As you build your workflow, the designer automatically includes references to any built-in, service provider-based connections, managed API connections, or libraries in the underlying workflow definition.
+For the easiest and best way to get the workflow definition, create your workflow using the designer. Make sure to review the [workflow best practices](#workflow-best-practices) and [names and style conventions](#names-and-style-conventions). As a starting point, you can use the prebuilt workflow templates from the template gallery in the Azure portal.
 
-As a starting point for building your workflow, you can use the provided prebuilt workflow templates from the template gallery in the Azure portal or in the [workflow templates repository in GitHub](https://github.com/Azure/LogicAppsTemplates/tree/main).
+As you build your workflow, the designer automatically includes references to any added built-in, service provider-based connections, managed API connections, or libraries in the underlying workflow definition.
 
 To get the workflow definition after you're done, follow these steps in the [Azure portal](https://portal.azure.com) with your opened workflow:
 
