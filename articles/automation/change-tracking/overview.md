@@ -6,6 +6,7 @@ ms.subservice: change-inventory-management
 ms.date: 08/02/2024
 ms.custom: linux-related-content
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Change Tracking and Inventory overview
