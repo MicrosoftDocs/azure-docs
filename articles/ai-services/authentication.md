@@ -251,7 +251,7 @@ In this sample, a password is used to authenticate the service principal. The to
    ```
 
    > [!NOTE]
-   > Anytime you use passwords in a script, the most secure option is to use the PowerShell Secrets Management module and integrate with a solution such as Azure KeyVault.
+   > Anytime you use passwords in a script, the most secure option is to use the PowerShell Secrets Management module and integrate with a solution such as Azure Key Vault.
   
 3. Call the Computer Vision API:
    ```powershell-interactive

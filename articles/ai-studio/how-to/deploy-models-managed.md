@@ -1,131 +1,28 @@
 ---
-title: How to deploy open models with Azure AI Studio
+title: How to deploy and inference a managed compute deployment with code
 titleSuffix: AI Studio
-description: Learn how to deploy open models with Azure AI Studio.
+description: Learn how to deploy and inference a managed compute deployment with code.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 5/21/2024
-ms.reviewer: fasantia
+ms.date: 8/13/2024
+ms.reviewer: fasantia 
+reviewer: santiagxf
 ms.author: mopeakande
 author: msakande
 ---
 
-# How to deploy large language models with Azure AI Studio
-
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
-
-Deployment of a large language model (LLM) makes it available for use in a website, an application, or other production environment. Deployment typically involves hosting the model on a server or in the cloud and creating an API or other interface for users to interact with the model. You can invoke the deployment for real-time inference of generative AI applications such as chat and copilot.
-
-In this article, you learn how to deploy large language models in Azure AI Studio. You can deploy models from the model catalog or from your project. You can also deploy models using the Azure Machine Learning SDK. The article also covers how to perform inference on the deployed model.
-
-## Deploy and inference a Serverless API model with code
-
-### Deploying a model
-
-Serverless API models are the models you can deploy with pay-as-you-go billing. Examples include Phi-3, Llama-2, Command R, Mistral Large, and more. For serverless API models, you're only charged for inferencing, unless you choose to fine-tune the model. 
-
-#### Get the model ID
-
-You can deploy Serverless API models using the Azure Machine Learning SDK, but first, let's browse the model catalog and get the model ID you need for deployment.
-
-1. Sign in to [AI Studio](https://ai.azure.com) and go to the **Home** page.
-1. Select **Model catalog** from the left sidebar.
-1. In the **Deployment options** filter, select **Serverless API**.
-
-    :::image type="content" source="../media/deploy-monitor/catalog-filter-serverless-api.png" alt-text="A screenshot showing how to filter by serverless API models in the catalog." lightbox="../media/deploy-monitor/catalog-filter-serverless-api.png"::: 
-
-1. Select a model.
-1. Copy the model ID from the details page of the model you selected. It looks something like this: `azureml://registries/azureml-cohere/models/Cohere-command-r-plus/versions/3`
-
-
-#### Install the Azure Machine Learning SDK
-
-Next, you need to install the Azure Machine Learning SDK. Run the following commands in your terminal:
-
-```python
-pip install azure-ai-ml
-pip install azure-identity
-```
-
-#### Deploy the serverless API model
-
-First, you need to authenticate into Azure AI.
-
-```python
-from azure.ai.ml import MLClient
-from azure.identity import DefaultAzureCredential
-from azure.ai.ml.entities import MarketplaceSubscription, ServerlessEndpoint
-
-# You can find your credential information in project settings.
-client = MLClient(
-    credential=DefaultAzureCredential(),
-    subscription_id="your subscription name goes here",
-    resource_group_name="your resource group name goes here",
-    workspace_name="your project name goes here",
-)
-```
-Second, let's reference the model ID you found earlier.
-
-```python
-# You can find the model ID on the model catalog.
-model_id="azureml://registries/azureml-meta/models/Llama-2-70b-chat/versions/18" 
-```
-Serverless API models from third party model providers require an Azure Marketplace subscription in order to use the model. Let's create a marketplace subscription. 
-
-> [!NOTE] 
-> You can skip the part if you are deploying a Serverless API model from Microsoft, such as Phi-3.
-
-```python
-# You can customize the subscription name.
-subscription_name="Meta-Llama-2-70b-chat" 
-
-marketplace_subscription = MarketplaceSubscription(
-    model_id=model_id,
-    name=subscription_name,
-)
-
-marketplace_subscription = client.marketplace_subscriptions.begin_create_or_update(
-    marketplace_subscription
-).result()
-```
-Finally, let's create a serverless endpoint.
-
-```python
-
-endpoint_name="Meta-Llama-2-70b-chat-qwerty" # Your endpoint name must be unique
-
-serverless_endpoint = ServerlessEndpoint(
-    name=endpoint_name,
-    model_id=model_id
-)
-
-created_endpoint = client.serverless_endpoints.begin_create_or_update(
-    serverless_endpoint
-).result()
-```
-
-#### Get the Serverless API endpoint and keys
-
-```python
-endpoint_keys = client.serverless_endpoints.get_keys(endpoint_name)
-print(endpoint_keys.primary_key)
-print(endpoint_keys.secondary_key)
-```
-
-#### Inference the deployment
-
-To inference, you want to use the code specifically catering to different model types and SDK you're using. You can find code samples at the [Azure/azureml-examples sample repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models).
-
-## Deploy and inference a managed compute deployment with code
-
-### Deploying a model
+# How to deploy and inference a managed compute deployment with code
 
 The AI Studio [model catalog](../how-to/model-catalog-overview.md) offers over 1,600 models, and the most common way to deploy these models is to use the managed compute deployment option, which is also sometimes referred to as a managed online deployment. 
 
-#### Get the model ID
+Deployment of a large language model (LLM) makes it available for use in a website, an application, or other production environment. Deployment typically involves hosting the model on a server or in the cloud and creating an API or other interface for users to interact with the model. You can invoke the deployment for real-time inference of generative AI applications such as chat and copilot.
+
+In this article, you learn how to deploy models using the Azure Machine Learning SDK. The article also covers how to perform inference on the deployed model.
+
+## Get the model ID
 
 You can deploy managed compute models using the Azure Machine Learning SDK, but first, let's browse the model catalog and get the model ID you need for deployment.
 
@@ -138,18 +35,20 @@ You can deploy managed compute models using the Azure Machine Learning SDK, but 
 1. Select a model.
 1. Copy the model ID from the details page of the model you selected. It looks something like this: `azureml://registries/azureml/models/deepset-roberta-base-squad2/versions/16`
 
-#### Install the Azure Machine Learning SDK
 
-For this step, you need to install the Azure Machine Learning SDK.
+
+## Deploy the model
+
+Let's deploy the model.
+
+First, you need to install the Azure Machine Learning SDK.
 
 ```python
 pip install azure-ai-ml
 pip install azure-identity
 ```
 
-#### Deploy the model
-
-First, you need to authenticate into Azure AI.
+Use this code to authenticate with Azure Machine Learning and create a client object. Replace the placeholders with your subscription ID, resource group name, and AI Studio project name.
 
 ```python
 from azure.ai.ml import MLClient
@@ -163,9 +62,7 @@ client = MLClient(
 )
 ```
 
-Let's deploy the model.
-
-For Managed compute deployment option, you need to create an endpoint before a model deployment. Think of endpoint as a container that can house multiple model deployments. The endpoint names need to be unique in a region, so in this example we're using the timestamp to create a unique endpoint name.
+For the managed compute deployment option, you need to create an endpoint before a model deployment. Think of an endpoint as a container that can house multiple model deployments. The endpoint names need to be unique in a region, so in this example we're using the timestamp to create a unique endpoint name.
 
 ```python
 import time, sys
@@ -219,7 +116,7 @@ endpoint.traffic = {"demo": 100}
 workspace_ml_client.begin_create_or_update(endpoint).result()
 ```
 
-#### Inference the deployment
+## Inference the deployment
 You need a sample json data to test inferencing. Create `sample_score.json` with the following example. 
 
 ```python
