@@ -36,7 +36,7 @@ The command `netstat -na | findstr 445` proved that additional connections were 
 
 ![Chart that shows random I/O comparison of SMB Multichannel.](./media/azure-netapp-files-smb-performance/azure-netapp-files-random-io-tests.png)
 
-The Azure virtual machine (VM) does not affect SMB (nor NFS) storage I/O limits. As shown in the following chart, the D32ds instance type has a limited rate of 308,000 for cached storage IOPS and 51,200 for uncached storage IOPS. However, the graph above shows significantly more I/O over SMB.
+The Azure virtual machine (VM) doesn't affect SMB (nor NFS) storage I/O limits. As shown in the following chart, the D32ds instance type has a limited rate of 308,000 for cached storage IOPS and 51,200 for uncached storage IOPS. However, the graph above shows significantly more I/O over SMB.
 
 ![Chart that shows random I/O comparison test.](./media/azure-netapp-files-smb-performance/azure-netapp-files-random-io-tests-list.png)
 
@@ -95,7 +95,7 @@ You can check for activity on each of the adapters in Windows Performance Monito
 
 ![Screenshot that shows Performance Monitor Add Counter interface.](./media/azure-netapp-files-smb-performance/smb-performance-performance-monitor-add-counter.png)
 
-After you have data traffic running in your volumes, you can monitor your adapters in Windows Performance Monitor. If you do not use all of these 16 virtual adapters, you might not be maximizing your network bandwidth capacity.
+After you have data traffic running in your volumes, you can monitor your adapters in Windows Performance Monitor. If you don't use all of these 16 virtual adapters, you might not be maximizing your network bandwidth capacity.
 
 ![Screenshot that shows Performance Monitor output.](./media/azure-netapp-files-smb-performance/smb-performance-performance-monitor-output.png)
 
@@ -113,7 +113,7 @@ Windows 10, Windows 2012, and later versions support SMB encryption.
 
 SMB encryption is enabled at the share level for Azure NetApp Files. SMB 3.0 employs AES-CCM algorithm, while SMB 3.1.1 employs the AES-GCM algorithm.
 
-SMB encryption is not required. As such, it is only enabled for a given share if the user requests that Azure NetApp Files enable it. Azure NetApp Files shares are never exposed to the internet. They are only accessible from within a given VNet, over VPN or express route, so Azure NetApp Files shares are inherently secure. The choice to enable SMB encryption is entirely up to the user. Be aware of the anticipated performance penalty before enabling this feature.
+SMB encryption isn't required. As such, it's only enabled for a given share if the user requests that Azure NetApp Files enable it. Azure NetApp Files shares are never exposed to the internet. They're only accessible from within a given VNet, over VPN or express route, so Azure NetApp Files shares are inherently secure. The choice to enable SMB encryption is entirely up to the user. Be aware of the anticipated performance penalty before enabling this feature.
 
 ### <a name="smb_encryption_impact"></a>Impact of SMB encryption on client workloads
 
@@ -126,11 +126,11 @@ Although SMB encryption has impact to both the client (CPU overhead for encrypti
 
 ## Accelerated Networking 
 
-For maximum performance, it is recommended that you configure [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) on your VMs where possible. Keep the following considerations in mind:  
+For maximum performance, it's recommended that you configure [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) on your VMs where possible. Keep the following considerations in mind:  
 
-* The Azure portal enables Accelerated Networking by default for VMs supporting this feature. However, other deployment methods such as Ansible and similar configuration tools may not. Failure to enable Accelerated Networking can hobble the performance of a machine. 
-* If Accelerated Networking is not enabled on the network interface of a VM due to its lack of support for an instance type or size, it remains disabled with larger instance types. You need manual intervention in those cases.
-* There is no need to set accelerated networking for the NICs in the dedicated subnet of Azure NetApp Files. Accelerated networking is a capability that only applies to Azure VMs. Azure NetApp Files NICs are optimized by design.
+* The Azure portal enables Accelerated Networking by default for VMs supporting this feature. However, other deployment methods such as Ansible and similar configuration tools can not. Failure to enable Accelerated Networking can hobble the performance of a machine. 
+* If Accelerated Networking isn't enabled on the network interface of a VM due to its lack of support for an instance type or size, it remains disabled with larger instance types. You need manual intervention in those cases.
+* There's no need to set accelerated networking for the NICs in the dedicated subnet of Azure NetApp Files. Accelerated networking is a capability that only applies to Azure VMs. Azure NetApp Files NICs are optimized by design.
 
 ## Receive side scaling 
 
@@ -148,7 +148,7 @@ To see if your Azure VM NICs support RSS, run the command
 
 You shouldn't configure multiple NICs on your client for SMB. The SMB client doesn't match the NIC count returned by the SMB server. Each storage volume is accessible from one and only one storage endpoint, meaning only one NIC is used for any given SMB relationship. 
 
-As the output of `Get-SmbClientNetworkInterace` below shows, the VM has two network interfaces: 15 and 12. As shown under the following command `Get-SmbMultichannelConnection`, even though there are two RSS-capable NICs, only interface 12 is used in connection with the SMB share; interface 15 is not in use.
+As the output of `Get-SmbClientNetworkInterace` below shows, the VM has two network interfaces: 15 and 12. As shown under the following command `Get-SmbMultichannelConnection`, even though there are two RSS-capable NICs, only interface 12 is used in connection with the SMB share; interface 15 isn't in use.
 
 ![Screeshot that shows output for RSS-capable NICs.](./media/azure-netapp-files-smb-performance/azure-netapp-files-rss-capable-nics.png)
 
