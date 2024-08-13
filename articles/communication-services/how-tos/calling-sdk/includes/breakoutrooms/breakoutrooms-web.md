@@ -32,7 +32,7 @@ breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 Event **breakoutRoomsUpdated** provides instance of one of the following classes as an input parameter. You can use property `type` to distinguish between individual event types.
 
 1. Class `BreakoutRoomsEvent`: This event is triggered when a user with a role organizer, co-organizer, or breakout room manager creates or updates the breakout rooms. Microsoft 365 users with role organizer, co-organizer or  breakout room manager can receive this type of event. Developers can use the breakout rooms in property `data` to render details about all breakout rooms. This class has property `type` equal to `"breakoutRooms"`.
-  ```js
+    ```js
       export interface BreakoutRoomsEvent {
         /**
          * Breakout room event type
@@ -43,10 +43,10 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
         */
         data: BreakoutRoom[] | undefined;
       }
-```
+   ```
 
 2. Class `BreakoutRoomsSettingsEvent`: This event is triggered when a user with a role organizer, co-organizer, or breakout room manager updates the breakout room's settings. Developers can use this information to render the time when breakout room ends or decide whether to render button to join main room. This class has property `type` equal to `"breakoutRoomSettings"`.
-```js
+   ```js
     export interface BreakoutRoomSettingsEvent {
       /**
       * Breakout room event type
@@ -57,10 +57,11 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
       */
       data: BreakoutRoomSettings | undefined;
     }
-```
+   ```
 
 3. Class `AssignedBreakoutRoomsEvent`: This event is triggered when user is assigned to a breakout room, or assigned breakout room is updated. Users can join the breakout room when property `state` is set to `open`, leave the breakout room when property `state` is set to `closed` or render details of the breakout room. This class has property `type` equal to `"assignedBreakoutRoom"`.
-```js
+
+   ```js
     export interface AssignedBreakoutRoomEvent {
       /**
        * Breakout room event type
@@ -71,11 +72,10 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
        */
       data: BreakoutRoom | undefined;
     }
-```
-
+   ```
 
 4. Class `JoinBreakoutRoomsEvent` : This event is triggered when the participant is joining breakout room call. This event can happen when user is automatically moved to breakout room (that is, if `assignedBreakoutRoom` has property `state` set to `open` and `autoMoveParticipantToBreakoutRoom` is set to `true`) or when user explicitly joins breakout room (that is, calls method `join` on the instance `assignedBreakoutRoom` when `autoMoveParticipantToBreakoutRoom` is set to `false`). Property `data` contains the breakout room `call` instance, that developers can use to control breakout room call. This class has property `type` equal to `"join"`.
-```js
+   ```js
     export interface JoinBreakoutRoomEvent {
       /**
        * Breakout room event type
@@ -86,7 +86,7 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
        */
       data: Call | TeamsCall;
     }
-```
+   ```
 The following code shows you valuable information received in the breakout room events:
 ```js
     const breakoutRoomsUpdatedListener = (event) => {
