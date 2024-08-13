@@ -17,18 +17,18 @@ ms.custom: devx-track-python, mlflow
 
 In this article, learn how to convert your custom ML model into MLflow format. [MLflow](https://www.mlflow.org) is an open-source library for managing the lifecycle of your machine learning experiments. In some cases, you might use a machine learning framework without its built-in MLflow model flavor support. Due to this lack of built-in MLflow model flavor, you cannot log or register the model with MLflow model fluent APIs. To resolve this, you can convert your model to an MLflow format where you can leverage the following benefits of Azure Machine Learning and MLflow models.
 
-With Azure Machine Learning, MLflow models get the added benefits of, 
+With Azure Machine Learning, MLflow models get the added benefits of:
 
-* No code deployment
-* Portability as an open source standard format
-* Ability to deploy both locally and on cloud
+- No code deployment
+- Portability as an open source standard format
+- Ability to deploy both locally and on cloud
 
-MLflow provides support for a variety of [machine learning frameworks](https://mlflow.org/docs/latest/models.html#built-in-model-flavors) (scikit-learn, Keras, Pytorch, and more); however, it might not cover every use case. For example, you may want to create an MLflow model with a framework that MLflow does not natively support or you may want to change the way your model does pre-processing or post-processing when running jobs. To know more about MLflow models read [From artifacts to models in MLflow](concept-mlflow-models.md).
+MLflow provides support for a variety of [machine learning frameworks](https://mlflow.org/docs/latest/models.html#built-in-model-flavors) (scikit-learn, Keras, Pytorch, and more); however, it might not cover every use case. For example, you may want to create an MLflow model with a framework that MLflow does not natively support or you may want to change the way your model does pre-processing or post-processing when running jobs. To learn more about MLflow models see [From artifacts to models in MLflow](concept-mlflow-models.md).
 
-If you didn't train your model with MLFlow and want to use Azure Machine Learning's MLflow no-code deployment offering, you need to convert your custom model to MLFLow. Learn more about [custom Python models and MLflow](https://mlflow.org/docs/latest/models.html#custom-python-models).
+If you didn't train your model with MLFlow and want to use Azure Machine Learning's MLflow no-code deployment offering, you need to convert your custom model to MLFLow. For more information, see [Custom Python Models](https://mlflow.org/docs/latest/models.html#custom-python-models).
 
 ## Prerequisites
- 
+
 Only the mlflow package installed is needed to convert your custom models to an MLflow format. 
 
 ## Create a Python wrapper for your model
@@ -92,12 +92,11 @@ conda_env = {
 
 ## Load the MLFlow formatted model and test predictions
 
-Once your environment is ready, you can pass the SKlearnWrapper, the Conda environment, and your newly created artifacts dictionary to the mlflow.pyfunc.save_model() method. Doing so saves the model to your disk.
+After your environment is ready, you can pass the SKlearnWrapper, the Conda environment, and your newly created artifacts dictionary to the `mlflow.pyfunc.save_model()` method. Doing so saves the model to your disk.
 
 ```python
 mlflow_pyfunc_model_path = "sklearn_mlflow_pyfunc_custom"
 mlflow.pyfunc.save_model(path=mlflow_pyfunc_model_path, python_model=SKLearnWrapper(), conda_env=conda_env, artifacts=artifacts)
-
 ```
 
 To ensure your newly saved MLflow formatted model didn't change during the save, you can load your model and print out a test prediction to compare your original model.
@@ -122,7 +121,7 @@ print(result)
 
 ## Register the MLflow formatted model
 
-Once you've confirmed that your model saved correctly, you can create a test run, so you can register and save your MLflow formatted model to your model registry.
+After you confirm that your model saved correctly, you can create a test run, so you can register and save your MLflow formatted model to your model registry.
 
 ```python
 
@@ -140,9 +139,9 @@ mlflow.end_run()
 ```
 
 > [!IMPORTANT]
-> In some cases, you might use a machine learning framework without its built-in MLflow model flavor support. For instance, the `vaderSentiment` library is a standard natural language processing (NLP) library used for sentiment analysis. Since it lacks a built-in MLflow model flavor, you cannot log or register the model with MLflow model fluent APIs. See an example on [how to save, log and register a model that doesn't have a supported built-in MLflow model flavor](https://mlflow.org/docs/latest/model-registry.html#registering-an-unsupported-machine-learning-model).
+> In some cases, you might use a machine learning framework without its built-in MLflow model flavor support. For instance, the `vaderSentiment` library is a standard natural language processing (NLP) library used for sentiment analysis. Since it lacks a built-in MLflow model flavor, you cannot log or register the model with MLflow model fluent APIs. For an example on how to save, log and register a model that doesn't have a supported built-in MLflow model flavor, see [Registering an Unsupported Machine Learning Model](https://mlflow.org/docs/latest/model-registry.html#registering-an-unsupported-machine-learning-model).
 
 ## Next steps
 
-* [No-code deployment for Mlflow models](how-to-deploy-mlflow-models-online-endpoints.md)
-* Learn more about [MLflow and Azure Machine Learning](concept-mlflow.md)
+- [Deploy MLflow models to online endpoints](how-to-deploy-mlflow-models-online-endpoints.md)
+- [MLflow and Azure Machine Learning](concept-mlflow.md)
