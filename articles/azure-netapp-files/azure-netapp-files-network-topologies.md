@@ -98,7 +98,7 @@ If the VNet is peered with another VNet, you can't expand the VNet address space
 >
 > It's also recommended that the size of the delegated subnet be at least /25 for SAP workloads and /26 for other workload scenarios.
 
-### User-defined routes (UDRs) and network security groups (NSGs)
+### <a name="udrs-and-nsgs"></a> User-defined routes (UDRs) and network security groups (NSGs)
 
 If the subnet has a combination of volumes with the Standard and Basic network features, user-defined routes (UDRs) and network security groups (NSGs) applied on the delegated subnets will only apply to the volumes with the Standard network features.
 
