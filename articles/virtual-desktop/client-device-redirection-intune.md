@@ -9,10 +9,6 @@ ms.date: 05/29/2024
 
 # Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune
 
-> [!IMPORTANT]
-> Configure redirection settings for Windows App and the Remote Desktop app using Microsoft Intune is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 > [!TIP]
 > This article contains information for multiple products that use the Remote Desktop Protocol (RDP) to provide remote access to Windows desktops and applications.
 
@@ -289,9 +285,3 @@ To create and apply a Conditional Access policy, follow the steps in [Set up app
 ## Verify the configuration
 
 Now that you configure Intune to manage device redirection on personal devices, you can verify your configuration by connecting to a remote session. What you should test depends on whether you configured policies to apply to enrolled or unenrolled devices, which platforms, and the redirection and data protection settings you set. Verify that you can only perform the actions you can perform match what you expect.
-
-## Known issues
-
-Configuring redirection settings for Windows App and the Remote Desktop app on a client device using Microsoft Intune has the following limitation:
-
-- When you configure client device redirection for the Remote Desktop app or Windows App on iOS and iPadOS, multifactor authentication (MFA) requests might get stuck in a loop. A common scenario of this issue happens when the Remote Desktop app or Windows App is being run on an Intune enrolled iPhone and the same iPhone is being used to receive MFA requests from the Microsoft Authenticator app when signing into the Remote Desktop app or Windows App. To work around this issue, use the Remote Desktop app or Windows App on a different device (such as an iPad) from the device being used to receive MFA requests (such as an iPhone).
