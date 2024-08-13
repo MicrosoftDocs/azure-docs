@@ -93,7 +93,7 @@ For example:
 "connectionName": "AI_search_#workflowname"
 ```
 
-For more information about the connector ID, see [Find the connector ID](find-connector-id).
+For more information about the connector ID, see [Find the connector ID](#find-connector-id).
 
 <a name="workflow-best-practices"></a>
 
