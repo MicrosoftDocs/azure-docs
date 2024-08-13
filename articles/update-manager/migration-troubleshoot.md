@@ -14,11 +14,11 @@ ms.author: sudhirsneha
 
 This article describes the errors that might occur when you use migration portal experience or scripts, and how to resolve them.
 
-## Required PowerShell modules for executing prerequisite script are not installed
+## Required PowerShell modules for executing prerequisite script aren't installed
 
 ### Cause
 
-When the required powershell modules are not installed for executing the prerequisite scripts, you may see the following errors:
+When the required PowerShell modules aren't installed for executing the prerequisite scripts, you may see the following errors:
 
 :::image type="content" source="./media/migration-troubleshoot/error-prerequisite-scripts.png" alt-text="Screenshot that shows the error code when PowerShell modules aren't installed. " lightbox="./media/migration-troubleshoot/error-prerequisite-scripts.png":::
 
@@ -26,7 +26,7 @@ When the required powershell modules are not installed for executing the prerequ
 
 ### Resolution
 
-Ensure you have successfully executed the Command `Install-Module -Name Az -Repository PSGallery -Force`
+Ensure you successfully execute the command `Install-Module -Name Az -Repository PSGallery -Force`
 
 ## Unable to acquire token for tenant organizations 
 
@@ -36,14 +36,11 @@ Encountering a warning as - unable to acquire token `organizations` with error `
 
 ### Cause
 
-This is part of one of the documented [issues](https://github.com/Azure/azure-powershell/issues/25005) with Az.Accounts 3.0.0 module. [Learn more](/answers/questions/1342970/warning-unable-to-acquire-token-for-tenant-organiz)
+This is part of one of the documented [issues](https://github.com/Azure/azure-powershell/issues/25005) with Az.Accounts 3.0.0 module. [Learn more](https://learn.microsoft.com/answers/questions/1342970/warning-unable-to-acquire-token-for-tenant-organiz)
 
 ### Resolution
 
-Execute command `Update-AzConfig -EnableLoginByWam $false` in an elevated Powershell Session.
-
-
-## WARNING: Unable to acquire token for tenant organizations 
+Execute command `Update-AzConfig -EnableLoginByWam $false` in an elevated PowerShell Session.
 
 ### Issue
 
@@ -66,19 +63,19 @@ Your organization requires to use `Connect-AzAccount`  with `DeviceCode` paramet
 
 ### Cause
 
-[Operational Insights](/powershell/module/az.operationalinsights/) module is not installed. 
+[Operational Insights](/powershell/module/az.operationalinsights/) module isn't installed. 
 
 ### Resolution
 
 Execute Command `Install-Module-Name Az.OperationalInsights`
 
-## Could not convert string to DateTimeOffset: 1719675651. Path 'expires_on', line 1, position 1608.
+## Couldn't convert string to DateTimeOffset: 1719675651. Path 'expires_on', line 1, position 1608.
 
 ### Cause
 
-This error can come up while executing the Migration/Deboarding Runbook in Azure. This can happen if you have custom Az Modules in your automation account which are outdated.
+This error can come up while executing the Migration/Deboarding Runbook in Azure. This can happen if you have custom Az Modules in your automation account, which are outdated.
 
 ### Resolution
 
-Delete custom Az Modules and ensure that default Az Module is updated to 8.0.0 for Powershell 5.1
+Delete custom Az Modules and ensure that default Az Module is updated to 8.0.0 for PowerShell 5.1
 
