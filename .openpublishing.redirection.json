@@ -1,36 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/vpn-gateway/vpn-gateway-classic-resource-manager-migration.md",
-      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell.md",
-      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md",
-      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md",
-      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md",
-      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/vpn-gateway/vpn-gateway-multi-site.md",
-      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-multi-site",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/storage/files/storage-files-migration-storsimple-1200.md",
       "redirect_url": "/previous-versions/azure/storage/files/storage-files-migration-storsimple-1200",
       "redirect_document_id": false
