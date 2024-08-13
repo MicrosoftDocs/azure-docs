@@ -1,13 +1,13 @@
 ---
 title: Configure the clipboard transfer direction in Azure Virtual Desktop
-description: Learn how to configure the clipboard transfer direction and types of data that can be copied in Azure Virtual Desktop from session host to client, or client to session host.
+description: Learn how to configure the clipboard transfer direction and data types that can be copied in Azure Virtual Desktop from session host to client, or client to session host.
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 08/13/2024
 ---
 
-# Configure the clipboard transfer direction and types of data that can be copied in Azure Virtual Desktop
+# Configure the clipboard transfer direction and data types that can be copied in Azure Virtual Desktop
 
 Clipboard redirection in Azure Virtual Desktop allows users to copy and paste content, such as text, images, and files between the user's device and the remote session in either direction. You might want to limit the direction of the clipboard for users, to help prevent data exfiltration or malicious files being copied to a session host. You can configure whether users can use the clipboard from session host to client, or client to session host, and the types of data that can be copied, from the following options:
 
