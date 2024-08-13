@@ -19,9 +19,7 @@ To start with, let us list the Azure Services that provide equivalent capabiliti
 | **System Center Component** | **Azure equivalent service** |
 | --- | --- |
 | System Center Operations Manager (SCOM) | Azure Monitor SCOM Managed Instance |
-| System Center Configuration Manager (SCCM), now called Microsoft Configuration Manager (MCM) | Azure Update Manager, </br> Change Tracking and Inventory, </br> Azure 
- Machine Configuration (formerly called Azure Policy Guest Configuration), </br> Azure Automation, </br> Microsoft Defender for Cloud | 
-| System Center Virtual Machine Manager (SCVMM) | Arc enabled System Center VMM | 
+| System Center Configuration Manager (SCCM), now called Microsoft Configuration Manager (MCM) | Azure Update Manager, </br> Change Tracking and Inventory, </br> Azure Machine Configuration (formerly called Azure Policy Guest Configuration), </br> Azure Automation, </br> Microsoft Defender for Cloud | 
 | System Center Data Protection Manager (SCDPM) | Azure Backup | 
 | System Center Orchestrator (SCORCH) | Azure Automation | 
 | System Center Service Manager (SCSM)  | - |
