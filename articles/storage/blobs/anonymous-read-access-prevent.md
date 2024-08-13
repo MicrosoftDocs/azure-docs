@@ -50,7 +50,7 @@ The following table summarizes how the two settings together affect anonymous ac
 | **Anonymous access is disallowed for the storage account** | No anonymous access to any container in the storage account. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. |
 | **Anonymous access is allowed for the storage account** | No anonymous access to this container (default configuration). | Anonymous access is permitted to this container and its blobs. | Anonymous access is permitted to blobs in this container, but not to the container itself. |
 
-When anonymous access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed without an *Authorization* header is accepted by the service, and the blob's data is returned in the response.
+When anonymous access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed *without* an `Authorization` header is accepted by the service, and the blob's data is returned in the response. However, if the request is passed *with* an `Authorization` header, then anonymous access on the storage account is ignored, and the request is authorized based on the provided credentials.
 
 ## Detect anonymous requests from client applications
 
