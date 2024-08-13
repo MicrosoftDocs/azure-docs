@@ -40,5 +40,5 @@ Specify the version of the Android Calling and Chat SDK in your application's Gr
 
 The version of `com.azure.android:azure-communication-chat` can be any version, the latest release version is used here as an example. However, the version of the Trouter package `com.microsoft:trouter-client-android` included with the Chat SDK `com.azure.android:azure-communication-chat` needs to be excluded. When the application is built, the Trouter package version included by the Calling SDK package `com.azure.android:azure-communication-calling` will be used.
 
-## Next Steps
+## Next steps
 Quickstart sample is available in GitHub [Android QuickStarts](https://github.com/Azure-Samples/communication-services-android-quickstarts.git) under `Add-Chat-Calling` folder and follow the `README.md` on instructions how to run the sample.
