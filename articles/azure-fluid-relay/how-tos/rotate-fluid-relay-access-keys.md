@@ -30,7 +30,7 @@ Get-AzFluidRelayServerKey -FluidRelayServerName <Fluid Relay resource name> -Res
 ```
 
 ### [Azure CLI](#tab/azure-cli)
-To retrieve your access keys with Azure CLI, use [az fluid-relay server list-key command](/cli/azure/fluid-relay/server?view=azure-cli-latest#az-fluid-relay-server-list-key).
+To retrieve your access keys with Azure CLI, use [az fluid-relay server list-key command](/cli/azure/fluid-relay/server?view=azure-cli-latest&preserve-view=true#az-fluid-relay-server-list-key).
 
 ```azurecli
 az fluid-relay server list-key --resource-group <resource group> --server-name <Fluid Relay resource name> 
@@ -73,7 +73,7 @@ To rotate your Fluid Relay primary key with Azure CLI:
 
 1. Update the access keys in your application code to use the secondary access key for the Azure Fluid Relay. 
 
-2. Call the [az fluid-relay server regenerate-key](/cli/azure/fluid-relay/server?view=azure-cli-latest#az-fluid-relay-server-regenerate-key) command to regenerate the primary access key, as shown in the following example: 
+2. Call the [az fluid-relay server regenerate-key](/cli/azure/fluid-relay/server?view=azure-cli-latest&preserve-view=true#az-fluid-relay-server-regenerate-key) command to regenerate the primary access key, as shown in the following example:
 
 ```azurecli
 az fluid-relay server regenerate-key --resource-group <resource group>--server-name <Fluid Relay resource name>--key-name <key name> 
