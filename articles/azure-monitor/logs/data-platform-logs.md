@@ -103,15 +103,13 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 
 ## Use cases 
 
-Use the data you collect in Azure Monitor Logs to derive operational and business value.
-
-This table describes some of the ways that you can use data in Azure Monitor Logs.
+This table describes some of the ways that you can use the data you collect in Azure Monitor Logs to derive operational and business value.
 
 |  Capability | Description |
 |:---|:---|
 | Analyze | Use [Log Analytics](./log-analytics-tutorial.md) in the Azure portal to write [log queries](./log-query-overview.md) and interactively analyze log data by using a powerful analysis engine. |
-| Aggregate| Use [summary rules](./summary-rules.md) to aggregate information you need for alerting and analysis, from raw log data. This lets you optimize your costs, analysis capabilities, and query performance. |
-| Alert | Configure a [log search alert rule](../alerts/alerts-log.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the results of the query match a particular result. |
+| Aggregate| Use [summary rules](./summary-rules.md) to aggregate information you need for alerting and analysis from the raw log data you ingest. This lets you optimize your costs, analysis capabilities, and query performance. |
+| Alert | Configure a [log search alert rule](../alerts/alerts-log.md) or [metric alert for logs](../alerts/alerts-metric-logs.md) to send a notification or take [automated action](../alerts/action-groups.md) when a particular condition occurs. |
 | Visualize | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../visualize/workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](./log-powerbi.md) to use different visualizations and share with people outside Azure.<br>Export the results of a query to [Grafana](../visualize/grafana-plugin.md) to use its dashboarding and combine with other data sources.|
 | Get insights | [Insights](../insights/insights-overview.md) provide a customized monitoring experience for particular resources and services.  |
 | Retrieve | Access log query results from:<ul><li>The command line using [Azure CLI](/cli/azure/monitor/log-analytics) or [Azure PowerShell cmdlets](/powershell/module/az.operationalinsights).</li><li>A custom app using the [REST API](/rest/api/loganalytics/) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Query-readme), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery), [Java](/java/api/overview/azure/monitor-query-readme), [JavaScript](/javascript/api/overview/azure/monitor-query-readme), or [Python](/python/api/overview/azure/monitor-query-readme).</li></ul> |
