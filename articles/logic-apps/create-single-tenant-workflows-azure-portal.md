@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 08/09/2024
+ms.date: 08/13/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
