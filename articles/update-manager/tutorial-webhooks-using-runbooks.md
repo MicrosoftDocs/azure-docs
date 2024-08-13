@@ -358,10 +358,10 @@ Invoke-AzRestMethod `
     1. Keep the schema as **Event Grid Schema**.
     1. In the **Event Types** section, **Filter to Event Types**. 
         1. Select **Pre Maintenance Event** for a pre-event.
-           - In the **Endpoint details** section, select the **Webhook** endpoint and select **Configure and Endpoint**.
+           - In the **Endpoint details** section, select the **Webhook** endpoint and select **Configure an Endpoint**.
            - Provide the appropriate details such as pre-event webhook **URL** to trigger the event.
         1. Select **Post Maintenance Event** for a post-event.
-            - In the **Endpoint details** section, the **Webhook** endpoint and select **Configure and Endpoint**.
+            - In the **Endpoint details** section, the **Webhook** endpoint and select **Configure an Endpoint**.
             - Provide the appropriate details such as post-event webhook **URL** to trigger the event.
     :::image type="content" source="./media/tutorial-webhooks-using-runbooks/create-event-subscription.png" alt-text="Screenshot that shows the options to create the events subscriptions." lightbox="./media/tutorial-webhooks-using-runbooks/create-event-subscription.png":::
 
