@@ -45,7 +45,7 @@ For more information, review the following documentation:
   >
   > This authoring capability is currently available only in Visual Studio Code.
 
-* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
+* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 
 ## High-level steps
 
