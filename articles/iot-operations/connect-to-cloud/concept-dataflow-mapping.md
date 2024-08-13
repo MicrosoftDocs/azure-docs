@@ -150,27 +150,27 @@ In the previous example, the path consists of three segments: `Payload`, `Tag.10
 
 * **Escape each segment separately:** If multiple segments contain dots, those segments must be enclosed in quotation marks. Other segments can also be quoted, but it doesn't affect the path interpretation:
   
-```yaml
-- inputs:
-  - 'Payload."Tag.10".Measurements."Vibration.$12".Value'
-```
-
+    ```yaml
+    - inputs:
+      - 'Payload."Tag.10".Measurements."Vibration.$12".Value'
+    ```
+    
 * **Proper use of double quotation marks:** Double quotation marks must open and close an escaped segment. Any quotation marks in the middle of the segment are considered part of the field name:
   
-```yaml
-- inputs:
-  - 'Payload.He said: "Hello", and waved'
-```
+    ```yaml
+    - inputs:
+      - 'Payload.He said: "Hello", and waved'
+    ```
 
-This example defines two fields in `dataDestination`: `Payload` and `He said: "Hello", and waved`. When a dot appears under these circumstances, it continues to serve as a separator:
-
-```yaml
-- inputs:
-  - 'Payload.He said: "No. It's done"'
-```
-
-In this case, the path is split into the segments `Payload`, `He said: "No`, and `It's done"` (starting with a space).
-
+    This example defines two fields in `dataDestination`: `Payload` and `He said: "Hello", and waved`. When a dot appears under these circumstances, it continues to serve as a separator:
+    
+    ```yaml
+    - inputs:
+      - 'Payload.He said: "No. It's done"'
+    ```
+    
+    In this case, the path is split into the segments `Payload`, `He said: "No`, and `It's done"` (starting with a space).
+    
 ### Segmentation algorithm
 
 * If the first character of a segment is a quotation mark, the parser searches for the next quotation mark. The string enclosed between these quotation marks is considered a single segment.
