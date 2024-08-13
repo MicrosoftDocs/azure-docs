@@ -27,19 +27,19 @@ As a business continuity and disaster recovery (BCDR) admin, identify and config
   
 Azure Business Continuity center provides you with a centralized and at scale view for overseeing your protection landscape, offering a unified perspective across various solutions. 
 
-Follow these steps to view your protected items:
+To view protected items, follow these steps to view your protected items:
 
-1.	In Azure Business Continuity center, select **Protected items** under **Protection inventory**.
+1.	On **Business Continuity Center**, go to **Protection inventory** > **Protected items**.
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/select-protected-items.png" alt-text="Screenshot shows the selection of protected items.":::
 
-2.	In this view, you can see a list of all the protected items across the supported solution across the subscription, resource groups, location, type, and so on, along with their protection status.
+2.	On **Protected items**, you can see a list of all the protected items across the supported solution across the subscription, resource groups, location, type, and so on, along with their protection status.
 
-3.	Azure Business Continuity allows you to change the default view using a scope picker. Select the **Change** option beside the **Currently showing: details** displayed at the top.
+   Azure Business Continuity Center allows you to change the default view using a scope picker. Select the **Change** corresponding to the **Currently showing: Protection details of Azure managed Active resources**.
 
-    :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/change-scope.png" alt-text="Screenshot shows the selection of change scope from scope picker." lightbox="./media/tutorial-view-protected-items-and-perform-actions/change-scope.png":::
+   :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/change-scope.png" alt-text="Screenshot shows the selection of change scope from scope picker." lightbox="./media/tutorial-view-protected-items-and-perform-actions/change-scope.png":::
 
-4.	To change the scope for **Security posture** view from the scope picker, select the required options:
+3.	On the **Change scope** blade, to change the scope for **Security posture** view from the scope picker, select the required options:
     - **Resource managed by:**
         - **Azure resource**: resources managed by Azure
         - **Non-Azure resources**: resources not managed by Azure
@@ -50,29 +50,29 @@ Follow these steps to view your protected items:
         - **Protection status** - protection status of protected item in primary and secondary regions
         - **Retention details**: Retention details for protected items
 
-5.	To effectively look for specific items, you can utilize various filters, such as subscriptions, resource groups, location, resource type, and so on. 
+4.	To effectively look for specific items, you can utilize various filters, such as subscriptions, resource groups, location, resource type, and so on. 
 
-6.	Summary cards display an aggregated count for each security level, considering the applied filters. These cards can be selected to refine the filtering of the Protected items table.
+5.	The summary cards display an aggregated count for each security level, considering the applied filters. Select these cards to refine the filtering of the Protected items table.
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/summary-cards.png" alt-text="Screenshot shows the selection of summary cards." lightbox="./media/tutorial-view-protected-items-and-perform-actions/summary-cards.png":::
 
-7.	You can also **search** by specific item name to get information specific to it.
+6.	To get information for a specific item, search by specific item name.
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/search-item-name.png" alt-text="Screenshot shows the selection for search item name." lightbox="./media/tutorial-view-protected-items-and-perform-actions/search-item-name.png":::
 
-8.	Use **Select columns** from the menu available at the top of the views to add or remove columns. 
+7.	Use **Select columns** to add or remove columns.
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/select-columns-from-menu.png" alt-text="Screenshot shows the select columns selection on the menu." lightbox="./media/tutorial-view-protected-items-and-perform-actions/select-columns-from-menu.png":::
 
-9.	Azure Business Continuity center provides in-built help to learn more about the protected item view and guidance on protection. Select **Learn more about the importance of protection in both regions and status evaluation** to access it. 
+8.	Azure Business Continuity center provides in-built help to learn more about the protected item view and guidance on protection. On **Protected items**, select **Learn more about the importance of protection in both regions and status evaluation** to access it. 
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/learn-more-about-protected-item.png" alt-text="Screenshot shows learn more protected item view and guidance on protection selection." lightbox="./media/tutorial-view-protected-items-and-perform-actions/learn-more-about-protected-item.png":::
 
-10.	The help provides guidance on the various security levels and the settings that are required to meet each level. 
+9. On the **Importance of protection in primary and secondary regions** blade, the help provides guidance on the various security levels and the settings that are required to meet each level. 
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/learn-more-guidance.png" alt-text="Screenshot shows learn more guidance blade." lightbox="./media/tutorial-view-protected-items-and-perform-actions/learn-more-guidance.png":::
 
-11.	The **Protected items details** table shows the protection status for each protected item in the primary and secondary regions.
+10.	On **Protected items**, the **Protected items details** table shows the protection status for each protected item in the primary and secondary regions.
     - **Resource name**: Lists the underlying resource that is protected.
     - **Protected item**: Shows the name of the protected resource.
     - **Configured solutions**: Shows the number of solutions protecting the resource.
@@ -87,7 +87,7 @@ Follow these steps to view your protected items:
        - If there's no protection for a datasource in primary or secondary region, then the protected item status for that region is shown as **Not protected**.
        - For example, if a resource is protected by both Azure Backup (with status **Protection paused**) and Azure Site Recovery (with status **Protected**), then the protection status for the region displays **Protection paused**.
 
-12.	Under **Scope**, when you choose the retention details, the view loads the retention information for the protected items. The Protected items retention table shows the retention details for each protected item in the primary and secondary regions.
+11.	Under **Scope**, when you choose the retention details, the view loads the retention information for the protected items. The Protected items retention table shows the retention details for each protected item in the primary and secondary regions.
     - **Resource name**: Lists the underlying resource that is protected.
     - **Protected item**: Shows the name of the protected resource.
     - **Configured solutions**: Shows the number of solutions protecting the resource.
@@ -106,11 +106,11 @@ To get started with querying information on protection for your resources using 
 
 To view additional details for a specific protected item, follow these steps:
 
-1.	In the Azure Business Continuity center, select **Protected items** under **Protection inventory**. 
+1.	On **Business Continuity center**, go to **Protection inventory** > **Protected items**.
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/select-protected-items.png" alt-text="Screenshot showing the selection of protected items.":::
 
-2.	You can select the item name or select the more icon **…** > **View details** action menu to navigate and view further details for an item. 
+2.	On **Protected items**, select the item name or select the more icon **…** > **View details** action menu to navigate and view further details for an item.
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/select-view-details.png" alt-text="Screenshot shows the view details selection." lightbox="./media/tutorial-view-protected-items-and-perform-actions/select-view-details.png":::
 
@@ -122,7 +122,7 @@ To view additional details for a specific protected item, follow these steps:
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/select-protection-status-details.png" alt-text="Screenshot shows protection status details button selected in Change scope." lightbox="./media/tutorial-view-protected-items-and-perform-actions/select-protection-status-details.png":::
 
-5.	To change the scope for **Security posture** view from the scope-picker, select the required options:
+5.	On the **Change scope** blade, to change the scope for **Security posture** view from the scope-picker, select the required options:
     - **Protection status** - protection status of the protected item in primary and secondary regions
     - **Retention details** - retention details for protected items
     - **Security posture details** - security details for protected items

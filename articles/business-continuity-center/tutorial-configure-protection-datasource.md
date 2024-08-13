@@ -50,7 +50,10 @@ Azure Business Continuity Center helps you configure protection, enabling backup
 
 ## Configure protection
 
-This tutorial uses option 1 shown in the [Getting started section](#get-started) to initiate the configure protection for Azure Virtual Machines.
+This tutorial uses option 1 shown in the [Getting started section](#get-started) to initiate the protection configuration for Azure Virtual Machines.
+
+To configure protection for Azure VMs, follow these steps:
+
 
 1. Go to one of the views from **Overview, Protectable resources**, **Protected items**, and so on, and then select **Configure Protection** from the menu available on the top of the view.
     :::image type="content" source="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png" alt-text="Screenshot showing **Configure protection** option." lightbox="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png":::
