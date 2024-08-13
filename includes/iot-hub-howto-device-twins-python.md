@@ -13,12 +13,14 @@ ms.custom: mqtt, devx-track-python, py-fresh-zinc
 
 ## Create a device application
 
+Device applications can read and write twin reported properties, and be notified of desired twin property changes that have been set by a backend application or IoT Hub.
+
 The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class contains methods that can be use to work with device twins.
 
-This section describes how to create a device application that:
+This section describes how to create device application code that:
 
-* Retrieves a device twin and examine a reported property
-* Updates a reported device twin desired property
+* Retrieves a device twin and examine reported properties
+* Patch reported device twin properties
 
 ### Connect to the device
 
@@ -69,32 +71,37 @@ print("Setting reported temperature to {}".format(reported_properties["temperatu
 await device_client.patch_twin_reported_properties(reported_properties)
 ```
 
-### Replace device twin tags and desired properties
+You can also call these methods to update device twins:
 
-You can call [replace_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-replace-twin) to replace device twin tags and desired properties.
-
-You can call [update_twin](/en-us/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to update device twin tags and desired properties.
+* Call [replace_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-replace-twin) to replace device twin tags and desired properties.
+* Call [update_twin](/en-us/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to update device twin tags and desired properties.
 
 ### SDK samples
 
-[get_twin](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/get_twin.py) - Connect to a device and retrieve twin information.
+The Python SDK includes these samples:
 
-[update_twin_reported_properties](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/update_twin_reported_properties.py) - Update twin reported properties
-
-[receive_twin_desired_properties](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/receive_twin_desired_properties_patch.py) - Update reported properties with the Azure IoT Hub service.
+* [get_twin](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/get_twin.py) - Connect to a device and retrieve twin information.
+* [update_twin_reported_properties](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/update_twin_reported_properties.py) - Update twin reported properties
+* [receive_twin_desired_properties](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/receive_twin_desired_properties_patch.py) - Update reported properties with the Azure IoT Hub service.
 
 ## Create a backend application
 
+A backend application:
+
+* Runs independently of a device and IoT Hub
+* Connects to a device through IoT Hub
+* Can read device reported and desired properties, write device desired properties, and run device queries
+
 This section describes how to create a backend application that:
 
-* Updates device twin tags
+* Update twin tags and desired properties
 * Queries devices using filters on the tags and properties
 
 The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager) class exposes all methods required to create a backend application to interact with device twins from the service.
 
 ### Connect to IoT hub
 
-Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string).
+Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string). After connecting you can update the device twin.
 
 ```python
 import sys
@@ -107,7 +114,7 @@ IOTHUB_CONNECTION_STRING = "[IoTHub Connection String]"
 iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CONNECTION_STRING)
 ```
 
-### Update a twin
+### Update twin tags and desired properties
 
 You can update device twin tags and desired properties from a backend application.
 

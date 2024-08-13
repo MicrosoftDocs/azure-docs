@@ -13,10 +13,12 @@ ms.custom: mqtt, devx-track-java, devx-track-extended-java
 
 ## Create a device application
 
-This section describes how to create a device application that:
+Device applications can read and write twin reported properties, and be notified of desired twin property changes that have been set by a backend application or IoT Hub.
+
+This section describes how to create device application code that:
 
 * Retrieves a device twin and examine a reported property
-* Updates a reported device twin desired property
+* Updates reported device twin desired properties
 
 The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class exposes all the methods you require to interact with device twins from the device.
 
@@ -54,7 +56,7 @@ To connect to the device:
 
 ### Retrieve a device twin and examine reported properties
 
-Use [getTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-gettwin(com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice)) to retrieve the current twin reported properties.
+To read reported properties, use [getTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-gettwin(com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice)) to retrieve the current twin reported properties.
 
 For example:
 
@@ -67,7 +69,7 @@ System.out.println(twin);
 
 ### Update reported device twin properties
 
-After getting the current twin, you can begin sending reported property updates. You can send reported property updates without getting the current twin as long as you have the correct reported properties version. If you send reported properties and receive a "precondition failed" error, then your reported properties version is out of date. Get the latest version by calling `getTwin` again.
+After retrieving the current twin, you can begin making reported property updates. You can make reported property updates without getting the current twin as long as you have the correct reported properties version. If you send reported properties and receive a "precondition failed" error, then your reported properties version is out of date. Get the latest version by calling `getTwin` again.
 
 To update reported properties:
 
@@ -94,6 +96,12 @@ The SDK includes this [Device Twin Sample](https://github.com/Azure/azure-iot-sd
 
 ## Create a backend application
 
+A backend application:
+
+* Runs independently of a device and IoT Hub
+* Connects to a device through IoT Hub
+* Can read device reported and desired properties, write device desired properties, and run device queries
+
 This section describes how to create a backend application that:
 
 * Updates device twin tags
@@ -103,11 +111,11 @@ The `ServiceClient` [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.d
 
 ### Connect to the IoT hub service client
 
-Create a [DeviceTwinClientOptions](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwinclientoptions?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwinclientoptions-devicetwinclientoptions()) object.
+To connect to IoT Hub to view and update device twin information:
 
-Use a [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-devicetwin(java-lang-string)) constructor to create the connection to IoT hub. The `DeviceTwin` object handles the communication with your IoT hub.
-
-The [DeviceTwinDevice](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice) object represents the device twin with its properties and tags.
+* Create a [DeviceTwinClientOptions](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwinclientoptions?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwinclientoptions-devicetwinclientoptions()) object. These options are passed to the `DeviceTwin` object.
+* Use a [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-devicetwin(java-lang-string)) constructor to create the connection to IoT hub. The `DeviceTwin` object handles the communication with your IoT hub.
+* The [DeviceTwinDevice](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice) object represents the device twin with its properties and tags.
 
 ```java
 import com.microsoft.azure.sdk.iot.service.devicetwin.*;
@@ -128,32 +136,34 @@ DeviceTwin twinClient = new DeviceTwin(iotHubConnectionString,twinOptions);
 DeviceTwinDevice device = new DeviceTwinDevice(deviceId);
 ```
 
-### Update device twin tags
+### Update device twin fields
 
-Use [getTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-gettwin(com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice)) to retrieve the device twin values.
+To update device twin fields:
 
-This example retrieves and prints the device twins.
+* Use [getTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-gettwin(com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice)) to retrieve the device twin fields.
 
-```java
-// Get the device twin from IoT Hub
-System.out.println("Device twin before update:");
-twinClient.getTwin(device);
-System.out.println(device);
-```
+  This example retrieves and prints the device twins.
 
-Use a `HashSet` object to `add` a group of twin tag pairs.
+  ```java
+  // Get the device twin from IoT Hub
+  System.out.println("Device twin before update:");
+  twinClient.getTwin(device);
+  System.out.println(device);
+  ```
 
-Then use [setTags](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-settags(java-util-set(com-microsoft-azure-sdk-iot-service-devicetwin-pair))) to add a group of tag pairs from a `tags` object to a `DeviceTwinDevice` object.
+* Use a `HashSet` object to `add` a group of twin tag pairs.
 
-Then use [updateTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-updatetwin(com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice)) to update the twin in the IoT hub.
+* Use [setTags](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice-settags(java-util-set(com-microsoft-azure-sdk-iot-service-devicetwin-pair))) to add a group of tag pairs from a `tags` object to a `DeviceTwinDevice` object.
 
-This example updates the region and plant device twin tags to a device twin.
+* Use [updateTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-updatetwin(com-microsoft-azure-sdk-iot-service-devicetwin-devicetwindevice)) to update the twin in the IoT hub.
 
-```java
-// Update device twin tags if they are different
-// from the existing values
-String currentTags = device.tagsToString();
-if ((!currentTags.contains("region=" + region) && !currentTags.contains("plant=" + plant))) {
+  This example updates the region and plant device twin tags for a device twin.
+
+  ```java
+  // Update device twin tags if they are different
+  // from the existing values
+  String currentTags = device.tagsToString();
+  if ((!currentTags.contains("region=" + region) && !currentTags.contains("plant=" + plant))) {
 
   // Create the tags and attach them to the DeviceTwinDevice object
   Set<Pair> tags = new HashSet<Pair>();
@@ -164,13 +174,13 @@ if ((!currentTags.contains("region=" + region) && !currentTags.contains("plant="
   // Update the device twin in IoT Hub
   System.out.println("Updating device twin");
   twinClient.updateTwin(device);
-}
+  }
 
-// Retrieve the device twin with the tag values from IoT Hub
-System.out.println("Device twin after update:");
-twinClient.getTwin(device);
-System.out.println(device);
-```
+  // Retrieve the device twin with the tag values from IoT Hub
+  System.out.println("Device twin after update:");
+  twinClient.getTwin(device);
+  System.out.println(device);
+  ```
 
 ### Create a device twin query
 

@@ -16,10 +16,13 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 
 ## Create a device application
 
-This section describes how to create a device application that:
+Device applications can read and write twin reported properties, and be notified of desired twin property changes that have been set by a backend application or IoT Hub.
 
-* Retrieves a device twin and examine a reported property
-* Updates a device twin desired property
+This section describes how to use device application code to:
+
+* Retrieve a device twin and examine reported properties
+* Update reported device twin properties
+* Create a desired property update callback handler
 
 ### Connect to a device
 
@@ -74,19 +77,19 @@ catch (Exception ex)
 }
 ```
 
-### Desired property update callback handler
+### Create a desired property update callback handler
 
-You can create a desired property update callback handler that executes when the desired property is changed in the device.
+You can create a desired property update callback handler that executes when the desired property is changed in the device by passing the callback handler method to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?#microsoft-azure-devices-client-deviceclient-setdesiredpropertyupdatecallbackasync(microsoft-azure-devices-client-desiredpropertyupdatecallback-system-object)).
 
-Pass the callback method to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?#microsoft-azure-devices-client-deviceclient-setdesiredpropertyupdatecallbackasync(microsoft-azure-devices-client-desiredpropertyupdatecallback-system-object)).
-
-For example:
+For example, this call will set up the system to notify `OnDesiredPropertyChangedAsync` whenever a desired property is changed.
 
 ```csharp
 await _deviceClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChangedAsync, null);
 ```
 
 The twin properties are passed to the callback method and can be examined.
+
+For example:
 
 ```csharp
 private async Task OnDesiredPropertyChangedAsync(TwinCollection desiredProperties, object userContext)
@@ -112,20 +115,26 @@ private async Task OnDesiredPropertyChangedAsync(TwinCollection desiredPropertie
 
 ### SDK sample
 
-[TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample)
+The SDK includes this [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample).
 
 ## Create a backend application
 
-This section describes how to create a backend application that:
+A backend application:
 
-* Updates device twin tags
-* Queries devices using filters on the tags and properties
+* Runs independently of a device and IoT Hub
+* Connects to a device through IoT Hub
+* Can read device reported and desired properties, write device desired properties, and run device queries
+
+This section describes how to create backend application code to:
+
+* Update device twin fields
+* Create a device twin query
 
 The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class exposes all methods required to create a backend application to interact with device twins from the service.
 
 ### Connect to IoT hub
 
-Connect to the device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)).
+You can connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)). The backend application connects to the device through IoT Hub.
 
 ```csharp
 using Microsoft.Azure.Devices;
@@ -136,18 +145,18 @@ registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 
 ### Update device twin fields
 
-You can apply a JSON patch to update or replace device twin tag and reported properties.
+You can apply a JSON patch to update or replace device twin desired tags and properties.
 
 To update a device twin:
 
-* Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync?#microsoft-azure-devices-registrymanager-gettwinasync(system-string-system-string)) to retrieve a device twin.
+* Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync?#microsoft-azure-devices-registrymanager-gettwinasync(system-string-system-string)) to retrieve the current device twin.
 
-* Apply updates:
+* Apply updates using one of the following SDK methods:
   * Call [UpdateTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwinasync?#microsoft-azure-devices-registrymanager-updatetwinasync(system-string-microsoft-azure-devices-shared-twin-system-string)) to apply a patch to update the device twin mutable fields.
   * Call [ReplaceTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.replacetwinasync) to replace the entire device twin schema.
   * Call [UpdateTwins2Async](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwins2async) to update a list of twins previously created within the system.
 
-This example retrieves the device twin, then applies a JSON patch to update the device twin fields with region and plant location information.
+This example calls `GetTwinAsync` to retrieve the current device twin, then calls `UpdateTwinAsync` to apply a JSON patch to update the device twin fields with region and plant location information.
 
 ```csharp
 // Retrieve the device twin
@@ -170,14 +179,14 @@ await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
 
 This section demonstrates two device twin queries. Device twin queries are SQL queries that return a result set of device twins.
 
-Call [CreateQuery](/dotnet/api/microsoft.azure.devices.registrymanager.createquery) to submit a digital twins SQL query and obtain the twins result. You can optionally `CreateQuery` with a second parameter to specify a maximum number of items per page.
+To create a device twin query, call [CreateQuery](/dotnet/api/microsoft.azure.devices.registrymanager.createquery) to submit a digital twins SQL query and obtain an [IQuery](/dotnet/api/microsoft.azure.devices.iquery) Interface. You can optionally `CreateQuery` with a second parameter to specify a maximum number of items per page.
 
-The [IQuery](/dotnet/api/microsoft.azure.devices.iquery) Interface contains a [HasMoreResults](/dotnet/api/microsoft.azure.devices.iquery.hasmoreresults?#microsoft-azure-devices-iquery-hasmoreresults) boolean property that you can use to invoke the `GetNextAsTwinAsync` or `GetNextAsJsonAsync` method multiple times to retrieve all results.
+Next call `GetNextAsTwinAsync` or `GetNextAsJsonAsync` method as many times as needed to retrieve all twin results.
 
-To cycle through a list of digital twins results:
+* [GetNextAsTwinAsync](/dotnet/api/microsoft.azure.devices.iquery.getnextastwinasync?#microsoft-azure-devices-iquery-getnextastwinasync) to retrieve the next paged result as [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) objects.
+* [GetNextAsJsonAsync](/dotnet/api/microsoft.azure.devices.iquery.getnextasjsonasync?&#microsoft-azure-devices-iquery-getnextasjsonasync) to retrieve the next paged result as JSON strings.
 
-* call [GetNextAsTwinAsync](/dotnet/api/microsoft.azure.devices.iquery.getnextastwinasync?#microsoft-azure-devices-iquery-getnextastwinasync) to retrieve the next paged result as [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) objects.
-* Call [GetNextAsJsonAsync](/dotnet/api/microsoft.azure.devices.iquery.getnextasjsonasync?&#microsoft-azure-devices-iquery-getnextasjsonasync) to retrieve the next paged result as JSON strings.
+The `IQuery` interface includes a [HasMoreResults](/dotnet/api/microsoft.azure.devices.iquery.hasmoreresults?#microsoft-azure-devices-iquery-hasmoreresults) boolean property that you can use to check if there are more twin results to fetch.
 
 This example query selects only the device twins of devices located in the **Redmond43** plant.
 

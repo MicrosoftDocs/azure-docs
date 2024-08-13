@@ -13,6 +13,8 @@ ms.custom: mqtt, devx-track-js
 
 ## Create a device application
 
+Device applications can read and write twin reported properties, and be notified of desired twin property changes that have been set by a backend application or IoT Hub.
+
 This section describes how to use the [azure-iot-device](/javascript/api/azure-iot-device) package in the Azure IoT SDK for Node.js to create a device application that:
 
 * Retrieves a device twin and examine a reported property
@@ -123,6 +125,12 @@ twin.properties.reported.update(patch, function(err) {
 
 ## Create a backend application
 
+A backend application:
+
+* Runs independently of a device and IoT Hub
+* Connects to a device through IoT Hub
+* Can read device reported and desired properties, write device desired properties, and run device queries
+
 This section describes how to create a backend application that:
 
 * Updates device twin tags
@@ -160,7 +168,6 @@ To update a device twin:
 * Format a patch that contains the device twin update. The patch is formatted in JSON and as described in [Twin class](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1). A backend service patch can contain tag and desired property updates. For more patch format information, see [Tags and properties format](/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
 
 * Use [twin.update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1) to update the device twin with the patch.
-You can also use [registry.updateTwin](/javascript/api/azure-iothub/registry?#azure-iothub-registry-updatetwin) to apply a patch to the twin.
 
 In this example, the the device twin is retrieved for `myDeviceId`, then a patch is applied to the twins that contains `location` tags update of `region: 'US', plant: 'Redmond43'`.
 
