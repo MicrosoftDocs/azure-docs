@@ -22,7 +22,7 @@ This release corresponds to the software version:
 - **Data Box Gateway 2408 (X.X.XXXX.XXX)** - KB XXXXXXX
 
 > [!NOTE]
-> Update 2408 can be applied only to devices that are running 2301 versions of the software or later. If you are running a version earlier than 2301, update your device to 2105 and then update to 2301.
+> Update 2408 can be applied only to devices that are running 2301 versions of the software or later. If you are running a version earlier than 2105, update your device to 2301 and then update to 2408.
 
 Select the appropriate link to download the latest version.
 
@@ -36,7 +36,7 @@ Lorem ipsum odor amet, consectetuer adipiscing elit. Luctus dis neque et amet ph
 ## Bug Fixes
 This release contains the following bug fixes:
 
-- **web UI certificate format** - Implemented bug fixes pertaining to the web UI certificate format, potentially causing compatibility issues when using web-UI.
+- **web UI certificate format** - Implemented bug fixes pertaining to the web UI certificate format, potentially causing compatibility issues when using web UI.
 
 ## Updates
 
@@ -46,12 +46,12 @@ This release contains the following updates:
 1. **Defense in depth:**
     - Malware protection on OS disk
     - Device Guard Siging Service support for more stringent checks on the binary signing.
-    - Utilizing a newer .NET framework for better security.
+1. **Utilizing a newer .NET framework** - Provides better security.
 1. **Improved Hypervisor support** - Support added for Hyper-V 2022.
 
 ## Known issues in this release
 
-Because this release is a major upgrade, rollback or downgrade isn't allowed. Any upgrade failure might cause downtime and the need for data recovery. The following precautions should be taken before initiating an upgrade upgrade:
+Because this release is a major upgrade, rollback or downgrade isn't allowed. Any upgrade failure might cause downtime and the need for data recovery. The following precautions should be taken before initiating an upgrade:
 
 - Plan for an appropriate downtime window.
 - Ensure that your data is stored in Azure before disconnecting any clients writing to Data Box Gateway.
