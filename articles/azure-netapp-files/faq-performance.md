@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/05/2024
+ms.date: 08/13/2024
 ---
 # Performance FAQs for Azure NetApp Files
 
