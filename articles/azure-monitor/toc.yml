@@ -448,6 +448,8 @@ items:
         href: containers/container-insights-data-collection-filter.md
       - name: Container log schema
         href: containers/container-insights-logs-schema.md
+      - name: High scale
+        href: containers/container-insights-high-scale.md      
       - name: Data transformations
         displayName: Container insights
         href: containers/container-insights-transformations.md
