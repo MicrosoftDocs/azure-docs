@@ -3,7 +3,7 @@ title: Use Azure Communications Gateway's Number Management Portal (preview) to 
 description: Learn how to add and remove enterprises and numbers with Azure Communication Gateway's Number Management Portal.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 02/16/2024
 ms.custom: template-how-to-pattern
@@ -14,7 +14,7 @@ ms.custom: template-how-to-pattern
 Azure Communications Gateway's Number Management Portal (preview) enables you to manage enterprise customers and their numbers through the Azure portal. Any changes made in this portal are automatically provisioned into the Operator Connect and Teams Phone Mobile environments. You can also use Azure Communications Gateway's Provisioning API (preview). For more information, see [Provisioning Azure Communications Gateway](provisioning-platform.md).
 
 > [!IMPORTANT]
-> The Operator Connect and Teams Phone Mobile programs require that full API integration to your BSS is completed prior to launch in the Teams Admin Center. This can either be directly to the Operator Connect API or through the Azure Communications Gateway's Provisioning API (preview).
+> The Operator Connect and Teams Phone Mobile programs require you to complete full API integration to your BSS before your service launches in the Teams Admin Center. This integration can be directly to the Operator Connect API or through the Azure Communications Gateway's Provisioning API (preview).
 
 You can:
 

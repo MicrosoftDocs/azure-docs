@@ -108,8 +108,10 @@
     items:
     - name: Networking options
       href: virtual-network-concepts.md
-    - name: VNet injection - network requirements
+    - name: VNet injection (service) - requirements
       href: virtual-network-injection-resources.md
+    - name: VNet integration (workspace gateway) - requirements
+      href: virtual-network-workspaces-resources.md  
     - name: Deploy to a VNet - external
       href: api-management-using-with-vnet.md
     - name: Deploy to a VNet - internal
@@ -132,8 +134,6 @@
       href: workspaces-overview.md
     - name: Create a workspace
       href: how-to-create-workspace.md
-    - name: Use a workspace
-      href: api-management-in-workspace.md
   - name: Configuration management
     items:
     - name: Landing zone accelerator
@@ -217,12 +217,14 @@
         href: sap-api.md
     - name: Import gRPC API
       href: grpc-api.md
-    - name: Azure OpenAI
+    - name: Azure OpenAI and LLM APIs
       items:
-      - name: Import Azure OpenAI API as REST API
+      - name: Import Azure OpenAI API
         href: azure-openai-api-from-specification.md
       - name: Authenticate and authorize to Azure OpenAI
         href: api-management-authenticate-authorize-azure-openai.md
+      - name: Semantic caching for Azure OpenAI API requests
+        href: azure-openai-enable-semantic-caching.md
       - name: Protect Azure OpenAI keys
         href: /semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
     - name: Configure API for SSE
@@ -259,7 +261,7 @@
     href: api-management-howto-policies.md
   - name: Set or edit policies
     href: set-edit-policies.md
-  - name: Author policies using Microsoft Copilot for Azure
+  - name: Author policies using Microsoft Copilot in Azure
     href: ../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Debug policies in VS Code
     href: api-management-debug-policies.md
@@ -391,8 +393,12 @@
       href: api-management-howto-oauth2.md
     - name: Integrate Application Insights
       href: developer-portal-integrate-application-insights.md
+    - name: Log developer portal usage
+      href: developer-portal-enable-usage-logs.md  
     - name: Integrate Google Tag Manager
       href: developer-portal-integrate-google-tag-manager.md
+    - name: Customize developer portal on WordPress
+      href: developer-portal-wordpress-plugin.md
   - name: Self-host the developer portal
     items:
     - name: Create self-hosted portal
@@ -417,11 +423,12 @@
       href: api-management-howto-configure-notifications.md
   - name: Export APIs
     items:
-    - name: Test and monitor APIs in Postman
-      displayName: collection
-      href: export-api-postman.md
+
     - name: Inventory APIs in API Center
       href: ../api-center/import-api-management-apis.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+    - name: Export APIs to Postman for API development
+      displayName: collection
+      href: export-api-postman.md
     - name: Export APIs to the Power Platform
       items:
         - name: Export API as custom connector
@@ -486,6 +493,14 @@
       href: authentication-certificate-policy.md
     - name: authentication-managed-identity
       href: authentication-managed-identity-policy.md
+    - name: azure-openai-emit-token-metric
+      href: azure-openai-emit-token-metric-policy.md
+    - name: azure-openai-semantic-cache-lookup
+      href: azure-openai-semantic-cache-lookup-policy.md
+    - name: azure-openai-semantic-cache-store
+      href: azure-openai-semantic-cache-store-policy.md
+    - name: azure-openai-token-limit
+      href: azure-openai-token-limit-policy.md
     - name: cache-lookup
       href: cache-lookup-policy.md
     - name: cache-lookup-value
@@ -528,6 +543,14 @@
       href: json-to-xml-policy.md
     - name: limit-concurrency
       href: limit-concurrency-policy.md
+    - name: llm-emit-token-metric
+      href: llm-emit-token-metric-policy.md
+    - name: llm-semantic-cache-lookup
+      href: llm-semantic-cache-lookup-policy.md
+    - name: llm-semantic-cache-store
+      href: llm-semantic-cache-store-policy.md
+    - name: llm-token-limit
+      href: llm-token-limit-policy.md
     - name: log-to-eventhub
       href: log-to-eventhub-policy.md
     - name: mock-response
@@ -605,8 +628,10 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
-  - name: Resource log schema
+  - name: Gateway log schema
     href: gateway-log-schema-reference.md
+  - name: Developer portal audit log schema
+    href: developer-portal-audit-log-schema-reference.md
   - name: Event Grid events schema
     href: ../event-grid/event-schema-api-management.md?toc=/azure/api-management/toc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Virtual network configuration
@@ -633,7 +658,7 @@
       href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
     - name: Web API implementation
       href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-  - name: Breaking changes
+  - name: Breaking changes and retirements
     items:
     - name: Breaking changes overview
       href: breaking-changes/overview.md
@@ -643,20 +668,28 @@
       href: breaking-changes/metrics-retirement-aug-2023.md
     - name: Virtual network changes (September 2023)
       href: breaking-changes/rp-source-ip-address-change-sep-2023.md
-    - name: API version retirements (June 2024)
-      href: breaking-changes/api-version-retirement-sep-2023.md
     - name: Self-hosted gateway v0/v1 retirements (October 2023)
       href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
     - name: Deprecated (legacy) developer portal (October 2023)
       href: breaking-changes/legacy-portal-retirement-oct-2023.md
-    - name: Workspaces breaking changes (June 2024)
+    - name: Workspaces preview breaking changes (June 2024)
       href: breaking-changes/workspaces-breaking-changes-june-2024.md
+    - name: API version retirements (June 2024)
+      href: breaking-changes/api-version-retirement-sep-2023.md
     - name: stv1 compute platform retirement (August 2024)
       href: breaking-changes/stv1-platform-retirement-august-2024.md
+    - name: Workspaces preview breaking changes, part 2 (March 2025)
+      href: breaking-changes/workspaces-breaking-changes-march-2025.md
+    - name: Git configuration retirement (March 2025)
+      href: breaking-changes/git-configuration-retirement-march-2025.md
+    - name: Direct management API retirement (March 2025)
+      href: breaking-changes/direct-management-api-retirement-march-2025.md
     - name: ADAL-based identity provider retirement (September 2025)
       href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
     - name: CAPTCHA endpoint update (September 2025)
       href: breaking-changes/captcha-endpoint-change-sep-2025.md
+    - name: Built-in analytics dashboard retirement (March 2027)
+      href: breaking-changes/analytics-dashboard-retirement-march-2027.md
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Microsoft Q&A question page

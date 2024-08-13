@@ -1,10 +1,10 @@
 ---
-title: Configure, connect, and verify an IoT Edge module with a GPU
+title: Configure and connect an IoT Edge module with a GPU
 description: Configure your environment to connect and verify your GPU to process modules from your IoT Edge device.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 9/22/2022
+ms.date: 05/29/2024
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -39,7 +39,7 @@ We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to
 
 ## Create a GPU-optimized virtual machine
 
-To create a GPU-optimized virtual machine (VM), choosing the right size is important. Not all VM sizes will accommodate GPU processing. In addition, there are different VM sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) or try the [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
+To create a GPU-optimized virtual machine (VM), choosing the right size is important. Not all VM sizes accommodate GPU processing. In addition, there are different VM sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) or try the [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
 
 Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) template in GitHub, then configure it to be GPU-optimized.
 

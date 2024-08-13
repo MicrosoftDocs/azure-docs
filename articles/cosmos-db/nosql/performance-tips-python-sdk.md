@@ -2,7 +2,7 @@
 title: Performance tips for Azure Cosmos DB Python SDK
 description: Learn client configuration options to improve Azure Cosmos DB database performance for Python SDK
 author: kushagraThapar
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: python
 ms.topic: how-to

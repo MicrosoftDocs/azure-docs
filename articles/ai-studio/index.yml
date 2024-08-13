@@ -4,14 +4,15 @@ title: Azure AI Studio documentation # < 60 chars
 summary:  Build cutting-edge, market-ready, responsible applications for your organization with AI.
 metadata:
   title: Azure AI Studio documentation
-  description: Azure AI Studio helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.  
+  description: Azure AI Studio helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
   ms.service: azure-ai-studio
+  ms.custom:
+    - build-2024
   ms.topic: landing-page
   ms.reviewer: eur
   ms.author: eur
   author: eric-urban
-  ms.date: 2/6/2024
-
+  ms.date: 5/21/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -24,8 +25,8 @@ landingContent:
         links:
           - text: What is Azure AI Studio?
             url: what-is-ai-studio.md
-          - text: What is prompt flow?
-            url: how-to/prompt-flow.md
+          - text: Select and deploy models from the catalog
+            url: how-to/model-catalog.md
           - text: Retrieval Augmented Generation (RAG)
             url: concepts/retrieval-augmented-generation.md
           - text: Evaluation and monitoring metrics for generative AI
@@ -36,37 +37,39 @@ landingContent:
             url: how-to/create-projects.md
           - text: Get started with prompt flow
             url: how-to/flow-develop.md
+          - text: Connect to AI services
+            url: ai-services/connect-ai-services.md
   # Card
   - title: 10-minute quickstarts
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Get started building a chat app using the prompt flow SDK
+            url: quickstarts/get-started-code.md
           - text: Use Azure OpenAI Assistants in the playground
             url: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
-          - text: Hear and speak with chat in the playground
-            url: quickstarts/hear-speak-playground.md
           - text: Moderate text and images
             url: quickstarts/content-safety.md
           - text: Get started using GPT-4 Turbo with Vision
             url: quickstarts/multimodal-vision.md
       - linkListType: tutorial
         links:
-          - text: Deploy a web app for chat on your data
+          - text: Deploy an enterprise chat web app
             url: tutorials/deploy-chat-web-app.md
-          - text: Build your own copilot using prompt flow
+          - text: Build your copilot using prompt flow in AI Studio
             url: tutorials/deploy-copilot-ai-studio.md
-          - text: Build your own copilot using Azure AI CLI and SDK
-            url: tutorials/deploy-copilot-sdk.md
 
   # Card
   - title: Develop apps
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Get started with the Azure AI SDK
-            url: how-to/sdk-install.md
-          - text: Work with Azure AI projects in VS Code
-            url: how-to/develop-in-vscode.md
+          - text: Get started with the Azure AI SDKs
+            url: how-to/develop/sdk-overview.md
+          - text: Work with AI Studio projects in VS Code
+            url: how-to/develop/vscode.md
+          - text: Build your copilot using the prompt flow SDK
+            url: tutorials/copilot-sdk-build-rag.md
       - linkListType: concept
         links:
           - text: Connections for flows and indexing

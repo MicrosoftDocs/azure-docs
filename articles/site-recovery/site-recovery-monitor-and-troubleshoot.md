@@ -1,14 +1,14 @@
 ---
 title: Azure Site Recovery dashboard and built-in alerts
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations, and enable built-in alerts, by using the portal.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
-ms.date: 05/13/2024
+ms.date: 04/29/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 
-# Monitor Site Recovery
+# Use the Recovery Services dashboard
 
 In this article, learn how to monitor Azure [Site Recovery](site-recovery-overview.md), using Site Recovery inbuilt monitoring.  You can monitor:
 
@@ -162,6 +162,9 @@ You can subscribe to receive email notifications for these critical events:
 - No connectivity between the on-premises infrastructure components and Site Recovery service. Connectivity between Site Recovery and on-premises servers registered in a vault is detected using a heartbeat mechanism.
 - Failover failures.
 
+> [!NOTE]
+> Enabling email notification for ASR does not incur any additional costs.
+
 Subscribe as follows:
 
 In the vault > **Monitoring** section, select **Site Recovery Events**.
@@ -254,7 +257,7 @@ You can manage your alerts settings under **Business Continuity Center** > **Mon
 
 Select **View alert** to get alert details and take action. 
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png" alt-text="Screenshot displays Manage alerts option." lightbox="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png":::
+:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png" alt-text="Screenshot displays View alert option." lightbox="./media/site-recovery-monitor-and-troubleshoot/manage-alerts.png":::
 
 Like Azure Monitor, Business Continuity Center, and Recovery Services Vault you can view alerts from Backup Center as well. 
 

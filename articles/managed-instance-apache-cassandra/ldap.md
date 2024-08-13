@@ -3,7 +3,7 @@ title: How to enable LDAP authentication in Azure Managed Instance for Apache Ca
 description: Learn how to enable LDAP authentication in Azure Managed Instance for Apache Cassandra
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 05/23/2022
 ---

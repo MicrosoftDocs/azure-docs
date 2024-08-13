@@ -5,21 +5,16 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 01/04/2024
+ms.date: 06/11/2024
 ---
 
 # Schedules for recurring triggers in Azure Logic Apps workflows
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Azure Logic Apps helps you create and run automated recurring workflows on a schedule. By creating a logic app workflow that starts with a built-in Recurrence trigger or Sliding Window trigger, which are Schedule-type triggers, you can run tasks immediately, at a later time, or on a recurring interval. You can call services inside and outside Azure, such as HTTP or HTTPS endpoints, post messages to Azure services such as Azure Storage and Azure Service Bus, or get files uploaded to a file share. With the Recurrence trigger, you can also set up complex schedules and advanced recurrences for running tasks. To learn more about the built-in Schedule triggers and actions, see [Schedule triggers](#schedule-triggers) and [Schedule actions](#schedule-actions). 
+Azure Logic Apps helps you create and run automated recurring workflows on a schedule. By creating a logic app workflow that starts with **Recurrence** trigger or **Sliding Window** trigger, which are Schedule-type triggers, you can run tasks immediately, at a later time, or on a recurring interval. You can call services inside and outside Azure, such as HTTP or HTTPS endpoints, post messages to Azure services such as Azure Storage and Azure Service Bus, or get files uploaded to a file share. With the **Recurrence** trigger, you can also set up complex schedules and advanced recurrences for running tasks. To learn more about the Schedule built-in triggers and actions, see [Schedule triggers](#schedule-triggers) and [Schedule actions](#schedule-actions). 
 
-> [!NOTE]
-> You can schedule and run recurring workloads without creating a separate logic app for each scheduled job and running into the [limit on workflows per region and subscription](../logic-apps/logic-apps-limits-and-config.md#definition-limits). Instead, you can use the logic app pattern that's created by the [Azure QuickStart template: Logic Apps job scheduler](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logicapps-jobscheduler/).
->
-> The Azure Logic Apps job scheduler template creates a CreateTimerJob logic app that calls a TimerJob logic app. You can then call the CreateTimerJob logic app as an API by making an HTTP request and passing a schedule as input for the request. Each call to the CreateTimerJob logic app also calls the TimerJob logic app, which creates a new TimerJob instance that continuously runs based on the specified schedule or until meeting a specified limit. That way, you can run as many TimerJob instances as you want without worrying about workflow limits because instances aren't individual logic app workflow definitions or resources.
-
-This list shows some example tasks that you can run with the Schedule built-in triggers:
+The following list shows some example tasks that you can run with the Schedule built-in triggers:
 
 * Get internal data, such as run a SQL stored procedure every day.
 
@@ -39,7 +34,13 @@ You can also use the Schedule built-in actions to pause your workflow before the
 
 * Delay the workflow until an HTTP call has time to finish before resuming and retrieving the result.
 
-This article describes the capabilities for the Schedule built-in triggers and actions.
+This guide describes the capabilities for the Schedule-type built-in triggers and actions.
+
+## Run recurring workloads with without multiple logic apps
+
+You can schedule and run recurring workloads without creating a separate Consumption logic app for each scheduled job and running into the [limit on workflows per region and subscription](logic-apps-limits-and-config.md#definition-limits). Instead, you can either [create a Standard logic app with multiple workflows](create-single-tenant-workflows-azure-portal.md), or use the Consumption logic app pattern that's created by the [Azure QuickStart template: Logic Apps job scheduler](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logicapps-jobscheduler/).
+
+The Azure Logic Apps job scheduler template creates a logic app named **CreateTimerJob** that calls a **TimerJob** logic app. You can then call the **CreateTimerJob** logic app as an API by making an HTTP request and passing a schedule as input for the request. Each call to the **CreateTimerJob** logic app also calls the **TimerJob** logic app, which creates a new **TimerJob** instance that continuously runs based on the specified schedule or until meeting a specified limit. That way, you can run as many **TimerJob** instances as you want without worrying about workflow limits because instances aren't individual logic app workflow definitions or resources.
 
 <a name="schedule-triggers"></a>
 
@@ -49,11 +50,12 @@ You can start your logic app workflow by using the [Recurrence trigger](../conne
 
 Here are the differences between these triggers:
 
-* **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If the trigger misses recurrences, for example, due to disruptions or disabled workflows, the Recurrence trigger doesn't process the missed recurrences but restarts recurrences with the next scheduled interval.
+* **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If the trigger misses recurrences, for example, due to disruptions or disabled workflows, the **Recurrence** trigger doesn't process the missed recurrences but restarts recurrences with the next scheduled interval.
 
   If you select **Day** as the frequency, you can specify the hours of the day and minutes of the hour, for example, every day at 2:30. If you select **Week** as the frequency, you can also select days of the week, such as Wednesday and Saturday. You can also specify a start date and time along with a time zone for your recurrence schedule. For more information about time zone formatting, see [Add a Recurrence trigger](../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
 
   > [!IMPORTANT]
+  >
   > If you use the **Day**, **Week**, or **Month** frequency, and you specify a future date and time, make sure that you set up the recurrence in advance:
   >
   > * **Day**: Set up the daily recurrence at least 24 hours in advance.
@@ -64,25 +66,33 @@ Here are the differences between these triggers:
   > 
   > Otherwise, the workflow might skip the first recurrence.
   >
-  > If a recurrence doesn't specify a specific [start date and time](#start-time), the first recurrence runs immediately 
-  > when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start 
-  > date and time for when you want the first recurrence to run.
+  > If a recurrence doesn't specify a specific [start date and time](#start-time), the first recurrence 
+  > runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. 
+  > To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
   >
   > If a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, 
   > those recurrences are based on the last run time. As a result, the start times for those recurrences might drift due to 
   > factors such as latency during storage calls. To make sure that your workflow doesn't miss a recurrence, especially when 
   > the frequency is in days or longer, try these options:
   >
-  > * Provide a start date and time for the recurrence plus the specific times when to run subsequent recurrences by using the properties 
-  > named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
+  > * Provide a start date and time for the recurrence plus the specific times when to run subsequent recurrences by using the 
+  > properties named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
   >
-  > * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
+  > * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the **Recurrence** trigger.
 
   For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
 * **Sliding Window**: Runs your workflow at regular time intervals that handle data in continuous chunks. If the trigger misses recurrences, for example, due to disruptions or disabled workflows, the Sliding Window trigger goes back and processes the missed recurrences.
 
   You can specify a start date and time, time zone, and a duration to delay each recurrence in your workflow. This trigger doesn't support advanced schedules, for example, specific hours of the day, minutes of the hour, and days of the week. For more information, see [Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger](../connectors/connectors-native-sliding-window.md).
+
+> [!NOTE]
+>
+> Advanced scheduling options, such as **At these hours** and **At these days**, are available and 
+> work only with built-in polling triggers, such as the **Recurrence** and **Sliding Window** triggers, 
+> which directly run with the Azure Logic Apps runtime. For connectors that are Microsoft-managed, 
+> hosted, and run in Azure, polling triggers calculate the next recurrence by using only the 
+> **Interval** and **Frequency** values, not the advanced scheduling options.
 
 <a name="schedule-actions"></a>
 
@@ -114,7 +124,7 @@ Suppose the current date and time is September 8, 2017 at 1:00 PM. You specify t
 |------------|--------------|------------|----------|
 | 2017-09-**07**T14:00:00Z <br>(2017-09-**07** at 2:00 PM) | 2017-09-**08**T13:00:00Z <br>(2017-09-**08** at 1:00 PM) | Every two days | {none} |
 
-For the Recurrence trigger, the Azure Logic Apps engine calculates run times based on the start time, discards past run times, uses the next future start time for the first run, and calculates future runs based on the last run time.
+For the **Recurrence** trigger, the Azure Logic Apps engine calculates run times based on the start time, discards past run times, uses the next future start time for the first run, and calculates future runs based on the last run time.
 
 Here's how this recurrence looks:
 
@@ -136,28 +146,30 @@ So, no matter how far in the past you specify the start time, for example, 2017-
 
 ## Recurrence behavior
 
-Recurring built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), run natively on the Azure Logic Apps runtime. These triggers differ from recurring connection-based managed connector triggers where you need to create a connection first, such as the Office 365 Outlook managed connector trigger.
+Recurring built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), run directly and natively on the Azure Logic Apps runtime. These triggers differ from recurring connection-based managed connector triggers where you need to create a connection first, such as the Office 365 Outlook managed connector trigger.
 
-For both kinds of triggers, if a recurrence doesn't specify a specific start date and time, the first recurrence runs immediately when you save or deploy the logic app resource, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
+For both kinds of triggers, if a recurrence doesn't specify a start date and time, the first recurrence runs immediately when you save or deploy the logic app resource, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
 
 ### Recurrence for built-in triggers
 
-Recurring built-in triggers follow the schedule that you set, including any specified time zone. However, if a recurrence doesn't specify other advanced scheduling options, such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls.
+Recurring built-in triggers follow the schedule that you set, including any specified time zone. However, if a recurrence doesn't specify other advanced scheduling options, such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. Advanced scheduling options, such as **At these hours** and **At these days** for the **Weekly** recurrence, are available and work only with built-in polling triggers, such as the **Recurrence** and **Sliding Window** triggers, which directly and natively run on the Azure Logic Apps runtime.
 
 For more information, review the following documentation:
 
 * [Trigger recurrence for daylight saving time and standard time](#daylight-saving-standard-time)
 * [Troubleshoot recurrence issues](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#recurrence-issues)
 
-### Recurrence for connection-based triggers
+### Recurrence for managed triggers
 
-For recurring connection-based triggers, such as Office 365 Outlook, the schedule isn't the only driver that controls execution. The time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
+For recurring managed triggers, such as Office 365 Outlook, Outlook.com, and so on, the schedule isn't the only driver that controls execution. The time zone determines only the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
 
 * Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
 * Any failures or retries that the trigger incurs.
 * Latency during storage calls.
 * Not maintaining the specified schedule when daylight saving time (DST) starts and ends.
 * Other factors that can affect when the next run time happens.
+
+Advanced scheduling options, such as **At these hours** and **At these days** for the **Weekly** recurrence, aren't available or supported for connectors that are Microsoft-managed, hosted, and run in Azure. These polling triggers calculate the next recurrence by using only the **Interval** and **Frequency** values.
 
 For more information, review the following documentation:
 
@@ -242,48 +254,17 @@ If these logic apps use the UTC-6:00 Central Time (US & Canada) zone, this simul
     | 11/03/2019 | 2:30:00 AM | 8:30:00 AM ||
     | 11/04/2019 | 2:30:00 AM | 8:30:00 AM ||
 
-<a name="recurrence-issues"></a>
-
-### Troubleshoot recurrence issues
-
-To make sure that your workflow runs at your specified start time and doesn't miss a recurrence, especially when the frequency is in days or longer, try the following solutions:
-
-* When DST takes effect, manually adjust the recurrence so that your workflow continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information and examples, review [Recurrence for daylight saving time and standard time](#daylight-saving-standard-time).
-
-* If you're using a **Recurrence** trigger, specify a time zone, a start date, and start time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
-
-* Consider using a [**Sliding Window** trigger](../connectors/connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
-
 <a name="run-once"></a>
 
 ## Run one time only
 
-If you want to run your logic app only at one time in the future, you can use the **Scheduler: Run once jobs** template. After you create a new logic app but before opening the workflow designer, under the **Templates** section, from the **Category** list, select **Schedule**, and then select this template:
-
-![Select "Scheduler: Run once jobs" template](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
-
-Or, if you can start your logic app with the **When a HTTP request is received - Request** trigger, and pass the start time as a parameter for the trigger. For the first action, use the **Delay until - Schedule** action, and provide the time for when the next action starts running.
+To only run your workflow once in the future, you can [use the **Scheduler: Run once jobs** workflow template](../connectors/connectors-native-recurrence.md#run-once).
 
 <a name="run-once-last-day-of-the-month"></a>
 
-## Run once at last day of the month
+## Run once on last day of the month
 
-To run the Recurrence trigger only once on the last day of the month, you have to edit the trigger in the workflow's underlying JSON definition using code view, not the designer. However, you can use the following example:
-
-```json
-"triggers": {
-    "Recurrence": {
-        "recurrence": {
-            "frequency": "Month",
-            "interval": 1,
-            "schedule": {
-                "monthDays": [-1]
-            }
-        },
-        "type": "Recurrence"
-    }
-}
-```
+To run the **Recurrence** trigger only once on the last day of the month, see [Run one time on the last day of the month](../connectors/connectors-native-recurrence.md#run-only-last-day-of-month).
 
 <a name="example-recurrences"></a>
 
@@ -314,6 +295,18 @@ Here are various example recurrences that you can set up for the triggers that s
 | Recurrence | Run every 15 minutes biweekly on Mondays only | 2 | Week | {none} | "Monday" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | This schedule runs every other Monday at every 15-minute mark. |
 | Recurrence | Run every month | 1 | Month | *startDate*T*startTime*Z | {unavailable} | {unavailable} | {unavailable} | This schedule doesn't start *any sooner* than the specified start date and time and calculates future recurrences on the start date and time. If you don't specify a start date and time, this schedule uses the creation date and time. |
 | Recurrence | Run every hour for one day per month | 1 | Month | {see note} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {see note} | If you don't specify a start date and time, this schedule uses the creation date and time. To control the minutes for the recurrence schedule, specify the minutes of the hour, a start time, or use the creation time. For example, if the start time or creation time is 8:25 AM, this schedule runs at 8:25 AM, 9:25 AM, 10:25 AM, and so on. |
+
+<a name="recurrence-issues"></a>
+
+## Troubleshoot recurrence issues
+
+To make sure that your workflow runs at your specified start time and doesn't miss a recurrence, especially when the frequency is in days or longer, try the following solutions:
+
+* When DST takes effect, manually adjust the recurrence so that your workflow continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information and examples, review [Recurrence for daylight saving time and standard time](#daylight-saving-standard-time).
+
+* If you're using a **Recurrence** trigger, specify a time zone, a start date, and start time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
+
+* Consider using a [**Sliding Window** trigger](../connectors/connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
 
 ## Next steps
 

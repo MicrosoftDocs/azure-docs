@@ -1,18 +1,18 @@
 ---
 title: Encrypted connectivity using TLS/SSL
 description: Instructions and information on how to connect using TLS/SSL in Azure Database for PostgreSQL - Flexible Server.
-author: GennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
 # Encrypted connectivity using Transport Layer Security in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server supports connecting your client applications to Azure Database for PostgreSQL flexible server using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
@@ -22,8 +22,11 @@ Azure Database for PostgreSQL flexible server supports encrypted connections usi
 > By default, secured connectivity between the client and the server is enforced. If you want to disable TLS/SSL for connecting to Azure Database for PostgreSQL flexible server, you can change the server parameter *require_secure_transport* to *OFF*. You can also set TLS version by setting *ssl_max_protocol_version* server parameters.
 
 ## Applications that require certificate verification for TLS/SSL connectivity
-In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. Azure Database for PostgreSQL flexible server uses *DigiCert Global Root CA*. Download this certificate needed to communicate over SSL from [DigiCert Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) and save the certificate file to your preferred location. For example, this tutorial uses `c:\ssl`.
+In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. For more information on downloading root CA certificates you can **[visit this document](./concepts-networking-ssl-tls.md#configuring-ssl-on-the-client)**.
+**Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this [how-to document](../flexible-server/how-to-update-client-certificates-java.md)**. 
 
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible server doesn't support [custom SSL\TLS certificates](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CERTIFICATE-CREATION) at this time.
 
 ### Connect using psql
 If you created your Azure Database for PostgreSQL flexible server instance with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the VNet created with your Azure Database for PostgreSQL flexible server instance.

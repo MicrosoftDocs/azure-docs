@@ -88,8 +88,8 @@ If you create a new Azure Key Vault instance, enable these properties during cre
 
 If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If any of these properties isn't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 
-- [How to use soft-delete with PowerShell](../key-vault/general/key-vault-recovery.md)
-- [How to use soft-delete with Azure CLI](../key-vault/general/key-vault-recovery.md)
+- [How to use soft-delete with PowerShell](/azure/key-vault/general/key-vault-recovery)
+- [How to use soft-delete with Azure CLI](/azure/key-vault/general/key-vault-recovery)
 
 ## Initialize the SDK
 

@@ -4,7 +4,7 @@ description: Patching guidance overview for Microsoft Configuration Manager to A
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 07/31/2024
 ms.author: sudhirsneha
 ---
 
@@ -12,17 +12,18 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-This article provides a guide to start using Azure Update Manager (for update management) for virtual machines that are currently using Microsoft Configuration Manager (MCM). 
+This article provides a guide to modernize management of servers for which you are currently using Microsoft Configuration Manager (MCM). We shall focus on Azure Update Manager that provides Azure based experiences for patch management, the major capability of MCM. 
 
-Before initiating migration, you need to understand mapping between System Center components and equivalent services in Azure.
+To start with, let us list the Azure Services that provide equivalent capabilities for the different System Center components.
 
 | **System Center Component** | **Azure equivalent service** |
 | --- | --- |
 | System Center Operations Manager (SCOM) | Azure Monitor SCOM Managed Instance |
-| System Center Configuration Manager (SCCM), now called Microsoft Configuration Manager (MCM) | Azure Update Manager, </br> Change Tracking and Inventory, </br> Guest Config, </br> Azure Automation, </br> Desired State Configuration (DSC), </br> Azure Security Center | 
+| System Center Configuration Manager (SCCM), now called Microsoft Configuration Manager (MCM) | Azure Update Manager, </br> Change Tracking and Inventory, </br> Azure 
+ Machine Configuration (formerly called Azure Policy Guest Configuration), </br> Azure Automation, </br> Microsoft Defender for Cloud | 
 | System Center Virtual Machine Manager (SCVMM) | Arc enabled System Center VMM | 
-| System Center Data Protection Manager (SCDPM) | Arc enabled DPM | 
-| System Center Orchestrator (SCORCH) | Arc enabled DPM | 
+| System Center Data Protection Manager (SCDPM) | Azure Backup | 
+| System Center Orchestrator (SCORCH) | Azure Automation | 
 | System Center Service Manager (SCSM)  | - |
 
 > [!NOTE]
@@ -33,7 +34,7 @@ Before initiating migration, you need to understand mapping between System Cente
 ## Migrate to Azure Update Manager
 MCM helps you to manage PCs and servers, keep software up to date, set configuration and security policies, and monitor system status. MCM offers [multiple features and capabilities](/mem/configmgr/core/plan-design/changes/features-and-capabilities) and software [update management](/mem/configmgr/sum/understand/software-updates-introduction) is one of these.
 
-Specifically for update management or patching, as per your requirements, you can use the native [Azure Update Manager](overview.md) to manage and govern update compliance for Windows and Linux machines across your deployments in a consistent manner. Unlike MCM that needs maintaining Azure virtual machines for hosting the different Configuration Manager roles. Azure Update Manager is designed as a standalone Azure service to provide SaaS experience on Azure to manage hybrid environments. You don't need license to use Azure Update Manager.
+Specifically for update management or patching, as per your requirements, you can use the native [Azure Update Manager](overview.md) to manage and govern update compliance for Windows and Linux machines across your deployments in a consistent manner. Unlike MCM which needs maintaining Azure virtual machines for hosting the different Configuration Manager roles, Azure Update Manager is designed as a standalone Azure service to provide SaaS experience on Azure to manage hybrid environments. You don't need a license to use Azure Update Manager.
 
 > [!NOTE]
 > - To manage clients/devices, Intune is the recommended Microsoft solution.
@@ -51,10 +52,26 @@ Configuring classifications/products to synchronize/scan/assess | You can choose
 Deploy software updates (install patches) | Provides three modes of deploying updates: </br> Manual deployment </br> Automatic deployment </br> Phased deployment [Learn more](/mem/configmgr/sum/deploy-use/deploy-software-updates) | - Manual deployment is mapped to deploy [one-time updates](deploy-updates.md) </br> - Automatic deployment is mapped to scheduled updates </br> - There's no phased deployment option.
 | Deploy software updates on Windows and Linux machines (in Azure or on-premises or other clouds) | SCCM helps manage tracking and applying software updates to Windows machines (Currently, we don't support Linux machines.) | Azure Update Manager supports software updates on both Windows and Linux machines. | 
 
-
 ## Guidance to use Azure Update Manager on MCM managed machines
 
 As a first step in MCM user's journey towards Azure Update Manager, you need to enable Azure Update Manager on your existing MCM managed servers (i.e. ensure that Azure Update Manager and MCM co-existence is achieved). The following section address few challenges that you might encounter in this first step.
+
+### Prerequisites for Azure Update Manager and MCM co-existence
+
+- Ensure that the Auto updates are disabled on the machine. For more information, see [Manage additional Windows Update- Windows Deployment](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+  
+    Ensure that the registry path *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU, NoAutoUpdate* is set to 1.
+
+- Azure Update Manager can get updates from WSUS server and for this, ensure to configure WSUS server as part of SCCM.
+
+    - Ensure that the WSUS server has enough space.
+    - Ensure to update language option to download the packages in WSUS config. We recommend that you select the languages that are required. For more information, see [Step 2 - Configure WSUS](/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#to-configure-wsus).
+    - Ensure to create a rule for auto approving updates in WSUS to download the applicable packages on the WSUS server so that Azure Update Manager can get the updates from this WSUS server.
+      - Select classifications you want as per your requirements or keep them same as selected in SCCM.
+      - Select products as per requirements or keep them same as selected in SCCM.
+      - To start, create a test computer group and apply this rule to it, to test these changes.
+      - After testing the test group, you can expand it to all computer groups.
+      - Create an exclusion computer group in WSUS if needed.
 
 ### Overview of current MCM setup
 
@@ -66,7 +83,6 @@ Third-party updates content is published to this WSUS server as well. Azure Upda
 
 For Azure Update Manager to scan and install first party updates (Windows and Microsoft updates), you should start approving the required updates in the configured WSUS server. This is done by [configuring an auto approval rule in WSUS](/windows-server/administration/windows-server-update-services/deploy/3-approve-and-deploy-updates-in-wsus#32-configure-auto-approval-rules) like what users have configured on MCM server.
  
-
 ### Third party updates
 
 Third party updates should work as expected with Azure Update Manager provided you have already configured MCM for third party patching and it is able to successfully patch Third party updates via MCM. Ensure that you continue to publish third party updates to WSUS from MCM [Step 3 in Enable third-party updates](/mem/configmgr/sum/deploy-use/third-party-software-updates#publish-and-deploy-third-party-software-updates). After you publish to WSUS, Azure Update Manager will be able to detect and install these updates from WSUS server.
@@ -83,7 +99,6 @@ Third party updates should work as expected with Azure Update Manager provided y
    :::image type="content" source="./media/guidance-migration-azure/filter-machine-status-inline.png" alt-text="Screenshot of selecting the filters in Azure Update Manager to view the machines." lightbox="./media/guidance-migration-azure/filter-machine-status-expanded.png":::
 
 1. Select the suitable [assessment](assessment-options.md) and [patching](updates-maintenance-schedules.md) options as per your requirement.
-
 
 ### Patch machines
 
@@ -120,8 +135,6 @@ No, only approving patches in WSUS monthly or setting the Automatic Deployment R
 ### How Azure Update Manager can be used to manage on-premises virtual machines?
 
 Azure Update Manager can be used on-premises by using Azure Arc. Azure Arc is a bridge that extends the Azure platform to help you build applications and services with the flexibility to run across datacenters, at the edge, and in multicloud environments.  Azure Arc VM management lets you provision and manage Windows and Linux VMs hosted on-premises. This feature enables IT admins to manage Arc VMs by using Azure management tools, including Azure portal, Azure CLI, Azure PowerShell, and Azure Resource Manager (ARM) templates.  
-
-
  
 ## Next steps
 - [An overview on Azure Update Manager](overview.md)

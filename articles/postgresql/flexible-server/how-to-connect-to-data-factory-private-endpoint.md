@@ -1,71 +1,73 @@
 ---
-title: Connect to Azure Data Factory privately networked pipeline using Azure Private Link
-description: This article describes how to connect Azure Database for PostgreSQL - Flexible Server to an Azure-hosted Data Factory pipeline via Private Link.
-author: gennadNY
-ms.author: gennadyk
+title: Connect from an Azure Data Factory pipeline using Azure Private Link
+description: This article describes how to connect from Azure Data Factory to an instance of Azure Database for PostgreSQL - Flexible Server using Private Link.
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 07/14/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Connect to an Azure Data Factory privately networked pipeline with Azure Database for PostgreSQL - Flexible Server by using Azure Private Link
+# Connect from Azure Data Factory to an instance of Azure Database for PostgreSQL - Flexible Server via Private Link
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-In this article, you connect Azure Database for PostgreSQL flexible server to an Azure Data Factory pipeline via Azure Private Link.
+In this article, you create a linked service in Azure Data Factory to connect to an instance of Azure Database for PostgreSQL flexible server using a private endpoint.
 
-[Azure Data Factory](../../data-factory/introduction.md) is a fully managed, serverless solution to ingest and transform data. An Azure [integration runtime](../../data-factory/concepts-integration-runtime.md#azure-integration-runtime) supports connecting to data stores and compute services with public accessible endpoints. When you enable a managed virtual network, an integration runtime supports connecting to data stores by using the Azure Private Link service in a private network environment.
+[Azure Data Factory](../../data-factory/introduction.md) is a fully managed, serverless data integration service built to orchestrate and operationalize complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects. An Azure [integration runtime](../../data-factory/concepts-integration-runtime.md#azure-integration-runtime) supports connecting to data stores and compute services with public accessible endpoints. If you enable the managed virtual network feature of an Azure integration runtime, it supports connecting to data stores using Azure Private Link service in private network environments.
 
-Data Factory offers three types of integration runtimes:
-
-- Azure
-- Self-hosted
-- Azure-SQL Server Integration Services (Azure-SSIS)
-
-Choose the type that best serves your data integration capabilities and network environment requirements.
+Data Factory offers an [Azure Database for PostgreSQL](../../data-factory/connector-azure-database-for-postgresql.md) connector with [support for various capabilities](../../data-factory/connector-azure-database-for-postgresql.md#supported-capabilities), depending on the integration runtime selected.
 
 ## Prerequisites
 
-- An Azure Database for PostgreSQL flexible server instance that's [privately networked via Azure Private Link](../flexible-server/concepts-networking-private-link.md)
-- An Azure integration runtime within a [Data Factory managed virtual network](../../data-factory/data-factory-private-link.md)
+- An Azure Database for PostgreSQL flexible server instance with its network connectivity method configured as **Public access (allowed IP addresses)** so that you can create [private endpoints](../flexible-server/concepts-networking-private-link.md) to connect to it privately using Azure Private Link.
+- An Azure integration runtime [created within a managed virtual network](../../data-factory/managed-virtual-network-private-endpoint.md).
 
 ## Create a private endpoint in Data Factory
 
-An Azure Database for PostgreSQL connector currently supports *public connectivity only*. When you use an Azure Database for PostgreSQL connector in Azure Data Factory, you might get an error when you try to connect to a privately networked instance of Azure Database for PostgreSQL flexible server.
+Using the [Azure Database for PostgreSQL connector](../../data-factory/connector-azure-database-for-postgresql.md) you can connect to an instance of Azure Database for PostgreSQL flexible server routing all traffic privately, through a managed private endpoint.
 
-To work around this limitation, you can use the Azure CLI to create a private endpoint first. Then you can use the Data Factory user interface with the Azure Database for PostgreSQL connector to create a connection between privately networked Azure Database for PostgreSQL flexible server and Azure Data Factory in a managed virtual network.  
+You can create the managed private endpoint using the user interface provided for such purpose in the **Managed private endpoints** option, under the **Security** section of the **Manage** hub of [Azure Data Factory Studio](https://adf.azure.com), as described in [managed private endpoints](../../data-factory/managed-virtual-network-private-endpoint.md#managed-private-endpoints). As an alternative, you can use the corresponding Azure CLI command, [az datafactory managed-private-endpoint create](/cli/azure/datafactory/managed-private-endpoint), to create a managed private endpoint in Azure Data Factory.
 
-The following example creates a private endpoint in Azure Data Factory. Substitute the placeholders *subscription_id*, *resource_group_name*, *azure_data_factory_name*, *endpoint_name*, and *flexible_server_name* with your own values.
+After successfully provisioned, the managed private endpoint shows like this in the **Managed private endpoints** page of [Azure Data Factory Studio](https://adf.azure.com):
 
-```azurecli
-az resource create --id /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.DataFactory/factories/<azure_data_factory_name>/managedVirtualNetworks/default/managedPrivateEndpoints/<endpoint_name> --properties '
-{
-  "privateLinkResourceId": "/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<flexible_server_name>",
-  "groupId": "postgresqlServer"
-}'
-```
-> [!NOTE]  
-> An alternative command to create a private endpoint in Data Factory by using the Azure CLI is [az datafactory managed-private-endpoint create](/cli/azure/datafactory/managed-private-endpoint).
-
-After you successfully run the preceding command, you can view the private endpoint in the Azure portal by going to **Data Factory** > **Managed private endpoints**. The following screenshot shows an example.
-
-:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen.png" alt-text="Example screenshot of the pane for managed private endpoints in the Azure portal." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen.png":::
+:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-provisioned.png" alt-text="Screenshot that presents the Managed private endpoints page in Azure Data Factory Studio showing a private endpoint, which is successfully provisioned and pending approval." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-provisioned.png":::
 
 ## Approve a private endpoint
 
-After you provision a private endpoint, you can approve it by following the **Manage approvals in Azure portal** link in the endpoint details. It takes several minutes for Data Factory to discover that the private endpoint is approved.
+After you provision a private endpoint, you must approve it before incoming traffic through it is permitted. If you have access to the instance of Azure Data Factory and also have permissions to approve private endpoints created against the instance of Azure Database for PostgreSQL flexible server, you can use the **Managed private endpoints** page of [Azure Data Factory Studio](https://adf.azure.com), select the name of the managed private endpoint and, on the opening pane, select **Manage approvals in Azure portal**.
 
-## Add a networked server data source in Data Factory
+:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approval.png" alt-text="Screenshot that presents the Managed private endpoints page in Azure Data Factory Studio showing how to approve an endpoint." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approval.png":::
 
-When provisioning succeeds and the endpoint is approved, you can finally create a connection to PGFlex using the Azure Database for PostgreSQL flexible server Data Factory connector.
+The previous action takes you to the **Networking** page of the instance of Azure Database for PostgreSQL flexible server to which your Azure Data Factory managed private endpoint is pointing to.
 
-In the preceding steps, when you selected the server for which you created the private endpoint, the private endpoint was also selected automatically.
+If you don't have permissions to approve the private endpoint, ask someone with such permissions to approve the endpoint for you.
 
-1. Select a database, enter a username and password, and select **SSL** as the encryption method. The following screenshot shows an example.
+:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approving.png" alt-text="Screenshot that presents the Networking page of Azure Database for PostgreSQL Flexible Server showing how to approve a private endpoint." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approving.png":::
 
-   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-data-source-connection.png" alt-text="Example screenshot of connection properties." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-data-source-connection.png":::
+It may take several minutes for Data Factory to discover that the private endpoint is approved.
+
+When the managed private endpoint is successfully provisioned and approved, it shows like this in the **Managed private endpoints** page of [Azure Data Factory Studio](https://adf.azure.com):
+
+:::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approved.png" alt-text="Screenshot that presents the Managed private endpoints page in Azure Data Factory Studio showing successfully provisioned and approved private endpoint." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/managed-private-endpoints-screen-approved.png":::
+
+## Add a Linked Service in Data Factory to your instance of Azure Database for PostgreSQL flexible server 
+
+With the private endpoint provisioned and approved, you can finally use the Azure Database for PostgreSQL connector in Azure Data Factory to create a linked service so that you can connect to your instance of Azure Database for PostgreSQL flexible server.
+
+1. In [Azure Data Factory Studio](https://adf.azure.com) select the **Manage** hub and, under the **Connections** section, select **Linked services**, and select **New** to create a new linked service:
+
+   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create.png" alt-text="Screenshot that shows how to create a new linked service in Azure Data Factory." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create.png":::
+
+1. Fill all required fields for the connector. Make sure that the integration runtime selected is the one on which you created the private endpoint in its managed virtual network. Also, make sure that the **Interactive authoring** feature is enabled on that integration runtime so that you can test the connection when all required information is provided.
+
+   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-integration-runtime.png" alt-text="Screenshot that shows where to select integration runtime with managed virtual network." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-integration-runtime.png":::
+
+1. Select an **Encryption method**. If you select **No encryption**, the connection only succeeds if the server parameter [require_secure_transport](./server-parameters-table-tls.md?#require_secure_transport) is set to `off`, which is not a recommended practice since it relaxes security.
+
+   :::image type="content" source="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-encryption-method.png" alt-text="Screenshot that shows options available for the encryption method field." lightbox="./media/how-to-connect-to-data-factory-private-endpoint/data-factory-linked-service-create-postgresql-encryption-method.png":::
 
 1. Select **Test connection**. A **Connection successful** message should appear next to the **Test connection** button.
 

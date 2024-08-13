@@ -3,7 +3,7 @@ title: Application Gateway Ingress Controller annotations
 description: This article provides documentation on the annotations specific to the Application Gateway Ingress Controller. 
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: article
 ms.date: 5/13/2024
 ms.author: greglin
@@ -70,11 +70,7 @@ In the previous example, you've defined an ingress resource named `go-server-ing
 
 ## TLS Redirect
 
-Application Gateway [can be configured](./redirect-overview.md)
-to automatically redirect HTTP URLs to their HTTPS counterparts. When this
-annotation is present and TLS is properly configured, Kubernetes Ingress
-controller creates a [routing rule with a redirection configuration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration)
-and applies the changes to your Application Gateway. The redirect created will be HTTP `301 Moved Permanently`.
+Application Gateway [can be configured](./redirect-overview.md) to automatically redirect HTTP URLs to their HTTPS counterparts. When this annotation is present and TLS is properly configured, Kubernetes Ingress controller creates a [routing rule with a redirection configuration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) and applies the changes to your Application Gateway. The redirect created will be HTTP `301 Moved Permanently`.
 
 ### Usage
 

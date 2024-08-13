@@ -2,11 +2,12 @@
 metadata:
   title: Microsoft Azure Maps Weather services frequently asked questions (FAQ) 
   description: Find answer to common questions about Azure Maps Weather services data and features.
-  author: stevemunk
-  ms.author: eriklind
+  author: FarazGIS
+  ms.author: fsiddiqui
   ms.date: 06/23/2021
   ms.topic: faq
   ms.service: azure-maps
+  ms.subservice: service-weather
   services: azure-maps
 title: Azure Maps Weather services frequently asked questions (FAQ)
 summary: |

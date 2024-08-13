@@ -2,7 +2,7 @@
 title: Getting started with Azure Functions
 description: Take the first steps toward working with Azure Functions.
 ms.topic: overview
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 12/13/2022
 zone_pivot_groups: programming-languages-set-functions-full
 ---

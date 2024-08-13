@@ -1,11 +1,11 @@
 ---
 title: Connect with private access in the Azure portal
 description: This article shows how to create and connect to Azure Database for PostgreSQL - Flexible Server with private access or virtual network using the Azure portal.
-author: GennadNY
-ms.author: gennadyk
+author: techlake
+ms.author: hganten
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom:
@@ -16,7 +16,7 @@ ms.custom:
 
 # Connect Azure Database for PostgreSQL - Flexible Server with the private access connectivity method
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server is a managed service that you can use to run, manage, and scale highly available PostgreSQL servers in the cloud. This quickstart shows you how to create an Azure Database for PostgreSQL flexible server instance in a virtual network by using the Azure portal.
 
@@ -74,11 +74,11 @@ Since the server is in a virtual network, you can only connect to the server fro
 2. Select **Ubuntu Server 18.04 LTS**.
 3. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
 
-   :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine." lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png"::: 
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-machines/project-details.png"::: 
 
 2. Under **Instance details**, type *myVM* for the **Virtual machine name**, and choose the same **Region** as your Azure Database for PostgreSQL flexible server instance.
 
-   :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size." lightbox="../../virtual-machines/linux/media/quick-create-portal/instance-details.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-machines/instance-details.png":::
 
 3. Under **Administrator account**, select **SSH public key**.
 
@@ -86,11 +86,11 @@ Since the server is in a virtual network, you can only connect to the server fro
 
 5. For **SSH public key source**, leave the default of **Generate new key pair**, and then type *myKey* for the **Key pair name**.
 
-   :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/administrator-account.png" alt-text="Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials." lightbox="../../virtual-machines/linux/media/quick-create-portal/administrator-account.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/administrator-account.png" alt-text="Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-machines/administrator-account.png":::
 
 6. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
 
-   :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png" alt-text="Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on." lightbox="../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/inbound-port-rules.png" alt-text="Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-machines/inbound-port-rules.png":::
 
 7. Select the **Networking** page to configure the virtual network. For the virtual network, choose the **vnetenvironment1** created for the database server.
 
@@ -118,7 +118,7 @@ Since the server is in a virtual network, you can only connect to the server fro
 
 14. Select the public IP address and copy it to your clipboard.
 
-    :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/ip-address.png" alt-text="Screenshot showing how to copy the IP address for the virtual machine." lightbox="../../virtual-machines/linux/media/quick-create-portal/ip-address.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/ip-address.png" alt-text="Screenshot showing how to copy the IP address for the virtual machine." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-machines/ip-address.png":::
 
 ## Install PostgreSQL client tools
 

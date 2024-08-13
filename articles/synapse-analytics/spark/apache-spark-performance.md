@@ -3,7 +3,7 @@ title: Optimize Spark jobs for performance
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics.
 author: juluczni
 ms.author: juluczni
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 02/15/2022
@@ -57,7 +57,13 @@ Spark provides its own native caching mechanisms, which can be used through diff
 Spark operates by placing data in memory, so managing memory resources is a key aspect of optimizing the execution of Spark jobs.  There are several techniques you can apply to use your cluster's memory efficiently.
 
 * Prefer smaller data partitions and account for data size, types, and distribution in your partitioning strategy.
-* Consider the newer, more efficient [Kryo data serialization](https://github.com/EsotericSoftware/kryo), rather than the default Java serialization.
+* In Synapse Spark (Runtime 3.1 or higher), **Kryo data serialization is enabled by default Kryo data serialization**.
+* You can customize the kryoserializer buffer size using Spark configuration based on your workload requirements:
+
+  ```scala
+  // Set the desired property
+  spark.conf.set("spark.kryoserializer.buffer.max", "256m")
+
 * Monitor and tune Spark configuration settings.
 
 For your reference, the Spark memory structure and some key executor memory parameters are shown in the next image.
@@ -80,8 +86,8 @@ To address 'out of memory' messages, try:
 
 Spark jobs are distributed, so appropriate data serialization is important for the best performance.  There are two serialization options for Spark:
 
-* Java serialization is the default.
-* Kryo serialization is a newer format and can result in faster and more compact serialization than Java.  Kryo requires that you register the classes in your program, and it doesn't yet support all Serializable types.
+* Java serialization
+* Kryo serialization is the default. It's a newer format and can result in faster and more compact serialization than Java.  Kryo requires that you register the classes in your program, and it doesn't yet support all Serializable types.
 
 ## Use bucketing
 
@@ -172,6 +178,7 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## Next steps
 
+- [Learn about Azure Synapse runtimes for Apache Spark](./apache-spark-version-support.md)
 - [Tuning Apache Spark](https://spark.apache.org/docs/2.4.5/tuning.html)
 - [How to Actually Tune Your Apache Spark Jobs So They Work](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 - [Kryo Serialization](https://github.com/EsotericSoftware/kryo)

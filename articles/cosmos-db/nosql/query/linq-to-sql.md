@@ -5,7 +5,7 @@ description: Learn the LINQ operators supported and how the LINQ queries are map
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql

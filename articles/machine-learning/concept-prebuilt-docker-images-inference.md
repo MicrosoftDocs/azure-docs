@@ -3,14 +3,13 @@ title: Prebuilt Docker images
 titleSuffix: Azure Machine Learning
 description: 'Prebuilt Docker images for inference (scoring) in Azure Machine Learning'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-ms.author: sehan
-author: dem108
+ms.author: mopeakande
+author: msakande
 ms.date: 04/08/2024
 ms.topic: concept-article
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.reviewer: sehan
 ms.custom: deploy, docker, prebuilt
 ---
 
@@ -43,6 +42,8 @@ NA | GPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu20.04-py38-cuda11.6.2-g
 NA | CPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu22.04-py39-cpu-inference:latest`
 NA | GPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu22.04-py39-cuda11.8-gpu-inference:latest`
 
+> [!NOTE]
+> Azure Machine Learning supports [Curated environments](resource-curated-environments.md). You can [browse curated environments](how-to-manage-environments-in-studio.md#browse-curated-environments) and add filter for `Tags: Inferencing`.
 
 ## Related content
 

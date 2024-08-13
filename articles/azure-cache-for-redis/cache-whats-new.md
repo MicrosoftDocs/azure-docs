@@ -5,17 +5,79 @@ author: flang-msft
 
 ms.custom: references_regions
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
-ms.date: 05/09/2024
+ms.date: 08/05/2024
 
 ---
 
 # What's New in Azure Cache for Redis
 
+## August 2024
+
+### Availability zones
+
+For the Standard and Premium tiers, you can now use availability zones (Preview) with the ability to select zones automatically. With the Standard and Premium, you can choose to have the zones chosen automatically by Azure. With Premium, you can continue to choose your availability zones explicitly.
+
+## June 2024
+
+### Redis 7.2 (preview) on the Enterprise tier
+
+Azure cache for Redis now offers you the ability to use Redis 7.2 (preview) with your Enterprise and Enterprise Flash tiers.
+
+You can upgrade your caches automatically or manually. For more information, see [How to upgrade an existing cache](cache-how-to-upgrade.md). 
+
+You are able to manually trigger an upgrade to the latest version of Redis software. This provides two benefits above waiting for the automatic upgrade to occur:
+
+1. You can control when the upgrade occurs.
+1. You can upgrade to preview releases of Redis software.
+
+| **Tier**         | Basic, Standard, Premium                                | Enterprise, Enterprise Flash |
+|:--------------------------|:----------------------------------------------:|:----------------------------:|
+| **Lastest Redis Version** | Redis 6.0 (GA)                                 | Redis 6.0 (GA) / Redis 7.2 (Preview)|
+| **Upgrade Policy** | Manual upgrade to newer version     | Automatic upgrade to latest GA version         |
+
+### Enterprise tier E1 (preview) SKU
+
+The E1 SKU is intended primarily for dev/test scenarios. It runs on smaller [burstable virtual machines](../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md). As a result, E1 offers variable performance depending on how much CPU is consumed. Unlike other Enterprise offerings, it isn't possible to scale E1 out. However, it is still possible to scale up to a larger SKU. The E1 SKU also does not support [active geo-replication](cache-how-to-active-geo-replication.md).
+
+For more information, see 
+
+### .NET Output cache and HybridCache
+
+Using Azure Cache for Reds as output cache was introduced in .NET 8 in November 2023. Output Caching saves rendered web pages to improve performance, resilience, and reduce cost through server resource utilization. You can use Redis as a built-in output cache store in .NET 8. For more information on using Redis as an output cache, see [Output caching middleware in ASP.NET Core](/aspnet/core/performance/caching/output#redis-cache)
+
+ASP.NET Core's support for distributed caching is broadening _.NET 9 Preview 4_ for .NET 9 a new HybridCache API. HybridCache augments the existing `IDistributedCache` support in ASP.NET Core with new capabilities, including multi-tier storage, with a limited in-process L1 cache supplemented by a separate (usually larger) out-of-process L2 cache. The hybrid approach to cache storage provides you with two advantages: most fetches are served efficiently from L1, but cold-start and data you access infrequently use L2. Using L2 for data you access less frequently doesn't over-utilize the underlying backend.
+
+For more information and downloading, see [.NET 9 Preview 4](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+
+HybridCache also includes:
+
+- _stampede protection_ to prevent parallel fetches of the same data
+- configurable serialization
+- simplifying the API usage for common scenarios
+
+For more information, see the [HybridCache library](/aspnet/core/release-notes/aspnetcore-9.0#new-hybridcache-library).
+
+### Connection Auditing
+
+Connection auditing is GA for all SKUs, and you can configure an Azure Policy to audit or enforce specific policies about private endpoints and public network access with your caches. Azure Cache for Redis doesn't provide a built-in policy, but you can author a custom policy to enforce that private endpoints are enabled.
+
+For more information, see [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy).
+
 ## May 2024
 
+### Azure Functions
+
+Using Azure Cache for Redis with Azure Functions to create optimized serverless and event-driven architectures is now in General Availability (GA).
+
+For more information, see [Overview of Azure functions for Azure Cache for Redis](/azure/azure-functions/functions-bindings-cache).
+
+### Microsoft Entra ID
+
 Support Microsoft Entra ID for authentication and role-based access control across regions that support Azure Cache for Redis is now in General Availability (GA).
+
+For more information, see [Use Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md).
 
 ## April 2024
 
@@ -25,7 +87,7 @@ For more information, see [flush data operation](cache-administration.md#flush-d
 
 ## February 2024
 
-Support for using customer managed keys for disk (CMK) encryption has now reached General Availability (GA).
+Support for using customer managed keys for disk (CMK) encryption reached General Availability (GA).
 
 For more information, see [How to configure CMK encryption on Enterprise caches](cache-how-to-encryption.md#how-to-configure-cmk-encryption-on-enterprise-caches).
 
@@ -37,7 +99,7 @@ For more information, see [What are the configuration settings for the TLS proto
 
 ## October 2023
 
-### Flush data operation for Basic, Standard and Premium Caches (preview)
+### Flush data operation for Basic, Standard, and Premium Caches (preview)
 
 Basic, Standard, and Premium tier caches now support a built-in _flush_ operation that can be started at the control plane level. Use the _flush_ operation with your cache executing the `FLUSH ALL` command through Portal Console or _redis-cli_.
 
@@ -84,7 +146,7 @@ Azure Cache for Redis now supports clustered caches with up to 30 shards. Now, y
 
 A new metric is available to track the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. This metric can be used to track the health of your cache instance and to see if long-running commands are compromising latency performance.
 
-For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md#list-of-metrics).
+For more information, see [Monitor Azure Cache for Redis](monitor-cache.md#azure-cache-for-redis-metrics).
 
 ## March 2023
 
@@ -122,7 +184,7 @@ For more information, see [Enabling connection audit logs](cache-monitor-diagnos
 
 ### Support for RedisJSON
 
-Support for using the RedisJSON module has now reached General Availability (GA).
+Support for using the RedisJSON module reached General Availability (GA).
 
 For more information, see [Use Redis modules with Azure Cache for Redis](cache-redis-modules.md).
 
@@ -138,7 +200,7 @@ For more information, see [Redis 6 becomes default for new cache instances](#red
 
 Several enhancements were made to the passive geo-replication functionality offered on the Premium tier of Azure Cache for Redis.
 
-- New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md).
+- New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](monitor-cache.md).
   
   - Geo Replication Connectivity Lag (preview)
   - Geo Replication Data Sync Offset (preview)
@@ -164,7 +226,7 @@ For more information, see [Retirements](cache-retired-features.md).
 
 ### Support for managed identity in Azure Cache for Redis
 
-Authenticating storage account connections using managed identity has now reached General Availability (GA).
+Authenticating storage account connections using managed identity reached General Availability (GA).
 
 For more information, see [Managed identity for storage](cache-managed-identity.md).
 
@@ -214,7 +276,7 @@ These two new metrics can help identify whether Azure Cache for Redis clients ar
 - Connections Created Per Second
 - Connections Closed Per Second
 
-For more information, see [View cache metrics](cache-how-to-monitor.md#view-cache-metrics).
+For more information, see [View cache metrics](monitor-cache.md#view-cache-metrics).
 
 ### Default cache change
 
@@ -222,7 +284,7 @@ On May 15, 2022, all new Azure Cache for Redis instances will use Redis 6 by def
 
 This change doesn't affect any existing instances. The change is only applicable to new instances created after May 15, 2022.
 
-The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
+The default version of Redis used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
 
 ## February 2022
 

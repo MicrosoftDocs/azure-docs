@@ -5,7 +5,7 @@ author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
@@ -14,7 +14,7 @@ ms.custom:
 
 # Best practices for pg_dump and pg_restore for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article reviews options and best practices for speeding up pg_dump and pg_restore. It also explains the best server configurations for carrying out pg_restore.
 

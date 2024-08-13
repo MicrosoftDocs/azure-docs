@@ -54,6 +54,11 @@
 			"source_path_from_root": "/articles/container-apps/spring-cloud-config-server.md",
 			"redirect_url": "/azure/container-apps/java-config-server",
 			"redirect_document_id": false
+        },
+        {
+			"source_path_from_root": "/articles/container-apps/authentication-azure-active-directory.md",
+			"redirect_url": "/azure/container-apps/authentication-entra",
+			"redirect_document_id": false
         }
     ]
 }

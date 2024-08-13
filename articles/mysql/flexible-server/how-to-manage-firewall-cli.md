@@ -4,11 +4,12 @@ description: Create and manage firewall rules for Azure Database for MySQL - Fle
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 11/21/2022
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
 ms.devlang: azurecli
 ---
 

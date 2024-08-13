@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a slice in your private mobile network using an Azure Resource Manager (ARM) template. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 09/30/2022
 ms.custom: template-how-to, devx-track-arm-template
@@ -16,7 +16,7 @@ ms.custom: template-how-to, devx-track-arm-template
 
 In this how-to guide, you'll learn how to create a slice in your private mobile network using an Azure Resource Manager template (ARM template). You can configure a slice/service type (SST) and slice differentiator (SD) for slices associated with SIMs that will be provisioned on a 5G site. If a SIM is provisioned on a 4G site, the slice associated with its SIM policy must contain an empty SD and a value of 1 for the SST.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

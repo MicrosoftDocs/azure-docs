@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: build-2023, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
 ms.topic: quickstart
-ms.date: 07/18/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 zone_pivot_groups: programming-languages-content-safety
 ---
@@ -57,7 +57,7 @@ Get started with the Content Safety Studio, REST API, or client SDKs to do basic
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure stora
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/13/2024
+ms.date: 08/12/2024
 ms.author: kendownie
 ---
 
@@ -60,22 +60,20 @@ Azure file share scale targets apply at the file share level.
 |-|-|-|
 | Minimum size of a file share | No minimum | 100 GiB (provisioned) |
 | Provisioned size increase/decrease unit | N/A | 1 GiB |
-| Maximum size of a file share | <ul><li>100 TiB, with large file share feature enabled<sup>2</sup></li><li>5 TiB, default</li></ul> | 100 TiB |
+| Maximum size of a file share | 100 TiB | 100 TiB |
 | Maximum number of files in a file share | No limit | No limit |
-| Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 102,400</li><li>IOPS bursting: Max (10,000, 3x IOPS per GiB), up to 102,400</li></ul> |
-| Throughput (ingress + egress) for a single file share (MiB/sec) | <ul><li>Up to storage account limits, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedStorageGiB) + CEILING(0.06 * ProvisionedStorageGiB) |
+| Maximum request rate (Max IOPS) | 20,000 | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 102,400</li><li>IOPS bursting: Max (10,000, 3x IOPS per GiB), up to 102,400</li></ul> |
+| Throughput (ingress + egress) for a single file share (MiB/sec) | Up to storage account limits | 100 + CEILING(0.04 * ProvisionedStorageGiB) + CEILING(0.06 * ProvisionedStorageGiB) |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots |
 | Maximum object name length<sup>3</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters |
-| Maximum length of individual pathname component<sup>3</sup> (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters |
+| Maximum length of individual pathname component<sup>2</sup> (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters |
 | Hard link limit (NFS only) | N/A | 178 |
 | Maximum number of SMB Multichannel channels | N/A | 4 |
 | Maximum number of stored access policies per file share | 5 | 5 |
 
 <sup>1</sup> The limits for standard file shares apply to all three of the tiers available for standard file shares: transaction optimized, hot, and cool.
 
-<sup>2</sup> Default on standard file shares is 5 TiB, see [Create an Azure file share](./storage-how-to-create-file-share.md) for the details on how to create file shares with 100 TiB size and increase existing standard file shares up to 100 TiB. To take advantage of the larger scale targets, you must change your quota so that it's larger than 5 TiB.
-
-<sup>3</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
+<sup>2</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
 
 ### File scale targets
 

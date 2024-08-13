@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 03/04/2024
+ms.date: 07/25/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -21,7 +21,7 @@ Azure Communication Services allows end-user browsers, apps, and services to dri
 
 To build your own user experience with the Calling SDK, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
 
-If you'd like help with the end-user experience, the Azure Communication Services UI Library provides a collection of open-source production-ready UI components to drop into your application. With this set of prebuilt controls, you can create beautiful communication experiences using [Microsoft's Fluent design language](https://developer.microsoft.com/en-us/fluentui#/). If you want to learn more about the UI Library, visit [the overview site](../ui-library/ui-library-overview.md) or [Storybook](https://aka.ms/acsstorybook).
+If you'd like help with the end-user experience, the Azure Communication Services UI Library provides a collection of open-source production-ready UI components to drop into your application. With this set of prebuilt controls, you can create beautiful communication experiences using [Microsoft's Fluent design language](https://developer.microsoft.com/en-us/fluentui#/). If you want to learn more about the UI Library, visit [the overview site](../ui-library/ui-library-overview.md).
 
 Once you start development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
 
@@ -59,7 +59,7 @@ The following list presents the set of features that are currently available in 
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Mute other participants    |✔️<sup>1</sup>        |   ✔️<sup>1</sup>       |    ✔️<sup>1</sup>              |     ✔️<sup>1</sup>      |
+|                   | Mute other participants    |✔️   |   ✔️<sup>1</sup>       |    ✔️<sup>1</sup>              |     ✔️<sup>1</sup>      |
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Active speaker                                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -99,7 +99,7 @@ The following list presents the set of features that are currently available in 
 |                   | Custom background image                                                                                             | ✔️   | ✔️       | ✔️              | ✔️                 |
 | [Audio Effects](../../tutorials/audio-quality-enhancements/add-noise-supression.md)       | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
 |      | Echo cancellation        | ❌   | ✔️       | ✔️              | ✔️                 |
-|      | Noise supression          | ✔️   | ✔️       | ✔️              | ✔️                 |
+|      | Noise suppression          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |      | Automatic gain control (AGC)        | ❌   | ✔️       | ✔️              | ✔️                 |
 | Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️  | ✔️       | ✔️              | ✔️                 |
 
@@ -170,10 +170,12 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
-| **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
+| **Maximum # of incoming remote streams that can be rendered simultaneously** | 16 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
+
+
 
 \* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
-While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
+While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support. To properly support 16 incoming videos the computer should have a mimimum of 16GB RAM and a 4-core or greater CPU that is no older than 3 years old
 
 ## Supported video resolutions
 The Azure Communication Services Calling SDK automatically adjusts resolutions of video and screen share streams during the call.
@@ -192,8 +194,8 @@ The Azure Communication Services Calling SDK supports sending following video re
 ## Number of participants on a call support
 - Up to **350** users can join a group call, Room or Teams + ACS call.
 - Once the call size reaches 100+ participants in a call, only the top 4 most dominant speakers that have their video camera turned can be seen.
-- When the number of people on the call is 100+, the viewable number of incoming video renders automatically decreases from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos).
-- When the number of users goes below 100, the number of supported incoming videos goes back up to 3x3 (9 incoming videos).
+- When the number of people on the call is 100+, the viewable number of incoming video renders automatically decreases from 4x4 (16 incoming videos) down to 2x2 (4 incoming videos).
+- When the number of users goes below 100, the number of supported incoming videos goes back up to 4x4 (16 incoming videos).
 
 ## Calling SDK timeouts
 The following timeouts apply to the Communication Services Calling SDKs:

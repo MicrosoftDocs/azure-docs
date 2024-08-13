@@ -7,9 +7,9 @@ author: robertklee
 ms.author: robertlee
 ms.service: cognitive-search
 ms.custom:
-  - ignite-2023
+  - build-2024
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 08/05/2024
 ---
 
 # Vector index size and staying under limits
@@ -17,10 +17,10 @@ ms.date: 04/19/2024
 For each vector field, Azure AI Search constructs an internal vector index using the algorithm parameters specified on the field. Because Azure AI Search imposes quotas on vector index size, you should know how to estimate and monitor vector size to ensure you stay under the limits.
 
 > [!NOTE]
-> A note about terminology. Internally, the physical data structures of a search index include raw content (used for retrieval patterns requiring non-tokenized content), inverted indexes (used for searchable text fields), and vector indexes (used for searchable vector fields). This article explains the limits for the internal vector indexes that back each of your vector fields. 
+> A note about terminology. Internally, the physical data structures of a search index include raw content (used for retrieval patterns requiring non-tokenized content), inverted indexes (used for searchable text fields), and vector indexes (used for searchable vector fields). This article explains the limits for the internal vector indexes that back each of your vector fields.
 
 > [!TIP]
-> [Vector quantization and storage configuration](vector-search-how-to-configure-compression-storage.md) is now in preview. Use capabilities like narrow data types, scalar quantization, and elimination of redundant storage to stay under vector quota and storage quota.
+> [Vector quantization and storage configuration](vector-search-how-to-configure-compression-storage.md) is now generally available. Use capabilities like narrow data types, scalar quantization, and elimination of redundant storage to stay under vector quota and storage quota.
 
 ## Key points about quota and vector index size
 
@@ -28,11 +28,12 @@ For each vector field, Azure AI Search constructs an internal vector index using
 
 + Vector quotas are based on memory constraints. All searchable vector indexes must be loaded into memory. At the same time, there must also be sufficient memory for other runtime operations. Vector quotas exist to ensure that the overall system remains stable and balanced for all workloads.
 
-+ Vector indexes are also subject to disk quota, in the sense that all indexes, vector and nonvector, are subject disk quota. There's no separate disk quota for vector indexes.
++ Vector indexes are also subject to disk quota, in the sense that all indexes are subject disk quota. There's no separate disk quota for vector indexes.
 
 + Vector quotas are enforced on the search service as a whole, per partition, meaning that if you add partitions, vector quota goes up. Per-partition vector quotas are higher on newer services:
 
-  + [Vector quota for services created after April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-after-april-3-2024-in-supported-regions)
+  + [Vector quota for services created after May 17, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-after-may-17-2024)
+  + [Vector quota for services between April 3, 2024 and May 17, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-april-3-2024-and-may-17-2024)
   + [Vector quota for services created between July 1, 2023 and April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-july-1-2023-and-april-3-2024)
   + [Vector quota for services created before July 1, 2023](search-limits-quotas-capacity.md#vector-limits-on-services-created-before-july-1-2023)
 
@@ -64,7 +65,8 @@ Newer services created after April 3, 2024 offer five to ten times more vector s
 
 1. Now that you know the age of your search service, review the vector quota limits based on service creation:
 
-   + [After April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-after-april-3-2024-in-supported-regions)
+   + [After May 17, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-after-may-17-2024)
+   + [Between April 3, 2024 and May 17, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-april-3-2024-and-may-17-2024)
    + [Between July 1, 2023 and April 3, 2024](search-limits-quotas-capacity.md#vector-limits-on-services-created-between-july-1-2023-and-april-3-2024)
    + [Before July 1, 2023](search-limits-quotas-capacity.md#vector-limits-on-services-created-before-july-1-2023)
 
@@ -92,17 +94,17 @@ Quotas for both storage and vector index size increase or decrease as you add or
 
 ### [**REST**](#tab/rest-vector-quota)
 
-Use the following data plane REST APIs (version 2023-10-01-preview, 2023-11-01, and later) for vector usage statistics:
+Data plane REST APIs (all newer APIs provide vector usage statistics):
 
 + [GET Service Statistics](/rest/api/searchservice/get-service-statistics/get-service-statistics) returns quota and usage for the search service all-up. 
 + [GET Index Statistics](/rest/api/searchservice/indexes/get-statistics) returns usage for a given index.
 
-Usage and quota are reported in bytes. 
+Usage and quota are reported in bytes.
 
 Here's GET Service Statistics:
 
 ```http
-GET {{baseUrl}}/servicestats?api-version=2023-11-01  HTTP/1.1
+GET {{baseUrl}}/servicestats?api-version=2024-07-01  HTTP/1.1
     Content-Type: application/json
     api-key: {{apiKey}}
 ```
@@ -141,10 +143,10 @@ Response includes metrics for `storageSize`, which doesn't distinguish between v
 }
 ```
 
-You can also send a GET Index Statistics to get the physical size of the index on disk, plus the in-memory size of the vector fields. 
+You can also send a GET Index Statistics to get the physical size of the index on disk, plus the in-memory size of the vector fields.
 
 ```http
-GET {{baseUrl}}/indexes/vector-healthplan-idx/stats?api-version=2023-11-01  HTTP/1.1
+GET {{baseUrl}}/indexes/vector-healthplan-idx/stats?api-version=2024-07-01  HTTP/1.1
     Content-Type: application/json
     api-key: {{apiKey}}
 ```
@@ -159,6 +161,7 @@ Response includes usage information at the index level. This example is based on
     "vectorIndexSize": 915484
 }
 ```
+
 ---
 
 ## Factors affecting vector index size
@@ -200,10 +203,11 @@ The following table summarizes the overhead percentages observed in internal tes
   
 | Dimensions | HNSW Parameter (m) | Overhead Percentage |  
 |-------------------|--------------------|---------------------|
-| 96                | 4                  | 20%              |    
+| 96                | 4                  | 20%              |
 | 200               | 4                  | 8%               |  
 | 768               | 4                  | 2%               |  
-| 1536              | 4                  | 1%               |  
+| 1536              | 4                  | 1%               |
+| 3072              | 4                  | 0.5%             |
 
 These results demonstrate the relationship between dimensions, HNSW parameter `m`, and memory overhead for the HNSW algorithm.  
 
@@ -229,4 +233,4 @@ To obtain the **vector index size**, multiply this **raw_size** by the **algorit
 
 ## How vector fields affect disk storage
 
-Most of this article provides information about the size of vectors in memory. If you want to know about vector size on disk, the disk consumption for vector data is roughly three times the size of the vector index in memory. For example, if your `vectorIndexSize` usage is at 100 megabytes (10 million bytes), you would have used least 300 megabytes of `storageSize` quota to accommodate your vector indexes
+Most of this article provides information about the size of vectors in memory. If you want to know about vector size on disk, the disk consumption for vector data is roughly three times the size of the vector index in memory. For example, if your `vectorIndexSize` usage is at 100 megabytes (10 million bytes), you would have used least 300 megabytes of `storageSize` quota to accommodate your vector indexes.

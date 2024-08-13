@@ -1,7 +1,7 @@
 ---
 title: OJ Sales Simulated 
 description: Learn how to use the OJ Sales Simulated  dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.custom: devx-track-python, linux-related-content
 ms.topic: sample
 ms.date: 04/16/2021
@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 This dataset is derived from the Dominick’s OJ dataset and includes extra simulated data to simultaneously train thousands of models on Azure Machine Learning.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 The data contains weekly sales of orange juice over 121 weeks. There are 3,991 stores included and three brands of orange juice per store so that 11,973 models can be trained.
 

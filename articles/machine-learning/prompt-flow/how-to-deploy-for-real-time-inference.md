@@ -3,14 +3,15 @@ title: Deploy a flow in prompt flow as a managed online endpoint for real-time i
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy in prompt flow a flow as a managed online endpoint for real-time inference with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 05/08/2024
 ---
 
@@ -45,7 +46,7 @@ In this article, you'll learn how to deploy a flow as a managed online endpoint 
 - Have basic understanding on managed identities. [Learn more about managed identities.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
-> Managed online endpoint only supports managed virtual network. If your workspace is in custom vnet, you need to try other deployment options, such as deploy to [Kubernetes online endpoint using CLI/SDK](./how-to-deploy-to-code.md), or [deploy to other platforms suchs Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
+> Managed online endpoint only supports managed virtual network. If your workspace is in custom vnet, you need to try other deployment options, such as deploy to [Kubernetes online endpoint using CLI/SDK](./how-to-deploy-to-code.md), or [deploy to other platforms such as Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
 
 ## Build the flow and get it ready for deployment
 
@@ -61,16 +62,8 @@ When you deploy prompt flow to managed online endpoint in UI, by default the dep
 
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of flow requirements-text. " lightbox = "./media/how-to-deploy-for-real-time-inference/requirements-text.png":::
 
-If you are using the customer environment to create compute instance runtime, you can find the image in environment detail page in Azure Machine Learning studio. To learn more, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
-
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/runtime-creation-image-environment.png" alt-text="Screenshot of image name in environment detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/runtime-creation-image-environment.png":::
-
-Then you need also specify the image to the `environment` in the `flow.dag.yaml` in flow folder.
-
-:::image type="content" source="./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png":::
-
 > [!NOTE]
-> If you are using private feeds in Azure devops, you need [build the image with private feeds](./how-to-create-manage-runtime.md#add-packages-in-a-private-feed-in-azure-devops) first and select custom environment to deploy in UI.
+> If you are using private feeds in Azure devops, you need build the image with private feeds first and select custom environment to deploy in UI.
 
 ## Create an online deployment
 
@@ -376,7 +369,6 @@ After you deploy the endpoint and want to test it in the **Test tab** in the end
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png" alt-text="Screenshot of the error unable to fetch deployment schema in Test tab in endpoint detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png":::
 
 - Make sure you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
-- It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime which was in old version as well. Update the runtime following [this guidance](./how-to-create-manage-runtime.md#update-a-runtime-on-the-ui) and rerun the flow in the latest runtime and then deploy the flow again.
 
 ### Access denied to list workspace secret
 

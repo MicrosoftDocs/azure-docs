@@ -4,9 +4,9 @@ description: Learn how to prepare Linux with a single-node or 2-node cluster in 
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 04/08/2024
 zone_pivot_groups: platform-select
-
 ---
 
 # Prepare Linux using a single-node or 2-node cluster (preview)

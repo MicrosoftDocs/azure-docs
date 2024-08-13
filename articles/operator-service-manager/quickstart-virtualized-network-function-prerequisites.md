@@ -16,7 +16,7 @@ Before you begin using Azure Operator Service Manager, ensure you have registere
 
 ## Prerequisites
 
-Contact your Microsoft account team to register your Azure subscription for access to Azure Operator Service Manager (AOSM) or express your interest through the [partner registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR7lMzG3q6a5Hta4AIflS-llUMlNRVVZFS00xOUNRM01DNkhENURXU1o2TS4u).
+- You have [enabled AOSM](quickstart-onboard-subscription-azure-operator-service-manager.md) on your Azure subscription.
 
 ## Download and install Azure CLI
 
@@ -55,14 +55,12 @@ az extension add --name aosm
 
 Run `az version` to determine the version and dependent libraries installed. Upgrade to the latest version by issuing command `az upgrade`.
 
-## Register required resource providers
+## Register necessary resource providers
 
 Prior to using the Azure Operator Service Manager you must first register the required resource providers by executing these commands. The registration process could take up to 5 minutes.
 
 ```azurecli
 # Register Resource Provider
-az provider register --namespace Microsoft.HybridNetwork
-az provider register --namespace Microsoft.ContainerRegistry
 az provider register --namespace Microsoft.ContainerInstance
 ```
 ## Verify registration status
@@ -71,22 +69,12 @@ To verify the registration status of the resource providers, you can run the fol
 
 ```azurecli
 # Query the Resource Provider
-az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}"
-az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
 az provider show -n Microsoft.ContainerInstance --query "{RegistrationState: registrationState, ProviderName: namespace}"
 ```
 
 Upon success, the following output displays:
 
 ```azurecli
-{
-  "ProviderName": "Microsoft.HybridNetwork",
-  "RegistrationState": "Registered"
-}
-{
-  "ProviderName": "Microsoft.ContainerRegistry",
-  "RegistrationState": "Registered"
-}
 {
   "ProviderName": "Microsoft.ContainerInstance",
   "RegistrationState": "Registered"

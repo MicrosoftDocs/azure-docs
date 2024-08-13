@@ -3,7 +3,7 @@ title: 'Troubleshoot Azure point-to-site connection problems'
 titleSuffix: Azure VPN Gateway
 description: Learn to troubleshoot and solve common point-to-site connection problems and other virtual private network errors and issues.
 author: chadmath
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 04/03/2024
 ms.author: genli
@@ -388,7 +388,7 @@ Azure DNS server IP address (168.63.129.16) is resolvable only from Azure platfo
 
 The following steps help you resolve records from Private DNS zone:
 
-Configuring [Private resolver](https://github.com/MicrosoftDocs/azure-docs-pr/blob/ef411d08c2f3ba57c8b5495e5ad39067921ef4b9/azure/dns/dns-private-resolver-overview"https://github.com/microsoftdocs/azure-docs-pr/blob/ef411d08c2f3ba57c8b5495e5ad39067921ef4b9/azure/dns/dns-private-resolver-overview")'s inbound IP address as custom DNS servers on virtual network help you resolve records in private DNS zone (including those created from Private Endpoints). Note the Private DNS zones must be associated with the virtual network that has the Private Resolver.
+Configuring Private resolver's inbound IP address as custom DNS servers on virtual network help you resolve records in private DNS zone (including those created from Private Endpoints). Note the Private DNS zones must be associated with the virtual network that has the Private Resolver.
 
 :::image type="content" source="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone.png" alt-text="Screenshot shows the Azure VPN Client, an open PowerShell window, and the Azure portal open to DNS servers page." lightbox="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone.png":::
 

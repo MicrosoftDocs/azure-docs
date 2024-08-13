@@ -44,7 +44,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
       az login --output none --only-show-errors --scope https://graph.microsoft.com//.default
     }
     else {
-      az login --output none --tenant $ARM_TENANT_ID --only-show-errors --scope https://graph.microsoft.com//.default
+      az login --output none --tenant $Env:ARM_TENANT_ID --only-show-errors --scope https://graph.microsoft.com//.default
     }
 
     az config set extension.use_dynamic_install=yes_without_prompt --only-show-errors
@@ -55,7 +55,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
     if ($differentTenant -eq 'y') {
         $env:AZURE_DEVOPS_EXT_PAT = Read-Host "Please enter your Personal Access Token (PAT) with permissions to add new projects, manage agent pools to the Azure DevOps organization $Env:ADO_Organization"
         try {
-            az devops login --organization $Env:ADO_Organization
+            az devops project list
         }
         catch {
             $_
@@ -171,6 +171,8 @@ Open PowerShell ISE and copy the following script and update the parameters to m
             New-Item -Path $sdaf_path -Type Directory
         }
     }
+
+    $branchName = "main"
     
     Set-Location -Path $sdaf_path
     
@@ -178,7 +180,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
         remove-item .\New-SDAFDevopsWorkloadZone.ps1
     }
     
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/New-SDAFDevopsWorkloadZone.ps1 -OutFile .\New-SDAFDevopsWorkloadZone.ps1 ; .\New-SDAFDevopsWorkloadZone.ps1
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/$branchName/deploy/scripts/New-SDAFDevopsWorkloadZone.ps1 -OutFile .\New-SDAFDevopsWorkloadZone.ps1 ; .\New-SDAFDevopsWorkloadZone.ps1
     
 ```
 

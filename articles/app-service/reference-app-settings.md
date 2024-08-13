@@ -9,6 +9,8 @@ ms.author: cephalin
 
 # Environment variables and app settings in Azure App Service
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 In [Azure App Service](overview.md), certain settings are available to the deployment or runtime environment as environment variables. Some of these settings can be customized when you set them manually as [app settings](configure-common.md#configure-app-settings). This reference shows the variables you can use or customize.
 
 ## App environment
@@ -91,6 +93,7 @@ The following environment variables are related to app deployment. For variables
 | `WEBSITE_RUN_FROM_PACKAGE`| Set to `1` to run the app from a local ZIP package, or set to the URL of an external URL to run the app from a remote ZIP package. For more information, see [Run your app in Azure App Service directly from a ZIP package](deploy-run-package.md). |
 | `WEBSITE_USE_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. |
 | `WEBSITE_RUN_FROM_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. | 
+| `SCM_MAX_ZIP_PACKAGE_COUNT`| Your app keeps 5 of the most recent zip files deployed using [zip deploy](deploy-zip.md). You can keep more or less by setting the app setting to a different number. |
 | `WEBSITE_WEBDEPLOY_USE_SCM` | Set to `false` for WebDeploy to stop using the Kudu deployment engine. The default is `true`. To deploy to Linux apps using Visual Studio (WebDeploy/MSDeploy), set it to `false`. |
 | `MSDEPLOY_RENAME_LOCKED_FILES` | Set to `1` to attempt to rename DLLs if they can't be copied during a WebDeploy deployment. This setting isn't applicable if `WEBSITE_WEBDEPLOY_USE_SCM` is set to `false`. |
 | `WEBSITE_DISABLE_SCM_SEPARATION` | By default, the main app and the Kudu app run in different sandboxes. When you stop the app, the Kudu app is still running, and you can continue to use Git deploy and MSDeploy. Each app has its own local files. Turning off this separation (setting to `true`) is a legacy mode that's no longer fully supported. |
@@ -266,24 +269,24 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > [!div class="mx-tdCol5BreakAll"]
 > |Application Setting | Scope | Value | Max | Description
 > |-------------|-------------|-------------|---------------|--------------------|
-> |WEBSITES_ENABLE_APP_SERVICE_STORAGE|Web App|true|-|When set to TRUE, file contents are preserved during restarts. |
-> |WP_MEMORY_LIMIT|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
-> |WP_MAX_MEMORY_LIMIT|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
-> |PHP_MEMORY_LIMIT|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
-> |FILE_UPLOADS|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
-> |UPLOAD_MAX_FILESIZE|PHP|50M|256M	Max file upload size limit. Can be increased up to 256M.|
-> |POST_MAX_SIZE|PHP|128M|256M|Can be increased up to 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
-> |MAX_EXECUTION_TIME|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
-> |MAX_INPUT_TIME|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
-> |MAX_INPUT_VARS|PHP|10000|10000|-|
-> |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
-> |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
-> |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
-> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
-> |WORDPRESS_ADMIN_EMAIL|Deployment only|-|-|WordPress admin email.|
-> |WORDPRESS_ADMIN_PASSWORD|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
-> |WORDPRESS_ADMIN_USER|Deployment only|-|-|WordPress admin username|
-> |WORDPRESS_ADMIN_LOCALE_CODE|Deployment only|-|-|Database username used to connect to WordPress.|
+> |`WEBSITES_ENABLE_APP_SERVICE_STORAGE`|Web App|true|-|When set to TRUE, file contents are preserved during restarts.  |
+> |`WP_MEMORY_LIMIT`|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
+> |`WP_MAX_MEMORY_LIMIT`|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
+> |`PHP_MEMORY_LIMIT`|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
+> |`FILE_UPLOADS`|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
+> |`UPLOAD_MAX_FILESIZE`|PHP|50M|256M	Max file upload size limit. Can be increased up to 256M.|
+> |`POST_MAX_SIZE`|PHP|128M|256M|Can be increased up to 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
+> |`MAX_EXECUTION_TIME`|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
+> |`MAX_INPUT_TIME`|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
+> |`MAX_INPUT_VARS`|PHP|10000|10000|-|
+> |`DATABASE_HOST`|Database|-|-|Database host used to connect to WordPress.|
+> |`DATABASE_NAME`|Database|-|-|Database name used to connect to WordPress.|
+> |`DATABASE_USERNAME`|Database|-|-|Database username used to connect to WordPress.|
+> |`DATABASE_PASSWORD`|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
+> |`WORDPRESS_ADMIN_EMAIL`|Deployment only|-|-|WordPress admin email.|
+> |`WORDPRESS_ADMIN_PASSWORD`|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
+> |`WORDPRESS_ADMIN_USER`|Deployment only|-|-|WordPress admin username|
+> |`WORDPRESS_ADMIN_LOCALE_CODE`|Deployment only|-|-|Database username used to connect to WordPress.|
 
 ## Domain and DNS
 
@@ -333,7 +336,7 @@ For more information on custom containers, see [Run a custom container in Azure]
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `true` for custom containers. ||
+| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | For Linux custom containers: set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `false` for Linux custom containers.<br/><br/>For Windows containers: set to `true` to enable the `c:\home` directory to be shared across scaled instances. The default is `true` for Windows containers.||
 | `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time in seconds to wait for the container to complete start-up before restarting the container. Default is `230`. You can increase it up to the maximum of `1800`. ||
 | `WEBSITES_CONTAINER_STOP_TIME_LIMIT` | Amount of time in seconds to wait for the container to terminate gracefully. Default is `5`. You can increase to a maximum of `120` ||
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable isn't passed on to the container. | `https://<server-name>.azurecr.io` |
@@ -482,7 +485,7 @@ The following environment variables are related to [key vault references](app-se
 | Setting name | Description |
 |-|-|
 | `WEBSITE_KEYVAULT_REFERENCES` | Read-only. Contains information (including statuses) for all Key Vault references that are currently configured in the app. |
-| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](../key-vault/general/overview-vnet-service-endpoints.md).<br/>To avoid errors at create or update time, set this variable to `1`. |
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](/azure/key-vault/general/overview-vnet-service-endpoints).<br/>To avoid errors at create or update time, set this variable to `1`. |
 | `WEBSITE_DELAY_CERT_DELETION` | This env var can be set to 1 by users in order to ensure that a certificate that a worker process is dependent upon isn't deleted until it exits. |
 <!-- | `WEBSITE_ALLOW_DOUBLE_ESCAPING_URL` | TODO | -->
 

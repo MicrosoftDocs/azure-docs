@@ -1,7 +1,7 @@
 ---
 title: Russian Open Speech To Text
 description: Learn how to use the Russian Open Speech To Text dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 A collection of speech samples derived from various audio sources. The dataset contains short audio clips in Russian.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 This Russian speech to text (STT) dataset includes:
 - ~16 million utterances

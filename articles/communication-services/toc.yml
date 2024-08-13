@@ -66,6 +66,8 @@ items:
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-communication-services-security-baseline?toc=/azure/communication-services/toc.json
+  - name: Artificial intelligence (AI)
+    href: concepts/ai.md
   - name: Service limits
     href: concepts/service-limits.md
   - name: Troubleshooting
@@ -191,6 +193,8 @@ items:
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
     - name: Manage domain suppression lists with Azure Communication Services Management SDKs
       href: quickstarts/email/manage-suppression-list-management-sdks.md
+    - name: Manage domain suppression lists in the Azure portal
+      href: quickstarts/email/manage-suppression-lists.md
     - name: Sending emails using SMTP 
       items:
         - name: Setting up SMTP Authentication
@@ -215,6 +219,8 @@ items:
           href: quickstarts/advanced-messaging/whatsapp/get-started.md
         - name: Handle Advanced Messaging Events
           href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
+        - name: Download Media Payload
+          href: quickstarts/advanced-messaging/whatsapp/download-media.md
         - name: Try Advanced Messaging Sandbox
           href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
   - name: Managed Identity
@@ -241,6 +247,10 @@ items:
       href: tutorials/postman-tutorial.md
     - name: Send short URL
       href: tutorials/sms-url-shortener.md
+    - name: Migrate to Android push notifications FCM v1
+      href: tutorials/call-chat-migrate-android-push-fcm-v1.md
+    - name: Register for Android push notifications FCM v1
+      href: tutorials/call-chat-register-android-push-fcm-v1.md
     - name: Phone numbers
       items:
       - name: Port a phone number into Azure
@@ -304,8 +314,12 @@ items:
             href: tutorials/virtual-visits/extend-teams/call.md
     - name: Calling widget
       items:
-        - name: Create Calling widget for Teams Voice Apps
+        - name: Overview
+          href: tutorials/calling-widget/calling-widget-overview.md
+        - name: Create Calling widget for Teams Voice Apps using React
           href: tutorials/calling-widget/calling-widget-tutorial.md
+        - name: Create Calling widget for Teams Voice Apps using JavaScript Bundles
+          href: tutorials/calling-widget/calling-widget-js-tutorial.md
     - name: Call management
       items:
       - name: Manage calls
@@ -338,10 +352,14 @@ items:
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+      - name: Enable Closed captions
+        href: quickstarts/voice-video-calling/get-started-with-closed-captions.md
       - name: Enable Closed captions for Teams Interoperability
         href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
+      - name: Pass contextual information
+        href: how-tos/calling-sdk/call-context.md
     - name: Call recording
       items:
       - name: Record a call
@@ -408,25 +426,29 @@ items:
         href: how-tos/calling-sdk/push-notifications.md
       - name: Using the mobile UI Library for voice and video
         items: 
-        - name: Set up localization
-          href: how-tos/ui-library-sdk/localization.md
-        - name: Set up theming
+        - name: Configure default orientation
+          href: how-tos/ui-library-sdk/orientation.md
+        - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
+        - name: Disable end call confirmation
+          href: how-tos/ui-library-sdk/leave-call-confirmation.md
+        - name: Enable audio only mode
+          href: how-tos/ui-library-sdk/audio-only-mode.md
+        - name: Enable picture-in-picture
+          href: how-tos/ui-library-sdk/picture-in-picture.md
+        - name: Enable skip the setup screen
+          href: how-tos/ui-library-sdk/skip-setup-screen.md
         - name: Inject participant view data
           href: how-tos/ui-library-sdk/data-model.md
-        - name: Skip the setup screen
-          href: how-tos/ui-library-sdk/skip-setup-screen.md
-        - name: Set up orientation
-          href: how-tos/ui-library-sdk/orientation.md
-        - name: Set up picture-in-picture
-          href: how-tos/ui-library-sdk/picture-in-picture.md
-        - name: Set up CallKit
+        - name: Integrate CallKit
           href: how-tos/ui-library-sdk/callkit.md
+        - name: Integrate TelecomManager
+          href: how-tos/ui-library-sdk/telecommanager.md
+        - name: Set up localization
+          href: how-tos/ui-library-sdk/localization.md
         - name: Set up one-to-one calling and push notifications
           href: how-tos/ui-library-sdk/one-to-one-calling.md
-        - name: Audio Only Mode
-          href: how-tos/ui-library-sdk/audio-only-mode.md
-        - name: Troubleshoot
+        - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
       items:
@@ -502,12 +524,16 @@ items:
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
+      - name: Get Real-time Transcription of call audio
+        href: how-tos/call-automation/real-time-transcription-tutorial.md  
       - name: How to secure webhook endpoint
         href: how-tos/call-automation/secure-webhook-endpoint.md
       - name: Handling Call Automation Events with EventProcessor
         href: how-tos/call-automation/handle-events-with-event-processor.md
       - name: How to pass call contextual data in Call Automation
         href: how-tos/call-automation/custom-context.md
+      - name: How to use Audio Streaming
+        href: how-tos/call-automation/audio-streaming-quickstart.md
     - name: Call recording
       items:
       - name: Record a call
@@ -769,6 +795,9 @@ items:
       - name: End of Call Survey
         href: concepts/voice-video-calling/end-of-call-survey-concept.md
         displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+      - name: Troubleshooting PSTN call failures
+        href: concepts/telephony/troubleshooting-pstn-call-failures.md
+        displayName: diagnostics, Survey, feedback, quality, reliability, call, voip, troubleshooting
       - name: Troubleshooting VoIP call quality
         href: concepts/voice-video-calling/troubleshoot-web-voip-quality.md
         displayName: diagnostics, Survey, feedback, quality, reliability, call, voip, troubleshooting
@@ -923,8 +952,12 @@ items:
         href: concepts/call-automation/play-action.md
       - name: Gather user input 
         href: concepts/call-automation/recognize-action.md
+      - name: Get Real-Time Audio Insights using Transcriptions
+        href: concepts/call-automation/real-time-transcription.md     
       - name: Ring Microsoft Teams users
         href: concepts/call-automation/call-automation-teams-interop.md
+      - name: Get Audio Streams from a call
+        href: concepts/call-automation/audio-streaming-concept.md
     - name: Call recording
       href: concepts/voice-video-calling/call-recording.md
     - name: Events
@@ -1029,6 +1062,12 @@ items:
         href: concepts/sms/messaging-policy.md
       - name: Pricing
         href: concepts/advanced-messaging/whatsapp/pricing.md
+      - name: Analytics
+        items:
+        - name: Metrics
+          href: concepts/advanced-messaging/metrics.md
+        - name: Logs
+          href: concepts/advanced-messaging/logs.md
       - name: Events
         items:
         - name: Overview
@@ -1037,8 +1076,16 @@ items:
           href: ../event-grid/communication-services-advanced-messaging-events.md
       - name: Templates
         href: concepts/advanced-messaging/whatsapp/template-messages.md
+      - name: Message Analysis
+        items:
+        - name: Overview
+          href: concepts/advanced-messaging/message-analysis.md
   - name: Azure Advisor
-    href: concepts/advisor-overview.md
+    items:
+      - name: Overview
+        href: concepts/advisor-overview.md
+      - name: Metrics
+        href: concepts/metrics.md
 - name: Resources
   items:
   - name: Release notes
@@ -1047,6 +1094,10 @@ items:
     href: resources/learn-modules.md
   - name: Troubleshooting Guides
     items:
+    - name: Troubleshooting in Azure Communication Services
+      href: concepts/troubleshooting-info.md
+    - name: Troubleshooting response codes
+      href: concepts/troubleshooting-codes.md
     - name: Voice and Video
       items:
       - name: General troubleshooting strategies
@@ -1131,6 +1182,8 @@ items:
               href: resources/troubleshooting/voice-video-calling/video-issues/video-is-frozen.md
         - name: References
           items:
+          - name: How to collect call info
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-call-info.md
           - name: How to collect client logs
             href: resources/troubleshooting/voice-video-calling/references/how-to-collect-client-logs.md
           - name: How to collect diagnostic audio recordings from the browser
@@ -1369,7 +1422,7 @@ items:
     - name: Phone number management for Latvia
       href: concepts/numbers/phone-number-management-for-latvia.md
     - name: Phone number management for Lithuania
-      href: concepts/numbers/phone-number-management-for-latvia.md      
+      href: concepts/numbers/phone-number-management-for-lithuania.md     
     - name: Phone number management for Luxembourg
       href: concepts/numbers/phone-number-management-for-luxembourg.md
     - name: Phone number management for Malaysia

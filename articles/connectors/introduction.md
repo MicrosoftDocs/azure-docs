@@ -50,6 +50,14 @@ A trigger specifies the condition to meet before the workflow can start and is a
 
 - *Polling* triggers regularly check a specific service or system on a specified schedule to check for new data or a specific event. If new data is available, or the specific event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
 
+  > [!NOTE]
+  >
+  > For connectors that are Microsoft-managed, hosted, and run in Azure, polling triggers use only the **Interval** 
+  > and **Frequency** values to calculate the next recurrence. They don't use the advanced scheduling options, 
+  > such as **At these hours** and **At these days**. These options work only with built-in polling triggers that 
+  > directly run with the Azure Logic Apps runtime, such as the **Recurrence**, **Sliding Window**, and **HTTP** triggers.
+  
+
 - *Push* or *webhook* triggers listen for new data or for an event to happen, without polling. When new data is available, or when the event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
 
 For example, suppose you want to build a workflow that runs when a file is uploaded to your FTP server. As the first step in your workflow, you can add the [FTP trigger](/connectors/ftp/#triggers) named **When a file is added or modified**, which follows a polling pattern. You then specify the schedule to regularly check for upload events.
@@ -130,7 +138,7 @@ In Standard workflows for single-tenant Azure Logic Apps, you can create nativel
 
 ## ISE and connectors
 
-For workflows that need direct access to resources in an Azure virtual network, you can create a dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your workflows on dedicated resources. For more information about creating ISEs, see [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+For workflows that need direct access to resources in an Azure virtual network, you can use a dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your workflows on dedicated resources.
 
 Custom connectors created within an ISE don't work with the on-premises data gateway. However, these connectors can directly access on-premises data sources that are connected to an Azure virtual network hosting the ISE. So, logic app workflows in an ISE most likely don't need the data gateway when communicating with those resources. If you have custom connectors that you created outside an ISE that require the on-premises data gateway, workflows in an ISE can use those connectors.
 

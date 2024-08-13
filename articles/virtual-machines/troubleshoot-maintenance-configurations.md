@@ -2,7 +2,7 @@
 title: Troubleshoot problems with Maintenance Configurations
 description: This article provides details on known and fixed issues and how to troubleshoot problems with Maintenance Configurations.
 author: ApnaLakshay
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
 ms.date: 10/13/2023
@@ -33,7 +33,7 @@ A maintenance configuration doesn't install a scheduled patch on the VMs and giv
 
 #### Resolution
 
-In a static scope, it's crucial to avoid relying on outdated VM configurations. Instead, prioritize reassigning configurations after you re-create instances.
+In a static scope, it's crucial to avoid relying on outdated VM configurations. So, you have to ensure that the VM is up and running while the patch is getting installed. If the VM instance is recreated with the same name then prioritize reassigning configuration after you re-create VM instance.
 
 ### Scheduled patching times out or fails
 
@@ -104,7 +104,14 @@ You can't create a dynamic scope because of role-based access control (RBAC).
 
 #### Resolution
 
-To create a dynamic scope, you must have the permission at the subscription level or at the resource group level. For more information, see the [list of permissions list for various resources](../update-manager/overview.md#permissions).
+To create a dynamic scope, you must have the permission at the subscription level or at the resource group level. Specifically, following are the requirements you need to take care of.
+
+1. The subscription under which dynamic scope is getting created should be registered to Maintenance RP.
+1. It is recommended to have the 'Scheduled Patching Contributor' role to be assigned to the following scopes:
+    1. The subscription/resource group at which the dynamic scope is being created.
+    1. The maintenance configuration scope.
+
+For more information, see the [list of permissions list for various resources here](../update-manager/roles-permissions.md#permissions).
 
 ### An update is stuck and not progressing
 

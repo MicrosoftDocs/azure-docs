@@ -3,13 +3,13 @@ title: "Create jobs and input data for batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to access data from different sources in batch endpoints jobs.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.date: 5/01/2023
-ms.reviewer: mopeakande
+ms.reviewer: cacrest
 ms.custom:
   - devplatv2
   - devx-track-azurecli
@@ -18,15 +18,19 @@ ms.custom:
 
 # Create jobs and input data for batch endpoints
 
-Batch endpoints can be used to perform long batch operations over large amounts of data. Such data can be placed in different places. Some type of batch endpoints can also receive literal parameters as inputs. In this tutorial we'll cover how you can specify those inputs, and the different types or locations supported.
+Batch endpoints can be used to perform long batch operations over large amounts of data. Such data can be placed in different places. Some types of batch endpoints can also receive literal parameters as inputs. This article covers how to specify those inputs.
 
-## Before invoking an endpoint
+<!-- , and the different types or locations supported. -->
+
+## Prerequisites
 
 To successfully invoke a batch endpoint and create jobs, ensure you have the following:
 
-* You have permissions to run a batch endpoint deployment. **AzureML Data Scientist**, **Contributor**, and **Owner** roles can be used to run a deployment. For custom roles definitions read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) to know the specific permissions needed.
+* A batch endpoint and deployment. If you don't have one already, see [Deploy models for scoring in batch endpoints](how-to-use-batch-model-deployments.md) to create a deployment.
 
-* You have a valid Microsoft Entra ID token representing a security principal to invoke the endpoint. This principal can be a user principal or a service principal. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. For testing purposes, you can use your own credentials for the invocation as mentioned below.
+* Permissions to run a batch endpoint deployment. **AzureML Data Scientist**, **Contributor**, and **Owner** roles can be used to run a deployment. For custom role definitions see [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) to know the specific permissions needed.
+
+* A valid Microsoft Entra ID token representing a security principal to invoke the endpoint. This principal can be a user principal or a service principal. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. You can use your own credentials for the invocation as follows:
 
     # [Azure CLI](#tab/cli)
     
@@ -73,7 +77,7 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     
     ---
 
-    To learn more about how to authenticate with multiple type of credentials read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md).
+    To learn more about how to start batch deployment jobs, using different types of credential, see [How to run jobs using different types of credentials](how-to-authenticate-batch-endpoint.md#how-to-run-jobs-using-different-types-of-credentials).
 
 * The **compute cluster** where the endpoint is deployed has access to read the input data. 
 
@@ -890,7 +894,7 @@ The following example shows how to change the location where an output named `sc
 
     ```python
     data_path = "batch-jobs/my-unique-path"
-    output = Output(type=AssetTypes.URI_FOLDER, path=f"{default_ds.id}/paths/{data_path})
+    output = Output(type=AssetTypes.URI_FILE, path=f"{default_ds.id}/paths/{data_path})
     ```
 
     For completeness, let's also create a data input:
@@ -960,7 +964,7 @@ The following example shows how to change the location where an output named `sc
     ```
 
 
-## Next steps
+## Related content
 
 * [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md).
 * [Customize outputs in model deployments batch deployments](how-to-deploy-model-custom-output.md).

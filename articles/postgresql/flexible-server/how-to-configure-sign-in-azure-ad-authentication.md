@@ -4,15 +4,15 @@ description: Learn how to set up Microsoft Entra ID for authentication with Azur
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 05/24/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
 # Use Microsoft Entra ID for authentication with Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this article, you configure Microsoft Entra ID access for authentication with Azure Database for PostgreSQL flexible server. You'll also learn how to use a Microsoft Entra token with Azure Database for PostgreSQL flexible server.
 

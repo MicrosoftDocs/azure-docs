@@ -5,11 +5,9 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
-ms.custom:
-  - devx-track-csharp
-  - ignite-2023
+ms.custom: devx-track-csharp, ignite-2023, linux-related-content
 ---
 
 <!-- markdownlint-disable MD001 -->
@@ -24,7 +22,7 @@ ms.custom:
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 - [Python 3.7 or later](https://www.python.org/). Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check whether you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. See [Getting Started with Python in Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial).
-- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The key and endpoint from the resource you create to connect your application to the Azure Document Intelligence service.
 
   1. After your resource deploys, select **Go to resource**.
@@ -87,11 +85,20 @@ from azure.ai.documentintelligence.models import AnalyzeResult
 key = os.environ.get('DI_KEY')
 endpoint = os.environ.get('DI_ENDPOINT')
 
-# formatting function
-def format_polygon(polygon):
-    if not polygon:
-        return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
+# helper functions
+def get_words(page, line):
+    result = []
+    for word in page.words:
+        if _in_span(word, line.spans):
+            result.append(word)
+    return result
+
+
+def _in_span(word, spans):
+    for span in spans:
+        if word.span.offset >= span.offset and (word.span.offset + word.span.length) <= (span.offset + span.length):
+            return True
+    return False
 
 
 def analyze_read():
@@ -103,41 +110,57 @@ def analyze_read():
     )
 
     poller = client.begin_analyze_document(
-        "prebuilt-read", formUrl
-    )
-    result = poller.result()
+        "prebuilt-read", AnalyzeDocumentRequest(url_source=formUrl
+    ))
+    result: AnalyzeResult = poller.result()
 
-    print("Document contains content: ", result.content)
+    print("----Languages detected in the document----")
+    if result.languages is not None:
+        for language in result.languages:
+            print(f"Language code: '{language.locale}' with confidence {language.confidence}")
 
-    for idx, style in enumerate(result.styles):
-        print(
-            "Document contains {} content".format(
-                "handwritten" if style.is_handwritten else "no handwritten"
-            )
-        )
+    print("----Styles detected in the document----")
+    if result.styles:
+        for style in result.styles:
+            if style.is_handwritten:
+                print("Found the following handwritten content: ")
+                print(",".join([result.content[span.offset : span.offset + span.length] for span in style.spans]))
+            if style.font_style:
+                print(f"The document contains '{style.font_style}' font style, applied to the following text: ")
+                print(",".join([result.content[span.offset : span.offset + span.length] for span in style.spans]))
 
     for page in result.pages:
-        print("----Analyzing Read from page #{}----".format(page.page_number))
-        print(
-            "Page has width: {} and height: {}, measured with unit: {}".format(
-                page.width, page.height, page.unit
-            )
-        )
+        print(f"----Analyzing document from page #{page.page_number}----")
+        print(f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}")
 
-        for line_idx, line in enumerate(page.lines):
-            print(
-                "...Line # {} has text content '{}' within bounding box '{}'".format(
-                    line_idx,
-                    line.content,
-                    format_polygon(line.polygon),
+        if page.lines:
+            for line_idx, line in enumerate(page.lines):
+                words = get_words(page, line)
+                print(
+                    f"...Line # {line_idx} has {len(words)} words and text '{line.content}' within bounding polygon '{line.polygon}'"
                 )
-            )
 
-        for word in page.words:
-            print(
-                "...Word '{}' has a confidence of {}".format(
-                    word.content, word.confidence
+                for word in words:
+                    print(f"......Word '{word.content}' has a confidence of {word.confidence}")
+
+        if page.selection_marks:
+            for selection_mark in page.selection_marks:
+                print(
+                    f"...Selection mark is '{selection_mark.state}' within bounding polygon "
+                    f"'{selection_mark.polygon}' and has a confidence of {selection_mark.confidence}"
                 )
+
+    if result.paragraphs:
+        print(f"----Detected #{len(result.paragraphs)} paragraphs in the document----")
+        for paragraph in result.paragraphs:
+            print(f"Found paragraph with role: '{paragraph.role}' within {paragraph.bounding_regions} bounding region")
+            print(f"...with content: '{paragraph.content}'")
+
+        result.paragraphs.sort(key=lambda p: (p.spans.sort(key=lambda s: s.offset), p.spans[0].offset))
+        print("-----Print sorted paragraphs-----")
+        for idx, paragraph in enumerate(result.paragraphs):
+            print(
+                f"...paragraph:{idx} with offset: {paragraph.spans[0].offset} and length: {paragraph.spans[0].length}"
             )
 
     print("----------------------------------------")
@@ -147,6 +170,9 @@ if __name__ == "__main__":
     analyze_read()
 
 ```
+
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Read_model/sample_analyze_read.py)  [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Read_model) 
 
 Visit the Azure samples repository on GitHub and view the [`read` model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/read-model-output.md).
 
@@ -163,12 +189,6 @@ from azure.ai.documentintelligence.models import AnalyzeResult
 key = os.environ.get('DI_KEY')
 endpoint = os.environ.get('DI_ENDPOINT')
 
-# formatting function
-def format_polygon(polygon):
-    if not polygon:
-        return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
-
 
 def analyze_layout():
     # sample document
@@ -179,83 +199,51 @@ def analyze_layout():
     )
 
     poller = client.begin_analyze_document(
-        "prebuilt-layout", formUrl
-    )
-    result = poller.result()
+        "prebuilt-layout", AnalyzeDocumentRequest(url_source=formUrl
+    ))
+    result: AnalyzeResult = poller.result()
 
-    for idx, style in enumerate(result.styles):
-        print(
-            "Document contains {} content".format(
-                "handwritten" if style.is_handwritten else "no handwritten"
-            )
-        )
+    if result.styles and any([style.is_handwritten for style in result.styles]):
+        print("Document contains handwritten content")
+    else:
+        print("Document does not contain handwritten content")
 
     for page in result.pages:
-        print("----Analyzing layout from page #{}----".format(page.page_number))
-        print(
-            "Page has width: {} and height: {}, measured with unit: {}".format(
-                page.width, page.height, page.unit
-            )
-        )
+        print(f"----Analyzing layout from page #{page.page_number}----")
+        print(f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}")
 
-        for line_idx, line in enumerate(page.lines):
-            words = line.get_words()
-            print(
-                "...Line # {} has word count {} and text '{}' within bounding box '{}'".format(
-                    line_idx,
-                    len(words),
-                    line.content,
-                    format_polygon(line.polygon),
-                )
-            )
-
-            for word in words:
+        if page.lines:
+            for line_idx, line in enumerate(page.lines):
+                words = get_words(page, line)
                 print(
-                    "......Word '{}' has a confidence of {}".format(
-                        word.content, word.confidence
-                    )
+                    f"...Line # {line_idx} has word count {len(words)} and text '{line.content}' "
+                    f"within bounding polygon '{line.polygon}'"
                 )
 
-        for selection_mark in page.selection_marks:
-            print(
-                "...Selection mark is '{}' within bounding box '{}' and has a confidence of {}".format(
-                    selection_mark.state,
-                    format_polygon(selection_mark.polygon),
-                    selection_mark.confidence,
-                )
-            )
+                for word in words:
+                    print(f"......Word '{word.content}' has a confidence of {word.confidence}")
 
-    for table_idx, table in enumerate(result.tables):
-        print(
-            "Table # {} has {} rows and {} columns".format(
-                table_idx, table.row_count, table.column_count
-            )
-        )
-        for region in table.bounding_regions:
-            print(
-                "Table # {} location on page: {} is {}".format(
-                    table_idx,
-                    region.page_number,
-                    format_polygon(region.polygon),
-                )
-            )
-        for cell in table.cells:
-            print(
-                "...Cell[{}][{}] has content '{}'".format(
-                    cell.row_index,
-                    cell.column_index,
-                    cell.content,
-                )
-            )
-            for region in cell.bounding_regions:
+        if page.selection_marks:
+            for selection_mark in page.selection_marks:
                 print(
-                    "...content on page {} is within bounding box '{}'".format(
-                        region.page_number,
-                        format_polygon(region.polygon),
-                    )
+                    f"Selection mark is '{selection_mark.state}' within bounding polygon "
+                    f"'{selection_mark.polygon}' and has a confidence of {selection_mark.confidence}"
                 )
+
+    if result.tables:
+        for table_idx, table in enumerate(result.tables):
+            print(f"Table # {table_idx} has {table.row_count} rows and " f"{table.column_count} columns")
+            if table.bounding_regions:
+                for region in table.bounding_regions:
+                    print(f"Table # {table_idx} location on page: {region.page_number} is {region.polygon}")
+            for cell in table.cells:
+                print(f"...Cell[{cell.row_index}][{cell.column_index}] has text '{cell.content}'")
+                if cell.bounding_regions:
+                    for region in cell.bounding_regions:
+                        print(f"...content on page {region.page_number} is within bounding polygon '{region.polygon}'")
 
     print("----------------------------------------")
+
 
 
 if __name__ == "__main__":
@@ -263,137 +251,10 @@ if __name__ == "__main__":
 
 ```
 
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model)
+
 Visit the Azure samples repository on GitHub and view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/layout-model-output.md).
-
-## Use the General document model
-
-```python
-import os
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.documentintelligence import DocumentIntelligenceClient
-from azure.ai.documentintelligence.models import AnalyzeResult
-
-# use your `key` and `endpoint` environment variables
-key = os.environ.get('DI_KEY')
-endpoint = os.environ.get('DI_ENDPOINT')
-
-# formatting function
-def format_bounding_region(bounding_regions):
-    if not bounding_regions:
-        return "N/A"
-    return ", ".join("Page #{}: {}".format(region.page_number, format_polygon(region.polygon)) for region in bounding_regions)
-
-# formatting function
-def format_polygon(polygon):
-    if not polygon:
-        return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
-
-
-def analyze_general_documents():
-    # sample document
-    docUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
-
-    # create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
-   client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
-
-    poller = client.begin_analyze_document(
-            "prebuilt-document", docUrl)
-    result = poller.result()
-
-    for style in result.styles:
-        if style.is_handwritten:
-            print("Document contains handwritten content: ")
-            print(",".join([result.content[span.offset:span.offset + span.length] for span in style.spans]))
-
-    print("----Key-value pairs found in document----")
-    for kv_pair in result.key_value_pairs:
-        if kv_pair.key:
-            print(
-                    "Key '{}' found within '{}' bounding regions".format(
-                        kv_pair.key.content,
-                        format_bounding_region(kv_pair.key.bounding_regions),
-                    )
-                )
-        if kv_pair.value:
-            print(
-                    "Value '{}' found within '{}' bounding regions\n".format(
-                        kv_pair.value.content,
-                        format_bounding_region(kv_pair.value.bounding_regions),
-                    )
-                )
-
-    for page in result.pages:
-        print("----Analyzing document from page #{}----".format(page.page_number))
-        print(
-            "Page has width: {} and height: {}, measured with unit: {}".format(
-                page.width, page.height, page.unit
-            )
-        )
-
-        for line_idx, line in enumerate(page.lines):
-            print(
-                "...Line # {} has text content '{}' within bounding box '{}'".format(
-                    line_idx,
-                    line.content,
-                    format_polygon(line.polygon),
-                )
-            )
-
-        for word in page.words:
-            print(
-                "...Word '{}' has a confidence of {}".format(
-                    word.content, word.confidence
-                )
-            )
-
-        for selection_mark in page.selection_marks:
-            print(
-                "...Selection mark is '{}' within bounding box '{}' and has a confidence of {}".format(
-                    selection_mark.state,
-                    format_polygon(selection_mark.polygon),
-                    selection_mark.confidence,
-                )
-            )
-
-    for table_idx, table in enumerate(result.tables):
-        print(
-            "Table # {} has {} rows and {} columns".format(
-                table_idx, table.row_count, table.column_count
-            )
-        )
-        for region in table.bounding_regions:
-            print(
-                "Table # {} location on page: {} is {}".format(
-                    table_idx,
-                    region.page_number,
-                    format_polygon(region.polygon),
-                )
-            )
-        for cell in table.cells:
-            print(
-                "...Cell[{}][{}] has content '{}'".format(
-                    cell.row_index,
-                    cell.column_index,
-                    cell.content,
-                )
-            )
-            for region in cell.bounding_regions:
-                print(
-                    "...content on page {} is within bounding box '{}'\n".format(
-                        region.page_number,
-                        format_polygon(region.polygon),
-                    )
-                )
-    print("----------------------------------------")
-
-
-if __name__ == "__main__":
-    analyze_general_documents()
-
-```
-
-Visit the Azure samples repository on GitHub and view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/general-document-model-output.md).
 
 ## Use the W-2 tax model
 
@@ -421,292 +282,161 @@ def analyze_tax_us_w2():
     )
 
     poller = client.begin_analyze_document(
-        "prebuilt-tax.us.w2", formUrl
-    )
-    w2s = poller.result()
+        "prebuilt-tax.us.w2",  AnalyzeDocumentRequest(url_source=formUrl
+    ))
 
-    for idx, w2 in enumerate(w2s.documents):
-         print("--------Analyzing US Tax W-2 Form #{}--------".format(idx   1))
-        form_variant = w2.fields.get("W2FormVariant")
-        if form_variant:
-            print(
-                "Form variant: {} has confidence: {}".format(
-                    form_variant.value, form_variant.confidence
-                )
-            )
-        tax_year = w2.fields.get("TaxYear")
-        if tax_year:
-            print(
-                "Tax year: {} has confidence: {}".format(
-                    tax_year.value, tax_year.confidence
-                )
-            )
-        w2_copy = w2.fields.get("W2Copy")
-        if w2_copy:
-            print(
-                "W-2 Copy: {} has confidence: {}".format(
-                    w2_copy.value,
-                    w2_copy.confidence,
-                )
-            )
-        employee = w2.fields.get("Employee")
-        if employee:
-            print("Employee data:")
-            employee_name = employee.value.get("Name")
-            if employee_name:
-                print(
-                    "...Name: {} has confidence: {}".format(
-                        employee_name.value, employee_name.confidence
-                    )
-                )
-            employee_ssn = employee.value.get("SocialSecurityNumber")
-            if employee_ssn:
-                print(
-                    "...SSN: {} has confidence: {}".format(
-                        employee_ssn.value, employee_ssn.confidence
-                    )
-                )
-            employee_address = employee.value.get("Address")
-            if employee_address:
-                print(
-                    "...Address: {}\n......has confidence: {}".format(
-                        format_address_value(employee_address.value),
-                        employee_address.confidence,
-                    )
-                )
-            employee_zipcode = employee.value.get("ZipCode")
-            if employee_zipcode:
-                print(
-                    "...Zipcode: {} has confidence: {}".format(
-                        employee_zipcode.value, employee_zipcode.confidence
-                    )
-                )
-        control_number = w2.fields.get("ControlNumber")
-        if control_number:
-            print(
-                "Control Number: {} has confidence: {}".format(
-                    control_number.value, control_number.confidence
-                )
-            )
-        employer = w2.fields.get("Employer")
-        if employer:
-            print("Employer data:")
-            employer_name = employer.value.get("Name")
-            if employer_name:
-                print(
-                    "...Name: {} has confidence: {}".format(
-                        employer_name.value, employer_name.confidence
-                    )
-                )
-            employer_id = employer.value.get("IdNumber")
-            if employer_id:
-                print(
-                    "...ID Number: {} has confidence: {}".format(
-                        employer_id.value, employer_id.confidence
-                    )
-                )
-            employer_address = employer.value.get("Address")
-            if employer_address:
-                print(
-                    "...Address: {}\n......has confidence: {}".format(
-                        format_address_value(employer_address.value),
-                        employer_address.confidence,
-                    )
-                )
-            employer_zipcode = employer.value.get("ZipCode")
-            if employer_zipcode:
-                print(
-                    "...Zipcode: {} has confidence: {}".format(
-                        employer_zipcode.value, employer_zipcode.confidence
-                    )
-                )
-        wages_tips = w2.fields.get("WagesTipsAndOtherCompensation")
-        if wages_tips:
-            print(
-                "Wages, tips, and other compensation: {} has confidence: {}".format(
-                    wages_tips.value,
-                    wages_tips.confidence,
-                )
-            )
-        fed_income_tax_withheld = w2.fields.get("FederalIncomeTaxWithheld")
-        if fed_income_tax_withheld:
-            print(
-                "Federal income tax withheld: {} has confidence: {}".format(
-                    fed_income_tax_withheld.value, fed_income_tax_withheld.confidence
-                )
-            )
-        social_security_wages = w2.fields.get("SocialSecurityWages")
-        if social_security_wages:
-            print(
-                "Social Security wages: {} has confidence: {}".format(
-                    social_security_wages.value, social_security_wages.confidence
-                )
-            )
-        social_security_tax_withheld = w2.fields.get("SocialSecurityTaxWithheld")
-        if social_security_tax_withheld:
-            print(
-                "Social Security tax withheld: {} has confidence: {}".format(
-                    social_security_tax_withheld.value,
-                    social_security_tax_withheld.confidence,
-                )
-            )
-        medicare_wages_tips = w2.fields.get("MedicareWagesAndTips")
-        if medicare_wages_tips:
-            print(
-                "Medicare wages and tips: {} has confidence: {}".format(
-                    medicare_wages_tips.value, medicare_wages_tips.confidence
-                )
-            )
-        medicare_tax_withheld = w2.fields.get("MedicareTaxWithheld")
-        if medicare_tax_withheld:
-            print(
-                "Medicare tax withheld: {} has confidence: {}".format(
-                    medicare_tax_withheld.value, medicare_tax_withheld.confidence
-                )
-            )
-        social_security_tips = w2.fields.get("SocialSecurityTips")
-        if social_security_tips:
-            print(
-                "Social Security tips: {} has confidence: {}".format(
-                    social_security_tips.value, social_security_tips.confidence
-                )
-            )
-        allocated_tips = w2.fields.get("AllocatedTips")
-        if allocated_tips:
-            print(
-                "Allocated tips: {} has confidence: {}".format(
-                    allocated_tips.value,
-                    allocated_tips.confidence,
-                )
-            )
-        verification_code = w2.fields.get("VerificationCode")
-        if verification_code:
-            print(
-                "Verification code: {} has confidence: {}".format(
-                    verification_code.value, verification_code.confidence
-                )
-            )
-        dependent_care_benefits = w2.fields.get("DependentCareBenefits")
-        if dependent_care_benefits:
-            print(
-                "Dependent care benefits: {} has confidence: {}".format(
-                    dependent_care_benefits.value,
-                    dependent_care_benefits.confidence,
-                )
-            )
-        non_qualified_plans = w2.fields.get("NonQualifiedPlans")
-        if non_qualified_plans:
-            print(
-                "Non-qualified plans: {} has confidence: {}".format(
-                    non_qualified_plans.value,
-                    non_qualified_plans.confidence,
-                )
-            )
-        additional_info = w2.fields.get("AdditionalInfo")
-        if additional_info:
-            print("Additional information:")
-            for item in additional_info.value:
-                letter_code = item.value.get("LetterCode")
-                if letter_code:
+    w2s: AnalyzeResult =  poller.result()
+
+        if w2s.documents:
+        for idx, w2 in enumerate(w2s.documents):
+            print(f"--------Analyzing US Tax W-2 Form #{idx + 1}--------")
+            if w2.fields:
+                form_variant = w2.fields.get("W2FormVariant")
+                if form_variant:
                     print(
-                        "...Letter code: {} has confidence: {}".format(
-                            letter_code.value, letter_code.confidence
-                        )
+                        f"Form variant: {form_variant.get('valueString')} has confidence: " f"{form_variant.confidence}"
                     )
-                amount = item.value.get("Amount")
-                if amount:
+                tax_year = w2.fields.get("TaxYear")
+                if tax_year:
+                    print(f"Tax year: {tax_year.get('valueString')} has confidence: {tax_year.confidence}")
+                w2_copy = w2.fields.get("W2Copy")
+                if w2_copy:
+                    print(f"W-2 Copy: {w2_copy.get('valueString')} has confidence: {w2_copy.confidence}")
+                employee = w2.fields.get("Employee")
+                if employee:
+                    print("Employee data:")
+                    employee_name = employee.get("valueObject").get("Name")
+                    if employee_name:
+                        f"confidence: {fed_income_tax_withheld.confidence}"
+                    )
+                social_security_wages = w2.fields.get("SocialSecurityWages")
+                if social_security_wages:
                     print(
-                        "...Amount: {} has confidence: {}".format(
-                            amount.value, amount.confidence
-                        )
+                        f"Social Security wages: {social_security_wages.get('valueNumber')} has confidence: "
+                        f"{social_security_wages.confidence}"
                     )
-        is_statutory_employee = w2.fields.get("IsStatutoryEmployee")
-        if is_statutory_employee:
-            print(
-                "Is statutory employee: {} has confidence: {}".format(
-                    is_statutory_employee.value, is_statutory_employee.confidence
-                )
-            )
-        is_retirement_plan = w2.fields.get("IsRetirementPlan")
-        if is_retirement_plan:
-            print(
-                "Is retirement plan: {} has confidence: {}".format(
-                    is_retirement_plan.value, is_retirement_plan.confidence
-                )
-            )
-        third_party_sick_pay = w2.fields.get("IsThirdPartySickPay")
-        if third_party_sick_pay:
-            print(
-                "Is third party sick pay: {} has confidence: {}".format(
-                    third_party_sick_pay.value, third_party_sick_pay.confidence
-                )
-            )
-        other_info = w2.fields.get("Other")
-        if other_info:
-            print(
-                "Other information: {} has confidence: {}".format(
-                    other_info.value,
-                    other_info.confidence,
-                )
-            )
-        state_tax_info = w2.fields.get("StateTaxInfos")
-        if state_tax_info:
-            print("State Tax info:")
-            for tax in state_tax_info.value:
-                state = tax.value.get("State")
-                if state:
+                social_security_tax_withheld = w2.fields.get("SocialSecurityTaxWithheld")
+                if social_security_tax_withheld:
                     print(
-                        "...State: {} has confidence: {}".format(
-                            state.value, state.confidence
-                        )
+                        f"Social Security tax withheld: {social_security_tax_withheld.get('valueNumber')} "
+                        f"has confidence: {social_security_tax_withheld.confidence}"
                     )
-                employer_state_id_number = tax.value.get("EmployerStateIdNumber")
-                if employer_state_id_number:
+                medicare_wages_tips = w2.fields.get("MedicareWagesAndTips")
+                if medicare_wages_tips:
                     print(
-                        "...Employer state ID number: {} has confidence: {}".format(
-                            employer_state_id_number.value,
-                            employer_state_id_number.confidence,
-                        )
+                        f"Medicare wages and tips: {medicare_wages_tips.get('valueNumber')} has confidence: "
+                        f"{medicare_wages_tips.confidence}"
                     )
-                state_wages_tips = tax.value.get("StateWagesTipsEtc")
-                if state_wages_tips:
+                medicare_tax_withheld = w2.fields.get("MedicareTaxWithheld")
+                if medicare_tax_withheld:
                     print(
-                        "...State wages, tips, etc: {} has confidence: {}".format(
-                            state_wages_tips.value, state_wages_tips.confidence
-                        )
+                        f"Medicare tax withheld: {medicare_tax_withheld.get('valueNumber')} has confidence: "
+                        f"{medicare_tax_withheld.confidence}"
                     )
-                state_income_tax = tax.value.get("StateIncomeTax")
-                if state_income_tax:
+                social_security_tips = w2.fields.get("SocialSecurityTips")
+                if social_security_tips:
                     print(
-                        "...State income tax: {} has confidence: {}".format(
-                            state_income_tax.value, state_income_tax.confidence
-                        )
+                        f"Social Security tips: {social_security_tips.get('valueNumber')} has confidence: "
+                        f"{social_security_tips.confidence}"
                     )
-        local_tax_info = w2.fields.get("LocalTaxInfos")
-        if local_tax_info:
-            print("Local Tax info:")
-            for tax in local_tax_info.value:
-                local_wages_tips = tax.value.get("LocalWagesTipsEtc")
-                if local_wages_tips:
+                allocated_tips = w2.fields.get("AllocatedTips")
+                if allocated_tips:
                     print(
-                        "...Local wages, tips, etc: {} has confidence: {}".format(
-                            local_wages_tips.value, local_wages_tips.confidence
-                        )
+                        f"Allocated tips: {allocated_tips.get('valueNumber')} has confidence: {allocated_tips.confidence}"
                     )
-                local_income_tax = tax.value.get("LocalIncomeTax")
-                if local_income_tax:
+                verification_code = w2.fields.get("VerificationCode")
+                if verification_code:
                     print(
-                        "...Local income tax: {} has confidence: {}".format(
-                            local_income_tax.value, local_income_tax.confidence
-                        )
+                        f"Verification code: {verification_code.get('valueNumber')} has confidence: {verification_code.confidence}"
                     )
-                locality_name = tax.value.get("LocalityName")
-                if locality_name:
+                dependent_care_benefits = w2.fields.get("DependentCareBenefits")
+                if dependent_care_benefits:
                     print(
-                        "...Locality name: {} has confidence: {}".format(
-                            locality_name.value, locality_name.confidence
-                        )
+                        f"Dependent care benefits: {dependent_care_benefits.get('valueNumber')} has confidence: {dependent_care_benefits.confidence}"
                     )
+                non_qualified_plans = w2.fields.get("NonQualifiedPlans")
+                if non_qualified_plans:
+                    print(
+                        f"Non-qualified plans: {non_qualified_plans.get('valueNumber')} has confidence: {non_qualified_plans.confidence}"
+                    )
+                additional_info = w2.fields.get("AdditionalInfo")
+                if additional_info:
+                    print("Additional information:")
+                    for item in additional_info.get("valueArray"):
+                        letter_code = item.get("valueObject").get("LetterCode")
+                        if letter_code:
+                            print(
+                                f"...Letter code: {letter_code.get('valueString')} has confidence: {letter_code.confidence}"
+                            )
+                        amount = item.get("valueObject").get("Amount")
+                        if amount:
+                            print(f"...Amount: {amount.get('valueNumber')} has confidence: {amount.confidence}")
+                is_statutory_employee = w2.fields.get("IsStatutoryEmployee")
+                if is_statutory_employee:
+                    print(
+                        f"Is statutory employee: {is_statutory_employee.get('valueString')} has confidence: {is_statutory_employee.confidence}"
+                    )
+                is_retirement_plan = w2.fields.get("IsRetirementPlan")
+                if is_retirement_plan:
+                    print(
+                        f"Is retirement plan: {is_retirement_plan.get('valueString')} has confidence: {is_retirement_plan.confidence}"
+                    )
+                third_party_sick_pay = w2.fields.get("IsThirdPartySickPay")
+                if third_party_sick_pay:
+                    print(
+                        f"Is third party sick pay: {third_party_sick_pay.get('valueString')} has confidence: {third_party_sick_pay.confidence}"
+                    )
+                other_info = w2.fields.get("Other")
+                if other_info:
+                    print(f"Other information: {other_info.get('valueString')} has confidence: {other_info.confidence}")
+                state_tax_info = w2.fields.get("StateTaxInfos")
+                if state_tax_info:
+                    print("State Tax info:")
+                    for tax in state_tax_info.get("valueArray"):
+                        state = tax.get("valueObject").get("State")
+                        if state:
+                            print(f"...State: {state.get('valueString')} has confidence: {state.confidence}")
+                        employer_state_id_number = tax.get("valueObject").get("EmployerStateIdNumber")
+                        if employer_state_id_number:
+                            print(
+                                f"...Employer state ID number: {employer_state_id_number.get('valueString')} has "
+                                f"confidence: {employer_state_id_number.confidence}"
+                            )
+                        state_wages_tips = tax.get("valueObject").get("StateWagesTipsEtc")
+                        if state_wages_tips:
+                            print(
+                                f"...State wages, tips, etc: {state_wages_tips.get('valueNumber')} has confidence: "
+                                f"{state_wages_tips.confidence}"
+                            )
+                        state_income_tax = tax.get("valueObject").get("StateIncomeTax")
+                        if state_income_tax:
+                            print(
+                                f"...State income tax: {state_income_tax.get('valueNumber')} has confidence: "
+                                f"{state_income_tax.confidence}"
+                            )
+                local_tax_info = w2.fields.get("LocalTaxInfos")
+                if local_tax_info:
+                    print("Local Tax info:")
+                    for tax in local_tax_info.get("valueArray"):
+                        local_wages_tips = tax.get("valueObject").get("LocalWagesTipsEtc")
+                        if local_wages_tips:
+                            print(
+                                f"...Local wages, tips, etc: {local_wages_tips.get('valueNumber')} has confidence: "
+                                f"{local_wages_tips.confidence}"
+                            )
+                        local_income_tax = tax.get("valueObject").get("LocalIncomeTax")
+                        if local_income_tax:
+                            print(
+                                f"...Local income tax: {local_income_tax.get('valueNumber')} has confidence: "
+                                f"{local_income_tax.confidence}"
+                            )
+                        locality_name = tax.get("valueObject").get("LocalityName")
+                        if locality_name:
+                            print(
+                                f"...Locality name: {locality_name.get('valueString')} has confidence: "
+                                f"{locality_name.confidence}"
+                            )
+
 
                 print("----------------------------------------")
 
@@ -715,6 +445,9 @@ if __name__ == "__main__":
     analyze_tax_us_w2()
 
 ```
+
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_tax_us_w2.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model)
 
 Visit the Azure samples repository on GitHub and view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
@@ -730,19 +463,6 @@ from azure.ai.documentintelligence.models import AnalyzeResult
 key = os.environ.get('DI_KEY')
 endpoint = os.environ.get('DI_ENDPOINT')
 
-# formatting function
-def format_bounding_region(bounding_regions):
-    if not bounding_regions:
-        return "N/A"
-    return ", ".join("Page #{}: {}".format(region.page_number, format_polygon(region.polygon)) for region in bounding_regions)
-
-# formatting function
-def format_polygon(polygon):
-    if not polygon:
-        return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
-
-
 def analyze_invoice():
 
     invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
@@ -752,255 +472,162 @@ def analyze_invoice():
     )
 
     poller = client.begin_analyze_document(
-            "prebuilt-invoice", invoiceUrl)
-    invoices = poller.result()
+        "prebuilt-invoice", AnalyzeDocumentRequest(url_source=formUrl), locale="en-US")
 
-    for idx, invoice in enumerate(invoices.documents):
-        print("--------Recognizing invoice #{}--------".format(idx + 1))
-        vendor_name = invoice.fields.get("VendorName")
-        if vendor_name:
-            print(
-                "Vendor Name: {} has confidence: {}".format(
-                    vendor_name.value, vendor_name.confidence
-                )
-            )
-        vendor_address = invoice.fields.get("VendorAddress")
-        if vendor_address:
-            print(
-                "Vendor Address: {} has confidence: {}".format(
-                    vendor_address.value, vendor_address.confidence
-                )
-            )
-        vendor_address_recipient = invoice.fields.get("VendorAddressRecipient")
-        if vendor_address_recipient:
-            print(
-                "Vendor Address Recipient: {} has confidence: {}".format(
-                    vendor_address_recipient.value, vendor_address_recipient.confidence
-                )
-            )
-        customer_name = invoice.fields.get("CustomerName")
-        if customer_name:
-            print(
-                "Customer Name: {} has confidence: {}".format(
-                    customer_name.value, customer_name.confidence
-                )
-            )
-        customer_id = invoice.fields.get("CustomerId")
-        if customer_id:
-            print(
-                "Customer Id: {} has confidence: {}".format(
-                    customer_id.value, customer_id.confidence
-                )
-            )
-        customer_address = invoice.fields.get("CustomerAddress")
-        if customer_address:
-            print(
-                "Customer Address: {} has confidence: {}".format(
-                    customer_address.value, customer_address.confidence
-                )
-            )
-        customer_address_recipient = invoice.fields.get("CustomerAddressRecipient")
-        if customer_address_recipient:
-            print(
-                "Customer Address Recipient: {} has confidence: {}".format(
-                    customer_address_recipient.value,
-                    customer_address_recipient.confidence,
-                )
-            )
-        invoice_id = invoice.fields.get("InvoiceId")
-        if invoice_id:
-            print(
-                "Invoice Id: {} has confidence: {}".format(
-                    invoice_id.value, invoice_id.confidence
-                )
-            )
-        invoice_date = invoice.fields.get("InvoiceDate")
-        if invoice_date:
-            print(
-                "Invoice Date: {} has confidence: {}".format(
-                    invoice_date.value, invoice_date.confidence
-                )
-            )
-        invoice_total = invoice.fields.get("InvoiceTotal")
-        if invoice_total:
-            print(
-                "Invoice Total: {} has confidence: {}".format(
-                    invoice_total.value, invoice_total.confidence
-                )
-            )
-        due_date = invoice.fields.get("DueDate")
-        if due_date:
-            print(
-                "Due Date: {} has confidence: {}".format(
-                    due_date.value, due_date.confidence
-                )
-            )
-        purchase_order = invoice.fields.get("PurchaseOrder")
-        if purchase_order:
-            print(
-                "Purchase Order: {} has confidence: {}".format(
-                    purchase_order.value, purchase_order.confidence
-                )
-            )
-        billing_address = invoice.fields.get("BillingAddress")
-        if billing_address:
-            print(
-                "Billing Address: {} has confidence: {}".format(
-                    billing_address.value, billing_address.confidence
-                )
-            )
-        billing_address_recipient = invoice.fields.get("BillingAddressRecipient")
-        if billing_address_recipient:
-            print(
-                "Billing Address Recipient: {} has confidence: {}".format(
-                    billing_address_recipient.value,
-                    billing_address_recipient.confidence,
-                )
-            )
-        shipping_address = invoice.fields.get("ShippingAddress")
-        if shipping_address:
-            print(
-                "Shipping Address: {} has confidence: {}".format(
-                    shipping_address.value, shipping_address.confidence
-                )
-            )
-        shipping_address_recipient = invoice.fields.get("ShippingAddressRecipient")
-        if shipping_address_recipient:
-            print(
-                "Shipping Address Recipient: {} has confidence: {}".format(
-                    shipping_address_recipient.value,
-                    shipping_address_recipient.confidence,
-                )
-            )
-        print("Invoice items:")
-        for idx, item in enumerate(invoice.fields.get("Items").value):
-            print("...Item #{}".format(idx + 1))
-            item_description = item.value.get("Description")
-            if item_description:
-                print(
-                    "......Description: {} has confidence: {}".format(
-                        item_description.value, item_description.confidence
+    result: AnalyzeResult = poller.result()
+
+    if invoices.documents:
+        for idx, invoice in enumerate(invoices.documents):
+            print(f"--------Analyzing invoice #{idx + 1}--------")
+            if invoice.fields:
+                vendor_name = invoice.fields.get("VendorName")
+                if vendor_name:
+                    print(f"Vendor Name: {vendor_name.get('content')} has confidence: {vendor_name.get('confidence')}")
+                vendor_address = invoice.fields.get("VendorAddress")
+                if vendor_address:
+                    print(
+                        f"Vendor Address: {vendor_address.get('content')} has confidence: {vendor_address.get('confidence')}"
                     )
-                )
-            item_quantity = item.value.get("Quantity")
-            if item_quantity:
-                print(
-                    "......Quantity: {} has confidence: {}".format(
-                        item_quantity.value, item_quantity.confidence
+                vendor_address_recipient = invoice.fields.get("VendorAddressRecipient")
+                if vendor_address_recipient:
+                    print(
+                        f"Vendor Address Recipient: {vendor_address_recipient.get('content')} has confidence: {vendor_address_recipient.get('confidence')}"
                     )
-                )
-            unit = item.value.get("Unit")
-            if unit:
-                print(
-                    "......Unit: {} has confidence: {}".format(
-                        unit.value, unit.confidence
+                customer_name = invoice.fields.get("CustomerName")
+                if customer_name:
+                    print(
+                        f"Customer Name: {customer_name.get('content')} has confidence: {customer_name.get('confidence')}"
                     )
-                )
-            unit_price = item.value.get("UnitPrice")
-            if unit_price:
-                print(
-                    "......Unit Price: {} has confidence: {}".format(
-                        unit_price.value, unit_price.confidence
+                customer_id = invoice.fields.get("CustomerId")
+                if invoice_id:
+                    print(f"Invoice Id: {invoice_id.get('content')} has confidence: {invoice_id.get('confidence')}")
+                invoice_date = invoice.fields.get("InvoiceDate")
+                if invoice_date:
+                    print(
+                        f"Invoice Date: {invoice_date.get('content')} has confidence: {invoice_date.get('confidence')}"
                     )
-                )
-            product_code = item.value.get("ProductCode")
-            if product_code:
-                print(
-                    "......Product Code: {} has confidence: {}".format(
-                        product_code.value, product_code.confidence
+                invoice_total = invoice.fields.get("InvoiceTotal")
+                if invoice_total:
+                    print(
+                        f"Invoice Total: {invoice_total.get('content')} has confidence: {invoice_total.get('confidence')}"
                     )
-                )
-            item_date = item.value.get("Date")
-            if item_date:
-                print(
-                    "......Date: {} has confidence: {}".format(
-                        item_date.value, item_date.confidence
+                due_date = invoice.fields.get("DueDate")
+                if due_date:
+                    print(f"Due Date: {due_date.get('content')} has confidence: {due_date.get('confidence')}")
+                purchase_order = invoice.fields.get("PurchaseOrder")
+                if purchase_order:
+                    print(
+                        f"Purchase Order: {purchase_order.get('content')} has confidence: {purchase_order.get('confidence')}"
                     )
-                )
-            tax = item.value.get("Tax")
-            if tax:
-                print(
-                    "......Tax: {} has confidence: {}".format(tax.value, tax.confidence)
-                )
-            amount = item.value.get("Amount")
-            if amount:
-                print(
-                    "......Amount: {} has confidence: {}".format(
-                        amount.value, amount.confidence
+                billing_address = invoice.fields.get("BillingAddress")
+                if billing_address:
+                    print(
+                        f"Billing Address: {billing_address.get('content')} has confidence: {billing_address.get('confidence')}"
                     )
-                )
-        subtotal = invoice.fields.get("SubTotal")
-        if subtotal:
-            print(
-                "Subtotal: {} has confidence: {}".format(
-                    subtotal.value, subtotal.confidence
-                )
-            )
-        total_tax = invoice.fields.get("TotalTax")
-        if total_tax:
-            print(
-                "Total Tax: {} has confidence: {}".format(
-                    total_tax.value, total_tax.confidence
-                )
-            )
-        previous_unpaid_balance = invoice.fields.get("PreviousUnpaidBalance")
-        if previous_unpaid_balance:
-            print(
-                "Previous Unpaid Balance: {} has confidence: {}".format(
-                    previous_unpaid_balance.value, previous_unpaid_balance.confidence
-                )
-            )
-        amount_due = invoice.fields.get("AmountDue")
-        if amount_due:
-            print(
-                "Amount Due: {} has confidence: {}".format(
-                    amount_due.value, amount_due.confidence
-                )
-            )
-        service_start_date = invoice.fields.get("ServiceStartDate")
-        if service_start_date:
-            print(
-                "Service Start Date: {} has confidence: {}".format(
-                    service_start_date.value, service_start_date.confidence
-                )
-            )
-        service_end_date = invoice.fields.get("ServiceEndDate")
-        if service_end_date:
-            print(
-                "Service End Date: {} has confidence: {}".format(
-                    service_end_date.value, service_end_date.confidence
-                )
-            )
-        service_address = invoice.fields.get("ServiceAddress")
-        if service_address:
-            print(
-                "Service Address: {} has confidence: {}".format(
-                    service_address.value, service_address.confidence
-                )
-            )
-        service_address_recipient = invoice.fields.get("ServiceAddressRecipient")
-        if service_address_recipient:
-            print(
-                "Service Address Recipient: {} has confidence: {}".format(
-                    service_address_recipient.value,
-                    service_address_recipient.confidence,
-                )
-            )
-        remittance_address = invoice.fields.get("RemittanceAddress")
-        if remittance_address:
-            print(
-                "Remittance Address: {} has confidence: {}".format(
-                    remittance_address.value, remittance_address.confidence
-                )
-            )
-        remittance_address_recipient = invoice.fields.get("RemittanceAddressRecipient")
-        if remittance_address_recipient:
-            print(
-                "Remittance Address Recipient: {} has confidence: {}".format(
-                    remittance_address_recipient.value,
-                    remittance_address_recipient.confidence,
-                )
-            )
+                billing_address_recipient = invoice.fields.get("BillingAddressRecipient")
+                if billing_address_recipient:
+                    print(
+                        f"Billing Address Recipient: {billing_address_recipient.get('content')} has confidence: {billing_address_recipient.get('confidence')}"
+                    )
+                shipping_address = invoice.fields.get("ShippingAddress")
+                if shipping_address:
+                    print(
+                        f"Shipping Address: {shipping_address.get('content')} has confidence: {shipping_address.get('confidence')}"
+                    )
+                shipping_address_recipient = invoice.fields.get("ShippingAddressRecipient")
+                if shipping_address_recipient:
+                    print(
+                        f"Shipping Address Recipient: {shipping_address_recipient.get('content')} has confidence: {shipping_address_recipient.get('confidence')}"
+                    )
+                print("Invoice items:")
+                items = invoice.fields.get("Items")
+                if items:
+                    for idx, item in enumerate(items.get("valueArray")):
+                        print(f"...Item #{idx + 1}")
+                        item_description = item.get("valueObject").get("Description")
+                        if item_description:
+                            print(
+                                f"......Description: {item_description.get('content')} has confidence: {item_description.get('confidence')}"
+                            )
+                        item_quantity = item.get("valueObject").get("Quantity")
+                        if item_quantity:
+                            print(
+                                f"......Quantity: {item_quantity.get('content')} has confidence: {item_quantity.get('confidence')}"
+                            )
+                        unit = item.get("valueObject").get("Unit")
+                        if unit:
+                            print(f"......Unit: {unit.get('content')} has confidence: {unit.get('confidence')}")
+                        unit_price = item.get("valueObject").get("UnitPrice")
+                        if unit_price:
+                            unit_price_code = (
+                                unit_price.get("valueCurrency").get("currencyCode")
+                                if unit_price.get("valueCurrency").get("currencyCode")
+                                else ""
+                            )
+                            print(
+                                f"......Unit Price: {unit_price.get('content')}{unit_price_code} has confidence: {unit_price.get('confidence')}"
+                            )
+                        product_code = item.get("valueObject").get("ProductCode")
+                        if product_code:
+                            print(
+                                f"......Product Code: {product_code.get('content')} has confidence: {product_code.get('confidence')}"
+                            )
+                        item_date = item.get("valueObject").get("Date")
+                        if item_date:
+                            print(
+                                f"......Date: {item_date.get('content')} has confidence: {item_date.get('confidence')}"
+                            )
+                        tax = item.get("valueObject").get("Tax")
+                        if tax:
+                            print(f"......Tax: {tax.get('content')} has confidence: {tax.get('confidence')}")
+                        amount = item.get("valueObject").get("Amount")
+                        if amount:
+                            print(f"......Amount: {amount.get('content')} has confidence: {amount.get('confidence')}")
+                subtotal = invoice.fields.get("SubTotal")
+                if subtotal:
+                    print(f"Subtotal: {subtotal.get('content')} has confidence: {subtotal.get('confidence')}")
+                total_tax = invoice.fields.get("TotalTax")
+                if total_tax:
+                    print(f"Total Tax: {total_tax.get('content')} has confidence: {total_tax.get('confidence')}")
+                previous_unpaid_balance = invoice.fields.get("PreviousUnpaidBalance")
+                if previous_unpaid_balance:
+                    print(
+                        f"Previous Unpaid Balance: {previous_unpaid_balance.get('content')} has confidence: {previous_unpaid_balance.get('confidence')}"
+                    )
+                amount_due = invoice.fields.get("AmountDue")
+                if amount_due:
+                    print(f"Amount Due: {amount_due.get('content')} has confidence: {amount_due.get('confidence')}")
+                service_start_date = invoice.fields.get("ServiceStartDate")
+                if service_start_date:
+                    print(
+                        f"Service Start Date: {service_start_date.get('content')} has confidence: {service_start_date.get('confidence')}"
+                    )
+                service_end_date = invoice.fields.get("ServiceEndDate")
+                if service_end_date:
+                    print(
+                        f"Service End Date: {service_end_date.get('content')} has confidence: {service_end_date.get('confidence')}"
+                    )
+                service_address = invoice.fields.get("ServiceAddress")
+                if service_address:
+                    print(
+                        f"Service Address: {service_address.get('content')} has confidence: {service_address.get('confidence')}"
+                    )
+                service_address_recipient = invoice.fields.get("ServiceAddressRecipient")
+                if service_address_recipient:
+                    print(
+                        f"Service Address Recipient: {service_address_recipient.get('content')} has confidence: {service_address_recipient.get('confidence')}"
+                    )
+                remittance_address = invoice.fields.get("RemittanceAddress")
+                if remittance_address:
+                    print(
+                        f"Remittance Address: {remittance_address.get('content')} has confidence: {remittance_address.get('confidence')}"
+                    )
+                remittance_address_recipient = invoice.fields.get("RemittanceAddressRecipient")
+                if remittance_address_recipient:
+                    print(
+                        f"Remittance Address Recipient: {remittance_address_recipient.get('content')} has confidence: {remittance_address_recipient.get('confidence')}"
+                    )
+
 
         print("----------------------------------------")
 
@@ -1008,6 +635,9 @@ if __name__ == "__main__":
     analyze_invoice()
 
 ```
+
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_invoices.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model)
 
 Visit the Azure samples repository on GitHub and view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/invoice-model-output.md).
 
@@ -1031,81 +661,75 @@ def analyze_receipts():
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
     poller = client.begin_analyze_document(
-        "prebuilt-receipt", receiptUrl, locale="en-US"
+        "prebuilt-receipt", AnalyzeDocumentRequest(url_source=receiptUrl), locale="en-US"
     )
-    receipts = poller.result()
-    for idx, receipt in enumerate(receipts.documents):
-         print("--------Analysis of receipt #{}--------".format(idx   1))
-        print("Receipt type: {}".format(receipt.doc_type or "N/A"))
-        merchant_name = receipt.fields.get("MerchantName")
-        if merchant_name:
-            print(
-                "Merchant Name: {} has confidence: {}".format(
-                    merchant_name.value, merchant_name.confidence
-                )
-            )
-        transaction_date = receipt.fields.get("TransactionDate")
-        if transaction_date:
-            print(
-                "Transaction Date: {} has confidence: {}".format(
-                    transaction_date.value, transaction_date.confidence
-                )
-            )
-        if receipt.fields.get("Items"):
-            print("Receipt items:")
-            for idx, item in enumerate(receipt.fields.get("Items").value):
-                 print("...Item #{}".format(idx   1))
-                item_description = item.value.get("Description")
-                if item_description:
+    receipts: AnalyzeResult = poller.result()
+
+    if receipts.documents:
+        for idx, receipt in enumerate(receipts.documents):
+            print(f"--------Analysis of receipt #{idx + 1}--------")
+            print(f"Receipt type: {receipt.doc_type if receipt.doc_type else 'N/A'}")
+            if receipt.fields:
+                merchant_name = receipt.fields.get("MerchantName")
+                if merchant_name:
                     print(
-                        "......Item Description: {} has confidence: {}".format(
-                            item_description.value, item_description.confidence
-                        )
+                        f"Merchant Name: {merchant_name.get('valueString')} has confidence: "
+                        f"{merchant_name.confidence}"
                     )
-                item_quantity = item.value.get("Quantity")
-                if item_quantity:
+                transaction_date = receipt.fields.get("TransactionDate")
+                if transaction_date:
                     print(
-                        "......Item Quantity: {} has confidence: {}".format(
-                            item_quantity.value, item_quantity.confidence
-                        )
+                        f"Transaction Date: {transaction_date.get('valueDate')} has confidence: "
+                        f"{transaction_date.confidence}"
                     )
-                item_price = item.value.get("Price")
-                if item_price:
+                items = receipt.fields.get("Items")
+                if items:
+                    print("Receipt items:")
+                    for idx, item in enumerate(items.get("valueArray")):
+                        print(f"...Item #{idx + 1}")
+                        item_description = item.get("valueObject").get("Description")
+                        if item_description:
+                            print(
+                                f"......Item Description: {item_description.get('valueString')} has confidence: "
+                                f"{item_description.confidence}"
+                            )
+                        item_quantity = item.get("valueObject").get("Quantity")
+                        if item_quantity:
+                            print(
+                                f"......Item Quantity: {item_quantity.get('valueString')} has confidence: "
+                                f"{item_quantity.confidence}"
+                            )
+                        item_total_price = item.get("valueObject").get("TotalPrice")
+                        if item_total_price:
+                            print(
+                                f"......Total Item Price: {format_price(item_total_price.get('valueCurrency'))} has confidence: "
+                                f"{item_total_price.confidence}"
+                            )
+                subtotal = receipt.fields.get("Subtotal")
+                if subtotal:
                     print(
-                        "......Individual Item Price: {} has confidence: {}".format(
-                            item_price.value, item_price.confidence
-                        )
+                        f"Subtotal: {format_price(subtotal.get('valueCurrency'))} has confidence: {subtotal.confidence}"
                     )
-                item_total_price = item.value.get("TotalPrice")
-                if item_total_price:
-                    print(
-                        "......Total Item Price: {} has confidence: {}".format(
-                            item_total_price.value, item_total_price.confidence
-                        )
-                    )
-        subtotal = receipt.fields.get("Subtotal")
-        if subtotal:
-            print(
-                "Subtotal: {} has confidence: {}".format(
-                    subtotal.value, subtotal.confidence
-                )
-            )
-        tax = receipt.fields.get("TotalTax")
-        if tax:
-            print("Total tax: {} has confidence: {}".format(tax.value, tax.confidence))
-        tip = receipt.fields.get("Tip")
-        if tip:
-            print("Tip: {} has confidence: {}".format(tip.value, tip.confidence))
-        total = receipt.fields.get("Total")
-        if total:
-            print("Total: {} has confidence: {}".format(total.value, total.confidence))
-        print("--------------------------------------")
+                tax = receipt.fields.get("TotalTax")
+                if tax:
+                    print(f"Total tax: {format_price(tax.get('valueCurrency'))} has confidence: {tax.confidence}")
+                tip = receipt.fields.get("Tip")
+                if tip:
+                    print(f"Tip: {format_price(tip.get('valueCurrency'))} has confidence: {tip.confidence}")
+                total = receipt.fields.get("Total")
+                if total:
+                    print(f"Total: {format_price(total.get('valueCurrency'))} has confidence: {total.confidence}")
+            print("--------------------------------------")
+
 
 
 if __name__ == "__main__":
     analyze_receipts()
 
 ```
+
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_receipts.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model)
 
 Visit the Azure samples repository on GitHub and view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/receipt-model-output.md).
 
@@ -1130,67 +754,46 @@ def analyze_identity_documents():
     )
 
     poller =client.begin_analyze_document(
-            "prebuilt-idDocument", identityUrl
+            "prebuilt-idDocument", AnalyzeDocumentRequest(url_source=identityUrl)
         )
-    id_documents = poller.result()
+     id_documents: AnalyzeResult = poller.result()
 
-    for idx, id_document in enumerate(id_documents.documents):
-        print("--------Analyzing ID document #{}--------".format(idx + 1))
-        first_name = id_document.fields.get("FirstName")
-        if first_name:
-            print(
-                "First Name: {} has confidence: {}".format(
-                    first_name.value, first_name.confidence
-                )
-            )
-        last_name = id_document.fields.get("LastName")
-        if last_name:
-            print(
-                "Last Name: {} has confidence: {}".format(
-                    last_name.value, last_name.confidence
-                )
-            )
-        document_number = id_document.fields.get("DocumentNumber")
-        if document_number:
-            print(
-                "Document Number: {} has confidence: {}".format(
-                    document_number.value, document_number.confidence
-                )
-            )
-        dob = id_document.fields.get("DateOfBirth")
-        if dob:
-            print(
-                "Date of Birth: {} has confidence: {}".format(dob.value, dob.confidence)
-            )
-        doe = id_document.fields.get("DateOfExpiration")
-        if doe:
-            print(
-                "Date of Expiration: {} has confidence: {}".format(
-                    doe.value, doe.confidence
-                )
-            )
-        sex = id_document.fields.get("Sex")
-        if sex:
-            print("Sex: {} has confidence: {}".format(sex.value, sex.confidence))
-        address = id_document.fields.get("Address")
-        if address:
-            print(
-                "Address: {} has confidence: {}".format(
-                    address.value, address.confidence
-                )
-            )
-        country_region = id_document.fields.get("CountryRegion")
-        if country_region:
-            print(
-                "Country/Region: {} has confidence: {}".format(
-                    country_region.value, country_region.confidence
-                )
-            )
-        region = id_document.fields.get("Region")
-        if region:
-            print(
-                "Region: {} has confidence: {}".format(region.value, region.confidence)
-            )
+    if id_documents.documents:
+        for idx, id_document in enumerate(id_documents.documents):
+            print(f"--------Analyzing ID document #{idx + 1}--------")
+            if id_document.fields:
+                first_name = id_document.fields.get("FirstName")
+                if first_name:
+                    print(f"First Name: {first_name.get('valueString')} has confidence: {first_name.confidence}")
+                last_name = id_document.fields.get("LastName")
+                if last_name:
+                    print(f"Last Name: {last_name.get('valueString')} has confidence: {last_name.confidence}")
+                document_number = id_document.fields.get("DocumentNumber")
+                if document_number:
+                    print(
+                        f"Document Number: {document_number.get('valueString')} has confidence: {document_number.confidence}"
+                    )
+                dob = id_document.fields.get("DateOfBirth")
+                if dob:
+                    print(f"Date of Birth: {dob.get('valueDate')} has confidence: {dob.confidence}")
+                doe = id_document.fields.get("DateOfExpiration")
+                if doe:
+                    print(f"Date of Expiration: {doe.get('valueDate')} has confidence: {doe.confidence}")
+                sex = id_document.fields.get("Sex")
+                if sex:
+                    print(f"Sex: {sex.get('valueString')} has confidence: {sex.confidence}")
+                address = id_document.fields.get("Address")
+                if address:
+                    print(f"Address: {address.get('valueString')} has confidence: {address.confidence}")
+                country_region = id_document.fields.get("CountryRegion")
+                if country_region:
+                    print(
+                        f"Country/Region: {country_region.get('valueCountryRegion')} has confidence: {country_region.confidence}"
+                    )
+                region = id_document.fields.get("Region")
+                if region:
+                    print(f"Region: {region.get('valueString')} has confidence: {region.confidence}")
+
 
         print("--------------------------------------")
 
@@ -1198,5 +801,8 @@ if __name__ == "__main__":
     analyze_identity_documents()
 
 ```
+
+> [!div class="nextstepaction"]
+> [View complete code on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_identity_documents.py) [More samples](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model)
 
 Visit the Azure samples repository on GitHub and view the [ID document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/id-document-output.md).

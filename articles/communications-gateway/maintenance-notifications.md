@@ -3,7 +3,7 @@ title: Check for Azure Communications Gateway upgrades and maintenance
 description: Learn how to use Azure Service Health to check for upgrades and maintenance notifications for Azure Communications Gateway.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: concept-article
 ms.date: 04/10/2024
 
@@ -12,19 +12,25 @@ ms.date: 04/10/2024
 
 # Maintenance notifications for Azure Communications Gateway
 
-We manage Azure Communications Gateway for you, including upgrades and maintenance activities.
+We manage Azure Communications Gateway for you, including upgrades and maintenance activities. Planned upgrades and maintenance activities happen outside your business hours.
 
 Azure Communications Gateway is integrated with [Azure Service Health](/azure/service-health/overview). We use Azure Service Health's service health notifications to inform you of upcoming upgrades and scheduled maintenance activities.
 
 You must monitor Azure Service Health and enable alerts for notifications about planned maintenance.
 
-## Viewing information about upgrades
+## Viewing information about upgrades and maintenance activities
 
-To view information about upcoming upgrades, sign in to the [Azure portal](https://portal.azure.com/), and select **Monitor** followed by  **Service Health**. The Azure portal displays a list of notifications. Notifications about upgrades and other maintenance activities are listed under **Planned maintenance**.
+To view information about upcoming upgrades and maintenance activities, sign in to the [Azure portal](https://portal.azure.com/), and select **Monitor** followed by  **Service Health**. The Azure portal displays a list of notifications. Notifications about upgrades and other maintenance activities are listed under **Planned maintenance**.
 
 :::image type="content" source="media/maintenance-notifications/planned-maintenance-list.png" alt-text="Screenshot of a list of planned maintenance notifications in the Azure portal." lightbox="media/maintenance-notifications/planned-maintenance-list.png":::
 
-To view more information about a notification, select it. Each notification provides more details about the upgrade, including any expected impact.
+To view more information about an upgrade or other maintenance activity, select the notification. The notification provides more details, including the:
+
+- Affected region or regions.
+- Start and end times.
+- Type of activity and/or change.
+- Expected impact.
+- Recommended actions for you.
 
 :::image type="content" source="media/maintenance-notifications/maintenance-notification.png" alt-text="Screenshot of an upgrade notification in the Azure portal." lightbox="media/maintenance-notifications/maintenance-notification.png":::
 

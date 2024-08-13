@@ -23,7 +23,7 @@ To get the predicted answer to a user's question, use the GenerateAnswer API. Wh
 
 ## Get answer predictions with the GenerateAnswer API
 
-You use the [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) in your bot or application to query your knowledge base with a user question, to get the best match from the question and answer pairs.
+You use the [GenerateAnswer API](/rest/api/qnamaker/runtime/generate-answer) in your bot or application to query your knowledge base with a user question, to get the best match from the question and answer pairs.
 
 > [!NOTE]
 > This documentation does not apply to the latest release. To learn about using the latest question answering APIs consult the [question answering quickstart guide](../../language-service/question-answering/quickstart/sdk.md).
@@ -32,7 +32,7 @@ You use the [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/run
 
 ## Publish to get GenerateAnswer endpoint
 
-After you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or by using the [API](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), you can get the details of your GenerateAnswer endpoint.
+After you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or by using the [API](/rest/api/qnamaker/knowledgebase/publish), you can get the details of your GenerateAnswer endpoint.
 
 To get your endpoint details:
 1. Sign in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -52,9 +52,9 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
 
 The POST request uses:
 
-* Required [URI parameters](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Required [URI parameters](/rest/api/qnamaker/runtime/train#uri-parameters)
 * Required header property, `Authorization`, for security
-* Required [body properties](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto).
+* Required [body properties](/rest/api/qnamaker/runtime/train#feedbackrecorddto).
 
 The GenerateAnswer URL has the following format:
 
@@ -90,7 +90,7 @@ The previous JSON requested only answers that are at 30% or above the threshold 
 
 ## GenerateAnswer response properties
 
-The [response](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) is a JSON object including all the information you need to display the answer and the next turn in the conversation, if available.
+The [response](/rest/api/qnamaker/runtime/generate-answer#successful-query) is a JSON object including all the information you need to display the answer and the next turn in the conversation, if available.
 
 ```json
 {

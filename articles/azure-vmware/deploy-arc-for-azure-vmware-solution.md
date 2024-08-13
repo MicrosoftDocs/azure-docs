@@ -3,7 +3,7 @@ title: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 5/9/2024
+ms.date: 05/15/2024
 ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 ---
 
@@ -144,7 +144,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     - VMware vCenter Server
 
 > [!IMPORTANT]
-> After the successful installation of Azure Arc resource bridge, it's recommended to retain a copy of the resource bridge config.yaml files and the kubeconfig file safe and secure them in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations on the resource bridge. You can find the 3 .yaml files (config files) and the kubeconfig file in the same folder where you ran the script.
+> After the successful installation of Azure Arc Resource Bridge, it's recommended to retain a copy of the resource bridge config.yaml files in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations (e.g. [az arcappliance upgrade](/cli/azure/arcappliance/upgrade#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three .yaml files (config files) in the same folder where you ran the script.
 
 When the script is run successfully, check the status to see if Azure Arc is now configured. To verify if your private cloud is Arc-enabled, do the following actions:
 
@@ -235,5 +235,6 @@ az connectedvmware vm create --subscription <subscription-id> --location <Azure 
 
 ### Next Steps
 
-To manage Arc-enabled Azure VMware Solution go to: [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
-To remove Arc-enabled  Azure VMware Solution resources from Azure go to: [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution.](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)
+- To manage Arc-enabled Azure VMware Solution go to: [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
+
+- To remove Arc-enabled  Azure VMware Solution resources from Azure go to: [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution.](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)

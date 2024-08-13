@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 # ms.devlang: csharp, java
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 05/24/2024
 ms.author: mametcal
 ms.custom: devx-track-azurecli
 
@@ -164,6 +164,10 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_RE
 > - `spring-cloud-azure-appconfiguration-config-web`
 > - `spring-cloud-azure-starter-appconfiguration-config`
 
+### [Kubernetes](#tab/kubernetes)
+
+Not available.
+
 ---
 
 The failover may occur if the App Configuration provider observes the following conditions.
@@ -179,7 +183,7 @@ You can specify one or more endpoints of a geo-replication-enabled App Configura
 
 The automatically discovered replicas will be selected and used randomly. If you have a preference for specific replicas, you can explicitly specify their endpoints. This feature is enabled by default, but you can refer to the following sample code to disable it.
 
-### [.NET](#tab/Dotnet)
+### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
 
@@ -198,6 +202,20 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
+
+### [Java Spring](#tab/spring)
+
+Specify the `replicaDiscoveryEnabled` property in the `bootstrap.properties` file of your application.
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false
+```
+
+> [!NOTE]
+> The automatic replica discovery support is available if you use version **5.11.0** or later of any of the following packages.
+> - `spring-cloud-azure-appconfiguration-config`
+> - `spring-cloud-azure-appconfiguration-config-web`
+> - `spring-cloud-azure-starter-appconfiguration-config`
 
 ### [Kubernetes](#tab/kubernetes)
 

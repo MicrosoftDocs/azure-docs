@@ -1,20 +1,21 @@
 ---
 title: Use a service principal with Spark
 titleSuffix: Azure Cosmos DB for NoSQL
-description: Use a Microsoft Entra service principal to authenticate to Azure Cosmos DB for NoSQL from Spark.
+description: Learn how to use a Microsoft Entra service principal to authenticate to Azure Cosmos DB for NoSQL from Spark.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 04/01/2024
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r-csharp
-#CustomerIntent: As a data scientist, I want to connect to Azure Cosmos DB for NoSQL using Spark and a service principal, so that I can avoid using connection strings.
+#CustomerIntent: As a data scientist, I want to connect to Azure Cosmos DB for NoSQL by using Spark and a service principal so that I can avoid using connection strings.
 ---
 
 # Use a service principal with the Spark 3 connector for Azure Cosmos DB for NoSQL
 
-In this article, you learn how to create a Microsoft Entra application and service principal that can be used with the role-based access control. You can then use this service principal to connect to an Azure Cosmos DB for NoSQL account from Spark 3.
+In this article, you learn how to create a Microsoft Entra application and service principal that can be used with role-based access control. You can then use this service principal to connect to an Azure Cosmos DB for NoSQL account from Spark 3.
 
 ## Prerequisites
 
@@ -22,30 +23,30 @@ In this article, you learn how to create a Microsoft Entra application and servi
   - If you have an existing Azure subscription, [create a new account](how-to-create-account.md?tabs=azure-portal).
   - No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
 - An existing Azure Databricks workspace.
-- Registered Microsoft Entra application and service principal
-  - If you don't have a service principal and application, [register an application using the Azure portal](/entra/identity-platform/howto-create-service-principal-portal).
+- Registered Microsoft Entra application and service principal.
+  - If you don't have a service principal and application, [register an application by using the Azure portal](/entra/identity-platform/howto-create-service-principal-portal).
 
-## Create secret and record credentials
+## Create a secret and record credentials
 
-In this section we will create a client secret and record the value for use later. 
+In this section, you create a client secret and record the value for use later.
 
-1. Open the Azure portal (<https://portal.azure.com>).
+1. Open the [Azure portal](<https://portal.azure.com>).
 
-1. Navigate to your existing Microsoft Entra application.
+1. Go to your existing Microsoft Entra application.
 
-1. Navigate to the **Certificates & secrets** page. Then, create a new secret. Save the **Client Secret** value to use later in this guide.
+1. Go to the **Certificates & secrets** page. Then, create a new secret. Save the **Client Secret** value to use later in this article.
 
-1. Navigate to the **Overview** page. Locate and record the values for **Application (client) ID**, **Object ID**, and **Directory (tenant) ID**. You also use these values later in this guide.
+1. Go to the **Overview** page. Locate and record the values for **Application (client) ID**, **Object ID**, and **Directory (tenant) ID**. You also use these values later in this article.
 
-1. Navigate to your existing Azure Cosmos DB for NoSQL account.
+1. Go to your existing Azure Cosmos DB for NoSQL account.
 
-1. Record the **URI** value in the **Overview** page. Also record the **Subscription ID** and **Resource Group** values. You' use these values too later in this guide.
+1. Record the **URI** value on the **Overview** page. Also record the **Subscription ID** and **Resource Group** values. You use these values later in this article.
 
-## Create definition and assignment
+## Create a definition and an assignment
 
-In this section we will create a Microsoft Entra ID role definition and assign that role with permissions to read and write items in the containers.
+In this section, you create a Microsoft Entra ID role definition. Then you assign that role with permissions to read and write items in the containers.
 
-1. Create a role using the `az role definition create` command. Pass in the Azure Cosmos DB for NoSQL account name and resource group, followed by a body of JSON that defines the custom role. The role is also scoped to the account level using `/`. Ensure that you provide a unique name for your role using the `RoleName` property of the request body.
+1. Create a role by using the `az role definition create` command. Pass in the Azure Cosmos DB for NoSQL account name and resource group, followed by a body of JSON that defines the custom role. The role is also scoped to the account level by using `/`. Ensure that you provide a unique name for your role by using the `RoleName` property of the request body.
 
     ```azurecli
     az cosmosdb sql role definition create \
@@ -94,7 +95,7 @@ In this section we will create a Microsoft Entra ID role definition and assign t
     ]
     ```
 
-1. Use `az cosmosdb sql role assignment create` to create a role assignment. Replace the`<aad-principal-id>` with the **Object ID** you recorded earlier in this guide. Also, replace `<role-definition-id>` with the `id` value fetched from running the `az cosmosdb sql role definition list` command in a previous step.
+1. Use `az cosmosdb sql role assignment create` to create a role assignment. Replace `<aad-principal-id>` with the **Object ID** you recorded earlier in this article. Also, replace `<role-definition-id>` with the `id` value fetched from running the `az cosmosdb sql role definition list` command in a previous step.
 
     ```azurecli
     az cosmosdb sql role assignment create \
@@ -105,26 +106,26 @@ In this section we will create a Microsoft Entra ID role definition and assign t
         --role-definition-id "<role-definition-id>"
     ```
 
-## Use service principal
+## Use a service principal
 
-Now that you created a Microsoft Entra application and service principal, created a custom role, and assigned that role permissions to your Azure Cosmos DB for NoSQL account, you should be able to run a notebook.
+Now that you've created a Microsoft Entra application and service principal, created a custom role, and assigned that role permissions to your Azure Cosmos DB for NoSQL account, you should be able to run a notebook.
 
 1. Open your Azure Databricks workspace.
 
 1. In the workspace interface, create a new **cluster**. Configure the cluster with these settings, at a minimum:
 
-    | | **Value** |
+    | Version | Value |
     | --- | --- |
-    | **Runtime version** | `13.3 LTS (Scala 2.12, Spark 3.4.1)` |
+    | Runtime version | `13.3 LTS (Scala 2.12, Spark 3.4.1)` |
 
-1. Use the workspace interface to search for **Maven** packages from **Maven Central** with a **Group Id** of `com.azure.cosmos.spark`. Install the package specific for Spark 3.4 with an **Artifact Id** prefixed with `azure-cosmos-spark_3-4` to the cluster.
+1. Use the workspace interface to search for **Maven** packages from **Maven Central** with a **Group ID** of `com.azure.cosmos.spark`. Install the package specifically for Spark 3.4 with an **Artifact ID** prefixed with `azure-cosmos-spark_3-4` to the cluster.
 
 1. Finally, create a new **notebook**.
 
     > [!TIP]
-    > By default, the notebook will be attached to the recently created cluster.
+    > By default, the notebook is attached to the recently created cluster.
 
-1. Within the notebook, set Cosmos DB Spark Connector configuration settings for NoSQL account endpoint, database name, and container name. Use the **Subscription ID**, **Resource Group**, **Application (client) ID**, **Directory (tenant) ID**, and **Client Secret** values recorded earlier in this guide.
+1. Within the notebook, set Azure Cosmos DB Spark connector configuration settings for the NoSQL account endpoint, database name, and container name. Use the **Subscription ID**, **Resource Group**, **Application (client) ID**, **Directory (tenant) ID**, and **Client Secret** values recorded earlier in this article.
 
     ::: zone pivot="programming-language-python"
 
@@ -164,7 +165,7 @@ Now that you created a Microsoft Entra application and service principal, create
 
     ::: zone-end
 
-1. Configure the Catalog API to manage API for NoSQL resources using Spark.
+1. Configure the Catalog API to manage API for NoSQL resources by using Spark.
 
     ::: zone pivot="programming-language-python"
 
@@ -198,7 +199,7 @@ Now that you created a Microsoft Entra application and service principal, create
 
     ::: zone-end
 
-1. Create a new database using `CREATE DATABASE IF NOT EXISTS`. Ensure that you provide your database name.
+1. Create a new database by using `CREATE DATABASE IF NOT EXISTS`. Ensure that you provide your database name.
 
     ::: zone pivot="programming-language-python"
 
@@ -218,7 +219,7 @@ Now that you created a Microsoft Entra application and service principal, create
 
     ::: zone-end
 
-1. Create a new container using database name, container name, partition key path, and throughput values that you specify.
+1. Create a new container by using the database name, container name, partition key path, and throughput values that you specify.
 
     ::: zone pivot="programming-language-python"
 
@@ -238,7 +239,7 @@ Now that you created a Microsoft Entra application and service principal, create
 
     ::: zone-end
 
-1. Create a sample data set.
+1. Create a sample dataset.
 
     ::: zone pivot="programming-language-python"
 
@@ -264,7 +265,7 @@ Now that you created a Microsoft Entra application and service principal, create
 
     ::: zone-end
 
-1. Use `spark.createDataFrame` and the previously saved OLTP configuration to add sample data to the target container.
+1. Use `spark.createDataFrame` and the previously saved online transaction processing (OLTP) configuration to add sample data to the target container.
 
     ::: zone pivot="programming-language-python"
 
@@ -297,7 +298,7 @@ Now that you created a Microsoft Entra application and service principal, create
     ::: zone-end
 
     > [!TIP]
-    > In this quickstart example credentials are assigned to variables in clear-text, but for security we recommend the usage of secrets. For more information on configuring secrets, see [add secrets to your Spark configuration](/azure/databricks/security/secrets/secrets#read-a-secret).
+    > In this quickstart example, credentials are assigned to variables in clear text. For security, we recommend that you use secrets. For more information on how to configure secrets, see [Add secrets to your Spark configuration](/azure/databricks/security/secrets/secrets#read-a-secret).
 
 ## Related content
 

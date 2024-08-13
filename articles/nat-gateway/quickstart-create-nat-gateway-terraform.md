@@ -5,7 +5,7 @@ description: 'In this article, you create an Azure Virtual Machine with a NAT Ga
 ms.topic: quickstart
 ms.date: 02/21/2024
 ms.custom: devx-track-terraform
-ms.service: virtual-network
+ms.service: azure-virtual-network
 author: asudbring
 ms.author: allensu
 content_well_notification: 
@@ -24,7 +24,7 @@ As with the public key, the names of the created resource group, virtual network
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
-:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart.":::
+:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
 
 ## Prerequisites
 

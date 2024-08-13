@@ -8,8 +8,8 @@ metadata:
   description: Azure Custom Resource Providers is an extensibility platform to Azure that enables you to define custom APIs.
   ms.service: azure-custom-providers
   ms.topic: landing-page
-  author: davidsmatlak
-  ms.author: davidsmatlak
+  author: MSEvanhi
+  ms.author: evanhi
   ms.date: 01/02/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

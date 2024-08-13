@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22
 
 # Specify Marketplace images available to lab creators
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]

@@ -3,9 +3,7 @@ title: Stream database backups using Oracle Recovery Manager
 description: Streaming database backups using Oracle Recovery Manager (RMAN). 
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: virtual-machines
-ms.subservice: oracle
-ms.collection: oracle
+ms.service: oracle-on-azure
 ms.topic: article
 ms.date: 06/5/2023
 ---
@@ -94,7 +92,7 @@ Each of these options has advantages or disadvantages in the areas of capacity, 
 
 <sup>10</sup> I/O throughput of 128 MiB/s per TiB allocated.
 
-<sup>11</sup> [ANF calculator](https://anftechteam.github.io/calc/) is useful for quick pricing calculations.
+<sup>11</sup> [Azure NetApp Files Performance Calculator](https://aka.ms/anfcalc) is useful for quick pricing calculations.
 
 ## Next steps
 [Oracle performance best practices for Azure VMs](oracle-performance-best-practice.md)

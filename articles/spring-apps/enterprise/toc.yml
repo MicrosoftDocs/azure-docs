@@ -29,6 +29,8 @@ items:
     href: quickstart-deploy-web-app.md?pivots=sc-enterprise
   - name: Launch your first RESTful API app
     href: quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
+  - name: Launch your first Spring Batch app
+    href: quickstart-deploy-spring-batch-app.md
   - name: Launch your first event-driven app
     href: quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
   - name: Launch your first microservice apps
@@ -66,6 +68,8 @@ items:
   items:
   - name: App and deployment
     href: concept-understand-app-and-deployment.md
+  - name: Job
+    href: concept-job.md
   - name: Version support for Java, Spring Boot, and more
     href: concept-app-customer-responsibilities.md
   - name: Blue-green deployment strategies
@@ -78,8 +82,6 @@ items:
     href: concept-app-status.md
   - name: Memory
     items:
-    - name: Java memory management
-      href: concepts-for-java-memory-management.md
     - name: Tools to troubleshoot memory issues
       href: tools-to-troubleshoot-memory-issues.md
     - name: Fix app restart issues caused by OOM
@@ -126,6 +128,8 @@ items:
     items:
     - name: Prepare a Java Spring app for deployment
       href: how-to-prepare-app-deployment.md?tabs=enterprise-plan
+    - name: Manage and use jobs
+      href: how-to-manage-job.md
     - name: Use Application Configuration Service
       href: how-to-enterprise-application-configuration-service.md
     - name: Use Build Service
@@ -134,6 +138,8 @@ items:
       href: how-to-enterprise-configure-apm-integration-and-ca-certificates.md
     - name: Use Service Registry
       href: how-to-enterprise-service-registry.md
+    - name: Set up a Config Server
+      href: how-to-config-server.md?pivots=sc-enterprise
     - name: Use API portal
       href: how-to-use-enterprise-api-portal.md
     - name: Spring Cloud Gateway
@@ -226,6 +232,8 @@ items:
       href: diagnostic-services.md
     - name: Stream app logs in real time
       href: how-to-log-streaming.md
+    - name: Stream job logs in real time (Preview)
+      href: how-to-job-log-streaming.md
     - name: Stream managed component logs in real time
       href: how-to-managed-component-log-streaming.md
     - name: Application Insights using Java In-Process Agent

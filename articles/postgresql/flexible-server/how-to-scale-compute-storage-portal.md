@@ -1,18 +1,18 @@
 ---
 title: Scale operations - Azure portal
 description: This article describes how to perform scale operations in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
-author: AlicjaKucharczyk
-ms.author: alkuchar
+author: akashraokm
+ms.author: akashrao
 ms.reviewer: maghan
-ms.date: 05/13/2024
-ms.service: postgresql
+ms.date: 06/09/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
 # Scale operations in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides steps to perform scaling operations for compute and storage. You're able to change your compute tiers between burstable, general purpose, and memory optimized SKUs, including choosing the number of vCores that is suitable to run your application. You can also scale up your storage. Expected IOPS are shown based on the compute tier, vCores and the storage capacity. The cost estimate is also shown based on your selection.
 
@@ -143,7 +143,7 @@ Use the below steps to scale down the performance tier on your Azure Database fo
 
     :::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-down-1.png" alt-text="Screenshot that shows performance tier 4.":::
 
-4.	You see the new “Performance Tier (preview)” drop-down option. The option selected will be your last selected IOPS when you scaled up.
+4.	You see the new “Performance Tier” drop-down option. The option selected will be your last selected IOPS when you scaled up.
 
     :::image type="content" source="./media/how-to-scale-compute-storage-portal/iops-scale-down-2.png" alt-text="Screenshot that shows performance tier drop-down 5.":::
 

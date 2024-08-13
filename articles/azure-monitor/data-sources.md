@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor data sources and data collection methods
 description: Describes the different types of data that can be collected in Azure Monitor and the method of data collection for each.
-ms.topic: concept
+ms.topic: concept-article
 author: bwren
 ms.author: bwren
 ms.date: 04/08/2024
@@ -57,9 +57,9 @@ Azure virtual machines create the same activity logs and platform metrics as oth
 
 | Data type | Description | Data collection method |
 |:---|:---|:---|
-| Windows Events | Logs for the client operating system and different applications on Windows VMs.  | Deploy the Azure Monitor agent (AMA) and create a data collection rule (DCR) to send data to Log Analytics workspace. See [Collect events and performance counters from virtual machines with Azure Monitor Agent](./agents/data-collection-rule-azure-monitor-agent.md). |
+| Windows Events | Logs for the client operating system and different applications on Windows VMs.  | Deploy the Azure Monitor agent (AMA) and create a data collection rule (DCR) to send data to Log Analytics workspace. See [Collect data with Azure Monitor Agent](./agents/azure-monitor-agent-data-collection.md). |
 | Syslog | Logs for the client operating system and different applications on Linux VMs.  | Deploy the Azure Monitor agent (AMA) and create a data collection rule (DCR) to send data to Log Analytics workspace. See [Collect Syslog events with Azure Monitor Agent](./agents/data-collection-syslog.md). To use the VM as a Syslog forwarder, see [Tutorial: Forward Syslog data to a Log Analytics workspace with Microsoft Sentinel by using Azure Monitor Agent](../sentinel/forward-syslog-monitor-agent.md) |
-| Client Performance data | Performance counter values for the operating system and applications running on the virtual machine. | Deploy the Azure Monitor agent (AMA) and create a data collection rule (DCR) to send data to Azure Monitor Metrics and/or Log Analytics workspace. See [Collect events and performance counters from virtual machines with Azure Monitor Agent](./agents/data-collection-rule-azure-monitor-agent.md).<br><br>Enable VM insights to send predefined aggregated performance data to Log Analytics workspace. See [Enable VM Insights overview](./vm/vminsights-enable-overview.md) for installation options. |
+| Client Performance data | Performance counter values for the operating system and applications running on the virtual machine. | Deploy the Azure Monitor agent (AMA) and create a data collection rule (DCR) to send data to Azure Monitor Metrics and/or Log Analytics workspace. See [Collect data with Azure Monitor Agent](./agents/azure-monitor-agent-data-collection.md).<br><br>Enable VM insights to send predefined aggregated performance data to Log Analytics workspace. See [Enable VM Insights overview](./vm/vminsights-enable-overview.md) for installation options. |
 | Processes and dependencies | Details about processes running on the machine and their dependencies on other machines and external services. Enables the [map feature in VM insights](vm/vminsights-maps.md). | Enable VM insights on the machine with the *processes and dependencies* option. See [Enable VM Insights overview](./vm/vminsights-enable-overview.md) for installation options. |
 | Text logs | Application logs written to a text file. | Deploy the Azure Monitor agent (AMA) and create a data collection rule (DCR) to send data to Log Analytics workspace. See [Collect logs from a text or JSON file with Azure Monitor Agent](./agents/data-collection-text-log.md). |
 | IIS logs | Logs created by Internet Information Service (IIS). | Deploy the Azure Monitor agent (AMA) and create a data collection rule (DCR) to send data to Log Analytics workspace. See [Collect IIS logs with Azure Monitor Agent](./agents/data-collection-iis.md). |

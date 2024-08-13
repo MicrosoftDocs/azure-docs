@@ -4,10 +4,10 @@ description: Use a prebuilt artifact file to deploy to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: quickstart
 ms.date: 02/27/2024
-ms.custom: ignite-2023, devx-track-azurecli
+ms.custom: ignite-2023
 ---
 
 # Quickstart: Deploy an artifact file to Azure Container Apps

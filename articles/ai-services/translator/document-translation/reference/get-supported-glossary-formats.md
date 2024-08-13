@@ -14,32 +14,33 @@ ms.date: 02/09/2024
 # Get supported glossary formats
 
 Reference</br>
-Service: **Azure AI Document Translation**</br>
-API Version: **v1.1**</br>
+Feature: **Azure AI Translator → Document Translation**</br>
+API Version: **2024-05-01**</br>
+HTTP method: **GET**
 
-The Get supported glossary formats method returns a list of glossary formats supported by the Document Translation service. The list includes the common file extension used.
+This method returns a list of glossary formats supported by the Document Translation feature. The list includes the common file extensions.
 
 ## Request URL
 
-Send a `GET` request to:
-```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/glossaries/formats
-```
-
-Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
-
 > [!IMPORTANT]
 >
-> * **All API requests to the Document Translation service require a custom domain endpoint**.
-> * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+> **All API requests to the Document Translation feature require a custom domain endpoint that is located on your resource overview page in the Azure portal**.
+
+```bash
+curl -i -X GET "{document-translation-endpoint}/translator/document/formats?api-version={date}&type=glossary"
+```
 
 ## Request headers
 
 Request headers are:
 
-|Headers|Description|
-|--- |--- |
-|Ocp-Apim-Subscription-Key|Required request header|
+|Headers|Description|Condition|
+|--- |--- |---|
+|**Ocp-Apim-Subscription-Key**|Your Translator service API key from the Azure portal.|Required|
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a regional (geographic) resource like **West US**.</br>&bullet.|
+|**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|&bullet; **Required**|
+
+
 
 ## Response status codes
 
@@ -152,4 +153,4 @@ Status code: 500
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)
+> [Get started with Document Translation](../how-to-guides/use-rest-api-programmatically.md)

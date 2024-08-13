@@ -3,7 +3,7 @@ title: Set up a lab with GPUs
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services with graphics processing unit (GPU) virtual machines.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -11,6 +11,8 @@ ms.date: 04/24/2023
 ---
 
 # Set up a lab with GPU virtual machines in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -121,7 +123,7 @@ To manually install drivers for the Medium GPU *(visualization)* size, follow th
 
 1. Install the GRID drivers that are provided by Microsoft on the template VM by following the instructions for your operating system:
 
-   - [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
+   - [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-gridvgpu-drivers)
    - [Linux NVIDIA GRID drivers](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
   
 1. Restart the template VM.

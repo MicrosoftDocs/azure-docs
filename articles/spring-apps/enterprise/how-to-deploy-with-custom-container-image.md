@@ -4,15 +4,15 @@ description: How to deploy applications in Azure Spring Apps with a custom conta
 author: KarlErickson
 ms.author: xiangy
 ms.topic: how-to
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
-ms.date: 4/28/2022
+ms.date: 06/27/2024
 ---
 
 # Deploy an application with a custom container image
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -249,7 +249,7 @@ AppPlatformContainerEventLogs
 
 ### Scan your image for vulnerabilities
 
-We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks)
+We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks)
 
 ### Switch between JAR deployment and container deployment
 

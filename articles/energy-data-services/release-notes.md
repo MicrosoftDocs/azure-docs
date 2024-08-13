@@ -23,10 +23,16 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## June 2024
+
+### Azure Data Manager for Energy Developer Tier Price Update
+Effective June 1, 2024, the monthly base instance fee of the Developer tier of Azure Data Manager for Energy will be $2,898 (US East Region). This reflects a 75% cost savings to our customers/partners compared to the previous base instance price of $11,680 per month (US East) and provides ongoing support to our partners and customers as they continue their application modernization and interoperability efforts. The monthly cost above is based on an hourly rate of $3.97 (US East) and an assumption of 730 hours for a given month. These new cost savings will be reflected in all available regions where the product is available based on current regional rate adjustments. Regional differences and additional pricing details will be reflected on the product's [pricing](https://azure.microsoft.com/pricing/details/energy-data-services) page. Note that the pricing page will reflect the current price and will be updated to the new pricing amount on the effective date listed above.
+
+
 ## April 2024
 
 ### Azure Data Manager for Energy in Qatar Central Region
-Azure Data Manager for Energy is now available in the Qatar Central Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy, and is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Qatar" as your preferred region when creating Azure Data Manager for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy) or your preferred provisioning method. Qatar Central region supports zone-redundant storage (ZRS) with 3 availabilty zones for disaster recovery. Data is stored at rest in Qatar in compliance with data residency requirements. For more details on zonal replication, please review the [documentation](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery) page. Note that the default maximum ingress per geneneral purpose v2 and Blob storage accounts in Qatar Central is 25 Gbps. For more details, please review scalability and performance [targets](https://learn.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
+Azure Data Manager for Energy is now available in the Qatar Central Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy, and is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Qatar" as your preferred region when creating Azure Data Manager for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy) or your preferred provisioning method. Qatar Central region supports zone-redundant storage (ZRS) with 3 availability zones for disaster recovery. Data is stored at rest in Qatar in compliance with data residency requirements. For more details on zonal replication, please review the [documentation](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md) page. Note that the default maximum ingress per general purpose v2 and Blob storage accounts in Qatar Central is 25 Gbps. For more details, please review scalability and performance [targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts).
 
 ## March 2024
 
@@ -99,7 +105,7 @@ Now you can configure diagnostic settings of your Azure Data Manager for Energy 
 
 ### Monitoring and investigating actions with Audit logs
 
-Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/documentation/-/wikis/Releases/R3.0/GCP/GCP-Operation/Logging/Audit-Logging-Status). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
+Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/platform/deployment-and-operations/audit-and-metrics). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
 
 <hr width = 100%>
 

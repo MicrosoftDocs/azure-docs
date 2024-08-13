@@ -3,14 +3,15 @@ title: View Azure Automation update assessments
 description: This article tells how to view update assessments for Update Management deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 06/10/2021
+ms.date: 07/15/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # View update assessments in Update Management
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments. You can view the assessment information scoped to the selected Azure virtual machine, from the selected Azure Arc-enabled server, or from the Automation account across all configured machines and servers.
 

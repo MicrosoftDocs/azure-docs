@@ -8,6 +8,8 @@ ms.date: 11/26/2023
 
 # Manage HDInsight on AKS clusters using Azure REST API 
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Learn how to create an HDInsight cluster using an Azure Resource Manager template and the Azure REST API. 
 
 The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters. 
@@ -43,7 +45,7 @@ Variables required in the script
 - [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning)
 - recommendation-capacity-planning 
 
-To create a cluster, copy the following command to your REST API tool e.g Postman 
+To create a cluster, copy the following command to your REST API tool. 
 
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterPoolName}/clusters/{clusterName}?api-version=2023-06-01-preview 

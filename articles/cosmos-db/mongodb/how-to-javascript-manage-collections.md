@@ -3,7 +3,7 @@ title: Create a collection in Azure Cosmos DB for MongoDB using JavaScript
 description: Learn how to work with a collection in your Azure Cosmos DB for MongoDB database using the JavaScript SDK.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
@@ -13,7 +13,7 @@ ms.custom: devx-track-js, devguide-js, cosmos-db-dev-journey
 
 # Manage a collection in Azure Cosmos DB for MongoDB using JavaScript
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Manage your MongoDB collection stored in Azure Cosmos DB with the native MongoDB client driver.
 

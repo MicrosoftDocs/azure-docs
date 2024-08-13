@@ -5,11 +5,10 @@ description: Build resilient Data Flows in Azure Data Factory and Synapse Analyt
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Schema drift in mapping data flow

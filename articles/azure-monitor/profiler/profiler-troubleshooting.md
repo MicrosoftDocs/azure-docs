@@ -23,7 +23,7 @@ Currently, the only regions that require endpoint modifications are [Azure Gover
 
 Profiler is supported on the [.NET Framework later than 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework).
 
-If your web app is an ASP.NET Core application, it must be running on the [latest supported ASP.NET Core runtime](https://dotnet.microsoft.com/download/dotnet/6.0).
+If your web app is an ASP.NET Core application, it must be running on the [latest supported ASP.NET Core runtime](https://dotnet.microsoft.com/download/dotnet/8.0).
 
 ## Are you using the right Azure service plan?
 
@@ -35,6 +35,12 @@ Profiler isn't currently supported on free or shared app service plans. Upgrade 
 ## Are you searching for Profiler data within the right time frame?
 
 If the data you're trying to view is older than two weeks, try limiting your time filter and try again. Traces are deleted after seven days.
+
+## Are you aware of the Profiler sampling rate and overhead? 
+
+Profiler randomly runs two minutes per hour on each virtual machine hosting applications with Profiler enabled.
+
+[!INCLUDE [profiler-overhead](./includes/profiler-overhead.md)]
 
 ## Can you access the gateway?
 
@@ -66,7 +72,29 @@ Search for trace messages and custom events sent by Profiler to your Application
 
    - Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the `ServiceProfilerSample` custom event is displayed, it means that a profile was captured and is available in the **Application Insights Performance** pane.
 
-   If no records are displayed, Profiler isn't running or has timed out. Make sure you've [enabled Profiler on your Azure service](./profiler.md).
+   If no records are displayed, Profiler isn't running or took too long to respond. Make sure [Profiler is enabled on your Azure service](./profiler.md).
+
+## Profiler is on, but no traces captured
+
+Even when the Profiler is enabled, it may not capture or upload traces, especially in these situations:
+
+1. **No incoming requests to your application:**   
+     You can manually invoke your application or create an [availability test](../app/availability.md), or a [load test](../../load-testing/overview-what-is-azure-load-testing.md). 
+
+1. **No incoming telemetry acknowledged by Application Insights:**  
+    - If there is traffic coming to your application: validate that there are incoming requests showing in Application Insights [Live Metrics](../app/live-stream.md). 
+    - If the `Incoming Requests` charts are empty (no data or showing zero): [troubleshoot Application Insights](/troubleshoot/azure/azure-monitor/app-insights/telemetry/asp-net-troubleshoot-no-data). 
+    - If you are hosting your .NET application on Azure App Service: [try the App Service .NET troubleshooting steps](../app/azure-web-apps-net.md#troubleshooting).
+
+1. **Profiler setting for Sampling is turned off:**   
+    If still no profiler traces are available, check the Profiler Sampling setting.   
+      1. Open **Application Insights** > **Performance** blade. 
+      1. Click on **Profiler**.
+      1. Click on the **Triggers** button. 
+      1. In the Trigger Settings, ensure the **Sampling** toggle is on.
+
+1. **Still no traces uploaded?**  
+    [Create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot), or ask [Azure community support](/answers/products/azure?product=all). You can also submit product feedback to [Azure feedback community](https://feedback.azure.com/d365community).
 
 ## Double counting in parallel threads
 
@@ -106,7 +134,7 @@ If Profiler still isn't working for you, download the log and [submit an Azure s
 
 #### Check the Diagnostic Services site extension status page
 
-If Profiler was enabled through the [Application Insights pane](profiler.md) in the portal, it was enabled by the Diagnostic Services site extension. You can check the status page of this extension by going to
+If you enabled Profiler through the [Application Insights pane](profiler.md) in the portal, it's managed by the Diagnostic Services site extension. You can check the status page of this extension by going to
 `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`.
 
 > [!NOTE]
@@ -138,11 +166,18 @@ When you configure Profiler, updates are made to the web app's settings. If nece
 
 #### Too many active profiling sessions
 
-You can enable Profiler on a maximum of four web apps that are running in the same service plan. If you have more than four, Profiler might throw the following error:
+In Azure App Service, there's a limit of only **one profiling session at a time**. This limit is enforced at the VM level across all applications and deployment slots running in an App Service Plan. 
+This limit applies equally to profiling sessions started via *Diagnose and solve problems*, Kudu, and Application Insights Profiler.
+If Profiler tries to start a session when another is already running, an error is logged in the Application Log and also the continuous WebJob log for ApplicationInsightsProfiler3.
 
-`Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException`
+You may see one of the following messages in the logs:
 
-To solve it, move some web apps to a different service plan.
+- `Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException`
+- `Error: StartProfiler failed. Details: System.Runtime.InteropServices.COMException (0xE111005E): Exception from HRESULT: 0xE111005E`
+
+The error code 0xE111005E indicates that a profiling session couldn't start because another session is already running.
+
+To avoid the error, move some web apps to a different App Service Plan or disable Profiler on some of the applications. If you use deployment slots, be sure to stop any unused slots.
 
 #### Deployment error: Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
@@ -192,7 +227,7 @@ To check the settings that were used to configure Azure Diagnostics:
 
 1. Check to see whether the iKey used by the Profiler sink is correct.
 
-1. Check the command line that's used to start Profiler. The arguments that are used to launch Profiler are in the following file (the drive could be `c:` or `d:` and the directory might be hidden):
+1. Check the command line that starts Profiler. The command line arguments are in the following file (the drive could be `c:` or `d:` and the directory might be hidden):
 
     For VMs:
     ```

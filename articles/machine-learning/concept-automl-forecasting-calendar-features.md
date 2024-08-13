@@ -3,10 +3,10 @@ title: Calendar features for time series forecasting in AutoML
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning's AutoML creates calendar and holiday features
 services: machine-learning
-author: nivi09
-ms.author: nivmishra
-ms.reviewer: ssalgado
-ms.service: machine-learning
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: nivmishra
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.custom: automl, sdkv1

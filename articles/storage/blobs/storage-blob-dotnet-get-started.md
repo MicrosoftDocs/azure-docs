@@ -8,7 +8,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---
@@ -21,13 +21,7 @@ This article shows you how to connect to Azure Blob Storage by using the Azure B
 
 [API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
-## Prerequisites
-
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-
-- Azure storage account - [create a storage account](../common/storage-account-create.md)
-
-- Current [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
+[!INCLUDE [storage-dev-guide-prereqs-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-dotnet.md)]
 
 ## Set up your project
 
@@ -40,7 +34,7 @@ dotnet add package Azure.Storage.Blobs
 dotnet add package Azure.Identity
 ```
 
-Add these `using` statements to the top of your code file.
+Add these `using` directives to the top of your code file:
 
 ```csharp
 using Azure.Identity;
@@ -64,13 +58,11 @@ To connect an application to Blob Storage, create an instance of the [BlobServic
 
 To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
-You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS).
-
-To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS). For optimal security, Microsoft recommends using Microsoft Entra ID with managed identities to authorize requests against blob data. For more information, see [Authorize access to blobs using Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 <a name='azure-ad'></a>
 
-## [Microsoft Entra ID](#tab/azure-ad)
+## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 To authorize with Microsoft Entra ID, you'll need to use a security principal. The type of security principal you need depends on where your application runs. Use this table as a guide.
 
@@ -123,6 +115,9 @@ To learn more about generating and managing SAS tokens, see the following articl
 - [Create a service SAS for a blob with .NET](sas-service-create-dotnet.md)
 - [Create a user delegation SAS for a container with .NET](storage-blob-container-user-delegation-sas-create-dotnet.md)
 - [Create a user delegation SAS for a blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
+
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key.
 
 ## [Account key](#tab/account-key)
 

@@ -24,8 +24,8 @@ items:
     - name: Register a client application
       href: dicom-register-application.md
 - name: Tutorials
-  expanded: true
-  items: 
+  expanded: false
+  items:
     - name: Use DICOM data in analytics workloads
       href: get-started-with-analytics-dicom.md
     - name: Use the DICOM service for digital pathology

@@ -4,8 +4,8 @@ description: This article provides a step-by-step guide on triggering an on-dema
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 04/17/2024
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: how-to
 # customer intent: As a user, I want to learn how to trigger an on-demand backup from the Azure portal so that I can have more control over my database backups.

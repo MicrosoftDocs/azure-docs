@@ -3,7 +3,7 @@ title: Deploy modules at scale in Azure portal - Azure IoT Edge
 description: Use the Azure portal to create automatic deployments for groups of IoT Edge devices
 author: PatAltimore
 ms.author: patricka
-ms.date: 9/22/2022
+ms.date: 06/12/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -39,7 +39,7 @@ For more information about device twins and tags, see [Understand and use device
 
 IoT Edge provides two different types of automatic deployments that you can use to customize your scenario. You can create a standard *deployment*, which includes that system runtime modules and any additional modules and routes. Each device can only apply one deployment. Or you can create a *layered deployment*, which only includes custom modules and routes, not the system runtime. Many layered deployments can be combined on a device, on top of a standard deployment. For more information about how the two types of automatic deployments work together, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-The steps for creating a deployment and a layered deployment are very similar. Any differences are called out in the following steps.
+The steps for creating a deployment and a layered deployment are similar. Any differences are called out in the following steps.
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT Hub.
 1. On the menu in the left pane, select **Configurations + Deployments** under **Device Management**.
@@ -68,17 +68,16 @@ To add custom code as a module, or to manually add an Azure service module, foll
 
 1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
 1. In the **IoT Edge Modules** section of the page, select **Add**.
-1. Choose one of the three types of modules from the drop-down menu:
+1. Choose one of the types of modules from the drop-down menu:
 
-   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. If the module image is stored in a private container registry, add the credentials on this page to access the image.
-   * **Marketplace Module** - Modules hosted in the Azure Marketplace. Some marketplace modules require additional configuration, so review the module details in the [Azure Marketplace IoT Edge Modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) list.
+   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name).
    * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload.
 
 1. If needed, repeat steps 2 and 3 to add additional modules to your deployment.
 
 After you add a module to a deployment, you can select its name to open the **Update IoT Edge Module** page. On this page, you can edit the module settings, environment variables, create options, startup order, and module twin. If you added a module from the marketplace, it may already have some of these parameters filled in. For more information about the available module settings, see [Module configuration and management](module-composition.md#module-configuration-and-management).
 
-If you're creating a layered deployment, you may be configuring a module that exists in other deployments targeting the same devices. To update the module twin without overwriting other versions, open the **Module Twin Settings** tab. Create a new **Module Twin Property** with a unique name for a subsection within the module twin's desired properties, for example `properties.desired.settings`. If you define properties within just the `properties.desired` field, it will overwrite the desired properties for the module defined in any lower priority deployments.
+If you're creating a layered deployment, you may be configuring a module that exists in other deployments targeting the same devices. To update the module twin without overwriting other versions, open the **Module Twin Settings** tab. Create a new **Module Twin Property** with a unique name for a subsection within the module twin's desired properties, for example `properties.desired.settings`. If you define properties within just the `properties.desired` field, it overwrites the desired properties for the module defined in any lower priority deployments.
 
 :::image type="content" source="./media/how-to-deploy-monitor/module-twin-property.png" alt-text="Screenshot showing how to set the module twin property for layered deployment.":::
 
@@ -109,7 +108,7 @@ If multiple deployments target the same device, then only the one with the highe
 Any layered deployment targeting a device must have a higher priority than the base deployment in order to be applied.
 
 1. Enter a positive integer for the deployment **Priority**.
-1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`.
+1. Enter a **Target condition** to determine which devices are targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`.
 
 Select **Next: Metrics**.
 
@@ -161,7 +160,7 @@ When you modify a deployment, the changes immediately replicate to all targeted 
     * If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment.
     * If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it uninstalls this deployment and takes on the new one.
 
-1. Select the **Metrics** tab and click the **Edit Metrics** button. Add or modify custom metrics, using the example syntax as a guide. Select **Save**.
+1. Select the **Metrics** tab and select the **Edit Metrics** button. Add or modify custom metrics, using the example syntax as a guide. Select **Save**.
 
    :::image type="content" source="./media/how-to-deploy-monitor/metric-list.png" alt-text="Screenshot showing how to edit custom metrics in a deployment.":::
 
@@ -175,7 +174,7 @@ When you delete a deployment, any deployed devices take on their next highest pr
 1. Select **Configurations + Deployments**.
 1. Use the checkbox to select the deployment that you want to delete.
 1. Select **Delete**.
-1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices. A deployment with a lower priority will apply. If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue.
+1. A prompt informs you that this action deletes this deployment and revert to the previous state for all devices. A deployment with a lower priority will apply. If no other deployment is targeted, no modules are removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue.
 
 ## Next steps
 

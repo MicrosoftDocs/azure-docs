@@ -1,9 +1,9 @@
 ---
 title: Linter rule - simplify interpolation
 description: Linter rule - simplify interpolation
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - simplify interpolation
@@ -25,7 +25,7 @@ The following example fails this test because it just references a parameter.
 ```bicep
 param AutomationAccountName string
 
-resource AutomationAccount 'Microsoft.Automation/automationAccounts@2022-08-08' = {
+resource AutomationAccount 'Microsoft.Automation/automationAccounts@2023-11-01' = {
   name: '${AutomationAccountName}'
   ...
 }
@@ -36,7 +36,7 @@ You can fix it by removing the string interpolation syntax.
 ```bicep
 param AutomationAccountName string
 
-resource AutomationAccount 'Microsoft.Automation/automationAccounts@2022-08-08' = {
+resource AutomationAccount 'Microsoft.Automation/automationAccounts@2023-11-01' = {
   name: AutomationAccountName
   ...
 }

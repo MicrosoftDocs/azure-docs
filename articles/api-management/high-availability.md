@@ -3,11 +3,11 @@ title: Ensure reliability of your Azure API Management instance
 titleSuffix: Azure API Management
 description: Learn how to use Azure reliability features including availability zones and multiregion deployments to make your Azure API Management service instance resilient to cloud failures.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 03/08/2024
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, build-2024
 ---
 
 # Ensure API Management availability and reliability
@@ -81,8 +81,8 @@ For details, see the blog post [Back-end API redundancy with Azure API Manager](
 
 API Management [backend](backends.md) entities allow you to manage and apply backend properties to improve the availability of backends. For example:
 
-* Distribute and load-balance traffic to a [pool of URLs](backends.md#load-balanced-pool-preview)
-* Configure [circuit breaker rules](backends.md#circuit-breaker-preview) to apply the circuit breaker pattern to protect the backend from too many requests
+* Distribute and load-balance traffic to a [pool of URLs](backends.md#load-balanced-pool)
+* Configure [circuit breaker rules](backends.md#circuit-breaker) to apply the circuit breaker pattern to protect the backend from too many requests
 
 ## Next steps
 

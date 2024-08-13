@@ -3,7 +3,7 @@ title: Default TEMP folder size is too small for a role | Microsoft Docs
 description: A cloud service role has a limited amount of space for the TEMP folder. This article provides some suggestions on how to avoid running out of space.
 ms.topic: troubleshooting
 ms.service: cloud-services
-ms.date: 02/21/2023
+ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -17,10 +17,10 @@ ms.custom: compute-evergreen
 
 The default temporary directory of a cloud service worker or web role has a maximum size of 100 MB, which may become full at some point. This article describes how to avoid running out of space for the temporary directory.
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Why do I run out of space?
-The standard Windows environment variables TEMP and TMP are available to code that is running in your application. Both TEMP and TMP point to a single directory that has a maximum size of 100 MB. Any data that is stored in this directory is not persisted across the lifecycle of the cloud service; if the role instances in a cloud service are recycled, the directory is cleaned.
+The standard Windows environment variables TEMP and TMP are available to code that is running in your application. Both TEMP and TMP point to a single directory that has a maximum size of 100 MB. Any data stored in this directory isn't persisted across the lifecycle of the cloud service. If the role instances in a cloud service are recycled, the directory is cleaned.
 
 ## Suggestion to fix the problem
 Implement one of the following alternatives:

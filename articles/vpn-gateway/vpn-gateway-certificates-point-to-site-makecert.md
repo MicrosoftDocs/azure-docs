@@ -3,26 +3,26 @@ title: 'Generate & export certificates for P2S: MakeCert'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a self-signed root certificate, export a public key, and generate client certificates using MakeCert.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 06/24/2024
 ms.author: cherylmc
 
 ---
 # Generate and export certificates for Point-to-Site connections using MakeCert
 
-Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using MakeCert. If you're looking for different certificate instructions, see [Certificates - PowerShell](vpn-gateway-certificates-point-to-site.md) or [Certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md).
+This article shows you how to create a self-signed root certificate and generate client certificates using MakeCert. The steps in this article help you create **.pfx** and **.cer** files. If you're looking for different certificate instructions, see [PowerShell - .pfx and .cer certificate files](vpn-gateway-certificates-point-to-site.md) or [Linux- OpenSSL - .pem certificate files](point-to-site-certificates-linux-openssl.md).
 
-While we recommend using the [Windows 10 or later PowerShell steps](vpn-gateway-certificates-point-to-site.md) to create your certificates, we provide these MakeCert instructions as an optional method. The certificates that you generate using either method can be installed on [any supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). However, MakeCert has the following limitation:
+We recommend using the [Windows 10 or later PowerShell steps](vpn-gateway-certificates-point-to-site.md) to create your certificates. We provide these MakeCert instructions as an optional method. The certificates that you generate using either method can be installed on [any supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). MakeCert has the following limitation:
 
-* MakeCert is deprecated. This means that this tool could be removed at any point. Any certificates that you already generated using MakeCert won't be affected when MakeCert is no longer available. MakeCert is only used to generate the certificates, not as a validating mechanism.
+* MakeCert is deprecated. This means that this tool could be removed at any point. Certificates that you already generated using MakeCert won't be affected if MakeCert is no longer available. MakeCert is only used to generate the certificates, not as a validating mechanism.
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
 
 The following steps show you how to create a self-signed certificate using MakeCert. These steps aren't deployment-model specific. They're valid for both Resource Manager and classic.
 
 1. Download and install [MakeCert](/windows/win32/seccrypto/makecert).
-2. After installation, you can typically find the makecert.exe utility under this path: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Although, it's possible that it was installed to another location. Open a command prompt as administrator and navigate to the location of the MakeCert utility. You can use the following example, adjusting for the proper location:
+2. After installation, you can typically find the makecert.exe utility under this path: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. However, it's possible that it was installed to another location. Open a command prompt as administrator and navigate to the location of the MakeCert utility. You can use the following example, adjusting for the proper location:
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64
@@ -41,7 +41,7 @@ The exported.cer file must be uploaded to Azure. For instructions, see [Configur
 
 ### Export the self-signed certificate and private key to store it (optional)
 
-You may want to export the self-signed root certificate and store it safely. You can later install it on another computer and generate more client certificates, or export another .cer file. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport).
+You might want to export the self-signed root certificate and store it safely. You can later install it on another computer and generate more client certificates, or export another .cer file. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport).
 
 ## Create and install client certificates
 
@@ -51,7 +51,7 @@ You don't install the self-signed certificate directly on the client computer. Y
 
 Each client computer that connects to a VNet using Point-to-Site must have a client certificate installed. You generate a client certificate from the self-signed root certificate, and then export and install the client certificate. If the client certificate isn't installed, authentication fails.
 
-The following steps walk you through generating a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. When you generate client certificates using the following steps, the client certificate is automatically installed on the computer that you used to generate the certificate. If you want to install a client certificate on another client computer, you can export the certificate.
+The following steps walk you through generating a client certificate from a self-signed root certificate. You can generate multiple client certificates from the same root certificate. When you generate client certificates using the following steps, the client certificate is automatically installed on the computer that you used to generate the certificate. If you want to install a client certificate on another client computer, you can export the certificate.
  
 1. On the same computer that you used to create the self-signed certificate, open a command prompt as administrator.
 2. Modify and run the sample to generate a client certificate.

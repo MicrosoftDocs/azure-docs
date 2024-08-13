@@ -1,8 +1,8 @@
 ---
 title: Manage Azure file share backups with PowerShell
 description: Learn how to use PowerShell to manage and monitor Azure file shares backed up by the Azure Backup service.
-ms.topic: conceptual
-ms.date: 1/27/2020 
+ms.topic: how-to
+ms.date: 07/30/2024
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

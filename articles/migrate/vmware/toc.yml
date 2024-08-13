@@ -33,9 +33,9 @@ items:
     items:
   - name: Agent-based migration
     items:
-    - name: VMware agent-based migration architecture
+    - name: VMware/Physical agent-based migration architecture
       href: agent-based-migration-architecture.md
-    - name: Migrate with agent-based migration
+    - name: Migrate VMware vSphere VMs with agent-based migration
       href: tutorial-migrate-vmware-agent.md    
   - name: Agentless migration
     items:
@@ -64,9 +64,9 @@ items:
   - name: Azure VMware Solutions (AVS)
     href: /azure/azure-vmware/
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-migrate-security-baseline?context=/azure/migrate/context/migrate-context
+    href: /security/benchmark/azure/baselines/azure-migrate-security-baseline?context=/azure/migrate/context/vmware-context
   - name: Example architecture
-    href: /azure/cloud-adoption-framework/scenarios/azure-vmware/example-architectures?context=/azure/migrate/context/migrate-context
+    href: /azure/cloud-adoption-framework/scenarios/azure-vmware/example-architectures?context=/azure/migrate/context/vmware-context
   - name: Azure Migrate product documentation
     href: ../index.yml
   - name: Pricing
@@ -74,27 +74,27 @@ items:
   - name: Well Architected Framework (WAF)
     items:
     - name: Get started
-      href: /azure/well-architected/azure-vmware/overview?context=/azure/migrate/context/migrate-context
+      href: /azure/well-architected/azure-vmware/overview?context=/azure/migrate/context/vmware-context
     - name: Design principles
-      href: /azure/well-architected/azure-vmware/design-principles?context=/azure/migrate/context/migrate-context
+      href: /azure/well-architected/azure-vmware/design-principles?context=/azure/migrate/context/vmware-context
     - name: Design areas
       items:
       - name: Infrastructure
-        href: /azure/well-architected/azure-vmware/infrastructure?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/infrastructure?context=/azure/migrate/context/vmware-context
       - name: Applications
-        href: /azure/well-architected/azure-vmware/application-platform?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/application-platform?context=/azure/migrate/context/vmware-context
       - name: Networking
-        href: /azure/well-architected/azure-vmware/networking?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/networking?context=/azure/migrate/context/vmware-context
       - name: Monitoring
-        href: /azure/well-architected/azure-vmware/monitoring?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/monitoring?context=/azure/migrate/context/vmware-context
       - name: Security
-        href: /azure/well-architected/azure-vmware/security?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/security?context=/azure/migrate/context/vmware-context
       - name: Operations
-        href: /azure/well-architected/azure-vmware/operations?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/operations?context=/azure/migrate/context/vmware-context
     - name: Azure landing zone integration
-      href: /azure/well-architected/azure-vmware/landing-zone-integration?context=/azure/migrate/context/migrate-context
+      href: /azure/well-architected/azure-vmware/landing-zone-integration?context=/azure/migrate/context/vmware-context
     - name: Assessment
-      href: /azure/well-architected/azure-vmware/assessment?context=/azure/migrate/context/migrate-context
+      href: /azure/well-architected/azure-vmware/assessment?context=/azure/migrate/context/vmware-context
   - name: UserVoice
     href: https://aka.ms/AzureMigrateUservoice
   - name: Microsoft Q&A question page

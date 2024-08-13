@@ -9,7 +9,7 @@ ms.custom: references_regions
 # Archive for What's new with Azure Connected Machine agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The primary [What's new in Azure Connected Machine agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
 
@@ -18,6 +18,50 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.37 - December 2023
+
+Download for [Windows](https://download.microsoft.com/download/f/6/4/f64c574f-d3d5-4128-8308-ed6a7097a93d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- Rocky Linux 9 is now a [supported operating system](prerequisites.md#supported-environments)
+- Added Oracle Cloud Infrastructure display name as a [detected property](agent-overview.md#instance-metadata)
+
+### Fixed
+
+- Restored access to servers with Windows Admin Center in Azure
+- Improved detection logic for Microsoft SQL Server
+- Agents connected to sovereign clouds should now see the correct cloud and portal URL in [azcmagent show](azcmagent-show.md)
+- The installation script for Linux now automatically approves the request to import the packages.microsoft.com signing key to ensure a silent installation experience
+- Agent installation and upgrades apply more restrictive permissions to the agent's data directories on Windows
+- Improved reliability when detecting Azure Stack HCI as a cloud provider
+- Removed the log zipping feature introduced in version 1.37 for extension manager and machine configuration agent logs. Log files are still rotated automatically.
+- Removed the scheduled tasks for automatic agent upgrades (introduced in agent version 1.30). We'll reintroduce this functionality when the automatic upgrade mechanism is available.
+- Resolved [Azure Connected Machine Agent Elevation of Privilege Vulnerability](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35624)
+
+## Version 1.36 - November 2023
+
+Download for [Windows](https://download.microsoft.com/download/5/e/9/5e9081ed-2ee2-4b3a-afca-a8d81425bcce/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Known issues
+
+The Windows Admin Center in Azure feature is incompatible with Azure Connected Machine agent version 1.36. Upgrade to version 1.37 or later to use this feature.
+
+### New features
+
+- [azcmagent show](azcmagent-show.md) now reports extended security license status on Windows Server 2012 server machines.
+- Introduced a new [proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) option, `ArcData`, that covers the SQL Server enabled by Azure Arc endpoints. This enables you to use a private endpoint with Azure Arc-enabled servers with the public endpoints for SQL Server enabled by Azure Arc.
+- The [CPU limit for extension operations](agent-overview.md#agent-resource-governance) on Linux is now 30%. This increase helps improve reliability of extension install, upgrade, and uninstall operations.
+- Older extension manager and machine configuration agent logs are automatically zipped to reduce disk space requirements.
+- New executable names for the extension manager (`gc_extension_service`) and machine configuration (`gc_arc_service`) agents on Windows to help you distinguish the two services. For more information, see [Windows agent installation details](./agent-overview.md#windows-agent-installation-details).
+
+### Bug fixes
+
+- [azcmagent connect](azcmagent-connect.md) now uses the latest API version when creating the Azure Arc-enabled server resource to ensure Azure policies targeting new properties can take effect.
+- Upgraded the OpenSSL library and PowerShell runtime shipped with the agent to include the latest security fixes.
+- Fixed an issue that could prevent the agent from reporting the correct product type on Windows machines.
+- Improved handling of upgrades when the previously installed extension version wasn't in a successful state.
 
 ## Version 1.35 - October 2023
 
@@ -31,7 +75,7 @@ The Windows Admin Center in Azure feature is incompatible with Azure Connected M
 
 - The Linux installation script now downloads supporting assets with either wget or curl, depending on which tool is available on the system
 - [azcmagent connect](azcmagent-connect.md) and [azcmagent disconnect](azcmagent-disconnect.md) now accept the `--user-tenant-id` parameter to enable Lighthouse users to use a credential from their tenant and onboard a server to a different tenant.
-- You can configure the extension manager to run, without allowing any extensions to be installed, by configuring the allowlist to `Allow/None`. This supports Windows Server 2012 ESU scenarios where the extension manager is required for billing purposes but doesn't need to allow any extensions to be installed. Learn more about [local security controls](security-overview.md#local-agent-security-controls).
+- You can configure the extension manager to run, without allowing any extensions to be installed, by configuring the allowlist to `Allow/None`. This supports Windows Server 2012 ESU scenarios where the extension manager is required for billing purposes but doesn't need to allow any extensions to be installed. Learn more about [local security controls](security-extensions.md#local-agent-security-controls).
 
 ### Fixed
 
@@ -75,7 +119,7 @@ This endpoint will be removed from `azcmagent check` in a future release.
 ### Fixed
 
 - Fixed an issue that could cause a VM extension to disappear in Azure Resource Manager if it's installed with the same settings twice. After upgrading to agent version 1.33 or later, reinstall any missing extensions to restore the information in Azure Resource Manager.
-- You can now set the [agent mode](security-overview.md#agent-modes) before connecting the agent to Azure.
+- You can now set the [agent mode](security-extensions.md#agent-modes) before connecting the agent to Azure.
 - The agent now responds to instance metadata service (IMDS) requests even when the connection to Azure is temporarily unavailable.
 
 ## Version 1.32 - July 2023
@@ -177,7 +221,7 @@ Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb
 - The extension service now correctly restarts when the Azure Connected Machine agent is upgraded by Update Manager
 - Resolved issues with the hybrid connectivity component that could result in the "himds" service crashing, the server showing as "disconnected" in Azure, and connectivity issues with Windows Admin Center and SSH
 - Improved handling of resource move scenarios that could impact Windows Admin Center and SSH connectivity
-- Improved reliability when changing the [agent configuration mode](security-overview.md#local-agent-security-controls) from "monitor" mode to "full" mode.
+- Improved reliability when changing the [agent configuration mode](security-extensions.md#local-agent-security-controls) from "monitor" mode to "full" mode.
 - Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Sentinel DNS extension to improve log collection reliability
 - Tenant IDs are better validated when connecting the server
 
@@ -335,7 +379,7 @@ Download for [Windows](https://download.microsoft.com/download/2/5/6/25685d0f-28
 
 ### New features
 
-- You can configure the agent to operate in [monitoring mode](security-overview.md#agent-modes), which simplifies configuration of the agent for scenarios where you only want to use Arc for monitoring and security scenarios. This mode disables other agent functionality and prevents use of extensions that could make changes to the system (for example, the Custom Script Extension).
+- You can configure the agent to operate in [monitoring mode](security-extensions.md#agent-modes), which simplifies configuration of the agent for scenarios where you only want to use Arc for monitoring and security scenarios. This mode disables other agent functionality and prevents use of extensions that could make changes to the system (for example, the Custom Script Extension).
 - VMs and hosts running on Azure Stack HCI now report the cloud provider as "HCI" when [Azure benefits are enabled](/azure-stack/hci/manage/azure-benefits#enable-azure-benefits).
 
 ### Fixed
@@ -353,7 +397,7 @@ Download for [Windows](https://download.microsoft.com/download/a/3/4/a34bb824-d5
 
 - The default resource name for AWS EC2 instances is now the instance ID instead of the hostname. To override this behavior, use the `--resource-name PreferredResourceName` parameter to specify your own resource name when connecting a server to Azure Arc.
 - The network connectivity check during onboarding now verifies private endpoint configuration if you specify a private link scope. You can run the same check anytime by running [azcmagent check](azcmagent-check.md) with the new `--use-private-link` parameter.
-- You can now disable the extension manager with the [local agent security controls](security-overview.md#local-agent-security-controls).
+- You can now disable the extension manager with the [local agent security controls](security-extensions.md#local-agent-security-controls).
 
 ### Fixed
 
@@ -373,7 +417,7 @@ Download for [Windows](https://download.microsoft.com/download/e/a/4/ea4ea4a9-a9
 
 ### New features
 
-- You can now granularly control allowed and blocked extensions on your server and disable the Guest Configuration agent. See [local agent controls to enable or disable capabilities](security-overview.md#local-agent-security-controls) for more information.
+- You can now granularly control allowed and blocked extensions on your server and disable the Guest Configuration agent. See [local agent controls to enable or disable capabilities](security-extensions.md#local-agent-security-controls) for more information.
 
 ### Fixed
 

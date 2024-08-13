@@ -2,7 +2,7 @@
 title: Azure Cosmos DB best practices for Java SDK v4
 description: Learn the best practices for using the Azure Cosmos DB Java SDK v4
 author: kushagraThapar
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-extended-java
 ms.topic: how-to

@@ -107,7 +107,7 @@
             - name: Custom container
               displayName: Arc, container, Kubernetes, Docker
               href: create-first-function-arc-custom-container.md  
-        - name: Azure Container Apps (preview)
+        - name: Azure Container Apps
           href: functions-deploy-container-apps.md
           displayName: container, Docker, ACA 
     - name: Connect to storage
@@ -189,6 +189,26 @@
           - name: Azure SQL
             displayName: Connect to a database, Azure SQL
             href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python
+    - name: Connect to OpenAI
+      items:
+        - name: C#
+          href: functions-add-openai-text-completion.md?pivots=programming-language-csharp
+          displayName: Connect to OpenAI, text completion
+        - name: Java
+          href: functions-add-openai-text-completion.md?pivots=programming-language-java
+          displayName: Connect to OpenAI, text completion
+        - name: JavaScript
+          href: functions-add-openai-text-completion.md?pivots=programming-language-javascript
+          displayName: Connect to OpenAI, text completion
+        - name: PowerShell
+          href: functions-add-openai-text-completion.md?pivots=programming-language-powershell
+          displayName: Connect to OpenAI, text completion
+        - name: Python
+          href: functions-add-openai-text-completion.md?pivots=programming-language-python
+          displayName: Connect to OpenAI, text completion
+        - name: TypeScript
+          href: functions-add-openai-text-completion.md?pivots=programming-language-typescript
+          displayName: Connect to OpenAI, text completion
 - name: Tutorials
   items:
     - name: Functions with Logic Apps
@@ -222,10 +242,14 @@
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json
     - name: Create a serverless web app
       href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
-    - name: Machine learning with TensorFlow
-      href: functions-machine-learning-tensorflow.md
-    - name: Image classification with PyTorch
-      href: machine-learning-pytorch.md
+    - name: Data + AI
+      items:
+        - name: Azure OpenAI for text completion
+          href: functions-add-openai-text-completion.md   
+        - name: Machine learning with TensorFlow
+          href: functions-machine-learning-tensorflow.md
+        - name: Image classification with PyTorch
+          href: machine-learning-pytorch.md
     - name: Functions on IoT Edge device
       href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json
     - name: Java with Azure Cosmos DB and Event Hubs
@@ -304,12 +328,18 @@
       items:
         - name: Consumption plan
           href: consumption-plan.md
+        - name: Flex Consumption plan (preview)
+          href: flex-consumption-plan.md  
         - name: Premium plan
           href: functions-premium-plan.md
         - name: Dedicated plan
           href: dedicated-plan.md
-        - name: Azure Container Apps hosting (preview)
-          href: functions-container-apps-hosting.md   
+        - name: Container hosting
+          items:
+            - name: Containerized functions
+              href: container-concepts.md
+            - name: Azure Container Apps hosting
+              href: functions-container-apps-hosting.md   
     - name: Deployment options
       href: functions-deployment-technologies.md 
     - name: Events and messaging
@@ -491,6 +521,8 @@
               href: functions-debug-powershell-local.md
             - name: Debug Event Grid trigger locally
               href: functions-debug-event-grid-trigger-local.md
+        - name: Load testing
+          href: ../load-testing/how-to-create-load-test-function-app.md?toc=/azure/azure-functions/toc.json
         - name: Dependency injection
           href: functions-dotnet-dependency-injection.md
         - name: Manage connections
@@ -537,6 +569,8 @@
         - name: Manage a function app
           href: functions-how-to-use-azure-function-app-settings.md
           displayName: app setting, application setting
+        - name: Work with Flex Consumption apps
+          href: flex-consumption-how-to.md
         - name: App Configuration references
           href: ../app-service/app-service-configuration-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Set the runtime version
@@ -566,7 +600,7 @@
           displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
-        - name: Monitor
+        - name: Monitor Azure Functions
           href: monitor-functions.md
           displayName: monitor metrics
         - name: Monitor function executions
@@ -581,6 +615,8 @@
         - name: Stream execution logs
           href: streaming-logs.md
           displayName: monitoring
+        - name: Work with OpenTelemetry
+          href: opentelemetry-howto.md  
     - name: Authenticate
       items:
         - name: Configure auth providers
@@ -593,7 +629,7 @@
               href: ../app-service/configure-authentication-provider-github.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Google
               href: ../app-service/configure-authentication-provider-google.md?toc=/azure/azure-functions/toc.json
-            - name: Authenticate with Twitter
+            - name: Authenticate with X
               href: ../app-service/configure-authentication-provider-twitter.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with an OpenID Connect provider
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=/azure/azure-functions/toc.json
@@ -611,6 +647,8 @@
           href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json
     - name: Secure
       items:
+        - name: Work with access keys
+          href: function-keys-how-to.md
         - name: Add SSL cert
           href: ../app-service/configure-ssl-certificate.md?toc=/azure/azure-functions/toc.json
         - name: Restrict IPs
@@ -727,20 +765,6 @@
       href: functions-app-settings.md
     - name: Triggers and bindings
       items:
-        - name: Blob storage
-          items:
-            - name: Overview
-              displayName: Blob storage
-              href: functions-bindings-storage-blob.md
-            - name: Trigger
-              displayName: Blob storage
-              href: functions-bindings-storage-blob-trigger.md
-            - name: Input
-              displayName: Blob storage
-              href: functions-bindings-storage-blob-input.md
-            - name: Output
-              displayName: Blob storage
-              href: functions-bindings-storage-blob-output.md
         - name: Azure Cache for Redis
           items: 
             - name: Overview
@@ -797,6 +821,39 @@
             - name: Output
               href: functions-bindings-azure-data-explorer-output.md
               displayName: Azure Data Explorer
+        - name: Azure OpenAI
+          items:
+            - name: Overview
+              href: functions-bindings-openai.md
+              displayName: OpenAI    
+            - name: Assistants 
+              items: 
+                - name: Trigger
+                  href: functions-bindings-openai-assistant-trigger.md  
+                  displayName: assistants, OpenAI     
+                - name: Query input
+                  href: functions-bindings-openai-assistantquery-input.md 
+                  displayName: assistants, OpenAI 
+                - name: Create output
+                  href: functions-bindings-openai-assistantcreate-output.md
+                  displayName: assistants, OpenAI    
+                - name: Post input
+                  href: functions-bindings-openai-assistantpost-input.md 
+                  displayName: assistants, OpenAI 
+            - name: Embeddings  
+              items: 
+                - name: Input
+                  href: functions-bindings-openai-embeddings-input.md 
+                  displayName: embeddings, OpenAI
+                - name: Store output
+                  href: functions-bindings-openai-embeddingsstore-output.md  
+                  displayName: embeddings, OpenAI
+            - name: Semantic search input
+              href: functions-bindings-openai-semanticsearch-input.md 
+              displayName: OpenAI  
+            - name: Text Completion input
+              href: functions-bindings-openai-textcompletion-input.md                      
+              displayName: OpenAI  
         - name: Azure SQL
           items:
             - name: Overview
@@ -811,6 +868,20 @@
             - name: Output
               href: functions-bindings-azure-sql-output.md
               displayName: Azure SQL
+        - name: Blob storage
+          items:
+            - name: Overview
+              displayName: Blob storage
+              href: functions-bindings-storage-blob.md
+            - name: Trigger
+              displayName: Blob storage
+              href: functions-bindings-storage-blob-trigger.md
+            - name: Input
+              displayName: Blob storage
+              href: functions-bindings-storage-blob-input.md
+            - name: Output
+              displayName: Blob storage
+              href: functions-bindings-storage-blob-output.md              
         - name: Dapr
           items: 
             - name: Overview
@@ -871,6 +942,17 @@
             - name: Output
               href: functions-bindings-event-hubs-output.md
               displayName: Azure Event Hubs
+        - name: HTTP and webhooks
+          items:
+            - name: Overview
+              href: functions-bindings-http-webhook.md
+              displayName: HTTP
+            - name: Trigger
+              href: functions-bindings-http-webhook-trigger.md
+              displayName: HTTP, keys, authorization keys, function keys, access keys
+            - name: Output
+              href: functions-bindings-http-webhook-output.md
+              displayName: HTTP              
         - name: IoT Hub
           items:
             - name: Overview
@@ -890,17 +972,6 @@
             - name: Output
               href: functions-bindings-kafka-output.md
               displayName: Kafka
-        - name: HTTP and webhooks
-          items:
-            - name: Overview
-              href: functions-bindings-http-webhook.md
-              displayName: HTTP
-            - name: Trigger
-              href: functions-bindings-http-webhook-trigger.md
-              displayName: HTTP, keys, authorization keys, function keys, access keys
-            - name: Output
-              href: functions-bindings-http-webhook-output.md
-              displayName: HTTP
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs
@@ -1041,13 +1112,13 @@
     - name: Regional availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Videos
-      href: https://www.youtube.com/c/AzureFunctions
+      href: https://www.youtube.com/@AzureDevelopers/search?query=functions
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-functions.html
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-functions
-    - name: Twitter
-      href: https://twitter.com/azurefunctions
+    - name: X
+      href: https://x.com/azurefunctions
     - name: Provide product feedback
       href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
     - name: Azure Functions GitHub repository

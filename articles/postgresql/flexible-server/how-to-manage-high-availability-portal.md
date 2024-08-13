@@ -5,20 +5,24 @@ author: AwdotiaRomanowna
 ms.author: alkuchar
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
 # Manage high availability in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes how you can enable or disable high availability configuration in your Azure Database for PostgreSQL flexible server instance in both zone-redundant and same-zone deployment models.
 
 High availability feature provisions physically separate primary and standby replica with the same zone or across zones depending on the deployment model. For more information, see [high availability concepts documentation](./concepts-high-availability.md). You may choose to enable high availability at the time of Azure Database for PostgreSQL flexible server instance creation or after the creation.
 
 This page provides guidelines how you can enable or disable high availability. This operation doesn't change your other settings including VNET configuration, firewall settings, and backup retention. Similarly, enabling and disabling of high availability is an online operation and doesn't impact your application connectivity and operations.
+
+> [!IMPORTANT]
+> _Billing Model Update for Azure Database for PostgreSQL Flexible Server (v5 HA):_
+In April, we implemented a billing model update for v5 SKU with High Availability (HA) enabled servers. This change aims to correctly reflect the charges, by accounting for both the primary and standby servers. Before this change we were incorrectly charging customers for the primary server only. Customers using v5 SKU with HA enabled servers will now see billing quantities multiplied by 2. This update does not impact v4 and v3 SKUs.
 
 ## Prerequisites
 
@@ -29,7 +33,7 @@ This page provides guidelines how you can enable or disable high availability. T
 
 This section provides details specifically for HA-related fields. You can follow these steps to deploy high availability while creating your Azure Database for PostgreSQL flexible server instance.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose Azure Database for PostgreSQL flexible server and select create.  For details on how to fill details such as **Subscription**, **Resource group**, **server name**, **region**, and other fields, see how-to documentation for the server creation.
+1.  In the [Azure portal](https://portal.azure.com/), choose Azure Database for PostgreSQL flexible server and select create.  For details on how to fill details such as **Subscription**, **Resource group**, **Server name**, **Region**, and other fields, see [how to create an Azure Database for PostgreSQL - Flexible Server](./quickstart-create-server-portal.md).
    
     :::image type="content" source="./media/how-to-manage-high-availability-portal/subscription-region.png" alt-text="Screenshot of subscription and region selection.":::
 

@@ -1,9 +1,9 @@
 ---
 title: Azure Private 5G Core 2404 release notes
-description: Discover what's new in the Azure Private 5G Core 2404 release.
+description: Discover What's New in the Azure Private 5G Core 2404 release.
 author: paulcarter
 ms.author: paulcarter
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: release-notes
 ms.date: 05/09/2023
 ---
@@ -43,11 +43,11 @@ We're excited to announce that AP5GC is now resilient to system failures when ru
 
 In our commitment to continuous improvement and minimizing service impact we’re excited to announce that, upgrading from this version to a future release will include the capability for In-Service Software Upgrades (ISSU).
 
-ISSU is supported for deployments on a 2-node cluster, software upgrades can be performed seamlessly, ensuring minimal disruption to your services. The upgrade completes with no loss of sessions or registrations and minimal packet loss and packet reordering. Should the upgrade fail, the software will automatically roll back to the previous version, also with minimal service disruption.
+ISSU is supported for deployments on a 2-node cluster. Software upgrades can be performed seamlessly, ensuring minimal disruption to your services. The upgrade completes with no loss of sessions or registrations and minimal packet loss and packet reordering. Should the upgrade fail, the software automatically rolls back to the previous version, also with minimal service disruption.
 
 ### Azure Resource Health 
 
-This feature allows you to monitor the health of your control plane resource using Azure Resource Health.  Azure Resource Health is a service that processes and displays health signals from your resource and displays the health in the Azure portal. This service gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
+This feature allows you to monitor the health of your control plane resource using Azure Resource Health. Azure Resource Health is a service that processes and displays health signals from your resource and displays the health in the Azure portal. This service gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
 
 For more information, on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](../service-health/resource-health-overview.md).
 
@@ -57,8 +57,39 @@ NAS (Non-Access-Stratum) encryption configuration determines the encryption algo
 
 You can change the preferred encryption level after deployment by [modifying the packet core configuration](modify-packet-core.md).
 
-<!--## Issues fixed in the AP5GC 2404 release
-# NO FIXED ISSUES IN AP5GC2404
+### RADIUS Authentication
+
+The RADIUS authentication feature enables AP5GC to perform secondary authentication via an AAA server for 4G attach and establishing a PDN/PDU session for 4G and 5G.
+This feature can be enabled per DN to perform secondary authentication. PAP based secondary authentication is supported in current release.
+
+For more information on configuration RADIUS Authentication for your deployment, see [RADIUS Authentication](security.md).
+
+### VLAN Trunking
+
+VLAN trunking provides a new method for configuring data networks. A single virtual network interface is used to carry all data plane traffic. The traffic is all VLAN tagged, with each DN using a separate VLAN to provide separation. Configuration to use VLAN trunking is done on both the ASE and Private Mobile Network. When AP5GC is deployed on a 2-node cluster, VLAN trunking is mandatory.
+
+For more information on configuration of VLAN Trunking, see [Commission an AKS Cluster](commission-cluster.md?pivots=ase-pro-2#set-up-advanced-networking).
+
+### Dual-router link redundancy
+
+Link connectivity monitoring for High Availability now accommodates paired peer routers in a dual-redundancy topology.  You can configure this by designating two BFD peer router IP addresses per interface – if this is set then:
+
+- Each Packet Core node establishes BFD sessions with each of these routers, rather than with the default gateway IP.
+- The interface is not considered to have lost connectivity unless both IPs in the redundant pair are unreachable.
+
+For more information on configuration of dual-routers, see [Create a site](create-a-site.md) or [Modify a site](modify-packet-core.md).
+
+### RAN insights preview
+
+We’re excited to announce that radio access network (RAN) insights is now in preview for AP5GC. This feature integrates third-party data from RAN vendors, collecting and displaying a subset of metrics from your Element Management Systems (EMS) as standard metrics in Azure. By leveraging Azure's capabilities, this integration offers a unified and simplified experience for monitoring and troubleshooting RAN across multiple vendors and locations. With RAN insights you will now be able to:
+
+- View the metrics of your RAN to monitor their deployment’s performance, reliability, and connection status.
+- Access geo maps for a visual overview of all connected access points along with health status and performance metrics of each radio.
+- Use correlated metrics of your RAN and packet core to help diagnose and troubleshoot issues.
+
+To learn more and get started, see [RAN Insights Concepts](ran-insights-concepts.md) and [Create a Radio Access Network Insights Resource](ran-insights-create-resource.md).
+
+<!--# NO FIXED ISSUES IN AP5GC2404
 
 The following table provides a summary of issues fixed in this release.
 

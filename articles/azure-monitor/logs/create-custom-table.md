@@ -50,17 +50,17 @@ To create a custom table, you need:
 
 ## Create a custom table
 
-Azure tables have predefined schemas. To store log data in a different schema, use data collection rules to define how to collect, transform, and send the data to a custom table in your Log Analytics workspace.
+Azure tables have predefined schemas. To store log data in a different schema, use data collection rules to define how to collect, transform, and send the data to a custom table in your Log Analytics workspace. To create a custom table with the Auxiliary plan, see [Set up a table with the Auxiliary plan (Preview)](create-custom-table-auxiliary.md).
 
 > [!IMPORTANT]
 > Custom tables have a suffix of **_CL**; for example, *tablename_CL*. The Azure portal adds the **_CL** suffix to the table name automatically. When you create a custom table using a different method, you need to add the **_CL** suffix yourself. The *tablename_CL* in the [DataFlows Streams](../essentials/data-collection-rule-structure.md#dataflows) properties in your data collection rules must match the *tablename_CL* name in the Log Analytics workspace.
 
-> [!NOTE]
-> For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log-table).
+> [!WARNING]
+> Table names are used for billing purposes so they should not contain sensitive information.
 
 # [Portal](#tab/azure-portal-1)
 
-To create a custom table in the Azure portal:
+To create a custom table using the Azure portal:
 
 1. From the **Log Analytics workspaces** menu, select **Tables**.  
 
@@ -153,7 +153,7 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
 There are several types of tables in Azure Monitor Logs. You can delete any table that's not an Azure table, but what happens to the data when you delete the table is different for each type of table. 
 
-For more information, see [What happens to data when you delete a table in a Log Analytics workspace](../logs/data-retention-archive.md#what-happens-to-data-when-you-delete-a-table-in-a-log-analytics-workspace).
+For more information, see [What happens to data when you delete a table in a Log Analytics workspace](../logs/data-retention-configure.md#what-happens-to-data-when-you-delete-a-table-in-a-log-analytics-workspace).
 
 
 # [Portal](#tab/azure-portal-2)

@@ -6,6 +6,7 @@ metadata:
   title: Azure Arc-enabled servers
   description: Learn how to connect and manage on-premises machines in Azure.
   ms.service: azure-arc
+  ms.author: rayoflores
   ms.topic: landing-page
   ms.date: 03/24/2022
 
@@ -21,6 +22,8 @@ landingContent:
             url: agent-overview.md
           - text: VMware FAQ
             url: vmware-faq.md
+          - text: Security overview
+            url: security-overview.md
 
       - linkListType: architecture
         links:
@@ -103,4 +106,4 @@ landingContent:
           - text: Microsoft Sentinel
             url: scenario-onboard-azure-sentinel.md
           - text: Microsoft Defender for Cloud
-            url: ../../defender-for-cloud/quickstart-onboard-machines.md?bc=/azure/azure-arc/servers/breadcrumb/toc.json&pivots=azure-arc&toc=/azure/azure-arc/servers/toc.json
+            url: /azure/defender-for-cloud/quickstart-onboard-machines?bc=/azure/azure-arc/servers/breadcrumb/toc.json&pivots=azure-arc&toc=/azure/azure-arc/servers/toc.json

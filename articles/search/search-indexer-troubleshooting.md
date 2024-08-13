@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/11/2024
+ms.date: 06/25/2024
 ---
 
 # Indexer troubleshooting guidance for Azure AI Search
@@ -170,7 +170,7 @@ If you're indexing content from Azure Blob Storage, and the container includes b
 In this situation, you can [set configuration options](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) to allow indexer processing to continue in the event of problems with individual documents.
 
 ```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2023-11-01
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -182,15 +182,15 @@ api-key: [admin key]
 
 ## Missing documents
 
-Indexers extract documents or rows from an external [data source](/rest/api/searchservice/create-data-source) and create *search documents*, which are then indexed by the search service. Occasionally, a document that exists in data source fails to appear in a search index. This unexpected result can occur due to the following reasons:
+Indexers extract documents or rows from an external [data source](/rest/api/searchservice/data-sources/create) and create *search documents*, which are then indexed by the search service. Occasionally, a document that exists in data source fails to appear in a search index. This unexpected result can occur due to the following reasons:
 
-* The document was updated after the indexer was run. If your indexer is on a [schedule](/rest/api/searchservice/create-indexer#indexer-schedule), it eventually reruns and picks up the document.
-* The indexer timed out before the document could be ingested. There are [maximum processing time limits](search-limits-quotas-capacity.md#indexer-limits) after which no documents are processed. You can check indexer status in the portal or by calling [Get Indexer Status (REST API)](/rest/api/searchservice/get-indexer-status).
-* [Field mappings](/rest/api/searchservice/create-indexer#fieldmappings) or [AI enrichment](./cognitive-search-concept-intro.md) have changed the document and its articulation in the search index is different from what you expect.
-* [Change tracking](/rest/api/searchservice/create-data-source#data-change-detection-policies) values are erroneous or prerequisites are missing. If your high watermark value is a date set to a future time, then any documents that have an earlier date are skipped by the indexer. You can determine your indexer's change tracking state using the 'initialTrackingState' and 'finalTrackingState' fields in the [indexer status](/rest/api/searchservice/get-indexer-status#indexer-execution-result). Indexers for Azure SQL and MySQL must have an index on the high water mark column of the source table, or queries used by the indexer might time out. 
+* The document was updated after the indexer was run. If your indexer is on a [schedule](search-howto-schedule-indexers.md), it eventually reruns and picks up the document.
+* The indexer timed out before the document could be ingested. There are [maximum processing time limits](search-limits-quotas-capacity.md#indexer-limits) after which no documents are processed. You can check indexer status in the portal or by calling [Get Indexer Status (REST API)](/rest/api/searchservice/indexers/get-status).
+* [Field mappings](search-indexer-field-mappings.md) or [AI enrichment](./cognitive-search-concept-intro.md) have changed the document and its articulation in the search index is different from what you expect.
+* Change tracking values are erroneous or prerequisites are missing. If your high watermark value is a date set to a future time, then any documents that have an earlier date are skipped by the indexer. You can determine your indexer's change tracking state using the 'initialTrackingState' and 'finalTrackingState' fields in the [indexer status](/rest/api/searchservice/indexers/get-status). Indexers for Azure SQL and MySQL must have an index on the high water mark column of the source table, or queries used by the indexer might time out. 
 
 > [!TIP]
-> If documents are missing, check the [query](/rest/api/searchservice/search-documents) you are using to make sure it isn't excluding the document in question. To query for a specific document, use the [Lookup Document REST API](/rest/api/searchservice/lookup-document).
+> If documents are missing, check the [query](/rest/api/searchservice/documents/search-post) you are using to make sure it isn't excluding the document in question. To query for a specific document, use the [Lookup Document REST API](/rest/api/searchservice/documents/get?).
 
 ## Missing content from Blob Storage
 
@@ -202,7 +202,7 @@ The blob indexer [finds and extracts text from blobs in a container](search-howt
 
 
 ```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -266,6 +266,11 @@ Conditions under which a document is processed twice is explained in the followi
 
 In practice, this scenario only happens when on-demand indexers are manually invoked within minutes of each other, for certain data sources. It can result in mismatched numbers (like the indexer processed 345 documents total according to the indexer execution stats, but there are 340 documents in the data source and index) or potentially increased billing if you're running the same skills for the same document multiple times. Running an indexer using a schedule is the preferred recommendation.
 
+## Parallel indexing
+
+When multiple indexers are operating simultaneously, it's typical for some to enter a queue, waiting for available resources to begin execution. The number of indexers that can run concurrently depends on several factors. If the indexers are not linked with [skillsets](cognitive-search-working-with-skillsets.md), the capacity to run in parallel relies on the number of [replicas and partitions](search-capacity-planning.md#concepts-search-units-replicas-partitions) set up in the AI Search service.
+
+On the other hand, if an indexer is associated with a skillset, it operates within the AI Search's internal clusters. The ability to run concurrently in this case is determined by the complexity of the skillset and whether other skillsets are running simultaneously. Built-in indexers are designed to reliably extract data from the source, so no data is missed if running on a schedule. However, it is expected that the indexer processes of parallelization and scaling out may require some time. 
 
 ## Indexing documents with sensitivity labels
 

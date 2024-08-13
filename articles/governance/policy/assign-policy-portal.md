@@ -1,13 +1,15 @@
 ---
 title: "Quickstart: Create policy assignment using Azure portal"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure portal.
-ms.date: 02/29/2024
+ms.date: 07/03/2024
 ms.topic: quickstart
 ---
 
 # Quickstart: Create a policy assignment to identify non-compliant resources using Azure portal
 
 The first step in understanding compliance in Azure is to identify the status of your resources. In this quickstart, you create a policy assignment to identify non-compliant resources using Azure portal. The policy is assigned to a resource group and audits virtual machines that don't use managed disks. After you create the policy assignment, you identify non-compliant virtual machines.
+
+[!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
 
 ## Prerequisites
 
@@ -21,11 +23,11 @@ In this quickstart, you create a policy assignment with a built-in policy defini
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for _policy_ and select it from the list.
 
-   :::image type="content" source="./media/assign-policy-portal/search-policy.png" alt-text="Screenshot of the Azure portal to search for policy.":::
+   :::image type="content" source="./media/assign-policy-portal/search-policy.png" alt-text="Screenshot of the Azure portal to search for policy." lightbox="./media/assign-policy-portal/search-policy.png":::
 
 1. Select **Assignments** on the **Policy** pane.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Screenshot of the Assignments pane that highlights the option to Assign policy.":::
+   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Screenshot of the Assignments pane that highlights the option to Assign policy." lightbox="./media/assign-policy-portal/select-assignments.png":::
 
 1. Select **Assign Policy** from the **Policy Assignments** pane.
 
@@ -35,21 +37,27 @@ In this quickstart, you create a policy assignment with a built-in policy defini
    | ---- | ---- |
    | **Scope** | Use the ellipsis (`...`) and then select a subscription and a resource group. Then choose **Select** to apply the scope. |
    | **Exclusions** | Optional and isn't used in this example. |
-   | **Policy definition** | Select the ellipsis to open the list of available definitions. |
-   | **Available Definitions** | Search the policy definitions list for _Audit VMs that do not use managed disks_ definition, select the policy, and select **Add**. |
+   | **Resource selectors** | Skip resource selectors for this example. Resource selectors let you refine the resources affected by the policy assignment. |
+   | **Policy definition** | Select the ellipsis (`...`) to open the list of available definitions. |
+   | **Available Definitions** | Search the policy definitions list for _Audit VMs that do not use managed disks_ definition, select the policy, and select **Add**. There's a column that shows the latest version of the definition. |
+   | **Version (preview)** | Accept the version in format `1.*.*` to ingest major, minor, and patch versions. <br/><br/> Select the ellipsis (`...`) to view available versions and the options to enroll in minor version updates or preview versions. You must select a version to change the options. For more information, go to [definition version within assignment](./concepts/assignment-structure.md#policy-definition-id-and-version-preview). |
    | **Assignment name** | By default uses the name of the selected policy. You can change it but for this example, use the default name. |
    | **Description** | Optional to provide details about this policy assignment. |
    | **Policy enforcement** | Defaults to _Enabled_. For more information, go to [enforcement mode](./concepts/assignment-structure.md#enforcement-mode). |
-   | **Assigned by** | Defaults to who is signed in to Azure. This field is optional and custom values can be entered. |
 
-   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Screenshot of filtering the available definitions.":::
+   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Screenshot of the policy assignment and available definitions that highlights policy version." lightbox="./media/assign-policy-portal/select-available-definition.png":::
 
-1. Select **Next** to view each tab for **Advanced**, **Parameters**, and **Remediation**. No changes are needed for this example.
+1. After a Policy definition is selected, you can change the **Version (preview)** options.
+
+   For example, if you select the options shown in the image, the **Version (preview)** is changed to `1.0.*`.
+
+   :::image type="content" source="./media/assign-policy-portal/select-version.png" alt-text="Screenshot of the policy definition version options to enroll in minor or preview versions." lightbox="./media/assign-policy-portal/select-version.png":::
+
+1. Select **Next** to view each tab for **Parameters** and **Remediation**. No changes are needed for this example.
 
    | Tab name | Options |
    | ---- | ---- |
-   | **Advanced** | Includes options for [resource selectors](./concepts/assignment-structure.md#resource-selectors) and [overrides](./concepts/assignment-structure.md#overrides). |
-   | **Parameters** | If the policy definition you selected on the **Basics** tab included parameters, they're configured on **Parameters** tab. This example doesn't use parameters. |
+   | **Parameters** | If the policy definition you selected on the **Basics** tab has parameters, you configure them on the **Parameters** tab. This example doesn't use parameters. |
    | **Remediation** | You can create a managed identity. For this example, **Create a Managed Identity** is unchecked. <br><br> This box _must_ be checked when a policy or initiative includes a policy with either the [deployIfNotExists](./concepts/effects.md#deployifnotexists) or [modify](./concepts/effects.md#modify) effect. For more information, go to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [how remediation access control works](./how-to/remediate-resources.md#how-remediation-access-control-works). |
 
 1. Select **Next** and on the **Non-compliance messages** tab create a **Non-compliance message** like _Virtual machines should use managed disks_.

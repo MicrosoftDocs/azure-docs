@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB: Bulk executor Java API, SDK & resources'
 description: Learn all about the bulk executor Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB bulk executor Java SDK.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.topic: reference

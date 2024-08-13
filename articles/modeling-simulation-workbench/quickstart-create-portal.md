@@ -1,11 +1,11 @@
 ---
 title: Quickstart - Create an Azure Modeling and Simulation Workbench (preview) in the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create an Azure Modeling and Simulation Workbench.
-author: lynnar
-ms.author: lynnar
-ms.reviewer: yochu
+author: becha8
+ms.author: becha
+ms.reviewer: becha
 ms.service: modeling-simulation-workbench
-ms.date: 07/19/2023
+ms.date: 08/05/2024
 ms.topic: quickstart
 # Customer intent: As a Modeling and Simulation Workbench owner, I want to create and perform initial setup so that Modeling and Simulation Workbench chamber users can run EDA applications.
 ---
@@ -94,7 +94,7 @@ Creating a client secret allows the Azure Modeling and Simulation Workbench to r
 1. In **App registrations**, select your application *QuickstartModSimWorkbenchApp*.
 1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
 1. Add a description for your client secret.
-1. Select **Recommended: 6 months** for the **Expires**.
+1. Select ** 6 months** for the **Expires**.
 1. Select **Add**.
 1. The application properties display. Locate the **Client secret value** and document it. You need the Client secret value when you create your Key Vault. Make sure you write it down now, as it will never be displayed again once you leave this page.
 
@@ -135,6 +135,8 @@ Creating a client secret allows the Azure Modeling and Simulation Workbench to r
    | Role             | Key Vault Secrets **User**              |
    | Assign access to | User, group, or service principal       |
    | Members          | Azure Modeling and Simulation Workbench |
+
+   In case the ‘Azure Modeling and Simulation Workbench’ is not discoverable, please search for ‘Azure HPC Workbench’.
 
    | Setting          | Value                                   |
    | :--------------- | :-------------------------------------- |
@@ -232,14 +234,14 @@ To create an Azure Modeling and Simulation Workbench, you first fill out the Azu
 
 1. Leave the **Assign access to** default **User, group, or service principal**. Select **+ Select members**. In the **Select members** blade on the left side of the screen, search for your security principal by entering a string or scrolling through the list. Select your security principal. Select **Select** to save the selections.
 
-    > [!NOTE]
-    > Chamber Admins and Chamber Users *MUST* have an alias set within their Microsoft Entra profile email field, or they can't log into the environment.
+    > [!NOTE] 
+    > Chamber Admins and Chamber Users *MUST* have an alias set within their Microsoft Entra profile email field, or they can't log into the environment. To check this, go to Microsoft Entra ID in your Azure portal and under Manage -> Select Users, search for the user by name. Under the Properties tab, look for the email field and ensure it has the email address of the user populated. Also, the role assignment must be done ONLY at the chamber resource level, not at any other resource level. Duplicate and/or multiple role assignments are not allowed and will result in a failed connection.
 
    :::image type="content" source="./media/quickstart-create-portal/chamber-iam-04.png" alt-text="Screenshot of the Add role assignment page showing where you select the security principal.":::
 
 1. Select **Review + assign** to assign the selected role.
 
-1. Repeat steps 3-6 to assign the **Chamber User** role to other users who need to work on the chamber.
+1. Repeat steps 3-6 to assign the **Chamber User** role to other users who need to work on the chamber. Also, remember to assign any provisioned chamber admins/users the ‘Reader’ and 'Classic storage account contributor' role at the Resource Group level to enable permissions to access workbench resources and deploy workload VMs respectively.
 
 <a name='add-redirect-uris-for-the-application-in-azure-active-directory'></a>
 
@@ -284,6 +286,11 @@ Chamber Admins and Chamber Users can now connect into the chamber with remote de
 1. On the page for your new Modeling and Simulation Workbench workbench, **myModSimWorkbench**, select the left side menu **Connector**. Then select **myfirstconnector** from the right side resource list.
 
 1. On the **Overview** page, select the **Desktop Dashboard** URL to launch the remote desktop dashboard. You shouldn't be prompted for credentials. From within this dashboard, you should be able to see all workloads within your chambers and be able to launch a session into any of those workloads.
+
+> [!TIP]
+> If your workload VM was recently created, wait 5 minutes for your workload to be in a running state.
+> If you encounter a blue ETX screen asking for username and password, restart the connector and try again. Before restarting, ensure that all role assignments are done at the chamber resource level only, with no duplicate role assignments.
+> After a new role assignment, wait for 10 minutes before attempting a remote connection to the workload VM to allow for backend RBAC synchronization.
 
 ## Clean up resources
 

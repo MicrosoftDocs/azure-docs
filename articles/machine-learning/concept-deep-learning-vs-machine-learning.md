@@ -3,7 +3,7 @@ title: 'Deep learning vs. machine learning'
 titleSuffix: Azure Machine Learning
 description: Learn how deep learning relates to machine learning and AI. In Azure Machine Learning, use deep learning models for fraud detection, object detection, and more.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: conceptual
 ms.author: lagayhar
@@ -105,7 +105,7 @@ Companies use deep learning to perform text analysis to detect insider trading a
 
 Artificial neural networks are formed by layers of connected nodes. Deep learning models use neural networks that have a large number of layers. 
 
-The following sections explore most popular artificial neural network typologies.
+The following sections explore most popular artificial neural network topologies.
 
 ### Feedforward neural network
 

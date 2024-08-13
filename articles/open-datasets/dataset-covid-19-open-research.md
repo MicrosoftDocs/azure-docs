@@ -1,7 +1,7 @@
 ---
 title: COVID-19 Open Research Dataset
 description: Learn how to use the COVID-19 Open Research Dataset dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -16,7 +16,7 @@ This dataset mobilizes researchers to apply recent advances in natural language 
 
 The corpus may be updated as new research is published in peer-reviewed publications and archival services like [bioRxiv](https://www.biorxiv.org/), [medRxiv](https://www.medrxiv.org/), and others.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## License Terms
 

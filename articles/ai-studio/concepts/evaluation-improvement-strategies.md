@@ -6,17 +6,18 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
-ms.date: 04/30/2024
-ms.reviewer: eur
+ms.date: 5/21/2024
+ms.reviewer: mithigpe
 ms.author: lagayhar
 author: lgayhardt
 ---
 
 # Content risk mitigation strategies with Azure AI
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
- 
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+
 Mitigating content risks and poor quality generations presented by large language models (LLMs) such as the Azure OpenAI models requires an iterative, layered approach that includes experimentation and continual measurement. We recommend developing a mitigation plan that encompasses four layers of mitigations for the identified risks in the earlier stages of the process:
 
 :::image type="content" source="../media/evaluations/mitigation-layers.png" alt-text="Diagram of strategy to mitigate potential risks of generative AI applications." lightbox="../media/evaluations/mitigation-layers.png":::
@@ -46,7 +47,7 @@ The default configuration is set to filter risky content at the medium severity 
 
 ## Metaprompt and grounding layer
 
-System message (otherwise known as metaprompt) design and proper data grounding are at the heart of every generative AI application. They provide an application's unique differentiation and are also a key component in reducing errors and mitigating risks. At Microsoft, we find [retrieval augmented generation](./retrieval-augmented-generation.md) (RAG) to be an effective and flexible architecture. With RAG, you enable your application to retrieve relevant knowledge from selected data and incorporate it into your system message to the model. In this pattern, rather than using the model to store information, which can change over time and based on context, the model functions as a reasoning engine over the data provided to it during the query. This improves the freshness, accuracy, and relevancy of inputs and outputs. In other words, RAG can ground your model in relevant data for more relevant results.
+System message (otherwise known as metaprompt) design and proper data grounding are at the heart of every generative AI application. They provide an application's unique differentiation and are also a key component in reducing errors and mitigating risks. At Microsoft, we find [retrieval augmented generation (RAG)](./retrieval-augmented-generation.md) to be an effective and flexible architecture. With RAG, you enable your application to retrieve relevant knowledge from selected data and incorporate it into your system message to the model. In this pattern, rather than using the model to store information, which can change over time and based on context, the model functions as a reasoning engine over the data provided to it during the query. This improves the freshness, accuracy, and relevancy of inputs and outputs. In other words, RAG can ground your model in relevant data for more relevant results.
 
 Now the other part of the story is how you teach the base model to use that data or to answer the questions effectively in your application. When you create a system message, you're giving instructions to the model in natural language to consistently guide its behavior on the backend. Tapping into the trained data of the models is valuable but enhancing it with your information is critical.
 

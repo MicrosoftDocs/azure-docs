@@ -24,7 +24,7 @@ This tutorial shows you how to enhance your custom question answering project wi
 
 These variations when added as alternate questions to the relevant question answer pair, help to optimize the project to answer real world user queries. You can manually add alternate questions to question answer pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the project receives regular user traffic to generate suggestions.
 
-## Enable active learning
+## Use active learning
 
 Active learning is turned on by default for custom question answering enabled resources.
 

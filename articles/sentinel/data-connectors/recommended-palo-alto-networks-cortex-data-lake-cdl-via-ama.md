@@ -11,7 +11,7 @@ ms.collection: sentinel-data-connector
 
 # [Recommended] Palo Alto Networks Cortex Data Lake (CDL) via AMA connector for Microsoft Sentinel
 
-The [Palo Alto Networks CDL](https://www.paloaltonetworks.com/cortex/cortex-data-lake) data connector provides the capability to ingest [CDL logs](https://docs.paloaltonetworks.com/cortex/cortex-data-lake/log-forwarding-schema-reference/log-forwarding-schema-overview.html) into Microsoft Sentinel.
+The [Palo Alto Networks CDL](https://www.paloaltonetworks.com/cortex/cortex-data-lake) data connector provides the capability to ingest [CDL logs](https://docs.paloaltonetworks.com/strata-logging-service/log-reference/log-forwarding-schema-overview) into Microsoft Sentinel.
 
 ## Connector attributes
 

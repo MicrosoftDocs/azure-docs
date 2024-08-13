@@ -1,11 +1,11 @@
 ---
 title: Read replicas
 description: This article describes the read replica feature in Azure Database for PostgreSQL - Flexible Server.
-author: AlicjaKucharczyk
-ms.author: alkuchar
+author: akashraokm
+ms.author: akashrao
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 05/02/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
@@ -14,7 +14,7 @@ ms.custom:
 
 # Read replicas in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 The read replica feature allows you to replicate data from an Azure Database for PostgreSQL flexible server instance to a read-only replica. Replicas are updated **asynchronously** with the PostgreSQL engine's native physical replication technology. Streaming replication by using replication slots is the default operation mode. When necessary, file-based log shipping is used to catch up. You can replicate from the primary server to up to five replicas.
 

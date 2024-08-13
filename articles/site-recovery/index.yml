@@ -7,7 +7,7 @@ summary: Use Azure Site Recovery for disaster recovery of on-premises workloads,
 metadata:
   title: Azure Site Recovery documentation
   description: Set up disaster recovery to Azure for on-premises workloads, and Azure VMs.
-  ms.service: site-recovery
+  ms.service: azure-site-recovery
   ms.topic: landing-page
 
   author: ankitaduttaMSFT

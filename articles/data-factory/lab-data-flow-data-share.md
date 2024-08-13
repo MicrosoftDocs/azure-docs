@@ -4,8 +4,6 @@ description: Copy, transform, and share data using Azure Data Factory and Azure 
 author: dcstwh
 ms.author: weetok
 ms.date: 11/14/2023
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ---
 
@@ -50,7 +48,7 @@ In Azure Data Factory linked services, define the connection information to exte
     :::image type="content" source="media/lab-data-flow-data-share/portal-data-factories.png" alt-text="Screenshot from the Azure portal of a data factories overview page.":::
 1. Select **Open Azure Data Factory Studio**. The Data Factory Studio can also be accessed directly at adf.azure.com.
 
-    :::image type="content" source="media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page in the Azure portal." lightbox="media/doc-common-process/data-factory-home-page.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page in the Azure portal." lightbox="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png":::
 
 1. You are redirected to the homepage of ADF in the Azure portal. This page contains quick-starts, instructional videos, and links to tutorials to learn data factory concepts. To start authoring, select the pencil icon in left side-bar.
 

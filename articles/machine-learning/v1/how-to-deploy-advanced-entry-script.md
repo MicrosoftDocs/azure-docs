@@ -3,13 +3,13 @@ title: Entry script authoring for advanced scenarios
 titleSuffix: Azure Machine Learning
 description: Learn how to write Azure Machine Learning entry scripts for pre- and post-processing during deployment.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.date: 03/12/2024
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom: UpdateFrequency5, deploy, sdkv1
 ---
 
@@ -323,7 +323,6 @@ See the following articles for more entry script examples for specific machine l
 * [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
 * [Keras](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb)
 * [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
-* [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
 ## Related content
 

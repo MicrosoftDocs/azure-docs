@@ -597,7 +597,7 @@ Lets you manage DNS zones and record sets in Azure DNS, but does not let you con
 
 ## Network Contributor
 
-Lets you manage networks, but not access to them.
+Lets you manage networks, but not access to them. This role does not grant you permission to deploy or manage Virtual Machines.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

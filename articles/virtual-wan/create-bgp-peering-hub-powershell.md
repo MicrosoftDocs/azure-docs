@@ -3,9 +3,9 @@ title: 'Configure BGP peering to an NVA: PowerShell'
 titleSuffix: Azure Virtual WAN
 description: Learn how to create a BGP peering with Virtual WAN hub router using Azure PowerShell.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
 ---
@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 This article helps you configure an Azure Virtual WAN hub router to peer with a Network Virtual Appliance (NVA) in your virtual network using BGP Peering using Azure PowerShell. The virtual hub router learns routes from the NVA in a spoke VNet that is connected to a virtual WAN hub. The virtual hub router also advertises the virtual network routes to the NVA. For more information, see [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md). You can also create this configuration using the [Azure portal](create-bgp-peering-hub-portal.md).
 
-:::image type="content" source="./media/create-bgp-peering-hub-portal/diagram.png" alt-text="Diagram of configuration.":::
+:::image type="content" source="./media/create-bgp-peering-hub-portal/diagram.png" alt-text="Diagram of configuration." lightbox="./media/create-bgp-peering-hub-portal/diagram.png":::
 
 ## Prerequisites
 

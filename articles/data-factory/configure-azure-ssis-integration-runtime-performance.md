@@ -3,7 +3,6 @@ title: Configure performance for the Azure-SSIS Integration Runtime
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
 ms.date: 01/05/2024
 ms.topic: conceptual
-ms.service: data-factory
 ms.subservice: integration-services
 author: chugugrace
 ms.author: chugu
@@ -53,7 +52,7 @@ $SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the s
 
 ### SSISDB info
 $SSISDBServerEndpoint = "[your server name or managed instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
-# Authentication info: SQL or Azure Active Directory (AAD)
+# Authentication info: SQL or Entra ID
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication or leave it empty for AAD authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for AAD authentication]"
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for SQL Managed Instance]"
@@ -152,7 +151,7 @@ Here are the guidelines for setting the right value for the **AzureSSISMaxParall
 
 -   Choose a more powerful database such as s3 if the logging level is set to verbose. According our unofficial in-house testing, s3 pricing tier can support SSIS package execution with 2 nodes, 128 parallel counts and verbose logging level.
 
-You can also adjust the database pricing tier based on [database transaction unit](/azure/azure-sql/database/service-tiers-dtu) (DTU) usage information available on the Azure portal.
+You can also adjust the database pricing tier based on [database transaction unit (DTU)](/azure/azure-sql/database/service-tiers-dtu) usage information available on the Azure portal.
 
 ## Design for high performance
 Designing an SSIS package to run on Azure is different from designing a package for on-premises execution. Instead of combining multiple independent tasks in the same package, separate them into several packages for more efficient execution in the Azure-SSIS IR. Create a package execution for each package, so that they don’t have to wait for each other to finish. This approach benefits from the scalability of the Azure-SSIS integration runtime and improves the overall throughput.

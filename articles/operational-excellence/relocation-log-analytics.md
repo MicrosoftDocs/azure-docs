@@ -1,18 +1,20 @@
 ---
-title: Relocation guidance for Log Analytics workspace
+title: Relocate Log Analytics workspace to another region
 description: Learn how to relocate Log Analytics workspace to a new region.
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 03/01/2024
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: concept
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 #CustomerIntent: As a cloud architect/engineer, I want to learn how to relocate Log Analytics workspace to another region.
 ---
 
 # Relocate Azure Monitor - Log Analytics workspace to another region
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
 A relocation plan for Log Analytics workspace must include the relocation of any resources that log data with Log Analytics Workspace. 
 

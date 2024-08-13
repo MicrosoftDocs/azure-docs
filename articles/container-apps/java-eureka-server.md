@@ -1,24 +1,24 @@
 ---
-title: "Tutorial: Connect to a managed Spring Cloud Eureka Server in Azure Container Apps"
-description: Learn to use a managed Spring Cloud Eureka Server in Azure Container Apps.
+title: "Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps"
+description: Learn to use a managed Eureka Server for Spring in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 03/15/2024
+ms.date: 07/15/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Connect to a managed Spring Cloud Eureka Server in Azure Container Apps (preview)
+# Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps (preview)
 
-Spring Cloud Eureka Server is a service registry that allows microservices to register themselves and discover other services. Available as an Azure Container Apps component, you can bind your container app to a Spring Cloud Eureka Server for automatic registration with the Eureka server.
+Eureka Server for Spring is a service registry that allows microservices to register themselves and discover other services. Available as an Azure Container Apps component, you can bind your container app to a Eureka Server for Spring for automatic registration with the Eureka server.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Create a Spring Cloud Eureka Java component
-> * Bind your container app to Spring Cloud Eureka Java component
+> * Create a Eureka Server for Spring Java component
+> * Bind your container app to Eureka Server for Spring Java component
 
 > [!IMPORTANT]
 > This tutorial uses services that can affect your Azure bill. If you decide to follow along step-by-step, make sure you delete the resources featured in this article to avoid unexpected billing.
@@ -34,19 +34,19 @@ To complete this project, you need the following items:
 
 ## Considerations
 
-When running in Spring Cloud Eureka Server in Azure Container Apps, be aware of the following details:
+When running in Eureka Server for Spring in Azure Container Apps, be aware of the following details:
 
 | Item | Explanation |
 |---|---|
-| **Scope** | The Spring Cloud Eureka component runs in the same environment as the connected container app. |
-| **Scaling** | The Spring Cloud Eureka can’t scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. |
-| **Resources** | The container resource allocation for Spring Cloud Eureka is fixed. The number of the CPU cores is 0.5, and the memory size is 1Gi. |
-| **Pricing** | The Spring Cloud Eureka billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You can delete components that are no longer in use to stop billing. |
-| **Binding** | Container apps connect to a Spring Cloud Eureka component via a binding. The bindings inject configurations into container app environment variables. Once a binding is established, the container app can read the configuration values from environment variables and connect to the Spring Cloud Eureka. |
+| **Scope** | The Eureka Server for Spring component runs in the same environment as the connected container app. |
+| **Scaling** | The Eureka Server for Spring can’t scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. |
+| **Resources** | The container resource allocation for Eureka Server for Spring is fixed. The number of the CPU cores is 0.5, and the memory size is 1Gi. |
+| **Pricing** | The Eureka Server for Spring billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You can delete components that are no longer in use to stop billing. |
+| **Binding** | Container apps connect to a Eureka Server for Spring component via a binding. The bindings inject configurations into container app environment variables. Once a binding is established, the container app can read the configuration values from environment variables and connect to the Eureka Server for Spring. |
 
 ## Setup
 
-Before you begin to work with the Spring Cloud Eureka Server, you first need to create the required resources.
+Before you begin to work with the Eureka Server for Spring, you first need to create the required resources.
 
 Execute the following commands to create your resource group, container apps environment.
 
@@ -56,7 +56,7 @@ Execute the following commands to create your resource group, container apps env
     export LOCATION=eastus
     export RESOURCE_GROUP=my-services-resource-group
     export ENVIRONMENT=my-environment
-    export JAVA_COMPONENT_NAME=eureka
+    export EUREKA_COMPONENT_NAME=eureka
     export APP_NAME=sample-service-eureka-client
     export IMAGE="mcr.microsoft.com/javacomponents/samples/sample-service-eureka-client:latest"
     ```
@@ -66,7 +66,7 @@ Execute the following commands to create your resource group, container apps env
     | `LOCATION` | The Azure region location where you create your container app and Java component. |
     | `ENVIRONMENT` | The Azure Container Apps environment name for your demo application. |
     | `RESOURCE_GROUP` | The Azure resource group name for your demo application. |
-    | `JAVA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create a Cloud Eureka Server Java component.  |
+    | `EUREKA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create a Eureka Server for Spring Java component.  |
     | `IMAGE` | The container image used in your container app. |
 
 1. Log in to Azure with the Azure CLI.
@@ -90,30 +90,32 @@ Execute the following commands to create your resource group, container apps env
       --location $LOCATION
     ```
 
-## Use the Spring Cloud Eureka Java component
+## Create the Eureka Server for Spring Java component
 
-Now that you have an existing environment, you can create your container app and bind it to a Java component instance of Spring Cloud Eureka.
+Now that you have an existing environment, you can create your container app and bind it to a Java component instance of Eureka Server for Spring.
 
-1. Create the Spring Cloud Eureka Java component.
+1. Create the Eureka Server for Spring Java component.
 
     ```azurecli
-    az containerapp env java-component spring-cloud-eureka create \
+    az containerapp env java-component eureka-server-for-spring create \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --name $JAVA_COMPONENT_NAME
+      --name $EUREKA_COMPONENT_NAME
     ```
 
-1. Update the Spring Cloud Eureka Java component configuration.
+1. Optional: Update the Eureka Server for Spring Java component configuration.
 
     ```azurecli
-    az containerapp env java-component spring-cloud-eureka update \
+    az containerapp env java-component eureka-server-for-spring update \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --name $JAVA_COMPONENT_NAME 
+      --name $EUREKA_COMPONENT_NAME 
       --configuration eureka.server.renewal-percent-threshold=0.85 eureka.server.eviction-interval-timer-in-ms=10000
     ```
 
-1. Create the container app and bind to the Spring Cloud Eureka Server.
+## Bind your container app to the Eureka Server for Spring Java component
+
+1. Create the container app and bind to the Eureka Server for Spring.
 
     ```azurecli
     az containerapp create \
@@ -125,13 +127,13 @@ Now that you have an existing environment, you can create your container app and
       --max-replicas 1 \
       --ingress external \
       --target-port 8080 \
-      --bind $JAVA_COMPONENT_NAME \
+      --bind $EUREKA_COMPONENT_NAME \
       --query properties.configuration.ingress.fqdn
     ```
 
     This command returns the URL of your container app that consumes registers with the Eureka server component. Copy the URL to a text editor so you can use it in a coming step.
 
-    Navigate top the `/allRegistrationStatus` route view all applications registered with the Spring Cloud Eureka Server.
+    Navigate to the `/allRegistrationStatus` route to view all applications registered with the Eureka Server for Spring.
 
     The binding injects several configurations into the application as environment variables, primarily the `eureka.client.service-url.defaultZone` property. This property indicates the internal endpoint of the Eureka Server Java component.
 
@@ -146,7 +148,70 @@ Now that you have an existing environment, you can create your container app and
 
     The `eureka.instance.prefer-ip-address` is set to `true` due to the specific DNS resolution rule in the container app environment. Don't modify this value so you don't break the binding.
 
-    You can also [remove a binding](spring-cloud-eureka-server-usage.md#unbind) from your application.
+    You can also [remove a binding](java-eureka-server-usage.md#unbind) from your application.
+
+## View the application through a dashboard
+
+> [!IMPORTANT]
+> To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can either explicitly assign `Owner` or `Contributor` role on the resource or follow the steps to create a custom role definition and assign it to your account.
+
+1. Create the custom role definition.
+
+    ```azurecli
+    az role definition create --role-definition '{
+        "Name": "<YOUR_ROLE_NAME>",
+        "IsCustom": true,
+        "Description": "Can access managed Java Component dashboards in managed environments",
+        "Actions": [
+            "Microsoft.App/managedEnvironments/write"
+        ],
+        "AssignableScopes": ["/subscriptions/<SUBSCRIPTION_ID>"]
+    }'
+    ```
+
+    Make sure to replace placeholder in between the `<>` brackets in the `AssignableScopes` value with your subscription ID.
+
+1. Assign the custom role to your account on managed environment resource.
+
+    Get the resource id of the managed environment:
+
+    ```azurecli
+        export ENVIRONMENT_ID=$(az containerapp env show \
+         --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \ 
+         --query id -o tsv)
+    ```
+
+1. Assign the role to your account.
+
+    Before running this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
+
+    ```azurecli
+    az role assignment create \
+      --assignee <USER_OR_SERVICE_PRINCIPAL_ID> \
+      --role "<ROLE_NAME>" \
+      --scope $ENVIRONMENT_ID
+    ```
+
+    > [!NOTE]
+    > <USER_OR_SERVICE_PRINCIPAL_ID> usually should be the identity that you use to access Azure Portal. <ROLE_NAME> is the name you assigned in step 1.
+
+1. Get the URL of the Eureka Server for Spring dashboard.
+
+    ```azurecli
+    az containerapp env java-component eureka-server-for-spring show \
+      --environment $ENVIRONMENT \
+      --resource-group $RESOURCE_GROUP \
+      --name $EUREKA_COMPONENT_NAME \
+      --query properties.ingress.fqdn -o tsv
+    ```
+
+    This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, your container app is also to you as shown in the following screenshot.
+
+    :::image type="content" source="media/java-components/eureka-alone.png" alt-text="Screenshot of the Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka-alone.png":::
+
+## Optional: Integrate the Eureka Server for Spring and Admin for Spring Java components
+
+If you want to integrate the Eureka Server for Spring and the Admin for Spring Java components, see [Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md).
 
 ## Clean up resources
 
@@ -160,4 +225,8 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure Spring Cloud Eureka Server settings](java-eureka-server-usage.md)
+> [Configure Eureka Server for Spring settings](java-eureka-server-usage.md)
+
+## Related content
+
+- [Integrate the managed Admin for Spring with Eureka Server for Spring](java-admin-eureka-integration.md)

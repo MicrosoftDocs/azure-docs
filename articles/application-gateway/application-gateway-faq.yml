@@ -4,14 +4,14 @@ metadata:
   description: Find answers to frequently asked questions about Azure Application Gateway.
   services: application-gateway
   author: greg-lindsay
-  ms.service: application-gateway
+  ms.service: azure-application-gateway
   ms.topic: faq
-  ms.date: 03/15/2024
+  ms.date: 07/15/2024
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
 summary: |
-  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+  [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
   
   The following common questions are asked about Azure Application Gateway.
   
@@ -280,8 +280,39 @@ sections:
         answer: Application Gateway v2 supports IPv4 and IPv6 frontends. Currently, IPv6 support is available for new application gateways only. To support IPv6, the virtual network should be dual stack. Application Gateway v1 doesn't support dual-stack virtual networks. 
 
       - question: Does Application Gateway support FIPS?
-        answer: Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
+        answer: |
+          Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
 
+          **Note:** As part of the FedRAMP compliance, US Government mandates that systems operate in a [FIPS-approved mode](/azure/compliance/offerings/offering-fips-140-2) after August 2024. 
+          
+          **Steps to enable FIPS Mode in V1 SKU**:
+          
+          **Step 1**: Register the **‘AllowApplicationGatewayEnableFIPS’** feature to enroll the subscription for FIPS mode configuration.
+          
+            To register using Azure PowerShell, open a Cloud Shell prompt and enter the following:
+          
+            ```azurepowershell-interactive
+            Register-AzProviderFeature -FeatureName AllowApplicationGatewayEnableFIPS -ProviderNamespace Microsoft.Network
+            ```
+            
+            To register using the **Azure portal**:
+
+           - Sign in to the Azure portal and search for **Preview features**.
+           - Enter **AllowApplicationGatewayEnableFIPS** into the filter box. Select **Application Gateway V1 Allow FIPS Mode**, and then select **Register**.
+
+          **Step 2**: Set the **enableFips** property to **True** using PowerShell, Azure Resource Manager template, or REST API.
+
+            ```azurepowershell-interactive
+            # Get the application gateway
+            $appgw = Get-AzApplicationGateway -Name <ApplicationGatewayName> -ResourceGroupName <ResourceGroupName>
+            # Set the EnableFips property
+            $appgw.EnableFips = $true
+            # Update the application gateway
+            Set-AzApplicationGateway -ApplicationGateway $appgw
+            ```
+          
+          Changing FIPS mode doesn't affect the overall availability of cipher suites on V1 gateways. However, when using [elliptic curve cryptography](/windows/win32/secauthn/tls-elliptic-curves-in-windows-10-1607-and-later) for ciphers, with FIPS mode disabled  you can use curve25519, NistP256, and NistP384 whereas with FIPS mode enabled only NistP256 and NistP384 are allowed and curve25519 is disabled. Since curve25519 becomes unavailable in FIPS mode, make sure your clients support NistP256 or NistP384 for secure communication before enabling FIPS. 
+          
       - question: How do I use Application Gateway v2 with only a private frontend IP address?
         answer: |
           Application Gateway v2 currently supports private IP frontend configuration only (no public IP) via public preview. For more information, see [Private Application Gateway deployment (preview)](application-gateway-private-deployment.md).
@@ -454,7 +485,7 @@ sections:
           If you're referencing certificates from Key Vault in your Application Gateway listener, we recommend the following steps for a quick change:
           
           1. In the [Azure portal](https://portal.azure.com/), go to your Key Vault settings that are associated with the application gateway.
-          1. Add or import the reissued certificate in your store. For more information, see [Quickstart: Create a key vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
+          1. Add or import the reissued certificate in your store. For more information, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal).
           1. After the certificate has been imported, go to your Application Gateway listener settings and under **Choose a certificate from Key Vault**, select the **Certificate** dropdown and select the recently added certificate.
           1. Select **Save**.
           For more information on TLS termination on Application Gateway with Key Vault certificates, see [TLS termination with Key Vault certificates](./key-vault-certs.md).
@@ -510,8 +541,8 @@ sections:
       - question: Which IP address does the backend server see when a connection is established with Application Gateway?
         answer: The backend server sees the IP address of the application gateway. Currently, we don't support “Client IP preservation” through which the backend application can be made aware of the original client’s IP address.
 
-      - question: How can I set the SSL policy for TLS listeners?
-        answer: The same SSL policy configuration is applicable for both Layer 7 (HTTPS) as well as Layer 4 (TLS). Currently, we don't support SSL Profile (listener-specific SSL policy or Mutual Authentication) for TLS listeners.
+      - question: How can I set the TLS policy for TLS listeners?
+        answer: The same TLS/SSL policy configuration is applicable for both Layer 7 (HTTPS) as well as Layer 4 (TLS). You can now use SSL Profile (for listener-specific TLS policy and Mutual Authentication) for TLS listeners. However, currently an SSL profile can be associated with a TLS listener through CLI, PowerShell or REST API only. 
 
       - question: Does Application Gateway support session affinity for Layer 4 routing?
         answer: No. Routing a client to the same backend server isn't supported at the moment. The connections will be distributed in a round-robin manner to the servers in a backend pool.
@@ -527,6 +558,9 @@ sections:
 
       - question: Which ports are supported for TLS/TCP listeners?
         answer: The same list of [allowed port range and exceptions](application-gateway-components.md#ports) apply for the Layer 4 proxy too.
+
+      - question: How can I use the same port number for Public and Private TLS/TCP proxy listeners?
+        answer: The use of a common port for TLS/TCP listeners is currently not supported.
 
   - name: Configuration - ingress controller for AKS
     questions:

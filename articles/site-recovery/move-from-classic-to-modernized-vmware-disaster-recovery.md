@@ -1,9 +1,9 @@
 ---
 title: Move from classic to modernized VMware disaster recovery.
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from classic to modernized protection architecture.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
-ms.date: 04/01/2024
+ms.date: 05/23/2024
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.custom: engagement-fy23
@@ -198,4 +198,4 @@ Note that, non-private endpoint to private endpoint migration is not supported, 
 
 ## Next steps
 
-[How to move from classic to modernized VMware disaster recovery](how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md)
+- Learn [how to move from classic to modernized VMware disaster recovery](how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md).

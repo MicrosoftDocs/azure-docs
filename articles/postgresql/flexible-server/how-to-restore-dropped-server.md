@@ -4,15 +4,15 @@ description: This article describes how to restore a dropped server in Azure Dat
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 04/29/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
 # Restore a dropped Azure Database for PostgreSQL - Flexible Server instance
 
-[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 
 When a server is dropped, the Azure Database for PostgreSQL flexible server backup is retained for five days in the service. The database backup can be accessed and restored only from the Azure subscription where the server originally resided. The following recommended steps can be followed to recover a dropped Azure Database for PostgreSQL flexible server resource within five days from the time of server deletion. The recommended steps work only if the backup for the server is still available and not deleted from the system. While restoring a deleted server often succeeds, it is not always guaranteed, as restoring a deleted server depends on several other factors.

@@ -2,7 +2,7 @@
 title: What's new in Azure VM Image Builder
 description: This article offers the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: kof-f
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 02/13/2024
 ms.reviewer: mattmcinnes
@@ -23,6 +23,7 @@ This article contains all major API changes and feature updates for the Azure VM
 
 Starting from May 21, 2024, Azure VM Image Builder's API version 2024-02-01 and beyond will enforce case sensitivity for all fields. This means that the capitalization of letters in your API requests must match exactly with the expected format. 
 
+>[!IMPORTANT]
 > **Important Note for Existing Azure Image Builder Users**
 >
 > If you're an existing user of Azure VM Image Builder, rest assured that this change will **not** impact your existing resources. The case sensitivity enforcement applies only to **newly created resources** using **API version 2024-02-01 and beyond**. Your existing resources will continue to function as expected without any changes.
@@ -37,7 +38,8 @@ If you send an API request to Azure Image Builder's API version 2024-02-01 and b
 
 The error message will mention an "unknown field" and direct you to the official documentation: [Create an Azure Image Builder Bicep or ARM template JSON template](./linux/image-builder-json.md).
 
-> **Reference Azure Image Builder's Swagger for API Calls**
+> [!NOTE]
+>  **Reference Azure Image Builder's Swagger for API Calls**
 > 
 > When making calls to the Azure Image Builder service, always reference the [Swagger documentation](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/imagebuilder/resource-manager/Microsoft.VirtualMachineImages/stable), which serves as the definitive source of truth for Azure Image Builder's API specifications. While the public documentation has been updated to include the proper capitalization and field names ahead of the API release, the Swagger definition contains precise details about each AIB API to ensure you are making calls to the service correctly.
 
@@ -101,6 +103,8 @@ az resource create \
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName <resourceGroupName> -TemplateFile <templateFilePath> -TemplateParameterObject @{"api-version" = "2022-07-01"; "imageTemplateName" = <imageTemplateName>; "svclocation" = <location>}
 ```
+---
+
 > **Test Your Code**
 >
 > After pinning to the older API version, test your code to verify that it behaves as expected. Ensure that your existing templates continue to function correctly.
@@ -108,7 +112,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <resourceGroupName> -TemplateFi
 ### November 2023
 Azure Image Builder is enabling Isolated Image Builds using Azure Container Instances in a phased manner. The rollout is expected to be completed by early 2024. Your existing image templates will continue to work and there is no change in the way you create or build new image templates. 
 
-You might observe a different set of transient Azure resources appear temporarily in the staging resource group but that does not impact your actual builds or the way you interact with Azure Image Builder. For more information, please see [Isolated Image Builds](./security-isolated-image-builds-image-builder.md).
+You might observe a different set of transient Azure resources appear temporarily in the staging resource group but that does not impact your actual builds or the way you interact with Azure Image Builder. For more information, see [Isolated Image Builds](./security-isolated-image-builds-image-builder.md).
 
 > [!IMPORTANT]
 >Make sure your subscription is registered for the `Microsoft.ContainerInstance` provider and there are no policies blocking deployment of Azure Container Instances resources. Also ensure that quota is available for Azure Container Instances resources.
@@ -117,6 +121,25 @@ You might observe a different set of transient Azure resources appear temporaril
 New portal functionality has been added for Azure Image Builder. Search “Image Templates” in Azure portal, then click “Create”. You can also [get started here](https://ms.portal.azure.com/#create/Microsoft.ImageTemplate) with building and validating custom images inside the portal.
 
 ## API releases
+
+### Version 2024-02-01 
+
+**Improvements**
+- New `autoRun` property which allows you to run the image build on template creation or update. For more information, see [Properties: autoRun](../virtual-machines/linux/image-builder-json.md#properties-autorun).
+- New `managedResourceTags` property which allows you to apply tags to the resources that the Azure Image Builder service creates in the staging resource group during the image build. For more information, see [Properties: managedResourceTags](../virtual-machines/linux/image-builder-json.md#properties-managedresourcetags).
+- New `containerInstanceSubnetId` property which allows you to specify a subnet on which Azure Container Instance will be deployed for Isolated Builds. This field may be specified only if `subnetId` is also specified and must be on the same Virtual Network as the subnet specified in `subnetId`. For more information, see [
+Bring your own Build VM subnet and bring your own ACI subnet](./security-isolated-image-builds-image-builder.md#bring-your-own-build-vm-subnet-and-bring-your-own-aci-subnet).
+- Added support for updating the `vmProfile` property including the following fields:
+    - `vmSize`
+    - `osDiskSizeGB`
+    - `userAssignedIdentities`
+    - `vnetConfig`
+        - `subnetId`
+		- `containerInstanceSubnetId`
+For more information on the `vmProfile` property, see [vmProfile](../virtual-machines/linux/image-builder-json.md#properties-vmprofile).
+
+**Changes**
+API version 2024-02-01 introduces a breaking change that enforces case sensitivity for all fields. This means that the capitalization of letters in your API requests must match exactly with the expected format. If you send an API request to Azure Image Builder's API version 2024-02-01 and beyond with incorrect case or unrecognized fields, the service will reject it. You will receive an error response indicating that the request is invalid. For more information, see [Breaking Change: Case Sensitivity](#may-2024).
 
 ### Version 2023-07-01
 

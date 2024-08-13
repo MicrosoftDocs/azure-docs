@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Use IoT Hub events to trigger Azure Logic Apps
 description: This tutorial shows how to use the event routing service of Azure Event Grid, create automated processes to perform Azure Logic Apps actions based on IoT Hub events.
-services: iot-hub, event-grid
 author: kgremban
 ms.service: iot-hub
 ms.topic: tutorial
@@ -16,7 +15,7 @@ Azure Event Grid enables you to react to events in IoT Hub by triggering actions
 
 This article walks through a sample configuration that uses IoT Hub and Event Grid. At the end, you have an Azure logic app set up to send a notification email every time a device connects or disconnects to your IoT hub. Event Grid can be used to get timely notification about critical devices disconnecting. Metrics and Diagnostics can take several minutes (such as 20 minutes or more) to show up in logs / alerts. Longer processing times might be unacceptable for critical infrastructure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

@@ -11,6 +11,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
+  - build-2024
 ms.topic: how-to
 ms.date: 02/07/2024
 ms.author: eur
@@ -21,6 +22,9 @@ zone_pivot_groups: programming-languages-ai-services
 # Use pronunciation assessment
 
 In this article, you learn how to evaluate pronunciation with speech to text through the Speech SDK. Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio.
+
+> [!NOTE]
+> Pronunciation assessment uses a specific version of the speech-to-text model, different from the standard speech to text model, to ensure consistent and accurate pronunciation assessment.
 
 ## Use pronunciation assessment in streaming mode
 
@@ -76,14 +80,125 @@ For how to use Pronunciation Assessment in streaming mode in your own applicatio
 
 ::: zone-end
 
+### Continuous recognition
+
+::: zone pivot="programming-language-csharp"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs) under the function `PronunciationAssessmentContinuousWithFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing.
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java) under the function `pronunciationAssessmentContinuousWithFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/261160e26dfcae4c3aee93308d58d74e36739b6f/samples/python/console/speech_sample.py) under the function `pronunciation_assessment_continuous_from_file`.
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/261160e26dfcae4c3aee93308d58d74e36739b6f/samples/js/node/pronunciationAssessmentContinue.js).
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m) under the function `pronunciationAssessFromFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift) under the function `continuousPronunciationAssessment`.
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+::: zone-end
+
+
 ## Set configuration parameters
 
 ::: zone pivot="programming-language-go"
+
 > [!NOTE]
 > Pronunciation assessment is not available with the Speech SDK for Go. You can read about the concepts in this guide. Select another programming language for your solution.
+
 ::: zone-end
 
-In the `SpeechRecognizer`, you can specify the language to learn or practice improving pronunciation. The default locale is `en-US`. To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#LL1086C13-L1086C98).
+In the `SpeechRecognizer`, you can specify the language to learn or practice improving pronunciation. The default locale is `en-US`. To learn how to specify the learning language for pronunciation assessment in your own application, you can use the following sample code.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+var recognizer = new SpeechRecognizer(speechConfig, "en-US", audioConfig);
+```
+
+::: zone-end  
+
+::: zone pivot="programming-language-cpp"
+
+```cpp
+auto recognizer = SpeechRecognizer::FromConfig(speechConfig, "en-US", audioConfig);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```Java
+SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, "en-US", audioConfig);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, language="en-US", audio_config=audio_config)
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```JavaScript
+speechConfig.speechRecognitionLanguage = "en-US";
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+```ObjectiveC
+SPXSpeechRecognizer* recognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"en-US" audioConfiguration:audioConfig];
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+```swift
+let recognizer = try! SPXSpeechRecognizer(speechConfiguration: speechConfig, language: "en-US", audioConfiguration: audioConfig)
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+::: zone-end
 
 > [!TIP]
 > If you aren't sure which locale to set for a language that has multiple locales, try each locale separately. For instance, for Spanish, try `es-ES` and `es-MX`. Determine which locale scores higher for your scenario.
@@ -199,6 +314,8 @@ This table lists some of the optional methods you can set for the `Pronunciation
 > Content and prosody assessments are only available in the [en-US](./language-support.md?tabs=pronunciation-assessment) locale.
 > 
 > To explore the content and prosody assessments, upgrade to the SDK version 1.35.0 or later.
+>
+> There is no length limit for the topic parameter.
 
 | Method | Description |
 |-----------|-------------|
@@ -617,7 +734,7 @@ You can get pronunciation assessment scores for:
 - Syllable groups
 - Phonemes in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format
 
-### Supported features per locale
+## Supported features per locale
 
 The following table summarizes which features that locales support. For more specifies, see the following sections. If the locales you require aren't listed in the following table for the supported feature, fill out this [intake form](https://aka.ms/speechpa/intake) for further assistance.
 
@@ -720,7 +837,7 @@ pronunciationAssessmentConfig?.phonemeAlphabet = "IPA"
 
 ::: zone-end
 
-## Assess spoken phonemes
+### Assess spoken phonemes
 
 With spoken phonemes, you can get confidence scores that indicate how likely the spoken phonemes matched the expected phonemes.
 
@@ -966,9 +1083,25 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
 
 ::: zone-end
 
+## Pronunciation score calculation
+
+Pronunciation scores are calculated by weighting accuracy, prosody, fluency, and completeness scores based on specific formulas for reading and speaking scenarios.
+  
+When sorting the scores of accuracy, prosody, fluency, and completeness from low to high (if each score is available) and representing the lowest score to the highest score as s0 to s3, the pronunciation score is calculated as follows:
+
+For reading scenario:
+  - With prosody score: PronScore = 0.4 * s0 + 0.2 * s1 + 0.2 * s2 + 0.2 * s3
+  - Without prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
+
+For the speaking scenario (the completeness score isn't applicable):
+  - With prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
+  - Without prosody score: PronScore = 0.6 * s0 + 0.4 * s1
+
+This formula provides a weighted calculation based on the importance of each score, ensuring a comprehensive evaluation of pronunciation.
+
 ## Related content
 
 - Learn about quality [benchmark](https://aka.ms/pronunciationassessment/techblog).
-- Try [pronunciation assessment in Speech Studio](pronunciation-assessment-tool.md).
+- Try [pronunciation assessment in the studio](pronunciation-assessment-tool.md).
 - Check out an easy-to-deploy Pronunciation Assessment [demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS).
 - Watch the [video demo](https://www.youtube.com/watch?v=NQi4mBiNNTE) of pronunciation assessment.

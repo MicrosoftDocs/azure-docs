@@ -4,13 +4,14 @@ description: Learn how to use the Azure Cosmos DB change feed processor to read 
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 07/25/2024
 ms.custom: devx-track-csharp, build-2023
 ---
+
 
 # Change feed processor in Azure Cosmos DB
 
@@ -19,6 +20,12 @@ ms.custom: devx-track-csharp, build-2023
 The change feed processor is part of the Azure Cosmos DB [.NET V3](https://github.com/Azure/azure-cosmos-dotnet-v3) and [Java V4](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos) SDKs. It simplifies the process of reading the change feed and distributes the event processing across multiple consumers effectively.
 
 The main benefit of using the change feed processor is its fault-tolerant design, which assures an "at-least-once" delivery of all the events in the change feed.
+
+## Supported SDKs
+
+|  .Net V3  |   Java    |  Node.JS  |  Python   |
+| --------- | --------- | --------- | --------- |
+|     ✓     |    ✓     |     ✕     |    ✕     |
 
 ## Components of the change feed processor
 
@@ -44,19 +51,32 @@ Each range is read in parallel. A range's progress is maintained separately from
 
 ### [.NET](#tab/dotnet)
 
-The change feed processor in .NET is currently available only for [latest version mode](change-feed-modes.md#latest-version-change-feed-mode). The point of entry is always the monitored container. In a `Container` instance, you call `GetChangeFeedProcessorBuilder`:
+The change feed processor in .NET is available for [latest version mode](change-feed-modes.md#latest-version-change-feed-mode) and [all versions and deletes mode](change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview). All versions and deletes mode is in preview and is supported for the change feed processor beginning in version `3.40.0-preview.0`. The point of entry for both modes is always the monitored container. 
+
+To read using latest version mode, in a `Container` instance, you call `GetChangeFeedProcessorBuilder`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
-The first parameter is a distinct name that describes the goal of this processor. The second name is the delegate implementation that handles changes.
+To read using all versions and deletes mode, call `GetChangeFeedProcessorBuilderWithAllVersionsAndDeletes` from the `Container` instance:
 
-Here's an example of a delegate:
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeedAllVersionsAndDeletes/Program.cs?name=BasicInitialization)]
+
+For both modes, the first parameter is a distinct name that describes the goal of this processor. The second name is the delegate implementation that handles changes.
+
+Here's an example of a delegate for latest version mode:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
+
+Here's an example of a delegate for all versions and deletes mode: 
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeedAllVersionsAndDeletes/Program.cs?name=Delegate)]
 
 Afterward, you define the compute instance name or unique identifier by using `WithInstanceName`. The compute instance name should be unique and different for each compute instance you're deploying. You set the container to maintain the lease state by using `WithLeaseContainer`.
 
 Calling `Build` gives you the processor instance that you can start by calling `StartAsync`.
+
+>[!NOTE]
+> The preceding code snippets are taken from samples in GitHub. You can get the sample for [latest version mode](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed) or [all versions and deletes mode](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeedAllVersionsAndDeletes).
 
 ## Processing life cycle
 
@@ -85,6 +105,8 @@ You can connect the change feed processor to any relevant event in its [life cyc
 * Register a handler for `WithLeaseAcquireNotification` to be notified when the current host acquires a lease to start processing it.
 * Register a handler for `WithLeaseReleaseNotification` to be notified when the current host releases a lease and stops processing it.
 * Register a handler for `WithErrorNotification` to be notified when the current host encounters an exception during processing. You need to be able to distinguish whether the source is the user delegate (an unhandled exception) or an error that the processor encounters when it tries to access the monitored container (for example, networking issues).
+
+Life cycle notifications are available in both change feed modes. Here's an example of life cycle notifications in latest version mode:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartWithNotifications)]
 
@@ -130,6 +152,8 @@ The change feed processor is initialized, and it starts reading changes from the
 
 > [!NOTE]
 > These customization options work only to set up the starting point in time of the change feed processor. After the lease container is initialized for the first time, changing these options has no effect.
+>
+> Customizing the starting point is only available for latest version change feed mode. When using all versions and deletes mode you must start reading from the time the processor is started, or resume from a prior lease state that is within the [continuous backup](../continuous-backup-restore-introduction.md) retention period of your account.
 
 ### [Java](#tab/java)
 
@@ -244,6 +268,20 @@ The change feed processor can be hosted in any platform that supports long-runni
 * An [ASP.NET hosted service](/aspnet/core/fundamentals/host/hosted-services)
 
 Although the change feed processor can run in short-lived environments because the lease container maintains the state, the startup cycle of these environments adds delays to the time it takes to receive notifications (due to the overhead of starting the processor every time the environment is started).
+
+## Role-based access requirements
+
+When using Microsoft Entra ID as authentication mechanism, make sure the identity has the proper [permissions](../how-to-setup-rbac.md#permission-model):
+
+* On the monitored container:
+  * `Microsoft.DocumentDB/databaseAccounts/readMetadata`
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed`
+* On the lease container:
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read`
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create`
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace`
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete`
+  * `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/executeQuery`
 
 ## Additional resources
 

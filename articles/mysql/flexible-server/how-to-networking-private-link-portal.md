@@ -4,8 +4,8 @@ description: Learn how to use the Azure portal to configure Private Link for Azu
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 05/23/2023
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---

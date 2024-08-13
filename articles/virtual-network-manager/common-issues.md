@@ -3,17 +3,15 @@ title: 'Common issues seen with Azure Virtual Network Manager'
 description: Learn about common issues seen when using Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 06/10/2024
 ms.custom: template-concept
 ---
 
 # Common issues seen with Azure Virtual Network Manager
 
 In this article, we cover common issues you may face when using Azure Virtual Network Manager and provide some possible solutions.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Why isn't my configuration getting applied? 
 

@@ -3,13 +3,13 @@ title: Create compute clusters
 titleSuffix: Azure Machine Learning
 description: Learn how to create compute clusters in your Azure Machine Learning workspace. Use the compute cluster as a compute target for training or inference.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: compute
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv2, sdkv2, build-2023
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 05/03/2024
 ---
 

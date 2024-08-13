@@ -2,8 +2,7 @@
 title: Architectures for Oracle database on Azure Virtual Machines
 description: Learn about architectures for Oracle database on Azure Virtual Machines.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.date: 6/13/2023
@@ -107,9 +106,9 @@ The following diagram is a high availability architecture using Oracle Data Guar
 
 :::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_fs_az.png" alt-text="Diagram that shows Oracle database using availability zones with Data Guard Far Sync & Broker - FSFO." lightbox="./media/oracle-reference-architecture/oracledb_dg_fs_az.png":::
 
-In the preceding architecture, there's a Far Sync instance deployed in the same availability zone as the database instance to reduce the latency between the two. In cases where the application is latency sensitive, consider deploying your database and Far Sync instance or instances in a [proximity placement group](../../../virtual-machines/linux/proximity-placement-groups.md).
+In the preceding architecture, there's a Far Sync instance deployed in a different availability zone as the database instance to ensure zero data loss and automatic failover in case of availability zone failure. In cases where the application is latency sensitive, consider deploying your database and Far Sync instance or instances in the same availability zone in a [proximity placement group](../../../virtual-machines/linux/proximity-placement-groups.md).
 
-The following diagram is an architecture that uses Oracle Data Guard FSFO and Far Sync to achieve high availability and disaster recovery:
+The following diagram is an architecture that uses Oracle Data Guard FSFO and Far Sync to achieve high availability and disaster recovery: 
 
 :::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_fs_az_dr.png" alt-text="Diagram that shows Oracle Database using availability zones for disaster recovery with Data Guard Far Sync and Broker - FSFO." lightbox="./media/oracle-reference-architecture/oracledb_dg_fs_az_dr.png":::
 

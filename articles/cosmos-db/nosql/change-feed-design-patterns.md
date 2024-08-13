@@ -4,7 +4,7 @@ description: Get an overview of common change feed design patterns.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/10/2023

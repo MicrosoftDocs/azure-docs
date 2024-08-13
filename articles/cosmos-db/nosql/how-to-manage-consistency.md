@@ -2,7 +2,7 @@
 title: Manage consistency in Azure Cosmos DB
 description: Learn how to configure and manage consistency levels in Azure Cosmos DB using Azure portal, .NET SDK, Java SDK, and various other SDKs
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/16/2022
@@ -20,7 +20,7 @@ This article explains how to manage consistency levels in Azure Cosmos DB. You l
 
 As you change your account level consistency, ensure you redeploy your applications and make any necessary code modifications to apply these changes.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Configure the default consistency level
 

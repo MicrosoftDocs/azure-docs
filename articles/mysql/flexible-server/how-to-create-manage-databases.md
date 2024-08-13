@@ -1,12 +1,13 @@
 ---
 title: How to create databases
 description: This article describes how to create and manage databases on Azure Database for MySQL - Flexible Server.
-ms.service: mysql
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: sumuth
-author: mksuni
-ms.date: 02/17/2022
 ---
 
 # Create and manage databases for Azure Database for MySQL - Flexible Server

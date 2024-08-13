@@ -3,7 +3,7 @@ title: Use Microsoft Entra ID and native PostgreSQL roles for authentication wit
 description: Learn how to set up Microsoft Entra ID and add native PostgreSQL roles for authentication with Azure Cosmos DB for PostgreSQL
 author: niklarin
 ms.author: nlarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 02/06/2024
@@ -153,7 +153,7 @@ export PGPASSWORD=<TOKEN value from the previous step>
 You can also combine the previous two steps together using command substitution. The token retrieval can be encapsulated into a variable and passed directly as a value for `PGPASSWORD` environment variable:
 
 ```bash
-export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query "[accessToken]" -o tsv)
+export PGPASSWORD=$(az account get-access-token --resource https://token.postgres.cosmos.azure.com --query "[accessToken]" -o tsv)
 ```
 
 

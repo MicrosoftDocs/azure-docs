@@ -4,16 +4,13 @@ description: Learn how to create a Virtual Machine Scale Set in Flexible orchest
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
+ms.service: azure-virtual-machine-scale-sets
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, vmss-flex
 ---
 
 # Create virtual machines in a scale set using Azure portal
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article steps through using Azure portal to create a Virtual Machine Scale Set.
 ## Log in to Azure
@@ -22,7 +19,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Virtual Machine Scale Set
 
-You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
+You can deploy a scale set with a Windows Server image or Linux image such as RHEL, Ubuntu, or SLES.
 
 1. In the Azure portal search bar, search for and select **Virtual Machine Scale Sets**.
 1. Select **Create** on the **Virtual Machine Scale Sets** page.

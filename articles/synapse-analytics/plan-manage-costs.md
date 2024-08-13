@@ -3,7 +3,7 @@ title: Plan to manage costs for Azure Synapse Analytics
 description: Learn how to plan for and manage costs for Azure Synapse Analytics by using cost analysis in the Azure portal.
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.author: guyhay
 author: guyhay

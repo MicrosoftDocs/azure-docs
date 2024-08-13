@@ -7,7 +7,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 04/24/2024
+  ms.date: 08/06/2024
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -23,6 +23,10 @@ sections:
   - name: General
     questions:
       - question: |
+          Does Azure OpenAI support custom API headers? We append additional custom headers to our API requests and are seeing HTTP 431 failure errors.
+        answer: |
+          Our current APIs allow up to 10 custom headers, which are passed through the pipeline, and returned. We have noticed some customers now exceed this header count resulting in HTTP 431 errors. There is no solution for this error, other than to reduce header volume. In future API versions we will no longer pass through custom headers. We recommend customers not depend on custom headers in future system architectures.
+      - question: |
           Does Azure OpenAI work with the latest Python library released by OpenAI (version>=1.0)?
         answer: |
           Azure OpenAI is supported by the latest release of the [OpenAI Python library (version>=1.0)](https://pypi.org/project/openai/). However, it's important to note migration of your codebase using `openai migrate` is not supported and will not work with code that targets Azure OpenAI.  
@@ -37,7 +41,7 @@ sections:
       - question: |
           How do the capabilities of Azure OpenAI compare to OpenAI?
         answer: | 
-          Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI co-develops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
+          Azure OpenAI Service gives customers advanced language AI with OpenAI GPT-3, Codex, and DALL-E models with the security and enterprise promise of Azure. Azure OpenAI codevelops the APIs with OpenAI, ensuring compatibility and a smooth transition from one to the other.
           
           With Azure OpenAI, customers get the security capabilities of Microsoft Azure while running the same models as OpenAI. 
       - question: |
@@ -122,17 +126,13 @@ sections:
 
           If the service doesn't perform processing, you won't be charged.
           For example, a 401 error due to authentication or a 429 error due to exceeding the Rate Limit.
-          
   - name: Getting access to Azure OpenAI Service
     questions:
       - question: |
           How do I get access to Azure OpenAI? 
         answer: |
-          Access is currently limited as we navigate high demand, upcoming product improvements, and Microsoft's commitment to responsible AI. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. Apply here for initial access: [Apply now](https://aka.ms/oaiapply)          
-      - question: |
-          After I apply for access, how long will I have to wait to get approved?
-        answer: |
-          We don't currently provide a timeline for access approval.
+          A Limited Access registration form is not required to access most Azure OpenAI models. Learn more on the [Azure OpenAI Limited Access page](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context).
+
   - name: Learning more and where to ask questions
     questions:
       - question: |
@@ -181,7 +181,7 @@ sections:
       - question: |
           Why was my fine-tuned model deployment deleted? 
         answer:
-          If a customized (fine-tuned) model is deployed for more than 15 days during which no completions or chat completions calls are made to it, the deployment is automatically deleted (and no further hosting charges are incurred for that deployment). The underlying customized model remains available and can be redeployed at any time. To learn more, check out the [how-to-article](how-to/fine-tuning.md?pivots=programming-language-studio#deploy-a-customized-model).  
+          If a customized (fine-tuned) model is deployed for more than 15 days during which no completions or chat completions calls are made to it, the deployment is automatically deleted (and no further hosting charges are incurred for that deployment). The underlying customized model remains available and can be redeployed at any time. To learn more, check out the [how-to-article](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio#deploy-a-custom-model).  
       - question: |
           How do I deploy a model with the REST API? 
         answer:
@@ -203,7 +203,7 @@ sections:
       - question: |
           What type of files can I upload?
         answer: |
-          We currently support PNG (.png), JPEG (.jpeg and .jpg), WEBP (.webp), and non-animated GIF (.gif).
+          We currently support PNG (.png), JPEG (.jpeg and .jpg), WEBP (.webp), and nonanimated GIF (.gif).
       - question: |
           Is there a limit to the size of the image I can upload?
         answer: |
@@ -228,6 +228,11 @@ sections:
           What are the known limitations of GPT-4 Turbo with Vision?
         answer: |
           See the [limitations](./concepts/gpt-with-vision.md#limitations) section of the GPT-4 Turbo with Vision concepts guide.
+      - question: |
+          I keep getting truncated responses when I use GPT-4 Turbo vision models. Why is this happening?
+        answer:
+          By default GPT-4 `vision-preview` and GPT-4 `turbo-2024-04-09` have a `max_tokens` value of 16. Depending on your request this value is often too low and can lead to truncated responses. To resolve this issue, pass a larger `max_tokens` value as part of your chat completions API requests. GPT-4o defaults to 4096 max_tokens.
+
   - name: Assistants
     questions:
       - question: |
@@ -248,6 +253,10 @@ sections:
           Can I bring my own data store to use with Assistants? 
         answer: |
           No. Currently Assistants supports only local files uploaded to the Assistants-managed storage. You cannot use your private storage account with Assistants. 
+      - question: | 
+          Does Assistants support customer-managed key encryption (CMK)?
+        answer: |
+          Today we support CMK for Threads and Files in Assistants. See the [What's new page](./whats-new.md#customer-managed-key-cmk-support-for-assistants) for available regions for this feature.
       - question: |
           Is my data used by Microsoft for training models? 
         answer: |
@@ -259,9 +268,9 @@ sections:
       - question: |
           How am I charged for Assistants?
         answer: |
-          Currently, when you use Assistants API, you're billed for the following: 
-          - Inference cost (input and output) of the base model you're using for each Assistant (for example gpt-4-0125). If you've created multiple Assistants, you will be charged for the base model attached to each Assistant. 
-          - If you've enabled the Code Interpreter tool. For example if your assistant calls Code Interpreter simultaneously in two different threads, this would create two Code Interpreter sessions, each of which would be charged. Each session is active by default for one hour, which means that you would only pay this fee once if your user keeps giving instructions to Code Interpreter in the same thread for up to one hour. 
+          * Inference cost (input and output) of the base model you're using for each Assistant (for example gpt-4-0125). If you've created multiple Assistants, you will be charged for the base model attached to each Assistant.
+          * If you've enabled the Code Interpreter tool. For example if your assistant calls Code Interpreter simultaneously in two different threads, this would create two Code Interpreter sessions, each of which would be charged. Each session is active by default for one hour, which means that you would only pay this fee once if your user keeps giving instructions to Code Interpreter in the same thread for up to one hour.
+          * File search is currently not billed. 
 
           For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
       - question: |

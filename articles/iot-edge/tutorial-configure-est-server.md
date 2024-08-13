@@ -3,7 +3,7 @@ title: Tutorial - Configure Enrollment over Secure Transport Server (EST) for Az
 description: This tutorial shows you how to set up an Enrollment over Secure Transport (EST) server for Azure IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 03/16/2023
+ms.date: 06/10/2024
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge

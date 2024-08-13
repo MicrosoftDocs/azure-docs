@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: quickstart
 ms.date: 10/26/2023
 
@@ -15,7 +15,7 @@ ms.date: 10/26/2023
 
 In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
-:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
+:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem-cli/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart." lightbox="./media/diagnose-vm-network-traffic-filtering-problem-cli/ip-flow-verify-quickstart-diagram.png":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create a virtual machine
 
-1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** from the search results.
 
 1. Select **+ Create** and then select **Azure virtual machine**.
 
@@ -89,7 +89,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 In this section, you use the IP flow verify capability of Network Watcher to test network communication to and from the virtual machine. 
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Network diagnostic tools**, select **IP flow verify**.
 

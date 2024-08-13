@@ -5,18 +5,19 @@ author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
 ---
 
 # Semantic Search with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-This hands-on tutorial shows you how to build a semantic search application using Azure Database for PostgreSQL flexible server and Azure OpenAI service. Semantic search does searches based on semantics; standard lexical search does searches based on keywords provided in a query. For example, your recipe dataset might not contain labels like gluten-free, vegan, dairy-free, fruit-free or dessert but these characteristics can be deduced from the ingredients. The idea is to issue such semantic queries and get relevant search results.
+This hands-on tutorial shows you how to build a semantic search application using Azure Database for PostgreSQL flexible server and Azure OpenAI Service. Semantic search does searches based on semantics; standard lexical search does searches based on keywords provided in a query. For example, your recipe dataset might not contain labels like gluten-free, vegan, dairy-free, fruit-free or dessert but these characteristics can be deduced from the ingredients. The idea is to issue such semantic queries and get relevant search results.
 
 Building semantic search capability on your data using GenAI and Flexible Server involves the following steps:
 >[!div class="checklist"]
@@ -34,7 +35,7 @@ Building semantic search capability on your data using GenAI and Flexible Server
 1. Grant access to Azure OpenAI in the desired subscription.
 1. Grant permissions to [create Azure OpenAI resources and to deploy models](../../ai-services/openai/how-to/role-based-access-control.md). 
 
-[Create and deploy an Azure OpenAI service resource and a model](../../ai-services/openai/how-to/create-resource.md), deploy the embeddings model [text-embedding-ada-002](../../ai-services/openai/concepts/models.md#embeddings-models). Copy the deployment name as it is needed to create embeddings.
+[Create and deploy an Azure OpenAI Service resource and a model](../../ai-services/openai/how-to/create-resource.md), deploy the embeddings model [text-embedding-ada-002](../../ai-services/openai/concepts/models.md#embeddings-models). Copy the deployment name as it is needed to create embeddings.
 
 ## Enable the `azure_ai` and `pgvector` extensions
 

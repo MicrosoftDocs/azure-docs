@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/01/2023
+ms.date: 06/12/2024
 ---
 
 # Relevance scoring in hybrid search using Reciprocal Rank Fusion (RRF)
@@ -57,13 +57,31 @@ The following chart identifies the scoring property returned on each match, algo
 
 Semantic ranking doesn't participate in RRF. Its score (`@search.rerankerScore`) is always reported separately in the query response. Semantic ranking can rerank full text and hybrid search results, assuming those results include fields having semantically rich content.
 
+## Weighted scores
+
+Using 2024-07-01 and newer preview API versions, you can [weight vector queries](vector-search-how-to-query.md#vector-weighting) to increase or decrease their importance in a hybrid query.
+
+Recall that when computing RRF for a certain document, the search engine looks at the rank of that document for each result set where it shows up. Assume a document shows up in three separate search results, where the results are from two vector queries and one text BM25-ranked query. The position of the document varies in each result.
+
+| Match found | Position in results | @search.score | weight multiplier | @search.score (weighted) |
+|--|--|--|--|--|--|
+| vector results one | position 1 | 0.8383955 | 0.5 | 0.41919775 |
+| vector results two | position 5 | 0.81514114 | 2.0 | 1.63028228 |
+| BM25 results | position 10  | 0.8577363 | NA | 0.8577363 |
+
+The document's position in each result set corresponds to an initial score, which are added up to create the final RRF score for that document. 
+
+If you add vector weighting, the initial scores are subect to a weighting multiplier that increases or decreases the score. The default is 1.0, which means no weighting and the initial score is used as-is in RRF scoring. However, if you add a weight of 0.5, the score is reduced and that result becomes less important in the combined ranking. Conversely, if you add a weight of 2.0, the score becomes a larger factor in the overall RRF score.
+
+In this example, the @search.score (weighted) values are passed to the RRF ranking model.
+
 ## Number of ranked results in a hybrid query response
 
 By default, if you aren't using pagination, the search engine returns the top 50 highest ranking matches for full text search, and the most similar `k` matches for vector search. In a hybrid query, `top` determines the number of results in the response. Based on defaults, the top 50 highest ranked matches of the unified result set are returned. 
 
-Often, the search engine finds more results than `top` and `k`. To return more results, use the paging parameters `top`, `skip`, and `next`. Paging is how you determine the number of results on each logical page and navigate through the full payload. 
+Often, the search engine finds more results than `top` and `k`. To return more results, use the paging parameters `top`, `skip`, and `next`. Paging is how you determine the number of results on each logical page and navigate through the full payload. You can set `maxTextRecallSize` to larger values (the default is 1,000) to return more results from the text side of hybrid query.
 
-Full text search is subject to a maximum limit of 1,000 matches (see [API response limits](search-limits-quotas-capacity.md#api-response-limits)). Once 1,000 matches are found, the search engine no longer looks for more.
+By default, full text search is subject to a maximum limit of 1,000 matches (see [API response limits](search-limits-quotas-capacity.md#api-response-limits)). Once 1,000 matches are found, the search engine no longer looks for more.
 
 For more information, see [How to work with search results](search-pagination-page-layout.md).
 
@@ -76,7 +94,7 @@ The following diagram illustrates a hybrid query that invokes keyword and vector
 A query that generates the previous workflow might look like this:
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {

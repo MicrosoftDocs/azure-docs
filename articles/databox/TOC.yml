@@ -108,6 +108,8 @@
         href: data-box-disk-contact-microsoft-support.md
       - name: Migrate
         items:
+        - name: Using Storage Mover
+          href: ../storage-mover/service-overview.md#using-azure-storage-mover-and-azure-data-box
         - name: To SharePoint Online
           href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%2fazure%2fdatabox%2fcontext%2fcontext
         - name: To Azure File Sync
@@ -167,6 +169,8 @@
         href: data-box-disk-faq.yml  
     - name: How to
       items:
+      - name: Migrate Using Storage Mover
+        href: ../storage-mover/service-overview.md#using-azure-storage-mover-and-azure-data-box
       - name: Manage via Azure portal
         href: data-box-portal-ui-admin.md
       - name: Use self-managed shipping
@@ -245,6 +249,8 @@
         href: data-box-disk-contact-microsoft-support.md 
       - name: Migrate
         items:
+        - name: Using Storage Mover
+          href: ../storage-mover/service-overview.md#using-azure-storage-mover-and-azure-data-box
         - name: To SharePoint Online
           href: data-box-heavy-migrate-spo.md
         - name: To Azure File Sync
@@ -274,7 +280,5 @@
       href: https://azure.microsoft.com/pricing/details/databox/
     - name: Data Box Disk pricing
       href: https://azure.microsoft.com/pricing/details/databox/disk/
-    - name: Data Box partners
-      href: https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf
     - name: Data Box hardware additional terms
       href: data-box-hardware-additional-terms.md
