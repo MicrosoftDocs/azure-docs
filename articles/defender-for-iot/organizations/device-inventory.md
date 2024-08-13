@@ -11,7 +11,7 @@ Defender for IoT's device inventory helps you identify details about specific de
 
 - **Manage all your IoT/OT devices** by building up-to-date inventory that includes all your managed and unmanaged devices
 
-- **Protect devices with risk-based approach** to identify risks such as missing patches, vulnerabilities and prioritize fixes based on risk scoring and automated threat modeling
+- **Protect devices with risk-based approach** to identify risks such as missing patches, vulnerabilities, and prioritize fixes based on risk scoring and automated threat modeling
 
 - **Update your inventory** by deleting irrelevant devices and adding organization-specific information to emphasize your organization preferences
 
@@ -58,7 +58,7 @@ For more information, see:
 
 ## Automatically consolidated devices
 
-When you've deployed Defender for IoT at scale, with several OT sensors, each sensor might detect different aspects of the same device. To prevent duplicated devices in your device inventory, Defender for IoT assumes that any devices found in the same zone, with a logical combination of similar characteristics, is the same device. Defender for IoT automatically consolidates these devices and lists them only once in the device inventory.
+When you deploy Defender for IoT at scale, with several OT sensors, each sensor might detect different aspects of the same device. To prevent duplicated devices in your device inventory, Defender for IoT assumes that any devices found in the same zone, with a logical combination of similar characteristics, is the same device. Defender for IoT automatically consolidates these devices and lists them only once in the device inventory.
 
 For example, any devices with the same IP and MAC address detected in the same zone are consolidated and identified as a single device in the device inventory. If you have separate devices from recurring IP addresses that are detected by multiple sensors, you want each of these devices to be identified separately. In such cases, [onboard your OT sensors](onboard-sensors.md) to different zones so that each device is identified as a separate and unique device, even if they have the same IP address. Devices that have the same MAC addresses, but different IP addresses aren't merged, and continue to be listed as unique devices.
 
@@ -108,7 +108,7 @@ The following table lists the columns available in the Defender for IoT device i
 |**Description** * | Editable. The device's description.  |
 | **Device Id** | The device's Azure-assigned ID number. |
 |  **Firmware model** |  Editable<I think!!>. The device's firmware model. |
-| ADDED this is in the details pane, but is called (hardware)Model/ Firenware model in the device inventory - i think the Model is the hardware model,  **Firmware name** |  Editable. The device's firmware name.|
+| ADDED this is in the details pane, but is called (hardware)Model/ Firmware model in the device inventory - i think the Model is the hardware model,  **Firmware name** |  Editable. The device's firmware name.|
 | **Firmware vendor** |  The vendor of the device's firmware. |
 | **Firmware version** * |Editable.  The device's firmware version. |
 |**First seen**  * | The date and time the device was first seen. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. On the OT sensor, shown as **Discovered**.|
@@ -124,8 +124,8 @@ The following table lists the columns available in the Defender for IoT device i
 |**Name** * | Mandatory, and editable. The device's name as the sensor discovered it, or as entered by the user. |
 |**Network location** (Public preview) | The device's network location. Displays whether the device is defined as *local* or *routed*, according to the configured subnets. |
 |**OS architecture** | <!Editable!> in sensor?. The device's operating system architecture.  |
-|**OS distribution** | <!Editable.!> in sensor?The device's operating system distribution, such as Android, Linux, and Haiku.   |
-|**OS platform** * | <!Editable.!> in sensor?The device's operating system, if detected.  On the OT sensor, shown as **Operating System**. |
+|**OS distribution** | <!Editable.!> in sensor? The device's operating system distribution, such as Android, Linux, and Haiku.   |
+|**OS platform** * | <!Editable.!> in sensor? The device's operating system, if detected.  On the OT sensor, shown as **Operating System**. |
 |**OS version** | <!Editable.!>in sensor? The device's operating system version, such as Windows 10 or Ubuntu 20.04.1. |
 |**PLC mode**  * | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). If both states are the same, then only one state is listed.<br><br>- Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. <br><br>- Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`.   |
 |**Programming device**  *   | Editable.  Defines whether the device is defined as a *Programming Device*, performing programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. |
