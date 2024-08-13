@@ -52,10 +52,13 @@ To add the administrative template to Group Policy, select a tab for your scenar
 
 1. On your domain controllers, copy and paste the following files to the relevant location, depending if you store Group Policy templates in the local `PolicyDefinitions` folder or the [Group Policy Central Store](/troubleshoot/windows-client/group-policy/create-and-manage-central-store). Replace `contoso.com` with your domain name, and `en-US` if you're using a different language.
 
-   | Filename | Local location | Central Store |
-   |--|--|--|
-   | `terminalserver-avd.admx` | `C:\Windows\PolicyDefinitions\` | `\\contoso.com\SYSVOL\contoso.com\Policies\PolicyDefinitions` |
-   | `en-US\terminalserver-avd.adml` | `C:\Windows\PolicyDefinitions\en-US\` | `\\contoso.com\SYSVOL\contoso.com\Policies\PolicyDefinitions\en-US` |
+   - **Filename**: `terminalserver-avd.admx`
+       - **Local location**: `C:\Windows\PolicyDefinitions\`
+       - **Central Store**: `\\contoso.com\SYSVOL\contoso.com\Policies\PolicyDefinitions`
+
+   - **Filename**: `en-US\terminalserver-avd.adml`
+       - **Local location**: `C:\Windows\PolicyDefinitions\en-US\`
+       - **Central Store**: `\\contoso.com\SYSVOL\contoso.com\Policies\PolicyDefinitions\en-US`
 
 1. On a device you use to manage Group Policy, open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your session hosts.
 
@@ -76,10 +79,11 @@ To add the administrative template to Group Policy, select a tab for your scenar
 
 1. On each session host, copy and paste the following files to the relevant location. Replace `en-US` if you're using a different language.
 
-   | Filename | Local location |
-   |--|--|
-   | `terminalserver-avd.admx` | `C:\Windows\PolicyDefinitions\` |
-   | `en-US\terminalserver-avd.adml` | `C:\Windows\PolicyDefinitions\en-US\` |
+   - **Filename**: `terminalserver-avd.admx`
+       - **Local location**: `C:\Windows\PolicyDefinitions\`
+
+   - **Filename**: `en-US\terminalserver-avd.adml`
+       - **Local location**: `C:\Windows\PolicyDefinitions\en-US\`
 
 1. Open the **Local Group Policy Editor** console on a session host.
 
