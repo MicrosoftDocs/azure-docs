@@ -251,7 +251,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Web Application Firewall](../../web-application-firewall/index.yml) | &#x2705; | &#x2705; |
 | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) | &#x2705; | &#x2705; |
 
-**&ast;** FedRAMP High and DoD SRG Impact Level 2 authorization for Microsoft Entra ID applies to Microsoft Entra External ID. To learn more about Entra External ID, refer to the documentation [here](../../entra/external-id/)
+**&ast;** FedRAMP High and DoD SRG Impact Level 2 authorization for Microsoft Entra ID applies to Microsoft Entra External ID. To learn more about Entra External ID, refer to the documentation [here](../../entra/external-id/index.yml)
 
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
