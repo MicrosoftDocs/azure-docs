@@ -16,9 +16,10 @@ ms.author: lajanuar
 
 A confidence score indicates probability by measuring the degree of statistical certainty that the extracted result is detected correctly. The estimated accuracy is calculated by running a few different combinations of the training data to predict the labeled values. In this article, learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
 
-
 ## Confidence scores
+
 > [!NOTE]
+>
 > * Field level confidence is getting update to take into account word confidence score starting with **2024-07-31-preview** API version for **custom models**.
 > * Confidence scores for tables, table rows and table cells are available starting with the **2024-07-31-preview** API version for **custom models**.
 
