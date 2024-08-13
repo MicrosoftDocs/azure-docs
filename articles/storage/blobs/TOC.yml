@@ -1443,24 +1443,24 @@ items:
         href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
       - name: Migrate an HDFS store online
         href: migrate-gen2-wandisco-live-data-platform.md
-    - name: File and directory operations
-      items:
-      - name: Storage Explorer
-        href: data-lake-storage-explorer.md
-      - name: PowerShell
-        href: data-lake-storage-directory-file-acl-powershell.md
-      - name: CLI
-        href: data-lake-storage-directory-file-acl-cli.md
-      - name: .NET
-        href: data-lake-storage-directory-file-acl-dotnet.md
-      - name: Java
-        href: data-lake-storage-directory-file-acl-java.md
-      - name: Python
-        href: data-lake-storage-directory-file-acl-python.md
-      - name: JavaScript
-        href: data-lake-storage-directory-file-acl-javascript.md
-      - name: Hadoop File System CLI
-        href: data-lake-storage-use-hdfs-data-lake-storage.md
+  - name: File and directory operations
+    items:
+    - name: Storage Explorer
+      href: data-lake-storage-explorer.md
+    - name: PowerShell
+      href: data-lake-storage-directory-file-acl-powershell.md
+    - name: CLI
+      href: data-lake-storage-directory-file-acl-cli.md
+    - name: .NET
+      href: data-lake-storage-directory-file-acl-dotnet.md
+    - name: Java
+      href: data-lake-storage-directory-file-acl-java.md
+    - name: Python
+      href: data-lake-storage-directory-file-acl-python.md
+    - name: JavaScript
+      href: data-lake-storage-directory-file-acl-javascript.md
+    - name: Hadoop File System CLI
+      href: data-lake-storage-use-hdfs-data-lake-storage.md
   - name: Query acceleration
     items:
     - name: About query acceleration
