@@ -15,6 +15,7 @@ This article describes the syntax you use to add a resource to your Bicep file. 
 Add a resource declaration by using the `resource` keyword. You set a symbolic name for the resource. The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file.
 
 ```bicep
+@<decorator>(<argument>)
 resource <symbolic-name> '<full-type-name>@<api-version>' = {
   <resource-properties>
 }
@@ -58,6 +59,20 @@ resource <symbolic-name> '<full-type-name>@<api-version>' = {
   }
 }
 ```
+
+## Decorators
+
+You can add a decorator to a resource definition. The supported decorators are `@batchSize(int)` and `@description`. 
+
+```bicep
+@description('Create a number of storage accounts')
+@batchSize(3)
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storageName in storageAccounts: {
+  ...
+}]
+```
+
+You can only apply the `@batchSize()` decorator to a resource or module definition that uses a `for` expression. For more information, see [Deploy in batches](loops.md#deploy-in-batches).
 
 ## Resource name
 

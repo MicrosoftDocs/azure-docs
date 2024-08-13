@@ -101,6 +101,19 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | elements | positiveInt | 3 |
 
+## Import functions between Bicep files
+
+Only functions that bear the `@export()` decorator can be imported to other templates.
+
+The following example enables you to import the user-defined function from other templates:
+
+```bicep
+@export()
+func sayHello(name string) string => 'Hello ${name}!'
+```
+
+For more information, see [Import variables, functions, and types](./bicep-import.md#import-types-variables-and-functions).
+
 ## Next steps
 
 * To learn about the Bicep file structure and syntax, see [Understand the structure and syntax of Bicep files](./file.md).

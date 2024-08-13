@@ -23,19 +23,24 @@ metadata <metadata-name> = ANY
 
 targetScope = '<scope>'
 
+@<decorator>(<argument>)
 type <user-defined-data-type-name> = <type-expression>
 
+@<decorator>(<argument>)
 func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <data-type>, ...) <function-data-type> => <expression>
 
 @<decorator>(<argument>)
 param <parameter-name> <parameter-data-type> = <default-value>
 
+@<decorator>(<argument>)
 var <variable-name> = <variable-value>
 
+@<decorator>(<argument>)
 resource <resource-symbolic-name> '<resource-type>@<api-version>' = {
   <resource-properties>
 }
 
+@<decorator>(<argument>)
 module <module-symbolic-name> '<path-to-file>' = {
   name: '<linked-deployment-name>'
   params: {
@@ -99,49 +104,6 @@ The allowed values are:
 
 In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
 
-## Types
-
-You can use the `type` statement to define user-defined data types.
-
-```bicep
-param location string = resourceGroup().location
-
-type storageAccountSkuType = 'Standard_LRS' | 'Standard_GRS'
-
-type storageAccountConfigType = {
-  name: string
-  sku: storageAccountSkuType
-}
-
-param storageAccountConfig storageAccountConfigType = {
-  name: 'storage${uniqueString(resourceGroup().id)}'
-  sku: 'Standard_LRS'
-}
-
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-  name: storageAccountConfig.name
-  location: location
-  sku: {
-    name: storageAccountConfig.sku
-  }
-  kind: 'StorageV2'
-}
-```
-
-For more information, see [User-defined data types](./user-defined-data-types.md).
-
-## Functions
-
-In your Bicep file, you can create your own functions in addition to using the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
-
-```bicep
-func buildUrl(https bool, hostname string, path string) string => '${https ? 'https' : 'http'}://${hostname}${empty(path) ? '' : '/${path}'}'
-
-output azureUrl string = buildUrl(true, 'microsoft.com', 'azure')
-```
-
-For more information, see [User-defined functions](./user-defined-functions.md).
-
 ## Parameters
 
 Use parameters for values that need to vary for different deployments. You can define a default value for the parameter that is used if no value is provided during deployment.
@@ -162,7 +124,7 @@ sku: {
 
 For more information, see [Parameters in Bicep](./parameters.md).
 
-## Parameter decorators
+### Parameter decorators
 
 You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but many others are available.
 
@@ -193,7 +155,56 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
 ```
 
+You can add a `@export()` decorator to make a variable available for import in other templates.
+
 For more information, see [Variables in Bicep](./variables.md).
+
+## Types
+
+You can use the `type` statement to define user-defined data types.
+
+```bicep
+param location string = resourceGroup().location
+
+type storageAccountSkuType = 'Standard_LRS' | 'Standard_GRS'
+
+type storageAccountConfigType = {
+  name: string
+  sku: storageAccountSkuType
+}
+
+param storageAccountConfig storageAccountConfigType = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  sku: 'Standard_LRS'
+}
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: storageAccountConfig.name
+  location: location
+  sku: {
+    name: storageAccountConfig.sku
+  }
+  kind: 'StorageV2'
+}
+```
+
+You can add a `@export()` decorator to make a user-defined data type available for import in other templates. 
+
+For more information, see [User-defined data types](./user-defined-data-types.md).
+
+## Functions
+
+In your Bicep file, you can create your own functions in addition to using the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
+
+```bicep
+func buildUrl(https bool, hostname string, path string) string => '${https ? 'https' : 'http'}://${hostname}${empty(path) ? '' : '/${path}'}'
+
+output azureUrl string = buildUrl(true, 'microsoft.com', 'azure')
+```
+
+You can add a `@export()` decorator to make a user-defined function available for import in other templates.
+
+For more information, see [User-defined functions](./user-defined-functions.md).
 
 ## Resources
 

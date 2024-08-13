@@ -14,7 +14,7 @@ Resource Manager resolves variables before starting the deployment operations. W
 
 You are limited to 256 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
-## Define variable
+## Define variables
 
 The syntax for defining a variable is:
 
@@ -114,7 +114,7 @@ The output returns an array with the following values:
 
 For more information about the types of loops you can use with variables, see [Iterative loops in Bicep](loops.md).
 
-## Use variable
+## Use variables
 
 The following example shows how to use the variable for a resource property. You reference the value for the variable by providing the variable's name: `storageName`.
 
@@ -137,6 +137,19 @@ output stgOutput string = storageName
 ```
 
 Because storage account names must use lowercase letters, the `storageName` variable uses the `toLower` function to make the `storageNamePrefix` value lowercase. The `uniqueString` function creates a unique value from the resource group ID. The values are concatenated to a string.
+
+## Import variables between Bicep files
+
+Only variables that bear the `@export()` decorator can be imported to other templates.
+
+The following example enables you to import the variable from other templates:
+
+```bicep
+@export()
+var myConstant = 'This is a constant value'
+```
+
+For more information, see [Import variables, types, and functions](./bicep-import.md#import-types-variables-and-functions).
 
 ## Configuration variables
 

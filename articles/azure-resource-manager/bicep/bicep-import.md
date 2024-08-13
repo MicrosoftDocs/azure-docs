@@ -10,7 +10,7 @@ ms.date: 08/07/2024
 
 This article describes the syntax you use to export and import shared functionality, as well as namespaces for Bicep extensions.
 
-## Exporting types, variables and functions
+## Export variables, types, and functions
 
 The `@export()` decorator indicates that a given statement can be imported by another file. This decorator is only valid on type, variable, and function statements. Variable statements marked with `@export()` must be compile-time constants.
 
@@ -21,7 +21,7 @@ The syntax for exporting functionality for use in other Bicep files is:
 <statement_to_export>
 ```
 
-## Import types, variables, and functions
+## Import variable, types, and functions
 
 The syntax for importing functionality from another Bicep file is:
 
