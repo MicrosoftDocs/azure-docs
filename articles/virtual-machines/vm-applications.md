@@ -455,6 +455,14 @@ Example remove command:
 start /wait %windir%\\system32\\msiexec.exe /x $appname /quiet /forcerestart /log ${appname}_uninstall.log
 ```
 
+Typically, the `start` command would be called within a batch script. If used with the `/wait` parameter, the calling script will be paused until the called process terminates. Once complete, the batch script would check for the `errorlevel` variable set by the `start` command and exit as follows:
+ 
+```batch
+start /wait %windir%\\system32\\msiexec.exe /i myapp /quiet /forcerestart /log myapp_install.log
+if %errorlevel% neq 0 exit /b %errorlevel%
+...
+```
+
 ### Zipped files
 
 For .zip or other zipped files, rename and unzip the contents of the application package to the desired destination.
