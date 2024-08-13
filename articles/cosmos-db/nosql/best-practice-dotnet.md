@@ -2,7 +2,7 @@
 title: Azure Cosmos DB best practices for .NET SDK v3
 description: Learn the best practices for using the Azure Cosmos DB .NET SDK v3
 author: StefArroyo
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 07/31/2023

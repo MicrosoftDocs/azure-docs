@@ -86,7 +86,7 @@ In this example, use the `AudioDataStream` constructor to get a stream from the 
 ```python
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 result = speech_synthesizer.speak_text_async("I'm excited to try text to speech").get()
-stream = AudioDataStream(result)
+stream = speechsdk.AudioDataStream(result)
 ```
 
 At this point, you can implement any custom behavior by using the resulting `stream` object.
@@ -163,7 +163,11 @@ While using the [SpeechSynthesizer](/python/api/azure-cognitiveservices-speech/a
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=python), but replace the contents of that *speech-synthesis.py* file with the following Python code:
+Here's an example that shows how to subscribe to events for speech synthesis. 
+
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+
+You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=python), but replace the contents of that *speech-synthesis.py* file with the following Python code:
 
 ```python
 import os

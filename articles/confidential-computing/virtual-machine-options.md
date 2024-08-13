@@ -4,8 +4,7 @@ description: Azure Confidential Computing offers multiple options for confidenti
 author: ju-shim
 ms.author: jushiman
 ms.reviewer: mattmcinnes
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 11/15/2023
@@ -31,6 +30,7 @@ We offer the following VM sizes:
 | **DCedsv5-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
 | **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
 | **ECedsv5-series** | Intel TDX | Memory-optimized CVM with local temporary disk. |
+| **NCCadsH100v5-series** | AMD SEV-SNP and NVIDIA H100 Tensor Core GPUs | CVM with Confidential GPU. | 
 
 > [!NOTE]
 > Memory-optimized confidential VMs offer double the ratio of memory per vCPU count.

@@ -16,6 +16,8 @@
           href: ru/introduction.md
         - name: API versions
           items:
+            - name: API version 7.0
+              href: feature-support-70.md
             - name: API version 6.0
               href: feature-support-60.md
             - name: API version 5.0
@@ -111,6 +113,8 @@
               href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
             - name: Find existing free-tier accounts
               href: ../scripts/cli/common/free-tier.md
+            - name: Migrate all resources to autoscale
+              href: ../scripts/cli/common/convert-to-autoscale.md
         - name: Azure PowerShell
           items:
             - name: Overview

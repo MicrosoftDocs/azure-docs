@@ -49,6 +49,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Azure CLI
+            url: /cli/azure/dynatrace
           - text: Python
             url: /python/api/overview/azure/dynatrace
           - text: JavaScript
@@ -59,6 +61,3 @@ landingContent:
             url: /java/api/overview/azure/dynatrace
           - text: REST API
             url: /rest/api/dynatrace
-#          - text: Azure PowerShell
-#            url: 
-          

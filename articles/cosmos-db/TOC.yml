@@ -28,6 +28,8 @@
         items:
         - name: Vector search overview
           href: gen-ai/vector-search-overview.md
+        - name: Retrieval Augmented Generation (RAG)
+          href: gen-ai/rag.md
         - name: Tokens
           href: gen-ai/tokens.md
         - name: Vector embeddings
@@ -36,8 +38,13 @@
           href: gen-ai/distance-functions.md
         - name: kNN vs ANN
           href: gen-ai/knn-vs-ann.md
-    - name: Generative AI
+        - name: Multi-tenancy for vector search
+          href: nosql/multi-tenancy-vector-search.md
+    - name: AI Applications
+      expanded: true
       items:
+        - name: Quickstart - build a RAG chatbot
+          href: gen-ai/quickstart-rag-chatbot.md
         - name: AI agent
           href: ai-agents.md
         - name: Real-time custom content generation

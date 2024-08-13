@@ -4,9 +4,9 @@ titleSuffix: Azure VPN Gateway
 description: In this tutorial, learn how to create and manage an Azure VPN gateway by using the Azure portal.
 author: cherylmc
 ms.author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 07/05/2024
+ms.date: 08/01/2024
 
 ---
 
@@ -29,6 +29,8 @@ In this tutorial, you learn how to:
 > * View the gateway public IP address.
 > * Resize a VPN gateway (resize SKU).
 > * Reset a VPN gateway.
+
+[!INCLUDE [Availability zones](../../includes/vpn-gateway-az-regions-support-include.md)]
 
 ## Prerequisites
 

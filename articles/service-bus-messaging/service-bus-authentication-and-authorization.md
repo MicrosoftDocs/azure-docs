@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus authentication and authorization | Microsoft Docs
-description: Authenticate apps to Service Bus with Shared Access Signature (SAS) authentication.
+title: Azure Service Bus authentication and authorization
+description: Learn how to securely authenticate and authorize access to Azure Service Bus, including best practices for managing access keys and using Microsoft Entra ID.
 ms.topic: article
 ms.date: 02/23/2024
 ---

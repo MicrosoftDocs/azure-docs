@@ -3,9 +3,9 @@ title: Apache Spark version support
 description: Supported versions of Spark, Scala, Python
 author: ekote
 ms.author: eskot
-ms.reviewer: maghan, wiassaf, sngun
+ms.reviewer: maghan, whhender, whhender
 ms.date: 03/08/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: reference
 ms.custom: devx-track-python
@@ -29,7 +29,7 @@ The following table lists the runtime name, Apache Spark version, and release da
 | Runtime name | Release date | Release stage                | End of Support announcement date | End of Support effective date |
 | --- | --- |------------------------------| --- | --- |
 | [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | GA (as of Apr 8, 2024)       | Q2 2025| Q1 2026|
-| [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 | GA (as of Feb 23, 2023)      | Q2/Q3 2024 | 3/31/2025 |
+| [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 |**end of support announced**|July 12th, 2024| 3/31/2025 |
 | [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | __deprecated and soon disabled__ | July 8, 2023 | __July 8, 2024__ |
 | [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | __deprecated and soon disabled__         | January 26, 2023 | __January 26, 2024__ |
 | [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __deprecated and soon disabled__           | July 29, 2022 | __September 29, 2023__ |
@@ -99,6 +99,31 @@ This guide provides a structured approach for users looking to upgrade their Azu
 **Answer:**  Don't use PowerShell cmdlet if you have custom libraries installed in your Synapse workspace. Instead follow these steps:
 1. Recreate Spark Pool 3.3 from the ground up.
 1. Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3.
+
+**Question:** Why can't I upgrade to 3.4 without recreating a new Spark pool?
+
+**Answer:** This is not allowed from UX, customer can use Azure PowerShell to update Spark version. Please use "ForceApplySetting", so that any existing clusters (with old version) are decommissioned. 
+
+**Sample query:**
+
+```azurepowershell
+$_target_work_space = @("workspace1", "workspace2")
+
+Get-AzSynapseWorkspace |
+    ForEach-Object {
+        if ($_target_work_space -contains $_.Name) {
+            $_workspace_name = $_.Name
+            Write-Host "Updating workspace: $($_workspace_name)"
+            Get-AzSynapseSparkPool -WorkspaceName $_workspace_name |
+            ForEach-Object {
+                Write-Host "Updating Spark pool: $($_.Name)"
+                Write-Host "Current Spark version: $($_.SparkVersion)"
+        
+                Update-AzSynapseSparkPool -WorkspaceName $_workspace_name -Name $_.Name -SparkVersion 3.4 -ForceApplySetting
+              }
+        }
+    }
+```
 
 ## Related content
 

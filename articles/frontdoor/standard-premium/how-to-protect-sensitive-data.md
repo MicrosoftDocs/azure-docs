@@ -3,7 +3,7 @@ title: Protect sensitive data in Azure Front Door logs
 description: Learn how to protect sensitive data in Azure Front Door logs by using the log scrubbing tool.
 author: halkazwini
 ms.author: halkazwini
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 04/30/2024
 

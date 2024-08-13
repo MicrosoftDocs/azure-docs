@@ -4,7 +4,7 @@ description: Learn how to configure local metrics and logs for Azure API Managem
 services: api-management
 author: dlepow
 manager: gwallace
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/12/2024
 ms.author: danlep
@@ -303,7 +303,7 @@ When configuring to use local syslog on Azure Kubernetes Service, you can choose
 
 You can easily consume them by getting access to the worker nodes:
 
-1. Create an SSH connection to the node ([docs](./../aks/node-access.md))
+1. Create an SSH connection to the node ([docs](/azure/aks/node-access))
 2. Logs can be found under `host/var/log/syslog`
 
 For example, you can filter all syslogs to just the ones from the self-hosted gateway:

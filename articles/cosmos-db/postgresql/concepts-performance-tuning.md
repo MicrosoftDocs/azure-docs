@@ -3,7 +3,7 @@ title: Performance tuning - Azure Cosmos DB for PostgreSQL
 description: Improving query performance in the distributed database
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 01/30/2023

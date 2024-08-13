@@ -2,7 +2,7 @@
 title: Da Vinci Plan Net for the FHIR service in Azure Health Data Services
 description: Learn to set up Da Vinci PDex tests for the FHIR service in Azure Health Data Services with this tutorial on defining search parameters, loading profiles, and running touchstone tests.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

@@ -4,8 +4,9 @@ description: This article tells how to enable Update Management from a runbook.
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 07/15/2024
 ms.custom: mvc
+ms.service: azure-automation
 ---
 
 # Enable Update Management from a runbook

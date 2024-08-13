@@ -34,7 +34,11 @@ We provide the [Debug plugin](https://github.com/microsoft/ApplicationInsights-J
 Follow the steps in this section to instrument your application with the Application Insights JavaScript SDK.
 
 > [!TIP] 
-> Good news! We're making it even easier to enable JavaScript. Check out where [JavaScript (Web) SDK Loader Script injection by configuration is available](./codeless-overview.md#javascript-web-sdk-loader-script-injection-by-configuration)!
+> Good news! We're making it even easier to enable JavaScript with JavaScript (Web) SDK Loader Script injection by configuration.
+> 
+> - [ASP.NET Core](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications)
+> - [Node.js](./nodejs.md#browser-sdk-loader)
+> - [Java](./java-standalone-config.md#browser-sdk-loader-preview)
 
 ### Add the JavaScript code
 
@@ -223,7 +227,7 @@ Yes, the Application Insights JavaScript SDK is open source. To view the source 
 
 ## Next steps
 
-* [Explore Application Insights usage experiences](usage-overview.md)
+* [Explore Application Insights usage experiences](usage.md)
 * [Track page views](api-custom-events-metrics.md#page-views)
 * [Track custom events and metrics](api-custom-events-metrics.md)
 * [Insert a JavaScript telemetry initializer](api-filtering-sampling.md#javascript-telemetry-initializers)

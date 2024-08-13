@@ -3,7 +3,7 @@ title: Use datastores
 titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to connect to Azure storage services during training with Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.author: franksolomon

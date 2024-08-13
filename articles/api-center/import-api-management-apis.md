@@ -2,7 +2,7 @@
 title: Import APIs from Azure API Management - Azure API Center
 description: Add APIs to your Azure API center inventory from your API Management instance.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 06/28/2024
 ms.author: danlep 
@@ -22,7 +22,7 @@ This article shows two options for using the Azure CLI to add APIs to your API c
     * Run [az apic api register](/cli/azure/apic/api#az-apic-api-register) to register a new API in your API center.
     * Run [az apic api definition import-specification](/cli/azure/apic/api/definition#az-apic-api-definition-import-specification) to import the API definition to an existing API.
 
-* **Option 2** - Import APIs directly from API Management to your API center using the [az apic import-from-apim](/cli/azure/apic/az-apic-import-from-apim) command.
+* **Option 2** - Import APIs directly from API Management to your API center using the [az apic import-from-apim](/cli/azure/apic#az-apic-import-from-apim) command.
     
 After importing API definitions or APIs from API Management, you can add metadata and documentation in your API center to help stakeholders discover, understand, and consume the API.
 
@@ -255,7 +255,7 @@ In the following command, substitute the names of your API center, your API cent
 
 ```azurecli
 #! /bin/bash
-import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> \
+az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> \
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> \
     --apim-apis 'petstore-api'        
 ```
@@ -263,7 +263,7 @@ import-from-apim --service-name <api-center-name> --resource-group <resource-gro
 
 ```azurecli
 # PowerShell syntax
-import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> `
+az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> `
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> `
     --apim-apis 'petstore-api'    
 ```

@@ -1,7 +1,7 @@
 ---
 title: Find and use marketplace purchase plan information using the CLI
 description: Learn how to use the Azure CLI to find image URNs and purchase plan parameters, like the publisher, offer, SKU, and version, for Marketplace VM images.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.date: 02/09/2023
@@ -64,7 +64,7 @@ The Windows image alias names and their details outputted by this command are:
 ```output
 Architecture    Offer                         Publisher               Sku                                 Urn                                                                            Alias                    Version
 --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------ -----------------------  ---------
-x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                    Win2022Datacenter         latest
+x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition       MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest      Win2022AzureEdition       latest
 x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest Win2022AzureEditionCore   latest
 x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                    Win2019Datacenter         latest
 x64             WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                    Win2016Datacenter         latest

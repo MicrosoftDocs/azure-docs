@@ -38,3 +38,4 @@ For more information, see [Manage access to Microsoft Copilot in Azure](manage-a
 
 - Learn about [some of the things you can do with Microsoft Copilot in Azure](capabilities.md).
 - Review our [Responsible AI FAQ for Microsoft Copilot in Azure](responsible-ai-faq.md).
+- Explore the [Microsoft Copilot in Azure video series](/shows/microsoft-copilot-in-azure/).

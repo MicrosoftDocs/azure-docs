@@ -56,7 +56,7 @@ Models deployed to [managed inference](../concepts/deployments-overview.md):
 > [!div class="checklist"]
 > * [Meta Llama 3 instruct](../how-to/deploy-models-llama.md) family of models
 > * [Phi-3](../how-to/deploy-models-phi-3.md) family of models
-> * Mixtral famility of models
+> * [Mistral](../how-to/deploy-models-mistral-open.md) and [Mixtral](../how-to/deploy-models-mistral-open.md?tabs=mistral-8x7B-instruct) family of models.
 
 The API is compatible with Azure OpenAI model deployments.
 
@@ -103,6 +103,21 @@ model = ChatCompletionsClient(
 )
 ```
 
+If you are using an endpoint with support for Entra ID, you can create your client as follows:
+
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.identity import AzureDefaultCredential
+
+model = ChatCompletionsClient(
+    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
+    credential=AzureDefaultCredential(),
+)
+```
+
+Explore our [samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/python/reference) to get yourself started.
+
 # [JavaScript](#tab/javascript)
 
 Install the package `@azure-rest/ai-inference` using npm:
@@ -124,6 +139,63 @@ const client = new ModelClient(
 );
 ```
 
+For endpoint with support for Microsoft Entra ID, you can create your client as follows:
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureDefaultCredential } from "@azure/identity";
+
+const client = new ModelClient(
+    process.env.AZUREAI_ENDPOINT_URL, 
+    new AzureDefaultCredential()
+);
+```
+
+Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/AAp1kxa) to get yourself started.
+
+# [C#](#tab/csharp)
+
+Install the Azure AI inference library with the following command:
+
+```dotnetcli
+dotnet add package Azure.AI.Inference --prerelease
+```
+
+For endpoint with support for Microsoft Entra ID (formerly Azure Active Directory), install the `Azure.Identity` package:
+
+```dotnetcli
+dotnet add package Azure.Identity
+```
+
+Import the following namespaces:
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.AI.Inference;
+```
+
+Then, you can use the package to consume the model. The following example shows how to create a client to consume chat completions:
+
+```csharp
+ChatCompletionsClient client = new ChatCompletionsClient(
+    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+    new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
+);
+```
+
+For endpoint with support for Microsoft Entra ID (formerly Azure Active Directory):
+
+```csharp
+ChatCompletionsClient client = new ChatCompletionsClient(
+    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+    new DefaultAzureCredential(includeInteractiveCredentials: true)
+);
+```
+
+Explore our [samples](https://aka.ms/azsdk/azure-ai-inference/csharp/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/csharp/reference) to get yourself started.
+
 # [REST](#tab/rest)
 
 Use the reference section to explore the API design and which parameters are available. For example, the reference section for [Chat completions](reference-model-inference-chat-completions.md) details how to use the route `/chat/completions` to generate predictions based on chat-formatted instructions:
@@ -143,11 +215,13 @@ The Azure AI Model Inference API specifies a set of modalities and parameters th
 
 By setting a header `extra-parameters: pass-through`, the API will attempt to pass any unknown parameter directly to the underlying model. If the model can handle that parameter, the request completes.
 
-The following example shows a request passing the parameter `safe_prompt` supported by Mistral-Large, which isn't specified in the Azure AI Model Inference API:
+The following example shows a request passing the parameter `safe_prompt` supported by Mistral-Large, which isn't specified in the Azure AI Model Inference API. 
 
 # [Python](#tab/python)
 
 ```python
+from azure.ai.inference.models import SystemMessage, UserMessage
+
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -157,7 +231,12 @@ response = model.complete(
         "safe_mode": True
     }
 )
+
+print(response.choices[0].message.content)
 ```
+
+> [!TIP]
+> When using Azure AI Inference SDK, using `model_extras` configures the request with `extra-parameters: pass-through` automatically for you.
 
 # [JavaScript](#tab/javascript)
 
@@ -174,6 +253,24 @@ var response = await client.path("/chat/completions").post({
         safe_mode: true
     }
 });
+
+console.log(response.choices[0].message.content)
+```
+
+# [C#](#tab/csharp)
+
+```csharp
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+    AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
+};
+
+response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
 # [REST](#tab/rest)
@@ -208,8 +305,8 @@ extra-parameters: pass-through
 
 ---
 
-> [!TIP]
-> The default value for `extra-parameters` is `error` which returns an error if an extra parameter is indicated in the payload. Alternatively, you can set `extra-parameters: ignore` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
+> [!NOTE]
+> The default value for `extra-parameters` is `error` which returns an error if an extra parameter is indicated in the payload. Alternatively, you can set `extra-parameters: drop` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
 
 ### Models with disparate set of capabilities
 
@@ -220,9 +317,9 @@ The following example shows the response for a chat completion request indicatin
 # [Python](#tab/python)
 
 ```python
-from azure.ai.inference.models import ChatCompletionsResponseFormat
-from azure.core.exceptions import HttpResponseError
 import json
+from azure.ai.inference.models import SystemMessage, UserMessage, ChatCompletionsResponseFormat
+from azure.core.exceptions import HttpResponseError
 
 try:
     response = model.complete(
@@ -276,6 +373,36 @@ catch (error) {
     else 
     {
         throw error
+    }
+}
+```
+
+# [C#](#tab/csharp)
+
+```csharp
+try
+{
+    requestOptions = new ChatCompletionsOptions()
+    {
+        Messages = {
+            new ChatRequestSystemMessage("You are a helpful assistant"),
+            new ChatRequestUserMessage("How many languages are in the world?"),
+        },
+        ResponseFormat = new ChatCompletionsResponseFormatJSON()
+    };
+
+    response = client.Complete(requestOptions);
+    Console.WriteLine(response.Value.Choices[0].Message.Content);
+}
+catch (RequestFailedException ex)
+{
+    if (ex.Status == 422)
+    {
+        Console.WriteLine($"Looks like the model doesn't support a parameter: {ex.Message}");
+    }
+    else
+    {
+        throw;
     }
 }
 ```
@@ -336,6 +463,7 @@ The following example shows the response for a chat completion request that has 
 
 ```python
 from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
+from azure.core.exceptions import HttpResponseError
 
 try:
     response = model.complete(
@@ -385,6 +513,37 @@ catch (error) {
         {
             throw error
         }
+    }
+}
+```
+
+# [C#](#tab/csharp)
+
+```csharp
+try
+{
+    requestOptions = new ChatCompletionsOptions()
+    {
+        Messages = {
+            new ChatRequestSystemMessage("You are an AI assistant that helps people find information."),
+            new ChatRequestUserMessage(
+                "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."
+            ),
+        },
+    };
+
+    response = client.Complete(requestOptions);
+    Console.WriteLine(response.Value.Choices[0].Message.Content);
+}
+catch (RequestFailedException ex)
+{
+    if (ex.ErrorCode == "content_filter")
+    {
+        Console.WriteLine($"Your query has trigger Azure Content Safeaty: {ex.Message}");
+    }
+    else
+    {
+        throw;
     }
 }
 ```
@@ -444,6 +603,12 @@ Explore our [samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sd
 The client library `@azure-rest/ai-inference` does inference, including chat completions, for AI models deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
 
 Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/AAp1kxa) to get yourself started.
+
+# [C#](#tab/csharp)
+
+The client library `Azure.Ai.Inference` does inference, including chat completions, for AI models deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
+
+Explore our [samples](https://aka.ms/azsdk/azure-ai-inference/csharp/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/csharp/reference) to get yourself started.
 
 # [REST](#tab/rest)
 

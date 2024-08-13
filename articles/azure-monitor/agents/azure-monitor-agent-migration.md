@@ -24,6 +24,24 @@ Migration is a complex task. Start planning your migration to Azure Monitor Agen
 > - **Customer Support:** You will not be able to get support for legacy agent issues.
 > - **OS Support:** Support for new Linux or Windows distros, including service packs, won't be added after the deprecation of the legacy agents.
 
+## Benefits
+Using Azure Monitor agent, you get immediate benefits as shown below:
+
+:::image type="content" source="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" lightbox="media/azure-monitor-agent-overview/azure-monitor-agent-benefits.png" alt-text="Diagram of the Azure Monitor Agent benefits at a glance. This is described in more details below.":::
+
+- **Cost savings** by [using data collection rules](./azure-monitor-agent-data-collection.md):
+  - Enables targeted and granular data collection for a machine or subset(s) of machines, as compared to the "all or nothing" approach of legacy agents.
+  - Allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
+- **Security and Performance**
+  - Enhanced security through Managed Identity and Microsoft Entra tokens (for clients).
+  - Higher event throughput that is 25% better than the legacy Log Analytics (MMA/OMS) agents.
+- **Simpler management** including efficient troubleshooting:
+  - Supports data uploads to multiple destinations (multiple Log Analytics workspaces, i.e. *multihoming* on Windows and Linux) including cross-region and cross-tenant data collection (using Azure LightHouse).
+  - Centralized agent configuration "in the cloud" for enterprise scale throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time.
+  - Any change in configuration is rolled out to all agents automatically, without requiring a client side deployment.
+  - Greater transparency and control of more capabilities and services, such as Microsoft Sentinel, Defender for Cloud, and VM Insights.
+- **A single agent** that serves all data collection needs across [supported](./azure-monitor-agent-supported-operating-systems.md) servers and client devices. A single agent is the goal, although Azure Monitor Agent is currently converging with the Log Analytics agents.
+
 ## Before you begin
 
 - Review the [prerequisites](/azure/azure-monitor/agents/azure-monitor-agent-manage#prerequisites) for installing Azure Monitor Agent.
@@ -47,6 +65,7 @@ The **Azure Monitor Agent Migration Helper** workbook is a workbook-based Azure 
 
 ## Understand your agents
 
+Use the [DCR generator](./azure-monitor-agent-migration-data-collection-rule-generator.md) to convert your legacy agent configuration into [data collection rules](../essentials/data-collection-rule-overview.md) automatically.<sup>1</sup> 
 To help understand your agents, review the following questions:
 
 |**Question**|**Actions**|
@@ -122,7 +141,6 @@ A SCOM Admin Management Pack exists and can help you remove the workspace config
 - Sentinel: Windows Firewall logs aren't generally available (GA) yet.
 - SQL Assessment Solution: This is now part of SQL best practice assessment. The deployment policies require one Log Analytics Workspace per subscription, which isn't the best practice recommended by the AMA team.
 - Microsoft Defender for cloud: Some features for the new agent-less solution are in development. Your migration maybe impacted if you use File Integrity Monitoring (FIM), Endpoint protection discovery recommendations, OS Misconfigurations (Azure Security Benchmark (ASB) recommendations) and Adaptive Application controls.
-- Container Insights: The Windows version is in public preview.
 
 
 ## Next steps

@@ -5,7 +5,7 @@ description: Learn about the managed feature store in Azure Machine Learning
 author: fbsolo-ms1 
 ms.author: franksolomon 
 ms.reviewer: seramasu
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata 
 ms.custom: build-2023, ignite-2023
 ms.topic: conceptual

@@ -21,7 +21,7 @@ ms.date: 7/12/2024
 Fast transcription API is used to transcribe audio files with returning results synchronously and much faster than real-time audio. Use fast transcription in the scenarios that you need the transcript of an audio recording as quickly as possible with predictable latency, such as: 
 
 - Quick audio or video transcription, subtitles, and edit. 
-- Video dubbing  
+- Video translation
 
 > [!TIP]
 > Try out fast transcription in [Azure AI Studio](https://aka.ms/fasttranscription/studio).
@@ -261,5 +261,6 @@ The response will include `duration`, `channel`, and more. The `combinedPhrases`
 
 ## Related content
 
-- [Speech to text quickstart](./get-started-speech-to-text.md)
-- [Batch transcription API](./batch-transcription.md)
+- [Fast transcription REST API reference](/rest/api/speechtotext/transcriptions/transcribe)
+- [Speech to text supported languages](./language-support.md?tabs=stt)
+- [Batch transcription](./batch-transcription.md)

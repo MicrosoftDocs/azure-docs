@@ -58,6 +58,7 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | Microsoft.Databricks/locations/getNetworkPolicies/action | Get Network Intent Polices for a subnet based on the location used by NRP |
 > | Microsoft.Databricks/locations/operationstatuses/read | Reads the operation status for the resource. |
 > | Microsoft.Databricks/operations/read | Gets the list of operations. |
+> | Microsoft.Databricks/workspaces/assignWorkspaceAdmin/action | Makes the user a workspace Admin within Databricks. |
 > | Microsoft.Databricks/workspaces/read | Retrieves a list of Databricks workspaces. |
 > | Microsoft.Databricks/workspaces/write | Creates a Databricks workspace. |
 > | Microsoft.Databricks/workspaces/delete | Removes a Databricks workspace. |

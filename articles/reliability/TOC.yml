@@ -85,7 +85,11 @@
   - name: Business continuity management program
     href: business-continuity-management-program.md
   - name: Cross-region replication
-    href: cross-region-replication-azure.md
+    items:
+    - name: Cross-region replication overview
+      href: cross-region-replication-azure.md
+    - name: Solutions for non-paired regions
+      href: cross-region-replication-azure-no-pair.md
 - name: Reliability guides by service
   items:
   - name: Overview
@@ -107,7 +111,7 @@
         - name: Disaster recovery
           href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
       - name: Azure Key Vault
-        href: ../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Load Balancer
         items:
         - name: Availability zones
@@ -227,11 +231,7 @@
     - name: Azure DNS 
       href: reliability-dns.md
     - name: Azure Event Grid
-      items:
-      - name: Availability zones
-        href: ../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../event-grid/custom-disaster-recovery-client-side.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: ./reliability-event-grid.md
     - name: Azure Firewall
       href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Firewall Manager
@@ -245,7 +245,7 @@
     - name: Azure Image Builder
       href: reliability-image-builder.md
     - name: Azure Kubernetes Service (AKS)
-      href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: /azure/aks/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Load Balancer
       href: reliability-load-balancer.md
     - name: Azure Logic Apps

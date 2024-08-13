@@ -10,7 +10,7 @@ metadata:
   author: jcodella
   ms.author: jacodel
   ms.reviewer: sidandrews
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: nosql
   ms.topic: landing-page
   ms.devlang: nosql
@@ -25,6 +25,10 @@ landingContent:
             url: array-concat.md
           - text: ARRAY_CONTAINS
             url: array-contains.md
+          - text: ARRAY_CONTAINS_ANY
+            url: array-contains-any.md
+          - text: ARRAY_CONTAINS_ALL
+            url: array-contains-all.md
           - text: ARRAY_LENGTH
             url: array-length.md
           - text: ARRAY_SLICE
@@ -41,7 +45,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: IIF
+          - text: Ternary conditional
             url: iif.md
   - title: Date and time functions
     linkLists:
@@ -233,6 +237,10 @@ landingContent:
         links:
           - text: StringToObject
             url: stringtoobject.md
+          - text: StringJoin
+            url: stringjoin.md
+          - text: StringSplit
+            url: stringsplit.md
           - text: SUBSTRING
             url: substring.md
           - text: ToString
@@ -269,5 +277,5 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-            - text: VectorDistance
-              url: vectordistance.md
+          - text: VectorDistance
+            url: vectordistance.md

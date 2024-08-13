@@ -111,6 +111,14 @@ Here's a list of error messages that might occur if the `$bulk-delete` operation
 
 ## FAQ
 
+- I have soft deleted resources, what are the steps I can take to hard delete the resources?<br/><br> To hard delete, soft deleted resources use operation $bulk-delete-soft-deleted.
+Sample request
+request: 
+
+  ```
+  {{fhir_url}}/<resource type>/$bulk-delete-soft-deleted
+  ```
+
 - My `$bulk-delete` job seems to be stuck. What are the steps for resolution?<br/><br/>   To check if a `$bulk-delete` job is stuck, run a FHIR search with the same parameters as the bulk delete job and _summary=count. If the count of resources is going down, the job is working. You can also cancel the `$bulk-delete` job and try again. 
 
 - Do API interactions see any latency impact when a `$bulk-delete` operation job is executed concurrently?<br/><br/>When you run a `$bulk-delete` operation, you might see increased latency on concurrent calls to the service. To avoid a latency increase, we recommend that you cancel the `$bulk-delete` job, and then rerun it during a period of lower traffic.

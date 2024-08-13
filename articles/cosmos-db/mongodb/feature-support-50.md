@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB for MongoDB 5.0 server version supporte
 author: avijitgupta
 ms.author: avijitgupta
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: release-notes
 ms.date: 04/24/2024

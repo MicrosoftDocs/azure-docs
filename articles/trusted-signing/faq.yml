@@ -46,7 +46,7 @@ sections:
           For questions with Identity Validation reach out via Microsoft Q&A or Stack Overflow, tag: trusted-signing. Identity Validation issues aren't supported by Azure Support.
       - question: What is the cost of using Trusted Signing?
         answer: | 
-          Trusted Signing is free for now in public preview. You're prompted to select a Basic SKU or Premium SKU when you create your account.
+          Refer to the [Trusted Signing pricing page](https://azure.microsoft.com/pricing/details/trusted-signing/) for details.
       - question: What are my support options when I set up Trusted Signing?
         answer: | 
           You can create a support ticket with the service in the Azure portal. You're assisted by Azure customer support. Otherwise, we recommend that you go to Microsoft Q&A or Stack Overflow and use the tag `Trusted-Signing` to ask questions.  
@@ -65,12 +65,12 @@ sections:
 
           For O:
           - At this time the service doesn't support customization.
-      - question: What do I do if the New identity validation button in the Azure portal is greyed out?
+      - question: What if the New identity validation button in the Azure portal is greyed out?
         answer: |
           It means that you don't have the Trusted Signing Identity Verifier role assigned to your account. Follow the steps in [Assign roles in Trusted Signing](https://learn.microsoft.com/azure/trusted-signing/tutorial-assign-roles) to assign yourself the appropriate role. 
-      - question: What do I do if my identity validation expired?
+      - question: What if my identity validation expires?
         answer: |
-          Failure to renew identity validation before the expiration date stops certificate renewal, effectively halting the signing process associated with those specific certificate profiles. To continue signing by using the Trusted Signing service, you need to create another identity validation and associate it with the certificate profiles. 
+          Failure to renew identity validation before the expiration date stops certificate renewal, effectively halting the signing process associated with those specific certificate profiles. To continue signing by using the Trusted Signing service, you need to create another identity validation and associate it with the certificate profiles. We do send multiple reminders starting at 60-days to help you begin your Identity Validation renewal. 
        
   - name: Signing
     questions:

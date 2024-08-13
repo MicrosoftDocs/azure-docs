@@ -3,7 +3,7 @@ title: Columnar table storage - Azure Cosmos DB for PostgreSQL
 description: Learn how to compress data using columnar storage.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 01/30/2023

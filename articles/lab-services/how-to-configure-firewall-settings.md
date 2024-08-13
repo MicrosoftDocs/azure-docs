@@ -9,6 +9,8 @@ ms.custom: devdivchpfy22
 
 # Determine firewall settings for Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article covers how to find the specific public IP address used by a lab in Azure Lab Services. You can use these IP addresses to configure your firewall settings and specify inbound and outbound rules to enable lab users to connect to their lab virtual machines.
 
 Each organization or school configures their own network in a way that best fits their needs. Sometimes that includes setting firewall rules that block Remote Desktop Protocol (RDP) or Secure Shell (SSH) connections to machines outside their own network.  Because Azure Lab Services runs in the public cloud, some extra configuration maybe needed to allow lab users to access their VM when connecting from the local network.

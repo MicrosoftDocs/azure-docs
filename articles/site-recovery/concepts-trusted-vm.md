@@ -3,9 +3,9 @@ title: Trusted launch VMs with Azure Site Recovery
 description: Describes how to use trusted launch virtual machines with Azure Site Recovery for disaster recovery and migration.
 services: site-recovery
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
-ms.date: 07/08/2024
+ms.date: 07/29/2024
 ms.author: ankitadutta
 
 ---
@@ -28,7 +28,7 @@ Find the support matrix for Azure trusted launch virtual machines with Azure Sit
 - **Migration**: Migration of Azure Site Recovery protected existing Generation 1 Azure VMs to trusted VMs and [Generation 2 Azure virtual machines to trusted VMs](../virtual-machines/trusted-launch-existing-vm.md) isn't supported. [Learn more](#migrate-azure-site-recovery-protected-azure-generation-2-vm-to-trusted-vm) about migration of Generation 2 Azure VMs.
 - **Disk Network Access**: Azure Site Recovery creates disks (replica and target disks) with public access enabled by default. To disable public access for these disks follow [these steps](./azure-to-azure-common-questions.md#disk-network-access).
 - **Boot integrity monitoring**: Replication of [Boot integrity monitoring](../virtual-machines/boot-integrity-monitoring-overview.md) state isn't supported. If you want to use it, enable it explicitly on the failed over virtual machine.
-- **Shared disks**: Trusted virtual machines with attached shared disks aren't currently supported.
+- **Shared disks**: Trusted virtual machines with attached shared disks are currently supported.
 - **Scenario**: Available only for Azure-to-Azure scenario. 
 - **Create a new VM flow**: Enabling **Management** > **Site Recovery** option in *Create a new Virtual machine* flow is currently not supported.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB
 description: Review a list of best practices for using the Azure Cosmos DB Python SDK in a performant manner.
 author: kushagraThapar
 ms.author: kuthapar
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-python
 ms.topic: best-practice

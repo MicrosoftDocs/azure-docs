@@ -5,7 +5,7 @@ description: Automate hyperparameter tuning for deep learning and machine learni
 ms.author: joburges
 author: ssalgadodev
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 05/30/2024
 ms.topic: how-to

@@ -1,6 +1,6 @@
 ---
 author: alexwolfmsft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.custom: devx-track-azurecli
 ms.topic: include

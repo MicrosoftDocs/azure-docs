@@ -45,7 +45,7 @@ Variables required in the script
 - [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning)
 - recommendation-capacity-planning 
 
-To create a cluster, copy the following command to your REST API tool e.g Postman 
+To create a cluster, copy the following command to your REST API tool. 
 
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterPoolName}/clusters/{clusterName}?api-version=2023-06-01-preview 

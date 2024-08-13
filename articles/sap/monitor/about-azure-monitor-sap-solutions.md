@@ -28,7 +28,7 @@ Azure Monitor for SAP solutions uses the [Azure Monitor](../../azure-monitor/ove
 - Create [custom visualizations](../../azure-monitor/visualize/workbooks-overview.md) by editing the default that Azure Monitor for SAP solutions provides.
 - Write [custom queries](../../azure-monitor/logs/log-analytics-tutorial.md).
 - Create [custom alerts](../../azure-monitor/alerts/alerts-log.md) by using Log Analytics workspaces.
-- Take advantage of the [flexible retention period](../../azure-monitor/logs/data-retention-archive.md) in Azure Monitor Logs and Log Analytics.
+- Take advantage of the [flexible retention period](../../azure-monitor/logs/data-retention-configure.md) in Azure Monitor Logs and Log Analytics.
 - Connect monitoring data with your ticketing system.
 
 ## What data is collected?
@@ -126,7 +126,7 @@ The key components of the architecture are:
 - The Azure Monitor for SAP solutions resource, where you view monitoring data.
 - The managed resource group, which is deployed automatically as part of the Azure Monitor for SAP solutions resource's deployment. Inside the managed resource group, resources like these help collect data:
   - An [Azure Functions resource](../../azure-functions/functions-overview.md) hosts the monitoring code. This logic collects data from the source systems and transfers the data to the monitoring framework.
-  - An [Azure Key Vault resource](../../key-vault/general/basic-concepts.md) holds the SAP HANA database credentials and stores information about providers.
+  - An [Azure Key Vault resource](/azure/key-vault/general/basic-concepts) holds the SAP HANA database credentials and stores information about providers.
   - A [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) is the destination for storing data. Optionally, you can choose to use an existing workspace in the same subscription as your Azure Monitor for SAP solutions resource at deployment.
   - A [storage account](../../storage/common/storage-account-overview.md) is associated with the Azure Functions resource. It's used to manage triggers and executions of logging functions.
 

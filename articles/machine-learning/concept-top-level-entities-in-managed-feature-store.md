@@ -5,7 +5,7 @@ description: Learn about how Azure Machine Learning uses managed feature stores 
 author: fbsolo-ms1 
 ms.author: franksolomon 
 ms.reviewer: seramasu
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata 
 ms.topic: conceptual
 ms.date: 10/31/2023 
