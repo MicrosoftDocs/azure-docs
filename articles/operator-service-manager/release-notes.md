@@ -10,18 +10,20 @@ ms.service: azure-operator-service-manager
 
 # Release Notes
 
-This pages hosts major and minor release notes for Azure Operator Service Manager (AOSM)
+This pages hosts  notes for Azure Operator Service Manager (AOSM) releases.
 
 ## Overview
 
-The following release notes are generally available: (GA)
+The following release notes are generally available (GA):
 
-* Release Notes for Version 2.0.2763-119 7/31/24
+* Release Notes for Version 2.0.2763-119
 
-## Release 2.0.2763-119 - 7/31 
+### Release Attestation
+These releases are produced compliant with Microsoft’s Secure Development Lifecycle.  This includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
-Azure Operator Service Manager Release Notes
-7/31/2024 – Document Version 1.5
+## Release 2.0.2763-119
+
+Document Revision 1.5
 
 ### Release Summary
 Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus.  Azure Operator Service Manager unifies infrastructure, software and configuration management with a common model into a single interface, both based on trusted Azure industry standards.  This 07-31-2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2763-119, the details of which are further outlined in the remainder of this document.
@@ -39,9 +41,6 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 5.	Install the network function extension
 6.	Create custom location
 7.	Redeploy site network services and network functions to the custom location.
-
-### Release Attestation
-This release is produced compliant with Microsoft’s Secure Development Lifecycle.  This includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
 ### Release Highlights
 #### Cluster Registry & Webhook – High Availability 
@@ -72,20 +71,23 @@ Through Microsoft’s Secure Future Initiative (SFI), this release delivers the 
 * NFO	- Automated refresh of AOSM certificates during extension installation.
 * NFO	- A dedicated service account for the pre-upgrade job to safeguard against modifications to the existing network function extension service account.
 * RP - The service principles (SPs) used for deploying site & NF now require “Microsoft.ExtendedLocation/customLocations/read” permission.  The SP's that deploy day N scenario now require "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action" permission. This change can result in failed SNS deployments if not properly reconciled
-* CVE	- The following CVE’s are addressed in this release: CVE-2019-25210, CVE-2024-2511, CVE-2023-42366, CVE-2024-4603, CVE-2023-42363
+* CVE	- A total of 5 CVE’s are addressed in this release.
 
 ### Appendix A
 #### Cert-manager Usage Guidance for NEPS
-With this release, AOSM now uses cert-manager to store and rotate certificates. As part of this change, AOSM deploys a cert-manager operator, and associate custom resource definition (CRD), in the azurehybridnetwork namespace. Since having multiple cert-manager operators, even deployed in separate namespaces, watches across all namespaces, only one cert-manager can be effectively run on the cluster.
+With release 1.0.2728-50 and later , AOSM now uses cert-manager to store and rotate certificates. As part of this change, AOSM deploys a cert-manager operator, and associate CRDs, in the azurehybridnetwork namespace. Since having multiple cert-manager operators, even deployed in separate namespaces, will watch across all namespaces, only one cert-manager can be effectively run on the cluster.
 
-Any user trying to install cert-manager on the cluster, as part of a workload deployment, may receive a deployment failure error stating the CRD “exists and cannot be imported into the current release.”  To avoid this error, the recommendation is to skip installing cert-manager, instead take dependency on cert-manager operator and CRD already installed by AOSM.
+Any user trying to install cert-manager on the cluster, as part of a workload deployment, will get a deployment failure with an error that the CRD “exists and cannot be imported into the current release.”  To avoid this error, the recommendation is to skip installing cert-manager, instead take dependency on cert-manager operator and CRD already installed by AOSM.
 
 #### Other Configuration Changes to Consider
-In addition to disabling the NfApp associated with the old user cert-manager, other changes may be needed.
-1.	If any other NfApps have DependsOn references to the old user cert-manager NfApp, these references need to be removed. 
-2.	If any other NfApps reference the old user cert-manager namespace value, these references need to change to the new azurehybridnetwork namespace value.  
+
+In addition to disabling the NfApp associated with the old user cert-manager, we have found other changes may be needed;
+1.	If one NfApp contains both cert-manager and the CA installation, these must broken into two NfApps, so that the partner can disable cert-manager but enable CA installation.
+2.	If any other NfApps have DependsOn references to the old user cert-manager NfApp, these will need to be removed. 
+3.	If any other NfApps reference the old user cert-manager namespace value, this will need to be changed to the new azurehybridnetwork namespace value.  
 
 #### Cert-Manager Version Compatibility & Management
-For the cert-manager operator, our current deployed version is 1.14.5.  Users should test for compatibility with this version.  Future cert-manager operator upgrades are supported via the NFO extension upgrade process. 
+
+For the cert-manager operator, our current deployed version is 1.14.5.  Users should test for compatibility with this version.  Future cert-manager operator upgrades will be supported via the NFO extension upgrade process. 
 
 For the CRD resources, our current deployed version is 1.14.5.  Users should test for compatibility with this version.  Since management of a common cluster CRD is something typically handled by a cluster administrator, we are working to enable CRD resource upgrades via standard Nexus Add-on process.
