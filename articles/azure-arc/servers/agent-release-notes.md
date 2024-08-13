@@ -32,7 +32,7 @@ Download for [Windows](https://aka.ms/AzureConnectedMachineAgent) or [Linux](man
 ### New features
 
 - Azure Arc proxy now supports HTTP traffic.
-- Mew proxy.bypass value 'AMA' added to support AMA VM extension proxy bypass.
+- New proxy.bypass value 'AMA' added to support AMA VM extension proxy bypass.
 
 ## Version 1.44 - July 2024
 

@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/03/2024
+ms.date: 08/13/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to enrich data sent to endpoints.
 ---
@@ -31,7 +31,9 @@ For example, consider the following dataset with a few records, represented as J
 }
 ```
 
-The mapper accesses this dataset through the *distributed state store* (DSS) using a key value based on a *condition* specified in the mapping configuration.
+
+
+The mapper accesses the reference dataset stored in Azure IoT Operations's [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md) using a key value based on a *condition* specified in the mapping configuration. Key names in the distributed state store correspond to a dataset in the dataflow configuration.
 
 ```yaml
 datasets:
