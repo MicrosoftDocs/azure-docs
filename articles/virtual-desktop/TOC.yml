@@ -464,11 +464,8 @@
       - name: Watermarking
         displayName: security
         href: watermarking.md
-      - name: Configure clipboard transfer direction
-        displayName: security
-        href: clipboard-transfer-direction-data-types.md
-      - name: Configure forensic evidence
-        displayName: security, purview
+      - name: Onboard to Purview forensic evidence
+        displayName: security, purview insider risk management
         href: purview-forensic-evidence.md
   - name: Connect
     items:
@@ -528,6 +525,9 @@
       - name: Clipboard
         displayName: devices, peripherals, redirections, copy, paste
         href: redirection-configure-clipboard.md
+      - name: Clipboard transfer direction and data types
+        displayName: security, unidirectional, copy, paste
+        href: clipboard-transfer-direction-data-types.md
       - name: Drives and storage
         displayName: devices, peripherals, redirections, usb, drives, storage, flash drive
         href: redirection-configure-drives-storage.md
