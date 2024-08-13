@@ -19,7 +19,7 @@ Confidential computing is an industry term established by the [Confidential Comp
 >
 > These secure and isolated environments prevent unauthorized access or modification of applications and data while they are in use, thereby increasing the security level of organizations that manage sensitive and regulated data.
 
-Microsoft is one of the founding members of the CCC and provides TEEs in Azure based on this CCC definition.
+Microsoft is one of the founding members of the CCC and provides Trusted Execution Environments (TEEs) in Azure based on this CCC definition.
 
 ## Reducing the attack surface
 
