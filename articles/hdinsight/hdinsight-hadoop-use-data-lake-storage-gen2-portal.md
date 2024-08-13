@@ -11,7 +11,7 @@ ms.date: 08/13/2023
 
 # Create a cluster with Data Lake Storage Gen2 using the Azure portal
 
-The Azure portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. In this article, you learn how to create Linux-based Azure HDInsight clusters by using the portal. Additional details are available from [Create HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md).
+The Azure portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. In this article, you learn how to create Linux-based Azure HDInsight clusters by using the portal. More details are available from [Create HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md).
 
 [!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,7 +42,7 @@ Create a storage account to use with Azure Data Lake Storage Gen2.
 1. In the upper-left click **Create a resource**.
 1. In the search box, type **storage** and click **storage account**.
 1. Click **Create**.
-1. On the **Create storage account** screen:
+1. On the **`Create storage account`** screen:
     1. Select the correct subscription and resource group.
     1. Enter a name for your storage account with Data Lake Storage Gen2.
     1. Click on the **Advanced** tab.
