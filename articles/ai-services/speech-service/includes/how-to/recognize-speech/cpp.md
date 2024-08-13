@@ -192,11 +192,11 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig->SetSpeechRecognitionLanguage("de-DE");
 ```
 
-[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. For more information, see the [list of supported speech to text locales](../../../language-support.md?tabs=stt).
+[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. For a list of supported locales, see [Language and voice support for the Speech service](../../../language-support.md?tabs=stt).
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#use-speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use language identification with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
 For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-cpp#use-speech-to-text).
 
@@ -214,5 +214,4 @@ auto speechRecognizer = SpeechRecognizer::FromConfig(speechConfig);
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see [Host URLs](../../../speech-container-howto.md#host-urls) in Install and run Speech containers with Docker.
-
+For more information about containers, see Host URLs in [Install and run Speech containers with Docker](../../../speech-container-howto.md#host-urls).

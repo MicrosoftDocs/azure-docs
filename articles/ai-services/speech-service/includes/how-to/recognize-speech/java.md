@@ -11,12 +11,12 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Create a speech configuration
+## Create a speech configuration instance
 
-To call the Speech service by using the Speech SDK, you need to create a [SpeechConfig](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
+To call the Speech service by using the Speech SDK, you need to create a [SpeechConfig](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
-1. Create a `SpeechConfig` instance by using your key and location/region. 
-1. Create a Speech resource on the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices). 
+1. Create a Speech resource in the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
+1. Create a `SpeechConfig` instance by using your key and region.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -68,11 +68,11 @@ public class Program {
 }
 ```
 
-If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. For more information on how to get the device ID for your audio input device, see [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md).
+If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. To learn how to get the device ID, see [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md).
 
 ## Recognize speech from a file
 
-If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig` instance. But for this case you don't call `FromDefaultMicrophoneInput()`. You call `fromWavFileInput()` and pass the file path:
+If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig` instance. However, you don't call `FromDefaultMicrophoneInput()`. You call `fromWavFileInput()` and pass the file path:
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -214,7 +214,7 @@ config.setSpeechRecognitionLanguage("fr-FR");
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-java#use-speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use language identification with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
 For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-java#use-speech-to-text).
 
@@ -232,5 +232,4 @@ SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig);
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see [Host URLs](../../../speech-container-howto.md#host-urls) in Install and run Speech containers with Docker.
-
+For more information about containers, see Host URLs in [Install and run Speech containers with Docker](../../../speech-container-howto.md#host-urls).
