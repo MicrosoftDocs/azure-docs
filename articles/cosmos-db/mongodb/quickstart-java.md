@@ -3,7 +3,7 @@ title: 'Quickstart: Build a web app using the Azure Cosmos DB for MongoDB and Ja
 description: Learn to build a Java code sample you can use to connect to and query using Azure Cosmos DB for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: java
 ms.topic: quickstart

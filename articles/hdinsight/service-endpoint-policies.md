@@ -1,7 +1,7 @@
 ---
 title: Configure service endpoint policies - Azure HDInsight
 description: Learn how to configure service endpoint policies for your virtual network with Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/04/2024

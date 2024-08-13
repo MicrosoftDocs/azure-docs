@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 07/01/2024
+ms.date: 07/03/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
@@ -44,7 +44,26 @@ Log collection from many security appliances and devices are supported by the da
 
 Contact the solution provider for more information or where information is unavailable for the appliance or device.
 
+## Codeless connector platform connectors
+
+The following connectors use the current codeless connector platform but don't have a specific documentation page generated. They're available from the content hub in Microsoft Sentinel as part of a solution. For instructions on how to configure these data connectors, review the instructions available with each data connectors within Microsoft Sentinel.
+
+|Codeless connector name  |Azure Marketplace solution  |
+|---------|---------|
+|Atlassian Jira Audit (using REST API) (Preview)     |  [Atlassian Jira Audit ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-atlassianjiraaudit?tab=Overview)      |       
+|Cisco Meraki (using Rest API)    |   [Cisco Meraki Events via REST API](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-ciscomerakinativepoller?tab=Overview)|        
+|Ermes Browser Security Events    |  [Ermes Browser Security for Microsoft Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ermes.azure-sentinel-solution-ermes-browser-security?tab=Overview)|        
+|Okta Single Sign-On (Preview)|[Okta Single Sign-On Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-okta?tab=Overview)|
+|Sophos Endpoint Protection (using REST API) (Preview)|[Sophos Endpoint Protection Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sophosep?tab=Overview)|
+|Workday User Activity (Preview)|[Workday (Preview)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-workday?tab=Overview)|
+
+For more information about the codeless connector platform, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
+
 [comment]: <> (DataConnector includes start)
+
+## 1Password
+
+- [1Password (using Azure Functions)](data-connectors/1password.md)
 
 ## 42Crunch
 
@@ -665,7 +684,8 @@ Contact the solution provider for more information or where information is unava
 
 ## Tenable
 
-- [Tenable.io Vulnerability Management (using Azure Function)](data-connectors/tenable-io-vulnerability-management.md)
+- [Tenable Identity Exposure](data-connectors/tenable-identity-exposure.md)
+- [Tenable Vulnerability Management (using Azure Functions)](data-connectors/tenable-vulnerability-management.md)
 
 ## The Collective Consulting BV
 
@@ -678,6 +698,10 @@ Contact the solution provider for more information or where information is unava
 ## Theom, Inc.
 
 - [Theom](data-connectors/theom.md)
+
+## Transmit Security LTD
+
+- [Transmit Security Connector (using Azure Functions)](data-connectors/transmit-security-connector.md)
 
 ## Trend Micro
 

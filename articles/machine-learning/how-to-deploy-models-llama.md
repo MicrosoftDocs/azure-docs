@@ -3,7 +3,7 @@ title: How to deploy Meta Llama 3.1 models with Azure Machine Learning studio
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy Meta Llama 3.1 models with Azure Machine Learning studio.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 07/23/2024

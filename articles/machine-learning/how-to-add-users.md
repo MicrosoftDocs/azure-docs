@@ -5,7 +5,7 @@ description: Add users to your data labeling project so that they can label data
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: vkann
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 03/12/2024

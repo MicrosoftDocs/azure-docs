@@ -2,7 +2,7 @@
 title: Scale with multiple instances - Azure SignalR Service
 description: In many scaling scenarios, customers often need to create multiple instances and use them together to create a large-scale deployment. For example, sharding requires multiple instances support.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp

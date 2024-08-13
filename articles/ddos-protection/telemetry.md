@@ -4,7 +4,7 @@ description: Learn how to view and configure the DDoS protection telemetry and m
 #customer intent: I want to learn how to view and configure DDoS protection telemetry for Azure DDoS Protection.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: tutorial
 ms.date: 07/17/2024
 ms.author: abell

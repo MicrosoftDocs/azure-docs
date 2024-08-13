@@ -3,7 +3,7 @@ title: Monitor and collect data from Machine Learning web service endpoints
 titleSuffix: Azure Machine Learning
 description: Learn how to collect data from models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: larryfr
 author: Blackmist

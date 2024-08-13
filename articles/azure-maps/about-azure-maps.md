@@ -1,12 +1,12 @@
 ---
 title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 10/21/2022
 ms.topic: overview
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ms.custom: mvc, references_regions
 ---
 

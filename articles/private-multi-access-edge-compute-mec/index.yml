@@ -6,7 +6,7 @@ summary: The Azure private multi-access edge compute (MEC) solution enables oper
 metadata:
   title: Azure private multi-access edge compute documentation
   description:  The Azure private multi-access edge compute (MEC) solution enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge.
-  ms.service: private-multi-access-edge-compute-mec
+  ms.service: azure-private-multiaccess-edge-compute
   ms.topic: landing-page
   author: KumudD
   ms.author: kumud

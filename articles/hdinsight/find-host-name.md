@@ -1,7 +1,7 @@
 ---
 title: How to get the host names of Azure HDInsight cluster nodes
 description: Learn about how to get host names and FQDN name of Azure HDInsight cluster nodes.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 author: reachnijel
 ms.author: nijelsf

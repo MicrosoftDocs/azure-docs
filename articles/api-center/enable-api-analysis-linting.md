@@ -1,7 +1,7 @@
 ---
 title: Perform API linting and analysis - Azure API Center
 description: Configure linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 06/29/2024
 ms.author: danlep

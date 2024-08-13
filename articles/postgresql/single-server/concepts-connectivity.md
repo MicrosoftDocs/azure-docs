@@ -1,7 +1,7 @@
 ---
 title: Handle transient connectivity errors - Azure Database for PostgreSQL - Single Server
 description: Learn how to handle transient connectivity errors for Azure Database for PostgreSQL - Single Server.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: conceptual
 ms.author: nlarin

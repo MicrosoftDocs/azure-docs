@@ -5,14 +5,22 @@ author: jimmyca15
 ms.author: jimmyca
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 03/21/2023
----
+ms.date: 08/02/2024
+zone_pivot_groups: appconfig-data-plane-api-version
 
+---
+:::zone target="docs" pivot="v1,v23-10,v23-11"
 # Snapshot
+:::zone-end
+
+:::zone target="docs" pivot="v1"
+
+Snapshot resource isn't available in API version 1.0.
+
+:::zone-end
+:::zone target="docs" pivot="v23-10,v23-11"
 
 A snapshot is a resource identified uniquely by its name. See details for each operation.
-
-This article applies to API version 2022-11-01-preview.
 
 ## Operations
 
@@ -48,12 +56,29 @@ This article applies to API version 2022-11-01-preview.
 
 `SnapshotFilter`
 
+:::zone-end
+:::zone target="docs" pivot="v23-10"
+
 ```json
 {
   "key": [string],
   "label": [string]
 }
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+
+```json
+{
+  "key": [string],
+  "label": [string],
+  "tags": [array<string>]
+}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v23-10,v23-11"
 
 ## Get snapshot
 
@@ -120,7 +145,7 @@ If-None-Match: "{etag}"
 HTTP/1.1 304 NotModified
 ```
 
-or
+Or
 
 ```http
 HTTP/1.1 200 OK
@@ -142,7 +167,7 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.snapshotset+json; charset=utf-8
 ```
 
-For additional options, see the "Filtering" section later in this article.
+For more options, see the "Filtering" section later in this article.
 
 ## Pagination
 
@@ -198,11 +223,11 @@ GET /snapshots?name={name}&status={status}&api-version={api-version}
 
 `*`, `\`, `,`
 
-If a reserved character is part of the value, then it must be escaped by using `\{Reserved Character}`. Non-reserved characters can also be escaped.
+If a reserved character is part of the value, then it must be escaped by using `\{Reserved Character}`. Nonreserved characters can also be escaped.
 
 ***Filter validation***
 
-In the case of a filter validation error, the response is HTTP `400` with error details:
+If filter validation fails, the response is HTTP `400` with error details:
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -251,15 +276,18 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 
 **parameters**
 
+:::zone-end
+:::zone target="docs" pivot="v23-10"
+
 | Property Name | Required | Default value | Validation |
 |-|-|-|-|
-| name | yes | n/a | Length <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 256 | 
-| filters | yes | n/a | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 1<br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 3 |
+| name | yes | n/a | Length <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 256 | 
+| filters | yes | n/a | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 1<br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 3 |
 | filters[\<index\>].key | yes | n/a | |
+| filters[\<index\>].label | no | null | Multi-match label filters (for example: "*", "comma,separated") aren't supported with 'key' composition type. |
 | tags | no | {} | |
-| filters[\<index\>].label | no | null | Multi-match label filters (E.g.: "*", "comma,separated") aren't supported with 'key' composition type. |
 | composition_type | no | key | |
-| retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (7 days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 604800 (7 days) |
+| retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (seven days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (one hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (one hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 604800 (seven days) |
 
 ```http
 PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
@@ -316,12 +344,86 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
 }
 ```
 
-The status of the newly created snapshot will be "provisioning".
-Once the snapshot is fully provisioned, the status will update to "ready".
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+
+| Property Name | Required | Default value | Validation |
+|-|-|-|-|
+| name | yes | n/a | Length <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 256 | 
+| filters | yes | n/a | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 1<br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 3 |
+| filters[\<index\>].key | yes | n/a | |
+| filters[\<index\>].label | no | null | Multi-match label filters (for example: "*", "comma,separated") aren't supported with 'key' composition type. |
+| filters[\<index\>].tags | no | null | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 0<br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 5 |
+| tags | no | {} | |
+| composition_type | no | key | |
+| retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (7 days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 604800 (7 days) |
+
+```http
+PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
+Content-Type: application/vnd.microsoft.appconfig.snapshot+json
+```
+
+```json
+{
+  "filters": [                                // required
+    {
+      "key": "app1/*",                        // required
+      "label": "prod",                        // optional
+      "tags": ["group=g1", "default=true"]    // optional
+    }
+  ],
+  "tags": {                                   // optional
+    "tag1": "value1",
+    "tag2": "value2",
+  },
+  "composition_type": "key",                  // optional
+  "retention_period": 2592000                 // optional
+}
+```
+
+**Responses:**
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/vnd.microsoft.appconfig.snapshot+json; charset=utf-8
+Last-Modified: Tue, 05 Dec 2017 02:41:26 GMT
+ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
+Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-version={api-version}
+```
+
+```json
+{
+  "etag": "4f6dd610dd5e4deebc7fbaef685fb903",
+  "name": "{name}",
+  "status": "provisioning",
+  "filters": [
+      {
+          "key": "app1/*",
+          "label": "prod",
+          "tags": ["group=g1", "default=true"]
+      }
+  ],
+  "composition_type": "key",
+  "created": "2023-03-20T21:00:03+00:00",
+  "size": 2000,
+  "items_count": 4,
+  "tags": {
+    "t1": "value1",
+    "t2": "value2"
+  },
+  "retention_period": 2592000
+}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v23-10,v23-11"
+
+The status of the newly created snapshot is `provisioning`.
+Once the snapshot is fully provisioned, the status updates to `ready`.
 Clients can poll the snapshot to wait for the snapshot to be ready before listing its associated key-values.
 To query additional information about the operation, reference the [polling snapshot creation](#polling-snapshot-creation) section.
 
-If the snapshot already exists, you'll receive the following response:
+If the snapshot already exists, the following response is returned:
 
 ```http
 HTTP/1.1 409 Conflict
@@ -371,7 +473,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-If any error occurs during the provisioning of the snapshot, the `error` property will contain details describing the error.
+If any error occurs during the provisioning of the snapshot, the `error` property contains details describing the error.
 
 ```json
 {
@@ -387,7 +489,7 @@ If any error occurs during the provisioning of the snapshot, the `error` propert
 ## Archive (Patch)
 
 A snapshot in the `ready` state can be archived.
-An archived snapshot will be assigned an expiration date, based off the retention period established at the time of its creation.
+An archived snapshot is assigned an expiration date, based off the retention period established at the time of its creation.
 After the expiration date passes, the snapshot will be permanently deleted.
 At any time before the expiration date, the snapshot's items can still be listed.
 
@@ -446,7 +548,7 @@ Content-Type: application/problem+json; charset="utf-8"
 ## Recover (Patch)
 
 A snapshot in the `archived` state can be recovered.
-Once the snapshot is recovered the snapshot's expiration date is removed.
+After the snapshot is recovered, the snapshot's expiration date is removed.
 
 Recovering a snapshot that is already `ready` doesn't affect the snapshot.
 
@@ -528,7 +630,7 @@ Content-Type: application/vnd.microsoft.appconfig.snapshot+json; charset=utf-8
 ...
 ```
 
-or
+Or
 
 ```http
 HTTP/1.1 412 PreconditionFailed
@@ -552,3 +654,5 @@ Use the optional `$select` query string parameter and provide a comma-separated 
 ```http
 GET /kv?snapshot={name}&$select=key,value&api-version={api-version} HTTP/1.1
 ```
+
+:::zone-end

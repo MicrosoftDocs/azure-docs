@@ -2,7 +2,7 @@
 title: Create an image definition and image version
 description: Learn how to create an image in an Azure Compute Gallery.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 09/20/2023

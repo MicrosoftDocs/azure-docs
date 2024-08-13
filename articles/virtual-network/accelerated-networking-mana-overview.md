@@ -2,7 +2,7 @@
 title: Microsoft Azure Network Adapter (MANA) overview
 description: Learn how the Microsoft Azure Network Adapter can improve the networking performance of Azure VMs.
 author: mattmcinnes
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: mattmcinnes

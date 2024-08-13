@@ -172,10 +172,10 @@ Application Insights Logs provides a rich query language that you can use to ana
 
 ## Next steps
 
-- [Funnels](./usage-funnels.md)
-- [Retention](./usage-retention.md)
-- [User flows](./usage-flows.md)
-- In the tutorial, you learned how to create custom dashboards. Now look at the rest of the Application Insights documentation, which also includes a case study.
+* [Funnels](./usage.md#funnels---discover-how-customers-use-your-application)
+* [Retention](./usage.md#user-retention-analysis)
+* [User flows](./usage.md#user-flows---analyze-user-navigation-patterns)
+* In the tutorial, you learned how to create custom dashboards. Now look at the rest of the Application Insights documentation, which also includes a case study.
    > [!div class="nextstepaction"]
    > [Deep diagnostics](../app/devops.md)
 

@@ -3,7 +3,7 @@ title:  "Select Columns in Dataset: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Select Columns in Dataset  component in Azure Machine Learning to choose a subset of columns to use in downstream operations.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

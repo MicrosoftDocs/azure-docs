@@ -3,7 +3,7 @@ title: Configure cluster - Azure Cosmos DB for PostgreSQL
 description: Adjust cluster CPU/memory and disk resources to deal with increased load or enable HA for improved availability.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 06/05/2023

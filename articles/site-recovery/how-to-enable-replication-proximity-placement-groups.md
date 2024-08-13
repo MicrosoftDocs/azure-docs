@@ -4,7 +4,7 @@ description: Learn how to replicate Azure virtual machines running in proximity 
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.topic: how-to
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
 ms.date: 04/29/2024
 ---

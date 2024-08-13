@@ -3,7 +3,7 @@ title: 'Tutorial: Query Azure Cosmos DB by using the API for Table'
 description: Learn how to query data stored in the Azure Cosmos DB for Table account by using OData filters and LINQ queries.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.topic: tutorial
 ms.date: 03/14/2023

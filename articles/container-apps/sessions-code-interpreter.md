@@ -3,11 +3,12 @@ title: Serverless code interpreter sessions in Azure Container Apps (preview)
 description: Learn to run a serverless code interpreter session in Azure Container Apps.
 services: container-apps
 author: anthonychu
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: antchu
 ms.custom: references_regions
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Serverless code interpreter sessions in Azure Container Apps (preview)

@@ -5,7 +5,7 @@ author: ajetasin
 ms.author: ajetasi
 ms.date: 11/28/2023
 ms.topic: quickstart
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.custom: mvc, mode-ui
 #Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using the Azure portal.
 ---

@@ -3,7 +3,7 @@ title:  "Multiclass Neural Network: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Multiclass Neural Network component in Azure Machine Learning designer to predict a target that has multi-class values. 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

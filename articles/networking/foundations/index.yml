@@ -6,7 +6,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure network foundation documentation
   summary: Learn about Azure network foundation services that provide core connectivity for your resources in Azure.
-  ms.service: dns 
+  ms.service: azure-dns
   ms.topic: hub-page
   author: greg-lindsay
   ms.author: greglin
@@ -205,3 +205,18 @@ conceptualContent:
             - url: /azure/dns/dns-troubleshoot
               text: Azure DNS troubleshooting guide
               itemType: reference
+
+# additionalContent section (optional)
+# Card with summary style
+additionalContent:
+  sections:
+    - title: Networking services
+      items:
+        - title: Load balancing and Content Delivery
+          url: /azure/networking/load-balancer-content-delivery/
+        - title: Network security
+          url: /azure/networking/security/
+        - title: Hybrid connectivity
+          url: /azure/networking/hybrid-connectivity/
+        - title: Network monitoring and management
+          url: /azure/networking/monitoring-management/

@@ -5,7 +5,7 @@ description: Use create Indexing for empty collections in Azure Cosmos DB for Mo
 author: abinav2307
 ms.author: abramees
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 6/24/2024

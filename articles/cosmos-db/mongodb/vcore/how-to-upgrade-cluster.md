@@ -5,7 +5,7 @@ description: Steps to upgrade Azure Cosmos DB for MongoDB vCore cluster from a l
 author: suvishodcitus
 ms.author: suvishod
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
 ms.topic: how-to

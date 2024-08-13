@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: How to enable ingress-to-app Transport Layer Security for an application.
 author: KarlErickson
 ms.author: wenhaozhang
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

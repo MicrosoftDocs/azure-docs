@@ -3,7 +3,7 @@ title: How to secure managed online endpoints with network isolation
 titleSuffix: Azure Machine Learning
 description: Use private endpoints to provide network isolation for Azure Machine Learning managed online endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: None

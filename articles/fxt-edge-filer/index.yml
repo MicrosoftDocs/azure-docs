@@ -6,7 +6,7 @@ summary: The Azure FXT Edge Filer hybrid storage cache is a hardware/software hy
 metadata:
   title: Azure FXT Edge Filer documentation
   description: Use Azure FXT Edge Filer as a caching layer for read-intensive high-performance computing (HPC) tasks.
-  ms.service: fxt-edge-filer
+  ms.service: azure-fxt-edge-filer
   ms.topic: landing-page
   author: femila
   ms.author: femila

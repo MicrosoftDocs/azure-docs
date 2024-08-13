@@ -2,7 +2,7 @@
 title: Lsv2-series - Azure Virtual Machines
 description: Specifications for the Lsv2-series VMs.
 author: sasha-melamed
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.custom:
 ms.topic: conceptual

@@ -3,7 +3,7 @@ title: 'Tutorial: Design a real-time dashboard - Azure Cosmos DB for PostgreSQL'
 description: This tutorial shows how to parallelize real-time dashboard queries with Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc
 ms.topic: tutorial

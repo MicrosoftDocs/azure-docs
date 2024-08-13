@@ -354,10 +354,5 @@
   - name: Code samples using deprecated SDKs
     items:
     - name: .NET
-      items:
-      - name: Version 11.x samples
-        href: queues-v11-samples-dotnet.md
-    - name: Python version 2 samples
-      href: queues-v2-samples-python.md
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md

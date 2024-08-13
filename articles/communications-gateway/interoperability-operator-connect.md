@@ -3,7 +3,7 @@ title: Overview of Operator Connect and Teams Phone Mobile with Azure Communicat
 description: Understand how Azure Communications Gateway fits into your fixed and mobile networks and into the Operator Connect and Teams Phone Mobile environments.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 02/16/2024
 ms.custom: template-concept

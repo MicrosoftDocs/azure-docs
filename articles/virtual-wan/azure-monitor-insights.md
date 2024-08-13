@@ -4,7 +4,7 @@ description: Learn about monitoring Azure Virtual WAN by using Azure Monitor Ins
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 06/09/2022
 ms.author: cherylmc

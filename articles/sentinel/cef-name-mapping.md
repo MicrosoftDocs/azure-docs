@@ -1,25 +1,16 @@
 ---
 title: Common Event Format (CEF) key and CommonSecurityLog field mapping
 description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 08/12/2024
 ---
 
 # CEF and CommonSecurityLog field mapping
 
-The following tables map Common Event Format (CEF) field names to the names they use in Microsoft Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Microsoft Sentinel.
+The following tables map Common Event Format (CEF) field names to the names they use in Microsoft Sentinel's CommonSecurityLog, and might be helpful when you're working with a CEF data source in Microsoft Sentinel. For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md).
 
-For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
-
-> [!IMPORTANT]
->
-> On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following this change, you might need to review and update custom queries. For more details, see the [recommended actions section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232) in this blog post. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.
-
-> [!NOTE]
-> A Microsoft Sentinel workspace is required in order to [ingest CEF data](connect-common-event-format.md#prerequisites) into Log Analytics.
->
 
 ## A - C
 
@@ -29,7 +20,6 @@ For more information, see [Connect your external solution using Common Event For
 |   app  |    ApplicationProtocol     |  The protocol used in the application, such as HTTP, HTTPS, SSHv2, Telnet, POP, IMPA, IMAPS, and so on.   |
 | cat | DeviceEventCategory | Represents the category assigned by the originating device. Devices often use their own categorization schema to classify event. For example: `/Monitor/Disk/Read`. |
 | cnt    |    EventCount     |  A count associated with the event, showing how many times the same event was observed.       |
-
 
 ## D
 
@@ -111,7 +101,7 @@ For more information, see [Connect your external solution using Common Event For
 
 |CEF key name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
-| reason | Reason | The reason an audit event was generated. For example `badd password` or `unknown user`. This could also be an error or return code. For example: `0x1234`. |
+| reason | Reason | The reason an audit event was generated. For example, `badd password` or `unknown user`. This could also be an error or return code. For example: `0x1234`. |
 |Request     |   RequestURL      | The URL accessed for an HTTP request, including the protocol. For example, `http://www/secure.com`        |
 |requestClientApplication     |   RequestClientApplication      |   The user agent associated with the request.      |
 | requestContext | RequestContext | Describes the content from which the request originated, such as the HTTP Referrer. |
@@ -138,7 +128,7 @@ For more information, see [Connect your external solution using Common Event For
 
 ## Custom fields
 
-The following tables map the names of CEF keys and CommonSecurityLog fields that are available for customers to use for data that does not apply to any of the built-in fields.
+The following tables map the names of CEF keys and CommonSecurityLog fields that are available for customers to use for data that doesn't apply to any of the built-in fields.
 
 ### Custom IPv6 address fields
 
@@ -205,7 +195,6 @@ The following table maps CEF key and CommonSecurityLog names for the *string* fi
 > [!TIP]
 > <a name="use-sparingly"></a><sup>1</sup> We recommend that you use the **DeviceCustomString** fields sparingly and use more specific, built-in fields when possible.
 > 
-
 ### Custom timestamp fields
 
 The following table maps CEF key and CommonSecurityLog names for the *timestamp* fields available for custom data.
@@ -251,7 +240,7 @@ The following **CommonSecurityLog** fields are added by Microsoft Sentinel to en
 | **ThreatSeverity** | The threat severity for the [MaliciousIP](#MaliciousIP), according to the threat intelligence feed at the time of the record ingestion. |
 
 
-### Additional enrichment fields
+### Other enrichment fields
 
 |CommonSecurityLog field name  |Description  |
 |---------|---------|
@@ -262,6 +251,7 @@ The following **CommonSecurityLog** fields are added by Microsoft Sentinel to en
 |**SourceSystem**     | Always defined as **OpsManager**.        |
 
 
-## Next steps
+## Related content
 
-For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
+- [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
+- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)

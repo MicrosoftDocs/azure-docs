@@ -7,7 +7,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 02/28/2024
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-azurecli, devx-track-bicep
 #Customer intent: As an administrator or developer, I want to learn how to create Azure DNS Private Resolver using Bicep so I can use Azure DNS Private Resolver as forwarder.
 ---
