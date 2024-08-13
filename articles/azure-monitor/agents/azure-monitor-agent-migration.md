@@ -65,7 +65,7 @@ The **Azure Monitor Agent Migration Helper** workbook is a workbook-based Azure 
 
 ## Understand your agents
 
-Use the [DCR generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to convert your legacy agent configuration into [data collection rules](../essentials/data-collection-rule-overview.md) automatically.<sup>1</sup> 
+Use the [DCR generator](./azure-monitor-agent-migration-data-collection-rule-generator.md) to convert your legacy agent configuration into [data collection rules](../essentials/data-collection-rule-overview.md) automatically.<sup>1</sup> 
 To help understand your agents, review the following questions:
 
 |**Question**|**Actions**|
