@@ -14,9 +14,9 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article introduces the concepts to control connectivity to your Azure Database for MySQL flexible server instance. You learn in detail the networking concepts for Azure Database for MySQL flexible server to create and access a server securely in Azure.
+This article introduces the concepts to control connectivity to your Azure Database for MySQL Flexible Server instance. You learn in detail the networking concepts for Azure Database for MySQL Flexible Server to create and access a server securely in Azure.
 
-Azure Database for MySQL flexible server supports three ways to configure connectivity to your servers:
+Azure Database for MySQL Flexible Server supports three ways to configure connectivity to your servers:
 
    - **[Public access](./concepts-networking-public.md)** Your flexible server is accessed through a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase "allowed IP addresses" refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**.
 
@@ -41,7 +41,7 @@ Choose **Private access (VNet integration)** if you want the following capabilit
    - No public endpoint
 
 The following characteristics apply whether you choose to use the private access or the public access option:
-- Connections from allowed IP addresses need to authenticate to the Azure Database for MySQL flexible server instance with valid credentials
+- Connections from allowed IP addresses need to authenticate to the Azure Database for MySQL Flexible Server instance with valid credentials
 - [Connection encryption](#tls-and-ssl) is available for your network traffic
 - The server has a fully qualified domain name (fqdn). We recommend using the fqdn instead of an IP address for the hostname property in connection strings.
 - Both options control access at the server-level, not at the database- or table-level. You would use MySQL's roles properties to control database, table, and other object access.
@@ -55,19 +55,19 @@ The following characteristics apply whether you choose to use the private access
 - Change from Public to Private access isn't allowed after the server is created. The recommended way is to use point-in-time restore.
 
 > [!NOTE]  
-> If you are using the custom DNS server, you must use a DNS forwarder to resolve the FQDN of the Azure Database for MySQL flexible server instance. Refer to **[name resolution that uses your DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)** to learn more.
+> If you are using the custom DNS server, you must use a DNS forwarder to resolve the FQDN of the Azure Database for MySQL Flexible Server instance. Refer to **[name resolution that uses your DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)** to learn more.
 
 ## Hostname
 
-Regardless of your networking option, we recommend you use the fully qualified domain name (FQDN) `<servername>.mysql.database.azure.com` in connection strings when connecting to your Azure Database for MySQL flexible server instance. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
+Regardless of your networking option, we recommend you use the fully qualified domain name (FQDN) `<servername>.mysql.database.azure.com` in connection strings when connecting to your Azure Database for MySQL Flexible Server instance. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
 
 An example that uses an FQDN as a host name is hostname = servername.mysql.database.azure.com. Where possible, avoid using hostname = 10.0.0.4 (a private address) or hostname = 40.2.45.67 (a public address).
 
 ## TLS and SSL
 
-Azure Database for MySQL flexible server supports connecting your client applications to the Azure Database for MySQL flexible server instance using Secure Sockets Layer (SSL) with Transport layer security (TLS) encryption. TLS is an industry-standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
+Azure Database for MySQL Flexible Server supports connecting your client applications to the Azure Database for MySQL Flexible Server instance using Secure Sockets Layer (SSL) with Transport layer security (TLS) encryption. TLS is an industry-standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
-Azure Database for MySQL flexible server supports encrypted connections using Transport Layer Security (TLS 1.2) by default, and all incoming connections with TLS 1.0 and TLS 1.1 are denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be configured and changed.
+Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default, and all incoming connections with TLS 1.0 and TLS 1.1 are denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be configured and changed.
 
 Following are the different configurations of SSL and TLS settings you can have for your flexible server:
 
@@ -76,7 +76,7 @@ Following are the different configurations of SSL and TLS settings you can have 
 
 | Scenario | Server parameter settings | Description |
 | --- | --- | --- |
-| Disable SSL (encrypted connections) | require_secure_transport = OFF | If your legacy application doesn't support encrypted connections to the Azure Database for MySQL flexible server instance, you can disable enforcement of encrypted connections to your flexible server by setting require_secure_transport=OFF. |
+| Disable SSL (encrypted connections) | require_secure_transport = OFF | If your legacy application doesn't support encrypted connections to the Azure Database for MySQL Flexible Server instance, you can disable enforcement of encrypted connections to your flexible server by setting require_secure_transport=OFF. |
 | Enforce SSL with TLS version < 1.2 (Will be deprecated in September 2024) | require_secure_transport = ON and tls_version = TLS 1.0 or TLS 1.1 | If your legacy application supports encrypted connections but requires TLS version < 1.2, you can enable encrypted connections, but configure your flexible server to allow connections with the TLS version (v1.0 or v1.1) supported by your application |
 | Enforce SSL with TLS version = 1.2(Default configuration) | require_secure_transport = ON and tls_version = TLS 1.2 | This is the recommended and default configuration for a flexible server. |
 | Enforce SSL with TLS version = 1.3(Supported with MySQL v8.0 and above) | require_secure_transport = ON and tls_version = TLS 1.3 | This is useful and recommended for new applications development |
@@ -91,5 +91,5 @@ Review how to [connect using SSL/TLS](how-to-connect-tls-ssl.md) to learn more.
 
 - Learn how to enable private access (VNet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md)
 - Learn how to enable public access (allowed IP addresses) using the [Azure portal](how-to-manage-firewall-portal.md) or [Azure CLI](how-to-manage-firewall-cli.md)
-- Learn how to [configure private link for Azure Database for MySQL flexible server from Azure portal](how-to-networking-private-link-portal.md).
+- Learn how to [configure private link for Azure Database for MySQL Flexible Server from Azure portal](how-to-networking-private-link-portal.md).
 
