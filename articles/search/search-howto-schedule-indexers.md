@@ -70,7 +70,7 @@ Switch to the **Indexer Definition (JSON)** tab at the top of the index to view 
 1. Set the schedule property in the body of the request:
 
     ```http
-    PUT /indexers/<indexer-name>?api-version=2023-11-01
+    PUT /indexers/<indexer-name>?api-version=2024-07-01
     {
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "my-target-index-name",

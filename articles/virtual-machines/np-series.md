@@ -2,7 +2,7 @@
 title: NP-series - Azure Virtual Machines
 description: Specifications for the NP-series VMs.
 author: charest
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/07/2023
@@ -12,7 +12,7 @@ ms.author: marccharest
 # NP-series 
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -55,7 +55,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** What shell version is supported and how can I get the development files?
 
-**A:** The FPGAs in Azure NP VMs support Xilinx Shell 2.1 (gen3x16-xdma-shell_2.1). See Xilinx Page [Xilinx/Azure with Alveo U250](https://www.xilinx.com/microsoft-azure.html) to get the development shell files.
+**A:** The FPGAs in Azure NP VMs support Xilinx Shell 2.1 (gen3x16-xdma-shell_2.1). See Xilinx Page [Xilinx/Azure with Alveo U250](https://www.amd.com/en/where-to-buy/accelerators/alveo/cloud-solutions/microsoft-azure.html) to get the development shell files.
 
 **Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
 
@@ -63,7 +63,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** Where should I get all the XRT / Platform files?
 
-**A:** Visit Xilinx's [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) site for all files.
+**A:** Visit Xilinx's [Microsoft-Azure](https://www.amd.com/en/where-to-buy/accelerators/alveo/cloud-solutions/microsoft-azure.html) site for all files.
 
 **Q:** What Version of XRT should I use?
 

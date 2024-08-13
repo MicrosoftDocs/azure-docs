@@ -5,7 +5,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 02/20/2020
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: troubleshooting
 ms.custom:
   - mvc

@@ -5,7 +5,7 @@ author: shreyaaithal
 ms.author: shaithal
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: sample
 ms.custom:
@@ -29,7 +29,7 @@ This sample CLI script creates and manages [read replicas](../concepts-read-repl
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -37,7 +37,7 @@ This sample CLI script creates and manages [read replicas](../concepts-read-repl
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

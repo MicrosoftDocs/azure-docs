@@ -4,8 +4,8 @@ description: This article describes how you can manage Microsoft Entra ID enable
 author: achudnovskij
 ms.author: anchudno
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 06/20/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ms.custom:
@@ -24,8 +24,6 @@ This article describes how you can create a Microsoft Entra ID enabled database 
 
 If you like to learn about how to create and manage Azure subscription users and their privileges, you can visit the [Azure role-based access control (Azure RBAC) article](../../role-based-access-control/built-in-roles.md) or review [how to customize roles](../../role-based-access-control/custom-roles.md).
 
-<a name='create-or-delete-azure-ad-administrators-using-azure-portal-or-azure-resource-manager-arm-api'></a>
-
 ## Create or delete Microsoft Entra administrators using Azure portal or Azure Resource Manager (ARM) API
 
 1. Open the **Authentication** page for your Azure Database for PostgreSQL flexible server instance in the Azure portal.
@@ -38,8 +36,6 @@ If you like to learn about how to create and manage Azure subscription users and
 
 > [!NOTE]  
 > Support for Microsoft Entra Administrators management via Azure SDK, az cli and Azure PowerShell is coming soon.
-
-<a name='manage-azure-ad-roles-using-sql'></a>
 
 ## Manage Microsoft Entra roles using SQL
 
@@ -56,38 +52,54 @@ Each PostgreSQL database role can be mapped to one of the following Microsoft En
 1. **Service Principal**. Including [Applications and Managed identities](../../active-directory/develop/app-objects-and-service-principals.md)
 1. **Group**  When a PostgreSQL role is linked to a Microsoft Entra group, any user or service principal member of this group can connect to the Azure Database for PostgreSQL flexible server instance with the group role.
 
-<a name='list-azure-ad-roles-using-sql'></a>
-
 ### List Microsoft Entra roles using SQL
 
 ```sql
-select * from pgaadauth_list_principals(true);
+pg_catalog.pgaadauth_list_principals(isAdminValue boolean)
 ```
 
-**Parameters:**
-- *true*  -will return Admin users.
-- *false* -will return all Microsoft Entra user both Microsoft Entra admins and Non Microsoft Entra admins.
+#### Arguments
 
-<a name='create-a-role-using-azure-ad-principal-name'></a>
+##### `isAdminValue`
 
-## Create a role using Microsoft Entra principal name
+`boolean` when `true` returns Admin users. When `false`returns all Microsoft Entra users, including Microsoft Entra admins and non-admins.
+
+#### Return type
+
+`TABLE(rolname name, principalType text, objectId text, tenantId text, isMfa integer, isAdmin integer)` a table with the following schema:
+  - `rolname` the name of the role in PostgreSQL.
+  - `principalType` the type of principal in Microsoft Entra ID. It can be `user`, `group`, or `service`.
+  - `objectId` the identifier of the object in Microsoft Entra ID for this principal.
+  - `tenantId` the identifier of the tenant hosting this principal in Microsoft Entra ID.
+  - `isMfa` returns a value of `1` if the user/role has MFA enforced.
+  - `isAdmin` returns a value of `1` if the user/role is an administrator in PostgreSQL.
+
+## Create a user/role using Microsoft Entra principal name
 
 ```sql
-select * from pgaadauth_create_principal('<roleName>', <isAdmin>, <isMfa>);
-
---For example: 
-
-select * from pgaadauth_create_principal('mary@contoso.com', false, false);
+pg_catalog.pgaadauth_create_principal(roleName text, isAdmin boolean, isMfa boolean)
 ```
 
-**Parameters:**
-- *roleName* - Name of the role to be created. This **must match a name of Microsoft Entra principal**:
+#### Arguments
+
+##### `roleName`
+
+`text` name of the role to be created. This **must match the name of the Microsoft Entra principal**.
    - For **users** use User Principal Name from Profile. For guest users, include the full name in their home domain with #EXT# tag.
    - For **groups** and **service principals** use display name. The name must be unique in the tenant.
-- *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via portal or API.
-- *isMfa* - Flag if Multi Factor Authentication must be enforced for this role.
 
-<a name='create-a-role-using-azure-ad-object-identifier'></a>
+##### `isAdmin`
+`boolean` when `true` it creates a PostgreSQL admin user (member of `azure_pg_admin` role and with CREATEROLE and CREATEDB permissions). When `false` it creates a regular PostgreSQL user.
+
+##### `isMfa`
+`boolean` when `true` it enforces multifactor authentication for this PostgreSQL user.
+
+> [!IMPORTANT]
+> The `isMfa` flag tests the `mfa` claim in the Microsoft Entra ID token, but it doesn't impact the token acquisition flow. For example, if the tenant of the principal is not configured for multifactor authentication, it will prevent the use of the feature. And if the tenant requires multifactor authentication for all tokens, it will make this flag useless.
+
+#### Return type
+
+`text` single value that consists of a string "Created role for ***roleName***", where ***roleName*** is the argument passed for the **roleName** parameter.
 
 ## Drop a role using Microsoft Entra principal name
 
@@ -100,38 +112,64 @@ DROP ROLE rolename;
 ## Create a role using Microsoft Entra object identifier
 
 ```sql
-select * from pgaadauth_create_principal_with_oid('<roleName>', '<objectId>', '<objectType>', <isAdmin>, <isMfa>);
-
-For example: select * from pgaadauth_create_principal_with_oid('accounting_application', '00000000-0000-0000-0000-000000000000', 'service', false, false);
+pg_catalog.pgaadauth_create_principal_with_oid(roleName text, objectId text, objectType text, isAdmin boolean, isMfa boolean)
 ```
 
-**Parameters:**
-- *roleName* - Name of the role to be created.
-- *objectId* - Unique object identifier of the Microsoft Entra object:
-   - For **Users**, **Groups** and **Managed Identities** the ObjectId can be found by searching for the object name in Microsoft Entra ID page in Azure portal. [See this guide as example](/partner-center/find-ids-and-domain-names)
-   - For **Applications**, Objectid of the corresponding **Service Principal** must be used. In Azure portal the required ObjectId can be found on **Enterprise Applications** page.
-- *objectType* - Type of the Microsoft Entra object to link to this role: service, user, group.
-- *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via portal or API.
-- *isMfa* - Flag if Multi Factor Authentication must be enforced for this role.
+#### Arguments
 
-<a name='enable-azure-ad-authentication-for-an-existing-postgresql-role-using-sql'></a>
+##### `roleName`
+
+`text` name of the role to be created.
+
+##### `objectId`
+
+`text` unique object identifier of the Microsoft Entra object.
+   - For **users**, **groups**, and **managed identities**, the objectId can be found by searching for the object name in [Microsoft Entra ID](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade) page in Azure portal. [See this guide as example](/partner-center/find-ids-and-domain-names)
+   - For **groups** and **service principals** use display name. The name must be unique in the tenant.
+   - For **applications**, the objectId of the corresponding **Service Principal** must be used. In Azure portal the required objectId can be found on [Enterprise Applications](https://ms.portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/EnterpriseApps) page in Azure portal.
+
+##### `objectType`
+`text` the type of Microsoft Entra object to link to this role. It can be `user`, `group`, or `service`.
+
+##### `isAdmin`
+`boolean` when `true` it creates a PostgreSQL admin user (member of `azure_pg_admin` role and with CREATEROLE and CREATEDB permissions). When `false` it creates a regular PostgreSQL user.
+
+##### `isMfa`
+`boolean` when `true` it enforces multifactor authentication for this PostgreSQL user.
+
+> [!IMPORTANT]
+> The `isMfa` flag tests the `mfa` claim in the Microsoft Entra ID token, but it doesn't impact the token acquisition flow. For example, if the tenant of the principal is not configured for multifactor authentication, it will prevent the use of the feature. And if the tenant requires multifactor authentication for all tokens, it will make this flag useless.
+
+#### Return type
+
+`text` single value that consists of a string "Created role for ***roleName***", where ***roleName*** is the argument passed for the **roleName** parameter.
 
 ## Enable Microsoft Entra authentication for an existing PostgreSQL role using SQL
 
-Azure Database for PostgreSQL flexible server uses security labels associated with database roles to store Microsoft Entra ID mapping.
+Azure Database for PostgreSQL flexible server uses security labels associated with database roles to store their corresponding Microsoft Entra ID mapping.
 
-You can use the following SQL to assign security label:
+You can use the following SQL to assign the required security label to map it to a Microsoft Entra object:
 
 ```sql
-SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>,type=<user|group|service>,admin';
+SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>,type=<objectType>,admin';
 ```
+#### Arguments
 
-**Parameters:**
-- *roleName* - Name of an existing PostgreSQL role to which Microsoft Entra authentication needs to be enabled.
-- *objectId* - Unique object identifier of the Microsoft Entra object.
-- *user* - End user principals.
-- *service* - Applications or Managed Identities connecting under their own service credentials.
-- *group* - Name of Microsoft Entra group.
+##### `roleName`
+
+`text` name of an existing PostgreSQL role to which Microsoft Entra authentication needs to be enabled.
+
+##### `objectId`
+
+`text` unique object identifier of the Microsoft Entra object.
+
+##### `objectType`
+
+`text` it can be set to `user`, `group`, or `service` (for applications or managed identities connecting under their own service credentials).
+
+##### `admin`
+
+`text` it can be present or absent. Users/roles for which this part is present in their security label, can manage other Microsoft Entra ID roles.
 
 ## Next steps
 

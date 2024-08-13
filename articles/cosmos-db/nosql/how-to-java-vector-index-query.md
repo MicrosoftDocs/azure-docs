@@ -5,7 +5,7 @@ description: Add vector data Azure Cosmos DB for NoSQL and then query the data e
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/01/2023
@@ -115,12 +115,12 @@ Once the vector embedding paths are decided, vector indexes need to be added to 
 ```java 
 IndexingPolicy indexingPolicy = new IndexingPolicy();
 indexingPolicy.setIndexingMode(IndexingMode.CONSISTENT);
-ExcludedPath excludedPath = new ExcludedPath("/*");
-indexingPolicy.setExcludedPaths(Collections.singletonList(excludedPath));
+ExcludedPath excludedPath1 = new ExcludedPath("/coverImageVector/*");
+ExcludedPath excludedPath2 = new ExcludedPath("/contentVector/*");
+indexingPolicy.setExcludedPaths(ImmutableList.of(excludedPath1, excludedPath2));
 
-IncludedPath includedPath1 = new IncludedPath("/name/?");
-IncludedPath includedPath2 = new IncludedPath("/description/?");
-indexingPolicy.setIncludedPaths(ImmutableList.of(includedPath1, includedPath2));
+IncludedPath includedPath1 = new IncludedPath("/*");
+indexingPolicy.setIncludedPaths(Collections.singletonList(includedPath1));
 
 // Creating vector indexes
 CosmosVectorIndexSpec cosmosVectorIndexSpec1 = new CosmosVectorIndexSpec();
@@ -142,6 +142,10 @@ Finally, create the container with the container index policy and the vector ind
 database.createContainer(collectionDefinition).block();
 ```
 
+
+
+>[!IMPORTANT]
+> The vector path added to the "excludedPaths" section of the indexing policy to ensure optimized performance for insertion. Not adding the vector path to "excludedPaths" will result in higher RU charge and latency for vector insertions.
 
 > [!IMPORTANT]
 > Currently vector search in Azure Cosmos DB for NoSQL is supported on new containers only. You need to set both the container vector policy and any vector indexing policy during the time of container creation as it can’t be modified later. Both policies will be modifiable in a future improvement to the preview feature.

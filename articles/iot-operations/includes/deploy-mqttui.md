@@ -7,9 +7,9 @@ ms.date: 12/18/2023
 ms.author: dobett
 ---
 
-Verify data is flowing to the MQTT broker by using the **mqttui** tool. In this example, you run the **mqttui** tool inside your Kubernetes cluster:
+Verify data is flowing to the MQTT broker by using the **mosquitto_sub** tool. In this example, you run the **mosquitto_sub** tool inside your Kubernetes cluster:
 
-1. Run the following command to deploy a pod that includes the **mqttui** and **mosquitto** tools that are useful for interacting with the MQ broker in the cluster:
+1. Run the following command to deploy a pod that includes the **mosquitto_pub** and **mosquitto_sub** tools that are useful for interacting with the MQTT broker in the cluster:
 
     ```console
     kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
@@ -28,8 +28,10 @@ Verify data is flowing to the MQTT broker by using the **mqttui** tool. In this 
     kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
     ```
 
-1. At the shell in the **mqtt-client** pod, run the following command to connect to the MQ broker using the **mqttui** tool:
+1. At the shell in the **mqtt-client** pod, run the following command to connect to the MQTT broker using the **mosquitto_sub** tool subscribed to the `data/thermostat` topic:
 
     ```console
-    mqttui -b mqtts://aio-mq-dmqtt-frontend:8883 -u '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
+    mosquitto_sub --host aio-mq-dmqtt-frontend --port 8883 --topic "azure-iot-operations/data/#" -v --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
     ```
+
+    This command continues to run and displays messages as they arrive on the `data/thermostat` topic until you press **Ctrl+C** to stop it.

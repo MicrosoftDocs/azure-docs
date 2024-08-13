@@ -3,7 +3,7 @@ title: What is Azure Virtual Network?
 description: Learn about Azure Virtual Network concepts and features, including address space, subnets, regions, and subscriptions. 
 author: asudbring
 # Customer intent: As someone with a basic network background who is new to Azure, I want to understand the capabilities of Azure Virtual Network so that my Azure resources can securely communicate with each other, the internet, and my on-premises resources.
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: overview
 ms.date: 05/08/2023
 ms.author: allensu
@@ -45,6 +45,9 @@ When you're using only an [internal standard load balancer](../load-balancer/loa
 Azure resources communicate securely with each other in one of the following ways:
 
 - **Virtual network**: You can deploy VMs and other types of Azure resources in a virtual network. Examples of resources include App Service Environments, Azure Kubernetes Service (AKS), and Azure Virtual Machine Scale Sets. To view a complete list of Azure resources that you can deploy in a virtual network, see [Deploy dedicated Azure services into virtual networks](virtual-network-for-azure-services.md).
+
+> [!NOTE]  
+> To move a virtual machine from one virtual network to another, you must delete and recreate the virtual machine in the new virtual network.  The virtual machine's disks can be retained for use in the new virtual machine.
 
 - **Virtual network service endpoint**: You can extend your virtual network's private address space and the identity of your virtual network to Azure service resources over a direct connection. Examples of resources include Azure Storage accounts and Azure SQL Database. Service endpoints allow you to secure your critical Azure service resources to only a virtual network. To learn more, see [Virtual network service endpoints](virtual-network-service-endpoints-overview.md).
 

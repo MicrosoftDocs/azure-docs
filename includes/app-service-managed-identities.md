@@ -2,7 +2,7 @@
 author: mattchenderson
 ms.service: app-service
 ms.topic: include
-ms.date: 04/20/2020
+ms.date: 07/20/2024
 ms.author: mahender
 ---
 
@@ -10,5 +10,5 @@ A managed identity from Microsoft Entra ID allows your app to easily access othe
 
 Your application can be granted two types of identities:
 
-- A **system-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
-- A **user-assigned identity** is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
+- A **system-assigned identity** is tied to the app and is deleted if the app is deleted. An app can only have one system-assigned identity.
+- A **user-assigned identity** is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities, and one user-assigned identity can be assigned to multiple Azure resources, such as two App Service apps.

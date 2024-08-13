@@ -3,7 +3,7 @@ title: Azure Load Balancer components
 description: Overview of Azure Load Balancer components.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 06/18/2024
 ms.author: mbender
@@ -29,7 +29,7 @@ The nature of the IP address determines the **type** of load balancer created. P
 | **Description** | A public load balancer maps the public IP and port of incoming traffic to the private IP and port of the VM. Load balancer maps traffic the other way around for the response traffic from the VM. You can distribute specific types of traffic across multiple VMs or services by applying load-balancing rules. For example, you can spread the load of web request traffic across multiple web servers.| An internal load balancer distributes traffic to resources that are inside a virtual network. Azure restricts access to the frontend IP addresses of a virtual network that are load balanced. Frontend IP addresses and virtual networks are never directly exposed to an internet endpoint, meaning an internal load balancer can't accept incoming traffic from the internet. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources. |
 | **SKUs supported** | Basic, Standard | Basic, Standard |
 
-![Tiered load balancer example](./media/load-balancer-overview/load-balancer.png)
+:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts a load balancer directing traffic.":::
 
 Load balancer can have multiple frontend IPs. Learn more about [multiple frontends](load-balancer-multivip-overview.md).
 
@@ -39,7 +39,7 @@ The group of virtual machines or instances in a virtual machine scale set that i
 
 Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without other operations. The scope of the backend pool is any virtual machine in a single virtual network. 
 
-Backend pools support addition of instances via [network interface or IP addresses](backend-pool-management.md). VMs do not need a public IP address in order to be attached to backend pool of a public load balancer. Also, you can attach VMs to the backend pool of a load balancer even if they are in a stopped state. 
+Backend pools support addition of instances via [network interface or IP addresses](backend-pool-management.md). VMs do not need a public IP address in order to be attached to backend pool of a public load balancer. VMs can be attached to the backend pool of a load balancer even if they are in a stopped state. You can also configure multiple backend pools with different groups of instances to a single load balancer. By creating multiple load balancing rules, each targeting a different backend pool, you can configure traffic to distribute to different sets of backend resources based on the load balancer frontend port and protocol.
 
 When considering how to design your backend pool, design for the least number of individual backend pool resources to optimize the length of management operations. There's no difference in data plane performance or scale.
 

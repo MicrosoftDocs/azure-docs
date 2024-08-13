@@ -2,8 +2,6 @@
 title: Compute environments 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about compute environments that can be used with Azure Data Factory and Synapse Analytics pipelines (such as Azure HDInsight) to transform or process data.
-ms.service: data-factory
-ms.subservice: concepts
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
@@ -15,7 +13,7 @@ ms.custom: synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 This article explains different compute environments that you can use to process or transform data. It also provides details about different configurations (on-demand vs. bring your own) supported when configuring linked services linking these compute environments.
 
@@ -317,7 +315,7 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 
 ## Azure Batch linked service
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data or Synapse workspace. You can run Custom activity using Azure Batch.
 
@@ -372,7 +370,7 @@ See following articles if you are new to Azure Batch service:
 
 ## Machine Learning Studio (classic) linked service
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 You create a Machine Learning Studio (classic) linked service to register a Machine Learning Studio (classic) batch scoring endpoint to a data factory or Synapse workspace.
 
@@ -628,7 +626,7 @@ You create an Azure Function linked service and use it with the [Azure Function 
 | --- | --- | --- |
 | type   | The type property must be set to: **AzureFunction** | yes |
 | function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal  | yes |
-| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | yes |
+| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Work with access keys](../azure-functions/function-keys-how-to.md) | yes |
 |   |   |   |
 
 ## Related content

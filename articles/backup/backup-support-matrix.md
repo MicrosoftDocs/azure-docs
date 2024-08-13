@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations for the Azur
 ms.topic: conceptual
 ms.date: 06/18/2024
 ms.custom: references_regions, linux-related-content
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -19,7 +19,7 @@ Other support matrices are available:
 - Support matrix for backup by using [System Center Data Protection Manager (DPM)/Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md)
 - Support matrix for backup by using the [Microsoft Azure Recovery Services (MARS) agent](backup-support-matrix-mars-agent.md)
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## Vault support
 

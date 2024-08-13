@@ -3,7 +3,7 @@ title: Quickstart - Azure Cosmos DB for MongoDB driver for MongoDB
 description: Learn how to build a Node.js app to manage Azure Cosmos DB for MongoDB account resources and data in this quickstart.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: quickstart

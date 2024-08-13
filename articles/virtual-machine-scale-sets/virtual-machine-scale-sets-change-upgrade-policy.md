@@ -4,7 +4,7 @@ description: Learn how to change the upgrade policy on Virtual Machine Scale Set
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 6/6/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
@@ -12,7 +12,7 @@ ms.custom: upgradepolicy
 # Change the upgrade policy on Virtual Machine Scale Sets (Preview)
 
 > [!NOTE]
-> Upgrade policies for Virtual Machine Scale Sets with Uniform Orchestration are in general availability (GA) . 
+> Upgrade policies for Virtual Machine Scale Sets with Uniform Orchestration are in general availability (GA). 
 >
 >**Upgrade policies for Virtual Machine Scale Sets with Flexible Orchestration are currently in preview.** Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA).
 
@@ -21,9 +21,6 @@ The upgrade policy for a Virtual Machine Scale Set can be changed at any point i
 ### [Portal](#tab/portal)
 
 Select the Virtual Machine Scale Set you want to change the upgrade policy for. In the menu under **Settings**, select **Upgrade Policy** and from the drop-down menu, select the upgrade policy you want to enable. 
-
-> [!NOTE]
-> Setting or changing the upgrade policy to automatic using the Azure Portal on Virtual Machine Scale Sets with Flexible Orchestration is not yet available. To change the upgrade policy to automatic, use CLI, PowerShell, ARM Template, or any other SDK. 
 
 If using a rolling upgrade policy, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for more configuration options and suggestions.
 

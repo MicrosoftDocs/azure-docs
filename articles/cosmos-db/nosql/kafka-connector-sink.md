@@ -2,7 +2,7 @@
 title: Kafka Connect for Azure Cosmos DB - Sink connector
 description: The Azure Cosmos DB sink connector allows you to export data from Apache Kafka topics to an Azure Cosmos DB database. The connector polls data from Kafka to write to containers in the database based on the topics subscription. 
 author: kushagrathapar
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/13/2022
@@ -16,7 +16,7 @@ Kafka Connect for Azure Cosmos DB is a connector to read from and write data to 
 
 ## Prerequisites
 
-* Start with the [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md) because it gives you a complete environment to work with. If you don't wish to use Confluent Platform, then you need to install and configure Zookeeper, Apache Kafka, Kafka Connect, yourself. You'll also need to install and configure the Azure Cosmos DB connectors manually.
+* Start with the [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md) because it gives you a complete environment to work with. If you don't wish to use Confluent Platform, then you need to install and configure Apache Kafka, Kafka Connect, yourself. You'll also need to install and configure the Azure Cosmos DB connectors manually.
 * Create an Azure Cosmos DB account, container [setup guide](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md)
 * Bash shell, which is tested on GitHub Codespaces, Mac, Ubuntu, Windows with WSL2. This shell doesn’t work in Cloud Shell or WSL1.
 * Download [Java 11+](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -45,7 +45,7 @@ ls target/*dependencies.jar
 If you're using the Confluent Platform, the easiest way to create a Kafka topic is by using the supplied Control Center UX. Otherwise, you can create a Kafka topic manually using the following syntax:
 
 ```bash
-./kafka-topics.sh --create --zookeeper <ZOOKEEPER_URL:PORT> --replication-factor <NO_OF_REPLICATIONS> --partitions <NO_OF_PARTITIONS> --topic <TOPIC_NAME>
+./kafka-topics.sh --create --boostrap-server <URL:PORT> --replication-factor <NO_OF_REPLICATIONS> --partitions <NO_OF_PARTITIONS> --topic <TOPIC_NAME>
 ```
 
 For this scenario, we'll create a Kafka topic named “hotels” and will write non-schema embedded JSON data to the topic. To create a topic inside Control Center, see the [Confluent guide](https://docs.confluent.io/platform/current/quickstart/ce-docker-quickstart.html#step-2-create-ak-topics).

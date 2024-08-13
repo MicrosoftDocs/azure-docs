@@ -4,9 +4,9 @@ description: Learn to configure custom authentication for Azure Static Web Apps
 services: static-web-apps
 author: aaronpowell
 ms.author: aapowell
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 06/28/2024
 ---
 
 # Custom authentication in Azure Static Web Apps
@@ -33,7 +33,7 @@ To create the registration, begin by creating the following [application setting
 | Setting Name | Value |
 | --- | --- |
 | `AZURE_CLIENT_ID` | The Application (client) ID for the Microsoft Entra app registration. |
-| `AZURE_CLIENT_SECRET` | The client secret for the Microsoft Entra app registration. |
+| `AZURE_CLIENT_SECRET_APP_SETTING_NAME | The name of the application setting that holds the client secret for the Microsoft Entra app registration. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
@@ -52,7 +52,7 @@ Microsoft Entra providers are available in two different versions. Version 1 exp
         "registration": {
           "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
           "clientIdSettingName": "AZURE_CLIENT_ID",
-          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET_APP_SETTING_NAME"
         }
       }
     }
@@ -74,7 +74,7 @@ Make sure to replace `<TENANT_ID>` with your Microsoft Entra tenant ID.
         "registration": {
           "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>/v2.0",
           "clientIdSettingName": "AZURE_CLIENT_ID",
-          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET_APP_SETTING_NAME"
         }
       }
     }
@@ -142,7 +142,7 @@ To create the registration, begin by creating the following [application setting
 | Setting Name | Value |
 | --- | --- |
 | `APPLE_CLIENT_ID` | The Apple client ID. |
-| `APPLE_CLIENT_SECRET` | The Apple client secret. |
+| `APPLE_CLIENT_SECRET_APP_SETTING_NAME` | The name of the application setting that holds the Apple client secret. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
@@ -153,7 +153,7 @@ Next, use the following sample to configure the provider in the [configuration f
       "apple": {
         "registration": {
           "clientIdSettingName": "APPLE_CLIENT_ID",
-          "clientSecretSettingName": "APPLE_CLIENT_SECRET"
+          "clientSecretSettingName": "APPLE_CLIENT_SECRET_APP_SETTING_NAME"
         }
       }
     }
@@ -170,7 +170,7 @@ To create the registration, begin by creating the following [application setting
 | Setting Name | Value |
 | --- | --- |
 | `FACEBOOK_APP_ID` | The Facebook application ID. |
-| `FACEBOOK_APP_SECRET` | The Facebook application secret. |
+| `FACEBOOK_APP_SECRET_APP_SETTING_NAME` | The name of the application setting that holds the Facebook application secret. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
@@ -181,7 +181,7 @@ Next, use the following sample to configure the provider in the [configuration f
       "facebook": {
         "registration": {
           "appIdSettingName": "FACEBOOK_APP_ID",
-          "appSecretSettingName": "FACEBOOK_APP_SECRET"
+          "appSecretSettingName": "FACEBOOK_APP_SECRET_APP_SETTING_NAME"
         }
       }
     }
@@ -199,7 +199,7 @@ To create the registration, begin by creating the following [application setting
 | Setting Name | Value |
 | --- | --- |
 | `GITHUB_CLIENT_ID` | The GitHub client ID. |
-| `GITHUB_CLIENT_SECRET` | The GitHub client secret. |
+| `GITHUB_CLIENT_SECRET_APP_SETTING_NAME` | The name of the application setting that holds the GitHub client secret. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
@@ -210,7 +210,7 @@ Next, use the following sample to configure the provider in the [configuration f
       "github": {
         "registration": {
           "clientIdSettingName": "GITHUB_CLIENT_ID",
-          "clientSecretSettingName": "GITHUB_CLIENT_SECRET"
+          "clientSecretSettingName": "GITHUB_CLIENT_SECRET_APP_SETTING_NAME"
         }
       }
     }
@@ -226,7 +226,7 @@ To create the registration, begin by creating the following [application setting
 | Setting Name | Value |
 | --- | --- |
 | `GOOGLE_CLIENT_ID` | The Google client ID. |
-| `GOOGLE_CLIENT_SECRET` | The Google client secret. |
+| `GOOGLE_CLIENT_SECRET_APP_SETTING_NAME` | The name of the application setting that holds the Google client secret. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
@@ -237,7 +237,7 @@ Next, use the following sample to configure the provider in the [configuration f
       "google": {
         "registration": {
           "clientIdSettingName": "GOOGLE_CLIENT_ID",
-          "clientSecretSettingName": "GOOGLE_CLIENT_SECRET"
+          "clientSecretSettingName": "GOOGLE_CLIENT_SECRET_APP_SETTING_NAME"
         }
       }
     }
@@ -247,14 +247,14 @@ Next, use the following sample to configure the provider in the [configuration f
 
 For more information on how to configure Google as an authentication provider, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-google.md).
 
-# [Twitter](#tab/twitter)
+# [X](#tab/x)
 
 To create the registration, begin by creating the following [application settings](application-settings.yml):
 
 | Setting Name | Value |
 | --- | --- |
-| `TWITTER_CONSUMER_KEY` | The Twitter consumer key. |
-| `TWITTER_CONSUMER_SECRET` | The Twitter consumer secret. |
+| `X_CONSUMER_KEY` | The X consumer key. |
+| `X_CONSUMER_SECRET_APP_SETTING_NAME` | The name of the application setting that holds the X consumer secret. |
 
 Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
@@ -264,8 +264,8 @@ Next, use the following sample to configure the provider in the [configuration f
     "identityProviders": {
       "twitter": {
         "registration": {
-          "consumerKeySettingName": "TWITTER_CONSUMER_KEY",
-          "consumerSecretSettingName": "TWITTER_CONSUMER_SECRET"
+          "consumerKeySettingName": "X_CONSUMER_KEY",
+          "consumerSecretSettingName": "X_CONSUMER_SECRET_APP_SETTING_NAME"
         }
       }
     }
@@ -273,7 +273,7 @@ Next, use the following sample to configure the provider in the [configuration f
 }
 ```
 
-For more information on how to configure Twitter as an authentication provider, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-twitter.md).
+For more information on how to configure X as an authentication provider, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-twitter.md).
 
 # [OpenID Connect](#tab/openid-connect)
 
@@ -292,7 +292,7 @@ Once the application is registered with the identity provider, create the follow
 | Setting Name | Value |
 | --- | --- |
 | `MY_PROVIDER_CLIENT_ID` | The client ID generated by the authentication provider for your static web app. |
-| `MY_PROVIDER_CLIENT_SECRET` | The client secret generated by the authentication provider's custom registration for your static web app. |
+| `MY_PROVIDER_CLIENT_SECRET_APP_SETTING_NAME` | The  name of the application setting that holds the client secret generated by the authentication provider's custom registration for your static web app. |
 
 If you register other providers, each one needs an associated client ID and client secret store in application settings.
 
@@ -314,7 +314,7 @@ Once you have the registration credentials, use the following steps to create a 
              "registration": {
                "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
                "clientCredential": {
-                 "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET"
+                 "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET_APP_SETTING_NAME"
                },
                "openIdConnectConfiguration": {
                  "wellKnownOpenIdConfiguration": "https://<PROVIDER_ISSUER_URL>/.well-known/openid-configuration"
@@ -392,7 +392,7 @@ Invitations are specific to individual authorization-providers, so consider the 
 | ---------------------- | ---------------- |
 | Microsoft Entra ID | email address    |
 | GitHub                 | username         |
-| Twitter                | username         |
+| X                | username         |
 
 Use the following steps to create an invitation.
 
@@ -401,7 +401,7 @@ Use the following steps to create an invitation.
 3. Select **Invite**.
 4. Select an _Authorization provider_ from the list of options.
 5. Add either the username or email address of the recipient in the _Invitee details_ box.
-   - For GitHub and Twitter, enter the username. For all others, enter the recipient's email address.
+   - For GitHub and X, enter the username. For all others, enter the recipient's email address.
 6. Select the domain of your static site from the _Domain_ drop-down menu.
    - The domain you select is the domain that appears in the invitation. If you have a custom domain associated with your site, choose the custom domain.
 7. Add a comma-separated list of role names in the _Role_ box.

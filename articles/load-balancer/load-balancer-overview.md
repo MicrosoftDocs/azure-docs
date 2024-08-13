@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and how to use it in the cloud.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: overview
 ms.date: 06/18/2024
 ms.author: mbender
@@ -22,7 +22,7 @@ A **[public load balancer](./components.md#frontend-ip-configurations)** can pro
 
 An **[internal (or private) load balancer](./components.md#frontend-ip-configurations)** is used in scenarios where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
 
-:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts public and internal load balancers directing traffic to web and business tiers.":::
+:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts a load balancer directing traffic.":::
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 

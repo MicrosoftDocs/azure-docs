@@ -22,7 +22,7 @@ Target-based scaling replaces the previous Azure Functions incremental scaling m
 
 ![Illustration of the equation: desired instances = event source length / target executions per instance.](./media/functions-target-based-scaling/target-based-scaling-formula.png)
 
-The default _target executions per instance_ values come from the SDKs used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
+In this equation, _event source length_ refers to the number of events that must be processed. The default _target executions per instance_ values come from the SDKs used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
 
 ## Considerations
 
@@ -75,7 +75,7 @@ To learn more, see the [example configurations for the supported extensions](#su
 
 ## Premium plan with runtime scale monitoring enabled
 
-When [runtime scale monitoring](functions-networking-options.md#premium-plan-with-virtual-network-triggers) is enabled, the extensions themselves handle dynamic scaling. This is because the [scale controller](event-driven-scaling.md#runtime-scaling) doesn't have access to services secured by a virtual network. After you enable runtime scale monitoring, you'll need to upgrade your extension packages to these minimum versions to unlock the extra target-based scaling functionality: 
+When [runtime scale monitoring](functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers) is enabled, the extensions themselves handle dynamic scaling. This is because the [scale controller](event-driven-scaling.md#runtime-scaling) doesn't have access to services secured by a virtual network. After you enable runtime scale monitoring, you'll need to upgrade your extension packages to these minimum versions to unlock the extra target-based scaling functionality: 
 
 | Extension Name | Minimum Version Needed | 
 | -------------- | ---------------------- |

@@ -3,9 +3,9 @@ title: About Azure ExpressRoute FastPath
 description: Learn about Azure ExpressRoute FastPath to send network traffic by bypassing the gateway.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 03/24/2024
+ms.date: 06/25/2024
 ms.author: duau
 ms.custom: template-concept, references_regions, engagement-fy23
 ---
@@ -13,11 +13,14 @@ ms.custom: template-concept, references_regions, engagement-fy23
 
 ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
 
+:::image type="content" source=".\media\about-fastpath\fastpath-vnet-peering.png" alt-text="Diagram of an ExpressRoute connection with Fastpath and virtual network peering.":::
+
 ## Requirements
 
 ### Circuits
 
-FastPath is available on all ExpressRoute circuits. Limited general availability (GA) support for Private Endpoint/Private Link connectivity and support for virtual network peering and UDR connectivity over FastPath is only available for connections associated to ExpressRoute Direct circuits.
+FastPath is available on all ExpressRoute circuits. Support for virtual network peering and UDR over FastPath is now generally available in all regions and only for connections associated to ExpressRoute Direct circuits. Limited general availability (GA) support for Private Endpoint/Private Link connectivity is only available for connections associated to ExpressRoute Direct circuits. 
+
 ### Gateways
 
 FastPath still requires a virtual network gateway to be created to exchange routes between a virtual network and an on-premises network. For more information about virtual network gateways and ExpressRoute, including performance information, and gateway SKUs, see [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
@@ -26,6 +29,10 @@ To configure FastPath, the virtual network gateway must be either:
 
 * Ultra Performance
 * ErGw3AZ
+
+### Virtual network peering
+
+For the FastPath feature to function correctly, the hub virtual network and any peered spoke virtual networks must reside within the same region. It is important to note that FastPath doesn't support globally peered virtual networks.
 
 ## Limitations
 
@@ -48,9 +55,11 @@ While FastPath supports most configurations, it doesn't support the following fe
 > [!NOTE]
 > * ExpressRoute Direct has a cumulative limit at the port level.
 > * Traffic flows through the ExpressRoute gateway when these IP limits are reached.
+> * You can configure alerts through Azure Monitor to notify when the [number of FastPath routes](expressroute-monitoring-metrics-alerts.md#fastpath-routes-count-at-circuit-level) are nearing the threshold limit.
 
 ## Limited General Availability (GA)
-FastPath support for Virtual Network Peering, User Defined Routes (UDRs) and Private Endpoint/Private Link connectivity is available for limited scenarios for 100/10Gbps ExpressRoute Direct connections. Virtual Network Peering and UDR support are available globally across all Azure regions. Private Endpoint/ Private Link connectivity is available in the following Azure regions:
+
+FastPath support for Private Endpoint/Private Link connectivity is available for limited scenarios for 100/10Gbps ExpressRoute Direct connections. Private Endpoint/ Private Link connectivity is available in the following Azure regions:
 - Australia East
 - East Asia
 - East US
@@ -83,4 +92,4 @@ For more information about supported scenarios and to enroll in the limited GA o
 
 ## Next steps
 
-- To enable FastPath, see [Configure ExpressRoute FastPath](expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
+- To enable FastPath, see configure ExpressRoute FastPath using the [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md#configure-expressroute-fastpath) or using [Azure PowerShell](expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).

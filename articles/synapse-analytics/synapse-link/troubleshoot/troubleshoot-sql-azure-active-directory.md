@@ -4,7 +4,7 @@ description: Learn how to troubleshoot user impersonation issues with Azure Syna
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: imotiwala 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 11/09/2022

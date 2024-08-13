@@ -5,7 +5,7 @@ author: AwdotiaRomanowna
 ms.author: alkuchar
 ms.reviewer: maghan
 ms.date: 05/06/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
@@ -32,7 +32,7 @@ These backup files can't be exported or used to create servers outside Azure Dat
 
 Backups on Azure Database for PostgreSQL flexible server instances are snapshot based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are currently taken once daily. If none of the databases in the server receive any further modifications after the last snapshot backup is taken, snapshot backups are suspended until new modifications are made in any of the databases, point at which a new snapshot is immediately taken. **The first snapshot is a full backup and consecutive snapshots are differential backups.**
 
-Transaction log backups happen at varied frequencies, depending on the workload and when the WAL file is filled and ready to be archived. In general, the delay (recovery point objective, or RPO) can be up to 15 minutes.
+Transaction log backups happen at varied frequencies, depending on the workload and when the WAL file is filled and ready to be archived. In general, the delay (recovery point objective, or RPO) can be up to 5 minutes.
 
 ## Backup redundancy options
 
@@ -72,7 +72,7 @@ All backups required to perform a PITR within the backup retention period are re
 
 Azure Database for PostgreSQL flexible server provides up to 100 percent of your provisioned server storage as backup storage at no extra cost. Any additional backup storage that you use is charged in gigabytes per month. 
 
-For example, if you have provision a server with 250 gibibytes (GiB) of storage, then you have 250 GiB of backup storage capacity at no additional charge. If the daily backup usage is 25 GiB, then you can have up to 10 days of free backup storage. Backup storage consumption that exceeds 250 GiB is charged as defined in the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
+For example, if you have provisioned a server with 250 gibibytes (GiB) of storage, then you have 250 GiB of backup storage capacity at no additional charge. If the daily backup usage is 25 GiB, then you can have up to 10 days of free backup storage. Backup storage consumption that exceeds 250 GiB is charged as defined in the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
 
 If you configured your server with geo-redundant backup, the backup data is also copied to the Azure paired region. So, your backup size will be twice the size of the local backup copy. Billing is calculated as *( (2 x local backup size) - provisioned storage size ) x price @ gigabytes per month*. 
 
@@ -151,17 +151,17 @@ If your source server is configured with a *private access* virtual network, you
 
 ### Geo-restore
 
-If your source server is configured with a *public access* network, you can only restore to public access. Also, you have to apply firewall rules after the restore operation is complete. 
+If your source server is configured with a *public access* network, you can only restore to public access. Existing firewall rules in the source server are copied over to the restored server. Private endpoints are not taken over. After the restore operation is complete, review if you need to adjust any of the firewall rules carried over, and create any private endpoints you may need. 
 
 If your source server is configured with a *private access* virtual network, you can only restore to a different virtual network, because virtual networks can't span regions. You can't perform geo-restore across public and private access.
 
 ## Post-restore tasks
 
-After you restore the database, you can perform the following tasks to get your users and applications back up and running:
+After you restore the server, you can perform the following tasks to get your users and applications back up and running:
 
 - If the new server is meant to replace the original server, redirect clients and client applications to the new server. Change the server name of your connection string to point to the new server.
 
-- Ensure that appropriate server-level firewall and virtual network rules are in place for user connections. These rules are not copied over from the original server.
+- Ensure that appropriate server-level firewall, private endpoints and virtual network rules are in place for user connections. In *public access* network, rules are copied over from the original server, but those might not be the ones required in the restored environment. So, adjust them as per your requirements. Private endpoints are not carried over. Create any private endpoints you may need in the restored server. In *private access* virtual network, the restore doesn't copy over any network infrastructure artifacts from source to restored server networks. Anything related to configuration of VNET, subnets, or Network Security Groups, must be taken care of as a post-restore task.
   
 - Scale up or scale down the restored server's compute as needed.
 
@@ -169,7 +169,9 @@ After you restore the database, you can perform the following tasks to get your 
 
 - Configure alerts as appropriate.
   
-- If you restored the database configured with high availability, and if you want to configure the restored server with high availability, you can then follow [the steps](./how-to-manage-high-availability-portal.md).
+- If the source server from which you restored was configured with high availability, and you want to configure the restored server with high availability, you can then follow [these steps](./how-to-manage-high-availability-portal.md).
+
+- If the source server from which you restored was configured with read replicas, and you want to configure read replicas on the restored server, you can then follow [these steps](./how-to-read-replicas-portal.md).
  
 ## Long-term retention (preview)
 
@@ -180,6 +182,7 @@ Azure Backup and Azure Database for PostgreSQL flexible server services have bui
 - Backups are stored in separate security and fault domains. If the source server or subscription is compromised, the backups remain safe in the Backup vault (in Azure Backup managed storage accounts).
 - Using pg_dump allows greater flexibility in restoring data across different database versions.
 -	Azure backup vaults support immutability and soft delete (preview) features, protecting your data.
+-	LTR backup support for CMK-enabled servers
 
 #### Limitations and considerations
 

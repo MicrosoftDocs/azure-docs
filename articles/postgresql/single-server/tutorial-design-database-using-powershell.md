@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server - Azure PowerShell'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL - Single Server using Azure PowerShell.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: tutorial
 ms.author: sunila
@@ -50,7 +50,7 @@ If this is your first time using the Azure Database for PostgreSQL service, you 
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
 ```
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription ID using the
 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.

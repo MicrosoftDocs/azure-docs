@@ -5,7 +5,7 @@ description: Use different types of subqueries for complex query statements in A
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql

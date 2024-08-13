@@ -4,7 +4,7 @@ description: Learn how to convert an Azure Service Fabric cluster certificate fr
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 07/14/2022
@@ -16,7 +16,7 @@ The signature of a certificate (commonly known as a thumbprint) is unique. A clu
 
 Converting an Azure Service Fabric cluster's certificate declarations from thumbprint-based to declarations based on the certificate's subject common name (CN) simplifies management considerably. In particular, rolling over a certificate no longer requires a cluster upgrade. This article describes how to convert an existing cluster to CN-based declarations without downtime.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Move to certificate authority-signed certificates
 

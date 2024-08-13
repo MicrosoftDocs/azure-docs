@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy Azure Bastion automatically - Basic SKU'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion with default settings from the Azure portal.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: quickstart
 ms.date: 04/25/2024
 ms.author: cherylmc
@@ -25,7 +25,7 @@ The steps in this article help you:
 * Remove your VM's public IP address if you don't need it for anything else.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ## <a name="prereq"></a>Prerequisites
 

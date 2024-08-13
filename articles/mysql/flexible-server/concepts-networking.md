@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
@@ -71,15 +71,19 @@ Azure Database for MySQL flexible server supports encrypted connections using Tr
 
 Following are the different configurations of SSL and TLS settings you can have for your flexible server:
 
+>[!IMPORTANT]
+>Starting in early September 2024, new servers will no longer be permitted to use TLS 1.0 or 1.1, and existing servers will not be allowed to downgrade to these versions. Beginning mid-September 2024, we will initiate a mandatory upgrade of all servers currently using TLS 1.0 or 1.1 to TLS 1.2. This upgrade process is expected to be completed by the end of September 2024. We strongly recommend that customers ensure their applications are fully compatible with TLS 1.2 before the end of September.
+
 | Scenario | Server parameter settings | Description |
 | --- | --- | --- |
 | Disable SSL (encrypted connections) | require_secure_transport = OFF | If your legacy application doesn't support encrypted connections to the Azure Database for MySQL flexible server instance, you can disable enforcement of encrypted connections to your flexible server by setting require_secure_transport=OFF. |
-| Enforce SSL with TLS version < 1.2 | require_secure_transport = ON and tls_version = TLS 1.0 or TLS 1.1 | If your legacy application supports encrypted connections but requires TLS version < 1.2, you can enable encrypted connections, but configure your flexible server to allow connections with the TLS version (v1.0 or v1.1) supported by your application |
+| Enforce SSL with TLS version < 1.2 (Will be deprecated in September 2024) | require_secure_transport = ON and tls_version = TLS 1.0 or TLS 1.1 | If your legacy application supports encrypted connections but requires TLS version < 1.2, you can enable encrypted connections, but configure your flexible server to allow connections with the TLS version (v1.0 or v1.1) supported by your application |
 | Enforce SSL with TLS version = 1.2(Default configuration) | require_secure_transport = ON and tls_version = TLS 1.2 | This is the recommended and default configuration for a flexible server. |
 | Enforce SSL with TLS version = 1.3(Supported with MySQL v8.0 and above) | require_secure_transport = ON and tls_version = TLS 1.3 | This is useful and recommended for new applications development |
 
 > [!NOTE]  
 > Changes to SSL Cipher on the flexible server is not supported. FIPS cipher suites is enforced by default when tls_version is set to TLS version 1.2. For TLS versions other than version 1.2, SSL Cipher is set to default settings which comes with MySQL community installation.
+
 
 Review how to [connect using SSL/TLS](how-to-connect-tls-ssl.md) to learn more.
 

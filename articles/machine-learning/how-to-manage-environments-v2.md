@@ -2,12 +2,12 @@
 title: 'Manage Azure Machine Learning environments with the CLI & SDK (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to manage Azure Machine Learning environments using Python SDK and Azure CLI extension for Machine Learning.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: ositanachi
-ms.author: osiotugo
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: osiotugo
 ms.date: 04/19/2024
 ms.custom: devx-track-azurecli, devplatv2, devx-track-python
 ---

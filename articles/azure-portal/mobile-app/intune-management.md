@@ -2,7 +2,7 @@
 title: Use Microsoft Intune MAM on devices that run the Azure mobile app
 description: Learn about setting and enforcing app protection policies on devices that run the Azure mobile app.
 ms.date: 06/17/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - build-2024
 ---

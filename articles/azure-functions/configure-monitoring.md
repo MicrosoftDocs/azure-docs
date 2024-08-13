@@ -3,7 +3,7 @@ title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 06/17/2024
+ms.date: 08/06/2024
 ms.custom: devdivchpfy22
 
 # Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
@@ -48,7 +48,7 @@ Category names are assigned differently in Functions compared to other .NET fram
 
 The following table describes the main categories of logs that the runtime creates:
 
-# [v2.x+](#tab/v2)
+### [v2.x+](#tab/v2)
 
 | Category | Table | Description |
 | ----- | ----- | ----- |
@@ -65,7 +65,7 @@ The following table describes the main categories of logs that the runtime creat
 > [!NOTE]
 > For .NET class library functions, these categories assume you're using `ILogger` and not `ILogger<T>`. For more information, see the [Functions ILogger documentation](functions-dotnet-class-library.md#ilogger).
 
-# [v1.x](#tab/v1)
+### [v1.x](#tab/v1)
 
 | Category | Table | Description |
 | ----- | ----- | ----- |
@@ -90,7 +90,7 @@ The following examples define logging based on the following rules:
 + `Host.Aggregator` and `Host.Results` are set to lower levels. Setting logging levels too high (especially higher than `Information`) can result in loss of metrics and performance data.
 + Logging for function runs is set to `Information`. If necessary, you can [override](functions-host-json.md#override-hostjson-values) this setting in local development to `Debug` or `Trace`.
 
-# [v2.x+](#tab/v2)
+### [v2.x+](#tab/v2)
 
 ```json
 {
@@ -106,7 +106,7 @@ The following examples define logging based on the following rules:
 }
 ```
 
-# [v1.x](#tab/v1)
+### [v1.x](#tab/v1)
 
 ```json
 {
@@ -127,7 +127,7 @@ The following examples define logging based on the following rules:
 
 If *[host.json]* includes multiple logs that start with the same string, the more defined logs ones are matched first. Consider the following example that logs everything in the runtime, except `Host.Aggregator`, at the `Error` level:
 
-# [v2.x+](#tab/v2)
+### [v2.x+](#tab/v2)
 
 ```json
 {
@@ -143,7 +143,7 @@ If *[host.json]* includes multiple logs that start with the same string, the mor
 }
 ```
 
-# [v1.x](#tab/v1)
+### [v1.x](#tab/v1)
 
 ```json
 {
@@ -191,7 +191,7 @@ As noted in the previous section, the runtime aggregates data about function exe
 
 Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. When the rate of incoming executions exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming executions. The default setting for maximum number of executions per second is 20 (five in version 1.x). You can configure sampling in [*host.json*](./functions-host-json.md#applicationinsights). Here's an example:
 
-# [v2.x+](#tab/v2)
+### [v2.x+](#tab/v2)
 
 ```json
 {
@@ -209,7 +209,7 @@ Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature 
 
 You can exclude certain types of telemetry from sampling. In this example, data of type `Request` and `Exception` is excluded from sampling. It ensures that *all* function executions (requests) and exceptions are logged while other types of telemetry remain subject to sampling.
 
-# [v1.x](#tab/v1)
+### [v1.x](#tab/v1)
 
 ```json
 {
@@ -287,10 +287,23 @@ For a function app to send data to Application Insights, it needs to connect to 
 
 | Setting name | Description |
 | ---- | ---- |
-| **[APPLICATIONINSIGHTS_CONNECTION_STRING](functions-app-settings.md#applicationinsights_connection_string)** | This setting is recommended and is required when your Application Insights instance runs in a sovereign cloud. The connection string supports other [new capabilities](../azure-monitor/app/migrate-from-instrumentation-keys-to-connection-strings.md#new-capabilities).   |
-| **[APPINSIGHTS_INSTRUMENTATIONKEY](functions-app-settings.md#appinsights_instrumentationkey)** | Legacy setting, which Application Insights has deprecated in favor of the connection string setting. |
+| **[`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)** | This setting is recommended and is required when your Application Insights instance runs in a sovereign cloud. The connection string supports other [new capabilities](../azure-monitor/app/migrate-from-instrumentation-keys-to-connection-strings.md#new-capabilities).   |
+| **[`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey)** | Legacy setting, which Application Insights has deprecated in favor of the connection string setting. |
 
 When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md) or [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and is created either in the same region or in the nearest region.
+
+### Require Microsoft Entra authentication 
+
+You can use the [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](./functions-app-settings.md#applicationinsights_authentication_string) setting to enable connections to Application Insights using Microsoft Entra authentication. This creates a consistent authentication experience across all Application Insights pipelines, including Profiler and Snapshot Debugger, as well as from the Functions host and language-specific agents.  
+
+>[!NOTE]  
+>There's no Entra authentication support for local development.
+
+The value contains either `Authorization=AAD` for a system-assigned managed identity or `ClientId=<YOUR_CLIENT_ID>;Authorization=AAD` for a user-assigned managed identity. The managed identity must already be available to the function app, with an assigned role equivalent to [Monitoring Metrics Publisher](/azure/role-based-access-control/built-in-roles/monitor#monitoring-metrics-publisher). For more information, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).
+
+The [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string) setting is still required.
+
+[!INCLUDE [functions-app-insights-disable-local-note](../../includes/functions-app-insights-disable-local-note.md)]
 
 ### New function app in the portal
 

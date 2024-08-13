@@ -29,6 +29,37 @@ This feature doesn't require you to enable or configure anything. These Azure Co
 >[!NOTE]
 >There's no charge to access this feature. You'll only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
 
+## View insights from Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
+
+1. You can view your account metrics either from the **Metrics** pane or the **Insights** pane.
+
+   * **Metrics:** This pane provides numerical metrics that are collected at regular intervals and describes some aspect of a system at a particular time. For example, you can view and monitor the [server side latency metric](monitor-server-side-latency.md), [normalized request unit usage metric](monitor-normalized-request-units.md), etc.
+
+   * **Insights:** This pane provides a customized monitoring experience for Azure Cosmos DB. Insights use the same metrics and logs that are collected in Azure Monitor and show an aggregated view for your account.
+
+1. Open the **Insights** pane. By default, the Insights pane shows the throughput, requests, storage, availability, latency, system, and management operations metrics for every container in your account. You can select the **Time Range**, **Database**, and **Container** for which you want to view insights. The **Overview** tab shows RU/s usage, data usage, index usage, throttled requests, and normalized RU/s consumption for the selected database and container.
+
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Screenshot of Azure Cosmos DB performance metrics in the Azure portal." lightbox="./media/use-metrics/performance-metrics.png" :::
+
+1. The following metrics are available from the **Insights** pane:
+
+   * **Throughput**. This tab shows the total number of request units consumed or failed (429 response code) because the throughput or storage capacity provisioned for the container has exceeded.
+
+   * **Requests**. This tab shows the total number of requests processed by status code, by operation type, and the count of failed requests (429 response code). Requests fail when the throughput or storage capacity provisioned for the container exceeds.
+
+   * **Storage**. This tab shows the size of data and index usage over the selected time period.
+
+   * **Availability**. This tab shows the percentage of successful requests over the total requests per hour. The Azure Cosmos DB SLAs defines the success rate.
+
+   * **Latency**. This tab shows the read and write latency observed by Azure Cosmos DB in the region where your account is operating. You can visualize latency across regions for a geo-replicated account. You can also view server-side latency by different operations. This metric doesn't represent the end-to-end request latency.
+
+   * **System**. This tab shows how many metadata requests that the primary partition serves. It also helps to identify the throttled requests.
+
+   * **Management Operations**. This tab shows the metrics for account management activities such as account creation, deletion, key updates, network and replication settings.
+
+
 ## View utilization and performance metrics for Azure Cosmos DB
 
 To view the utilization and performance of your storage accounts across all your subscriptions:

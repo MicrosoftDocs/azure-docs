@@ -106,7 +106,7 @@ To create a web hook, you will need to add the following information:
 **Step3. (optional)** Store your certificate in Azure Key vaults and get identifier
 As mentioned, if accessing the endpoint needs to be authenticated by a certificate, the certificate should be stored in Azure Key vaults. 
 
-- Check [Set and retrieve a certificate from Azure Key Vault using the Azure portal](../../../key-vault/certificates/quick-create-portal.md)
+- Check [Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal)
 - Select the certificate you've added, then you're able to copy the "Certificate identifier". 
 - Then select "Access policies" and "Add access policy", grant "get" permission for "Key permissions", "Secrete permissions" and "Certificate permissions". Select principal as the name of your Metrics Advisor resource. Select "Add" and "Save" button in "Access policies" page. 
 

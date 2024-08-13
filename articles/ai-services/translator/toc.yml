@@ -47,14 +47,8 @@ items:
     items:
     - name: Code Sample page
       href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
-    - name: C#
-      items:
-      - name: C# samples
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
-      - name: Authenticate with Microsoft Entra ID
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AAD
-      - name: Authenticate using Microsoft Entra tokens
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AzureToken
+    - name: C# samples
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
     - name: Java
       href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Java-Code-Samples
     - name: Python
@@ -193,7 +187,7 @@ items:
       - name: "🆕 Container: Transliterate text"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/transliterate-text-parameters.md
-      - name: "🆕 Container: Translate documents (preview)"
+      - name: "🆕 Container: Translate documents"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/translate-document-parameters.md
   - name: Translator container FAQ

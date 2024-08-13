@@ -2,7 +2,7 @@
 title: Scale HiveServer2 on Azure HDInsight
 description: Horizontally scale HiveServer2 on Azure HDInsight clusters using edge nodes to increase fault tolerance and availability.
 services: hdinsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.author: kecheung
 author: kcheeeung

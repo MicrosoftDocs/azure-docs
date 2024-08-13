@@ -3,12 +3,12 @@ title: Securely integrate with Azure Synapse
 titleSuffix: Azure Machine Learning
 description: 'How to use a virtual network when integrating Azure Synapse with Azure Machine Learning.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.author: meerakurup 
-author: meerakurup 
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 03/12/2024
 
 ---

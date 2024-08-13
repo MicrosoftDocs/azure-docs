@@ -2,7 +2,7 @@
 title: What's new with Azure Connected Machine agent
 description: This article has release notes for Azure Connected Machine agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 06/19/2024
+ms.date: 08/12/2024
 ms.custom: references_regions
 ---
 
@@ -20,9 +20,45 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 > Only Connected Machine agent versions within the last 1 year are officially supported by the product group. Customers should update to an agent version within this window.
 > 
 
-## Version 1.43 - June 2024 
+## Version 1.45 - August 2024
 
 Download for [Windows](https://aka.ms/AzureConnectedMachineAgent) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- Fixed an issue where EnableEnd telemetry would sometimes be sent too soon.
+- Added sending a failed timed-out EnableEnd telemetry log if extension takes longer than the allowed time to complete.
+
+### New features
+
+- Azure Arc proxy now supports HTTP traffic.
+- Mew proxy.bypass value 'AMA' added to support AMA VM extension proxy bypass.
+
+## Version 1.44 - July 2024
+
+Download for [Windows](https://download.microsoft.com/download/d/a/f/daf3cc3e-043a-430a-abae-97142323d4d7/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- Fixed a bug where the service would sometimes reject reports from an upgraded extension if the previous extension was in a failed state.
+- Setting OPENSSL_CNF environment at process level to override build openssl.cnf path on Windows.
+- Fixed access denied errors in writing configuration files.
+- Fixed SYMBIOS GUID related bug with Windows Server 2012 and Windows Server 2012 R2 [Extended Security Updates](/windows-server/get-started/extended-security-updates-overview) enabled by Azure Arc.
+
+### New features
+
+- Extension service enhancements: Added download/validation error details to extension report. Increased unzipped extension package size limit to 1 GB.
+- Update of hardwareprofile information to support upcoming Windows Server licensing capabilities.
+- Update of the error json output to include more detailed recommended actions for troubleshooting scenarios.
+- Block on installation of unsupported operating systems and distribution versions. See [Supported operating systems](prerequisites.md#supported-operating-systems) for details.
+
+> [!NOTE]
+> Azure Connected Machine agent version 1.44 is the last version to officially support Debian 10, Ubuntu 16.04, and Azure Linux (CBL-Mariner) 1.0.
+> 
+
+## Version 1.43 - June 2024 
+
+Download for [Windows](https://download.microsoft.com/download/0/7/8/078f3bb7-6a42-41f7-b9d3-9a0eb4c94df8/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 

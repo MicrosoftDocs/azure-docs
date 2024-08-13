@@ -3,10 +3,10 @@ title: Release notes for 2024 Azure Health Data Services monthly releases
 description: 2024 - Stay updated with the latest features and improvements for the FHIR, DICOM, and MedTech services in Azure Health Data Services in 2024. Read the monthly release notes and learn how to get the most out of healthcare data.
 services: healthcare-apis
 author: shellyhaverkamp
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 05/13/2024
+ms.date: 07/29/2024
 ms.author: jasteppe
 ms.custom: references_regions
 ---
@@ -14,6 +14,33 @@ ms.custom: references_regions
 # Release notes 2024: Azure Health Data Services
 
 This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
+
+## July 2024
+
+### Azure Health Data Services
+
+### FHIR service
+
+#### Allow dates in JSON data to be treated as strings in the Convert-Data operation
+
+It's possible for dates supplied within JSON data to be returned in a different format than what was supplied. During deserialization of the JSON payload strings that are identified as dates get converted into .NET DateTime objects. These objects then get converted back to strings before going through the Liquid template engine. This conversion can cause the date value to be reformatted and represented in the local timezone of the FHIR service.
+
+The coercion of strings to .NET DateTime objects can be disabled using the boolean parameter `jsonDeserializationTreatDatesAsStrings`. When set to `true`, the supplied data is treated as a string and won't be modified before being supplied to the Liquid engine.
+
+#### Import Operation enhancement
+The FHIR service now allows ingestion of data without specifying a version at the resource level. The order of resources is maintained using the lastUpdated value. This enhancement introduces the "allowNegativeVersions" flag. Setting flag true allows the FHIR service to assign negative versions for resource records with an explicit lastUpdated value and no version specified.
+
+#### Bug Fixes
+- **Fixed inclusion of soft deleted resources when using _security:not search parameter**
+When using the _security:not search parameter in search operations, IDs for soft-deleted resources were being included in the search results. We have fixed the issue so that soft-deleted resources are now excluded from search results.
+- **Exporting Data as SMART User**
+Exporting data as a SMART user no longer requires write scopes. Previously, it was necessary to grant "write" privileges to a SMART user for exporting data, which implied higher privilege levels. To initiate an export job as a SMART user, ensure the user is a member of the FHIR export role in RBAC and requests the "read" SMART clinical scope. 
+Updating Status Code from HTTP 500 to HTTP 400
+- **Updating Status Code from HTTP 500 to HTTP 400**
+During a patch operation, if the payload requested an update for a resource type other than parameter, an internal server error (HTTP 500) was initially thrown. This has been updated to throw an HTTP 400 error instead.
+
+#### Performance enhancement
+Query optimization is added when searching FHIR resources with a data range. This query optimization will help with efficient querying as one combined CTE is generated.
 
 ## May 2024
 

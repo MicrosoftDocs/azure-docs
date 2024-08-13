@@ -189,6 +189,26 @@
           - name: Azure SQL
             displayName: Connect to a database, Azure SQL
             href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python
+    - name: Connect to OpenAI
+      items:
+        - name: C#
+          href: functions-add-openai-text-completion.md?pivots=programming-language-csharp
+          displayName: Connect to OpenAI, text completion
+        - name: Java
+          href: functions-add-openai-text-completion.md?pivots=programming-language-java
+          displayName: Connect to OpenAI, text completion
+        - name: JavaScript
+          href: functions-add-openai-text-completion.md?pivots=programming-language-javascript
+          displayName: Connect to OpenAI, text completion
+        - name: PowerShell
+          href: functions-add-openai-text-completion.md?pivots=programming-language-powershell
+          displayName: Connect to OpenAI, text completion
+        - name: Python
+          href: functions-add-openai-text-completion.md?pivots=programming-language-python
+          displayName: Connect to OpenAI, text completion
+        - name: TypeScript
+          href: functions-add-openai-text-completion.md?pivots=programming-language-typescript
+          displayName: Connect to OpenAI, text completion
 - name: Tutorials
   items:
     - name: Functions with Logic Apps
@@ -222,10 +242,14 @@
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json
     - name: Create a serverless web app
       href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
-    - name: Machine learning with TensorFlow
-      href: functions-machine-learning-tensorflow.md
-    - name: Image classification with PyTorch
-      href: machine-learning-pytorch.md
+    - name: Data + AI
+      items:
+        - name: Azure OpenAI for text completion
+          href: functions-add-openai-text-completion.md   
+        - name: Machine learning with TensorFlow
+          href: functions-machine-learning-tensorflow.md
+        - name: Image classification with PyTorch
+          href: machine-learning-pytorch.md
     - name: Functions on IoT Edge device
       href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json
     - name: Java with Azure Cosmos DB and Event Hubs
@@ -576,7 +600,7 @@
           displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
-        - name: Monitoring options
+        - name: Monitor Azure Functions
           href: monitor-functions.md
           displayName: monitor metrics
         - name: Monitor function executions
@@ -605,7 +629,7 @@
               href: ../app-service/configure-authentication-provider-github.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with Google
               href: ../app-service/configure-authentication-provider-google.md?toc=/azure/azure-functions/toc.json
-            - name: Authenticate with Twitter
+            - name: Authenticate with X
               href: ../app-service/configure-authentication-provider-twitter.md?toc=/azure/azure-functions/toc.json
             - name: Authenticate with an OpenID Connect provider
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=/azure/azure-functions/toc.json
@@ -623,6 +647,8 @@
           href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json
     - name: Secure
       items:
+        - name: Work with access keys
+          href: function-keys-how-to.md
         - name: Add SSL cert
           href: ../app-service/configure-ssl-certificate.md?toc=/azure/azure-functions/toc.json
         - name: Restrict IPs
@@ -1086,13 +1112,13 @@
     - name: Regional availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Videos
-      href: https://www.youtube.com/c/AzureFunctions
+      href: https://www.youtube.com/@AzureDevelopers/search?query=functions
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-functions.html
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-functions
-    - name: Twitter
-      href: https://twitter.com/azurefunctions
+    - name: X
+      href: https://x.com/azurefunctions
     - name: Provide product feedback
       href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
     - name: Azure Functions GitHub repository

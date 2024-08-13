@@ -2,7 +2,14 @@
 title: Azure OpenAI embeddings input binding for Azure Functions
 description: Learn how to use the Azure OpenAI embeddings input binding to generate embeddings during function execution in Azure Functions.
 ms.topic: reference
-ms.custom: build-2024, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom: 
+  - build-2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilot
 ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -52,11 +59,11 @@ This example shows how to retrieve embeddings stored at a specified file that is
 ::: zone pivot="programming-language-typescript"
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/nodejs/src/app.ts" range="7-31":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="7-31":::
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/nodejs/src/app.ts" range="37-61":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="37-61":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

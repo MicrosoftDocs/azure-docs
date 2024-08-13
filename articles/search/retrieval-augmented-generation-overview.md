@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/22/2024
+ms.date: 07/29/2024
 ---
 
 # Retrieval Augmented Generation (RAG) in Azure AI Search
@@ -96,7 +96,7 @@ Since you probably know what kind of content you want to search over, consider t
 <!-- | audio | vectors <sup>1</sup> | Vectorized audio content can be [indexed as vector fields](vector-search-how-to-create-index.md) in your index. Vectorization of audio content often requires intermediate processing that converts audio to text, and then text to vecctors. [Azure AI Speech](/azure/ai-services/speech-service/overview) and [OpenAI Whisper](https://platform.openai.com/docs/guides/speech-to-text) are two examples for this scenario. | 
 | video | vectors <sup>1</sup> | Vectorized video content can be [indexed as vector fields](vector-search-how-to-create-index.md) in your index. Similar to audio, vectorization of video content also requires extra processing, such as breaking up the video into frames or smaller chunks for vectorization. | -->
 
- <sup>1</sup> The generally available functionality of [vector support](vector-search-overview.md) requires that you call other libraries or models for data chunking and vectorization. However, [integrated vectorization (preview)](vector-search-integrated-vectorization.md) embeds these steps. For code samples showing both approaches, see [azure-search-vectors repo](https://github.com/Azure/azure-search-vector-samples).
+ <sup>1</sup> The generally available functionality of [vector support](vector-search-overview.md) requires that you call other libraries or models for data chunking and vectorization. However, [integrated vectorization](vector-search-integrated-vectorization.md) embeds these steps. For code samples showing both approaches, see [azure-search-vectors repo](https://github.com/Azure/azure-search-vector-samples).
 
 <sup>2</sup> [Skills](cognitive-search-working-with-skillsets.md) are built-in support for [AI enrichment](cognitive-search-concept-intro.md). For OCR and Image Analysis, the indexing pipeline makes an internal call to the Azure AI Vision APIs. These skills pass an extracted image to Azure AI for processing, and receive the output as text that's indexed by Azure AI Search.
 
@@ -146,7 +146,7 @@ In comparison and benchmark testing, hybrid queries with text and vector fields,
 
 ### Example code of an Azure AI Search query for RAG scenarios
 
-The following code is copied from the [retrievethenread.py](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/approaches/retrievethenread.py) file from a demo site. It produces `content` for the LLM from hybrid query search results. You can write a simpler query, but this example is inclusive of vector search and keyword search with semantic reranking and spell check. In the demo, this query is used to get initial content.
+The following code is copied from the [retrievethenread.py](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/approaches/retrievethenread.py) file from a demo site. It produces `sources_content` for the LLM from hybrid query search results. You can write a simpler query, but this example is inclusive of vector search and keyword search with semantic reranking and spell check. In the demo, this query is used to get initial content.
 
 ```python
 # Use semantic ranker if requested and if retrieval mode is text or hybrid (vectors + text)
@@ -202,7 +202,7 @@ if len(history) > 0:
 else:
     search = user_input
 
-# Alternatively simply use search_client.search(q, top=3) if not using semantic ranking
+# Alternatively simply use search_client.search(q, top=3) if not using semantic search
 print("Searching:", search)
 print("-------------------")
 filter = "category ne '{}'".format(exclude_category.replace("'", "''")) if exclude_category else None
@@ -239,16 +239,20 @@ print("\n-------------------\nPrompt:\n" + prompt)
 
 + [Use Azure OpenAI Studio and "bring your own data"](/azure/ai-services/openai/concepts/use-your-data) to experiment with prompts on an existing search index in a playground. This step helps you decide what model to use, and shows you how well your existing index works in a RAG scenario.
 
-+ ["Chat with your data" solution accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator), built by the Azure AI Search team, helps you create your own custom RAG solution.
++ [Try this quickstart](search-get-started-rag.md) for a demonstration of query integration with chat models over a search index.
 
-+ [Enterprise chat app templates](https://aka.ms/azai) deploy Azure resources, code, and sample grounding data using fictitious health plan documents for Contoso and Northwind. This end-to-end solution gives you an operational chat app in as little as 15 minutes. Code for these templates is the **azure-search-openai-demo** featured in several presentations. The following links provide language-specific versions:
++ Start with solution accelerators:
+
+  + ["Chat with your data" solution accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) helps you create a custom RAG solution over your content.
+  + ["Conversational Knowledge Mining" solution accelerator](https://github.com/microsoft/Customer-Service-Conversational-Insights-with-Azure-OpenAI-Services), helps you create an interactive solution to extract actionable insights from post-contact center transcripts.
+  + ["Build Your Own AI Assistant" solution accelerator](https://github.com/microsoft/Build-your-own-AI-Assistant-Solution-Accelerator), helps build your own AI Assistant to identify relevant documents, summarize and categorize vast amounts of unstructured information, and accelerate the overall document review and content generation.
+
++ [Use enterprise chat app templates](https://aka.ms/azai) deploy Azure resources, code, and sample grounding data using fictitious health plan documents for Contoso and Northwind. This end-to-end solution gives you an operational chat app in as little as 15 minutes. Code for these templates is the **azure-search-openai-demo** featured in several presentations. The following links provide language-specific versions:
 
   + [.NET](https://aka.ms/azai/net)
   + [Python](https://aka.ms/azai/py)
   + [JavaScript](https://aka.ms/azai/js)
   + [Java](https://aka.ms/azai/javat)
-
-<!-- + For another helpful demo, here's [AOAISearchDemo](https://github.com/Azure-Samples/openai/blob/main/End_to_end_Solutions/AOAISearchDemo/README.md) from the Azure OpenAI team. This demo uses an unstructured .pdf data consisting of publicly available documentation on Microsoft Surface devices. -->
 
 + [Review indexing concepts and strategies](search-what-is-an-index.md) to determine how you want to ingest and refresh data. Decide whether to use vector search, keyword search, or hybrid search. The kind of content you need to search over, and the type of queries you want to run, determines index design.
 

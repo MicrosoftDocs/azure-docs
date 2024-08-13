@@ -5,11 +5,11 @@ services: virtual-machines-windows
 author: vikancha-MSFT
 manager: jkabat
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.collection: windows
 ms.tgt_pltfrm: vm-windows
-ms.date: 10/14/2021
+ms.date: 07/25/2024
 ms.author: vikancha
 ---
 # AMD GPU Driver Extension for Windows

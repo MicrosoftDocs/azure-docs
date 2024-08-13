@@ -3,7 +3,7 @@ title: Model high throughput apps - Azure Cosmos DB for PostgreSQL
 description: Techniques for scalable high-throughput transactional apps
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false

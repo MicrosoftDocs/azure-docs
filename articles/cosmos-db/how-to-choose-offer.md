@@ -4,7 +4,7 @@ description: Learn how to choose between standard (manual) provisioned throughpu
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 07/26/2024
 ms.author: dech
 ---
 
@@ -46,9 +46,9 @@ Use the Azure Cosmos DB [capacity calculator](estimate-ru-with-capacity-planner.
 
 ### Existing applications ###
 
-If you have an existing application using standard (manual) provisioned throughput, you can use [Azure Monitor metrics](insights-overview.md) to determine if your traffic pattern is suitable for autoscale. 
+If you have an existing application using standard (manual) provisioned throughput, you can use [Azure Monitor metrics](monitor-reference.md#metrics) to determine if your traffic pattern is suitable for autoscale.
 
-First, find the [normalized request unit consumption metric](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) of your database or container. Normalized utilization is a measure of how much you are currently using your standard (manual) provisioned throughput. The closer the number is to 100%, the more you are fully using your provisioned RU/s. [Learn more](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) about the metric.
+First, find the [normalized request unit consumption metric](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) of your database or container.
 
 Next, determine how the normalized utilization varies over time. Find the highest normalized utilization for each hour. Then, calculate the average normalized utilization across all hours. If you see that your average utilization is less than 66%, consider enabling autoscale on your database or container. In contrast, if the average utilization is greater than 66%, it's recommended to remain on standard (manual) provisioned throughput.
 
@@ -113,7 +113,7 @@ If you see that your traffic pattern is variable, but you are over or under prov
 Autoscale bills for the highest RU/s scaled to in an hour. When analyzing the normalized RU consumption over time, it is important to use the highest utilization per hour when calculating the average. 
 
 To calculate the average of the highest utilization across all hours:
-1. Set the **Aggregation** on the Noramlized RU Consumption metric to **Max**.
+1. Set the **Aggregation** on the Normalized RU Consumption metric to **Max**.
 1. Select the **Time granularity** to 1 hour.
 1. Navigate to **Chart options**.
 1. Select the bar chart option. 
@@ -122,14 +122,17 @@ To calculate the average of the highest utilization across all hours:
 :::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="To see normalized RU consumption by hour, 1) Select time granularity to 1 hour; 2) Edit chart settings; 3) Select bar chart option; 4) Under Share, select Download to Excel option to calculate average across all hours. ":::
 
 ## Measure and monitor your usage
-Over time, after you've chosen the throughput type, you should monitor your application and make adjustments as needed. 
+Over time, after you've chosen the throughput type, you should monitor your application and make adjustments as needed.
 
-When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/s (**Autoscale Max Throughput**) and the RU/s the system is currently scaled to (**Provisioned Throughput**). Below is an example of a variable or unpredictable workload using autoscale. Note when there isn't any traffic, the system scales the RU/s to the minimum of 10% of the max RU/s, which in this case is 5000 RU/s and 50,000 RU/s, respectively. 
+When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/s (**Autoscale Max Throughput**) and the RU/s the system is currently scaled to (**Provisioned Throughput**). 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Example of workload using autoscale, with autoscale max RU/s of 50,000 RU/s and throughput ranging from 5000 - 50,000 RU/s":::
+The following example shows a variable or unpredictable workload using autoscale. Note when there isn't any traffic, the system scales the RU/s to the minimum of 10% of the max RU/s, which in this case is 5,000 RU/s and 50,000 RU/s, respectively.
 
-> [!NOTE]
-> When you use standard (manual) provisioned throughput, the **Provisioned Throughput** metric refers to what you as a user have set. When you use autoscale throughput, this metric refers to the RU/s the system is currently scaled to.
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Screenshot of example workload using autoscale, with autoscale max RU/s of 50,000 RU/s and throughput ranging from 5000 - 50,000 RU/s.":::
+
+## Migrate standard provisioned throughput to autoscale
+
+Users that want to migrate a large number of resources from standard provisioned throughput to autoscale can use an Azure CLI script that will migrate every throughput resource in an Azure subscription to autoscale. For more details see, [Convert to Autoscale](./scripts/cli/common/convert-to-autoscale.md).
 
 ## Next steps
 * Use [RU calculator](https://cosmos.azure.com/capacitycalculator/) to estimate throughput for new workloads.

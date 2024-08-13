@@ -57,7 +57,7 @@ Markdown is a structured and formatted markup language and a popular input for e
 
 ## Get started
 
-The Document Intelligence Layout model **2024-02-29-preview** and **2023-10-31-preview** supports the following development options:
+The Document Intelligence Layout model **2024-07-31-preview** and **2023-10-31-preview** supports the following development options:
 
 * [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio).
 

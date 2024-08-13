@@ -4,11 +4,11 @@ titleSuffix: Azure Load Balancer
 description: Learn how to create a global load balancer with cross-subscription backends by connecting a virtual network in a subscription to a load balancer in a different subscription.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/18/2024
 ms.author: mbender
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a global load balancer with cross-subscription backends
@@ -262,11 +262,3 @@ az network cross-region-lb address-pool address add \
 
 > [!div class="nextstepaction"]
 > [Create a cross-subscription internal load balancer](./cross-subscription-how-to-internal-load-balancer.md)
-
-
-
-
-
-
-
-

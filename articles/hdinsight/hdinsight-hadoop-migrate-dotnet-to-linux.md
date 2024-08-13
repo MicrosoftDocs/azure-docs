@@ -2,7 +2,7 @@
 title: Use .NET with Hadoop MapReduce on Linux-based HDInsight - Azure
 description: Learn how to use .NET applications for streaming MapReduce on Linux-based HDInsight.
 
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive, devx-track-dotnet, linux-related-content
 ms.topic: how-to
 ms.date: 09/14/2023

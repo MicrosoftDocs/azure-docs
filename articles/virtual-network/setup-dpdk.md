@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
 author: steveesp
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/24/2023
@@ -14,7 +14,7 @@ ms.author: steveesp
 # Set up DPDK in a Linux virtual machine
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Data Plane Development Kit (DPDK) on Azure offers a faster user-space packet processing framework for performance-intensive applications. This framework bypasses the virtual machine’s kernel network stack.
 

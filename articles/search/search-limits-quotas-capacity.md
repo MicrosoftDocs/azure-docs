@@ -27,10 +27,10 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 + **Storage Optimized** runs on dedicated machines with more total storage, storage bandwidth, and memory than **Standard**. This tier targets large, slow-changing indexes. Storage Optimized comes in two levels: L1 and L2.
 
 ## Subscription limits
-[!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
+[!INCLUDE [azure-search-limits-per-subscription](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-subscription.md)]
 
 ## Service limits
-[!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
+[!INCLUDE [azure-search-limits-per-service](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-service.md)]
 
 <a name="index-limits"></a>
 
@@ -40,7 +40,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 |----------|------|--------|----|----|----|------------|----|----|
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
 | Maximum simple fields per index&nbsp;<sup>2</sup> |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
-| Maximum dimensions per vector field | 3072 |3072 |3072 |3072 |3072 |3072 |3072 |3072 |
+| Maximum dimensions per vector field | 4098|4098|4098|4098|4098|4098|4098|4098|
 | Maximum complex collections per index |40 |40 |40 |40 |40 |40 |40 |40 |
 | Maximum elements across all complex collections per document&nbsp;<sup>3</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximum depth of complex fields |10 |10 |10 |10 |10 |10 |10 |10 |

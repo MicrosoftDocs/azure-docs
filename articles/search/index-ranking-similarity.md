@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 09/25/2023
+ms.date: 07/22/2024
 ---
 
 # Configure BM25 relevance scoring
@@ -42,7 +42,7 @@ BM25 ranking provides two parameters for tuning the relevance score calculation.
 1. Use a [Create or Update Index](/rest/api/searchservice/create-index) request to set BM25 parameters:
 
     ```http
-    PUT [service-name].search.windows.net/indexes/[index-name]?api-version=2020-06-30&allowIndexDowntime=true
+    PUT [service-name].search.windows.net/indexes/[index-name]?api-version=2024-07-01&allowIndexDowntime=true
     {
         "similarity": {
             "@odata.type": "#Microsoft.Azure.Search.BM25Similarity",
@@ -83,7 +83,7 @@ The following links describe the Similarity property in the Azure SDKs.
 You can also use the [REST API](/rest/api/searchservice/create-index). The following example creates a new index with the "similarity" property set to BM25:
 
 ```http
-PUT [service-name].search.windows.net/indexes/[index name]?api-version=2020-06-30
+PUT [service-name].search.windows.net/indexes/[index name]?api-version=2024-07-01
 {
     "name": "indexName",
     "fields": [

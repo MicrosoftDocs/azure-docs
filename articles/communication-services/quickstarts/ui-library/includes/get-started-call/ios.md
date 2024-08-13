@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 > [!VIDEO https://www.youtube.com/embed/Aq5VTLfXU_4]
 
-Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling) in the open source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
+Get the sample iOS application for this [QuickStart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling) in the open source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
 
 ## Prerequisites
 
@@ -117,16 +117,12 @@ To initialize the composite:
         }
     
         @objc private func startCallComposite() {
-            let callCompositeOptions = CallCompositeOptions()
-    
-            callComposite = CallComposite(withOptions: callCompositeOptions)
-    
+            let callCompositeOptions = CallCompositeOptions(displayName: "<DISPLAY_NAME>")
             let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
-    
-            let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID(uuidString: "<GROUP_CALL_ID>")!),
-                                              credential: communicationTokenCredential,
-                                              displayName: "<DISPLAY_NAME>")
-            callComposite?.launch(remoteOptions: remoteOptions)
+
+            callComposite = CallComposite(credential: communicationTokenCredential, withOptions: callCompositeOptions)
+  
+            callComposite?.launch(locator: .groupCall(groupId: UUID(uuidString: "<GROUP_CALL_ID>")!))
         }
     }
     ```
@@ -151,25 +147,12 @@ The following classes and interfaces handle some key features of the Azure Commu
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [CallComposite](#create-callcomposite) | Component that renders a call experience that has a participant gallery and controls |
 | [CallCompositeOptions](#create-callcomposite) | Settings for options like themes and event handling |
-| RemoteOptions | Remote options to send to Azure Communication Services to join a [group call](#set-up-a-group-call) or a [Teams meeting](#join-a-teams-meeting). |
 | [ThemeOptions](#apply-theme-options) | Customization options for the composite theme |
 | [LocalizationOptions](#apply-localization-options) | Language options for the composite |
 
 ## UI Library functionality
 
 Get the code to create key communication features for your iOS application.
-
-### Create CallComposite
-
-To create `CallComposite`, inside the `startCallComposite` function, initialize a `CallCompositeOptions` instance and a `CallComposite` instance:
-
-```swift
-@objc private func startCallComposite() {
-    let callCompositeOptions = CallCompositeOptions()
-
-    callComposite = CallComposite(withOptions: callCompositeOptions)
-}
-```
 
 ### Set up authentication
 
@@ -181,16 +164,28 @@ let communicationTokenCredential = try! CommunicationTokenCredential(token: "<US
 
 If you don't already have an access token, [create an Azure Communication Services access token](../../../identity/quick-create-identity.md).
 
+
+### Create CallComposite
+
+To create `CallComposite`, inside the `startCallComposite` function, initialize a `CallCompositeOptions` instance with optional `<DISPLAY_NAME>` and a `CommunicationTokenCredential` instance:
+
+```swift
+@objc private func startCallComposite() {
+    let callCompositeOptions = CallCompositeOptions(displayName: "<DISPLAY_NAME>")
+    let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
+
+    callComposite = CallComposite(credential: communicationTokenCredential, withOptions: callCompositeOptions)
+}
+```
+
 ### Set up a group call
 
-To set up a group call, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.groupCall` locator. Replace `<GROUP_CALL_ID>` with the group ID for your call. Replace `<DISPLAY_NAME>` with your name.
+To set up a group call, inside the `startCallComposite` function, initialize a `.groupCall` locator. Replace `<GROUP_CALL_ID>` with the group ID for your call. 
 
 ```swift
 // let uuid = UUID() to create a new call
 let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
-let remoteOptions = RemoteOptions(for: .groupCall(groupId: uuid),
-                                  credential: communicationTokenCredential,
-                                  displayName: "<DISPLAY_NAME>")
+let locator = .groupCall(groupId: uuid)
 ```
 
 For more information about using a group ID for calls, see [Manage calls](../../../../how-tos/calling-sdk/manage-calls.md).
@@ -209,12 +204,10 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 #### Join via Teams meeting URL
 
-To join a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.teamsMeeting` locator. Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
+To join a Microsoft Teams meeting, inside the `startCallComposite` function, initialize an instance for the `.teamsMeeting` locator. Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
 
 ```swift
-let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>"),
-                                  credential: communicationTokenCredential,
-                                  displayName: "<DISPLAY_NAME>")
+let locator = .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>")
 ```
 
 #### Join via Teams Meeting ID and Passcode
@@ -224,39 +217,30 @@ A Teams meeting ID is 12 characters long and consists of numeric digits grouped 
 A passcode consists of 6 alphabet characters (i.e. `aBcDeF`). The passcode is case sensitive.
 
 ```swift
-let remoteOptions = RemoteOptions(for: .teamsMeetingId(meetingId: "<TEAMS_MEETING_ID>", meetingPasscode:  "<TEAMS_MEETING_PASSCODE>" ),
-                                  credential: communicationTokenCredential,
-                                  displayName: "<DISPLAY_NAME>")
-
+let locator = .teamsMeetingId(meetingId: "<TEAMS_MEETING_ID>", meetingPasscode:  "<TEAMS_MEETING_PASSCODE>" )
 ```
 
-### Set up a Rooms call
+### Set up a Room call
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
-
-To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
+To set up an Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
 While on the setup screen, `CallComposite` will enable camera and microphone to all participants with any room role. Actual up-to-date participant role and capabilities are retrieved from Azure Communication Services once call is connected.
 
-For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
+For more information about Rooms, how to create and manage one see [Rooms QuickStart](../../../rooms/get-started-rooms.md)
 
 ```swift
-let remoteOptions = RemoteOptions(for: .roomCall(roomId: "<ROOM_ID>"),
-                                  credential: communicationTokenCredential,
-                                  displayName: "<DISPLAY_NAME>")
-
-// Optionally, if user is a Consumer role, disable camera and microphone buttons on the setup screen:
-let setupScreenOptions = SetupScreenOptions(cameraButtonEnabled: false, microphoneButtonEnabled: false)
-let callCompositeOptions = CallCompositeOptions(setupScreenOptions: setupScreenOptions)
-
-let callComposite = CallComposite(withOptions: callCompositeOptions)
+let locator = .roomCall(roomId: "<ROOM_ID>")
 ```
+
+### Set up a 1:N Outgoing call and incoming call push notifications
+
+UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications.](../../../../how-tos/ui-library-sdk/one-to-one-calling.md)
 
 ### Launch the composite
 
 Inside the `startCallComposite` function, call `launch` on the `CallComposite` instance:
 
 ```swift
-callComposite?.launch(remoteOptions: remoteOptions)
+callComposite?.launch(locator: locator)
 ```
 
 ### Subscribe to events
@@ -337,6 +321,10 @@ callComposite?.events.onDismissed = { dismissed in
 
 callComposite.dismiss()
 ```
+
+### More features
+
+The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information about more features.
 
 ## Add notifications to your mobile app
 

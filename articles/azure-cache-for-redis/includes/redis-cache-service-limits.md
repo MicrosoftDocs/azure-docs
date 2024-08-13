@@ -1,6 +1,6 @@
 ---
 author: flang-msft
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: franlanglois

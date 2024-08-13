@@ -6,7 +6,7 @@ ms.reviewer: eur
 ms.author: eric-urban
 ms.service: azure-ai-studio
 ms.topic: include
-ms.date: 5/21/2024
+ms.date: 8/8/2024
 ms.custom: include, build-2024
 ---
 
@@ -14,7 +14,7 @@ Follow these steps to deploy an Azure OpenAI chat model for your copilot.
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com) and go to the **Home** page.
 1. Go to your hub by selecting it from the list of hubs via **Home** > **All hubs**. If you don't have a hub, create one. For more information, see [how to create a hub](../how-to/create-azure-ai-resource.md).
-1. From the left pane, select **Deployments** > **+ Create deployment**.
+1. From the left pane, select **Deployments** > **+ Deploy model**.
     
     :::image type="content" source="../media/tutorials/chat/deploy-create.png" alt-text="Screenshot of the deployments page with a button to create a new deployment." lightbox="../media/tutorials/chat/deploy-create.png":::
 

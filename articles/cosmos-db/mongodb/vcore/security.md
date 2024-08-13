@@ -5,7 +5,7 @@ description: Learn how Azure Cosmos DB for MongoDB vCore provides database prote
 author: khelanmodi
 ms.author: khelanmodi
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 10/23/2023

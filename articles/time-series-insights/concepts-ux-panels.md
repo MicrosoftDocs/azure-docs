@@ -14,7 +14,7 @@ ms.date: 01/22/2021
 
 [!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
-This article describes the various features and options available within the Azure Time Series Insights Gen2 [Demo environment](https://insights.timeseries.azure.com/preview/demo).
+This article describes the various features and options available within the Azure Time Series Insights Gen2 Demo environment.
 
 ## Prerequisites
 
@@ -177,7 +177,7 @@ Select the new **Share** icon to share a URL link with your team.
 
 * Displays your current Azure Time Series Insights Gen2 sign-in account information.
 * Use it to switch between the available themes.
-* Use it to view the Gen2 [Demo environment](https://insights.timeseries.azure.com/preview/demo).
+* Use it to view the Gen2 Demo environment.
 
 ### Theme selection
 

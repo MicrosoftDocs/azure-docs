@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group (NSG), using the Azure portal.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: tutorial
 ms.date: 05/29/2024
 ms.author: allensu
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
+[!INCLUDE [virtual-network-create.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create.md)]
 
 ## Create application security groups
 
@@ -281,7 +281,7 @@ You see the IIS default page, because inbound traffic from the internet to the *
 
 The network interface attached for **vm-1** is associated with the **asg-web** application security group and allows the connection. 
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

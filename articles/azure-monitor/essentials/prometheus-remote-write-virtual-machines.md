@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 06/20/2024
+ms.date: 08/07/2024
 #customer intent: As an azure administrator, I want to send Prometheus metrics from my self-managed Prometheus instance to an Azure Monitor workspace.
 ---
 
@@ -26,7 +26,6 @@ Use user-assigned managed identity authentication for services running self mana
 
 - Azure Virtual Machines
 - Azure Virtual Machine Scale Sets
-- Azure Arc-enabled Virtual Machines
 - Azure Kubernetes Service (AKS)
 
 To set up remote write for Azure-managed resources, see [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication).
@@ -34,9 +33,12 @@ To set up remote write for Azure-managed resources, see [Remote-write using user
 
 ## Virtual machines and Kubernetes clusters running on non-Azure environments.
 
-If you have virtual machines, or a Kubernetes cluster in non-Azure environments, and you don't want to onboard to Azure Arc, install self-managed Prometheus, and configure remote-write using Microsoft Entra ID application authentication. For more information, see [Remote-write using Microsoft Entra ID application authentication](#remote-write-using-microsoft-entra-id-application-authentication).
+If you have virtual machines or a Kubernetes cluster in non-Azure environments, or you have onboarded to Azure Arc, install self-managed Prometheus, and configure remote-write using Microsoft Entra ID application authentication. For more information, see [Remote-write using Microsoft Entra ID application authentication](#remote-write-using-microsoft-entra-id-application-authentication).
 
-Onboarding to Azure Arc-enabled services allows you to manage and configure non-Azure virtual machines in Azure. Once onboarded, configure [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication) authentication. For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
+Onboarding to Azure Arc-enabled services allows you to manage and configure non-Azure virtual machines in Azure. For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview). Arc-enabled services only support Microsoft Entra ID authentication.
+ 
+> [!NOTE]
+> System-assigned managed identity is not supported for remote-write to Azure Monitor workspaces. Use user-assigned managed identity or Microsoft Entra ID application authentication.
 
 
 ## Prerequisites
@@ -47,11 +49,12 @@ Onboarding to Azure Arc-enabled services allows you to manage and configure non-
 - Prometheus versions greater than v2.48 are required for Microsoft Entra ID application authentication. 
 
 ### Azure Monitor workspace
+
 This article covers sending Prometheus metrics to an Azure Monitor workspace. To create an Azure monitor workspace, see [Manage an Azure Monitor workspace](./azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace).
 
 ## Permissions
-Administrator permissions for the cluster or resource are required to complete the steps in this article.
 
+Administrator permissions for the cluster or resource are required to complete the steps in this article.
 
 ## Set up authentication for remote-write
 
@@ -63,7 +66,7 @@ Use the Azure portal or CLI to create a user-assigned managed identity or Micros
 
 ### Remote-write using user-assigned managed identity authentication
 
-User-assigned managed identity authentication can be used in any Azure-managed environment. If your Prometheus service is running in a non-Azure environment, you can use Entra ID application authentication.
+User-assigned managed identity authentication can be used in any Azure-managed environment. If your Prometheus service is running in a non-Azure environment, you can use Microsoft Entra ID application authentication.
 
 To configure a user-assigned managed identity for remote-write to Azure Monitor workspace, complete the following steps.
 
@@ -122,7 +125,7 @@ For each Virtual Machine Scale Set in the resource group, assign the managed ide
 ### [Microsoft Entra ID application](#tab/entra-application)
 ### Remote-write using Microsoft Entra ID application authentication
 
-Microsoft Entra ID application authentication can be used in any environment. If your Prometheus service is running in an Azure-managed environment consider using user-assigned managed identity authentication.
+Microsoft Entra ID application authentication can be used in any environment. If your Prometheus service is running in an Azure-managed environment, consider using user-assigned managed identity authentication.
 
 To configure remote-write to Azure Monitor workspace using a Microsoft Entra ID application, create an Entra application. On Azure Monitor workspace's data collection rule, assign the `Monitoring Metrics Publisher` role to the Entra application.
 
@@ -200,15 +203,15 @@ Note the value of the `clientId` of the managed identity that you create. This I
 
     ```azurecli
     {
-      "clientId": "abcdef01-a123-b456-d789-0123abc345de",
-      "id": "/subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity",
+      "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity",
       "location": "eastus",
       "name": "PromRemoteWriteIdentity",
-      "principalId": "98765432-0123-abcd-9876-1a2b3c4d5e6f",
+      "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
       "resourceGroup": "rg-001",
       "systemData": null,
       "tags": {},
-      "tenantId": "ffff1234-aa01-02bb-03cc-0f9e8d7c6b5a",
+      "tenantId": "ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d",
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
     }
     ```
@@ -226,8 +229,8 @@ Note the value of the `clientId` of the managed identity that you create. This I
     ```azurecli
     az role assignment create \
     --role "Monitoring Metrics Publisher" \
-    --assignee abcdef01-a123-b456-d789-0123abc345de \
-    --scope /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.Insights/dataCollectionRules/amw-001
+    --assignee 00001111-aaaa-2222-bbbb-3333cccc4444 \
+    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.Insights/dataCollectionRules/amw-001
     ```
 
 1. Assign the managed identity to a Virtual Machine or Virtual Machine Scale Set.
@@ -255,7 +258,7 @@ Note the value of the `clientId` of the managed identity that you create. This I
     az vm identity assign \
     -g rg-prom-on-vm \
     -n win-vm-prom \
-    --identities /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity
+    --identities /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity
     ```
 For more information, see [az identity create](/cli/azure/identity#az-identity-create) and [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
@@ -272,15 +275,15 @@ For example,
 az ad sp create-for-rbac \
 --name PromRemoteWriteApp \
 --role "Monitoring Metrics Publisher" \
---scopes /subscriptions/abcdef00-1234-5678-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.nsights/dataCollectionRules/amw-001
+--scopes /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.nsights/dataCollectionRules/amw-001
 ```    
 The following is an example of the output displayed:    
 ```azurecli
 {
-  "appId": "01234567-abcd-ef01-2345-67890abcdef0",
+  "appId": "66667777-aaaa-8888-bbbb-9999cccc0000",
   "displayName": "PromRemoteWriteApp",
-  "password": "AbCDefgh1234578~zxcv.09875dslkhjKLHJHLKJ",
-  "tenant": "abcdef00-1234-5687-abcd-1234567890ab"
+  "password": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+  "tenant": "ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d"
 }
 ```
 
@@ -289,13 +292,70 @@ The output contains the `appId` and `password` values. Save these values to use 
 For more information, see [az ad app create](/cli/azure/ad/app#az-ad-app-create) and [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac).
 
 ---
+
 ## Configure remote-write
 
-Remote-write is configured in the Prometheus configuration file `prometheus.yml`.
+Remote-write is configured in the Prometheus configuration file `prometheus.yml`, or in the Prometheus Operator.
 
 For more information on configuring remote-write, see the Prometheus.io article: [Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write). For more on tuning the remote write configuration, see [Remote write tuning](https://prometheus.io/docs/practices/remote_write/#remote-write-tuning).
 
-To send data to your Azure Monitor Workspace, add the following section to the configuration file of your self-managed Prometheus instance.
+### [Configure remote-write for Prometheus Operator](#tab/prom-operator)
+
+If you are running Prometheus Operator on a Kubernetes cluster, follow the below steps to send data to your Azure Monitor Workspace.
+
+1. If you are using Microsoft Entra ID authentication, convert the secret using base64 encoding, and then apply the secret into your Kubernetes cluster. Save the following into a yaml file. Skip this step if you are using managed identity authentication.
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: remote-write-secret
+  namespace: monitoring # Replace with namespace where Prometheus Operator is deployed. 
+type: Opaque
+data:
+  password: <base64-encoded-secret>
+
+```
+
+Apply the secret.
+
+```azurecli
+# set context to your cluster 
+az aks get-credentials -g <aks-rg-name> -n <aks-cluster-name> 
+
+kubectl apply -f <remote-write-secret.yaml>
+```
+
+2. You will need to update the values for remote write section in Prometheus Operator. Copy the following and save it as a yaml file. For the values of the yaml file, see below section. Refer to [Prometheus Operator documentation](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#azuread) for more details on the Azure Monitor Workspace remote write specification in Prometheus Operator.
+
+```yaml
+prometheus:
+  prometheusSpec:
+    remoteWrite:
+    - url: "<metrics ingestion endpoint for your Azure Monitor workspace>"
+      azureAd:
+# AzureAD configuration.
+# The Azure Cloud. Options are 'AzurePublic', 'AzureChina', or 'AzureGovernment'.
+        cloud: 'AzurePublic'
+        managedIdentity:
+          clientId: "<clientId of the managed identity>"
+        oauth:
+          clientId: "<clientId of the Entra app>"
+          clientSecret:
+            name: remote-write-secret
+            key: password
+          tenantId: "<Azure subscription tenant Id>"
+```
+
+3. Use helm to update your remote write config using the above yaml file.
+
+```azurecli
+helm upgrade -f <YAML-FILENAME>.yml prometheus prometheus-community/kube-prometheus-stack --namespace <namespace where Prometheus Operator is deployed>
+```
+
+### [Configure remote-write for Prometheus running in VMs or other environments](#tab/prom-vm)
+
+To send data to your Azure Monitor Workspace, add the following section to the configuration file (prometheus.yml) of your self-managed Prometheus instance.
 
 ```yaml
 remote_write:   
@@ -311,6 +371,8 @@ remote_write:
       client_secret: "<client secret from the Entra app>"
       tenant_id: "<Azure subscription tenant Id>"
 ```
+
+---
 
 The `url` parameter specifies the metrics ingestion endpoint of the Azure Monitor workspace. It can be found on the Overview page of your Azure Monitor workspace in the Azure portal.
 

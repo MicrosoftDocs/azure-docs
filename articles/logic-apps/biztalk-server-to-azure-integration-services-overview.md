@@ -2,7 +2,7 @@
 title: Why move from BizTalk Server to Azure Integration Services?
 description: Get an overview about moving from BizTalk Server to Azure Integration Services.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: kewear
 ms.author: kewear
@@ -51,7 +51,7 @@ Beyond the previously described services, Microsoft also offers the following co
 |---------|-------------|
 | Azure Storage | Provides highly available, massively scalable, durable, secure, and modern storage for various data objects in the cloud. You can access these data objects from anywhere in the world over HTTP or HTTPS using a REST API. <br><br>Azure Integration Services uses these capabilities to securely store configuration and telemetry data for you while transactions flow through the platform. For more information, see [Azure Storage](../storage/common/storage-introduction.md). |
 | Azure role-based access control (Azure RBAC) | Manage access to cloud resources, which is a critical function for any organization that uses the cloud. Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management to Azure resources. You can manage who can access Azure resources, what they can do with those resources, and which areas they can access. For more information, see [Azure RBAC](../role-based-access-control/overview.md). |
-| Azure Key Vault | Provides capabilities to help you solve problems related to secrets management, key management, and certificate management. <br><br>Azure Integration Services provides integration with Azure Key Vault through application configuration settings and through a connector. This capability lets you store secrets, credentials, keys, and certificates in a secure but convenient manner. For more information, see [Azure Key Vault](../key-vault/general/overview.md). |
+| Azure Key Vault | Provides capabilities to help you solve problems related to secrets management, key management, and certificate management. <br><br>Azure Integration Services provides integration with Azure Key Vault through application configuration settings and through a connector. This capability lets you store secrets, credentials, keys, and certificates in a secure but convenient manner. For more information, see [Azure Key Vault](/azure/key-vault/general/overview). |
 | Azure Policy | Provides capabilities that help you enforce organizational standards and assess compliance in a scalable way. Through the compliance dashboard, you get an aggregated view so you can evaluate the overall state of the environment with the ability to drill down to per-resource, per-policy granularity. <br><br>Azure Integration Services integrates with Azure Policy so you can efficiently implement widespread governance. For more information, see [Azure Policy](../governance/policy/overview.md). |
 | Azure Networking | Provides a wide variety of networking capabilities, including connectivity, application protection services, application delivery services, and networking monitoring. <br><br>Azure Integration Services uses these capabilities to provide connectivity across services using virtual networks and private endpoints. For more information, see [Azure Networking](../networking/fundamentals/networking-overview.md). |
 | Azure Event Hubs | Build dynamic data pipelines and immediately respond to business challenges by streaming millions of events per second from any source with this fully managed, real-time data ingestion service that's simple, trusted, and scalable. <br><br>API Management performs custom logging using Event Hubs, which is one of the best solutions when implementing a decoupled tracking solution in Azure. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md). |
@@ -552,7 +552,7 @@ BizTalk includes [Enterprise Single Sign-On (SSO)](/biztalk/core/enterprise-sing
 
 - Azure Key Vault
 
-  You can store credentials, secrets, API keys, and certificates using [Azure Key Vault](../key-vault/general/basic-concepts.md). In Azure Logic Apps, you can access this information by using the [Azure Key Vault connector](/connectors/keyvault/) and exclude this information from the platform's logs and run history by using the [secure inputs and outputs functionality](./logic-apps-securing-a-logic-app.md#obfuscate).
+  You can store credentials, secrets, API keys, and certificates using [Azure Key Vault](/azure/key-vault/general/basic-concepts). In Azure Logic Apps, you can access this information by using the [Azure Key Vault connector](/connectors/keyvault/) and exclude this information from the platform's logs and run history by using the [secure inputs and outputs functionality](./logic-apps-securing-a-logic-app.md#obfuscate).
 
   Later in the [Tracking](#tracking) section, this guide describes the run history functionality, which provides a step-by-step replay of a workflow's execution. Although Azure Logic Apps offers the value proposition of capturing every input and output in a workflow run, sometimes you need to manage access to sensitive data more granularly. You can set up obfuscation for this data by using the secure inputs and outputs capability on triggers and actions to hide such content from run history and prevent sending this data to Azure Monitor, specifically Log Analytics and Application Insights. The following image shows an example result from enabling secure inputs and secure outputs in run history.
 
@@ -642,7 +642,7 @@ The separation between configuration and code becomes important when you want to
 
 - Azure Key Vault
 
-  This service stores and protects cryptographic keys and other secrets used by applications and cloud services. Because secure key management is essential to protect data in the cloud, use [Azure Key Vault](../key-vault/general/overview.md) to encrypt and store keys and secrets, such as passwords.
+  This service stores and protects cryptographic keys and other secrets used by applications and cloud services. Because secure key management is essential to protect data in the cloud, use [Azure Key Vault](/azure/key-vault/general/overview) to encrypt and store keys and secrets, such as passwords.
 
 - Azure App Configuration
 

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 08/13/2024
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -22,6 +22,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
+* [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
 * The [non-browsable shares](#non-browsable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
 
 1. Register the feature: 
@@ -45,8 +46,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ## Considerations
 
 * Ensure that you meet the [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections). 
-* Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
-* The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
+* Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation fails.
+* The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files supports is limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
 * Dual-protocol volumes support both Active Directory Domain Services (AD DS) and Microsoft Entra Domain Services. 
 * Dual-protocol volumes do not support the use of LDAP over TLS with [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md). LDAP over TLS is supported with Active Directory Domain Services (AD DS). See [LDAP over TLS considerations](configure-ldap-over-tls.md#considerations).
@@ -82,11 +83,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Create a dual-protocol volume
 
-1.	Click the **Volumes** blade from the Capacity Pools blade. Click **+ Add volume** to create a volume. 
+1.	Select the **Volumes** blade from the Capacity Pools blade. Select **+ Add volume** to create a volume. 
 
     ![Navigate to Volumes](./media/shared/azure-netapp-files-navigate-to-volumes.png) 
 
-2.	In the Create a Volume window, click **Create**, and provide information for the following fields under the Basics tab:   
+2.	In the Create a Volume window, select **Create**, and provide information for the following fields under the Basics tab:   
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
@@ -121,7 +122,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to Azure NetApp Files. 
         
-        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
+        If you haven't delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
     
         ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
 
@@ -134,7 +135,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **Availability zone**   
         This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
 
-    * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
+    * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
         For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
@@ -159,7 +160,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * If you want to enable SMB3 protocol encryption for the dual-protocol volume, select **Enable SMB3 Protocol Encryption**.   
 
-        This feature enables encryption for only in-flight SMB3 data. It does not encrypt NFSv3 in-flight data. SMB clients not using SMB3 encryption will not be able to access this volume. Data at rest is encrypted regardless of this setting. See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for more information. 
+        This feature enables encryption for only in-flight SMB3 data. It does not encrypt NFSv3 in-flight data. SMB clients not using SMB3 encryption aren't able to access this volume. Data at rest is encrypted regardless of this setting. See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for more information. 
 
     * If you selected NFSv4.1 and SMB for the dual-protocol volume versions, indicate whether you want to enable **Kerberos** encryption for the volume.
 
@@ -168,7 +169,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
 
-        This feature will hide directories and files created under a share from users who do not have access permissions. Users will still be able to view the share. You can only enable access-based enumeration if the dual-protocol volume uses NTFS security style.
+        This feature hides directories and files created under a share from users who do not have access permissions. You can still view the share. You can only enable access-based enumeration if the dual-protocol volume uses NTFS security style.
 
     * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
 
@@ -184,7 +185,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     ![Specify dual-protocol](./media/create-volumes-dual-protocol/create-volume-protocol-dual.png)
 
-4. Click **Review + Create** to review the volume details. Then click **Create** to create the volume.
+4. Select **Review + Create** to review the volume details. Then select **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 
  
@@ -198,7 +199,7 @@ The **Allow local NFS users with LDAP** option in Active Directory connections e
 > Before enabling this option, you should understand the [considerations](#considerations).   
 > The **Allow local NFS users with LDAP** option is part of the **LDAP with extended groups** feature and requires registration. See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) for details.
 
-1. Select **Active Directory connections**. On an existing Active Directory connection, click the context menu (the three dots `…`), and select **Edit**.  
+1. Select **Active Directory connections**. On an existing Active Directory connection, select the context menu (the three dots `…`) then **Edit**.  
 
 2. On the **Edit Active Directory settings** window that appears, select the **Allow local NFS users with LDAP** option.  
 
@@ -227,18 +228,18 @@ The values specified for `objectClass` are separate entries. For example, in Mul
 
 Microsoft Entra Domain Services doesn’t allow you to modify the objectClass POSIX attribute on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
 
-If you are synchronizing the users and groups in your Microsoft Entra tenancy to users and groups in the AADDC Users OU, you cannot move users and groups into a custom OU. Users and groups created in the custom OU will not be synchronized to your AD tenancy. For more information, see the [Microsoft Entra Domain Services Custom OU considerations and limitations](../active-directory-domain-services/create-ou.md#custom-ou-considerations-and-limitations).
+If you are synchronizing the users and groups in your Microsoft Entra tenancy to users and groups in the AADDC Users OU, you can't move users and groups into a custom OU. Users and groups created in the custom OU aren't synchronized to your AD tenancy. For more information, see the [Microsoft Entra Domain Services Custom OU considerations and limitations](../active-directory-domain-services/create-ou.md#custom-ou-considerations-and-limitations).
 
 ### Access Active Directory Attribute Editor 
 
 On a Windows system, you can access the Active Directory Attribute Editor as follows:  
 
-1. Click **Start**, navigate to **Windows Administrative Tools**, and then click **Active Directory Users and Computers** to open the Active Directory Users and Computers window.  
-2.	Click the domain name that you want to view, and then expand the contents.  
+1. Select **Start**, navigate to **Windows Administrative Tools**. Then select **Active Directory Users and Computers** to open the Active Directory Users and Computers window.  
+2.	Select the domain name that you want to view, and then expand the contents.  
 3.	To display the advanced Attribute Editor, enable the **Advanced Features** option in the Active Directory Users Computers **View** menu.   
     ![Screenshot that shows how to access the Attribute Editor Advanced Features menu.](./media/create-volumes-dual-protocol/attribute-editor-advanced-features.png) 
-4. Double-click **Users** on the left pane to see the list of users.
-5. Double-click a particular user to see its **Attribute Editor** tab.
+4. Select **Users** on the left pane to see the list of users.
+5. Select a particular user to see its **Attribute Editor** tab.
  
 ## Configure the NFS client 
 

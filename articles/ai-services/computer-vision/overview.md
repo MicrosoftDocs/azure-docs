@@ -18,8 +18,6 @@ keywords: Azure AI Vision, Azure AI Vision applications, Azure AI Vision service
 
 # What is Azure AI Vision?
 
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
-
 Azure's Azure AI Vision service gives you access to advanced algorithms that process images and return information based on the visual features you're interested in. 
 
 | Service|Description|

@@ -2,7 +2,7 @@
 title: DCsv2-series - Azure Virtual Machines
 description: Specifications for the DCsv2-series VMs.
 author: linuxelf001
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 12/12/2022

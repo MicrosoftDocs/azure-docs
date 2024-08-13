@@ -4,7 +4,7 @@ description: This article describes how to set up rules to control autoscale beh
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/06/2024
 ms.author: danlep
@@ -22,6 +22,7 @@ The article walks through the process of configuring autoscale and suggests opti
 > [!NOTE]
 > * In service tiers that support multiple scale units, you can also [manually scale](upgrade-and-scale.md) your API Management instance.
 > * An API Management service in the **Consumption** tier scales automatically based on the traffic - without any additional configuration needed.
+> * Currently, autoscale is not supported for the [workspace gateway](workspaces-overview.md#workspace-gateway) in API Management workspaces.
 
 ## Prerequisites
 

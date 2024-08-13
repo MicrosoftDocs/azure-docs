@@ -1,7 +1,7 @@
 ---
 title: Use the Azure Tables client library for Java
 description: Store structured data in the cloud using the Azure Tables client library for Java.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.devlang: java
 ms.topic: sample
@@ -538,7 +538,7 @@ catch (Exception e)
 }
 ```
 
-[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
+[!INCLUDE [storage-check-out-samples-java](~/reusable-content/ce-skilling/azure/includes/storage-check-out-samples-java.md)]
 
 ## Next steps
 

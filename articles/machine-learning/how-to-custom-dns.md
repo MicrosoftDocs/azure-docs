@@ -3,11 +3,11 @@ title: Use custom DNS server
 titleSuffix: Azure Machine Learning
 description: How to configure a custom DNS server to work with an Azure Machine Learning workspace and private endpoint.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: meerakurup 
-author: meerakurup 
+ms.reviewer: meerakurup 
+ms.author: larryfr
+author: Blackmist
 ms.date: 06/05/2024
 ms.topic: how-to
 monikerRange: 'azureml-api-2 || azureml-api-1'
@@ -91,7 +91,7 @@ Access to a given Azure Machine Learning workspace via Private Link is done by c
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.ml.azure.us```
 - ```<compute instance name>.<region the workspace was created in>.instances.azureml.us```
-- `<compute instance name>.<region the workspace was created in>.instances.azureml.us` - Used by the `az ml compute connect-ssh` command to connect to computes in a managed virtual network.
+- `<compute instance name>-22.<region the workspace was created in>.instances.azureml.us` - Used by the `az ml compute connect-ssh` command to connect to computes in a managed virtual network.
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.usgovcloudapi.net```
 - ```<managed online endpoint name>.<region>.inference.ml.azure.us``` - Used by managed online endpoints
 

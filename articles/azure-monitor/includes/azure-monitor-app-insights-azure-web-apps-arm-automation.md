@@ -153,7 +153,7 @@ In the following sample, replace all instances of `AppMonitoredSite` with your s
 
 To enable the application monitoring through PowerShell, only the underlying application settings must be changed. The following sample enables application monitoring for a website called `AppMonitoredSite` in the resource group `AppMonitoredRG`. It configures data to be sent to the `012345678-abcd-ef01-2345-6789abcd` instrumentation key.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 > [!NOTE]
 > If using Windows, set ApplicationInsightsAgent_EXTENSION_VERSION to `~2`. If using Linux, set ApplicationInsightsAgent_EXTENSION_VERSION to `~3`.

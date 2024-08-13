@@ -3,11 +3,11 @@ title: Create a cross-subscription internal load balancer
 description: Learn how to create a cross-subscription internal load balancer by connecting a virtual network in a subscription to a load balancer in a different subscription.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/18/2024
 ms.author: mbender
-ms.custom:
+ms.custom: devx-track-azurepowershell
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? > .
 ---
 

@@ -4,7 +4,7 @@ description: In this quickstart, you use the Azure CLI to quickly deploy a Spot 
 ms.topic: tutorial
 ms.author: atsenthi
 author: athinanthny
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.date:  05/11/2023

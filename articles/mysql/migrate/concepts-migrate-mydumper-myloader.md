@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 05/21/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: single-server
 ms.topic: conceptual
 ---
@@ -13,7 +13,7 @@ ms.topic: conceptual
 # Migrate large databases to Azure Database for MySQL using mydumper/myloader
 
 > [!CAUTION]  
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 [!INCLUDE [applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

@@ -5,7 +5,7 @@ author: shreyaaithal
 ms.author: shaithal
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom:
@@ -18,7 +18,7 @@ ms.custom:
 
 [!INCLUDE [azure-database-for-mysql-flexible-server-abstract](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

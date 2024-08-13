@@ -3,11 +3,11 @@ title: Machine Learning registries
 titleSuffix: Azure Machine Learning
 description: Learn about Azure Machine Learning registries and their role in scaling MLOps across different environments.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: kritifaujdar
 ms.date: 06/06/2024
 ms.topic: conceptual
 ms.custom: build-2023

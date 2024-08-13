@@ -2,7 +2,6 @@
 title: How does Workflow Orchestration Manager work?
 titleSuffix: Azure Data Factory
 description: This article explains how to create a Workflow Orchestration Manager instance and use DAG to make it work.
-ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain

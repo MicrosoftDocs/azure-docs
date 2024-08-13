@@ -4,7 +4,7 @@ description: Learn how to set environment variables in the containers you run in
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -16,7 +16,7 @@ Setting environment variables in your container instances allows you to provide 
 
 To set environment variables in a container, specify them when you create a container instance. This article shows examples of setting environment variables when you start a container with the [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), and the [Azure portal](#azure-portal-example). 
 
-For example, if you run the Microsoft [aci-wordcount][aci-wordcount] container image, you can modify its behavior by specifying the following environment variables:
+For example, if you run the Microsoft aci-wordcount container image, you can modify its behavior by specifying the following environment variables:
 
 *NumWords*: The number of words sent to STDOUT.
 
@@ -24,11 +24,11 @@ For example, if you run the Microsoft [aci-wordcount][aci-wordcount] container i
 
 If you need to pass secrets as environment variables, Azure Container Instances supports [secure values](#secure-values) for both Windows and Linux containers.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Azure CLI example
 
-To see the default output of the [aci-wordcount][aci-wordcount] container, run it first with this [az container create][az-container-create] command (no environment variables specified):
+To see the default output of the aci-wordcount container, run it first with this [az container create][az-container-create] command (no environment variables specified):
 
 ```azurecli-interactive
 az container create \
@@ -85,7 +85,7 @@ The outputs of the containers show how you've modified the second container's sc
 
 Setting environment variables in PowerShell is similar to the CLI, but uses the `-EnvironmentVariable` command-line argument.
 
-First, launch the [aci-wordcount][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] command:
+First, launch the aci-wordcount container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] command:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `

@@ -10,6 +10,7 @@ metadata:
   description: Learn how to deploy resources to complex and distributed environments across on-premises, edge, and multicloud. Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
   ms.service: azure-arc
   ms.topic: hub-page
+  ms.author: jroth
   ms.date: 02/15/2024
   ms.custom:
     - e2e-hybrid
@@ -26,7 +27,7 @@ highlightedContent:
     # Card
     - title: Azure Arc Jumpstart
       itemType: sample
-      url: https://aka.ms/AzureArcJumpstart/overview/
+      url: https://aka.ms/ArcJumpstart/
       # Card
     - title: Azure Arc-enabled servers
       itemType: overview

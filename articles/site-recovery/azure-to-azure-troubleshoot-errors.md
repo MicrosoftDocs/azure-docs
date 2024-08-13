@@ -2,9 +2,8 @@
 title: Troubleshoot Azure VM replication in Azure Site Recovery
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
 author: ankitaduttaMSFT
-manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.service: azure-site-recovery
+ms.topic: troubleshooting
 ms.date: 03/07/2024
 ms.author: ankitadutta
 ms.custom: engagement-fy23
@@ -13,7 +12,7 @@ ms.custom: engagement-fy23
 # Troubleshoot Azure-to-Azure VM replication errors
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
