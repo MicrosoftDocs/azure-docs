@@ -63,7 +63,7 @@ For a general idea of what's required, such as operating systems, virtual networ
 
   - An existing [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network to which you're deploying the session hosts.
 
-- If you want to use the Azure CLI or Azure PowerShell locally, see [Use the Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use [Azure Cloud Shell](../cloud-shell/overview.md).
+- If you want to use the Azure CLI or Azure PowerShell locally, see [Use the Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) Azure PowerShell module installed. Alternatively, use [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!IMPORTANT]
 > If you want to create Microsoft Entra joined session hosts, we support this action only if you use the Azure portal with the Azure Virtual Desktop service.
@@ -92,7 +92,7 @@ Here's how to generate a registration key by using the Azure portal:
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to generate a registration key by using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. In the following examples, be sure to change the `<placeholder>` values for your own.
+Here's how to generate a registration key by using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) Azure PowerShell module. In the following examples, be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 2. Use the `New-AzWvdRegistrationInfo` cmdlet by using the following example to generate a registration key that's valid for 24 hours.
@@ -272,7 +272,7 @@ Select the relevant tab for your scenario and follow the steps.
 
 1. Make sure the virtual machines that you want to use as session hosts are joined to Microsoft Entra ID or an Active Directory domain (Active Directory Domain Services or Microsoft Entra Domain Services).
 
-1. If your virtual machines are running a Windows Server OS, you need to install the *Remote Desktop Session Host* role, and then restart the virtual machine. For more information, see [Install roles, role services, and features by using the Add Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).
+1. If your virtual machines are running a Windows Server OS, you need to install the *Remote Desktop Session Host* role and then restart the virtual machine. For more information, see [Install roles, role services, and features by using the Add Roles and Features Wizard](/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#install-roles-role-services-and-features-by-using-the-add-roles-and-features-wizard).
 
 1. Sign in to your virtual machine as an administrator.
 
@@ -365,7 +365,7 @@ After you add session hosts to your host pool, you might need to do some extra c
 
 Now that you've expanded your existing host pool, you can sign in to an Azure Virtual Desktop client to test the hosts as part of a user session. You can connect to a session by using any of the following clients:
 
-- [Connect with the Windows Desktop client](./users/connect-windows.md)
+- [Connect with the Windows desktop client](./users/connect-windows.md)
 - [Connect with the web client](./users/connect-web.md)
 - [Connect with the Android client](./users/connect-android-chrome-os.md)
 - [Connect with the macOS client](./users/connect-macos.md)
