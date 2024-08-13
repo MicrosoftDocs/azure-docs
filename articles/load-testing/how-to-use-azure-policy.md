@@ -55,7 +55,7 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
 
 1. Now you should be able to see all the policies available for Azure Load Testing. Make sure you read and understand the [policy guidance](#types-of-policy-effects-and-guidance) and select a policy you want to assign to a scope.  
 
-    ![Screenshot that shows the available policies.](media/how-to-use-azure-policy/search-policy.png)
+    ![Screenshot that shows the available policies.](media/how-to-use-azure-policy/select-policy-scope.png)
 
 ### Assign a policy to a scope
 
