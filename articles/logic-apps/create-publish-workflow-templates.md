@@ -61,7 +61,7 @@ To get the workflow definition after you're done, follow these steps in the [Azu
 
 1. From the code view window, copy the entire workflow definition, for example:
 
-   :::image type="content" source="media/create-publish-workflow-templates/standard-workflow-code=view.png" alt-text="Screenshot shows Azure portal, code view window, and Request-Response workflow defintion." lightbox="media/create-publish-workflow-templates/standard-workflow-code=view.png":::
+   :::image type="content" source="media/create-publish-workflow-templates/standard-workflow-code=view.png" alt-text="Screenshot shows Azure portal, code view window, and Request-Response workflow definition." lightbox="media/create-publish-workflow-templates/standard-workflow-code=view.png":::
 
 1. In an empty file named **workflow.json**, save the workflow definition.
 
@@ -105,7 +105,7 @@ For more information about the connector ID, see [Find the connector ID](find-co
 
   - A Microsoft-managed API version, which appears in the connectors gallery with the **Shared** label. This version is hosted and run in multitenant Azure using shared global resources.
 
-- Avoid harcoding properties and their values in trigger and action definitions.
+- Avoid hardcoded properties and their values in trigger and action definitions.
 
 - Provide more context about trigger and action definitions by adding descriptive and helpful comments.
 
@@ -119,7 +119,7 @@ To provide this preview image, follow these steps:
 
    You need to create a version each for the browser light theme and for the browser dark theme.
 
-1. Create the workflow screenshots using your preferred screen capture tool. Avoid including a lot of empty whitespace around the workflow.
+1. Create the workflow screenshots using your preferred screen capture tool. Avoid including too much whitespace around the workflow.
 
 1. Save each image using the **.png** file name extension and any name that you want, following the [Names and style conventions](#names-style-conventions).
 
@@ -200,7 +200,7 @@ To get these attribute values, follow these steps in the [Azure portal](https://
 
 ## Add template package to GitHub repository
 
-To publish your template to the templates gallery in the Azure poral, set up GitHub, and create a pull request with your template package for validation and review:
+To publish your template to the templates gallery in the Azure portal, set up GitHub, and create a pull request with your template package for validation and review:
 
 1. [Create a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github), if you don't have one.
 
@@ -210,7 +210,7 @@ To publish your template to the templates gallery in the Azure poral, set up Git
 
 1. Create your own [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks), which is a remote copy of the **LogicAppsTemplates** repository in GitHub.
 
-   For more information, see [Forking a repositoryt](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project?tool=webui#forking-a-repository).
+   For more information, see [Forking a repository](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project?tool=webui#forking-a-repository).
 
 1. To work locally, clone your fork onto your computer.
 
@@ -266,9 +266,9 @@ To publish your template to the templates gallery in the Azure poral, set up Git
 | Folder names | For easier readability, use lowercase and hyphens. See [Capitalization – Microsoft Style Guide](/style-guide/capitalization). |
 | Image file names | Use the **.png** as the file name extension, lowercase, and hyphens, for example, **workflow-light.png**. |
 | Product, service, technology, and brand names | Follow the official spelling and capitalization. For example: <br><br>- When you refer to the service name or platform, use "Azure Logic Apps", not "Logic Apps". <br><br>- When you refer to the resource or instance, use "logic apps" or "logic app", not "Logic App" or "Logic Apps". <br><br>- When you refer to the sequence of trigger and actions, use "logic app workflow" or "workflow". |
-| Abbreviations and acronynms | Use the expanded name for product, service, technology, brand names, and uncommon technical terms, not abbreviations or acronyms. Common acronyms, such as "HTTP" and "URL", are acceptable. For example, use "Visual Studio Code", not "VS Code". See [Acronyms – Microsoft Style Guide](/style-guide/acronyms). |
+| Abbreviations and acronyms | Use the expanded name for product, service, technology, brand names, and uncommon technical terms, not abbreviations or acronyms. Common acronyms, such as "HTTP" and "URL", are acceptable. For example, use "Visual Studio Code", not "VS Code". See [Acronyms – Microsoft Style Guide](/style-guide/acronyms). |
 | Other text | Use sentence case for titles, headings, and body content, which means that you capitalize only the first letter unless you have product, service, technology, or brand name. Don't capitalize ordinary nouns and articles, such as "a", "an", "and", "or", "the", and so on. |
-| Voice | - Use second person voice (you, your), rather than third person (users, developers, customers) unless you need to refer to specific roles. See [Person – Microsoft Style Guide](/style-guide/grammar/person). <br><br>- Use an active, direct, but friendly tone when possible. Active voice focuses on the subject and verb in text, while passive voice focuses on the object in text. |
+| Voice | - Use second person voice (you and your), rather than third person (users, developers, customers) unless you need to refer to specific roles. See [Person – Microsoft Style Guide](/style-guide/grammar/person). <br><br>- Use an active, direct, but friendly tone when possible. Active voice focuses on the subject and verb in text, while passive voice focuses on the object in text. |
 | Vocabulary | - Use simple, common, everyday words, such as  "use", rather than "utilize" or "leverage". Don't use words, phrases, jargon, colloquialisms, idioms, or slang that don't translate well across languages. <br><br>-	Use "please" only for specific scenarios. See [please – Microsoft Style Guide](/style-guide/a-z-word-list-term-collections/p/please). <br><br>- Use "for example" or "such as", not "e.g." or "i.e.". <br><br>- Don't use directional terms such as "here", "above", "below", "right", and "left", which aren't accessible friendly. |
 | Punctuation | -	For a series of items, include the last comma before the word "and", for example, "apples, oranges, and bananas". See [Commas – Microsoft Style Guide](/style-guide/punctuation/commas). <br><br>-	End full sentences with appropriate punctuation. Avoid exclamation points. See [Punctuation – Microsoft Style Guide](/style-guide/punctuation/). |
 | Formatting | - For code, follow the style convention for that code's language. <br><br>- Don't use hardcoded links, which break if the URLs change. In your PR request, ask for a redirection link to use instead. <br><br>- For links, use the following format: "`For more information, see [descriptive link text](URL)]`.". <br><br>- Use descriptive link text, not generic or vague link text, such as "`See [here](URL)`." <br><br>- Use numbers only for steps in a procedure, not for lists that have no specific order. See [Lists – Microsoft Style Guide](/style-guide/scannable-content/lists). <br><br>- Use only one space after punctuation unless you're indenting code. |
