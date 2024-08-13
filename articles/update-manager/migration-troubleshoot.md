@@ -30,7 +30,7 @@ Ensure you have successfully executed the Command `Install-Module -Name Az -Repo
 
 ## Unable to acquire token for tenant organizations 
 
-## Issue
+### Issue
 
 Encountering a warning as - unable to acquire token `organizations` with error `InteractiveBrowserCredential authentication failed: Method not found: 'Void Microsoft.Identity.Client.Extensions.Msal.MsalCacheHelper.RegisterCache(Microsoft.Identity.Client.ITokenCa)`
 
@@ -45,7 +45,7 @@ Execute command `Update-AzConfig -EnableLoginByWam $false` in an elevated Powers
 
 ## WARNING: Unable to acquire token for tenant organizations 
 
-## Issue
+### Issue
 
 :::image type="content" source="./media/migration-troubleshoot/warning-token-organization.png" alt-text="Screenshot that shows the warning message when tokens aren't acquired for tenant organizations. " lightbox="./media/migration-troubleshoot/warning-token-organization.png":::
 
