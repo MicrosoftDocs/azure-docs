@@ -1479,7 +1479,6 @@ items:
       href: data-lake-storage-integrate-with-services-tutorials.md    
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
-  - name: Monitoring metrics and logs
     items:
     - name: Monitor Blob storage
       href: monitor-blob-storage.md
