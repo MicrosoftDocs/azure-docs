@@ -38,7 +38,6 @@ This 07-31-2024 Azure Operator Service Manager release includes updating the NFO
 3.	Delete custom location
 4.	_If Required:_ Update the CSN to whitelist the endpoint: "linuxgeneva-microsoft.azurecr.io" port 443. This step can be skipped if a wildcard is being used or if running Nexus 3.12 or later.
 5.	Install the network function extension
-    - For further reference, complete extension syntax in Appendix B.
 6.	Create custom location
 7.	Redeploy site network services and network functions to the custom location.
 
@@ -53,29 +52,6 @@ Introduced in this release is an enhancement of the cluster registry and webhook
 * Changing registry storage volume from "nexus-volume" to "nexus-shared"
 * Implementing options to allow for the future deletion of the extension with minimal impact.
 * Adds tracking references for cluster registry container images usage
-
-The following new parameters are now available, and should be appropriately set, when creating the network function extension using the “az k8s-extension” command.
-
---config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=
-This configuration will provision the cluster registry in high availability mode, if enabled.
-By default, uses NAKS nexus-shared volume on AKS.
-Accepted values: true, false.
-Default value: true.
-
---config global.networkfunctionextension.clusterRegistry.autoScaling.enabled=
-This configuration will provision the cluster registry pods with horizontal auto scaling.
-Accepted values: true, false.
-Default value: true.
-
---config global.networkfunctionextension.webhook.highAvailability.enabled=
-This configuration will provision multiple replicas of webhook for high availability.
-Accepted values: true, false.
-Default value: true.
-
---config global.networkfunctionextension.webhook.autoScaling.enabled=
-This configuration will provision the webhook pods with horizontal auto scaling.
-Accepted values: true, false.
-Default value: true.
 
 #### Safe Upgrades – Downgrade to Lower Version 
 With this release a SNS re-put operation now supports downgrading a network function to a lower version.  The downgrade re-put operation uses the “helm update” method and is not the same as a rollback operation.  Downgrade operations support the same capabilities as upgrades, such as atomic parameter, test-option parameters and pause-on-failure behavior.
@@ -95,184 +71,13 @@ Through Microsoft’s Secure Future Initiative | Microsoft, the Nexus product ha
 
 * NFO	- Signing of helm package used by network function extension.
 * NFO	- Signing of core image used by network function extension.
-* NFO	- Use of Cert-manager for service certificate management and rotation.  This change can result in failed SNS deployments if not properly reconciled.  For guidance on the impact of this change, see Appendix C.
+* NFO	- Use of Cert-manager for service certificate management and rotation.  This change can result in failed SNS deployments if not properly reconciled.  For guidance on the impact of this change, see Appendix A.
 * NFO	- Automated refresh of AOSM certificates during extension installation.
 * NFO	- A dedicated service account for the pre-upgrade job to safeguard against modifications to the existing network function extension service account.
 * RP - The service principles (SPs) used for deploying site & NF now require “Microsoft.ExtendedLocation/customLocations/read” permission.  The SP's which deploy day N scenario now require "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action" permission. This change can result in failed SNS deployments if not properly reconciled
 * CVE	- The following CVE’s are addressed in this release: CVE-2019-25210, CVE-2024-2511, CVE-2023-42366, CVE-2024-4603, CVE-2023-42363
 
 ### Appendix A
-#### Detailed Syntax to Create NF Extension
-az k8s-extension create --cluster-name
-                        --cluster-type {connectedClusters}
-                        --extension-type {Microsoft.Azure.HybridNetwork}
-                        --name
-                        --resource-group
-                        --scope {cluster}
-                        --release-namespace {azurehybridnetwork}
-                        --release-train {preview, stable}
-                        --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator
-                        [--auto-upgrade {false, true}]
-                        [--config global.networkfunctionextension.enableClusterRegistry={false, true}]
-                        [--config global.networkfunctionextension.enableLocalRegistry={false, true}]
-                        [--config global.networkfunctionextension.enableEarlyLoading={false,true}]
-                        [--config global.networkfunctionextension.clusterRegistry.highAvailability.enabled={true, false}]
-                        [--config global.networkfunctionextension.clusterRegistry.autoScaling.enabled={true, false}]
-                        [--config global.networkfunctionextension.webhook.highAvailability.enabled={true, false}]
-                        [--config global.networkfunctionextension.webhook.autoScaling.enabled={true, false}]
-                        [--config global.networkfunctionextension.clusterRegistry.storageClassName=]
-                        [--config global.networkfunctionextension.clusterRegistry.storageSize=]
-                        [--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=]
-                        [--version]
-
-#### Required Parameters
-
---cluster-name -c
-Name of the Kubernetes cluster.
-
---cluster-type -t
-Specify Arc clusters or AKS managed clusters or Arc appliances or provisionedClusters.
-Accepted values: connectedClusters.
-
---extension-type
-Name of the extension type.
-Accepted values: Microsoft.Azure.HybridNetwork.
-
---name -n
-Name of the extension instance.
-
---resource-group -g
-Name of resource group. You can configure the default group using az configure --defaults group=.
---config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator
-This configuration must be provided.
-
-#### Optional Parameters
-
---auto-upgrade
-Automatically upgrade minor version of the extension instance.
-Accepted values: false, true.
-Default value: true.
-
---release-train
-Specify the release train for the extension type.
-Accepted values: preview, stable.
-Default value: stable.
-
---version
-Specify the version to install for the extension instance if --auto-upgrade-minor-version is not enabled.
-Availabe version can be found on Network Function Extension Release notes
-
-#### Optional feature specific configurations
-
-**Pod Mutating Webhook**
-
---config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=
-This configuration is an optional parameter. It comes into play when CNF is getting installed and as a part of its installation corresponding pods are spin up in the CNF's release namespace.  This configuration configures more granular control on top of rules and namespaceSelectors defined in Pod Mutating Webhook Configuration.
-
-Default value:
-"((object.metadata.namespace != \"kube-system\") ||  (object.metadata.namespace == \"kube-system\" && has(object.metadata.labels) && (has(object.metadata.labels.app) && (object.metadata.labels.app == \"commissioning\") || (has(object.metadata.labels.name) && object.metadata.labels.name == \"cert-exporter\") || (has(object.metadata.labels.app) && object.metadata.labels.app == \"descheduler\"))))"
-
-The above matchCondition implies that the pods getting admitted in kube-system namespace will be mutated only if they have atleast one of the following labels:
-app == "commissioning"
-name == "cert-exporter"
-app == "descheduler"
-else they will not be mutated and continue to be pulled from the original.
-Accepted value: Any valid CEL expressions
-To learn more about matchConditions reference Kubernetes doc link.
-
-This configuration parameter can be set or updated during NF Extension's installation or update.
-Also, this condition comes into play only when the CNF/Component/Application is getting installed into the namespace as per the rules and namespaceSelectors defined in Pod Mutating Webhook Configuration. If there are more pods getting spin up in that namespace, this condition will still be applied to them.
-
-**Cluster registry**
-
---config global.networkfunctionextension.enableClusterRegistry=
-This configuration will provision a regsitry in the cluster to locally cache artifacts.
-By default this will enable lazy loading mode unless global.networkfunctionextension.enableEarlyLoading=true.
-Accepted values: false, true.
-Default value: false.
-
---config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=
-This configuration will provision the cluster regsitry in high availability mode if cluster registry is enabled.
-By default is true and uses NAKS nexus-shared volume on AKS recommendation is to set this as false.
-Accepted values: true, false.
-Default value: true.
-
---config global.networkfunctionextension.clusterRegistry.autoScaling.enabled=
-This configuration will provision the cluster registry pods with horizontal auto scaling.
-Accepted values: true, false.
-Default value: true.
-
---config global.networkfunctionextension.webhook.highAvailability.enabled=
-This configuration will provision multiple replicas of webhook for high availability.
-Accepted values: true, false.
-Default value: true.
-
---config global.networkfunctionextension.webhook.autoScaling.enabled=
-This configuration will provision the webhook pods with horizontal auto scaling.
-Accepted values: true, false.
-Default value: true.
-
---config global.networkfunctionextension.enableEarlyLoading=
-This configuration will enable artifacts early loading into cluster regsitry before helm installation or upgrade.
-This configuration can only be enabled when global.networkfunctionextension.enableClusterRegistry=true.
-Accetped values: false, true.
-Default value: false.
-
---config global.networkfunctionextension.clusterRegistry.storageClassName=
-This configuration must be provided when global.networkfunctionextension.enableClusterRegistry=true.
-NetworkFunctionExtension will provision a PVC to local cache artifacts from this storage class.
-Platform specific values
-AKS: managed-csi
-NAKS(Default): nexus-shared
-NAKS(Non-HA): nexus-volume
-ASE: managed-premium
-Default value: nexus-shared.
-
---config global.networkfunctionextension.clusterRegistry.storageSize=
-This configuration must be provided when global.networkfunctionextension.enableClusterRegistry=true.
-This configuration configures the size we reserve for cluster registry.
-Recommend carefully choose a value that needed to cache artifacts.
-Please notes to use unit as Gi and Ti for sizing. 
-Default value: 100Gi
-Side loading
-
---config global.networkfunctionextension.enableLocalRegistry=
-This configuration will allow artifacts to be delivered to edge via hardware drive.
-It is only used for Tempnet with AP5GC.
-Accepted values: false, true.
-Default value: false.
-Recommended NFO config for AKS
-The default NFO config is configured for HA on NAKS as none of the csi disk drives on AKS support ReadWriteX access mode, HA needs to be disabled on AKS.Use the following config options on AKS
-
---config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=false--config global.networkfunctionextension.webhook.highAvailability.enabled=false (optional)--config global.networkfunctionextension.clusterRegistry.storageClassName=managed-csi
-
-#### Examples
-
-Create a network function extension with auto upgrade.
-
-az k8s-extension create --resource-group myresourcegroup --cluster-name mycluster --name myextension --cluster-type connectedClusters --extension-type Microsoft.Azure.HybridNetwork --scope cluster --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator --release-namespace azurehybridnetwork
-
-Create a network function extension with a pined version.
-
-az k8s-extension create --resource-group myresourcegroup --cluster-name mycluster --name myextension --cluster-type connectedClusters --extension-type Microsoft.Azure.HybridNetwork --auto-upgrade-minor-version false --scope cluster --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator --release-namespace azurehybridnetwork --version <put-version-value-here>
-
-Create a network function extension with cluster registry (default lazy loading mode) feature enabled on NAKS.
-
-az k8s-extension create --resource-group myresourcegroup --cluster-name mycluster --name myextension --cluster-type connectedClusters --extension-type Microsoft.Azure.HybridNetwork --scope cluster --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator --release-namespace azurehybridnetwork --config global.networkfunctionextension.enableClusterRegistry=true --config global.networkfunctionextension.clusterRegistry.storageSize=100Gi
-
-Create a network function extension with cluster registry (default lazy loading mode) feature enabled on AKS.
-
-az k8s-extension create --resource-group myresourcegroup --cluster-name mycluster --name myextension --cluster-type connectedClusters --extension-type Microsoft.Azure.HybridNetwork --scope cluster --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator --release-namespace azurehybridnetwork --config global.networkfunctionextension.enableClusterRegistry=true --config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=false --config global.networkfunctionextension.clusterRegistry.storageClassName=managed-csi --config global.networkfunctionextension.clusterRegistry.storageSize=100Gi
-
-Create a network function extension with cluster registry (early loading) feature enabled.
-
-az k8s-extension create --resource-group myresourcegroup --cluster-name mycluster --name myextension --cluster-type connectedClusters --extension-type Microsoft.Azure.HybridNetwork --scope cluster --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator --release-namespace azurehybridnetwork --config global.networkfunctionextension.enableClusterRegistry=true --config global.networkfunctionextension.enableEarlyLoading=true --config global.networkfunctionextension.clusterRegistry.storageClassName=managed-csi --config global.networkfunctionextension.clusterRegistry.storageSize=100Gi
-
-Create a network function extension with side loading feature enabled.
-
-az k8s-extension create --resource-group myresourcegroup --cluster-name mycluster --name myextension --cluster-type connectedClusters --extension-type Microsoft.Azure.HybridNetwork --scope cluster --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator --release-namespace azurehybridnetwork --config global.networkfunctionextension.enableLocalRegistry=true
-
-### Appendix B
 #### Cert-manager Usage Guidance for NEPS
 With this release, AOSM now uses cert-manager to store and rotate certificates. As part of this change, AOSM deploys a cert-manager operator, and associate CRDs, in the azurehybridnetwork namespace. Since having multiple cert-manager operators, even deployed in separate namespaces, will watch across all namespaces, only one cert-manager can be effectively run on the cluster.
 
