@@ -11,6 +11,8 @@ Azure Monitor Application Insights, a feature of [Azure Monitor](..\overview.md)
 
 :::image type="content" source="media/app-insights-overview/app-insights-overview-screenshot.png" alt-text="A screenshot of the Azure Monitor Application Insights user interface displaying an application map." lightbox="media/app-insights-overview/app-insights-overview-screenshot.png":::
 
+---------------------------
+
 ## Experiences
 
 Application Insights provides many experiences to enhance the performance, reliability, and quality of your applications.
@@ -46,6 +48,8 @@ Application Insights provides many experiences to enhance the performance, relia
 * [Code optimizations](../insights/code-optimizations.md): Harness AI to create better and more efficient applications.
 * [Snapshot debugger](../snapshot-debugger/snapshot-debugger.md): Automatically collect debug snapshots when exceptions occur in .NET application
 
+---------------------------
+
 ## Logic model
 
 The logic model diagram visualizes components of Application Insights and how they interact.
@@ -56,6 +60,7 @@ The logic model diagram visualizes components of Application Insights and how th
 > Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](../ip-addresses.md).
 
 ---------------------------
+
 ## Supported languages
 
 This section outlines supported scenarios.
@@ -253,10 +258,7 @@ Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/ta
 
 Leave product feedback for the engineering team in the [Feedback Community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
 
-### Troubleshooting
-
-- [OpenTelemetry Distro](opentelemetry-enable.md#troubleshooting)
-- [Application Map](app-map.md#troubleshooting-tips)
+---------------------------
 
 ## Next steps
 
