@@ -6,7 +6,7 @@ ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/26/2024
+ms.date: 08/14/2024
 # Customer intent: As a developer using Azure Logic Apps, I want to parse a document or chunk text that I want to use with Azure AI operations for my Standard workflow in Azure Logic Apps.
 ---
 
