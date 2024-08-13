@@ -5,7 +5,7 @@ author: apurbasroy
 ms.author: apsinhar
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 08/13/2023
 ---
 
 # Apache Spark operations supported by Hive Warehouse Connector in Azure HDInsight

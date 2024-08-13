@@ -6,7 +6,7 @@ ms.author: sairamyeturi
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, subject-rbac-steps
-ms.date: 08/22/2023
+ms.date: 08/13/2023
 ---
 
 # Create a cluster with Data Lake Storage Gen2 using the Azure portal
