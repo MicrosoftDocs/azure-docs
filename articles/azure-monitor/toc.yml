@@ -329,6 +329,7 @@ items:
         displayName: geolocation, IP collection, IP tracking, IP storage
       - name: Microsoft Entra authentication
         href: app/azure-ad-authentication.md
+        displayName: azure ad authentication
     - name: Help and support
       items:
       - name: Create an Azure support ticket
