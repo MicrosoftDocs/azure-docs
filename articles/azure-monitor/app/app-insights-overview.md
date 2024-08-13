@@ -109,13 +109,11 @@ This section lists all supported platforms and frameworks.
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
 #### Export and data analysis
-* [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
-* [Power BI for workspace-based resources](../logs/log-powerbi.md)
+* [Integrate Log Analytics with Power BI](../logs/log-powerbi.md)
 
 ### Unsupported Software Development Kits (SDKs)
-Many community-supported Application Insights SDKs exist. Azure Monitor only provides support when you use the supported instrumentation options listed in this article.
 
-We're constantly assessing opportunities to expand our support for other languages. For the latest news, see [Azure updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights).
+Many community-supported Application Insights SDKs exist, but Microsoft only provides support for instrumentation options listed in this article.
 
 ---------------------------
 
@@ -243,9 +241,9 @@ Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/b
 
 For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 
-### Microsoft Questions and Answers (Q&A) forum
+### Microsoft Questions and Answers forum
 
-Post general questions to the [Microsoft Questions and Answers (Q&A) forum](/answers/topics/24223/azure-monitor.html).
+Post general questions to the [Microsoft Questions and Answers forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 
@@ -263,7 +261,7 @@ Leave product feedback for the engineering team in the [Feedback Community](http
 ## Next steps
 
 - [Data collection basics](opentelemetry-overview.md)
-- [Create a resource](create-workspace-resource.md)
+- [Workspace-based resources](create-workspace-resource.md)
 - [Automatic instrumentation overview](codeless-overview.md)
 - [Application dashboard](overview-dashboard.md)
 - [Application Map](app-map.md)
