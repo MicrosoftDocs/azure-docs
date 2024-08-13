@@ -37,7 +37,7 @@ Get-AzFluidRelayServerKey -FluidRelayServerName <Fluid Relay Service name> -Reso
 ### [Azure CLI](#tab/azure-cli)
 To retrieve your access keys with Azure CLI, you need to install [fluid-relay](/cli/azure/fluid-relay) extension first. See [instructions](/cli/azure/azure-cli-extensions-overview).
 
-Then use [az fluid-relay server list-key command](/cli/azure/fluid-relay/server?view=azure-cli-latest&preserve-view=true#az-fluid-relay-server-list-key) command to list access keys.
+Then use [az fluid-relay server list-key](/cli/azure/fluid-relay/server?view=azure-cli-latest&preserve-view=true#az-fluid-relay-server-list-key) command to list access keys.
 
 ```azurecli
 az fluid-relay server list-key --resource-group <resource group> --server-name <Fluid Relay Service name>
