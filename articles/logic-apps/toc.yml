@@ -133,6 +133,8 @@ items:
       href: ../connectors/enable-stateful-affinity-built-in-connectors.md
     - name: Create custom built-in connectors
       href: create-custom-built-in-connector-standard.md
+    - name: Create and share workflow templates
+      href: create-publish-workflow-templates.md
     - name: Set up deployment slots
       href: set-up-deployment-slots.md
     - name: DevOps deployment

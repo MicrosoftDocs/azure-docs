@@ -1,11 +1,11 @@
 ---
 title: Create and publish workflow templates
-description: How to create workflow templates for use in Azure Logic Apps and share templates with others through the template gallery in GitHub.
+description: How to create workflow templates for use in Azure Logic Apps and share templates with others through the template gallery.
 services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/26/2024
+ms.date: 08/23/2024
 #Customer intent: As a developer, I want to create and share workflow templates for use with Azure Logic Apps.
 ---
 
@@ -17,18 +17,13 @@ ms.date: 08/26/2024
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-Azure Logic Apps provides prebuilt integration workflow templates that you can use to accelerate the process of building integration applications. These templates follow commonly used patterns and help developers streamline development by providing a starting point or baseline with predefined business logic and configurations. You can include artifacts such as schemas, maps, and assemblies with the workflow templates that you create.
+Azure Logic Apps provides prebuilt integration workflow templates that you can use to accelerate the process of building integration applications. These templates follow commonly used patterns and help developers streamline development by providing a starting point or baseline with predefined business logic and configurations.
 
-## Prerequisites
-
+Not only can you use workflow templates to kickstart your development, you can create workflow templates for your own use or to share with others. Your template package can include artifacts such as schemas, maps, and assemblies. To publish your template to the templates gallery in the Azure portal, create a template package using this how-to guide, and then go to the [Azure Logic Apps workflow templates repository in GitHub](https://github.com/Azure/LogicAppsTemplates) to create a pull request with your template package.
 
 ## Limitations
 
-- Workflow templates currently support only Standard logic apps and single workflows. 
-
-## What templates to build?
-
-The following list provides some example ideas:
+Workflow templates currently support only Standard logic apps and single workflows. 
 
 ## What does a template package include?
 
@@ -139,7 +134,7 @@ To provide this preview image, follow these steps:
 
 ### Create a manifest.json file
 
-The **manifest.json** file describes the relationship between a workflow and related components. Currently, you need to manually create this file, or you can repurpose the **manifest.json** file from an existing prebuilt template. Make sure to review the [names and style conventions](#names-and-style-conventions) as you create the **manifest.json** file.
+The **manifest.json** file describes the relationship between a workflow and related components. Currently, you need to manually create this file, or you can repurpose the **manifest.json** file from an existing prebuilt template in the [Azure Logic Apps workflow template repository in GitHub](https://github.com/Azure/LogicAppsTemplates). Make sure to review the [names and style conventions](#names-and-style-conventions) as you create the **manifest.json** file.
 
 The following table describes the attributes in the **manifest.json** file:
 
@@ -185,6 +180,8 @@ To find the connector ID to use for a connection in the **manifest.json** file o
 
      1. Find the **`serviceProviderConnections`** section.
 
+     1. For each connection, find the **`id`** attribute for in the **`serviceProvider`** object.
+
      1. Copy and save the following value: **`/serviceProviders/<*connector-ID*>`**.
 
         For example, the connector ID for the Azure AI Search connector is **`/serviceProviders/azureaisearch`**.
@@ -201,36 +198,70 @@ To get these attribute values, follow these steps in the [Azure portal](https://
 
 1. In the code view window, in the **`actions`** section, find the operation that you want, and then find the **`kind`** and **`type`** values.
 
-## Add workflow templates to GitHub repository
+## Add template package to GitHub repository
 
-To add your templates to GitHub, here are steps on how you can setup GitHub and create a PR 
+To publish your template to the templates gallery in the Azure poral, set up GitHub, and create a pull request with your template package for validation and review:
 
-Login to GitHub with your credentials 
+1. [Create a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github), if you don't have one.
 
-Navigate to GitHub repo for the templates - Azure/LogicAppsTemplates: Templates for Logic Apps Workflow Gallery (github.com) 
+   For more information, see [Get started with your GitHub account](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account).
 
-Create your fork of the repo –  
-Navigate to your fork and copy the repo URL to lone it locally 
+1. Go to the [Azure Logic Apps workflow templates repository named **LogicAppsTemplates** in GitHub](https://github.com/Azure/LogicAppsTemplates).
 
-You can use different approaches/tools to add code to your repo. I have download Git and using that to add code to the rep. Next, Create your local copy using this command  
+1. Create your own [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks), which is a remote copy of the **LogicAppsTemplates** repository in GitHub.
 
-git clone https://github.com/<yourGitHub>/LogicAppsTemplates.git 
+   For more information, see [Forking a repositoryt](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project?tool=webui#forking-a-repository).
 
-Make changes locally. When you are ready to checkin. Follow these steps 
+1. To work locally, clone your fork onto your computer.
 
-git add . 
+   1. [Follow these steps to download, install, and set up Git](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git).
 
-git commit -a -m “short description about the commit” 
+   1. Go to your fork, which has the following URL: **`https://github.com/<your-username>/LogicAppsTemplates`**
 
-git push
+   1. [Follow these steps to clone your fork](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project?tool=webui#cloning-a-fork).
 
+   1. In your local repository, [follow these steps to create a working branch](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project?tool=webui#creating-a-branch-to-work-on).
+
+   1. After you check out your working branch, go to the root level in your local repositor, and create the template package folder.
+
+   1. Add your template files to the template package folder, and update the root-level **manifest.json** file with the folder name.
+
+   1. When you're ready to commit your changes to your local repository, which is like saving a snapshot, run the following commands using the Git command-line tool or other tools:
+
+      **`git add .`**
+
+      **`git commit -m "<commit-short-description>"`**
+
+   1. To upload your snapshot to your remote fork, run the following command:
+
+      **`git push origin <working-branch>`**
+
+1. In GitHub, create a pull request to compare your **<*your-working-branch*>** with the **main** branch in the **LogicAppsTemplates** repository.
+
+   1. Go to the repository's **Pull requests** page, and select **New pull request**.
+
+   1. Under **Compare changes**, select **Compare across forks**.
+
+   1. Make sure that your pull request has the following settings, and then select **Create pull request**.
+
+      | Base repository | Base | Head repository | Compare |
+      |-----------------|------|-----------------|---------|
+      | **Azure/LogicAppsTemplates | **main** | **<*user-name*>/LogicAppsTemplates** | **<*your-working-branch*>** |
+
+      :::image type="content" source="media/create-publish-workflow-templates/github-pull-request.png" alt-text="Screenshot shows GitHub and pull request settings." lightbox="media/create-publish-workflow-templates/github-pull-request.png":::
+
+   1. Enter a title and description for your pull request. To finish, select **Create pull request**.
+
+   1. Wait for the Azure Logic Apps team to review your pull request.
+
+   For more information, see [Creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
 
 <a name="names-style-conventions"></a>
 
 ## Names and style conventions
 
-| Item or area | Convention |
-|--------------|------------|
+| Area | Convention |
+|------|------------|
 | Sensitive data | Don't include any personal and sensitive information, such as subscription IDs, usernames, passwords, and so on, in template files, screenshots, descriptions, or test data. |
 | Folder names | For easier readability, use lowercase and hyphens. See [Capitalization – Microsoft Style Guide](/style-guide/capitalization). |
 | Image file names | Use the **.png** as the file name extension, lowercase, and hyphens, for example, **workflow-light.png**. |
