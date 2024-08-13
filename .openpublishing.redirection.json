@@ -4806,6 +4806,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/openvpn-azure-ad-tenant-multi-app.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-entra-users-access",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md",
       "redirect_url": "/azure/vpn-gateway/add-remove-site-to-site-connections",
       "redirect_document_id": false

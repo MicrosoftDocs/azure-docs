@@ -16,13 +16,13 @@ ms.author: eur
 
 ## Set up the environment
 
-To set up your environment, install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
+To set up your environment, install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For detailed installation instructions, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
 
 ### Set environment variables
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Synthesize to file output
+## Create the application
 
 Follow these steps to create a Node.js console application for speech synthesis.
 
@@ -87,7 +87,7 @@ Follow these steps to create a Node.js console application for speech synthesis.
 
 1. To change the speech synthesis language, replace `en-US-AvaMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
-   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is *I'm excited to try text to speech* and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 1. Run your console application to start speech synthesis to a file:
 
