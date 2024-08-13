@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 # Understand path lengths in Azure NetApp Files 
 
-File and path length refers to the number of Unicode characters in a file path, including directories. This limit is a factor in the individual character lengths, which are determined by the size of the character in bytes. For instance, NFS and SMB allow path components of 255 bytes. The file encoding format of ASCII uses 8-bit encoding, meaning file path components (such as a file or folder name) in ASCII can be up to 255 characters since ASCII characters are 1 byte in size. 
+File and path length refers to the number of Unicode characters in a file path, including directories. This limit is a factor in the individual character lengths, which are determined by the size of the character in bytes. For instance, NFS and SMB allow path components of 255 bytes. The file encoding format of American Standard Code for Information Interchange (ASCII) uses 8-bit encoding, meaning file path components (such as a file or folder name) in ASCII can be up to 255 characters since ASCII characters are 1 byte in size. 
 
 The following table shows the supported component and path lengths in Azure NetApp Files volumes:
 

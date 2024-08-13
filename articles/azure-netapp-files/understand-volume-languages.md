@@ -25,7 +25,7 @@ For best practices, see [Character set best practices](#character-set-best-pract
 
 ## Character encoding in Azure NetApp Files NFS and SMB volumes 
 
-In an Azure NetApp Files file sharing environment, file and folder names are represented by a series of characters that end users read and interpret. The way those characters are displayed depends on how the client sends and receives encoding of those characters. For instance, if a client is sending legacy [ASCII (American Standard Code for Information Interchange)](https://www.ascii-code.com/) encoding to the Azure NetApp Files volume when accessing it, then it's limited to displaying only characters that are supported in the ASCII format. 
+In an Azure NetApp Files file sharing environment, file and folder names are represented by a series of characters that end users read and interpret. The way those characters are displayed depends on how the client sends and receives encoding of those characters. For instance, if a client is sending legacy [American Standard Code for Information Interchange (ASCII)](https://www.ascii-code.com/) encoding to the Azure NetApp Files volume when accessing it, then it's limited to displaying only characters that are supported in the ASCII format. 
 
 For instance, the Japanese character for data is 資. Since this character can't be represented in ASCII, a client using ASCII encoding show a “?” instead of 資.
 
