@@ -16,7 +16,7 @@ ms.date: 08/12/2024
 
 A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a dataflow, you must [configure dataflow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
 
-The following is an example of a dataflow configuration with an MQTT source endpoint, transformations, and a Kafka destination endpoint:
+The following example is a dataflow configuration with an MQTT source endpoint, transformations, and a Kafka destination endpoint:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -128,7 +128,7 @@ spec:
 
 ### Enrich: Add reference data
 
-To enrich the data, you can use reference dataset stored in Azure IoT Operations's [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+To enrich the data, you can use the reference dataset stored in Azure IoT Operations's [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
 | Name                                           | Description                               |
 |------------------------------------------------|-------------------------------------------|
