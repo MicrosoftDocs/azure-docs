@@ -5,6 +5,7 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 07/22/2024
+ms.service: azure-automation
 ---
 
 # Remove machines from Change Tracking and Inventory

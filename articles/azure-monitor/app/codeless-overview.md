@@ -26,7 +26,7 @@ The autoinstrumentation process varies by language and platform, but often invol
 > - Code changes aren't required.
 > - Access to source code isn't required.
 > - Configuration changes aren't required.
-> - Ongoing [SDK update maintenance](sdk-support-guidance.md) is eliminated.
+> - Instrumentation maintenance is eliminated.
 
 ## Supported environments, languages, and resource providers
 
@@ -35,7 +35,7 @@ The following table shows the current state of autoinstrumentation availability.
 Links are provided to more information for each supported scenario.
 
 > [!NOTE]
-> If your hosting environment or resource provider is not listed in the following table, then autoinstrumentation is not supported. In this case, we recoomend manually instrumenting using the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md). For more information, see [Data Collection Basics of Azure Monitor Application Insights](opentelemetry-overview.md).
+> If your hosting environment or resource provider is not listed in the following table, then autoinstrumentation is not supported. In this case, we recommend manually instrumenting using the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md). For more information, see [Data Collection Basics of Azure Monitor Application Insights](opentelemetry-overview.md).
 
 |Environment/Resource provider                    | .NET Framework                                                                                                                                        | .NET Core / .NET                                                                                                                                      | Java                                                                                                                                                      | Node.js                                                                                                                                                                                      | Python                                                                                           |
 |-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|

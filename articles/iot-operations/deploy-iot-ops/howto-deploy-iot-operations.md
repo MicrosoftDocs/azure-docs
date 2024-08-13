@@ -269,7 +269,7 @@ You can view your Azure IoT Operations instance in the Azure portal.
 
 1. Select the name of your Azure IoT Operations instance.
 
-1. On the **Overview** page of your instance, select the **Components** tab to view the resources that were deployed to your cluster.
+1. On the **Overview** page of your instance, the **Arc extensions** table displays the resources that were deployed to your cluster.
 
    :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster." lightbox="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png":::
 
