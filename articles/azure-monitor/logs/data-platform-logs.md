@@ -45,8 +45,7 @@ Log Analytics is a tool in the Azure portal for running log queries and analyzin
 
 Users who are familiar with KQL can use Log Analytics KQL mode to edit and create queries, which they can then use in Azure Monitor features such as alerts and workbooks, or share with other users. 
 
-For a description of Log Analytics, see [Overview of Log Analytics in Azure Monitor](./log-analytics-overview.md). For a walkthrough of using Log Analytics features to create a simple log query and analyze its results, see [Log Analytics tutorial](./log-analytics-tutorial.md).
-
+For more information about Log Analytics, see [Overview of Log Analytics in Azure Monitor](./log-analytics-overview.md). 
 
 ## Built-in insights and custom dashboards, workbooks, and reports
 
@@ -59,7 +58,7 @@ You can also [create your own visualizations and reports](../best-practices-anal
 
 ## Collect, transform, and route data
 
-Azure Monitor's data collection capabilites let you collect data from all of your applications and resources running in Azure, other clouds, and on-premises. A powerful ingestion pipeline enables flitering, transforming, and routing data to destination tables in your Log Analytics workspace to optimize costs, analytics capabilities, and query performance.
+Azure Monitor's data collection capabilities let you collect data from all of your applications and resources running in Azure, other clouds, and on-premises. A powerful ingestion pipeline enables filtering, transforming, and routing data to destination tables in your Log Analytics workspace to optimize costs, analytics capabilities, and query performance.
 
 :::image type="content" source="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" lightbox="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" alt-text="A diagram that shows data being collected from data sources and transformed and sent to tables in a Log Analytics workspace.":::
 
