@@ -19,10 +19,13 @@ ms.custom: devplatv2
 
 Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data into actionable business insights. The [Azure Data Factory](../data-factory/introduction.md) managed cloud service handles these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
-Azure Data Factory allows you to create pipelines that can orchestrate multiple data transformations and manage them as a single unit. Batch endpoints are an excellent candidate to become a step in such processing workflow. In this article, learn how to use batch endpoints in Azure Data Factory activities by relying on the Web Invoke activity and the REST API.
+Azure Data Factory allows you to create pipelines that can orchestrate multiple data transformations and manage them as a single unit. Batch endpoints are an excellent candidate to become a step in such processing workflow.
+
+In this article, learn how to use batch endpoints in Azure Data Factory activities by relying on the Web Invoke activity and the REST API.
 
 > [!TIP]
-> When you use data pipelines in Fabric, you can invoke batch endpoint directly using the Azure Machine Learning activity. We recommend using Fabric for data orchestration whenever possible to take advantage of the newest capabilities. The Azure Machine Learning activity in Azure Data Factory can only work with assets from Azure Machine Learning V1. For more information, see [Run Azure Machine Learning models from Fabric, using batch endpoints (preview)](how-to-use-batch-fabric.md).
+> When you use data pipelines in Fabric, you can invoke batch endpoint directly using the Azure Machine Learning activity. We recommend using Fabric for data orchestration whenever possible to take advantage of the newest capabilities.
+> The Azure Machine Learning activity in Azure Data Factory can only work with assets from Azure Machine Learning V1. For more information, see [Run Azure Machine Learning models from Fabric, using batch endpoints (preview)](how-to-use-batch-fabric.md).
 
 ## Prerequisites
 
@@ -30,7 +33,7 @@ Azure Data Factory allows you to create pipelines that can orchestrate multiple 
 - An Azure Data Factory resource. To create a data factory, follow the steps in [Quickstart: Create a data factory by using the Azure portal](../data-factory/quickstart-create-data-factory-portal.md).
 - After creating your data factory, browse to it in the Azure portal and select **Launch Studio**:
 
-  :::image type="content" source="./media/how-to-use-batch-adf/data-factory-home-page.png" alt-text="Screenshot of the home page for the Azure Data Factory, labeled Open Azure Data Factory Studio and Launch studio highlighted.":::
+  :::image type="content" source="./media/how-to-use-batch-adf/data-factory-home-page.png" lightbox="./media/how-to-use-batch-adf/data-factory-home-page.png" alt-text="Screenshot of the home page for the Azure Data Factory, labeled Open Azure Data Factory Studio and Launch studio highlighted.":::
 
 ## Authenticate against batch endpoints
 
@@ -96,11 +99,11 @@ The pipeline requires you to configure the following parameters:
 
 # [Use a service principal](#tab/sp)
 
-:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="Diagram that shows th high level structure of the pipeline you're creating.":::
+:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" lightbox="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="Diagram that shows th high level structure of the pipeline you're creating.":::
 
 The pipeline contains the following activities:
 
-- **Authorize**: A Web Activity that uses the service principal created in [Authenticating against batch endpoints](#authenticating-against-batch-endpoints) to obtain an authorization token. This token is used to invoke the endpoint later.
+- **Authorize**: A Web Activity that uses the service principal created in [Authenticating against batch endpoints](#authenticate-against-batch-endpoints) to obtain an authorization token. This token is used to invoke the endpoint later.
 - **Run Batch-Endpoint**: A Web Activity that uses the batch endpoint URI to invoke it. It passes the input data URI where the data is located and the expected output file.
 - **Wait for job**: It's a loop activity that checks the status of the created job and waits for its completion, either as **Completed** or **Failed**. This activity uses the following activities:
 
@@ -156,7 +159,7 @@ To create this pipeline in your existing Azure Data Factory and invoke batch end
 
    :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params.png" alt-text="Screenshot of the pipeline parameters expected for the resulting pipeline that uses a service principal.":::
 
-  ---
+   ---
 
   > [!WARNING]
   > Ensure that your batch endpoint has a default deployment configured before you submit a job to it. The created pipeline invokes the endpoint. A default deployment needs to be created and configured.
