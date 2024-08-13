@@ -166,23 +166,31 @@ To find the connector ID to use for a connection in the **manifest.json** file o
 
 1. Based on the connection type, follow these steps:
 
-   - For a managed, "shared" connection that is hosted and run in Azure:
+   - For a managed, "shared" API connection that is hosted and run in Azure:
 
      1. Find the **`managedApiConnections`** section.
 
-     1. Under the **`connection`** attribute, copy and save the **`id`** value without any personal and sensitive data, such as the subscription ID, resource group name, and so on: **`/subscriptions/#subscription#/providers/Microsoft.Web/locations/#location#/managedApis/<*connector-ID*>`**
+     1. In the **`connection`** attribute, copy and save the **`id`** value, but replace any personal or sensitive data, such as the subscription ID, resource group name, and so on, with **`#<item>#`**:
 
-        For example, the connector ID for the SharePoint connector is **`/subscriptions/#subscription#/providers/Microsoft.Web/locations/#location#/managedApis/sharepointonline`**
+        **`/subscriptions/#subscription#/providers/Microsoft.Web/locations/#location#/managedApis/<connection-name>`**
+
+        For example, the following text shows the connector ID for the SharePoint connector:
+
+        **`/subscriptions/#subscription#/providers/Microsoft.Web/locations/#location#/managedApis/sharepointonline`**
 
    - For a service provider connection that is hosted on the single-tenant Azure Logic Apps runtime:
 
      1. Find the **`serviceProviderConnections`** section.
 
-     1. For each connection, find the **`id`** attribute for in the **`serviceProvider`** object.
+     1. For each connection, find the **`id`** attribute in the **`serviceProvider`** attribute.
 
-     1. Copy and save the following value: **`/serviceProviders/<*connector-ID*>`**.
+     1. Copy and save the following value:
 
-        For example, the connector ID for the Azure AI Search connector is **`/serviceProviders/azureaisearch`**.
+        **`/serviceProviders/<connection-name>`**.
+
+        For example, the following text shows the connector ID for the Azure AI Search connector:
+
+        **`/serviceProviders/azureaisearch`**.
 
 <a name="find-featured-connections-operation-properties"></a>
 
