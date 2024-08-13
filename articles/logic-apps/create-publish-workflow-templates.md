@@ -45,7 +45,13 @@ You can also include any other files to maintain and support your template, for 
 
 - Before you create the template package folder, get familiar with [Names and style conventions](#names-and-style-conventions).
 
-- To correctly register your template package folder, you must add the folder name to the [root-level manifest.json file in the workflow templates GitHub repository](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
+- To help keep the template repository easier to browse, organize, and maintain, use the following syntax for your folder and use as few words as possible to avoid running into file path limits:
+
+  **<*workflow-task*>-<*product*>-<*pattern-or-protocol*>**
+
+  For examples, see the [Azure Logic Apps workflow templates repository in GitHub](https://github.com/Azure/LogicAppsTemplates). 
+
+- To correctly register your template package folder, you must add the folder name to the [repository's root-level manifest.json file](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
 
 ### Create a workflow.json file
 
@@ -222,9 +228,13 @@ To publish your template to the templates gallery in the Azure portal, set up Gi
 
    1. [Follow these steps to download, install, and set up Git](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git).
 
-   1. Go to your fork, which has the following URL: **`https://github.com/<your-username>/LogicAppsTemplates`**
+   1. Go to your fork, which has the following URL:
+   
+      **`https://github.com/<your-username>/LogicAppsTemplates`**
 
-   1. [Follow these steps to clone your fork](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project?tool=webui#cloning-a-fork).
+   1. On your local computer, create a folder named **GitHub**, if you don't have one already. Don't clone to a OneDrive synced folder.
+
+   1. [Follow these steps to clone *your* fork, not the production repository](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project?tool=webui#cloning-a-fork).
 
    1. In your local repository, [follow these steps to create a working branch](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project?tool=webui#creating-a-branch-to-work-on).
 
@@ -269,7 +279,7 @@ To publish your template to the templates gallery in the Azure portal, set up Gi
 | Area | Convention |
 |------|------------|
 | Sensitive data | Don't include any personal and sensitive information, such as subscription IDs, usernames, passwords, and so on, in template files, screenshots, descriptions, or test data. |
-| Folder names | For easier readability, use lowercase and hyphens. See [Capitalization – Microsoft Style Guide](/style-guide/capitalization). |
+| Folder names | For easier readability, use lowercase and hyphens when possible. See [Capitalization – Microsoft Style Guide](/style-guide/capitalization). |
 | Image file names | Use the **.png** as the file name extension, lowercase, and hyphens, for example, **workflow-light.png**. |
 | Product, service, technology, and brand names | Follow the official spelling and capitalization. For example: <br><br>- When you refer to the service name or platform, use "Azure Logic Apps", not "Logic Apps". <br><br>- When you refer to the resource or instance, use "logic apps" or "logic app", not "Logic App" or "Logic Apps". <br><br>- When you refer to the sequence of trigger and actions, use "logic app workflow" or "workflow". |
 | Abbreviations and acronyms | Use the expanded name for product, service, technology, brand names, and uncommon technical terms, not abbreviations or acronyms. Common acronyms, such as "HTTP" and "URL", are acceptable. For example, use "Visual Studio Code", not "VS Code". See [Acronyms – Microsoft Style Guide](/style-guide/acronyms). |
