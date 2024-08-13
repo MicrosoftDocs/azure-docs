@@ -278,7 +278,7 @@ console.log(`Message sent!, message id:${messageId}`);
 ```
 
 ### Receive chat messages from a chat thread
-Unlike Twilio ACS does not have separate function to receive text message or media.
+Unlike Twilio ACS does not have separate function to receive text message or media. Azure Communication Services uses Azure Event Grid to handle events. To learn more please refer to [following tutorial](MicrosoftDocs/azure-docs-pr/articles/event-grid/event-schema-communication-services.md)
 
 #### Twilio
 This is how you receive text message in Twilio.
@@ -330,7 +330,7 @@ for await (const message of messages) {
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
 
-### Subscribe to connection status of real time notifications
+#### Subscribe to connection status of real time notifications
 Similar to Twilio Azure Communication Services allows to subscribe to event notifications.
 
 Subscription to events `realTimeNotificationConnected` and `realTimeNotificationDisconnected` allows you to know when the connection to the call server is active.
