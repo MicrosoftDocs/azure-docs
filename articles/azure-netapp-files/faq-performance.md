@@ -41,13 +41,15 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 
 ## Why is a workload's latency high when the IOPS are low?
 
-In the absence of other symptoms (such as errors, network issues, or an application not responding), low IOP workloads are typically not a problem. Low IOPS are typically below 500-600 IOPS but can vary. Reported latency can reach the seconds or tens of seconds range due to the latency averaging skew. Increasing the workload on the volume with low IOPS can further help determine if latency skew is the reason the latency shows an inflated number.
+In the absence of other symptoms (such as errors, network issues, or an application not responding), low IOP workloads are typically not a problem. Low IOPS are typically below 500-600 IOPS but can vary.
 
 Azure NetApp Files responds to requests as they come in. A workload with few requests might appear to be higher, but is responding as expected. Low IOPS workloads (for example 5 IOPS and 32 KiB/s):
 
-    - Aren't in the RAM cache, so need to go to disk more.
-    - Don't have a high sample size, so are considered statistically irrelevant. 
-    - Don't have enough samples to average out any outliers. 
+- Aren't in the RAM cache, so need to go to disk more.
+- Don't have a high sample size, so are considered statistically irrelevant. 
+- Don't have enough samples to average out any outliers. 
+ 
+Reported latency can reach the seconds or tens of seconds range due to the latency averaging skew. Increasing the workload on the volume with low IOPS can further help determine if latency skew is the reason the latency shows an inflated number.
 
 ## What's the performance impact of Kerberos on NFSv4.1?
 
