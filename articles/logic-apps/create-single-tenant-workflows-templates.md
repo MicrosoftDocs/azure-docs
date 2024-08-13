@@ -40,6 +40,7 @@ Workflow templates are currently available only for Standard logic apps and sing
   Before you can use a managed identity for authentication, you need set up your logic app resource and the managed identity with the necessary permissions. For more information, see the following documentation:
 
   - [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)?
+
   - [Authenticate access to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md?tabs=standard)
 
 ## Select a template from the gallery
@@ -72,7 +73,7 @@ After the **Create a new workflow** pane appears, the **Connections** tab lists 
 
 1. On the **Parameters** tab, provide the necessary resources or other information that the connection needs to work.
 
-## Provide workflow information
+## Provide other workflow information
 
 1. On the **Name + state** tab, under **Workflow name**, provide the name to use for your workflow.
 
@@ -86,6 +87,8 @@ After the **Create a new workflow** pane appears, the **Connections** tab lists 
 
 1. When Azure finishes creating your workflow, select **Go to my workflow**.
 
+## View the workflow in the designer
+
 1. On the workflow menu, under **Developer**, select **Designer** to view the workflow.
 
 1. Continue working on the workflow by adding or removing the operations that you want. 
@@ -94,4 +97,4 @@ After the **Create a new workflow** pane appears, the **Connections** tab lists 
 
 ## Related content
 
-[Create and publish workflow templates for Azure Logic Apps](create-publish-workflow-templates)
+[Create and publish workflow templates for Azure Logic Apps](create-publish-workflow-templates.md)

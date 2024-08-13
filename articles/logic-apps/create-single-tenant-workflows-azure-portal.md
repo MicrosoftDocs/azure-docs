@@ -43,6 +43,8 @@ For more information, see the following documentation:
 - [Single-tenant versus multitenant](single-tenant-overview-compare.md)
 - [Create and deploy to different environments](logic-apps-overview.md#resource-environment-differences)
 
+To create a Standard logic app workflow from a prebuilt template that follows a commonly used pattern, see [Create a Standard logic app workflow from a prebuilt template](create-single-tenant-workflows-templates.md).
+
 To create and manage a Standard logic app workflow using other tools, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). With Visual Studio Code, you can develop, test, and run workflows in your *local* development environment.
 
 ## Prerequisites

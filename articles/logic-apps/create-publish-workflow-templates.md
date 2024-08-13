@@ -293,3 +293,4 @@ For more guidance, see the [Microsoft Style Guide](/style-guide/welcome/) and [G
 
 ## Related content
 
+[Create a Standard logic app workflow from a prebuilt template](create-single-tenant-workflows-templates.md)

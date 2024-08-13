@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan
-  ms.date: 07/24/2024
+  ms.date: 08/23/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -58,10 +58,12 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create Consumption logic app workflow - Azure portal
+          - text: Create Consumption logic app workflow - Portal
             url: quickstart-create-example-consumption-workflow.md
-          - text: Create Standard logic app workflow - Azure portal
+          - text: Create Standard logic app workflow - Portal
             url: create-single-tenant-workflows-azure-portal.md
+          - text: Create Standard logic app workflow - Portal (templates)
+            url: create-single-tenant-workflows-templates.md
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow

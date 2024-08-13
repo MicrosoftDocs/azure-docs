@@ -32,6 +32,8 @@ items:
     items:
     - name: Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Portal - Templates gallery
+      href: create-single-tenant-workflows-templates.md
     - name: Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
 - name: Tutorials
