@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/15/2023
+ms.date: 08/13/2024
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
