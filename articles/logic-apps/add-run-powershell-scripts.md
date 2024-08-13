@@ -5,7 +5,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to
-ms.date: 08/15/2024
+ms.date: 08/13/2024
 # Customer intent: As a logic app workflow developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
@@ -366,6 +366,11 @@ Make sure that you use the **Push-WorkflowOutput** cmdlet.
 If you incorrectly reference a public module in the **requirements.psd1** file or when your private module doesn't exist in the following path: **C:\home\site\wwwroot\Modules\{module-name}**, you get the following error:
 
 **The term '{some-text}' is not recognized as a name of a cmdlet, function, script file, or executable program. Check the spelling of the name or if a path was included, verify the path is correct and try again.**
+
+> [!NOTE]
+>
+> By default, the Az* modules appear in the **requirements.psd1** file, but they're commented out at file creation.
+> When you reference a cmdlet from the module, make sure to uncomment the module.
 
 ### Execute PowerShell Code action fails: "Cannot bind argument to parameter 'Output' because it is null."
 
