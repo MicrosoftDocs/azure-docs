@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/03/2024
+ms.date: 08/12/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
 ---
@@ -128,12 +128,14 @@ spec:
 
 ### Enrich: Add reference data
 
-To enrich the data, you can use a reference dataset in Azure IoT Operations's distributed state store (DSS). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+To enrich the data, you can use a reference dataset in Azure IoT Operations's [distributed state store (DSS)](concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
 | Name                                           | Description                               |
 |------------------------------------------------|-------------------------------------------|
 | builtInTransformationSettings.datasets.key   | Dataset used for enrichment (key in DSS)              |
 | builtInTransformationSettings.datasets.expression | Condition for the enrichment operation    |
+
+Key names in the distributed state store correspond to a dataset in the dataflow configuration. 
 
 For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
 
