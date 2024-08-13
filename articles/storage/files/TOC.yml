@@ -259,8 +259,6 @@
     href: storage-dotnet-how-to-use-files.md
   - name: Java
     href: storage-java-how-to-use-file-storage.md
-  - name: C++
-    href: storage-c-plus-plus-how-to-use-files.md
   - name: Python
     href: storage-python-how-to-use-file-storage.md
 - name: Troubleshooting
@@ -395,10 +393,3 @@
   - name: Code samples using deprecated SDKs
     items:
     - name: .NET
-      items:
-      - name: Version 11.x samples
-        href: files-samples-dotnet-v11.md
-    - name: Java version 8 samples
-      href: files-samples-java-v8.md
-    - name: Python version 2 samples
-      href: files-samples-python-v2.md

@@ -28,7 +28,7 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
 - After the desired set of Azure Operator Service Manager publisher resources and artifacts is tested and approved for production use, we recommend marking the entire set as immutable to prevent accidental changes and ensure a consistent deployment experience. Consider relying on immutability capabilities to distinguish between resources and artifacts used in production versus the ones used for testing and development purposes. You can query the state of the publisher resources and the artifact manifests to determine which ones are marked as immutable. For more information, see [Publisher tenants, subscriptions, regions, and preview management](publisher-resource-preview-management.md).
 
    Keep in mind the following logic:
-    - If Network Service Design Function (NSDV) is marked as immutable, CGS has to be marked as immutable too. Otherwise, the deployment call fails.
+    - If Network Service Design Version (NSDV) is marked as immutable, CGS has to be marked as immutable too. Otherwise, the deployment call fails.
     - If Network Function Design Version (NFDV) is marked as immutable, the artifact manifest must be marked as immutable too. Otherwise, the deployment call fails.
     - If only artifact manifest or CGS is marked immutable, the deployment call succeeds regardless of whether NFDV and NSDV are marked as immutable.
     - Marking an artifact manifest as immutable ensures that all artifacts listed in that manifest (typically, charts, images, and Azure Resource Manager templates [ARM templates]) are marked immutable too by enforcing necessary permissions on the artifact store.
