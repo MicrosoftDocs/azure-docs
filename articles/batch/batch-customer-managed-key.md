@@ -136,27 +136,33 @@ As an example using the Batch management .NET client, you can create a Batch acc
 and customer-managed keys.
 
 ```c#
-EncryptionProperties encryptionProperties = new EncryptionProperties()
+string subscriptionId = "Your SubscriptionID";
+string resourceGroupName = "Your ResourceGroup name";
+         
+var credential = new DefaultAzureCredential();
+ArmClient _armClient = new ArmClient(credential);
+
+ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName);
+ResourceGroupResource resourceGroupResource = _armClient.GetResourceGroupResource(resourceGroupResourceId);
+
+var data = new BatchAccountCreateOrUpdateContent(AzureLocation.EastUS)
 {
-    KeySource = KeySource.MicrosoftKeyVault,
-    KeyVaultProperties = new KeyVaultProperties()
+    Encryption = new BatchAccountEncryptionConfiguration()
     {
-        KeyIdentifier = "Your Key Azure Resource Manager Resource ID"
+        KeySource = BatchAccountKeySource.MicrosoftKeyVault,
+        KeyIdentifier = new Uri("Your Key Azure Resource Manager Resource ID"),
+    },
+
+    Identity = new ManagedServiceIdentity(ManagedServiceIdentityType.UserAssigned)
+    {
+        UserAssignedIdentities = {
+            [new ResourceIdentifier("Your Identity Azure Resource Manager ResourceId")] = new UserAssignedIdentity(),
+        },
     }
 };
 
-BatchAccountIdentity identity = new BatchAccountIdentity()
-{
-    Type = ResourceIdentityType.UserAssigned,
-    UserAssignedIdentities = new Dictionary<string, BatchAccountIdentityUserAssignedIdentitiesValue>
-    {
-            ["Your Identity Azure Resource Manager ResourceId"] = new BatchAccountIdentityUserAssignedIdentitiesValue()
-    }
-};
-var parameters = new BatchAccountCreateParameters(TestConfiguration.ManagementRegion, encryption:encryptionProperties, identity: identity);
-
-var account = await batchManagementClient.Account.CreateAsync("MyResourceGroup",
-    "mynewaccount", parameters);
+var lro = resourceGroupResource.GetBatchAccounts().CreateOrUpdate(WaitUntil.Completed, "Your BatchAccount name", data);
+BatchAccountResource batchAccount = lro.Value;
 ```
 
 ## Update the customer-managed key version
