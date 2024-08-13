@@ -43,7 +43,7 @@ Both GitHub and Azure Repos allow approval pipelines to be configured that run w
 * API specification linters such as [Spectral][12] to ensure that the definition meets API standards required by the organization.  
 * Breaking change detection using tools such as [openapi-diff][13].
 * Security audit and assessment tools.  [OWASP maintains a list of tools][14] for security scanning.
-* Automated API test frameworks such as [Newman][15], a test runner for [Postman collections][16].
+* Automated API test frameworks.
 
 > [!NOTE]
 > Azure APIs must conform to a [strict set of guidelines][26] that you can use as a starting point for your own API guidelines.  There is a [Spectral configuration][27] for enforcing the guidelines.
@@ -88,7 +88,6 @@ Review [Automated API deployments with APIOps][28] in the Azure Architecture Cen
 * [Azure APIOps Toolkit][5] provides a workflow for API Management DevOps.
 * [Spectral][12] provides a linter for OpenAPI specifications.
 * [openapi-diff][13] provides a breaking change detector for OpenAPI v3 definitions.
-* [Newman][15] provides an automated test runner for Postman collections.
 
 <!-- Links -->
 [1]: https://www.w3.org/TR/wsdl20/

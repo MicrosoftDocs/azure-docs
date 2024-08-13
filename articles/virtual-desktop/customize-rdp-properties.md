@@ -1,11 +1,11 @@
 ---
 title: Customize RDP properties - Azure
 description: How to customize RDP Properties for Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/26/2022
-ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.author: daknappe
+ms.custom: devx-track-azurepowershell, docs_inherited
 ---
 # Customize Remote Desktop Protocol (RDP) properties for a host pool
 

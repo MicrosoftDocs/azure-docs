@@ -63,10 +63,30 @@ These techniques provide advanced mechanisms to address specific latency and ava
 
 ### Threshold-based availability strategy
 
-The threshold-based availability strategy can improve tail latency and availability by sending parallel read requests to secondary regions and accepting the fastest response. This approach can drastically reduce the impact of regional outages or high-latency conditions on application performance.
+The threshold-based availability strategy can improve tail latency and availability by sending parallel read requests to secondary regions and accepting the fastest response. This approach can drastically reduce the impact of regional outages or high-latency conditions on application performance. Additionally, proactive connection management can be employed to further enhance performance by warming up connections and caches across both the current read region and preferred remote regions.
 
 **Example configuration:**
 ```java
+// Proactive Connection Management
+CosmosContainerIdentity containerIdentity = new CosmosContainerIdentity("sample_db_id", "sample_container_id");
+int proactiveConnectionRegionsCount = 2;
+Duration aggressiveWarmupDuration = Duration.ofSeconds(1);
+
+CosmosAsyncClient clientWithOpenConnections = new CosmosClientBuilder()
+          .endpoint("<account URL goes here")
+          .key("<account key goes here>")
+          .endpointDiscoveryEnabled(true)
+          .preferredRegions(Arrays.asList("sample_region_1", "sample_region_2"))
+          .openConnectionsAndInitCaches(new CosmosContainerProactiveInitConfigBuilder(Arrays.asList(containerIdentity))
+                .setProactiveConnectionRegionsCount(proactiveConnectionRegionsCount)
+                 //setting aggressive warmup duration helps in cases where there is a high no. of partitions
+                .setAggressiveWarmupDuration(aggressiveWarmupDuration)
+                .build())
+          .directMode()
+          .buildAsyncClient();
+
+CosmosAsyncContainer container = clientWithOpenConnections.getDatabase("sample_db_id").getContainer("sample_container_id");
+
 int threshold = 500;
 int thresholdStep = 100;
 
@@ -79,8 +99,8 @@ options.setCosmosEndToEndOperationLatencyPolicyConfig(config);
 
 container.readItem("id", new PartitionKey("pk"), options, JsonNode.class).block();
 
-//Write operations can benefit from threshold-based availability strategy if opted into non-idempotent write retry policy 
-//and the account is configured for multi-region writes.
+// Write operations can benefit from threshold-based availability strategy if opted into non-idempotent write retry policy 
+// and the account is configured for multi-region writes.
 options.setNonIdempotentWriteRetryPolicy(true, true);
 container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).block();
 ```
@@ -94,6 +114,8 @@ container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).bloc
 3. **Third Request:** If neither the primary nor the secondary region responds within 600 milliseconds (500ms + 100ms, the `thresholdStep` value), the SDK sends another parallel request to the third preferred region (for example, West US).
 
 4. **Fastest Response Wins:** Whichever region responds first, that response is accepted, and the other parallel requests are ignored.
+
+Proactive connection management helps by warming up connections and caches for containers across the preferred regions, reducing cold-start latency for failover scenarios or writes in multi-region setups.
 
 This strategy can significantly improve latency in scenarios where a particular region is slow or temporarily unavailable, but it may incur more cost in terms of request units when parallel cross-region requests are required.
 
@@ -148,16 +170,16 @@ This mechanism helps to continuously monitor partition health and ensures that r
 ### Comparing availability optimizations
 
 - **Threshold-based availability strategy**: 
-  - **Benefit**: Reduces tail latency by sending parallel read requests to secondary regions.
-  - **Cost**: Incurs extra RU (Request Units) costs due to additional cross-region requests.
+  - **Benefit**: Reduces tail latency by sending parallel read requests to secondary regions, and improves availability by pre-empting requests that will result in network timeouts.
+  - **Trade-off**: Incurs extra RU (Request Units) costs compared to circuit breaker, due to additional parallel cross-region requests (though only during periods when thresholds are breached).
   - **Use Case**: Optimal for read-heavy workloads where reducing latency is critical and some additional cost (both in terms of RU charge and client CPU pressure) is acceptable. Write operations can also benefit, if opted into non-idempotent write retry policy and the account has multi-region writes.
 
 - **Partition level circuit breaker**: 
-  - **Benefit**: Improves write availability and latency by avoiding unhealthy partitions, ensuring requests are routed to healthier regions.
-  - **Cost**: Does not incur significant additional RU costs as it avoids problematic partitions rather than issuing more requests.
+  - **Benefit**: Improves availability and latency by avoiding unhealthy partitions, ensuring requests are routed to healthier regions.
+  - **Trade-off**: Does not incur additional RU costs, but can still allow some initial availability loss for requests that will result in network timeouts. 
   - **Use Case**: Ideal for write-heavy or mixed workloads where consistent performance is essential, especially when dealing with partitions that may intermittently become unhealthy.
 
-Both strategies can be used to enhance write availability and reduce tail latency. We recommend Partition Level Circuit Breaker as a primary strategy, and additionally Threshold-based Availability Strategy can be used to further minimize tail latency if additional cost is acceptable. 
+Both strategies can be used together to enhance read and write availability and reduce tail latency. Partition Level Circuit Breaker can handle a variety of transient failure scenarios, including those that may result in slow performing replicas, without the need to perform parallel requests. Additionally, adding Threshold-based Availability Strategy will further minimize tail latency and eliminate availability loss, if additional RU cost is acceptable. 
 
 By implementing these strategies, developers can ensure their applications remain resilient, maintain high performance, and provide a better user experience even during regional outages or high-latency conditions.
 

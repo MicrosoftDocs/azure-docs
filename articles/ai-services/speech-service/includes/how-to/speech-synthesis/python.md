@@ -163,7 +163,11 @@ While using the [SpeechSynthesizer](/python/api/azure-cognitiveservices-speech/a
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=python), but replace the contents of that *speech-synthesis.py* file with the following Python code:
+Here's an example that shows how to subscribe to events for speech synthesis. 
+
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+
+You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=python), but replace the contents of that *speech-synthesis.py* file with the following Python code:
 
 ```python
 import os

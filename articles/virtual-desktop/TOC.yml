@@ -150,7 +150,11 @@
     - name: Azure Virtual Desktop FAQ
       href: faq.yml
     - name: Deploy on Azure Stack HCI
+      displayName: session hosts, virtual machines, vms, on-premises, on premises
       href: azure-stack-hci-overview.md
+    - name: Deploy on Azure Extended Zones
+      displayName: session hosts, virtual machines, vms, low latency
+      href: azure-extended-zones.md
     - name: Example architecture scenarios
       items:
       - name: Azure Virtual Desktop for the enterprise
@@ -227,6 +231,9 @@
       - name: Uniform Resource Identifier schemes
         displayName: uri schemes
         href: uri-scheme.md
+    - name: Redirect peripherals and resources
+      displayName: devices, microphone, audio, usb, drives, clipboard, printers, scanners, cameras, webcams, smart cards, smartcards, webauthn, location, plug and play, mtp, ptp, serial, com, ports,
+      href: redirection-remote-desktop-protocol.md
     - name: Multimedia redirection
       displayName: mmr
       href: multimedia-redirection-intro.md
@@ -249,7 +256,7 @@
   - name: Deploy
     items:
       - name: Deploy Azure Virtual Desktop
-        displayName: deploy, create, get started, quickstart, host pool, application group, workspace, assign users, azure stack hci
+        displayName: deploy, create, get started, quickstart, host pool, application group, workspace, assign users, azure stack hci, azure extended zones
         href: deploy-azure-virtual-desktop.md
       - name: Quickstart
         displayName: deploy, create, get started, quickstart
@@ -257,7 +264,7 @@
       - name: Session hosts
         items:
         - name: Add session hosts to a host pool
-          displayName: deploy, get started
+          displayName: deploy, get started, virtual machines, vms, azure stack hci, azure extended zones
           href: add-session-hosts-host-pool.md
         - name: Enable GPU acceleration
           displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering
@@ -457,11 +464,8 @@
       - name: Watermarking
         displayName: security
         href: watermarking.md
-      - name: Configure clipboard transfer direction
-        displayName: security
-        href: clipboard-transfer-direction-data-types.md
-      - name: Configure forensic evidence
-        displayName: security, purview
+      - name: Onboard to Purview forensic evidence
+        displayName: security, purview insider risk management
         href: purview-forensic-evidence.md
   - name: Connect
     items:
@@ -510,8 +514,44 @@
       - name: Install the Remote Desktop client for Windows on a per-user basis
         displayName: apps, clients, remote desktop, rdp, connect, intune, configuration manager, configmgr, sccm, mem, mdm, per user
         href: install-windows-client-per-user.md
-    - name: Configure session host and host pool redirection
-      href: configure-device-redirections.md
+    - name: Configure redirection
+      items:
+      - name: Audio and video
+        displayName: devices, peripherals, redirections, speakers, microphone, headset, multimedia, playback
+        href: redirection-configure-audio-video.md
+      - name: Cameras, webcams, and video capture
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-camera-webcam-video-capture.md
+      - name: Clipboard
+        displayName: devices, peripherals, redirections, copy, paste
+        href: redirection-configure-clipboard.md
+      - name: Clipboard transfer direction and data types
+        displayName: security, unidirectional, copy, paste
+        href: clipboard-transfer-direction-data-types.md
+      - name: Drives and storage
+        displayName: devices, peripherals, redirections, usb, drives, storage, flash drive
+        href: redirection-configure-drives-storage.md
+      - name: Location
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-location.md
+      - name: MTP and PTP
+        displayName: devices, peripherals, redirections, plug n play, digital cameras, media players
+        href: redirection-configure-plug-play-mtp-ptp.md
+      - name: Printers
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-printers.md
+      - name: Serial/COM ports
+        displayName: devices, peripherals, redirections, rs232
+        href: redirection-configure-serial-com-ports.md
+      - name: Smart cards
+        displayName: devices, peripherals, redirections, identity
+        href: redirection-configure-smart-cards.md
+      - name: USB
+        displayName: devices, peripherals, redirections
+        href: redirection-configure-usb.md
+      - name: WebAuthn
+        displayName: devices, peripherals, redirections, identity
+        href: redirection-configure-webauthn.md
     - name: Configure client redirection using Intune
       href: client-device-redirection-intune.md
     - name: Set up email discovery

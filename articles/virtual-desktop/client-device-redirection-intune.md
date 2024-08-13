@@ -16,7 +16,7 @@ ms.date: 05/29/2024
 > [!TIP]
 > This article contains information for multiple products that use the Remote Desktop Protocol (RDP) to provide remote access to Windows desktops and applications.
 
-Redirection of resources and peripherals from a user's local device to a remote session from Azure Virtual Desktop or Windows 365 using the Remote Desktop Protocol (RDP), such as the clipboard, camera, and audio, is normally governed by central configuration of a host pool and its session hosts. Client device redirection is configured for Windows App and the Remote Desktop app using a combination of Microsoft Intune app configuration policies, app protection policies, and Microsoft Entra Conditional Access on a user's local device.
+Redirection of resources and peripherals from a user's local device to a remote session from Azure Virtual Desktop or Windows 365 over the Remote Desktop Protocol (RDP), such as the clipboard, camera, and audio, is normally governed by central configuration of a host pool and its session hosts. Client device redirection is configured for Windows App and the Remote Desktop app using a combination of Microsoft Intune app configuration policies, app protection policies, and Microsoft Entra Conditional Access on a user's local device.
 
 These features enable you to achieve the following scenarios:
 

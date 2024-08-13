@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 01/13/2023
+ms.date: 07/11/2024
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurecli
 ---
@@ -35,12 +35,12 @@ For details about the named value attributes, see the API Management [REST API r
 
 ## Key vault secrets
 
-Secret values can be stored either as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](../key-vault/general/overview.md). 
+Secret values can be stored either as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](/azure/key-vault/general/overview). 
 
 Using key vault secrets is recommended because it helps improve API Management security:
 
 * Secrets stored in key vaults can be reused across services
-* Granular [access policies](../key-vault/general/security-features.md#privileged-access) can be applied to secrets
+* Granular [access policies](/azure/key-vault/general/security-features#privileged-access) can be applied to secrets
 * Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. You can also manually refresh the secret using the Azure portal or via the management REST API.
 
 ## Prerequisites
@@ -49,9 +49,11 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 ### Prerequisites for key vault integration
 
- - If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
-    To create or import a secret to the key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
+- If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
+
+    To create or import a secret to the key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal).
 
 - Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
 

@@ -2,7 +2,7 @@
 title: Create, change, or delete an Azure virtual network peering
 description: Learn how to create, change, or delete a virtual network peering. With virtual network peering, you connect virtual networks in the same region and across regions.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: allensu

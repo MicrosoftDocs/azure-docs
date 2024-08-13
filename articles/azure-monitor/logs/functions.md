@@ -16,7 +16,7 @@ A function is a log query in Azure Monitor that can be used in other log queries
 
 - To view or use functions, you need `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
 
-- To create or edit functions, you need `microsoft.operationalinsights/workspaces/savedSearches/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
+- To create or edit functions, you need `microsoft.operationalinsights/workspaces/savedSearches/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
 ## Types of functions
 There are two types of functions in Azure Monitor:

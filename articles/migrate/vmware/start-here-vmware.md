@@ -13,7 +13,7 @@ products:
 ms.date: 05/08/2024
 ms.custom: vmware-scenario-422
 
-# Customer intent - overview  of the options for assessing an existing VMware deployment for migration
+# Customer intent - Overview  of the options for assessing an existing VMware deployment for migration
 ---
 
 

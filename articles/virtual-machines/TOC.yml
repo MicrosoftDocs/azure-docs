@@ -441,6 +441,8 @@
           href: nc-series-retirement.md
         - name: NCads_H100_v5 series
           href: ./sizes/gpu-accelerated/ncadsh100v5-series.md
+        - name: NCCads_H100_v5 series
+          href: ./sizes/gpu-accelerated/nccadsh100v5-series.md
         - name: NCv2 series
           href: ./sizes/gpu-accelerated/ncv2-series.md
         - name: NCv2 series retirement
@@ -941,6 +943,9 @@
       - name: Best practices
         displayName: Image builder, images, building, best practices
         href: image-builder-best-practices.md
+      - name: Connecting to Build VM
+        displayName: Image builder, images, building, connecting, build VM
+        href: ./linux/image-builder-connect-to-build-vm.md
       - name: Image Builder Reliability
         displayName: Image builder, images, building, reliability, resiliency, recovery
         href: /azure/reliability/reliability-image-builder?toc=/azure/virtual-machines/toc.json&bc=/azure/virtual-machines/breadcrumb/toc.json
@@ -1006,6 +1011,8 @@
       href: ./linux/spot-template.md
     - name: Spot Priority Mix
       href: /azure/virtual-machine-scale-sets/spot-priority-mix?toc=/azure/virtual-machines/toc.json
+    - name: Spot Placement Score (Preview)
+      href: /azure/virtual-machines/spot-placement-score.md
     - name: VM size recommendation
       href: /azure/virtual-machine-scale-sets/spot-vm-size-recommendation?toc=/azure/virtual-machines/toc.json
     - name: Error codes

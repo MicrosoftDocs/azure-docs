@@ -504,7 +504,8 @@
       items:
       - name: Azure portal, CLI, REST API
         href: flexible-server/how-to-read-replicas-portal.md
-        displayName: replica
+      - name: Read replica with Terraform
+        href: flexible-server/how-to-read-replicas-virtual-endpoints-terraform.md
   - name: Extensions
     items:
     - name: Overview
@@ -698,7 +699,7 @@
         href: single-server/concepts-connectivity-architecture.md
         displayName: security, architecture
       - name: Threat protection with Microsoft Defender for Cloud
-        href: ../defender-for-cloud/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
+        href: /azure/defender-for-cloud/defender-for-databases-usage?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md

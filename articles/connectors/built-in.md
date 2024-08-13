@@ -640,7 +640,7 @@ Azure Logic Apps supports business-to-business (B2B) communication scenarios thr
 
   * For operations that require maps or schemas, you can either:
 
-    * Upload these artifacts to your logic app resource using the Azure portal or Visual Studio Code. You can then use these artifacts across all child workflows in the *same* logic app resource. For more information, review [Add schemas to use with workflows in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard) and [Add schemas to use with workflows in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-schemas.md?tabs=standard).
+    * Upload these artifacts to your logic app resource using the Azure portal or Visual Studio Code. You can then use these artifacts across all child workflows in the *same* logic app resource. For more information, review [Add maps to use with workflows in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard) and [Add schemas to use with workflows in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-schemas.md?tabs=standard).
 
     * [Link your logic app resource to your integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 

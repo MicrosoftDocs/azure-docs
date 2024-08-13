@@ -316,31 +316,23 @@ In this section, you create the virtual machine and its supporting resources.
 
 9. The private key downloads to your local computer. Copy the private key to a directory on your computer. In the following example, it's **~/.ssh**.
 
-10. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
-
-11. Select **myVM**.
-
-12. Stop **myVM**.
-
 ### Configure network interface
 
 A network interface is automatically created and attached to the chosen virtual network during creation. In this section, you add the IPv6 configuration to the existing network interface.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **myVM**.
+2. Select **myVM** or your existing virtual machine name.
 
-3. Select **Stop**, to stop the virtual machine. Wait for the machine to shut down.
+3. Select **Networking** in **Settings**.
 
-4. Select **Networking** in **Settings**.
+4. The name of your default network interface will be **myvmxx**, with xx a random number. In this example, it's **myvm281**. Select **myvm281** next to **Network Interface:**.
 
-5. The name of your default network interface will be **myvmxx**, with xx a random number. In this example, it's **myvm281**. Select **myvm281** next to **Network Interface:**.
+5. In the properties of the network interface, select **IP configurations** in **Settings**.
 
-6. In the properties of the network interface, select **IP configurations** in **Settings**.
+6. In **IP configurations**, select **+ Add**.
 
-7. In **IP configurations**, select **+ Add**.
-
-8. In **Add IP configuration**, enter or select the following information.
+7. In **Add IP configuration**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -351,9 +343,7 @@ A network interface is automatically created and attached to the chosen virtual 
     | Public IP address | Select **Associate**. |
     | Public IP address | Select **myPublicIP-IPv6**. |
 
-9. Select **OK**.
-
-10. Return to the **Overview** of **myVM** and start the virtual machine.
+8. Select **OK**.
 
 # [Azure CLI](#tab/azurecli/)
 
