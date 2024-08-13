@@ -14,6 +14,14 @@ items:
       href: how-to-set-up-appliance-vmware.md
   - name: Import using RVTools XLSX (preview)
     href: tutorial-import-vmware-using-rvtools-xlsx.md
+- name: Analyze dependencies  
+  items:
+  - name: Dependency analysis
+    href: ../concepts-dependency-visualization.md?context=/azure/migrate/context/vmware-context
+  - name: Analyze server dependencies (agentless) - Azure Migrate product documentation
+    href: ../how-to-create-group-machine-dependencies-agentless.md?context=/azure/migrate/context/vmware-context
+  - name: Analyze server dependencies (agent-based) - Azure Migrate product documentation
+    href: ../how-to-create-group-machine-dependencies.md?context=/azure/migrate/context/vmware-context
 - name: Decide
   items:
   - name: Build a business case (preview)
