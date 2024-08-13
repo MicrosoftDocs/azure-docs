@@ -52,10 +52,10 @@ Your organization requires to use `Connect-AzAccount`  with `DeviceCode` paramet
 
 ### Resolution
 
-- Modify this [line](https://github.com/azureautomation/Preqrequisite-for-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/1750c1758cf9be93153a24b6eb9bfccc174ce66b/MigrationPrerequisites.ps1) in the Prerequisite script where it has the Connect-AzAccount Command to use the - [UseDeviceAuthentication](/powershell/module/az.accounts/connect-azaccount) Parameter.
+- Modify this [line](https://github.com/azureautomation/Preqrequisite-for-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/1750c1758cf9be93153a24b6eb9bfccc174ce66b/MigrationPrerequisites.ps1#L1224) in the Prerequisite script where it has the Connect-AzAccount Command to use the - [UseDeviceAuthentication](https://review.learn.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-12.2.0&branch=main#-usedeviceauthentication) parameter.
 
 
-## Encountering exception message
+## Encountering Get-AzOperationInsightsWorkspace exception message
 
 ### Issue
 
