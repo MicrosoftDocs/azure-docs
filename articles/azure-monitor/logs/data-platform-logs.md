@@ -56,32 +56,13 @@ Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights
 You can also [create your own visualizations and reports](../best-practices-analysis.md#built-in-visualization-tools) using workbooks, dashboards, and Power BI.  
 
 
-## Collect, transform, and route data
+## Data collection, routing, and transformation
 
 Azure Monitor's data collection capabilities let you collect data from all of your applications and resources running in Azure, other clouds, and on-premises. A powerful ingestion pipeline enables filtering, transforming, and routing data to destination tables in your Log Analytics workspace to optimize costs, analytics capabilities, and query performance.
 
 :::image type="content" source="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" lightbox="media/data-platform-logs/azure-monitor-logs-collection-ingestion.png" alt-text="A diagram that shows data being collected from data sources and transformed and sent to tables in a Log Analytics workspace.":::
 
 For more information on data collection and transformation, see [Azure Monitor data sources and data collection methods](../data-sources.md) and [Data collection transformations in Azure Monitor](../essentials/data-collection-transformations.md).
-
-## Use data to derive value 
-
-Use the data you collect in Azure Monitor Logs to derive operational and business value.
-
-This table describes some of the ways that you can use data in Azure Monitor Logs.
-
-|  Capability | Description |
-|:---|:---|
-| Analyze | Use [Log Analytics](./log-analytics-tutorial.md) in the Azure portal to write [log queries](./log-query-overview.md) and interactively analyze log data by using a powerful analysis engine. |
-| Aggregate| Use [summary rules](./summary-rules.md) to aggregate information you need for alerting and analysis, from raw log data. This lets you optimize your costs, analysis capabilities, and query performance. |
-| Alert | Configure a [log search alert rule](../alerts/alerts-log.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the results of the query match a particular result. |
-| Visualize | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../visualize/workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](./log-powerbi.md) to use different visualizations and share with people outside Azure.<br>Export the results of a query to [Grafana](../visualize/grafana-plugin.md) to use its dashboarding and combine with other data sources.|
-| Get insights | [Insights](../insights/insights-overview.md) provide a customized monitoring experience for particular resources and services.  |
-| Retrieve | Access log query results from:<ul><li>The command line using [Azure CLI](/cli/azure/monitor/log-analytics) or [Azure PowerShell cmdlets](/powershell/module/az.operationalinsights).</li><li>A custom app using the [REST API](/rest/api/loganalytics/) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Query-readme), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery), [Java](/java/api/overview/azure/monitor-query-readme), [JavaScript](/javascript/api/overview/azure/monitor-query-readme), or [Python](/python/api/overview/azure/monitor-query-readme).</li></ul> |
-| Import | Upload logs from a custom app via the [REST API](/azure/azure-monitor/logs/logs-ingestion-api-overview) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme). |
-| Export | Configure [automated export of log data](./logs-data-export.md) to an Azure Storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location by using [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md). |
-| Bring your own analysis | [Analyze data in Azure Monitor Logs using a notebook](../logs/notebooks-azure-monitor-logs.md) to create streamlined, multi-step processes on top of data you collect in Azure Monitor Logs. This is especially useful for purposes such as [building and running machine learning pipelines](../logs/aiops-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), advanced analysis, and troubleshooting guides (TSGs) for Support needs. |
-| Retain data for auditing and compliance | [Extend retention of data in any table](./data-retention-configure.md) for auditing and compliance to up to 12 years. Low-cost, in-workspace, long-term retention lets you reduce costs and easily use data when you need it.|
 
 ## Table plans
 
@@ -120,6 +101,24 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 > [!NOTE]
 > The Auxiliary table plan is in public preview. For current limitations and supported regions, see [Public preview limitations](create-custom-table-auxiliary.md#public-preview-limitations).<br> The Basic and Auxiliary table plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
+## Use cases 
+
+Use the data you collect in Azure Monitor Logs to derive operational and business value.
+
+This table describes some of the ways that you can use data in Azure Monitor Logs.
+
+|  Capability | Description |
+|:---|:---|
+| Analyze | Use [Log Analytics](./log-analytics-tutorial.md) in the Azure portal to write [log queries](./log-query-overview.md) and interactively analyze log data by using a powerful analysis engine. |
+| Aggregate| Use [summary rules](./summary-rules.md) to aggregate information you need for alerting and analysis, from raw log data. This lets you optimize your costs, analysis capabilities, and query performance. |
+| Alert | Configure a [log search alert rule](../alerts/alerts-log.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the results of the query match a particular result. |
+| Visualize | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../visualize/workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](./log-powerbi.md) to use different visualizations and share with people outside Azure.<br>Export the results of a query to [Grafana](../visualize/grafana-plugin.md) to use its dashboarding and combine with other data sources.|
+| Get insights | [Insights](../insights/insights-overview.md) provide a customized monitoring experience for particular resources and services.  |
+| Retrieve | Access log query results from:<ul><li>The command line using [Azure CLI](/cli/azure/monitor/log-analytics) or [Azure PowerShell cmdlets](/powershell/module/az.operationalinsights).</li><li>A custom app using the [REST API](/rest/api/loganalytics/) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Query-readme), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery), [Java](/java/api/overview/azure/monitor-query-readme), [JavaScript](/javascript/api/overview/azure/monitor-query-readme), or [Python](/python/api/overview/azure/monitor-query-readme).</li></ul> |
+| Import | Upload logs from a custom app via the [REST API](/azure/azure-monitor/logs/logs-ingestion-api-overview) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/ingestion/azlogs), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme). |
+| Export | Configure [automated export of log data](./logs-data-export.md) to an Azure Storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location by using [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md). |
+| Bring your own analysis | [Analyze data in Azure Monitor Logs using a notebook](../logs/notebooks-azure-monitor-logs.md) to create streamlined, multi-step processes on top of data you collect in Azure Monitor Logs. This is especially useful for purposes such as [building and running machine learning pipelines](../logs/aiops-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), advanced analysis, and troubleshooting guides (TSGs) for Support needs. |
+| Retain data for auditing and compliance | [Extend retention of data in any table](./data-retention-configure.md) for auditing and compliance to up to 12 years. Low-cost, in-workspace, long-term retention lets you reduce costs and easily use data when you need it.|
 
 ## Working with Microsoft Sentinel and Microsoft Defender for Cloud
 
