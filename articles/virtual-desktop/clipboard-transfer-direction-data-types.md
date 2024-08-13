@@ -27,7 +27,8 @@ To configure the clipboard transfer direction, you need:
 
 - Your session hosts must be running one of the following operating systems:
 
-   - Windows 11 Enterprise or Enterprise multi-session with the [2024-06 cumulative update (KB5039212)](https://support.microsoft.com/kb/5039212) or later installed.
+   - Windows 11 Enterprise or Enterprise multi-session, version 22H2 or 23H2 with the [2024-06 cumulative update (KB5039212)](https://support.microsoft.com/kb/5039212) or later installed.
+   - Windows 11 Enterprise or Enterprise multi-session, version 21H2 with the [2024-06 cumulative update (KB5039213)](https://support.microsoft.com/kb/5039213) or later installed.
    - Windows Server 2022 with the [2024-07 cumulative update (KB5040437)](https://support.microsoft.com/kb/5040437) or later installed.
 
 - Depending on the method you use to configure the clipboard transfer direction:
