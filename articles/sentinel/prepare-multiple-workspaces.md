@@ -1,10 +1,10 @@
 ---
 title: Prepare for multiple workspaces and tenants in Microsoft Sentinel
 description: To prepare for your deployment, learn how Microsoft Sentinel can extend across multiple workspaces and tenants.
-author: limwainstein
+author: cwatson-cat
 ms.topic: conceptual
-ms.date: 06/28/2023
-ms.author: lwainstein
+ms.date: 08/13/2024
+ms.author: cwatson
 ms.service: microsoft-sentinel
 #Customer intent: As a SOC architect, I want to learn about how Microsoft Sentinel can extend across workspaces so I can determine whether I need this capability and prepare accordingly.
 ---
