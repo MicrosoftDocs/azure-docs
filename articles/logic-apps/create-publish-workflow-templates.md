@@ -50,13 +50,13 @@ You can also include any other files to maintain and support your template, for 
 
 - Before you create the template package folder, review [Names and style conventions](#names-and-style-conventions).
 
-- To correctly register your template package folder, you must add the folder name to [manifest.json file at the *root* level for the workflow templates GitHub repository](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
+- To correctly register your template package folder, you must add the folder name to the [root-level manifest.json file in the workflow templates GitHub repository](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
 
 ### Create a workflow.json file
 
 The **workflow.json** file contains the underlying definition for a workflow in JSON format. To create the **workflow.json** file, you need to copy and save your workflow definition as a file named **workflow.json**.
 
-For the easiest and best way to get this definition, create your workflow using the designer. As you build your workflow, the designer automatically includes references to any built-in, service provider-based connections, managed API connections, or libraries in the underlying workflow definition.
+For the easiest and best way to get the workflow definition, create your workflow using the designer. Make sure to review the [workflow best practices](#workflow-best-practices) and [names and style conventions](#names-and-style-conventions). As you build your workflow, the designer automatically includes references to any built-in, service provider-based connections, managed API connections, or libraries in the underlying workflow definition.
 
 As a starting point for building your workflow, you can use the provided prebuilt workflow templates from the template gallery in the Azure portal or in the [workflow templates repository in GitHub](https://github.com/Azure/LogicAppsTemplates/tree/main).
 
@@ -70,7 +70,39 @@ To get the workflow definition after you're done, follow these steps in the [Azu
 
 1. In an empty file named **workflow.json**, save the workflow definition.
 
-## Best practices for workflows
+## Parameter and connection references in workflow.json
+
+### Parameter references
+
+When you reference parameters in the **workflow.json** file, you must reflect names that use the suffix **_#workflowname#** in the following way:
+
+**`"name": "@parameters('<parameter-name>_#workflowname#')"`**
+
+For example:
+
+**`"name": "@parameters('sharepoint-folder-path_#workflowname#')"`**
+
+### Connection references
+
+When you reference connections in the **workflow.json** file, you must reflect names that use the suffix **_#workflowname#** in the following way:
+
+```json
+"referenceName": "<connector-ID>_#workflowname*",
+"connectionName": "<connector-ID>_#workflowname"
+```
+
+For example:
+
+```json
+"referenceName": "AI_search_#workflowname*",
+"connectionName": "AI_search_#workflowname"
+```
+
+For more information about the connector ID, see [Find the connector ID](find-connector-id).
+
+<a name="workflow-best-practices"></a>
+
+## Workflow best practices
 
 - Use the built-in operation versions as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
 
@@ -107,28 +139,31 @@ To provide this preview image, follow these steps:
 
 ### Create a manifest.json file
 
-Currently, no tooling exists to create the Until we have the tooling available, creating this file will be a manual process. The information that goes in this file describes the workflow and its related components. You can use the manifest.json from one of the existing templates here instead of starting from scratch. 
+The **manifest.json** file describes the relationship between a workflow and related components. Currently, you need to manually create this file, or you can repurpose the **manifest.json** file from an existing prebuilt template. Make sure to review the [names and style conventions](#names-and-style-conventions) as you create the **manifest.json** file.
+
+The following table describes the attributes in the **manifest.json** file:
 
 | Attribute name | Required | Value | Description |
 |----------------|----------|-------|-------------|
 | **`title`** | Yes | <*template-title*> | The title that appears in the templates gallery, which opens when you add a workflow from a template in the Azure portal. |
 | **`description`** | Yes | <*template-description*> | The template description, which appears on the template's overview pane in the template gallery. |
-| **`sku`** | Yes | **`standard`**, **`consumption`** | The logic app workflow type supported by the template. If you're not sure, use **`standard`**. |
 | **`prerequisites`** | No | <*template-prerequisites*> | Any prerequisites to meet for using the template. Appears in the template's overview pane. You can link to other documents from this section. |
-| **`kinds`** | No | **`stateful`**, **`stateless`** | The workflow mode, which determines whether run history and operation states are stored. <br><br>By default, all workflows are available in both stateful and stateless mode. If your workflow only runs in stateful mode, use this attribute to make this requirement explicit. |
 | **`tags`** | No | <*template-tags-array*> | The template tags to use for searching or filtering templates. |
+| **`skus`** | Yes | **`standard`**, **`consumption`** | The logic app workflow type supported by the template. If you're not sure, use **`standard`**. |
+| **`kinds`** | No | **`stateful`**, **`stateless`** | The workflow mode, which determines whether run history and operation states are stored. <br><br>By default, all workflows are available in both stateful and stateless mode. If your workflow only runs in stateful mode, use this attribute to make this requirement explicit. |
+| **`detailsDescription`** | No | See description. | Any other detailed description information for the template. |
 | **`details`** | No | See description. | Template information to use for filtering the templates gallery. <br><br>- **`By`**: The template publisher, for example, **`Microsoft`**. <br><br>- **`Type`**: **`Workflow`** <br><br>- **`Trigger`**: The trigger type, for example, **`Recurrence`**, **`Event`**, or **`Request`**. |
-| **`artifacts`** | No | <*artifacts-array*> | All the relevant files in the template package and includes the following attributes: <br><br>- **`type`**: The file type, which determines the appropriate location for where to copy the file, for example **`workflow`**. <br><br>- **`file`**: The file name and extension. | 
+| **`artifacts`** | Yes | <*artifacts-array*> | All the relevant files in the template package and includes the following attributes: <br><br>- **`type`**: The file type, which determines the appropriate location for where to copy the file, for example **`workflow`**. <br><br>- **`file`**: The file name and extension. | 
 | **`images`** | Yes | **`<image-file-name>-light.png`**, **`<image-file-name>-dark.png`** | The workflow image file names for both browser light and dark theme versions: <br><br>- **`light`**: Image name for light theme, for example, "  <br><br>- **`dark`**:  |
-| **`parameters`** | Yes | <*workflow-parameters-array*> | The parameters to use for workflow creation. For each parameter, you need to specify the following properties: <br><br>- **`name`**: The parameter name must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<parameter-name>_#workflowname#`** <br><br>- **`displayName`**: The parameter's friendly display name. See [Names and style conventions](#names-style-conventions). <br><br>- **`type`**: The parameter's data type, for example **`String`** or **`Int`**. <br><br>- **`default`**: The parameter's default value, if any. If none, leave this value as an empty string. <br><br>- **`description`** The parameter's details and other important or helpful information. <br><br>- **`required`**: **`true`** or **`false`** |
-| **`connections`** | Yes, but can be empty if no connections exist. | <*connections-array*> | The connections to use in workflow creation. Each connection has the following properties: <br><br>-**`connectorId`**: The connector ID must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<connector-ID>_#workflowname#`** <br><br>To find the connector ID, see [Find the connector ID](#find-connector-id). <br><br>- **`kind`**: The connector's runtime host type, which is either **`inapp`** for built-in operations and service provider-based connectors or **`shared`** for managed, Azure-hosted connectors. In the connectors gallery, built-in operations and service provider-based connectors are labeled as **In App**, while managed connectors are labeled as **Shared**. |
-| **`featuredConnections`** | No | <*featured-connections-array*> | By default, the template gallery shows icons for the prebuilt operations and connectors in Azure Logic Apps used by each template. To include icons for any other operations, you can use the **`featuredConnections`** attribute. Each operation must have the following properties: <br><br>- **`kind`**: The operation kind <br><br>- **`type`**: The operation type <br><br>To find these values, see [Find the operation kind and type for featuredConnections section](#find-featured-connections-properties). |
+| **`parameters`** | Yes, but can be empty if none exist | <*workflow-parameters-array*> | The parameters to use for workflow creation. For each parameter, you need to specify the following properties: <br><br>- **`name`**: The parameter name must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<parameter-name>_#workflowname#`** <br><br>- **`displayName`**: The parameter's friendly display name. See [Names and style conventions](#names-style-conventions). <br><br>- **`type`**: The parameter's data type, for example **`String`** or **`Int`**. <br><br>- **`default`**: The parameter's default value, if any. If none, leave this value as an empty string. <br><br>- **`description`** The parameter's details and other important or helpful information. <br><br>- **`required`**: **`true`** or **`false`** |
+| **`connections`** | Yes, but can be empty if none exist. | <*connections-array*> | The connections to use in workflow creation. Each connection has the following properties: <br><br>-**`connectorId`**: The connector ID must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<connector-ID>_#workflowname#`** <br><br>To find the connector ID, see [Find the connector ID](#find-connector-id). <br><br>- **`kind`**: The connector's runtime host type, which is either **`inapp`** for built-in operations and service provider-based connectors or **`shared`** for managed, Azure-hosted connectors. In the connectors gallery, built-in operations and service provider-based connectors are labeled as **In App**, while managed connectors are labeled as **Shared**. |
+| **`featuredConnections`** | No | <*featured-connections-array*> | By default, the template gallery shows icons for the prebuilt operations and connectors in Azure Logic Apps used by each template. To include icons for any other operations, you can use the **`featuredConnections`** attribute. Each operation must have the following attributes: <br><br>- **`kind`**: The operation kind <br><br>- **`type`**: The operation type <br><br>To find these values, see [Find the operation kind and type for featuredConnections section](#find-featured-connections-operation-properties). |
 
 <a name="find-connector-id"></a>
 
-### Find the connector ID
+## Find the connector ID
 
-To find the connector ID to use for a connection in the **manifest.json** file, follow these steps:
+To find the connector ID to use for a connection in the **manifest.json** file or a connection reference in the **workflow.json** file, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
@@ -138,52 +173,33 @@ To find the connector ID to use for a connection in the **manifest.json** file, 
 
 1. Based on the connection type, follow these steps:
 
-   - For managed, "shared" connections hosted and run in Azure, find the **`managedApiConnections`** section. Under the **`connection`** attribute, copy and save the **`id`** value without any personal and sensitive data, such as the subscription ID, resource group name, and so on.
+   - For a managed, "shared" connection that is hosted and run in Azure:
 
-   - For service provider-based connections hosted on the Azure Logic Apps runtime, find the **`serviceProviderConnections`** section. 
+     1. Find the **`managedApiConnections`** section.
+
+     1. Under the **`connection`** attribute, copy and save the **`id`** value without any personal and sensitive data, such as the subscription ID, resource group name, and so on: **`/subscriptions/#subscription#/providers/Microsoft.Web/locations/#location#/managedApis/<*connector-ID*>`**
+
+        For example, the connector ID for the SharePoint connector is **`/subscriptions/#subscription#/providers/Microsoft.Web/locations/#location#/managedApis/sharepointonline`**
+
+   - For a service provider-based connection that is hosted on the Azure Logic Apps runtime:
+
+     1. Find the **`serviceProviderConnections`** section.
+
+     1. Copy and save the following value: **`/serviceProviders/<*connector-ID*>`**.
+
+        For example, the connector ID for the Azure AI Search connector is **`/serviceProviders/azureaisearch`**.
 
 <a name="find-featured-connections-operation-properties"></a>
 
-### Find the operation properties for featuredConnections
+## Find the operation 'kind' and 'type' properties for featuredConnections
 
-To find the properties for other operations to use in the **`featureConnections`** section for the **manifest.json** file, follow these steps:
+In the **manifest.json** file, the **`featuredConnections`** section can include icons for any other operations that you want to include with the template gallery in the Azure portal. For this section, which is an array, you need to provide the **`kind`** and **`type`** attributes for each operation.
 
- , This is an array and you can specify the operation type and operation kind. You can get these values from the workflow definition file. For example, for below workflow, highlighted properties should be used 
+To get these attribute values, follow these steps in the [Azure portal](https://portal.azure.com) with your opened workflow:
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. On the workflow menu, under **Developer**, select **Code**.
 
-1. On the logic app menu, under **Workflows**, select **Connections**.
-
-1. Select the **JSON View** tab.
-
-
-## Parameter and connection references in workflow.jon
-
-### Parameter references
-
-When you reference parameters in the **workflow.json** file, you must reflect names that use the suffix **_#workflowname#** in the following way:
-
-**`"name": "@parameters('<parameter-name>_#workflowname#')"`**
-
-For example:
-
-**`"name": "@parameters('sharepoint-folder-path_#workflowname#')"`**
-
-### Connection references
-
-When you reference connections in the **workflow.json** file, you must reflect names that use the suffix **_#workflowname#** in the following way:
-
-```json
-"referenceName": "<connector-ID>_#workflowname*",
-"connectionName": "<connector-ID>_#workflowname"
-```
-
-For example:
-
-```json
-"referenceName": "AI_search_#workflowname*",
-"connectionName": "AI_search_#workflowname"
-```
+1. In the code view window, in the **`actions`** section, find the operation that you want, and then find the **`kind`** and **`type`** values.
 
 ## Add workflow templates to GitHub repository
 
@@ -195,8 +211,6 @@ Navigate to GitHub repo for the templates - Azure/LogicAppsTemplates: Templates 
 
 Create your fork of the repo –  
 Navigate to your fork and copy the repo URL to lone it locally 
-
- 
 
 You can use different approaches/tools to add code to your repo. I have download Git and using that to add code to the rep. Next, Create your local copy using this command  
 
