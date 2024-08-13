@@ -1,6 +1,6 @@
 ---
-title: How to Connect MQTT Clients to Azure Web PubSub
-description: How to Connect MQTT Clients to Azure Web PubSub
+title: How to connect MQTT clients to Azure Web PubSub
+description: How to connect MQTT clients to Azure Web PubSub
 author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
@@ -8,7 +8,7 @@ ms.date: 06/17/2024
 ms.topic: how-to
 ---
 
-# How To connect MQTT clients to Azure Web PubSub
+# How to connect MQTT clients to Azure Web PubSub
 
 MQTT is a lightweight pub/sub messaging protocol designed for devices with constrained resources.
 
@@ -28,7 +28,7 @@ If client library doesn't accept a URI, then you probably need to split the info
 * Port: 443
 * Transport: WebSockets with [TLS](https://wikipedia.org/wiki/Transport_Layer_Security).
 
-[!INCLUDE [MQTT-Connection-Parameters](includes/mqtt-connection-Parameters.md)]
+[!INCLUDE [MQTT-Connection-parameters](includes/mqtt-connection-parameters.md)]
 
 By default MQTT clients don't have any permissions to publish or subscribe to any topics. You need to grant [permissions](#permissions) to MQTT clients.
 
@@ -45,17 +45,17 @@ A client can publish to other clients only when it's *authorized* to do so. A cl
 | `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`. |
 | | |
 
-## Authentication and Authorization
+## Authentication and authorization
 
 There are two workflows supported by Web PubSub to authenticate and authorize MQTT clients, so that they have proper permissions.
 
 These workflows can be used individually or in combination. If they're used in together, the auth result in the latter workflow would be honored by the service.
 
-### 1. JWT Workflow
+### 1. JWT workflow
 
 This is the default workflow, shown as follows:
 
-![Diagram of MQTT Auth Workflow With JWT.](./media/howto-connect-mqtt-websocket-client/mqtt-jwt-auth-workflow.png)
+![Diagram of MQTT auth workflow with JWT.](./media/howto-connect-mqtt-websocket-client/mqtt-jwt-auth-workflow.png)
 
 1. The client negotiates with your auth server. The auth server contains the authorization middleware, which handles the client request and signs a JWT for the client to connect to the service.
 1. The auth server returns the JWT to the client.
@@ -131,11 +131,11 @@ You could also add custom claims into the access token, and these values are pre
      ```
 ---
 
-### 2. Upstream Server Workflow
+### 2. Upstream server workflow
 
 The MQTT client sends an MQTT CONNECT packet after it establishes a WebSocket connection with the service, then the service calls an API in the upstream server. The upstream server can auth the client according to the username and password fields in the MQTT connection request, and the TLS certificate from the client.
 
-![Diagram of MQTT Auth Workflow With Upstream Server](./media/howto-connect-mqtt-websocket-client/mqtt-upstream-auth-workflow.png)
+![Diagram of MQTT auth workflow with upstream server](./media/howto-connect-mqtt-websocket-client/mqtt-upstream-auth-workflow.png)
 
 This workflow needs explicit configuration.
 * [Tutorial - Authenticate and authorize MQTT clients based on client certificates](./tutorial-upstream-auth-mqtt-client.md)

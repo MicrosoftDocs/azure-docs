@@ -9,7 +9,7 @@ ms.service: azure-web-pubsub
 ms.topic: reference
 ---
 
-# Cross-protocol Communication Between MQTT Clients and Web PubSub Clients
+# Cross-protocol communication between MQTT clients and Web PubSub clients
 
 Sometimes you'd like to have MQTT clients and other clients using Azure Web PubSub's protocols together in one hub, enabling cross-protocol communication. This document defines how such communication works.
 
@@ -17,17 +17,17 @@ Sometimes you'd like to have MQTT clients and other clients using Azure Web PubS
 
 First, let's clarify the concepts in the context of cross-protocol communication.
 
-* **MQTT Clients**: Clients using [MQTT](https://mqtt.org/) protocols.
-* **Web PubSub Clients**: Clients using Web PubSub's own protocols with pub/sub capabilities. Examples include `json.webpubsub.azure.v1`, `protobuf.webpubsub.azure.v1`, `json.reliable.webpubsub.azure.v1`, and `protobuf.reliable.webpubsub.azure.v1`. You can find an overview of Web PubSub's client protocols [here](./concept-client-protocols.md).
-* **Reliable Web PubSub Clients**: A subset of Web PubSub Clients using Web PubSub reliable protocols, specifically `json.reliable.webpubsub.azure.v1`, and `protobuf.reliable.webpubsub.azure.v1`.
+* **MQTT clients**: Clients using [MQTT](https://mqtt.org/) protocols.
+* **Web PubSub clients**: Clients using Web PubSub's own protocols with pub/sub capabilities. Examples include `json.webpubsub.azure.v1`, `protobuf.webpubsub.azure.v1`, `json.reliable.webpubsub.azure.v1`, and `protobuf.reliable.webpubsub.azure.v1`. You can find an overview of Web PubSub's client protocols [here](./concept-client-protocols.md).
+* **Reliable Web PubSub clients**: A subset of Web PubSub clients using Web PubSub reliable protocols, specifically `json.reliable.webpubsub.azure.v1`, and `protobuf.reliable.webpubsub.azure.v1`.
 
-## Concept Mappings
+## Concept mappings
 
-### Message Routing Behavior
+### Message routing behavior
 
 From the [Overview: MQTT in Azure Web PubSub Service](./overview-mqtt.md), we learn that joining a group in Web PubSub's protocols works the same as subscribing to the same named topic in MQTT. Similarly, sending to a group means publishing to the same named topic. This means if a client using Web PubSub protocols joins group `a`, it'll' get messages from MQTT clients sending to topic `a`, and vice versa.
 
-### Message Content Type Conversion
+### Message content type conversion
 
 In Web PubSub protocols, there are four message data types: Text, Binary, JSON, and Protobuf.
 
@@ -43,11 +43,11 @@ Here's the conversion between the MQTT "content type" field and Web PubSub messa
 | `application/octet-stream`     | Binary                         |
 | Absent or MQTT 3.1.1           | Binary                         |
 
-### Message Content Conversion
+### Message content conversion
 
 For text-based Web PubSub message data types, including `Text` and `Json`, they convert to and from MQTT by UTF-8 encoding. For binary-based Web PubSub message data types, including `Protobuf` and `Binary`, they remain exactly the same in the MQTT message content.
 
-### Message Quality of Service (QoS) Conversion
+### Message quality of service (QoS) conversion
 
 In Web PubSub protocols, the QoS of a message a client receives is determined by the client's protocol. Reliable clients get only QoS 1 messages, while other clients get only QoS 0 messages.
 
@@ -55,14 +55,14 @@ In MQTT protocols, the QoS of a message a client receives is determined by both 
 
 When messages transfer across protocols, the received QoS is defined as follows:
 
-| Message Sender | Message Receiver | QoS Evaluation |
+| Message sender | Message receiver | QoS evaluation |
 |----------------|------------------|----------------|
-| MQTT Clients   | Reliable Web PubSub Clients | QoS is always 1 |
-| MQTT Clients   | Other Web PubSub Clients    | QoS is always 0 |
-| Web PubSub Clients | MQTT Clients           | Min(1, granted subscription QoS) |
+| MQTT clients   | Reliable Web PubSub clients | QoS is always 1 |
+| MQTT clients   | Other Web PubSub clients    | QoS is always 0 |
+| Web PubSub clients | MQTT clients           | Min(1, granted subscription QoS) |
 
 ### Others
 
 Message properties listed here take effect across protocols. The others don't.
 
-* MQTT Message expiry interval
+* MQTT message expiry interval

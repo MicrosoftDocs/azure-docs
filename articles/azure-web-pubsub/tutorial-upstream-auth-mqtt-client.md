@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to write a .NET web server to authenticate an
 * [.NET Runtime](https://dotnet.microsoft.com/download/dotnet) installed.
 * [Node.js](https://nodejs.org)
 
-## Deploy Azure Web PubSub Service
+## Deploy Azure Web PubSub service
 
 Here are the Bicep/Azure Resource Manager templates to deploy an Azure Web PubSub service with client certificate authentication enabled and event handlers configured.
 
@@ -139,7 +139,7 @@ resource hub 'Microsoft.SignalRService/WebPubSub/hubs@2023-03-01-preview' = {
 
 ---
 
-## Set Up Auth Server
+## Set up auth server
 
 We've provided an auth server sample [here](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/mqttAuthServer). Please download the project.
 
@@ -193,7 +193,7 @@ dotnet run
 ```
 
 
-### Expose Server Endpoint To Public Network
+### Expose server endpoint to public network
 
 #### Download and install awps-tunnel
 The tool runs on [Node.js](https://nodejs.org/) version 16 or higher.
@@ -208,7 +208,7 @@ export WebPubSubConnectionString="<your connection string>"
 awps-tunnel run --hub {hubName} --upstream http://localhost:{portExposedByYourAuthServer}
 ```
 
-## Implement MQTT Clients
+## Implement MQTT clients
 
 We will implement the client side in Node.JS.
 

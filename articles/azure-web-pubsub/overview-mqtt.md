@@ -1,5 +1,5 @@
 ---
-title: MQTT support in Azure Web PubSub Service
+title: MQTT support in Azure Web PubSub service
 description: Get an overview of Azure Web PubSub's support for the MQTT protocols, understand typical use case scenarios to use MQTT in Azure Web PubSub, and learn the key benefits of MQTT in Azure Web PubSub.
 keywords: MQTT, MQTT on Azure Web PubSub, MQTT over WebSocket
 author: Y-Sindo
@@ -21,27 +21,28 @@ You can use MQTT protocols in Web PubSub service for the following scenarios:
 > [!NOTE]
 > MQTT support in Azure Web PubSub is in preview stage.
 
-## Key Features
+## Key features
 
-### Standard MQTT Protocols Support
+### Standard MQTT protocols support
 
 Web PubSub service supports MQTT 3.1.1 and 5.0 protocols in a standard way that any MQTT SDK with WebSocket transport support can connect to Web PubSub. Users who wish to use Web PubSub in a programming language that doesn't have a native Web PubSub SDK can still connect and communicate using MQTT.
 
-### Cross-Protocol Communication
+### Cross-protocol communication
 
 MQTT clients can communicate with clients of other Web PubSub protocols. Find more details [here](./reference-mqtt-cross-protocol-communication.md)
 
-### Easy MQTT adoption for Current Web PubSub Users
+### Easy MQTT adoption for current Web PubSub users
 
 Current users of Azure Web PubSub can use MQTT protocol with minimal modifications to their existing upstream servers. The Web PubSub REST API is already equipped to handle MQTT connections, simplifying the transition process.
 
-### Client-to-Server Request/Response Model
+### Client-to-server request/response model
 
 In addition to the client-to-client pub/sub model provided by the MQTT protocols, Web PubSub also support a client-to-server request/response model. Basically Web PubSub converts a specific kind of MQTT application messages into HTTP requests to registered webhooks, and sends the HTTP responses as application messages back to the MQTT clients.
 
 For more details, see [MQTT custom event handler protocol](./reference-mqtt-cloud-events.md#user-custom_event-event).
 
-## MQTT Feature Support Status
+## MQTT feature support status
+
 Web PubSub support MQTT protocol version 3.1.1 and 5.0. The supported features include but not limited to:
 
 * All the levels of Quality Of Service including at most once, at least once and exactly once.
@@ -49,7 +50,7 @@ Web PubSub support MQTT protocol version 3.1.1 and 5.0. The supported features i
 * Last Will & Testament
 * Client Certificate Authentication
 
-### Additional Features Supported For MQTT 5.0
+### Additional features supported for MQTT 5.0
 
 * Message Expiry Interval and Session Expiry Interval
 * Subscription Identifier.
@@ -57,13 +58,14 @@ Web PubSub support MQTT protocol version 3.1.1 and 5.0. The supported features i
 * Flow Control
 * Server-Sent Disconnect
 
-### Not Supported Feature
+### Not supported feature
+
 * Wildcard subscription
 * Retained messages
 * Topic alias
 * Shared subscription
 
-## How MQTT Is Adapted Into Web PubSub's System
+## How MQTT is adapted into Web PubSub's system
 
 This section assumes you have basic knowledge about MQTT protocols and Web PubSub. You can find the definitions of MQTT terms in [MQTT V5.0.0 Spec](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901003). You can also learn basic concepts of Web PubSub in [Basic Concepts](./key-concepts.md).
 
@@ -71,7 +73,7 @@ The following table shows similar or equivalent term mappings between MQTT and W
 
 [!INCLUDE [MQTT-Term-Mappings](includes/mqtt-term-mappings.md)]
 
-## Client Authentication And Authorization
+## Client authentication and authorization
 
 In general, a server to authenticate and authorize MQTT clients is required. There are two workflows supported by Web PubSub to authenticate and authorize MQTT clients.
 
@@ -88,22 +90,23 @@ These two workflows can be used individually or in combination. If they're used 
 
 For details on client authentication and authorization, see [How To Connect MQTT Clients to Web PubSub](./howto-connect-mqtt-websocket-client.md).
 
-## Client Lifetime Event Notification
+## Client lifetime event notification
 
 You can register event handlers to get notification when a Web PubSub client connection is started or ended, that is, an MQTT session started or ended.
 
 * [Event handler in Azure Web PubSub service](./howto-develop-eventhandler.md)
 * [MQTT CloudEvents Protocol](./reference-mqtt-cloud-events.md)
 
-## REST API Support
+## REST API support
 
 You can use REST API to do the following things:
+
 * Publish messages to a topic, a connection, a Web PubSub user, or all the connections.
 * Manage client permissions and subscriptions.
 
 [REST API specification for MQTT](./reference-rest-api-mqtt.md)
 
-## Event Listener Support
+## Event listener support
 
 > [!NOTE]
 > Sending MQTT client events to Event Hubs is not supported yet.
@@ -115,4 +118,3 @@ You can use REST API to do the following things:
 
 > [!div class="nextstepaction"]
 > [How To Connect MQTT Clients to Web PubSub](./howto-connect-mqtt-websocket-client.md)
-

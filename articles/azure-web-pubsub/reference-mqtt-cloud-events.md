@@ -1,5 +1,5 @@
 ---
-title: Reference - CloudEvents Extension for Azure Web PubSub MQTT Event Handler with HTTP Protocol
+title: Reference - CloudEvents extension for Azure Web PubSub MQTT event handler with HTTP protocol
 description: This reference describes CloudEvents extensions for the Azure Web PubSub MQTT event handler with HTTP protocol.
 author: Y-Sindo
 ms.author: zityang

@@ -1,5 +1,5 @@
 ---
-title: Azure Web PubSub service data plane REST API Specification for MQTT
+title: Azure Web PubSub service data plane REST API specification for MQTT
 description: Clarifies the meanings of the Web PubSub data-plane REST API in the context of MQTT
 author: Y-Sindo
 ms.author: zityang
@@ -12,27 +12,27 @@ ms.date: 07/23/2024
 
 This document clarifies the meanings of the Web PubSub data-plane REST API in the context of MQTT. The existing Web PubSub REST API documentation is focused on Web PubSub’s own protocols, which may make its application to MQTT unclear.
 
-## Term Mappings
+## Term mappings
 
 To begin, familiarize yourself with the term mappings between Web PubSub and MQTT. If you are already familiar with these terms, you may skip this section.
 
 [!INCLUDE [MQTT-Term-Mappings](includes/mqtt-term-mappings.md)]
 
-## Operation Mappings
+## Operation mappings
 
 For a comprehensive list of available operations, refer to the [REST API reference](/rest/api/webpubsub/dataplane/web-pub-sub).
 
 The REST API operations are categorized into the following groups:
 
-* [Message Sending Operations](#message-sending-operations)
-* [Subscription Management Operations](#subscription-management-operations)
-* [Permission Management Operations](#permission-management-operations)
-* [Existence Management Operations](#existence-management-operations)
-* [Client Token Generation Operations](#client-token-generation-operations)
+* [Message sending operations](#message-sending-operations)
+* [Subscription management operations](#subscription-management-operations)
+* [Permission management operations](#permission-management-operations)
+* [Existence management operations](#existence-management-operations)
+* [Client token generation operations](#client-token-generation-operations)
 
 Each of these categories is defined below.
 
-### Message Sending Operations
+### Message sending operations
 
 | REST API Operation | Effect on MQTT |
 | ------------------ | -------------- |
@@ -41,7 +41,7 @@ Each of these categories is defined below.
 
 Messages are published with a QoS of 1. The QoS of received messages may be downgraded based on the clients' subscription options, following the standard MQTT downgrading rules.
 
-### Subscription Management Operations
+### Subscription management operations
 
 | REST API Operation | Effect on MQTT |
 | ------------------ | -------------- |
@@ -51,21 +51,21 @@ Messages are published with a QoS of 1. The QoS of received messages may be down
 
 The group name corresponds to the MQTT topic filter. When adding connections or users to groups, default MQTT subscription options are used.
 
-### Permission Management Operations
+### Permission management operations
 
 These operations are straightforward in the context of MQTT and thus the definition is ignored.
 * Check Permission
 * Grant Permission
 * Revoke Permission
 
-### Existence Management Operations
+### Existence management operations
 
 | REST API Operation | Effect on MQTT |
 | ------------------ | -------------- |
 | Connection Exists<br>Group Exists<br>User Exists | Checks whether a session exists for the specified connection, user, or group. Note that this differs from checking if a connection is currently online. |
 | Close All Connections<br>Close Group Connections<br>Close User Connections | Ends the specified sessions and terminates the corresponding physical connections. |
 
-### Client Token Generation Operations
+### Client token generation operations
 
 | REST API Operation | Effect on MQTT |
 | ------------------ | -------------- |
