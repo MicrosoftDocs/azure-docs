@@ -134,7 +134,7 @@ var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? 
 var credential = new AzureKeyCredential(subscriptionKey);
 var client = new MapsSearchClient(credential); 
 ```
-## Get Geocoding
+## Geocode an address
 
 Call the `GetGeocoding` method to get the coordinate of an address.
 
