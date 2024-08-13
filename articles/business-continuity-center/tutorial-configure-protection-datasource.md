@@ -41,16 +41,16 @@ A datasource is an Azure resource or an item hosted in Azure resource (e.g. SQL 
 
 Azure Business Continuity Center helps you configure protection, enabling backup or replication of the datasources from various views and options like overview, protectable resources, protected items, and more options. You can choose from the following options to configure protection:
 
-- **Multiple datasources**: To configure protection for multiple datasources, you can use the **Configure protection** option available through the menu on the left or the top menu, like **Overview**, **Protectable resources**, **Protected items**, and etc. 
+- **Option 1: Multiple datasources**: To configure protection for multiple datasources, you can use the **Configure protection** option available through the menu on the left or the top menu, like **Overview**, **Protectable resources**, **Protected items**, and etc. 
     :::image type="content" source="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png" alt-text="Screenshot showing configure protection for multiple resources." lightbox="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png":::
  
-- **Single datasource**: To configure protection for a single datasource, use the menu on individual resources in **Protectable resources** blade. 
+- **Option 2: Single datasource**: To configure protection for a single datasource, use the menu on individual resources in **Protectable resources** blade. 
     :::image type="content" source="./media/tutorial-configure-protection-datasource/configure-single-resource.png" alt-text="Screenshot showing configure protection for a single resource." lightbox="./media/tutorial-configure-protection-datasource/configure-single-resource.png":::
  
 
 ## Configure protection
 
-This tutorial uses option 1 shown in the Getting started section to initiate the configure protection for Azure Virtual Machines.
+This tutorial uses option 1 shown in the [Getting started section](#get-started) to initiate the configure protection for Azure Virtual Machines.
 
 1. Go to one of the views from **Overview, Protectable resources**, **Protected items**, and so on, and then select **Configure Protection** from the menu available on the top of the view.
     :::image type="content" source="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png" alt-text="Screenshot showing **Configure protection** option." lightbox="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png":::
@@ -60,10 +60,12 @@ This tutorial uses option 1 shown in the Getting started section to initiate the
 
 > [!NOTE]
 > Ensure you have a *Recovery services* vault created to proceed with the flow for [Azure Backup](../backup/backup-overview.md) or [Azure Site recovery](../site-recovery/site-recovery-overview.md). You can create a vault from Vaults view in ABC Center: <br>
->     :::image type="content" source="./media/tutorial-configure-protection-datasource/create-vault.png" alt-text="Screenshot showing the create vault option." lightbox="./media/tutorial-configure-protection-datasource/create-vault.png":::
+>       :::image type="content" source="./media/tutorial-configure-protection-datasource/create-vault.png" alt-text="Screenshot showing the create vault option." lightbox="./media/tutorial-configure-protection-datasource/create-vault.png":::
 
  
-3. Select **Configure** to go to the solution-specific configuration page. For example, if you select *Azure Backup*, it opens the **Configure Backup** page in Backup. If you select *Azure Site Recovery*, it opens the **Enable Replication** page. 
+3. Select **Configure** to go to the solution-specific configuration page. 
+
+   For example, if you select *Azure Backup*, it opens the **Configure Backup** page in Backup. If you select *Azure Site Recovery*, it opens the **Enable Replication** page. 
     :::image type="content" source="./media/tutorial-configure-protection-datasource/start-configure-backup.png" alt-text="Screenshot showing **Configure Backup** page." lightbox="./media/tutorial-configure-protection-datasource/start-configure-backup.png":::
  
 ## Next steps

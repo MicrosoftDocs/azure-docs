@@ -55,4 +55,4 @@ By default, only Azure Virtual machines are shown in the **Protectable resources
 
 ## Next steps
 
-For more information about Azure Business Continuity Center and how it works, check out [Configure protection from ABC center](./tutorial-configure-protection-datasource.md).
+[Configure protection from ABC center](./tutorial-configure-protection-datasource.md).
