@@ -1218,7 +1218,7 @@
         "articles/app-service/**/*.md": "app-service",
         "articles/app-service-mobile/**/*.md": "app-service-mobile",
         "articles/app-spaces/**/*.md": "app-spaces",
-        "articles/automation/**/*.md": "automation",
+        "articles/automation/**/*.md": "azure-automation",
         "articles/azure-arc/**/*.md": "azure-arc",
         "articles/azure-functions/**/*.md": "azure-functions",
         "articles/azure-fluid-relay/**/*.md": "azure-fluid",
