@@ -128,7 +128,7 @@ spec:
 
 ### Enrich: Add reference data
 
-To enrich the data, you can use a reference dataset in Azure IoT Operations's [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+To enrich the data, you can use reference dataset stored in Azure IoT Operations's [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
 | Name                                           | Description                               |
 |------------------------------------------------|-------------------------------------------|
