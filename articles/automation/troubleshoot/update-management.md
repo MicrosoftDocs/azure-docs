@@ -6,6 +6,7 @@ ms.subservice: update-management
 ms.date: 06/29/2024
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell, linux-related-content
+ms.service: azure-automation
 ---
 
 # Troubleshoot Update Management issues
@@ -682,5 +683,5 @@ KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/
 If you don't see your problem or can't resolve your issue, try one of the following channels for additional support.
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

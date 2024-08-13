@@ -4,16 +4,13 @@ description: Get started with your deployments by learning how to quickly create
 author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 06/14/2024
 ms.reviewer: mimckitt, mattmcinnes
 ms.custom: mimckitt, mode-ui
 ---
 
 # Quickstart: Create a Virtual Machine Scale Set in the Azure portal
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
@@ -56,7 +53,7 @@ First, create a public Standard Load Balancer by using the portal. The name and 
 ![Create a load balancer](./media/virtual-machine-scale-sets-create-portal/load-balancer.png)
 
 ## Create Virtual Machine Scale Set
-You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
+You can deploy a scale set with a Windows Server image or Linux image such as RHEL, Ubuntu, or SLES.
 
 1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual Machine Scale Sets**. Select **Create** on the **Virtual Machine Scale Sets** page, which opens the **Create a Virtual Machine Scale Set** page.
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and select *myVMSSResourceGroup* from resource group list.

@@ -2,7 +2,7 @@
 title: Configure export settings in FHIR service - Azure Health Data Services
 description: This article describes how to configure export settings in the FHIR service
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: references_regions, subject-rbac-steps
@@ -38,11 +38,11 @@ In this step, browse to your FHIR service in the Azure portal and select the **I
 
 3. Select **Add > Add role assignment**. If the **Add role assignment** option is grayed out, ask your Azure administrator for help with this step.
 
-   :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 4. On the **Role** tab, select the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role.
 
-   [![Screen shot showing user interface of Add role assignment page.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox)
+   [![Screen shot showing user interface of Add role assignment page.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png#lightbox)
 
 5. On the **Members** tab, select **Managed identity**, and then click **Select members**.
 

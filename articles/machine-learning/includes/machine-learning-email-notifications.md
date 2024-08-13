@@ -1,6 +1,6 @@
 ---
 author: lgayhardt 
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: include
 ms.date: 09/12/2022
 ms.author: lagayhar

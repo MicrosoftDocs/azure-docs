@@ -176,7 +176,7 @@ No, you can't recover a deleted resource group. However, you might be able to re
 
 Some resource types support *soft delete*. You might have to configure soft delete before you can use it. For information about enabling soft delete, see:
 
-* [Azure Key Vault soft-delete overview](../../key-vault/general/soft-delete-overview.md)
+* [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview)
 * [Azure Storage - Soft delete for containers](../../storage/blobs/soft-delete-container-overview.md)
 * [Azure Storage - Soft delete for blobs](../../storage/blobs/soft-delete-blob-overview.md)
 * [Soft delete for Azure Backup](../../backup/backup-azure-security-feature-cloud.md)

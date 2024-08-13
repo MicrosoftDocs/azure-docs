@@ -84,18 +84,17 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
     - Permissions levels.
     Based on the JIT rule, this request might also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
 1. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
-    
+
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 1. One or more approvers at the customer organization for a given Customer Lockbox request are determined as follows:
     - For Subscription scoped requests (requests to access specific resources contained within a subscription), users with the Owner role or the Azure Customer Lockbox Approver for Subscription role (currently in public preview) on the associated subscription.
     - For Tenant scope requests (requests to access the Microsoft Entra tenant), users with the Global Administrator role on the Tenant.
     > [!NOTE]
     > Role assignments must be in place before Customer Lockbox for Microsoft Azure starts to process a request. Any role assignments made after Customer Lockbox for Microsoft Azure starts to process a given request will not be recognized.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to [Activate Microsoft Entra roles in PIM](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) / [Activate Azure resource roles in PIM](../../active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles.md#activate-a-role) for more information on activating PIM eligible roles.
-    > 
+    >
     > **Role assignments scoped to management groups are not supported in Customer Lockbox for Microsoft Azure at this time.**
 1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Microsoft Entra Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-ad-roles)/Azure Customer Lockbox Approver for Subscription receive an email from Microsoft to notify them about the pending access request.  You can also use the [Azure Lockbox alternate email notifications](customer-lockbox-alternative-email.md) feature (currently in public preview) to configure an alternate email address to receive lockbox notifications in scenarios where Azure account is not email enabled or if a service principal is defined as the lockbox approver.
 
-    
     Example email:
     :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="A screenshot of the email notification.":::
 
@@ -111,12 +110,17 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
     As a result of the selection:
     - **Approve**:  Access is granted to the Microsoft engineer for the duration specified in the request details, which is shown in the email notification and in the Azure portal.
     - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
-    
+
     For auditing purposes, the actions taken in this workflow are logged in [Customer Lockbox request logs](#auditing-logs).
 
 ## Auditing logs
 
-Customer Lockbox logs are stored in activity logs. In the Azure portal, select **Activity Logs** to view auditing information related to Customer Lockbox requests. You can filter for specific actions, such as:
+The auditing logs for Customer Lockbox for Azure are written to the activity logs for subscription-scoped requests and to the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
+
+### Subscription-scoped requests - Activity Logs
+
+In the Azure portal, Customer Lockbox for Microsoft Azure blade, select **Activity Logs** to view auditing information related to Customer Lockbox requests. You can also view the **Activity Logs** in the subscription details blade for the subscription in question. In both cases, you can filter for specific operations, such as:
+
 - **Deny Lockbox Request**
 - **Create Lockbox Request**
 - **Approve Lockbox Request**
@@ -125,6 +129,24 @@ Customer Lockbox logs are stored in activity logs. In the Azure portal, select *
 As an example:
 
 :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" alt-text="A screenshot of the activity logs.":::
+
+### Tenant-Scoped requests - Audit Log
+
+For tenant-scoped Customer Lockbox requests, log entries are wrriten to the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs). These Log entries are created by the Access Reviews service with activities such as:
+
+- **Create request**
+- **Request approved**
+- **Request denied**
+
+You can fiiter for ```Service = Access Reviews``` and ```Activity = one of the above activities```. 
+
+As an example:
+
+:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-entra-audit-logs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-entra-audit-logs.png" alt-text="A screenshot of the audit log.":::
+
+> [!NOTE]
+> The History tab in the Azure Lockbox portal has been removed due to existing technical limitations. To see
+Customer Lockbox request history, please use the Activity Log for subscription-scoped requests and the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
 
 ## Customer Lockbox for Microsoft Azure integration with the Microsoft cloud security benchmark
 

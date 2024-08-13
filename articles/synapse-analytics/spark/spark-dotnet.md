@@ -3,7 +3,7 @@ title: Use .NET for Apache Spark
 description: Learn about using .NET and Apache Spark to do batch processing, real-time streaming, machine learning, and write ad-hoc queries in Azure Synapse Analytics notebooks.
 author: juluczni
 ms.author: juluczni
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.custom: devx-track-dotnet

@@ -4,7 +4,7 @@ description: Specifications for Azure Confidential Computing's DCasv5 and DCadsv
 author: runcai 
 ms.author: runcai
 ms.reviewer: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 11/15/2021

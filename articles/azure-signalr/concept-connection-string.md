@@ -2,7 +2,7 @@
 title: Connection strings in Azure SignalR Service
 description: This article gives an overview of connection strings in Azure SignalR Service, how to generate one, and how to configure one in an app server.
 author: chenkennt
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 03/29/2023
 ms.author: kenchen
@@ -207,7 +207,7 @@ In a local development environment, the configuration is stored in a file (_apps
 - Use a .NET secret manager (`dotnet user-secrets set Azure:SignalR:ConnectionString "<connection_string>"`).
 - Set an environment variable named `Azure__SignalR__ConnectionString` to the connection string. The colons need to be replaced with a double underscore in the [environment variable configuration provider](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
-In a production environment, you can use other Azure services to manage configurations and secrets, like Azure [Key Vault](../key-vault/general/overview.md) and [App Configuration](../azure-app-configuration/overview.md). See their documentation to learn how to set up a configuration provider for those services.
+In a production environment, you can use other Azure services to manage configurations and secrets, like Azure [Key Vault](/azure/key-vault/general/overview) and [App Configuration](../azure-app-configuration/overview.md). See their documentation to learn how to set up a configuration provider for those services.
 
 > [!NOTE]
 > Even when you're directly setting a connection string by using code, we don't recommend that you hard-code the connection string in source code. Instead, read the connection string from a secret store like Key Vault and pass it to `AddAzureSignalR()`.

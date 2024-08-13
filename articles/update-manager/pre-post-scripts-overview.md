@@ -1,18 +1,18 @@
 ---
-title: An overview of pre and post events (preview) in your Azure Update Manager
-description: This article provides an overview on pre and post events (preview) and its requirements.
+title: An overview of pre and post events in your Azure Update Manager
+description: This article provides an overview on pre and post events and its requirements.
 ms.service: azure-update-manager
-ms.date: 06/15/2024
+ms.date: 07/24/2024
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
 ---
 
-# About pre and post events (preview)
+# About pre and post events 
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-The pre and post events (preview) in Azure Update Manager allow you to perform certain tasks automatically before and after a scheduled maintenance configuration. For more information on how to create schedule maintenance configurations, see [Schedule recurring updates for machines by using the Azure portal and Azure Policy](scheduled-patching.md). For example, using pre and post events, you can execute the following tasks on machines that are part of a schedule. The following list isn't exhaustive, and you can create pre and post events as per your need.
+The pre and post events in Azure Update Manager allow you to perform certain tasks automatically before and after a scheduled maintenance configuration. For more information on how to create schedule maintenance configurations, see [Schedule recurring updates for machines by using the Azure portal and Azure Policy](scheduled-patching.md). For example, using pre and post events, you can execute the following tasks on machines that are part of a schedule. The following list isn't exhaustive, and you can create pre and post events as per your need.
 
  
 ## Sample tasks
@@ -92,6 +92,8 @@ We recommend that you're watchful of the following:
 - The status of the pre and post event run can be checked in the event handler you chose.
 
 ## Next steps
-
+- To learn on how to create pre and post events, see [pre and post maintenance configuration events](pre-post-events-schedule-maintenance-configuration.md).
 - To learn on how to configure pre and post events or to cancel a schedule run, see [pre and post maintenance configuration events](manage-pre-post-events.md).
+- To learn how to use pre and post events to turn on and off your VMs using Webhooks, refer [here](tutorial-webhooks-using-runbooks.md).
+- To learn how to use pre and post events to turn on and off your VMs using Azure Functions, refer [here](tutorial-using-functions.md).
  

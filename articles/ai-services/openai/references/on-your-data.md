@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI On Your Data Python & REST API.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 06/13/2024
+ms.date: 07/18/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -174,6 +174,20 @@ completion = client.chat.completions.create(
 
 print(completion.model_dump_json(indent=2))
 
+# render the citations
+
+content = completion.choices[0].message.content
+context = completion.choices[0].message.context
+for citation_index, citation in enumerate(context["citations"]):
+    citation_reference = f"[doc{citation_index + 1}]"
+    url = "https://example.com/?redirect=" + citation["url"] # replace with actual host and encode the URL
+    filepath = citation["filepath"]
+    title = citation["title"]
+    snippet = citation["content"]
+    chunk_id = citation["chunk_id"]
+    replaced_html = f"<a href='{url}' title='{title}\n{snippet}''>(See from file {filepath}, Part {chunk_id})</a>"
+    content = content.replace(citation_reference, replaced_html)
+print(content)
 ```
 
 # [REST](#tab/rest)

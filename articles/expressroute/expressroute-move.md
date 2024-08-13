@@ -4,7 +4,7 @@ description: Learn about what happens when you move an Azure ExpressRoute circui
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 06/30/2023

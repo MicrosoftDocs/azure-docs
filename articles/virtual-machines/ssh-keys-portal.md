@@ -2,7 +2,7 @@
 title: Create SSH keys in the Azure portal
 description: Learn how to generate and store SSH keys in the Azure portal for connecting the Linux VMs.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom: linux-related-content
 ms.topic: article
 ms.date: 04/27/2023

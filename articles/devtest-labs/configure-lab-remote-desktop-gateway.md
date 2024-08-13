@@ -166,7 +166,7 @@ Before you update lab settings, store the key for the authentication token funct
 az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' --resource-group {lab-resource-group-name} --query properties.vaultName
 ```
 
-Learn how to save a secret in a key vault in the article, [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault). Record the secret name to use later. This value isn't the function key itself, but the name of the key vault secret that holds the function key.
+Learn how to save a secret in a key vault in the article, [Add a secret to Key Vault](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault). Record the secret name to use later. This value isn't the function key itself, but the name of the key vault secret that holds the function key.
 
 To configure a lab's **Gateway hostname** and **Gateway token secret** to use token authentication with the gateway machine(s), follow these steps:
 

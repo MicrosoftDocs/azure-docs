@@ -5,9 +5,10 @@ author: AvijitkGupta
 ms.author: avijitgupta
 ms.reviewer: kabharati, maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2023
   - ignite-2023

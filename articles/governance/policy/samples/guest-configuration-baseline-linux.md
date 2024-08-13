@@ -20,7 +20,7 @@ implementations:
 - **Vulnerabilities in security configuration on your machines should be remediated** in Microsoft Defender for Cloud
 
 For more information, see [Azure Policy guest configuration](../concepts/guest-configuration.md) and
-[Overview of the Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).
+[Overview of the Azure Security Benchmark (V2)](/azure/security/benchmarks/overview).
 
 ## General security controls
 

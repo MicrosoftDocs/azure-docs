@@ -24,6 +24,9 @@ Azure Virtual network service tags can be used to define network access controls
 ## Firewall endpoints
 The following table provides the endpoints that firewalls need to provide access to for different clouds. Each is an outbound connection to port 443.
 
+> [!IMPORTANT] 
+> For all endpoints, HTTPS inspection must be disabled.
+
 |Endpoint |Purpose | Example |
 |:--|:--|:--|
 | `global.handler.control.monitor.azure.com` |Access control service - |
@@ -31,7 +34,7 @@ The following table provides the endpoints that firewalls need to provide access
 |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data | 1234a123-aa1a-123a-aaa1-a1a345aa6789.ods.opinsights.azure.com
 | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database  | - |
 | `<virtual-machine-region-name>`.monitoring.azure.com  | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | westus2.monitoring.azure.com |
-
+| `<data-collection-endpoint>.<virtual-machine-region-name>`.ingest.monitor.azure.com | Only needed if sending data to Log Analytics [custom logs](./data-collection-text-log.md) table | 275test-01li.eastus2euap-1.canary.ingest.monitor.azure.com |
 
 Replace the suffix in the endpoints with the suffix in the following table for different clouds.
 

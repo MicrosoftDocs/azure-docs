@@ -4,7 +4,7 @@ description: Details on the structure of different kinds of data collection rule
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2024
+ms.date: 07/26/2024
 ms.reviwer: nikeist
 ---
 

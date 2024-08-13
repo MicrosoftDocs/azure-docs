@@ -2,7 +2,7 @@
 title: Delete a VM and attached resources
 description: Learn how to delete a VM and the resources attached to the VM.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 05/09/2022
 ms.author: jushiman

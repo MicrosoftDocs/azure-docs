@@ -516,6 +516,8 @@ groups:
   pivots:
   - id: consumption-plan
     title: Consumption plan
+  - id: flex-consumption-plan
+    title: Flex Consumption plan (preview)
   - id: premium-plan
     title: Premium plan
   - id: dedicated-plan
@@ -774,6 +776,8 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-rest-api
@@ -912,6 +916,17 @@ groups:
     title: Swift
   - id: programming-language-cli
     title: CLI
+- id: programming-languages-portal-cli-ps
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language or tool
+  pivots:
+  - id: azportal
+    title: Azure portal
+  - id: azcli
+    title: Azure CLI
+  - id: azpowershell
+    title: Azure PowerShell
 - id: programming-languages-portal-cli-sdk
 # Owner: eur
   title: Programming languages
@@ -1054,6 +1069,30 @@ groups:
     title: AI Studio
   - id: rest-api
     title: REST
+- id: azure-ai-model-catalog-samples-chat
+# Owner: santiagxf
+  title: Programing languages
+  prompt: Choose a tool or API
+  pivots:
+    - id: programming-language-python
+      title: Python
+    - id: programming-language-javascript
+      title: JavaScript
+    - id: programming-language-csharp
+      title: C#
+    - id: programming-language-rest
+      title: REST
+- id: azure-ai-model-catalog-samples-embeddings
+# Owner: santiagxf
+  title: Programing languages
+  prompt: Choose a tool or API
+  pivots:
+    - id: programming-language-python
+      title: Python
+    - id: programming-language-javascript
+      title: JavaScript
+    - id: programming-language-rest
+      title: REST
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages
@@ -1297,16 +1336,26 @@ groups:
     title: Linux
   - id: platform-sphere
     title: Azure Sphere
-- id: app-service-java-hosting
-  title: App Service Java hosting
+- id: app-service-java-deploy
+  title: App Service Java deployment
   prompt: Choose how you want to deploy your Java app
   pivots:
-  - id: java-maven-javase
-    title: Embed your own server
-  - id: java-maven-tomcat
+  - id: java-javase
+    title: Embed your own server (e.g. embedded Tomcat, Quarkus, Spring Boot)
+  - id: java-tomcat
     title: To a Tomcat server
-  - id: java-maven-jboss
+  - id: java-jboss
     title: To a JBoss server
+- id: app-service-java-hosting
+  title: App Service Java hosting
+  prompt: Choose how your Java app is hosted
+  pivots:
+  - id: java-javase
+    title: Java SE (e.g. embedded Tomcat, Quarkus, Spring Boot)
+  - id: java-tomcat
+    title: Tomcat
+  - id: java-jboss
+    title: JBoss EAP
 - id: app-service-containers-windows-linux
   title: App Service with custom containers
   prompt: Choose a custom container platform
@@ -2059,7 +2108,17 @@ groups:
     title: Python
   - id: rest-api
     title: REST
-
+# Owner: mbullwin
+- id: openai-fine-tuning-batch
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-ai-studio
+    title: AI Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 # Owner: mbullwin
 - id: openai-embeddings
   title: Programming languages
@@ -2147,7 +2206,7 @@ groups:
     title: Manual
 # Owner: jefmarti
 - id: app-service-openai
-  title: App Service Open AI
+  title: App Service OpenAI
   prompt: Choose a language
   pivots:
   - id: openai-dotnet
@@ -2474,6 +2533,23 @@ groups:
     title: PowerShell
   - id: client-clitier
     title: CLI
+# Owner: slpavkov
+- id: acs-calling-automation-pstn
+  title: Communication Services Response Codes
+  prompt: Choose a Communication Service
+  pivots:
+  - id: calling
+    title: Calling SDK
+  - id: callend
+    title: Call end
+  - id: automation
+    title: Call Automation SDK
+  - id: pstn
+    title: PSTN
+  - id: chat
+    title: Chat SDK
+  - id: sms
+    title: SMS SDK
 # Owner: prakulka
 - id: acs-tollfree-shortcode-alphanumeric
   title: Number Type
@@ -2912,6 +2988,17 @@ groups:
     title: Stable release
   - id: preview-version
     title: Preview release
+# Owner: avanigupta
+- id: appconfig-data-plane-api-version
+  title: API version pivots
+  prompt: Choose an API version
+  pivots:
+  - id: v1
+    title: "1.0"
+  - id: v23-10
+    title: "2023-10-01"  
+  - id: v23-11
+    title: "2023-11-01"
 # Owner: nicktrog
 - id: load-testing-config
   title: Experience
@@ -3102,6 +3189,26 @@ groups:
     title: Windows 365
   - id: dev-box
     title: Microsoft Dev Box
+  - id: remote-desktop-services
+    title: Remote Desktop Services
+  - id: remote-pc
+    title: Remote PC
+- id: rdp-products-features
+  title: Products and features using the Remote Desktop Protocol (RDP)
+  prompt: "Choose a product or feature:"
+  pivots:
+  - id: azure-virtual-desktop
+    title: Azure Virtual Desktop
+  - id: windows-365
+    title: Windows 365
+  - id: dev-box
+    title: Microsoft Dev Box
+- id: avd-rds-pc
+  title: Azure Virtual Desktop, Remote Desktop Services, and Remote PC
+  prompt: "Choose what you want to connect to:"
+  pivots:
+  - id: azure-virtual-desktop
+    title: Azure Virtual Desktop
   - id: remote-desktop-services
     title: Remote Desktop Services
   - id: remote-pc

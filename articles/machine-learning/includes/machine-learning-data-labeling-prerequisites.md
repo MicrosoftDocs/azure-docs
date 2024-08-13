@@ -1,6 +1,6 @@
 ---
 author: sgilley
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.topic: include
 ms.date: 10/21/2021
 ms.author: sdgilley

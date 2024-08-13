@@ -3,7 +3,7 @@ title: 'Quickstart: Create an Azure private link service - Azure PowerShell'
 description: In this quickstart, learn how to create an Azure private link service using Azure PowerShell.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 06/23/2023
 ms.author: abell

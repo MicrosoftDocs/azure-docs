@@ -6,7 +6,7 @@ author: hirenshah1
 ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 02/21/2023
+ms.date: 07/24/2024
 ms.custom: compute-evergreen devx-track-azurepowershell kr2b-contr-experiment
 ---
 
@@ -29,7 +29,7 @@ In the [Azure portal](https://portal.azure.com/), navigate to your Cloud service
 
 :::image type="content" source="./media/cloud-services-troubleshoot-location-not-found-for-role-size/cloud-services-troubleshoot-allocation-logs.png" alt-text="Screenshot shows the Operation log (classic) pane.":::
 
-When you inspect the logs of your Cloud service (classic), you'll see the following exception:
+When you inspect the logs of your Cloud service (classic), you see the following exception:
 
 |Exception Type  |Error Message  |
 |---------|---------|
@@ -37,11 +37,11 @@ When you inspect the logs of your Cloud service (classic), you'll see the follow
 
 ## Cause
 
-There's a capacity issue with the region or cluster that you're deploying to. The `LocationNotFoundForRoleSize` exception occurs when the resource SKU you've selected, the virtual machine size, isn't available for the region specified.
+There's a capacity issue with the region or cluster that you're deploying to. The `LocationNotFoundForRoleSize` exception occurs when the resource SKU you selected, the virtual machine size, isn't available for the region specified.
 
 ## Find SKUs in a region
 
-In this scenario, you should select a different region or SKU for your Cloud service (classic) deployment. Before you deploy or upgrade your Cloud service (classic), determine which SKUs are available in a region or availability zone. Follow the [Azure CLI](#list-skus-in-region-using-azure-cli), [PowerShell](#list-skus-in-region-using-powershell), or [REST API](#list-skus-in-region-using-rest-api) processes below.
+In this scenario, you should select a different region or SKU for your Cloud service (classic) deployment. Before you deploy or upgrade your Cloud service (classic), determine which SKUs are available in a region or availability zone. Use the following the [Azure CLI](#list-skus-in-region-using-azure-cli), [PowerShell](#list-skus-in-region-using-powershell), or [REST API](#list-skus-in-region-using-rest-api) processes.
 
 ### List SKUs in region using Azure CLI
 
@@ -120,9 +120,9 @@ You can use the [Resource Skus - List](/rest/api/compute/resourceskus/list) oper
 
 ## Next steps
 
-For more allocation failure solutions and to better understand how they're generated:
+For more allocation failure solutions and to better understand how allocation failures occur:
 
 > [!div class="nextstepaction"]
 > [Allocation failures - Cloud service (classic)](cloud-services-allocation-failures.md)
 
-If your Azure issue isn't addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options/) page, select **Get support**.
+If your Azure issue isn't addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on X](https://x.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options/) page, select **Get support**.

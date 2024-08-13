@@ -4,7 +4,7 @@ description: Learn about to set the upgrade policy on Virtual Machine Scale Sets
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 6/6/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
@@ -28,9 +28,6 @@ If using a rolling upgrade policy, see [configure rolling upgrade policy](virtua
 
 ### [CLI](#tab/cli)
 
-> [!NOTE]
-> Setting the upgrade policy to automatic during scale set creation using CLI or PowerShell on Virtual Machine Scale Sets with Flexible Orchestration is not yet available. To set the upgrade policy to automatic, update the upgrade policy after scale set deployment. See [changing the upgrade policy on a Virtual Machine Scale Set](virtual-machine-scale-sets-change-upgrade-policy.md). 
-
 When creating a new scale set using Azure CLI, use [az vmss create](/cli/azure/vmss#az-vmss-create) and the `-upgrade-policy-mode` to set the upgrade policy mode.  
 
 If using a rolling upgrade policy, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for configuration settings and suggestions.
@@ -51,7 +48,7 @@ az vmss create \
 ### [PowerShell](#tab/powershell)
 
 > [!NOTE]
-> Setting the upgrade policy to automatic during scale set creation using CLI or PowerShell on Virtual Machine Scale Sets with Flexible Orchestration is not yet available. To set the upgrade policy to automatic, update the upgrade policy after scale set deployment. See [changing the upgrade policy on a Virtual Machine Scale Set](virtual-machine-scale-sets-change-upgrade-policy.md). 
+> Setting the upgrade policy to automatic during scale set creation using PowerShell on Virtual Machine Scale Sets with Flexible Orchestration is not yet available. To set the upgrade policy to automatic, update the upgrade policy after scale set deployment. See [changing the upgrade policy on a Virtual Machine Scale Set](virtual-machine-scale-sets-change-upgrade-policy.md). 
 
 When creating a new scale set using Azure PowerShell, use [New-AzVmss](/powershell/module/az.compute/new-azvmss) and the `-UpgradePolicyMode` parameter to set the upgrade policy mode.
 

@@ -5,7 +5,7 @@ description: Learn how to create a public IP address using the Azure CLI
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: quickstart
 ms.date: 08/24/2023
 ms.custom: mode-api, devx-track-azurecli 

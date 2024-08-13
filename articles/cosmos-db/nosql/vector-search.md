@@ -5,7 +5,7 @@ description: Use vector store in Azure Cosmos DB for NoSQL to enhance AI-based a
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom:
   - Build 2024
@@ -137,12 +137,18 @@ The container vector policy can be described as JSON objects. Here are two examp
 | **`quantizedFlat`** | Quantizes (compresses) vectors before storing on the index. This can improve latency and throughput at the cost of a small amount of accuracy. | 4096 |
 | **`diskANN`** | Creates an index based on DiskANN for fast and efficient approximate search. | 4096 |
 
+> [!NOTE]
+> The `quantizedFlat` and `diskANN` indexes requires that at least 1,000 vectors to be inserted. This is to ensure accuracy of the quantization process. If there are fewer than 1,000 vectors, a full scan is executed instead and will lead to higher RU charges for a vector search query.
+
 A few points to note:
   - The `flat` and `quantizedFlat` index types uses Azure Cosmos DB's index to store and read each vector when performing a vector search. Vector searches with a `flat` index are brute-force searches and produce 100% accuracy or recall. That is, it's guaranteed to find the most similar vectors in the dataset. However, there's a limitation of `505` dimensions for vectors on a flat index.
 
   - The `quantizedFlat` index stores quantized (compressed) vectors on the index. Vector searches with `quantizedFlat` index are also brute-force searches, however their accuracy might be slightly less than 100% since the vectors are quantized before adding to the index. However, vector searches with `quantized flat` should have lower latency, higher throughput, and lower RU cost than vector searches on a `flat` index. This is a good option for smaller scenarios, or scenarios where you're using query filters to narrow down the vector search to a relatively small set of vectors. `quantizedFlat` should be used when there are at least 1,000 vectors and fewer than 100,000 vectors in the container.
 
   - The `diskANN` index is a separate index defined specifically for vectors using [DiskANN](https://www.microsoft.com/research/publication/diskann-fast-accurate-billion-point-nearest-neighbor-search-on-a-single-node/), a suite of high performance vector indexing algorithms developed by Microsoft Research. DiskANN indexes can offer some of the lowest latency, highest throughput, and lowest RU cost queries, while still maintaining high accuracy. However, since DiskANN is an approximate nearest neighbors (ANN) index, the accuracy can be lower than `quantizedFlat` or `flat`. DiskANN is available in early gated-preview and requires filling out [this form](https://aka.ms/DiskANNSignUp).
+
+> [!IMPORTANT]
+> During early preview, vector indexes can't be modified once created. Instead, you'll have to create a new container with a new vector index policy, if a change is needed.
 
 Here are examples of valid vector index policies:
 
@@ -158,6 +164,9 @@ Here are examples of valid vector index policies:
     "excludedPaths": [
         {
             "path": "/_etag/?"
+        },
+        {
+            "path": "/vector1"
         }
     ],
     "vectorIndexes": [
@@ -181,6 +190,12 @@ Here are examples of valid vector index policies:
     "excludedPaths": [
         {
             "path": "/_etag/?"
+        },
+        {
+            "path": "/vector1",
+        },
+        {
+            "path": "/vector2",
         }
     ],
     "vectorIndexes": [
@@ -195,11 +210,13 @@ Here are examples of valid vector index policies:
     ]
 }
 ```
-> [!NOTE]
-> The Quantized Flat and DiskANN indexes requires that at least 1,000 vectors to be inserted. This is to ensure accuracy of the quantization process. If there are fewer than 1,000 vectors, a full scan is executed instead, and will lead to higher RU charges for a vector search query.
+
+>[!IMPORTANT]
+> The vector path added to the "excludedPaths" section of the indexing policy to ensure optimized performance for insertion. Not adding the vector path to "excludedPaths" will result in higher RU charge and latency for vector insertions.
 
 > [!IMPORTANT]
 > At this time in the vector search preview do not use nested path or wild card characters in the path of the vector policy. Replace operations on the vector policy are currently not supported.
+
 
 ## Perform vector search with queries using VectorDistance()
 
@@ -220,6 +237,7 @@ Vector indexing and search in Azure Cosmos DB for NoSQL has some limitations whi
 - `quantizedFlat` utilizes the same quantization method as DiskANN and isn't configurable at this time. 
 - Shared throughput databases can't use the vector search preview feature at this time.
 - Ingestion rate should be limited while using an early preview of DiskANN.
+- At this time in the preview, Vector Search is not supported on accounts with Analytical Store, Shared Throughput, Customer Managed Keys, Continuous Backup, Storage Analytics, and All Versions and Deletes Change Feed.
 
 ## Next step
 - [DiskANN + Azure Cosmos DB - Microsoft Mechanics Video](https://www.youtube.com/watch?v=MlMPIYONvfQ)

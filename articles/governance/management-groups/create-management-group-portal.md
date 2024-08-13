@@ -23,14 +23,14 @@ directory. You receive a notification when the process is complete. For more inf
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 
-- Any Azure AD user in the tenant can create a management group without the management group write
+- Any Microsoft Entra ID user in the tenant can create a management group without the management group write
   permission assigned to that user if
-  [hierarchy protection](./how-to/protect-resource-hierarchy.md#setting---require-authorization)
+  [hierarchy protection](./how-to/protect-resource-hierarchy.md#setting-require-authorization)
   isn't enabled. This new management group becomes a child of the Root Management Group or the
-  [default management group](./how-to/protect-resource-hierarchy.md#setting---default-management-group)
+  [default management group](./how-to/protect-resource-hierarchy.md#setting-define-the-default-management-group)
   and the creator is given an "Owner" role assignment. Management group service allows this ability
   so that role assignments aren't needed at the root level. No users have access to the Root
-  Management Group when it's created. To avoid the hurdle of finding the Azure AD Global Admins to
+  Management Group when it's created. To avoid the hurdle of finding the Microsoft Entra ID Global Admins to
   start using management groups, we allow the creation of the initial management groups at the root
   level.
 

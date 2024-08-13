@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn about Azure Virtual WAN Point-to-site IPsec connectivity policies.
 services: virtual-wan
 author: wellee
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 08/24/2023
 ms.author: wellee

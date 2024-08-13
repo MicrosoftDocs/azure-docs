@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 06/19/2024
+ms.date: 07/25/2024
 ms.author: radeltch
 ---
 
@@ -517,76 +517,95 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo ssh sap-cl2 "cat /usr/sap/sapservices" | grep ERS01 | sudo tee -a /usr/sap/sapservices
     ```
 
-9. **[1]** Create the SAP cluster resources
+9. **[A]** Disabling `systemd` services of the ASCS and ERS SAP instance. This step is only applicable, if SAP startup framework is managed by systemd as per SAP Note [3115048](https://me.sap.com/notes/3115048)
 
-   Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
-
-   #### [ENSA1](#tab/ensa1)
+   > [!NOTE]
+   > When managing SAP instances like SAP ASCS and SAP ERS using SLES cluster configuration, you would need to make additional modifications to integrate the cluster with the native systemd-based SAP start framework. This ensures that maintenance procedures do no compromise cluster stability. After installation or switching SAP startup framework to systemd-enabled setup as per SAP Note [3115048](https://me.sap.com/notes/3115048), you should disable the `systemd` services for the ASCS and ERS SAP instances.
 
    ```bash
-   sudo crm configure property maintenance-mode="true"
+   # Stop ASCS and ERS instances using <sid>adm
+   sapcontrol -nr 00 -function Stop
+   sapcontrol -nr 00 -function StopService
+
+   sapcontrol -nr 01 -function Stop
+   sapcontrol -nr 01 -function StopService
+
+   # Execute below command on VM where you have performed ASCS instance installation (e.g. sap-cl1)
+   sudo systemctl disable SAPNW1_00
+   # Execute below command on VM where you have performed ERS instance installation (e.g. sap-cl2)
+   sudo systemctl disable SAPNW1_01
+   ```
+
+10. **[1]** Create the SAP cluster resources
+
+    Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
+
+    #### [ENSA1](#tab/ensa1)
+
+    ```bash
+    sudo crm configure property maintenance-mode="true"
    
-   sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
+    sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
      operations \$id=rsc_sap_NW1_ASCS00-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ASCS00_sapascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_sapascs" \
      AUTOMATIC_RECOVER=false \
      meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
    
-   sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
+    sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
      operations \$id=rsc_sap_NW1_ERS01-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ERS01_sapers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS01_sapers" AUTOMATIC_RECOVER=false IS_ERS=true \
      meta priority=1000
    
-   sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
-   sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01
+    sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
+    sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01
    
-   sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
-   sudo crm configure location loc_sap_NW1_failover_to_ers rsc_sap_NW1_ASCS00 rule 2000: runs_ers_NW1 eq 1
-   sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS01:stop symmetrical=false
+    sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
+    sudo crm configure location loc_sap_NW1_failover_to_ers rsc_sap_NW1_ASCS00 rule 2000: runs_ers_NW1 eq 1
+    sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS01:stop symmetrical=false
 
-   sudo crm_attribute --delete --name priority-fencing-delay
+    sudo crm_attribute --delete --name priority-fencing-delay
    
-   sudo crm node online sap-cl1
-   sudo crm configure property maintenance-mode="false"
-   ```
+    sudo crm node online sap-cl1
+    sudo crm configure property maintenance-mode="false"
+    ```
 
-   #### [ENSA2](#tab/ensa2)
+    #### [ENSA2](#tab/ensa2)
 
-   > [!NOTE]
-   > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
-   >
-   > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster.
+    > [!NOTE]
+    > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+    >
+    > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster.
 
-   ```bash
-   sudo crm configure property maintenance-mode="true"
+    ```bash
+    sudo crm configure property maintenance-mode="true"
 
-   sudo crm configure property priority-fencing-delay=30
-   
-   sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
+    sudo crm configure property priority-fencing-delay=30
+
+    sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
      operations \$id=rsc_sap_NW1_ASCS00-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ASCS00_sapascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_sapascs" \
      AUTOMATIC_RECOVER=false \
      meta resource-stickiness=5000 priority=100
-   
-   sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
+  
+    sudo crm configure primitive rsc_sap_NW1_ERS01 SAPInstance \
      operations \$id=rsc_sap_NW1_ERS01-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ERS01_sapers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS01_sapers" AUTOMATIC_RECOVER=false IS_ERS=true
    
-   sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
-   sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01
+    sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
+    sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS01
     
-   sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
-   sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS01:stop symmetrical=false
+    sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
+    sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS01:stop symmetrical=false
    
-   sudo crm node online sap-cl1
-   sudo crm configure property maintenance-mode="false"
-   ```
+    sudo crm node online sap-cl1
+    sudo crm configure property maintenance-mode="false"
+    ```
 
-   ---
+     ---
 
 If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
 

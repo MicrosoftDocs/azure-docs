@@ -4,7 +4,7 @@ description: In this tutorial, you will deploy a spot  container to Azure Contai
 ms.topic: tutorial
 ms.author: atsenthi
 author: athinanthny
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 05/11/2023
 
