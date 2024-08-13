@@ -38,10 +38,6 @@ If the value of the `platformVersion` property of your service is `stv1`, it's h
 
 Support for API Management instances hosted on the `stv1` platform will be retired by 31 August 2024.
 
-## What happens after 31 August 2024?
-
-[TBD...]
-
 ## What do I need to do?
 
 **Migrate all your existing instances hosted on the `stv1` compute platform to the `stv2` compute platform by 31 August 2024.**  

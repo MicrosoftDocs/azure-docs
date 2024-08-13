@@ -38,10 +38,6 @@ If the value of the `platformVersion` property of your service is `stv1`, it's h
 
 In Azure Government and Azure operated by 21Vianet, support for API Management instances hosted on the `stv1` platform will be retired by 28 February 2025.
 
-## What happens after 28 February 2025?
-
-[TBD...]
-
 ## What do I need to do?
 
 **Migrate all your existing instances hosted on the `stv1` compute platform to the `stv2` compute platform by 28 February 2025.**  
