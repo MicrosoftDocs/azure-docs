@@ -3,12 +3,12 @@ title: Use the Responsible AI image dashboard
 titleSuffix: Azure Machine Learning
 description: Learn how to use the tools and visualizations in the Azure Machine Learning studio Responsible AI (RAI) image dashboard.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: rai
+ms.service: azure-machine-learning
+ms.subservice: responsible-ai
 ms.topic:  how-to
-ms.reviewer: lagayhar
-ms.author: ilmat
-author: imatiach-msft
+ms.reviewer: None
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 5/16/2023
 ms.custom: responsible-ml, build-2023
 ---

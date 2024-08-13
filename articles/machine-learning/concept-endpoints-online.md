@@ -3,13 +3,12 @@ title: What are online endpoints?
 titleSuffix: Azure Machine Learning
 description: Learn about online endpoints for real-time inference in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom: devplatv2
 ms.date: 10/24/2023
 
@@ -396,12 +395,6 @@ For more information, see [Network isolation with managed online endpoints](conc
 ### Monitoring online endpoints and deployments
 
 Monitoring for Azure Machine Learning endpoints is possible via integration with [Azure Monitor](monitor-azure-machine-learning.md#what-is-azure-monitor). This integration allows you to view metrics in charts, configure alerts, query from log tables, use Application Insights to analyze events from user containers, and so on.
-
-* **Metrics**: Use Azure Monitor to track various endpoint metrics, such as request latency, and drill down to deployment or status level. You can also track deployment-level metrics, such as CPU/GPU utilization and drill down to instance level. Azure Monitor allows you to track these metrics in charts and set up dashboards and alerts for further analysis.
-
-* **Logs**: Send metrics to the Log Analytics Workspace where you can query logs using the Kusto query syntax. You can also send metrics to Storage Account and/or Event Hubs for further processing. In addition, you can use dedicated Log tables for online endpoint related events, traffic, and container logs. Kusto query allows complex analysis joining multiple tables.
-
-* **Application insights**: Curated environments include the integration with Application Insights, and you can enable/disable it when you create an online deployment. Built-in metrics and logs are sent to Application insights, and you can use its built-in features such as Live metrics, Transaction search, Failures, and Performance for further analysis.
 
 For more information on monitoring, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 

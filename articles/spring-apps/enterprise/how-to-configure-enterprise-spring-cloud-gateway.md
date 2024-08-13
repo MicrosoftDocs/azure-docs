@@ -3,7 +3,7 @@ title: Configure VMware Spring Cloud Gateway
 description: Learn how to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 12/01/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -832,17 +832,15 @@ The following list shows the supported add-on configurations for the add-on key 
         "PodOverrides": {
             "Containers": [
                 {
-                    {
-                        "Name": "gateway",
-                        "Lifecycle": {
-                            "PreStop": {
-                                "Exec": {
-                                    "Command": [
-                                        "/bin/sh",
-                                        "-c",
-                                        "sleep 20"
-                                    ]
-                                }
+                    "Name": "gateway",
+                    "Lifecycle": {
+                        "PreStop": {
+                            "Exec": {
+                                "Command": [
+                                    "/bin/sh",
+                                    "-c",
+                                    "sleep 20"
+                                ]
                             }
                         }
                     }

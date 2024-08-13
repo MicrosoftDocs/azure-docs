@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: csudrisforresiliency
 ms.topic: overview
 ms.custom: subject-reliability
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 06/12/2023
 ---
 

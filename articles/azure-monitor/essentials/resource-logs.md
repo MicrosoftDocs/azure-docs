@@ -172,7 +172,7 @@ The following sample output data is from Azure Event Hubs for a resource log:
 Send resource logs to Azure Storage to retain them for archiving. After you've created the diagnostic setting, a storage container is created in the storage account as soon as an event occurs in one of the enabled log categories.
 
 > [!NOTE]
-> An alternate strategy for archiving is to send the resource log to a Log Analytics workspace with an [archive policy](../logs/data-retention-archive.md).
+> An alternate to archiving is to send the resource log to a table in your Log Analytics workspace with [low-cost, long-term retention](../logs/data-retention-configure.md).
 
 The blobs within the container use the following naming convention:
 

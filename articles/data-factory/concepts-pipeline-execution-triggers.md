@@ -5,7 +5,6 @@ description: This article provides information about how to execute a pipeline i
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 01/05/2024
@@ -111,7 +110,7 @@ For a complete sample, see [Quickstart: Create a data factory by using the .NET 
 
 ### Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 The following sample command shows you how to manually run your pipeline by using Azure PowerShell:
 

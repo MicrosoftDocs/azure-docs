@@ -47,7 +47,7 @@ After you've selected the offer for Apache Kafka & Apache Flink on Confluent Clo
 
 Start by preparing your environment for Azure PowerShell:
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 > [!IMPORTANT]
 > While the **Az.Confluent** PowerShell module is in preview, you must install it separately using the `Install-Module` cmdlet.

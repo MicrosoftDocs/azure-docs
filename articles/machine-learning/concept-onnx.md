@@ -3,12 +3,12 @@ title: 'ONNX models: Optimize inference'
 titleSuffix: Azure Machine Learning
 description: Learn how using the Open Neural Network Exchange (ONNX) can help optimize the inference of your machine learning model.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: concept-article
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: mopeakande
+ms.author: mopeakande
+author: msakande
+ms.reviewer: kritifaujdar
 ms.date: 03/18/2024
 
 #customer intent: As a data scientist, I want learn how to use ONNX to create machine learning models and accelerate inferencing.
@@ -87,7 +87,6 @@ For the complete Python API reference, see the [ONNX Runtime reference docs](htt
 
 ## Examples
 
-- For example Python notebooks that create and deploy ONNX models, see [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx).
 - [!INCLUDE [aml-clone-in-azure-notebook](includes/aml-clone-for-examples.md)]
 - For samples that show ONNX usage in other languages, see the [ONNX Runtime GitHub](https://github.com/microsoft/onnxruntime/tree/master/samples).
 

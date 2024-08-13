@@ -3,13 +3,13 @@ title: "Run batch endpoints from Azure Data Factory"
 titleSuffix: Azure Machine Learning
 description: Learn how to use Azure Data Factory to invoke Batch Endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: ccrestana
-ms.author: cacrest
+author: msakande
+ms.author: mopeakande
 ms.date: 10/10/2022
-ms.reviewer: mopeakande
+ms.reviewer: cacrest
 ms.custom: devplatv2
 ---
 
@@ -20,6 +20,9 @@ ms.custom: devplatv2
 Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data into actionable business insights. [Azure Data Factory](../data-factory/introduction.md) is a managed cloud service that's built for these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
 Azure Data Factory allows the creation of pipelines that can orchestrate multiple data transformations and manage them as a single unit. Batch endpoints are an excellent candidate to become a step in such processing workflow. In this example, learn how to use batch endpoints in Azure Data Factory activities by relying on the Web Invoke activity and the REST API.
+
+> [!TIP]
+> When using data pipelines in Fabric, you can invoke batch endpoint directly using the Azure Machine Learning activity. We recommend using Fabric for data orchestration whenever possible to take advantage of the newest capabilities. The Azure Machine Learning activity in Azure Data Factory can only work with assets from Azure Machine Learning V1. Learn more at [Run Azure Machine Learning models from Fabric, using batch endpoints (preview)](how-to-use-batch-fabric.md).
 
 ## Prerequisites
 
@@ -86,7 +89,7 @@ The pipeline requires the following parameters to be configured:
 | --------------------- | -------------|------------- |
 | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
 | `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
-| `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
+| `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the managed identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
 | `endpoint_input_type`  | The type of the input data you are providing. Currently batch endpoints support folders (`UriFolder`) and File (`UriFile`). Defaults to `UriFolder`.  | `UriFolder` |
 | `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. You can use the default Azure Machine Learning data store, named `workspaceblobstore`. | `azureml://datastores/workspaceblobstore/paths/batch/predictions.csv` |
 
@@ -111,7 +114,7 @@ The pipeline requires the following parameters to be configured:
 | `client_secret`       | The client secret of the service principal used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
 | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
 | `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
-| `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
+| `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the managed identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
 | `endpoint_input_type`  | The type of the input data you are providing. Currently batch endpoints support folders (`UriFolder`) and File (`UriFile`). Defaults to `UriFolder`.  | `UriFolder` |
 | `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. You can use the default Azure Machine Learning data store, named `workspaceblobstore`. | `azureml://datastores/workspaceblobstore/paths/batch/predictions.csv` |
 

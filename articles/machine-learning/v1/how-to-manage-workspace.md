@@ -3,11 +3,11 @@ title: Manage workspaces in portal or Python SDK (v1)
 titleSuffix: Azure Machine Learning
 description: Learn how to manage Azure Machine Learning workspaces in the Azure portal or with the SDK for Python (v1).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.author: deeikele
-author: deeikele
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: deeikele
 ms.date: 03/08/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, fasttrack-edit, sdkv1, devx-track-python
@@ -74,7 +74,7 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
                 )
     ```
 
-* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
+* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You need extra code to authenticate to Azure if you're working in a sovereign cloud.
     
     [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
@@ -92,38 +92,10 @@ You can create a workspace [directly in Azure Machine Learning studio](../quicks
                 )
     ```
 
-* **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights, and container registry already exist.
-    
-    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
-
-   ```python
-   import os
-   from azureml.core import Workspace
-   from azureml.core.authentication import ServicePrincipalAuthentication
-
-   service_principal_password = os.environ.get("AZUREML_PASSWORD")
-
-   service_principal_auth = ServicePrincipalAuthentication(
-      tenant_id="<tenant-id>",
-      username="<application-id>",
-      password=service_principal_password)
-
-                        auth=service_principal_auth,
-                             subscription_id='<azure-subscription-id>',
-                             resource_group='myresourcegroup',
-                             create_resource_group=False,
-                             location='eastus2',
-                             friendly_name='My workspace',
-                             storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
-                             key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
-                             app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
-                             container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
-                             exist_ok=False)
-   ```
 
 For more information, see [Workspace SDK reference](/python/api/azureml-core/azureml.core.workspace.workspace).
 
-If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
+If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), and the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 
 ### Networking    
@@ -175,7 +147,7 @@ from azureml.core import Workspace
 
 ### Download a configuration file
 
-If you'll be using a [compute instance](../quickstart-create-resources.md) in your workspace to run your code, skip this step.  The compute instance will create and store a copy of this file for you.
+If you are using a [compute instance](../quickstart-create-resources.md) in your workspace to run your code, skip this step.  The compute instance will create and store a copy of this file for you.
 
 If you plan to use code on your local environment that references this workspace (`ws`), write the configuration file:
     
@@ -189,7 +161,7 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 ## Connect to a workspace
 
-In your Python code, you create a workspace object to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You'll get a prompt to sign in if you aren't already authenticated.
+In your Python code, you create a workspace object to connect to your workspace.  This code reads the contents of the configuration file to find your workspace.  You get a prompt to sign in if you aren't already authenticated.
     
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
@@ -211,7 +183,7 @@ ws = Workspace.from_config()
     ws = Workspace.from_config(auth=interactive_auth)
     ```
 
-* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
+* **[Sovereign cloud](../reference-machine-learning-cloud-parity.md)**. You need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
@@ -223,7 +195,7 @@ ws = Workspace.from_config()
     ws = Workspace.from_config(auth=interactive_auth)
     ```
     
-If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](../how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
+If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](../how-to-setup-authentication.md), and the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 ## Find a workspace
 

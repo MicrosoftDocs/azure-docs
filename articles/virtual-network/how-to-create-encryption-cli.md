@@ -3,10 +3,10 @@ title: Create a virtual network with encryption - Azure CLI
 titleSuffix: Azure Virtual Network
 description: Learn how to create an encrypted virtual network using the Azure CLI. A virtual network lets Azure resources communicate with each other and with the internet. 
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/24/2023
+ms.date: 08/13/2024
 ms.author: allensu
 ---
 

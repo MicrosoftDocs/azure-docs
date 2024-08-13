@@ -1,7 +1,7 @@
 ---
 title: How to ensure validation of the Azure Database for PostgreSQL - Data encryption
 description: Learn how to validate the encryption of the Azure Database for PostgreSQL - Data encryption using the customers managed key.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.author: sunila
 author: sunilagarwal

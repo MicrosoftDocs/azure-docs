@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with Azure Bastion and how to change the configuration.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 09/19/2023
@@ -22,7 +22,7 @@ An Azure Bastion host requires a public IP address for its configuration.
 In this article, you learn how to create an Azure Bastion host using an existing public IP in your subscription. Azure Bastion doesn't support the change of the public IP address after creation.  Azure Bastion supports assigning an IP address within an IP prefix range but not assigning the IP prefix range itself. 
 
 >[!NOTE]
->[!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ## Prerequisites
 

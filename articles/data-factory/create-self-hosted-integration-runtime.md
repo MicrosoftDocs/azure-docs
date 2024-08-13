@@ -2,7 +2,6 @@
 title: Create a self-hosted integration runtime
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a self-hosted integration runtime in Azure Data Factory and Azure Synapse Analytics, which lets pipelines access data stores in a private network.
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
@@ -21,7 +20,7 @@ A self-hosted integration runtime can run copy activities between a cloud data s
 
 This article describes how you can create and configure a self-hosted IR.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Considerations for using a self-hosted IR
 

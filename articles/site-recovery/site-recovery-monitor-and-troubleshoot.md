@@ -1,14 +1,14 @@
 ---
 title: Azure Site Recovery dashboard and built-in alerts
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations, and enable built-in alerts, by using the portal.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 
-# Monitor Site Recovery
+# Use the Recovery Services dashboard
 
 In this article, learn how to monitor Azure [Site Recovery](site-recovery-overview.md), using Site Recovery inbuilt monitoring.  You can monitor:
 

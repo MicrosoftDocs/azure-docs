@@ -50,8 +50,10 @@
         href: concepts-nexus-kubernetes-cluster.md
       - name: Resource Placement
         href: concepts-nexus-kubernetes-placement.md
-      - name: Nexus Workload Network
-        href: concepts-nexus-network.md
+      - name: Networking
+        href: concepts-nexus-networking.md
+      - name: Workload Network Types
+        href: concepts-nexus-workload-network-types.md
     - name: Observability
       expanded: false
       items:
@@ -208,6 +210,8 @@
           href: how-to-customize-kubernetes-cluster-dns.md
         - name: Customize worker nodes
           href: howto-kubernetes-cluster-customize-workers.md
+        - name: Collect debug logs for support ticket
+          href: howto-kubernetes-cluster-log-collector-script.md
         - name: Manage SSH keys
           href: howto-kubernetes-cluster-manage-ssh-key.md
     - name: Nexus Virtual Machine
@@ -282,6 +286,8 @@
           href: howto-baremetal-run-data-extract.md
     - name: Troubleshoot Control Plane Quorum
       href: troubleshoot-control-plane-quorum.md
+    - name: Troubleshoot Bare Metal Machine Provisioning
+      href: troubleshoot-bare-metal-machine-provisioning.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference

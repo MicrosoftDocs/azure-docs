@@ -137,7 +137,7 @@ Here, `<ipFilterIndexToRemove>` must correspond to the ordering of IP filters in
 
 ## Retrieve and update IP filters using Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Your IoT Hub's IP filters can be retrieved and set through [Azure PowerShell](/powershell/azure/).
 

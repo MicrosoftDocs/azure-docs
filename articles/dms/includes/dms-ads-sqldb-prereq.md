@@ -1,7 +1,7 @@
 ---
 author: croblesm
 ms.author: roblescarlos
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: include
 ms.date: 09/30/2022
 ---
@@ -14,7 +14,7 @@ ms.date: 09/30/2022
   - Reader role for the Azure resource group that contains the target instance of Azure SQL Database
   - Owner or Contributor role for the Azure subscription (required if you create a new instance of Azure Database Migration Service)
   
-  As an alternative to using one of these built-in roles, you can [assign a custom role](../resource-custom-roles-sql-database-ads.md).
+  As an alternative to using one of these built-in roles, you can [assign a custom role](/data-migration/sql-server/database/custom-roles).
   
   > [!IMPORTANT]
   > An Azure account is required only when you configure the migration steps. An Azure account isn't required for the assessment or to view Azure recommendations in the migration wizard in Azure Data Studio.

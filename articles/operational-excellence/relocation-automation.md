@@ -1,11 +1,11 @@
 ---
-title: Relocation guidance for Azure Automation
+title: Relocate Azure Automation to another region
 description: Learn how to relocate an Azure Automation to a another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/19/2024
-ms.service: automation
+ms.service: azure-automation
 ms.topic: concept-article
 ms.custom:
   - subject-relocation
@@ -14,6 +14,10 @@ ms.custom:
 # Relocate Azure Automation to another region
 
 This article covers relocation guidance for [Azure Automation](../automation/overview.md) across regions.
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
+
 
 If your Azure Automation instance doesn't have any configuration and the instance itself needs to be moved alone, you can choose to redeploy the NetApp File instance by using [Bicep, ARM Template, or Terraform](/azure/templates/microsoft.automation/automationaccounts?tabs=bicep&pivots=deployment-language-bicep).
 

@@ -5,7 +5,7 @@ description: This topic describes the steps for configuring a custom domain name
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: danlep
@@ -23,7 +23,7 @@ To perform the steps described in this article, you must have:
 
 -   An active Azure subscription.
 
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+    [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 -   An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 - A self-hosted gateway. For more information, see [How to provision self-hosted gateway](api-management-howto-provision-self-hosted-gateway.md)

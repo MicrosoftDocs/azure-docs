@@ -56,7 +56,7 @@ landingContent:
         links:
           - text: Deploy an enterprise chat web app
             url: tutorials/deploy-chat-web-app.md
-          - text: Build your own copilot using prompt flow
+          - text: Build your copilot using prompt flow in AI Studio
             url: tutorials/deploy-copilot-ai-studio.md
 
   # Card
@@ -64,10 +64,12 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Get started with the Azure AI SDK
+          - text: Get started with the Azure AI SDKs
             url: how-to/develop/sdk-overview.md
           - text: Work with AI Studio projects in VS Code
             url: how-to/develop/vscode.md
+          - text: Build your copilot using the prompt flow SDK
+            url: tutorials/copilot-sdk-build-rag.md
       - linkListType: concept
         links:
           - text: Connections for flows and indexing

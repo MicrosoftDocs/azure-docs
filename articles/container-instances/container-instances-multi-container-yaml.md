@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to deploy a container group with mu
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.date: 06/17/2022
@@ -29,7 +29,7 @@ In this tutorial, you follow steps to run a simple two-container sidecar configu
 > [!NOTE]
 > Multi-container groups are currently restricted to Linux containers.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

@@ -14,7 +14,7 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 >[!NOTE]
 >For some regions and subscription types, quota restrictions might cause Batch account or node creation to fail or not complete. In this situation, you can request a quota increase at no charge. For more information, see [Batch service quotas and limits](batch-quota-limit.md).
@@ -59,6 +59,7 @@ Next, create a pool of Windows compute nodes in your Batch account. The followin
    - **Publisher**: Select **microsoftwindowsserver**.
    - **Sku**: Select **2019-datacenter-core-smalldisk**.
 
+1. Under **OS disk storage account type**, select **Standard LRS**.
 1. Scroll down to **Node size**, and for **VM size**, select **Standard_A1_v2**.
 
 1. Under **Scale**, for **Target dedicated nodes**, enter *2*.

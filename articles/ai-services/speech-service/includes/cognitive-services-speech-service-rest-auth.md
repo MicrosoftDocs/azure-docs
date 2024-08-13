@@ -172,7 +172,7 @@ Follow the steps here [Use Microsoft Entra authentication](../how-to-configure-a
 
 After the resource ID and the Microsoft Entra access token were obtained, the actual access token can be constructed following this format:
 ```http
-"aad#YOUR_RESOURCE_ID#YOUR_MICROSOFT_ENTRA_ACCESS_TOKEN";
+aad#YOUR_RESOURCE_ID#YOUR_MICROSOFT_ENTRA_ACCESS_TOKEN
 ```
 You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and the access token.
 

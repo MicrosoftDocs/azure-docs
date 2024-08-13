@@ -4,7 +4,7 @@ description: In this tutorial, learn how to set up continuous integration using 
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-extended-java, devx-track-jenkins
 services: service-fabric
 ms.date: 07/14/2022
@@ -39,7 +39,7 @@ In this tutorial series you learn how to:
 
 You can set up Jenkins either inside or outside a Service Fabric cluster. The following instructions show how to set it up outside a cluster using a provided Docker image. However, a preconfigured Jenkins build environment can also be used. The following container image comes installed with the Service Fabric plugin and is ready for use with Service Fabric immediately.
 
-[!INCLUDE [pull-image-include](../../includes/pull-image-include.md)]
+[!INCLUDE [pull-image-include](~/reusable-content/ce-skilling/azure/includes/pull-image-include.md)]
 
 1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:v10`. This image comes with Service Fabric Jenkins plugin pre-installed.
 

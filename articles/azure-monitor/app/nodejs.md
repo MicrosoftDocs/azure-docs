@@ -38,7 +38,7 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Create an [Application Insights resource](create-workspace-resource.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### <a name="sdk"></a> Set up the Node.js client library
 

@@ -2,10 +2,10 @@
 title: Manage API inventory in Azure API Center - Azure CLI
 description: Use the Azure CLI to create and update APIs, API versions, and API definitions in your Azure API center.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 06/28/2024
 ms.author: danlep 
 # Customer intent: As an API program manager, I want to automate processes to register and update APIs in my Azure API center.
 ---
@@ -13,8 +13,6 @@ ms.author: danlep
 # Use the Azure CLI to manage your API inventory
 
 This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md) inventory. Use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
-
-> [!VIDEO https://www.youtube.com/embed/Dvar8Dg25s0]
 
 ## Prerequisites
 
@@ -37,7 +35,7 @@ The following example creates an API named *Petstore API* in the *myResourceGrou
 
 ```azurecli-interactive
 az apic api create  --resource-group myResourceGroup \
-    --service myAPICenter --api-id petstore-api \
+    --service-name myAPICenter --api-id petstore-api \
     --title "Petstore API" --type "rest"
 ```
 
@@ -53,7 +51,7 @@ The following example creates an API version named *v1-0-0* for the *petstore-ap
 
 ```azurecli-interactive
 az apic api version create --resource-group myResourceGroup \
-    --service myAPICenter --api-id petstore-api \
+    --service-name myAPICenter --api-id petstore-api \
     --version-id v1-0-0 --title "v1-0-0" --lifecycle-stage "testing"
 ```
 
@@ -67,7 +65,7 @@ The following example uses the [az apic api definition create](/cli/azure/apic/a
 
 ```azurecli-interactive
 az apic api definition create --resource-group myResourceGroup \
-    --service myAPICenter --api-id petstore-api \
+    --service-name myAPICenter --api-id petstore-api \
     --version-id v1-0-0 --definition-id openapi --title "OpenAPI"
 ```
 
@@ -80,7 +78,7 @@ The following example imports an OpenAPI specification file from a publicly acce
 
 ```azurecli-interactive
 az apic api definition import-specification \
-    --resource-group myResourceGroup --service myAPICenter \
+    --resource-group myResourceGroup --service-name myAPICenter \
     --api-id petstore-api --version-id v1-0-0 \
     --definition-id openapi --format "link" \
     --value 'https://petstore3.swagger.io/api/v3/openapi.json' \
@@ -98,7 +96,7 @@ The following example exports the specification file from the *openapi* definiti
 
 ```azurecli-interactive
 az apic api definition export-specification \
-    --resource-group myResourceGroup --service myAPICenter \
+    --resource-group myResourceGroup --service-name myAPICenter \
     --api-id petstore-api --version-id v1-0-0 \
     --definition-id openapi --file-name "/Path/to/specificationFile.json"
 ```
@@ -112,12 +110,12 @@ The following example registers an API in the *myAPICenter* API center from a lo
 
 ```azurecli-interactive
 az apic api register --resource-group myResourceGroup \
-    --service myAPICenter --api-location "/Path/to/specificationFile.json"
+    --service-name myAPICenter --api-location "/Path/to/specificationFile.json"
 ```
 
 * The command sets the API properties such as name and type from values in the definition file. 
 * By default, the command sets the API's **Lifecycle stage** to *design*.
-* It creates a default API version named *1-0-0* and a default definition named according to the specification format (for example, *openapi*).
+* It creates an API version named according to the `version` property in the API definition (or *1-0-0* by default), and an API definition named according to the specification format (for example, *openapi*).
 
 After registering an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update), [az apic api version update](/cli/azure/apic/api/version#az_apic_api_version_update), and [az apic api definition update](/cli/azure/apic/api/definition#az_apic_api_definition_update) commands.
 
@@ -127,7 +125,7 @@ Use the [az apic api delete](/cli/azure/apic/api#az_apic_api_delete) command to 
 
 ```azurecli-interactive
 az apic api delete \
-    --resource-group myResoureGroup --service myAPICenter \
+    --resource-group myResoureGroup --service-name myAPICenter \
     --api-id petstore-api
 ```
 
@@ -135,6 +133,7 @@ To delete individual API versions and definitions, use [az apic api version dele
 
 ## Related content
 
-* See the [Azure CLI reference for Azure API Center](/cli/azure/apic) for a complete command list, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata), and [services](/cli/azure/apic/service).
+* See the [Azure CLI reference for Azure API Center](/cli/azure/apic) for a complete command list, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata), and [services](/cli/azure/apic).
 * [Import APIs to your API center from API Management](import-api-management-apis.md)
 * [Use the Visual Studio extension for API Center](use-vscode-extension.md) to build and register APIs from Visual Studio Code.
+* [Register APIs in your API center using GitHub Actions](register-apis-github-actions.md)

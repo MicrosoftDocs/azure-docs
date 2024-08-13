@@ -1,15 +1,15 @@
 ---
 title: Epdsv6 size series
 description: Information on and specifications of the Epdsv6-series sizes
-author: tomvcassidy
-ms.service: virtual-machines
+author: archatC
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.custom:
   - build-2024
 ms.topic: conceptual
-ms.date: 05/09/2024
-ms.author: tomcassidy
-ms.reviewer: mattmcinnes
+ms.date: 07/22/2024
+ms.author: archat
+ms.reviewer: mattmcinnes, tomcassidy
 ---
 
 # Epdsv6 sizes series
@@ -42,7 +42,7 @@ ms.reviewer: mattmcinnes
 
 vCPUs (Qty.) and Memory for each size
 
-| Size Name | vCPUs (Qty.) | Memory (GB) |
+| Size Name | vCPUs (Qty.) | Memory (GiB) |
 | --- | --- | --- |
 | Standard_E2pds_v6 | 2 | 16 |
 | Standard_E4pds_v6 | 4 | 32 |
@@ -54,12 +54,11 @@ vCPUs (Qty.) and Memory for each size
 | Standard_E96pds_v6 | 96 | 672 |
 
 > [!NOTE]
-> The Epdsv6 VM series will only work on OS images that are tagged with NVMe support. If your current OS image is not supported for NVMe, you’ll see an error message. NVMe support is available on the most popular OS images, and we continuously improve the OS image coverage.
+> The Epdsv6 VM series will only work on OS images that support NVMe (i.e.  NVMe drivers required for the local storage). If your current OS image doesn't have NVMe support, you’ll see an error message. NVMe support is available on the most popular OS images, and we're continuously improving OS image compatibility.
 
 #### VM Basics resources
 - [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
-- [Introduction to Azure compute units (ACUs)](../../../virtual-machines/acu.md)
 
 ### [Local Storage](#tab/sizestoragelocal)
 

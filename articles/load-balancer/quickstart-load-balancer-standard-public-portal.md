@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Create a public load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a load balancer using the Azure portal.
+description: Learn how to create a public load balancer using the Azure portal.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 06/06/2023
+ms.date: 06/28/2024 
 ms.author: mbender
 ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
@@ -81,13 +81,13 @@ During the creation of the load balancer, you configure:
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 
-1. Select **OK**.
+1. Select **Save**.
 
-1. Select **Add**.
+1. Select **Save**.
 
 1. Select **Next: Backend pools** at the bottom of the page.
 
@@ -116,7 +116,7 @@ During the creation of the load balancer, you configure:
     | Protocol | Select **TCP** |
     | Port | Enter **80** |
     | Backend port | Enter **80** |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **lb-health-probe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **Save**. |
+    | Health probe | Select **Create new**.</br> In **Name**, enter **lb-health-probe**.</br> Select **HTTP** in **Protocol**.</br> Leave the rest of the defaults, and select **Save**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15** |
     | Enable TCP reset | Select checkbox |
@@ -135,7 +135,7 @@ During the creation of the load balancer, you configure:
 
 [!INCLUDE [load-balancer-create-2-virtual-machines](../../includes/load-balancer-create-2-virtual-machines.md)]
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 

@@ -59,7 +59,7 @@ Live metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## How do live metrics differ from metrics explorer and Log Analytics?
 
@@ -188,7 +188,7 @@ If you open live metrics, the SDKs switch to a higher frequency mode and send ne
 
 ## Next steps
 
-* [Monitor usage with Application Insights](./usage-overview.md)
+* [Monitor usage with Application Insights](./usage.md)
 * [Use Diagnostic Search](./transaction-search-and-diagnostics.md?tabs=transaction-search)
 * [Profiler](./profiler.md)
 * [Snapshot Debugger](./snapshot-debugger.md)

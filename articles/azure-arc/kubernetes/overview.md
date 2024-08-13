@@ -29,7 +29,7 @@ Once your Kubernetes clusters are connected to Azure, at scale you can:
 
 * View and monitor your clusters using [Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-* Enforce threat protection using [Microsoft Defender for Kubernetes](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json).
+* Enforce threat protection using [Microsoft Defender for Kubernetes](/azure/defender-for-cloud/defender-for-kubernetes-azure-arc?toc=/azure/azure-arc/kubernetes/toc.json).
 
 * Ensure governance through applying policies with [Azure Policy for Kubernetes](../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
@@ -45,7 +45,7 @@ Once your Kubernetes clusters are connected to Azure, at scale you can:
    - [Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
    * Deploy and manage Kubernetes applications targeted for Azure Arc-Enabled Kubernetes clusters from Azure Marketplace.
    
-   [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+   [!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
    ## Next steps
 

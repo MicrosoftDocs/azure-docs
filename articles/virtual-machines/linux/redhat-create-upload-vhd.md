@@ -2,7 +2,7 @@
 title: Create and upload a Red Hat Enterprise Linux VHD for use in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Red Hat Linux operating system.
 author: srijang
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.tgt_pltfrm: vm-linux
@@ -81,6 +81,9 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
 
 1. Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a VM in Azure or Hyper-V:
 
+    > [!WARNING]
+    > Many 'v5' and newer VM sizes require Accelerated Networking. If it isn't enabled, NetworkManager will assign the same IP address to all virtual function interfaces. To prevent duplicate IP addresses, make sure to include this udev rule when migrating to a newer size. 
+
     ```bash
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
@@ -96,7 +99,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
     # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
     # This interface is transparentlybonded to the synthetic interface,
     # so NetworkManager should just ignore any SRIOV interfaces.
-    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1"
+    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
     EOF
     ```
 
@@ -206,6 +209,19 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
     NM_CONTROLLED=yes
     ```
 
+    > [!NOTE]
+    > When you use Accelerated Networking, the synthetic interface that's created must be configured to be unmanaged by using a udev rule. This action prevents `NetworkManager` from assigning the same IP to it as the primary interface. <br>
+    
+     To apply it:<br>
+    
+    ```
+    sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
+    # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+    # This interface is transparentlybonded to the synthetic interface,
+    # so NetworkManager should just ignore any SRIOV interfaces.
+    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
+    EOF
+    ```
 1. Ensure that the network service starts at boot time:
 
     ```bash
@@ -399,7 +415,20 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
     ```bash
     sudo nmcli con mod eth0 connection.autoconnect yes ipv4.method auto
     ```
-
+    
+    > [!NOTE]
+    > When you use Accelerated Networking, the synthetic interface that's created must be configured to be unmanaged by using a udev rule. This action prevents `NetworkManager` from assigning the same IP to it as the primary interface. <br>
+    
+     To apply it:<br>
+    
+    ```
+    sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
+    # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+    # This interface is transparentlybonded to the synthetic interface,
+    # so NetworkManager should just ignore any SRIOV interfaces.
+    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
+    EOF
+    ```
 1. Register your Red Hat subscription to enable the installation of packages from the RHEL repository:
 
     ```bash
@@ -641,7 +670,7 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
     # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
     # This interface is transparently bonded to the synthetic interface,
     # so NetworkManager should just ignore any SRIOV interfaces.
-    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1"
+    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
     EOF
     ```
 
@@ -831,7 +860,19 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
     PERSISTENT_DHCLIENT=yes
     NM_CONTROLLED=yes
     ```
-
+    > [!NOTE]
+    > When you use Accelerated Networking, the synthetic interface that's created must be configured to be unmanaged by using a udev rule. This action prevents `NetworkManager` from assigning the same IP to it as the primary interface. <br>
+    
+     To apply it:<br>
+    
+    ```
+    sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
+    # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+    # This interface is transparentlybonded to the synthetic interface,
+    # so NetworkManager should just ignore any SRIOV interfaces.
+    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
+    EOF
+    ```
 1. Ensure that the network service starts at boot time:
 
     ```bash
@@ -1027,7 +1068,7 @@ This section assumes that you've already installed a RHEL VM in VMware. For info
     # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
     # This interface is transparently bonded to the synthetic interface,
     # so NetworkManager should just ignore any SRIOV interfaces.
-    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1"
+    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
     EOF
     ```
 
@@ -1177,7 +1218,19 @@ This section assumes that you've already installed a RHEL VM in VMware. For info
     PERSISTENT_DHCLIENT=yes
     NM_CONTROLLED=yes
     ```
-
+    > [!NOTE]
+    > When you use Accelerated Networking, the synthetic interface that's created must be configured to be unmanaged by using a udev rule. This action prevents `NetworkManager` from assigning the same IP to it as the primary interface. <br>
+    
+     To apply it:<br>
+    
+    ```
+    sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
+    # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+    # This interface is transparentlybonded to the synthetic interface,
+    # so NetworkManager should just ignore any SRIOV interfaces.
+    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
+    EOF
+    ```
 1. Ensure that the network service starts at boot time:
 
     ```bash
@@ -1446,6 +1499,13 @@ This section shows you how to prepare a RHEL 7 distro from an ISO by using a kic
     IPV6INIT=no
     PERSISTENT_DHCLIENT=yes
     NM_CONTROLLED=yes
+    EOF
+    
+    sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
+    # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+    # This interface is transparentlybonded to the synthetic interface,
+    # so NetworkManager should just ignore any SRIOV interfaces.
+    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
     EOF
 
     # Deprovision and prepare for Azure if you are creating a generalized image

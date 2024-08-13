@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Before you can complete the steps in this tutorial, create a CDN profile and at least one CDN endpoint. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 
@@ -201,7 +201,10 @@ Follow the instructions on the form; you have two verification options:
 
 - You can approve just the specific host name used in this request. Another approval is required for later requests.
 
-After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and will be autorenewed before it's expired.
+After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year.  If the CNAME record for your custom domain is added or updated to map to your endpoint hostname after verification, then it will be autorenewed before it's expired.
+
+>[!NOTE]
+> Managed certificate autorenewal requires that your custom domain be directly mapped to your CDN endpoint by a CNAME record.
 
 ## Wait for propagation
 

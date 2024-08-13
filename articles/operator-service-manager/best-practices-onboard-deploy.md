@@ -1,9 +1,9 @@
 ---
 title: Best practices for Azure Operator Service Manager
 description: Understand best practices for Azure Operator Service Manager to onboard and deploy a network function (NF).
-author: sherrygonz
-ms.author: sherryg
-ms.date: 09/11/2023
+author: msftadam
+ms.author: adamdor
+ms.date: 08/12/2024
 ms.topic: best-practice
 ms.service: azure-operator-service-manager
 ---
@@ -291,7 +291,22 @@ Delete publisher resources in the following order to make sure no orphaned resou
 - Artifact Store
 - Publisher
 
-## Next steps
+## Considerations if your NF runs cert-manager
 
-- [Quickstart: Complete the prerequisites to deploy a Containerized Network Function in Azure Operator Service Manager](quickstart-containerized-network-function-prerequisites.md)
-- [Quickstart: Complete the prerequisites to deploy a Virtualized Network Function in Azure Operator Service Manager](quickstart-virtualized-network-function-prerequisites.md)
+With release 1.0.2728-50 and later , AOSM now uses cert-manager to store and rotate certificates. As part of this change, AOSM deploys a cert-manager operator, and associate CRDs, in the azurehybridnetwork namespace. Since having multiple cert-manager operators, even deployed in separate namespaces, will watch across all namespaces, only one cert-manager can be effectively run on the cluster.
+
+Any user trying to install cert-manager on the cluster, as part of a workload deployment, will get a deployment failure with an error that the CRD “exists and cannot be imported into the current release.”  To avoid this error, the recommendation is to skip installing cert-manager, instead take dependency on cert-manager operator and CRD already installed by AOSM.
+
+### Other Configuration Changes to Consider
+
+In addition to disabling the NfApp associated with the old user cert-manager, we have found other changes may be needed;
+1.	If one NfApp contains both cert-manager and the CA installation, these must broken into two NfApps, so that the partner can disable cert-manager but enable CA installation.
+2.	If any other NfApps have DependsOn references to the old user cert-manager NfApp, these will need to be removed. 
+3.	If any other NfApps reference the old user cert-manager namespace value, this will need to be changed to the new azurehybridnetwork namespace value.  
+
+### Cert-Manager Version Compatibility & Management
+
+For the cert-manager operator, our current deployed version is 1.14.5.  Users should test for compatibility with this version.  Future cert-manager operator upgrades will be supported via the NFO extension upgrade process. 
+
+For the CRD resources, our current deployed version is 1.14.5.  Users should test for compatibility with this version.  Since management of a common cluster CRD is something typically handled by a cluster administrator, we are working to enable CRD resource upgrades via standard Nexus Add-on process. 
+

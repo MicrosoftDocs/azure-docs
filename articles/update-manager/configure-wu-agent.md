@@ -68,7 +68,7 @@ The Windows update client on Windows servers can get their patches from either o
 
 ### Edit the registry
 
-If scheduled patching is configured on your machine using the Azure Update Manager, the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md#first-party-updates-on-windows).
+If scheduled patching is configured on your machine using the Azure Update Manager, the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md).
 
 ### Patching using group policy on Azure Update Manager
 

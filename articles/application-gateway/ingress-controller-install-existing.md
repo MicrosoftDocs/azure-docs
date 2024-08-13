@@ -3,7 +3,7 @@ title: Create an ingress controller with an existing Application Gateway
 description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/07/2024
@@ -33,9 +33,9 @@ shared between one AKS cluster and/or other Azure components.
 
 This document assumes you already have the following tools and infrastructure installed:
 
-- [An AKS cluster](../aks/intro-kubernetes.md) with [Azure Container Networking Interface (CNI)](../aks/configure-azure-cni.md)
+- [An AKS cluster](/azure/aks/intro-kubernetes) with [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
 - [Application Gateway v2](./tutorial-autoscale-ps.md) in the same virtual network as the AKS cluster
-- [Microsoft Entra Workload ID](../aks/workload-identity-overview.md) configured for your AKS cluster
+- [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) configured for your AKS cluster
 - [Cloud Shell](https://shell.azure.com/) is the Azure shell environment, which has `az` CLI, `kubectl`, and `helm` installed. These tools are required for commands used to support configuring this deployment.
 
 **Backup your Application Gateway's configuration** before installing AGIC:
@@ -48,12 +48,12 @@ Gateway should that become necessary
 
 ## Install Helm
 
-[Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes, used to install the `application-gateway-kubernetes-ingress` package.
+[Helm](/azure/aks/kubernetes-helm) is a package manager for Kubernetes, used to install the `application-gateway-kubernetes-ingress` package.
 
 > [!NOTE]
 > If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3. Skip the first step and just add the AGIC Helm repository.
 
-1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
+1. Install [Helm](/azure/aks/kubernetes-helm) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
     - *Kubernetes RBAC enabled* AKS cluster
 
@@ -78,10 +78,10 @@ these APIs.
 
 ## Set up Microsoft Entra Workload ID
 
-[Microsoft Entra Workload ID](../aks/workload-identity-overview.md) is an identity you assign to a software workload, to authenticate and access other services and resources. This identity enables your AKS pod to use this identity and authenticate with other Azure resources. For this configuration, we need authorization
+[Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) is an identity you assign to a software workload, to authenticate and access other services and resources. This identity enables your AKS pod to use this identity and authenticate with other Azure resources. For this configuration, we need authorization
 for the AGIC pod to make HTTP requests to [ARM](../azure-resource-manager/management/overview.md).
 
-1. Use the Azure CLI [az account set](/cli/azure/account#az-account-set) command to set a specific subscription to be the current active subscription. Then use the [az identity create](/cli/azure/identity#az-identity-create) command to create a managed identity. The identity needs to be created in the [node resource group](../aks/concepts-clusters-workloads.md#node-resource-group). The node resource group is assigned a name by default, such as *MC_myResourceGroup_myAKSCluster_eastus*.
+1. Use the Azure CLI [az account set](/cli/azure/account#az-account-set) command to set a specific subscription to be the current active subscription. Then use the [az identity create](/cli/azure/identity#az-identity-create) command to create a managed identity. The identity needs to be created in the [node resource group](/azure/aks/concepts-clusters-workloads#node-resource-group). The node resource group is assigned a name by default, such as *MC_myResourceGroup_myAKSCluster_eastus*.
 
     ```azurecli-interactive
     az account set --subscription "subscriptionID"

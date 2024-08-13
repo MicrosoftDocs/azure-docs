@@ -18,7 +18,7 @@ title: |
 introduction: |
   [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] This article describes how to list role assignments using Azure PowerShell.
 
-  [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+  [!INCLUDE [az-powershell-update](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
   > [!NOTE]
   > If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here. Similarly, users in the service provider tenant won't see role assignments for users in a customer's tenant, regardless of the role they've been assigned.

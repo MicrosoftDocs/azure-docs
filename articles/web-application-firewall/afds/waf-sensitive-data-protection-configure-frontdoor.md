@@ -3,7 +3,7 @@ title: How to mask sensitive data on Azure Web Application Firewall on Azure Fro
 description: Learn how to mask sensitive data on Azure Web Application Firewall on Azure Front Door.
 author: vhorne
 ms.author: victorh
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 06/24/2024
 ---
@@ -83,3 +83,5 @@ To verify your Sensitive Data Protection rules, open the Front Door firewall log
 ## Next steps
 
 - [Azure Web Application Firewall monitoring and logging](../afds/waf-front-door-monitor.md)
+- [A Closer Look at Azure WAF’s Data Masking Capabilities for Azure Front Door](https://techcommunity.microsoft.com/t5/azure-network-security-blog/a-closer-look-at-azure-waf-s-data-masking-capabilities-for-azure/ba-p/4167558)
+

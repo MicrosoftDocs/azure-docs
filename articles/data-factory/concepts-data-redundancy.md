@@ -3,8 +3,6 @@ title: Data redundancy in Azure Data Factory | Microsoft Docs
 description: 'Learn about meta-data redundancy mechanisms in Azure Data Factory'
 author: nabhishek
 ms.reviewer: abnarain
-ms.service: data-factory
-ms.subservice: concepts
 ms.topic: conceptual
 ms.date: 01/05/2024
 ms.author: abnarain
@@ -14,7 +12,7 @@ ms.author: abnarain
 
 Azure Data Factory data includes metadata (pipeline, datasets, linked services, integration runtime, and triggers) and monitoring data (pipeline, trigger, and activity runs). 
 
-In all regions (except Brazil South and Southeast Asia), Azure Data Factory data is stored and replicated in the [paired region](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) to protect against metadata loss. During regional datacenter failures, Microsoft may initiate a regional failover of your Azure Data Factory instance. In most cases, no action is required on your part. When the Microsoft-managed failover has completed, you'll be able to access your Azure Data Factory in the failover region.  For replication across non-paired regions, refer to [Cross-region replication for non-paired regions](/azure/reliability/cross-region-replication-azure-no-pair#azure-data-factory).
+In all regions (except Brazil South and Southeast Asia), Azure Data Factory data is stored and replicated in the [paired region](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) to protect against metadata loss. During regional datacenter failures, Microsoft may initiate a regional failover of your Azure Data Factory instance. In most cases, no action is required on your part. When the Microsoft-managed failover has completed, you'll be able to access your Azure Data Factory in the failover region.
 
 Due to data residency requirements in Brazil South, and Southeast Asia, Azure Data Factory data is stored on [local region only](../storage/common/storage-redundancy.md#locally-redundant-storage). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. When the region is lost due to a significant disaster, Microsoft won't be able to recover your Azure Data Factory data.  
 

@@ -3,10 +3,10 @@ title: Limits and limitations – Azure Cosmos DB for PostgreSQL
 description: Current limits for clusters
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/28/2024
+ms.date: 07/07/2024
 ---
 
 # Azure Cosmos DB for PostgreSQL limits and limitations
@@ -87,12 +87,22 @@ In Azure Cosmos DB for PostgreSQL clusters with [burstable compute](concepts-bur
 <a name='azure-active-directory-authentication'></a>
 
 ### Microsoft Entra ID authentication
+
 If [Microsoft Entra ID](./concepts-authentication.md#azure-active-directory-authentication-preview) is enabled on an Azure Cosmos DB for PostgreSQL cluster, the following is currently **not supported**:
 
 * PostgreSQL 11, 12, and 13
 * Microsoft Entra groups
 
-### Database creation
+## Security
+
+MD5 hashing is disabled in Azure Cosmos DB for PostgreSQL and impacts the following areas:
+* Native Postgres passwords are hashed using SCRAM-SHA-256 method only.
+* [pgcrypto extension](https://www.postgresql.org/docs/current/static/pgcrypto.html): MD5 isn't available as a hashing method.
+* [uuid-ossp extension](https://www.postgresql.org/docs/current/static/uuid-ossp.html): MD5 isn't available as a hashing method.
+* Built-in Postgres functions. For instance,  SELECT md5(‘your_string’);
+* Custom functions such as custom functions in PL/pgSQL that use MD5 hashing.
+
+## Database creation
 
 The Azure portal provides credentials to connect to exactly one database per cluster. Creating another database is currently not allowed, and the CREATE DATABASE command fails with an error.
 

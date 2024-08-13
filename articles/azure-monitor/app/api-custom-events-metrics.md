@@ -13,7 +13,7 @@ ms.reviewer: mmcc
 
 Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Application Insights](./app-insights-overview.md) core telemetry API to send custom events and metrics and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## API summary
 
@@ -147,7 +147,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### Custom events in Log Analytics
 
-The telemetry is available in the `customEvents` table on the [Application Insights Logs tab](../logs/log-query-overview.md) or [usage experience](usage-overview.md). Events might come from `trackEvent(..)` or the [Click Analytics Auto-collection plug-in](javascript-feature-extensions.md).
+The telemetry is available in the `customEvents` table on the [Application Insights Logs tab](../logs/log-query-overview.md) or [usage experience](usage.md). Events might come from `trackEvent(..)` or the [Click Analytics Auto-collection plug-in](javascript-feature-extensions.md).
 
 If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than `1`. For example, `itemCount==10` means that of 10 calls to `trackEvent()`, the sampling process transmitted only one of them. To get a correct count of custom events, use code such as `customEvents | summarize sum(itemCount)`.
 
@@ -683,7 +683,7 @@ The function is asynchronous for the [server telemetry channel](https://www.nuge
 
 ## Authenticated users
 
-In a web app, users are [identified by cookies](./usage-segmentation.md#the-users-sessions-and-events-segmentation-tool) by default. A user might be counted more than once if they access your app from a different machine or browser, or if they delete cookies.
+In a web app, users are [identified by cookies](./usage.md#users-sessions-and-events---analyze-telemetry-from-three-perspectives) by default. A user might be counted more than once if they access your app from a different machine or browser, or if they delete cookies.
 
 If users sign in to your app, you can get a more accurate count by setting the authenticated user ID in the browser code:
 

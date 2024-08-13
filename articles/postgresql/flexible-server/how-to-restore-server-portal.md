@@ -4,8 +4,8 @@ description: This article describes how to perform restore operations in Azure D
 author: AwdotiaRomanowna
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 07/26/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
@@ -52,7 +52,7 @@ Follow these steps to restore your Azure Database for PostgreSQL flexible server
 
 5. Under **Server details**, for **Name**, provide a server name. For **Availability zone**, you can optionally choose an availability zone to restore to.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-custom-2.png" alt-text="Screenshot that shows selections for restoring to a custom restore point.":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Screenshot that shows selections for restoring to a custom restore point.":::
  
 6.  Select  **OK**. A notification shows that the restore operation has started.
 
@@ -85,7 +85,7 @@ If your source server is configured with geo-redundant backup, you can restore t
 
 2. Select **Overview** from the left pane, and then select **Restore**.
  
-   :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-click.png" alt-text="Screenshot that shows the Restore button.":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Screenshot that shows the Restore button.":::
 
 3. Under **Source details**, for **Geo-redundant restore (preview)**, select the **Restore to paired region** checkbox. 
  

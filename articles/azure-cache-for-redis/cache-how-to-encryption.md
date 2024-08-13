@@ -3,7 +3,7 @@ title: Configure disk encryption in Azure Cache for Redis
 description: Learn about disk encryption when using Azure Cache for Redis.
 author: flang-msft
 
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: how-to
 ms.date: 02/28/2024
 ms.author: franlanglois
@@ -66,7 +66,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted by defau
 ### Azure Key Vault prerequisites and limitations
 
 - The Azure Key Vault resource containing the customer managed key must be in the same region as the cache resource.
-- [Purge protection and soft-delete](../key-vault/general/soft-delete-overview.md) must be enabled in the Azure Key Vault instance. Purge protection isn't enabled by default.
+- [Purge protection and soft-delete](/azure/key-vault/general/soft-delete-overview) must be enabled in the Azure Key Vault instance. Purge protection isn't enabled by default.
 - When you use firewall rules in the Azure Key Vault, the Key Vault instance must be configured to [allow trusted services](/azure/key-vault/general/network-security).
 - Only RSA keys are supported
 - The user assigned managed identity must be given the permissions _Get_, _Unwrap Key_, and _Wrap Key_ in the Key Vault access policies, or the equivalent permissions within Azure Role Based Access Control. A recommended built-in role definition with the least privileges needed for this scenario is called [KeyVault Crypto Service Encryption User](../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user).
@@ -81,7 +81,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted by defau
 
    :::image type="content" source="media/cache-how-to-encryption/cache-use-key-encryption.png" alt-text="Screenshot of the advanced settings with customer-managed key encryption checked and in a red box.":::
 
-1. Select **Add** to assign a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity is used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
+1. Select **Add** to assign a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity is used to connect to the [Azure Key Vault](/azure/key-vault/general/overview) instance that holds the customer managed key.
 
     :::image type="content" source="media/cache-how-to-encryption/cache-managed-identity-user-assigned.png" alt-text="Screenshot showing user managed identity in the working pane.":::
 
@@ -90,7 +90,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted by defau
 1. If using the **Select Azure key vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache.
 
     > [!NOTE]
-    > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance. Remember that both purge protection and soft delete must be enabled in your Key Vault instance.
+    > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](/azure/key-vault/secrets/quick-create-portal). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance. Remember that both purge protection and soft delete must be enabled in your Key Vault instance.
 
 1. Choose the specific key and version using the **Customer-managed key (RSA)** and **Version** drop-downs.
 
@@ -109,14 +109,14 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted by defau
 
 1. Select **Use a customer-managed key** to see your configuration options.
 
-1. Select **Add** to assign a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity is used to connect to the [Azure Key Vault](../key-vault/general/overview.md) instance that holds the customer managed key.
+1. Select **Add** to assign a [user assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) to the resource. This managed identity is used to connect to the [Azure Key Vault](/azure/key-vault/general/overview) instance that holds the customer managed key.
 
 1. Select your chosen user assigned managed identity, and then choose which key input method to use.
 
 1. If using the **Select Azure key vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache.
 
     > [!NOTE]
-    > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](../key-vault/secrets/quick-create-portal.md). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  
+    > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](/azure/key-vault/secrets/quick-create-portal). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  
 
 1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
    :::image type="content" source="media/cache-how-to-encryption/cache-encryption-existing-key.png" alt-text="Screenshot showing the select identity and key fields completed for Encryption.":::

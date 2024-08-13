@@ -3,12 +3,12 @@ title: Understand compute targets
 titleSuffix: Azure Machine Learning
 description: Learn how to designate a compute resource or environment to train or deploy your model with Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: compute
 ms.topic: conceptual
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 01/23/2024
 ms.custom:
   - cliv2

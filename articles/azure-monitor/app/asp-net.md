@@ -8,11 +8,11 @@ ms.devlang: csharp
 
 # Configure Application Insights for your ASP.NET website
 
-This procedure configures your ASP.NET web app to send telemetry to the [Application Insights](./app-insights-overview.md) feature of the Azure Monitor service. It works for ASP.NET apps that are hosted either in your own IIS servers on-premises or in the cloud. 
+This procedure configures your ASP.NET web app to send telemetry to the [Application Insights](./app-insights-overview.md) feature of the Azure Monitor service. It works for ASP.NET apps that are hosted either in your own Internet Information Servers (IIS) on-premises or in the cloud.
 
 [!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:
@@ -55,7 +55,7 @@ This section guides you through automatically adding Application Insights to a t
 
 ## Add Application Insights manually
 
-This section guides you through manually adding Application Insights to a template-based ASP.NET web app. This section assumes that you're using a web app based on the standard MVC web app template for the ASP.NET Framework.
+This section guides you through manually adding Application Insights to a template-based ASP.NET web app. This section assumes that you're using a web app based on the standard Model, View, and Controller (MVC) web app template for the ASP.NET Framework.
 
 1. Add the following NuGet packages and their dependencies to your project:
 
@@ -65,7 +65,7 @@ This section guides you through manually adding Application Insights to a templa
 
 2. In some cases, the *ApplicationInsights.config* file is created for you automatically. If the file is already present, skip to step 4. 
 
-   If it's not created automatically, you need to create it yourself. In the root directory of an ASP.NET application, create a new file called *ApplicationInsights.config*.
+Create it yourself if it's missing. In the root directory of an ASP.NET application, create a new file called *ApplicationInsights.config*.
 
 3. Copy the following XML configuration into your newly created file:
 
@@ -220,7 +220,7 @@ This section guides you through manually adding Application Insights to a templa
     <ConnectionString>Copy connection string from Application Insights Resource Overview</ConnectionString>
     ```
 
-5. At the same level of your project as the *ApplicationInsights.config* file, create a folder called *ErrorHandler* with a new C# file called *AiHandleErrorAttribute.cs*. The contents of the file will look like this:
+5. At the same level of your project as the *ApplicationInsights.config* file, create a folder called *ErrorHandler* with a new C# file called *AiHandleErrorAttribute.cs*. The contents of the file look like this:
 
     ```csharp
     using System;
@@ -351,7 +351,7 @@ This section guides you through manually adding Application Insights to a templa
     
     ```
 
-You have now successfully configured server-side application monitoring. If you run your web app, you'll see telemetry begin to appear in Application Insights.
+At this point, you successfully configured server-side application monitoring. If you run your web app, you see telemetry begin to appear in Application Insights.
 
 ## Add client-side monitoring
 
@@ -443,18 +443,20 @@ To remove Application Insights, you need to remove the NuGet packages and refere
 
 1. If trace collection is enabled, first uninstall the Microsoft.ApplicationInsights.TraceListener package by using the [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-a-package) but don't remove any dependencies.
 1. Uninstall the Microsoft.ApplicationInsights.Web package and remove its dependencies by using the [NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-a-package) and its [Uninstall options](/nuget/consume-packages/install-use-packages-visual-studio#uninstall-options) within the [NuGet Package Manager Options control](/nuget/consume-packages/install-use-packages-visual-studio#nuget-package-manager-options-control).
-1. To fully remove Application Insights, check and manually delete the added code or files along with any API calls you added in your project. For more information, see [What is created when you add the Application Insights SDK?](#what-is-created-when-you-add-the-application-insights-sdk).
+1. To fully remove Application Insights, check and manually delete the added code or files along with any API calls you added in your project. For more information, see [What is automatically created when you add the Application Insights SDK?](#what-is-automatically-created-when-you-add-the-application-insights-sdk).
 
-### What is created when you add the Application Insights SDK?
+### What is automatically created when you add the Application Insights SDK?
 
-When you add Application Insights to your project, it creates files and adds code to some of your files. Solely uninstalling the NuGet Packages won't always discard the files and code. To fully remove Application Insights, you should check and manually delete the added code or files along with any API calls you added in your project.
+When you add Application Insights to your project, it automatically creates files and adds code to some of your files. Solely uninstalling the NuGet Packages doesn't always discard the files and code. To fully remove Application Insights, you should check and manually delete the added code or files along with any API calls you added in your project.
 
 When you add Application Insights Telemetry to a Visual Studio ASP.NET project, it adds the following files:
 
 - ApplicationInsights.config
 - AiHandleErrorAttribute.cs
 
-The following pieces of code are added:
+The following pieces of code are automatically added:
+
+
 
 - [Your project's name].csproj
 
@@ -489,7 +491,7 @@ The following pieces of code are added:
 
 - Layout.cshtml
 
-    If your project has a Layout.cshtml file the code below is added.
+    If your project has a Layout.cshtml file, the following code is added.
     
     ```html
     <head>
@@ -547,7 +549,7 @@ For the latest updates and bug fixes, [consult the release notes](./release-note
 
 ## Release Notes
 
-For version 2.12 and newer: [.NET SDKs (Including ASP.NET, ASP.NET Core, and Logging Adapters)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+For version 2.12 and newer: [.NET Software Development Kits (SDKs) including ASP.NET, ASP.NET Core, and Logging Adapters](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
 
 Our [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) also summarize major Application Insights improvements.
 

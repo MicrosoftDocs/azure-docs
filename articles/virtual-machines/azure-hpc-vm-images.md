@@ -1,11 +1,11 @@
 ---
 title: Azure HPC VM images
 description: HPC VM images to be used on InfiniBand enabled H-series and GPU enabled N-series VMs.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom: linux-related-content
 ms.topic: article
-ms.date: 05/17/2024
+ms.date: 07/25/2024
 ms.reviewer: padmalathas
 ms.author: litan2
 author: litan2
@@ -17,9 +17,9 @@ author: litan2
 
 This article shares some information on HPC VM images to be used to launch InfiniBand enabled [H-series](sizes-hpc.md) and GPU enabled [N-series](sizes-gpu.md) VMs.
 
-The Azure HPC team is pleased to announce the availability of optimized and pre-configured Linux VM images for HPC and AI workloads. These VM images are:
+The Azure HPC team is offering optimized and pre-configured Linux VM images for HPC and AI workloads. These VM images are:
 
-- Based on the vanilla Ubuntu and AlmaLinux marketplace VM images.
+- Based on upstream Ubuntu and AlmaLinux marketplace VM images.
 - Pre-configured with NVIDIA Mellanox OFED driver for InfiniBand, NVIDIA GPU drivers, popular MPI libraries, vendor tuned HPC libraries, and recommended performance optimizations.
 - Including optimizations and recommended configurations to deliver optimal performance, consistency, and reliability. 
 

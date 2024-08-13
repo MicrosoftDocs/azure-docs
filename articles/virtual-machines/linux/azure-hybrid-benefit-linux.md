@@ -1,14 +1,14 @@
 ---
-title: Azure Hybrid Benefit for Linux virtual machines
+title: Explore Azure Hybrid Benefit for Linux virtual machines
 description: Learn how Azure Hybrid Benefit can save you money on Linux virtual machines.
 services: virtual-machines
 author: vvarshney06
 manager: gachandw
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: billing
 ms.collection: linux
 ms.topic: conceptual
-ms.date: 05/02/2023
+ms.date: 06/27/2024
 ms.author: vvarshney
 ms.reviewer: mattmcinnes
 ms.custom: kr2b-contr-experiment, linux-related-content, devx-track-azurecli

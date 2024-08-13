@@ -1,9 +1,9 @@
 ---
 title:  Deploy an IPv6 dual stack application using Standard Internal Load Balancer in Azure - PowerShell
 description: This article shows how to deploy an IPv6 dual stack application with Standard Internal Load Balancer in Azure virtual network using Azure PowerShell.
-services: virtual-network
+services: azure-load-balancer
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: mbender
@@ -29,7 +29,7 @@ The changes that make the above an internal load balancer frontend configuration
 - The `-PublicIpAddress` argument has been either omitted or replaced with `-PrivateIpAddress`. Note that the private address must be in the range of the Subnet IP space in which the internal load balancer will be deployed. If a static `-PrivateIpAddress` is omitted, the next free IPv6 address will be selected from the subnet in which the internal load Balancer is deployed.
 - The dual stack subnet in which the internal load balancer will be deployed is specified with either a `-Subnet` or `-SubnetId` argument.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

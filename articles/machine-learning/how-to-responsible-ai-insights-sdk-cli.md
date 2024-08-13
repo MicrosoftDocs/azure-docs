@@ -3,12 +3,12 @@ title: Generate a Responsible AI insights with YAML and Python
 titleSuffix: Azure Machine Learning
 description: Learn how to generate a Responsible AI insights with Python and YAML in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic:  how-to
-ms.reviewer: lagayhar
-ms.author: mithigpe
-author: minthigpen
+ms.reviewer: None
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 03/29/2024
 ms.custom: responsible-ml, devx-track-python
 ---

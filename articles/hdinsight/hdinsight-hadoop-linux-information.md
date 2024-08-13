@@ -1,10 +1,10 @@
 ---
 title: Tips for using Hadoop on Linux-based HDInsight - Azure
 description: Get implementation tips for using Linux-based HDInsight (Hadoop) clusters on a familiar Linux environment running in the Azure cloud.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive, linux-related-content
 ms.topic: conceptual
-ms.date: 12/05/2023
+ms.date: 07/23/2023
 ---
 
 # Information about using HDInsight on Linux
@@ -93,15 +93,15 @@ Example data and JAR files can be found on Hadoop Distributed File System at `/e
 
 In most Hadoop distributions, the data is stored in HDFS. HDFS is backed by local storage on the machines in the cluster. Using local storage can be costly for a cloud-based solution where you're charged hourly or by minute for compute resources.
 
-When using HDInsight, the data files are stored in an adaptable and resilient way in the cloud using Azure Blob Storage and optionally Azure Data Lake Storage Gen1/Gen2. These services provide the following benefits:
+When you use HDInsight, the data files are stored in an adaptable and resilient way in the cloud using Azure Blob Storage and optionally Azure Data Lake Storage Gen2. These services provide the following benefits:
 
 * Cheap long-term storage.
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers.
 * Large file capacity and large adaptable storage.
 
-For more information, see [Azure Blob storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+For more information, see [Azure Blob storage](../storage/common/storage-introduction.md), or [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-When using either Azure Blob storage or Data Lake Storage Gen1/Gen2, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder whether it's stored on Azure Storage or Data Lake Storage:
+When using either Azure Blob storage or Data Lake Storage Gen2, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder whether it's stored on Azure Storage or Data Lake Storage:
 
 ```console
 hdfs dfs -ls /example/data
@@ -111,7 +111,7 @@ In HDInsight, the data storage resources (Azure Blob Storage and Azure Data Lake
 
 ### <a name="URI-and-scheme"></a>URI and scheme
 
-Some commands may require you to specify the scheme as part of the URI when accessing a file. When using non-default storage (storage added as "additional" storage to the cluster), you must always use the scheme as part of the URI.
+Some commands may require you to specify the scheme as part of the URI when accessing a file. When using nondefault storage (storage added as "additional" storage to the cluster), you must always use the scheme as part of the URI.
 
 When using [**Azure Storage**](./hdinsight-hadoop-use-blob-storage.md), use one of the following URI schemes:
 
@@ -119,19 +119,13 @@ When using [**Azure Storage**](./hdinsight-hadoop-use-blob-storage.md), use one 
 
 * `wasbs:///`: Access default storage using encrypted communication.  The wasbs scheme is supported only from HDInsight version 3.6 onwards.
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a nondefault storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
 When using [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-storage-gen2.md), use the following URI scheme:
 
 * `abfs://`: Access default storage using encrypted communication.
 
-* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
-
-When using [**Azure Data Lake Storage Gen1**](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md), use one of the following URI schemes:
-
-* `adl:///`: Access the default Data Lake Storage for the cluster.
-
-* `adl://<storage-name>.azuredatalakestore.net/`: Used when communicating with a non-default Data Lake Storage. Also used to access data outside the root directory of your HDInsight cluster.
+* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Used when communicating with a nondefault storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
 > [!IMPORTANT]  
 > When using Data Lake Storage as the default store for HDInsight, you must specify a path within the store to use as the root of HDInsight storage. The default path is `/clusters/<cluster-name>/`.

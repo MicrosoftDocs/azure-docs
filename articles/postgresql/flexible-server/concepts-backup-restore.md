@@ -5,7 +5,7 @@ author: AwdotiaRomanowna
 ms.author: alkuchar
 ms.reviewer: maghan
 ms.date: 05/06/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
@@ -32,7 +32,7 @@ These backup files can't be exported or used to create servers outside Azure Dat
 
 Backups on Azure Database for PostgreSQL flexible server instances are snapshot based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are currently taken once daily. If none of the databases in the server receive any further modifications after the last snapshot backup is taken, snapshot backups are suspended until new modifications are made in any of the databases, point at which a new snapshot is immediately taken. **The first snapshot is a full backup and consecutive snapshots are differential backups.**
 
-Transaction log backups happen at varied frequencies, depending on the workload and when the WAL file is filled and ready to be archived. In general, the delay (recovery point objective, or RPO) can be up to 15 minutes.
+Transaction log backups happen at varied frequencies, depending on the workload and when the WAL file is filled and ready to be archived. In general, the delay (recovery point objective, or RPO) can be up to 5 minutes.
 
 ## Backup redundancy options
 
@@ -157,11 +157,11 @@ If your source server is configured with a *private access* virtual network, you
 
 ## Post-restore tasks
 
-After you restore the database, you can perform the following tasks to get your users and applications back up and running:
+After you restore the server, you can perform the following tasks to get your users and applications back up and running:
 
 - If the new server is meant to replace the original server, redirect clients and client applications to the new server. Change the server name of your connection string to point to the new server.
 
-- Ensure that appropriate server-level firewall, private endpoints and virtual network rules are in place for user connections. In *public access* network, rules are copied over from the original server, but those might not ne the ones required in the restored environment. So, adjust them as per your requirements. Private endpoints are not carried over. Create any private endpoints you may need in the restored server. In *private access* virtual network, the restore doesn't copy over any network infrastructure artifacts from source to restored server networks. Anything related to configuration of VNET, subnets, or Network Security Groups, must be taken care of as a post-restore task.
+- Ensure that appropriate server-level firewall, private endpoints and virtual network rules are in place for user connections. In *public access* network, rules are copied over from the original server, but those might not be the ones required in the restored environment. So, adjust them as per your requirements. Private endpoints are not carried over. Create any private endpoints you may need in the restored server. In *private access* virtual network, the restore doesn't copy over any network infrastructure artifacts from source to restored server networks. Anything related to configuration of VNET, subnets, or Network Security Groups, must be taken care of as a post-restore task.
   
 - Scale up or scale down the restored server's compute as needed.
 
@@ -169,7 +169,9 @@ After you restore the database, you can perform the following tasks to get your 
 
 - Configure alerts as appropriate.
   
-- If you restored the database configured with high availability, and if you want to configure the restored server with high availability, you can then follow [the steps](./how-to-manage-high-availability-portal.md).
+- If the source server from which you restored was configured with high availability, and you want to configure the restored server with high availability, you can then follow [these steps](./how-to-manage-high-availability-portal.md).
+
+- If the source server from which you restored was configured with read replicas, and you want to configure read replicas on the restored server, you can then follow [these steps](./how-to-read-replicas-portal.md).
  
 ## Long-term retention (preview)
 

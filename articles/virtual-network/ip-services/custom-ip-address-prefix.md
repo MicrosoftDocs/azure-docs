@@ -5,7 +5,7 @@ description: Learn about what an Azure custom IP address prefix is and how it en
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 08/24/2023
@@ -66,7 +66,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 * IPs brought to Azure may have a delay of up to a week before they can be used for Windows Server Activation.
 
 > [!IMPORTANT]
-> There are several differences between how custom IPv4 and IPv6 prefixes are onboarded and utilized. For more information, see [Differences between using BYOIPv4 and BYOIPv6](create-custom-ip-address-prefix-ipv6-powershell.md#differences-between-using-byoipv4-and-byoipv6).
+> There are several differences between how custom IPv4 and IPv6 prefixes are onboarded and utilized. For more information, see [Differences between using BYOIPv4 and BYOIPv6](create-custom-ip-address-prefix-ipv6-portal.md#differences-between-using-byoipv4-and-byoipv6).
 
 ## Pricing
 

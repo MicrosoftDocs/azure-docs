@@ -2,11 +2,10 @@
 title: Package a model for deployment (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how you can package a model and deploy it for online inferencing.
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.service: machine-learning
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.custom: devx-track-python, update-code
 ms.date: 12/08/2023
@@ -31,6 +30,10 @@ Before following the steps in this article, make sure you have the following pre
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
+* A model to package. This example, uses an MLflow model registered in the workspace.
+
+    > [!CAUTION]
+    > Model packaging is not supported for models in the Azure AI model catalog, including large language models. Models in the Azure AI model catalog are optimized for inference on Azure AI deployment targets and are not suitable for packaging. 
 
 ## About this example
 
