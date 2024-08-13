@@ -36,6 +36,11 @@ The Data Box Gateway device is a virtual device that's provisioned in the hyperv
 
 - Needs an activation key to access the Azure Stack Edge Pro/Data Box Gateway service.
 - Is protected at all times by a device password.
+
+The Data Box Gateway device has with the following capabilities to offer defense in depth:
+
+- Defender based malware protection on OS disk
+- Defender based Device Guard support for more stringent checks on the binary running in the system.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->
 
