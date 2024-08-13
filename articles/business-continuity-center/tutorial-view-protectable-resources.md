@@ -25,7 +25,7 @@ Before you start this tutorial:
 
 As a business continuity and disaster recovery admin, the first stage in the journey is to identify your critical resources that do not have backup or replication configured.  In case of any outage, malicious attack, or operational failures, these resources can’t be recovered in primary or secondary region, which can then lead to data loss. 
 
-Follow these steps:
+To view the protectable resources, follow these steps:
 
 1. Go to the Azure Business Continuity Center from the Azure portal.
 1. Select **Protectable resources** under the **Protection inventory** section. 
