@@ -41,7 +41,7 @@ You can create a similar workflow with a Standard logic app resource. However, t
 
 * An email account from an email provider that's supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-  This tutorial uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but the user experience might slightly differ.
+  This tutorial uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but the user experience might slightly differ. If you use Outlook.com, use your personal Microsoft account instead to sign in.
 
   > [!IMPORTANT]
   >
@@ -89,13 +89,13 @@ You can create a similar workflow with a Standard logic app resource. However, t
 
    After you finish, your settings look similar to the following example:
 
-   :::image type="content" source="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal and logic app resource creation page with details for new logic app." lightbox="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png":::
+   :::image type="content" source="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal and creation page for multitenant Consumption logic app and details." lightbox="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png":::
 
-1. When you're ready, select **Review + create**. After Azure validates the information about your logic app resource, select **Create**.
+1. When you finish, select **Review + create**. After Azure validates the information about your logic app resource, select **Create**.
 
 1. After Azure deploys your logic app resource, select **Go to resource**. Or, find and select your logic app resource by using the Azure search box.
 
-Next, add the **Schedule** trigger named **Recurrence**, which runs the workflow based on a specified schedule. Every workflow must start with a trigger, which fires when a specific event happens or when new data meets a specific condition. For more information, see [Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md).
+Next, add the **Schedule** trigger named **Recurrence**, which runs the workflow based on a specified schedule. Every workflow must start with a trigger, which fires when a specific event happens or when new data meets a specific condition.
 
 ## Add the Recurrence trigger
 
@@ -107,8 +107,8 @@ Next, add the **Schedule** trigger named **Recurrence**, which runs the workflow
 
 1. In the trigger information box, provide the following information:
 
-   | Property | Value | Description |
-   |----------|-------|-------------|
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
    | **Interval** | 1 | The number of intervals to wait between checks |
    | **Frequency** | Week | The unit of time to use for the recurrence |
    | **On these days** | Monday, Tuesday, Wednesday, Thursday, Friday | This setting is available only when you set the **Frequency** to **Week**. |
@@ -133,8 +133,8 @@ Now that you have a trigger, add a **Bing Maps** action that gets the travel tim
 
 1. If you don't have a Bing Maps connection, you're asked to create a connection. Provide the following connection information, and select **Create**.
 
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
    | **Connection Name** | Yes | <*Bing-Maps-connection-name*> | Provide a name for your connection. This example uses **BingMapsConnection**. |
    | **API Key** | Yes | <*Bing-Maps-API-key*> | Enter the Bing Maps API key that you previously received. If you don't have a Bing Maps key, learn [how to get a key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
 
@@ -152,8 +152,8 @@ Now that you have a trigger, add a **Bing Maps** action that gets the travel tim
 
 1. Now enter the values for the following action's properties:
 
-   | Property | Value | Description |
-   |----------|-------|-------------|
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
    | **Waypoint 1** | <*start-location*> | Your route's origin. This example specifies an example starting address. |
    | **Waypoint 2** | <*end-location*> | Your route's destination. This example specifies an example destination address. |
    | **Optimize** | timeWithTraffic | A parameter to optimize your route, such as distance, travel time with current traffic, and so on. Select the parameter value, **timeWithTraffic**. |
@@ -182,8 +182,8 @@ By default, the **Get route** action returns the current travel time with traffi
 
 1. Provide the following action information:
 
-   | Property | Value | Description |
-   |----------|-------|-------------|
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
    | **Name** | travelTime | The name for your variable. This example uses `travelTime`. |
    | **Type** | Integer | The data type for your variable |
    | **Value** | <*initial-value*> | An expression that converts the current travel time from seconds to minutes (see the steps under this table). |
@@ -327,28 +327,21 @@ To manually start your workflow, on the designer toolbar, select **Run** > **Run
   > redirect these kinds of mails. Otherwise, if you're unsure that your workflow ran correctly, 
   > see [Troubleshoot your workflow](../logic-apps/logic-apps-diagnosing-failures.md).
 
-Congratulations, you've created and run a schedule-based recurring workflow.
+Congratulations, you created and ran a schedule-based recurring workflow!
 
 ## Clean up resources
 
-Your workflow continues running until you disable or delete the logic app resource. When you no longer need the sample workflow, delete the resource group that contains your logic app resource and related resources.
+Your workflow continues running until you disable or delete the logic app resource. When you no longer need this sample, delete the resource group that contains your logic app and related resources.
 
-1. In the Azure portal's search box, enter the name for the resource group that you created. From the results, under **Resource Groups**, select the resource group.
+1. In the Azure portal search box, enter **resource groups**, and select **Resource groups**.
 
-   This example created the resource group named **LA-TravelTime-RG**.
+1. From the **Resource groups** list, select the resource group for this tutorial.
 
-   ![Screenshot that shows the Azure search box with "la-travel-time-rg" entered and **LA-TravelTime-RG** selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
+1. On the resource group menu, select **Overview**.
 
-   > [!TIP]
-   >
-   > If the Azure home page shows the resource group under **Recent resources**,
-   > you can select the group from the home page.
+1. On the **Overview** page toolbar, select **Delete resource group**.
 
-1. On the resource group menu, check that **Overview** is selected. On the **Overview** pane's toolbar, select **Delete resource group**.
-
-   :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png" alt-text="Screenshot shows resource group's Overview pane with pane toolbar selected option for Delete resource group." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png":::
-
-1. In the confirmation pane that appears, enter the resource group name, and select **Delete**.
+1. When the confirmation pane appears, enter the resource group name, and select **Delete**.
 
 ## Next step
 

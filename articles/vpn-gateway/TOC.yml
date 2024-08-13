@@ -192,7 +192,7 @@
         - name: Create or modify custom audience app ID
           href: point-to-site-entra-register-custom-app.md
         - name: Configure access based on users and groups
-          href: openvpn-azure-ad-tenant-multi-app.md
+          href: point-to-site-entra-users-access.md
         - name: Configure Multi-Factor Authentication (MFA)
           href: openvpn-azure-ad-mfa.md
       - name: VPN client configuration

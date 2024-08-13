@@ -39,7 +39,7 @@ The following features are currently available in the Azure Communication Servic
 |                       | Place new outbound call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Reject an incoming call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Connect to an ongoing call or Room                | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Connect to an ongoing call or Room (in preview)   | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Cancel adding an endpoint to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -51,8 +51,8 @@ The following features are currently available in the Azure Communication Servic
 |                       | Send DTMF                                         | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Blind Transfer* a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Blind Transfer* a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
+|                       | Blind Transfer a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Blind Transfer a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
@@ -87,8 +87,8 @@ These actions are performed before the destination endpoint listed in the `Incom
 **Create Call**
 Create Call action can be used to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
 
-**Connect Call**
-Connect Call action can be used to connect to an ongoing call and take call actions on it. You can also use this action to connect and manage a Rooms call programmatically, like performing PSTN dial outs for Room using your service.  
+**Connect Call** (in preview)
+Connect Call action can be used to connect to an ongoing call and take call actions on it. You can also use this action to connect and [manage a Rooms call programmatically](./../../quickstarts/rooms/manage-rooms-call.md), like performing PSTN dial outs for Room using your service. 
 
 ### Mid-call actions
 
