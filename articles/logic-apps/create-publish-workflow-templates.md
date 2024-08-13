@@ -186,7 +186,7 @@ To find the connector ID to use for a connection in the **manifest.json** file o
 
      1. Copy and save the following value:
 
-        **`/serviceProviders/<connection-name>`**.
+        **`/serviceProviders/<connection-name>`**
 
         For example, the following text shows the connector ID for the Azure AI Search connector:
 
