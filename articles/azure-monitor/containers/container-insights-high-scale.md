@@ -45,7 +45,7 @@ ContainerLogV2
 - If the default resource limits (CPU and memory) on ama-logs daemon set container doesn't meet your log scale requirements, please contact the Microsoft support channel to increase the resource limits of your ama-logs container.
 
 ## Network firewall requirements
-In addition to the [network firewall requirements](./kubernetes-monitoring-firewall.md) for monitoring a Kubernetes cluster, additional configurations are needed for enabling High scale Mode. 
+In addition to the [network firewall requirements](./kubernetes-monitoring-firewall.md) for monitoring a Kubernetes cluster, additional configurations in the following table are needed for enabling high scale mode depending on your cloud. 
 
 | Cloud | Endpoint | Port |
 |:---|:--|:--|
@@ -53,7 +53,7 @@ In addition to the [network firewall requirements](./kubernetes-monitoring-firew
 | Microsoft Azure operated by 21Vianet cloud | `<dce-name>-<suffix>.<cluster-region-name>-<suffix>.ingest.monitor.azure.cn` | 443 |
 | Azure Government cloud | `<dce-name>-<suffix>.<cluster-region-name>-<suffix>.ingest.monitor.azure.us` | 443 |
 
-Get the **Logs Ingestion** endpoint from the data collection endpoint (DCE) for the data collection rule (DCR) used by the cluster. This DCE is created when you enable high scale mode for the cluster and will start with the prefix `MSCI-ingest`.
+The endpoint is the **Logs Ingestion** endpoint from the data collection endpoint (DCE) for the data collection rule (DCR) used by the cluster. This DCE is created when you enable high scale mode for the cluster and will start with the prefix `MSCI-ingest`.
 
 :::image type="content" source="media/container-insights-high-scale/logs-ingestion-endpoint.png" alt-text="Screenshot of logs ingestion endpoint for DCE." lightbox="media/container-insights-high-scale/logs-ingestion-endpoint.png" :::
 
