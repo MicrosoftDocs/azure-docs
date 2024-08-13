@@ -950,7 +950,7 @@ Stay healthy!
 
 ### Speech SDK 1.11.0: 2020-March release
 #### New features
-- Linux: Added support for Red Hat Enterprise Linux (RHEL)/CentOS 7 x64 with [instructions](../../how-to-configure-rhel-centos-7.md) on how to configure the system for Speech SDK.
+- Linux: Added support for Red Hat Enterprise Linux (RHEL)/CentOS 7 x64.
 - Linux: Added support for .NET Core C# on Linux ARM32 and ARM64. Read more [here](../../speech-sdk.md?tabs=linux).
 - C#, C++: Added `UtteranceId` in `ConversationTranscriptionResult`, a consistent ID across all the intermediates and final speech recognition result. Details for [C#](/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult), [C++](/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
 - Python: Added support for `Language ID`. See speech_sample.py in [GitHub repo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
