@@ -53,7 +53,7 @@ The **workflow.json** file contains the underlying definition for a workflow in 
 
 For the easiest and best way to get the workflow definition, create your workflow using the designer. Make sure to review the [workflow best practices](#workflow-best-practices) and [names and style conventions](#names-and-style-conventions). As a starting point, you can use the prebuilt workflow templates from the template gallery in the Azure portal.
 
-As you build your workflow, the designer automatically includes references to any added built-in, service provider-based connections, managed API connections, or libraries in the underlying workflow definition.
+As you build your workflow, the designer automatically includes references to any added built-in, service provider connections, managed API connections, or libraries in the underlying workflow definition.
 
 To get the workflow definition after you're done, follow these steps in the [Azure portal](https://portal.azure.com) with your opened workflow:
 
@@ -65,9 +65,7 @@ To get the workflow definition after you're done, follow these steps in the [Azu
 
 1. In an empty file named **workflow.json**, save the workflow definition.
 
-## Parameter and connection references in workflow.json
-
-### Parameter references
+## Parameter references in workflow.json
 
 When you reference parameters in the **workflow.json** file, you must reflect names that use the suffix **_#workflowname#** in the following way:
 
@@ -77,20 +75,20 @@ For example:
 
 **`"name": "@parameters('sharepoint-folder-path_#workflowname#')"`**
 
-### Connection references
+## Connection references in workflow.json
 
 When you reference connections in the **workflow.json** file, you must reflect names that use the suffix **_#workflowname#** in the following way:
 
 ```json
-"referenceName": "<connector-ID>_#workflowname*",
-"connectionName": "<connector-ID>_#workflowname"
+"referenceName": "<connector-ID>_#workflowname#",
+"connectionName": "<connector-ID>_#workflowname#"
 ```
 
 For example:
 
 ```json
-"referenceName": "AI_search_#workflowname*",
-"connectionName": "AI_search_#workflowname"
+"referenceName": "azureaisearch_#workflowname#",
+"connectionName": "azureaisearch_#workflowname#"
 ```
 
 For more information about the connector ID, see [Find the connector ID](#find-connector-id).
@@ -99,9 +97,9 @@ For more information about the connector ID, see [Find the connector ID](#find-c
 
 ## Workflow best practices
 
-- Use the built-in operation versions as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
+- Use the built-in operations as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
 
-  - A built-in, service provider-based version, which appears in the connectors gallery with the **In App** label. This version is hosted and run with the Azure Logic Apps runtime, offering better performance, throughput, and other benefits.
+  - A built-in, service provider version, which appears in the connectors gallery with the **In App** label. This version is hosted and run with the single-tenant Azure Logic Apps runtime, offering better performance, throughput, and other benefits.
 
   - A Microsoft-managed API version, which appears in the connectors gallery with the **Shared** label. This version is hosted and run in multitenant Azure using shared global resources.
 
@@ -123,7 +121,7 @@ To provide this preview image, follow these steps:
 
 1. Save each image using the **.png** file name extension and any name that you want, following the [Names and style conventions](#names-style-conventions).
 
-1. In the **manifest.json** file for your workflow template package, add the same image names to the  **`images`** section without the **.png** file name extension, for example:
+1. In the **manifest.json** file for your workflow template package, add the same image names to the **`images`** section without the **.png** file name extension, for example:
 
    ```json
    "images": {
@@ -148,10 +146,10 @@ The following table describes the attributes in the **manifest.json** file:
 | **`kinds`** | No | **`stateful`**, **`stateless`** | The workflow mode, which determines whether run history and operation states are stored. <br><br>By default, all workflows are available in both stateful and stateless mode. If your workflow only runs in stateful mode, use this attribute to make this requirement explicit. |
 | **`detailsDescription`** | No | See description. | Any other detailed description information for the template. |
 | **`details`** | No | See description. | Template information to use for filtering the templates gallery. <br><br>- **`By`**: The template publisher, for example, **`Microsoft`**. <br><br>- **`Type`**: **`Workflow`** <br><br>- **`Trigger`**: The trigger type, for example, **`Recurrence`**, **`Event`**, or **`Request`**. |
-| **`artifacts`** | Yes | <*artifacts-array*> | All the relevant files in the template package and includes the following attributes: <br><br>- **`type`**: The file type, which determines the appropriate location for where to copy the file, for example **`workflow`**. <br><br>- **`file`**: The file name and extension. | 
-| **`images`** | Yes | **`<image-file-name>-light.png`**, **`<image-file-name>-dark.png`** | The workflow image file names for both browser light and dark theme versions: <br><br>- **`light`**: Image name for light theme, for example, "  <br><br>- **`dark`**:  |
-| **`parameters`** | Yes, but can be empty if none exist | <*workflow-parameters-array*> | The parameters to use for workflow creation. For each parameter, you need to specify the following properties: <br><br>- **`name`**: The parameter name must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<parameter-name>_#workflowname#`** <br><br>- **`displayName`**: The parameter's friendly display name. See [Names and style conventions](#names-style-conventions). <br><br>- **`type`**: The parameter's data type, for example **`String`** or **`Int`**. <br><br>- **`default`**: The parameter's default value, if any. If none, leave this value as an empty string. <br><br>- **`description`** The parameter's details and other important or helpful information. <br><br>- **`required`**: **`true`** or **`false`** |
-| **`connections`** | Yes, but can be empty if none exist. | <*connections-array*> | The connections to use in workflow creation. Each connection has the following properties: <br><br>-**`connectorId`**: The connector ID must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<connector-ID>_#workflowname#`** <br><br>To find the connector ID, see [Find the connector ID](#find-connector-id). <br><br>- **`kind`**: The connector's runtime host type, which is either **`inapp`** for built-in operations and service provider-based connectors or **`shared`** for managed, Azure-hosted connectors. In the connectors gallery, built-in operations and service provider-based connectors are labeled as **In App**, while managed connectors are labeled as **Shared**. |
+| **`artifacts`** | Yes | <*artifacts-array*> | All the relevant files in the template package and includes the following attributes: <br><br>- **`type`**: The file type, which determines the appropriate location for where to copy the file, for example, **`workflow`**. <br><br>- **`file`**: The file name and extension, for example, **workflow.json**. | 
+| **`images`** | Yes | See description. | The workflow image file names for both browser light and dark themes: <br><br>- **`light`**: Image name for light theme, for example, **workflow-light**  <br><br>- **`dark`**: Image name for dark theme, for example, **workflow-dark**. |
+| **`parameters`** | Yes, but can be empty if none exist | <*workflow-parameters-array*> | The parameters to use for workflow creation. For each parameter, you need to specify the following properties: <br><br>- **`name`**: The parameter name must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<parameter-name>_#workflowname#`** <br><br>- **`displayName`**: The parameter's friendly display name. See [Names and style conventions](#names-style-conventions). <br><br>- **`type`**: The parameter's data type, for example, **`String`** or **`Int`**. <br><br>- **`default`**: The parameter's default value, if any. If none, leave this value as an empty string. <br><br>- **`description`** The parameter's details and other important or helpful information. <br><br>- **`required`**: **`true`** or **`false`** |
+| **`connections`** | Yes, but can be empty if none exist. | <*connections-array*> | The connections to use in workflow creation. Each connection has the following properties: <br><br>-**`connectorId`**: The connector ID must have the suffix, **`_#workflowname#`**, use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<connector-ID>_#workflowname#`** <br><br>To find the connector ID, see [Find the connector ID](#find-connector-id). <br><br>- **`kind`**: The connector's runtime host type, which is either **`inapp`** for built-in operations and service provider connectors or **`shared`** for managed, Azure-hosted connectors. In the connectors gallery, built-in operations and service provider connectors are labeled as **In App**, while managed connectors are labeled as **Shared**. |
 | **`featuredConnections`** | No | <*featured-connections-array*> | By default, the template gallery shows icons for the prebuilt operations and connectors in Azure Logic Apps used by each template. To include icons for any other operations, you can use the **`featuredConnections`** attribute. Each operation must have the following attributes: <br><br>- **`kind`**: The operation kind <br><br>- **`type`**: The operation type <br><br>To find these values, see [Find the operation kind and type for featuredConnections section](#find-featured-connections-operation-properties). |
 
 <a name="find-connector-id"></a>
@@ -176,7 +174,7 @@ To find the connector ID to use for a connection in the **manifest.json** file o
 
         For example, the connector ID for the SharePoint connector is **`/subscriptions/#subscription#/providers/Microsoft.Web/locations/#location#/managedApis/sharepointonline`**
 
-   - For a service provider-based connection that is hosted on the Azure Logic Apps runtime:
+   - For a service provider connection that is hosted on the single-tenant Azure Logic Apps runtime:
 
      1. Find the **`serviceProviderConnections`** section.
 
@@ -222,7 +220,7 @@ To publish your template to the templates gallery in the Azure portal, set up Gi
 
    1. In your local repository, [follow these steps to create a working branch](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project?tool=webui#creating-a-branch-to-work-on).
 
-   1. After you check out your working branch, go to the root level in your local repositor, and create the template package folder.
+   1. After you check out your working branch, go to the root level in your local repository, and create the template package folder.
 
    1. Add your template files to the template package folder, and update the root-level **manifest.json** file with the folder name.
 
@@ -234,9 +232,9 @@ To publish your template to the templates gallery in the Azure portal, set up Gi
 
    1. To upload your snapshot to your remote fork, run the following command:
 
-      **`git push origin <working-branch>`**
+      **`git push origin <your-working-branch>`**
 
-1. In GitHub, create a pull request to compare your **<*your-working-branch*>** with the **main** branch in the **LogicAppsTemplates** repository.
+1. In GitHub, create a pull request to compare **<*your-working-branch*>** with the **main** branch in the **LogicAppsTemplates** repository.
 
    1. Go to the repository's **Pull requests** page, and select **New pull request**.
 
@@ -267,9 +265,9 @@ To publish your template to the templates gallery in the Azure portal, set up Gi
 | Image file names | Use the **.png** as the file name extension, lowercase, and hyphens, for example, **workflow-light.png**. |
 | Product, service, technology, and brand names | Follow the official spelling and capitalization. For example: <br><br>- When you refer to the service name or platform, use "Azure Logic Apps", not "Logic Apps". <br><br>- When you refer to the resource or instance, use "logic apps" or "logic app", not "Logic App" or "Logic Apps". <br><br>- When you refer to the sequence of trigger and actions, use "logic app workflow" or "workflow". |
 | Abbreviations and acronyms | Use the expanded name for product, service, technology, brand names, and uncommon technical terms, not abbreviations or acronyms. Common acronyms, such as "HTTP" and "URL", are acceptable. For example, use "Visual Studio Code", not "VS Code". See [Acronyms – Microsoft Style Guide](/style-guide/acronyms). |
-| Other text | Use sentence case for titles, headings, and body content, which means that you capitalize only the first letter unless you have product, service, technology, or brand name. Don't capitalize ordinary nouns and articles, such as "a", "an", "and", "or", "the", and so on. |
+| Other text | - Use sentence case for titles, headings, and body content, which means that you capitalize only the first letter unless you have product, service, technology, or brand name. <br><br>- Don't capitalize ordinary nouns and articles, such as "a", "an", "and", "or", "the", and so on. |
 | Voice | - Use second person voice (you and your), rather than third person (users, developers, customers) unless you need to refer to specific roles. See [Person – Microsoft Style Guide](/style-guide/grammar/person). <br><br>- Use an active, direct, but friendly tone when possible. Active voice focuses on the subject and verb in text, while passive voice focuses on the object in text. |
-| Vocabulary | - Use simple, common, everyday words, such as  "use", rather than "utilize" or "leverage". Don't use words, phrases, jargon, colloquialisms, idioms, or slang that don't translate well across languages. <br><br>-	Use "please" only for specific scenarios. See [please – Microsoft Style Guide](/style-guide/a-z-word-list-term-collections/p/please). <br><br>- Use "for example" or "such as", not "e.g." or "i.e.". <br><br>- Don't use directional terms such as "here", "above", "below", "right", and "left", which aren't accessible friendly. |
+| Vocabulary | - Use simple, common, everyday words, such as  "use", rather than "utilize" or "leverage". <br><br>- Don't use words, phrases, jargon, colloquialisms, idioms, or slang that don't translate well across languages. <br><br>-	Use "please" only for specific scenarios. See [please – Microsoft Style Guide](/style-guide/a-z-word-list-term-collections/p/please). <br><br>- Use "for example" or "such as", not "e.g." or "i.e.". <br><br>- Don't use directional terms such as "here", "above", "below", "right", and "left", which aren't accessible friendly. |
 | Punctuation | -	For a series of items, include the last comma before the word "and", for example, "apples, oranges, and bananas". See [Commas – Microsoft Style Guide](/style-guide/punctuation/commas). <br><br>-	End full sentences with appropriate punctuation. Avoid exclamation points. See [Punctuation – Microsoft Style Guide](/style-guide/punctuation/). |
 | Formatting | - For code, follow the style convention for that code's language. <br><br>- Don't use hardcoded links, which break if the URLs change. In your PR request, ask for a redirection link to use instead. <br><br>- For links, use the following format: "`For more information, see [descriptive link text](URL)]`.". <br><br>- Use descriptive link text, not generic or vague link text, such as "`See [here](URL)`." <br><br>- Use numbers only for steps in a procedure, not for lists that have no specific order. See [Lists – Microsoft Style Guide](/style-guide/scannable-content/lists). <br><br>- Use only one space after punctuation unless you're indenting code. |
 
