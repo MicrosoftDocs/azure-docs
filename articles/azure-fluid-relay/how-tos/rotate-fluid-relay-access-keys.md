@@ -19,7 +19,7 @@ Two keys are associated with each AFR resource: a primary key and secondary key.
 ### [Azure Portal](#tab/azure-portal)
 To see your access keys, on the left menu select **Settings**. Then, select **Access Keys**. Select the **Copy** button to copy the selected key.
 
-    :::image type="content" source="../images/rotate-tenant-keys.png" alt-text="A screenshot of the access keys page on the Azure portal.":::
+:::image type="content" source="../images/rotate-tenant-keys.png" alt-text="A screenshot of the access keys page on the Azure portal.":::
 
 ### [PowerShell](#tab/azure-powershell)
 To retrieve your access keys with PowerShell, call the [Get-AzFluidRelayServerKey](/powershell/module/az.fluidrelay/get-azfluidrelayserverkey) command. 
