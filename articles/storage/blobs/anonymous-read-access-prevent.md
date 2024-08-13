@@ -137,19 +137,19 @@ When Blob Storage receives an anonymous request, that request will succeed if al
 - The targeted container is configured to allow anonymous access.
 - The request is for read access.
 
-If any of those conditions are not true, then the request will fail. The response code on failure depends on whether the anonymous request was made with a version of the service that supports the bearer challenge. The bearer challenge is supported with service versions 2019-12-12 and newer:
+If any of those conditions aren't true, the request fails. The response code on failure depends on whether the anonymous request was made with a version of the service that supports the bearer challenge. The bearer challenge is supported with service versions 2019-12-12 and newer:
 
 - If the anonymous request was made with a service version that supports the bearer challenge, then the service returns error code 401 (Unauthorized).
-- If the anonymous request was made with a service version that does not support the bearer challenge and anonymous access is disallowed for the storage account, then the service returns error code 409 (Conflict).
+- If the anonymous request was made with a service version that doesn't support the bearer challenge and anonymous access is disallowed for the storage account, then the service returns error code 409 (Conflict).
 - If the anonymous request was made with a service version that does not support the bearer challenge and anonymous access is allowed for the storage account, then the service returns error code 404 (Not Found).
 
 For more information about the bearer challenge, see [Bearer challenge](/rest/api/storageservices/authorize-with-azure-active-directory#bearer-challenge).
 
 ## Remediate anonymous access for the storage account
 
-After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to remediate anonymous access for the whole account by setting the account's **AllowBlobPublicAccess** property to **False**.
+After you evaluate anonymous requests to containers and blobs in your storage account, you can take action to remediate anonymous access for the whole account by setting the account's **AllowBlobPublicAccess** property to **False**.
 
-The anonymous access setting for a storage account overrides the individual settings for containers in that account. When you disallow anonymous access for a storage account, any containers that are configured to permit anonymous access are no longer accessible anonymously. If you've disallowed anonymous access for the account, you don't also need to disable anonymous access for individual containers.
+The anonymous access setting for a storage account overrides the individual settings for containers in that account. When you disallow anonymous access for a storage account, any containers that are configured to permit anonymous access are no longer accessible anonymously. If you disallow anonymous access for the account, you don't also need to disable anonymous access for individual containers.
 
 If your scenario requires that certain containers need to be available for anonymous access, then you should move those containers and their blobs into separate storage accounts that are reserved for anonymous access. You can then disallow anonymous access for any other storage accounts.
 
@@ -395,13 +395,13 @@ resources
 | project subscriptionId, resourceGroup, name, allowBlobPublicAccess
 ```
 
-The following image shows the results of a query across a subscription. For storage accounts where the **AllowBlobPublicAccess** property has been explicitly set, it appears in the results as **true** or **false**. If the **AllowBlobPublicAccess** property hasn't been set for a storage account, it appears as blank (or **null**) in the query results.
+The following image shows the results of a query across a subscription. For storage accounts where the **AllowBlobPublicAccess** property is explicitly set, it appears in the results as **true** or **false**. If the **AllowBlobPublicAccess** property isn't set for a storage account, it appears as blank (or **null**) in the query results.
 
 :::image type="content" source="media/anonymous-read-access-prevent/check-public-access-setting-accounts.png" alt-text="Screenshot showing query results for anonymous access setting across storage accounts":::
 
 ## Use Azure Policy to audit for compliance
 
-If you have a large number of storage accounts, you may want to perform an audit to make sure that those accounts are configured to prevent anonymous access. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
+If you have a large number of storage accounts, you might want to perform an audit to make sure that those accounts are configured to prevent anonymous access. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
 
 ### Create a policy with an Audit effect
 
