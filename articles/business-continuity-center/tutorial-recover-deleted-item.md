@@ -26,29 +26,29 @@ Before you start this tutorial:
 
 ## Initiate recovery for Azure VM
 
-Follow these steps to initiate the recovery for Azure VMs:
+To initiate the recovery for Azure VMs, follow these steps:
 
-1. Navigate to one of the views from Overview, Protected items, etc., and select **Recover** from the menu at the top of the view.
+1. From **Business Continuity center**, go to **Protection inventory** > **Protected items**, and then select **Recover**.
 
-    :::image type="content" source="./media/tutorial-recover-deleted-item/select-recover-from-menu.png" alt-text="Screenshot shows the recover selection on the menu." lightbox="./media/tutorial-recover-deleted-item/select-recover-from-menu.png":::
+    :::image type="content" source="./media/tutorial-recover-deleted-item/select-recover-from-menu.png" alt-text="Screenshot shows the selection of Recover option." lightbox="./media/tutorial-recover-deleted-item/select-recover-from-menu.png":::
 
 2. On the Recover blade, choose **Resources managed by**, select the Datasource type for which you want to configure protection, and select the Solution (limited to Azure Backup and Azure Site Recovery) through which you want to recover the item.
 
     :::image type="content" source="./media/tutorial-recover-deleted-item/select-data-source-type.png" alt-text="Screenshot shows the selection of datasource type." lightbox="./media/tutorial-recover-deleted-item/select-data-source-type.png":::
 
-3.	Based on the datasource type and the solution you select, the available recovery actions would change. For example, for Azure Virtual machine and Azure Backup, you can perform restore, file recovery, and restore to secondary region. For Azure Virtual machine and Azure Site Recovery, you can perform actions such as cleanup test failover, test failover, failover, commit, change recovery point,  and so on.
+   Based on the datasource type and the solution you select, the available recovery actions would change. For example, for Azure Virtual machine and Azure Backup, you can perform restore, file recovery, and restore to secondary region. For Azure Virtual machine and Azure Site Recovery, you can perform actions such as cleanup test failover, test failover, failover, commit, change recovery point,  and so on.
 
     :::image type="content" source="./media/tutorial-recover-deleted-item/select-from-available-recovery-actions.png" alt-text="Screenshot shows the selection of the available recovery actions." lightbox="./media/tutorial-recover-deleted-item/select-from-available-recovery-actions.png":::
 
-4.	Click **Select** to select the item on which you want to perform the recovery action. 
+3.	Click **Select** to select the item on which you want to perform the recovery action. 
 
     >[!Note]
     >Only the items on which the selected recovery action can be performed will be available to select.
 
     :::image type="content" source="./media/tutorial-recover-deleted-item/select-item-to-perform-recovery-action.png" alt-text="Screenshot shows the selection of item for recovery action."  lightbox="./media/tutorial-recover-deleted-item/select-item-to-perform-recovery-action.png":::
 
-5.	Highlight the item from the list, and click **Select**.
-6.	Select **Configure** to go to the solution-specific recover page.
+4.	Highlight the item from the list, and click **Select**.
+5.	Select **Configure** to go to the solution-specific recover page.
 
 ## Next steps
 
