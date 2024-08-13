@@ -21,6 +21,32 @@ In this article, you learn how to use Azure Communication Services Calling SDK t
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
+## Support
+The following tables define support of audio conferencing in Azure Communication Services.
+
+### Identities & call types
+The following tables show support of call and identity types. 
+
+|Identities                                         | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
+|--------------------------------------|---------------|------|----------|------------|------------------------|--------------------------|
+|Communication Services user	| ✔️	          |      |          |            |	                      |	                         |
+|Microsoft 365 user	                        | ✔️	          |      |          |            |                        |                          |
+
+### Operations
+
+The following tables show support of individual APIs in calling SDK to individual identity types. 
+
+|Operations                   | Communication Services user | Microsoft 365 user |
+|-----------------------------|------------------------------|-------------------|
+|Get audio conferencing details		| ✔️	| ✔️  |  	
+
+### SDKs
+The following tables show support of breakout rooms feature in individual Azure Communication Services SDKs.
+
+|  Platforms     | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+|---------------|-----|--------|--------|--------|----------|--------|---------|
+|Is Supported | ✔️  |        |        |        |          |        |         |		
+
 [!INCLUDE [Audio Conferencing Client-side JavaScript](./includes/audio-conferencing/audio-conferencing-web.md)]
 
 ## Next steps
