@@ -277,7 +277,9 @@ https://{endpoint}/formrecognizer/documentModels/{modelId}:copyTo?api-version=20
 
 ## Billing
  
-Starting with version `2024-07-31-preview`, you can train your custom neural model for longer durations than the standard 30 minutes. Previous versions have been capped at 30 minutes per training instance, with a total of 20 free training instances per month. Now with `2024-07-31-preview`, you can receive **10 hours** of **free model training**, and train a model for as long as 10 hours. You can choose to spend all of 10 free hours on a single model build with a large set of data, or utilize it across multiple builds by adjusting the maximum duration value for the `build` operation by specifying `maxTrainingHours` as below:
+Starting with version `2024-07-31-preview`, you can train your custom neural model for longer durations than the standard 30 minutes. Previous versions have been capped at 30 minutes per training instance, with a total of 20 free training instances per month. Now with `2024-07-31-preview`, you can receive **10 hours** of **free model training**, and train a model for as long as 10 hours.
+
+You can choose to spend all of 10 free hours on a single model build with a large set of data, or utilize it across multiple builds by adjusting the maximum duration value for the `build` operation by specifying `maxTrainingHours` as below:
 
 ```bash
 
@@ -288,11 +290,10 @@ POST /documentModels:build
 }
 ```
 > [!IMPORTANT]
-> If you would like to train additional neural models or train models for a longer time period that **exceed 10 hours**, billing charges apply. For details on the billing charges, refer to the [pricing page](https://azure.microsoft.com/en-us/pricing/details/ai-document-intelligence/).
->
-> As each build takes different amount of time depending on the type and size of the training dataset, billing is calculated for the actual time spent training the neural model, with a minimum of 30 minutes per training job.
-> 
-> This billing structure enables you to train larger data sets for longer durations with flexibility in the training hours.
+> * If you would like to train additional neural models or train models for a longer time period that **exceed 10 hours**, billing charges apply. For details on the billing charges, refer to the [pricing page](https://azure.microsoft.com/en-us/pricing/details/ai-document-intelligence/).
+> * You can opt in for this paid training service by setting the `maxTrainingHours` in the API above to be the desired maximum number of hours. Note that API calls with no budget but with the `maxTrainingHours` set as over 10 hours will fail. 
+> * As each build takes different amount of time depending on the type and size of the training dataset, billing is calculated for the actual time spent training the neural model, with a minimum of 30 minutes per training job.
+> * This paid billing structure enables you to train larger data sets for longer durations with flexibility in the training hours.
 
 ```bash
 
