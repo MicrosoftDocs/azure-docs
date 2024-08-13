@@ -124,7 +124,7 @@ To apply a patch to a device twin:
 
 * Call [get_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-get-twin) to get the current version of the device twin.
 
-* Call [update_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to apply the patch to the device twin. You can also use [replace_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&#azure-iot-hub-iothubregistrymanager-replace-twin) to replace desired properties and tags of a device twin.
+* Call [update_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to apply the patch to the device twin. You can also use [replace_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-replace-twin) to replace desired properties and tags of a device twin.
 
 This example updates `region` and `plant` tag information.
 
