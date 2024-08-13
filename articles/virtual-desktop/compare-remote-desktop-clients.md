@@ -465,7 +465,7 @@ The following table provides a description for each other redirection feature yo
 | Feature | Description |
 |--|--|
 | Clipboard - bidirectional | Redirect the clipboard on the local device is to the remote session and from the remote session to the local device. |
-| Clipboard - unidirectional | Either redirect the clipboard on the local device to the remote session or from the remote session to the local device. |
+| Clipboard - unidirectional | Control the direction in which the clipboard can be used and restrict the types of data that can be copied. |
 | Location | The location of the local device can be available in the remote session. |
 | Third-party virtual channel plugins | Enables third-party virtual channel plugins to extend Remote Desktop Protocol (RDP) capabilities. |
 | Time zone | The time zone of the local device can be available in the remote session. |
