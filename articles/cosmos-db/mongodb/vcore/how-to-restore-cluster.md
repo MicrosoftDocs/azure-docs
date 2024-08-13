@@ -5,7 +5,7 @@ description: Restore an Azure Cosmos DB for MongoDB vCore cluster from a point i
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
   - ignite-2023

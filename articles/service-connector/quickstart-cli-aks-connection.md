@@ -18,7 +18,7 @@ This quickstart shows you how to connect Azure Kubernetes Service (AKS) to other
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This quickstart requires version 2.30.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-* This quickstart assumes that you already have an AKS cluster. If you don't have one yet, [create an AKS cluster](../aks/learn/quick-kubernetes-deploy-cli.md).
+* This quickstart assumes that you already have an AKS cluster. If you don't have one yet, [create an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-cli).
 * This quickstart assumes that you already have an Azure Storage account. If you don't have one yet, [create an Azure Storage account](../storage/common/storage-account-create.md).
 
 ## Initial set-up

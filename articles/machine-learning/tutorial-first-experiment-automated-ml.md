@@ -3,7 +3,7 @@ title: 'Tutorial: AutoML- train no-code classification models'
 titleSuffix: Azure Machine Learning
 description: Train a classification model without writing a single line of code using Azure Machine Learning automated ML in the studio UI.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: tutorial
 author: ssalgadodev

@@ -17,10 +17,10 @@ ms.date: 01/19/2024
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 
-The [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) and [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general.
+The API[/rest/api/luis/operation-groups] returns HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general.
 
 ## Common status codes
-The following table lists some of the most common HTTP response status codes for the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) and [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs:
+The following table lists some of the most common HTTP response status codes for the API[/rest/api/luis/operation-groups]:
 
 |Code|API|Explanation|
 |:--|--|--|
@@ -39,4 +39,4 @@ The following table lists some of the most common HTTP response status codes for
 
 ## Next steps
 
-* REST API [authoring](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true) and [endpoint](/rest/api/cognitiveservices-luis/runtime/operation-groups?view=rest-cognitiveservices-luis-runtime-v3.0&preserve-view=true) documentation
+* [REST API documentation](/rest/api/luis/operation-groups)

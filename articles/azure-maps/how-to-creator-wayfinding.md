@@ -2,12 +2,12 @@
 title: Indoor Maps wayfinding service
 titleSuffix: Microsoft Azure Maps Creator
 description: How to use the wayfinding service to plot and display routes for indoor maps in Microsoft Azure Maps Creator
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 10/25/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ---
 
 # Indoor maps wayfinding service (preview)

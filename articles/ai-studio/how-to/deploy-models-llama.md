@@ -1,587 +1,1477 @@
 ---
-title: How to deploy Meta Llama models with Azure AI Studio
+title: How to use Meta Llama chat models with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to deploy Meta Llama models with Azure AI Studio.
-manager: scottpolly
+description: Learn how to use Meta Llama chat models with Azure AI Studio.
 ms.service: azure-ai-studio
+manager: scottpolly
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 08/08/2024
 ms.reviewer: shubhiraj
 reviewer: shubhirajMsft
 ms.author: ssalgado
 author: ssalgadodev
-ms.custom: references_regions, build-2024
+ms.custom: references_regions, generated
+zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to deploy Meta Llama models with Azure AI Studio
+# How to use Meta Llama chat models
 
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+In this article, you learn about Meta Llama chat models and how to use them.
+Meta Llama 2 and 3 models and tools are a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF).
 
-In this article, you learn about the Meta Llama models. You also learn how to use Azure AI Studio to deploy models from this set either to serverless APIs with pay-as you go billing or to managed compute.
 
-  > [!IMPORTANT]
-  > Read more about the announcement of Meta Llama 3 models available now on Azure AI Model Catalog: [Microsoft Tech Community Blog](https://aka.ms/Llama3Announcement) and from [Meta Announcement Blog](https://aka.ms/meta-llama3-announcement-blog).
 
-Meta Llama 3 models and tools are a collection of pretrained and fine-tuned generative text models ranging in scale from 8 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF), called Meta-Llama-3-8B-Instruct and Meta-Llama-3-70B-Instruct. See the following GitHub samples to explore integrations with [LangChain](https://aka.ms/meta-llama3-langchain-sample), [LiteLLM](https://aka.ms/meta-llama3-litellm-sample), [OpenAI](https://aka.ms/meta-llama3-openai-sample) and the [Azure API](https://aka.ms/meta-llama3-azure-api-sample).
+::: zone pivot="programming-language-python"
 
-## Deploy Meta Llama models as a serverless API
+## Meta Llama chat models
 
-Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+The Meta Llama chat models include the following models:
 
-Meta Llama 3 models are deployed as a serverless API with pay-as-you-go billing through Microsoft Azure Marketplace, and they might add more terms of use and pricing.
+# [Meta Llama-3.1](#tab/meta-llama-3-1)
 
-### Azure Marketplace model offerings
+The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction tuned generative models in 8B, 70B and 405B sizes (text in/text out). The Llama 3.1 instruction tuned text only models (8B, 70B, 405B) are optimized for multilingual dialogue use cases and outperform many of the available open-source and closed chat models on common industry benchmarks.
 
-# [Meta Llama 3](#tab/llama-three)
 
-The following models are available in Azure Marketplace for Llama 3 when deployed as a service with pay-as-you-go:
+The following models are available:
 
-* [Meta Llama-3 8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-chat)
-* [Meta Llama-3 70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-chat)
+* [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
+* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
+* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
 
-# [Meta Llama 2](#tab/llama-two)
 
-The following models are available in Azure Marketplace for Llama 2 when deployed as a serverless API:
+# [Meta Llama-3](#tab/meta-llama-3)
 
-* Meta Llama-2-7B (preview)
-* Meta Llama 2 7B-Chat (preview)
-* Meta Llama-2-13B (preview)
-* Meta Llama 2 13B-Chat (preview)
-* Meta Llama-2-70B (preview)
-* Meta Llama 2 70B-Chat (preview)
+Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B, and 405B sizes. The Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open-source chat models on common industry benchmarks. Further, in developing these models, we took great care to optimize helpfulness and safety.
+
+
+The following models are available:
+
+* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
+* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+
+
+# [Meta Llama-2](#tab/meta-llama-2)
+
+Meta has developed and publicly released the Llama 2 family of large language models (LLMs), a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. Our fine-tuned LLMs, called Llama-2-Chat, are optimized for dialogue use cases. Llama-2-Chat models outperform open-source chat models on most benchmarks we tested, and in our human evaluations for helpfulness and safety, are on par with some popular closed-source models like ChatGPT and PaLM. We provide a detailed description of our approach to fine-tuning and safety improvements of Llama-2-Chat in order to enable the community to build on our work and contribute to the responsible development of LLMs.
+
+
+The following models are available:
+
+* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
+* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
+* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+
+
+---
+
+## Prerequisites
+
+To use Meta Llama chat models with Azure AI Studio, you need the following prerequisites:
+
+### A model deployment
+
+**Deployment to serverless APIs**
+
+Meta Llama chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
+**Deployment to a self-hosted managed compute**
+
+Meta Llama chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+
+### The inference package installed
+
+You can consume predictions from this model by using the `azure-ai-inference` package with Python. To install this package, you need the following prerequisites:
+
+* Python 3.8 or later installed, including pip.
+* The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
   
----
+Once you have these prerequisites, install the Azure AI inference package with the following command:
 
-If you need to deploy a different model, [deploy it to managed compute](#deploy-meta-llama-models-to-managed-compute) instead.
-
-### Prerequisites
-
-# [Meta Llama 3](#tab/llama-three)
-
-- An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Meta Llama 3 is only available with hubs created in these regions:
-
-     * East US
-     * East US 2
-     * North Central US
-     * South Central US
-     * West US
-     * West US 3
-     * Sweden Central
-  
-    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
-- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
-
-    - On the Azure subscription—to subscribe the AI Studio project to the Azure Marketplace offering, once for each project, per offering:
-      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
-      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
-      - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
-      - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
-      - `Microsoft.SaaS/register/action`
- 
-    - On the resource group—to create and use the SaaS resource:
-      - `Microsoft.SaaS/resources/read`
-      - `Microsoft.SaaS/resources/write`
- 
-    - On the AI Studio project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
-      - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
-      - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
-
-    For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
-  
-# [Meta Llama 2](#tab/llama-two)
-
-- An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Meta Llama 2 is only available with hubs created in these regions:
-
-     * East US
-     * East US 2
-     * North Central US
-     * South Central US
-     * West US
-     * West US 3
-  
-    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
-- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
-
-    - On the Azure subscription—to subscribe the AI Studio project to the Azure Marketplace offering, once for each project, per offering:
-      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
-      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
-      - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
-      - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
-      - `Microsoft.SaaS/register/action`
- 
-    - On the resource group—to create and use the SaaS resource:
-      - `Microsoft.SaaS/resources/read`
-      - `Microsoft.SaaS/resources/write`
- 
-    - On the AI Studio project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
-      - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
-      - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
-
-    For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
-
----
-
-### Create a new deployment
-
-# [Meta Llama 3](#tab/llama-three)
-
-To create a deployment:
-
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
-
-    Alternatively, you can initiate deployment by starting from your project in AI Studio. Select a project and then select **Deployments** > **+ Create**.
-
-1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety**.
-
-1. Select the project in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
-1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering (for example, Meta-Llama-3-70B) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
-
-    > [!NOTE]
-    > Subscribing a project to a particular Azure Marketplace offering (in this case, Meta-Llama-3-70B) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
-
-1. Once you sign up the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent deployments. If this scenario applies to you, select **Continue to deploy**.
-
-1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
-
-1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-
-1. Select **Open in playground** to start interacting with the model.
-
-1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment and generate completions.
-
-1. You can always find the endpoint's details, URL, and access keys by navigating to the project page and selecting **Deployments** from the left menu.
-
-To learn about billing for Meta Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-llama-models-deployed-as-a-service).
-
-# [Meta Llama 2](#tab/llama-two)
-
-To create a deployment:
-
-1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
-
-    Alternatively, you can initiate deployment by starting from your project in AI Studio. Select a project and then select **Deployments** > **+ Create**.
-
-1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety**.
-
-    :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go.png":::
-
-1. Select the project in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **West US 3** region.
-1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering (for example, Meta-Llama-2-7B) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
-
-    > [!NOTE]
-    > Subscribing a project to a particular Azure Marketplace offering (in this case, Meta-Llama-2-7B) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
-
-    :::image type="content" source="../media/deploy-monitor/llama/deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/llama/deploy-marketplace-terms.png":::
-
-1. Once you sign up the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent deployments. If this scenario applies to you, select **Continue to deploy**.
-
-    :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go-project.png":::
-
-1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
-
-    :::image type="content" source="../media/deploy-monitor/llama/deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/llama/deployment-name.png":::
-
-1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Select **Open in playground** to start interacting with the model.
-1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment and generate completions.
-1. You can always find the endpoint's details, URL, and access keys by navigating to your project and selecting **Deployments** from the left menu.
-
-To learn about billing for Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-llama-models-deployed-as-a-service).
-
----
-
-### Consume Meta Llama models as a service
-
-# [Meta Llama 3](#tab/llama-three)
-
-Models deployed as a service can be consumed using either the chat or the completions API, depending on the type of model you deployed.
-
-1. Select your project or hub and then select **Deployments** from the left menu.
-
-1. Find and select the deployment you created.
-
-1. Select **Open in playground**.
-
-1. Select **View code** and copy the **Endpoint** URL and the **Key** value.
-
-1. Make an API request based on the type of model you deployed. 
-
-    - For completions models, such as `Meta-Llama-3-8B`, use the [`/completions`](#completions-api) API.
-    - For chat models, such as `Meta-Llama-3-8B-Instruct`, use the [`/chat/completions`](#chat-api) API.
-
-    For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
-
-# [Meta Llama 2](#tab/llama-two)
-
-
-Models deployed as a service can be consumed using either the chat or the completions API, depending on the type of model you deployed.
-
-1. Select your project or hub and then select **Deployments** from the left menu.
-
-1. Find and select the deployment you created.
-
-1. Select **Open in playground**.
-
-1. Select **View code** and copy the **Endpoint** URL and the **Key** value.
-
-1. Make an API request based on the type of model you deployed. 
-
-    - For completions models, such as `Meta-Llama-2-7B`, use the [`/v1/completions`](#completions-api) API or the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/completions`.
-    - For chat models, such as `Meta-Llama-2-7B-Chat`, use the [`/v1/chat/completions`](#chat-api) API or the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions`.
-
-    For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
-
----
-
-### Reference for Meta Llama models deployed as a service
-
-Llama models accept both the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` or a [Llama Chat API](#chat-api) on `/v1/chat/completions`. In the same way, text completions can be generated using the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/completions` or a [Llama Completions API](#completions-api) on `/v1/completions`
-
-The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
-
-#### Completions API
-
-Use the method `POST` to send the request to the `/v1/completions` route:
-
-__Request__
-
-```rest
-POST /v1/completions HTTP/1.1
-Host: <DEPLOYMENT_URI>
-Authorization: Bearer <TOKEN>
-Content-type: application/json
+```bash
+pip install azure-ai-inference
 ```
 
-#### Request schema
+Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
 
-Payload is a JSON formatted string containing the following parameters:
+## Work with chat completions
 
-| Key           | Type      | Default | Description    |
-|---------------|-----------|---------|----------------|
-| `prompt`      | `string`  |  No default. This value must be specified.  | The prompt to send to the model. |
-| `stream`      | `boolean` | `False`  | Streaming allows the generated tokens to be sent as data-only server-sent events whenever they become available. |
-| `max_tokens`  | `integer` | `16`    | The maximum number of tokens to generate in the completion. The token count of your prompt plus `max_tokens` can't exceed the model's context length.  |
-| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering `top_p` or `temperature`, but not both. |
-| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this or `top_p`, but not both. |
-| `n`           | `integer` | `1`     | How many completions to generate for each prompt. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota. |
-| `stop`        | `array`   | `null`  | String or a list of strings containing the word where the API stops generating further tokens. The returned text won't contain the stop sequence.   |
-| `best_of`     | `integer` | `1`     | Generates `best_of` completions server-side and returns the "best" (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, `best_of` controls the number of candidate completions and `n` specifies how many to return–`best_of` must be greater than `n`. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota.|
-| `logprobs` | `integer` |  `null` | A number indicating to include the log probabilities on the `logprobs` most likely tokens and the chosen tokens. For example, if `logprobs` is 10, the API returns a list of the 10 most likely tokens. the API always returns the logprob of the sampled token, so there might be up to `logprobs`+1 elements in the response.  |
-| `presence_penalty`    | `float`   | `null`  | Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
-| `ignore_eos`          | `boolean` | `True`  | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated.  |
-| `use_beam_search`     | `boolean` | `False` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than `1` and `temperature` must be `0`. |
-| `stop_token_ids`      | `array`   | `null`  | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. |
-| `skip_special_tokens` | `boolean` | `null`  | Whether to skip special tokens in the output. |
-
-#### Example
-
-__Body__
-
-```json
-{
-    "prompt": "What's the distance to the moon?",
-    "temperature": 0.8,
-    "max_tokens": 512
-}
-```
-
-#### Response schema
-
-The response payload is a dictionary with the following fields.
-
-| Key       | Type      | Description                                                              |
-|-----------|-----------|--------------------------------------------------------------------------|
-| `id`      | `string`  | A unique identifier for the completion.                                  |
-| `choices` | `array`   | The list of completion choices the model generated for the input prompt. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created.      |
-| `model`   | `string`  | The model_id used for completion.                                        |
-| `object`  | `string`  | The object type, which is always `text_completion`.                      |
-| `usage`   | `object`  | Usage statistics for the completion request.                             |
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Meta Llama chat models.
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
-The `choices` object is a dictionary with the following fields. 
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.core.credentials import AzureKeyCredential
 
-| Key     | Type      | Description  |
-|---------|-----------|------|
-| `index` | `integer` | Choice index. When `best_of` > 1, the index in this array might not be in order and might not be 0 to n-1. |
-| `text`  | `string`  | Completion result. |
-| `finish_reason` | `string` | The reason the model stopped generating tokens: <br>- `stop`: model hit a natural stop point, or a provided stop sequence. <br>- `length`: if max number of tokens have been reached. <br>- `content_filter`: When RAI moderates and CMP forces moderation. <br>- `content_filter_error`: an error during moderation and wasn't able to make decision on the response. <br>- `null`: API response still in progress or incomplete. |
-| `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
+client = ChatCompletionsClient(
+    endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
+    credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
+)
+```
 
-The `usage` object is a dictionary with the following fields. 
+When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
 
-| Key                 | Type      | Value                                         |
-|---------------------|-----------|-----------------------------------------------|
-| `prompt_tokens`     | `integer` | Number of tokens in the prompt.               |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens`      | `integer` | Total tokens.                                 |
 
-The `logprobs` object is a dictionary with the following fields:
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.identity import DefaultAzureCredential
 
-| Key              | Type  | Value |
-|------------------|-------------------------|----|
-| `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output.  |
-| `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.  |
-| `tokens`         | `array` of `string`     | Selected tokens.  |
-| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
+client = ChatCompletionsClient(
+    endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
+    credential=DefaultAzureCredential(),
+)
+```
 
-#### Example
+> [!NOTE]
+> Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
 
-```json
-{
-    "id": "12345678-1234-1234-1234-abcdefghijkl",
-    "object": "text_completion",
-    "created": 217877,
-    "choices": [
-        {
-            "index": 0,
-            "text": "The Moon is an average of 238,855 miles away from Earth, which is about 30 Earths away.",
-            "logprobs": null,
-            "finish_reason": "stop"
-        }
+### Get the model's capabilities
+
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
+
+
+```python
+model_info = client.get_model_info()
+```
+
+The response is as follows:
+
+
+```python
+print("Model name:", model_info.model_name)
+print("Model type:", model_info.model_type)
+print("Model provider name:", model_info.model_provider_name)
+```
+
+```console
+Model name: Meta-Llama-3.1-405B-Instruct
+Model type: chat-completions
+Model provider name: Meta
+```
+
+### Create a chat completion request
+
+The following example shows how you can create a basic chat completions request to the model.
+
+```python
+from azure.ai.inference.models import SystemMessage, UserMessage
+
+response = client.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
     ],
-    "usage": {
-        "prompt_tokens": 7,
-        "total_tokens": 23,
-        "completion_tokens": 16
+)
+```
+
+The response is as follows, where you can see the model's usage statistics:
+
+
+```python
+print("Response:", response.choices[0].message.content)
+print("Model:", response.model)
+print("Usage:")
+print("\tPrompt tokens:", response.usage.prompt_tokens)
+print("\tTotal tokens:", response.usage.total_tokens)
+print("\tCompletion tokens:", response.usage.completion_tokens)
+```
+
+```console
+Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
+Model: Meta-Llama-3.1-405B-Instruct
+Usage: 
+  Prompt tokens: 19
+  Total tokens: 91
+  Completion tokens: 72
+```
+
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+
+#### Stream content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events). Extract chunks from the delta field, rather than the message field.
+
+
+```python
+result = client.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    temperature=0,
+    top_p=1,
+    max_tokens=2048,
+    stream=True,
+)
+```
+
+To stream completions, set `stream=True` when you call the model.
+
+To visualize the output, define a helper function to print the stream.
+
+```python
+def print_stream(result):
+    """
+    Prints the chat completion with streaming.
+    """
+    import time
+    for update in result:
+        if update.choices:
+            print(update.choices[0].delta.content, end="")
+```
+
+You can visualize how streaming generates content:
+
+
+```python
+print_stream(result)
+```
+
+#### Explore more parameters supported by the inference client
+
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+```python
+from azure.ai.inference.models import ChatCompletionsResponseFormat
+
+response = client.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    presence_penalty=0.1,
+    frequency_penalty=0.8,
+    max_tokens=2048,
+    stop=["<|endoftext|>"],
+    temperature=0,
+    top_p=1,
+    response_format={ "type": ChatCompletionsResponseFormat.TEXT },
+)
+```
+
+> [!WARNING]
+> Meta Llama doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+
+### Pass extra parameters to the model
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
+
+
+```python
+response = client.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    model_extras={
+        "logprobs": True
+    }
+)
+```
+
+The following extra parameters can be passed to Meta Llama chat models:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `n` | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `best_of` | Generates best_of completions server-side and returns the *best* (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, best_of controls the number of candidate completions and n specifies how many to return—best_of must be greater than `n`. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `logprobs` | A number indicating to include the log probabilities on the logprobs most likely tokens and the chosen tokens. For example, if logprobs is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. | `integer` |
+| `ignore_eos` | Whether to ignore the `EOS` token and continue generating tokens after the `EOS` token is generated. | `boolean` |
+| `use_beam_search` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than 1 and temperature must be 0. | `boolean` |
+| `stop_token_ids` | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. | `array` |
+| `skip_special_tokens` | Whether to skip special tokens in the output. | `boolean` |
+
+
+### Apply content safety
+
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+```python
+from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
+
+try:
+    response = client.complete(
+        messages=[
+            SystemMessage(content="You are an AI assistant that helps people find information."),
+            UserMessage(content="Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
+        ]
+    )
+
+    print(response.choices[0].message.content)
+
+except HttpResponseError as ex:
+    if ex.status_code == 400:
+        response = ex.response.json()
+        if isinstance(response, dict) and "error" in response:
+            print(f"Your request triggered an {response['error']['code']} error:\n\t {response['error']['message']}")
+        else:
+            raise
+    raise
+```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
+
+> [!NOTE]
+> Azure AI content safety is only available for models deployed as serverless API endpoints.
+
+::: zone-end
+
+
+::: zone pivot="programming-language-javascript"
+
+## Meta Llama chat models
+
+The Meta Llama chat models include the following models:
+
+# [Meta Llama-3.1](#tab/meta-llama-3-1)
+
+The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction tuned generative models in 8B, 70B and 405B sizes (text in/text out). The Llama 3.1 instruction tuned text only models (8B, 70B, 405B) are optimized for multilingual dialogue use cases and outperform many of the available open-source and closed chat models on common industry benchmarks.
+
+
+The following models are available:
+
+* [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
+* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
+* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+
+
+# [Meta Llama-3](#tab/meta-llama-3)
+
+Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B, and 405B sizes. The Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open-source chat models on common industry benchmarks. Further, in developing these models, we took great care to optimize helpfulness and safety.
+
+
+The following models are available:
+
+* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
+* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+
+
+# [Meta Llama-2](#tab/meta-llama-2)
+
+Meta has developed and publicly released the Llama 2 family of large language models (LLMs), a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. Our fine-tuned LLMs, called Llama-2-Chat, are optimized for dialogue use cases. Llama-2-Chat models outperform open-source chat models on most benchmarks we tested, and in our human evaluations for helpfulness and safety, are on par with some popular closed-source models like ChatGPT and PaLM. We provide a detailed description of our approach to fine-tuning and safety improvements of Llama-2-Chat in order to enable the community to build on our work and contribute to the responsible development of LLMs.
+
+
+The following models are available:
+
+* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
+* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
+* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+
+
+---
+
+## Prerequisites
+
+To use Meta Llama chat models with Azure AI Studio, you need the following prerequisites:
+
+### A model deployment
+
+**Deployment to serverless APIs**
+
+Meta Llama chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
+**Deployment to a self-hosted managed compute**
+
+Meta Llama chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+
+### The inference package installed
+
+You can consume predictions from this model by using the `@azure-rest/ai-inference` package from `npm`. To install this package, you need the following prerequisites:
+
+* LTS versions of `Node.js` with `npm`.
+* The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
+
+Once you have these prerequisites, install the Azure Inference library for JavaScript with the following command:
+
+```bash
+npm install @azure-rest/ai-inference
+```
+
+## Work with chat completions
+
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Meta Llama chat models.
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
+
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureKeyCredential } from "@azure/core-auth";
+
+const client = new ModelClient(
+    process.env.AZURE_INFERENCE_ENDPOINT, 
+    new AzureKeyCredential(process.env.AZURE_INFERENCE_CREDENTIAL)
+);
+```
+
+When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
+
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { DefaultAzureCredential }  from "@azure/identity";
+
+const client = new ModelClient(
+    process.env.AZURE_INFERENCE_ENDPOINT, 
+    new DefaultAzureCredential()
+);
+```
+
+> [!NOTE]
+> Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
+
+### Get the model's capabilities
+
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
+
+
+```javascript
+var model_info = await client.path("/info").get()
+```
+
+The response is as follows:
+
+
+```javascript
+console.log("Model name: ", model_info.body.model_name)
+console.log("Model type: ", model_info.body.model_type)
+console.log("Model provider name: ", model_info.body.model_provider_name)
+```
+
+```console
+Model name: Meta-Llama-3.1-405B-Instruct
+Model type: chat-completions
+Model provider name: Meta
+```
+
+### Create a chat completion request
+
+The following example shows how you can create a basic chat completions request to the model.
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+    }
+});
+```
+
+The response is as follows, where you can see the model's usage statistics:
+
+
+```javascript
+if (isUnexpected(response)) {
+    throw response.body.error;
+}
+
+console.log("Response: ", response.body.choices[0].message.content);
+console.log("Model: ", response.body.model);
+console.log("Usage:");
+console.log("\tPrompt tokens:", response.body.usage.prompt_tokens);
+console.log("\tTotal tokens:", response.body.usage.total_tokens);
+console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
+```
+
+```console
+Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
+Model: Meta-Llama-3.1-405B-Instruct
+Usage: 
+  Prompt tokens: 19
+  Total tokens: 91
+  Completion tokens: 72
+```
+
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+
+#### Stream content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events). Extract chunks from the delta field, rather than the message field.
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+    }
+}).asNodeStream();
+```
+
+To stream completions, use `.asNodeStream()` when you call the model.
+
+You can visualize how streaming generates content:
+
+
+```javascript
+var stream = response.body;
+if (!stream) {
+    stream.destroy();
+    throw new Error(`Failed to get chat completions with status: ${response.status}`);
+}
+
+if (response.status !== "200") {
+    throw new Error(`Failed to get chat completions: ${response.body.error}`);
+}
+
+var sses = createSseStream(stream);
+
+for await (const event of sses) {
+    if (event.data === "[DONE]") {
+        return;
+    }
+    for (const choice of (JSON.parse(event.data)).choices) {
+        console.log(choice.delta?.content ?? "");
     }
 }
 ```
 
-#### Chat API
+#### Explore more parameters supported by the inference client
 
-Use the method `POST` to send the request to the `/v1/chat/completions` route:
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
-__Request__
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
 
-```rest
-POST /v1/chat/completions HTTP/1.1
-Host: <DEPLOYMENT_URI>
-Authorization: Bearer <TOKEN>
-Content-type: application/json
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        presence_penalty: "0.1",
+        frequency_penalty: "0.8",
+        max_tokens: 2048,
+        stop: ["<|endoftext|>"],
+        temperature: 0,
+        top_p: 1,
+        response_format: { type: "text" },
+    }
+});
 ```
 
-#### Request schema
+> [!WARNING]
+> Meta Llama doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-Payload is a JSON formatted string containing the following parameters:
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
-| Key | Type | Default | Description |
-|-----|-----|-----|-----|
-| `messages`    | `string`  | No default. This value must be specified.  | The message or history of messages to use to prompt the model.  |
-| `stream`      | `boolean` | `False` | Streaming allows the generated tokens to be sent as data-only server-sent events whenever they become available.  |
-| `max_tokens`  | `integer` | `16`    | The maximum number of tokens to generate in the completion. The token count of your prompt plus `max_tokens` can't exceed the model's context length. |
-| `top_p`       | `float`   | `1`     | An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering `top_p` or `temperature`, but not both.  |
-| `temperature` | `float`   | `1`     | The sampling temperature to use, between 0 and 2. Higher values mean the model samples more broadly the distribution of tokens. Zero means greedy sampling. We recommend altering this or `top_p`, but not both.  |
-| `n`           | `integer` | `1`     | How many completions to generate for each prompt. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota. |
-| `stop`        | `array`   | `null`  | String or a list of strings containing the word where the API stops generating further tokens. The returned text won't contain the stop sequence. |
-| `best_of`     | `integer` | `1`     | Generates `best_of` completions server-side and returns the "best" (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, `best_of` controls the number of candidate completions and `n` specifies how many to return—`best_of` must be greater than `n`. <br>Note: Because this parameter generates many completions, it can quickly consume your token quota.|
-| `logprobs` | `integer` |  `null` | A number indicating to include the log probabilities on the `logprobs` most likely tokens and the chosen tokens. For example, if `logprobs` is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to `logprobs`+1 elements in the response.  |
-| `presence_penalty`    | `float`   | `null`  | Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
-| `ignore_eos`          | `boolean` | `True`  | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. |
-| `use_beam_search`     | `boolean` | `False` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than `1` and `temperature` must be `0`. |
-| `stop_token_ids`      | `array`   | `null`  | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens.|
-| `skip_special_tokens` | `boolean` | `null`  | Whether to skip special tokens in the output. |
+### Pass extra parameters to the model
 
-The `messages` object has the following fields:
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
 
-| Key       | Type      | Value |
-|-----------|-----------|------------|
-| `content` | `string` | The contents of the message. Content is required for all messages. |
-| `role`    | `string` | The role of the message's author. One of `system`, `user`, or `assistant`. |
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 
-#### Example
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
 
-__Body__
+var response = await client.path("/chat/completions").post({
+    headers: {
+        "extra-params": "pass-through"
+    },
+    body: {
+        messages: messages,
+        logprobs: true
+    }
+});
+```
 
-```json
-{
-    "messages":
-    [
-        { 
-        "role": "system", 
-        "content": "You are a helpful assistant that translates English to Italian."},
-        {
-        "role": "user", 
-        "content": "Translate the following sentence from English to Italian: I love programming."
+The following extra parameters can be passed to Meta Llama chat models:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `n` | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `best_of` | Generates best_of completions server-side and returns the *best* (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, best_of controls the number of candidate completions and n specifies how many to return—best_of must be greater than `n`. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `logprobs` | A number indicating to include the log probabilities on the logprobs most likely tokens and the chosen tokens. For example, if logprobs is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. | `integer` |
+| `ignore_eos` | Whether to ignore the `EOS` token and continue generating tokens after the `EOS` token is generated. | `boolean` |
+| `use_beam_search` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than 1 and temperature must be 0. | `boolean` |
+| `stop_token_ids` | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. | `array` |
+| `skip_special_tokens` | Whether to skip special tokens in the output. | `boolean` |
+
+
+### Apply content safety
+
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+```javascript
+try {
+    var messages = [
+        { role: "system", content: "You are an AI assistant that helps people find information." },
+        { role: "user", content: "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills." },
+    ];
+
+    var response = await client.path("/chat/completions").post({
+        body: {
+            messages: messages,
         }
-    ],
-    "temperature": 0.8,
-    "max_tokens": 512,
+    });
+
+    console.log(response.body.choices[0].message.content);
+}
+catch (error) {
+    if (error.status_code == 400) {
+        var response = JSON.parse(error.response._content);
+        if (response.error) {
+            console.log(`Your request triggered an ${response.error.code} error:\n\t ${response.error.message}`);
+        }
+        else
+        {
+            throw error;
+        }
+    }
 }
 ```
 
-#### Response schema
+> [!TIP]
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
-The response payload is a dictionary with the following fields.
+> [!NOTE]
+> Azure AI content safety is only available for models deployed as serverless API endpoints.
 
-| Key       | Type      | Description                                                                |
-|-----------|-----------|----------------------------------------------------------------------------|
-| `id`      | `string`  | A unique identifier for the completion.                                    |
-| `choices` | `array`   | The list of completion choices the model generated for the input messages. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created.        |
-| `model`   | `string`  | The model_id used for completion.                                          |
-| `object`  | `string`  | The object type, which is always `chat.completion`.                        |
-| `usage`   | `object`  | Usage statistics for the completion request.                               |
+::: zone-end
+
+
+::: zone pivot="programming-language-csharp"
+
+## Meta Llama chat models
+
+The Meta Llama chat models include the following models:
+
+# [Meta Llama-3.1](#tab/meta-llama-3-1)
+
+The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction tuned generative models in 8B, 70B and 405B sizes (text in/text out). The Llama 3.1 instruction tuned text only models (8B, 70B, 405B) are optimized for multilingual dialogue use cases and outperform many of the available open-source and closed chat models on common industry benchmarks.
+
+
+The following models are available:
+
+* [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
+* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
+* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+
+
+# [Meta Llama-3](#tab/meta-llama-3)
+
+Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B, and 405B sizes. The Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open-source chat models on common industry benchmarks. Further, in developing these models, we took great care to optimize helpfulness and safety.
+
+
+The following models are available:
+
+* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
+* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+
+
+# [Meta Llama-2](#tab/meta-llama-2)
+
+Meta has developed and publicly released the Llama 2 family of large language models (LLMs), a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. Our fine-tuned LLMs, called Llama-2-Chat, are optimized for dialogue use cases. Llama-2-Chat models outperform open-source chat models on most benchmarks we tested, and in our human evaluations for helpfulness and safety, are on par with some popular closed-source models like ChatGPT and PaLM. We provide a detailed description of our approach to fine-tuning and safety improvements of Llama-2-Chat in order to enable the community to build on our work and contribute to the responsible development of LLMs.
+
+
+The following models are available:
+
+* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
+* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
+* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+
+
+---
+
+## Prerequisites
+
+To use Meta Llama chat models with Azure AI Studio, you need the following prerequisites:
+
+### A model deployment
+
+**Deployment to serverless APIs**
+
+Meta Llama chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
+**Deployment to a self-hosted managed compute**
+
+Meta Llama chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+
+### The inference package installed
+
+You can consume predictions from this model by using the `Azure.AI.Inference` package from [Nuget](https://www.nuget.org/). To install this package, you need the following prerequisites:
+
+* The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
+
+Once you have these prerequisites, install the Azure AI inference library with the following command:
+
+```dotnetcli
+dotnet add package Azure.AI.Inference --prerelease
+```
+
+You can also authenticate with Microsoft Entra ID (formerly Azure Active Directory). To use credential providers provided with the Azure SDK, install the `Azure.Identity` package:
+
+```dotnetcli
+dotnet add package Azure.Identity
+```
+
+Import the following namespaces:
+
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.AI.Inference;
+```
+
+This example also use the following namespaces but you may not always need them:
+
+
+```csharp
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Reflection;
+```
+
+## Work with chat completions
+
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> In the streaming mode, for each chunk of response, `finish_reason` is always `null`, except from the last one which is terminated by a payload `[DONE]`. In each `choices` object, the key for `messages` is changed by `delta`.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Meta Llama chat models.
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
-The `choices` object is a dictionary with the following fields. 
+```csharp
+ChatCompletionsClient client = new ChatCompletionsClient(
+    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+    new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
+);
+```
 
-| Key     | Type      | Description  |
-|---------|-----------|--------------|
-| `index` | `integer` | Choice index. When `best_of` > 1, the index in this array might not be in order and might not be `0` to `n-1`. |
-| `messages` or `delta`   | `string`  | Chat completion result in `messages` object. When streaming mode is used, `delta` key is used.  |
-| `finish_reason` | `string` | The reason the model stopped generating tokens: <br>- `stop`: model hit a natural stop point or a provided stop sequence. <br>- `length`: if max number of tokens have been reached. <br>- `content_filter`: When RAI moderates and CMP forces moderation <br>- `content_filter_error`: an error during moderation and wasn't able to make decision on the response <br>- `null`: API response still in progress or incomplete.|
-| `logprobs` | `object` | The log probabilities of the generated tokens in the output text. |
+When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
 
 
-The `usage` object is a dictionary with the following fields. 
+```csharp
+client = new ChatCompletionsClient(
+    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+    new DefaultAzureCredential(includeInteractiveCredentials: true)
+);
+```
 
-| Key                 | Type      | Value                                         |
-|---------------------|-----------|-----------------------------------------------|
-| `prompt_tokens`     | `integer` | Number of tokens in the prompt.               |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens`      | `integer` | Total tokens.                                 |
+> [!NOTE]
+> Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
 
-The `logprobs` object is a dictionary with the following fields:
+### Get the model's capabilities
 
-| Key              | Type                    | Value   |
-|------------------|-------------------------|---------|
-| `text_offsets`   | `array` of `integers`   | The position or index of each token in the completion output. |
-| `token_logprobs` | `array` of `float`      | Selected `logprobs` from dictionary in `top_logprobs` array.   |
-| `tokens`         | `array` of `string`     | Selected tokens.   |
-| `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
 
-#### Example
 
-The following is an example response:
+```csharp
+Response<ModelInfo> modelInfo = client.GetModelInfo();
+```
+
+The response is as follows:
+
+
+```csharp
+Console.WriteLine($"Model name: {modelInfo.Value.ModelName}");
+Console.WriteLine($"Model type: {modelInfo.Value.ModelType}");
+Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
+```
+
+```console
+Model name: Meta-Llama-3.1-405B-Instruct
+Model type: chat-completions
+Model provider name: Meta
+```
+
+### Create a chat completion request
+
+The following example shows how you can create a basic chat completions request to the model.
+
+```csharp
+ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+};
+
+Response<ChatCompletions> response = client.Complete(requestOptions);
+```
+
+The response is as follows, where you can see the model's usage statistics:
+
+
+```csharp
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+Console.WriteLine($"Model: {response.Value.Model}");
+Console.WriteLine("Usage:");
+Console.WriteLine($"\tPrompt tokens: {response.Value.Usage.PromptTokens}");
+Console.WriteLine($"\tTotal tokens: {response.Value.Usage.TotalTokens}");
+Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}");
+```
+
+```console
+Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
+Model: Meta-Llama-3.1-405B-Instruct
+Usage: 
+  Prompt tokens: 19
+  Total tokens: 91
+  Completion tokens: 72
+```
+
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+
+#### Stream content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events). Extract chunks from the delta field, rather than the message field.
+
+
+```csharp
+static async Task StreamMessageAsync(ChatCompletionsClient client)
+{
+    ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
+    {
+        Messages = {
+            new ChatRequestSystemMessage("You are a helpful assistant."),
+            new ChatRequestUserMessage("How many languages are in the world? Write an essay about it.")
+        },
+        MaxTokens=4096
+    };
+
+    StreamingResponse<StreamingChatCompletionsUpdate> streamResponse = await client.CompleteStreamingAsync(requestOptions);
+
+    await PrintStream(streamResponse);
+}
+```
+
+To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we the call is wrapped in an asynchronous method.
+
+To visualize the output, define an asynchronous method to print the stream in the console.
+
+```csharp
+static async Task PrintStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
+{
+    await foreach (StreamingChatCompletionsUpdate chatUpdate in response)
+    {
+        if (chatUpdate.Role.HasValue)
+        {
+            Console.Write($"{chatUpdate.Role.Value.ToString().ToUpperInvariant()}: ");
+        }
+        if (!string.IsNullOrEmpty(chatUpdate.ContentUpdate))
+        {
+            Console.Write(chatUpdate.ContentUpdate);
+        }
+    }
+}
+```
+
+You can visualize how streaming generates content:
+
+
+```csharp
+StreamMessageAsync(client).GetAwaiter().GetResult();
+```
+
+#### Explore more parameters supported by the inference client
+
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+```csharp
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+    PresencePenalty = 0.1f,
+    FrequencyPenalty = 0.8f,
+    MaxTokens = 2048,
+    StopSequences = { "<|endoftext|>" },
+    Temperature = 0,
+    NucleusSamplingFactor = 1,
+    ResponseFormat = new ChatCompletionsResponseFormatText()
+};
+
+response = client.Complete(requestOptions);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+```
+
+> [!WARNING]
+> Meta Llama doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+
+### Pass extra parameters to the model
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
+
+
+```csharp
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+    AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
+};
+
+response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+```
+
+The following extra parameters can be passed to Meta Llama chat models:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `n` | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `best_of` | Generates best_of completions server-side and returns the *best* (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, best_of controls the number of candidate completions and n specifies how many to return—best_of must be greater than `n`. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `logprobs` | A number indicating to include the log probabilities on the logprobs most likely tokens and the chosen tokens. For example, if logprobs is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. | `integer` |
+| `ignore_eos` | Whether to ignore the `EOS` token and continue generating tokens after the `EOS` token is generated. | `boolean` |
+| `use_beam_search` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than 1 and temperature must be 0. | `boolean` |
+| `stop_token_ids` | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. | `array` |
+| `skip_special_tokens` | Whether to skip special tokens in the output. | `boolean` |
+
+
+### Apply content safety
+
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+```csharp
+try
+{
+    requestOptions = new ChatCompletionsOptions()
+    {
+        Messages = {
+            new ChatRequestSystemMessage("You are an AI assistant that helps people find information."),
+            new ChatRequestUserMessage(
+                "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."
+            ),
+        },
+    };
+
+    response = client.Complete(requestOptions);
+    Console.WriteLine(response.Value.Choices[0].Message.Content);
+}
+catch (RequestFailedException ex)
+{
+    if (ex.ErrorCode == "content_filter")
+    {
+        Console.WriteLine($"Your query has trigger Azure Content Safety: {ex.Message}");
+    }
+    else
+    {
+        throw;
+    }
+}
+```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
+
+> [!NOTE]
+> Azure AI content safety is only available for models deployed as serverless API endpoints.
+
+::: zone-end
+
+
+::: zone pivot="programming-language-rest"
+
+## Meta Llama chat models
+
+The Meta Llama chat models include the following models:
+
+# [Meta Llama-3.1](#tab/meta-llama-3-1)
+
+The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction tuned generative models in 8B, 70B and 405B sizes (text in/text out). The Llama 3.1 instruction tuned text only models (8B, 70B, 405B) are optimized for multilingual dialogue use cases and outperform many of the available open-source and closed chat models on common industry benchmarks.
+
+
+The following models are available:
+
+* [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
+* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
+* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+
+
+# [Meta Llama-3](#tab/meta-llama-3)
+
+Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B, and 405B sizes. The Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open-source chat models on common industry benchmarks. Further, in developing these models, we took great care to optimize helpfulness and safety.
+
+
+The following models are available:
+
+* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
+* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+
+
+# [Meta Llama-2](#tab/meta-llama-2)
+
+Meta has developed and publicly released the Llama 2 family of large language models (LLMs), a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. Our fine-tuned LLMs, called Llama-2-Chat, are optimized for dialogue use cases. Llama-2-Chat models outperform open-source chat models on most benchmarks we tested, and in our human evaluations for helpfulness and safety, are on par with some popular closed-source models like ChatGPT and PaLM. We provide a detailed description of our approach to fine-tuning and safety improvements of Llama-2-Chat in order to enable the community to build on our work and contribute to the responsible development of LLMs.
+
+
+The following models are available:
+
+* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
+* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
+* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+
+
+---
+
+## Prerequisites
+
+To use Meta Llama chat models with Azure AI Studio, you need the following prerequisites:
+
+### A model deployment
+
+**Deployment to serverless APIs**
+
+Meta Llama chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
+**Deployment to a self-hosted managed compute**
+
+Meta Llama chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+
+### A REST client
+
+Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
+
+* To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
+
+## Work with chat completions
+
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Meta Llama chat models.
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
+
+When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
+
+> [!NOTE]
+> Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
+
+### Get the model's capabilities
+
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
+
+```http
+GET /info HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+```
+
+The response is as follows:
+
 
 ```json
 {
-    "id": "12345678-1234-1234-1234-abcdefghijkl",
+    "model_name": "Meta-Llama-3.1-405B-Instruct",
+    "model_type": "chat-completions",
+    "model_provider_name": "Meta"
+}
+```
+
+### Create a chat completion request
+
+The following example shows how you can create a basic chat completions request to the model.
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ]
+}
+```
+
+The response is as follows, where you can see the model's usage statistics:
+
+
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
-    "created": 2012359,
-    "model": "",
+    "created": 1718726686,
+    "model": "Meta-Llama-3.1-405B-Instruct",
     "choices": [
         {
             "index": 0,
-            "finish_reason": "stop",
             "message": {
                 "role": "assistant",
-                "content": "Sure, I\'d be happy to help! The translation of ""I love programming"" from English to Italian is:\n\n""Amo la programmazione.""\n\nHere\'s a breakdown of the translation:\n\n* ""I love"" in English becomes ""Amo"" in Italian.\n* ""programming"" in English becomes ""la programmazione"" in Italian.\n\nI hope that helps! Let me know if you have any other sentences you\'d like me to translate."
-            }
+                "content": "As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
         }
     ],
     "usage": {
-        "prompt_tokens": 10,
-        "total_tokens": 40,
-        "completion_tokens": 30
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
     }
 }
 ```
-    
-## Deploy Meta Llama models to managed compute
 
-Apart from deploying with the pay-as-you-go managed service, you can also deploy Meta Llama models to managed compute in AI Studio. When deployed to managed compute, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to managed compute consume quota from your subscription. All the models in the Llama family can be deployed to managed compute.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
-Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure AI Studio](https://ai.azure.com).
+#### Stream content
 
-1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-    Alternatively, you can initiate deployment by starting from your project in AI Studio. Select your project and then select **Deployments** > **+ Create**.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events). Extract chunks from the delta field, rather than the message field.
 
-1. On the model's **Details** page, select **Deploy** next to the **View license** button.
 
-    :::image type="content" source="../media/deploy-monitor/llama/deploy-real-time-endpoint.png" alt-text="A screenshot showing how to deploy a model with the real-time endpoint option." lightbox="../media/deploy-monitor/llama/deploy-real-time-endpoint.png":::
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 2048
+}
+```
 
-1. On the **Deploy with Azure AI Content Safety (preview)** page, select **Skip Azure AI Content Safety** so that you can continue to deploy the model using the UI.
+You can visualize how streaming generates content:
 
-    > [!TIP]
-    > In general, we recommend that you select **Enable Azure AI Content Safety (Recommended)** for deployment of the Llama model. This deployment option is currently only supported using the Python SDK and it happens in a notebook.
 
-1. Select **Proceed**.
-1. Select the project where you want to create a deployment.
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "Meta-Llama-3.1-405B-Instruct",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "role": "assistant",
+                "content": ""
+            },
+            "finish_reason": null,
+            "logprobs": null
+        }
+    ]
+}
+```
 
-    > [!TIP]
-    > If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**.
- 
-1. Select the **Virtual machine** and the **Instance count** that you want to assign to the deployment.
+The last message in the stream has `finish_reason` set, indicating the reason for the generation process to stop.
 
-1. Select if you want to create this deployment as part of a new endpoint or an existing one. Endpoints can host multiple deployments while keeping resource configuration exclusive for each of them. Deployments under the same endpoint share the endpoint URI and its access keys.
- 
-1. Indicate if you want to enable **Inferencing data collection (preview)**.
 
-1. Select **Deploy**. After a few moments, the endpoint's **Details** page opens up.
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "Meta-Llama-3.1-405B-Instruct",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "content": ""
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
 
-1. Wait for the endpoint creation and deployment to finish. This step can take a few minutes.
+#### Explore more parameters supported by the inference client
 
-1. Select the **Consume** tab of the deployment to obtain code samples that can be used to consume the deployed model in your application.
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
-### Consume Llama 2 models deployed to managed compute
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "presence_penalty": 0.1,
+    "frequency_penalty": 0.8,
+    "max_tokens": 2048,
+    "stop": ["<|endoftext|>"],
+    "temperature" :0,
+    "top_p": 1,
+    "response_format": { "type": "text" }
+}
+```
 
-For reference about how to invoke Llama models deployed to managed compute, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 
-##### More inference examples
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726686,
+    "model": "Meta-Llama-3.1-405B-Instruct",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
 
-# [Meta Llama 3](#tab/llama-three)
+> [!WARNING]
+> Meta Llama doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-| **Package**       | **Sample Notebook**                          |
-|----------------|----------------------------------------|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/openaisdk.ipynb)   |
-| LangChain      | [langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/langchain.ipynb)       |
-| WebRequests     | [webrequests.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/webrequests.ipynb)               |
-| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/meta-llama3/litellm.ipynb)     |
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
-# [Meta Llama 2](#tab/llama-two)
+### Pass extra parameters to the model
 
-| **Package**       | **Sample Notebook**                             |
-|----------------|----------------------------------------|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/openaisdk.ipynb)        |
-| LangChain      | [langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/langchain.ipynb)      |
-| WebRequests     | [webrequests.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/webrequests.ipynb)    |
-| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/llama2/litellm.ipynb)    |
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
 
----
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
-## Cost and quotas
+```http
+POST /chat/completions HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+extra-parameters: pass-through
+```
 
-### Cost and quota considerations for Llama models deployed as a service
 
-Llama models deployed as a service are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying or [fine-tuning the models](./fine-tune-model-llama.md). 
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "logprobs": true
+}
+```
 
-Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
+The following extra parameters can be passed to Meta Llama chat models:
 
-For more information on how to track costs, see [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `n` | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `best_of` | Generates best_of completions server-side and returns the *best* (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, best_of controls the number of candidate completions and n specifies how many to return—best_of must be greater than `n`. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `logprobs` | A number indicating to include the log probabilities on the logprobs most likely tokens and the chosen tokens. For example, if logprobs is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. | `integer` |
+| `ignore_eos` | Whether to ignore the `EOS` token and continue generating tokens after the `EOS` token is generated. | `boolean` |
+| `use_beam_search` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than 1 and temperature must be 0. | `boolean` |
+| `stop_token_ids` | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. | `array` |
+| `skip_special_tokens` | Whether to skip special tokens in the output. | `boolean` |
 
-:::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
+
+### Apply content safety
+
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are an AI assistant that helps people find information."
+        },
+                {
+            "role": "user",
+            "content": "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."
+        }
+    ]
+}
+```
+
+
+```json
+{
+    "error": {
+        "message": "The response was filtered due to the prompt triggering Microsoft's content management policy. Please modify your prompt and retry.",
+        "type": null,
+        "param": "prompt",
+        "code": "content_filter",
+        "status": 400
+    }
+}
+```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
+
+> [!NOTE]
+> Azure AI content safety is only available for models deployed as serverless API endpoints.
+
+::: zone-end
+
+## More inference examples
+
+For more examples of how to use Meta Llama, see the following examples and tutorials:
+
+| Description                               | Language          | Sample                                                             |
+|-------------------------------------------|-------------------|------------------------------------------------------------------- |
+| CURL request                              | Bash              | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-webrequests)    |
+| Azure AI Inference package for JavaScript | JavaScript        | [Link](https://aka.ms/azsdk/azure-ai-inference/javascript/samples) |
+| Azure AI Inference package for Python     | Python            | [Link](https://aka.ms/azsdk/azure-ai-inference/python/samples)     |
+| Python web requests                       | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-webrequests)    |
+| OpenAI SDK (experimental)                 | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-openai)         |
+| LangChain                                 | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-langchain)      |
+| LiteLLM                                   | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-litellm)        | 
+
+## Cost and quota considerations for Meta Llama family of models deployed as serverless API endpoints
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
-### Cost and quota considerations for Llama models deployed as managed compute
+Meta Llama models deployed as a serverless API are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
-For deployment and inferencing of Llama models with managed compute, you consume virtual machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once you reach this limit, you can request a quota increase.  
+Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
-## Content filtering
+For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
-Models deployed as a serverless API with pay-as-you-go are protected by Azure AI Content Safety. When deployed to managed compute, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](../concepts/content-filtering.md).
+## Cost and quota considerations for Meta Llama family of models deployed to managed compute
 
-## Next steps
+Meta Llama models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the run duration.
 
-- [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Fine-tune a Meta Llama 2 model in Azure AI Studio](fine-tune-model-llama.md)
-- [Azure AI FAQ article](../faq.yml)
-- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+It is a good practice to start with a low number of instances and scale up as needed. You can monitor the cost of the compute instance in the Azure portal.
+
+## Related content
+
+
+* [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
+* [Deploy models as serverless APIs](deploy-models-serverless.md)
+* [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
+* [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
+* [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)

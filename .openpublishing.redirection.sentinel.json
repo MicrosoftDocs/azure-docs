@@ -1635,5 +1635,11 @@
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
         }
+,
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/tenable-io-vulnerability-management.md",
+            "redirect_url": "/azure/sentinel/data-connectors/tenable-vulnerability-management",
+            "redirect_document_id": false
+        }
     ]
 }

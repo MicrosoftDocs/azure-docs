@@ -4,7 +4,7 @@ description: This article describes database transactions and optimistic concurr
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 12/04/2019

@@ -3,9 +3,9 @@ title: FAQ - Azure ExpressRoute | Microsoft Docs
 description: The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and other Technical Details.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: faq
-ms.date: 04/09/2024
+ms.date: 07/18/2024
 ms.author: duau
 
 ---
@@ -142,7 +142,7 @@ Supported bandwidth offers:
 
 ### What's the maximum MTU supported?
 
-ExpressRoute and other hybrid networking services--VPN and vWAN--supports a maximum MTU of 1400 bytes.
+ExpressRoute supports the standard internet MTU of 1500 bytes.
 See [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md) for tuning the MTU of your VMs.
 
 ### Which service providers are available?

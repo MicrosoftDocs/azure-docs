@@ -6,7 +6,7 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 02/20/2024
-  ms.service: virtual-machines
+  ms.service: azure-virtual-machines
   ms.subservice: security
   ms.topic: how-to
   ms.collection: windows
@@ -20,7 +20,7 @@ title: |
 introduction: |
   **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-  Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md). 
+  Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](/azure/key-vault/general/overview) and [Secure your key vault](/azure/key-vault/general/security-features). 
 
   > [!WARNING]
   > - If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM. See [Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-key-vault-aad.md) for details.

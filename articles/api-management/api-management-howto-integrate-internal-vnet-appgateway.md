@@ -5,7 +5,7 @@ description: Set up and configure Azure API Management in an internal virtual ne
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.author: danlep
 ms.date: 04/17/2023

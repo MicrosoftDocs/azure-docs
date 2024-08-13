@@ -1,7 +1,7 @@
 ---
 title: HB-series retirement
 description: HB-series retirement started September 1, 2021.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: conceptual
 author: iamwilliew

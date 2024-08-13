@@ -21,10 +21,6 @@ This tutorial teaches you how to use Language in prompt flow utilizing [Azure AI
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 
-- Access granted to Azure OpenAI in the desired Azure subscription.
-
-     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-
 - You need an Azure AI Studio hub or permissions to create one. Your user role must be **Azure AI Developer**, **Contributor**, or **Owner** on the hub. For more information, see [hubs](../../../ai-studio/concepts/ai-resources.md) and [Azure AI roles](../../../ai-studio/concepts/rbac-ai-studio.md).
      - If your role is **Contributor** or **Owner**, you can [create a hub in this tutorial](#create-a-project-in-azure-ai-studio). 
      - If your role is **Azure AI Developer**, the hub must already be created. 

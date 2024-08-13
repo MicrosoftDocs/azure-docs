@@ -3,7 +3,7 @@ title: How to select a machine learning algorithm
 titleSuffix: Azure Machine Learning
 description: How to select Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: how-to
 author: lgayhardt

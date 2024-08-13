@@ -2,7 +2,7 @@
 title: Register a confidential client app in Microsoft Entra ID - Azure API for FHIR
 description: Register a confidential client application in Microsoft Entra ID that authenticates on a user's behalf and requests access to resource applications.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 09/27/2023

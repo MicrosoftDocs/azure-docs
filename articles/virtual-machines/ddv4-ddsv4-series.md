@@ -5,7 +5,7 @@ author: andysports8
 ms.author: shuji
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020

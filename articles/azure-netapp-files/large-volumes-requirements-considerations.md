@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 07/22/2024
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes
@@ -20,7 +20,7 @@ The following requirements and considerations apply to large volumes. For perfor
 * A regular volume can’t be converted to a large volume.
 * You must create a large volume at a size of 50 TiB or larger. A single volume can't exceed 1 PiB.  
 * You can't resize a large volume to less than 50 TiB.
-    A large volume cannot be resized to less than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits).
+    A large volume cannot be resized to more than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits).
 * Large volumes are currently not supported with Azure NetApp Files backup.
 * You can't create a large volume with application volume groups.
 * Currently, large volumes aren't suited for database (HANA, Oracle, SQL Server, etc.) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes. To optimize multiple volume deployments for databases, use [application volume groups](application-volume-group-concept.md).
@@ -30,15 +30,15 @@ The following requirements and considerations apply to large volumes. For perfor
       <tr>
         <th></th>
         <th colspan="2">Capacity</th>
-        <th colspan="2">Linear performance scaling per TiB up to maximum throughput </th>
+        <th colspan="2">Linear performance scaling per TiB up to maximum allowed capacity tier throughput (large volume) </th>
       </tr></thead>
     <tbody>
       <tr>
         <td>Capacity tier</td>
         <td>Minimum volume size<br>(TiB)</td>
         <td>Maximum volume size (TiB)</td>
-        <td>Minimum throughput (MiB/s)</td>
-        <td>Maximum throughput (MiB/s)</td>
+        <td>Minimum throughput for capacity tier (MiB/s)</td>
+        <td>Maximum throughput for capacity tier (MiB/s)</td>
       </tr>
       <tr>
         <td>Standard (16 MiB/s per TiB)</td>
@@ -52,13 +52,23 @@ The following requirements and considerations apply to large volumes. For perfor
         <td>50</td>
         <td>1,024</td>
         <td>3,200</td>
-        <td>12</td>
+        <td>12,800</td>
+      </tr>
+      <tr>
+        <td>Ultra (128 MiB/s per TiB)</td>
+        <td>50</td>
+        <td>1,024</td>
+        <td>6,400</td>
+        <td>12,800</td>
       </tr>
     </tbody>
     </table>
 
     \* 2-PiB large volumes are available on request depending on regional dedicated capacity availability. To request 2-PiB large volumes, contact your account team. 
-    
+
+    For the latest performance benchmark numbers conducted on Azure NetApp Files Large volumes, see [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
+
+
 * Large volumes aren't currently supported with standard storage with cool access.
 
 ## About 64-bit file IDs

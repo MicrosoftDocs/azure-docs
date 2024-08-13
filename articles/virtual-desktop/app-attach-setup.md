@@ -48,10 +48,6 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 - Your session hosts need to run a [supported Windows client operating system](prerequisites.md#operating-systems-and-licenses) and at least one of them must be powered on. Windows Server isn't supported.
 
 ::: zone pivot="app-attach"
-- Your host pool needs to be [configured as a validation environment](configure-validation-environment.md).
-::: zone-end
-
-::: zone pivot="app-attach"
 - Your session hosts need to be joined to Microsoft Entra ID or an Active Directory Domain Services (AD DS) domain.
 ::: zone-end
 

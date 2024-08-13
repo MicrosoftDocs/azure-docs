@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to integrate pipelines and activ
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
 ms.date: 12/31/2020

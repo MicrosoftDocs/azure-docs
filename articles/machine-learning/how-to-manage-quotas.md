@@ -3,7 +3,7 @@ title: Manage resources and quotas
 titleSuffix: Azure Machine Learning
 description: Learn about the quotas and limits on resources for Azure Machine Learning and how to request quota and limit increases.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 author: Blackmist
 ms.author: larryfr

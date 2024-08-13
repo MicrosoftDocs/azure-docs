@@ -1,7 +1,7 @@
 ---
 title: Explore Azure Hybrid Benefit for Windows VMs
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: billing
 ms.collection: windows
 ms.topic: how-to

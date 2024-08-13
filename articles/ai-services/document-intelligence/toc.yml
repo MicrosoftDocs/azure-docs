@@ -7,21 +7,21 @@ items:
   - name: What is Azure AI Document Intelligence?
     displayName: models, develop, development, cognitive, applied, form recognizer, form, recognizer
     href: overview.md
-  - name: Choose a model?
+  - name: Which model should I choose?
     href: choose-model-feature.md
   - name: Document Intelligence Studio
     displayName: get started
     href: studio-overview.md
   - name: FAQ
     displayName: storage, security, privacy, help, support, versions, development, migrate, migration, cognitive, applied, form recognizer, form, recognizer
-    href: faq.yml  
+    href: faq.yml
   - name: Document Intelligence client libraries
     expanded: true
     items:
       - name: Changelog and migration guide
         displayName: latest, update, beta, package, preview, version
         href: changelog-release-history.md
-      - name: "SDK targets: REST API 2024–02–29-preview"
+      - name: "SDK targets: REST API v4.0 (preview)"
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-overview-v4-0.md
       - name: "SDK targets: REST API 2023–7–31 latest (GA)"
@@ -72,6 +72,15 @@ items:
   - name: Create a Document Intelligence resource
     displayName: endpoint, key, portal
     href:  create-document-intelligence-resource.md
+  - name: 🆕 Build and train a custom generative model
+    displayName: ai studio, neural, template, custom
+    href: how-to-guides/build-train-custom-generative-model.md  
+  - name: Check my usage and estimate the cost
+    displayName: price, metrics, dashboard, check, estimate
+    href: how-to-guides/estimate-cost.md
+  - name: Create SAS tokens for storage containers
+    displayName: blob, delegation, shared, explorer
+    href:  create-sas-tokens.md
   - name: "SDK Migration guides: 2023-10-31-preview"
     items:
     - name: ".NET/C# SDK"
@@ -85,12 +94,6 @@ items:
   - name: "Migration guide: 2023—07—31 latest (GA)"
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-1-migration-guide.md
-  - name: Check my usage and estimate the cost
-    displayName: price, metrics, dashboard, check, estimate
-    href: how-to-guides/estimate-cost.md
-  - name: Create SAS tokens for storage containers
-    displayName: blob, delegation, shared, explorer
-    href:  create-sas-tokens.md
   - name: Custom models
     items:
     - name: Build a custom extraction model
@@ -177,13 +180,28 @@ items:
   - name: 🆕 Retrieval-Augmented Generation (RAG)
     displayName: RAG, LLM, semantic, chunk, LangChain, language model
     href: concept-retrieval-augmented-generation.md
-  - name: 🆕 Credit card model
+  - name: 🆕Custom generative model
+    displayName: ai studio, neural, template, custom
+    href: concept-custom-generative.md
+  - name: 🆕 Batch documents analysis 
+    displayName: analyze, azureBlobFileListSource, azureBlobSource, azureBlobFileListSource, resultContainerUrl, resultPrefix, overwriteExisting
+    href: concept-batch-analysis.md
+  - name: 🆕 Pay stub model
+    displayName: compensation, earnings, deductions, taxes, benefits, employer, employee
+    href: concept-pay-stub.md
+  - name: 🆕 Bank check model
+    displayName: routing, account, number, amount, payee, issuer, date
+    href: concept-bank-check.md
+  - name: 🆕 Bank statement model
+    displayName: transactions, deposits, withdrawals, balance, account, number, date
+    href: concept-bank-statement.md
+  - name: Credit card model
     displayName: debit
     href: concept-credit-card.md
-  - name: 🆕 US mortgage documents
+  - name: US mortgage documents
     displayName: 1003, 1008, closing, disclosure
     href: concept-mortgage-documents.md
-  - name: 🆕 Marriage certificate model
+  - name: Marriage certificate model
     displayName: license
     href: concept-marriage-certificate.md
   - name: Contract model
@@ -212,9 +230,12 @@ items:
     - name: Custom model overview
       displayName: table, label, ocr, confidence, template, neural
       href: concept-custom.md
-    - name: Custom model lifecycle
-      displayName: custom, train, modelId, model ID, expiration, train, build
-      href: concept-custom-lifecycle.md
+    - name: 🆕 Composed models
+      displayName: custom, assign, modelId, model ID
+      href:  concept-composed-models.md
+    - name: 🆕 Incremental classifier
+      displayName: custom, classification, training
+      href: concept-incremental-classifier.md  
     - name: Custom template model
       displayName: structure, selection, labels, tables, tabular, train, template, neural, build mode, signatures, custom
       href: concept-custom-template.md
@@ -224,28 +245,25 @@ items:
     - name: Custom classification model
       displayName: custom, train, classification, splitting
       href: concept-custom-classifier.md
-    - name: 🆕 Incremental classifier
-      displayName: custom, classification, training
-      href: concept-incremental-classifier.md
     - name: Custom labels
       displayName: structure, selection, labels, tables, tabular, train
       href: concept-custom-label.md
     - name: Custom labeling tips
       displayName: structure, selection, labels, tables, tabular, train, tips
       href: concept-custom-label-tips.md
-    - name: Composed models
-      displayName: custom, assign, modelId, model ID
-      href:  concept-composed-models.md
-- name: Samples
+    - name: Custom model lifecycle
+      displayName: custom, train, modelId, model ID, expiration, train, build
+      href: concept-custom-lifecycle.md
+- name: Code samples
   items:
   - name: "C#/.NET"
-    href: /dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet#examples&preserve-view=true
+    href:  https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/.NET(v4.0)/README.md
   - name: "Java"
-    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples&preserve-view=true
+    href:  https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Java(v4.0)/README.md
   - name: "Python"
-    href: /python/api/overview/azure/ai-formrecognizer-readme?view=azure-python#examples&preserve-view=true
+    href:  https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/README.md
   - name: "JavaScript"
-    href: /javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest#examples&preserve-view=true
+    href:  https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/JavaScript(v4.0)/README.md
 - name: Responsible AI
   items:
   - name: Transparency note

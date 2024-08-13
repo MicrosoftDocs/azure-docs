@@ -8,16 +8,16 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to create applications using Azure OpenAI and OpenAI. In the following tutorial, we are adding an Azure OpenAI service to a Java 17 Spring Boot application using the Azure SDK.
+You can use Azure App Service to create applications using Azure OpenAI and OpenAI. In the following tutorial, we're adding Azure OpenAI Service to a Java 17 Spring Boot application using the Azure SDK.
 
 #### Prerequisites
 
 - An [Azure OpenAI resource](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
 - A Java spring boot application. Create the application using this [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-maven-javase).
 
-### Setup web app
+### Set up web app
 
-For this Spring Boot application, we are building off the [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-maven-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service. Add the following code to your application:
+For this Spring Boot application, we're building off the [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service. Add the following code to your application:
 
 ```bash
   @RequestMapping("/")
@@ -44,11 +44,11 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 - `apiKey`
 - `modelName`
 
-Since we are deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](../../../key-vault/secrets/quick-create-cli.md#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+Since we're deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 
-Then, go to the portal Environment Variables blade in your resource and add the following app settings:
+Then, go to the portal Environment Variables page in your resource and add the following app settings:
 
 For Azure OpenAI, use the following settings:
 
@@ -107,7 +107,7 @@ Before you can create the client, you first need to add the Azure SDK dependency
 </dependency>
 ```
 
-Once the package is created, we can start working on the client that will make our calls.
+Once the package is created, we can start working on the client that makes our calls.
 
 ### Create OpenAI client
 
@@ -157,20 +157,20 @@ OpenAIClient client = new OpenAIClientBuilder()
     .buildClient();
 ```
 
-Once the credentials are added to the application, you’ll then need to enable managed identity in your application and grant access to the resource.
+Once the credentials are added to the application, enable managed identity in your application and grant access to the resource:
 
-1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and click **Save**
+1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and select **Save**.
 2. Once System assigned identity is turned on, it will register the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
-3. Go to your Azure OpenAI resource and navigate to the **Access control (IAM)** blade on the left pane.  
-4. Find the Grant access to this resource card and click on **Add role assignment**
-5. Search for the **Cognitive Services OpenAI User** role and click **Next**
-6. On the **Members** tab, find **Assign access to** and choose the **Managed identity** option
-7. Next, click on **+Select Members**  and find your web app
-8. Click **Review + assign**
+3. Go to your Azure OpenAI resource and navigate to the **Access control (IAM)** page on the left pane.
+4. Find the **Grant access to this resource** card and select **Add role assignment**.
+5. Search for the **Cognitive Services OpenAI User** role and select **Next**.
+6. On the **Members** tab, find **Assign access to** and choose the **Managed identity** option.
+7. Next, select **+Select Members**  and find your web app.
+8. Select **Review + assign**.
 
 Your web app is now added as a cognitive service OpenAI user and can communicate to your Azure OpenAI resource.
 
-### Setup prompt and call to OpenAI
+### Set up prompt and call to OpenAI
 
 Now that our OpenAI service is created we can use the chat completions method to send our request message to OpenAI and return a response. Here's where we add our chat message prompt to the code to be passed to the chat completions method. Use the following code to set up the chat completions method:
 
@@ -275,9 +275,9 @@ public class Application {
 
 ### Deploy to App Service
 
-If you completed the steps above you can deploy to App Service as you normally would. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service resolves the app settings in your application that match what you've added in the portal.
+If you completed the steps above, you can deploy to App Service as you normally would. If you run into any issues, remember that you need to complete the following steps: grant your app access to your Key Vault, and add the app settings with key vault references as your values. App Service resolves the app settings in your application that match what you added in the portal.
 
-Once deployed, you can visit your site URL and you are greeted with the text that contains the response from your chat message prompt.  
+Once the app is deployed, you can visit your site URL and see the text that contains the response from your chat message prompt.  
 
 
 ### Authentication

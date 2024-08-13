@@ -29,7 +29,7 @@ Use [Bing Spell Check](../../cognitive-services/bing-spell-check/overview.md) to
 
 ### Prior to V3 runtime
 
-LUIS uses [Bing Spell Check API V7](../../cognitive-services/bing-spell-check/overview.md) to correct spelling errors in the utterance. LUIS needs the key associated with that service. Create the key, then add the key as a querystring parameter at the [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356).
+LUIS uses [Bing Spell Check API V7](../../cognitive-services/bing-spell-check/overview.md) to correct spelling errors in the utterance. LUIS needs the key associated with that service. Create the key, then add the key as a querystring parameter at the [endpoint](/rest/api/luis/operation-groups).
 
 The endpoint requires two params for spelling corrections to work:
 
@@ -88,7 +88,7 @@ In V3, the `datetimeReference` determines the timezone offset.
 The timezone is corrected by adding the user's timezone to the endpoint using the `timezoneOffset` parameter based on the API version. The value of the parameter should be the positive or negative number, in minutes, to alter the time.
 
 #### V2 prediction daylight savings example
-If you need the returned prebuilt datetimeV2 to adjust for daylight savings time, you should use the querystring parameter with a +/- value in minutes for the [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) query.
+If you need the returned prebuilt datetimeV2 to adjust for daylight savings time, you should use the querystring parameter with a +/- value in minutes for the [endpoint](/rest/api/luis/operation-groups) query.
 
 Add 60 minutes:
 

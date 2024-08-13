@@ -2,7 +2,7 @@
 title: Apache Spark on GPU (deprecated)
 description: Introduction to core concepts for Apache Spark on GPUs inside Synapse Analytics.
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 07/15/2024

@@ -4,7 +4,7 @@ titleSuffix: Azure Bastion
 description: Learn how to add more instances (scale units) to Azure Bastion using PowerShell
 services: bastion
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/17/2023

@@ -6,7 +6,7 @@ author: adig
 ms.author: adig
 ms.reviewer: maghan
 ms.date: 08/07/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: tutorial
 ms.custom:
   - sql-migration-content

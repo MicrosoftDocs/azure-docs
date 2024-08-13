@@ -10,9 +10,7 @@ ms.date: 06/18/2024
 # Configure RDP Shortpath for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> - Using RDP Shortpath for public networks via TURN for Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> - RDP Shortpath is only available in the Azure public cloud.
+> RDP Shortpath for public networks via TURN for Azure Virtual Desktop is only available in the Azure public cloud.
 
 Users can connect to a remote session from Azure Virtual Desktop using the Remote Desktop Protocol (RDP) with a UDP or TCP-based transport. RDP Shortpath establishes a UDP-based transport between a local device Windows App or the Remote Desktop app on supported platforms and session host. 
 
@@ -26,7 +24,7 @@ There are four options for RDP Shortpath that provide flexibility for how you wa
 
 - **RDP Shortpath for public networks with ICE/STUN**: A *direct* UDP connection between a client device and session host using a public connection. ICE/STUN is used to discover available IP addresses and a dynamic port that can be used for a connection. The RDP Shortpath listener and an inbound port aren't required. The port range is configurable.
  
-- **RDP Shortpath for public networks via TURN** (preview): An *indirect* UDP connection between a client device and session host using a public connection where TURN relays traffic through an intermediate server between a client and session host. An example of when you use this option is if a connection uses Symmetric NAT. A dynamic port is used for a connection; the port range is configurable. For a list of Azure regions that TURN is available, see [supported Azure regions with TURN availability](rdp-shortpath.md#turn-availability-preview). The connection from the client device must also be within a supported location. The RDP Shortpath listener and an inbound port aren't required.
+- **RDP Shortpath for public networks via TURN**: An *indirect* UDP connection between a client device and session host using a public connection where TURN relays traffic through an intermediate server between a client and session host. An example of when you use this option is if a connection uses Symmetric NAT. A dynamic port is used for a connection; the port range is configurable. For a list of Azure regions that TURN is available, see [supported Azure regions with TURN availability](rdp-shortpath.md#turn-availability). The connection from the client device must also be within a supported location. The RDP Shortpath listener and an inbound port aren't required.
 
 Which of the four options your client devices can use is also dependent on their network configuration. To learn more about how RDP Shortpath works, together with some example scenarios, see [RDP Shortpath](rdp-shortpath.md).
 
@@ -46,7 +44,7 @@ Here are the default behaviors for each option and what you need to configure:
 | RDP Shortpath for managed networks | UDP and TCP are enabled in Windows by default.<br /><br />You need to enable the RDP Shortpath listener on session hosts using Microsoft Intune or Group Policy, and allow an inbound port to accept connections. | Default (enabled) | UDP and TCP are enabled in Windows by default. |
 | RDP Shortpath for managed networks with ICE/STUN | UDP and TCP are enabled in Windows by default.<br /><br />You don't need any extra configuration, but you can limit the port range used. | Default (enabled) | UDP and TCP are enabled in Windows by default. |
 | RDP Shortpath for public networks with ICE/STUN | UDP and TCP are enabled in Windows by default.<br /><br />You don't need any extra configuration, but you can limit the port range used. | Default (enabled) | UDP and TCP are enabled in Windows by default. |
-| RDP Shortpath for public networks via TURN | UDP and TCP are enabled in Windows by default.<br /><br />You don't need any extra configuration, but you can limit the port range used. | Default (disabled) | UDP and TCP are enabled in Windows by default. |
+| RDP Shortpath for public networks via TURN | UDP and TCP are enabled in Windows by default.<br /><br />You don't need any extra configuration, but you can limit the port range used. | Default (enabled) | UDP and TCP are enabled in Windows by default. |
 
 ## Prerequisites
 
@@ -195,7 +193,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
 
    :::image type="content" source="media/configure-rdp-shortpath/rdp-shortpath-host-pool-configuration.png" alt-text="A screenshot showing the RDP Shortpath tab of a host pool's networking properties." lightbox="media/configure-rdp-shortpath/rdp-shortpath-host-pool-configuration.png":::
 
-1. For each option, select a value from the drop-down each based on your requirements. **Default** corresponds to **Enabled** for each option, except **RDP Shortpath for public networks via TURN**, which is **Disabled** during its preview.
+1. For each option, select a value from the drop-down each based on your requirements. **Default** corresponds to **Enabled** for each option.
 
 1. Select **Save**.
 
@@ -228,14 +226,14 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
    RelayUdp          : Default
    ```
 
-   The available PowerShell parameters for RDP Shortpath map to the options as follows. Valid values for each of these parameters are **Default**, **Enabled**, or **Disabled**. Default corresponds to what Microsoft sets it to, in this case **Enabled** for each option, except **RDP Shortpath for public networks via TURN**, which is **Disabled** during its preview.
+   The available PowerShell parameters for RDP Shortpath map to the options as follows. Valid values for each of these parameters are **Default**, **Enabled**, or **Disabled**. Default corresponds to what Microsoft sets it to, in this case **Enabled** for each option.
 
    | PowerShell Parameter | RDP Shortpath option | 'Default' meaning |
    |--|--|--|
    | ManagedPrivateUdp | RDP Shortpath for managed networks | Enabled |
    | DirectUdp | RDP Shortpath for managed networks with ICE/STUN | Enabled |
    | PublicUdp | RDP Shortpath for public networks with ICE/STUN | Enabled |
-   | RelayUdp | RDP Shortpath for public networks via TURN | Disabled (during preview) |
+   | RelayUdp | RDP Shortpath for public networks via TURN | Enabled |
 
 3. Use the `Update-AzWvdHostPool` cmdlet with the following examples to configure RDP Shortpath. 
 
@@ -269,7 +267,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
       Update-AzWvdHostPool @parameters
       ```
 
-   - To only use RDP Shortpath for public networks via TURN and disable the other options, run the following commands. During the preview, the default value for TURN corresponds to **Disabled**, so it explicitly needs to be set to **Enabled**.
+   - To only use RDP Shortpath for public networks via TURN and disable the other options, run the following commands.
 
       ```azurepowershell
       $parameters = @{
@@ -288,8 +286,6 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
 
 ---
 
-> [!IMPORTANT]
-> For connections using TURN, during the preview TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
 
 
 ## Check that UDP is enabled on Windows client devices

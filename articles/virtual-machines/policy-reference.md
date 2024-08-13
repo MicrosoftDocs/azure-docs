@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: reference
 author: cynthn
 ms.author: cynthn
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.custom: subject-policy-reference
 ---

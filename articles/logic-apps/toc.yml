@@ -36,9 +36,9 @@ items:
       href: create-single-tenant-workflows-visual-studio-code.md
 - name: Tutorials
   items:
-  - name: Create Consumption schedule-based workflows
+  - name: Create Consumption schedule-based workflow
     href: tutorial-build-schedule-recurring-logic-app-workflow.md
-  - name: Create Consumption approval-based workflows
+  - name: Create Consumption approval-based workflow
     href: tutorial-process-mailing-list-subscriptions-workflow.md
   - name: Create Consumption workflow with Azure Storage and Azure Functions
     href: tutorial-process-email-attachments-workflow.md
@@ -91,18 +91,32 @@ items:
       href: designer-overview.md
     - name: Built-in versus Azure connector operations
       href: ../connectors/compare-built-in-azure-connectors.md
+    - name: Estimate storage costs
+      href: estimate-storage-costs.md
+    - name: Set up SQL storage
+      href: set-up-sql-db-storage-single-tenant-standard-workflows.md
     - name: Create Standard workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Get AI-powered help from the workflow assistant
       href: workflow-assistant-standard.md
     - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
-    - name: Estimate storage costs
-      href: estimate-storage-costs.md
-    - name: Set up SQL storage
-      href: set-up-sql-db-storage-single-tenant-standard-workflows.md
+    - name: Create and run .NET code
+      href: create-run-custom-code-functions.md
+    - name: Add and run C# scripts
+      href: add-run-csharp-scripts.md
+    - name: Add and run PowerShell scripts
+      href: add-run-powershell-scripts.md
+    - name: Parse or chunk content
+      href: parse-document-chunk-text.md
     - name: Secure traffic between Standard workflows and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: Edit app and host settings
+      href: edit-app-settings-host-settings.md
+    - name: Enable stateful mode for stateless built-in connectors
+      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
+    - name: Create custom built-in connectors
+      href: create-custom-built-in-connector-standard.md
     - name: Develop for rules engine integration
       items:
       - name: Overview for rules engine integration
@@ -125,16 +139,6 @@ items:
         href: rules-engine/test-rulesets.md
       - name: Create a rules engine project
         href: rules-engine/create-rules-engine-project.md
-    - name: Create and run .NET code
-      href: create-run-custom-code-functions.md
-    - name: Parse or chunk content
-      href: parse-document-chunk-text.md
-    - name: Edit app and host settings
-      href: edit-app-settings-host-settings.md
-    - name: Enable stateful mode for stateless built-in connectors
-      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
-    - name: Create custom built-in connectors
-      href: create-custom-built-in-connector-standard.md
     - name: Set up deployment slots
       href: set-up-deployment-slots.md
     - name: DevOps deployment
@@ -157,8 +161,6 @@ items:
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
-    - name: Export flows from Power Automate and deploy to Azure Logic Apps
-      href: export-from-microsoft-flow-logic-app-template.md
     - name: Migrate from BizTalk to Azure
       items:
       - name: Why migrate from BizTalk Server?
@@ -187,8 +189,6 @@ items:
       href: logic-apps-create-variables-store-values.md
     - name: Perform data operations
       href: logic-apps-perform-data-operations.md
-    - name: Add and run C# scripts
-      href: add-run-csharp-scripts.md
     - name: Add and run JavaScript snippets
       href: add-run-javascript.md
     - name: Create cross-environment parameters for workflows
@@ -445,11 +445,11 @@ items:
       href: update-workflow-definition-language-schema.md
   - name: Test
     items:
-    - name: Test logic apps with mock data
+    - name: Test workflows with mock outputs
       href: test-logic-apps-mock-data-static-results.md
   - name: Deploy
     items:
-    - name: About automated deployment (multi-tenant)
+    - name: About automated deployment (multitenant)
       href: logic-apps-azure-resource-manager-templates-overview.md
     - name: Create logic app templates
       href: logic-apps-create-azure-resource-manager-templates.md
@@ -460,9 +460,11 @@ items:
       - name: Monitor workflows
         href: monitor-logic-apps-overview.md
       - name: View workflow status and run history
-        href: monitor-logic-apps.md
+        href: view-workflow-status-run-history.md
       - name: View health and performance metrics
         href: view-workflow-metrics.md
+      - name: Enable Health Check for Standard workflows
+        href: monitor-health-standard-workflows.md
       - name: Enable and view enhanced telemetry for Standard workflows
         href: enable-enhanced-telemetry-standard-workflows.md
       - name: Monitor and collect diagnostic data for workflows
@@ -552,8 +554,8 @@ items:
     href: /answers/tags/134/azure-logic-apps
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-logic-apps
-  - name: Twitter
-    href: https://twitter.com/logicappsio
+  - name: X
+    href: https://x.com/logicappsio
   - name: Provide product feedback
     href: https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c
   - name: Service updates

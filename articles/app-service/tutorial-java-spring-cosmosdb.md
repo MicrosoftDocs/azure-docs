@@ -53,7 +53,7 @@ yes | cp -rf .prep/* .
 
 Follow these steps to create an Azure Cosmos DB database in your subscription. The TODO list app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
-1. Login to your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
+1. Sign in to your Azure CLI, and optionally set your subscription if you have more than one connected to your sign-in credentials.
 
     ```azurecli
     az login
@@ -110,7 +110,7 @@ Then run the script:
 source .scripts/set-env-variables.sh
 ```
    
-These environment variables are used in `application.properties` in the TODO list app. The fields in the properties file set up a default repository configuration for Spring Data:
+These environment variables are used in `application.properties` in the TODO list app. The fields in the properties file define a default repository configuration for Spring Data:
 
 ```properties
 azure.cosmosdb.uri=${COSMOSDB_URI}
@@ -314,7 +314,7 @@ az group delete --name <your-azure-group-name> --yes
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"] 
-> [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+> [Java in App Service Linux dev guide](configure-language-java-deploy-run.md?pivots=platform-linux)
 
 Learn how to secure your app with a custom domain and certificate.
 

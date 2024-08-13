@@ -3,7 +3,6 @@ title: Troubleshoot self-hosted integration runtime
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory and Azure Synapse Analytics pipelines. 
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
@@ -944,5 +943,5 @@ For more help with troubleshooting, try the following resources:
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [X information about Data Factory](https://x.com/hashtag/DataFactory)
 *  [Mapping data flows performance guide](concepts-data-flow-performance.md)

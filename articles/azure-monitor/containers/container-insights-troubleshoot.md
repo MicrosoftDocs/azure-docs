@@ -199,7 +199,7 @@ For basic read-only cluster level access, assign the **Monitoring Reader** role 
 - AKS configured with the cluster role binding clusterMonitoringUser
 - [Azure Arc-enabled Kubernetes clusters](../../azure-arc/kubernetes/overview.md)
 
-See [Assign role permissions to a user or group](../../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group) for details on how to assign these roles for AKS and [Access and identity options for Azure Kubernetes Service (AKS)](../../aks/concepts-identity.md) to learn more about role assignments.
+See [Assign role permissions to a user or group](/azure/aks/control-kubeconfig-access#assign-role-permissions-to-a-user-or-group) for details on how to assign these roles for AKS and [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity) to learn more about role assignments.
 
 ## I don't see Image and Name property values populated when I query the ContainerLog table
 
