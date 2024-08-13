@@ -185,13 +185,13 @@ To change the tag for a polygon, select the **Move region** tool, select the pol
 
 You can edit existing polygons. The **Lock/unlock regions** tool, or "L", toggles that behavior, as shown in this screenshot:
 
-:::image type="content" source="./media/how-to-label-data/lock-bounding-boxes-tool.png" lightbox="./media/how-to-label-data/lock-bounding-boxes-tool.png" alt-text="Screenshot showing selection of the Lock/unlock regions tool.":::
+:::image type="content" source="./media/how-to-label-data/lock-bounding-boxes-tool.png" lightbox="./media/how-to-label-data/lock-bounding-boxes-tool.png" alt-text="Screenshot showing selection of the Lock/Unlock regions tool.":::
 
 If regions are locked, you can only change the shape or location of a new polygon.
 
 Use the **Add or remove polygon points** tool, or "U", to adjust an existing polygon, as shown in this screenshot:
 
-:::image type="content" source="./media/how-to-label-data/add-remove-points-tool.png" lightbox="./media/how-to-label-data/add-remove-points-tool.png" alt-text="Screenshot showing selection of the Lock/unlock regions tool.":::
+:::image type="content" source="./media/how-to-label-data/add-remove-points-tool.png" lightbox="./media/how-to-label-data/add-remove-points-tool.png" alt-text="Screenshot showing selection of the Lock / Unlock regions tool.":::
 
 Select the polygon to add or remove a point. If you can't edit a region, you probably toggled the **Lock/unlock regions** tool.
 
