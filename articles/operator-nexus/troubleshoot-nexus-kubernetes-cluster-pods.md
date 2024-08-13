@@ -18,14 +18,14 @@ This guide provides detailed steps for troubleshooting Nexus Kubernetes Cluster 
    
 ## Symptoms
 
-In environments operating at scale, there are rare instances where pods using the `nexus-volume` storage class Persistent Volume Claims (PVCs) may become stuck in the `ContainerCreating` status.
+In environments operating at scale, there are rare instances where pods using the `nexus-volume` storage class Persistent Volume Claims (PVCs) might become stuck in the `ContainerCreating` status.
 
-Check if the pod is experiencing the error described below by describing its details and examining the its events.
+Verify if the pod is experiencing the described error by inspecting its details and reviewing its events.
 
 ``` console
 kubectl describe pod <pod name>
 ```
-``` console
+```console
 Events:
   Type     Reason              Age                From                     Message
   ----     ------              ----               ----                     -------
@@ -33,25 +33,26 @@ Events:
 Warning  FailedAttachVolume  13s (x6 over 31s)  attachdetach-controller  AttachVolume.Attach failed for volume "pvc-561a2f5b-f673-4f6c-aa4d-34dbc4a6224e" : rpc error: code = Internal desc = failed to handle ControllerPublishVolume
 ```
 
-
 ## Solution
 To address this issue, the following workaround can be applied for pods...
 
-**Steps to Resolve:**
+### Steps to Resolve
 1. Identify the StatefulSet whose pods are stuck in the `ContainerCreating` status.
 2. Scale down the StatefulSet’s replicas to zero: 
 
-``` console
-kubectl scale statefulset <statefulset-name> --replicas=0 
-``` 
-3. Wait until the persistent volume attachments are gone, the persistent volume name in this example is pvc-561a2f5b-f673-4f6c-aa4d-34dbc4a6224e (persistent volumes are called pvc-xxx in most cases, they are not volume claims despite the pvc prefix) by doing:
-```sh
-kubectl get volumeattachments | grep -c pvc-561a2f5b-f673-4f6c-aa4d-34dbc4a6224e
-0
-```
-(The expectation is that these should clear up quickly, usually in a matter of a minute or two).
+   ```console
+   kubectl scale statefulset <statefulset-name> --replicas=0
+   ```
+
+3. Wait until the persistent volume attachments are fully removed. Volume attachments should clear up quickly, usually in a matter of a minute or two. In this example, the persistent volume is named pvc-561a2f5b-f673-4f6c-aa4d-34dbc4a6224e. Typically, persistent volumes are named with the prefix pvc-xxx, even though they aren't volume claims. You can verify by running the following command:
+
+   ```console
+   kubectl get volumeattachments | grep -c pvc-561a2f5b-f673-4f6c-aa4d-34dbc4a6224e
+   0
+   ```
 
 4. Scale up the StatefulSet to the desired number of replicas:
- ```sh
-kubectl scale statefulset <statefulset-name> --replicas=<desired-replica-count> 
-```
+
+   ```console
+   kubectl scale statefulset <statefulset-name> --replicas=<desired-replica-count>
+   ```
