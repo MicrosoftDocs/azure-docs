@@ -47,17 +47,15 @@ ContainerLogV2
 ## Network firewall requirements
 In addition to the [network firewall requirements](./kubernetes-monitoring-firewall.md) for monitoring a Kubernetes cluster, additional configurations are needed for enabling High scale Mode. 
 
-Get the **Logs Ingestion** endpoint from the data collection endpoint (DCE) for the data collection rule (DCR) used by the cluster. This DCE is created when you enable high scale mode for the cluster and will start with the prefix `MSCI-ingest`.
-
-:::image type="content" source="media/container-insights-high-scale/logs-ingestion-endpoint.png" alt-text="Screenshot of logs ingestion endpoint for DCE." lightbox="media/container-insights-high-scale/logs-ingestion-endpoint.png" :::
-
-The endpoint has a different format depending on the cloud as shown in the following table.
-
 | Cloud | Endpoint | Port |
 |:---|:--|:--|
 | Azure Public Cloud | `<dce-name>-<suffix>.<cluster-region-name>-<suffix>.ingest.monitor.azure.com` | 443 |
 | Microsoft Azure operated by 21Vianet cloud | `<dce-name>-<suffix>.<cluster-region-name>-<suffix>.ingest.monitor.azure.cn` | 443 |
 | Azure Government cloud | `<dce-name>-<suffix>.<cluster-region-name>-<suffix>.ingest.monitor.azure.us` | 443 |
+
+Get the **Logs Ingestion** endpoint from the data collection endpoint (DCE) for the data collection rule (DCR) used by the cluster. This DCE is created when you enable high scale mode for the cluster and will start with the prefix `MSCI-ingest`.
+
+:::image type="content" source="media/container-insights-high-scale/logs-ingestion-endpoint.png" alt-text="Screenshot of logs ingestion endpoint for DCE." lightbox="media/container-insights-high-scale/logs-ingestion-endpoint.png" :::
 
 
 ## Limitations 
@@ -74,7 +72,8 @@ The following scenarios aren't supported during the preview release. These will 
 ## Enable high scale logs collection
 Follow the two steps in the following sections to enable high scale mode for your cluster.
 
-High log scale mode requires a [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md) for ingestion. An ingestion DCE is created with the prefix `MSCI-ingest` for each cluster when you onboard them. If Azure Monitor private link scope is configured, then there will also be configuration DCE created with the prefix `MSCI-config`. 
+> [!NOTE]
+> High log scale mode requires a [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md) for ingestion. An ingestion DCE is created with the prefix `MSCI-ingest` for each cluster when you onboard them. If Azure Monitor private link scope is configured, then there will also be configuration DCE created with the prefix `MSCI-config`. 
 
 ### Update configmap
 The first step is to update configmap for the cluster to instruct the container insights ama-logs deamonset pods to run in high scale mode. 
