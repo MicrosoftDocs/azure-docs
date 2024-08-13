@@ -22,7 +22,7 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 ### FHIR service
 
 #### Import operation error handling
-1. Import operation returns a HTTP 400 error when a search parameter resource is ingested via the import process. This change is intended to prevent search parameters from being placed in an invalid state when ingested with an import operation.
+1. The import operation returns a HTTP 400 error when a search parameter resource is ingested via the import process. This change is intended to prevent search parameters from being placed in an invalid state when ingested with an import operation.
 2. Import operation will return a HTTP 400 status code, as opposed to the previous HTTP 500 status code, in cases where configuration issues with the storage account occur. This update aims to improve error handling associated with managed identities during import operations. 
 
 ## July 2024
