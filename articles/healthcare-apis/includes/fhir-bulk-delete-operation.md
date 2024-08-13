@@ -7,7 +7,7 @@ ms.date: 04/01/2024
 ms.author: kesheth
 ---
 
-The bulk delete capability allows you to delete resources from FHIR service asynchronously. Bulk delete capability in FHIR service is supported with operations: `$bulk-delete` and `bulk-delete-soft-deleted`. `$bulk-delete` operation allows you to delete resources in the FHIR service, expect soft deleted resources. To delete soft deleted FHIR resources, you need to use `$bulk-delete-soft-deleted` operation.
+The bulk delete capability allows you to delete resources from FHIR service asynchronously. Bulk delete capability in FHIR service is supported with operations: `$bulk-delete` and `$bulk-delete-soft-deleted`. `$bulk-delete` operation allows you to delete resources in the FHIR service, except soft deleted resources. To delete soft deleted FHIR resources, you need to use `$bulk-delete-soft-deleted` operation.
 
 FHIR service requires specific headers and roles enabled to use bulk delete capability
 
@@ -20,9 +20,10 @@ To perform bulk delete capability header parameters needed are:
 
 ## Role requirements
 
-- To perform the bulk delete capability, a user or application needs to be assigned to the `FHIR Data Writer` role.
-
-- To perform the bulk delete capability with a hard delete query parameter, a user or application needs to be assigned to the `FHIR Data Contributor` role.
+- A user or application needs to be assigned to the `FHIR Data Writer` role, to perform the bulk delete capability.
+- a user or application needs to be assigned to the `FHIR Data Contributor` role, to perform
+-- bulk delete capability with a hard delete query parameter.
+-- bulk delete on soft deleted resources.
   
 ## Bulk delete operation details
 ### `$bulk-delete` operation
@@ -51,21 +52,13 @@ Query parameters allow you to filter the raw resources you plan to delete. To su
 |Query parameter        | Default Value   |  Description|
 |------------------------|---|------------|
 |_hardDelete|False|Allows you to hard delete a resource. If you don't pass this parameter or set hardDelete to false, the historic versions of the resource are still available.|
-|_purgeHistory|False|Allows you to delete history versions associated with resource.|
+|_purgeHistory|False|Allows you to delete history versions associated with resource. It will not delete current version of the resource and soft deleted resources.|
 |FHIR service supported search parameters||Allows you to specify search criteria and resources matching the search criteria are deleted. For example: `address:contains=Meadow subject:Patient.birthdate=1987-02-20`|
 
 All the query parameters are optional.
 
 ### `$bulk-delete-soft-deleted` operation
 To delete soft deleted resources within a FHIR service -$bulk-delete-soft-deleted operation can be used. This operation can be executed at the system level or for individual resource types. 
-
-#### Query parameters
-
-To support filtering, the query parameters are: 
-
-|Query parameter        | Default Value   |  Description|
-|------------------------|---|------------|
-|_lastUpdated||Allows you to execute only `_lastUpdated` search parameter.|
 
 ## Bulk delete operation response 
 
@@ -87,7 +80,7 @@ Sample request and response for determining the status
 request: 
 
   ```
-  {{fhir_url}}/<bulk delete operation name>/<id>
+  {{fhir_url}}/_operations/bulk-delete/<job id>
   ```
 Here's a sample response for a successfully completed delete job:
  
