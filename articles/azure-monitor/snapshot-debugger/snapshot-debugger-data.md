@@ -25,7 +25,9 @@ After an exception has occurred in your application and a snapshot has been crea
 
 :::image type="content" source="./media/snapshot-debugger/failures-page.png" alt-text="Screenshot showing the Failures Page in Azure portal.":::
 
-Select an operation or exception in the right pane to open the **End-to-End Transaction Details** pane, then select the exception event. If a snapshot is available for the given exception, an **Open Debug Snapshot** button appears on the right pane with details for the [exception](../app/asp-net-exceptions.md).
+Select an operation or exception in the right pane to open the **End-to-End Transaction Details** pane, then select the exception event. 
+- If a snapshot is available for the given exception, select the **Open debug snapshot** button appears on the right pane with details for the [exception](../app/asp-net-exceptions.md). 
+- [If you do not see this button, no snapshot may be available. See the troubleshooting guide.](./snapshot-debugger-troubleshoot.md#use-the-snapshot-health-check)
 
 :::image type="content" source="./media/snapshot-debugger/e2e-transaction-page.png" alt-text="Screenshot showing the Open Debug Snapshot button on exception.":::
 
