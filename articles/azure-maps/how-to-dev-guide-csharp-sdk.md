@@ -152,7 +152,6 @@ Console.WriteLine($"The Coordinate: ({searchResult.Value.Features[0].Geometry.Co
 
 ## Batch reverse geocode a set of coordinates
 
-Azure Maps Search also provides some batch query methods. These methods return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically. 
 Azure Maps Search also provides some batch query APIs. The Reverse Geocoding Batch API sends batches of queries to [Reverse Geocoding API](/rest/api/maps/search/get-reverse-geocoding) using just a single API call. The API allows caller to batch up to **100** queries.
 
 ```csharp
