@@ -47,6 +47,13 @@ The following tables show support of individual APIs in calling SDK to individua
 
 [1] In Teams meeting scenarios, these APIs are only available for users with role organizer, co-organizer, or presenter.
 
+### SDKs
+The following tables show support of breakout rooms feature in individual Azure Communication Services SDKs.
+
+|  Platforms     | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+|---------------|-----|--------|--------|--------|----------|--------|---------|
+|Is Supported | ✔️  |  ✔️      |  ✔️      |        |  ✔️        |        |  ✔️       |
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
 ::: zone-end
