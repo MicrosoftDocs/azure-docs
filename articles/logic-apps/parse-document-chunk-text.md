@@ -70,7 +70,7 @@ If you use other content sources, such as Azure Blob Storage, SharePoint, OneDri
 
       In this example, the **Parse a document** action references the **Body** output from the **HTTP** action.
 
-      :::image type="content" source="media/parse-document-chunk-text/select-http-body.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, Request trigger, HTTP action, and action named Parse a document with opened dynamic content list and selected Body output from HTTP action." lightbox="media/parse-document-chunk-text/select-http-body.png":::
+      :::image type="content" source="media/parse-document-chunk-text/select-http-body.png" alt-text="Screenshot shows Standard workflow designer, and action named Parse a document with open dynamic content list. and selected Body output from HTTP action." lightbox="media/parse-document-chunk-text/select-http-body.png":::
 
       The **Body** output now appears in the **Document Content** box:
 
@@ -129,7 +129,7 @@ The **Chunk text** action splits content into smaller pieces for subsequent acti
 
       In this example, the **Chunk text** action references the **Parsed result text** output from the **Parse a document** action.
 
-      :::image type="content" source="media/parse-document-chunk-text/select-parsed-result-text.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, Request trigger, HTTP action, action named Parse a document, and action named Chunk text with opened dynamic content list and selected output from Parse a document action." lightbox="media/parse-document-chunk-text/select-parsed-result-text.png":::
+      :::image type="content" source="media/parse-document-chunk-text/select-parsed-result-text.png" alt-text="Screenshot shows Standard workflow designer, action named Chunk text with open dynamic content list, and selected output from Parse a document action." lightbox="media/parse-document-chunk-text/select-parsed-result-text.png":::
 
       The **Parsed result action** output now appears in the **Text** box:
 
