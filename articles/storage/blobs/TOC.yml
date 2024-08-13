@@ -1354,8 +1354,6 @@ items:
       href: data-lake-storage-introduction-abfs-uri.md
     - name: About hierarchical namespaces
       href: data-lake-storage-namespace.md
-  - name: Compatibility
-    items:
     - name: Multi-protocol access
       href: data-lake-storage-multi-protocol-access.md
     - name: Supported Blob storage features
@@ -1372,7 +1370,7 @@ items:
       href: premium-tier-for-data-lake-storage.md
     - name: Best practices
       href: data-lake-storage-best-practices.md
-  - name: Security
+  - name: Authorization
     items:
     - name: Access control model
       href: data-lake-storage-access-control-model.md
@@ -1396,7 +1394,13 @@ items:
         href: data-lake-storage-acl-python.md
       - name: JavaScript
         href: data-lake-storage-acl-javascript.md
-  - name: Data transfer and migration
+  - name: Migration
+    items:
+    - name: Migrate an HDFS store offline
+      href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+    - name: Migrate an HDFS store online
+      href: migrate-gen2-wandisco-live-data-platform.md
+  - name: Data transfer
     items:
     - name: Compare data transfer solutions
       href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -1437,13 +1441,7 @@ items:
       href: ../../data-factory/connector-azure-data-lake-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Transfer data with the DistCp tool
       href: data-lake-storage-use-distcp.md
-    - name: Migrate HDFS stores
-      items:
-      - name: Migrate an HDFS store offline
-        href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
-      - name: Migrate an HDFS store online
-        href: migrate-gen2-wandisco-live-data-platform.md
-  - name: File and directory operations
+  - name: Directory & file operations
     items:
     - name: Storage Explorer
       href: data-lake-storage-explorer.md
@@ -1481,6 +1479,24 @@ items:
       href: data-lake-storage-integrate-with-services-tutorials.md    
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
+  - name: Monitoring metrics and logs
+    items:
+    - name: Monitor Blob storage
+      href: monitor-blob-storage.md
+    - name: Monitoring scenarios and best practices
+      href: blob-storage-monitoring-scenarios.md
+    - name: Use Storage insights
+      href: ../common/storage-insights-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Transition from classic metrics
+      href: ../common/storage-metrics-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Monitoring (classic)
+      items:
+      - name: Storage Analytics
+        href: ../common/storage-analytics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Logs
+        href: ../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Enable and manage logs
+        href: ../common/manage-storage-analytics-logs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Reference
     items:
     - name: .NET
