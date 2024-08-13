@@ -1,18 +1,22 @@
 ---
 title: Custom neural document model - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Use the custom neural document model to train a model to extract data from structured, semistructured, and unstructured documents.
+description: Use the custom neural document model to train a model to extract data from structured, semi-structured, and unstructured documents.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 08/07/2024
+ms.date: 08/13/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
 monikerRange: '>=doc-intel-3.0.0'
 ---
 
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD051 -->
+<!-- markdownlint-disable MD024 -->
 
 # Document Intelligence custom neural model
 
@@ -212,13 +216,13 @@ Custom neural models are available in the [v3.0 and later models](v3-1-migration
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom document | [Document Intelligence 3.1](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom document | [Document Intelligence 3.1](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
 
 The `Build` operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 
 :::moniker range="doc-intel-4.0.0"
 
-```REST
+```bash
 https://{endpoint}/documentintelligence/documentModels:build?api-version=2024-07-31-preview
 
 {
@@ -237,7 +241,7 @@ https://{endpoint}/documentintelligence/documentModels:build?api-version=2024-07
 
 :::moniker range="doc-intel-3.1.0"
 
-```REST
+```bash
 https://{endpoint}/formrecognizer/documentModels:build?api-version=v3.1:2023-07-31
 
 {
@@ -256,7 +260,7 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=v3.1:2023-07-
 
 :::moniker range="doc-intel-3.0.0"
 
-```REST
+```bash
 https://{endpoint}/formrecognizer/documentModels/{modelId}:copyTo?api-version=2022-08-31
 
 {
@@ -276,10 +280,10 @@ https://{endpoint}/formrecognizer/documentModels/{modelId}:copyTo?api-version=20
 :::moniker range="doc-intel-4.0.0"
 
 ## Billing
- 
-Starting with version `2024-07-31-preview`, you can train your custom neural model for longer durations than the standard 30 minutes. Previous versions have been capped at 30 minutes per training instance, with a total of 20 free training instances per month. Now with `2024-07-31-preview`, you can receive **10 hours** of **free model training**, and train a model for as long as 10 hours.
 
-You can choose to spend all of 10 free hours on a single model build with a large set of data, or utilize it across multiple builds by adjusting the maximum duration value for the `build` operation by specifying `maxTrainingHours` as below:
+Starting with version `2024-07-31-preview`, you can train your custom neural model for longer durations than the standard 30 minutes. Previous versions are limited to 30 minutes per training instance, with a total of 20 free training instances per month. Now with `2024-07-31-preview`, you can receive **10 hours** of **free model training**, and train a model for as long as 10 hours.
+
+You can choose to spend all of 10 free hours on a single model build with a large set of data, or utilize it across multiple builds by adjusting the maximum duration value for the `build` operation by specifying `maxTrainingHours`:
 
 ```bash
 
@@ -289,9 +293,11 @@ POST /documentModels:build
   "maxTrainingHours": 10
 }
 ```
+
 > [!IMPORTANT]
-> * If you would like to train additional neural models or train models for a longer time period that **exceed 10 hours**, billing charges apply. For details on the billing charges, refer to the [pricing page](https://azure.microsoft.com/en-us/pricing/details/ai-document-intelligence/).
-> * You can opt in for this paid training service by setting the `maxTrainingHours` in the API above to be the desired maximum number of hours. Note that API calls with no budget but with the `maxTrainingHours` set as over 10 hours will fail. 
+>
+> * If you would like to train additional neural models or train models for a longer time period that **exceed 10 hours**, billing charges apply. For details on the billing charges, refer to the [pricing page](https://azure.microsoft.com/pricing/details/ai-document-intelligence/).
+> * You can opt in for this paid training service by setting the `maxTrainingHours` to the desired maximum number of hours. API calls with no budget but with the `maxTrainingHours` set as over 10 hours will fail.
 > * As each build takes different amount of time depending on the type and size of the training dataset, billing is calculated for the actual time spent training the neural model, with a minimum of 30 minutes per training job.
 > * This paid billing structure enables you to train larger data sets for longer durations with flexibility in the training hours.
 
@@ -307,7 +313,7 @@ GET /documentModels/{myCustomModel}
 ```
 
 > [!NOTE]
-> For Document Intelligence versions `v3.1 (2023-07-31)` and `v3.0 (2022-08-31)`, custom neural model's paid training is not enabled. For the two older versions, you will get a maximum of 30 minutes training duration per model. If you would like to train more than 20 model instances, you can create an [Azure support ticket](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/service-limits?view=doc-intel-4.0.0#create-and-submit-support-request) to increase in the training limit.
+> For Document Intelligence versions `v3.1 (2023-07-31)` and `v3.0 (2022-08-31)`, custom neural model's paid training is not enabled. For the two older versions, you will get a maximum of 30 minutes training duration per model. If you would like to train more than 20 model instances, you can create an [Azure support ticket](service-limits.md#create-and-submit-support-request) to increase in the training limit.
 
 :::moniker-end
 
@@ -315,9 +321,9 @@ GET /documentModels/{myCustomModel}
 
 ## Billing
 
-For Document Intelligence versions `v3.1 (2023-07-31) and v3.0 (2022-08-31)`, you will get a maximum of 30 minutes training duration per model, and a maximum of 20 trainings for free per month. If you would like to train more than 20 model instances, you can create an [Azure support ticket](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/service-limits?view=doc-intel-4.0.0#create-and-submit-support-request) to increase in the training limit. For the Azure support ticket, enter in the `summary` section a phrase such as "Increase Document Intelligence custom neural training (TPS) limit". Note that this ticket can only apply at a resource-level, not a subscription level. You can request for the training limit increase for a single Document Intelligence resource at a time by specifying in the suppor ticket your resource ID and region.
- 
-If you are interested in training models for longer durations than 30 minutes, we support **paid training** for our newest version, `v4.0 (2024-07-31)`. Using the latest version, you can train your model for a longer duration to process larger documents. For more information about paid training, check our `v4.0` [documentation page](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept-custom-neural?view=doc-intel-4.0.0#billing). 
+For Document Intelligence versions `v3.1 (2023-07-31) and v3.0 (2022-08-31)`, you receive a maximum 30 minutes of training duration per model, and a maximum of 20 trainings for free per month. If you would like to train more than 20 model instances, you can create an [Azure support ticket](service-limits.md#create-and-submit-support-request) to increase in the training limit. For the Azure support ticket, enter in the `summary` section a phrase such as `Increase Document Intelligence custom neural training (TPS) limit`. A ticket can only apply at a resource-level, not a subscription level. You can request a training limit increase for a single Document Intelligence resource by specifying your resource ID and region in the support ticket.
+
+If you want to train models for longer durations than 30 minutes, we support **paid training** with our newest version, `v4.0 (2024-07-31-preview)`. Using the latest version, you can train your model for a longer duration to process larger documents. For more information about paid training, *see* [Billing v4.0](service-limits.md#billing?view=doc-intel-4.0&&preserve-view=true).
 
 :::moniker-end
 
@@ -325,9 +331,11 @@ If you are interested in training models for longer durations than 30 minutes, w
 
 ## Billing
 
-For Document Intelligence versions `v3.1 (2023-07-31) and v3.0 (2022-08-31)`, you will get a maximum of 30 minutes training duration per model, and a maximum of 20 trainings for free per month. If you would like to train more than 20 model instances, you can create an [Azure support ticket](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/service-limits?view=doc-intel-4.0.0#create-and-submit-support-request) to increase in the training limit. For the Azure support ticket, enter in the `summary` section a phrase such as "Increase Document Intelligence custom neural training (TPS) limit". Note that this ticket can only apply at a resource-level, not a subscription level. You can request for the training limit increase for a single Document Intelligence resource at a time by specifying in the suppor ticket your resource ID and region.
- 
-If you are interested in training models for longer durations than 30 minutes, we support **paid training** for our newest version, `v4.0 (2024-07-31)`. Using the latest version, you can train your model for a longer duration to process larger documents. For more information about paid training, check our `v4.0` [documentation page](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept-custom-neural?view=doc-intel-4.0.0#billing). 
+For Document Intelligence versions `v3.1 (2023-07-31) and v3.0 (2022-08-31)`, you receive a maximum 30 minutes of training duration per model, and a maximum of 20 trainings for free per month. If you would like to train more than 20 model instances, you can create an [Azure support ticket](service-limits.md#create-and-submit-support-request) to increase in the training limit. For the Azure support ticket, enter in the `summary` section a phrase such as `Increase Document Intelligence custom neural training (TPS) limit`. A ticket can only apply at a resource-level, not a subscription level. You can request a training limit increase for a single Document Intelligence resource by specifying your resource ID and region in the support ticket.
+
+If you want to train models for longer durations than 30 minutes, we support **paid training** with our newest version, `v4.0 (2024-07-31)`. Using the latest version, you can train your model for a longer duration to process larger documents. For more information about paid training, *see* [Billing v4.0](service-limits.md#billing?view=doc-intel-4.0&&preserve-view=true).
+
+:::moniker-end
 
 ## Next steps
 
