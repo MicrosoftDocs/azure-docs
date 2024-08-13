@@ -37,7 +37,7 @@ To view protected items, follow these steps to view your protected items:
 
    Azure Business Continuity Center allows you to change the default view using a scope picker. Select the **Change** corresponding to the **Currently showing: Protection details of Azure managed Active resources**.
 
-    :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/change-scope.png" alt-text="Screenshot shows the selection of change scope from scope picker." lightbox="./media/tutorial-view-protected-items-and-perform-actions/change-scope.png":::
+   :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/change-scope.png" alt-text="Screenshot shows the selection of change scope from scope picker." lightbox="./media/tutorial-view-protected-items-and-perform-actions/change-scope.png":::
 
 3.	On the **Change scope** blade, to change the scope for **Security posture** view from the scope picker, select the required options:
     - **Resource managed by:**
