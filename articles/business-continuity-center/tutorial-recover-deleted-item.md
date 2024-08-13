@@ -28,7 +28,7 @@ Before you start this tutorial:
 
 To initiate the recovery for Azure VMs, follow these steps:
 
-1. From **Business Continuity center**, go to **Protection inventory** > **Protected items**, and then select **Recover** from the menu at the top of the view.
+1. From **Business Continuity center**, go to **Protection inventory** > **Protected items**, and then select **Recover**.
 
     :::image type="content" source="./media/tutorial-recover-deleted-item/select-recover-from-menu.png" alt-text="Screenshot shows the recover selection on the menu." lightbox="./media/tutorial-recover-deleted-item/select-recover-from-menu.png":::
 
