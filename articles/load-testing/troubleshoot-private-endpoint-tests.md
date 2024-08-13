@@ -12,7 +12,7 @@ ms.date: 04/18/2024
 
 # Troubleshoot issues with running load tests against private endpoints. 
 
-This article addresses issues that might arise when you run load tests against private application endpoints using Azure Load Testing. Azure Load Testing service injects the Azure resources that are required to generate load in the virtual network that contains the application endpoint. In this process, you may run into some issues related to virtual network configuration and role-based access control (RBAC) permissions. 
+This article addresses issues that might arise when you run load tests against private application endpoints using Azure Load Testing. Azure Load Testing service injects the Azure resources that are required to generate load in the virtual network that contains the application endpoint. In this process, you might run into some issues related to virtual network configuration and role-based access control (RBAC) permissions. 
 
 Azure Load Testing service requires outbound connectivity from the virtual network to the following destinations. 
 
@@ -59,7 +59,7 @@ To test connectivity from your virtual network:
 
 You can also use any other approach to ensure connectivity from the subnet to *.azure.com, *.windows.net and *.azurecr.io. 
 
-While performing the connectivity tests, you may run into issues due to policy constraints, firewall restrictions etc. Follow the error messages to take any corrective action required and retry the connectivity tests. 
+While performing the connectivity tests, you may run into issues due to policy constraints or firewall restrictions. Follow the error messages to take any corrective action required and retry the connectivity tests. 
 
 ## Troubleshoot issues using the actionable error messages 
 
