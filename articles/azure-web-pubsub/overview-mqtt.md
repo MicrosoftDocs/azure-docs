@@ -8,7 +8,7 @@ ms.date: 07/15/2024
 ms.service: azure-web-pubsub
 ms.topic: overview
 ---
-# Overview: MQTT in Azure Web PubSub service
+# Overview: MQTT in Azure Web PubSub service (Preview)
 
 [MQTT](https://mqtt.org/) is a lightweight pub/sub messaging protocol designed for devices with constrained resources. Azure Web PubSub service now natively supports MQTT over WebSocket transport.
 
@@ -17,6 +17,9 @@ You can use MQTT protocols in Web PubSub service for the following scenarios:
 * Pub/Sub among MQTT clients and Web PubSub native clients.
 * Broadcast messages to MQTT clients.
 * Get notifications for MQTT client lifetime events.
+
+> [!NOTE]
+> MQTT support in Azure Web PubSub is in preview stage.
 
 ## Key Features
 
@@ -74,12 +77,12 @@ In general, a server to authenticate and authorize MQTT clients is required. The
 
 * Workflow 1: The MQTT client gets a [JWT(JSON Web Token)](https://jwt.io) from somewhere with its credential, usually from an auth server. Then the client includes the token in the WebSocket upgrading request to the Web PubSub service, and the Web PubSub service validates the token and auth the client. This workflow is enabled by default.
 
-![Diagram of MQTT Auth Workflow With JWT.](./media/howto-develop-mqtt-websocket-clients/mqtt-jwt-auth-workflow.png)
+![Diagram of MQTT Auth Workflow With JWT.](./media/howto-connect-mqtt-websocket-client/mqtt-jwt-auth-workflow.png)
 
 * Workflow 2: The MQTT client sends an MQTT CONNECT packet after it establishes a WebSocket connection with the service, then the service calls an API in the upstream server. The upstream server can auth the client according to the username and password fields in the MQTT connection request, and the TLS certificate from the client. This workflow needs explicit configuration.
 <!--Add link to tutorial and configuration-->
 
-![Diagram of MQTT Auth Workflow With Upstream Server.](./media/howto-develop-mqtt-websocket-clients/mqtt-upstream-auth-workflow.png)
+![Diagram of MQTT Auth Workflow With Upstream Server.](./media/howto-connect-mqtt-websocket-client/mqtt-upstream-auth-workflow.png)
 
 These two workflows can be used individually or in combination. If they're used in together, the auth result in the latter workflow would be honored by the service.
 
@@ -99,6 +102,11 @@ You can use REST API to do the following things:
 * Manage client permissions and subscriptions.
 
 [REST API specification for MQTT](./reference-rest-api-mqtt.md)
+
+## Event Listener Support
+
+> [!NOTE]
+> Sending MQTT client events to Event Hubs is not supported yet.
 
 ## Next step
 
