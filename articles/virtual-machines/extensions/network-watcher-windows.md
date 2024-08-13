@@ -279,7 +279,7 @@ Use [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) c
 
 ```azurepowershell-interactive
 # Uninstall Network Watcher Agent VM extension.
-Remove-AzureVMExtension -Name 'AzureNetworkWatcherExtension' -ResourceGroupName 'myResourceGroup' -VMName 'myVM'
+Remove-AzVMExtension -Name 'AzureNetworkWatcherExtension' -ResourceGroupName 'myResourceGroup' -VMName 'myVM'
 ```
 
 # [**Azure CLI**](#tab/cli)
