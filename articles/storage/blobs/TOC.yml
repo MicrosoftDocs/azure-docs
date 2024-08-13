@@ -1226,23 +1226,6 @@ items:
       href: data-lake-storage-integrate-with-services-tutorials.md    
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
-    items:
-    - name: Monitor Blob storage
-      href: monitor-blob-storage.md
-    - name: Monitoring scenarios and best practices
-      href: blob-storage-monitoring-scenarios.md
-    - name: Use Storage insights
-      href: ../common/storage-insights-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Transition from classic metrics
-      href: ../common/storage-metrics-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Monitoring (classic)
-      items:
-      - name: Storage Analytics
-        href: ../common/storage-analytics.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Logs
-        href: ../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Enable and manage logs
-        href: ../common/manage-storage-analytics-logs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
 - name: Reference
   items:
   - name: Blob Storage APIs
