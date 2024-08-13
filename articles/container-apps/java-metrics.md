@@ -113,7 +113,7 @@ Use the following steps to view metrics visualizations for your container app.
 
     :::image type="content" source="media/java-metrics/azure-container-apps-java-metrics-visualization.png" alt-text="Screenshot of Java metrics visualization." lightbox="media/java-metrics/azure-container-apps-java-metrics-visualization.png":::
 
-You can see Java metric names on Azure Monitor, but the data sets report as empty unless you use the `--enable-java-metrics` parameter to enable Java metrics.
+You can see Java metric names on Azure Monitor, but the data sets report is empty unless feature is enabled, see [Configuration](#Configuration).
 
 ## Next steps
 
