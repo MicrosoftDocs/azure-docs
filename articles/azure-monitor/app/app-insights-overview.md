@@ -11,6 +11,8 @@ Azure Monitor Application Insights, a feature of [Azure Monitor](..\overview.md)
 
 :::image type="content" source="media/app-insights-overview/app-insights-overview-screenshot.png" alt-text="A screenshot of the Azure Monitor Application Insights user interface displaying an application map." lightbox="media/app-insights-overview/app-insights-overview-screenshot.png":::
 
+---------------------------
+
 ## Experiences
 
 Application Insights provides many experiences to enhance the performance, reliability, and quality of your applications.
@@ -46,6 +48,8 @@ Application Insights provides many experiences to enhance the performance, relia
 * [Code optimizations](../insights/code-optimizations.md): Harness AI to create better and more efficient applications.
 * [Snapshot debugger](../snapshot-debugger/snapshot-debugger.md): Automatically collect debug snapshots when exceptions occur in .NET application
 
+---------------------------
+
 ## Logic model
 
 The logic model diagram visualizes components of Application Insights and how they interact.
@@ -56,6 +60,7 @@ The logic model diagram visualizes components of Application Insights and how th
 > Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](../ip-addresses.md).
 
 ---------------------------
+
 ## Supported languages
 
 This section outlines supported scenarios.
@@ -109,13 +114,11 @@ This section lists all supported platforms and frameworks.
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
 #### Export and data analysis
-* [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
-* [Power BI for workspace-based resources](../logs/log-powerbi.md)
+* [Integrate Log Analytics with Power BI](../logs/log-powerbi.md)
 
 ### Unsupported Software Development Kits (SDKs)
-Many community-supported Application Insights SDKs exist. Azure Monitor only provides support when you use the supported instrumentation options listed in this article.
 
-We're constantly assessing opportunities to expand our support for other languages. For the latest news, see [Azure updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights).
+Many community-supported Application Insights SDKs exist, but Microsoft only provides support for instrumentation options listed in this article.
 
 ---------------------------
 
@@ -243,9 +246,9 @@ Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/b
 
 For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 
-### Microsoft Questions and Answers (Q&A) forum
+### Microsoft Questions and Answers forum
 
-Post general questions to the [Microsoft Questions and Answers (Q&A) forum](/answers/topics/24223/azure-monitor.html).
+Post general questions to the [Microsoft Questions and Answers forum](/answers/topics/24223/azure-monitor.html).
 
 ### Stack Overflow
 
@@ -255,15 +258,12 @@ Post coding questions to [Stack Overflow](https://stackoverflow.com/questions/ta
 
 Leave product feedback for the engineering team in the [Feedback Community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
 
-### Troubleshooting
-
-- [OpenTelemetry Distro](opentelemetry-enable.md#troubleshooting)
-- [Application Map](app-map.md#troubleshooting-tips)
+---------------------------
 
 ## Next steps
 
 - [Data collection basics](opentelemetry-overview.md)
-- [Create a resource](create-workspace-resource.md)
+- [Workspace-based resources](create-workspace-resource.md)
 - [Automatic instrumentation overview](codeless-overview.md)
 - [Application dashboard](overview-dashboard.md)
 - [Application Map](app-map.md)

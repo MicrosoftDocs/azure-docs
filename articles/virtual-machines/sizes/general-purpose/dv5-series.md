@@ -19,8 +19,8 @@ ms.reviewer: mattmcinnes
 
 ## Feature support
 
-Premium Storage: Supported<br>
-Premium Storage caching: Supported<br>
+Premium Storage: Not Supported<br>
+Premium Storage caching: Not Supported<br>
 Live Migration: Supported<br>
 Memory Preserving Updates: Supported<br>
 VM Generation Support: Generation 1 and 2<br>
