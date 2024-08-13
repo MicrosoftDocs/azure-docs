@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Nexus Kubernetes pods stuck in ContainerCreating status
-description: Troubleshooting Nexus Kubernetes pods stuck in ContainerCreating status
+title: Troubleshooting Nexus Kubernetes Cluster pods stuck in ContainerCreating status
+description: Troubleshooting Nexus Kubernetes Cluster pods stuck in ContainerCreating status
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -8,13 +8,13 @@ ms.date: 08/12/2024
 ms.author: hbusipalle
 author: hem2
 ---
-# Troubleshooting Nexus Kubernetes pods stuck in ContainerCreating status
-This guide provides detailed steps for troubleshooting Nexus Kubernetes pods stuck in `ContainerCreating` status
+# Troubleshooting Nexus Kubernetes Cluster pods stuck in ContainerCreating status
+This guide provides detailed steps for troubleshooting Nexus Kubernetes Cluster pods stuck in `ContainerCreating` status
 
 ## Prerequisites
 
 * Command line access to the Nexus Kubernetes Cluster is required
-* Necessary permissions to make changes to the Nexus Kubernetes objects
+* Necessary permissions to make changes to the Nexus Kubernetes Cluster objects
    
 ## Symptoms
 
