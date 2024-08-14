@@ -4,7 +4,7 @@ description: Use multiple Virtual Machine sizes in a scale set using Instance Mi
 author: brittanyrowe 
 ms.author: brittanyrowe
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 06/26/2024
 ms.reviewer: jushiman
 ---
