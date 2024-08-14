@@ -309,6 +309,14 @@ The voice that speaks is determined in order of priority as follows:
 - If you only set `SpeechSynthesisLanguage`, the default voice for the specified locale speaks.
 - If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specify by using `SpeechSynthesisVoiceName` speaks.
 - If the voice element is set by using [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
+- 
+In summary, the order of priority can be described as:
+| `SpeechSynthesisVoiceName` | `SpeechSynthesisLanguage` | SSML | Outcome |
+|:----------------------------:|:----------------------------:|:--------:|---------------------------------------------------------|
+| ✗ | ✗ | ✗ | Default voice for `en-US` speaks |
+| ✗ | ✔ | ✗ | Default voice for specified locale speaks. |
+| ✔ | ✔ | ✗ | The voice that you specify by using `SpeechSynthesisVoiceName` speaks. |
+| ✔| ✔ | ✔ | The voice that you specify by using SSML speaks. |
 
 ## Use SSML to customize speech characteristics
 
