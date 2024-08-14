@@ -24,7 +24,7 @@ For example, in a retail solution, a partner system can submit product catalog i
 [ ![Diagram of a file upload process using Azure Functions.](./media/functions-scenarios/process-file-uploads.png) ](./media/functions-scenarios/process-file-uploads-expanded.png#lightbox)
 
 
-The following tutorials use an Event Grid trigger to process files in a blob container:
+The following tutorials use a Blob trigger (Event Grid based) to process files in a blob container:
 
 ::: zone pivot="programming-language-csharp" 
 
@@ -50,6 +50,7 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 }
 ```
 
++ [Event-based Blob storage triggered function that converts PDF documents to text at scale](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/E2E/BLOB-PDF)
 + [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger.md?tabs=dotnet)
 + [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=dotnet)
 + [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-csharp)
