@@ -51,7 +51,25 @@ landingContent:
      - linkListType: reference
        links:
           - text: Azure CLI
-            url: https://learn.microsoft.com/en-us/cli/azure/connectedvmware?view=azure-cli-latest
+            url: https://learn.microsoft.com/en-us/cli/azure/connectedvmware
+          - text: Azure PowerShell
+            url: https://learn.microsoft.com/en-us/powershell/module/az.connectedvmware
+          - text: Azure REST APIs
+            url: https://learn.microsoft.com/en-us/rest/api/azure-arc-vmware/operation-groups
+          - text: ARM Templates
+            url: https://learn.microsoft.com/en-us/azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-arm-template
+          - text: Bicep Templates
+            url: https://learn.microsoft.com/en-us/azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-bicep
+          - text: Terraform Templates
+            url: https://learn.microsoft.com/en-us/azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-terraform
+          - text: Python SDK
+            url: https://learn.microsoft.com/en-us/python/api/overview/azure/mgmt-connectedvmware-readme
+          - text: Java SDK
+            url: https://learn.microsoft.com/en-us/java/api/overview/azure/resourcemanager-connectedvmware-readme
+          - text: JavaScript SDK
+            url: https://learn.microsoft.com/en-us/javascript/api/overview/azure/arm-connectedvmware-readme
+          - text: .NET SDK
+            url: https://learn.microsoft.com/en-us/dotnet/api/overview/azure/resourcemanager.connectedvmwarevsphere-readme
   - title: Proof of concept
     linkLists:
      - linkListType: sample

@@ -57,12 +57,28 @@
     href: troubleshoot-guest-management-issues.md
 - name: Reference
   items:
-  - name: Azure CLI
-    items:
-    - name: Azure Arc-enabled VMware vSphere
-      href: /cli/azure/connectedvmware
-    - name: Azure Arc resource bridge
-      href: /cli/azure/arcappliance
+   - name: Azure CLI
+     href: /cli/azure/connectedvmware
+   - name: Azure PowerShell
+     href: /powershell/module/az.connectedvmware
+   - name: Azure REST APIs
+     href: /rest/api/azure-arc-vmware/operation-groups
+   - name: ARM Templates
+     href: /azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-arm-template
+   - name: Bicep Templates
+     href: /azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-bicep
+   - name: Terraform Templates
+     href: /azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-terraform
+   - name: Python SDK
+     href: /python/api/overview/azure/mgmt-connectedvmware-readme
+   - name: Java SDK
+     href: /java/api/overview/azure/resourcemanager-connectedvmware-readme
+   - name: JavaScript SDK
+     href: /javascript/api/overview/azure/arm-connectedvmware-readme
+   - name: .NET SDK
+     href: /dotnet/api/overview/azure/resourcemanager.connectedvmwarevsphere-readme
+   - name: Go SDK
+     href: /pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/connectedvmware/armconnectedvmware#section-documentation
 - name: Resources
   items:
    - name: Azure Arc Jumpstart
