@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/07/2024
+ms.date: 08/14/2024
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The following release notes identify critical open issues and resolved issues fo
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2407** release, which maps to software version **3.2.2642.2487**.
+This article applies to the **Azure Stack Edge 2407** release, which maps to software version **3.2.2754.1029**.
 
 > [!Warning] 
 > In this release, you must update the packet core version to AP5GC 2308 before you update to Azure Stack Edge 2407. For detailed steps, see [Azure Private 5G Core 2308 release notes](../private-5g-core/azure-private-5g-core-release-notes-2308.md).
@@ -28,61 +28,46 @@ This article applies to the **Azure Stack Edge 2407** release, which maps to sof
 
 ## Supported update paths
 
-To apply the 2403 update, your device must be running version 2303 or later.
+To apply the 2407 update, your device must be running version 2303 or later.
 
  - If you aren't running the minimum required version, you see this error: 
 
    *Update package can't be installed as its dependencies aren't met.* 
 
- - You can update to 2303 from 2207 or later, and then update to 2403.
+ - You can update to 2303 from 2207 or later, and then update to 2407.
 
 You can update to the latest version using the following update paths:
 
-| Current version of Azure Stack Edge software and Kubernetes     | Update to Azure Stack Edge software and Kubernetes  | Desired update to 2403  |
+| Current version of Azure Stack Edge software and Kubernetes     | Update to Azure Stack Edge software and Kubernetes  | Desired update to 2407  |
 | --------------------| -----------| -----------|
-|2207   |2303   |2403   |
-|2209   |2303   |2403   |
-|2210   |2303   |2403   |
-|2301   |2303   |2403   |
-|2303   |Directly to   |2403   |
+|2207   |2303   |2407   |
+|2209   |2303   |2407   |
+|2210   |2303   |2407   |
+|2301   |2303   |2407   |
+|2303   |Directly to   |2407   |
 
 ## What's new
 
-The 2403 release has the following new features and enhancements:
+The 2407 release has the following new features and enhancements:
 
-- Deprecated support for Azure Kubernetes service telemetry on Azure Stack Edge.
-- Zone-label support for two-node Kubernetes clusters. 
-- Hyper-V VM management, memory usage monitoring on Azure Stack Edge host.
+- Deprecated support for Ubuntu 18.04 LTS GPU extension. The GPU extension is no longer supported on Ubuntu 18.04 GPU VMs running on Azure Stack Edge devices. If you plan to utilize the Ubuntu version 18.04 LTS distro, see steps for manual GPU driver installation at [CUDA Toolkit 12.1 Update 1 Downloads](https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local).
 
-## Issues fixed in this release
+  You may need to download the CUDA signing key before the installation. 
+ 
+  For detailed steps to install the signing key, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#in-versions-lower-than-2205-linux-gpu-extension-installs-old-signing-keys-signature-andor-required-key-missing).
 
+<!--!## Issues fixed in this release
+==previous==
 | No. | Feature | Issue |
 | --- | --- | --- |
-|**1.**| Clustering | Two-node cold boot of the server causes high availability VM cluster resources to come up as offline. Changed ColdStartSetting to AlwaysStart. |
-|**2.**| Marketplace image support | Fixed bug allowing Windows Marketplace image on Azure Stack Edge A and TMA. |
-|**3.**| Network connectivity | Fixed VM NIC link flapping after Azure Stack Edge host power off/on, which can cause VM losing its DHCP IP. |
-|**4.**| Network connectivity |Due to proxy ARP configurations in some customer environments, **IP address in use** check returns false positive even though no endpoint in the network is using the IP. The fix skips the ARP-based VM **IP address in use** check if the IP address is allocated from an internal network managed by Azure Stack Edge. |
-|**5.**| Network connectivity | VM NIC change operation times out after 3 hours, which blocks other VM update operations. On Microsoft Kubernetes clusters, Persistent Volume (PV) dependent pods get stuck. The issue occurs when multiple NICs within a VM are being transferred from a VLAN virtual network to a non-VLAN virtual network. After the fix, the VM NIC change operation times out quickly and the VM update won't be blocked. |
-|**6.**| Kubernetes | Overall two-node Kubernetes resiliency improvements, like increasing memory for control plane for AKS workload cluster, increasing limits for etcd, multi-replica, and hard anti-affinity support for core DNS and Azure disk csi controller pods and improve VM failover times. |
-|**7.**| Compute Diagnostic and Update | Resiliency fixes |
-|**8.**| Security | STIG security fixes for Mariner Guest OS for Azure Kubernetes service on Azure Stack Edge. |
-|**9.**| VM operations | On an Azure Stack Edge cluster that deploys an AP5GC workload, after a host power cycle test, when the host returns a transient error about CPU group configuration, AzSHostAgent would crash. This caused a VM operations failure. The fix made *AzSHostAgent* resilient to a transient CPU group error. | 
-
-<!--!## Known issues in this release
-
-| No. | Feature | Issue | Workaround/comments |
-| --- | --- | --- | --- |
-|**1.**|AKS... |The AKS Kubernetes... |
-|**2.**|Wi-Fi... |Starting this release... |  |-->
+|**1.**| Clustering |-->
 
 ## Known issues in this release
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**| Azure Storage Explorer | The Blob storage endpoint certificate that's autogenerated by the Azure Stack Edge device might not work properly with Azure Storage Explorer. | Replace the Blob storage endpoint certificate. For detailed steps, see [Bring your own certificates](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates). |
-|**2.**| Network connectivity | On a two-node Azure Stack Edge Pro 2 cluster with a teamed virtual switch for Port 1 and Port 2, if a Port 1 or Port 2 link is down, it can take up to 5 seconds to resume network connectivity on the remaining active port. If a Kubernetes cluster uses this teamed virtual switch for management traffic, pod communication may be disrupted up to 5 seconds. |  |
-|**3.**| Virtual machine | After the host or Kubernetes node pool VM is shut down, there's a chance that kubelet in node pool VM fails to start due to a CPU static policy error. Node pool VM shows **Not ready** status, and pods won't be scheduled on this VM. | Enter a support session and ssh into the node pool VM, then follow steps in [Changing the CPU Manager Policy](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#changing-the-cpu-manager-policy) to remediate the kubelet service. |
- 
+|**1.**|VM creation | Image directory is still the old location causing VM creation failure on Azure Stack Edge 2403. |  |
+
 ## Known issues from previous releases
 
 The following table provides a summary of known issues carried over from the previous releases.
@@ -118,6 +103,9 @@ The following table provides a summary of known issues carried over from the pre
 |**27.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you must delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
 |**28.**|AKS Update |The AKS Kubernetes update might fail if one of the AKS VMs isn't running. This issue might be seen in the two-node cluster. |If the AKS update has failed, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Check the state of the Kubernetes VMs by running `Get-VM` cmdlet. If the VM is off, run the `Start-VM` cmdlet to restart the VM. Once the Kubernetes VM is running, reapply the update. |
 |**29.**|Wi-Fi |Wi-Fi functionality for Azure Stack Edge Mini R is deprecated. |  |
+|**1.**| Azure Storage Explorer | The Blob storage endpoint certificate that's autogenerated by the Azure Stack Edge device might not work properly with Azure Storage Explorer. | Replace the Blob storage endpoint certificate. For detailed steps, see [Bring your own certificates](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates). |
+|**2.**| Network connectivity | On a two-node Azure Stack Edge Pro 2 cluster with a teamed virtual switch for Port 1 and Port 2, if a Port 1 or Port 2 link is down, it can take up to 5 seconds to resume network connectivity on the remaining active port. If a Kubernetes cluster uses this teamed virtual switch for management traffic, pod communication may be disrupted up to 5 seconds. |  |
+|**3.**| Virtual machine | After the host or Kubernetes node pool VM is shut down, there's a chance that kubelet in node pool VM fails to start due to a CPU static policy error. Node pool VM shows **Not ready** status, and pods won't be scheduled on this VM. | Enter a support session and ssh into the node pool VM, then follow steps in [Changing the CPU Manager Policy](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#changing-the-cpu-manager-policy) to remediate the kubelet service. |
 
 ## Next steps
 
