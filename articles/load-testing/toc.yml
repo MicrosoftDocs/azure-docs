@@ -115,7 +115,7 @@ items:
     - name: Examples repository
       href: /samples/?expanded=azure&products=azure-load-testing
 
-- name: Troubleshoot & debug
+- name: Troubleshoot and debug
   items:
     - name: Troubleshoot issues in private endpoints tests
       href: troubleshoot-private-endpoint-tests.md
