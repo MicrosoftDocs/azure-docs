@@ -5,8 +5,8 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
-ms.topic: conceptual
-ms.date: 11/17/2023
+ms.topic: how-to
+ms.date: 08/14/2024
 ms.custom: devdivchpfy22, devx-track-dotnet, engagement
 ---
 
@@ -23,18 +23,18 @@ Depending on how you enabled the Snapshot Debugger, you can follow two primary u
 # [Site extension](#tab/site-ext)
 
 > [!IMPORTANT]
-> Older versions of Application Insights used a private site extension called *Application Insights extension for Azure App Service*. 
-> The current Application Insights experience is enabled by setting App Settings to light up a preinstalled site extension.
-> To avoid conflicts, which might cause your site to stop working, delete the private site extension first. See step 4 in the following procedure.
+> Older versions of Application Insights used a private site extension called *Application Insights extension for Azure App Service*. The current Application Insights experience is enabled by setting App Settings to light up a preinstalled site extension.
+>
+> To avoid conflicts, which might cause your site to stop working, delete the private site extension first. See **step 4** in the following procedure.
 
-If you enabled the Snapshot Debugger by using the site extension, you can upgrade by following these steps:
+If you enabled the Snapshot Debugger by using the site extension, you can upgrade by following these steps. This guide demonstrates upgrading Snapshot Debugger on an Azure App Service resource.
 
 1. Sign in to the Azure portal.
-1. Go to your resource that has Application Insights and Snapshot Debugger enabled. For example, for a web app, go to the Azure App Service resource.
+1. Go to the resource that has Application Insights and Snapshot Debugger enabled. For this example, that resource is an Azure App Service web app.
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/app-service-resource.png" alt-text="Screenshot that shows an individual App Service resource named DiagService01.":::
 
-1. Select the **Extensions** pane. Wait for the list of extensions to populate.
+1. In the left side menu, under **Development Tools**, select **Extensions**. Wait for the list of extensions to populate.
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png" alt-text="Screenshot that shows App Service Extensions showing the Application Insights extension for Azure App Service installed.":::
 
@@ -65,7 +65,7 @@ If you enabled the Snapshot Debugger by using the site extension, you can upgrad
 
 1. Select **Yes** to apply the changes and wait for the process to finish.
 
-The site is now upgraded and is ready to use.
+The site extension is now upgraded and ready to use.
 
 
 # [SDK/NuGet](#tab/sdk-nuget)
