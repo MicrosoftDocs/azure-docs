@@ -35,7 +35,7 @@ Workflow templates are currently available only for Standard logic apps and sing
 
 - To authenticate access for connections that support using a managed identity, you need to set up your logic app resource and the managed identity with the necessary permissions.
 
-  A managed identity provides the best option for keeping your data secure because you don't need to provide account or user credentials to sign in. Azure manages this identity and removes the burden on you to rotate credentials, secrets, access tokens, and so on. The managed identity option also reduces security risks because unauthorized users doesn't have access to individual sign-in details.
+  A managed identity provides the best option for keeping your data secure because you don't need to provide account or user credentials to sign in. Azure manages this identity and removes the burden on you to rotate credentials, secrets, access tokens, and so on. The managed identity option also reduces security risks because unauthorized users don't have access to individual sign-in details.
 
   Before you can use a managed identity for authentication, you need to set up your logic app resource and the managed identity with the necessary permissions. For more information, see the following documentation:
 
@@ -67,7 +67,7 @@ After the **Create a new workflow** pane appears, the **Connections** tab lists 
 
 1. To create each listed connection, in the **Connection** column, select **Connect**.
 
-1. For each connection type, follow the prompts to provide the neccesary connection information.
+1. For each connection type, follow the prompts to provide the necessary connection information.
 
    If a connection type supports using a managed identity to authenticate access, choose this option. 
 
