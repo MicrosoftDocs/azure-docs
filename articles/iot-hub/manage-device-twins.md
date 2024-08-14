@@ -133,7 +133,7 @@ az iot hub device-twin replace --device-id <DEVICE_ID> --hub-name <IOTHUB_NAME> 
 ```
 
 >[!TIP]
->If you're using Powershell, add a backslash '\' to escape any double quotes. For example: `--tags '{\"country\":\"US\"}'`
+>If you're using PowerShell, add a backslash `\` to escape any double quotes. For example: `--tags '{\"country\":\"US\"}'`.
 
 ---
 
@@ -204,4 +204,4 @@ az iot hub job create --job-id <JOB_NAME> --job-type scheduleUpdateTwin -n <IOTH
 ```
 
 >[!TIP]
->If you're using Powershell, add a backslash '\' to escape any double quotes. For example: `--tags '{\"country\":\"US\"}'`
+>If you're using PowerShell, add a backslash `\` to escape any double quotes. For example: `--tags '{\"country\":\"US\"}'`.
