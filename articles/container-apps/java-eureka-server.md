@@ -71,7 +71,7 @@ Execute the following commands to create your resource group, container apps env
     | `EUREKA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create a Eureka Server for Spring Java component.  |
     | `IMAGE` | The container image used in your container app. |
 
-1. Log in to Azure with the Azure CLI.
+1. Sign in to Azure with the Azure CLI.
 
     ```azurecli
     az login
@@ -217,6 +217,8 @@ Now that you have an existing environment and config server client container app
       --query properties.configuration.ingress.fqdn
     ```
 
+Copy the URL of your app to a text editor so you can use it in a coming step.
+
 ### [Azure portal](#tab/azure-portal)
 
 1. Go to your container app environment in the portal.
@@ -231,9 +233,11 @@ Now that you have an existing environment and config server client container app
 
 1. Select the **Configure** button.
 
+1. Return to your container app in the portal and copy the URL of your app to a text editor so you can use it in a coming step.
+
 ---
 
-After you get the URL of the container app. Copy the URL to a text editor so you can use it in a coming step.
+Return to the container app in the portal and copy the URL of your app to a text editor so you can use it in a coming step.
 
 Navigate to the `/allRegistrationStatus` route to view all applications registered with the Eureka Server for Spring.
 

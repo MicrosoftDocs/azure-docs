@@ -115,7 +115,7 @@ Use the following steps to create each of the resources necessary to create a co
   | **Region** | Select the region nearest you. |
   | **Container Apps environment** | Select the **Create new** link to create a new environment. |
 
-1. In the *Create Container Apps environment* screen, enter the following values.
+1. In the *Create Container Apps environment* window, enter the following values.
 
   | Property | Value |
   |---|---|
@@ -158,6 +158,7 @@ This environment is used to host both the Config Server for Spring java componen
 Now that you have a Container Apps environment, you can create your container app and bind it to a Config Server for Spring java component. When you bind your container app, configuration values automatically synchronize from the Config Server component to your application.
 
 ### [Azure CLI](#tab/azure-cli)
+
 1. Create the Config Server for Spring Java component.
 
     ```azurecli
@@ -261,6 +262,8 @@ Now that you have an existing environment and config server client container app
 1. Select the **Review** tab.
 
 1. Select the **Configure** button.
+
+1. Return to your container app in the portal and copy the URL of your app to a text editor so you can use it in a coming step.
 
 ---
 
