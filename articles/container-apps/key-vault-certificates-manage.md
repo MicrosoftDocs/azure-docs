@@ -15,7 +15,7 @@ You can set up Azure Key Vault to centrally manage your container app's TLS/SSL 
 
 ## Prerequisites
 
-An Azure Key Vault resource is required to store your certificate. See [Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md?tabs=azure-portal) or [Configure certificate auto-rotation in Key Vault](../key-vault/certificates/tutorial-rotate-certificates.md) to add a certificate to your vault.
+An Azure Key Vault resource is required to store your certificate. See [Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md?tabs=azure-portal) or [Configure certificate auto-rotation in Key Vault](../key-vault/certificates/tutorial-rotate-certificates.md) to create a Key Vault and add a certificate.
 
 ## Enable managed identity for Container Apps environment
 
@@ -42,7 +42,7 @@ Azure Container Apps uses an environment level managed identity to access your K
 
 1. Select **Save**.
 
-For more detail on RBAC vs. legacy access policies, see [Azure role-based access control (Azure RBAC) vs. access policies](/azure/key-vault/general/rbac-access-policy).
+For more detail on RBAC vs. legacy access policies, see [Azure role-based access control (Azure RBAC) vs. access policies](../azure/key-vault/general/rbac-access-policy.md).
 
 ## Import certificate from Key Vault
 
