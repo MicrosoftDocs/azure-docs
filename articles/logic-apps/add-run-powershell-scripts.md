@@ -353,7 +353,7 @@ host.json
 
 ## Compilation errors
 
-In this release, the web-based editor includes limited IntelliSense support, which is still under improvement. Any compilation errors are detected when you save your workflow, and the Azure Logic Apps runtime compiles your script. These errors appear in your logic app's error logs.
+In this release, the web-based editor includes limited IntelliSense support, which is still under improvement. Any compilation errors are detected when you save your workflow, and the Azure Logic Apps runtime compiles your script. These errors appear in your logic app's error logs through Application Insights.
 
 ## Runtime errors
 
@@ -374,7 +374,7 @@ If you incorrectly reference a public module in the **requirements.psd1** file o
 
 ### Execute PowerShell Code action fails: "Cannot bind argument to parameter 'Output' because it is null."
 
-This error happens when you try to push a null object to the workflow. Confirm whether the object that you're sending with **Push-WorkflowOutput** is null.
+This error happens when you try to push a null object to the workflow. Confirm whether the object that you're sending with **Push-WorkflowOutput** isn't null.
 
 ## Related content
 

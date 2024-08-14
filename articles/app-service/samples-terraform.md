@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 06/25/2024
 author: ericgre
 ms.author: ericg
-ms.service: app-service
+ms.service: azure-app-service
 ---
 # Terraform samples for Azure App Service
 
