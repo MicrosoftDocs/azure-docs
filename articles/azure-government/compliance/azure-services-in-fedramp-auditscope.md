@@ -81,7 +81,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; |
 | [Azure Cosmos DB](/azure/cosmos-db/) | &#x2705; | &#x2705; |
 | [Azure Container Apps](../../container-apps/index.yml) | &#x2705; | &#x2705; |
-| [Azure Database for MySQL](../../mysql/index.yml) | &#x2705; | &#x2705; |
+| [Azure Database for MySQL](/azure/mysql/) | &#x2705; | &#x2705; |
 | [Azure Database for PostgreSQL](../../postgresql/index.yml) | &#x2705; | &#x2705; |
 | [Azure Databricks](/azure/databricks/) **&ast;&ast;** | &#x2705; | &#x2705; |
 | [Azure Fluid Relay](../../azure-fluid-relay/index.yml) | &#x2705; | &#x2705; |
