@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 08/14/2023
+ms.date: 08/14/2024
 ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -94,6 +94,8 @@ Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The su
         --hosted-subnet $subnet_id \
         --public-ip-address RouteServerIP
     ``` 
+
+    [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
 
 ## Create BGP peering with an NVA 
 
