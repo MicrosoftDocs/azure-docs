@@ -79,7 +79,7 @@ A backup policy consists of the following configurations:
             ```
 
 * **Backup storage**: Specifies the location to upload backups. Storage can be either Azure blob store or file share.
-    1. **Azure blob store with managed identity**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires BlobServiceUri and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup. Replace `account-name` with your storage account name.
+    1. **Azure blob store with managed identity**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Cloud-based_ clusters can use this storage type. Description for this storage type requires BlobServiceUri and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup. Replace `account-name` with your storage account name.
 
         ```json
         {
@@ -88,12 +88,12 @@ A backup policy consists of the following configurations:
             "BlobServiceUri": "https://<account-name>.blob.core.windows.net",
             "ContainerName": "BackupContainer",
             "ManagedIdentityType": "VMSS",
-            "ManagedIdentityClientId": "<clien-ID of User-Assigned MI>" 
+            "ManagedIdentityClientId": "<Client-Id of User-Assigned MI>" 
         }
         ```
         
         > [NOTE]
-        > Use Optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource, else no need of this paramter.
+        > Use Optional parameter `ManagedIdentityClientId` with Client-Id of User-Assigned Managed Identity in case of multiple User-Assigned Managed Identities assigned to your resource or both SAMI & UAMI assigned and we need to use UAMI as the default, else no need of this paramter.
 
         follow steps for managed-identity assigment on azure resource:
 
@@ -104,7 +104,7 @@ A backup policy consists of the following configurations:
 
         [For more information on Managed Identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview)
     
-    2. **Azure blob store with ConnectionString**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
+    2. **Azure blob store with ConnectionString**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Cloud-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
 
         ```json
         {
@@ -117,7 +117,7 @@ A backup policy consists of the following configurations:
 
         > [!NOTE]
         > Backup restore Service does not work with v1 Azure storage
-        >
+        > ConnectionString is not recommended in production as direct accessing to resource without user authentication
 
     2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premises. Description for this storage type requires file share path where backups need to be uploaded. Access to the file share can be configured using one of the following options
         1. _Integrated Windows Authentication_, where the access to file share is provided to all computers belonging to the Service Fabric cluster. In this case, set following fields to configure _file-share_ based backup storage.

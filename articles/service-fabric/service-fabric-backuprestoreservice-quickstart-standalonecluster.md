@@ -303,4 +303,4 @@ To view backups in Service Fabric Explorer, navigate to a partition and select t
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
 [6]: ./media/service-fabric-backuprestoreservice/create-bp.png
-[7]: ./media/service-fabric-backuprestoreservice/creation-bp_FileShare.png
+[7]: ./media/service-fabric-backuprestoreservice/creation-bp-fileshare.png
