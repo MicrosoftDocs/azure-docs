@@ -107,7 +107,7 @@ The following table describes the available decorators and how to use them.
 | --------- | ---- | ----------- | ------- |
 | [allowed](#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
 | [description](#description) | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
-| [discriminator]() | object | | |
+| [discriminator](#property-name) | object | string | Use this decorator to make sure that the correct subclass is identified and handled. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
 | [maxLength](#length-constraints) | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
 | [maxValue](#integer-constraints) | int | int | The maximum value for the integer parameter. This value is inclusive. |
 | [metadata](#metadata) | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
@@ -126,18 +126,6 @@ param description string
 ```
 
 The available decorators are described in the following sections.
-
-### Secure parameters
-
-You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
-
-```bicep
-@secure()
-param demoPassword string
-
-@secure()
-param demoSecretObject object
-```
 
 ### Allowed values
 
@@ -223,6 +211,18 @@ param settings object
 ```
 
 When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+
+### Secure parameters
+
+You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
+
+```bicep
+@secure()
+param demoPassword string
+
+@secure()
+param demoSecretObject object
+```
 
 ## Use parameter
 
