@@ -30,18 +30,19 @@ Before you start this tutorial:
 
 ## View dashboard
 
-Follow these steps:
+To view the protection summary dashboard, follow these steps:
 
-1. In the Azure Business Continuity Center, select **Overview**. This opens an overview blade with a consolidated view of information  related to protection of your resources across solutions in a single location. 
+1. On **Business Continuity Center**, go to **Overview** to see a consolidated view of information  related to protection of your resources across solutions in a single location.
+
     :::image type="content" source="./media/tutorial-monitor-protection-summary/summary-page.png" alt-text="Screenshot showing the overview summary page." lightbox="./media/tutorial-monitor-protection-summary/summary-page.png":::
  
-2. To look for specific information, you can use various filters, such as subscriptions, resource groups, location, and resource type, and more.
+2. To look for specific information, use various filters, such as subscriptions, resource groups, location, and resource type, and more.
     :::image type="content" source="./media/tutorial-monitor-protection-summary/overview-filter.png" alt-text="Screenshot showing filtering options." lightbox="./media/tutorial-monitor-protection-summary/overview-filter.png":::
  
-3. Azure Business Continuity allows you to change the default view using a scope picker. Select the **Change** option beside the **Currently showing:** details displayed at the top.
+3. Azure Business Continuity allows you to change the default view using a scope picker. Select **Change** corresponding to **Currently showing: Azure managed Active resources**.
     :::image type="content" source="./media/tutorial-monitor-protection-summary/change-scope.png" alt-text="Screenshot showing change-scope option." lightbox="./media/tutorial-monitor-protection-summary/change-scope.png":::
  
-4.	To change the scope for Overview blade using the scope-picker, select the required options: 
+4.	On the **Change scope** blade, to change the scope for the **Overview** page using the scope-picker, select the following options as required, and then select **Update**.
     - **Resource managed by**: 
         - **Azure resource**: resources managed by Azure.
         - **Non-Azure resources**: resources not managed by Azure.
@@ -49,7 +50,7 @@ Follow these steps:
         - **Active resources**: resources currently active, i.e., not deleted.
         - **Deprovisioned resources**: resources that no longer exist, yet their backup and recovery points are retained.
 
-5. You can also execute core tasks like configuring protection and initiating recovery actions directly within this interface. 
+   You can also execute core tasks like configuring protection and initiating recovery actions directly within this interface. 
     :::image type="content" source="./media/tutorial-monitor-protection-summary/configure-protection.png" alt-text="Screenshot showing *configure-protection* option." lightbox="./media/tutorial-monitor-protection-summary/configure-protection.png":::
  
 The summary tiles are easy to use, interactive and can be accessed to seamlessly navigate to the corresponding views where you can explore comprehensive details regarding the specific resources.
