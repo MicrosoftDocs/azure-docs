@@ -62,9 +62,9 @@ This version contains support for the latest GA features like Whisper, DALL-E 3,
 
 We recommend first testing the upgrade to new API versions to confirm there's no impact to your application from the API update before making the change globally across your environment.
 
-If you're using the OpenAI Python client library or the REST API, you'll need to update your code directly to the latest preview API version.
+If you're using the OpenAI Python or JavaScript client libraries, or the REST API, you'll need to update your code directly to the latest preview API version.
 
-If you're using one of the Azure OpenAI SDKs for C#, Go, Java, or JavaScript you'll instead need to update to the latest version of the SDK. Each SDK release is hardcoded to work with specific versions of the Azure OpenAI API.
+If you're using one of the Azure OpenAI SDKs for C#, Go, or Java, you'll instead need to update to the latest version of the SDK. Each SDK release is hardcoded to work with specific versions of the Azure OpenAI API.
 
 ## Next steps
 
