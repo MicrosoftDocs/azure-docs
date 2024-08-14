@@ -17,6 +17,9 @@ ms.date: 11/02/2023
 
 The Open Model LLM tool enables the utilization of various Open Model and Foundational Models, such as [Falcon](https://ml.azure.com/models/tiiuae-falcon-7b/version/4/catalog/registry/azureml) and [Llama 2](https://ml.azure.com/models/Llama-2-7b-chat/version/14/catalog/registry/azureml-meta), for natural language processing in Azure Machine Learning prompt flow.
 
+> [!CAUTION]
+> **Deprecation notice:** The Open Model LLM tool has been deprecated in favor of the [LLM tool](llm-tool.md), which provide support for all the models supported by the [Azure AI model inference API](https://aka.ms/azureai/modelinference) and hence it provider greater flexibility.
+
 Here's how it looks in action on the Visual Studio Code prompt flow extension. In this example, the tool is being used to call a LlaMa-2 chat endpoint and asking "What is CI?".
 
 :::image type="content" source="./media/open-model-llm-tool/open-model-llm-on-vscode-prompt-flow.png" alt-text="Screenshot that shows the Open Model LLM tool on Visual Studio Code prompt flow extension." lightbox = "./media/open-model-llm-tool/open-model-llm-on-vscode-prompt-flow.png":::

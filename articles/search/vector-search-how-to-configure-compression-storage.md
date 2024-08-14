@@ -7,7 +7,7 @@ author: heidisteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 08/14/2024
 ---
 
 # Reduce vector size through quantization, narrow data types, and storage options
@@ -40,7 +40,7 @@ Quantization applies to vector fields receiving float-type vectors. In the examp
 
 Two types of quantization are supported:
 
-- Scalar quantization compresses floats into narrower data types. AI Search currently supports int8, which is 8 bits, reducing vector index size fourfold.
+- Scalar quantization compresses float values into narrower data types. AI Search currently supports int8, which is 8 bits, reducing vector index size fourfold.
 
 - Binary quantization converts floats into binary bits, which takes up 1 bit. This results in up to 28 times reduced vector index size.
 
@@ -228,7 +228,11 @@ An easy way to reduce vector size is to store embeddings in a smaller data forma
 
 The `stored` property is a boolean on a vector field definition that determines whether storage is allocated for retrievable vector field content. The `stored` property is true by default. If you don't need vector content in a query response, you can save up to 50 percent storage per field by setting `stored` to false.
 
-When evaluating whether to set this property, consider whether you need vectors in the response. Because vectors aren't human readable, they can be omitted in a query response that's rendered on a search page. Keep them, however, if you're using vectors in downstream process that consumes vector content.
+Considerations for setting `stored` to false:
+
+- Because vectors aren't human readable, you can omit them from results sent to LLMs in RAG scenarios, and from results that are rendered on a search page. Keep them, however, if you're using vectors in a downstream process that consumes vector content.
+
+- However, if your indexing strategy includes [partial document updates](search-howto-reindex.md#update-content), such as "merge" or "mergeOrUpload" on a document, be aware that setting `stored` to false will cause vectors in the non-stored field to be omitted during the merge. On each "merge" or "mergeOrUpload" operation, you must provide the vector fields in addition to other nonvector fields that you're updating, or the vector will be dropped. 
 
 Remember that the `stored` attribution is irreversible. It's set during index creation on vector fields when physical data structures are created. If you want retrievable vector content later, you must drop and rebuild the index, or create and load a new field that has the new attribution.
 
