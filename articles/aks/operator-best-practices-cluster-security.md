@@ -111,7 +111,7 @@ To see AppArmor in action, the following example creates a profile that prevents
 1. Create a file named *deny-write.profile*.
 1. Copy and paste the following content:
 
-    ```
+    ```bash
     #include <tunables/global>
     profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
       #include <abstractions/base>
@@ -151,11 +151,11 @@ AppArmor profiles are added using the `apparmor_parser` command.
         command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
     ```
 
-2. With the pod deployed, run the following command and verify the *hello-apparmor* pod shows a *Running* status:
+1. With the pod deployed, run the following command and verify the *hello-apparmor* pod shows a *Running* status:
 
-    ```
+    ```bash
     kubectl get pods
-
+    
     NAME             READY   STATUS    RESTARTS   AGE
     aks-ssh          1/1     Running   0          4m2s
     hello-apparmor   0/1     Running   0          50s

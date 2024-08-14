@@ -2,7 +2,14 @@
 title: Azure OpenAI assistant trigger for Azure Functions
 description: Learn how to use the Azure OpenAI assistant trigger to execute code based on custom chat bots and skills in Azure Functions.
 ms.topic: reference
-ms.custom: build-2024, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom: 
+  - build-2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilot
 ms.date: 05/24/2024
 zone_pivot_groups: programming-languages-set-functions
 ---

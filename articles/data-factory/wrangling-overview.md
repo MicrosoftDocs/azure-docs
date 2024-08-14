@@ -13,6 +13,8 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[Data wrangling](https://en.wikipedia.org/wiki/Data_wrangling) involves transforming and reformatting data from its original source to make it more suitable and useful for various downstream applications.
+
 Organizations need to have the ability to explore their critical business data for data preparation and wrangling in order to provide accurate analysis of complex data that continues to grow every day. Data preparation is required so that organizations can use the data in various business processes and reduce the time to value.
 
 Data Factory empowers you with code-free data preparation at cloud scale iteratively using Power Query. Data Factory integrates with [Power Query Online](/power-query/) and makes Power Query M functions available as a pipeline activity.

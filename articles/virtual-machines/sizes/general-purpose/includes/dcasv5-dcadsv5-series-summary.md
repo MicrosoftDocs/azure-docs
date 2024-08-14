@@ -1,6 +1,6 @@
 ---
-title: DCasv5 and DCadsv5-series summary include
-description: Include file containing a summary of the DCasv5 and DCadsv5-series size family.
+title: DCadsv5-series summary include
+description: Include file containing a summary of the DCadsv5-series size family.
 services: virtual-machines
 author: mattmcinnes
 ms.topic: include

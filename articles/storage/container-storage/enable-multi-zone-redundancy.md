@@ -1,20 +1,20 @@
 ---
-title: Enable multi-zone storage redundancy in Azure Container Storage Preview to improve stateful application availability
+title: Enable multi-zone redundancy in Azure Container Storage
 description: Enable storage redundancy across multiple availability zones in Azure Container Storage to improve stateful application availability. Use multi-zone storage pools and zone-redundant storage (ZRS) disks.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 07/25/2024
 ms.author: kendownie
 ---
 
-# Enable multi-zone storage redundancy in Azure Container Storage Preview
+# Enable multi-zone storage redundancy in Azure Container Storage
 
 You can improve stateful application availability by using multi-zone storage pools and zone-redundant storage (ZRS) disks when using [Azure Container Storage](container-storage-introduction.md) in a multi-zone Azure Kubernetes Service (AKS) cluster. To create an AKS cluster that uses availability zones, see [Use availability zones in Azure Kubernetes Service](../../aks/availability-zones.md).
 
 ## Prerequisites
 
-- This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
+- This article requires the latest version (2.35.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
 - You'll need an AKS cluster with a node pool of at least three virtual machines (VMs) for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 - This article assumes you've already [installed Azure Container Storage](container-storage-aks-quickstart.md) on your AKS cluster.
 - You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
@@ -43,7 +43,7 @@ Follow these steps to create a multi-zone storage pool that uses Azure Disks. Fo
 1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1beta1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: azuredisk
@@ -70,7 +70,7 @@ If your workload requires storage redundancy, you can leverage disks that use [z
 You can specify the disk `skuName` as either `StandardSSD_ZRS` or `Premium_ZRS` in your storage pool definition, as in the following example.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1beta1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: azuredisk

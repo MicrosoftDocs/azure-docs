@@ -219,7 +219,6 @@ The firewall log is generated only if you have enabled it for each application g
 |---------|---------|
 |instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.         |
 |clientIp     |   Originating IP for the request.      |
-|clientPort     |  Originating port for the request.       |
 |requestUri     | URL of the received request.       |
 |ruleSetType     | Rule set type. The available value is OWASP.        |
 |ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
@@ -247,7 +246,6 @@ The firewall log is generated only if you have enabled it for each application g
   "properties": {
       "instanceId": "ApplicationGatewayRole_IN_0",
       "clientIp": "52.161.109.147",
-      "clientPort": "0",
       "requestUri": "/",
       "ruleSetType": "OWASP",
       "ruleSetVersion": "3.0",

@@ -21,8 +21,6 @@ To complete this quick start, you need:
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- GitHub Enterprise with GitHub Advanced Security enabled for posture assessments of secrets, dependencies, Infrastructure-as-Code misconfigurations, and code quality analysis within GitHub repositories.
-
 ## Availability
 
 | Aspect | Details |
@@ -37,9 +35,9 @@ To complete this quick start, you need:
 > [!NOTE]
 > **Security Reader** role can be applied on the Resource Group/GitHub connector scope to avoid setting highly privileged permissions on a Subscription level for read access of DevOps security posture assessments.
 
-## Connect your GitHub account
+## Connect your GitHub environment
 
-To connect your GitHub account to Microsoft Defender for Cloud:
+To connect your GitHub environment to Microsoft Defender for Cloud:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -63,15 +61,18 @@ To connect your GitHub account to Microsoft Defender for Cloud:
 
 1. Select **Install**.
 
-1. Select the organizations to install the GitHub application. It's recommended to grant access to **all repositories** to ensure Defender for Cloud can secure your entire GitHub environment.
+1. Select the organizations to install the Defender for Cloud GitHub application. It's recommended to grant access to **all repositories** to ensure Defender for Cloud can secure your entire GitHub environment.
 
-    This step grants Defender for Cloud access to the selected organizations.
+    This step grants Defender for Cloud access to organizations that you wish to onboard. 
+   
+1. All organizations with the Defender for Cloud GitHub application installed will be onboarded to Defender for Cloud. To change the behavior going forward, select one of the following: 
 
-1. For Organizations, select one of the following:
-
-    - Select **all existing organizations** to autodiscover all repositories in GitHub organizations where the DevOps security GitHub application is installed.
-    - Select **all existing and future organizations** to autodiscover all repositories in GitHub organizations where the DevOps security GitHub application is installed and future organizations where the DevOps security GitHub application is installed.
-
+   - Select **all existing organizations** to automatically discover all repositories in GitHub organizations where the DevOps security GitHub application is installed.
+      
+   - Select **all existing and future organizations** to automatically discover all repositories in GitHub organizations where the DevOps security GitHub application is installed and future organizations where the DevOps security GitHub application is installed.
+     > [!NOTE] 
+     > Organizations can be removed from your connector after the connector creation is complete. See the [editing your DevOps connector](edit-devops-connector.md) page for more information.
+     
 1. Select **Next: Review and generate**.
 
 1. Select **Create**.

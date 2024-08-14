@@ -4,7 +4,7 @@ description: Configure DNS Forwarding for Azure Red Hat OpenShift 4
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/14/2024
 ---
 # Configure DNS forwarding on an Azure Red Hat OpenShift 4 Cluster

@@ -84,13 +84,7 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-    You can also enter `*` to search all types logged. Currently the following logs are available for queries:
-
-    | Log type | Description |
-    | ---- | ---- |
-    | log\_kafkaserver\_CL | Kafka broker server.log |
-    | log\_kafkacontroller\_CL | Kafka broker controller.log |
-    | metrics\_kafka\_CL | Kafka JMX metrics |
+    You can also enter `*` to search all types logged. For a list of logs that are available for queries, see [Kafka workload](../monitor-hdinsight-reference.md#kafka-workload).
 
     :::image type="content" source="./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png" alt-text="Apache kafka log analytics cpu usage." border="true":::
 

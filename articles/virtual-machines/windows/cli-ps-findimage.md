@@ -67,7 +67,7 @@ The Windows image alias names and their details are:
 ```output
 Alias                   Architecture    Offer                         Publisher               Sku                                 Urn                                                                              Version
 ----------------------- --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------   ---------
-Win2022Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                      latest
+Win2022AzureEdition     x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition       MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest        latest
 Win2022AzureEditionCore x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest   latest
 Win10                   x64             Windows                       MicrosoftVisualStudio   Windows-10-N-x64                    MicrosoftVisualStudio:Windows:Windows-10-N-x64:latest                            latest
 Win2019Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                      latest

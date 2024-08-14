@@ -42,7 +42,7 @@ You can use this HTTP connector to:
 - Copy the HTTP response as-is or parse it by using [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 > [!TIP]
-> To test an HTTP request for data retrieval before you configure the HTTP connector, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
+> To test an HTTP request for data retrieval before you configure the HTTP connector, learn about the API specification for header and body requirements. You can use tools like Visual Studio, PowerShell's Invoke-RestMethod, or a web browser to validate.
 
 ## Prerequisites
 

@@ -4,7 +4,7 @@ description: Learn about limitations and known issues with Azure Synapse Link fo
 author: jonburchel
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
-ms.date: 05/02/2024
+ms.date: 07/24/2024
 ms.service: synapse-analytics
 ms.subservice: synapse-link
 ms.topic: troubleshooting
@@ -61,18 +61,17 @@ The following sections list limitations for Azure Synapse Link for SQL.
 - System tables can't be replicated.
 - The security configuration from the source database will **NOT** be reflected in the target dedicated SQL pool.
 - Enabling Azure Synapse Link for SQL creates a new schema named `changefeed`. Don't use this schema, as it is reserved for system use.
-- Source tables with collations that are unsupported by dedicated SQL pools, such as UTF-8 and certain Japanese collations, can't be replicated. Here's the [supported collations in Synapse SQL Pool](../sql/reference-collation-types.md).
-    * Additionally,  Azure Synapse Link for SQL does not support some Thai language collations:
-        *    **Thai100CaseInsensitiveAccentInsensitiveKanaSensitive**
-        *    **Thai100CaseInsensitiveAccentSensitiveSupplementaryCharacters**
-        *    **Thai100CaseSensitiveAccentInsensitiveKanaSensitive**
-        *    **Thai100CaseSensitiveAccentInsensitiveKanaSensitiveWidthSensitiveSupplementaryCharacters**
-        *    **Thai100CaseSensitiveAccentSensitiveKanaSensitive**
-        *    **Thai100CaseSensitiveAccentSensitiveSupplementaryCharacters**
-        *    **ThaiCaseSensitiveAccentInsensitiveWidthSensitive**
-    * Currently, the collation **Latin1_General_BIN2** isn't supported as there's a known issue where the link can't be stopped nor underlying tables could be removed from replication.
+- Source tables with collations that are unsupported by dedicated SQL pools, such as UTF-8 and certain Japanese collations, can't be replicated. See [supported collations in Synapse SQL pools](../sql/reference-collation-types.md).
+    * Additionally, Azure Synapse Link for SQL does not support some Thai language collations:
+        *    `Thai100CaseInsensitiveAccentInsensitiveKanaSensitive`
+        *    `Thai100CaseInsensitiveAccentSensitiveSupplementaryCharacters`
+        *    `Thai100CaseSensitiveAccentInsensitiveKanaSensitive`
+        *    `Thai100CaseSensitiveAccentInsensitiveKanaSensitiveWidthSensitiveSupplementaryCharacters`
+        *    `Thai100CaseSensitiveAccentSensitiveKanaSensitive`
+        *    `Thai100CaseSensitiveAccentSensitiveSupplementaryCharacters`
+        *    `ThaiCaseSensitiveAccentInsensitiveWidthSensitive`
 - Single row updates (including off-page storage) of > 370 MB are not supported.
-- When Azure Synapse Link for SQL on Azure SQL Database or SQL Server 2022 is enabled, the aggressive log truncation feature of Accelerated Database Recovery (ADR) is automatically disabled. This is because Azure Synapse Link for SQL accesses the database transaction log. This behavior is similar to changed data capture (CDC). Active transactions continue to hold the transaction log truncation until the transaction commits and Azure Synapse Link for SQL catches up, or transaction aborts. This might result in the transaction log filling up more than usual and should be monitored so that the transaction log does not fill.
+- When Azure Synapse Link for SQL on Azure SQL Database or SQL Server 2022 is enabled, the aggressive log truncation feature of Accelerated Database Recovery (ADR) is automatically disabled. This is necessary because Azure Synapse Link for SQL accesses the database transaction log. This behavior is similar to changed data capture (CDC). Active transactions continue to hold the transaction log truncation until the transaction commits and Azure Synapse Link for SQL catches up, or transaction aborts. This might result in the transaction log filling up more than usual and should be monitored so that the transaction log does not fill.
 
 ### Azure SQL Database only
 - Azure Synapse Link for SQL isn't supported on Free, Basic, or Standard tier with fewer than 100 DTUs.

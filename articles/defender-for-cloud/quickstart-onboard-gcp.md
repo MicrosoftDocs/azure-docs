@@ -2,7 +2,7 @@
 title: Connect your GCP project
 description: Defend your GCP resources by using Microsoft Defender for Cloud. Protect your workloads and enhance your cloud security with our comprehensive solution.
 ms.topic: install-set-up-deploy
-ms.date: 07/01/2024
+ms.date: 07/17/2024
 ---
 
 # Connect your GCP project to Microsoft Defender for Cloud
@@ -45,7 +45,9 @@ To complete the procedures in this article, you need:
 
 - Access to a GCP project.
 
-- **Subscription owner** permission on the relevant Azure subscription, and **Owner** permission on the GCP organization or project.
+- Contributor level permission for the relevant Azure subscription.
+
+- An Entra ID account that has an Application Administrator or Cloud Application Administrator directory role for your tenant (or equivalent administrator rights to create app registrations).
 
 You can learn more about Defender for Cloud pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 

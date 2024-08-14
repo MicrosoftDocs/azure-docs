@@ -1,7 +1,7 @@
 ---
 title: "Synapse POC playbook: Data warehousing with dedicated SQL pool in Azure Synapse Analytics"
 description: "A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for dedicated SQL pool."
-author: SnehaGunda
+author: whhender
 ms.author: whhender
 ms.reviewer: whhender
 ms.service: synapse-analytics

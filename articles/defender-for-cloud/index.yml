@@ -90,10 +90,6 @@ landingContent:
   # Card
   - title: Defend multicloud resources
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Use Defender for Cloud to protect multicloud resources
-            url: multicloud.yml
       - linkListType: video
         links:
           - text: Protecting multicloud environments (AWS & GCP)

@@ -187,7 +187,7 @@ In this example, you install NGINX on the virtual machines only to verify Azure 
    :::image type="content" source="../media/application-gateway-web-application-firewall-portal/bash-shell.png" alt-text="Screenshot showing the Bash Cloud Shell.":::
 1. Ensure your bash session is set for your subscription:
    
-   `account set --subscription "<your subscription name>"`
+   `az account set --subscription "<your subscription name>"`
 
 2. Run the following command to install NGINX on the virtual machine: 
 

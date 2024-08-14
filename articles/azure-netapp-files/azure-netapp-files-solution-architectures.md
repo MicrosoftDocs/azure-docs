@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 06/17/2024
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files

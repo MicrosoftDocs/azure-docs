@@ -4,7 +4,7 @@ description: Learn the high-level deployment steps required for Azure Firewall M
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/21/2024
 ms.author: victorh
 ---

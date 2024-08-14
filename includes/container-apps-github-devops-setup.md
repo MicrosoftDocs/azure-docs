@@ -38,8 +38,7 @@ ms.author: cshoe
     az containerapp identity assign \
       --name my-container-app \
       --resource-group my-container-app-rg \
-      --system-assigned \
-      --output tsv
+      --system-assigned
     ```
 
     Note the principal ID of the managed identity in the command output.

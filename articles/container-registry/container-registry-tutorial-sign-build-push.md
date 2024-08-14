@@ -11,7 +11,7 @@ ms.date: 4/23/2023
 
 # Sign container images with Notation and Azure Key Vault using a self-signed certificate
 
-Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been modified. [Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by the [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store certificates with signing keys that can be used by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach signatures to container images and other artifacts as well as view those signatures.
+Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been modified. [Notation](https://github.com/notaryproject/notation) is an open source supply chain security tool developed by the [Notary Project community](https://notaryproject.dev/) and backed by Microsoft, which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store certificates with signing keys that can be used by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach signatures to container images and other artifacts as well as view those signatures.
 
 In this tutorial:
 
@@ -41,16 +41,16 @@ In this tutorial:
     cp ./notation /usr/local/bin
     ```
 
-2. Install the Notation Azure Key Vault plugin `azure-kv` v1.1.0 on a Linux amd64 environment.
+2. Install the Notation Azure Key Vault plugin `azure-kv` v1.2.0 on a Linux amd64 environment.
 
     > [!NOTE]
     > The URL and SHA256 checksum for the Notation Azure Key Vault plugin can be found on the plugin's [release page](https://github.com/Azure/notation-azure-kv/releases).
 
     ```bash
-    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.1.0/notation-azure-kv_1.1.0_linux_amd64.tar.gz --sha256sum 2fc959bf850275246b044203609202329d015005574fabbf3e6393345e49b884
+    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.2.0/notation-azure-kv_1.2.0_linux_amd64.tar.gz --sha256sum 06bb5198af31ce11b08c4557ae4c2cbfb09878dfa6b637b7407ebc2d57b87b34
     ```
 
-3. List the available plugins and confirm that the `azure-kv` plugin with version `1.1.0` is included in the list. 
+3. List the available plugins and confirm that the `azure-kv` plugin with version `1.2.0` is included in the list. 
 
     ```bash
     notation plugin ls
@@ -345,6 +345,14 @@ To verify the container image, add the root certificate that signs the leaf cert
 
 ## Next steps
 
-See [Use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters (Preview)](/azure/aks/image-integrity?tabs=azure-cli) and [Ratify on Azure](https://ratify.dev/docs/1.0/quickstarts/ratify-on-azure/) to get started into verifying and auditing signed images before deploying them on AKS. 
+Notation also provides CI/CD solutions on Azure Pipeline and GitHub Actions Workflow:
+
+- [Sign and verify a container image with Notation in Azure Pipeline](/azure/security/container-secure-supply-chain/articles/notation-ado-task-sign)
+- [Sign and verify a container image with Notation in GitHub Actions Workflow](https://github.com/marketplace/actions/notation-actions)
+
+To validate signed image deployment in AKS or Kubernetes:
+
+- [Use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters (Preview)](/azure/aks/image-integrity?tabs=azure-cli)
+- [Use Ratify to validate and audit image deployment in any Kubernetes cluster](https://ratify.dev/)
 
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

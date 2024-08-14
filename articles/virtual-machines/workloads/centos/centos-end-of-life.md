@@ -97,8 +97,6 @@ OpenLogic by Perforce Azure Marketplace offers:
 
 - [CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview)
 
-- [CentOS-based LVM](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-lvm?tab=Overview)
-
 These are the official / endorsed CentOS images in Azure, and don't have software billing information associated. They're candidates for an in-place conversion (after a backup and any necessary prerequisites and updates).
 
 **Other Azure Marketplace offers**

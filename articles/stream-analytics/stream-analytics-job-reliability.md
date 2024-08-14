@@ -18,7 +18,7 @@ Stream Analytics guarantees jobs in paired regions are updated in separate batch
 
 The article on **[availability and paired regions](../availability-zones/cross-region-replication-azure.md)** has the most up-to-date information on which regions are paired.
 
-It is recommended to deploy identical jobs to both paired regions. You should then [monitor these jobs](./stream-analytics-job-metrics.md#scenarios-to-monitor) to get notified when something unexpected happens. If one of these jobs ends up in a [Failed state](./job-states.md) after a Stream Analytics service update, you can contact customer support to help identify the root cause. You should also fail over any downstream consumers to the healthy job output.
+It is recommended to deploy identical jobs to both paired regions. You should then [monitor these jobs](monitor-azure-stream-analytics.md) to get notified when something unexpected happens. If one of these jobs ends up in a [Failed state](./job-states.md) after a Stream Analytics service update, you can contact customer support to help identify the root cause. You should also fail over any downstream consumers to the healthy job output.
 
 ## Next steps
 

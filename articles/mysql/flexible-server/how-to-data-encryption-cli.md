@@ -48,7 +48,7 @@ az login
 az account set --subscription \<subscription id\>
 ```
 
-- In Azure Key Vault, create a key vault and a key. The key vault must have the following properties to use as a customer-managed key:
+- In Azure Key Vault, create a key vault or managed HSM and a key. The key vault or managed HSM must have the following properties to use as a customer-managed key:
 
 [Soft delete](../../key-vault/general/soft-delete-overview.md):
 

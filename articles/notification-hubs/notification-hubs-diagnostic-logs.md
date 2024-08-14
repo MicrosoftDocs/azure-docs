@@ -21,19 +21,7 @@ All logs are stored in JavaScript Object Notation (JSON) format in the following
 - **AzureActivity**: Displays logs from operations and actions that are conducted against your namespace in the Azure portal or through Azure Resource Manager template deployments.
 - **AzureDiagnostics**: Displays logs from operations and actions that are conducted against your namespace by using the API, or through management clients on the language SDK.
 
-Diagnostic log JSON strings include the elements listed in the following table:
-
-| Name | Description |
-| ------- | ------- |
-| time | UTC timestamp of the log |
-| resourceId | Relative path to the Azure resource |
-| operationName | Name of the management operation |
-| category | Log category. Valid values: `OperationalLogs` |
-| callerIdentity | Identity of the caller who initiated the management operation |
-| resultType | Status of the management operation. Valid values: `Succeeded` or `Failed` |
-| resultDescription | Description of the management operation |
-| correlationId | Correlation ID of the management operation (if specified) |
-| callerIpAddress | The caller IP address. Empty for calls that originated from the Azure portal |
+For a list of elements that are included in diagnostic log strings, see [Azure Monitor Logs tables](monitor-notification-hubs-reference.md#azure-monitor-logs-tables).
 
 Here's an example of an operational log JSON string:
 

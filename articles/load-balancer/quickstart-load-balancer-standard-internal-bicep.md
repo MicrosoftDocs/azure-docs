@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
 ms.author: mbender
-ms.date: 05/01/2023
+ms.date: 07/22/2024
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep,engagement-fy23
 ---
 

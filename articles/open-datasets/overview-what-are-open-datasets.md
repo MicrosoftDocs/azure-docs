@@ -5,30 +5,31 @@ ms.service: open-datasets
 ms.topic: overview
 author: fbsolo-ms1
 ms.author: franksolomon
-ms.date: 05/06/2020
+ms.date: 07/29/2024
 ---
 
 # What are Azure Open Datasets and how can you use them?
 
-[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning and readily available to Azure Databricks and Machine Learning Studio (classic). You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are curated public datasets that you can add to scenario-specific features to machine learning solutions, for more accurate models. Open Datasets are available in the cloud, on Microsoft Azure. They're integrated into Azure Machine Learning and readily available to Azure Databricks and Machine Learning Studio (classic). You can also access the datasets through APIs and you can use them in other products, such as Power BI and Azure Data Factory.
 
-Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. You can also share your public datasets on Azure Open Datasets. 
+Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. You can also share your public datasets through Azure Open Datasets.
 
-![Azure Open Datasets components](./media/overview-what-are-open-datasets/open-datasets-components.png)
+:::image type="content" source="./media/overview-what-are-open-datasets/open-datasets-components.png" lightbox="./media/overview-what-are-open-datasets/open-datasets-components.png" alt-text="Diagram that shows the Azure Open Datasets service Building blocks.":::
 
 ## Curated, prepared datasets
-Curated open public datasets in Azure Open Datasets are optimized for consumption in machine learning workflows. 
 
-To see all the datasets available, go to the [Azure Open Datasets Catalog](https://azure.microsoft.com/services/open-datasets/catalog/).
+Curated open public datasets in Azure Open Datasets are optimized for consumption in machine learning workflows.
 
-Data scientists often spend the majority of their time cleaning and preparing data for advanced analytics. Open Datasets are copied to the Azure cloud and preprocessed to save you time. At regular intervals data is pulled from the sources, such as by an FTP connection to the National Oceanic and Atmospheric Administration (NOAA). Next, data is parsed into a structured format, and then enriched as appropriate with features such as ZIP Code or location of the nearest weather station.
+For more information about the available datasets, visit the [Azure Open Datasets Catalog](https://azure.microsoft.com/services/open-datasets/catalog/) resource.
 
-Datasets are cohosted with cloud compute in Azure making access and manipulation easier.  
+Data scientists often spend the majority of their time cleaning and preparing data for advanced analytics. To save you time, open Datasets are copied to the Azure cloud, and then preprocessed. At regular intervals, data is pulled from the sources - for example, by an FTP connection to the National Oceanic and Atmospheric Administration (NOAA). Next, the data is parsed into a structured format, and then enriched as needed, with features such as ZIP Code or the locations of the nearest weather stations.
 
-Following are examples of datasets available. 
+Datasets are cohosted with cloud compute in Azure, to make access and manipulation easier.  
+
+Here are examples of available datasets:
 
 ### Weather data
- 
+
 |Dataset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
 |[NOAA Integrated Surface Data (ISD)](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureDatabricks) | Worldwide hourly weather data from NOAA with the best spatial coverage in North America, Europe, Australia, and parts of Asia. Updated daily. |
@@ -38,12 +39,13 @@ Following are examples of datasets available.
 
 |Dataset         | Notebooks     | Description                                    |
 |----------------|---------------|------------------------------------------------|
-|[Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Worldwide public holiday data, covering 41 countries or regions from 1970 to 2099. Includes country/region and whether most people have paid time off. |
+|[Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Worldwide public holiday data, covering 41 nations or regions from 1970 to 2099. Includes country/region and whether most people have paid time off. |
 
-## Access to datasets  
-With an Azure account, you can access open datasets using code or through the Azure service interface. The data is colocated with Azure cloud compute resources for use in your machine learning solution.  
+## Access to datasets
 
-Open Datasets are available through the Azure Machine Learning UI and SDK. Open Datasets also provides Azure Notebooks and Azure Databricks notebooks you can use to connect data to Azure Machine Learning and Azure Databricks. Datasets can also be accessed through a Python SDK. 
+With an Azure account, you can access open datasets through code or through the Azure service interface. The data is colocated with Azure cloud compute resources for use in your machine learning solutions.  
+
+Open Datasets are available through the Azure Machine Learning UI and SDK. Open Datasets also provide Azure Notebooks and Azure Databricks notebooks that can connect data to Azure Machine Learning and Azure Databricks. Datasets can also be accessed through a Python SDK.
 
 However, you don't need an Azure account to access Open Datasets; you can access them from any Python environment with or without Spark.
 

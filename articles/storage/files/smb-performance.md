@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for premium 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/08/2024
+ms.date: 07/16/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -45,11 +45,22 @@ SMB Multichannel enables an SMB 3.x client to establish multiple network connect
 
 Beginning in July 2024, SMB Multichannel will be enabled by default for all newly created Azure storage accounts in the following regions:
 
+- Australia Central
+- Brazil Southeast
+- Canada East
+- France South
+- East Asia
+- Southeast Asia
 - Central India (Jio)
 - West India (Jio)
 - West India
+- Japan East
+- Japan West
 - Korea South
+- North Europe
+- West Europe
 - Norway West
+- UK South
 
 ### Benefits
 

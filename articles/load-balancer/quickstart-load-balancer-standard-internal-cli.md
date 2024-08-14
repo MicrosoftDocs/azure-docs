@@ -32,7 +32,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 ```azurecli-interactive
     az group create \
       --name CreateIntLBQS-rg \
-      --location westus3
+      --location westus2
 ```
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer.
@@ -46,7 +46,7 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 ```azurecli-interactive
   az network vnet create \
     --resource-group CreateIntLBQS-rg \
-    --location westus3 \
+    --location westus2 \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
     --subnet-name myBackendSubnet \
@@ -88,12 +88,14 @@ az network vnet subnet create \
 Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a host.
 
 ```azurecli-interactive
+az config set extension.use_dynamic_install=yes_without_prompt
+
 az network bastion create \
     --resource-group CreateIntLBQS-rg  \
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
-    --location westus3
+    --location westus2
 ```
 
 It can take a few minutes for the Azure Bastion host to deploy.
@@ -237,7 +239,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
     --resource-group CreateIntLBQS-rg \
     --name myVM$n \
     --nics myNicVM$n \
-    --image win2019datacenter \
+    --image win2022datacenter \
     --admin-username azureuser \
     --zone $n \
     --no-wait

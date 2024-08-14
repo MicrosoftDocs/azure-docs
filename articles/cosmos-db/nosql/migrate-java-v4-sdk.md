@@ -111,6 +111,79 @@ Azure Cosmos DB Java SDK 4.0 exposes `get` and `set` methods to access the insta
 
 This is different from Azure Cosmos DB Java SDK 3.x.x which exposes a fluent interface. For example, a `CosmosSyncContainer` instance has `container.id()` which is overloaded to get or set the `id` value.
 
+### Managing Dependency Conflicts
+
+Upgrading from Azure Cosmos DB Java SDK V2 to V4 can introduce dependency conflicts due to changes in the libraries used by the SDK. Resolving these conflicts requires careful management of the dependencies. 
+
+1. **Understand the New Dependencies**: The Azure Cosmos DB V4 SDK has its own set of dependencies that might be different from those in prior versions. Make sure you are aware of these dependencies:
+
+   - `azure-cosmos`
+   - `reactor-core`
+   - `reactor-netty`
+   - `netty-handler`
+   - `guava`
+   - `slf4j-api`
+   - `jackson-databind`
+   - `jackson-annotations`
+   - `jackson-core`
+   - `commons-lang3`
+   - `commons-collections4`
+   - `azure-core`
+   - `azure-core-http-netty`
+
+2. **Remove Conflicting Dependencies**: Start by removing the dependencies related to prior versions of the SDK from your `pom.xml` file. These include `azure-cosmosdb` and any transitive dependencies that the old SDK might have had.
+
+3. **Add V4 SDK Dependencies**: Add the V4 SDK and its dependencies to your `pom.xml`. Here's an example:
+
+   ```xml
+   <dependency>
+       <groupId>com.azure</groupId>
+       <artifactId>azure-cosmos</artifactId>
+       <version>4.x.x</version> <!-- Use the latest version available -->
+   </dependency>
+   ```
+
+4. **Check for Dependency Conflicts**: Use the Maven `dependency:tree` command to generate a dependency tree and identify any conflicts. Run:
+
+   ```shell
+   mvn dependency:tree
+   ```
+
+   Look for any conflicting versions of dependencies. These conflicts often occur with libraries like `reactor-core`, `netty-handler`, `guava`, and `jackson`.
+
+5. **Use Dependency Management**: If you encounter version conflicts, you might need to override problematic versions using the `<dependencyManagement>` section in your `pom.xml`. Here’s an example to enforce a specific version of `reactor-core`:
+
+   ```xml
+   <dependencyManagement>
+       <dependencies>
+           <dependency>
+               <groupId>io.projectreactor</groupId>
+               <artifactId>reactor-core</artifactId>
+               <version>3.x.x</version> <!-- Use a compatible version -->
+           </dependency>
+           <!-- Repeat for any other conflicting dependencies -->
+       </dependencies>
+   </dependencyManagement>
+   ```
+
+6. **Exclude Transitive Dependencies**: Sometimes, you may need to exclude transitive dependencies brought in by other dependencies. For instance, if another library brings in an older version of a dependency that conflicts, you can exclude it like this:
+
+   ```xml
+   <dependency>
+       <groupId>some.group</groupId>
+       <artifactId>some-artifact</artifactId>
+       <version>x.x.x</version>
+       <exclusions>
+           <exclusion>
+               <groupId>conflicting.group</groupId>
+               <artifactId>conflicting-artifact</artifactId>
+           </exclusion>
+       </exclusions>
+   </dependency>
+   ```
+
+7. **Rebuild and Test**: After making these changes, rebuild your project and thoroughly test it to ensure that the new dependencies work correctly and that no runtime conflicts occur.
+
 ## Code snippet comparisons
 
 ### Create resources

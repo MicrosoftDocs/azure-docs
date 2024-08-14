@@ -1,15 +1,15 @@
 ---
 title: Dplsv6 size series
 description: Information on and specifications of the Dplsv6-series sizes
-author: tomvcassidy
+author: archatC
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.custom:
   - build-2024
 ms.topic: conceptual
-ms.date: 05/09/2024
-ms.author: tomcassidy
-ms.reviewer: mattmcinnes
+ms.date: 07/22/2024
+ms.author: archat
+ms.reviewer: mattmcinnes, tomcassidy
 ---
 
 # Dplsv6 sizes series
@@ -42,7 +42,7 @@ ms.reviewer: mattmcinnes
 
 vCPUs (Qty.) and Memory for each size
 
-| Size Name | vCPUs (Qty.) | Memory (GB) |
+| Size Name | vCPUs (Qty.) | Memory (GiB) |
 | --- | --- | --- |
 | Standard_D2pls_v6 | 2 | 4 |
 | Standard_D4pls_v6 | 4 | 8 |
@@ -56,7 +56,6 @@ vCPUs (Qty.) and Memory for each size
 #### VM Basics resources
 - [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
-- [Introduction to Azure compute units (ACUs)](../../../virtual-machines/acu.md)
 
 ### [Local Storage](#tab/sizestoragelocal)
 

@@ -29,7 +29,7 @@ Learn how to [Enable Microsoft Defender for Containers](defender-for-containers-
 
 - Follow us on social media:
   [LinkedIn](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbFk5TXZuQld2NlpBRV9BQlJqMktYSm95WWhCZ3xBQ3Jtc0tsQU13MkNPWGNFZzVuem5zc05wcnp0VGxybHprVTkwS2todWw0b0VCWUl4a2ZKYVktNGM1TVFHTXpmajVLcjRKX0cwVFNJaDlzTld4MnhyenBuUGRCVmdoYzRZTjFmYXRTVlhpZGc4MHhoa3N6ZDhFMA&q=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-security%2F)
-  [Twitter](https://twitter.com/msftsecurity)
+  [X](https://x.com/msftsecurity)
 
 - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
 

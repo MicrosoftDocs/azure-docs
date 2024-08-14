@@ -2,7 +2,7 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/21/2023
+ms.date: 07/12/2024
 ms.author: jianleishen
 ---
 
@@ -71,8 +71,8 @@ ms.author: jianleishen
 |&nbsp;                | [Generic ODBC](../connector-odbc.md)   | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              ||
 |&nbsp;                | [Generic REST](../connector-rest.md)   | ✓/✓                                                          | ✓/✓                                                          |                                                              |                                                              |                                                              ||
 | **Microsoft Fabric**               | [Microsoft Fabric Lakehouse](../connector-microsoft-fabric-lakehouse.md) | ✓/✓                                                          |✓/✓                                                              |                                                            |                                                              |                                                              ||
-|&nbsp;                | [Microsoft Fabric Warehouse](../connector-microsoft-fabric-warehouse.md)   | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            |                                                              |✓ |    
-| **Services and apps** | [Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              ||
+|&nbsp;                | [Microsoft Fabric Warehouse](../connector-microsoft-fabric-warehouse.md)   | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            |                                                              |✓ |
+| **Services and apps** | [Amazon Marketplace Web Service (Deprecated)](../connector-amazon-marketplace-web-service.md) |                                                           |                                                              |                                                           |                                                              |                                                              |
 |&nbsp;                | [Appfigures (Preview)](../connector-appfigures.md) |                                                              | ✓/-                                                          |                                                              |                                                              |                                                              |                                     |
 |&nbsp;                | [Asana (Preview)](../connector-asana.md) |                                                          | ✓/−                                                              |                                                             |                                                              |                                                              ||
 |&nbsp;                | [Concur (Preview)](../connector-concur.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              ||
@@ -113,4 +113,4 @@ ms.author: jianleishen
 | &nbsp;                | [Zoho (Preview)](../connector-zoho.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              ||
 
 > [!NOTE]
-> Any connector marked as *Preview* means that you can try it out and give us feedback.  If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
+> Connectors marked *Preview* are available to try, but are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.

@@ -36,6 +36,8 @@ landingContent:
             url: vector-search.md
           - text: Open-source vector database
             url: vector-search-ai.md
+          - text: RAG 
+            url: rag.md
   - title: Develop applications
     linkLists:
       - linkListType: tutorial

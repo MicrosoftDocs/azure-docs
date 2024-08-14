@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 06/27/2023
+ms.date: 07/23/2024
 ms.custom: template-tutorial, devx-track-azurecli, engagement-fy23
 ROBOTS: NOINDEX
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
@@ -50,7 +50,7 @@ az login
 ``````
 ## Create cross-region load balancer
 
-In this section, you'll create a cross-region load balancer, public IP address, and load balancing rule.
+In this section, you create a cross-region load balancer, public IP address, and load balancing rule.
 
 ### Create a resource group
 
@@ -112,14 +112,14 @@ Create a load balancer rule with [az network cross-region-lb rule create](/cli/a
 
 ## Create backend pool
 
-In this section, you'll add two regional standard load balancers to the backend pool of the cross-region load balancer.
+In this section, you add two regional standard load balancers to the backend pool of the cross-region load balancer.
 
 > [!IMPORTANT]
 > To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using Azure CLI](quickstart-load-balancer-standard-public-cli.md)**.
 
 ### Add the regional frontends to load balancer
 
-In this section, you'll place the resource IDs of two regional load balancers frontends into variables.  You'll then use the variables to add the frontends to the backend address pool of the cross-region load balancer.
+In this section, you place the resource IDs of two regional load balancers frontends into variables, and then use the variables to add the frontends to the backend address pool of the cross-region load balancer.
 
 Retrieve the resource IDs with [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-show).
 
@@ -157,7 +157,7 @@ Use [az network cross-region-lb address-pool address add](/cli/azure/network/cro
 
 ## Test the load balancer
 
-In this section, you'll test the cross-region load balancer. You'll connect to the public IP address in a web browser.  You'll stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
+In this section, you test the cross-region load balancer. You connect to the public IP address in a web browser.  You stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
 
 1. To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 

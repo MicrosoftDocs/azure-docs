@@ -4,7 +4,7 @@ description: The Role element of a service configuration file specifies how many
 ms.topic: article
 ms.service: cloud-services
 ms.subservice: deployment-files
-ms.date: 02/21/2023
+ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimtckit
@@ -41,7 +41,7 @@ The following table describes the attributes for the `Role` element.
 | Attribute | Description |
 | --------- | ----------- |
 | name   | Required. Specifies the name of the role. The name must match the name provided for the role in the service definition file.|
-| vmName | Optional. Specifies the DNS name for a Virtual Machine. The name must be 10 characters or less.|
+| vmName | Optional. Specifies the Domain Name System (DNS) name for a Virtual Machine. The name must be 10 characters or less.|
 
 The following table describes the child elements of the `Role` element.
 

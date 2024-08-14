@@ -972,9 +972,7 @@
       "manager": {
         "articles/ai-studio/**/*.md": "nitinme",
         "articles/ai-services/**/*.md": "nitinme",
-        "articles/app-service/**/*.md": "mijacobs",
         "articles/app-service-mobile/**/*.md": "crdun",
-        "articles/app-spaces/**/*.md": "mijacobs",
         "articles/automanage/*md": "akashdubey",
         "articles/azure-arc/servers/**/*.md": "rayoflores",
         "articles/azure-functions/**/*.md": "mijacobs",
@@ -1195,6 +1193,8 @@
         "articles/ai-services/**/*.yml": "ce-skilling-ai-copilot",
         "articles/ai-studio/**/*.md": "ce-skilling-ai-copilot",
         "articles/ai-studio/**/*.yml": "ce-skilling-ai-copilot",
+        "articles/copilot/*.md": "ce-skilling-ai-copilot",
+        "articles/copilot/*.yml": "ce-skilling-ai-copilot",
         "articles/search/**/*.md": "ce-skilling-ai-copilot",
         "articles/search/**/*.yml": "ce-skilling-ai-copilot",
         "articles/machine-learning/*.md": "ce-skilling-ai-copilot",

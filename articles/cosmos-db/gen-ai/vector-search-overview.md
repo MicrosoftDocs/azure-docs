@@ -20,9 +20,11 @@ Using an integrated vector search feature in a fully featured database ([as oppo
 
 ## Related content
 - [What is a vector database?](../vector-database.md)
+- [Retrieval Augmented Generation (RAG)](rag.md)
 - [Vector database in Azure Cosmos DB NoSQL](../nosql/vector-search.md)
 - [Vector database in Azure Cosmos DB for MongoDB](../mongodb/vcore/vector-search.md)
 - LLM [tokens](tokens.md)
 - Vector [embeddings](vector-embeddings.md)
 - [Distance functions](distance-functions.md)
 - [kNN vs ANN vector search algorithms](knn-vs-ann.md)
+- [Multi-tenancy for Vector Search](../nosql/multi-tenancy-vector-search.md)

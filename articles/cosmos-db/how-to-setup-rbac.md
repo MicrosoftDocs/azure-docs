@@ -465,8 +465,7 @@ When using modes that enable role-based access in the Azure Portal Data Explorer
 Also note that changing the mode to one that uses account keys may trigger a request to fetch the primary key on behalf of the identity that is signed in.
 
 > [!NOTE]
-> Previously, role-based access was only supported in Cosmos Explorer using `https://cosmos.azure.com/?feature.enableAadDataPlane=true`. This is still supported and will override the value of the **Enable Entra ID RBAC** setting. Using this query parameter is equivalent to using the 'Automatic' mode mentioned above.
-
+> Previously, role-based access was only supported in Cosmos Explorer using `https://cosmos.azure.com/?feature.enableAadDataPlane=true`. This is still supported and will override the value of the **Enable Entra ID RBAC** setting. Using this query parameter is equivalent to using the 'True' mode mentioned above.
 ## Audit data requests
 
 [Diagnostic logs](monitor-resource-logs.md) get augmented with identity and authorization information for each data operation when using Azure Cosmos DB role-based access control. This augmentation lets you perform detailed auditing and retrieve the Microsoft Entra identity used for every data request sent to your Azure Cosmos DB account.

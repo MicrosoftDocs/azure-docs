@@ -1,5 +1,5 @@
 ---
-title: Azure features & resources that help you protect, detect, and respond
+title: Azure features & resources that help you protect, detect, and respond to ransomware attacks
 description: Azure features & resources that help you protect, detect, and respond
 author: msmbaldwin
 ms.service: security
@@ -9,7 +9,7 @@ ms.author: mbaldwin
 ms.date: 01/10/2022
 ---
 
-# Azure features & resources that help you protect, detect, and respond
+# Azure features & resources that help you protect, detect, and respond to ransomware attacks
 
 Microsoft has invested in Azure native security capabilities that organizations can leverage to defeat ransomware attack techniques found in both high-volume, everyday attacks, and sophisticated targeted attacks.
 
@@ -86,7 +86,7 @@ This alert is an example of a detected Petya ransomware alert:
 
 One important way that organizations can help protect against losses in a ransomware attack is to have a backup of business-critical information in case other defenses fail. Since ransomware attackers have invested heavily into neutralizing backup applications and operating system features like volume shadow copy, it is critical to have backups that are inaccessible to a malicious attacker. With a flexible business continuity and disaster recovery solution, industry-leading data protection and security tools, Azure cloud offers secure services to protect your data:
 
-- **Azure Backup**: Azure Backup service provides simple, secure, and cost-effective solution to back up your Azure VM.  Currently, Azure Backup supports backing up of all the disks (OS and Data disks) in a VM using backup solution for Azure Virtual machine.
+- **Azure Backup**: Azure Backup service provides simple, secure, and cost-effective solution to back up your Azure VM.  Currently, Azure Backup supports backing up of all the disks (OS and Data disks) in a VM using backup solution for Azure virtual machine.
 - **Azure Disaster Recovery**: With disaster recovery from on-prem to the cloud, or from one cloud to another, you can avoid downtime and keep your applications up and running. 
 - **Built-in Security and Management in Azure**: To be successful in the Cloud era, enterprises must have visibility/metrics and controls on every component to pinpoint issues efficiently, optimize and scale effectively, while having the assurance the security, compliance and policies are in place to ensure the velocity.
 

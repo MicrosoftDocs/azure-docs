@@ -271,6 +271,10 @@ If you encounter an error like "Access denied to list workspace secret", check w
 
 ### How do I use credential-less datastore in prompt flow?
 
+To use credential-less storage in Azure AI studio. You need basically do following things:
+- Change the data store auth type to None.
+- Grant project MSI and user blob/file data contributor permission on storage.
+
 #### Change auth type of datastore to None
 
 You can follow [Identity-based data authentication](../how-to-administrate-data-authentication.md#identity-based-data-authentication) this part to make your datastore credential-less. 

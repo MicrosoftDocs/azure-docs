@@ -7,12 +7,12 @@ ms.subservice: autoscale
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 10/13/2020
+ms.date: 07/24/2024
 ---
 
 # Configure scaling options with Azure Cloud Services (extended support) 
 
-Conditions can be configured to enable Cloud Services (extended support) deployments to scale in and out. These conditions can be based on CPU usage, disk load and network load. 
+Conditions can be configured to enable Cloud Services (extended support) deployments to scale in and out. These conditions can be based on CPU usage, disk load, and network load. 
 
 Consider the following information when configuring scaling of your Cloud Service deployments:
 - Scaling impacts core usage. Larger role instances consume more cores and you can only scale within the core limit of your subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
@@ -28,18 +28,18 @@ Consider the following information when configuring scaling of your Cloud Servic
 
 	:::image type="content" source="media/enable-scaling-1.png" alt-text="Image shows selecting the Remote Desktop option in the Azure portal":::
 
-4. A page will display a list of all the roles in which scaling can be configured. Select the role you want to configure. 
+4. A page displays a list of all the roles in which scaling can be configured. Select the role you want to configure. 
 5. Select the type of scale you want to configure
-	- **Manual scale** will set the absolute count of instances.
+	- **Manual scale** sets the absolute count of instances.
 		1. Select **Manual scale**.
 		2. Input the number of instances you want to scale up or down to.
 		3. Select **Save**.
 
 		:::image type="content" source="media/enable-scaling-2.png" alt-text="Image shows setting up manual scaling in the Azure portal":::
 
-		4. The scaling operation will begin immediately. 
+		4. The scaling operation begins immediately. 
 		
-	- **Custom Autoscale** will allow you to set rules that govern how much or how little to scale. 
+	- **Custom Autoscale** allows you to set rules that govern how much or how little to scale. 
 		1. Select **Custom autoscale**
 		2. Choose to scale based on a metric or instance count.
 
@@ -50,7 +50,7 @@ Consider the following information when configuring scaling of your Cloud Servic
 		:::image type="content" source="media/enable-scaling-4.png" alt-text="Image shows setting up custom autoscale rules in the Azure portal":::
 
 		4. Select **Save**.
-		5. The scaling operations will begin as soon as a rule is triggered.
+		5. The scaling operations begin as soon as a rule is triggered.
 		
 6. You can view or adjust existing scaling rules applied to your deployments by selecting the **Scale** tab.
 

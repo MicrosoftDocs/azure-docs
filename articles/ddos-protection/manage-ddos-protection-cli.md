@@ -6,7 +6,7 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.date: 05/29/2024
+ms.date: 07/17/2024
 ms.author: abell
 ---
 # QuickStart: Create and configure Azure DDoS Network Protection using Azure CLI

@@ -43,10 +43,10 @@ az vm list-skus --resource-type virtualMachines --location $region --query "[?na
 
 ```powershell
 # Example value is southeastasia
-region = "<yourLocation>"
+$region = "<yourLocation>"
 # Example value is Standard_E64s_v3
-vmSize = "<yourVMSize>"
-$sku = (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})
+$vmSize = "<yourVMSize>"
+$sku = (Get-AzComputeResourceSku | where {$_.Locations -icontains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})
 if($sku){$sku[0].LocationInfo[0].ZoneDetails} Else {Write-host "$vmSize is not supported with Ultra Disk in $region region"}
 ```
 
@@ -79,10 +79,10 @@ az vm list-skus --resource-type virtualMachines --location $region --query "[?na
 
 ```powershell
 # Example value is westus
-region = "<yourLocation>"
+$region = "<yourLocation>"
 # Example value is Standard_E64s_v3
-vmSize = "<yourVMSize>"
-(Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
+$vmSize = "<yourVMSize>"
+(Get-AzComputeResourceSku | where {$_.Locations -icontains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
 ```
 
 The response will be similar to the following form, `UltraSSDAvailable   True` indicates whether the VM size supports Ultra Disks in this region.

@@ -6,7 +6,7 @@ ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 06/18/2024
+ms.date: 07/24/2024
 ---
 
 # Deploy Cloud Services (extended support) by using an ARM template
@@ -107,7 +107,7 @@ To deploy Cloud Services (extended support) by using a template:
           ] 
     ```
 
-1. Create a Cloud Services (extended support) object. Add relevant `dependsOn` references if you are deploying virtual networks or public IP addresses in your template.
+1. Create a Cloud Services (extended support) object. Add relevant `dependsOn` references if you deploy virtual networks or public IP addresses in your template.
 
     ```json
     {
@@ -476,7 +476,7 @@ To deploy Cloud Services (extended support) by using a template:
     }
     ```
 
-1. Deploy the template and parameter file (to define parameters in the template file) to create the Cloud Services (extended support) deployment. You can use these [sample templates](https://github.com/Azure-Samples/cloud-services-extended-support).
+1. To create the Cloud Services (extended support) deployment, deploy the template and parameter file (to define parameters in the template file). You can use these [sample templates](https://github.com/Azure-Samples/cloud-services-extended-support).
 
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"

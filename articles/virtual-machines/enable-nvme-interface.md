@@ -15,6 +15,9 @@ ms.custom: template-how-to-pattern
 
 The following lists provide up-to-date information on which OS images are tagged as supported for remote NVM Express (NVMe).
 
+> [!IMPORTANT]
+> Only Gen2 VM images with security type "Standard" support NVMe. For more information, see [FAQ for NVMe](/azure/virtual-machines/enable-nvme-faqs#will-generation-1-vms-be-supported-with-nvme-disks-). Older operating systems cannot support NVMe due to OS driver limitations. If an older version of the OS is not included in the list below, it means that NVMe support is not present for that OS.
+
 For specifics about which virtual machine (VM) generations support which storage types, check the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes).
 
 For more information about enabling the NVMe interface on virtual machines created in Azure, review the [FAQ for remote NVMe disks](/azure/virtual-machines/enable-nvme-remote-faqs).
@@ -47,33 +50,9 @@ For more information about enabling the NVMe interface on virtual machines creat
 |     SLES 15.5                        |   SUSE:sles-15-sp5:gen2:latest                                   |
 
 ## Supported Windows OS images
+- Windows Server 2019
+- Windows Server 2022
+- Windows 10
+- Windows 11
 
-- [Azure portal - Plan ID: 2019-datacenter-core-smalldisk](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterServerCore)
-- [Azure portal - Plan ID: 2019-datacenter-core-smalldisk-g2](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterServerCore2019-datacenter-core-smalldisk-g2)
-- [Azure portal - Plan ID: 2019 datacenter-core](https://portal.azure.com/#create/Microsoft.WindowsServer2019DatacenterServerCore)
-- [Azure portal - Plan ID: 2019-datacenter-core-g2](https://portal.azure.com/#create/Microsoft.WindowsServer2019DatacenterServerCore2019-datacenter-core-g2)
-- [Azure portal - Plan ID: 2019-datacenter-core-with-containers-smalldisk](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterServerCorewithContainers)
-- [Azure portal - Plan ID: 2019-datacenter-core-with-containers-smalldisk-g2](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterServerCorewithContainers2019-datacenter-core-with-containers-smalldisk-g2)
-- [Azure portal - Plan ID: 2019-datacenter-with-containers-smalldisk](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterwithContainers2019-datacenter-with-containers-smalldisk-g2)
-- [Azure portal - Plan ID: 2019-datacenter-smalldisk](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019Datacenter)
-- [Azure portal - Plan ID: 2019-datacenter-smalldisk-g2](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019Datacenter2019-datacenter-smalldisk-g2)
-- [Azure portal - Plan ID: 2019-datacenter-zhcn](https://portal.azure.com/#create/Microsoft.WindowsServer2019Datacenterzhcn)
-- [Azure portal - Plan ID: 2019-datacenter-zhcn-g2](https://portal.azure.com/#create/Microsoft.WindowsServer2019Datacenterzhcn2019-datacenter-zhcn-g2)
-- [Azure portal - Plan ID: 2019-datacenter-core-with-containers](https://portal.azure.com/#create/Microsoft.WindowsServer2019DatacenterServerCorewithContainers)
-- [Azure portal - Plan ID: 2019-datacenter-core-with-containers-g2](https://portal.azure.com/#create/Microsoft.WindowsServer2019DatacenterServerCorewithContainers2019-datacenter-core-with-containers-g2)
-- [Azure portal - Plan ID: 2019-datacenter-with-containers](https://portal.azure.com/#create/Microsoft.WindowsServer2019DatacenterwithContainers)
-- [Azure portal - Plan ID: 2019-datacenter-with-containers-g2](https://portal.azure.com/#create/Microsoft.WindowsServer2019DatacenterwithContainers2019-datacenter-with-containers-g2)
-- [Azure portal - Plan ID: 2019-datacenter](https://portal.azure.com/#create/Microsoft.WindowsServer2019Datacenter)
-- [Azure portal - Plan ID: 2019-datacenter-gensecond](https://portal.azure.com/#create/Microsoft.WindowsServer2019Datacenter2019-datacenter-gensecond)
-- [Azure portal - Plan ID: 2022-datacenter-core](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-core)
-- [Azure portal - Plan ID: 2022-datacenter-core-g2](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-core-g2)
-- [Azure portal - Plan ID: 2022-datacenter-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-smalldisk)
-- [Azure portal - Plan ID: 2022-datacenter-smalldisk-g2](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-smalldisk-g2)
-- [Azure portal - Plan ID: 2022-datacenter](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter)
-- [Azure portal - Plan ID: 2022-datacenter-g2](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-g2)
-- [Azure portal - Plan ID: 2022-datacenter-core-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-core-smalldisk)
-- [Azure portal - Plan ID: 2022-datacenter-core-smalldisk-g2](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-core-smalldisk-g2)
-- [Azure portal - Plan ID: 2022-datacenter-azure-edition-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-smalldisk)
-- [Azure portal - Plan ID: 2022-datacenter-azure-edition](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition)
-- [Azure portal - Plan ID: 2022-datacenter-azure-edition-core](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core)
-- [Azure portal - Plan ID: 2022-datacenter-azure-edition-core-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core-smalldisk)
+To download an image, go to [Azure Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home).

@@ -4,7 +4,7 @@ description: Learn about the redirect capability in Azure Application Gateway to
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/19/2022
 ms.author: greglin
 ---

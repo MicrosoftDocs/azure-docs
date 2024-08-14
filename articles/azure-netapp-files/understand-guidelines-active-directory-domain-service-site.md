@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/21/2023
+ms.date: 07/15/2024
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files

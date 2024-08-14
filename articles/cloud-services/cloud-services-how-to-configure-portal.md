@@ -4,7 +4,7 @@ description: Learn how to configure cloud services in Azure. Learn to update the
 ms.topic: article
 ms.service: cloud-services
 ms.subservice: deployment-files
-ms.date: 02/21/2023
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -27,13 +27,13 @@ After opening the [Azure portal](https://portal.azure.com/), navigate to your cl
 
 ![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-The **Settings** or **All settings** links will open up **Settings** where you can change the **Properties**, change the **Configuration**, manage the **Certificates**, set up **Alert rules**, and manage the **Users** who have access to this cloud service.
+The **Settings** or **All settings** links open up **Settings** where you can change the **Properties**, change the **Configuration**, manage the **Certificates**, set up **Alert rules**, and manage the **Users** who have access to this cloud service.
 
 ![Azure cloud service settings](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
 ### Manage Guest OS version
 
-By default, Azure periodically updates your guest OS to the latest supported image within the OS family that you've specified in your service configuration (.cscfg), such as Windows Server 2016.
+By default, Azure periodically updates your guest OS to the latest supported image within the OS family that you specified in your service configuration (.cscfg), such as Windows Server 2016.
 
 If you need to target a specific OS version, you can set it in **Configuration**.
 
@@ -44,7 +44,7 @@ If you need to target a specific OS version, you can set it in **Configuration**
 
 ## Monitoring
 
-You can add alerts to your cloud service. Click **Settings** > **Alert Rules** > **Add alert**.
+You can add alerts to your cloud service. Select **Settings** > **Alert Rules** > **Add alert**.
 
 ![Screenshot of the Settings pan with the Alert rules option highlighted and outlined in red and the Add alert option outlined in red.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -60,7 +60,7 @@ From here, you can set up an alert. With the **Metric** drop-down box, you can s
 
 ### Configure monitoring from a metric tile
 
-Instead of using **Settings** > **Alert Rules**, you can click on one of the metric tiles in the **Monitoring** section of the cloud service.
+Instead of using **Settings** > **Alert Rules**, you can select on one of the metric tiles in the **Monitoring** section of the cloud service.
 
 ![Cloud Service Monitoring](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -82,19 +82,19 @@ You can then initiate a remote desktop connection, remotely reboot the instance,
 
 You may need to reconfigure your cloud service through the [service config (cscfg)](cloud-services-model-and-package.md#cscfg) file. First you need to download your .cscfg file, modify it, then upload it.
 
-1. Click on the **Settings** icon or the **All settings** link to open up **Settings**.
+1. Select on the **Settings** icon or the **All settings** link to open up **Settings**.
 
     ![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
-2. Click on the **Configuration** item.
+2. Select on the **Configuration** item.
 
     ![Configuration Blade](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
-3. Click on the **Download** button.
+3. Select on the **Download** button.
 
     ![Download](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. After you update the service configuration file, upload and apply the configuration updates:
 
     ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
-5. Select the .cscfg file and click **OK**.
+5. Select the .cscfg file and select **OK**.
 
 ## Next steps
 

@@ -8,6 +8,7 @@ ms.date: 05/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
   - build-2024

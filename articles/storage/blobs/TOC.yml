@@ -985,6 +985,14 @@ items:
           href: storage-blob-upload-go.md
         - name: Download blobs
           href: storage-blob-download-go.md
+        - name: Copy blobs
+          items:
+          - name: Overview of copy operations
+            href: storage-blob-copy-go.md
+          - name: Copy from a source object URL
+            href: storage-blob-copy-url-go.md
+          - name: Copy with asynchronous scheduling
+            href: storage-blob-copy-async-go.md
         - name: List blobs
           href: storage-blobs-list-go.md
         - name: Delete and restore blobs

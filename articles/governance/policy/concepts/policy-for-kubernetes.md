@@ -606,6 +606,25 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.7.0
+Introducing expansion, a shift left feature that lets you know up front whether your workload resources (Deployments, ReplicaSets, Jobs, etc.) will produce admissible pods. Expansion shouldn't change the behavior of your policies; rather, it just shifts Gatekeeper's evaluation of pod-scoped policies to occur at workload admission time rather than pod admission time. However, to perform this evaluation it must generate and evaluate a what-if pod that is based on the pod spec defined in the workload, which may have incomplete metadata. For instance, the what-if pod will not contain the proper owner references. Because of this small risk of policy behavior changing, we're introducing expansion as disabled by default. To enable expansion for a given policy definition, set `.policyRule.then.details.source` to `All`. Built-ins will be updated soon to enable parameterization of this field. If you test your policy definition and find that the what-if pod being generated for evaluation purposes is incomplete, you can also use a mutation with source `Generated` to mutate the what-if pods. For more information on this option, view the [Gatekeeper documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/expansion#mutating-example).
+
+Security improvements.
+- Released July 2024
+- Kubernetes 1.27+
+- Gatekeeper 3.16.3
+
+#### 1.6.1
+Security improvements.
+- Released May 2024
+- Gatekeeper 3.14.2
+
+#### 1.5.0
+Security improvements.
+- Released May 2024
+- Kubernetes 1.27+
+- Gatekeeper 3.16.3
+
 #### 1.4.0
 
 Enables mutation and external data by default. The additional mutating webhook and increased validating webhook timeout cap might add latency to calls in the worst case. Also introduces support for viewing policy definition and set definition version in compliance results.

@@ -120,7 +120,8 @@ The following section contains NVA provider-specific instructions on configuring
 |Partner| Instructions|
 |--|--|
 |checkpoint|[Check Point documentation](https://aka.ms/ckptDNAT)|
-|fortinet| Contact azurevwan@fortinet.com for access to the preview and documentation|
+|fortinet-sdwan-and-ngfw| [Fortinet SD-WAN and NGFW documentation](https://aka.ms/fortinethybriddnat)|
+|fortinet-ngfw| [Fortinet NGFW documentation](https://aka.ms/fortinetngfwdnat) |
 
 ## Troubleshooting
 The following section describes some common troubleshooting scenarios.

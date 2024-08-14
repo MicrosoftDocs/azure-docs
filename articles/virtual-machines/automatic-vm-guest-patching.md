@@ -27,7 +27,7 @@ Automatic VM guest patching has the following characteristics:
 
 ## How does automatic VM guest patching work?
 
-If automatic VM guest patching is enabled on a VM, then the available *Critical* and *Security* patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as configured. The rebootSetting parameter on the VM Model takes precedence over settings in another system, such as [Maintenance Configuration](https://learn.microsoft.com/azure/virtual-machines/maintenance-configurations#guest). 
+If automatic VM guest patching is enabled on a VM, then the available *Critical* and *Security* patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as configured. The rebootSetting parameter on the VM Model takes precedence over settings in another system, such as [Maintenance Configuration](/azure/virtual-machines/maintenance-configurations#guest). 
 
 The VM is assessed periodically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. The patches can be installed any day on the VM during off-peak hours for the VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
@@ -55,9 +55,10 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 
 **Within an availability set:**
 - All VMs in a common availability set aren't updated concurrently.
--	VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains aren't updated concurrently.
+- VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains aren't updated concurrently.
+-	Within an update domain, no more than 20% of the VMs within a resource group will be updated at a time. For resource groups with less than 10 VMs, this limits it to one VM at a time within an update domain.
 
-Narrowing the scope of VMs that are patched across regions, within a region, or an availability set, limit the blast radius of the patch. With health monitoring, any potential issues are flagged without impacting the entire fleet.
+Restricting the number of concurrently patched VMs across regions, within a region, or within an availability set limits the impact of a faulty patch on a given set of VMs. With health monitoring, any potential issues are flagged before they impact the entire workload.
 
 The patch installation date for a given VM may vary month-to-month, as a specific VM may be picked up in a different batch between monthly patching cycles.
 

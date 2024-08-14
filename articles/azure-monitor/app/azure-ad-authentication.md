@@ -96,22 +96,62 @@ services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 
 ### [Node.js](#tab/nodejs)
 
+
+
+Azure Monitor OpenTelemetry and Application Insights Node.JS supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
+
+- We recommend `DefaultAzureCredential` for local development.
+- We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
+  - For system-assigned, use the default constructor without parameters.
+  - For user-assigned, provide the client ID to the constructor.
+- We recommend `ClientSecretCredential` for service principals.
+  - Provide the tenant ID, client ID, and client secret to the constructor.
+
+If using @azure/monitor-opentelemetry
+```typescript
+const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
+const { ManagedIdentityCredential } = require("@azure/identity");
+
+const credential = new ManagedIdentityCredential();
+const options: AzureMonitorOpenTelemetryOptions = {
+    azureMonitorExporterOptions: {
+        connectionString:
+            process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+        credential: credential
+    }
+};
+useAzureMonitor(options);
+```
+
 > [!NOTE]
 > Support for Microsoft Entra ID in the Application Insights Node.JS is included starting with [version 2.1.0-beta.1](https://www.npmjs.com/package/applicationinsights/v/2.1.0-beta.1).
 
-Application Insights Node.JS supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
-
-#### DefaultAzureCredential
-
-```javascript
-import appInsights from "applicationinsights";
-import { DefaultAzureCredential } from "@azure/identity"; 
+If using applicationinsights npm package.
+```typescript
+const appInsights = require("applicationinsights");
+const { DefaultAzureCredential } = require("@azure/identity");
  
 const credential = new DefaultAzureCredential();
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
 appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
+
+#### Environment variable configuration
+
+When using [Azure App Services autoinstrumentation](./azure-web-apps-nodejs.md) The `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable lets Application Insights authenticate to Microsoft Entra ID and send telemetry.
+
+- For system-assigned identity:
+
+| App setting    | Value    |
+| -------------- |--------- |
+| APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD`    |
+
+- For user-assigned identity:
+
+| App setting   | Value    |
+| ------------- | -------- |
+| APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD;ClientId={Client id of the User-Assigned Identity}`    |
 
 ### [Java](#tab/java)
 

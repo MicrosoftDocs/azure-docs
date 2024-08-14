@@ -19,8 +19,6 @@ ms.date: 05/21/2024
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to the Azure OpenAI service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 - An Azure OpenAI Service resource with either a `gpt-35-turbo` or `gpt-4` series models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 

@@ -1,21 +1,21 @@
 ---
-title: Apply the Windows Azure diagnostics extension in Cloud Services (extended support) 
-description: Apply the Windows Azure diagnostics extension for Cloud Services (extended support)
+title: Apply the Microsoft Azure diagnostics extension in Cloud Services (extended support) 
+description: Apply the Microsoft Azure diagnostics extension for Cloud Services (extended support)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 10/13/2020
+ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
-# Apply the Windows Azure diagnostics extension in Cloud Services (extended support) 
-You can monitor key performance metrics for any cloud service. Every cloud service role collects minimal data: CPU usage, network usage, and disk utilization. If the cloud service has the Microsoft.Azure.Diagnostics extension applied to a role, that role can collect additional points of data. For more information, see [Extensions Overview](extensions.md)
+# Apply the Microsoft Azure diagnostics extension in Cloud Services (extended support) 
+You can monitor key performance metrics for any cloud service. Every cloud service role collects minimal data: CPU usage, network usage, and disk utilization. If the cloud service has the Microsoft.Azure.Diagnostics extension applied to a role, that role can collect more points of data. For more information, see [Extensions Overview](extensions.md)
 
-Windows Azure Diagnostics extension can be enabled for Cloud Services (extended support) through [PowerShell](deploy-powershell.md) or [ARM template](deploy-template.md)
+Microsoft Azure Diagnostics extension can be enabled for Cloud Services (extended support) through [PowerShell](deploy-powershell.md) or [ARM template](deploy-template.md)
 
-## Apply Windows Azure Diagnostics extension using PowerShell
+## Apply Microsoft Azure Diagnostics extension using PowerShell
 
 ```powershell
 # Create WAD extension object
@@ -40,7 +40,7 @@ Download the public configuration file schema definition by executing the follow
 ```powershell
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'PublicWadConfig.xsd'
 ```
-Here is an example of the public configuration XML file
+Here's an example of the public configuration XML file
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -65,7 +65,7 @@ Download the private configuration file schema definition by executing the follo
 ```powershell
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PrivateConfigurationSchema | Out-File -Encoding utf8 -FilePath 'PrivateWadConfig.xsd'
 ```
-Here is an example of the private configuration XML file
+Here's an example of the private configuration XML file
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -86,7 +86,7 @@ Here is an example of the private configuration XML file
 </PrivateConfig>
 ```
 
-## Apply Windows Azure Diagnostics extension using ARM template
+## Apply Microsoft Azure Diagnostics extension using ARM template
 ```json
 "extensionProfile": { 
           "extensions": [ 

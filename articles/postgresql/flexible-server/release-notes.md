@@ -21,6 +21,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * General availability of [Pgvector 0.7.0](concepts-extensions.md) extension.
 * General availability support for [Storage-Autogrow with read replicas](concepts-read-replicas.md)
 * [SCRAM authentication](how-to-connect-scram.md) authentication set as default for new PostgreSQL 14+ new server deployments.
+* General availability support for [System Assigned Managed Identity](concepts-Identity.md) for Azure Database for PostgreSQL flexible server.
 
 ## Release: June 2024
 * Support for new [minor versions](concepts-supported-versions.md) 16.3, 15.7, 14.12, 13.15, and 12.19 <sup>$</sup>

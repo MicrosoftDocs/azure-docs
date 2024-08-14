@@ -2,12 +2,11 @@
 title: Perform network intrusion detection by using open-source tools
 titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Network Watcher and open-source tools to perform network intrusion detection.
-services: network-watcher
 ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 09/29/2023
+ms.date: 07/30/2024
 ---
 
 # Perform network intrusion detection by using Azure Network Watcher and open-source tools
@@ -238,7 +237,7 @@ For more instructions on installing Logstash, refer to the [official Elastic doc
 
 This article provides a sample dashboard for you to view trends and details in your alerts. To use it:
 
-1. Download the [dashboard file](https://aka.ms/networkwatchersuricatadashboard), [visualization file](https://aka.ms/networkwatchersuricatavisualization), and [saved search file](https://aka.ms/networkwatchersuricatasavedsearch).
+1. Download the [dashboard file](https://github.com/Azure/NWPublicScripts/blob/main/nw-public-docs-artifacts/nsg-flow-logs/suricata/Sample_Suricata_Alert_Kibana_Dashboard.json), [visualization file](https://github.com/Azure/NWPublicScripts/blob/main/nw-public-docs-artifacts/nsg-flow-logs/suricata/Sample_Suricata_Alert_Visualizations.json), and [saved search file](https://github.com/Azure/NWPublicScripts/blob/main/nw-public-docs-artifacts/nsg-flow-logs/suricata/Sample_Suricata_Alert_Saved_Search.json).
 
 1. On the **Management** tab of Kibana, go to **Saved Objects** and import all three files. Then, on the **Dashboard** tab, you can open and load the sample dashboard.
 

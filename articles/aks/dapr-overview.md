@@ -1,12 +1,12 @@
 ---
-title: Dapr extension for Azure Kubernetes Service (AKS) overview
+title: Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) cluster to develop applications.
 ms.author: nickoman
 ms.topic: overview
 ms.date: 04/22/2024
 ---
 
-# Dapr
+# Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
 [Distributed Application Runtime (Dapr)][dapr-docs] offers APIs that help you write and implement simple, portable, resilient, and secured microservices. Dapr APIs run as a sidecar process in tandem with your applications and abstract away common complexities you may encounter when building distributed applications, such as:
 - Service discovery
@@ -19,7 +19,7 @@ Dapr is incrementally adoptable. You can use any of the API building blocks as n
 
 ## Capabilities and features
 
-[Using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/conceptual-extensions.md) eliminates the overhead of:
+[Using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster][dapr-create-extension] eliminates the overhead of:
 - Downloading Dapr tooling
 - Manually installing and managing the Dapr runtime on your AKS cluster
 
@@ -63,27 +63,9 @@ Microsoft provides best-effort support for [the latest version of Dapr and two p
 - 1.12.x 
 - 1.11.x 
 
-You can run Azure CLI commands to retreive a list of available versions in [a cluster](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-cluster) or [a location](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-location).
+You can run Azure CLI commands to retrieve a list of available versions in [a cluster](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-cluster) or [a location](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-location).
 
-To view a list of the stable Dapr versions available to your managed AKS cluster, run the following command:
-
-```azurecli
-az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr --release-train stable
-```
-
-To see the latest stable Dapr version available to your managed AKS cluster, run the following:
-
-```azurecli
-az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr  --release-train stable --show-latest
-```
-
-To view a list of the stable Dapr versions available _by location_:
-1. [Make sure you've registered the `ExtenstionTypes` feature to your Azure subscription.](./dapr.md#register-the-extenstiontypes-feature-to-your-azure-subscription)
-1. Run the following command.
-
-```azurecli
-az k8s-extension extension-types list-versions-by-location --location westus --extension-type microsoft.dapr
-```
+[Learn how to view and target the latest stable Dapr versions available to your managed AKS cluster.](./dapr.md#viewing-the-latest-stable-dapr-versions-available)
 
 ### Runtime support
 
@@ -116,7 +98,7 @@ The Dapr extension supports stable versions of Dapr APIs (building blocks).
 | [**Secrets**][dapr-secrets]                           | Stable | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | Stable | Retrieve and subscribe to application configuration items for supported configuration. stores.                                                                   |
 
-[!INCLUDE [component-support](../../includes/dapr-in-azure/dapr-support-policy.md)]
+[!INCLUDE [component-support](~/reusable-content/ce-skilling/azure/includes/dapr-in-azure/dapr-support-policy.md)]
 
 ### Clouds/regions
 
@@ -221,7 +203,9 @@ If you install Dapr through the AKS extension, our recommendation is to continue
 
 ## Next Steps
 
-After learning about Dapr and some of the challenges it solves, try [Deploying an application with the Dapr cluster extension][dapr-quickstart].
+> [!div class="nextstepaction"]
+> [Walk through the Dapr extension quickstart to demo how it works][dapr-quickstart]
+
 
 <!-- Links Internal -->
 [csi-secrets-store]: ./csi-secrets-store-driver.md
@@ -231,6 +215,7 @@ After learning about Dapr and some of the challenges it solves, try [Deploying a
 [dapr-migration]: ./dapr-migration.md
 [aks-msi]: ./use-managed-identity.md
 [dapr-configuration-options]: ./dapr-settings.md
+[dapr-create-extension]: ./dapr.md
 
 <!-- Links External -->
 [dapr-docs]: https://docs.dapr.io/

@@ -58,12 +58,11 @@ Artifact cache addresses the challenge of pull limits imposed by public registri
 Artifact cache currently supports the following upstream registries:
 
 >[!WARNING]
-> We recommend customers to [create a credential set](container-registry-artifact-cache.md#create-new-credentials) when sourcing content from Docker hub.
+> Customers must generate [credential set](container-registry-artifact-cache.md#create-new-credentials) to source content from Docker hub.
 
 | Upstream Registries                          | Support                                                  | Availability             |
 |----------------------------------------------|----------------------------------------------------------|--------------------------|
-| Docker Hub                                   | Supports both authenticated and unauthenticated pulls.   | Azure CLI                | 
-| Docker Hub                                   | Supports authenticated pulls only.                       | Azure portal             |
+| Docker Hub                                   | Supports authenticated pulls only.                       | Azure CLI, Azure portal  |
 | Microsoft Artifact Registry                  | Supports unauthenticated pulls only.                     | Azure CLI, Azure portal  |
 | AWS Elastic Container Registry (ECR) Public Gallery | Supports unauthenticated pulls only.              | Azure CLI, Azure portal  |
 | GitHub Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |

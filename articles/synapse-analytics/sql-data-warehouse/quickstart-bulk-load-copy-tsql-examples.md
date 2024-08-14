@@ -105,7 +105,7 @@ Managed Identity authentication is required when your storage account is attache
     | Assign access to | SERVICEPRINCIPAL |
     | Members | server or workspace hosting your dedicated SQL pool that you've registered with Microsoft Entra ID  |
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 
    > [!NOTE]
@@ -144,7 +144,7 @@ Managed Identity authentication is required when your storage account is attache
     | Assign access to | USER |
     | Members | Microsoft Entra user |
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
     > [!IMPORTANT]
     > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader.

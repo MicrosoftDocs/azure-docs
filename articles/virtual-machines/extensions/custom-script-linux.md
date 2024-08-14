@@ -545,7 +545,7 @@ The output looks like the following text:
 
 ### Azure CLI syntax issues
 
-[!INCLUDE [azure-cli-troubleshooting.md](../../../includes/azure-cli-troubleshooting.md)]
+[!INCLUDE [azure-cli-troubleshooting.md](~/reusable-content/ce-skilling/azure/includes/azure-cli-troubleshooting.md)]
 
 ## Next steps
 

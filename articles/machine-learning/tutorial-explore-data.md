@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Upload, access and explore your data"
+title: "Tutorial: upload, access, and explore your data"
 titleSuffix: Azure Machine Learning
-description: Upload data to cloud storage, create an Azure Machine Learning data asset, create new versions for data assets, use the data for interactive development 
+description: Upload data to cloud storage, create an Azure Machine Learning data asset, create new versions for data assets, and use the data for interactive development 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.reviewer: None
 author: fbsolo-ms1
 ms.author: franksolomon
-ms.date: 07/05/2023
+ms.date: 07/25/2024
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
-# Tutorial: Upload, access and explore your data in Azure Machine Learning
+# Tutorial: Upload, access, and explore your data in Azure Machine Learning
 
 [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
@@ -25,9 +25,9 @@ In this tutorial you learn how to:
 > * Access your data in a notebook for interactive development
 > * Create new versions of data assets
 
-The start of a machine learning project typically involves exploratory data analysis (EDA), data-preprocessing (cleaning, feature engineering), and the building of Machine Learning model prototypes to validate hypotheses. This _prototyping_ project phase is highly interactive. It lends itself to development in an IDE or a Jupyter notebook, with a _Python interactive console_. This tutorial describes these ideas.
+A machine learning project typically starts with exploratory data analysis (EDA), data-preprocessing (cleaning, feature engineering), and building Machine Learning model prototypes to validate hypotheses. This _prototyping_ project phase is highly interactive. It lends itself to development in an IDE or a Jupyter notebook, with a _Python interactive console_. This tutorial describes these ideas.
 
-This video shows how to get started in Azure Machine Learning studio so that you can follow the steps in the tutorial. The video shows how to create a notebook, clone the notebook, create a compute instance, and download the data needed for the tutorial. The steps are also described in the following sections.
+This video shows how to get started in Azure Machine Learning studio, so that you can follow the steps in the tutorial. The video shows how to create a notebook, clone the notebook, create a compute instance, and download the data needed for the tutorial. The steps are also described in the following sections.
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=514a29e2-0ae7-4a5d-a537-8f10681f5545]
 
@@ -41,24 +41,23 @@ This video shows how to get started in Azure Machine Learning studio so that you
     * [!INCLUDE [new notebook](includes/prereq-new-notebook.md)]
     * Or, open **tutorials/get-started-notebooks/explore-data.ipynb** from the **Samples** section of studio. [!INCLUDE [clone notebook](includes/prereq-clone-notebook.md)]
 
-[!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
+[!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)]
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/explore-data.ipynb -->
 
-
 ## Download the data used in this tutorial
 
-For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). We see the steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder with the suggested name of **data** directly under the folder where this notebook is located.
+For data ingestion, the Azure Data Explorer handles raw data in [these formats](/azure/data-explorer/ingestion-supported-formats). This tutorial uses this [CSV-format credit card client data sample](https://azuremlexamples.blob.core.windows.net/datasets/credit_card/default_of_credit_card_clients.csv). The steps proceed in an Azure Machine Learning resource. In that resource, we'll create a local folder, with the suggested name of **data**, directly under the folder where this notebook is located.
 
 > [!NOTE]
-> This tutorial depends on data placed in an Azure Machine Learning resource folder location. For this tutorial, 'local' means a folder location in that Azure Machine Learning resource. 
+> This tutorial depends on data placed in an Azure Machine Learning resource folder location. For this tutorial, 'local' means a folder location in that Azure Machine Learning resource.
 
 1. Select **Open terminal** below the three dots, as shown in this image:
 
     :::image type="content" source="media/tutorial-cloud-workstation/open-terminal.png" alt-text="Screenshot shows open terminal tool in notebook toolbar.":::
 
-1. The terminal window opens in a new tab. 
-1. Make sure you `cd` to the same folder where this notebook is located.  For example, if the notebook is in a folder named **get-started-notebooks**:
+1. The terminal window opens in a new tab.
+1. Make sure you `cd` (**Change Directory**) to the same folder where this notebook is located. For example, if the notebook is in a folder named **get-started-notebooks**:
 
     ```bash
     cd get-started-notebooks    #  modify this to the path where your notebook is located
@@ -73,19 +72,17 @@ For data ingestion, the Azure Data Explorer handles raw data in [these formats](
     ```
 1. You can now close the terminal window.
 
+For more information about the data in the UC Irvine Machine Learning Repository, visit [this resource](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients).
 
-[Learn more about this data on the UCI Machine Learning Repository.](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
+## Create a handle to the workspace
 
-## Create handle to workspace
-
-Before we dive in the code, you need a way to reference your workspace. You'll create `ml_client` for a handle to the workspace.  You'll then use `ml_client` to manage resources and jobs.
+Before we explore the code, you need a way to reference your workspace. You'll create `ml_client` for a handle to the workspace. You then use `ml_client` to manage resources and jobs.
 
 In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find these values:
 
-1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
-1. Copy the value for workspace, resource group and subscription ID into the code.
-1. You'll need to copy one value, close the area and paste, then come back for the next one.
-
+1. At the upper right Azure Machine Learning studio toolbar, select your workspace name.
+1. Copy the value for workspace, resource group, and subscription ID into the code.
+1. You must individually copy the values one at a time, close the area and paste, then continue to the next one.
 
 ```python
 from azure.ai.ml import MLClient
@@ -106,31 +103,29 @@ ml_client = MLClient(
 ```
 
 > [!NOTE]
-> Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (this will happen in the next code cell).
-
+> Creation of MLClient will not connect to the workspace. The client initialization is lazy. It waits for the first time it needs to make a call. This happenS in the next code cell.
 
 ## Upload data to cloud storage
 
-Azure Machine Learning uses Uniform Resource Identifiers (URIs), which point to storage locations in the cloud. A URI makes it easy to access data in notebooks and jobs. Data URI formats look similar to the web URLs that you use in your web browser to access web pages. For example:
+Azure Machine Learning uses Uniform Resource Identifiers (URIs), which point to storage locations in the cloud. A URI makes it easy to access data in notebooks and jobs. Data URI formats have a format similar to the web URLs that you use in your web browser to access web pages. For example:
 
 * Access data from public https server: `https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>`
 * Access data from Azure Data Lake Gen 2: `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>`
 
 An Azure Machine Learning data asset is similar to web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
 
-Data asset creation also creates a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk data source integrity. You can create Data assets from Azure Machine Learning datastores, Azure Storage, public URLs, and local files.
+Data asset creation also creates a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and you don't risk data source integrity. You can create Data assets from Azure Machine Learning datastores, Azure Storage, public URLs, and local files.
 
 > [!TIP]
-> For smaller-size data uploads, Azure Machine Learning data asset creation works well for data uploads from local machine resources to cloud storage. This approach avoids the need for extra tools or utilities. However, a larger-size data upload might require a dedicated tool or utility - for example, **azcopy**. The azcopy command-line tool moves data to and from Azure Storage. Learn more about azcopy [here](../storage/common/storage-use-azcopy-v10.md).
+> For smaller-size data uploads, Azure Machine Learning data asset creation works well for data uploads from local machine resources to cloud storage. This approach avoids the need for extra tools or utilities. However, a larger-size data upload might require a dedicated tool or utility - for example, **azcopy**. The azcopy command-line tool moves data to and from Azure Storage. For more information about azcopy, visit [this resource](../storage/common/storage-use-azcopy-v10.md).
 
-The next notebook cell creates the data asset. The code sample uploads the raw data file to the designated cloud storage resource.  
+The next notebook cell creates the data asset. The code sample uploads the raw data file to the designated cloud storage resource.
 
-Each time you create a data asset, you need a unique version for it.  If the version already exists, you'll get an error.  In this code, we're using the "initial" for the first read of the data.  If that version already exists, we'll skip creating it again.
+Each time you create a data asset, you need a unique version for it. If the version already exists, you'll get an error. In this code, we use the "initial" for the first read of the data. If that version already exists, we don't recreate it.
 
-You can also omit the **version** parameter, and a version number is generated for you, starting with 1 and then incrementing from there. 
+You can also omit the **version** parameter. In this case, a version number is generated for you, starting with 1 and then incrementing from there.
 
-In this tutorial, we use the name "initial" as the first version. The [Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) tutorial will also use this version of the data, so here we are using a value that you'll see again in that tutorial.
-
+This tutorial uses the name "initial" as the first version. The [Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) tutorial also uses this version of the data, so here we use a value that you'll see again in that tutorial.
 
 ```python
 from azure.ai.ml.entities import Data
@@ -162,18 +157,23 @@ except:
     print(f"Data asset created. Name: {my_data.name}, version: {my_data.version}")
 ```
 
-You can see the uploaded data by selecting **Data** on the left. You'll see the data is uploaded and a data asset is created:
+To examine the uploaded data, select **Data** on the left. The data is uploaded and a data asset is created:
 
-:::image type="content" source="media/tutorial-prepare-data/access-and-explore-data.png" alt-text="Screenshot shows the data in studio.":::
+:::image type="content" source="media/tutorial-explore-data/access-and-explore-data.png" alt-text="Screenshot shows the data in studio.":::
 
-This data is named **credit-card**, and in the **Data assets** tab, we can see it in the **Name** column. This data uploaded to your workspace's default datastore named **workspaceblobstore**, seen in the **Data source** column. 
+This data is named **credit-card**, and in the **Data assets** tab, we can see it in the **Name** column.
 
 An Azure Machine Learning datastore is a *reference* to an *existing* storage account on Azure. A datastore offers these benefits:
 
-1. A common and easy-to-use API, to interact with different storage types (Blob/Files/Azure Data Lake Storage) and authentication methods.
+1. A common and easy-to-use API, to interact with different storage types
+ 
+    - Azure Data Lake Storage
+    - Blob
+    - Files
+
+   and authentication methods.
 1. An easier way to discover useful datastores, when working as a team.
 1. In your scripts, a way to hide connection information for credential-based data access (service principal/SAS/key).
-
 
 ## Access your data in a notebook
 
@@ -185,18 +185,16 @@ import pandas as pd
 df = pd.read_csv("azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/<filename>.csv")
 ```
 
-However, as mentioned previously, it can become hard to remember these URIs. Additionally, you must manually substitute all **<_substring_>** values in the **pd.read_csv** command with the real values for your resources. 
+However, as mentioned previously, it can become hard to remember these URIs. Additionally, you must manually substitute all **<_substring_>** values in the **pd.read_csv** command with the real values for your resources.
 
 You'll want to create data assets for frequently accessed data. Here's an easier way to access the CSV file in Pandas:
 
 > [!IMPORTANT]
 > In a notebook cell, execute this code to install the `azureml-fsspec` Python library in your Jupyter kernel:
 
-
 ```python
 %pip install -U azureml-fsspec
 ```
-
 
 ```python
 import pandas as pd
@@ -211,18 +209,17 @@ df = pd.read_csv(data_asset.path)
 df.head()
 ```
 
-Read [Access data from Azure cloud storage during interactive development](how-to-access-data-interactive.md) to learn more about data access in a notebook.
+For more information about data access in a notebook, visit [Access data from Azure cloud storage during interactive development](how-to-access-data-interactive.md).
 
 ## Create a new version of the data asset
 
-You might have noticed that the data needs a little light cleaning, to make it fit to train a machine learning model. It has:
+The data needs some light cleaning, to make it fit to train a machine learning model. It has:
 
 * two headers
 * a client ID column; we wouldn't use this feature in Machine Learning
 * spaces in the response variable name
 
-Also, compared to the CSV format, the Parquet file format becomes a better way to store this data. Parquet offers compression, and it maintains schema. Therefore, to clean the data and store it in Parquet, use:
-
+Also, compared to the CSV format, the Parquet file format becomes a better way to store this data. Parquet offers compression, and it maintains schema. To clean the data and store it in Parquet, use:
 
 ```python
 # read in data again, this time using the 2nd row as the header
@@ -250,9 +247,7 @@ This table shows the structure of the data in the original **default_of_credit_c
 |X18-23     | Explanatory        |  Amount of previous payment (NT dollar) from April to September  2005.      |
 |Y     | Response        |    Default payment (Yes = 1, No = 0)     |
 
-Next, create a new _version_ of the data asset (the data automatically uploads to cloud storage).  For this version, we'll add a time value, so that each time this code is run, a different version number will be created.
-
-
+Next, create a new _version_ of the data asset (the data automatically uploads to cloud storage). For this version, add a time value, so that each time this code runs, a different version number is created.
 
 ```python
 from azure.ai.ml.entities import Data
@@ -283,7 +278,6 @@ print(f"Data asset created. Name: {my_data.name}, version: {my_data.version}")
 
 The cleaned parquet file is the latest version data source. This code shows the CSV version result set first, then the Parquet version:
 
-
 ```python
 import pandas as pd
 
@@ -307,16 +301,13 @@ print(v2df.head(5))
 
 <!-- nbend -->
 
-
-
-
 ## Clean up resources
 
 If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
 
 ### Stop compute instance
 
-If you're not going to use it now, stop the compute instance:
+If you don't plan to use it now, stop the compute instance:
 
 1. In the studio, in the left navigation area, select **Compute**.
 1. In the top tabs, select **Compute instances**
@@ -329,11 +320,11 @@ If you're not going to use it now, stop the compute instance:
 
 ## Next steps
 
-Read [Create data assets](how-to-create-data-assets.md) for more information about data assets.
+For more information about data assets, visit [Create data assets](how-to-create-data-assets.md).
 
-Read [Create datastores](how-to-datastore.md) to learn more about datastores.
+For more information about datastores, visit  [Create datastores](how-to-datastore.md).
 
-Continue with tutorials to learn how to develop a training script.
+Continue with the next tutorial to learn how to develop a training script:
 
 > [!div class="nextstepaction"]
 > [Model development on a cloud workstation](tutorial-cloud-workstation.md)

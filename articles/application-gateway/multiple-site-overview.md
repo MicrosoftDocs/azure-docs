@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.date: 02/28/2024
 ms.author: greglin
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Application Gateway multi-site hosting

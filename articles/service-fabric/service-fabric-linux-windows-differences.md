@@ -21,7 +21,7 @@ There are some features that are supported on Windows but not on Linux. The foll
 * Domain Name System (DNS) service for Service Fabric services (DNS service is supported for containers on Linux)
 * CLI command equivalents of certain PowerShell commands detailed in [PowerShell cmdlets that don't work against a Linux Service Fabric Cluster](#powershell-cmdlets-that-dont-work-against-a-linux-service-fabric-cluster). Most of these cmdlets only apply to standalone clusters.
 * [Differences in log implementation that can affect scalability](service-fabric-concepts-scalability.md#choosing-a-platform)
-* [Difference in Service Fabric Events Channel](service-fabric-diagnostics-overview.md#platform-cluster-monitoring)
+* [Difference in Service Fabric Events Channel](monitor-service-fabric.md#platform-cluster-monitoring)
 
 
 ## PowerShell cmdlets that don't work against a Linux Service Fabric cluster

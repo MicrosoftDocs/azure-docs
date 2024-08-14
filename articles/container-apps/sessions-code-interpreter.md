@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: antchu
 ms.custom: references_regions
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Serverless code interpreter sessions in Azure Container Apps (preview)
@@ -91,6 +92,10 @@ az containerapp sessionpool show \
 After you create a session pool, your application can interact with sessions in the pool using an integration with an [LLM framework](#llm-framework-integrations) or by using the pool's [management API endpoints](#management-api-endpoints) directly.
 
 ### Session identifiers
+
+> [!IMPORTANT]
+> The session identifier is sensitive information which requires you to use a secure process to manage its value. Part of this process requires that your application ensures each user or tenant only has access to their own sessions.
+> Failure to secure access to sessions may result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](sessions.md#session-identifiers)
 
 When you interact with sessions in a pool, you use a session identifier to reference each session A session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
 

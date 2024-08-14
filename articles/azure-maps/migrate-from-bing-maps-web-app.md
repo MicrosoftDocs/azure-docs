@@ -1711,7 +1711,7 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
 [Contour layer code samples]: https://samples.azuremaps.com/?search=contour
 [Create a data source]: create-data-source-web-sdk.md
-[Creator]: tutorial-creator-indoor-maps.md
+[Creator]: creator-indoor-maps.md
 [Display an infobox]: #display-an-infobox
 [Drawing tools module code samples]: https://samples.azuremaps.com#drawing-tools-module
 [free account]: https://azure.microsoft.com/free/

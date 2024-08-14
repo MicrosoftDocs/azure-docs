@@ -112,7 +112,7 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Web App
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
-* Application Gateway
+* Application Gateway (Preview only. Please do not put production workloads)
 
 > [!NOTE]
 > * This feature isn't supported with Azure App Service Slots or Functions.

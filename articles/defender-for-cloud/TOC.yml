@@ -37,6 +37,38 @@
           displayName: containers, common questions, faq, frequently asked questions
           href: faq-defender-for-containers.yml
 
+- name: Plan
+  items:
+    - name: Zero trust and Defender for Cloud
+      displayName: zero trust, zero, trust
+      href: zero-trust.md
+    - name: Start planning multicloud protection
+      displayName: begin, get started,
+      href: plan-multicloud-security-get-started.md
+    - name: Determine business needs
+      displayName: needs, goals, business, requirements
+      ref: plan-multicloud-security-determine-business-needs.md
+    - name: Define an adoption strategy
+      displayName: strategy, adoption, ownership
+      href: plan-multicloud-security-define-adoption-strategy.md
+    - name: Determine data residency requirements
+      displayName: data, residency, cspm, cwp, plan
+      href: plan-multicloud-security-determine-data-residency-requirements.md
+    - name: Determine compliance requirements
+      displayName: compliance, standards
+      href: plan-multicloud-security-determine-compliance-requirements.md
+    - name: Determine ownership requirements
+      displayName: ownership, team, alignment, best practices,
+      href: plan-multicloud-security-determine-ownership-requirements.md
+    - name: Determine access control requirements
+      displayName: access, control
+      href: plan-multicloud-security-determine-access-control-requirements.md
+    - name: Determine multicloud dependencies
+      displayName: dependencies, cspm, cwpp, agents, multicloud
+      href: plan-multicloud-security-determine-multicloud-dependencies.md
+    - name: Automate connector deployment
+      displayName: rest api
+      href: plan-multicloud-security-automate-connector-deployment.md
 - name: Deploy
   items:
     - name: Connect environments and enable all plans
@@ -131,7 +163,7 @@
 
 - name: Concepts
   items:
-    - name: Interoperability and permissions
+    - name: Support and requirements
       items:
         - name: User roles and permissions
           href: permissions.md
@@ -148,42 +180,6 @@
         - name: Support matrices for Containers
           displayName: Containers, features availability, environment information
           href: support-matrix-defender-for-containers.md
-    - name: Protect multicloud resources
-      items:
-        - name: The Defender for Cloud multicloud solution
-          href: multicloud.yml
-        - name: Zero Trust infrastructure and integrations
-          displayName: zero trust, zero, trust
-          href: zero-trust.md
-        - name: Planning multicloud security
-          items:
-            - name: Get started
-              displayName: begin, get started,
-              href: plan-multicloud-security-get-started.md
-            - name: Determine business needs
-              displayName: needs, goals, business, requirements
-              href: plan-multicloud-security-determine-business-needs.md
-            - name: Define an adoption strategy
-              displayName: strategy, adoption, ownership
-              href: plan-multicloud-security-define-adoption-strategy.md
-            - name: Determine data residency requirements
-              displayName: data, residency, cspm, cwp, plan
-              href: plan-multicloud-security-determine-data-residency-requirements.md
-            - name: Determine compliance requirements
-              displayName: compliance, standards
-              href: plan-multicloud-security-determine-compliance-requirements.md
-            - name: Determine ownership requirements
-              displayName: ownership, team, alignment, best practices,
-              href: plan-multicloud-security-determine-ownership-requirements.md
-            - name: Determine access control requirements
-              displayName: access, control
-              href: plan-multicloud-security-determine-access-control-requirements.md
-            - name: Determine multicloud dependencies
-              displayName: dependencies, cspm, cwpp, agents,
-              href: plan-multicloud-security-determine-multicloud-dependencies.md
-            - name: Automate connector deployment
-              displayName: rest api
-              href: plan-multicloud-security-automate-connector-deployment.md
     - name: Improve cloud security posture
       items:
       - name: Cloud Security Posture Management (CSPM)
@@ -317,6 +313,40 @@
             - name: Security alerts reference list
               displayName: alerts, mitre
               href: alerts-reference.md
+            - name: Alerts for Windows machines
+              href: alerts-windows-machines.md
+            - name: Alerts for Linux machines
+              href: alerts-linux-machines.md
+            - name: Alerts for DNS
+              href: alerts-dns.md
+            - name: Alerts for Azure VM extensions
+              href: alerts-azure-vm-extensions.md
+            - name: Alerts for Azure App Service
+              href: alerts-azure-app-service.md
+            - name: Alerts for containers - Kubernetes clusters
+              href: alerts-containers.md
+            - name: Alerts for SQL Database and Azure Synapse Analytics
+              href: alerts-sql-database-and-azure-synapse-analytics.md
+            - name: Alerts for open-source relational databases
+              href: alerts-open-source-relational-databases.md
+            - name: Alerts for Resource Manager
+              href: alerts-resource-manager.md
+            - name: Alerts for Azure Storage
+              href: alerts-azure-storage.md
+            - name: Alerts for Azure Cosmos DB
+              href: alerts-azure-cosmos-db.md
+            - name: Alerts for Azure network layer
+              href: alerts-azure-network-layer.md
+            - name: Alerts for Azure Key Vault
+              href: alerts-azure-key-vault.md
+            - name: Alerts for Azure DDoS Protection
+              href: alerts-azure-ddos-protection.md
+            - name: Alerts for Defender for APIs
+              href: alerts-defender-for-apis.md
+            - name: Alerts for AI workloads
+              href: alerts-ai-workloads.md
+            - name: Deprecated security alerts
+              href: deprecated-alerts.md
         - name: Incidents
           items:
             - name: Incidents reference list
@@ -996,6 +1026,9 @@
       - name: Enable threat protection for AI workloads (preview)
         displayName: AI, Defender for AI
         href: ai-onboarding.md
+      - name: Gain end-user context for AI alerts
+        displayName: AI, Defender for AI, threat protection
+        href: gain-end-user-context-ai.md
 - name: Reference
   items:
     - name: Archived release notes (older than six months)

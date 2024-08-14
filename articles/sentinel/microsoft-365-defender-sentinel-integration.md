@@ -127,7 +127,7 @@ To avoid creating *duplicate incidents for the same alerts*, the **Microsoft inc
 
 - After you enable the Defender XDR connector, you can no longer predetermine the titles of incidents. The Defender XDR correlation engine presides over incident creation and automatically names the incidents it creates. This change is liable to affect any automation rules you created that use the incident name as a condition. To avoid this pitfall, use criteria other than the incident name as conditions for [triggering automation rules](automate-incident-handling-with-automation-rules.md#conditions). We recommend using *tags*.
 
-- If you use Microsoft Sentinel's incident creation rules for other Microsoft security solutions or products not integrated into Defender XDR, such as Microsoft Purview Insider Risk Management, and you plan to onboard to the unified security operations platform in the Defender portal, replace your incident creation rules with [scheduled analytic rules](create-analytics-rule-from-template.md).
+- If you use Microsoft Sentinel's incident creation rules for other Microsoft security solutions or products not integrated into Defender XDR, such as Microsoft Purview Insider Risk Management, and you plan to onboard to the unified security operations platform in the Defender portal, replace your incident creation rules with [scheduled analytics rules](scheduled-rules-overview.md).
 
 ## Working with Microsoft Defender XDR incidents in Microsoft Sentinel and bi-directional sync
 

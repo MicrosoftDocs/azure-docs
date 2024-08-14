@@ -226,6 +226,6 @@ For tooling improvements, make sure you have the correct version installed speci
 - [Customer Advisory Team blogs](/archive/blogs/sqlcat/)
 - [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
-- [Twitter](https://twitter.com/hashtag/SQLDW)
+- [X](https://x.com/hashtag/SQLDW)
 - [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Azure glossary](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)

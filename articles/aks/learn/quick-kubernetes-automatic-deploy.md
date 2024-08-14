@@ -120,8 +120,7 @@ To create an AKS Automatic cluster, use the [az aks create][az-aks-create] comma
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSAutomaticCluster \
-    --sku automatic \
-    --generate-ssh-keys
+    --sku automatic
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.

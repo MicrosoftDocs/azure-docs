@@ -119,7 +119,7 @@ By default, functions use key-based authentication to secure HTTP endpoints. To 
 }
 ```
 
-For more information, see the [Secure an HTTP endpoint in production](../../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production) section of [Azure Functions HTTP trigger](../../azure-functions/functions-bindings-http-webhook-trigger.md).
+For more information, see the [Secure HTTP endpoints](../../azure-functions/security-concepts.md#secure-http-endpoints) section of [Securing Azure Functions](../../azure-functions/security-concepts.md).
 
 Use the following command to publish the app to the instance created in the previous step:
 

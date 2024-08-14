@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: davinune
 ms.author: davinune
-ms.date: 06/24/2024
+ms.date: 07/16/2024
 ---
 
 # Key sovereignty, availability, performance, and scalability in Managed HSM
@@ -32,7 +32,7 @@ The HSM adapters can support dozens of isolated HSM partitions. Running on each 
 Figure 1 shows the architecture of an HSM pool, which consists of three Linux VMs, each running on an HSM server in its own datacenter rack to support availability. The important components are:
 
 - The HSM fabric controller (HFC) is the control plane for the service. The HFC drives automated patching and repairs for the pool.
-- A FIPS 140-2 Level 3 compliant cryptographic boundary, exclusive for each customer, including three [Intel Secure Guard Extensions (Intel SGX)](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) confidential enclaves, each connected to an HSM instance. The root keys for this boundary are generated and stored in the three HSMs. As we describe later in this article, no person associated with Microsoft has access to the data that's within this boundary. Only service code that's running in the Intel SGX enclave (including the Node Service agent), acting on behalf of the customer, has access.
+- An exclusive cryptographic boundary for each customer composed of three [Intel Secure Guard Extensions (Intel SGX)](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) confidential enclaves connected to three FIPS 140-2 Level 3 compliant HSM instances. The root keys for this boundary are generated and stored in the three HSMs. As we describe later in this article, no person associated with Microsoft has access to the data that's within this boundary. Only service code that's running in the Intel SGX enclave (including the Node Service agent), acting on behalf of the customer, has access.
 
 :::image type="content" source="../media/mhsm-technical-details/mhsm-architecture.png" border="false" alt-text="Diagram of a Managed HSM pool that shows TEEs inside a customer cryptographic boundary and health maintenance operations outside the boundary.":::
 

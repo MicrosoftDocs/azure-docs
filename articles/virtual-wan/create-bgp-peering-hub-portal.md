@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to create a BGP peering with Virtual WAN hub router.
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2023
 ms.author: cherylmc
 

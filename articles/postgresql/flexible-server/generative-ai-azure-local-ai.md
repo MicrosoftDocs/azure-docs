@@ -10,6 +10,7 @@ ms.author: jojohnso
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/20/2024
+ms.collection: ce-skilling-ai-copilot
 ms.subservice: flexible-server
 ms.custom:
   - build-2024

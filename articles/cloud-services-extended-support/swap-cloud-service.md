@@ -7,25 +7,25 @@ ms.custom: devx-track-arm-template
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
-ms.date: 04/01/2021
+ms.date: 07/24/2024
 ---
 
 # Swap or switch deployments in Azure Cloud Services (extended support)
 
 You can swap between two independent cloud service deployments in Azure Cloud Services (extended support). Unlike in Azure Cloud Services (classic), the Azure Resource Manager model in Azure Cloud Services (extended support) doesn't use deployment slots. In Azure Cloud Services (extended support), when you deploy a new release of a cloud service, you can make the cloud service "swappable" with an existing cloud service in Azure Cloud Services (extended support).
 
-After you swap the deployments, you can stage and test your new release by using the new cloud service deployment. In effect, swapping promotes a new cloud service that's staged to production release.
+After you swap the deployments, you can stage and test your new release by using the new cloud service deployment. In effect, swapping promotes a new cloud service staged to production release.
 
 > [!NOTE]
 > You can't swap between an Azure Cloud Services (classic) deployment and an Azure Cloud Services (extended support) deployment.
 
-You must make a cloud service swappable with another cloud service when you deploy the second of a pair of cloud services for the first time. Once the second pair of cloud service is deployed, it can not be made swappable with an existing cloud service in subsequent updates.
+You must make a cloud service swappable with another cloud service when you deploy the second of a pair of cloud services for the first time. Once the second pair of cloud service is deployed, it can’t be made swappable with an existing cloud service in subsequent updates.
 
 You can swap the deployments by using an Azure Resource Manager template (ARM template), the Azure portal, or the REST API.
 
-Upon deployment of the second cloud service, both the cloud services have their SwappableCloudService property set to point to each other. Any subsequent update to these cloud services will need to specify this property failing which an error will be returned indicating that the SwappableCloudService property cannot be deleted or updated.
+Upon deployment of the second cloud service, both the cloud services have their SwappableCloudService property set to point to each other. Any subsequent update to these cloud services needs to specify this property, failing which an error is returned indicating that the SwappableCloudService property can't delete or update.
 
-Once set, the SwappableCloudService property is treated as readonly. It cannot be deleted or changed to another value. Deleting one of the cloud services (of the swappable pair) will result in the SwappableCloudService  property of the remaining cloud service being cleared.
+Once set, the SwappableCloudService property is treated as readonly. It can't delete or change to another value. Deleting one of the cloud services (of the swappable pair) results in the SwappableCloudService  property of the remaining cloud service being cleared.
 
 ## ARM template
 
@@ -53,7 +53,7 @@ To swap a deployment in the Azure portal:
 
    :::image type="content" source="media/swap-cloud-service-portal-confirm.png" alt-text="Screenshot that shows confirming the deployment swap information.":::
 
-Deployments swap quickly because the only thing that changes is the virtual IP address for the cloud service that's deployed.
+Deployments swap quickly because the only thing that changes is the virtual IP address for the cloud service deployed.
 
 To save compute costs, you can delete one of the cloud services (designated as a staging environment for your application deployment) after you verify that your swapped cloud service works as expected.
 

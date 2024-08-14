@@ -36,9 +36,6 @@ To configure a diagnostic setting for developer portal usage logs:
     1. **Category groups**: Optionally make a selection for your scenario. 
     1. Under **Categories**: Select **Logs related to Developer Portal usage**. Optionally select other categories as needed.
     1. Under **Destination details**, select one or more options and specify details for the destination. For example, archive logs to a storage account or stream them to an event hub. [Learn more](../azure-monitor/essentials/diagnostic-settings.md)
-        > [!NOTE]
-        > Currently, the **Send to Log Analytics workspace** destination isn't supported for developer portal usage logs.
-
     1. Select **Save**. 
  
 ## View diagnostic log data

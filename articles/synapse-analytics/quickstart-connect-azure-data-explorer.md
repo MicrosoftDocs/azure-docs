@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect Azure Data Explorer to an Azure Synapse Analytics workspace'
 description: Connect an Azure Data Explorer cluster to an Azure Synapse Analytics workspace by using Apache Spark for Azure Synapse Analytics.
-author: SnehaGunda
+author: whhender
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace

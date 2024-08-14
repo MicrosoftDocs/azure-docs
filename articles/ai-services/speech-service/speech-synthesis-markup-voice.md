@@ -118,7 +118,7 @@ The following table describes each supported `style` attribute:
 |`style="customerservice"`|Expresses a friendly and helpful tone for customer support.|
 |`style="depressed"`|Expresses a melancholic and despondent tone with lower pitch and energy.|
 |`style="disgruntled"`|Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.|
-|`style="documentary-narration"`|Narrates documentaries in a relaxed, interested, and informative style suitable for dubbing documentaries, expert commentary, and similar content.|
+|`style="documentary-narration"`|Narrates documentaries in a relaxed, interested, and informative style suitable for documentaries, expert commentary, and similar content.|
 |`style="embarrassed"`|Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable.|
 |`style="empathetic"`|Expresses a sense of caring and understanding.|
 |`style="envious"`|Expresses a tone of admiration when you desire something that someone else has.|

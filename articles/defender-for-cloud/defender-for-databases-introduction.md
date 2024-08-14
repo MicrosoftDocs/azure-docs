@@ -68,7 +68,7 @@ Threat intelligence enriched multicloud alerts are triggered when there are:
 - **Brute-force attacks** – With the ability to separate simple brute force or a successful brute force.
 
 > [!TIP]
-> View the full list of multicloud alerts for database servers [in the alerts reference page](alerts-reference.md#alerts-for-open-source-relational-databases).
+> View the full list of multicloud alerts for database servers [in the alerts reference page](alerts-open-source-relational-databases.md).
 
 ## Related articles
 

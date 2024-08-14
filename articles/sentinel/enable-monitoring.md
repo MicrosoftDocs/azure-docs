@@ -17,7 +17,7 @@ This article instructs you how to turn on these features.
 
 To implement the health and audit feature using API (Bicep/ARM/REST), review the [Diagnostic Settings operations](/rest/api/monitor/diagnostic-settings).
 
-To configure the retention time for your audit and health events, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
+To configure the retention time for your audit and health events, see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-configure.md).
 
 > [!IMPORTANT]
 >

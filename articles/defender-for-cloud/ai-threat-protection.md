@@ -36,4 +36,4 @@ To use threat protection for AI workloads, you must enroll in the limited public
 ## Related content
 
 - [Enable threat protection for AI workloads (preview) (Preview)](ai-onboarding.md).
-- [Alerts for AI workloads](alerts-reference.md#alerts-for-ai-workloads)
+- [Alerts for AI workloads](alerts-ai-workloads.md)

@@ -3,7 +3,7 @@ title: Azure Cloud Services (extended support) Definition Schema (.cscfg File) |
 description: Information related to the definition schema for Cloud Services (extended support)
 ms.topic: article
 ms.service: cloud-services-extended-support
-ms.date: 10/14/2020
+ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
@@ -11,9 +11,9 @@ ms.reviewer: mimckitt
 
 # Azure Cloud Services (extended support) config schema (cscfg File)
 
-The service configuration file specifies the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. If the service is part of a Virtual Network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is cscfg.
+The service configuration file specifies the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. If the service is part of a Virtual Network, configuration information for the network must be provided in the service configuration file and the virtual networking configuration file. The default extension for the service configuration file is cscfg.
 
-The service model is described by the [Cloud Service (extended support) definition schema](schema-csdef-file.md).
+The [Cloud Service (extended support) definition schema](schema-csdef-file.md) describes the service model.
 
 By default, the Azure Diagnostics configuration schema file is installed to the `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` directory. Replace `<version>` with the installed version of the [Azure SDK](https://azure.microsoft.com/downloads/).
 
@@ -37,7 +37,7 @@ The basic format of the service configuration file is as follows.
 ```
 
 ## Schema definitions
-The following topics describe the schema for the `ServiceConfiguration` element:
+The following articles describe the schema for the `ServiceConfiguration` element:
 
 - [Role Schema](schema-cscfg-role.md)
 - [NetworkConfiguration Schema](schema-cscfg-networkconfiguration.md)
@@ -53,8 +53,8 @@ The following table describes the attributes of the `ServiceConfiguration` eleme
 | Attribute | Description |
 | --------- | ----------- |
 |serviceName|Required. The name of the Cloud Service. The name given here must match the name specified in the service definition file.|
-|osFamily|Optional. Specifies the Guest OS that will run on role instances in the Cloud Service. For information about supported Guest OS releases, see [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services/cloud-services-guestos-update-matrix.md).<br /><br /> If you do not include an `osFamily` value and you have not set the `osVersion` attribute to a specific Guest OS version, a default value of 1 is used.|
-|osVersion|Optional. Specifies the version of the Guest OS that will run on role instances in the Cloud Service. For more information about Guest OS versions, see [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services/cloud-services-guestos-update-matrix.md).<br /><br /> You can specify that the Guest OS should be automatically upgraded to the latest version. To do this, set the value of the `osVersion` attribute to `*`. When set to `*`, the role instances are deployed using the latest version of the Guest OS for the specified OS family and will be automatically upgraded when new versions of the Guest OS are released.<br /><br /> To specify a specific version manually, use the `Configuration String` from the table in the **Future, Current and Transitional Guest OS Versions** section of [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services/cloud-services-guestos-update-matrix.md).<br /><br /> The default value for the `osVersion` attribute is `*`.|
+|osFamily|Optional. Specifies the Guest OS that runs on role instances in the Cloud Service. For information about supported Guest OS releases, see [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services/cloud-services-guestos-update-matrix.md).<br /><br /> If you don't include an `osFamily` value and you have not set the `osVersion` attribute to a specific Guest OS version, a default value of 1 is used.|
+|osVersion|Optional. Specifies the version of the Guest OS that runs on role instances in the Cloud Service. For more information about Guest OS versions, see [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services/cloud-services-guestos-update-matrix.md).<br /><br /> You can specify that the Guest OS should be automatically upgraded to the latest version. To do this, set the value of the `osVersion` attribute to `*`. When set to `*`, the role instances are deployed using the latest version of the Guest OS for the specified OS family and automatically upgrades when new versions of the Guest OS are released.<br /><br /> To specify a specific version manually, use the `Configuration String` from the table in the **Future, Current, and Transitional Guest OS Versions** section of [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services/cloud-services-guestos-update-matrix.md).<br /><br /> The default value for the `osVersion` attribute is `*`.|
 |schemaVersion|Optional. Specifies the version of the Service Configuration schema. The schema version allows Visual Studio to select the correct SDK tools to use for schema validation if more than one version of the SDK is installed side-by-side. For more information about schema and version compatibility, see [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services/cloud-services-guestos-update-matrix.md)|
 
 The service configuration file must contain one `ServiceConfiguration` element. The `ServiceConfiguration` element may include any number of `Role` elements and zero or 1 `NetworkConfiguration` elements.

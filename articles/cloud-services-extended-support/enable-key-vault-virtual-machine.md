@@ -6,10 +6,10 @@ ms.service: cloud-services-extended-support
 author: msmbaldwin
 ms.author: mbaldwin
 ms.reviewer: gachandw
-ms.date: 01/30/2024
+ms.date: 07/24/2024
 ---
 
-# Apply the Key Vault VM extension to Azure Cloud Services (extended support)
+# Apply the Key Vault Virtual Machine (VM) extension to Azure Cloud Services (extended support)
 
 This article provides basic information about the Azure Key Vault VM extension for Windows and shows you how to enable it in Azure Cloud Services.
 
@@ -20,7 +20,7 @@ The Key Vault VM extension provides automatic refresh of certificates stored in 
 The Key Vault VM extension is now supported on the Azure Cloud Services (extended support) platform to enable the management of certificates end to end. The extension can now pull certificates from a configured key vault at a predefined polling interval and install them for the service to use. 
 
 ## How can I use the Key Vault VM extension?
-The following procedure will show you how to install the Key Vault VM extension on Azure Cloud Services by first creating a bootstrap certificate in your vault to get a token from Microsoft Entra ID. That token will help in the authentication of the extension with the vault. After the authentication process is set up and the extension is installed, all the latest certificates will be pulled down automatically at regular polling intervals. 
+The following procedure shows you how to install the Key Vault VM extension on Azure Cloud Services by first creating a bootstrap certificate in your vault to get a token from Microsoft Entra ID. That token helps in the authentication of the extension with the vault. After the authentication process is set up and the extension is installed, all the latest certificates will be pulled down automatically at regular polling intervals. 
 
 > [!NOTE]
 > The Key Vault VM extension downloads all the certificates in the Windows certificate store to the location provided by the `certificateStoreLocation` property in the VM extension settings. Currently, the Key Vault VM extension grants access to the private key of the certificate only to the local system admin account. 

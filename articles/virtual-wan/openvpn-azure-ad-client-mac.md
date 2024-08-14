@@ -1,12 +1,11 @@
 ---
-title: 'Configure VPN clients for P2S OpenVPN protocol connections: Microsoft Entra authentication: macOS: Preview'
+title: 'Configure VPN clients for P2S OpenVPN protocol connections: Microsoft Entra authentication: macOS'
 description: 'Preview: Learn how to configure a macOS VPN client to connect to a virtual network using point-to-site VPN and Microsoft Entra authentication.'
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
 
@@ -29,7 +28,11 @@ If you want to configure multiple computers, you can create a client profile on 
 
 ## Prerequisites
 
-Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md).
+Make sure you have the following prerequisites before you proceed with the steps in this article:
+
+* Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md).
+
+[!INCLUDE [Supported OS, processors, Rosetta software](../../includes/vpn-gateway-vwan-macos-prerequisites-vpn-client-include.md)]
 
 ## <a name="download"></a>To download the Azure VPN client
 

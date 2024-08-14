@@ -84,7 +84,7 @@ See [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings
 > 
 > - Disable kube-audit logging when not required.
 > - Enable collection from *kube-audit-admin*, which excludes the get and list audit events. 
-> - Enable resource-specific logs as described below and configure `AKSAudit` table as [basic logs](../azure-monitor/logs/basic-logs-configure.md).
+> - Enable resource-specific logs as described below and configure `AKSAudit` table as [basic logs](../azure-monitor/logs/logs-table-plans.md).
 > 
 > See [Monitor Kubernetes clusters using Azure services and cloud native tools](../azure-monitor/containers/monitor-kubernetes.md) for further recommendations and [Cost optimization and Azure Monitor](../azure-monitor/best-practices-cost.md) for further strategies to reduce your monitoring costs.
 
@@ -95,12 +95,12 @@ AKS supports either [Azure diagnostics mode](../azure-monitor/essentials/resourc
 Resource-specific mode is recommended for AKS for the following reasons:
 
 - Data is easier to query because it's in individual tables dedicated to AKS.
-- Supports configuration as [basic logs](../azure-monitor/logs/basic-logs-configure.md) for significant cost savings.
+- Supports configuration as [basic logs](../azure-monitor/logs/logs-table-plans.md) for significant cost savings.
 
 For more information on the difference between collection modes including how to change an existing setting, see [Select the collection mode](../azure-monitor/essentials/resource-logs.md#select-the-collection-mode).
 
 > [!NOTE]
-> The ability to select the collection mode isn't available in the Azure portal in all regions yet. For those regions where it's not yet available, use CLI to create the diagnostic setting with a command such as the following:
+> It is also possible to configure Diagnostic settings through the CLI. In these cases, it is not guaranteed to work successfully as it doesnt check for the cluster's provisioning state. Please make sure to check the diagnostic settings of the cluster to reflect after configuring it.
 > 
 > ```azurecli
 > az monitor diagnostic-settings create --name AKS-Diagnostics --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerService/managedClusters/my-cluster --logs '[{"category": "kube-audit","enabled": true}, {"category": "kube-audit-admin", "enabled": true}, {"category": "kube-apiserver", "enabled": true}, {"category": "kube-controller-manager", "enabled": true}, {"category": "kube-scheduler", "enabled": true}, {"category": "cluster-autoscaler", "enabled": true}, {"category": "cloud-controller-manager", "enabled": true}, {"category": "guard", "enabled": true}, {"category": "csi-azuredisk-controller", "enabled": true}, {"category": "csi-azurefile-controller", "enabled": true}, {"category": "csi-snapshot-controller", "enabled": true}]'  --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace --export-to-resource-specific true
@@ -149,7 +149,7 @@ Azure Monitor Container Insights provides a schema for container logs known as C
 - PodName
 - PodNamespace
 
-In addition, this schema is compatible with [Basic Logs](../azure-monitor/logs/basic-logs-configure.md?tabs=portal-1#set-a-tables-log-data-plan) data plan, which offers a low-cost alternative to standard analytics logs. The Basic log data plan lets you save on the cost of ingesting and storing high-volume verbose logs in your Log Analytics workspace for debugging, troubleshooting, and auditing, but not for analytics and alerts. For more information, see [Manage tables in a Log Analytics workspace](../azure-monitor/logs/manage-logs-tables.md?tabs=azure-portal).
+In addition, this schema is compatible with [Basic Logs](../azure-monitor/logs/logs-table-plans.md?tabs=portal-1#set-the-table-plan) data plan, which offers a low-cost alternative to standard analytics logs. The Basic log data plan lets you save on the cost of ingesting and storing high-volume verbose logs in your Log Analytics workspace for debugging, troubleshooting, and auditing, but not for analytics and alerts. For more information, see [Manage tables in a Log Analytics workspace](../azure-monitor/logs/manage-logs-tables.md?tabs=azure-portal).
 ContainerLogV2 is the recommended approach and is the default schema for customers onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy, and Azure portal. For more information about how to enable ContainerLogV2 through either the cluster's Data Collection Rule (DCR) or ConfigMap, see [Enable the ContainerLogV2 schema](../azure-monitor/containers/container-insights-logs-schema.md?tabs=configure-portal#enable-the-containerlogv2-schema). 
 
 ## Visualization

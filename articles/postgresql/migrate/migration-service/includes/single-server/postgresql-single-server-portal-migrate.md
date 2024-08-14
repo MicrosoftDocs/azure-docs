@@ -21,7 +21,7 @@ You can migrate using the Azure portal.
 
 - [Allowlist extensions](../../../../flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) whose libraries must be loaded at server start. It's essential that the extension is on the allowlist before you initiate a migration.
 
-- Check if the data distribution among a database's tables is skewed, with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table in parallel](../../best-practices-migration-service-postgresql.md#improve-migration-speed---parallel-migration-of-tables).
+- Check if the data distribution among a database's tables is skewed, with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table in parallel](../../best-practices-migration-service-postgresql.md#improve-migration-speed-parallel-migration-of-tables).
 
 ## Configure the migration task
 
@@ -207,7 +207,7 @@ You can see the results of **Validate and Migrate** once the operation is comple
 
 - [Allowlist extensions](../../../../flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) whose libraries must be loaded at server start. It's essential that the extension is on the allowlist before you initiate a migration.
 
-- Check if the data distribution among a database's tables is skewed, with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table in parallel](../../best-practices-migration-service-postgresql.md#improve-migration-speed---parallel-migration-of-tables).
+- Check if the data distribution among a database's tables is skewed, with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table in parallel](../../best-practices-migration-service-postgresql.md#improve-migration-speed-parallel-migration-of-tables).
 
 ## Configure the migration task
 

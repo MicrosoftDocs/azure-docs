@@ -6,7 +6,7 @@ ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 10/13/2020
+ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
 ---
 # Reset an Azure Cloud Service (extended support) 
@@ -17,7 +17,7 @@ These samples cover various ways to reset an existing Azure Cloud Service (exten
 $roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
 Invoke-AzCloudServiceReimage -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances
 ```
-This command reimages 2 role instances ContosoFrontEnd_IN_0 and ContosoBackEnd_IN_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+This command reimages two role instances ContosoFrontEnd_IN_0 and ContosoBackEnd_IN_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ## Reimage all roles of Cloud Service
 ```powershell
@@ -36,7 +36,7 @@ This command reimages role instance named ContosoFrontEnd_IN_0 of cloud service 
 $roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
 Invoke-AzCloudServiceRebuild -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances
 ```
-This command rebuilds 2 role instances ContosoFrontEnd_IN_0 and ContosoBackEnd_IN_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+This command rebuilds two role instances ContosoFrontEnd_IN_0 and ContosoBackEnd_IN_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ## Rebuild all roles of cloud service
 ```powershell
@@ -49,7 +49,7 @@ This command rebuilds all role instances of cloud service named ContosoCS that b
 $roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
 Restart-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances
 ```
-This command restarts 2 role instances ContosoFrontEnd_IN_0 and ContosoBackEnd_IN_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+This command restarts two role instances ContosoFrontEnd_IN_0 and ContosoBackEnd_IN_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ## Restart all roles of cloud service
 ```powershell

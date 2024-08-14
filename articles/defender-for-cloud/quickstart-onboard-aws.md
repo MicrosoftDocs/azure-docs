@@ -2,7 +2,7 @@
 title: Connect your AWS account
 description: Defend your AWS resources with Microsoft Defender for Cloud, a guide to set up and configure Defender for Cloud to protect your workloads in AWS.
 ms.topic: install-set-up-deploy
-ms.date: 07/01/2024
+ms.date: 07/17/2024
 ---
 
 # Connect AWS accounts to Microsoft Defender for Cloud
@@ -52,7 +52,9 @@ To complete the procedures in this article, you need:
 
 - Access to an AWS account.
 
-- **Subscription owner** permission for the relevant Azure subscription, and **Administrator** permission on the AWS account.
+- Contributor level permission for the relevant Azure subscription.
+
+- An Entra ID account that has an Application Administrator or Cloud Application Administrator directory role for your tenant (or equivalent administrator rights to create app registrations).
 
 > [!NOTE]
 > The AWS connector is not available on the national government clouds (Azure Government, Microsoft Azure operated by 21Vianet).

@@ -10,7 +10,7 @@ ms.date: 08/12/2020
 
 # Do sentiment analysis with Azure Stream Analytics and Machine Learning Studio (classic)
 
-[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 This article shows you how to set up a simple Azure Stream Analytics job that uses Machine Learning Studio (classic) for sentiment analysis. You use a Studio (classic) sentiment analytics model from the Cortana Intelligence Gallery to analyze streaming text data and determine the sentiment score.
 
@@ -19,7 +19,7 @@ This article shows you how to set up a simple Azure Stream Analytics job that us
 
 You can apply what you learn from this article to scenarios such as these:
 
-* Analyzing real-time sentiment on streaming Twitter data.
+* Analyzing real-time sentiment on streaming X data.
 * Analyzing records of customer chats with support staff.
 * Evaluating comments on forums, blogs, and videos.
 * Many other real-time, predictive scoring scenarios.
@@ -32,7 +32,7 @@ Before you start, make sure you have the following:
 
 * An active Azure subscription.
 
-* A CSV file with some Twitter data in it. You can download a sample file from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), or you can create your own file. In a real-world scenario, you would get the data directly from a Twitter data stream.
+* A CSV file with some X data in it. You can download a sample file from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), or you can create your own file. In a real-world scenario, you would get the data directly from a X data stream.
 
 ## Create a storage container and upload the CSV input file
 

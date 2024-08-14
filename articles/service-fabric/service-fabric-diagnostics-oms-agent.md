@@ -15,21 +15,19 @@ ms.date: 07/14/2022
 This article covers the steps to add the Log Analytics agent as a virtual machine scale set extension to your cluster, and connect it to your existing Azure Log Analytics workspace. This enables collecting diagnostics data about containers, applications, and performance monitoring. By adding it as an extension to the virtual machine scale set resource, Azure Resource Manager ensures that it gets installed on every node, even when scaling the cluster.
 
 > [!NOTE]
-> This article assumes that you have an Azure Log Analytics workspace already set up. If you do not, head over to [Set up Azure Monitor logs](service-fabric-diagnostics-oms-setup.md)
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
+> This article assumes that you have an Azure Log Analytics workspace already set up. If you do not, head over to [Set up Azure Monitor logs](service-fabric-diagnostics-oms-setup.md).
 
 ## Add the agent extension via Azure CLI
 
-The best way to add the Log Analytics agent to your cluster is via the virtual machine scale set APIs available with the Azure CLI. If you do not have Azure CLI set up yet, head over to Azure portal and open up a [Cloud Shell](../cloud-shell/overview.md) instance, or [Install the Azure CLI](/cli/azure/install-azure-cli).
+The best way to add the Log Analytics agent to your cluster is via the virtual machine scale set APIs available with the Azure CLI. If you don't have Azure CLI set up yet, head over to Azure portal and open up a [Cloud Shell](../cloud-shell/overview.md) instance, or [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-1. Once your Cloud Shell is requested, make sure you are working in the same subscription as your resource. Check this with `az account show` and make sure the "name" value matches that of your cluster's subscription.
+1. Once your Cloud Shell is requested, make sure you work in the same subscription as your resource. Check this with `az account show` and make sure the "name" value matches that of your cluster's subscription.
 
-2. In the Portal, navigate to the resource group where your Log Analytics workspace is located. Click into the log analytics resource (the type of the resource will be Log Analytics workspace). Once you are at the resource overview page, click on **Advanced Settings** under the Settings section on the left menu.
+2. In the Portal, navigate to the resource group where your Log Analytics workspace is located. Select the log analytics resource (the type of the resource will be Log Analytics workspace). Once you are at the resource overview page, select **Advanced Settings** under the Settings section on the left menu.
 
     ![Log analytics properties page](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
 
-3. Click on **Windows Servers** if you are standing up a Windows cluster, and **Linux Servers** if you are creating a Linux cluster. This page will show you your `workspace ID` and `workspace key` (listed as Primary Key in the portal). You will need both for the next step.
+3. Select **Windows Servers** if you're standing up a Windows cluster, and **Linux Servers** if you're creating a Linux cluster. This page shows your `workspace ID` and `workspace key` (listed as Primary Key in the portal). You need both for the next step.
 
 4. Run the command to install the Log Analytics agent onto your cluster, using the `vmss extension set` API:
 
@@ -67,28 +65,28 @@ Now that you have added the Log Analytics agent, head on over to the Log Analyti
 
 1. In the Azure portal, go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
 
-2. Click **Log Analytics**.
+2. Select **Log Analytics**.
 
-3. Click **Advanced Settings**.
+3. Select **Advanced Settings**.
 
-4. Click **Data**, then click **Windows or Linux Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](/windows/win32/perfctrs/specifying-a-counter-path).
+4. Select **Data**, then choose **Windows or Linux Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](monitor-service-fabric-reference.md#performance-metrics) to collect. The proper format is referenced in this [article](/windows/win32/perfctrs/specifying-a-counter-path).
 
-5. Click **Save**, then click **OK**.
+5. Select **Save**, then choose **OK**.
 
 6. Close the Advanced Settings blade.
 
-7. Under the General heading, click **Workspace summary**.
+7. Under the General heading, select **Workspace summary**.
 
-8. You will see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
+8. You'll see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Select the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
-9. You will see a few tiles with graphs on operational channel and reliable services events. The graphical representation of the data flowing in for the counters you have selected will appear under Node Metrics.
+9. You'll see a few tiles with graphs on operational channel and reliable services events. The graphical representation of the data flowing in for the counters you have selected appear under Node Metrics.
 
-10. Click on a Container Metric graph to see additional details. You can also query on performance counter data similarly to cluster events and filter on the nodes, perf counter name, and values using the Kusto query language.
+10. Select on a Container Metric graph to see additional details. You can also query on performance counter data similarly to cluster events and filter on the nodes, perf counter name, and values using the Kusto query language.
 
 ![Log Analytics perf counter query](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## Next steps
 
-* Collect relevant [performance counters](service-fabric-diagnostics-event-generation-perf.md). To configure the Log Analytics agent to collect specific performance counters, review [configuring data sources](../azure-monitor/agents/agent-data-sources.md#configure-data-sources).
+* Collect relevant [performance counters](monitor-service-fabric-reference.md#performance-metrics). To configure the Log Analytics agent to collect specific performance counters, review [configuring data sources](../azure-monitor/agents/agent-data-sources.md#configure-data-sources).
 * Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/alerts/alerts-overview.md) to aid in detecting and diagnostics
 * As an alternative you can collect performance counters through [Azure Diagnostics extension and send them to Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

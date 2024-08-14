@@ -1,8 +1,8 @@
 ---
-title: Create the pre and post maintenance configuration events (preview) in Azure Update Manager
+title: Create the pre and post (preview) maintenance configuration events in Azure Update Manager
 description: The article provides the steps to create the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 07/09/2024
+ms.date: 07/24/2024
 ms.topic: how-to
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -19,7 +19,7 @@ This article describes on how to create pre and post events in Azure Update Mana
 
 ## Event Grid in schedule maintenance configurations
 
-Azure Update Manager leverages Event grid to create and manage pre and post events. For more information, go through the [overview of Event Grid](../event-grid/overview.md). To trigger an event either before or after a schedule maintenance window, you require the following:
+Azure Update Manager leverages Event Grid to create and manage pre and post events. For more information, go through the [overview of Event Grid](../event-grid/overview.md). To trigger an event either before or after a schedule maintenance window, you require the following:
 
 1. **Schedule maintenance configuration** - You can create Pre and post events for a schedule maintenance configuration in Azure Update Manager. For more information, see [schedule updates using maintenance configurations](scheduled-patching.md).
 1. **Action to be performed in the pre or post event** - You can use the [Event handlers](../event-grid/event-handlers.md) (Endpoints) supported by Event Grid to define actions or tasks. Here are examples on how to create Azure Automation Runbooks via Webhooks and Azure Functions. Within these Event handlers/Endpoints, you must define the actions that should be performed as part of pre and post events. 
@@ -28,7 +28,7 @@ Azure Update Manager leverages Event grid to create and manage pre and post even
 1. **Pre and post event** - You can follow the steps shared in the following section to create a pre and post event for schedule maintenance configuration. To learn more about the terms used in the Basics tab of Event Grid, see [Event Grid](../event-grid/concepts.md) terms.
 
 
-## Create a pre and post event (preview)
+## Create a pre and post event 
 
 ::: zone pivot="new-mc"
 
@@ -137,7 +137,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 #### [Using API](#tab/api)
 
-1. Create a maintenance configuration by following the steps listed [here](https://learn.microsoft.com/rest/api/maintenance/maintenance-configurations/create-or-update?view=rest-maintenance-2023-09-01-preview&tabs=HTTP).
+1. Create a maintenance configuration by following the steps listed [here](/rest/api/maintenance/maintenance-configurations/create-or-update?view=rest-maintenance-2023-09-01-preview&tabs=HTTP).
 
 1. **# System topic creation [Learn more](/rest/api/eventgrid/controlplane/system-topics/create-or-update)**
 
@@ -386,7 +386,7 @@ PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/provid
 
 
 ## Next steps
-- For an overview of pre and post events (preview) in Azure Update Manager, refer [here](pre-post-scripts-overview.md).
+- For an overview of pre and post events in Azure Update Manager, refer [here](pre-post-scripts-overview.md).
 - To learn on how to manage pre and post events or to cancel a schedule run, see [pre and post maintenance configuration events](manage-pre-post-events.md).
 - To learn how to use pre and post events to turn on and off your VMs using Webhooks, refer [here](tutorial-webhooks-using-runbooks.md).
 - To learn how to use pre and post events to turn on and off your VMs using Azure Functions, refer [here](tutorial-using-functions.md).

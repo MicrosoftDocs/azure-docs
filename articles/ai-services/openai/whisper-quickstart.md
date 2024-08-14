@@ -23,11 +23,7 @@ The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
-- Access granted to Azure OpenAI Service in the desired Azure subscription.
 - An Azure OpenAI resource with a `whisper` model deployed in a supported region. [Whisper model regional availability](./concepts/models.md#whisper-models). For more information, see [Create a resource and deploy a model with Azure OpenAI](how-to/create-resource.md).
-
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). 
 
 ## Set up
 

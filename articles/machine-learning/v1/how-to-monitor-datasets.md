@@ -20,6 +20,10 @@ ms.custom: UpdateFrequency5, data4ml, sdkv1
 
 Learn how to monitor data drift and set alerts when drift is high.
 
+> [!NOTE]
+> Azure Machine Learning model monitoring (v2) provides improved capabilities for data drift along with additional functionalities for monitoring signals and metrics. To learn more about the capabilities of model monitoring in Azure Machine Learning (v2), see [Model monitoring with Azure Machine Learning](../concept-model-monitoring.md).
+
+
 With Azure Machine Learning dataset monitors (preview), you can:
 * **Analyze drift in your data** to understand how it changes over time.
 * **Monitor model data** for differences between training and serving datasets. Start by [collecting model data from deployed models](how-to-enable-data-collection.md).

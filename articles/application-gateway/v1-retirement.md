@@ -30,6 +30,10 @@ We announced the deprecation of Application Gateway V1 on **April 28 ,2023**. Be
 
 - Follow the steps outlined in the [migration script](./migrate-v1-v2.md) to migrate from Application Gateway v1 to v2. Review [pricing](./understanding-pricing.md) before making the transition.
 
+- Use the Migrate Application Gateway from v1 to v2 video guide to understand the migration steps.
+
+> [!VIDEO 7ed01e33-80a9-4daa-9322-e771f963a2fe]
+
 -	If your company/organization has partnered with Microsoft or works with Microsoft representatives (like cloud solution architects (CSAs) or customer success account managers (CSAMs)), work with them for migration.
 
 ## Required action

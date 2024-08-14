@@ -7,7 +7,7 @@ ms.subservice: classic-to-arm-migration
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.date: 2/08/2021
+ms.date: 07/24/2024
 ---
 
 # Migrate to Cloud Services (extended support) using the Azure portal
@@ -24,12 +24,12 @@ To perform this migration, you must be added as a coadministrator for the subscr
 2. On the **Hub** menu, select **Subscription**. If you don't see it, select **All services**.
 3. Find the appropriate subscription entry, and then look at the **MY ROLE** field. For a coadministrator, the value should be *Account admin*.
 
-If you're not able to add a co-administrator, contact a service administrator or [co-administrator](../role-based-access-control/classic-administrators.md) for the subscription to get yourself added.
+If you're not able to add a coadministrator, contact a service administrator or [coadministrator](../role-based-access-control/classic-administrators.md) for the subscription to get yourself added.
 
 **Sign up for Migration resource provider**
 
 1. Register with the migration resource provider `Microsoft.ClassicInfrastructureMigrate` and preview feature `Cloud Services` under Microsoft.Compute namespace using the [Azure portal](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).  
-1. Wait five minutes for the registration to complete then check the status of the approval. 
+1. Wait five minutes for the registration to complete, then check the status of the approval. 
 
 ## Migrate your Cloud Service resources
 
@@ -49,17 +49,17 @@ If you're not able to add a co-administrator, contact a service administrator or
 
     :::image type="content" source="media/in-place-migration-portal-1.png" alt-text="Image shows the Migrate to ARM blade in the Azure portal.":::
 
-    If validate fails, a list of unsupported scenarios will be displayed and need to be fixed before migration can continue. 
+    If validation fails, a list of unsupported scenarios displays. They need to be fixed before migration can continue. 
 
     :::image type="content" source="media/in-place-migration-portal-3.png" alt-text="Image shows validation error in the Azure portal.":::
 
 5. Prepare for the migration.
 
-    If the prepare is successful, the migration is ready for commit.
+    If the preparation is successful, the migration is ready for commit.
     
     :::image type="content" source="media/in-place-migration-portal-4.png" alt-text="Image shows validation passing in the Azure portal."::: 
 
-    If the prepare fails, review the error, address any issues, and retry the prepare. 
+    If the preparation fails, review the error, address any issues, and retry the preparation. 
 
     :::image type="content" source="media/in-place-migration-portal-5.png" alt-text="Image shows validation failure error.":::
 
@@ -82,8 +82,8 @@ If you're not able to add a co-administrator, contact a service administrator or
     >[!IMPORTANT]
     > Once you commit to the migration, there is no option to roll back. 
     
-    Type in "yes" to confirm and commit to the migration. The migration is now complete. The migrated Cloud Services (extended support) deployment is unlocked for all operations". 
+    Type in "yes" to confirm and commit to the migration. The migration is now complete. The migrated Cloud Services (extended support) deployment is unlocked for all operations. 
 
 ## Next steps
 
-Review the [Post migration changes](post-migration-changes.md) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment.
+Review the [Post migration changes](post-migration-changes.md) section to see changes in deployment files, automation, and other attributes of your new Cloud Services (extended support) deployment.

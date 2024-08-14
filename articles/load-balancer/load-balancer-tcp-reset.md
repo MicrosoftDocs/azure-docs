@@ -35,6 +35,8 @@ Azure Load Balancer has a 4 minutes to 100-minutes timeout range for Load Balanc
 
 When the connection is closed, your client application can receive the following error message: "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server."
 
+If TCP RSTs are enabled, and it's missed for any reason, RSTs will be sent for any subsequent packets. If the TCP RST option isn't enabled, then packets will be silently dropped.
+
 A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see these [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive). With keep-alive enabled, packets are sent during periods of inactivity on the connection. Keep-alive packets ensure the idle timeout value isn't reached and the connection is maintained for a long period.
 
 The setting works for inbound connections only. To avoid losing the connection, configure the TCP keep-alive with an interval less than the idle timeout setting or increase the idle timeout value. To support these scenarios, support for a configurable idle timeout is available.

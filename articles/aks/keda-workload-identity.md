@@ -66,7 +66,7 @@ This article shows you how to securely scale your applications with the Kubernet
         --overwrite-existing
     ```
 
-## Deploy Azure Service Bus
+## Create an Azure Service Bus
 
 1. Create an Azure Service Bus namespace using the [`az servicebus namespace create`][az-servicebus-namespace-create] command. Make sure to replace the placeholder value with your own value.
 
@@ -274,6 +274,10 @@ At this point everything is configured for scaling with KEDA and Microsoft Entra
     EOF
     ````
 
+## Consume messages from Azure Service Bus
+
+Now that we have published messages to the Azure Service Bus queue, we will deploy a ScaledJob to consume the messages. This ScaledJob will use the KEDA TriggerAuthentication resource to authenticate against the Azure Service Bus queue using the workload identity and scale out every 10 messages.
+
 1. Deploy a ScaledJob resource to consume the messages. The scale trigger will be configured to scale out every 10 messages. The KEDA scaler will create 10 jobs to consume the 100 messages.
 
     ```azurecli-interactive
@@ -335,11 +339,21 @@ At this point everything is configured for scaling with KEDA and Microsoft Entra
     Normal   KEDAJobsCreated     10m   scale-handler  Created 10 jobs
     ```
 
+## Clean up resources
+
+After you verify that the deployment is successful, you can clean up the resources to avoid incurring Azure costs.
+
+1. Delete the Azure resource group and all resources in it using the [`az group delete`][az-group-delete] command.
+
+    ```azurecli-interactive
+    az group delete --name $RG_NAME --yes --no-wait
+    ```
+
 ## Next steps
 
 This article showed you how to securely scale your applications using the KEDA add-on and workload identity in AKS.
 
-With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps. For information on KEDA troubleshooting, see [Troubleshoot the Kubernetes Event-driven Autoscaling (KEDA) add-on][keda-troubleshoot].
+For information on KEDA troubleshooting, see [Troubleshoot the Kubernetes Event-driven Autoscaling (KEDA) add-on][keda-troubleshoot].
 
 To learn more about KEDA, see the [upstream KEDA docs][keda].
 

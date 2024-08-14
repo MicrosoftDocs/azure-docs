@@ -5,7 +5,7 @@ description: Answers to the most frequently asked questions about Microsoft Azur
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 07/22/2024
 ms.author: allensu
 ---
 
@@ -130,10 +130,10 @@ Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsu
 
 Azure virtual networks provide DHCP service and DNS to Azure Virtual Machines. However, you can also deploy a DHCP Server in an Azure VM to serve the on-prem clients via a DHCP Relay Agent.
 
-DHCP Server in Azure was previously marked as unsupported since the traffic to port UDP/67 was rate limited in Azure. However, recent platform updates have removed the rate limitation, enabling this capability. 
+DHCP Server in Azure was previously marked not feasible since the traffic to port UDP/67 was rate limited in Azure. However, recent platform updates have removed the rate limitation, enabling this capability. 
 
 > [!NOTE]
-> The on-premises client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. So, this will result in some timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure, but this should succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent. For more details on the T1 and T2 DHCP RENEW timers, see [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt).
+> The on-premises client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. This will result in timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure. The DHCP RENEW will succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent. For more details on the T1 and T2 DHCP RENEW timers, see [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt).
 
 ### Can I ping a default gateway in a virtual network?
 

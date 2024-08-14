@@ -363,7 +363,7 @@ If you have any more questions, contact [Azure Support](https://ms.portal.azure.
 
 You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)
 
-You’re welcome to add more proposals and ideas and other topics here and vote for them - [HDInsight Community (azure.com)](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more  updates on [twitter](https://twitter.com/AzureHDInsight)
+You’re welcome to add more proposals and ideas and other topics here and vote for them - [HDInsight Community (azure.com)](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more  updates on [X](https://x.com/AzureHDInsight)
 
  > [!NOTE]
  > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).

@@ -4,7 +4,7 @@ description: Lists the different virtual machine sizes (and IDs) for Azure cloud
 ms.topic: article
 ms.service: cloud-services
 ms.subservice: deployment-files
-ms.date: 02/21/2023
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -15,38 +15,34 @@ ms.custom: compute-evergreen
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
-This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you put in your [service definition file](cloud-services-model-and-package.md#csdef). Prices for each size are available on the [Cloud Services Pricing](https://azure.microsoft.com/pricing/details/cloud-services/) page.
+This article describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you put in your [service definition file](cloud-services-model-and-package.md#csdef). Prices for each size are available on the [Cloud Services Pricing](https://azure.microsoft.com/pricing/details/cloud-services/) page.
 
 > [!NOTE]
-> To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
->
->
+> To see related Azure limits, visit [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## Sizes for web and worker role instances
 There are multiple standard sizes to choose from on Azure. Considerations for some of these sizes include:
 
 * D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/updates/d-series-virtual-machine-sizes).
-* Dv3-series, Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+* Dv3-series, Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It bases itself on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 * G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
-* The A-series VMs can be deployed on various hardware types and processors. The size is throttled, based on the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
-* The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
+* The A-series VMs can be deployed on various hardware types and processors. The size is throttled based on the hardware to offer consistent processor performance for the running instance, regardless of the deployment scenario hardware. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
+* The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may affect the performance of your running workload. We outline the expected baseline of relative performance, subject to an approximate variability of 15 percent, later in the article.
 
 The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Cloud Services Pricing Details](https://azure.microsoft.com/pricing/details/cloud-services/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 The following considerations might help you decide on a size:
 
-* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. For detailed information and considerations about using these sizes, see [High performance compute VM sizes](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHz and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. For detailed information and considerations about using these sizes, see [High performance compute virtual machine (VM) sizes](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Dv3-series, Dv2-series, D-series, G-series, are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands. They offer a powerful combination for many enterprise-grade applications.
 * Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine {machine name}** or **Failed to create virtual machine {machine name}** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.
 * Your subscription might also limit the number of cores you can deploy in certain size families. To increase a quota, contact Azure Support.
 
 ## Performance considerations
-We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs and to identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark.
+We created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs and to identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100. Following that sandard, all other SKUs represent approximately how much faster that SKU can run a standard benchmark.
 
 > [!IMPORTANT]
 > The ACU is only a guideline. The results for your workload may vary.
->
->
 
 <br>
 
@@ -69,10 +65,10 @@ ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and 
 ## Size tables
 The following tables show the sizes and the capacities they provide.
 
-* Storage capacity is shown in units of GiB or 1024^3 bytes. When comparing disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB
+* Storage capacity is shown in units of GiB or 1024^3 bytes. When comparing disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3), remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB
 * Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 * Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to **ReadOnly** or **ReadWrite**. For uncached data disk operation, the host cache mode is set to **None**.
-* Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput increases accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.
+* Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput increases accordingly. Actual network performance depends on many factors including network and application loads, and application network settings.
 
 ## A-series
 | Size            | CPU cores | Memory: GiB  | Temporary Storage: GiB       | Max NICs / Network bandwidth |
@@ -208,7 +204,7 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 ## Configure sizes for Cloud Services
 You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](cloud-services-model-and-package.md#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
 
-Here is an example for setting the role size to be Standard_D2 for a Web Role instance:
+Here's an example for setting the role size to be Standard_D2 for a Web Role instance:
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">
@@ -218,7 +214,7 @@ Here is an example for setting the role size to be Standard_D2 for a Web Role in
 
 ## Changing the size of an existing role
 
-As the nature of your workload changes or new VM sizes become available, you may want to change the size of your role. To do so, you must change the VM size in your service definition file (as shown above), repackage your Cloud Service, and deploy it.
+As the nature of your workload changes or new VM sizes become available, you may want to change the size of your role. To do so, you must change the VM size in your service definition file (as previously shown), repackage your Cloud Service, and deploy it.
 
 >[!TIP]
 > You may want to use different VM sizes for your role in different environments (eg. test vs production). One way to do this is to create multiple service definition (.csdef) files in your project, then create different cloud service packages per environment during your automated build using the CSPack tool. To learn more about the elements of a cloud services package and how to create them, see [What is the cloud services model and how do I package it?](cloud-services-model-and-package.md)
@@ -226,12 +222,12 @@ As the nature of your workload changes or new VM sizes become available, you may
 >
 
 ## Get a list of sizes
-You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](/previous-versions/azure/reference/dn469422(v=azure.100)). The following code is a PowerShell command that will list all the sizes available for Cloud Services. 
+You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](/previous-versions/azure/reference/dn469422(v=azure.100)). The following code is a PowerShell command that lists all the sizes available for Cloud Services. 
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
 ## Next steps
-* Learn about [azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+* Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 * Learn more [about high performance compute VM sizes](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for HPC workloads.

@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.custom: linux-related-content
 ms.topic: article
-ms.date: 05/17/2024
+ms.date: 07/25/2024
 ms.reviewer: padmalathas
 ms.author: litan2
 author: litan2

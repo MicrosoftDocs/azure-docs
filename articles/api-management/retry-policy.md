@@ -49,7 +49,7 @@ The `retry` policy executes its child policies once and then retries their execu
 
 * When only the `interval` is specified, **fixed** interval retries are performed.
 * When only the `interval` and `delta` are specified, a **linear** interval retry algorithm is used. The  wait time between retries increases according to the following formula: `interval + (count - 1)*delta`.
-* When the `interval`, `max-interval` and `delta` are specified, an **exponential** interval retry algorithm is applied. The wait time between the retries increases exponentially according to the following formula: `interval + (2^count - 1) * random(delta * 0.8, delta * 1.2)`, up to a maximum interval set by `max-interval`. 
+* When the `interval`, `max-interval` and `delta` are specified, an **exponential** interval retry algorithm is applied. The wait time between the retries increases exponentially according to the following formula: `interval + (2^(count - 1)) * random(delta * 0.8, delta * 1.2)`, up to a maximum interval set by `max-interval`. 
 
     For example, when `interval` and `delta` are both set to 10 seconds, and `max-interval` is 100 seconds, the approximate wait time between retries increases as follows: 10 seconds, 20 seconds, 40 seconds, 80 seconds, with 100 seconds wait time used for remaining retries.
 

@@ -40,6 +40,21 @@ Support defined as a time period that an HDInsight version supported by Microsof
 - **Standard support**
 - **Basic support**
 
+### For EOL versions (Spark 2.4 clusters):
+
+| Action | Till Jul 2024 | After Jul 2024 | After Sep 2024|
+| -- | -- |--|--|
+| Use existing cluster without support | Yes | Yes | Yes |
+| Create Cluster | Yes | Yes | No |
+| Scale up/down cluster | Yes | Yes | No |
+| Troubleshoot runtime issues | No | No | No |
+| RCA | No | No | No |
+| Performance Tuning | No | No | No |
+| Assistance in onboarding | No | No | No |
+| Spark core issues/updates | No | No | No |
+| Security/CVE updates | No | No | No |
+
+
 ### Standard support
 
 Standard support provides updates and support on HDInsight clusters. Microsoft recommends building solutions using the most recent fully supported version. 

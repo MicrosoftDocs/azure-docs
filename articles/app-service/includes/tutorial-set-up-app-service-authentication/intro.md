@@ -37,6 +37,6 @@ App service authentication provides:
     * Microsoft Account
     * Facebook
     * Google
-    * Twitter
+    * X
 
 When the authentication/authorization module is enabled, every incoming HTTP request passes through it before being handled by your app code.​​ To learn more, see [Authentication and authorization in Azure App Service](../../overview-authentication-authorization.md).

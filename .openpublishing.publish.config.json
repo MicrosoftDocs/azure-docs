@@ -255,6 +255,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "function-flex-consumption",
+      "url": "https://github.com/Azure-Samples/azure-functions-flex-consumption-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-azure-product",
       "url": "https://github.com/Azure/Azure-Functions",
       "branch": "main",
@@ -504,6 +510,12 @@
       "path_to_root": "aml-sdk-samples",
       "url": "https://github.com/Azure/MachineLearningNotebooks",
       "branch": "sdk-codetest",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "rag-data-openai-python-promptflow-main",
+      "url": "https://github.com/Azure-Samples/rag-data-openai-python-promptflow",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -885,6 +897,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "storage-mgmt-devguide-dotnet",
+      "url": "https://github.com/Azure-Samples/storage-mgmt-devguide-dotnet",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "main",
@@ -971,6 +989,12 @@
     {
       "path_to_root": "msdocs-flask-postgresql-sample-app",
       "url": "https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-fastapi-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-fastapi-postgresql-sample-app",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -1223,6 +1247,12 @@
     {
       "path_to_root": "SupportArticles-docs",
       "url": "https://github.com/MicrosoftDocs/SupportArticles-docs",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-python-fastapi-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart",
       "branch": "main",
       "branch_mapping": {}
     }

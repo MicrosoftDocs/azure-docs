@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 01/10/2024
+ms.date: 07/23/2024
 ms.author: cshoe
 ms.custom: mode-ui
 ---
@@ -27,11 +27,9 @@ In this quickstart, you create a secure Container Apps environment and deploy yo
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
-7. Select the **Container** tab.
+3. Select the **Container** tab.
 
-8. Check the box next to the *Use quickstart image* box.
-
-9. Select the **Create** button at the bottom of the *Create Container Apps Environment* page.
+4. Select *Use quickstart image*.
 
 <!-- Deploy the container app -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
@@ -46,7 +44,7 @@ Select the link next to *Application URL* to view your application. The followin
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
+If you're not going to continue to use this application, you can delete the container app and all the associated services by removing the resource group.
 
 1. Select the **my-container-apps** resource group from the *Overview* section.
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.

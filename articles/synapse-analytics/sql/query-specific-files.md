@@ -28,7 +28,7 @@ Your first step is to **create a database** with a datasource that references st
 
 This function returns the file name that row originates from.
 
-The following sample reads the NYC Yellow Taxi data files for the last three months of 2017 and returns the number of rides per file. The OPENROWSET part of the query specifies which files will be read.
+The following sample reads the NYC Yellow Taxi data files for September 2017 and returns the number of rides per file. The OPENROWSET part of the query specifies which files will be read.
 
 ```sql
 SELECT

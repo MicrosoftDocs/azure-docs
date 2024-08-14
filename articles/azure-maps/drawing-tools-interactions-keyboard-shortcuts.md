@@ -21,7 +21,7 @@ The drawing manager supports three different ways of interacting with the map, t
 
 ## How to draw shapes
 
- Before any shape can be drawn, set the `drawingMode` option of the drawing manager to a supported drawing setting. This setting can be programmed, or invoked by pressing one of the drawing buttons on the toolbar. The drawing mode stays enabled, even after a shape has been drawn, making it easy to draw more shapes of the same type. Programmatically set the drawing mode to an idle state. Or, switch to an idle state by clicking the current drawing modes button on the toolbar.
+ Before any shape can be drawn, set the `drawingMode` option of the drawing manager to a supported drawing setting. This setting can be programmed, or invoked by pressing one of the drawing buttons on the toolbar. The drawing mode stays enabled, even after a shape has been drawn, making it easy to draw more shapes of the same type. Programmatically set the drawing mode to an idle state. Or, switch to an idle state by selecting the current drawing modes button on the toolbar.
 
 The next sections outline all the different ways that shapes can be drawn on the map.
 

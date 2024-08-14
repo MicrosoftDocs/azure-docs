@@ -43,7 +43,7 @@ This article lists significant changes to Azure Monitor documentation.
 |General|[Create a metric alert with dynamic thresholds](alerts/alerts-dynamic-thresholds.md)|Added possible values for alert User Response field.|
 |Logs|[Tutorial: Send data to Azure Monitor using Logs ingestion API (Resource Manager templates)](logs/tutorial-logs-ingestion-api.md)|Updated to use DCR endpoint instead of DCE.|
 |Logs|[Create and manage a dedicated cluster in Azure Monitor Logs](logs/logs-dedicated-clusters.md)|Added new process for configuring dedicated clusters in Azure portal.|
-|Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|The Basic Logs table plan now includes 30 days of interactive retention.|
+|Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|The Basic Logs table plan now includes 30 days of interactive retention.|
 |Logs|[Aggregate data in a Log Analytics workspace by using summary rules (Preview)](logs/summary-rules.md)|Summary rules final 2|
 |Visualizations|[Link actions](visualize/workbooks-link-actions.md)|Added clarification that the user must have permissions to all resources referenced in a workbook as well as to the workbook itself.<p>Updated process and screenshots for custom views in workbook link actions.|
 
@@ -125,7 +125,7 @@ This article lists significant changes to Azure Monitor documentation.
 |Essentials|[Tutorial: Edit a data collection rule (DCR)](essentials/data-collection-rule-edit.md)|Updated API version in REST API calls.|
 |Essentials|[Monitor and troubleshoot DCR data collection in Azure Monitor](essentials/data-collection-monitor.md)|New article documenting new DCR monitoring feature.|
 |Logs|[Monitor Log Analytics workspace health](logs/log-analytics-workspace-health.md)|Added new metrics for monitoring data export from a Log Analytics workspace.|
-|Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Azure Databricks logs tables now support the basic logs data plan.|
+|Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|Azure Databricks logs tables now support the basic logs data plan.|
 
 ## February 2024
 
@@ -143,7 +143,7 @@ This article lists significant changes to Azure Monitor documentation.
 |Logs|[Logs Ingestion API in Azure Monitor](logs/logs-ingestion-api-overview.md)|Add new tables that now support ingestion time transformations.|
 |Logs|[Plan alerts and automated actions](alerts/alerts-plan.md)|The Getting Started section was edited to make the documentation cleaner and more efficient.|
 |Logs|[Enhance data and service resilience in Azure Monitor Logs with availability zones](logs/availability-zones.md)|Updated the list of supported regions for Availability Zones.|
-|Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Bare Metal Machines and Microsoft Graph tables now support Basic logs.|
+|Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|Bare Metal Machines and Microsoft Graph tables now support Basic logs.|
 |Virtual-Machines|[Monitor virtual machines with Azure Monitor](vm/monitor-virtual-machine.md)|Added information on using Performance Diagnostics to troubleshoot performance issues on Windows or Linux virtual machines.|
 
 ## January 2024
@@ -171,7 +171,7 @@ This article lists significant changes to Azure Monitor documentation.
 |Containers|[Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](containers/prometheus-metrics-scrape-configuration.md)|[Azure Monitor Managed Prometheus] Docs for pod annotation scraping through configmap|
 |Essentials|[Custom metrics in Azure Monitor (preview)](essentials/metrics-custom-overview.md)|Article refreshed an updated|
 |General|[Disable monitoring of your Kubernetes cluster](containers/kubernetes-monitoring-disable.md)|New article to consolidate process for all container configurations and for both Prometheus and Container insights.|
-|Logs|[ Best practices for Azure Monitor Logs](best-practices-logs.md)|Dedicated clusters are now available in all commitment tiers, with a minimum daily ingestion of 100 GB.|
+|Logs|[Best practices for Azure Monitor Logs](best-practices-logs.md)|Dedicated clusters are now available in all commitment tiers, with a minimum daily ingestion of 100 GB.|
 |Logs|[Enhance data and service resilience in Azure Monitor Logs with availability zones](logs/availability-zones.md)|Availability zones are now supported in the Israel Central, Poland Central, and Italy North regions.|
 |Virtual-Machines|[Dependency Agent](vm/vminsights-dependency-agent-maintenance.md)|VM Insights Dependency Agent now supports RHEL 8.6 Linux.|
 |Visualizations|[Composite bar renderer](visualize/workbooks-composite-bar.md)|We've edited the Workbooks content to make some features and functionality easier to find based on customer feedback. We've also removed legacy content.|
@@ -220,8 +220,8 @@ Containers|[Enable Container insights](containers/container-insights-onboard.md)
 Essentials|[Azure Monitor managed service for Prometheus rule groups](essentials/prometheus-rule-groups.md)|Create or edit Prometheus rule group in the Azure portal (preview)|
 Logs|[Detect and mitigate potential issues using AIOps and machine learning in Azure Monitor](logs/aiops-machine-learning.md)|Microsoft Copilot in Azure now helps you write KQL queries to analyze data and troubleshoot issues based on prompts, such as "Are there any errors in container logs?". |
 Logs|[Best practices for Azure Monitor Logs](./best-practices-logs.md)|More guidance on Azure Monitor Logs features that provide enhanced resilience.|
-Logs|[Data retention and archive in Azure Monitor Logs](logs/data-retention-archive.md)|Azure Monitor Logs extended archiving of data to up to 12 years.|
-Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added Basic logs support for Network managers tables.|
+Logs|[Data retention and archive in Azure Monitor Logs](logs/data-retention-configure.md)|Azure Monitor Logs extended archiving of data to up to 12 years.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|Added Basic logs support for Network managers tables.|
 Virtual-Machines|[Enable VM insights in the Azure portal](vm/vminsights-enable-portal.md)|Azure portal no longer supports enabling VM insights using Log Analytics agent.|
 Virtual-Machines|[Azure Monitor SCOM Managed Instance](vm/scom-managed-instance-overview.md)|Azure Monitor SCOM Managed Instance is now generally available.|
 Visualizations|[Azure Workbooks](visualize/workbooks-overview.md)|We clarified that when you're viewing Azure workbooks, you can see all of the workbooks that are in your current view. In order to see all of your existing workbooks of any kind, you must Browse across galleries. |
@@ -268,7 +268,7 @@ General|[Plan your alerts and automated actions](alerts/alerts-plan.md)|Add aler
 General|[Azure Monitor cost and usage](cost-usage.md)|Updated information about the Cost Analysis usage report which contains both the cost for your usage, and the number of units of usage. You can use this export to see the amount of benefit you're receiving from various offers such as the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) and the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/). |
 Logs|[Send log data to Azure Monitor by using the HTTP Data Collector API (deprecated)](logs/data-collector-api.md)|Added deprecation notice.|
 Logs|[Azure Monitor Logs overview](logs/data-platform-logs.md)|Added code samples for the Azure Monitor Ingestion client module for Go.|
-Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added new Virtual Network Manager,  Dev Center, and Communication Services tables that now support Basic logs.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.mdVirtual Network Manager,  Dev Center, and Communication Services tables that now support Basic logs.|
 
 ## August 2023
 
@@ -311,7 +311,7 @@ Application-Insights|[Enable Azure Monitor OpenTelemetry for .NET, Node.js, Pyth
 Application-Insights|[Data Collection Basics of Azure Monitor Application Insights](app/opentelemetry-overview.md)|We've added a new article to clarify both manual and automatic instrumentation options to enable Application Insights.|
 Application-Insights|[Enable a framework extension for Application Insights JavaScript SDK](app/javascript-framework-extensions.md)|The "Explore your data" section has been improved.|
 Application-Insights|[Sampling overrides (preview) - Azure Monitor Application Insights for Java](app/java-standalone-sampling-overrides.md)|We've documented steps for troubleshooting sampling.|
-Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Additional Azure tables now support low-cost basic logs, including tables for the Bare Metal Machines, Managed Lustre, Nexus Clusters, and Nexus Storage Appliances services. |
+Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|Additional Azure tables now support low-cost basic logs, including tables for the Bare Metal Machines, Managed Lustre, Nexus Clusters, and Nexus Storage Appliances services. |
 Logs|[Query Basic Logs in Azure Monitor](logs/basic-logs-query.md)|Basic log queries are now billable.|
 Logs|[Restore logs in Azure Monitor](logs/restore.md)|Restored logs are now billable.|
 Logs|[Run search jobs in Azure Monitor](logs/search-jobs.md)|Search jobs are now billable.|
@@ -327,7 +327,7 @@ General|[What's new in Azure Monitor documentation](whats-new.md)| Subscribe to 
 Application-Insights|[Filter and preprocess telemetry in the Application Insights SDK](app/api-filtering-sampling.md)|An Azure Monitor Telemetry Data Types Reference has been added for quick reference.|
 Application-Insights|[Add and modify OpenTelemetry](app/opentelemetry-add-modify.md)|We've simplified the OpenTelemetry onboarding process by moving instructions to add and modify telemetry in this new document.|
 Application-Insights|[Application Map: Triage distributed applications](app/app-map.md)|Application Map Intelligent View has reached general availability. Enjoy this powerful tool that harnesses machine learning to aid in service health investigations.|
-Application-Insights|[Usage analysis with Application Insights](app/usage-overview.md)|Code samples have been updated for the latest versions of .NET.|
+Application-Insights|[Usage analysis with Application Insights](app/usage.md)|Code samples have been updated for the latest versions of .NET.|
 Application-Insights|[Enable a framework extension for Application Insights JavaScript SDK](app/javascript-framework-extensions.md)|All JavaScript SDK documentation has been updated and simplified, including documentation for feature and framework extensions.|
 Autoscale|[Use autoscale actions to send email and webhook alert notifications in Azure Monitor](autoscale/autoscale-webhook-email.md)|Article updated and refreshed|
 Containers|[Query logs from Container insights](containers/container-insights-log-query.md#container-logs)|New section: Container logs, with sample queries|
@@ -352,7 +352,7 @@ Alerts|[Create a new alert rule](alerts/alerts-create-new-alert-rule.md)|Log ale
 Alerts|[Monitor Azure AD B2C with Azure Monitor](/azure/active-directory-b2c/azure-monitor)|Articles on action groups have been updated.|
 Alerts|[Create a new alert rule](alerts/alerts-create-new-alert-rule.md)|Alert rules that use action groups support custom properties to add custom information to the alert notification payload.|
 Application-Insights|[Feature extensions for the Application Insights JavaScript SDK (Click Analytics)](app/javascript-feature-extensions.md)|Most of our JavaScript SDK documentation has been updated and overhauled.|
-Application-Insights|[Analyze product usage with HEART](app/usage-heart.md)|Updated and overhauled HEART framework documentation.|
+Application-Insights|[Analyze product usage with HEART](app/usage.md#heart---five-dimensions-of-customer-experience)|Updated and overhauled HEART framework documentation.|
 Application-Insights|[Dependency tracking in Application Insights](app/asp-net-dependencies.md)|All new documentation supports the Azure Monitor OpenTelemetry Distro public preview release announced on May 10, 2023. [Public Preview: Azure Monitor OpenTelemetry Distro for ASP.NET Core, JavaScript (Node.js), Python](https://azure.microsoft.com/updates/public-preview-azure-monitor-opentelemetry-distro-for-aspnet-core-javascript-nodejs-python)|
 Application-Insights|[Application Monitoring for Azure App Service and Java](app/azure-web-apps-java.md)|Added CATALINA_OPTS for Tomcat.|
 Essentials|[Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory pod identity (preview)](essentials/prometheus-remote-write-azure-ad-pod-identity.md)|New article: Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Azure Active Directory pod identity|
@@ -364,7 +364,7 @@ Essentials|[Azure Active Directory authorization proxy](essentials/prometheus-au
 Essentials|[Integrate KEDA with your Azure Kubernetes Service cluster](essentials/integrate-keda.md)|New Article: Integrate KEDA with AKS and Prometheus|
 Essentials|[General Availability: Azure Monitor managed service for Prometheus](https://techcommunity.microsoft.com/t5/azure-observability-blog/general-availability-azure-monitor-managed-service-for/ba-p/3817973)|General Availability: Azure Monitor managed service for Prometheus |
 Insights|[Monitor and analyze runtime behavior with Code Optimizations (Preview)](insights/code-optimizations.md)|New doc for public preview release of Code Optimizations feature.|
-Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added Azure Active Directory, Communication Services, Container Apps Environments, and Data Manager for Energy to the list of tables that support Basic logs.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|Added Azure Active Directory, Communication Services, Container Apps Environments, and Data Manager for Energy to the list of tables that support Basic logs.|
 Logs|[Export data from a Log Analytics workspace to a storage account by using Logic Apps](logs/logs-export-logic-app.md)|Added an Azure Resource Manager template for exporting data from a Log Analytics workspace to a storage account by using Logic Apps.|
 Logs|[Set daily cap on Log Analytics workspace](logs/daily-cap.md)|Starting September 18, 2023, the Log Analytics Daily Cap will no longer exclude a set of data types from the daily cap, and all billable data types will be capped if the daily cap is met.|
 
@@ -398,7 +398,7 @@ General|[Migrate from Operations Manager to Azure Monitor](azure-monitor-operati
 Logs|[Application Insights API Access with Microsoft Azure Active Directory (Azure AD) Authentication](app/app-insights-azure-ad-api.md)|New article that explains how to authenticate and access the Azure Monitor Application Insights APIs using Azure AD.|
 Logs|[Tutorial: Replace custom fields in Log Analytics workspace with KQL-based custom columns](logs/custom-fields-migrate.md)|Guidance for migrate legacy custom fields to KQL-based custom columns using transformations.|
 Logs|[Monitor Log Analytics workspace health](logs/log-analytics-workspace-health.md)|View Log Analytics workspace health metrics, including query success metrics, directly from the Log Analytics workspace screen in the Azure portal.|
-Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Dedicated SQL Pool tables and Kubernetes services tables now support Basic logs.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|Dedicated SQL Pool tables and Kubernetes services tables now support Basic logs.|
 Logs|[Set daily cap on Log Analytics workspace](logs/daily-cap.md)|Updated daily cap functionality for workspace-based Application Insights.|
 Profiler|[View Application Insights Profiler data](profiler/profiler-data.md)|Clarified this section based on user feedback.|
 Snapshot-Debugger|[Debug snapshots on exceptions in .NET apps](snapshot-debugger/snapshot-collector-release-notes.md)|Removed "how to view" sections and move into its own doc.|
@@ -478,7 +478,7 @@ Logs|[Add or delete tables and columns in Azure Monitor Logs](logs/create-custom
 Logs|[Enhance data and service resilience in Azure Monitor Logs with availability zones](logs/availability-zones.md)|Clarified availability zone support for data resilience and service resilience and added new supported regions.|
 Logs|[Monitor Log Analytics workspace health](logs/log-analytics-workspace-health.md)|New article: Explains how to monitor the service and resource health of a Log Analytics workspace.|
 Logs|[Feature extensions for Application Insights JavaScript SDK (Click Analytics)](app/javascript-click-analytics-plugin.md)|You can now launch Power BI and create a dataset and report connected to a Log Analytics query with one click.|
-Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added new tables to the list of tables that support Basic Logs.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|Added new tables to the list of tables that support Basic Logs.|
 Logs|[Manage tables in a Log Analytics workspace]()|Refreshed all Log Analytics workspace images with the new TOC on the left.|
 Security-Fundamentals|[Monitoring Azure App Service](../../articles/app-service/monitor-app-service.md)|Revised the Azure Monitor overview to improve usability. The article is cleaned up, streamlined, and better reflects the product architecture and the customer experience. |
 Snapshot-Debugger|[host.json reference for Azure Functions 2.x and later](../../articles/azure-functions/functions-host-json.md)|Removing the TSG from the Azure Monitor TOC and adding to the support TOC.|
@@ -526,7 +526,7 @@ Logs|[Set daily cap on Log Analytics workspace](logs/daily-cap.md)|Clarified spe
 Logs|[Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md)|Updated and refreshed how to send custom metrics.|
 Logs|[Migrate from Splunk to Azure Monitor Logs](logs/migrate-splunk-to-azure-monitor-logs.md)|New article: Explains how to migrate your Splunk Observability deployment to Azure Monitor Logs for logging and log data analysis.|
 Logs|[Manage access to Log Analytics workspaces](logs/manage-access.md)|Added permissions required to run a search job and restore archived data.|
-Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added information about how to modify a table schema by using the API.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|Added information about how to modify a table schema by using the API.|
 Snapshot-Debugger|[Enable Snapshot Debugger for .NET apps in Azure App Service](snapshot-debugger/snapshot-debugger-app-service.md)|Per customer feedback, added new note that Consumption plan isn't supported.|
 Virtual-Machines|[Collect IIS logs with Azure Monitor Agent](agents/data-collection-iis.md)|Added sample log queries.|
 Virtual-Machines|[Collect text logs with Azure Monitor Agent](agents/data-collection-text-log.md)|Added sample log queries.|
@@ -557,7 +557,7 @@ Containers|[Reports in Container insights](containers/container-insights-reports
 Essentials|[Best practices for data collection rule creation and management in Azure Monitor](essentials/data-collection-rule-best-practices.md)|New article.|
 Essentials|[Configure self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory](essentials/prometheus-self-managed-grafana-azure-active-directory.md)|New article: Configured self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory.|
 Logs|[Azure Monitor SCOM Managed Instance (preview)](vm/scom-managed-instance-overview.md)|New article.|
-Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Updated the list of tables that support Basic Logs.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|Updated the list of tables that support Basic Logs.|
 Virtual-Machines|[Tutorial: Create availability alert rule for Azure virtual machine (preview)](vm/tutorial-monitor-vm-alert-availability.md)|New article.|
 Virtual-Machines|[Tutorial: Enable recommended alert rules for Azure virtual machine](vm/tutorial-monitor-vm-alert-recommended.md)|New article.|
 Virtual-Machines|[Tutorial: Enable monitoring with VM insights for Azure virtual machine](vm/tutorial-monitor-vm-enable-insights.md)|New article.|
@@ -596,7 +596,7 @@ Logs|[Azure Monitor Metrics overview](essentials/data-platform-metrics.md)| Adde
 Logs|[Azure Monitor Log Analytics API overview](logs/api/overview.md)| Added a new Azure SDK client library for Go.|
 Logs|[Azure Monitor Logs overview](logs/data-platform-logs.md)| Added a new Azure SDK client library for Go.|
 Logs|[Log queries in Azure Monitor](logs/log-query-overview.md)| Added a new Azure SDK client library for Go.|
-Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added new tables to the list of tables that support the Basic Log data plan.|
+Logs|[Set a table's log data plan to Basic or Analytics](logs/logs-table-plans.md)|Added new tables to the list of tables that support the Basic Log data plan.|
 Visualizations|[Monitor your Azure services in Grafana](visualize/grafana-plugin.md)|The Grafana integration is generally available and is no longer in preview.|
 Visualizations|[Get started with Azure Workbooks](visualize/workbooks-getting-started.md)|Added instructions for how to share workbooks.|
 
@@ -634,7 +634,7 @@ Essentials|[Azure resource logs](./essentials/resource-logs.md)|Clarified which 
 Essentials|[Resource Manager template samples for Azure Monitor](resource-manager-samples.md?tabs=portal)|Added template deployment methods.|
 Essentials|[Azure Monitor service limits](service-limits.md)|Added Azure Monitor managed service for Prometheus.|
 Logs|[Manage access to Log Analytics workspaces](./logs/manage-access.md)|Table-level role-based access control lets you give specific users or groups read access to particular tables.|
-Logs|[Configure Basic Logs in Azure Monitor](./logs/basic-logs-configure.md)|Added information on general availability of the Basic Logs data plan, retention and archiving, search job, and the table management user experience in the Azure portal.|
+Logs|[Configure Basic Logs in Azure Monitor](./logs/logs-table-plans.md)|Added information on general availability of the Basic Logs data plan, retention and archiving, search job, and the table management user experience in the Azure portal.|
 Logs|[Guided project - Analyze logs in Azure Monitor with KQL - Training](/training/modules/analyze-logs-with-kql/)|New Learn module: Learn to write KQL queries to retrieve and transform log data to answer common business and operational questions.|
 Logs|[Detect and analyze anomalies with KQL in Azure Monitor](logs/kql-machine-learning-azure-monitor.md)|New tutorial: Walkthrough of how to use KQL for time-series analysis and anomaly detection in Azure Monitor Log Analytics. |
 Virtual-machines|[Enable VM insights for a hybrid virtual machine](./vm/vminsights-enable-hybrid.md)|Updated versions of standalone installers.|
@@ -774,7 +774,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 
 | Article | Description |
 |---|---|
-|[Configure data retention and archive in Azure Monitor Logs (preview)](logs/data-retention-archive.md)|Clarified how data retention and archiving work in Azure Monitor Logs to address repeated customer inquiries.|
+|[Configure data retention and archive in Azure Monitor Logs (preview)](logs/data-retention-configure.md)|Clarified how data retention and archiving work in Azure Monitor Logs to address repeated customer inquiries.|
 
 ## July 2022
 ### General

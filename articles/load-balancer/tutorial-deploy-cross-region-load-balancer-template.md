@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial 
-ms.date: 04/12/2023
+ms.date: 07/22/2024
 ms.custom: template-tutorial, devx-track-arm-template
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
@@ -31,8 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
--  An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
+-  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
 
 ## Review the template
 In this section, you review the template and the parameters that are used to deploy the cross-region load balancer. 

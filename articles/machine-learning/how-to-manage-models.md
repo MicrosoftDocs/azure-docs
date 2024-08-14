@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 06/12/2024
 ms.topic: how-to
-ms.custom: cli-v2, sdk-v2, devx-track-azurecli, update-code, devx-track-python
+ms.custom: cli-v2, sdk-v2, devx-track-azurecli, update-code2, devx-track-python
 ---
 
 # Work with registered models in Azure Machine Learning

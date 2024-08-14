@@ -162,7 +162,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 <tr><td><code>netstat</code></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
 <tr><td><code>ping</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>profile</code></td><td colspan="3">As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td><code>serverStatus</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
+<tr><td><code>serverStatus</code></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
 <tr><td><code>shardConnPoolStats</code></td><td colspan="3">Deprecated in MongoDB 5.0</td></tr>
 <tr><td><code>top</code></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
 <tr><td><code>validate</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>

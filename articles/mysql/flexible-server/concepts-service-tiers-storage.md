@@ -53,8 +53,7 @@ The detailed specifications of the available server types are as follows for the
 
 | Compute size | vCores | Physical Memory Size (GiB) | Total Memory Size (GiB) | Max Supported IOPS | Max Connections | Temp Storage (SSD) GiB |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_B1s | 1 | 1 | 1.1 | 320 | 171 | 0 |
-| Standard_B1ms | 1 | 2 | 2.2 | 640 | 341 | 0 |
+|Standard_B1ms | 1 | 2 | 2.2 | 640 | 341 | 0 |
 | Standard_B2s | 2 | 4 | 4.4 | 1280 | 683 | 0 |
 | Standard_B2ms | 2 | 8 | 8.8 | 1700 | 1365 | 0 |
 | Standard_B4ms | 4 | 16 | 17.6 | 2400 | 2731 | 0 |

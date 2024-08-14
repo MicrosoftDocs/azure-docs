@@ -24,14 +24,12 @@ OpenAI's DALL-E models generate images based on user-provided text prompts. This
 #### [DALL-E 3](#tab/dalle3)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
-- Access granted to DALL-E in the desired Azure subscription.
 - An Azure OpenAI resource created in the `SwedenCentral` region.
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 #### [DALL-E 2 (preview)](#tab/dalle2)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
-- Access granted to DALL-E in the desired Azure subscription.
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
 ---
@@ -255,30 +253,10 @@ It's also possible that the generated image itself is filtered. In this case, th
 
 Your image prompts should describe the content you want to see in the image, as well as the visual style of image. 
 
+When writing prompts, consider that the image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
+
 > [!TIP]
-> For a thorough look at how you can tweak your text prompts to generate different kinds of images, see the [Dallery DALL-E 2 prompt book](https://dallery.gallery/wp-content/uploads/2022/07/The-DALL%C2%B7E-2-prompt-book-v1.02.pdf).
-
-#### [DALL-E 3](#tab/dalle3)
-
-When writing prompts, consider that the image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
-
-### Prompt transformation
-
-DALL-E 3 includes built-in prompt rewriting to enhance images, reduce bias, and increase natural variation of images.
-
-| **Example text prompt** | **Example generated image without prompt transformation** | **Example generated image with prompt transformation** |
-|---|---|---|
-|"Watercolor painting of the Seattle skyline" | ![Watercolor painting of the Seattle skyline (simple).](../media/how-to/generated-seattle.png) | ![Watercolor painting of the Seattle skyline, with more detail and structure.](../media/how-to/generated-seattle-prompt-transformed.png) |
-
-The updated prompt is visible in the `revised_prompt` field of the data response object.
-
-While it is not currently possible to disable this feature, you can use special prompting to get outputs closer to your original prompt by adding the following to it: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`.
-
-#### [DALL-E 2 (preview)](#tab/dalle2)
-
-When writing prompts, consider that the image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it doesn't generate an image. For more information, see [Content filtering](../concepts/content-filter.md).
-
----
+> For a thorough look at how you can tweak your text prompts to generate different kinds of images, see the [Image prompt engineering guide](/azure/ai-services/openai/concepts/gpt-4-v-prompt-engineering).
 
 
 ## Specify API options

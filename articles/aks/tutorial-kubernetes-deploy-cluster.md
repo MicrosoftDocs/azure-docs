@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Create an Azure Kubernetes Service (AKS) cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to create an AKS cluster and use kubectl to connect to the Kubernetes main node.
 ms.topic: tutorial
-ms.date: 02/14/2024
+ms.date: 06/10/2024
 author: schaffererin
 ms.author: schaffererin
 
@@ -18,7 +18,7 @@ Kubernetes provides a distributed platform for containerized applications. With 
 In this tutorial, part three of seven, you deploy a Kubernetes cluster in AKS. You learn how to:
 
 > [!div class="checklist"]
-
+>
 > * Deploy an AKS cluster that can authenticate to an Azure Container Registry (ACR).
 > * Install the Kubernetes CLI, `kubectl`.
 > * Configure `kubectl` to connect to your AKS cluster.
@@ -98,7 +98,7 @@ For information about AKS resource limits and region availability, see [Quotas, 
 
 To allow an AKS cluster to interact with other Azure resources, the Azure platform automatically creates a cluster identity. In this example, the cluster identity is [granted the right to pull images][container-registry-integration] from the ACR instance you created in the previous tutorial. To execute the command successfully, you need to have an **Owner** or **Azure account administrator** role in your Azure subscription.
 
-* Create an AKS cluster using the [`az aks create`][az aks create] command. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region.
+* Create an AKS cluster using the [`az aks create`][az aks create] command. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. We will continue to use the environment variable, `$ACRNAME`, that we set in the [previous tutorial][aks-tutorial-prepare-acr]. If you do not have this environment variable set, set it now to the same value you used previously.
 
     ```azurecli-interactive
     az aks create \
@@ -106,7 +106,7 @@ To allow an AKS cluster to interact with other Azure resources, the Azure platfo
         --name myAKSCluster \
         --node-count 2 \
         --generate-ssh-keys \
-        --attach-acr <acrName>
+        --attach-acr $ACRNAME
     ```
 
     > [!NOTE]
@@ -121,7 +121,7 @@ To allow an AKS cluster to interact with other Azure resources, the Azure platfo
 * Create an AKS cluster using the [`New-AzAksCluster`][new-azakscluster] cmdlet. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region.
 
     ```azurepowershell-interactive
-    New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -GenerateSshKey -AcrNameToAttach <acrName>
+    New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -GenerateSshKey -AcrNameToAttach $ACRNAME
     ```
 
     > [!NOTE]
@@ -155,8 +155,8 @@ To avoid needing an **Owner** or **Azure account administrator** role, you can a
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION
-    aks-nodepool1-19366578-vmss000002   Ready    agent   47h   v1.25.6
-    aks-nodepool1-19366578-vmss000003   Ready    agent   47h   v1.25.6
+    aks-nodepool1-19366578-vmss000000   Ready    agent   47h   v1.28.9
+    aks-nodepool1-19366578-vmss000001   Ready    agent   47h   v1.28.9
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -177,8 +177,8 @@ To avoid needing an **Owner** or **Azure account administrator** role, you can a
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION
-    aks-nodepool1-19366578-vmss000002   Ready    agent   47h   v1.25.6
-    aks-nodepool1-19366578-vmss000003   Ready    agent   47h   v1.25.6
+    aks-nodepool1-19366578-vmss000000   Ready    agent   47h   v1.28.9
+    aks-nodepool1-19366578-vmss000001   Ready    agent   47h   v1.28.9
     ```
 
 ### [Azure Developer CLI](#tab/azure-azd)
@@ -201,8 +201,8 @@ To avoid needing an **Owner** or **Azure account administrator** role, you can a
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION
-    aks-nodepool1-19366578-vmss000002   Ready    agent   47h   v1.25.6
-    aks-nodepool1-19366578-vmss000003   Ready    agent   47h   v1.25.6
+    aks-nodepool1-19366578-vmss000000   Ready    agent   47h   v1.28.9
+    aks-nodepool1-19366578-vmss000001   Ready    agent   47h   v1.28.9
     ```
 
 [!INCLUDE [azd-login-ts](./includes/azd/azd-login-ts.md)]

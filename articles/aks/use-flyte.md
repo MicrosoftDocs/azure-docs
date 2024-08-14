@@ -15,6 +15,9 @@ This article shows you how to use Flyte on Azure Kubernetes Service (AKS). Flyte
 
 For more information, see [Introduction to Flyte][flyte].
 
+
+[!INCLUDE [open source disclaimer](./includes/open-source-disclaimer.md)]
+
 ## Flyte use cases
 
 Flyte can be used for a variety of use cases, including:

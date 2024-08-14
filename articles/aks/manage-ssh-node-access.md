@@ -125,6 +125,9 @@ To improve security and support your corporate security requirements or strategy
 
 When you disable SSH at cluster creation time, it takes effect after the cluster is created. However, when you disable SSH on an existing cluster or node pool, AKS doesn't automatically disable SSH. At any time, you can choose to perform a nodepool upgrade operation. The disable/enable SSH keys operation takes effect after the node image update is complete.
 
+> [!NOTE]
+> When you disable SSH at the cluster level, it applies to all existing node pools. Any node pools created after this operation will have SSH enabled by default, and you'll need to run these commands again in order to disable it.
+
 |SSH parameter |Description |
 |-----|-----|
 |`disabled` |The SSH service is disabled. |

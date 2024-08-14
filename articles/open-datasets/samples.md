@@ -5,14 +5,14 @@ ms.service: open-datasets
 ms.topic: sample
 author: fbsolo-ms1
 ms.author: franksolomon
-ms.date: 05/06/2020
+ms.date: 07/29/2024
 ---
 
 # Example Jupyter notebooks show how to enrich data with Open Datasets 
-The example Jupyter notebooks for Azure Open Datasets show you how to load open datasets and use them to enrich demo data. Techniques include use of Apache Spark and Pandas to process data.
+The example Jupyter notebooks for Azure Open Datasets explain how to load open datasets, and use them to enrich demo data. The techniques include use of Apache Spark and Pandas to process data.
 
->[!IMPORTANT]
->When working in a non-Spark environment, Open Datasets allows downloading only one month of data at a time with certain classes in order to avoid MemoryError with large datasets.
+> [!IMPORTANT]
+> When working in a non-Spark environment, Open Datasets allows downloads of only one month of data at a time with certain classes, to avoid MemoryError problems with large datasets.
 
 ## Load NOAA Integrated Surface Database (ISD) data 
 |Notebook        | Description                                    |
@@ -23,14 +23,14 @@ The example Jupyter notebooks for Azure Open Datasets show you how to load open 
 ## Join demo data with NOAA ISD data 
 |Notebook        | Description                                    |
 |----------------|------------------------------------------------|
-|[Join demo data with weather data - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Join a 1-month demo dataset of sensor locations with weather readings in a Pandas dataframe.  |
+|[Join demo data with weather data - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Join a one-month demo dataset of sensor locations with weather readings in a Pandas dataframe.  |
 |[Join demo data with weather data – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Join a demo dataset of sensor locations with weather readings in a Spark dataframe. |
 
 ## Join NYC taxi data with NOAA ISD data 
 |Notebook        | Description                                    |
 |----------------|------------------------------------------------|
-|[Taxi trip data enriched with weather data - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Load NYC green taxi data (over 1 month) and enrich it with weather data in a Pandas dataframe. This example overrides the method `get_pandas_limit` and balances data load performance with the amount of data.|
-|[Taxi trip data enriched with weather data – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Load NYC green taxi data and enrich it with weather data, in Spark dataframe.  |
+|[Taxi trip data enriched with weather data - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Load NYC green taxi data (over one month) and enrich it with weather data in a Pandas dataframe. This example overrides the method `get_pandas_limit` and balances data load performance with the amount of data.|
+|[Taxi trip data enriched with weather data – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Load NYC green taxi data, and enrich it with weather data, in Spark dataframe.  |
 
 ## Next steps
 

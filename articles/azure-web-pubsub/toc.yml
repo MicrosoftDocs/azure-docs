@@ -78,6 +78,8 @@
       items:
         - name: Protect the access key
           href: howto-secure-rotate-access-key.md
+        - name: Application firewall
+          href: howto-configure-application-firewall.md  
         - name: Use Azure Service Tags
           href: howto-service-tags.md
         - name: Use Azure private endpoints

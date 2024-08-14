@@ -10,7 +10,7 @@ ms.author: tachou
 
 ## Sign in to Azure
 
-[!INCLUDE [Sign in to Azure](../../../includes/confidential-ledger-sign-in-azure.md)]
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/confidential-ledger-sign-in-azure.md)]
 
 Get the confidential ledger's name and the identity service URI from the Azure portal as it is needed to create a client to manage the users. This image shows the appropriate properties in the Azure portal.
 

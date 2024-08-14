@@ -3,7 +3,7 @@ title: Update Azure PowerShell modules in Azure Automation
 description: This article tells how to update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/03/2023
+ms.date: 07/17/2024
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,6 +14,8 @@ The most common PowerShell modules are provided by default in each Automation ac
 
 > [!NOTE]
 > You can't delete global modules, which are modules that Automation provides out of the box.
+> [!IMPORTANT]
+> New Runtime environment experience allows you to manage modules and packages by allowing you to configure the job execution environment. In the new experience, Modules and Packages blades are not available. To manage modules and packages, see [Manage Runtime environment and associated runbooks](manage-runtime-environment.md).
 
 ## Set up an Automation account
 
