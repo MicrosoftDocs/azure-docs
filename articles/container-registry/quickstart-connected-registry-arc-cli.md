@@ -47,7 +47,7 @@ The Connected registry is a pivotal tool for the edge customers for efficiently 
 * Repository in the ACR registry to synchronize with the Connected registry.
 
     ```azurecli
-    az acr repository create --name myacrregistry --repository hello-world
+    az acr import --name myacrregistry --source mcr.microsoft.com/mcr/hello-world:latest --image hello-world:latest
     ```
 
     The `hello-world` repository is created in the ACR registry `myacrregistry` to synchronize with the Connected registry.
@@ -58,9 +58,9 @@ The Connected registry is a pivotal tool for the edge customers for efficiently 
 Once the prerequisites and necessary conditions and components are in place, follow the streamlined approach and securely deploy a Connected registry extension on an arc-enabled kubernetes cluster using secure-by-default settings. The secure-by-default settings define the following configuration with HTTPS, Read Only, Trust Distribution, Cert Manager service. Follow the steps for a successful deployment: 
 
 1.	[Create the Connected registry.](#create-the-connected-registry-and-synchronize-with-acr)
-1.	[Deploy the Connected registry Arc extension.](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster)
-1.	[Verify the Connected registry extension deployment.](#verify-the-connected-registry-extension-deployment) 
-1.	[Pull an image from the Connected registry.](#pull-an-image-from-the-connected-registry)
+2.	[Deploy the Connected registry Arc extension.](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster)
+3.	[Verify the Connected registry extension deployment.](#verify-the-connected-registry-extension-deployment) 
+4.	[Deploy a pod that uses image from Connected registry.](#deploy-a-pod-that-uses-image-from-connected-registry)
 
 
 ### Create the Connected registry and synchronize with ACR
@@ -90,7 +90,7 @@ By deploying the Connected Registry Arc Extension, you can synchronize container
 
    For secure deployment of the Connected registry extension, generate the connection string, including a new password, transport protocol, and create the `protected-settings-extension.json` file required for the extension deployment with [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command:
 
-    ```azurecli
+    ```bash
     cat << EOF > protected-settings-extension.json
     {
       "connectionString": "$(az acr connected-registry get-settings \
@@ -229,17 +229,45 @@ To verify the deployment of the Connected registry extension on the Arc-enabled 
 - The [az k8s-extension show][az-k8s-extension-show] command verifies the state of the extension deployment.
 - The command also provides details on the Connected registry's connection status, last sync, sync window, sync schedule, and more.
 
-### Pull an image from the Connected registry 
+### Deploy a pod that uses image from Connected registry
 
-To authenticate and pull an image from the locally deployed Connected Registry within the cluster. The operation must be performed from within the cluster node itself. Follow the steps:
+To deploy a pod that uses image from Connected registry within the cluster. The operation must be performed from within the cluster node itself. Follow the steps:
 
-1. Authenticate and pull the desired image from the Connected registry using the [ crictl pull] command with the value of  the value of service.clusterIP address `192.100.100.1` of the Connected registry, and the Image name `hello-world` with tag `latest`:
+1. Create a secret in the cluster to authenticate with the Connected registry:
+
+    Run the [kubectl create secret docker-registry][kubectl-create-secret-docker-registry] command to create a secret in the cluster to authenticate with the Connected registry:
 
     ```azurecli
-    crictl pull --creds mytoken:password1 192.100.100.1/hello-world:latest
+    kubectl create secret docker-registry regcred --docker-server=192.100.100.1 --docker-username=mytoken --docker-password=mypassword
     ```
 
-- The `crictl pull` command pulls an image from the Connected registry by specifying the desired repository. Learn to create a client token [here.](container-registry-repository-scoped-permissions.md#create-token---cli)
+1. Deploy the pod that uses the desired image from the Connected registry using the value of  service.clusterIP address `192.100.100.1` of the Connected registry, and the Image name `hello-world` with tag `latest`:
+
+    ```azurecli
+    kubectl apply -f - <<EOF
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: hello-world-deployment
+      labels:
+        app: hello-world
+    spec:
+      selector:
+        matchLabels:
+          app: hello-world
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: hello-world
+        spec:
+          imagePullSecrets:
+            - name: regcred
+          containers:
+            - name: hello-world
+              image: 192.100.100.1/hello-world:latest
+    EOF
+    ``` 
 
 ## Clean up resources
 
@@ -263,7 +291,8 @@ By deleting the deployed Connected registry extension, you remove the Connected 
     Run the [az acr connected-registry delete][az-acr-connected-registry-delete] command to delete the Connected registry: 
 
     ```azurecli
-    az acr connected-registry delete --name myarcakscluster \ 
+    az acr connected-registry delete --registry myacrregistry \
+    --name myconnectedregistry \
     --resource-group myresourcegroup 
     ```
 
@@ -288,3 +317,4 @@ By deleting the deployed Connected registry extension, you remove the Connected 
 [az-acr-connected-registry-show]: /cli/azure/acr/connected-registry#az-acr-connected-registry-show
 [az-k8s-extension-delete]: /cli/azure/k8s-extension#az-k8s-extension-delete
 [az-acr-connected-registry-delete]: /cli/azure/acr/connected-registry#az-acr-connected-registry-delete
+[kubectl-create-secret-docker-registry]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_secret_docker-registry/

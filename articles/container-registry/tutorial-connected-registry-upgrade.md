@@ -47,7 +47,7 @@ To complete this tutorial, you need the following resources:
 > [!IMPORTANT]
 > When a customer pins to a specific version, the extension does not auto-rollback. Auto-rollback will only occur if the--auto-upgrade-minor-version is set to true.
 
-1. Follow the [quickstart][quickstart] to edit the [az k8s-extension update] command and add--version with your desired version. This example uses version 0.6.0. This parameter updates the extension version to the desired pinned version. 
+1. Follow the [quickstart][quickstart] to edit the [az k8s-extension update] command and add --version with your desired version. This example uses version 0.6.0. This parameter updates the extension version to the desired pinned version. 
 
     ```azurecli
     az k8s-extension update --cluster-name myarck8scluster \ 
@@ -56,11 +56,6 @@ To complete this tutorial, you need the following resources:
     --name myconnectedregistry \ 
     --resource-group myresourcegroup 
     --config service.clusterIP=192.100.100.1 \
-    --config trustDistribution.enabled=true \ 
-    --config trustDistribution.skipNodeSelector=true \
-    --config cert-manager.enabled=false \
-    --config cert-manager.install=false \
-    --config httpEnabled=false \ 
     --config-protected-file <JSON file path> \
     --auto-upgrade-minor-version true \
     --version 0.6.0 
@@ -75,6 +70,7 @@ To complete this tutorial, you need the following resources:
     --cluster-type connectedClusters \ 
     --name myconnectedregistry \ 
     --resource-group myresourcegroup \ 
+    --config service.clusterIP=192.100.100.1 \
     --auto-upgrade-minor-version false \
     --version 0.6.1 
     ```

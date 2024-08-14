@@ -26,7 +26,6 @@ In this tutorial, you:
 > - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC).](#deploy-connected-registry-extension-using-bring-your-own-certificate-byoc)
 > - [Deploy Connected registry with kubernetes secret management.](#deploy-connected-registry-with-kubernetes-secret-management)
 > - [Deploy the Connected registry Arc extension with inherent trust distribution or reject Connected registry trust distribution.](#deploy-the-connected-registry-arc-extension-with-inherent-trust-distribution-and-reject-connected-registry-trust-distribution)
-> - [Deploy the Connected registry Arc extension with HTTP (no TLS encryption).](#deploy-the-connected-registry-arc-extension-with-http-no-tls-encryption)
 
 ## Prerequisites
 
@@ -138,7 +137,7 @@ Follow the [quickstart][quickstart] and add the Kubernetes TLS secret string var
 1. Create self-signed SSL cert with connected-registry service IP as the SAN
 
 ```bash
-	mkdir /certs
+mkdir /certs
 ```
 
 ```bash
@@ -154,28 +153,26 @@ export TLS_KEY=$(cat mycert.key | base64 -w0)
 3. Create k8s secret
 
 ```bash
-        cat <<EOF | kubectl apply -f -
-        apiVersion: v1
-        kind: Secret
-        metadata:
-          name: k8secret
-        type: kubernetes.io/tls
-        data:
-          ca.crt: $TLS_CRT
-          tls.crt: $TLS_CRT
-          tls.key: $TLS_KEY
-        EOF
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Secret
+metadata:
+  name: k8secret
+  type: kubernetes.io/tls
+data:
+  ca.crt: $TLS_CRT
+  tls.crt: $TLS_CRT
+  tls.key: $TLS_KEY
+EOF
 ```
 
 4. Protected settings file example with secret in JSON format: 
 
     ```json
-    { 
-
-    "connectionString": "[connection string here]",
-    "tls.secret": “k8secret” 
-    
-    } 
+        { 
+        "connectionString": "[connection string here]",
+        "tls.secret": “k8secret” 
+        } 
     ```
 
 Now, you can deploy the Connected registry extension with HTTPS (TLS encryption) using the kubernetes secret management by configuring variables set to `cert-manager.enabled=false` and `cert-manager.install=false`. With these parameters, the cert-manager isn't installed or enabled since the kubernetes secret is used instead for encryption.  
@@ -217,27 +214,6 @@ While using your own kubernetes secret or public certificate and private key pai
 
 With these parameters, cert-manager isn't installed or enabled, additionally, the Connected registry trust distribution isn't enforced. Instead you're using the cluster provided trust distribution for establishing trust between the Connected registry and the client nodes.
 
-## Deploy the Connected registry Arc extension with HTTP (no TLS encryption)
-
-The Connected registry extension deployment can be further secured with HTTP and no TLS encryption.
-
-1. Follow the [quickstart][quickstart], and edit the [az-k8s-extension-create][az-k8s-extension-create] command with`add httpEnabled=false`. You must also set both `cert-manager.enabled` and `cert-manager.install` values to false. These parameters disable TLS encryption and cert-manager. However trust must establish between the Connected registry nodes and the client nodes.  
-
-    ```azurecli
-    az k8s-extension create --cluster-name myarck8scluster 
-    --cluster-type connectedClusters \  
-    --extension-type  Microsoft.ContainerRegistry.ConnectedRegistry \ 
-    --name myconnectedregistry \ 
-    --resource-group myresourcegroup \
-    --config service.clusterIP=192.100.100.1 \
-    --config trustDistribution.enabled=true \ 
-    --config trustDistribution.skipNodeSelector=true \
-    --config cert-manager.enabled=false \
-    --config cert-manager.install=false \
-    --config httpEnabled=false \ 
-    --config-protected-file <JSON file path>
-    ```
-
 ## Clean up resources
 
 By deleting the deployed Connected registry extension, you remove the corresponding Connected registry pods and configuration settings.   
@@ -253,11 +229,12 @@ By deleting the deployed Connected registry extension, you remove the correspond
 
 2. Run the [az acr connected-registry delete][az-acr-connected-registry-delete] command to delete the Connected registry:
 
-    ```azurecli
-    az acr connected-registry delete 
-    --name myarcakscluster \ 
+    ```azurecli 
+    az acr connected-registry delete --registry myacrregistry \ 
+    --name myconnectedregistry \ 
     --resource-group myresourcegroup
     ```
+
 By deleting the Connected registry extension and the Connected registry, you remove all the associated resources and configurations.
 
 ## Next steps -or- Related content
