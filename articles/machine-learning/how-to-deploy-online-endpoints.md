@@ -71,8 +71,7 @@ Before following the steps in this article, make sure you have the following pre
 
 * Ensure that you have enough virtual machine (VM) quota allocated for deployment. Azure Machine Learning reserves 20% of your compute resources for performing upgrades on some VM SKUs. For example, if you request 10 instances in a deployment, you must have a quota for 12 for each number of cores for the VM SKU. Failure to account for the extra compute resources results in an error. There are some VM SKUs that are exempt from the extra quota reservation. For more information on quota allocation, see [virtual machine quota allocation for deployment](how-to-manage-quotas.md#virtual-machine-quota-allocation-for-deployment).
 
-* Alternatively, you could use quota from Azure Machine Learning's shared quota pool for a limited time.
-  [!INCLUDE [machine-learning-shared-quota](includes/machine-learning-shared-quota.md)]
+* Alternatively, you could use quota from Azure Machine Learning's shared quota pool for a limited time. [!INCLUDE [machine-learning-shared-quota](includes/machine-learning-shared-quota.md)]
 
 
 ## Prepare your system

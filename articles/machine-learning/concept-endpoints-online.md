@@ -140,7 +140,9 @@ To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM temp
 
 [!INCLUDE [quota-allocation-online-deployment](includes/quota-allocation-online-deployment.md)]
 
-[!INCLUDE [machine-learning-shared-quota](includes/machine-learning-shared-quota.md)]
+#### Shared quota pool
+
+Also, [!INCLUDE [machine-learning-shared-quota](includes/machine-learning-shared-quota.md)]
 
 To deploy Llama-2, Phi, Nemotron, Mistral, Dolly, and Deci-DeciLM models from the model catalog via the shared quota, you must have an [Enterprise Agreement subscription](../cost-management-billing/manage/create-enterprise-subscription.md). For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#shared-quota).
 
