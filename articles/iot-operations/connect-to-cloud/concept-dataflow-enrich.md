@@ -31,13 +31,7 @@ For example, consider the following dataset with a few records, represented as J
 }
 ```
 
-<<<<<<< HEAD
-The mapper accesses this dataset through the *distributed state store* (DSS) by using a key value based on a *condition* specified in the mapping configuration.
-=======
-
-
-The mapper accesses the reference dataset stored in Azure IoT Operations's [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md) using a key value based on a *condition* specified in the mapping configuration. Key names in the distributed state store correspond to a dataset in the dataflow configuration.
->>>>>>> e0872c6a6e915d4a5b604d04c53d1e53ee848ffa
+The mapper accesses the reference dataset stored in the Azure IoT Operations [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md) by using a key value based on a *condition* specified in the mapping configuration. Key names in the DSS correspond to a dataset in the dataflow configuration.
 
 ```yaml
 datasets:
