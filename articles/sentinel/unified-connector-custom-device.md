@@ -14,6 +14,16 @@ Microsoft Sentinel's **Custom Logs via AMA** data connector supports log collect
 
 This article shows you how to ingest data from these applications to your Microsoft Sentinel workspace. These steps include installation of the **Custom Logs via AMA** data connector in Microsoft Sentinel. After the connector is installed, use the instructions appropriate to your application, shown later in this article, to complete the setup.
 
+The devices from which you collect custom text logs fall into two categories:
+
+- Applications installed on Windows or Linux machines
+
+    The application stores its log files on the machine where it's installed. To collect these logs, the Azure Monitor Agent is installed on this same machine.
+
+- Appliances that are self-contained on closed (usually Linux-based) devices
+
+    These appliances store their logs on an external syslog server. To collect these logs, the Azure Monitor Agentis installed on this external syslog server, often called a log forwarder.
+
 For more information about the related Microsoft Sentinel solution for each of these applications, search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for the **Product Type** > **Solution Templates** or review the solution from the **Content hub** in Microsoft Sentinel.
 
 > [!IMPORTANT]
@@ -23,18 +33,15 @@ For more information about the related Microsoft Sentinel solution for each of t
 
 ## General instructions
 
-The steps for configuring text log ingestion fall into two categories:
-- Applications that are in
-
-from applications and appliances follow a general pattern:
+The steps for collecting logs from machines hosting applications and appliances follow a general pattern:
 
 1. Create the destination table in Log Analytics (or Advanced Hunting if you're in the Defender portal).
 
 1. Create the data collection rule (DCR) for your application or appliance.
 
-1. Deploy the Azure Monitor Agent to the machine hosting the application, or to the machine that collects logs from appliances if it's not already deployed.
+1. Deploy the Azure Monitor Agent to the machine hosting the application, or to the external server (log forwarder) that collects logs from appliances if it's not already deployed.
 
-1. Configure your appliance to send its logs to the machine where the Azure Monitor Agent is installed.
+1. Configure logging on your application. If an appliance, configure it to send its logs to the external server (log forwarder) where the Azure Monitor Agent is installed.
 
 These general steps (except for the last one) are described in detail in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md).
 
@@ -46,9 +53,9 @@ The per-application information you need to complete these steps is presented in
 
 - [Apache HTTP Server](#apache-http-server)
 - [Apache Tomcat](#apache-tomcat)
-- [Cisco Meraki](#cisco-meraki)
+- [Cisco Meraki](#cisco-meraki) (appliance)
 - [Jboss Enterprise Application platform](#jboss-enterprise-application-platform)
-- [JuniperIDP](#juniperidp)
+- [JuniperIDP](#juniperidp) (appliance)
 - [MarkLogic Audit](#marklogic-audit)
 - [MongoDB Audit](#mongodb-audit)
 - [NGINX HTTP Server](#nginx-http-server)
@@ -56,10 +63,9 @@ The per-application information you need to complete these steps is presented in
 - [PostgreSQL Events](#postgresql-events)
 - [SecurityBridge Threat Detection for SAP](#securitybridge-threat-detection-for-sap)
 - [SquidProxy](#squidproxy)
-- [Ubiquiti UniFi](#ubiquiti-unifi)
-- [AI Vectra stream](#ai-vectra-stream)
-- [VMware vCenter](#vmware-vcenter)
-- [Zscaler Private Access (ZPA)](#zscaler-private-access-zpa)
+- [Ubiquiti UniFi](#ubiquiti-unifi) (appliance)
+- [VMware vCenter](#vmware-vcenter) (appliance)
+- [Zscaler Private Access (ZPA)](#zscaler-private-access-zpa) (appliance)
 
 ### Apache HTTP Server
 
@@ -67,12 +73,18 @@ Follow these steps to ingest log messages from Apache HTTP Server:
 
 1. Table name: `ApacheHTTPServer_CL`
 
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
+
+    Default file locations:
+    - Windows: `"C:\Server\bin\log\Apache24\logs\*.log"`
+    - Linux: `"/var/log/httpd/*.log"`
+
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
 
     Update the DCR with the following values:
     - **Output table name**: resources > properties > dataFlows > outputStream: `"ApacheHTTPServer_CL"`
-    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"C:\Server\bin\log\Apache24\logs\*.log"`
-    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/var/log/httpd/*.log"`
+    - **Log path - Windows**: resources > properties > dataSources > filePatterns: 
+    - **Log path - Linux**: resources > properties > dataSources > filePatterns: 
 
 1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 

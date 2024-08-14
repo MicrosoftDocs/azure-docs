@@ -106,6 +106,8 @@ To get started, open either the **Custom Logs via AMA** data connector in Micros
 
 1. Select **Open connector page** on the details pane.
 
+    :::image type="content" source="media/connect-custom-logs-ama/custom-logs-connector-open.png" alt-text="Screenshot of custom logs AMA connector in gallery." lightbox="media/connect-custom-logs-ama/custom-logs-connector-open.png":::
+
 1. In the **Configuration** area, select **+Create data collection rule**. 
 
     :::image type="content" source="media/connect-custom-logs-ama/custom-logs-connector-page-create-dcr.png" alt-text="Screenshot showing the Custom Logs via AMA connector page." lightbox="media/connect-custom-logs-ama/custom-logs-connector-page-create-dcr.png":::
@@ -133,11 +135,17 @@ In the **Resources** tab, select the machines on which you want to install the A
 
 ### Configure the DCR for your application
 
-<!-- Be aware that using the same facility for both syslog and CEF messages might result in data ingestion duplication. For more information, see [Data ingestion duplication avoidance](cef-syslog-ama-overview.md#data-ingestion-duplication-avoidance).
+1. In the **Collect** tab, select your application or device type from the **Select device type (optional)** drop-down box, or leave it as **Custom new table** if your application or device isn't listed.
 
-1. In the **Collect** tab, select the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with higher severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_CRIT**, **LOG_ALERT**, and **LOG_EMERG** levels.
+1. If you chose one of the listed applications or devices, the **Table name** field is automatically populated with the right table name. If you chose **Custom new table**, enter a table name under **Table name**. The name must end with the `_CL` suffix.
 
-   :::image type="content" source="media/connect-cef-ama/dcr-log-levels.png" alt-text="Screenshot showing how to select log levels when setting up the DCR."::: -->
+1. In the **File pattern** field, enter the path and file name of the text log files to be collected. To find the default file names and paths for each application or device type, see [Specific instructions per application type](unified-connector-custom-device.md#specific-instructions-per-application-type). You don't have to use the default file names or paths, and you can use wildcards in the file name.
+
+1. In the **Transform** field, if you chose a custom new table in step 1, enter a Kusto query that applies a transformation of your choice to the data.
+
+    If you chose one of the listed applications or devices in step 1, this field is automatically populated with the proper transformation. DO NOT edit the transformation that appears there. Depending on the chosen type, this value should be one of the following:  
+    - `source` (the default&mdash;no transformation)
+    - `source | project-rename Message=RawData` (for devices that send logs to a forwarder)
 
 1. Review your selections and select **Next: Review + create**.
 
@@ -155,206 +163,108 @@ After you complete all the tabs, review what you entered and create the data col
 
 1. Select **Refresh** on the connector page to see the DCR displayed in the list.
 
-# [Logs Ingestion API](#tab/api)
+# [Resource Manager template](#tab/arm)
 
 ### Install the Azure Monitor Agent
 
-Follow the appropriate instructions from the Azure Monitor documentation to install the Azure Monitor Agent on your log forwarder. Remember to use the instructions for Linux, not for Windows.
+Follow the appropriate instructions from the Azure Monitor documentation to install the Azure Monitor Agent on the machine hosting your application, or on your log forwarder. Use the instructions for Windows or for Linux, as appropriate.
 - [Install the AMA using PowerShell](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-powershell)
 - [Install the AMA using the Azure CLI](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-cli)
 - [Install the AMA using an Azure Resource Manager template](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=azure-resource-manager)
 
-You can create Data Collection Rules (DCRs) using the [Azure Monitor Logs Ingestion API](/rest/api/monitor/data-collection-rules). For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md).
+Create Data Collection Rules (DCRs) using the [Azure Monitor Logs Ingestion API](/rest/api/monitor/data-collection-rules). For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md).
 
 ### Create the data collection rule
 
-Create a JSON file for the data collection rule, create an API request, and send the request.
- 
-1. Prepare a DCR file in JSON format. The contents of this file is the request body in your API request.
-
-    For an example, see [Syslog/CEF DCR creation request body](api-dcr-reference.md#syslogcef-dcr-creation-request-body). To collect syslog and CEF messages in the same data collection rule, see the example [Syslog and CEF streams in the same DCR](#syslog-and-cef-streams-in-the-same-dcr).
-
-    - Verify that the `streams` field is set to `Microsoft-Syslog` for syslog messages, or to `Microsoft-CommonSecurityLog` for CEF messages.
-    - Add the filter and facility log levels in the `facilityNames` and `logLevels` parameters. See [Examples of facilities and log levels sections](#examples-of-facilities-and-log-levels-sections).
-
-1. Create an API request in a REST API client of your choosing.
-    1. For the **request URL and header**, copy the following request URL and header.
-
-        ```http
-        PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version=2022-06-01
-        ```
-
-        - Substitute the appropriate values for the `{subscriptionId}` and `{resourceGroupName}` placeholders. 
-        - Enter a name of your choice for the DCR in place of the `{dataCollectionRuleName}` placeholder.
-
-    1. For the **request body**, copy and paste the contents of the DCR JSON file that you created (in step 1 above) into the request body.
-
-1. Send the request.
- 
-    For an example of the response that you should receive, see [Syslog/CEF DCR creation response](api-dcr-reference.md#syslogcef-dcr-creation-response).
-
-### Associate the DCR with the log forwarder
-
-Now you need to create a DCR Association (DCRA) that ties the DCR to the VM resource that hosts your log forwarder.
-
-1. Create an API request in a REST API client of your choosing.
-
-1. For the **request URL and header**, copy the following request URL and the header.
-
-    ```http
-    PUT 
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/providers/Microsoft.Insights/dataCollectionRuleAssociations/{dataCollectionRuleAssociationName}?api-version=2022-06-01
-    ```
-    - Substitute the appropriate values for the `{subscriptionId}`, `{resourceGroupName}`, and `{virtualMachineName}` placeholders. 
-    - Enter a name of your choice for the DCR in place of the `{dataCollectionRuleAssociationName}` placeholder.
-
-1. For the **request body**, copy the following request body.
-
-    ```json
-    {
-      "properties": {
-        "dataCollectionRuleId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}"
-      }
-    }
-    ```
-
-    - Substitute the appropriate values for the `{subscriptionId}` and `{resourceGroupName}` placeholders. 
-    - Enter a name of your choice for the DCR in place of the `{dataCollectionRuleName}` placeholder.
-
-1. Send the request.
-
-### Examples of facilities and log levels sections
-
-Review these examples of the facilities and log levels settings. The `name` field includes the filter name.
-
-For CEF message ingestion, the value for `"streams"` should be `"Microsoft-CommonSecurityLog"` instead of `"Microsoft-Syslog"`.
-
-This example collects events from the `cron`, `daemon`, `local0`, `local3` and `uucp` facilities, with the `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels:
+Use the following ARM template to create or modify a DCR for collecting text log files:
 
 ```json
-    "dataSources": {
-      "syslog": [
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
         {
-        "name": "SyslogStream0",
-        "streams": [
-          "Microsoft-Syslog"
-        ],
-        "facilityNames": [ 
-          "cron",
-          "daemon",
-          "local0",
-          "local3", 
-          "uucp"
-        ],
-        "logLevels": [ 
-          "Warning", 
-          "Error", 
-          "Critical", 
-          "Alert", 
-          "Emergency"
-        ]
-      }
-    ]
-  }
-```
-
-### Syslog and CEF streams in the same DCR
-
-This example shows how you can collect syslog and CEF messages in the same DCR.
-
-The DCR collects CEF event messages for:
-- The `authpriv` and `mark` facilities with the `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
-- The `daemon` facility with the `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
-
-It collects syslog event messages for:
-- The `kern`, `local0`, `local5`, and `news` facilities with the `Critical`, `Alert`, and `Emergency` log levels 
-- The `mail` and `uucp` facilities with the `Emergency` log level
-
-```json
-    "dataSources": {
-      "syslog": [
-        {
-          "name": "CEFStream1",
-          "streams": [ 
-            "Microsoft-CommonSecurityLog"
-          ],
-          "facilityNames": [ 
-            "authpriv", 
-            "mark"
-          ],
-          "logLevels": [
-            "Info",
-            "Notice", 
-            "Warning", 
-            "Error", 
-            "Critical", 
-            "Alert", 
-            "Emergency"
-          ]
-        },
-        {
-          "name": "CEFStream2",
-          "streams": [ 
-            "Microsoft-CommonSecurityLog"
-          ],
-          "facilityNames": [ 
-            "daemon"
-          ],
-          "logLevels": [ 
-            "Warning", 
-            "Error", 
-            "Critical", 
-            "Alert", 
-            "Emergency"
-          ]
-        },
-        {
-          "name": "SyslogStream3",
-          "streams": [ 
-            "Microsoft-Syslog"
-          ],
-          "facilityNames": [ 
-            "kern",
-            "local0",
-            "local5", 
-            "news"
-          ],
-          "logLevels": [ 
-            "Critical", 
-            "Alert", 
-            "Emergency"
-          ]
-        },
-        {
-          "name": "SyslogStream4",
-          "streams": [ 
-            "Microsoft-Syslog"
-          ],
-          "facilityNames": [ 
-            "mail",
-            "uucp"
-          ],
-          "logLevels": [ 
-            "Emergency"
-          ]
+            "type": "Microsoft.Insights/dataCollectionRules",
+            "name": "{DCR_NAME}",
+            "location": "{DCR_LOCATION}",
+            "apiVersion": "2022-06-01",
+            "properties": {
+                "streamDeclarations": {
+                    "Custom-Text-{TABLE_NAME}": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "RawData",
+                                "type": "string"
+                            },
+                        ]
+                    }
+                },
+                "dataSources": {
+                    "logFiles": [
+                        {
+                            "streams": [
+                                "Custom-Text-{TABLE_NAME}"
+                            ],
+                            "filePatterns": [
+                                "{LOCAL_PATH_FILE_1}","{LOCAL_PATH_FILE_2}"
+                            ],
+                            "format": "text",
+                            "name": "Custom-Text-{TABLE_NAME}"
+                        }
+                    ]
+                },
+                "destinations": {
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "{WORKSPACE_RESOURCE_PATH}",
+                            "workspaceId": "{WORKSPACE_ID}",
+                            "name": "workspace"
+                        }
+                    ]
+                },
+                "dataFlows": [
+                    {
+                        "streams": [
+                            "Custom-Text-{TABLE_NAME}"
+                        ],
+                        "destinations": [
+                            "DataCollectionEvent"
+                        ],
+                        "transformKql": "source",
+                        "outputStream": "Custom-{TABLE_NAME}"
+                    }
+                ]
+            }
         }
-      ]
-    }
-
+    ]
+}
 ```
 
----
+Replace the {PLACE_HOLDER} values with the following values:
+| Placeholder | Value |
+| ----------- | ----- |
+| {DCR_NAME} | The name you choose for your Data Collection Rule. It must be unique within your workspace. |
+| {DCR_LOCATION} | The region where the resource group containing the DCR is located. |
+| {TABLE_NAME} | The name of the destination table in Log Analytics. Must end with `_CL`. |
+| {LOCAL_PATH_FILE_1}&nbsp;*(required)*,<br>{LOCAL_PATH_FILE_2} *(optional)* | Paths and file names of the text files containing the logs you want to collect. These must be on the machine where the Azure Monitor Agent is installed. |
+| {WORKSPACE_RESOURCE_PATH} | The Azure resource path of your Microsoft Sentinel workspace. |
+| {WORKSPACE_ID} | The GUID of your Microsoft Sentinel workspace. Find it [here](link). |
+  
 
+### Associate the DCR with the Azure Monitor Agent
+
+If you create the DCR using an ARM template, you still must associate the DCR with the agents that will use it. You can edit the DCR in the Azure portal and select the agents as described in [Define VM resources](#define-vm-resources).
 
 ## Run the "installation" script
 
-If you're using a log forwarder, configure the syslog daemon to listen for messages from other machines, and open the necessary local ports.
+If you're collecting logs from an appliance using a log forwarder, configure the syslog daemon on the log forwarder to listen for messages from other machines, and open the necessary local ports.
 
-1. From the connector page, copy the command line that appears under **Run the following command to install and apply the CEF collector:**
+1. Copy the following command line:
 
-    :::image type="content" source="media/connect-cef-ama/run-install-script.png" alt-text="Screenshot of command line on connector page.":::
-
-    Or copy it from here:
     ```python
     sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
     ```
@@ -374,14 +284,13 @@ If you're using a log forwarder, configure the syslog daemon to listen for messa
 
 ## Configure the security device or appliance
 
-Get specific instructions to configure your security device or appliance by going to one of the following articles:
-
-- [CEF via AMA data connector - Configure specific appliances and devices for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
-- [Syslog via AMA data connector - Configure specific appliances and devices for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+For specific instructions to configure your security application or appliance, see [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md)
 
 Contact the solution provider for more information or where information is unavailable for the appliance or device.
 
 ## Test the connector
+
+***(IS THIS SECTION RELEVANT??? -YL)***
 
 Verify that logs messages from your linux machine or security devices and appliances are ingested into Microsoft Sentinel. 
 
@@ -419,21 +328,7 @@ Verify that logs messages from your linux machine or security devices and applia
          sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --cef
         ```
 
-    - For Cisco Adaptive Security Appliance (ASA) logs, run:
-
-        ```python
-        sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --asa
-        ```
- 
-    - For Cisco Firepower Threat Defense (FTD) logs, run:
-    
-        ```python
-        sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --ftd
-        ```
-
 ## Related content
 
-- [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md)
 - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
-- [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
-- [Syslog via AMA data connector - Configure specific appliance or device for the Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+- [Collect logs from a text file with Azure Monitor Agent](../azure-monitor/agents/data-collection-log-text.md)

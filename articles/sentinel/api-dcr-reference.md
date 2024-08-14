@@ -233,12 +233,12 @@ The `outputStream` parameter is required only if the transform changes the schem
 ```json
 {
     "type": "Microsoft.Insights/dataCollectionRules",
-    "name": "{FRIENDLY_DCR_NAME}",
+    "name": "{DCR_NAME}",
     "location": "{WORKSPACE_LOCATION}",
     "apiVersion": "2022-06-01",
     "properties": {
         "streamDeclarations": {
-            "Custom-Text-stream": {
+            "Custom-Text-{TABLE_NAME}": {
                 "columns": [
                     {
                         "name": "TimeGenerated",
@@ -255,38 +255,119 @@ The `outputStream` parameter is required only if the transform changes the schem
             "logFiles": [
                 {
                     "streams": [ 
-                        "Custom-Text-stream" 
+                        "Custom-Text-{TABLE_NAME}" 
                     ],
                     "filePatterns": [ 
                         "{LOCAL_PATH_FILE_1}","{LOCAL_PATH_FILE_2}" 
                     ],
                     "format": "text",
-                    "name": "Custom-Text-dataSource"
+                    "name": "Custom-Text-{TABLE_NAME}"
                 }
             ],
         },
         "destinations": {
             "logAnalytics": [
                 {
-                    "workspaceResourceId": "{WORKSPACE_ID}",
-                    "name": "{WORKSPACE_NAME}"
+                    "workspaceResourceId": "{WORKSPACE_RESOURCE_PATH}",
+                    "workspaceId": "{WORKSPACE_ID}",
+                    "name": "DataCollectionEvent"
                 }
             ],
         },
         "dataFlows": [
             {
                 "streams": [
-                    "Custom-Text-dataSource" 
+                    "Custom-Text-{TABLE_NAME}" 
                 ],
                 "destinations": [ 
-                    "[WORKSPACE_NAME}" 
+                    "DataCollectionEvent" 
                 ],
                 "transformKql": "source",
-                "outputStream": "{OUTPUT_STREAM_NAME}"
+                "outputStream": "Custom-{TABLE_NAME}"
             }
         ]
     }
 }
 ```
 
+#### Custom text logs DCR creation response
 
+```json
+{
+    "properties": {
+        "immutableId": "dcr-00112233445566778899aabbccddeeff",
+        "dataCollectionEndpointId": "/subscriptions/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb/resourceGroups/Contoso-RG-1/providers/Microsoft.Insights/dataCollectionEndpoints/Microsoft-Sentinel-aaaabbbbccccddddeeeefff",
+        "streamDeclarations": {
+            "Custom-Text-ApacheHTTPServer_CL": {
+                "columns": [
+                    {
+                        "name": "TimeGenerated",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "RawData",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "dataSources": {
+            "logFiles": [
+                {
+                    "streams": [
+                        "Custom-Text-ApacheHTTPServer_CL"
+                    ],
+                    "filePatterns": [
+                        "C:\\Server\\bin\\log\\Apache24\\logs\\*.log"
+                    ],
+                    "format": "text",
+                    "settings": {
+                        "text": {
+                            "recordStartTimestampFormat": "ISO 8601"
+                        }
+                    },
+                    "name": "Custom-Text-ApacheHTTPServer_CL"
+                }
+            ]
+        },
+        "destinations": {
+            "logAnalytics": [
+                {
+                    "workspaceResourceId": "/subscriptions/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb/resourceGroups/contoso-rg-1/providers/Microsoft.OperationalInsights/workspaces/CyberSOC",
+                    "workspaceId": "cccccccc-3333-4444-5555-dddddddddddd",
+                    "name": "DataCollectionEvent"
+                }
+            ]
+        },
+        "dataFlows": [
+            {
+                "streams": [
+                    "Custom-Text-ApacheHTTPServer_CL"
+                ],
+                "destinations": [
+                    "DataCollectionEvent"
+                ],
+                "transformKql": "source",
+                "outputStream": "Custom-ApacheHTTPServer_CL"
+            }
+        ],
+        "provisioningState": "Succeeded"
+    },
+    "location": "centralus",
+    "tags": {
+        "createdBy": "Sentinel"
+    },
+    "id": "/subscriptions/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb/resourceGroups/Contoso-RG-1/providers/Microsoft.Insights/dataCollectionRules/DCR-CustomLogs-01",
+    "name": "DCR-CustomLogs-01",
+    "type": "Microsoft.Insights/dataCollectionRules",
+    "etag": "\"00000000-1111-2222-3333-444444444444\"",
+    "systemData": {
+        "createdBy": "gbarnes@contoso.com",
+        "createdByType": "User",
+        "createdAt": "2024-08-12T09:29:15.1083961Z",
+        "lastModifiedBy": "gbarnes@contoso.com",
+        "lastModifiedByType": "User",
+        "lastModifiedAt": "2024-08-12T09:29:15.1083961Z"
+    }
+}
+```
