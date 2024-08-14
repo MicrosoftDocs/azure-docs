@@ -245,6 +245,7 @@ Use the following ARM template to create or modify a DCR for collecting text log
 ```
 
 Replace the {PLACE_HOLDER} values with the following values:
+
 | Placeholder | Value |
 | ----------- | ----- |
 | {DCR_NAME} | The name you choose for your Data Collection Rule. It must be unique within your workspace. |
