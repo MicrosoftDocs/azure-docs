@@ -1,16 +1,16 @@
 ---
 title: Azure Operator Service Manager Release Notes
-description: Tracking of notes for major and minor release of AOSM.
+description: Tracking of major and minor releases of Azure Operator Service Manager.
 author: msftadam
 ms.author: adamdor
-ms.date: 08/13/2024
+ms.date: 08/14/2024
 ms.topic: release-notes
 ms.service: azure-operator-service-manager
 ---
 
 # Release Notes
 
-This pages hosts release notes for Azure Operator Service Manager (AOSM) releases.
+This pages hosts release notes for Azure Operator Service Manager (AOSM).
 
 ## Overview
 
@@ -35,7 +35,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 ### Release Installation
 **[BREAKING CHANGE INSTALLATION]** This is a major version release, which includes a breaking change. To safely install this version, follow the below steps:
 1.	Delete all site network services and network functions from the custom location.
-2.	Uninstall the network function extension: 
+2.	Uninstall the network function extension.
 3.	Delete custom location
 4.	Ensure repository access, if required, by updating the content delivery network (CDN) to permit the endpoint linuxgeneva-microsoft.azurecr.io on port 443. This step can be skipped if a wildcard is  used or if running Nexus 3.12 or later.
 5.	Install the network function extension
