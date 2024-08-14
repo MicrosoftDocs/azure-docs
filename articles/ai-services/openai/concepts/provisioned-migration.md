@@ -149,7 +149,7 @@ If a deployment is on a resource that has a commitment, and that commitment expi
 
 Customers that have commitments today can continue to use them at least through the end of 2024. This includes purchasing new PTUs on new or existing commitments and managing commitment renewal behaviors. However, the August update has changed certain aspects of commitment operation.
 
-- Only models released as provisioned prior to August 1, 2023 or before can be deployed on a resource with a commitment.
+- Only models released as provisioned prior to August 1, 2024 or before can be deployed on a resource with a commitment.
 
 - If the deployed PTUs under a commitment exceed the committed PTUs, the hourly overage charges will be emitted against the same hourly meter as used for the new hourly/reservation payment model. This allows the overage charges to be discounted via an Azure Reservation.
 - It is possible to deploy more PTUs than are committed on the resource. This supports the ability to guarantee capacity availability prior to increasing the commitment size to cover it.
