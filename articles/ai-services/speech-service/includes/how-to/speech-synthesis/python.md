@@ -37,6 +37,7 @@ The voice that speaks is determined in order of priority as follows:
 - If the voice element is set by using [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
 
 In summary, the order of priority can be described as:
+
 | `SpeechSynthesisVoiceName` | `SpeechSynthesisLanguage` | SSML | Outcome |
 |:----------------------------:|:----------------------------:|:--------:|---------------------------------------------------------|
 | ✗ | ✗ | ✗ | Default voice for `en-US` speaks |
