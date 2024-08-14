@@ -130,12 +130,12 @@ Here's how to create a host pool by using the Azure portal:
 
    | Parameter | Value/Description |
    |--|--|
-   | **Subscription** | Select the subscription where you want to create the host pool from the dropdown list. |
+   | **Subscription** | In the dropdown list, select the subscription where you want to create the host pool. |
    | **Resource group** | Select an existing resource group, or select **Create new** and enter a name. |
    | **Host pool name** | Enter a name for the host pool, such as **hp01**. |
    | **Location** | Select the Azure region where you want to create your host pool. |
    | **Validation environment** | Select **Yes** to create a host pool that's used as a [validation environment](create-validation-host-pool.md).<br /><br />Select **No** (*default*) to create a host pool that isn't used as a validation environment. |
-   | **Preferred app group type** | Select the [preferred application group type](preferred-application-group-type.md) for this host pool from **Desktop** or **RemoteApp**. A desktop application group is created automatically when you use the Azure portal. |
+   | **Preferred app group type** | Select the [preferred application group type](preferred-application-group-type.md) for this host pool: **Desktop** or **RemoteApp**. A desktop application group is created automatically when you use the Azure portal. |
    | **Host pool type** | Select whether you want your host pool to be **Personal** or **Pooled**.<br /><br />If you select **Personal**, a new option appears for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users that you want load-balanced to a single session host. For more information, see [Host pool load-balancing algorithms](host-pool-load-balancing.md). |
 
    > [!TIP]
@@ -187,7 +187,7 @@ Here's how to create a host pool by using the Azure portal:
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | **Virtual machine type** | Select **Azure Stack HCI virtual machine**. |
-      | **Custom location** | Select the Azure Stack HCI cluster where you want to deploy your session hosts from the dropdown list. |
+      | **Custom location** | In the dropdown list, select the Azure Stack HCI cluster where you want to deploy your session hosts. |
       | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the cluster that you selected. |
       | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can add more later. |
       | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
@@ -370,7 +370,7 @@ Here's how to create a workspace by using the Azure portal:
 
    | Parameter | Value/Description |
    |--|--|
-   | **Subscription** | Select the subscription where you want to create the workspace from the dropdown list. |
+   | **Subscription** | In the dropdown list, select the subscription where you want to create the workspace. |
    | **Resource group** | Select an existing resource group, or select **Create new** and enter a name. |
    | **Workspace name** | Enter a name for the workspace, such as **workspace01**. |
    | **Friendly name** | *Optional*: Enter a display name for the workspace. |
@@ -458,11 +458,11 @@ Here's how to create an application group by using the Azure portal:
 
    | Parameter | Value/Description |
    |--|--|
-   | **Subscription** | Select the subscription where you want to create the application group from the dropdown list. |
+   | **Subscription** | In the dropdown list, select the subscription where you want to create the application group. |
    | **Resource group** | Select an existing resource group, or select **Create new** and enter a name. |
    | **Host pool** | Select the host pool for the application group. |
    | **Location** | Metadata is stored in the same location as the host pool. |
-   | **Application group type** | Select the [application group type](environment-setup.md#app-groups) for the host pool that you selected from **Desktop** or **RemoteApp**. |
+   | **Application group type** | Select the [application group type](environment-setup.md#app-groups) for the host pool: **Desktop** or **RemoteApp**. |
    | **Application group name** | Enter a name for the application group, such as **Session Desktop**. |
 
    > [!TIP]
@@ -474,7 +474,7 @@ Here's how to create an application group by using the Azure portal:
 
    After you complete this tab, or if you're creating a desktop application group, select **Next: Assignments**.
 
-1. *Optional*: On the **Assignments** tab, if you want to assign users or groups to this application group, select **+ Add Microsoft Entra users or user groups**. In the new pane that opens, select the box next to the users or groups that you want to add, and then choose **Select**.
+1. *Optional*: On the **Assignments** tab, if you want to assign users or groups to this application group, select **+ Add Microsoft Entra users or user groups**. On the new pane that opens, select the box next to the users or groups that you want to add, and then choose **Select**.
 
    After you complete this tab, select **Next: Workspace**.
 
@@ -615,7 +615,7 @@ Here's how to add an application group to a workspace by using the Azure portal:
 
 1. On the workspace overview, select **Application groups**, and then select **+ Add**.
 
-1. Select the plus icon (**+**) next to an application group from the list. Only application groups that aren't already assigned to a workspace are listed.
+1. In the list, select the plus icon (**+**) next to an application group. Only application groups that aren't already assigned to a workspace are listed.
 
 1. Choose **Select**. The application group is added to the workspace.
 
