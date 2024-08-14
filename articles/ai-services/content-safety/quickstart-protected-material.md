@@ -15,6 +15,9 @@ ms.author: pafarley
 
 Protected material text describes language that matches known text content (for example, song lyrics, articles, recipes, selected web content). This feature can be used to identify and block known text content from being displayed in language model output (English content only). For more information, see [Protected material concepts](./concepts/protected-material.md).
 
+For more information on protected material detection, see the [Protected material detection concept page](./concepts/protected-material.md). For API input limits, see the [Input requirements](./overview.md#input-requirements) section of the Overview. 
+
+
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
