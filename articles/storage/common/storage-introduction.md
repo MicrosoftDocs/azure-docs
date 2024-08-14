@@ -62,7 +62,7 @@ The following table compares Azure Storage services and shows example scenarios 
 | **Azure Disks** | Allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to "lift and shift" applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that isn't required to be accessed from outside the virtual machine to which the disk is attached. |
 | **Azure Container Storage** (preview) | Azure Container Storage (preview) is a volume management, deployment, and orchestration service that integrates with Kubernetes and is built natively for containers. | You want to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. |
 | **Azure Queues** | Allows for asynchronous message queueing between application components. | You want to decouple application components and use asynchronous messaging to communicate between them.<br><br>For guidance around when to use Queue Storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
-| **Azure Tables** | Allows you to store structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table Storage versus Azure Cosmos DB for Table, see [Developing with Azure Cosmos DB for Table and Azure Table Storage](../../cosmos-db/table-support.md). |
+| **Azure Tables** | Allows you to store structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table Storage versus Azure Cosmos DB for Table, see [Developing with Azure Cosmos DB for Table and Azure Table Storage](/azure/cosmos-db/table-support). |
 
 ## Blob Storage
 
@@ -132,7 +132,7 @@ For more information about Azure Queues, see [Introduction to Queues](../queues/
 
 ## Table Storage
 
-Azure Table Storage is now part of Azure Cosmos DB. To see Azure Table Storage documentation, see the [Azure Table Storage overview](../tables/table-storage-overview.md). In addition to the existing Azure Table Storage service, there's a new Azure Cosmos DB for Table offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, see [Azure Cosmos DB for Table](../../cosmos-db/table-introduction.md).
+Azure Table Storage is now part of Azure Cosmos DB. To see Azure Table Storage documentation, see the [Azure Table Storage overview](../tables/table-storage-overview.md). In addition to the existing Azure Table Storage service, there's a new Azure Cosmos DB for Table offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, see [Azure Cosmos DB for Table](/azure/cosmos-db/table-introduction).
 
 For more information about Table Storage, see [Overview of Azure Table Storage](../tables/table-storage-overview.md).
 

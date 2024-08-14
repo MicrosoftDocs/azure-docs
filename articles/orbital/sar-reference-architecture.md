@@ -143,7 +143,6 @@ Additional contributors:
 
 ## See also
 
-- [Geospatial data processing and analytics](https://github.com/MicrosoftDocs/architecture-center/blob/main/docs/example-scenario/data/geospatial-data-processing-analytics-azure.yml)
 - [Geospatial analysis for the telecommunications industry](https://github.com/MicrosoftDocs/architecture-center/blob/main/docs/example-scenario/data/geospatial-analysis-telecommunications-industry.yml)
 - [Big data architectures](https://github.com/MicrosoftDocs/architecture-center/tree/main/docs/data-guide/big-data)
 

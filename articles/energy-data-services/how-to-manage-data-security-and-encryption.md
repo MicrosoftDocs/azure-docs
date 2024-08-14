@@ -47,7 +47,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 **Step 2: Add a key**
 1.	Next, add a key to the key vault.
 2.	To learn how to add a key with the Azure portal, see [Quickstart: Set and retrieve a key from Azure Key Vault using the Azure portal](/azure/key-vault/keys/quick-create-portal).
-3.	It is recommended that the RSA key size is 3072, see [Configure customer-managed keys for your Azure Cosmos DB account | Microsoft Learn](../cosmos-db/how-to-setup-customer-managed-keys.md#generate-a-key-in-azure-key-vault).
+3.	It is recommended that the RSA key size is 3072, see [Configure customer-managed keys for your Azure Cosmos DB account | Microsoft Learn](/azure/cosmos-db/how-to-setup-customer-managed-keys#generate-a-key-in-azure-key-vault).
 
 **Step 3: Choose a managed identity to authorize access to the key vault**
 1.	When you enable customer-managed keys for an existing Azure Data Manager for Energy instance you must specify a managed identity that will be used to authorize access to the key vault that contains the key. The managed identity must have permissions to access the key in the key vault.
