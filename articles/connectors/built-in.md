@@ -15,7 +15,7 @@ Built-in connectors provide ways for you to control your workflow's schedule and
 
 For a smaller number of services, systems, and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app workflow that runs in multitenant Azure Logic Apps or a Standard logic app workflow that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app workflow type and not the other.
 
-For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob Storage, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, FTP, IBM DB2, IBM MQ, SFTP, and SQL Server. A Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, and Azure App Services, while a Standard workflow doesn't have these built-in connectors.
+For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob Storage, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, FTP, IBM DB2, IBM MQ, SFTP, and SQL Server. A Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, and Azure App Service, while a Standard workflow doesn't have these built-in connectors.
 
 Also, in Standard workflows, some [built-in connectors with specific attributes are informally known as *service providers*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Microsoft Entra ID, or a managed identity. All built-in connectors run in the same process as the Azure Logic Apps runtime. For more information, review [Single-tenant versus multitenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
 
@@ -29,7 +29,7 @@ The following table lists the current and expanding galleries of built-in connec
 
 | Consumption | Standard |
 |-------------|----------|
-| Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | AS2 (v2) <br>Azure AI Search* <br>Azure Automation* <br>Azure Blob Storage* <br>Azure Cosmos DB* <br>Azure Event Grid Publisher* <br>Azure Event Hubs* <br>Azure File Storage* <br>Azure Functions <br>Azure Key Vault* <br>Azure OpenAI* <br>Azure Queue Storage* <br>Azure Service Bus* <br>Azure Table Storage* <br>Batch Operations <br>Control <br>Data Mapper Operations <br>Data Operations <br>Date Time <br>EDIFACT <br>File System* <br>Flat File <br>FTP* <br>HTTP <br>IBM 3270* <br>IBM CICS* <br>IBM DB2* <br>IBM Host File* <br>IBM IMS* <br>IBM MQ* <br>Inline Code <br>Integration Account <br>JDBC* <br>Liquid Operations <br>Request <br>RosettaNet <br>SAP* <br>Schedule <br>SFTP* <br>SMTP* <br>SQL Server* <br>SWIFT <br>Variables <br>Workflow Operations <br>X12 <br>XML Operations |
+| Azure API Management<br>Azure App Service <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | AS2 (v2) <br>Azure AI Search* <br>Azure Automation* <br>Azure Blob Storage* <br>Azure Cosmos DB* <br>Azure Event Grid Publisher* <br>Azure Event Hubs* <br>Azure File Storage* <br>Azure Functions <br>Azure Key Vault* <br>Azure OpenAI* <br>Azure Queue Storage* <br>Azure Service Bus* <br>Azure Table Storage* <br>Batch Operations <br>Control <br>Data Mapper Operations <br>Data Operations <br>Date Time <br>EDIFACT <br>File System* <br>Flat File <br>FTP* <br>HTTP <br>IBM 3270* <br>IBM CICS* <br>IBM DB2* <br>IBM Host File* <br>IBM IMS* <br>IBM MQ* <br>Inline Code <br>Integration Account <br>JDBC* <br>Liquid Operations <br>Request <br>RosettaNet <br>SAP* <br>Schedule <br>SFTP* <br>SMTP* <br>SQL Server* <br>SWIFT <br>Variables <br>Workflow Operations <br>X12 <br>XML Operations |
 
 <a name="service-provider-interface-implementation"></a>
 
@@ -87,99 +87,55 @@ You can use the following built-in connectors to perform general tasks, for exam
 :::row:::
     :::column:::
         [![Schedule icon][schedule-icon]][schedule-doc]
-        \
-        \
-        [**Schedule**][schedule-doc]
-        \
-        \
-        [**Recurrence**][schedule-recurrence-doc]: Trigger a workflow based on the specified recurrence.
-        \
-        \
-        [**Sliding Window**][schedule-sliding-window-doc]<br>(*Consumption workflow only*): <br>Trigger a workflow that needs to handle data in continuous chunks.
-        \
-        \
-        [**Delay**][schedule-delay-doc]: Pause your workflow for the specified duration.
-        \
-        \
-        [**Delay until**][schedule-delay-until-doc]: Pause your workflow until the specified date and time.
+        <br><br>[**Schedule**][schedule-doc]
+        <br><br>[**Recurrence**][schedule-recurrence-doc]: Trigger a workflow based on the specified recurrence.
+        <br><br>[**Sliding Window**][schedule-sliding-window-doc]
+        <br>(*Consumption workflow only*)
+        <br>Trigger a workflow that needs to handle data in continuous chunks.
+        <br><br>[**Delay**][schedule-delay-doc]: Pause your workflow for the specified duration.
+        <br><br>[**Delay until**][schedule-delay-until-doc]: Pause your workflow until the specified date and time.
     :::column-end:::
     :::column:::
         [![HTTP trigger and action icon][http-icon]][http-doc]
-        \
-        \
-        [**HTTP**][http-doc]
-        \
-        \
-        Call an HTTP or HTTPS endpoint by using either the HTTP trigger or action.
-        \
-        \
-        You can also use these other built-in HTTP triggers and actions:
+        <br><br>[**HTTP**][http-doc]
+        <br><br>Call an HTTP or HTTPS endpoint by using either the HTTP trigger or action.
+        <br><br>You can also use these other built-in HTTP triggers and actions:
         - [HTTP + Swagger][http-swagger-doc]
         - [HTTP + Webhook][http-webhook-doc]
     :::column-end:::
     :::column:::
         [![Request trigger icon][http-request-icon]][http-request-doc]
-        \
-        \
-        [**Request**][http-request-doc]
-        \
-        \
-        [**When a HTTP request is received**][http-request-doc]: Wait for a request from another workflow, app, or service. This trigger makes your workflow callable without having to be checked or polled on a schedule.
-        \
-        \
-        [**Response**][http-request-doc]: Respond to a request received by the **When a HTTP request is received** trigger in the same workflow.
+        <br><br>[**Request**][http-request-doc]
+        <br><br>[**When a HTTP request is received**][http-request-doc]: Wait for a request from another workflow, app, or service. This trigger makes your workflow callable without having to be checked or polled on a schedule.
+        <br><br>[**Response**][http-request-doc]: Respond to a request received by the **When a HTTP request is received** trigger in the same workflow.
     :::column-end:::
     :::column:::
         [![Batch icon][batch-icon]][batch-doc]
-        \
-        \
-        [**Batch**][batch-doc]
-        \
-        \
-        [**Batch messages**][batch-doc]: Trigger a workflow that processes messages in batches.
-        \
-        \
-        [**Send messages to batch**][batch-doc]: Call an existing workflow that currently starts with a **Batch messages** trigger.
+        <br><br>[**Batch**][batch-doc]
+        <br><br>[**Batch messages**][batch-doc]: Trigger a workflow that processes messages in batches.
+        <br><br>[**Send messages to batch**][batch-doc]: Call an existing workflow that currently starts with a **Batch messages** trigger.
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![File System icon][file-system-icon]][file-system-doc]
-        \
-        \
-        [**File System**][file-system-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to a file system on your network machine to create and manage files.
+        <br><br>[**File System**][file-system-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to a file system on your network machine to create and manage files.
     :::column-end:::
     :::column:::
         [![FTP icon][ftp-icon]][ftp-doc]
-        \
-        \
-        [**FTP**][ftp-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to an FTP or FTPS server in your Azure virtual network so that you can work with your files and folders.
+        <br><br>[**FTP**][ftp-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to an FTP or FTPS server in your Azure virtual network so that you can work with your files and folders.
     :::column-end:::
     :::column:::
         [![SFTP-SSH icon][sftp-ssh-icon]][sftp-doc]
-        \
-        \
-        [**SFTP**][sftp-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to an SFTP server in your Azure virtual network so that you can work with your files and folders.
+        <br><br>[**SFTP**][sftp-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to an SFTP server in your Azure virtual network so that you can work with your files and folders.
     :::column-end:::
     :::column:::
         [![SMTP icon][smtp-icon]][smtp-doc]
-        \
-        \
-        [**SMTP**][smtp-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to an SMTP server so that you can send email.
-    :::column-end:::
-    :::column:::
+        <br><br>[**SMTP**][smtp-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to an SMTP server so that you can send email.
     :::column-end:::
 :::row-end:::
 
@@ -192,239 +148,137 @@ You can use the following built-in connectors to access specific services and sy
 :::row:::
     :::column:::
         [![Azure AI Search icon][azure-ai-search-icon]][azure-ai-search-doc]
-        \
-        \
-        [**Azure AI Search**][azure-ai-search-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to AI Search so that you can perform document indexing and search operations in your workflow.
+        <br><br>[**Azure AI Search**][azure-ai-search-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to AI Search so that you can perform document indexing and search operations in your workflow.
     :::column-end:::
     :::column:::
         [![Azure API Management icon][azure-api-management-icon]][azure-api-management-doc]
-        \
-        \
-        [**Azure API Management**][azure-api-management-doc]<br>(*Consumption workflow only*)
-        \
-        \
-        Call your own triggers and actions in APIs that you define, manage, and publish using [Azure API Management](../api-management/api-management-key-concepts.md). <br><br>**Note**: Not supported when using [Consumption tier for API Management](../api-management/api-management-features.md).
+        <br><br>[**Azure API Management**][azure-api-management-doc]<br>(*Consumption workflow only*)
+        <br><br>Call your own triggers and actions in APIs that you define, manage, and publish using [Azure API Management](../api-management/api-management-key-concepts.md). <br><br>**Note**: Not supported when using [Consumption tier for API Management](../api-management/api-management-features.md).
     :::column-end:::
     :::column:::
-        [![Azure App Services icon][azure-app-services-icon]][azure-app-services-doc]
-        \
-        \
-        [**Azure App Services**][azure-app-services-doc]<br>(*Consumption workflow only*)
-        \
-        \
-        Call apps that you create and host on [Azure App Service](../app-service/overview.md), for example, API Apps and Web Apps.
-        \
-        \
-        When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
+        [![Azure App Service icon][azure-app-service-icon]][azure-app-service-doc]
+        <br><br>[**Azure App Service**][azure-app-service-doc]<br>(*Consumption workflow only*)
+        <br><br>Call apps that you create and host on [Azure App Service](../app-service/overview.md), for example, API Apps and Web Apps.
+        <br><br>When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
     :::column-end:::
     :::column:::
         [![Azure Automation icon][azure-automation-icon]][azure-automation-doc]
-        \
-        \
-        [**Azure Automation**][azure-automation-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to your Azure Automation accounts so you can create and manage Azure Automation jobs.
+        <br><br>[**Azure Automation**][azure-automation-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to your Azure Automation accounts so you can create and manage Azure Automation jobs.
     :::column-end:::
     :::column:::
         [![Azure Blob Storage icon][azure-blob-storage-icon]][azure-blob-storage-doc]
-        \
-        \
-        [**Azure Blob Storage**][azure-blob-storage-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to your Azure Blob Storage account so you can create and manage blob content.
+        <br><br>[**Azure Blob Storage**][azure-blob-storage-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to your Azure Blob Storage account so you can create and manage blob content.
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![Azure Cosmos DB icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
-        \
-        \
-        [**Azure Cosmos DB**][azure-cosmos-db-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents.
+        <br><br>[**Azure Cosmos DB**][azure-cosmos-db-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents.
     :::column-end:::
     :::column:::
         [![Azure Event Grid Publisher icon][azure-event-grid-publisher-icon]][azure-event-grid-publisher-doc]
-        \
-        \
-        [**Azure Event Grid Publisher**][azure-event-grid-publisher-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to Azure Event Grid for event-based programming using pub-sub semantics.
+        <br><br>[**Azure Event Grid Publisher**][azure-event-grid-publisher-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to Azure Event Grid for event-based programming using pub-sub semantics.
     :::column-end:::
     :::column:::
         [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
-        \
-        \
-        [**Azure Event Hubs**][azure-event-hubs-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Consume and publish events through an event hub. For example, get output from your workflow with Event Hubs, and then send that output to a real-time analytics provider.
+        <br><br>[**Azure Event Hubs**][azure-event-hubs-doc]<br>(*Standard workflow only*)
+        <br><br>Consume and publish events through an event hub. For example, get output from your workflow with Event Hubs, and then send that output to a real-time analytics provider.
     :::column-end:::
     :::column:::
         [![Azure File Storage icon][azure-file-storage-icon]][azure-file-storage-doc]
-        \
-        \
-        [**Azure File Storage**][azure-file-storage-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to your Azure Storage account so that you can create, update, and manage files.
+        <br><br>[**Azure File Storage**][azure-file-storage-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to your Azure Storage account so that you can create, update, and manage files.
     :::column-end:::
     :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
-        \
-        \
-        [**Azure Functions**][azure-functions-doc]
-        \
-        \
-        Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
+        <br><br>[**Azure Functions**][azure-functions-doc]
+        <br><br>Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![Azure Key Vault icon][azure-key-vault-icon]][azure-key-vault-doc]
-        \
-        \
-        [**Azure Key Vault**][azure-key-vault-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to Azure Key Vault to store, access, and manage secrets.
+        <br><br>[**Azure Key Vault**][azure-key-vault-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to Azure Key Vault to store, access, and manage secrets.
     :::column-end:::
     :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
-        \
-        \
-        [**Azure Logic Apps**][nested-logic-app-doc]<br>(*Consumption workflow*) <br><br>-or-<br><br>**Workflow Operations**<br>(*Standard workflow*)
-        \
-        \
-        Call other workflows that start with the Request trigger named **When a HTTP request is received**.
+        <br><br>[**Azure Logic Apps**][nested-logic-app-doc]<br>(*Consumption workflow*) <br><br>-or-<br><br>**Workflow Operations**<br>(*Standard workflow*)
+        <br><br>Call other workflows that start with the Request trigger named **When a HTTP request is received**.
     :::column-end:::
     :::column:::
         [![Azure OpenAI icon][azure-openai-icon]][azure-openai-doc]
-        \
-        \
-        [**Azure OpenAI**][azure-openai-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to Azure OpenAI to perform operations on large language models.
+        <br><br>[**Azure OpenAI**][azure-openai-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to Azure OpenAI to perform operations on large language models.
     :::column-end:::
     :::column:::
         [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
-        \
-        \
-        [**Azure Service Bus**][azure-service-bus-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
+        <br><br>[**Azure Service Bus**][azure-service-bus-doc]<br>(*Standard workflow only*)
+        <br><br>Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
     :::column-end:::
     :::column:::
         [![Azure Table Storage icon][azure-table-storage-icon]][azure-table-storage-doc]
-        \
-        \
-        [**Azure Table Storage**][azure-table-storage-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to your Azure Storage account so that you can create, update, query, and manage tables.
+        <br><br>[**Azure Table Storage**][azure-table-storage-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to your Azure Storage account so that you can create, update, query, and manage tables.
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![Azure Queue Storage][azure-queue-storage-icon]][azure-queue-storage-doc]
-        \
-        \
-        [**Azure Queue Storage**][azure-queue-storage-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to your Azure Storage account so that you can create, update, and manage queues.
+        <br><br>[**Azure Queue Storage**][azure-queue-storage-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to your Azure Storage account so that you can create, update, and manage queues.
     :::column-end:::
     :::column:::
         [![IBM 3270 icon][ibm-3270-icon]][ibm-3270-doc]
-        \
-        \
-        [**IBM 3270**][ibm-3270-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Call 3270 screen-driven apps on IBM mainframes from your workflow.
+        <br><br>[**IBM 3270**][ibm-3270-doc]<br>(*Standard workflow only*)
+        <br><br>Call 3270 screen-driven apps on IBM mainframes from your workflow.
     :::column-end:::
     :::column:::
         [![IBM CICS icon][ibm-cics-icon]][ibm-cics-doc]
-        \
-        \
-        [**IBM CICS**][ibm-cics-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Call CICS programs on IBM mainframes from your workflow.
+        <br><br>[**IBM CICS**][ibm-cics-doc]<br>(*Standard workflow only*)
+        <br><br>Call CICS programs on IBM mainframes from your workflow.
     :::column-end:::
     :::column:::
         [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
-        \
-        \
-        [**IBM DB2**][ibm-db2-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
+        <br><br>[**IBM DB2**][ibm-db2-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
     :::column:::
         [![IBM Host File icon][ibm-host-file-icon]][ibm-host-file-doc]
-        \
-        \
-        [**IBM Host File**][ibm-host-file-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to IBM Host File and generate or parse contents.
+        <br><br>[**IBM Host File**][ibm-host-file-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to IBM Host File and generate or parse contents.
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![IBM IMS icon][ibm-ims-icon]][ibm-ims-doc]
-        \
-        \
-        [**IBM IMS**][ibm-ims-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Call IMS programs on IBM mainframes from your workflow.
+        <br><br>[**IBM IMS**][ibm-ims-doc]<br>(*Standard workflow only*)
+        <br><br>Call IMS programs on IBM mainframes from your workflow.
     :::column-end:::
     :::column:::
         [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
-        \
-        \
-        [**IBM MQ**][ibm-mq-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to IBM MQ on-premises or in Azure to send and receive messages.
+        <br><br>[**IBM MQ**][ibm-mq-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to IBM MQ on-premises or in Azure to send and receive messages.
     :::column-end:::
     :::column:::
         [![JDBC icon][jdbc-icon]][jdbc-doc]
-        \
-        \
-        [**JDBC**][jdbc-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to a relational database using JDBC drivers.
+        <br><br>[**JDBC**][jdbc-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to a relational database using JDBC drivers.
     :::column-end:::
     :::column:::
         [![SAP icon][sap-icon]][sap-doc]
-        \
-        \
-        [**SAP**][sap-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to SAP so you can send or receive messages and invoke actions.
+        <br><br>[**SAP**][sap-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to SAP so you can send or receive messages and invoke actions.
     :::column-end:::
     :::column:::
         [![SQL Server icon][sql-server-icon]][sql-server-doc]
-        \
-        \
-        [**SQL Server**][sql-server-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
+        <br><br>[**SQL Server**][sql-server-doc]<br>(*Standard workflow only*)
+        <br><br>Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
     :::column-end:::
 :::row-end:::
 
@@ -754,7 +608,7 @@ For more information, review the following documentation:
 <!-- Built-in icons -->
 [azure-ai-search-icon]: ./media/apis-list/azure-ai-search.png
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
-[azure-app-services-icon]: ./media/apis-list/azure-app-services.png
+[azure-app-service-icon]: ./media/apis-list/azure-app-service.png
 [azure-automation-icon]: ./media/apis-list/azure-automation.png
 [azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
 [azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
@@ -815,7 +669,7 @@ For more information, review the following documentation:
 <!--Built-in doc links-->
 [azure-ai-search-doc]: https://techcommunity.microsoft.com/t5/azure-integration-services-blog/public-preview-of-azure-openai-and-ai-search-in-app-connectors/ba-p/4049584 "Connect to AI Search so that you can perform document indexing and search operations in your workflow"
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Create an Azure API Management service instance for managing and publishing your APIs"
-[azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrate logic app workflows with App Service API Apps"
+[azure-app-service-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrate logic app workflows with App Service API Apps"
 [azure-automation-doc]: /azure/logic-apps/connectors/built-in/reference/azureautomation/ "Connect to your Azure Automation accounts so you can create and manage Azure Automation jobs"
 [azure-blob-storage-doc]: /azure/logic-apps/connectors/built-in/reference/azureblob/ "Manage files in your blob container with Azure Blob storage"
 [azure-cosmos-db-doc]: /azure/logic-apps/connectors/built-in/reference/azurecosmosdb/ "Connect to Azure Cosmos DB so you can access and manage Azure Cosmos DB documents"
