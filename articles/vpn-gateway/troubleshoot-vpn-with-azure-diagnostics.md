@@ -98,7 +98,7 @@ Only after you identify the timestamp of a disconnection, you can switch to the 
 
 
 Some troubleshooting tips:
-- If you observe a disconnection event on one gateway instance, followed by a connection event on a different gateway instance within a few seconds, it indicates a gateway failover. Such a event typically arises due to maintenance on a gateway instance. To learn more about this behavior, see [About Azure VPN gateway redundancy](./vpn-gateway-highlyavailable.md#activestandby).
+- If you observe a disconnection event on one gateway instance, followed by a connection event on a different gateway instance within a few seconds, it indicates a gateway failover. Such an event typically arises due to maintenance on a gateway instance. To learn more about this behavior, see [About Azure VPN gateway redundancy](./vpn-gateway-highlyavailable.md#activestandby).
 - The same behavior is observed if you intentionally run a **Gateway Reset** on the Azure side - which causes a reboot of the active gateway instance. To learn more about this behavior, see [Reset a VPN Gateway](./reset-gateway.md).
 - If you see a disconnection event on one gateway instance, followed by a connection event on the **same** gateway instance in a few seconds, you might be looking at a network glitch causing a DPD timeout, or a disconnection erroneously sent by the on-premises device.
 
