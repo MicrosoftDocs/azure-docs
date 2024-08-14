@@ -89,9 +89,9 @@ To modify the security level for an item, follow these steps:
 
     :::image type="content" source="./media/tutorial-review-security-posture/modify-security-settings.png" alt-text="Screenshot shows the modify-security settings option on properties page.":::
 
-   It might take a while to get the security level settings implemented in Azure Business Continuity Center.
+     It might take a while to get the security level settings implemented in Azure Business Continuity Center.
 
-   When you modify the security setting for a vault, it gets applied to all the protected datasources by Azure Backup in that vault.
+     When you modify the security setting for a vault, it gets applied to all the protected datasources by Azure Backup in that vault.
 
 ## Next steps
 
