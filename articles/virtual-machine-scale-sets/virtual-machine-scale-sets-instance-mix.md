@@ -113,17 +113,6 @@ Lastly, be sure to specify the `skuProfile` with **up to five** VM sizes. This s
     },
 ```
 
-### [Azure portal](#tab/portal-1)
-1. Go to **Virtual machine scale sets**.
-2. Select the **Create** button to go to the **Create a virtual machine scale set** view.
-3. In the **Basics** tab, fill out the required fields. If the field isn't called out in the next sections, you can set the fields to what works best for your scale set.
-4. Ensure that you select a region that Instance Mix is supported in.
-5. Be sure **Orchestration mode** is set to **Flexible**.
-6. In the **Size** section, click **Select up to 5 sizes (preview)** and the **Select a VM size** page appears.
-7. Use the size picker to select up to five VM sizes. Once you've selected your VM sizes, click the **Select** button at the bottom of the page to return to the scale set Basics tab.
-8. In the **Allocation strategy (preview)** field, select your allocation strategy.
-9. You can specify other properties in subsequent tabs, or you can go to **Review + create** and select the **Create** button at the bottom of the page to start your Instance Flexible scale set deployment.
-
 ---
 
 ## Troubleshooting
