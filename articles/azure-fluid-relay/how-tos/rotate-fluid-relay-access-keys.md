@@ -1,5 +1,5 @@
 ---
-description: Learn how to rotate Azure Fluid Relay access keys
+description: Learn how to rotate Azure Fluid Relay access keys.
 title: Rotate Azure Fluid Relay access keys
 ms.date: 08/13/2024
 ms.service: azure-fluid
@@ -16,7 +16,7 @@ Two keys are associated with each Azure Fluid Relay Service: a primary key and s
 
 ## View your access keys
 
-### [Azure Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 To see your access keys, search for your Azure Fluid Relay Service in the Azure portal. On the left menu of Azure Fluid Relay Service page, select **Settings**. Then, select **Access Keys**. Select the **Copy** button to copy the selected key.
 
 :::image type="content" source="../images/rotate-tenant-keys.png" alt-text="A screenshot of the access keys page on the Azure portal.":::
@@ -50,7 +50,7 @@ Two access keys are assigned so that your Azure Fluid Relay Service does not hav
 
 The process of rotating primary and secondary keys is the same. The following steps are for primary keys.
 
-### [Azure Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 To rotate your Azure Fluid Relay primary key in the Azure portal:
 
 1. Update the access keys in your application code to use the secondary access key for the Azure Fluid Relay.
