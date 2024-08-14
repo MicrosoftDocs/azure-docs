@@ -215,7 +215,7 @@ We recommend that you follow these verification steps, depending on the type of 
 
 #### Resolution 
 
-- The client should back off to give time for the service to process its given workload, then the client should retry. Moreover, this could indicate an issue for replication between the primary and secondaries and could be used as an indication that promotion of a secondary should be triggered. 
+- The client should back off to give time for the service to process its given workload, then the client should retry.
 
 ### Timeout
 
@@ -240,7 +240,7 @@ We recommend that you follow these verification steps, depending on the type of 
 
 #### Resolution
 - The client must wait for planned failover to complete before write operations will succeed. 
-- In case planned failover takes to long, it is possible to trigger a forced failover instead. 
+- In case planned failover takes too long, it is possible to trigger a forced failover instead. 
 
 ## Next steps
 
