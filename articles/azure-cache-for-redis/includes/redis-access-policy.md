@@ -1,16 +1,17 @@
 ## Add the Redis access policy
 
-You'll need to assign a data access policy to the identity that will access Azure Cache for Redis. For this example, you'll assign a data access policy to the same Azure Entra ID account you use to log into the Azure CLI or Visual Studio
+You need to assign a data access policy to the identity that accesses Azure Cache for Redis. For this example, you assign a data access policy to the same Microsoft Entra ID account you use to log into the Azure CLI or Visual Studio.
 
-1. Expand the **Settings** node of the left nav on the Azure Cache for Redis service and select the **Data Access Configuration**.
+1. Select **Settings** Resource menu on the cache and select the **Data Access Configuration**.
+
 1. On the **Data Access Configuration** page, select **Add > New Redis User** from the top navigation.
 
-    :::image type="content" source="media/cache-entra-access/assign-access-policy.png" alt-text="Assign the access policy.":::
+    :::image type="content" source="media/redis-access-policy/assign-access-policy.png" alt-text="Screenshot showing the data access configuration screen.":::
 
-1. On the **New Redis User** page, select the **Data Contributor** policy and choose **Next: Redis Users**.
+1. On the **New Redis User** page, select the **Data Contributor** policy, and select **Next: Redis Users**.
+
 1. Choose **+ Select Member** to open the flyout menu. Search for your user account and select it from the results.
 
-    :::image type="content" source="media/cache-entra-access/select-user.png" alt-text="Assign the access policy.":::
- 
-1. Select **Review + assign** to assign the policy to the selected user.
+    :::image type="content" source="media/redis-access-policy/select-user.png" alt-text="Screenshot showing the Redis user tab in the working pane with select member highlighted with a red box.":::
 
+1. Select **Review + assign** to assign the policy to the selected user.
