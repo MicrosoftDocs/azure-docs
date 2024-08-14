@@ -750,7 +750,7 @@ For this task, you'll need a tool to send REST API calls, for example:
    }
    ```
 
-1. Update your workflow using the edited content as the request body, and run the [**Workflows - Update** operation](/rest/api/logic/workflows/update&tabs=HTTP) with the following **PATCH** request:
+1. Update your workflow using the edited content as the request body, and run the [**Workflows - Update** operation](/rest/api/logic/workflows/update) with the following **PATCH** request:
 
    **`PATCH https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}?api-version=2016-06-01`**
 
