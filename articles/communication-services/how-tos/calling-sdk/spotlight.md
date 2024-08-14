@@ -25,10 +25,10 @@ Since the video stream resolution of a participant is increased when spotlighted
 
 
 ## Support
-The following tables define support of spotlight in Azure Communication Services.
+The following tables define support for Spotlight in Azure Communication Services.
 
 ### Identities & call types
-The following tables show support of call and identity types. 
+The following table shows support for call and identity types. 
 
 |Identities                                         | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
 |--------------------------------------|---------------|------|----------|------------|------------------------|--------------------------|
@@ -36,7 +36,7 @@ The following tables show support of call and identity types.
 |Microsoft 365 user	                        | ✔️	          |    ✔️  |          |        ✔️    |                        |        ✔️                  |
 
 ### Operations
-The following tables show support of individual APIs in calling SDK to individual identity types. 
+The following table shows support for individual APIs in Calling SDK to individual identity types. 
 
 |Operations                   | Communication Services user | Microsoft 365 user |
 |-----------------------------|------------------------------|-------------------|
@@ -45,10 +45,10 @@ The following tables show support of individual APIs in calling SDK to individua
 | stopAllSpotlight |  ✔️ [1] | ✔️ [1] | 
 | getSpotlightedParticipants |  ✔️ | ✔️ | 
 
-[1] In Teams meeting scenarios, these APIs are only available for users with role organizer, co-organizer, or presenter.
+[1] In Teams meeting scenarios, these APIs are only available to users with role organizer, co-organizer, or presenter.
 
 ### SDKs
-The following tables show support of breakout rooms feature in individual Azure Communication Services SDKs.
+The following table shows support for Spotlight feature in individual Azure Communication Services SDKs.
 
 |  Platforms     | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |---------------|-----|--------|--------|--------|----------|--------|---------|
