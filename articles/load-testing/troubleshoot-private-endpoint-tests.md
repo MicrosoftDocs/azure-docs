@@ -3,7 +3,7 @@ title: Troubleshoot issues with private endpoint tests
 titleSuffix: Azure Load Testing
 description: Learn about the troubleshooting steps to fix issues with running load tests against private endpoints using virtual network injection. 
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 author: Nagarjuna-Vipparthi
 ms.author: vevippar
 ms.topic: troubleshooting
