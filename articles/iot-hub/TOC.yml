@@ -281,22 +281,8 @@
           displayName: cloud-to-device messages
           href: how-to-cloud-to-device-messaging.md
         - name: Upload files from devices
-          items:
-            - name: New version
-              displayName: file upload, upload files, csharp, C#
-              href: how-to-file-upload.md
-            - name: .NET
-              displayName: file upload, upload files, csharp, C#
-              href: file-upload-dotnet.md
-            - name: Python
-              displayName: file upload, upload files
-              href: file-upload-python.md
-            - name: Node.js
-              displayName: file upload, upload files
-              href: file-upload-node.md
-            - name: Java
-              displayName: file upload, upload files
-              href: file-upload-java.md
+          displayName: file upload, upload files
+          href: how-to-file-upload.md
         - name: Get started with device twins
           items:
             - name: CLI
