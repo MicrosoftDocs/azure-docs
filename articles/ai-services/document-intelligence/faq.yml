@@ -137,6 +137,12 @@ sections:
          If your Document Intelligence resource is configured with a firewall or virtual network, you need to add the dedicated IP address 20.3.165.95 to the firewall allowlist for your Document Intelligence resource.  Please note that some functions in custom projects (e.g. auto-label, project management and human in the loop) won't work if the public network access is disabled.
 
       - question: |
+         When I upload a file in Document Intelligence Studio by "Fetch from URL" function, can I use a URL from my blob storage?
+
+        answer: |
+         Yes if it's a URL with sas token and your storage account is accessible from public network.  Fetching from URL does not work for storage account with key access disabled or behind firewall/VNet.
+
+      - question: |
           Can I reuse or customize the labeling experience from Document Intelligence Studio and build it into my own application?
         answer: |
           **Yes.**
