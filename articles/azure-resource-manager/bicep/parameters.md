@@ -107,13 +107,13 @@ The following table describes the available decorators and how to use them.
 | --------- | ---- | ----------- | ------- |
 | [allowed](#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
 | [description](#description) | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
-| [discriminator](#property-name) | object | string | Use this decorator to make sure that the correct subclass is identified and handled. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
+| [discriminator](#property-name) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
 | [maxLength](#length-constraints) | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
 | [maxValue](#integer-constraints) | int | int | The maximum value for the integer parameter. This value is inclusive. |
 | [metadata](#metadata) | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
 | [minLength](#length-constraints) | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
 | [minValue](#integer-constraints) | int | int | The minimum value for the integer parameter. This value is inclusive. |
-| [sealed]() | object | | |
+| [sealed](#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. |
 | [secure](#secure-parameters) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
@@ -140,32 +140,6 @@ param demoEnum string
 ```
 
 If you define allowed values for an array parameter, the actual value can be any subset of the allowed values.
-
-### Length constraints
-
-You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
-
-The following example declares two parameters. One parameter is for a storage account name that must have 3-24 characters. The other parameter is an array that must have from 1-5 items.
-
-```bicep
-@minLength(3)
-@maxLength(24)
-param storageAccountName string
-
-@minLength(1)
-@maxLength(5)
-param appNames array
-```
-
-### Integer constraints
-
-You can set minimum and maximum values for integer parameters. You can set one or both constraints.
-
-```bicep
-@minValue(1)
-@maxValue(12)
-param month int
-```
 
 ### Description
 
@@ -195,6 +169,32 @@ When you hover your cursor over **storageAccountName** in VS Code, you see the f
 
 Make sure the text follows proper Markdown formatting; otherwise, it may not display correctly when rendered.
 
+### Integer constraints
+
+You can set minimum and maximum values for integer parameters. You can set one or both constraints.
+
+```bicep
+@minValue(1)
+@maxValue(12)
+param month int
+```
+
+### Length constraints
+
+You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
+
+The following example declares two parameters. One parameter is for a storage account name that must have 3-24 characters. The other parameter is an array that must have from 1-5 items.
+
+```bicep
+@minLength(3)
+@maxLength(24)
+param storageAccountName string
+
+@minLength(1)
+@maxLength(5)
+param appNames array
+```
+
 ### Metadata
 
 If you have custom properties that you want to apply to a parameter, add a metadata decorator. Within the metadata, define an object with the custom names and values. The object you define for the metadata can contain properties of any name and type.
@@ -211,6 +211,8 @@ param settings object
 ```
 
 When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+
+### Sealed
 
 ### Secure parameters
 
