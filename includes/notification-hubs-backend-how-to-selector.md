@@ -1,9 +1,9 @@
 ---
-author: spelluru
-ms.service: service-bus
+ms.service: azure-notification-hubs
 ms.topic: include
-ms.date: 11/09/2018	
-ms.author: spelluru
+ms.date: 08/13/2024
+author: sethmanheim
+ms.author: sethm
 ---
 > [!div class="op_single_selector"]
 > * [Java](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md)
