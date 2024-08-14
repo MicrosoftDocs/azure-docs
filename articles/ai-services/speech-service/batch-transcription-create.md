@@ -118,7 +118,7 @@ regularly from the service, after you retrieve the results. Alternatively, set t
 
 To create a transcription, use the `spx batch transcription create` command. Construct the request parameters according to the following instructions:
 
-- Set the required `content` parameter. You can specify a semi-colon delimited list of individual files or the URL for an entire container. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
+- Set the required `content` parameter. You can specify a comma delimited list of individual files or the URL for an entire container. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
 - Set the required `language` property. This value should match the expected locale of the audio data to transcribe. You can't change the locale later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
 - Set the required `name` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
 
