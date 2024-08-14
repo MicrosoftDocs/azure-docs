@@ -232,7 +232,7 @@ Considerations for setting `stored` to false:
 
 - Because vectors aren't human readable, you can omit them from results sent to LLMs in RAG scenarios, and from results that are rendered on a search page. Keep them, however, if you're using vectors in a downstream process that consumes vector content.
 
-- However, if your indexing strategy includes [partial document updates](search-howto-reindex.md#update-content), such as "merge" or "mergeOrUpload" on a document, be aware that setting `stored` to false blocks updates to any vector fields. On each "merge" or "mergeOrUpload" operation, you must provide vector fields in addition to other nonvector fields that you're updating, or the vector will be dropped. 
+- However, if your indexing strategy includes [partial document updates](search-howto-reindex.md#update-content), such as "merge" or "mergeOrUpload" on a document, be aware that setting `stored` to false will cause vectors in the non-stored field to be omitted during the merge. On each "merge" or "mergeOrUpload" operation, you must provide the vector fields in addition to other nonvector fields that you're updating, or the vector will be dropped. 
 
 Remember that the `stored` attribution is irreversible. It's set during index creation on vector fields when physical data structures are created. If you want retrievable vector content later, you must drop and rebuild the index, or create and load a new field that has the new attribution.
 

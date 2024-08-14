@@ -47,7 +47,7 @@ Queries continue to run, but if you're updating or removing existing fields, you
 
 + The payload must include the keys or identifiers of every document you want to add, update, or delete.
 
-+ If your index includes vector fields and you set the [`stored` property to false](vector-search-how-to-configure-compression-storage.md#option-3-set-the-stored-property-to-remove-retrievable-storage), make sure you provide the vector in your partial document update, even if the value is unchanged. A side effect of setting `stored` to false is that vectors are dropped on a reindexing operation. Providing the vector in the documents payload provides a workaround.
++ If your index includes vector fields and you set the [`stored` property to false](vector-search-how-to-configure-compression-storage.md#option-3-set-the-stored-property-to-remove-retrievable-storage), make sure you provide the vector in your partial document update, even if the value is unchanged. A side effect of setting `stored` to false is that vectors are dropped on a reindexing operation. Providing the vector in the documents payload prevents this from happening.
 
 + To update the contents of simple fields and subfields in complex types, list only the fields you want to change. For example, if you only need to update a description field, the payload should consist of the document key and the modified description. Omitting other fields retains their existing values.
 
