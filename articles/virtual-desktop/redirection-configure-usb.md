@@ -511,7 +511,7 @@ The `usbdevicestoredirect` RDP property is used to specify which USB devices are
 |:--:|:--:|--|
 | N/A | *No value specified* | Don't redirect any supported USB peripherals using opaque low-level redirection. |
 | 1 | `*` | Redirect all peripherals that aren't using high-level redirection. |
-| 2 | `{<DeviceClassGUID>}` | Redirect all peripherals that are members of the specified device setup class. |
+| 2 | `{<DeviceClassGUID>}` | Redirect all peripherals that are members of the specified device setup class. For a list of device class GUID values, see [System-Defined Device Setup Classes Available to Vendors](/windows-hardware/drivers/install/system-defined-device-setup-classes-available-to-vendors). |
 | 3 | `<USBInstanceID>` | Redirect a USB peripheral specified by the given device instance path. |
 | 4 | `<-USBInstanceID>` | Don't redirect a peripheral specified by the given device instance path. |
 
@@ -529,13 +529,13 @@ Here are some examples of using the `usbdevicestoredirect` RDP property:
    usbdevicestoredirect:s:*
    ```
 
-- To redirect all supported USB peripherals with a device class GUID of `{6bdd1fc6-810f-11d0-bec7-08002be2092f}`, use:
+- To redirect all supported USB peripherals with a device class GUID of `{6bdd1fc6-810f-11d0-bec7-08002be2092f}` (imaging), use:
 
    ```uri
    usbdevicestoredirect:s:{6bdd1fc6-810f-11d0-bec7-08002be2092f}
    ```
 
-- To redirect all supported USB peripherals that high-level redirection doesn't redirect and USB peripherals with a device class GUIDs of `{6bdd1fc6-810f-11d0-bec7-08002be2092f}` and `{4d36e96c-e325-11ce-bfc1-08002be10318}`, use:
+- To redirect all supported USB peripherals that high-level redirection doesn't redirect and USB peripherals with a device class GUIDs of `{6bdd1fc6-810f-11d0-bec7-08002be2092f}` (imaging) and `{4d36e96c-e325-11ce-bfc1-08002be10318}` (multimedia), use:
 
    ```uri
    usbdevicestoredirect:s:*;{6bdd1fc6-810f-11d0-bec7-08002be2092f};{4d36e96c-e325-11ce-bfc1-08002be10318}
@@ -555,7 +555,7 @@ Here are some examples of using the `usbdevicestoredirect` RDP property:
 
 - Use the following syntax to achieve the following scenario:
    - Redirect all supported USB peripherals that high-level redirection doesn't redirect.
-   - Redirect all supported USB peripherals with a device setup class GUID of `{6bdd1fc6-810f-11d0-bec7-08002be2092f}`.
+   - Redirect all supported USB peripherals with a device setup class GUID of `{6bdd1fc6-810f-11d0-bec7-08002be2092f}` (imaging).
    - Redirect a supported a USB peripheral with instance ID `USB\VID_095D&PID_9208\5&23639F31&0&2`.
    - Don't redirect a supported USB peripheral with an instance ID of `USB\VID_045E&PID_076F\5&14D1A39&0&7`.
 
