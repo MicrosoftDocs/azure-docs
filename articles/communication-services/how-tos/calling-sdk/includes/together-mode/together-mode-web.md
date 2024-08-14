@@ -55,7 +55,7 @@ Microsoft 365 users with role organizer, co-organizer, or presenter can start To
 togetherModeFeature.start();
 ```
 ### End Together Mode
-Together Mode automatically ends for everyone when nobody subscribes to the video for 5 minutes. There's no API to end Together Mode.
+Together Mode will automatically terminate for all participants if no video stream is detected from any participant for a duration of one minute. There's no API to end Together Mode.
 
 ### Get coordinates of participants in Together Mode
 The property `togetherModeSeatingMap` provides coordinates for individual participants in the stream. Developers can use these coordinates to overlay participant info such as display name or visual features like spotlight, hand raised, and reactions on the stream. 
