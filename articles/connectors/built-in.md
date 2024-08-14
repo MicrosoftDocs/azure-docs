@@ -289,30 +289,18 @@ Azure Logic Apps provides the following built-in actions for running your own co
 :::row:::
     :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
-        \
-        \
-        [**Azure Functions**][azure-functions-doc]
-        \
-        \
-        Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
+        <br><br>[**Azure Functions**][azure-functions-doc]
+        <br><br>Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
     :::column-end:::
     :::column:::
         [![Inline Code action icon][inline-code-icon]][inline-code-doc]
-        \
-        \
-        [**Inline Code**][inline-code-doc]
-        \
-        \
-        [Add and run inline JavaScript code snippets](../logic-apps/logic-apps-add-run-inline-code.md) from your workflow.
+        <br><br>[**Inline Code**][inline-code-doc]
+        <br><br>[Add and run inline JavaScript code snippets](../logic-apps/logic-apps-add-run-inline-code.md) from your workflow.
     :::column-end:::
     :::column:::
         [![Local Function Operations icon][local-function-icon]][local-function-doc]
-        \
-        \
-        [**Local Function Operations**][local-function-doc]<br>(Standard workflow only)
-        \
-        \
-        [Create and run .NET Framework code](../logic-apps/create-run-custom-code-functions.md) from your workflow.
+        <br><br>[**Local Function Operations**][local-function-doc]<br>(Standard workflow only)
+        <br><br>[Create and run .NET Framework code](../logic-apps/create-run-custom-code-functions.md) from your workflow.
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -325,59 +313,35 @@ Azure Logic Apps provides the following built-in actions for structuring and con
 :::row:::
     :::column:::
         [![Condition action icon][condition-icon]][condition-doc]
-        \
-        \
-        [**Condition**][condition-doc]
-        \
-        \
-        Evaluate a condition and run different actions based on whether the condition is true or false.
+        <br><br>[**Condition**][condition-doc]
+        <br><br>Evaluate a condition and run different actions based on whether the condition is true or false.
     :::column-end:::
     :::column:::
         [![For Each action icon][for-each-icon]][for-each-doc]
-        \
-        \
-        [**For Each**][for-each-doc]
-        \
-        \
-        Perform the same actions on every item in an array.
+        <br><br>[**For Each**][for-each-doc]
+        <br><br>Perform the same actions on every item in an array.
     :::column-end:::
     :::column:::
         [![Scope action icon][scope-icon]][scope-doc]
-        \
-        \
-        [**Scope**][scope-doc]
-        \
-        \
-        Group actions into *scopes*, which get their own status after the actions in the scope finish running.
+        <br><br>[**Scope**][scope-doc]
+        <br><br>Group actions into *scopes*, which get their own status after the actions in the scope finish running.
     :::column-end:::
     :::column:::
         [![Switch action icon][switch-icon]][switch-doc]
-        \
-        \
-        [**Switch**][switch-doc]
-        \
-        \
-        Group actions into *cases*, which are assigned unique values except for the default case. Run only that case whose assigned value matches the result from an expression, object, or token. If no matches exist, run the default case.
+        <br><br>[**Switch**][switch-doc]
+        <br><br>Group actions into *cases*, which are assigned unique values except for the default case. Run only that case whose assigned value matches the result from an expression, object, or token. If no matches exist, run the default case.
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![Terminate action icon][terminate-icon]][terminate-doc]
-        \
-        \
-        [**Terminate**][terminate-doc]
-        \
-        \
-        Stop an actively running workflow.
+        <br><br>[**Terminate**][terminate-doc]
+        <br><br>Stop an actively running workflow.
     :::column-end:::
     :::column:::
         [![Until action icon][until-icon]][until-doc]
-        \
-        \
-        [**Until**][until-doc]
-        \
-        \
-        Repeat actions until the specified condition is true or some state has changed.
+        <br><br>[**Until**][until-doc]
+        <br><br>Repeat actions until the specified condition is true or some state has changed.
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -392,87 +356,37 @@ Azure Logic Apps provides the following built-in actions for working with data o
 :::row:::
     :::column:::
         [![Data Operations icon][data-operations-icon]][data-operations-doc]
-        \
-        \
-        [**Data Operations**][data-operations-doc]
-        \
-        \
-        Perform operations with data.
-        \
-        \
-        **Compose**: Create a single output from multiple inputs with various types.
-        \
-        \
-        **Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects.
-        \
-        \
-        **Create HTML table**: Create an HTML table from an array with JSON objects.
-        \
-        \
-        **Filter array**: Create an array from items in another array that meet your criteria.
-        \
-        \
-        **Join**: Create a string from all items in an array and separate those items with the specified delimiter.
-        \
-        \
-        **Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so that you can use those properties in your workflow.
-        \
-        \
-        **Select**: Create an array with JSON objects by transforming items or values in another array and mapping those items to specified properties.
+        <br><br>[**Data Operations**][data-operations-doc]
+        <br><br>Perform operations with data.
+        <br><br>**Compose**: Create a single output from multiple inputs with various types.
+        <br><br>**Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects.
+        <br><br>**Create HTML table**: Create an HTML table from an array with JSON objects.
+        <br><br>**Filter array**: Create an array from items in another array that meet your criteria.
+        <br><br>**Join**: Create a string from all items in an array and separate those items with the specified delimiter.
+        <br><br>**Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so that you can use those properties in your workflow.
+        <br><br>**Select**: Create an array with JSON objects by transforming items or values in another array and mapping those items to specified properties.
     :::column-end:::
     :::column:::
         ![Date Time action icon][date-time-icon]
-        \
-        \
-        **Date Time**
-        \
-        \
-        Perform operations with timestamps.
-        \
-        \
-        **Add to time**: Add the specified number of units to a timestamp.
-        \
-        \
-        **Convert time zone**: Convert a timestamp from the source time zone to the target time zone.
-        \
-        \
-        **Current time**: Return the current timestamp as a string.
-        \
-        \
-        **Get future time**: Return the current timestamp plus the specified time units.
-        \
-        \
-        **Get past time**: Return the current timestamp minus the specified time units.
-        \
-        \
-        **Subtract from time**: Subtract a number of time units from a timestamp.
+        <br><br>**Date Time**
+        <br><br>Perform operations with timestamps.
+        <br><br>**Add to time**: Add the specified number of units to a timestamp.
+        <br><br>**Convert time zone**: Convert a timestamp from the source time zone to the target time zone.
+        <br><br>**Current time**: Return the current timestamp as a string.
+        <br><br>**Get future time**: Return the current timestamp plus the specified time units.
+        <br><br>**Get past time**: Return the current timestamp minus the specified time units.
+        <br><br>**Subtract from time**: Subtract a number of time units from a timestamp.
     :::column-end:::
     :::column:::
         [![Variables action icon][variables-icon]][variables-doc]
-        \
-        \
-        [**Variables**][variables-doc]
-        \
-        \
-        Perform operations with variables.
-        \
-        \
-        **Append to array variable**: Insert a value as the last item in an array stored by a variable.
-        \
-        \
-        **Append to string variable**: Insert a value as the last character in a string stored by a variable.
-        \
-        \
-        **Decrement variable**: Decrease a variable by a constant value.
-        \
-        \
-        **Increment variable**: Increase a variable by a constant value.
-        \
-        \
-        **Initialize variable**: Create a variable and declare its data type and initial value.
-        \
-        \
-        **Set variable**: Assign a different value to an existing variable.
+        <br><br>[**Variables**][variables-doc]
+        <br><br>Perform operations with variables.
+        <br><br>**Append to array variable**: Insert a value as the last item in an array stored by a variable.
+        <br><br>**Append to string variable**: Insert a value as the last character in a string stored by a variable.
+        <br><br>**Decrement variable**: Decrease a variable by a constant value.
+        <br><br>**Increment variable**: Increase a variable by a constant value.
+        <br><br>**Initialize variable**: Create a variable and declare its data type and initial value.
+        <br><br>**Set variable**: Assign a different value to an existing variable.
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -508,95 +422,55 @@ For more information, review the following documentation:
 :::row:::
     :::column:::
         [![AS2 v2 icon][as2-v2-icon]][as2-doc]
-        \
-        \
-        [**AS2 (v2)**][as2-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Encode and decode messages that use the AS2 protocol.
+        <br><br>[**AS2 (v2)**][as2-doc]<br>(*Standard workflow only*)
+        <br><br>Encode and decode messages that use the AS2 protocol.
     :::column-end:::
     :::column:::
         [![EDIFACT icon][edifact-icon]][edifact-doc]
-        \
-        \
-        [**EDIFACT**][edifact-doc]
-        \
-        \
-        Encode and decode messages that use the EDIFACT protocol.
+        <br><br>[**EDIFACT**][edifact-doc]
+        <br><br>Encode and decode messages that use the EDIFACT protocol.
     :::column-end:::
     :::column:::
         [![Flat File icon][flat-file-icon]][flat-file-doc]
-        \
-        \
-        [**Flat File**][flat-file-doc]
-        \
-        \
-        Encode and decode XML messages between trading partners.
+        <br><br>[**Flat File**][flat-file-doc]
+        <br><br>Encode and decode XML messages between trading partners.
     :::column-end:::
     :::column:::
         [![Integration account icon][integration-account-icon]][integration-account-doc]
-        \
-        \
-        [**Integration Account Artifact Lookup**][integration-account-doc]
-        \
-        \
-        Get custom metadata for artifacts, such as trading partners, agreements, schemas, and so on, in your integration account.
+        <br><br>[**Integration Account Artifact Lookup**][integration-account-doc]
+        <br><br>Get custom metadata for artifacts, such as trading partners, agreements, schemas, and so on, in your integration account.
     :::column-end:::
     :::column:::
         [![Liquid Operations icon][liquid-icon]][liquid-transform-doc]
-        \
-        \
-        [**Liquid Operations**][liquid-transform-doc]
-        \
-        \
-        Convert the following formats by using Liquid templates: <br><br>- JSON to JSON <br>- JSON to TEXT <br>- XML to JSON <br>- XML to TEXT
+        <br><br>[**Liquid Operations**][liquid-transform-doc]
+        <br><br>Convert the following formats by using Liquid templates: <br><br>- JSON to JSON <br>- JSON to TEXT <br>- XML to JSON <br>- XML to TEXT
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![RosettaNet icon][rosettanet-icon]][rosettanet-doc]
-        \
-        \
-        [**RosettaNet**][rosettanet-doc]
-        \
-        \
-        Encode and decode messages that use the RosettaNet protocol.
+        <br><br>[**RosettaNet**][rosettanet-doc]
+        <br><br>Encode and decode messages that use the RosettaNet protocol.
     :::column-end:::
     :::column:::
         [![SWIFT icon][swift-icon]][swift-doc]
-        \
-        \
-        [**SWIFT**][swift-doc]<br>(*Standard workflow only*)
-        \
-        \
-        Encode and decode Society for Worldwide Interbank Financial Telecommuncation (SIWFT) transactions in flat-file XML message format.
+        <br><br>[**SWIFT**][swift-doc]<br>(*Standard workflow only*)
+        <br><br>Encode and decode Society for Worldwide Interbank Financial Telecommuncation (SIWFT) transactions in flat-file XML message format.
     :::column-end:::
     :::column:::
         [![Transform XML icon][xml-transform-icon]][xml-transform-doc]
-        \
-        \
-        [**Transform XML**][xml-transform-doc]
-        \
-        \
-        Convert the source XML format to another XML format.
+        <br><br>[**Transform XML**][xml-transform-doc]
+        <br><br>Convert the source XML format to another XML format.
     :::column-end:::
     :::column:::
         [![X12 icon][x12-icon]][x12-doc]
-        \
-        \
-        [**X12**][x12-doc]
-        \
-        \
-        Encode and decode messages that use the X12 protocol.
+        <br><br>[**X12**][x12-doc]
+        <br><br>Encode and decode messages that use the X12 protocol.
     :::column-end:::
     :::column:::
         [![XML validation icon][xml-validate-icon]][xml-validate-doc]
-        \
-        \
-        [**XML Validation**][xml-validate-doc]
-        \
-        \
-        Validate XML documents against the specified schema.
+        <br><br>[**XML Validation**][xml-validate-doc]
+        <br><br>Validate XML documents against the specified schema.
     :::column-end:::
 :::row-end:::
 
