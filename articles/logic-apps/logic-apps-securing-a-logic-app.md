@@ -95,7 +95,7 @@ To specify the allowed IP ranges, follow these steps for your Consumption or Sta
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
-1. On your logic app's menu, under **Settings**, select **Workflow settings**.
+1. On the logic app menu, under **Settings**, select **Workflow settings**.
 
 1. In the **Access control configuration** section, under **Allowed inbound IP addresses**, from the **Trigger access option** list, select **Specific IP ranges**.
 
@@ -695,7 +695,7 @@ In Consumption workflows, inbound calls to a request-based trigger endpoint can 
 For more information about using SAS, see the following later sections in this guide:
 
 * [Regenerate access keys](#regenerate-access-keys)
-* [Create expiring callback URLs](#expiring-urls)
+* [Create expiring callback URLs](#expiring-callback-urls)
 * [Create URLs with primary or secondary key](#primary-secondary-key)
 
 <a name="disable-sas"></a>
@@ -726,7 +726,7 @@ For this task, you'll need a tool to send REST API calls, for example:
 
 #### Add the sasAuthenticationPolicy property to your workflow definition
 
-1. With your tool that sends REST API calls, get information about your workflow by running the [**Workflows - Get** operation](/rest/api/logic/workflows/get&tabs=HTTP) with the following **GET** request:
+1. With your tool that sends REST API calls, get information about your workflow by running the [**Workflows - Get** operation](/rest/api/logic/workflows/get) with the following **GET** request:
 
    **`GET https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}?api-version=2016-06-01`**
 
@@ -739,14 +739,14 @@ For this task, you'll need a tool to send REST API calls, for example:
    When you finish, your updated output looks like the following example:
 
    ```json
-  "properties": {
-      "accessControl": {
-          "triggers": {
-              "sasAuthenticationPolicy": {
-                  "state": "Disabled"
-              }
-          }
-      }
+   "properties": {
+       "accessControl": {
+           "triggers": {
+               "sasAuthenticationPolicy": {
+                   "state": "Disabled"
+               }
+           }
+       }
    }
    ```
 
@@ -772,7 +772,7 @@ To generate a new security access key at any time, use the Azure REST API or Azu
 
 1. Select the key that you want to regenerate and finish the process.
 
-<a name="expiring-urls"></a>
+<a name="expiring-callback-urls"></a>
 
 ### Create expiring callback URLs
 
@@ -797,7 +797,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 In the body, include the `KeyType` property as either `Primary` or `Secondary`. This property returns a URL that's signed by the specified security key.
 
 <a name="enable-oauth"></a>
-<a name='enable-azure-active-directory-open-authentication-azure-ad-oauth'></a>
+<a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>
 
 ### Enable Open Authorization with Microsoft Entra ID  (Microsoft Entra ID OAuth)
 
@@ -807,7 +807,7 @@ When your logic app workflow receives an inbound request that includes an OAuth 
 
 In a Standard logic app workflow that starts with the **Request trigger** (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by that trigger by using a managed identity. This provision is also known as "**Easy Auth**". For more information, review [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
 
-<a name='considerations-before-you-enable-azure-ad-oauth'></a>
+<a name="considerations-before-you-enable-azure-ad-oauth"></a>
 
 #### Considerations before you enable Microsoft Entra ID OAuth
 
@@ -900,8 +900,7 @@ The Microsoft Authentication Library (MSAL) libraries provide PoP tokens for you
 To use the PoP token with your Consumption logic app workflow, follow the next section to [set up OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
 
 <a name="enable-azure-ad-inbound"></a>
-
-<a name='enable-azure-ad-oauth-for-your-consumption-logic-app-resource'></a>
+<a name="enable-azure-ad-oauth-for-your-consumption-logic-app-resource"></a>
 
 #### Enable Microsoft Entra ID OAuth for your Consumption logic app resource
 
@@ -1500,8 +1499,7 @@ For more information about securing services by using client certificate authent
 * [Use a TLS/SSL certificate in your code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
-
-<a name='azure-active-directory-open-authentication'></a>
+<a name="azure-active-directory-open-authentication"></a>
 
 #### Microsoft identity platform
 
