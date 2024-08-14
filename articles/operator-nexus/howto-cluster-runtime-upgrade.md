@@ -152,7 +152,7 @@ Once the cordon and drain process of the tenant cluster node is completed, the u
 
 It's important to note that the Nexus Kubernetes cluster node won't be shut down after the cordon and drain process. The BMH is rebooted with the new image as soon as all the Nexus Kubernetes cluster nodes are cordoned and drained, after 10 minutes if the drain process isn't completed. Additionally, the cordon and drain is not initiated for power-off or restart actions of the BMH; it's exclusively activated only during a runtime upgrade.
 
-It is important to note that following the runtime upgrade, there could be instance where the Nexus Kubernetes Cluster node is unschedulable. For such scenarios, you can manually uncordon the node by running the following commands using [connectedk8s proxy.](./includes/kubernetes-cluster/cluster-connect.md)
+It is important to note that following the runtime upgrade, there could be instance where a Nexus Kubernetes Cluster node remains cordoned. For such scenario, you can manually uncordon the node by executing the following commands via(./includes/kubernetes-cluster/cluster-connect.md)
 
 ```
 kubectl get nodes  | grep SchedulingDisabled > /dev/null
