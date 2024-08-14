@@ -46,7 +46,7 @@ const togetherModeStreams = togetherModeFeature.togetherModeStream;
 |`id`		| Unique number used to identify the stream. |
 |`mediaStreamType`		| Returns the Together Mode stream type. The value of `mediaStreamType` is always `video`. |
 |`isReceiving`		| Returns a Boolean value indicating if video packets are received.  |
-|`size`		| 	Returns the size of the stream. The value indicates the quality of the stream. |
+|`size`		| 	Returns the Together Mode stream size with information about the width and height of the stream in pixels. |
 
 ### Start Together Mode for all participants
 Microsoft 365 users with role organizer, co-organizer, or presenter can start Together Mode for everyone in the meeting. When Together Mode starts, all subscribers to the `togetherModeStreamsUpdated` event receive notification that enables participants to render together mode.
