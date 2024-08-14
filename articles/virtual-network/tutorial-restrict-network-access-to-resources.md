@@ -26,15 +26,31 @@ In this tutorial, you learn how to:
 > * Confirm access to a resource from a subnet
 > * Confirm access is denied to a resource from a subnet and the internet
 
-This tutorial uses the Azure portal. You can also complete it using the [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) or [PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
+### [Portal](#tab/portal)
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-## Sign in to Azure
+### [PowerShell](#tab/powershell)
 
-Sign in to the [Azure portal](https://portal.azure.com).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+### [CLI](#tab/cli)
+
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+---
+
+### [Portal](#tab/portal)
 
 [!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
@@ -84,6 +100,15 @@ By default, all virtual machine instances in a subnet can communicate with any r
     | Region | Select **East US 2**. |
 
 1. Select **Review + create**, then select **Create**.
+
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
+
+### [Portal](#tab/portal)
 
 ### Create outbound NSG rules
 
@@ -135,6 +160,14 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 1. Select **Add**.
 
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
+### [Portal](#tab/portal)
+
 ### Associate the network security group to a subnet
 
 1. In the search box at the top of the portal page, search for **Network security group**. Select **Network security groups** in the search results.
@@ -151,11 +184,27 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 1. Select **OK**.
 
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
+### [Portal](#tab/portal)
+
 ## Restrict network access to a resource
 
 The steps required to restrict network access to resources created through Azure services, which are enabled for service endpoints vary across services. See the documentation for individual services for specific steps for each service. The rest of this tutorial includes steps to restrict network access for an Azure Storage account, as an example.
 
 [!INCLUDE [create-storage-account.md](~/reusable-content/ce-skilling/azure/includes/create-storage-account.md)]
+
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
+### [Portal](#tab/portal)
 
 ### Create a file share in the storage account
 
@@ -179,6 +228,15 @@ The steps required to restrict network access to resources created through Azure
 1. Deselect **Enable backup**.
 
 1. Select **Review + create**, then select **Create**.
+
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
+
+### [Portal](#tab/portal)
 
 ### Restrict network access to a subnet
 
@@ -212,6 +270,14 @@ To restrict network access to a subnet:
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/restrict-network-access-save.png" alt-text="Screenshot of storage account screen and confirmation of subnet restriction.":::
 
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
+### [Portal](#tab/portal)
+
 ## Create virtual machines
 
 To test network access to a storage account, deploy a virtual machine to each subnet.
@@ -231,6 +297,15 @@ To test network access to a storage account, deploy a virtual machine to each su
 
     > [!WARNING]
     > Do not continue to the next step until the deployment is completed.
+
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
+
+### [Portal](#tab/portal)
 
 ## Confirm access to storage account
 
@@ -294,6 +369,14 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 1. Close the Bastion connection to **vm-private**.
 
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
+### [Portal](#tab/portal)
+
 ## Confirm access is denied to storage account
 
 ### From vm-1
@@ -341,6 +424,14 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 4. Close the Bastion connection to **vm-1**.
 
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
+### [Portal](#tab/portal)
+
 ### From a local machine:
 
 1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
@@ -360,7 +451,23 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 >[!NOTE] 
 > The access is denied because your computer isn't in the **subnet-private** subnet of the **vnet-1** virtual network.
 
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
+
+### [Portal](#tab/portal)
+
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
+
+### [CLI](#tab/cli)
+
+### [PowerShell](#tab/powershell)
+
+---
+
 
 ## Next steps
 
