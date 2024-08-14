@@ -24,7 +24,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - A local machine with a Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
 - The [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 - Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
@@ -42,7 +42,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Get a Red Hat pull secret
 
-The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional) section of [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx). To get the pull secret for use, follow the steps in this section.
+The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](create-cluster.md#get-a-red-hat-pull-secret-optional) section of [Create an Azure Red Hat OpenShift 4 cluster](create-cluster.md). To get the pull secret for use, follow the steps in this section.
 
 Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You might need to accept more terms and update your account as shown in the following screenshot. Use the same password as when you created the account.
 
@@ -67,7 +67,7 @@ The Azure Marketplace offer you're going to use in this article requires a Micro
 Use the following steps to deploy a service principal and get its Application (client) ID and secret from the Azure portal. For more information, see [Create and use a service principal to deploy an Azure Red Hat OpenShift cluster](/azure/openshift/howto-create-service-principal?pivots=aro-azureportal).
 
 > [!NOTE]
-> You must have sufficient permissions to register an application with your Microsoft Entra tenant. If you run into a problem, check the required permissions to make sure your account can create the identity. For more information, see the [Permissions required for registering an app](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app) section of [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
+> You must have sufficient permissions to register an application with your Microsoft Entra tenant. If you run into a problem, check the required permissions to make sure your account can create the identity. For more information, see [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
 
 1. Sign in to your Azure account through the [Azure portal](https://portal.azure.com/).
 1. Select **Microsoft Entra ID**.
@@ -190,7 +190,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
    Take note if you installed the WebSphere Liberty operator or the Open Liberty operator. The operator variant matches what you selected at deployment time. If you selected **IBM Supported**, you have the WebSphere Liberty operator. Otherwise you have the Open Liberty operator. This information is important to know in later steps.
 
-1. Download and install the OpenShift CLI `oc` by following steps in tutorial [Install the OpenShift CLI](tutorial-connect-cluster.md#install-the-openshift-cli), then return to this documentation.
+1. Download and install the OpenShift CLI `oc` by following steps in tutorial [Install the OpenShift CLI](connect-cluster.md#install-the-openshift-cli), then return to this documentation.
 
 1. Switch to **Outputs** pane, copy the value from the **cmdToLoginWithKubeadmin** field, and then paste it in your terminal. Run the command to sign in to the OpenShift cluster's API server. You should see output similar to the following example in the console:
 

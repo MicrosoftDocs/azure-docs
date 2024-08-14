@@ -2,7 +2,7 @@
 title: Identity-based data access to storage services (v1)
 titleSuffix: Machine Learning
 description: Learn how to use identity-based data access to connect to storage services on Azure with Azure Machine Learning datastores and the Machine Learning Python SDK v1.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: yogipandey

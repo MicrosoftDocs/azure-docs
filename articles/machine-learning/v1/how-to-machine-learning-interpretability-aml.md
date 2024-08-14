@@ -3,11 +3,11 @@ title: Use Python to interpret & explain models (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your machine learning model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.author: mithigpe
-author: minthigpen
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: mithigpe
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: UpdateFrequency5, devx-track-python, responsible-ml, mktng-kw-nov2021, sdkv1

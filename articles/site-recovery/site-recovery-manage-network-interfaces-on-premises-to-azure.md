@@ -2,10 +2,9 @@
 title: Manage network adapters for on-premises disaster recovery with Azure Site Recovery
 description: Describes how to manage network interfaces for on-premises disaster recovery to Azure with Azure Site Recovery
 author: ankitaduttaMSFT
-manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
-ms.date: 09/28/2023
+ms.date: 05/27/2024
 ms.author: ankitadutta
 
 ---
@@ -64,4 +63,5 @@ You can modify the subnet and IP address for a replicated item's network interfa
 6. Select **Save** to save all changes.
 
 ## Next steps
-  [Learn more](../virtual-network/virtual-network-network-interface-vm.yml) about network interfaces for Azure virtual machines.
+
+[Learn more](../virtual-network/virtual-network-network-interface-vm.yml) about network interfaces for Azure virtual machines.

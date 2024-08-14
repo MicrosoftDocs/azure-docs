@@ -2,7 +2,7 @@
 title: EC family VM size series 
 description: List of sizes in the EC family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/16/2024

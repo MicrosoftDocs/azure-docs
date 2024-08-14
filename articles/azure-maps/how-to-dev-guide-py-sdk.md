@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 01/15/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: rest-sdk
 ms.custom: devx-track-python
-services: azure-maps
 ---
 
 # Python REST SDK Developers Guide (preview)

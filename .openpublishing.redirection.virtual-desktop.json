@@ -429,6 +429,21 @@
             "source_path_from_root": "/articles/virtual-desktop/host-pool-load-balancing.md",
             "redirect_url": "/azure/virtual-desktop/configure-host-pool-load-balancing",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/configure-rdp-shortpath-limit-ports-public-networks.md",
+            "redirect_url": "/azure/virtual-desktop/configure-rdp-shortpath",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/disaster-recovery.md",
+            "redirect_url": "/azure/virtual-desktop/disaster-recovery-concepts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/configure-device-redirections.md",
+            "redirect_url": "/azure/virtual-desktop/redirection-remote-desktop-protocol",
+            "redirect_document_id": true
         }
     ]
 }

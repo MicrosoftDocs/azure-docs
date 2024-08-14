@@ -5,7 +5,7 @@ metadata:
   author: mimckitt
   ms.author: mimckitt
   ms.topic: faq
-  ms.service: virtual-machine-scale-sets
+  ms.service: azure-virtual-machine-scale-sets
   ms.date: 06/14/2024
   ms.reviewer: jushiman
   ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
@@ -724,7 +724,7 @@ sections:
           > [!NOTE]
           > If your scale set `upgradePolicy` is set to manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In the Azure CLI, this is `az vmss update-instances`.
 
-          [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+          [!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
   - name: Troubleshooting
     questions:

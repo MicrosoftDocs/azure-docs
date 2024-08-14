@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 08/05/2024
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
 ---
@@ -123,6 +123,7 @@ The following guides show you how to work with data resources and perform specif
 | [Download blobs](storage-blob-download-go.md) | Download blobs by using strings, streams, and file paths. |
 | [List blobs](storage-blobs-list-go.md) | List blobs in different ways. |
 | [Delete and restore blobs](storage-blob-delete-go.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs. |
+| [Find blobs using tags](storage-blob-tags-go.md) | Set and retrieve tags, and use tags to find blobs. |
 | [Manage properties and metadata (blobs)](storage-blob-properties-metadata-go.md) | Manage container properties and metadata. |
 
 [!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]

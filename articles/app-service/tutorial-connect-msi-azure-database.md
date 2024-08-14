@@ -15,11 +15,11 @@ ms.custom: mvc, devx-track-azurecli, devx-track-dotnet, devx-track-extended-java
 [App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to Azure databases, including: 
 
 - [Azure SQL Database](/azure/azure-sql/database/)
-- [Azure Database for MySQL](../mysql/index.yml)
-- [Azure Database for PostgreSQL](../postgresql/index.yml)
+- [Azure Database for MySQL](/azure/mysql/)
+- [Azure Database for PostgreSQL](/azure/postgresql/)
 
 > [!NOTE]
-> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Microsoft Entra authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.yml).
+> This tutorial doesn't include guidance for [Azure Cosmos DB](/azure/cosmos-db/), which supports Microsoft Entra authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](/azure/cosmos-db/managed-identity-based-authentication).
 
 Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
 
@@ -35,7 +35,7 @@ What you will learn:
 > * Connect to the Azure database from your code (.NET Framework 4.8, .NET 6, Node.js, Python, Java) using a managed identity.
 > * Connect to the Azure database from your development environment using the Microsoft Entra user.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -98,9 +98,9 @@ The following Azure CLI command uses a `--client-type` parameter.
 # [Azure Database for MySQL](#tab/mysql-sc)
 
 > [!NOTE]
-> For Azure Database for MySQL - Flexible Server, you must first [manually set up Microsoft Entra authentication](../mysql/flexible-server/how-to-azure-ad.md), which requires a separate user-assigned managed identity and specific Microsoft Graph permissions. This step can't be automated.
+> For Azure Database for MySQL - Flexible Server, you must first [manually set up Microsoft Entra authentication](/azure/mysql/flexible-server/how-to-azure-ad), which requires a separate user-assigned managed identity and specific Microsoft Graph permissions. This step can't be automated.
 
-1. Manually [set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md).
+1. Manually [set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
 1. Optionally run the command `az webapp connection create mysql-flexible -h` to get the supported client types.
 
@@ -318,8 +318,8 @@ To grant database permissions for a Microsoft Entra group, see documentation for
 
 Connecting to the Azure database requires additional settings and is beyond the scope of this tutorial. For more information, see one of the following links:
 
-[Configure TLS connectivity in Azure Database for PostgreSQL - Single Server](../postgresql/concepts-ssl-connection-security.md)
-[Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../mysql/howto-configure-ssl.md)
+[Configure TLS connectivity in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-ssl-connection-security)
+[Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](/azure/mysql/howto-configure-ssl)
 
 ## Next steps
 

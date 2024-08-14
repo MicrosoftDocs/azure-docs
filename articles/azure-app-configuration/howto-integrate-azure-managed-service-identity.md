@@ -29,7 +29,7 @@ This article shows how you can take advantage of the managed identity to access 
 :::zone-end
 
 > [!IMPORTANT]
-> Managed identity can't be used to authenticate locally running applications. Your application must be deployed to an Azure service that supports Managed Identity. This article uses Azure App Service as an example. However, the same concept applies to any other Azure service that supports managed identity. For example, [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), [Azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md), and [Azure Container Instances](../container-instances/container-instances-managed-identity.md). If your workload is hosted in one of those services, you can also leverage the service's managed identity support.
+> Managed identity can't be used to authenticate locally running applications. Your application must be deployed to an Azure service that supports Managed Identity. This article uses Azure App Service as an example. However, the same concept applies to any other Azure service that supports managed identity. For example, [Azure Kubernetes Service](/azure/aks/use-azure-ad-pod-identity), [Azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md), and [Azure Container Instances](../container-instances/container-instances-managed-identity.md). If your workload is hosted in one of those services, you can also leverage the service's managed identity support.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
@@ -60,7 +60,7 @@ To complete this tutorial, you must have:
 
 :::zone-end
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Add a managed identity
 

@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
 ms.topic: conceptual
 layout: LandingPage
-ms.date: 05/22/2024
+ms.date: 06/18/2024
 ---
 
 # Data sources gallery
@@ -20,6 +20,11 @@ Find a data connector from Microsoft or a partner that works with [an indexer](s
 + [Generally available data sources by Azure AI Search](#ga)
 + [Preview data sources by Azure AI Search](#preview)
 + [Data sources from our Partners](#partners)
+
+
+> [!NOTE]
+> The connectors mentioned in this article don't represent the only methods for indexing data from data sources to AI Search, but low/no-code options to accomplish this task. You have the option to develop your own connector utilizing the [Push REST API/SDK](search-what-is-data-import.md#pushing-data-to-an-index). This implies that provided you can programmatically extract data from a source, you can also employ the corresponding programmatic Push method to index your data.
+
 
 <a name="ga"></a>
 
@@ -2553,7 +2558,7 @@ Secure enterprise search connector for reliably indexing content from Symantec E
 
 By [Accenture](https://www.accenture.com)
 
-The Twitter connector crawls content from any twitter account. It performs full and incremental crawls, supports authentication using Twitter user, consumer key and consumer secret key.
+The Twitter connector crawls content from any X account. It performs full and incremental crawls, supports authentication using X user, consumer key and consumer secret key.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Twitter+Connector)
 

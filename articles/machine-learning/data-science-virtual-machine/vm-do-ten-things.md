@@ -5,11 +5,10 @@ description: Perform data exploration and modeling tasks on the Windows Data Sci
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-azurepowershell
-
-author: jesscioffi
-ms.author: jcioffi
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: conceptual
-ms.reviewer: franksolomon
+ms.reviewer: jcioffi
 ms.date: 06/05/2024
 ---
 
@@ -42,7 +41,7 @@ In this article, you learn how to use your DSVM to both handle data science task
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/services/machine-learning/) before you begin.
 - A provisioned DSVM on the Azure portal. For more information, visit the [Creating a virtual machine](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016) resource.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Use Jupyter Notebooks
 
@@ -277,11 +276,11 @@ Azure Cosmos DB is a cloud-based NoSQL database. It can handle JSON documents, f
 
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
-After you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample*. It contains Python code to access Azure Cosmos DB and handle some basic querying. Visit the Azure Cosmos DB service [documentation page](../../cosmos-db/index.yml) for more information about Azure Cosmos DB.
+After you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample*. It contains Python code to access Azure Cosmos DB and handle some basic querying. Visit the Azure Cosmos DB service [documentation page](/azure/cosmos-db/) for more information about Azure Cosmos DB.
 
 ## Use Power BI reports and dashboards
 
-You can visualize the Volcano JSON file described in the preceding Azure Cosmos DB example in Power BI Desktop, for visual insights into the data itself. This [Power BI article](../../cosmos-db/powerbi-visualize.md) offers detailed steps. These are the steps, at a high-level:
+You can visualize the Volcano JSON file described in the preceding Azure Cosmos DB example in Power BI Desktop, for visual insights into the data itself. This [Power BI article](/azure/cosmos-db/powerbi-visualize) offers detailed steps. These are the steps, at a high-level:
 
 1. Open Power BI Desktop, and select **Get Data**. Specify this URL: `https://cahandson.blob.core.windows.net/samples/volcano.json`.
 1. The JSON records, imported as a list, should become visible. Convert the list to a table, so that Power BI can work with it.
@@ -308,7 +307,7 @@ You now have the data in your Power BI data model. Your Power BI Desktop instanc
 
 :::image type="content" source="./media/vm-do-ten-things/PowerBIVolcanoData.png" alt-text="Screenshot showing the Power BI Desktop instance." lightbox= "./media/vm-do-ten-things/PowerBIVolcanoData.png":::
 
-You can start building reports and visualizations with the data model. [This Power BI article](../../cosmos-db/powerbi-visualize.md#build-the-reports) explains how to build a report.
+You can start building reports and visualizations with the data model. [This Power BI article](/azure/cosmos-db/powerbi-visualize#build-the-reports) explains how to build a report.
 
 ## Scale the DSVM dynamically
 

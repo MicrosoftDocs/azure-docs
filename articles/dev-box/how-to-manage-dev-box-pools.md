@@ -77,7 +77,12 @@ The Azure portal deploys the dev box pool and runs health checks to ensure that 
 
 ## Manage dev boxes in a pool
 
-You can manage existing dev boxes in a dev box pool through the Azure portal. You can start, stop, or delete dev boxes. You must be a member of the Project Admin role at the project level to manage dev boxes in pools.
+You can manage existing dev boxes in a dev box pool through the Azure portal. You can start, stop, or delete dev boxes. 
+
+> [!Important] 
+> You must be a member of the Project Admin role for the project to manage dev boxes in the associated pools.
+
+To manage dev boxes in a pool, you must access the pool through the associated project. The following steps show you how to navigate to the pool.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -87,7 +92,7 @@ You can manage existing dev boxes in a dev box pool through the Azure portal. Yo
 
 1. Select **Dev box pools**.
  
-1. Select the pool that contains the dev box that you want to manage.
+1. Select the pool that contains the dev box that you want to manage. The names of pools that you can manage are displayed as links. If you don't see the pool name displayed as a link, check that you're a member of the Project Admin role for this project.
 
    :::image type="content" source="media/how-to-manage-dev-box-pools/manage-dev-box-pool.png" alt-text="Screenshot showing a list of dev box pools in Azure portal." lightbox="media/how-to-manage-dev-box-pools/manage-dev-box-pool.png":::
  

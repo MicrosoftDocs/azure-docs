@@ -32,7 +32,7 @@ Azure Functions supports C# and C# script programming languages. If you're looki
 ### Updating to target .NET 8
 
 > [!NOTE]
-> Targeting .NET 8 with the in-process model is not yet enabled for Linux, for apps hosted in App Service Environments, or for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
+> Targeting .NET 8 with the in-process model is not yet enabled for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
 
 Apps using the in-process model can target .NET 8 by following the steps outlined in this section. However, if you choose to exercise this option, you should still begin planning your [migration to the isolated worker model](./migrate-dotnet-to-isolated-model.md) in advance of [support ending for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model).
 
@@ -47,7 +47,7 @@ Support for .NET 8 still uses version 4.x of the Functions runtime, and no chang
 
 To update your local project, first make sure you are using the latest versions of local tools. Then ensure that the project references [version 4.4.0 or later of Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.4.0). You can then change your `TargetFramework` to "net8.0". You must also update `local.settings.json` to include both `FUNCTIONS_WORKER_RUNTIME` set to "dotnet" and `FUNCTIONS_INPROC_NET8_ENABLED` set to "1".
 
-The following is an example of a minimal `local.settings.json` file with these changes:
+The following is an example of a minimal `project` file with these changes:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -83,7 +83,11 @@ The following is an example of a minimal `local.settings.json` file with these c
 }
 ```
 
-You might need to make other changes to your app based on the version support of its dependencies.
+If your app uses [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions), ensure it targets version 1.5.3 or later. Due to a behavior change in .NET 8, apps with older versions of the package will throw an ambiguous constructor exception.
+
+You might need to make other changes to your app based on the version support of its other dependencies.
+
+Version 4.x of the Functions runtime provides equivalent functionality for .NET 6 and .NET 8. The in-process model does not include additional features or updates that integrate with new .NET 8 capabilities. For example, the runtime doesn't support keyed services. To take full advantage of the latest .NET 8 capabilities and enhancements, you must [migrate to the isolated worker model](./migrate-dotnet-to-isolated-model.md).
 
 ## Functions class library project
 

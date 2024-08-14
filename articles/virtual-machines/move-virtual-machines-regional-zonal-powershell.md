@@ -2,7 +2,7 @@
 title: Move Azure single instance Virtual Machines from regional to zonal availability zones using PowerShell and CLI 
 description: Move single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region using PowerShell and CLI.
 author: ankitaduttaMSFT
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 06/10/2024
@@ -545,7 +545,7 @@ To address the situations where the VM SKU is not found or there is a capacity i
 
 Selected virtual machine can't be moved to availability zone due to insufficient quota.
 
-**Recommended Action:** In-sufficient quota found. Refer to link and contact [support](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**Recommended Action:** In-sufficient quota found. Refer to link and contact [support](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 

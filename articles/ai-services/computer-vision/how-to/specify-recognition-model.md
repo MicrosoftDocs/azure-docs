@@ -57,13 +57,14 @@ When using the [Detect] API, assign the model version with the `recognitionModel
 
 Optionally, you can specify the _returnRecognitionModel_ parameter (default **false**) to indicate whether _recognitionModel_ should be returned in response. So, a request URL for the [Detect] REST API will look like this:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect?detectionModel={detectionModel}&recognitionModel={recognitionModel}&returnFaceId={returnFaceId}&returnFaceAttributes={returnFaceAttributes}&returnFaceLandmarks={returnFaceLandmarks}&returnRecognitionModel={returnRecognitionModel}&faceIdTimeToLive={faceIdTimeToLive}`
 
 If you're using the client library, you can assign the value for `recognitionModel` by passing a string representing the version. If you leave it unassigned, a default model version of `recognition_01` will be used. See the following code example for the .NET client library.
 
 ```csharp
-string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(url: imageUrl, returnFaceId: true, returnFaceLandmarks: true, recognitionModel: "recognition_01", returnRecognitionModel: true);
+string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
+var response = await faceClient.DetectAsync(new Uri(imageUrl), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: true, returnFaceLandmarks: true, returnRecognitionModel: true);
+var faces = response.Value;
 ```
 
 > [!NOTE]
@@ -75,12 +76,16 @@ The Face service can extract face data from an image and associate it with a **P
 
 A **PersonGroup** should have one unique recognition model for all of the **Person**s, and you can specify this using the `recognitionModel` parameter when you create the group ([Create Person Group] or [Create Large Person Group]). If you don't specify this parameter, the original `recognition_01` model is used. A group will always use the recognition model it was created with, and new faces will become associated with this model when they're added to it. This can't be changed after a group's creation. To see what model a **PersonGroup** is configured with, use the [Get Person Group] API with the _returnRecognitionModel_ parameter set as **true**.
 
-See the following code example for the .NET client library.
+See the following .NET code example.
 
 ```csharp
 // Create an empty PersonGroup with "recognition_04" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = "My Person Group Name", ["recognitionModel"] = "recognition_04" }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PutAsync($"{ENDPOINT}/face/v1.0/persongroups/{personGroupId}", content);
+}
 ```
 
 In this code, a **PersonGroup** with ID `mypersongroupid` is created, and it's set up to use the _recognition_04_ model to extract face features.
@@ -93,10 +98,14 @@ There is no change in the [Identify From Person Group] API; you only need to spe
 
 You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the **FaceList** with [Create Face List] API or [Create Large Face List]. If you don't specify this parameter, the `recognition_01` model is used by default. A **FaceList** will always use the recognition model it was created with, and new faces will become associated with this model when they're added to the list; you can't change this after creation. To see what model a **FaceList** is configured with, use the [Get Face List] API with the _returnRecognitionModel_ parameter set as **true**.
 
-See the following code example for the .NET client library.
+See the following .NET code example.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = "My face collection", ["recognitionModel"] = "recognition_04" }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PutAsync($"{ENDPOINT}/face/v1.0/facelists/{faceListId}", content);
+}
 ```
 
 This code creates a **FaceList** called `My face collection`, using the _recognition_04_ model for feature extraction. When you search this **FaceList** for similar faces to a new detected face, that face must have been detected ([Detect]) using the _recognition_04_ model. As in the previous section, the model needs to be consistent.
@@ -123,11 +132,13 @@ In this article, you learned how to specify the recognition model to use with di
 
 * [Face .NET SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Face Java SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-java%253fpivots%253dprogramming-language-java)
+* [Face JavaScript SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-javascript%253fpivots%253dprogramming-language-javascript)
 
 [Detect]: /rest/api/face/face-detection-operations/detect
 [Verify Face To Face]: /rest/api/face/face-recognition-operations/verify-face-to-face
 [Identify From Person Group]: /rest/api/face/face-recognition-operations/identify-from-person-group
-[Find Similar]: /rest/api/face/face-recognition-operations/find-similar-from-large-face-list
+[Find Similar]: /rest/api/face/face-recognition-operations/find-similar-from-face-list
 [Create Person Group]: /rest/api/face/person-group-operations/create-person-group
 [Get Person Group]: /rest/api/face/person-group-operations/get-person-group
 [Train Person Group]: /rest/api/face/person-group-operations/train-person-group

@@ -2,7 +2,7 @@
 title: Overview of creating Linux images for Azure
 description: How to bring your Linux VM images or create new images to use in Azure.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: imaging
 ms.custom: linux-related-content
 ms.collection: linux
@@ -14,14 +14,11 @@ ms.reviewer: cynthn
 
 # Bringing and creating Linux images in Azure
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
 This overview covers the basic concepts around imaging and how to successfully build and use Linux images in Azure. Before you bring a custom image to Azure, you need to be aware of the types and options available to you.
 
-This article will talk through the image decision points and requirements as well as explain key concepts so that you can follow this and be able to create your own custom images to your specification.
+This article talks through the image decision points and requirements as well as explain key concepts so that you can follow this and be able to create your own custom images to your specification.
 
 ## Difference between managed disks and images
 
@@ -36,18 +33,18 @@ Azure images can be made up of multiple OS disks and data disks. When you use a 
 
 ## Generalized and specialized
 
-Azure offers two main image types, generalized and specialized. The terms generalized and specialized are originally Windows terms which migrated in to Azure. These types define how the platform will handle the VM when it turns it on. Both types have advantages, disadvantages, and prerequisites. Before you get started, you need to know what image type you will need. Below summarizes the scenarios and type you would need to choose:
+Azure offers two main image types, generalized and specialized. The terms generalized and specialized are originally Windows terms which migrated in to Azure. These types define how the platform handles the VM when it turns it on. Both types have advantages, disadvantages, and prerequisites. Before you get started, you need to know what image type you need. Below summarizes the scenarios and type you would need to choose:
 
 | Scenario      | Image type  | Storage options |
 | ------------- |:-------------:| :-------------:| 
 | Create an image that can be configured for use by multiple VMs. You can set the hostname, add an admin user, and perform other tasks during first boot. | Generalized | Azure Compute Gallery or stand-alone managed images |
 | Create an image from a VM snapshot or a backup. | Specialized |Azure Compute Gallery or a managed disk |
-| Quickly create an image that does not need any configuration for creating multiple VMs. |Specialized |Azure Compute Gallery |
+| Quickly create an image that doesn't need any configuration for creating multiple VMs. |Specialized |Azure Compute Gallery |
 
 
 ### Generalized images
 
-A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user, and other VM-specific configurations. This is useful when you want the image to be reused multiple times and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters and signal back to the platform that the initial configuration has completed. This process is called [provisioning](./provisioning.md). 
+A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user, and other VM-specific configurations. This is useful when you want the image to be reused multiple times and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent processes the parameters and signal back to the platform that the initial configuration has completed. This process is called [provisioning](./provisioning.md). 
 
 Provisioning requires that a provisioner is included in the image. There are two provisioners:
 - [Azure Linux Agent](../extensions/agent-linux.md)
@@ -57,7 +54,7 @@ These are [prerequisites](./create-upload-generic.md) for creating an image.
 
 
 ### Specialized images
-These are images that are completely configured and don't require VM or special parameters. The platform will just turn the VM on and you will need to handle uniqueness within the VM, like setting a hostname, to avoid DNS conflicts on the same VNET. 
+These are images that are completely configured and don't require VM or special parameters. The platform will just turn on the VM, and you need to handle uniqueness within the VM, like setting a hostname, to avoid DNS conflicts on the same VNET. 
 
 Provisioning agents aren't required for these images, however you may want to have extension handling capabilities. You can install the Linux Agent but disable the provisioning option. Even though you don't need a provisioning agent, the image must fulfill [prerequisites](./create-upload-generic.md)  for Azure Images.
 
@@ -100,7 +97,6 @@ Azure supports Hyper-V Generation 1 (Gen1) and Generation 2 (Gen2). Gen2 is the 
 If you still need to create your own image, ensure it meets the [image prerequisites](./create-upload-generic.md) and upload to Azure. Distribution specific requirements:
 
 
-- [CentOS-based Distributions](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
 - [Flatcar Container Linux](flatcar-create-upload-vhd.md)
 - [FreeBSD](freebsd-intro-on-azure.md)

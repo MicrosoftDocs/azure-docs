@@ -4,10 +4,11 @@ description: Reference for the azure-openai-emit-token-metric policy available f
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 05/10/2024
+ms.date: 07/09/2024
 ms.author: danlep
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ---
@@ -19,6 +20,8 @@ ms.custom:
 The `azure-openai-emit-token-metric` policy sends metrics to Application Insights about consumption of large language model tokens through Azure OpenAI Service APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+[!INCLUDE [api-management-azure-openai-models](../../includes/api-management-azure-openai-models.md)]
 
 
 ## Prerequisites
@@ -73,13 +76,15 @@ The `azure-openai-emit-token-metric` policy sends metrics to Application Insight
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
 * This policy can be used multiple times per policy definition.
-* You can configure at most 10 custom definitions for this policy.
+* You can configure at most 10 custom dimensions for this policy.
 * This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
+* Where available, values in the usage section of the response from the Azure OpenAI Service API are used to determine token metrics.
+* Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, token metrics are estimated.
 
 ## Example
 

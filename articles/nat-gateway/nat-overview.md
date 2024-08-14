@@ -6,7 +6,7 @@ description: Overview of Azure NAT Gateway features, resources, architecture, an
 author: asudbring
 ms.service: nat-gateway
 ms.topic: conceptual
-ms.date: 04/29/2024
+ms.date: 08/12/2024
 ms.author: allensu
 ms.custom: FY23 content-maintenance
 #Customer intent: I want to understand what Azure NAT Gateway is and how to use it.
@@ -18,7 +18,7 @@ Azure NAT Gateway is a fully managed and highly resilient Network Address Transl
 
 NAT Gateway provides dynamic SNAT port functionality to automatically scale outbound connectivity and reduce the risk of SNAT port exhaustion. 
 
-:::image type="content" source="./media/nat-overview/flow-map.png" alt-text="Figure shows a NAT receiving traffic from internal subnets and directing it to a public IP address.":::
+:::image type="content" source="./media/nat-overview/flow-map.png" alt-text="Figure shows a NAT receiving traffic from internal subnets and directing it to a public IP address." lightbox="./media/nat-overview/flow-map.png":::
 
 *Figure: Azure NAT Gateway*
 
@@ -104,7 +104,7 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 * The subnet has a [system default route](/azure/virtual-network/virtual-networks-udr-overview#default) that routes traffic with destination 0.0.0.0/0 to the internet automatically. Once NAT gateway is configured to the subnet, communication from the virtual machines existing in the subnet to the internet will prioritize using the public IP of the NAT gateway.
 
 
-* Presence of User Defined Routes (UDRs) for virtual appliances or a virtual network gateway (VPN Gateway and ExpressRoute) for a subnet's 0.0.0.0/0 traffic causes traffic to route to these services instead of NAT gateway.
+* When you create a user defined route (UDR) in your subnet route table for 0.0.0.0/0 traffic, the default internet path for this traffic is overridden. A UDR that sends 0.0.0.0/0 traffic to a virtual appliance or a virtual network gateway (VPN Gateway and ExpressRoute) as the next hop type instead override NAT gateway connectivity to the internet.
 
 * Outbound connectivity follows this order of precedence among different routing and outbound connectivity methods:
 

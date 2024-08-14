@@ -3,8 +3,6 @@ title: What's new archive
 description: This page archives older months' highlights of new features and recent improvements for Azure Data Factory. Data Factory is a managed cloud service that's built for complex hybrid extract-transform-and-load (ETL), extract-load-and-transform (ELT), and data integration projects.
 author: pennyzhou-msft
 ms.author: xupzhou
-ms.service: data-factory
-ms.subservice: concepts
 ms.topic: overview
 ms.custom: references_regions
 ms.date: 08/11/2023
@@ -22,6 +20,28 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 This archive page retains updates from older months.
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly updates.
+
+## August 2023
+
+### Change Data Capture
+
+- Azure Synapse Analytics target availability in top-level CDC resource [Learn more](concepts-change-data-capture-resource.md#azure-synapse-analytics-as-target)
+- Snowflake connector in Mapping Data Flows support for Change Data Capture in public preview [Learn more](connector-snowflake.md?tabs=data-factory#mapping-data-flow-properties)
+
+### Data flow
+
+- Integer type available for pipeline variables [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/integer-type-available-for-pipeline-variables/ba-p/3902472)
+- Snowflake CDC source connector available in top-level CDC resource [Learn more](concepts-change-data-capture-resource.md)
+- Native UI support of parameterization for more linked services [Learn more](parameterize-linked-services.md?tabs=data-factory#supported-linked-service-types)
+
+### Data movement
+
+- Managed private endpoints support for Application Gateway and MySQL Flexible Server [Learn more](managed-virtual-network-private-endpoint.md#time-to-live)
+- Managed virtual network time-to-live (TTL) general availability [Learn more](managed-virtual-network-private-endpoint.md#time-to-live)
+
+### Integration runtime
+
+Self-hosted integration runtime now supports self-contained interactive authoring (Preview) [Learn more](create-self-hosted-integration-runtime.md?tabs=data-factory#self-contained-interactive-authoring-preview)
 
 ## July 2023
 
@@ -97,10 +117,6 @@ Azure Data Lake Storage Gen2 connector now supports shared access signature auth
 - Anonymous authentication type supported for Azure Blob storage [Learn more](connector-azure-blob-storage.md?tabs=data-factory#anonymous-authentication)
 - Updated SAP template to easily move SAP data to ADLSGen2 in Delta format [Learn more](industry-sap-templates.md)
 
-### Monitoring
-
-Container monitoring view available in default ADF studio [Learn more](how-to-manage-studio-preview-exp.md#container-view)
-
 ### Orchestration
 
 - Set pipeline output value (Public preview) [Learn more](tutorial-pipeline-return-value.md)
@@ -167,10 +183,10 @@ Continued region expansion - Azure Data Factory is now available in China North 
 - Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
 
 ### User Interface
-3 Pipeline designer enhancements added to ADF Studio preview experience
+2 Pipeline designer enhancements added to ADF Studio preview experience
 - Dynamic content flyout - make it easier to set dynamic content in your pipeline activities without using the expression builder  [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#dynamic-content-flyout)
 - Error message relocation to status column - make it easier for you to view errors when you see a Failed pipeline run [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#error-message-relocation-to-status-column)
-- Container view - in Author Tab, Pipeline can change output view from list to container [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#container-view)
+
 
 ### Continuous integration and continuous deployment
 
@@ -380,7 +396,7 @@ Be a part of Azure Data Factory studio preview features - Experience the latest 
 
 <tr><td><b>Region expansion</b></td><td>Data Factory is now available in West US3 and Jio India West</td><td>Data Factory is now available in two new regions: West US3 and Jio India West. You can colocate your ETL workflow in these new regions if you're using these regions to store and manage your modern data warehouse. You can also use these regions for business continuity and disaster recovery purposes if you need to fail over from another region within the geo.<br><a href="https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all">Learn more</a></td></tr>
 
-<tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory (Azure AD) tenant</td><td>You can connect your Data Factory instance to an Azure DevOps account in a different Azure AD tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
+<tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Entra ID tenant</td><td>You can connect your Data Factory instance to an Azure DevOps account in a different Azure AD tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
 </table>
 
 ## January 2022
@@ -546,5 +562,5 @@ Be a part of Azure Data Factory studio preview features - Experience the latest 
 - [What's New in Azure Data Factory - current months](whats-new.md)
 - [Blog - Azure Data Factory](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter](https://twitter.com/AzDataFactory?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
+- [X](https://x.com/AzDataFactory?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
 - [Videos](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/featured)

@@ -2,7 +2,7 @@
 title: What is Azure Service Health?
 description: Personalized information about how your Azure apps are affected by current and future Azure service problems and maintenance. 
 ms.topic: overview
-ms.date: 06/11/2024
+ms.date: 07/15/2024
 ---
 # What is Azure Service Health?
 
@@ -22,4 +22,4 @@ Together, these experiences provide you with a comprehensive view into the healt
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]

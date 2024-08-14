@@ -3,7 +3,7 @@ title: 'Basv2 Series (preview)' #Required; page title is displayed in search res
 description: Overview of AMD Bsv2 Virtual Machine Series; #Required; this appears in search as the short description
 author: rishabv90 #Required. GitHub user alias, with correct capitalization.
 ms.author: risverma #Required. Microsoft alias of author or team alias.
-ms.service: virtual-machines #Required
+ms.service: azure-virtual-machines
 ms.subservice: sizes #Required
 ms.topic: conceptual #Required 
 ms.date: 06/20/2022 #Required; mm/dd/yyyy format. Date the article was created or the last time it was tested and confirmed correct 

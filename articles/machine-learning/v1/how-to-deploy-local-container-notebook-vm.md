@@ -3,7 +3,7 @@ title: Deploy models to compute instances
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your Azure Machine Learning models as a web service using compute instances.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy

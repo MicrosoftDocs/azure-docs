@@ -3,12 +3,12 @@ title: Advance your maturity level for LLMOps
 titleSuffix: Azure Machine Learning
 description: Learn about the different stages of Large Language Operations (LLMOps) and how to advance your organization's capabilities.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.topic: conceptual
-author: ssahami1
-ms.author: sasahami
-ms.reviewer: sgilley; tahiguch; setuchokshi
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: sasahami
 ms.date: 03/28/2024
 ---
 

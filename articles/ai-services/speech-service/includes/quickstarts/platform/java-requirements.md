@@ -19,15 +19,10 @@ The Speech SDK for Java doesn't support Windows on ARM64.
 
 # [Linux](#tab/linux)
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+The Speech SDK for Java supports the following distributions on the x64, ARM32, and ARM64 architectures:
 
-The Speech SDK for Java supports the following distributions on the x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) architectures:
-
-- Ubuntu 20.04/22.04
+- Ubuntu 20.04/22.04/24.04
 - Debian 11/12
-- Red Hat Enterprise Linux (RHEL) 7
-- CentOS 7
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 

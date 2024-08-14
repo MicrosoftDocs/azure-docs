@@ -70,7 +70,7 @@ items:
       href: tutorial-multiple-components.md
     - name: Connect a device module
       href: tutorial-migrate-device-to-module.md
-    - name: Use MQTT to connect a Mobile device
+    - name: Use MQTT to connect a device
       href: tutorial-use-mqtt.md
     - name: Implement the Industrial IoT reference solution
       href: tutorial-iot-industrial-solution-architecture.md

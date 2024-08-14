@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 09/19/2023
+ms.date: 07/19/2024
 ms.author: lajanuar
 ---
 
@@ -24,9 +24,16 @@ Send a `GET` request to:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
+
 ```
 
-_See_ [**Virtual Network Support**](v3-0-reference.md#virtual-network-support) for Translator service selected network and private endpoint configuration and support.
+For virtual networks, use your custom domain endpoint:
+
+```HTTP
+https://<your-custom-domain>.cognitiveservices.azure.com/languages?api-version=3.0
+```
+
+For more information, _see_ [**Virtual Network Support**](v3-0-reference.md#virtual-network-support) for Translator service selected network and private endpoint configuration and support.
 
 ## Request parameters
 
@@ -43,14 +50,14 @@ Request headers are:
 
 |Headers|Description|
 |---|---|
-|Accept-Language|**Optional request header**.<br><br>The language to use for user interface strings. Some of the fields in the response are names of languages or names of regions. Use this parameter to define the language in which these names are returned. The language is specified by providing a well-formed BCP 47 language tag. For instance, use the value `fr` to request names in French or use the value `zh-Hant` to request names in Chinese Traditional.<br/>Names are provided in the English language when a target language isn't specified or when localization isn't available.|
+|Accept-Language|**Optional request header**.<br><br>The language to use for user interface strings. Some of the fields in the response are names of languages or names of regions. Use this parameter to define the language in which these names are returned. The language is specified by providing a well-formed `BCP` 47 language tag. For instance, use the value `fr` to request names in French or use the value `zh-Hant` to request names in Chinese Traditional.<br/>Names are provided in the English language when a target language isn't specified or when localization isn't available.|
 |X-ClientTraceId|**Optional request header**.<br>A client-generated GUID to uniquely identify the request.|
 
 Authentication isn't required to get language resources.
 
 ## Response body
 
-A client uses the `scope` query parameter to define which groups of languages it's interested in.
+A client uses the `scope` query parameter to define which groups of languages to list.
 
 * `scope=translation` provides languages supported to translate text from one language to another language;
 
@@ -80,7 +87,7 @@ The value for each property is as follows.
 
 * `translation` property
 
-  The value of the `translation` property is a dictionary of (key, value) pairs. Each key is a BCP 47 language tag. A key identifies a language for which text can be translated to or translated from. The value associated with the key is a JSON object with properties that describe the language:
+  The value of the `translation` property is a dictionary of (key, value) pairs. Each key is a `BCP` 47 language tag. A key identifies a language for which text can be translated to or translated from. The value associated with the key is a JSON object with properties that describe the language:
 
   * `name`: Display name of the language in the locale requested via `Accept-Language` header.
 
@@ -106,7 +113,7 @@ The value for each property is as follows.
 
 * `transliteration` property
 
-  The value of the `transliteration` property is a dictionary of (key, value) pairs. Each key is a BCP 47 language tag. A key identifies a language for which text can be converted from one script to another script. The value associated with the key is a JSON object with properties that describe the language and its supported scripts:
+  The value of the `transliteration` property is a dictionary of (key, value) pairs. Each key is a `BCP` 47 language tag. A key identifies a language for which text can be converted from one script to another script. The value associated with the key is a JSON object with properties that describe the language and its supported scripts:
 
   * `name`: Display name of the language in the locale requested via `Accept-Language` header.
 
@@ -171,7 +178,7 @@ The value for each property is as follows.
 
 * `dictionary` property
 
-  The value of the `dictionary` property is a dictionary of (key, value) pairs. Each key is a BCP 47 language tag. The key identifies a language for which alternative translations and back-translations are available. The value is a JSON object that describes the source language and the target languages with available translations:
+  The value of the `dictionary` property is a dictionary of (key, value) pairs. Each key is a `BCP` 47 language tag. The key identifies a language for which alternative translations and back-translations are available. The value is a JSON object that describes the source language and the target languages with available translations:
 
   * `name`: Display name of the source language in the locale requested via `Accept-Language` header.
 
@@ -209,7 +216,7 @@ The value for each property is as follows.
 
 The structure of the response object doesn't change without a change in the version of the API. For the same version of the API, the list of available languages may change over time because Microsoft Translator continually extends the list of languages supported by its services.
 
-The list of supported languages doesn't change frequently. To save network bandwidth and improve responsiveness, a client application should consider caching language resources and the corresponding entity tag (`ETag`). Then, the client application can periodically (for example, once every 24 hours) query the service to fetch the latest set of supported languages. Passing the current `ETag` value in an `If-None-Match` header field allows the service to optimize the response. If the resource hasn't been modified, the service returns status code 304 and an empty response body.
+The list of supported languages doesn't change frequently. To save network bandwidth and improve responsiveness, a client application should consider caching language resources and the corresponding entity tag (`ETag`). Then, the client application can periodically (for example, once every 24 hours) query the service to fetch the latest set of supported languages. Passing the current `ETag` value in an `If-None-Match` header field allows the service to optimize the response. If the resource isn't modified, the service returns status code 304 and an empty response body.
 
 ## Response headers
 
@@ -225,9 +232,9 @@ The following are the possible HTTP status codes that a request returns.
 |Status Code|Description|
 |--- |--- |
 |200|Success.|
-|304|The resource hasn't been modified since the version specified by request headers `If-None-Match`.|
+|304|The resource isn't modified and aligns with the version specified by request headers `If-None-Match`.|
 |400|One of the query parameters is missing or not valid. Correct request parameters before retrying.|
-|429|The server rejected the request because the client has exceeded request limits.|
+|429|The server rejected the request because the client exceeded request limits.|
 |500|An unexpected error occurred. If the error persists, report it with: date and time of the failure, request identifier from response header `X-RequestId`, and client identifier from request header `X-ClientTraceId`.|
 |503|Server temporarily unavailable. Retry the request. If the error persists, report it with: date and time of the failure, request identifier from response header `X-RequestId`, and client identifier from request header `X-ClientTraceId`.|
 

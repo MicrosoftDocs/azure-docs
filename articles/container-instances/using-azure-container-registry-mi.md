@@ -4,7 +4,7 @@ description: Learn how to deploy containers in Azure Container Instances by pull
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli, devx-track-arm-template
@@ -24,8 +24,6 @@ When access to an Azure Container Registry (ACR) is [restricted using a private 
 
 ## Limitations
 * Windows containers don't support system-assigned managed identity-authenticated image pulls with ACR, only user-assigned.
-
-* The Azure container registry must have [Public Access set to either 'Select networks' or 'None'](../container-registry/container-registry-access-selected-networks.md). To set the Azure container registry's Public Access to 'All networks', visit ACI's article on [how to authenticate with ACR with service principal based authentication](container-instances-using-azure-container-registry.md).
 
 ## Configure registry authentication
 

@@ -4,7 +4,7 @@ description: Learn how to copy an incremental snapshot of a managed disk to a di
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 06/06/2024
+ms.date: 07/08/2024
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -99,9 +99,9 @@ $targetSnapshot.CompletionPercent
 
 # [Portal](#tab/azure-portal)
 
-You can also copy an incremental snapshot across regions in the Azure portal. However, you must use this specific link to access the portal, for now: https://aka.ms/incrementalsnapshot 
+You can also copy an incremental snapshot across regions in the [Azure portal](https://portal.azure.com).
 
-1. Sign in to the [Azure portal](https://aka.ms/incrementalsnapshot) and navigate to the incremental snapshot you'd like to migrate.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the incremental snapshot you'd like to migrate.
 1. Select **Copy snapshot**.
 
     :::image type="content" source="media/disks-incremental-snapshots/disks-copy-snapshot.png" alt-text="Screenshot of snapshot overview, copy snapshot highlighted." lightbox="media/disks-incremental-snapshots/disks-copy-snapshot.png":::

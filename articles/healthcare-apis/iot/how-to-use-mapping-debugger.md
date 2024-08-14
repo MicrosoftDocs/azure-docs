@@ -3,8 +3,8 @@ title: How to use the MedTech service Mapping debugger - Azure Health Data Servi
 description: Learn how to use the MedTech service Mapping debugger.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
-ms.subservice: iomt
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: chrupa

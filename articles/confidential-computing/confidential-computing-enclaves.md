@@ -2,7 +2,7 @@
 title: Build with SGX enclaves - Azure Virtual Machines
 description: Learn about Intel SGX hardware to enable your confidential computing workloads.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: workloads
 ms.topic: conceptual
 ms.date: 11/01/2021

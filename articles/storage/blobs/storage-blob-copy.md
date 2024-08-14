@@ -5,7 +5,7 @@ description: Learn how to copy blobs in Azure Storage using the .NET client libr
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/14/2023
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp

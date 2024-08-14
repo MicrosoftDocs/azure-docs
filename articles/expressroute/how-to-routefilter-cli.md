@@ -3,7 +3,7 @@ title: 'Configure Route filters for Microsoft peering - Azure CLI'
 description: This article describes how to configure route filters for Microsoft Peering using Azure CLI.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: duau
@@ -50,7 +50,7 @@ To successfully connect to services through Microsoft peering, you must complete
   * [Create an ExpressRoute circuit](howto-circuit-cli.md) and have the circuit enabled by your connectivity provider before you continue. The ExpressRoute circuit must be in a provisioned and enabled state.
   * [Create Microsoft peering](howto-routing-cli.md) if you manage the BGP session directly. Or, have your connectivity provider provision Microsoft peering for your circuit.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)] 
 
 If you choose to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 

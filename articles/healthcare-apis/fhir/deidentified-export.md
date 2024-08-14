@@ -2,7 +2,7 @@
 title: Export deidentified data from the FHIR service in Azure Health Data Services
 description: Learn to deidentify FHIR data with the FHIR service’s export feature. Use our sample config file for HIPAA Safe Harbor compliance and privacy protection.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 05/06/2024

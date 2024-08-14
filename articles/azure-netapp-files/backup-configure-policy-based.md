@@ -30,6 +30,8 @@ A backup policy enables a volume to be protected on a regularly scheduled interv
 
 You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended by disabling the policy. A backup policy can't be deleted if it's attached to any volumes.
 
+Before creating the policy, review [Azure NetApp Files resource limits](azure-netapp-files-resource-limits.md).    
+
 To enable a policy-based (scheduled) backup: 
 
 1. Sign in to the Azure portal and navigate to **Azure NetApp Files**. 

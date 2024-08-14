@@ -3,12 +3,12 @@ title: 'Workspace soft deletion'
 titleSuffix: Azure Machine Learning
 description: Soft delete allows you to recover workspace data after accidental deletion 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: deeikele
-author: deeikele
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 01/22/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As an IT pro, understand how to enable data protection capabilities, to protect against accidental deletion.
@@ -117,7 +117,7 @@ Recovery of a workspace may not always be possible. Azure Machine Learning store
 
 |Dependency|Recovery approach|
 |---|---|
-|Azure Key Vault| [Recover a deleted Azure Key Vault instance](../key-vault/general/soft-delete-overview.md) |
+|Azure Key Vault| [Recover a deleted Azure Key Vault instance](/azure/key-vault/general/soft-delete-overview) |
 |Azure Storage|[Recover a deleted Azure storage account](../storage/common/storage-account-recover.md).|
 |Azure Container Registry|Azure Container Registry is not a hard requirement for workspace recovery. Azure Machine Learning can regenerate images for custom environments.|
 |Azure Application Insights| First, [recover your log analytics workspace](../azure-monitor/logs/delete-workspace.md). Then recreate an application insights with the original name.|

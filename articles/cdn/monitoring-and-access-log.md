@@ -66,7 +66,7 @@ Use [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsett
 
 Retention data is defined by the **-RetentionInDays** option in the command.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### Enable diagnostic logs in a storage account
 

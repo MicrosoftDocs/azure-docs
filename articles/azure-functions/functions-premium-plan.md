@@ -125,7 +125,7 @@ $Resource | Set-AzResource -Force
 
 ### Maximum function app instances
 
-In addition to the [plan maximum burst count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./event-driven-scaling.md#limit-scale-out). The maximum app scale out limit cannot exceed the maximum burst instances of the plan. 
+In addition to the [plan maximum burst count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./event-driven-scaling.md#limit-scale-out). The maximum app scale-out limit cannot exceed the maximum burst instances of the plan. 
 
 ## Private network connectivity
 
@@ -161,7 +161,7 @@ This migration isn't supported on Linux.
 
 When you create the plan, there are two plan size settings: the minimum number of instances (or plan size) and the maximum burst limit.
 
-If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the plan maximum burst limit, or the app maximum scale out limit if configured. You're billed for instances only while they're running and allocated to you, on a per-second basis. The platform makes its best effort at scaling your app out to the defined maximum limits.
+If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the plan maximum burst limit, or the app maximum scale-out limit if configured. You're billed for instances only while they're running and allocated to you, on a per-second basis. The platform makes its best effort at scaling your app out to the defined maximum limits.
 
 ### [Portal](#tab/portal)
 
@@ -249,11 +249,12 @@ These are the currently supported maximum scale-out values for a single plan in 
 |Canada Central| 100 | 100 |
 |Central India| 100 | 20 |
 |Central US| 100 | 100 |
-|China East 2| 100 | 20 |
-|China North 2| 100 | 20 |
+|China East 2| 20 | 20 |
+|China North 2| 20 | 20 |
+|China North 3| 20 | 20 |
 |East Asia| 100 | 20 |
 |East US | 100 | 100 |
-|East US 2| 100 | 100 |
+|East US 2| 80 | 100 |
 |France Central| 100 | 60 |
 |Germany West Central| 100 | 20 |
 |Israel Central| 100 | 20 |
@@ -263,6 +264,7 @@ These are the currently supported maximum scale-out values for a single plan in 
 |Jio India West| 100 | 20 |
 |Korea Central| 100 | 20 |
 |Korea South| 40 | 20 |
+|Mexico Central| 20 | 20 |
 |North Central US| 100 | 20 |
 |North Europe| 100 | 100 |
 |Norway East| 100 | 20 |
@@ -271,14 +273,15 @@ These are the currently supported maximum scale-out values for a single plan in 
 |South Central US| 100 | 100 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
+|Spain Central| 20 | 20 |
 |Switzerland North| 100 | 20 |
 |Switzerland West| 100 | 20 |
 |UAE North| 100 | 20 |
 |UK South| 100 | 100 |
 |UK West| 100 | 20 |
-|USGov Arizona| 100 | 20 |
-|USGov Texas| 100 | Not Available |
-|USGov Virginia| 100 | 20 |
+|USGov Arizona| 20 | 20 |
+|USGov Texas| 20 | Not Available |
+|USGov Virginia| 80 | 20 |
 |West Central US| 100 | 20 |
 |West Europe| 100 | 100 |
 |West India| 100 | 20 |

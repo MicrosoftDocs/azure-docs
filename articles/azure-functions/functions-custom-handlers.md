@@ -565,7 +565,9 @@ In Azure, [query Application Insights traces](analyze-telemetry-data.md#query-te
 
 ### Test custom handler in isolation
 
-Custom handler apps are a web server process, so it may be helpful to start it on its own and test function invocations by sending mock [HTTP requests](#request-payload) using a tool like [cURL](https://curl.haxx.se/) or [Postman](https://www.postman.com/).
+Custom handler apps are a web server process, so it may be helpful to start it on its own and test function invocations by sending mock [HTTP requests](#request-payload) using one of these tools:
+
+[!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
 
 You can also use this strategy in your CI/CD pipelines to run automated tests on your custom handler.
 

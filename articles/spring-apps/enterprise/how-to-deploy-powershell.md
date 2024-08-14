@@ -4,7 +4,7 @@ description: How to create and deploy applications in Azure Spring Apps by using
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.devlang: azurepowershell
 ms.date: 04/23/2024
 ms.custom: devx-track-azurepowershell, devx-track-java
@@ -25,7 +25,7 @@ The requirements for completing the steps in this article depend on your Azure s
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
    > [!IMPORTANT]
    > While the **Az.SpringCloud** PowerShell module is in preview, you must install it by using

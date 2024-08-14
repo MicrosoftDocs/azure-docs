@@ -3,7 +3,7 @@ title: Migrate Azure API Management instance to stv2 platform | Microsoft Docs
 description: Find guidance to migrate your Azure API Management instance from the stv1 compute platform to the stv2 platform. Migration steps depend on whether the instance is injected in a VNet.
 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom:
 ms.topic: how-to
 ms.date: 03/14/2024
@@ -24,7 +24,7 @@ There are two different migration scenarios, depending on whether or not your AP
 
 * [**Scenario 1: Migrate a non-VNet-injected API Management instance**](migrate-stv1-to-stv2-no-vnet.md) - Migrate your instance to the `stv2` platform using the portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API.   
 
-* [**Scenario 2: Migrate a VNet-injected API Management instance**](migrate-stv1-to-stv2-vnet.md) - Migrate your instance to the `stv2` platform by updating the VNet configuration settings
+* [**Scenario 2: Migrate a VNet-injected API Management instance**](migrate-stv1-to-stv2-vnet.md) - Migrate your instance to the `stv2` platform by updating the VNet configuration settings using the portal.
 
 ## Alternative: Side-by-side deployment
 
