@@ -14,9 +14,6 @@ zone_pivot_groups: programming-languages-set-three
 
 # Configure OpenSSL for Linux
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 With the Speech SDK, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version. 
 
 > [!NOTE]
@@ -47,7 +44,7 @@ Set the environment variable `SSL_CERT_DIR` to point at `/opt/ssl/certs` before 
 export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
-- OPENSSLDIR is `/etc/pki/tls` (like on RHEL/CentOS based systems). There's a `certs` subdirectory with a certificate bundle file, for example `ca-bundle.crt`.
+- OPENSSLDIR is `/etc/pki/tls` (like on RHEL based systems). There's a `certs` subdirectory with a certificate bundle file, for example `ca-bundle.crt`.
 Set the environment variable `SSL_CERT_FILE` to point at that file before using the Speech SDK. For example:
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt

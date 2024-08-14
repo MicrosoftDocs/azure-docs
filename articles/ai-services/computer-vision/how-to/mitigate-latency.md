@@ -44,7 +44,9 @@ We recommend that you select a region that is closest to your users to minimize 
 The Face service provides two ways to upload images for processing: uploading the raw byte data of the image directly in the request, or providing a URL to a remote image. Regardless of the method, the Face service needs to download the image from its source location. If the connection from the Face service to the client or the remote server is slow or poor, it affects the response time of requests. If you have an issue with latency, consider storing the image in Azure Blob Storage and passing the image URL in the request. For more implementation details, see [storing the image in Azure Premium Blob Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). An example API call:
 
 ``` csharp
-var faces = await client.Face.DetectWithUrlAsync("https://<storage_account_name>.blob.core.windows.net/<container_name>/<file_name>");
+var url = "https://<storage_account_name>.blob.core.windows.net/<container_name>/<file_name>";
+var response = await faceClient.DetectAsync(new Uri(url), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: false);
+var faces = response.Value;
 ```
 
 Be sure to use a storage account in the same region as the Face resource. This reduces the latency of the connection between the Face service and the storage account.
@@ -67,7 +69,7 @@ To achieve the optimal balance between accuracy and speed, follow these tips to 
 #### Other file size tips
 
 Note the following additional tips:
-- For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size increases processing speed. When you use detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080 pixels.
+- For face detection, when using detection model `FaceDetectionModel.Detection01`, reducing the image file size increases processing speed. When you use detection model `FaceDetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080 pixels.
 - For face recognition, reducing the face size will only increase the speed if the image is smaller than 200x200 pixels.
 - The performance of the face detection methods also depends on how many faces are in an image. The Face service can return up to 100 faces for an image. Faces are ranked by face rectangle size from large to small.
 
@@ -77,11 +79,13 @@ Note the following additional tips:
 If you need to call multiple APIs, consider calling them in parallel if your application design allows for it. For example, if you need to detect faces in two images to perform a face comparison, you can call them in an asynchronous task:
 
 ```csharp
-var faces_1 = client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1MzAyNzYzOTgxNTE0NTEz/john-f-kennedy---mini-biography.jpg");
-var faces_2 = client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1NDY3OTIxMzExNzM3NjE3/john-f-kennedy---debating-richard-nixon.jpg");
+string url1 = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
+string url2 = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection2.jpg";
+var response1 = client.DetectAsync(new Uri(url1), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: false);
+var response2 = client.DetectAsync(new Uri(url2), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: false);
 
-Task.WaitAll (new Task<IList<DetectedFace>>[] { faces_1, faces_2 });
-IEnumerable<DetectedFace> results = faces_1.Result.Concat (faces_2.Result);
+Task.WaitAll(new Task<Response<IReadOnlyList<FaceDetectionResult>>>[] { response1, response2 });
+IEnumerable<FaceDetectionResult> results = response1.Result.Value.Concat(response2.Result.Value);
 ```
 
 ## Smooth over spiky traffic 

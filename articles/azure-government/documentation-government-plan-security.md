@@ -55,7 +55,7 @@ The basic encryption available for connectivity to Azure Government supports Tra
 
 ## Managing secrets
 
-Proper protection and management of encryption keys is essential for data security. You should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data. [Azure Key Vault](../key-vault/index.yml) is a cloud service for securely storing and managing secrets. Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
+Proper protection and management of encryption keys is essential for data security. You should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data. [Azure Key Vault](/azure/key-vault/) is a cloud service for securely storing and managing secrets. Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
 
 ### Best practices for managing secrets
 
@@ -169,7 +169,7 @@ As a customer, you're [always in control of your customer data](https://www.micr
 
 This section covers essential Azure services that you can use to gain in-depth insight into your provisioned Azure resources and get alerted about suspicious activity, including outside attacks aimed at your applications and data. For a complete list, see the Azure service directory sections for [Management + Governance](https://azure.microsoft.com/services/#management-tools), [Networking](https://azure.microsoft.com/services/#networking), and [Security](https://azure.microsoft.com/services/#security). Moreover, the [Azure Security Benchmark](../security/benchmarks/index.yml) provides security recommendations and implementation details to help you improve your security posture with respect to Azure resources.
 
-**[Microsoft Defender for Cloud](../defender-for-cloud/index.yml)** (formerly Azure Security Center) provides unified security management and advanced threat protection across hybrid cloud workloads. It's an essential service for you to limit your exposure to threats, protect cloud resources, [respond to incidents](../defender-for-cloud/alerts-overview.md), and improve your regulatory compliance posture.
+**[Microsoft Defender for Cloud](/azure/defender-for-cloud/)** (formerly Azure Security Center) provides unified security management and advanced threat protection across hybrid cloud workloads. It's an essential service for you to limit your exposure to threats, protect cloud resources, [respond to incidents](/azure/defender-for-cloud/alerts-overview), and improve your regulatory compliance posture.
 
 With Microsoft Defender for Cloud, you can:
 

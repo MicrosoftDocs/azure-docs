@@ -4,7 +4,7 @@ description: Use Azure Machine Learning to build a predictive machine learning m
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 07/15/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: conceptual
 tag: azure-Synapse

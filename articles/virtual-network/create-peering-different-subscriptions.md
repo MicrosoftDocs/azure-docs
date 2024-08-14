@@ -4,15 +4,15 @@ titleSuffix: Azure Virtual Network
 description: Learn how to create a virtual network peering between virtual networks created through Resource Manager that exist in different Azure subscriptions in the same or different Microsoft Entra tenant.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 08/23/2023
+ms.date: 07/01/2024
 ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create a virtual network peering - Resource Manager, different subscriptions and Microsoft Entra tenants
 
-In this tutorial, you learn to create a virtual network peering between virtual networks created through Resource Manager. The virtual networks exist in different subscriptions that may belong to different Microsoft Entra tenants. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
+In this tutorial, you learn to create a virtual network peering between virtual networks created through Resource Manager. The virtual networks exist in different subscriptions that might belong to different Microsoft Entra tenants. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
 
 Depending on whether, the virtual networks are in the same, or different subscriptions the steps to create a virtual network peering are different. Steps to peer networks created with the classic deployment model are different. For more information about deployment models, see [Azure deployment model](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -26,13 +26,13 @@ Learn how to create a virtual network peering in other scenarios by selecting th
 
 A virtual network peering can't be created between two virtual networks deployed through the classic deployment model. If you need to connect virtual networks that were both created through the classic deployment model, you can use an Azure [VPN Gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to connect the virtual networks.
 
-This tutorial peers virtual networks in the same region. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region). It's recommended that you familiarize yourself with the [peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints) before peering virtual networks.
+This tutorial peers virtual networks in the same region. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region). Familiarize yourself with the [peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints) before peering virtual networks.
 
 ## Prerequisites
 
 # [**Portal**](#tab/create-peering-portal)
 
-- An Azure account(s) with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
@@ -48,7 +48,7 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-- An Azure account(s) with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
@@ -62,7 +62,7 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
-- Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+- Sign in to Azure PowerShell and select the subscription with which you want to use this feature. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 - Ensure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name Az.Network` if necessary.
 
@@ -70,7 +70,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
-- An Azure account(s) with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account or accounts with two active subscriptions. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
@@ -374,7 +374,7 @@ In this section, you sign in as **user-2** and create a virtual network for the 
 
 # [**Portal**](#tab/create-peering-portal)
 
-Repeat the steps in the [previous section](#create-virtual-network) to create a second virtual network with the following values:
+Create a second virtual network with the following values by repeating the steps in the [previous section](#create-virtual-network).
 
 | Setting | Value |
 | --- | --- |
@@ -662,26 +662,24 @@ You need the **Resource ID** for **vnet-2** from the previous steps to set up th
 
     | Setting | Value |
     | ------- | ----- |
-    | **This virtual network** |  |
-    | Peering link name | Enter **vnet-1-to-vnet-2**. |
-    | Allow 'vnet-1' to access 'vnet-2' | Leave the default of selected.  |
-    | Allow 'vnet-1' to receive forwarded traffic from 'vnet-2' | Select the checkbox. |
-    | Allow gateway in 'vnet-1' to forward traffic to 'vnet-2' | Leave the default of cleared. |
-    | Enable 'vnet-1' to use 'vnet-2' remote gateway | Leave the default of cleared. |
-    | Use remote virtual network gateway or route server | Leave the default of cleared. |
-    | **Remote virtual network** |  |
-    | Peering link name | Leave blank. |
-    | Virtual network deployment model | Select **Resource manager**. |
-    | Select the box for **I know my resource ID**. |   |
-    | Resource ID | Enter or paste the **Resource ID** for **vnet-2**. |
-
-1. In the pull-down box, select the **Directory** that corresponds with **vnet-2** and **user-2**.
-
-1. Select **Authenticate**.
-
-    :::image type="content" source="./media/create-peering-different-subscriptions/vnet-1-to-vnet-2-peering.png" alt-text="Screenshot of peering from vnet-1 to vnet-2.":::
+    | **Remote virtual network summary** |   |
+    | Peering link name | **vnet-2-to-vnet-1** |
+    | Virtual network deployment model | **Resource Manager** |
+    | I know my resource ID | **Select the box** |
+    | Resource ID | **Enter the Resource ID for vnet-2** |
+    | Directory | Select the Microsoft Entra ID directory that corresponds with **vnet-2** and **user-2** |
+    | **Remote virtual network peering settings** |   |
+    | Allow 'the peered virtual network' to access 'vnet-1' | Leave the default of **Enabled** |
+    | Allow 'the peered virtual network' to receive forwarded traffic from 'vnet-1' | **Select the box** |
+    | **Local virtual network summary** |   |
+    | Peering link name | **vnet-1-to-vnet-2** |
+    | **Local virtual network peering settings** |   |
+    | Allow 'vnet-1' to access 'the peered virtual network' | Leave the default of **Enabled** |
+    | Allow 'vnet-1' to receive forwarded traffic from 'the peered virtual network' | **Select the box** |
 
 1. Select **Add**.
+   
+    :::image type="content" source="./media/create-peering-different-subscriptions/vnet-1-to-vnet-2-peering.png" alt-text="Screenshot of peering from vnet-1 to vnet-2.":::
 
 1. Sign out of the portal as **user-1**.
 
@@ -713,7 +711,7 @@ Connect-AzAccount
 
 ### Change to subscription-1 (optional)
 
-You may have to switch back to **subscription-1** to continue with the actions in **subscription-1**.
+You might have to switch back to **subscription-1** to continue with the actions in **subscription-1**.
 
 Change context to **subscription-1**.
 
@@ -786,7 +784,7 @@ az login
 
 ### Change to subscription-1 (optional)
 
-You may have to switch back to **subscription-1** to continue with the actions in **subscription-1**.
+You might have to switch back to **subscription-1** to continue with the actions in **subscription-1**.
 
 Change context to **subscription-1**.
 
@@ -840,17 +838,23 @@ You need the **Resource IDs** for **vnet-1** from the previous steps to set up t
 
     | Setting | Value |
     | ------- | ----- |
-    | **This virtual network** |  |
-    | Peering link name | Enter **vnet-2-to-vnet-1**. |
-    | Allow 'vnet-2' to access 'vnet-1' | Leave the default of selected.  |
-    | Allow 'vnet-2' to receive forwarded traffic from 'vnet-1' | Select the checkbox. |
-    | Allow gateway in 'vnet-2' to forward traffic to 'vnet-1' | Leave the default of cleared. |
-    | Enable 'vnet-2' to use 'vnet-1's' remote gateway | Leave the default of cleared. |
-    | **Remote virtual network** |  |
-    | Peering link name | Leave blank. |
-    | Virtual network deployment model | Select **Resource manager**. |
-    | Select the box for **I know my resource ID**. |   |
-    | Resource ID | Enter or paste the **Resource ID** for **vnet-1**. |
+    | **Remote virtual network summary** |   |
+    | Peering link name | **vnet-1-to-vnet-2** |
+    | Virtual network deployment model | **Resource Manager** |
+    | I know my resource ID | **Select the box** |
+    | Resource ID | **Enter the Resource ID for vnet-2** |
+    | Directory | Select the Microsoft Entra ID directory that corresponds with **vnet-1** and **user-1** |
+    | **Remote virtual network peering settings** |   |
+    | Allow 'the peered virtual network' to access 'vnet-1' | Leave the default of **Enabled** |
+    | Allow 'the peered virtual network' to receive forwarded traffic from 'vnet-1' | **Select the box** |
+    | **Local virtual network summary** |   |
+    | Peering link name | **vnet-1-to-vnet-2** |
+    | **Local virtual network peering settings** |   |
+    | Allow 'vnet-1' to access 'the peered virtual network' | Leave the default of **Enabled** |
+    | Allow 'vnet-1' to receive forwarded traffic from 'the peered virtual network' | **Select the box** |
+
+1. Select **Add**.
+   
 
 1. In the pull-down box, select the **Directory** that corresponds with **vnet-1** and **user-1**.
 
@@ -888,7 +892,7 @@ Connect-AzAccount
 
 ### Change to subscription-2 (optional)
 
-You may have to switch back to **subscription-2** to continue with the actions in **subscription-2**.
+You might have to switch back to **subscription-2** to continue with the actions in **subscription-2**.
 
 Change context to **subscription-2**.
 
@@ -961,7 +965,7 @@ az login
 
 ### Change to subscription-2 (optional)
 
-You may have to switch back to **subscription-2** to continue with the actions in **subscription-2**.
+You might have to switch back to **subscription-2** to continue with the actions in **subscription-2**.
 
 Change context to **subscription-2**.
 
@@ -992,7 +996,10 @@ az network vnet peering list \
 ```
 ---
 
-The peering is successfully established after you see **Connected** in the **Peering status** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using subnet-1 Azure name resolution for the virtual networks, the resources in the virtual networks aren't able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server or use Azure DNS.
+The peering is successfully established after you see **Connected** in the **Peering status** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using Azure name resolution for the virtual networks, the resources in the virtual networks aren't able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS (Domain Name System) server or use Azure DNS.
+
+> [!IMPORTANT]
+> If you update the address space in one of the members of the peer, you must resync the connection to reflect the address space changes. For more information, see [Update the address space for a peered virtual network using the Azure portal](/azure/virtual-network/update-virtual-network-peering-address-space#modify-the-address-range-prefix-of-an-existing-address-range)
 
 For more information about using your own DNS for name resolution, see, [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 

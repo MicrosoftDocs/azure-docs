@@ -7,16 +7,16 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 06/26/2024
 ms.author: pafarley
 keywords: on-premises, OCR, Docker, container
 ---
 
 # Install Azure AI Vision 3.2 GA Read OCR container
 
-Containers enable you to run the Azure AI Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run the Read (OCR) container.
+Containers let you run the Azure AI Vision APIs in your own environment and can help you meet specific security and data governance requirements. In this article you'll learn how to download, install, and run the Azure AI Vision Read (OCR) container.
 
-The Read container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](how-to/call-read-api.md).
+The Read container allows you to extract printed and handwritten text from images and documents in JPEG, PNG, BMP, PDF, and TIFF file formats. For more information on the Read service, see the [Read API how-to guide](how-to/call-read-api.md).
 
 ## What's new
 The `3.2-model-2022-04-30` GA version of the Read container is available with support for [164 languages and other enhancements](./whats-new.md#may-2022). If you're an existing customer, follow the [download instructions](#get-the-container-image) to get started.
@@ -33,7 +33,7 @@ The Read 3.2 OCR container is the latest GA model and provides:
 * Choose text line output order from default to a more natural reading order for Latin languages only.
 * Text line classification as handwritten style or not for Latin languages only.
 
-If you're using Read 2.0 containers today, see the [migration guide](read-container-migration-guide.md) to learn about changes in the new versions.
+If you're using the Read 2.0 container today, see the [migration guide](read-container-migration-guide.md) to learn about changes in the new versions.
 
 ## Prerequisites
 

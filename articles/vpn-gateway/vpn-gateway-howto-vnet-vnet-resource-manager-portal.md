@@ -3,7 +3,7 @@ title: 'Configure a VNet-to-VNet VPN gateway connection: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a VPN gateway connection between VNets.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.author: cherylmc

@@ -3,7 +3,7 @@ title: Troubleshoot designer component errors
 titleSuffix: "Azure Machine Learning"
 description: Learn how you can read and troubleshoot automated component error codes in Azure Machine Learning designer.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: troubleshooting

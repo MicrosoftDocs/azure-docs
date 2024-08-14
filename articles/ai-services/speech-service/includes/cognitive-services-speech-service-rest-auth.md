@@ -13,13 +13,15 @@ Each request requires an authorization header. This table illustrates which head
 | `Ocp-Apim-Subscription-Key` | Yes | Yes |
 | `Authorization: Bearer` | Yes | Yes |
 
-When you're using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your resource key. For example:
+When you're using the `Ocp-Apim-Subscription-Key` header, only your resource key must be provided. For example:
 
 ```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-When you're using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your resource key for an access token that's valid for 10 minutes.
+When you're using the `Authorization: Bearer` header, you need to make a request to the `issueToken` endpoint. In this request, you exchange your resource key for an access token that's valid for 10 minutes.
+
+Another option is to use Microsoft Entra authentication that also uses the `Authorization: Bearer` header, but with a token issued via Microsoft Entra ID. See [Use Microsoft Entra authentication](#use-microsoft-entra-authentication).
 
 ### How to get an access token
 
@@ -154,3 +156,42 @@ Connection: Keep-Alive
 
 // Message body here...
 ```
+
+### Use Microsoft Entra authentication
+
+To use Microsoft Entra authentication with the Speech to text REST API for short audio, you need to create an access token.
+The steps to obtain the access token consisting of Resource ID and  Microsoft Entra access token are the same as when using the Speech SDK.
+Follow the steps here [Use Microsoft Entra authentication](../how-to-configure-azure-ad-auth.md)
+
+> [!div class="checklist"]
+>
+> - Create a Speech resource
+> - Configure the Speech resource for Microsoft Entra authentication
+> - Get a Microsoft Entra access token
+> - Get the Speech resource ID
+
+After the resource ID and the Microsoft Entra access token were obtained, the actual access token can be constructed following this format:
+```http
+aad#YOUR_RESOURCE_ID#YOUR_MICROSOFT_ENTRA_ACCESS_TOKEN
+```
+You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and the access token.
+
+Here's a sample HTTP request to the Speech to text REST API for short audio:
+
+```http
+POST /cognitiveservices/v1 HTTP/1.1
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Host: westus.stt.speech.microsoft.com
+Content-type: application/ssml+xml
+Content-Length: 199
+Connection: Keep-Alive
+
+// Message body here...
+```
+
+To learn more about Microsoft Entra access tokens, including token lifetime, visit [Access tokens in the Microsoft identity platform](/azure/active-directory/develop/access-tokens).
+
+
+
+
+

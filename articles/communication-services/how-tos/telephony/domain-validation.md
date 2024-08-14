@@ -43,7 +43,9 @@ Validating entire FQDN is helpful if you're a service provider and don't want to
 
    [![Screenshot of verifying a custom domain.](./media/direct-routing-verify-domain-2.png)](./media/direct-routing-verify-domain-2.png#lightbox)
 
-   It might take up to 30 minutes for a new DNS record to propagate on the Internet.
+   It might take up to **24-48** hours for a new DNS record to propagate on the Internet.  
+   You can use Windows command [nslookup](/windows-server/administration/windows-commands/nslookup) to verify if dns record has propagated like this:
+   >```nslookup -q=txt subdomain.contoso.com```
 
 1. Select **Next**. If you set up everything correctly, **Domain status** should change to **Verified** next to the added domain.
 

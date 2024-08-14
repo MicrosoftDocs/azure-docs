@@ -4,8 +4,9 @@ description: This article describes the considerations and decisions to be made 
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 09/28/2021
+ms.date: 07/15/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Plan your Update Management deployment

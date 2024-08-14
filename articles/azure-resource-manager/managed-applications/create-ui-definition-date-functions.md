@@ -2,7 +2,7 @@
 title: Create UI definition date functions
 description: Describes the functions to use when working with date values.
 ms.topic: reference
-ms.date: 07/13/2020
+ms.date: 06/21/2024
 ---
 
 # CreateUiDefinition date functions
@@ -50,4 +50,4 @@ The following example could return `"1990-12-31T23:59:59.000Z"`:
 
 ## Next steps
 
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).
+- For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).

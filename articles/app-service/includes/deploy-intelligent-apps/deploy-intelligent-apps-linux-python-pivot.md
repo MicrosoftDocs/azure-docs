@@ -1,6 +1,6 @@
 ---
 author: jefmarti
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: python
 ms.custom: linux-related-content
 ms.topic: article
@@ -19,7 +19,7 @@ You can use Azure App Service to work with popular AI frameworks like LangChain 
 
 For this Flask web application, we are building off the [quickstart](../../quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application) app and updating the *app.py* file to send and receive requests to an Azure OpenAI OR OpenAI service using LangChain.
 
-First, copy and replace the *index.html* file with the following code:
+First, copy, and replace the *index.html* file with the following code:
 
 ```html
 <!doctype html>
@@ -54,7 +54,7 @@ First, copy and replace the *index.html* file with the following code:
 </html>
 ```
 
-Next, copy and replace the *hello.html* file with the following code:
+Next, copy, and replace the *hello.html* file with the following code:
 
 ```html
 <!doctype html>
@@ -86,18 +86,19 @@ After the files are updated, we can start preparing our environment variables to
 
 In order to make calls to OpenAI with your client, you need to first grab the Keys and Endpoint values from Azure OpenAI, or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use.
 
-For Azure OpenAI, see [this documentation](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you need the following values:
+For Azure OpenAI, see [this documentation](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `api_version` and `azure__endpoint` values.  Otherwise, you need each of the following:
 
 - `api_key`
 - `api_version`
 - `azure_deployment`
+- `azure_endpoint`
 - `model_name`
 
 For OpenAI, see this [documentation](https://platform.openai.com/docs/api-reference) to retrieve the API keys. For our application, you need the following values:
 
 - `apiKey`
 
-Since we are deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](../../../key-vault/secrets/quick-create-cli.md#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+Since we are deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 
@@ -163,7 +164,7 @@ from langchain_openai import AzureOpenAI~~
 
 After LangChain is imported into our file, you can add the code that will call to OpenAI with the LangChain invoke chat method. Update *app.py `http://app.py`* to include the following code:
 
-For Azure OpenAI, use the following code:
+For Azure OpenAI, use the following code. If you plan to use managed identity you can use the credentials outlined in the following section for the Azure OpenAI parameters. 
 
 ```python
 @app.route('/hello', methods=['POST'])
@@ -254,6 +255,45 @@ if __name__ == '__main__':
 ```
 
 Now save the application and follow the next steps to deploy it to App Service. If you would like to test it locally first at this step, you can swap out the key and endpoint values with the literal string values of your OpenAI service. For example: model_name = 'gpt-4-turbo';
+
+### Secure your app with managed identity
+
+Although optional, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. Skip this step if you are not using Azure OpenAI. This enables your application to access the Azure OpenAI resource without needing to manage API keys.
+
+Follow the steps below to secure your application:
+
+Add the identity package `Azure.Identity`. This package enables using Azure credentials in your app.  Install the package and import the default credential and bearer token provider.
+
+```python
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+```
+
+Next, include the default Azure credentials and token provider in the AzureOpenAI options.
+
+```python
+token_provider = get_bearer_token_provider(
+    DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
+)
+
+client = AzureOpenAI(
+    api_version="2024-02-15-preview",
+    azure_endpoint="https://{your-custom-endpoint}.openai.azure.com/",
+    azure_ad_token_provider=token_provider
+)
+```
+
+Once the credentials are added to the application, you�ll then need to enable managed identity in your application and grant access to the resource.
+
+1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and click **Save**
+2. Once System assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
+3. Go to your Azure OpenAI resource and navigate to the **Access control (IAM)** blade on the left pane.  
+4. Find the Grant access to this resource card and click on **Add role assignment**
+5. Search for the **Cognitive Services OpenAI User** role and click **Next**
+6. On the **Members** tab, find **Assign access to** and choose the **Managed identity** option
+7. Next, click on **+Select Members**  and find your web app
+8. Click **Review + assign**
+
+Your web app is now added as a cognitive service OpenAI user and can communicate to your Azure OpenAI resource.
 
 ### Deploy to App Service
 

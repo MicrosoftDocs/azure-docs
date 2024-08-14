@@ -3,7 +3,7 @@ title: Azure Front Door - Best practices
 description: This page provides information about how to configure Azure Front Door based on Microsoft's best practices.
 services: frontdoor
 author: johndowns
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 03/11/2024
 ms.author: jodowns

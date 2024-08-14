@@ -1,7 +1,6 @@
 ---
 title: Configure a virtual network for injection of Azure-SSIS integration runtime
 description: Learn how to configure a virtual network for injection of Azure-SSIS integration runtime. 
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 01/05/2024

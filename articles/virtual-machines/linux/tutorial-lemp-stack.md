@@ -3,7 +3,7 @@ title: Tutorial - Deploy a LEMP stack using WordPress on a VM
 description: In this tutorial, you learn how to install the LEMP stack, and WordPress, on a Linux virtual machine in Azure.
 author: fossygirl
 ms.collection: linux
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.devlang: azurecli
 ms.custom: innovation-engine, linux-related-content, devx-track-azurecli
 ms.topic: tutorial
@@ -523,7 +523,7 @@ Results:
 
 ## Create an Azure Database for MySQL - Flexible Server
 
-Azure Database for MySQL - Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. Create a flexible server with the [az mysql flexible-server create](../../mysql/flexible-server/quickstart-create-server-cli.md#create-an-azure-database-for-mysql-flexible-server) command. A server can contain multiple databases. The following command creates a server using service defaults and variable values from your Azure CLI's local environment:
+Azure Database for MySQL - Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. Create a flexible server with the [az mysql flexible-server create](/azure/mysql/flexible-server/quickstart-create-server-cli#create-an-azure-database-for-mysql-flexible-server) command. A server can contain multiple databases. The following command creates a server using service defaults and variable values from your Azure CLI's local environment:
 
 ```bash
 az mysql flexible-server create \
@@ -575,8 +575,8 @@ The server created has the below attributes:
 * The default connectivity method is Private access (VNet Integration) with a linked virtual network and an auto-generated subnet.
 
 > [!NOTE]
-> The connectivity method cannot be changed after creating the server. For example, if you selected `Private access (VNet Integration)` during create then you cannot change to `Public access (allowed IP addresses)` after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](../../mysql/flexible-server/concepts-networking-vnet.md).
-If you'd like to change any defaults, refer to the Azure CLI [reference documentation](../../mysql/flexible-server/quickstart-create-server-cli.md) for the complete list of configurable CLI parameters.
+> The connectivity method cannot be changed after creating the server. For example, if you selected `Private access (VNet Integration)` during create then you cannot change to `Public access (allowed IP addresses)` after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](/azure/mysql/flexible-server/concepts-networking-vnet).
+If you'd like to change any defaults, refer to the Azure CLI [reference documentation](/azure/mysql/flexible-server/quickstart-create-server-cli) for the complete list of configurable CLI parameters.
 
 ## Check the Azure Database for MySQL - Flexible Server status
 
@@ -602,13 +602,13 @@ You can manage Azure Database for MySQL - Flexible Server configuration using se
 
 Show server parameter details:
 
-Run the [az mysql flexible-server parameter show](../../mysql/flexible-server/how-to-configure-server-parameters-cli.md) command to show details about any particular parameter for the server.
+Run the [az mysql flexible-server parameter show](/azure/mysql/flexible-server/how-to-configure-server-parameters-cli) command to show details about any particular parameter for the server.
 
 ## Disable Azure Database for MySQL - Flexible Server SSL connection parameter for Wordpress integration
 
 Modify a server parameter value:
 
-You can also modify the value of a certain server parameter, which updates the underlying configuration value for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](../../mysql/flexible-server/how-to-configure-server-parameters-cli.md#modify-a-server-parameter-value) command.
+You can also modify the value of a certain server parameter, which updates the underlying configuration value for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](/azure/mysql/flexible-server/how-to-configure-server-parameters-cli#modify-a-server-parameter-value) command.
 
 ```bash
 az mysql flexible-server parameter set \
@@ -789,7 +789,7 @@ Results:
 
 ## Check and browse your WordPress website
 
-[WordPress](https://www.wordpress.org) is an open source content management system (CMS) used by over 40% of the web to create websites, blogs, and other applications. WordPress can be run on a few different Azure services: [AKS](../../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md), Virtual Machines, and App Service. For a full list of WordPress options on Azure, see [WordPress on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=wordpress).
+[WordPress](https://www.wordpress.org) is an open source content management system (CMS) used by over 40% of the web to create websites, blogs, and other applications. WordPress can be run on a few different Azure services: [AKS](/azure/mysql/flexible-server/tutorial-deploy-wordpress-on-aks), Virtual Machines, and App Service. For a full list of WordPress options on Azure, see [WordPress on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=wordpress).
 
 This WordPress setup is only for proof of concept. To install the latest WordPress in production with recommended security settings, see the [WordPress documentation](https://codex.wordpress.org/Main_Page).
 

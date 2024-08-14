@@ -53,10 +53,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
     - **Physical media** – burn the ISO file to your external storage, and then boot from the media.
 
-        - DVDs: First burn the software to the DVD as an image
-        - USB drive: First make sure that you’ve created a bootable USB drive with software such as [Rufus](https://rufus.ie/en/), and then save the software to the USB drive. USB drives must have USB version 3.0 or later.
-
-        Your physical media must have a minimum of 4-GB storage.
+        - DVDs: First burn the software to the DVD as an image. Your physical media must have a minimum of 4-GB storage.
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 

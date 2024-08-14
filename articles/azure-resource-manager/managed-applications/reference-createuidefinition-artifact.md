@@ -2,12 +2,12 @@
 title: CreateUiDefinition artifact
 description: Shows how to create the createUiDefinition artifact for an Azure Managed Application. The file is named createUiDefinition.json.
 ms.topic: reference
-ms.date: 07/11/2019
+ms.date: 06/24/2024
 ---
 
 # Reference: User interface elements artifact
 
-This article is a reference for a *createUiDefinition.json* artifact in Azure Managed Applications. For more information about authoring user interface elements, see [Create user interface elements](create-uidefinition-elements.md).
+This article is a reference for a _createUiDefinition.json_ artifact in Azure Managed Applications. For more information about authoring user interface elements, see [Create user interface elements](create-uidefinition-elements.md).
 
 ## User interface elements
 

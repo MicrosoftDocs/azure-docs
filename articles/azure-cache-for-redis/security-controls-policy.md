@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: sample
 author: flang-msft
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Cache for Redis

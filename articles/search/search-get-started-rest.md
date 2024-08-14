@@ -9,13 +9,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 03/14/2024
+ms.date: 06/27/2024
 ms.custom:
   - mode-api
   - ignite-2023
 ---
 
-# Quickstart: Text search by using REST
+# Quickstart: Keyword search by using REST
 
 The REST APIs in Azure AI Search provide programmatic access to all of its capabilities, including preview features, and they're an easy way to learn how features work. In this quickstart, learn how to call the [Search REST APIs](/rest/api/searchservice) to create, load, and query a search index in Azure AI Search.
 
@@ -24,23 +24,85 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/download) with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
+
 - [Azure AI Search](search-what-is-azure-search.md). [Create](search-create-service-portal.md) or [find an existing Azure AI Search resource](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 ## Download files
 
-[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart) from GitHub to send the requests in this quickstart. For more information, see [Downloading files from GitHub](https://docs.github.com/get-started/start-your-journey/downloading-files-from-github).
+[Download a REST sample](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/Quickstart) from GitHub to send the requests in this quickstart. Instructions can be found at [Downloading files from GitHub](https://docs.github.com/get-started/start-your-journey/downloading-files-from-github).
 
 You can also start a new file on your local system and create requests manually by using the instructions in this article.
 
-## Copy a search service key and URL
+## Get a search service endpoint
 
-REST calls require the search service endpoint and an API key on every request. You can get these values from the Azure portal.
+You can find the search service endpoint in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Then go to the search service **Overview** page and copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com) and [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
-1. Select **Settings** > **Keys** and then copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one.
+1. On the **Overview** home page, find the URL. An example endpoint might look like `https://mydemo.search.windows.net`. 
 
-   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Screenshot that shows the URL and API keys in the Azure portal.":::
+   :::image type="content" source="media/search-get-started-rest/get-endpoint.png" lightbox="media/search-get-started-rest/get-endpoint.png" alt-text="Screenshot of the URL property on the overview page.":::
+
+You're pasting this endpoint into the `.rest` or `.http` file in a later step.
+
+## Configure access
+
+Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure.
+
+For a role-based connection, the following instructions have you connecting to Azure AI Search under your identity, not the identity of a client app.
+
+### Option 1: Use keys
+
+Select **Settings** > **Keys** and then copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one. For more information, see [Connect to Azure AI Search using key authentication](search-security-api-keys.md).
+
+:::image type="content" source="media/search-get-started-rest/get-api-key.png" lightbox="media/search-get-started-rest/get-api-key.png" alt-text="Screenshot that shows the API keys in the Azure portal.":::
+
+You're pasting this key into the `.rest` or `.http` file in a later step.
+
+### Option 2: Use roles
+
+Make sure your search service is [configured for role-based access](search-security-enable-roles.md). You must have preconfigured [role-assignments for developer access](search-security-rbac.md#assign-roles-for-development). Your role assignments must grant permission to create, load, and query a search index. 
+
+In this section, obtain your personal identity token using either the Azure CLI, Azure PowerShell, or the Azure portal. 
+
+#### [Azure CLI](#tab/azure-cli)
+
+1. Sign in to Azure CLI.
+
+    ```azurecli
+    az login
+    ```
+
+1. Get your personal identity token.
+
+    ```azurecli
+    az account get-access-token --scope https://search.azure.com/.default
+    ```
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Sign in with PowerShell.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Get your personal identity token.
+
+    ```azurepowershell
+    Get-AzAccessToken -ResourceUrl https://search.azure.com
+    ```
+
+#### [Azure portal](#tab/portal)
+
+Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
+
+---
+
+You're pasting your personal identity token into the `.rest` or `.http` file in a later step.
+
+> [!NOTE]
+> This section assumes you're using a local client that connects to Azure AI Search on your behalf. An alternative approach is [getting a token for the client app](/entra/identity-platform/v2-oauth2-client-creds-grant-flow), assuming your application is [registered](/entra/identity-platform/quickstart-register-app) with Microsoft Entra ID.
 
 ## Set up Visual Studio Code
 
@@ -54,16 +116,28 @@ If you're not familiar with the REST client for Visual Studio Code, this section
 
 1. Open or create a new file named with either a `.rest` or `.http` file extension.
 
-1. Paste in the following example. Replace the base URL and API key with the values you copied earlier.
+1. Paste in the following example if you're using API keys. Replace the `@baseUrl` and `@apiKey` placeholders with the values you copied earlier.
 
    ```http
    @baseUrl = PUT-YOUR-SEARCH-SERVICE-ENDPOINT-HERE
    @apiKey = PUT-YOUR-SEARCH-SERVICE-API-KEY-HERE
     
     ### List existing indexes by name
-    GET  {{baseUrl}}/indexes?api-version=2023-11-01&$select=name  HTTP/1.1
+    GET  {{baseUrl}}/indexes?api-version=2024-07-01&$select=name  HTTP/1.1
       Content-Type: application/json
       api-key: {{apiKey}}
+    ```
+
+1. Or, paste in this example if your using roles. Replace the `@baseUrl` and `@token` placeholders with the values you copied earlier.
+
+   ```http
+   @baseUrl = PUT-YOUR-SEARCH-SERVICE-ENDPOINT-HERE
+   @token = PUT-YOUR-PERSONAL-IDENTITY-TOKEN-HERE
+    
+    ### List existing indexes by name
+    GET  {{baseUrl}}/indexes?api-version=2024-07-01&$select=name  HTTP/1.1
+      Content-Type: application/json
+      Authorization: Bearer {{token}}
     ```
 
 1. Select **Send request**. A response should appear in an adjacent pane. If you have existing indexes, they're listed. Otherwise, the list is empty. If the HTTP code is `200 OK`, you're ready for the next steps.
@@ -84,9 +158,9 @@ Add a second request to your `.rest` file. [Create Index (REST)](/rest/api/searc
 
     ```http
     ### Create a new index
-    POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
+    POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
       Content-Type: application/json
-      api-key: {{apiKey}}
+      Authorization: Bearer {{token}}
     
         {
             "name": "hotels-quickstart",  
@@ -161,9 +235,9 @@ The URI is extended to include the `docs` collections and `index` operation.
 
     ```http
     ### Upload documents
-    POST {{baseUrl}}/indexes/hotels-quickstart/docs/index?api-version=2023-11-01  HTTP/1.1
+    POST {{baseUrl}}/indexes/hotels-quickstart/docs/index?api-version=2024-07-01  HTTP/1.1
       Content-Type: application/json
-      api-key: {{apiKey}}
+      Authorization: Bearer {{token}}
     
         {
             "value": [
@@ -261,16 +335,16 @@ The URI is extended to include a query expression, which is specified by using t
 
     ```http
     ### Run a query
-    POST {{baseUrl}}/indexes/hotels-quickstart/docs/search?api-version=2023-11-01  HTTP/1.1
-        Content-Type: application/json
-        api-key: {{apiKey}}
-        
-        {
-            "search": "lake view",
-            "select": "HotelId, HotelName, Tags, Description",
-            "searchFields": "Description, Tags",
-            "count": true
-        }
+    POST {{baseUrl}}/indexes/hotels-quickstart/docs/search?api-version=2024-07-01  HTTP/1.1
+      Content-Type: application/json
+      Authorization: Bearer {{token}}
+      
+      {
+          "search": "lake view",
+          "select": "HotelId, HotelName, Tags, Description",
+          "searchFields": "Description, Tags",
+          "count": true
+      }
     ```
 
 1. Review the response in the adjacent pane. You should have a count that indicates the number of matches found in the index, a search score that indicates relevance, and values for each field listed in the `select` statement.
@@ -303,9 +377,9 @@ You can also use [Get Statistics](/rest/api/searchservice/indexes/get-statistics
 
     ```http
     ### Get index statistics
-    GET {{baseUrl}}/indexes/hotels-quickstart/stats?api-version=2023-11-01  HTTP/1.1
+    GET {{baseUrl}}/indexes/hotels-quickstart/stats?api-version=2024-07-01  HTTP/1.1
       Content-Type: application/json
-      api-key: {{apiKey}}
+      Authorization: Bearer {{token}}
     ```
 
 1. Review the response. This operation is an easy way to get details about index storage.
@@ -329,7 +403,7 @@ You can also try this `DELETE` command:
 
 ```http
 ### Delete an index
-DELETE  {{baseUrl}}/indexes/hotels-quickstart?api-version=2023-11-01 HTTP/1.1
+DELETE  {{baseUrl}}/indexes/hotels-quickstart?api-version=2024-07-01 HTTP/1.1
     Content-Type: application/json
     api-key: {{apiKey}}
 ```

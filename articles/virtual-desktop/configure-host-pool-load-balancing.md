@@ -1,7 +1,6 @@
 ---
 title: Configure host pool load balancing in Azure Virtual Desktop
 description: How to configure the load balancing method for pooled host pools in Azure Virtual Desktop.
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 author: sipastak
 ms.author: sipastak 

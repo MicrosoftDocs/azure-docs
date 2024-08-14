@@ -22,14 +22,16 @@ Content filtering software can help your app comply with regulations or maintain
 
 This documentation contains the following article types:  
 
+* **[Concepts](concepts/harm-categories.md)** provide in-depth explanations of the service functionality and features.  
 * **[Quickstarts](./quickstart-text.md)** are getting-started instructions to guide you through making requests to the service.  
 * **[How-to guides](./how-to/use-blocklist.md)** contain instructions for using the service in more specific or customized ways.  
-* **[Concepts](concepts/harm-categories.md)** provide in-depth explanations of the service functionality and features.  
 
 ## Where it's used
 
 The following are a few scenarios in which a software developer or team would require a content moderation service:
 
+- User prompts submitted to a generative AI service. 
+- Content produced by generative AI models.
 - Online marketplaces that moderate product catalogs and other user-generated content.
 - Gaming companies that moderate user-generated game artifacts and chat rooms.
 - Social messaging platforms that moderate images and text added by their users.
@@ -39,18 +41,19 @@ The following are a few scenarios in which a software developer or team would re
 > [!IMPORTANT]
 > You cannot use Azure AI Content Safety to detect illegal child exploitation images.
 
-## Product types
+## Product features
 
 There are different types of analysis available from this service. The following table describes the currently available APIs.
 
-| Type                        | Functionality           |
-| :-------------------------- | :---------------------- |
-| [Prompt Shields](/rest/api/cognitiveservices/contentsafety/text-operations/detect-text-jailbreak) (preview) | Scans text for the risk of a [User input attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
-| [Groundedness detection](/rest/api/cognitiveservices/contentsafety/text-groundedness-detection-operations/detect-groundedness-options) (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. [Quickstart](./quickstart-groundedness.md) |
-| [Protected material text detection](/rest/api/cognitiveservices/contentsafety/text-operations/detect-text-protected-material) (preview) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
-| Custom categories (rapid) API (preview) | Lets you define [emerging harmful content patterns](./concepts/custom-categories-rapid.md) and scan text and images for matches. [How-to guide](./how-to/custom-categories-rapid.md) |
-| [Analyze text](/rest/api/cognitiveservices/contentsafety/text-operations/analyze-text) API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
-| [Analyze image](/rest/api/cognitiveservices/contentsafety/image-operations/analyze-image) API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
+| Feature                        | Functionality           | Concepts guide | Get started |
+| :-------------------------- | :---------------------- | --| --| 
+| [Prompt Shields](/rest/api/contentsafety/text-operations/detect-text-jailbreak) (preview) | Scans text for the risk of a User input attack on a Large Language Model. | [Prompt Shields concepts](/azure/ai-services/content-safety/concepts/jailbreak-detection)|[Quickstart](./quickstart-jailbreak.md) |
+| [Groundedness detection](/rest/api/contentsafety/text-groundedness-detection-operations/detect-groundedness-options) (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. | [Groundedness detection concepts](/azure/ai-services/content-safety/concepts/groundedness)|[Quickstart](./quickstart-groundedness.md) |
+| [Protected material text detection](/rest/api/contentsafety/text-operations/detect-text-protected-material) (preview) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). | [Protected material concepts](/azure/ai-services/content-safety/concepts/protected-material)|[Quickstart](./quickstart-protected-material.md)|
+| Custom categories API (preview)    | Lets you create and train your own custom content categories and scan text for matches. | [Custom categories concepts](/azure/ai-services/content-safety/concepts/custom-categories)|[Quickstart](./quickstart-custom-categories.md) |
+| Custom categories (rapid) API (preview) | Lets you define emerging harmful content patterns and scan text and images for matches. | [Custom categories concepts](/azure/ai-services/content-safety/concepts/custom-categories)| [How-to guide](./how-to/custom-categories-rapid.md) |
+| [Analyze text](/rest/api/contentsafety/text-operations/analyze-text) API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. | [Harm categories](/azure/ai-services/content-safety/concepts/harm-categories)| [Quickstart](/azure/ai-services/content-safety/quickstart-text) |
+| [Analyze image](/rest/api/contentsafety/image-operations/analyze-image) API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. | [Harm categories](/azure/ai-services/content-safety/concepts/harm-categories)| [Quickstart](/azure/ai-services/content-safety/quickstart-image) |
 
 
 ## Content Safety Studio
@@ -120,12 +123,16 @@ See the following list for the input requirements for each feature.
   - Maximum text and query length: 7,500 characters.
 - **Protected material detection (preview)**: 
   - Default maximum length: 1K characters.
-  - Minimum length: 111 characters (for scanning LLM completions, not user prompts).
+  - Default minimum length: 110 characters (for scanning LLM completions, not user prompts).
+- **Custom categories (standard)**:
+  - Maximum inference input length: 1K characters.
 
 
 ### Language support
 
-Content Safety models have been specifically trained and tested in the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
+Content Safety models have been specifically trained and tested in the following languages: English, German, Spanish, Japanese, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
+
+Custom Categories currently only works well in English. You can try to use other languages with your own dataset, but the quality might vary across languages.
 
 For more information, see [Language support](/azure/ai-services/content-safety/language-support).
 
@@ -133,34 +140,36 @@ For more information, see [Language support](/azure/ai-services/content-safety/l
 
 To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, the Content Safety features are available in the following Azure regions: 
 
-|Region | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Blocklists |
-|---|---|---|---|---|---|---|
-| East US | ✅ | ✅| ✅ |✅ |✅ |✅ |
-| East US 2 | ✅ | | | ✅ | | ✅|
-| West US | | | | | ✅ | |
-| West US 2 | ✅ | | | | |✅ |
-| Central US | ✅ | | | | |✅ |
-| North Central US | ✅ | | | | | ✅|
-| South Central US | ✅ | | | | |✅ |
-| Canada East | ✅ | | | | | ✅|
-| Switzerland North | ✅ | | | | | ✅|
-| Sweden Central | ✅ | | |✅ |✅ | ✅|
-| UK South | ✅ | | | | |✅ |
-| France Central | ✅ | | | | | ✅|
-| West Europe | ✅ | ✅ |✅ | | |✅ |
-| Japan East | ✅ | | | | |✅ |
-| Australia East| ✅ | ✅ | | | | ✅|
+|Region | Moderation APIs<br>(text and image) | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(standard) | Blocklists |
+|---|---|---|---|---|---|---|--|
+| East US | ✅ | ✅| ✅ |✅ |✅ |✅|✅ |
+| East US 2 | ✅ | | | ✅ |✅ | |✅|
+| West US | | | | | ✅ | | |
+| West US 2 | ✅ | | | |✅  | |✅ |
+| Central US | ✅ | | | | | |✅ |
+| North Central US | ✅ | | | |✅ | | ✅|
+| South Central US | ✅ | | | | ✅| |✅ |
+| Canada East | ✅ | | | | ✅| | ✅|
+| Switzerland North | ✅ | | | |✅ | ✅ | ✅|
+| Sweden Central | ✅ | | |✅ |✅ | | ✅|
+| UK South | ✅ | | | | ✅| |✅ |
+| France Central | ✅ | | | |✅ | | ✅|
+| West Europe | ✅ | ✅ |✅ | |✅ | |✅ |
+| Japan East | ✅ | | | |✅ | |✅ |
+| Australia East| ✅ | ✅ | | |✅ | ✅| ✅|
+| USGov Arizona | ✅ | | | | | | |
+| USGov Virginia | ✅ | | | | | | |
 
 Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need other regions for your business.
 
 ### Query rates
 
-Content Safety features have query rate limits in requests-per-10-seconds. See the following table for the rate limits for each feature.
+Content Safety features have query rate limits in requests-per-second (RPS) or requests-per-10-seconds (RP10S) . See the following table for the rate limits for each feature.
 
-|Pricing tier | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | 
-|--------|---------|-------------|---------|---------|---------|
-| F0    | 1000     | 1000        | 1000     | 50      | 1000 |
-| S0    | 1000     | 1000        | 1000     | 50      | 1000 |
+|Pricing tier | Moderation APIs<br>(text and image) | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(standard) (preview)|
+|--------|---------|-------------|---------|---------|---------|--|
+| F0    | 1000 RP10S    | 1000 RP10S       | 1000 RP10S    | 50 RP10S     | 1000 RP10S | 5 RPS|
+| S0    | 1000 RP10S    | 1000 RP10S       | 1000 RP10S    | 50 RP10S     | 1000 RP10S | 5 RPS|
 
 If you need a faster rate, please [contact us](mailto:contentsafetysupport@microsoft.com) to request.
 

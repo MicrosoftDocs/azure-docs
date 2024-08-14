@@ -4,7 +4,7 @@ description: Learn how to configure and manage data persistence your Premium tie
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 04/10/2023

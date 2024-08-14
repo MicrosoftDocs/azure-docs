@@ -3,13 +3,13 @@ title: "Run batch endpoints from Event Grid events in storage"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch endpoints to be automatically triggered when new files are generated in storage.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.date: 10/10/2022
-ms.reviewer: mopeakande
+ms.reviewer: cacrest
 ms.custom:
   - devplatv2
   - ignite-2023

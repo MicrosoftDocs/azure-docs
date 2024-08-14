@@ -3,11 +3,11 @@ title: 'Azure VPN Client versions'
 description: This article shows the Azure VPN Client versions.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 06/13/2024
 ms.author: cherylmc
-
 ---
 # Azure VPN Client versions
 

@@ -4,7 +4,7 @@ titleSuffix: Azure ExpressRoute
 description: This document provides guidance on how to enable or disable rate limiting for an ExpressRoute Direct circuit.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: ignite-2023, ai-usage
 ms.topic: how-to
 ms.date: 03/21/2024

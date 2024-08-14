@@ -3,7 +3,7 @@ title: Overview of NGads V620 Series (preview)
 description: Overview of NGads V620 series GPU-enabled virtual machines  
 author: isgonzalez-MSFT 
 ms.author: isgonzalez
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/11/2023 

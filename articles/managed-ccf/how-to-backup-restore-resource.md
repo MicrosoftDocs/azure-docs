@@ -3,7 +3,7 @@ title: Backup and restore an Azure Managed CCF resource
 description: Learn to back up and restore an Azure Managed CCF resource
 services: managed-ccf
 author: pallabpaul
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: how-to
 ms.date: 09/07/2023
 ms.author: pallabpaul

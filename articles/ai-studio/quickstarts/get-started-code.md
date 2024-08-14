@@ -1,23 +1,27 @@
 ---
 title: Get started building a chat app using the prompt flow SDK
 titleSuffix: Azure AI Studio
-description: This article provides instructions on how to set up your development environment for Azure AI SDKs.
+description: This article provides instructions on how to build a custom chat app in Python using the prompt flow SDK.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom: build-2024, devx-track-azurecli, devx-track-python
 ms.topic: how-to
-ms.date: 5/30/2024
+ms.date: 8/6/2024
 ms.reviewer: dantaylo
 ms.author: eur
 author: eric-urban
 ---
 
 # Build a custom chat app in Python using the prompt flow SDK
+
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this quickstart, we walk you through setting up your local development environment with the prompt flow SDK. We write a prompt, run it as part of your app code, trace the LLM calls being made, and run a basic evaluation on the outputs of the LLM.
 
 ## Prerequisites
+
+> [!IMPORTANT]
+> You must have the necessary permissions to add role assignments for storage accounts in your Azure subscription. Granting permissions (adding role assignment) is only allowed by the **Owner** of the specific Azure resources. You might need to ask your Azure subscription owner (who might be your IT admin) for help to [grant access to call Azure OpenAI Service using your identity](#grant-access-to-call-azure-openai-service-using-your-identity).
 
 Before you can follow this quickstart, create the resources that you need for your application:
 - An [AI Studio hub](../how-to/create-azure-ai-resource.md) for connecting to external resources.
@@ -25,8 +29,6 @@ Before you can follow this quickstart, create the resources that you need for yo
 - A [deployed Azure OpenAI](../how-to/deploy-models-openai.md) chat model (gpt-35-turbo or gpt-4)
 
 Complete the [AI Studio playground quickstart](../quickstarts/get-started-playground.md) to create these resources if you haven't already. You can also create these resources by following the [SDK guide to create a hub and project](../how-to/develop/create-hub-project-sdk.md) article.
-
-Also, you must have the necessary permissions to add role assignments for storage accounts in your Azure subscription. Granting permissions (adding role assignment) is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help to [grant access to call Azure OpenAI Service using your identity](#grant-access-to-call-azure-openai-service-using-your-identity).
 
 ## Grant access to call Azure OpenAI Service using your identity
 
@@ -62,9 +64,9 @@ To grant yourself access to the Azure AI Services resource that you're using:
 
 1. Continue through the wizard and select **Review + assign** to add the role assignment. 
 
-## Install the Azure CLI and login 
+## Install the Azure CLI and sign in 
 
-Now we install the Azure CLI and login from your local development environment, so that you can use your user credentials to call the Azure OpenAI service.
+You install the Azure CLI and sign in from your local development environment, so that you can use your user credentials to call the Azure OpenAI service.
 
 In most cases you can install the Azure CLI from your terminal using the following command: 
 # [Windows](#tab/windows)
@@ -89,7 +91,7 @@ brew update && brew install azure-cli
 
 You can follow instructions [How to install the Azure CLI](/cli/azure/install-azure-cli) if these commands don't work for your particular operating system or setup.
 
-After you install the Azure CLI, login using the ``az login`` command and sign-in using the browser:
+After you install the Azure CLI, sign in using the ``az login`` command and sign-in using the browser:
 ```
 az login
 ```
@@ -131,7 +133,7 @@ source .venv/bin/activate
 
 ---
 
-Activating the Python environment means that when you run ```python``` or ```pip``` from the command line, you'll be using the Python interpreter contained in the ```.venv``` folder of your application.
+Activating the Python environment means that when you run ```python``` or ```pip``` from the command line, you then use the Python interpreter contained in the ```.venv``` folder of your application.
 
 > [!NOTE]
 > You can use the ```deactivate``` command to exit the python virtual environment, and can later reactivate it when needed.
@@ -181,7 +183,7 @@ Your AI services endpoint and deployment name are required to call the Azure Ope
 
 ## Create a basic chat prompt and app
 
-First create a prompt template file, for this we'll use **Prompty** which is the prompt template format supported by prompt flow.
+First create a **Prompty** file, which is the prompt template format supported by prompt flow.
 
 Create a ```chat.prompty``` file and copy the following code into it:
 
@@ -347,8 +349,7 @@ Looks like we scored 5 for coherence and fluency of the LLM responses on this co
 For more information on how to use prompt flow evaluators, including how to make your own custom evaluators and log evaluation results to AI Studio, be sure to check out [Evaluate your app using the prompt flow SDK](../how-to/develop/flow-evaluate-sdk.md).
 
 
-## Related content
+## Next step
 
-- [Quickstart: Create a project and use the chat playground in Azure AI Studio](./get-started-playground.md)
-- [Work with projects in VS Code](../how-to/develop/vscode.md)
-- [Overview of the Azure AI SDKs](../how-to/develop/sdk-overview.md)
+> [!div class="nextstepaction"]
+> [Add data and use retrieval augmented generation (RAG) to build a copilot](../tutorials/copilot-sdk-build-rag.md)

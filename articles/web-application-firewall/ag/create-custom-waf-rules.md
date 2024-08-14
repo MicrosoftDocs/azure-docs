@@ -5,7 +5,7 @@ description: This article provides information on how to create Web Application 
 services: web-application-firewall
 ms.topic: article
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 04/06/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell

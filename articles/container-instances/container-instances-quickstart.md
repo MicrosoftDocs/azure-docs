@@ -4,7 +4,7 @@ description: In this quickstart, you use the Azure CLI to quickly deploy a conta
 ms.topic: quickstart
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 04/26/2024
 ms.custom: mvc, devx-track-azurecli, mode-api
@@ -18,7 +18,7 @@ In this quickstart, you use the Azure CLI to deploy an isolated Docker container
 
 ![View an app deployed to Azure Container Instances in browser][aci-app-browser]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -166,4 +166,4 @@ To try out options for running containers in an orchestration system on Azure, s
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[container-service]: ../aks/intro-kubernetes.md
+[container-service]: /azure/aks/intro-kubernetes

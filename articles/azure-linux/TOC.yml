@@ -46,7 +46,7 @@
             - name: CIS baseline overview
               href: /compliance/regulatory/offering-CIS-Benchmark
             - name: CIS Azure Linux Container Host for AKS benchmark
-              href: ../aks/cis-azure-linux.md
+              href: /azure/aks/cis-azure-linux
     - name: Packages
       href: concepts-packages.md
     #- name: Certification
@@ -64,7 +64,7 @@
 - name: Resources 
   items: 
     - name: Support policies 
-      href: ../../articles/aks/support-policies.md
+      href: /azure/aks/support-policies
     - name: Release notes
       href: https://github.com/microsoft/CBL-Mariner/releases
     - name: Support and help
