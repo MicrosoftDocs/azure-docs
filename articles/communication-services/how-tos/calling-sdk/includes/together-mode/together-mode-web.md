@@ -44,11 +44,11 @@ const togetherModeStreams = togetherModeFeature.togetherModeStream;
 | Together Mode Stream Properties | Description|
 |----------------------------------------------|--------|
 |id		| Unique number used to identify the stream. |
-|mediaStreamType		| Returns the stream type of together mode. The value of `mediaStreamType` is always `video`. |
-|isReceiving		| Returns a boolean value indicating if video packets are received.  |
-|size		| 	Returns the size of the stream. The value indicates the quality of the stream. |
+|`mediaStreamType`		| Returns the Together Mode stream type. The value of `mediaStreamType` is always `video`. |
+|`isReceiving`		| Returns a Boolean value indicating if video packets are received.  |
+|`size`		| 	Returns the size of the stream. The value indicates the quality of the stream. |
 
-### Start together mode for all participants
+### Start Together mode for all participants
 Users with role organizer, co-organizer, or presenter can start together mode for everyone in the meeting. When together mode starts, all subscribers to `togetherModeStreamsUpdated` event receive notification that allows participants to render together mode.
 
 ```js
@@ -86,7 +86,7 @@ togetherModeFeature.sceneSize = togetherModeContainerSize;
 console.log(`Current scene has the following size: ${JSON.stringify(togetherModeFeature.sceneSize )}`)
 ```
 
-### Receive events when scene or seatings is updated
+### Receive events when scene or seatings updates
 > [!NOTE]
 > Only Microsoft 365 users with role organizer, co-organizer and presenter can change scene or assignment of participants in the together mode. These changes can only be done from Teams Client. 
 

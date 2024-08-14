@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 
 # Together mode
-In this article, you learn how to implement Microsoft Teams together mode with Azure Communication Services Calling SDKs. This feature enhaces virtual meetings and calls, making them feel more personal. By creating a unified view that places everyone in a shared background, participants can connect seamlessly and collaborate effectively.
+In this article, you learn how to implement Microsoft Teams Together Mode with Azure Communication Services Calling SDKs. This feature enhances virtual meetings and calls, making them feel more personal. By creating a unified view that places everyone in a shared background, participants can connect seamlessly and collaborate effectively.
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
@@ -25,18 +25,18 @@ In this article, you learn how to implement Microsoft Teams together mode with A
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 ## Support
-The following tables define support of together mode in Azure Communication Services.
+The following tables define support for Together Mode in Azure Communication Services.
 
 ### Identities & call types
-The following tables show support of call and identity types. 
+The following table shows support for call and identity types. 
 
 |Identities                                         | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
 |--------------------------------------|---------------|------|----------|------------|------------------------|--------------------------|
-|Communication Services user	| ✔️	          |      |          |            |	                      |	 ✔️                        |
-|Microsoft 365 user	                        | ✔️	          |      |          |            |                        |        ✔️                  |
+|Communication Services user	| ✔️	          |      |          |     ✔️       |	                      |	 ✔️                        |
+|Microsoft 365 user	                        | ✔️	          |      |          |       ✔️     |                        |        ✔️                  |
 
 ### Operations
-The following tables show support of individual APIs in calling SDK to individual identity types. 
+The following table shows support for individual APIs in Calling SDK to individual identity types. 
 
 |Operations                   | Communication Services user | Microsoft 365 user |
 |-----------------------------|------------------------------|-------------------|
@@ -47,10 +47,10 @@ The following tables show support of individual APIs in calling SDK to individua
 | Change scene | | |
 | Change seat assignment | | |
 
-[1] Start together mode can only call Microsoft 365 user with role organizer, co-organizer, or presenter.
+[1] Start Together Mode can only be called by a Microsoft 365 user with the role of organizer, co-organizer, or presenter.
  
 ### SDKs
-The following tables show support of feature in individual Azure Communication Services SDKs.
+The following table shows support of feature in individual Azure Communication Services SDKs.
 
 |  Platforms     | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |---------------|-----|--------|--------|--------|----------|--------|---------|
