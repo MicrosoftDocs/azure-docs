@@ -49,7 +49,7 @@ const togetherModeStreams = togetherModeFeature.togetherModeStream;
 |`size`		| 	Returns the size of the stream. The value indicates the quality of the stream. |
 
 ### Start Together Mode for all participants
-Users with role organizer, co-organizer, or presenter can start Together Mode for everyone in the meeting. When Together Mode starts, all subscribers to the `togetherModeStreamsUpdated` event receive notification that enables participants to render together mode.
+Microsoft 365 users with role organizer, co-organizer, or presenter can start Together Mode for everyone in the meeting. When Together Mode starts, all subscribers to the `togetherModeStreamsUpdated` event receive notification that enables participants to render together mode.
 
 ```js
 togetherModeFeature.start();
