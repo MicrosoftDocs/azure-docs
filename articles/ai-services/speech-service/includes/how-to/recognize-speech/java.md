@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/01/2023
+ms.date: 08/13/2024
 ms.custom: devx-track-java
 ms.author: eur
 ---
@@ -15,8 +15,8 @@ ms.author: eur
 
 To call the Speech service by using the Speech SDK, you need to create a [SpeechConfig](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
-1. Create a Speech resource in the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
-1. Create a `SpeechConfig` instance by using your key and region.
+1. Create a Speech resource in the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices). Get the Speech resource key and region.
+1. Create a `SpeechConfig` instance by using your Speech key and region.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -26,7 +26,7 @@ import java.util.concurrent.Future;
 
 public class Program {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key>", "<paste-your-region>");
     }
 }
 ```
@@ -52,7 +52,7 @@ import java.util.concurrent.Future;
 
 public class Program {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key>", "<paste-your-region>");
         fromMic(speechConfig);
     }
 
@@ -82,7 +82,7 @@ import java.util.concurrent.Future;
 
 public class Program {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key>", "<paste-your-region>");
         fromFile(speechConfig);
     }
 
@@ -216,14 +216,14 @@ config.setSpeechRecognitionLanguage("fr-FR");
 
 You can use language identification with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-java#use-speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-java).
 
 ## Use a custom endpoint
 
 With [custom speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint:
 
 ```java
-SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourServiceRegion");
 speechConfig.setEndpointId("YourEndpointId");
 SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig);
 ```

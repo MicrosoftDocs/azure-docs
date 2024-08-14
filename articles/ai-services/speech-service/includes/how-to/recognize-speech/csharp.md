@@ -273,7 +273,7 @@ The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech
 
 You can use language identification with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-csharp#use-speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-csharp).
 
 ## Use a custom endpoint
 

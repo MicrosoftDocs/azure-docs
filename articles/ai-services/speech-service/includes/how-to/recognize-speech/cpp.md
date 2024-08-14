@@ -192,13 +192,13 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig->SetSpeechRecognitionLanguage("de-DE");
 ```
 
-[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. For a list of supported locales, see [Language and voice support for the Speech service](../../../language-support.md?tabs=stt).
+[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. For a list of supported locales, see [Language and voice support for the Speech service](../../../language-support.md).
 
 ## Language identification
 
 You can use language identification with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-cpp#use-speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-cpp).
 
 ## Use a custom endpoint
 
