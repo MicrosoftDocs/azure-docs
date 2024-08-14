@@ -61,7 +61,7 @@ Uri uploadUri = sasUri.GetBlobUri();
 
 To upload a file to Azure storage:
 
-1. Create a [blockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient) object, passing a file upload URI
+1. Create a [blockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient) object, passing a file upload URI.
 
 1. Use the [UploadAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync?#azure-storage-blobs-specialized-blockblobclient-uploadasync(system-io-stream-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken)) method to upload a file to Blob Storage, passing the SAS URI. You can optionally add Blob upload options and cancellation token parameters.
 
