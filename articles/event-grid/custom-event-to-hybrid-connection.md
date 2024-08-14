@@ -79,6 +79,8 @@ You need an application that can retrieve events from the hybrid connection. The
 
 1. Compile and run the application from Visual Studio.
 
+[!INCLUDE [microsoft-entra-id-recommendation.md](./inclues/microsoft-entra-id-recommendation.md)]
+
 ## Send an event to your topic
 
 Let's trigger an event to see how Event Grid distributes the message to your endpoint. This article shows how to use Azure CLI to trigger the event. Alternatively, you can use [Event Grid publisher application](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher).

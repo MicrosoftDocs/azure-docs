@@ -94,7 +94,7 @@ The following example show schema for **Microsoft.AgFoodPlatform.PartyChanged**:
       "data": {
         "actionType": "Deleted",
         "modifiedDateTime": "2022-10-17T18:43:37Z",
-        "eTag": "f700fdd7-0000-0700-0000-634da2550000",
+        "eTag": "0000000000-0000-0000-0000-0000000000000",
         "properties": {
         "key1": "value1",
         "key2": 123.45
@@ -102,7 +102,7 @@ The following example show schema for **Microsoft.AgFoodPlatform.PartyChanged**:
         "id": "<YOUR-PARTY-ID>",
         "createdDateTime": "2022-10-17T18:43:30Z"
       },
-      "id": "23fad010-ec87-40d9-881b-1f2d3ba9600b",
+      "id": "000000000-0000-0000-881b-1f2d3ba9600b",
       "source": "/subscriptions/{SUBSCRIPTION-ID}/resourceGroups/{RESOURCE-GROUP-NAME}/providers/Microsoft.AgFoodPlatform/farmBeats/{YOUR-RESOURCE-NAME}",
       "subject": "/parties/<YOUR-PARTY-ID>",
       "type": "Microsoft.AgFoodPlatform.PartyChanged",
@@ -122,7 +122,7 @@ The following example show schema for **Microsoft.AgFoodPlatform.PartyChanged**:
       "data": {
         "actionType": "Deleted",
         "modifiedDateTime": "2022-10-17T18:43:37Z",
-        "eTag": "f700fdd7-0000-0700-0000-634da2550000",
+        "eTag": "0000000-0000-0000-0000-000000000000",
         "properties": {
         "key1": "value1",
         "key2": 123.45
@@ -130,7 +130,7 @@ The following example show schema for **Microsoft.AgFoodPlatform.PartyChanged**:
         "id": "<YOUR-PARTY-ID>",
         "createdDateTime": "2022-10-17T18:43:30Z"
       },
-      "id": "23fad010-ec87-40d9-881b-1f2d3ba9600b",
+      "id": "0000000-0000-0000-0000-00000000000",
       "topic": "/subscriptions/{SUBSCRIPTION-ID}/resourceGroups/{RESOURCE-GROUP-NAME}/providers/Microsoft.AgFoodPlatform/farmBeats/{YOUR-RESOURCE-NAME}",
       "subject": "/parties/<YOUR-PARTY-ID>",
       "eventType": "Microsoft.AgFoodPlatform.PartyChanged",

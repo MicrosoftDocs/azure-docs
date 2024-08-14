@@ -238,6 +238,9 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
 
     :::image type="content" source="media/event-hubs-functions-synapse-analytics/query-results.png" alt-text="Screenshot showing the query results.":::
 
+
+[!INCLUDE [microsoft-entra-id-recommendation.md](./inclues/microsoft-entra-id-recommendation.md)]
+
 ## Monitor the solution
 This section helps you with monitoring or troubleshooting the solution.
 
