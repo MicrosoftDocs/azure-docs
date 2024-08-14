@@ -44,6 +44,14 @@ This version contains support for the latest Azure OpenAI features including:
 - [Vector store chunking strategy parameters](/azure/ai-services/openai/reference-preview?#request-body-17)
 - `max_num_results` that the file search tool should output.
 
+## Changes between 2024-04-01-preview and 2024-05-01-preview API specification
+
+- Assistants v2 support - [File search tool and vector storage](https://go.microsoft.com/fwlink/?linkid=2272425)
+- Fine-tuning [checkpoints](https://github.com/Azure/azure-rest-api-specs/blob/9583ed6c26ce1f10bbea92346e28a46394a784b4/specification/cognitiveservices/data-plane/AzureOpenAI/authoring/preview/2024-05-01-preview/azureopenai.json#L586), [seed](https://github.com/Azure/azure-rest-api-specs/blob/9583ed6c26ce1f10bbea92346e28a46394a784b4/specification/cognitiveservices/data-plane/AzureOpenAI/authoring/preview/2024-05-01-preview/azureopenai.json#L1574), [events](https://github.com/Azure/azure-rest-api-specs/blob/9583ed6c26ce1f10bbea92346e28a46394a784b4/specification/cognitiveservices/data-plane/AzureOpenAI/authoring/preview/2024-05-01-preview/azureopenai.json#L529)
+- On your data updates
+- DALL-E 2 now supports model deployment and can be used with the latest preview API.
+- Content filtering updates
+
 ## Changes between 2024-03-01-preview and 2024-04-01-preview API specification
 
 - **Breaking Change**: Enhancements parameters removed. This impacts the `gpt-4` **Version:** `vision-preview` model.
