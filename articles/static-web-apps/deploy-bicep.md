@@ -24,7 +24,7 @@ To deploy your app to Azure with Static Web Apps, you need to:
  
 ## Bicep by example
 
-The bicep examples in this article use [Azure Verified Modules (AVM)](https://azure.github.io/Azure-Verified-Modules/) when possible and [bicep](/azure/azure-resource-manager/bicep/) when AVM isn't available. You will be able to recognize AVM because the referenced module includes `avm/res` such as `br/public:avm/res/web/static-site:0.3.0`.
+The bicep examples in this article use [Azure Verified Modules (AVM)](https://azure.github.io/Azure-Verified-Modules/) when possible and [bicep](/azure/azure-resource-manager/bicep/) when AVM isn't available. You'll be able to recognize AVM because the referenced module includes `avm/res` such as `br/public:avm/res/web/static-site:0.3.0`.
 
 ```bicep
 module swa 'br/public:avm/res/web/static-site:0.3.0' = {
@@ -39,12 +39,12 @@ module swa 'br/public:avm/res/web/static-site:0.3.0' = {
 }
 ```
 
-AVM allows you to adopt bicep code which has been built and is maintained by professional engineers fluent in bicep. These modules are not only supported and maintained, they are opinionated about what proper bicep files look like.
+AVM allows you to adopt bicep code, which has been built and is maintained by professional engineers fluent in bicep. These modules aren't only supported and maintained, they're opinionated about what proper bicep files look like.
 
 ## Prerequisites
 
 - [Bicep](../azure-resource-manager/bicep/install.md)
-- Optional, [Visual Studio Code extension for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). This extension is used to immediately to run your bicep file which creates your resources.
+- Optional, [Visual Studio Code extension for Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). This extension is used to immediately run your bicep file, which creates your resources.
 
 ## Create a static web app resource
 
@@ -99,13 +99,13 @@ Save the values of the output variables. You'll need these to configure the reso
 
 To create a static web app with a linked backend function app, you need to use a standard plan for your static web app and complete the following steps.
 
-* [Create the Azure Function app](/azure/azure-functions/functions-create-first-function-bicep). You need the resourceId for the Function app which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`.
+* [Create the Azure Function app](/azure/azure-functions/functions-create-first-function-bicep). You need the resourceId for the Function app, which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`.
 * Create the static web app using the [bicep in the previous section](#create-a-static-web-app-resource).
 * Configure the static web app. Configuration includes:
     * CORS: The Azure Function app needs to know the defaultHostname of the static web app.
     * Link: The static web app needs to know about the Azure Function app in order to link to it.
 
-Create a `config.bicep` file which creates a static web app and [links to an existing Azure Functions app](functions-bring-your-own#link-an-existing-azure-functions-app). 
+Create a `config.bicep` file, which creates a static web app and [links to an existing Azure Functions app](functions-bring-your-own#link-an-existing-azure-functions-app). 
 
 ```bicep
 targetScope = 'resourceGroup'
@@ -166,7 +166,7 @@ resource functionAppSettings 'Microsoft.Web/sites/config@2022-03-01' = {
   properties: appSettings
 }
 ```
-Learn more from a full end-to-end application which provides resource creation and application deployment: 
+Learn more from a full end-to-end application, which provides resource creation and application deployment: 
 
 * [Serverless AI Chat with RAG using LangChain.js](https://github.com/Azure-Samples/serverless-chat-langchainjs)
 
