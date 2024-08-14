@@ -130,7 +130,7 @@ See the following list for the input requirements for each feature.
 
 ### Language support
 
-Content Safety models have been specifically trained and tested in the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
+Content Safety models have been specifically trained and tested in the following languages: English, German, Spanish, Japanese, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
 Custom Categories currently only works well in English. You can try to use other languages with your own dataset, but the quality might vary across languages.
 
