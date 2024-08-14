@@ -49,7 +49,7 @@ az network vnet create \
 
 ### Add a dedicated subnet 
 
-Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or shorter prefix (such as /26 or /25), otherwise you may receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
+Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or shorter prefix (such as /26 or /25), otherwise you might receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
 
 1. Run the following command to add the *RouteServerSubnet* to your virtual network.
 
@@ -101,7 +101,7 @@ Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The su
 
 Use [az network routeserver peering create](/cli/azure/network/routeserver/peering#az-network-routeserver-peering-create) to establish BGP peering between the Route Server and the NVA: 
 
-The `peer-ip` is the virtual network IP assigned to the NVA. The `peer-asn` is the Autonomous System Number (ASN) configured in the NVA. The ASN can be any 16-bit number other than the ones in the range of 65515-65520. This range of ASNs are reserved by Microsoft.
+The `peer-ip` is the virtual network IP assigned to the NVA. The `peer-asn` is the Autonomous System Number (ASN) configured in the NVA. The ASN can be any 16-bit number other than the ones in the range of 65515-65520. This range of ASNs is reserved by Microsoft.
 
 ```azurecli-interactive 
 az network routeserver peering create \
@@ -124,7 +124,7 @@ az network routeserver show \
     --resource-group myRouteServerRG 
 ``` 
 
-The output will look like the following:
+The output will look like the following example:
 
 ``` 
 RouteServerAsn  : 65515 
@@ -151,7 +151,7 @@ If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual 
 
 [!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
 
-1. To enable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic` flag set to **true**:
+1. To enable route exchange between Azure Route Server and the gateways, use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic` flag set to **true**:
 
     ```azurecli-interactive 
     az network routeserver update \
@@ -160,7 +160,7 @@ If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual 
         --allow-b2b-traffic true 
     ``` 
 
-2. To disable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic` flag set to **false**:
+2. To disable route exchange between Azure Route Server and the gateways, use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic` flag set to **false**:
 
     ```azurecli-interactive
     az network routeserver update \
@@ -212,9 +212,9 @@ If you no longer need the Azure Route Server, use the first command to remove th
         --resource-group myRouteServerRG
     ``` 
 
-## Next steps
+## Next step
 
-After you've created the Azure Route Server, continue on to learn more about how Azure Route Server interacts with ExpressRoute and VPN Gateways: 
+Continue to learn more about how Azure Route Server interacts with ExpressRoute and VPN Gateways: 
 
 > [!div class="nextstepaction"]
 > [Azure ExpressRoute and Azure VPN support](expressroute-vpn-support.md)
