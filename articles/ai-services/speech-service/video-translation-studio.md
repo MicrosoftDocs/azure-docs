@@ -30,23 +30,35 @@ To create a video translation project, follow these steps:
 
 1. Select **Video translation**.
 
-1. On the **Create and Manage Projects** page, select **Upload file**.
+1. On the **Create and Manage Projects** page, select **Create a project**.
 
-1. On the **Video file** page, upload your video file by dragging and dropping the video file or selecting the file manually.
+1. On the **New project** page, select **Voice type**.
 
-   Ensure the video is in .mp4 format, less than 500 MB, and shorter than 60 minutes. 
+   :::image type="content" source="media/video-translation/select-voice-type.png" alt-text="Screenshot of selecting voice type on the new project page.":::
+   
+   You can select **Prebuilt neural voice** or **Personal voice** for **Voice type**. For prebuilt neural voice, the system automatically 
+   selects the most suitable prebuilt voice by matching the speaker's voice in the video with prebuilt voices. For personal voice, the 
+   system provides the model with superior voice cloning similarity. To use personal voice, you need to apply for [access](https://aka.ms/customneural). 
+    
+1. Upload your video file by dragging and dropping the video file or selecting the file manually.
 
-1. Provide the **File name**, **Description**, and select **Voice type**, **Language of the video**, **Translate to** language. 
+   :::image type="content" source="media/video-translation/upload-video-file.png" alt-text="Screenshot of uploading your video file on the new project page.":::
 
-   You can select **Prebuilt neural voice** or **Personal voice** for **Voice type**. For prebuilt neural voice, the system automatically selects the most suitable prebuilt voice by matching the speaker's voice in the video with prebuilt voices. For personal voice, the system provides the model with superior voice cloning similarity. To use personal voice, you need to apply for access. The application form will be available soon.
+   Ensure the video is in .mp4 format, less than 500 MB, and shorter than 60 minutes.
+   
+1. Provide **Project name**, and select **Number of speakers**,  **Language of the video**, **Translate to** language.
 
-   :::image type="content" source="media/video-translation/upload-video-file.png" alt-text="Screenshot of uploading your video file on the video file page.":::
+    :::image type="content" source="media/video-translation/provide-video-information.png" alt-text="Screenshot of providing video information on the new project page.":::
+   
+   If you want to use your own subtitle files, select **Add subtitle file**. You can choose to upload either the source subtitle file or the target subtitle file. The subtitle file can be in WebVTT or JSON format. You can download a sample VTT file for your reference by selecting **Download sample VTT file**.
+   
+   :::image type="content" source="media/video-translation/add-subtitle-file.png" alt-text="Screenshot of adding subtitle file on the new project page.":::
 
 1. After reviewing the pricing information and code of conduct, then proceed to create the project.
 
-   When processing the video file, you can check the processing status on the project tab.
+   Once the upload is complete, you can check the processing status on the project tab.
 
-   Once the upload is complete, the project is created. You can then select the project to review detailed settings and make adjustments according to your preferences.
+   After the project is created, you can select the project to review detailed settings and make adjustments according to your preferences.
 
 ## Check and adjust voice settings
 
@@ -56,6 +68,8 @@ On the right side of the video, you can view both the original script and the tr
 
 You can also add or remove segments as needed. When you want to add a segment, ensure that the new segment timestamp doesn't overlap with the previous and next segment, and the segment end time should be larger than the start time. The correct format of timestamp should be `hh:mm:ss.ms`. Otherwise, you can't apply the changes.
 
+You can adjust the time frame of the scripts directly using the audio waveform below the video. After selecting **Apply changes**, the adjustments will be applied.
+
 If you encounter segments with an "unidentified" voice name, it might be because the system couldn't accurately detect the voice, especially in situations where speaker voices overlap. In such cases, it's advisable to manually change the voice name.  
 
 :::image type="content" source="media/video-translation/voice-unidentified.png" alt-text="Screenshot of one segment with unidentified voice name.":::
@@ -64,7 +78,7 @@ If you want to adjust the voice, select **Voice settings** to make some changes.
 
  :::image type="content" source="media/video-translation/voice-settings.png" alt-text="Screenshot of adjusting voice settings on the voice settings page.":::
 
-If you make changes multiple times but haven't finished, you only need to save the changes you've made by selecting **Save**. After making all changes, select **Apply changes** to apply them to the video. You'll be charged only after you select **Apply changes**.
+If you make changes multiple times but haven't finished, you only need to save the changes you've made by selecting **Save**. After making all changes, select **Apply changes** to apply them to the video. You'll be charged only after you select **Apply changes**. 
 
  :::image type="content" source="media/video-translation/apply-changes.png" alt-text="Screenshot of selecting apply changes button after making all changes.":::
 
