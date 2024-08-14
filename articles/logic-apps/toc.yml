@@ -99,6 +99,8 @@ items:
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
     - name: Create Standard workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Create Standard workflows from templates - Portal
+      href: create-single-tenant-workflows-templates.md
     - name: Get AI-powered help from the workflow assistant
       href: workflow-assistant-standard.md
     - name: Create Standard workflows - Visual Studio Code
