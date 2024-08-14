@@ -1011,8 +1011,6 @@
       href: ./linux/spot-template.md
     - name: Spot Priority Mix
       href: /azure/virtual-machine-scale-sets/spot-priority-mix?toc=/azure/virtual-machines/toc.json
-    - name: Spot Placement Score (Preview)
-      href: /azure/virtual-machines/spot-placement-score.md
     - name: VM size recommendation
       href: /azure/virtual-machine-scale-sets/spot-vm-size-recommendation?toc=/azure/virtual-machines/toc.json
     - name: Error codes
