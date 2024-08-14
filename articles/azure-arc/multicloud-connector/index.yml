@@ -9,7 +9,7 @@ metadata:
   ms.service: azure-arc
   ms.author: jroth
   ms.topic: landing-page
-  ms.date: 06/11/2024
+  ms.date: 08/14/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -30,6 +30,10 @@ landingContent:
         links:
           - text: Connect a public cloud to Azure
             url: connect-to-aws.md
+      - linkListType: deploy
+        links:
+          - text: Resource representation in Azure
+            url: resource-representation.md
 
   - title: Solutions
     linkLists:
