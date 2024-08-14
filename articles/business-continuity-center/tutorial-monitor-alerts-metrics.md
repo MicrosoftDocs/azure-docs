@@ -19,15 +19,15 @@ This tutorial describes how Azure Business Continuity Center allows you to view 
 
 Azure Business Continuity Center allows you to monitor alerts that are raised for your critical events in your backup and disaster recovery events. You can view any built-in alerts that were fired by solutions, such as Azure Backup or Azure Site Recovery, and alerts fired based on custom alert rules on metrics.
 
-Follow these steps:
+To monitor the alerts, follow these steps:
 
-1. In **Azure Business Continuity Center**, select **Alerts view**. 
+1. On **Business Continuity Center**, go to **Monitoring + Reporting** > **Alerts**. 
 
    The count of all alert rules appears that have at least one or more fired alerts in the selected time range.
 
    :::image type="content" source="./media/tutorial-monitor-alerts-metrics/view-triggered-alerts-in-selected-time-range.png" alt-text="Screemshot shows the triggered alerts in a selected time range." lightbox="./media/tutorial-monitor-alerts-metrics/view-triggered-alerts-in-selected-time-range.png":::
 
-2. Filter the list by *severity of alert*, *category of alert*, *time range* (up to last 15 days), and other parameters.
+2. On **Alerts**, filter the list by *severity of alert*, *category of alert*, *time range* (up to last 15 days), and other parameters.
 
    :::image type="content" source="./media/tutorial-monitor-alerts-metrics/filter-alerts.png" alt-text="Screenshot shows how to filter alerts by severity." lightbox="./media/tutorial-monitor-alerts-metrics/filter-alerts.png":::
 
@@ -46,7 +46,7 @@ To route alerts to the notification channels, create an alert processing rule an
 
 To configure email notifications for your alerts, follow these steps:
 
-1. Go to **Azure Business Continuity Center** > **Alerts**, and then select **Create Alert Processing Rule**.
+1. Go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts** > **+ Create**, and then select **Create Alert Processing Rule**.
 
    :::image type="content" source="./media/tutorial-monitor-alerts-metrics/create-alerts.png" alt-text="Screenshot shows how to create alerts." lightbox="./media/tutorial-monitor-alerts-metrics/create-alerts.png":::
 
@@ -77,11 +77,11 @@ You can use Azure Business Continuity Center to view built-in metrics for busine
 
 To view metrics, follow these steps:
 
-1. Go to **Azure Business Continuity Center** and select the **Metrics** tab to open the **Azure Monitor metrics explorer**.
+1. Go to **Business Continuity Center** > **Monitoring + Reporting** > **Metrics** to open the **Azure Monitor metrics explorer**.
 
    :::image type="content" source="./media/tutorial-monitor-alerts-metrics/view-metrics.png" alt-text="Screenshot shows how to view metrics." lightbox="./media/tutorial-monitor-alerts-metrics/view-metrics.png":::
 
-2. Select the *resource(s)* for which you want to see metrics. For example, in Azure Backup scenarios, you have to choose a *vault* (or a *group of vaults* in a subscription and region). 
+2. On **Metrics**, select the *resource(s)* for which you want to see metrics. For example, in Azure Backup scenarios, you have to choose a *vault* (or a *group of vaults* in a subscription and region). 
  
 3. Select the *metric* you want to view, for example, *Backup Health events*.
 
