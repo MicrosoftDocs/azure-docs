@@ -11,33 +11,33 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 # Working with Kubernetes cluster features in Nexus Kubernetes clusters
 
-In this article, you will learn how to work with Nexus Kubernetes Cluster Features. Nexus Kubernetes Cluster Features is a functionality of the Nexus platform that allows customers to enhance their Nexus Kubernetes clusters by adding extra packages or features.
+In this article, you learn how to work with Nexus Kubernetes Cluster Features. Nexus Kubernetes Cluster Features is a functionality of the Nexus platform that allows customers to enhance their Nexus Kubernetes clusters by adding extra packages or features.
 
 ## Prerequisites
 
 Before proceeding with this how-to guide, it's recommended that you:
 
-* Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) for a comprehensive overview and steps involved.
+* Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-cli.md) for a comprehensive overview and steps involved.
 * Ensure that you meet the outlined prerequisites to ensure smooth implementation of the guide.
 
 ## Limitations
 
-* You can only create/delete/update Kubernetes cluster feature which has the Required field set at "False".
-* The name of the `Kubernetes cluster feature` will need to match the name listed in the table above.
-* metrics-server cannot be deleted if an Horizontal Pod Scalar (HPA) is in use within the cluster
-* Storage related Kubernetes cluster feature csi-nfs and csi-volume cannot be deleted if the respective StorageClass is in use within the cluster.
+* You can only create, delete, or update Kubernetes cluster features that have the `Required` field set to `False`.
+* When installing a Kubernetes cluster feature for the first time, the feature's name should be one of the feature names listed in the table. For subsequent actions such as updates or deletions, the feature's name should be obtained using the `az networkcloud kubernetescluster feature list` command.
+* The `metrics-server` feature can't be deleted if a Horizontal Pod Autoscaler (HPA) is in use within the cluster.
+* Storage-related Kubernetes cluster features, such as `csi-nfs` and `csi-volume`, can't be deleted if the respective StorageClass is in use within the cluster.
 
 ## Default configuration
 
 When a Nexus Kubernetes cluster is deployed, the list of required Kubernetes cluster features will be installed automatically. After deployment, you can manage optional Kubernetes cluster features by either installing them or uninstalling them (deleting them from the cluster).
 
-You cannot control the installation of Kubernetes cluster features marked as "Required." However, you can perform create, update, and delete operations on features that have the "Required" field set to "False." You also have the option to update any Kubernetes cluster features via the update command.
+You can't control the installation of Kubernetes cluster features marked as "Required." However, you can perform create, update, and delete operations on features that have the "Required" field set to "False." You also have the option to update any Kubernetes cluster features via the update command.
 
-The following Kubernetes cluster features are available to each Nexus Kubernetes cluster. Features with "Required" set to "True" are always installed by default and cannot be deleted.
+The following Kubernetes cluster features are available to each Nexus Kubernetes cluster. Features with "Required" set to "True" are always installed by default and can't be deleted.
 
 | Name                     | Description | Required | Installed by default |
 |--------------------------|-------------|----------|----------------------|
-| azure-arc-k8sagents      | Arc connect Nexus Kubernetes Cluster | True | True |
+| azure-arc-k8sagents      | Arc connects Nexus Kubernetes Cluster | True | True |
 | calico                   | Provides Container Network Interface (CNI) support     | True | True |
 | cloud-provider-kubevirt  | Supports the Cluster API (CAPI) KubeVirt provider for managing virtual machine-based workloads in Kubernetes | True | True |
 | ipam-cni-plugin          | Allocates IP addresses for Layer 3 networks connected to workload containers when `ipamEnabled` is set to True | True | True |
@@ -96,7 +96,7 @@ Specifying `--no-wait --debug` options in az command results in the execution of
 
 ### List the Kubernetes cluster feature
 
-You can check the Kubernetes cluster feature resources for a specific cluster by using the `az networkcloud kubernetescluster feature list` command. This command will display a list of all features associated with the specified Kubernetes cluster:
+You can check the Kubernetes cluster feature resources for a specific cluster by using the `az networkcloud kubernetescluster feature list` command. This command displays a list of all features associated with the specified Kubernetes cluster:
 
 ```azurecli
 az networkcloud kubernetescluster feature list \
@@ -107,7 +107,7 @@ az networkcloud kubernetescluster feature list \
 
 ### Retrieving a Kubernetes cluster feature
 
-After a Kubernetes cluster is created, you can check the details of a specific Kubernetes cluster feature using the `networkcloud kubernetescluster feature show` command. This will provide detailed information about the feature:
+After a Kubernetes cluster is created, you can check the details of a specific Kubernetes cluster feature using the `networkcloud kubernetescluster feature show` command. This provides detailed information about the feature:
 
 ```azurecli
 az networkcloud kubernetescluster feature show \
@@ -137,7 +137,7 @@ Specifying `--no-wait --debug` options in az command results in the execution of
 
 ### Deleting Kubernetes cluster feature
 
-Deleting a Kubernetes cluster feature will remove the resource from the cluster. To delete a Kubernetes cluster feature, use the following command:
+Deleting a Kubernetes cluster feature removes the resource from the cluster. To delete a Kubernetes cluster feature, use the following command:
 
 > [!IMPORTANT]
 > * The `name` parameter should match the "Name" obtained from the output of the `az networkcloud kubernetescluster feature list` command. While the feature name provided during installation can be used initially, once the feature is installed, it is assigned a unique name. Therefore, always use the `list` command to get the actual resource name for update and delete operations, rather than relying on the initial feature name shown in the table.
