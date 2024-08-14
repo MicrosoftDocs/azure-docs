@@ -38,23 +38,23 @@ The associated versions for this update are:
 
 For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2407-release-notes.md).
 
-**To apply the 2407 update, your device must be running version 2203 or later.**
+**To apply the 2407 update, your device must be running version 2403 or later.**
 
 - If you aren't running the minimum required version, you see this error:
  
   *Update package can't be installed as its dependencies aren't met.*
 
-- You can update to 2303 from 2207 or later, and then install 2407.
+- You can update to 2403 from 2207 or later, and then install 2407.
 
 Supported update paths:
 
 | Current version of Azure Stack Edge software and Kubernetes | Upgrade to Azure Stack Edge software and Kubernetes | Desired update to 2407 |
 |-------|----------|------------ |
-| 2207  | 2303  | 2407  |
-| 2209  | 2303  | 2407  |
-| 2210  | 2303  | 2407  |
-| 2301  | 2303  | 2407  |
-| 2303  | Directly to | 2407  |
+| 2207  | 2403  | 2407  |
+| 2209  | 2403  | 2407  |
+| 2210  | 2403  | 2407  |
+| 2301  | 2403  | 2407  |
+| 2403  | Directly to | 2407  |
 
 ### Update Azure Kubernetes service on Azure Stack Edge
 
@@ -65,18 +65,18 @@ If you have Azure Kubernetes service deployed and your Azure Stack Edge device a
 
 Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2407:
 
-1. Update your device version to 2303.
+1. Update your device version to 2403.
 1. Update your Kubernetes version to 2210.
-1. Update your Kubernetes version to 2303.
+1. Update your Kubernetes version to 2403.
 1. Update both device software and Kubernetes to 2407.
 
-If you're running 2210 or 2301, you can update both your device version and Kubernetes version directly to 2303 and then to 2407.
+If you're running 2210 or 2301, you can update both your device version and Kubernetes version directly to 2403 and then to 2407.
 
-If you're running 2303, you can update both your device version and Kubernetes version directly to 2407.
+If you're running 2403, you can update both your device version and Kubernetes version directly to 2407.
 
-In Azure portal, the process requires two clicks, the first update gets your device version to 2303 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2407.
+In Azure portal, the process requires two clicks, the first update gets your device version to 2403 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2407.
 
-From the local UI, you'll have to run each update separately: update the device version to 2303, update Kubernetes version to 2210, update Kubernetes version to 2303, and then the third update gets both the device version and Kubernetes version to 2407.
+From the local UI, you'll have to run each update separately: update the device version to 2403, update Kubernetes version to 2210, update Kubernetes version to 2403, and then the third update gets both the device version and Kubernetes version to 2407.
 
 Each time you change the Kubernetes profile, you're prompted for the Kubernetes update. Go ahead and apply the update.
 
@@ -131,7 +131,7 @@ Depending on the software version that you're running, install process might dif
 
 [!INCLUDE [azure-stack-edge-install-2110-updates](../../includes/azure-stack-edge-install-2110-updates.md)]
 
-![Screenshot of updated software version in local UI.](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
+   ![Screenshot of updated software version in local UI.](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
 ### [version 2105 and earlier](#tab/version-2105-and-earlier)
 
