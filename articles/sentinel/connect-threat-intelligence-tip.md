@@ -91,7 +91,7 @@ You can get this information from your Microsoft Entra ID through a process call
 #### Get consent from your organization to grant these permissions
 
 <!--does this need to be a global admin?-->
-1. To get consent, you need a Microsoft Entra Global Administrator to select the **Grant admin consent for your tenant** button on your app’s **API permissions** page. If you do not have the Global Administrator role on your account, this button will not be available, and you will need to ask a Global Administrator from your organization to perform this step.
+1. To grant consent, a privileged role is required. For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal).
 
     :::image type="content" source="media/connect-threat-intelligence-tip/threat-intel-api-permissions-2.png" alt-text="Grant consent":::
 
