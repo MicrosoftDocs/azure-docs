@@ -62,9 +62,8 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 - [Azure portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-## Next steps
+## Related content
 
-Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
+* [Harm categories](./concepts/harm-categories.md)
+* Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
 
-> [!div class="nextstepaction"]
-> [Content Safety Studio quickstart](./studio-quickstart.md)

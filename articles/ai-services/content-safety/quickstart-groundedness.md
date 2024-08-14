@@ -341,9 +341,8 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 - [Azure portal](/azure/ai-services/multi-service-resource?pivots=azportal#clean-up-resources)
 - [Azure CLI](/azure/ai-services/multi-service-resource?pivots=azcli#clean-up-resources)
 
-## Next steps
+## Related content
 
-Combine Groundedness detection with other LLM safety features like Prompt Shields.
+* [Groundedness detection concepts](./concepts/groundedness.md)
+* Combine Groundedness detection with other LLM safety features like [Prompt Shields](./quickstart-jailbreak.md).
 
-> [!div class="nextstepaction"]
-> [Prompt Shields quickstart](./quickstart-jailbreak.md)
