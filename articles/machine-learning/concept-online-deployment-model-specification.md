@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 08/09/2024
+ms.date: 08/14/2024
 reviewer: msakande
 ms.topic: concept-article
 ms.custom: how-to, devplatv2, cliv2, sdkv2
@@ -149,5 +149,5 @@ Each model in an organization's registry has a model ID of the form `azureml://r
 
 ## Related content
 
-[Online endpoints and deployments for real-time inference](concept-endpoints-online.md)
-[Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
+- [Online endpoints and deployments for real-time inference](concept-endpoints-online.md)
+- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
