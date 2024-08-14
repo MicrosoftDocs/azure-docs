@@ -34,16 +34,15 @@ To apply the 2407 update, your device must be running version 2403 or later.
 
    *Update package can't be installed as its dependencies aren't met.* 
 
- - You can update to 2403 from 2207 or later, and then update to 2407.
+ - You can update to 2403 from 2303 or later, and then update to 2407.
 
 You can update to the latest version using the following update paths:
 
 | Current version of Azure Stack Edge software and Kubernetes     | Update to Azure Stack Edge software and Kubernetes  | Desired update to 2407  |
 | --------------------| -----------| -----------|
-|2207   |2403   |2407   |
-|2209   |2403   |2407   |
-|2210   |2403   |2407   |
-|2301   |2403   |2407   |
+|2303   |2403   |2407   |
+|2309   |2403   |2407   |
+|2312   |2403   |2407   |
 |2403   |Directly to   |2407   |
 
 ## What's new

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 08/14/2024
 ms.author: alkohli
 ---
-# Update your Azure Stack Edge Pro GPU 
+# Update your Azure Stack Edge Pro GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -44,16 +44,15 @@ For information on what's new in this update, go to [Release notes](azure-stack-
  
   *Update package can't be installed as its dependencies aren't met.*
 
-- You can update to 2403 from 2207 or later, and then install 2407.
+- You can update to 2403 from 2303 or later, and then install 2407.
 
 Supported update paths:
 
 | Current version of Azure Stack Edge software and Kubernetes | Upgrade to Azure Stack Edge software and Kubernetes | Desired update to 2407 |
 |-------|----------|------------ |
-| 2207  | 2403  | 2407  |
-| 2209  | 2403  | 2407  |
-| 2210  | 2403  | 2407  |
-| 2301  | 2403  | 2407  |
+| 2303  | 2403  | 2407  |
+| 2309  | 2403  | 2407  |
+| 2312  | 2403  | 2407  |
 | 2403  | Directly to | 2407  |
 
 ### Update Azure Kubernetes service on Azure Stack Edge
