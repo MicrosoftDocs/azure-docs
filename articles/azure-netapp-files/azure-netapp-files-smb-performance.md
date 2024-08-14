@@ -128,7 +128,7 @@ Although SMB encryption has impact to both the client (CPU overhead for encrypti
 
 For maximum performance, it's recommended that you configure [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) on your VMs where possible. Keep the following considerations in mind:  
 
-* The Azure portal enables Accelerated Networking by default for VMs supporting this feature. However, other deployment methods such as Ansible and similar configuration tools can not. Failure to enable Accelerated Networking can hobble the performance of a machine. 
+* The Azure portal enables Accelerated Networking by default for VMs supporting this feature. However, other deployment methods such as Ansible and similar configuration tools can't. Failure to enable Accelerated Networking can hobble the performance of a machine. 
 * If Accelerated Networking isn't enabled on the network interface of a VM due to its lack of support for an instance type or size, it remains disabled with larger instance types. You need manual intervention in those cases.
 * There's no need to set accelerated networking for the NICs in the dedicated subnet of Azure NetApp Files. Accelerated networking is a capability that only applies to Azure VMs. Azure NetApp Files NICs are optimized by design.
 
@@ -150,7 +150,7 @@ You shouldn't configure multiple NICs on your client for SMB. The SMB client doe
 
 As the output of `Get-SmbClientNetworkInterace` below shows, the VM has two network interfaces: 15 and 12. As shown under the following command `Get-SmbMultichannelConnection`, even though there are two RSS-capable NICs, only interface 12 is used in connection with the SMB share; interface 15 isn't in use.
 
-![Screeshot that shows output for RSS-capable NICs.](./media/azure-netapp-files-smb-performance/azure-netapp-files-rss-capable-nics.png)
+![Screenshot that shows output for RSS-capable NICs.](./media/azure-netapp-files-smb-performance/azure-netapp-files-rss-capable-nics.png)
 
 ## Next steps  
 
