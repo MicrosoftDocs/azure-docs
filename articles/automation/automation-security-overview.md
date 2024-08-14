@@ -7,6 +7,7 @@ ms.subservice: process-automation
 ms.date: 10/04/2023
 ms.topic: conceptual 
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Azure Automation account authentication overview

@@ -3,11 +3,11 @@ title: 'Configure P2S server configuration - certificate authentication: Azure p
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for P2S configurations - certificate authentication.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 05/20/2024
+ms.date: 06/20/2024
 ms.author: cherylmc
-
 ---
 # Configure server settings for P2S VPN Gateway certificate authentication
 
@@ -60,15 +60,19 @@ In this section, you create a VNet. Refer to the [Example values](#example) sect
 
 [!INCLUDE [Basic point-to-site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
+## Create a gateway subnet
+
+The virtual network gateway requires a specific subnet named **GatewaySubnet**. The gateway subnet is part of the IP address range for your virtual network and contains the IP addresses that the virtual network gateway resources and services use. Specify a gateway subnet that's /27 or larger.
+
+[!INCLUDE [Create gateway subnet](../../includes/vpn-gateway-create-gateway-subnet-portal-include.md)]
+
 ## <a name="creategw"></a>Create the VPN gateway
 
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 > [!NOTE]
 > The Basic gateway SKU does not support IKEv2 or RADIUS authentication. If you plan on having Mac clients connect to your VNet, do not use the Basic SKU.
->
 
-[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
 [!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]

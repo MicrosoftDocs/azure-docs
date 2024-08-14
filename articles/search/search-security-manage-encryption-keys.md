@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/03/2024
+ms.date: 08/05/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -22,7 +22,7 @@ This article walks you through the steps of setting up customer-managed key (CMK
 
 + CMK encryption is enacted on individual objects. If you require CMK across your search service, [set an enforcement policy](#encryption-enforcement-policy).
 
-+ CMK encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys. Azure Key Vault must be in the same subscription and tenant as Azure AI Search. Azure AI Search retrieves your managed key by connecting through a system or user-managed identity. This behavior requires both services to share the same tenant.
++ CMK encryption depends on [Azure Key Vault](/azure/key-vault/general/overview). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys. Azure Key Vault must be in the same subscription and tenant as Azure AI Search. Azure AI Search retrieves your managed key by connecting through a system or user-managed identity. This behavior requires both services to share the same tenant.
 
 + CMK encryption becomes operational when an object is created. You can't encrypt objects that already exist. CMK encryption occurs whenever an object is saved to disk, either data at rest for long-term storage or temporary data for short-term storage. With CMK, the disk never sees unencrypted data.
 
@@ -37,7 +37,9 @@ Encryption is performed over the following content:
 
 + All content within indexes and synonym lists, including descriptions.
 
-+ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Azure AI services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
++ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, identities, keys, and user inputs are encrypted. For example, skillsets have Azure AI services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted. Any references to external resources (such as Azure data sources or Azure OpenAI models) are also encrypted.
+
++ For vectorizer definitions used by queries, fields that store connection details or credential are encrypted.
 
 ## Full double encryption
 
@@ -65,7 +67,7 @@ The following tools and services are used in this scenario.
 
 + [Azure AI Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tier-descriptions) (Basic or above, in any region).
 
-+ [Azure Key Vault](../key-vault/general/overview.md), you can [create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault//general/quick-create-cli.md), or [Azure PowerShell](../key-vault//general/quick-create-powershell.md). Create the resource in the same subscription as Azure AI Search. The key vault must have **soft-delete** and **purge protection** enabled.
++ [Azure Key Vault](/azure/key-vault/general/overview), you can [create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal), [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell). Create the resource in the same subscription as Azure AI Search. The key vault must have **soft-delete** and **purge protection** enabled.
 
 + [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md). If you don't have one, [set up a new tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
@@ -76,17 +78,17 @@ You should have a search client that can create the encrypted object. Into this 
 
 ## Key Vault tips
 
-If you're new to Azure Key Vault, review this quickstart to learn about basic tasks: [Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell.md). Here are some tips for using Key Vault:
+If you're new to Azure Key Vault, review this quickstart to learn about basic tasks: [Set and retrieve a secret from Azure Key Vault using PowerShell](/azure/key-vault/secrets/quick-create-powershell). Here are some tips for using Key Vault:
 
 + Use as many key vaults as you need. Managed keys can be in different key vaults. A search service can have multiple encrypted objects, each one encrypted with a different customer-managed encryption key, stored in different key vaults.
 
-+ [Enable logging](../key-vault/general/logging.md) on Key Vault so that you can monitor key usage.
++ [Enable logging](/azure/key-vault/general/logging) on Key Vault so that you can monitor key usage.
 
 + Remember to follow strict procedures during routine rotation of key vault keys and Active Directory application secrets and registration. Always update all [encrypted content](search-security-get-encryption-keys.md) to use new secrets and keys before deleting the old ones. If you miss this step, your content can't be decrypted.
 
 ## 1 - Enable purge protection
 
-As a first step, make sure [soft-delete](../key-vault/general/soft-delete-overview.md) and [purge protection](../key-vault/general/soft-delete-overview.md#purge-protection) are enabled on the key vault. Due to the nature of encryption with customer-managed keys, no one can retrieve your data if your Azure Key Vault key is deleted. 
+As a first step, make sure [soft-delete](/azure/key-vault/general/soft-delete-overview) and [purge protection](/azure/key-vault/general/soft-delete-overview#purge-protection) are enabled on the key vault. Due to the nature of encryption with customer-managed keys, no one can retrieve your data if your Azure Key Vault key is deleted. 
 
 To prevent data loss caused by accidental Key Vault key deletions, soft-delete and purge protection must be enabled on the key vault. Soft-delete is enabled by default, so you'll only encounter issues if you purposely disabled it. Purge protection isn't enabled by default, but it's required for customer-managed key encryption in Azure AI Search. 
 
@@ -179,7 +181,7 @@ Conditions that prevent you from adopting this approach include:
 > [!IMPORTANT] 
 > User-managed identity support is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> 2021-04-01-Preview of the [Management REST API](/rest/api/searchmanagement/) provides this feature.
+> 2021-04-01-Preview of the [Management REST API](/rest/api/searchmanagement/) introduced this feature.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -189,7 +191,7 @@ Conditions that prevent you from adopting this approach include:
 
 1. Give the identity a descriptive name.
 
-1. Next, assign the user-managed identity to the search service. This can be done using the [2021-04-01-preview](/rest/api/searchmanagement/management-api-versions) management API.
+1. Next, assign the user-managed identity to the search service. This can be done using the latest preview [2024-06-01-preview](/rest/api/searchmanagement/management-api-versions) management API.
 
     The identity property takes a type and one or more fully qualified user-assigned identities:
     
@@ -201,7 +203,7 @@ Conditions that prevent you from adopting this approach include:
     Example of how to assign a user-managed identity to a search service:
     
     ```http
-    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
+    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/[search service name]?api-version=2024-06-01-preview
     Content-Type: application/json
 
     {
@@ -223,7 +225,7 @@ Conditions that prevent you from adopting this approach include:
     } 
     ```
 
-1. Update the `"encryptionKey"` section to use an identity property. Make sure to use the 2021-04-01-preview REST API version when sending this request to your search service.
+1. Update the `"encryptionKey"` section to use an identity property. Make sure to use preview REST API version when sending this request to your search service.
 
     ```json
     {
@@ -267,7 +269,7 @@ Conditions that prevent you from adopting this approach include:
 
 In this step, you create an access policy in Key Vault. This policy gives the application you registered with Microsoft Entra ID permission to use your customer-managed key.
 
-Access permissions could be revoked at any given time. Once revoked, any search service index or synonym map that uses that key vault become unusable. Restoring key vault access permissions at a later time restores index and synonym map access. For more information, see [Secure access to a key vault](../key-vault/general/security-features.md).
+Access permissions could be revoked at any given time. Once revoked, any search service index or synonym map that uses that key vault become unusable. Restoring key vault access permissions at a later time restores index and synonym map access. For more information, see [Secure access to a key vault](/azure/key-vault/general/security-features).
 
 1. Still in the Azure portal, open your key vault **Overview** page. 
 
@@ -297,11 +299,11 @@ Encryption keys are added when you create an object. To add a customer-managed k
 
 1. Call the Create APIs to specify the **encryptionKey** property:
 
-   + [Create Index](/rest/api/searchservice/create-index)
-   + [Create Synonym Map](/rest/api/searchservice/create-synonym-map)
-   + [Create Indexer](/rest/api/searchservice/create-indexer)
-   + [Create Data Source](/rest/api/searchservice/create-data-source)
-   + [Create Skillset](/rest/api/searchservice/create-skillset).
+   + [Create Index](/rest/api/searchservice/indexes/create)
+   + [Create Synonym Map](/rest/api/searchservice/synonym-maps/create)
+   + [Create Indexer](/rest/api/searchservice/indexers/create)
+   + [Create Data Source](/rest/api/searchservice/data-sources/create)
+   + [Create Skillset](/rest/api/searchservice/skillsets/create)
 
 1. Insert the encryptionKey construct into the object definition. This property is a first-level property, on the same level as name and description. The following [REST examples](#rest-examples) show property placement. If you're using the same vault, key, and version, you can paste in the same "encryptionKey" construct into each object definition.
 
@@ -361,7 +363,7 @@ In this section, you set the policy that defines a CMK standard for your search 
 1. Call the [Services - Update API](/rest/api/searchmanagement/services/update) to enable CMK policy enforcement at the service level.
 
 ```http
-PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2022-11-01
+PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2023-11-01
 
 {
     "properties": {
@@ -379,7 +381,7 @@ This section shows the JSON for several objects so that you can see where to loc
 
 ### Index encryption
 
-The details of creating a new index via the REST API could be found at [Create Index (REST API)](/rest/api/searchservice/create-index), where the only difference is specifying the encryption key details as part of the index definition:
+The details of creating a new index via the REST API could be found at [Create Index (REST API)](/rest/api/searchservice/indexes/create), where the only difference is specifying the encryption key details as part of the index definition:
 
 ```json
 {
@@ -412,7 +414,7 @@ You can now send the index creation request, and then start using the index norm
 
 ### Synonym map encryption
 
-Create an encrypted synonym map using the [Create Synonym Map Azure AI Search REST API](/rest/api/searchservice/create-synonym-map). Use the "encryptionKey" property to specify which encryption key to use.
+Create an encrypted synonym map using the [Create Synonym Map Azure AI Search REST API](/rest/api/searchservice/synonym-maps/create). Use the "encryptionKey" property to specify which encryption key to use.
 
 ```json
 {
@@ -436,7 +438,7 @@ You can now send the synonym map creation request, and then start using it norma
 
 ### Data source encryption
 
-Create an encrypted data source using the [Create Data Source (REST API)](/rest/api/searchservice/create-data-source). Use the "encryptionKey" property to specify which encryption key to use.
+Create an encrypted data source using the [Create Data Source (REST API)](/rest/api/searchservice/data-sources/create). Use the "encryptionKey" property to specify which encryption key to use.
 
 ```json
 {
@@ -462,7 +464,7 @@ You can now send the data source creation request, and then start using it norma
 
 ### Skillset encryption
 
-Create an encrypted skillset using the [Create Skillset REST API](/rest/api/searchservice/create-skillset). Use the "encryptionKey" property to specify which encryption key to use.
+Create an encrypted skillset using the [Create Skillset REST API](/rest/api/searchservice/skillsets/create). Use the "encryptionKey" property to specify which encryption key to use.
 
 ```json
 {
@@ -485,7 +487,7 @@ You can now send the skillset creation request, and then start using it normally
 
 ### Indexer encryption
 
-Create an encrypted indexer using the [Create Indexer REST API](/rest/api/searchservice/create-indexer). Use the "encryptionKey" property to specify which encryption key to use.
+Create an encrypted indexer using the [Create Indexer REST API](/rest/api/searchservice/indexers/create). Use the "encryptionKey" property to specify which encryption key to use.
 
 ```json
 {
@@ -518,13 +520,13 @@ You can now send the indexer creation request, and then start using it normally.
 
 ## Work with encrypted content
 
-With customer-managed key encryption, you might notice latency for both indexing and queries due to the extra encrypt/decrypt work. Azure AI Search doesn't log encryption activity, but you can monitor key access through key vault logging. We recommend that you [enable logging](../key-vault/general/logging.md) as part of key vault configuration.
+With customer-managed key encryption, you might notice latency for both indexing and queries due to the extra encrypt/decrypt work. Azure AI Search doesn't log encryption activity, but you can monitor key access through key vault logging. We recommend that you [enable logging](/azure/key-vault/general/logging) as part of key vault configuration.
 
 Key rotation is expected to occur over time. Whenever you rotate keys, it's important to follow this sequence:
 
 1. [Determine the key used by an index or synonym map](search-security-get-encryption-keys.md).
-1. [Create a new key in key vault](../key-vault/keys/quick-create-portal.md), but leave the original key available.
-1. [Update the encryptionKey properties](/rest/api/searchservice/update-index) on an index or synonym map to use the new values. Only objects that were originally created with this property can be updated to use a different value.
+1. [Create a new key in key vault](/azure/key-vault/keys/quick-create-portal), but leave the original key available.
+1. [Update the encryptionKey properties](/rest/api/searchservice/indexes/create-or-update) on an index or synonym map to use the new values. Only objects that were originally created with this property can be updated to use a different value.
 1. Disable or delete the previous key in the key vault. Monitor key access to verify the new key is being used.
 
 For performance reasons, the search service caches the key for up to several hours. If you disable or delete the key without providing a new one, queries continue to work on a temporary basis until the cache expires. However, once the search service can no longer decrypt content, you get this message: "Access forbidden. The query key used might have been revoked - please retry." 

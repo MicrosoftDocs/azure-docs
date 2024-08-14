@@ -5,7 +5,7 @@ description: Learn about the developer portal in API Management - a customizable
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 03/29/2024
 ms.author: danlep 
@@ -22,8 +22,6 @@ This article introduces features of the developer portal, the types of content t
 [!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
 
 :::image type="content" source="media/developer-portal-overview/cover.png" alt-text="Screenshot of the API Management developer portal.":::
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Developer portal architectural concepts
 
@@ -74,6 +72,8 @@ The developer portal's administrative interface provides a visual editor for pub
 [!INCLUDE [api-management-developer-portal-editor](../../includes/api-management-developer-portal-editor.md)]
 
 [!INCLUDE [api-management-developer-portal-add](../../includes/api-management-developer-portal-add.md)]
+
+[!INCLUDE [api-management-developer-portal-wordpress](../../includes/api-management-developer-portal-wordpress.md)]
 
 
 ### Layouts and pages

@@ -3,12 +3,12 @@ title: What is automated ML? AutoML
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning can automatically generate a model by using the parameters and criteria you provide with automated machine learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-author: manashgoswami
-ms.author: manashg
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: manashg
 ms.date: 04/08/2024
 ms.custom: automl
 ---

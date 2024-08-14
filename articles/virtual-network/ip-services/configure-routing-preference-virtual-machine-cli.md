@@ -3,10 +3,10 @@ title: 'Tutorial: Configure routing preference for a VM - Azure CLI'
 description: In this tutorial, learn how to configure routing preference for a VM using a public IP address with the Azure CLI.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
-ms.date: 08/24/2023
+ms.date: 08/12/2024
 ms.custom: template-tutorial, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -61,7 +61,7 @@ az vm create \
 --name myVM \
 --resource-group TutorVMRoutePref-rg \
 --public-ip-address myPublicIP \
---size Standard_A2 \
+--size Standard_D2a_v4 \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest \
 --admin-username azureuser
 ```

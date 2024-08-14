@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 02/12/2024
+ms.date: 06/27/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -55,7 +55,7 @@ Query string parameters:
 
 |Query parameter | Description |
 | --- | --- |
-|**api-version** | _Required parameter_.<br>Version of the API requested by the client. Current value is `2023-11-01-preview`. |
+|**api-version** | _Required parameter_.<br>Version of the API requested by the client. Current value is `2024-05-01`. |
 |**targetLanguage**|_Required parameter_.<br>Specifies the language of the output document. The target language must be one of the supported languages included in the translation scope.|
 |&bull; **document=**<br> &bull; **type=**|_Required parameters_.<br>&bull; Path to the file location for your source document and file format type.</br> &bull; Ex: **"document=@C:\Test\Test-file.txt;type=text/html**|
 |**--output**|_Required parameter_.<br> &bull; File path for the target file location. Your translated file is printed to the output file.</br> &bull; Ex: **"C:\Test\Test-file-output.txt"**. The file extension should be the same as the source file.|
@@ -67,6 +67,7 @@ Query string parameters:
 |**sourceLanguage**|Specifies the language of the input document. If the `sourceLanguage` parameter isn't specified, automatic language detection is applied to determine the source language.|
 |&bull; **glossary=**<br> &bull; **type=**|&bull; Path to the file location for your custom glossary and file format type.</br> &bull; Ex:**"glossary=@D:\Test\SDT\test-simple-glossary.csv;type=text/csv**|
 |**allowFallback**|&bull; A boolean specifying that the service is allowed to fall back to a `generalnn` system when a custom system doesn't exist. Possible values are: `true` (default) or `false`. <br>&bull; `allowFallback=false` specifies that the translation should only use systems trained for the category specified  by the request.<br>&bull; If no system is found with the specific category, the request returns a 400 status code. <br>&bull; `allowFallback=true` specifies that the service is allowed to fall back to a `generalnn` system when a custom system doesn't exist.|
+|**category**|A string specifying the category (domain) for the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../../custom-translator/how-to/translate-with-custom-model.md#how-to-translate). To use your deployed customized system for synchronous document translation, add the `Category ID` from your Custom Translator project details to the `category` parameter. The default value is: `generalnn`.|
 
 ### Request Body
 

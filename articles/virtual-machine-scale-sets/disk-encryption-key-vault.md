@@ -4,7 +4,7 @@ description: This article provides steps for creating and configuring a key vaul
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 06/14/2024
 ms.reviewer: mimckitt
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 
 # Create and configure a key vault for Azure Disk Encryption
 
-Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../key-vault/general/overview.md) and [Secure your key vault](../key-vault/general/secure-your-key-vault.md).
+Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](/azure/key-vault/general/overview) and [Secure your key vault](/azure/key-vault/general/secure-your-key-vault).
 
 Creating and configuring a key vault for use with Azure Disk Encryption involves three steps:
 
@@ -28,7 +28,7 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [disk-encryption-key-vault](../../includes/disk-encryption-key-vault.md)]
+[!INCLUDE [disk-encryption-key-vault](~/reusable-content/ce-skilling/azure/includes/disk-encryption-key-vault.md)]
  
 ## Next steps
 

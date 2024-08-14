@@ -3,10 +3,10 @@ title: 'Configure P2S VPN clients - certificate authentication -OpenVPN - Linux'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a Linux VPN client solution for VPN Gateway P2S configurations that use certificate authentication and an OpenVPN client.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 06/24/2024
 ms.author: cherylmc
 ---
 
@@ -48,10 +48,7 @@ The workflow for this article is:
 
 For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
 
-For more information about certificates for Linux, see the following articles:
-
-* [Generate certificates - OpenSSL](point-to-site-certificates-linux-openssl.md)
-* [Generate certificates - strongSwan](vpn-gateway-certificates-point-to-site-linux.md)
+The OpenVPN client in this article uses certificates exported with a *.pfx* format. You can export a client certificate easily to this format using the Windows instructions. See [Export a client certificate - pfx](vpn-gateway-certificates-point-to-site.md#clientexport). If you don't have a Windows computer, as a workaround, you can use a small Windows VM to export certificates to the needed *.pfx* format. At this time, the [OpenSSL](point-to-site-certificates-linux-openssl.md) Linux instructions we provide only result in the *.pem* format.
 
 ## <a name="openvpn"></a>Configuration steps
 

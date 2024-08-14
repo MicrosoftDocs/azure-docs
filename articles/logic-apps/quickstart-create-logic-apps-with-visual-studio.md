@@ -12,7 +12,7 @@ ms.date: 01/04/2024
 
 # Quickstart: Create automated integration workflows with multitenant Azure Logic Apps and Visual Studio
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 This quickstart shows how to design, develop, and deploy automated workflows that integrate apps, data, systems, and services across enterprises and organizations by using multitenant [Azure Logic Apps](logic-apps-overview.md) and Visual Studio. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multitenant versus single-tenant model, review [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md).
 
@@ -155,7 +155,7 @@ When you have your Azure Resource Group project, create your logic app with the 
    | User account | Fabrikam <br> sophia-owen@fabrikam.com | The account that you used when you signed in to Visual Studio |
    | **Subscription** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | The name for your Azure subscription and associated account |
    | **Resource Group** | MyLogicApp-RG <br> (West US) | The Azure resource group and location for storing and deploying your logic app's resources |
-   | **Location** | **Same as Resource Group** | The location type and specific location for deploying your logic app resource. The location type is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>For this quickstart, keep the location type set to **Region** and the location set to **Same as Resource Group**. <p>**Note**: After you create your resource group project, you can [change the location type and the location](manage-logic-apps-with-visual-studio.md#change-location), but different location type affects your logic app in various ways. |
+   | **Location** | **Same as Resource Group** | The location type and specific location for deploying your logic app resource. The location type is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). <p>For this quickstart, keep the location type set to **Region** and the location set to **Same as Resource Group**. <p>**Note**: After you create your resource group project, you can [change the location type and the location](manage-logic-apps-with-visual-studio.md#change-location), but different location type affects your logic app in various ways. |
 
 1. The workflow designer opens a page that shows an introduction video and commonly used triggers. Scroll down past the video and triggers to **Templates**, and select **Blank Logic App**.
 

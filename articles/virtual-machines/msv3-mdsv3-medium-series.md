@@ -7,15 +7,15 @@ title:       Overview of Msv3 and Mdsv3 Medium Memory Series
 description: Overview of Msv3 and Mdsv3 Medium Memory virtual machines. These virtual machines provide faster performance and lower TCO.
 author:      ayshakeen # GitHub alias
 ms.author:   ayshak # Microsoft alias
-ms.service:  virtual-machines
+ms.service: azure-virtual-machines
 # ms.prod:   sizes
 ms.topic:    conceptual
-ms.date:     08/10/2023
+ms.date:     06/26/2024
 ---
 
 # Msv3 and Mdsv3 Medium Memory Series 
 
-The Msv3 and Mdsv3 Medium Memory(MM) series, powered by 4<sup>th</sup> generation Intel® Xeon® Scalable processors, are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership and improved resilience to failures compared to previous generation Mv2 VMs. The Mv3 MM offers VM sizes of up to 4TB of memory and 4,000 MBps throughout to remote storage and provides up to 25% networking performance improvements over previous generations.
+The Msv3 and Mdsv3 Medium Memory(MM) Virtual Machine (VM) series, powered by 4<sup>th</sup> generation Intel® Xeon® Scalable processors, are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership (TCO) and improved resilience to failures compared to previous generation Mv2 VMs. The Mv3 MM offers VM sizes of up to 4TB of memory and 4,000 MBps throughout to remote storage and provides up to 25% networking performance improvements over previous generations.
 
 ## Msv3 Medium Memory series
 
@@ -24,6 +24,7 @@ The Msv3 and Mdsv3 Medium Memory(MM) series, powered by 4<sup>th</sup> generatio
 [Live Migration](maintenance-and-updates.md): Restricted Support<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
+[Write Accelerator](./how-to-enable-write-accelerator.md): Supported<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported<br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
@@ -47,6 +48,7 @@ These virtual machines feature local SSD storage (up to 400 GiB).
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
+[Write Accelerator](./how-to-enable-write-accelerator.md): Supported<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>

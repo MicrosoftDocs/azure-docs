@@ -6,10 +6,10 @@ summary: Azure Chaos Studio is an Azure service that helps you measure, understa
 metadata:
   title: Azure Chaos Studio documentation - tutorials, API reference
   description: Learn about Azure Chaos Studio, a solution for building resilience of your services by using chaos engineering and fault injection on Azure.
-  ms.service: chaos-studio
+  ms.service: azure-chaos-studio
   ms.topic: landing-page
-  author: johnkemnetz
-  ms.author: johnkem
+  author: AbbyMSFT
+  ms.author: abbyweisberg
   ms.date: 08/24/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new

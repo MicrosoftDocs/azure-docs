@@ -2,13 +2,13 @@
 title: Deploy a registered R model to an online (real time) endpoint
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your R model to an online (real-time) managed endpoint'
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 01/12/2023
 ms.topic: how-to
-author: wahalulu
-ms.author: mavaisma
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: mavaisma
 ms.devlang: r
 ms.custom: devx-track-azurecli
 ---
@@ -181,33 +181,11 @@ These steps assume you have an Azure Container Registry associated with your wor
 1. If you see custom environments, nothing more is needed.
 1. If you don't see any custom environments, create [an R environment](how-to-r-modify-script-for-production.md#create-an-environment), or any other custom environment.  (You *won't* use this environment for deployment, but you *will* use the container registry that is also created for you.)
 
-Once you have verified that you have at least one custom environment, use the following steps to build a container.
+Once you have verified that you have at least one custom environment, start a terminal and set up the CLI:
 
-1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-a-compute-instance), use:
+[!INCLUDE [set-up-cli](includes/set-up-cli.md)]
 
-    ```azurecli
-    az login --identity
-    ```
-
-    If you're not on the compute instance, omit `--identity` and follow the prompt to open a browser window to authenticate.
-
-1. Make sure you have the most recent versions of the CLI and the `ml` extension:
-    
-    ```azurecli
-    az upgrade
-    ```
-
-1. If you have multiple Azure subscriptions, set the active subscription to the one you're using for your workspace. (You can skip this step if you only have access to a single subscription.)  Replace `<SUBSCRIPTION-NAME>` with your subscription name.  Also remove the brackets `<>`.
-
-    ```azurecli
-    az account set --subscription "<SUBSCRIPTION-NAME>"
-    ```
-
-1. Set the default workspace.  If you're doing this from a compute instance, you can use the following command as is.  If you're on any other computer, substitute your resource group and workspace name instead.  (You can find these values in [Azure Machine Learning studio](how-to-r-train-model.md#submit-the-job).)
-
-    ```azurecli
-    az configure --defaults group=$CI_RESOURCE_GROUP workspace=$CI_WORKSPACE
-    ```
+After you've set up the CLI, use the following steps to build a container.
 
 1. Make sure you are in your project directory.
 

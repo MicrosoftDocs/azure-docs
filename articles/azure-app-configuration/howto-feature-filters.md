@@ -66,6 +66,9 @@ To learn how to implement a custom feature filter, continue to the following tut
 > [!div class="nextstepaction"]
 > [ASP.NET Core](./howto-feature-filters-aspnet-core.md)
 
+> [!div class="nextstepaction"]
+> [Python](./howto-feature-filters-python.md)
+
 To learn more about the built-in feature filters, continue to the following tutorials:
 
 > [!div class="nextstepaction"]

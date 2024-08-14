@@ -1,58 +1,62 @@
 ---
-title: Secure Boot UEFI Keys 
-description: This feature allows customers to bind UEFI keys (db/dbx/pk/kek) for drivers/kernel modules signed using a private key that is owned by Azure partners or customer’s third-party vendors
+title: Secure Boot UEFI keys 
+description: Customers can bind UEFI keys (db/dbx/pk/kek) for drivers/kernel modules that are signed by using a private key that's owned by an Azure partner's or customer's third-party vendors.
 author: Howie425
 ms.author: howieasmerom
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 04/10/2024
 ms.custom: template-concept, devx-track-azurecli
 ---
 
-# Secure Boot UEFI Keys
+# Secure Boot UEFI keys
+
+This feature allows you to bind unified extensible firmware interface (UEFI) keys for driver/kernel modules that are signed by using a private key that's owned by third-party vendors.
 
 ## Overview
 
-When a Trusted Launch VM is deployed, during the boot process, signatures of all the boot components such as UEFI (Unified Extensible Firmware Interface), shim/bootloader, kernel, and kernel modules/drivers are verified against trusted preloaded UEFI keys. Verification failure on any of the boot components results in no-boot of the VM, or no-load of kernel modules/drivers only. Verification can fail due to a component signed by a key not in the preloaded UEFI keys list or an unsigned component.
+When an Azure Trusted Launch virtual machine (VM) is deployed, during the boot process, signatures of all the boot components such as the UEFI, shim/bootloader, kernel, and kernel modules/drivers are verified against trusted preloaded UEFI keys. Verification failure on any of the boot components results in no-boot of the VM or no-load of the kernel modules/drivers only. Verification can fail because of a component signed by a key that's not in the preloaded UEFI keys list or an unsigned component.
 
-Many Azure partners provided or customer procured software (disaster recovery, network monitoring) installs drivers/kernel modules as part of their solution. These drivers/kernel modules must be signed for a Trusted Launch VM to boot. Many Azure partners sign their drivers/kernel modules with their own private key. This requires that the public key (UEFI keys) of the private key pair available in UEFI layer so that the Trusted Launch VM can verify boot components and boot successfully.
+Many types of Azure partner-provided or customer-procured software (disaster recovery, network monitoring) install driver/kernel modules as part of their solutions. These driver/kernel modules must be signed for a Trusted Launch VM to boot. Many Azure partners sign their driver/kernel modules with their own private key. This approach requires that the public key (UEFI keys) of the private key pair must be available in the UEFI layer so that the Trusted Launch VM can verify the boot components and boot successfully.
 
-For Trusted Launch VM, a new feature called Secure Boot UEFI keys is now in preview. This feature allows customers to bind UEFI keys (db/dbx/pk/kek) for drivers/kernel modules signed using a private key that is owned by Azure partners or customer’s third-party vendors. In this public preview, you can bind UEFI keys using Azure compute gallery. Binding UEFI keys for marketplace image, or as part of VM deployment parameters, isn't currently supported.
+For a Trusted Launch VM, a new feature called Secure Boot UEFI keys is now in preview. With this feature, you can bind UEFI keys (db/dbx/pk/kek) for driver/kernel modules signed by using a private key that's owned by your third-party vendors. In this public preview, you can bind UEFI keys by using the Azure Compute Gallery. Binding UEFI keys for an Azure Marketplace image, or as part of VM deployment parameters, isn't currently supported.
 
->[!NOTE]
-> Binding UEFI keys is mostly applicable for Linux based Trusted Launch VMs.
-##  Bind secureboot keys to Azure compute gallery image
+> [!NOTE]
+> Binding UEFI keys mostly applies to Linux-based Trusted Launch VMs.
 
-To bind and create a Trusted Launch VM, the following steps must be followed.
+## Bind Secure Boot keys to an Azure Compute Gallery image
 
-1.  **Get VHD of marketplace image**
+Follow the steps in the following procedures to bind and create a Trusted Launch VM.
 
-- Create a Gen2 VM using a marketplace image
-- Stop the VM to access OS disk
+### Get the virtual hard disk of an Azure Marketplace image
 
-:::image type="content" source="media/trusted-launch/trusted-launch-custom-stop-vm.png" alt-text="Screenshot showing how to stop VM.":::
+1. Create a Gen2 VM by using an Azure Marketplace image.
+1. Stop the VM to access the operating system (OS) disk.
 
-- Open disk from the left navigation pane of stopped VM
+    :::image type="content" source="media/trusted-launch/trusted-launch-custom-stop-vm.png" alt-text="Screenshot that shows how to stop a VM.":::
 
-:::image type="content" source="media/trusted-launch/trusted-launch-custom-open-disk.png" alt-text="Screenshot showing access OS VHD.":::
+1. Open the disk from the leftmost pane of a stopped VM.
 
-- Export disk to access OS VHD SAS
+      :::image type="content" source="media/trusted-launch/trusted-launch-custom-open-disk.png" alt-text="Screenshot that shows how to access an OS virtual hard disk.":::
 
-:::image type="content" source="media/trusted-launch/trusted-launch-custom-generate-url.png" alt-text="Screenshot showing how to generate URL.":::
+1. Export the disk to access an OS virtual hard disk (VHD) SAS.
 
-- Copy OS VHD using SAS URI to the storage account 
-        1. Use [azcopy](../storage/common/storage-use-azcopy-v10.md) to perform copy operation.
-        2. Use this storage account and the copied VHD as input to SIG creation.
+    :::image type="content" source="media/trusted-launch/trusted-launch-custom-generate-url.png" alt-text="Screenshot that shows how to generate a URL.":::
 
-2.  **Create SIG using VHD**
+1. Copy an OS VHD by using an SAS URI to the storage account:
 
-- Create SIG image by deploying the provided ARM template.
+   1. Use [azcopy](../storage/common/storage-use-azcopy-v10.md) to perform the copy operation.
+   1. Use this storage account and the copied VHD as input for the SIG creation.
 
-:::image type="content" source="media/trusted-launch/trusted-launch-custom-template.png" alt-text="Screenshot showing how to use Azure template.":::
+### Create a SIG image by using a VHD
+
+Create a SIG image by deploying the provided Azure Resource Manager template (ARM template).
+
+  :::image type="content" source="media/trusted-launch/trusted-launch-custom-template.png" alt-text="Screenshot that shows how to use an Azure template.":::
 
 <details>
-<summary> Access the SIG from OS VHD JSON template </summary>
+<summary> Access the SIG from the OS VHD JSON template </summary>
 <pre>
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json",
@@ -249,14 +253,16 @@ To bind and create a Trusted Launch VM, the following steps must be followed.
 </pre>
 </details>
 
-- Use this Azure compute gallery image creation template and provide OS vhd URL and its containing storage account name from previous step.
+Use this Azure Compute Gallery image creation template. Provide the OS VHD URL and its containing storage account name from the previous step.
 
-3.  **Create VM (Deploy ARM Template through Portal)**
-- Create a Trusted Launch or Confidential VM using the Azure compute gallery image created in Step 1.
-- Sample TrustedLaunch VM creation template with Azure compute gallery image: 
+### Create a VM (deploy an ARM template through the portal)
+
+Create a Trusted Launch or confidential VM by using the Azure Compute Gallery image previously created.
+
+The following sample shows a `TrustedLaunch` VM creation template with an Azure Compute Gallery image.
 
 <details>
-<summary> Access the deploy TVM from SIG JSON template </summary>
+<summary> Access the deploy TVM from a SIG JSON template </summary>
 <pre>
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", 
@@ -495,10 +501,11 @@ To bind and create a Trusted Launch VM, the following steps must be followed.
 </pre>
 </details>
 
-4.  **Validate custom UEFI key presence in VM.**
-- Do ssh on Linux VM and run **“mokutil--db”** or **“mokutil--dbx”** to check the corresponding custom UEFI keys in the results.
+### Validate custom UEFI key presence in VM
 
-## Regions Supported
+Do SSH on the Linux VM and run `mokutil--db` or `mokutil--dbx` to check the corresponding custom UEFI keys in the results.
+
+## Regions supported
 
 | Country | Regions |
 |:--- |:--- |
@@ -510,47 +517,45 @@ To bind and create a Trusted Launch VM, the following steps must be followed.
 | United Arab Emirates | UAE North |
 | Japan | Japan East |
 
-
-## Supplemental Information 
+## Supplemental information
 
 > [!IMPORTANT]
 > Method to generate base64 public key certificate to insert as custom UEFI db:
 [Excerpts taken from Chapter 3. Signing a kernel and modules for Secure Boot Red Hat Enterprise Linux 8 | Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/signing-a-kernel-and-modules-for-secure-boot_managing-monitoring-and-updating-the-kernel#generating-a-public-and-private-key-pair_signing-a-kernel-and-modules-for-secure-boot)
 
-**Install dependencies**
+### Installation dependencies
 
 ```bash
 ~$ sudo yum install pesign openssl kernel-devel mokutil keyutils
 ```
 
-**Create key pair to sign the kernel module**
+### Create a key pair to sign the kernel module
 
 ```bash
 $ sudo efikeygen --dbdir /etc/pki/pesign --self-sign --module --common-name 'CN=Organization signing key' --nickname 'Custom Secure Boot key'
 ```
 
-**Export public key to cer file**
+### Export a public key to a .cer file
 
 ```bash
 $ sudo certutil -d /etc/pki/pesign -n 'Custom Secure Boot key' -Lr > sb_cert.cer
 ```
 
-**Convert to base64 format**
+### Convert to a base64 format
 
 ```bash
 $ openssl x509 -inform der -in sb_cert.cer -out sb_cert_base64.cer
 ```
 
-**Extract base64 string to use in SIG creation ARM template**
+### Extract a base64 string to use in a SIG creation ARM template
 
 ```bash
 $ sed -e '/BEGIN CERTIFICATE/d;/END CERTIFICATE/d' sb_cert_base64.cer
 ```
 
+## Method to create Azure Compute Gallery and a corresponding Trusted Launch VM by using the Azure CLI
 
-## Method to create Azure compute gallery and corresponding TrustedLaunch VM using Azure CLI:
-Example Azure compute gallery template with prefilled entries:
-
+The following example of an Azure Compute Gallery template has prefilled entries.
 
 ```json   
 {
@@ -660,22 +665,23 @@ Example Azure compute gallery template with prefilled entries:
 }
 ```
 
-### Deploy SIG template using az cli
+### Deploy a SIG template by using az cli
 
 ```azurecli-interactive
 > az deployment group create --resource-group <resourceGroupName> --template-file "<location to template>\SIGWithCustomUEFIKeyExample.json"
 ```
 
-### Deploy Trusted Launch VM using Azure compute gallery
+### Deploy a Trusted Launch VM by using the Azure Compute Gallery
 
 ```azurecli-interactive
 > $imagDef="/subscriptions/<subscription id>/resourceGroups/<resourcegroup name>/providers/Microsoft.Compute/galleries/customuefigallerytest/images/image_def/versions/1.0.0"
 > az vm create --resource-group <resourcegroup name> --name <vm name> --image $imagDef --admin-username <username> --generate-ssh-keys --security-type TrustedLaunch
 ```
 
-## Useful links:
-1. [Base64 conversion of certificates](https://www.base64encode.org/enc/certificate/)
-2. [X.509 Certificate Public Key in Base64](https://stackoverflow.com/questions/24492981/x-509-certificate-public-key-in-base64)
-3. [UEFI: What is UEFI Secure Boot and how it works?](https://access.redhat.com/articles/5254641)
-4. [Ubuntu: How to sign things for Secure Boot?](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot)
-5. [Redhat: Signing a kernel and modules for Secure Boot](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/signing-a-kernel-and-modules-for-secure-boot_managing-monitoring-and-updating-the-kernel)
+## Related content
+
+- [Base64 conversion of certificates](https://www.base64encode.org/enc/certificate/)
+- [X.509 Certificate Public Key in Base64](https://stackoverflow.com/questions/24492981/x-509-certificate-public-key-in-base64)
+- [UEFI: What is UEFI Secure Boot and how does it work?](https://access.redhat.com/articles/5254641)
+- [Ubuntu: How to sign things for Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot)
+- [Red Hat: Sign a kernel and modules for Secure Boot](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/signing-a-kernel-and-modules-for-secure-boot_managing-monitoring-and-updating-the-kernel)

@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Azure Cache for Redis in Node.js'
 description: In this quickstart, learn how to use Azure Cache for Redis with Node.js and node_redis.
 author: flang-msft
-ms.service: cache
+ms.service: azure-cache-redis
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 06/04/2024
@@ -63,8 +63,8 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
     
         // Connection configuration
         const cacheConnection = redis.createClient({
-            // rediss for TLS
-            url: `rediss://${cacheHostName}:6380`,
+            // redis for TLS
+            url: `redis://${cacheHostName}:6380`,
             password: cachePassword
         });
     

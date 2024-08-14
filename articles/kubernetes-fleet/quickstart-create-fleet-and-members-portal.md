@@ -16,7 +16,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure porta
 
 ## Prerequisites
 
-[!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [free trial note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Read the [conceptual overview of this feature](./concepts-fleet.md), which provides an explanation of fleets and member clusters referenced in this document.
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -32,7 +32,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure porta
   * Microsoft.ContainerService/managedClusters/write
   * Microsoft.ContainerService/managedClusters/listClusterUserCredential/action
 
-* The AKS clusters that you want to join as member clusters to the Fleet resource need to be within the supported versions of AKS. Learn more about AKS version support policy [here](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy).
+* The AKS clusters that you want to join as member clusters to the Fleet resource need to be within the supported versions of AKS. Learn more about AKS version support policy [here](/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy).
 
 ## Create a Fleet resource
 

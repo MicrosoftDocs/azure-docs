@@ -2,7 +2,7 @@
 title: Azure Synapse Dedicated SQL Pool Connector for Apache Spark
 description: Azure Synapse Dedicated SQL Pool Connector for Apache Spark to move data between the Synapse Serverless Spark Pool and the Synapse Dedicated SQL Pool.
 author: kalyankadiyala-Microsoft
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 05/10/2022

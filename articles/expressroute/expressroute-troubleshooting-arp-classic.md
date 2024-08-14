@@ -4,7 +4,7 @@ description: This page provides instructions for getting the ARP tables for an E
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: troubleshooting
 ms.date: 01/30/2017
 ms.author: duau

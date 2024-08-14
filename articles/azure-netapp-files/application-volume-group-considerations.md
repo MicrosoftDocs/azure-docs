@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 11/08/2023
+ms.date: 08/13/2024
 ms.author: anfdocs
 ---
 # Requirements and considerations for application volume group for SAP HANA 
@@ -15,7 +15,7 @@ This article describes the requirements and considerations you need to be aware 
 ## Requirements and considerations
 
 * You need to use the [manual QoS capacity pool](manage-manual-qos-capacity-pool.md) functionality.  
-* You must create a proximity placement group (PPG) and anchor it to your SAP HANA compute resources. Application volume group for SAP HANA needs this setup to search for an Azure NetApp Files resource that is close to the SAP HANA servers. For more information, see [Best practices about Proximity Placement Groups](#best-practices-about-proximity-placement-groups) and [Create a Proximity Placement Group using the Azure portal](../virtual-machines/windows/proximity-placement-groups-portal.md).
+* You must create a proximity placement group (PPG) and anchor it to your SAP HANA compute resources. Application volume group for SAP HANA needs this setup to search for an Azure NetApp Files resource that is close to the SAP HANA servers. For more information, see [Best practices about Proximity Placement Groups](#best-practices-about-proximity-placement) and [Create a Proximity Placement Group using the Azure portal](../virtual-machines/windows/proximity-placement-groups-portal.md).
   
    >[!NOTE]
    >Do not delete the PPG. Deleting a PPG removes the pinning and can cause subsequent volume groups to be created in sub-optimal locations which could lead to increased latency.
@@ -31,19 +31,31 @@ This article describes the requirements and considerations you need to be aware 
 
     It is recommended that you lay out the VNet and delegated subnet at design time. 
 
-    Application volume group for SAP HANA create multiple IP addresses, up to six IP addresses for larger-sized estates. Ensure that the delegated subnet has sufficient free IP addresses. Consider using a delegated subnet with a minimum of 59 IP addresses with a subnet size of /26. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
-
-* Application volume group for SAP HANA only supports [Basic network features](azure-netapp-files-network-topologies.md). You should not edit network features for volumes in an application volume group. 
+    Application volume group for SAP HANA creates multiple IP addresses, up to six IP addresses for larger-sized estates. Ensure that the delegated subnet has sufficient free IP addresses. Consider using a delegated subnet with a minimum of 251 IP addresses with a subnet size of /24. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
+* Application volume group for SAP HANA only supports platform-managed keys for Azure NetApp Files volume encryption at volume creation at this time. Contact your Azure NetApp Files specialist or CSA if you have any questions about transitioning volumes from platform-managed keys to customer-managed keys after volume creation. 
 
 >[!IMPORTANT]
 >The use of application volume group for SAP HANA for applications other than SAP HANA is not supported. Reach out to your Azure NetApp Files specialist for guidance on using Azure NetApp Files multi-volume layouts with other database applications.
 
-## Best practices about proximity placement groups
+### <a name="extension-1-requirements-considerations"></a> Extension 1 requirements and considerations (preview)
 
-To deploy SAP HANA volumes using the application volume group, you need to ensure that your HANA database VMs and the Azure NetApp Files resources are in close proximity to ensure lowest possible latency. To achieve this setup, a proximity placement group (PPG) is used that is linked to the database VMs (called *anchored*). When passed to the application volume group, the PPG is used to find all Azure NetApp Files resources in close proximity to the database servers. 
+* Extension 1 is currently in preview and requires that you [register for the feature](application-volume-group-deploy-first-host.md#register-for-extension-1).
+* Application volume group supports Basic network features. If you're registered for extension 1, application volume group also supports [Standard network features](azure-netapp-files-network-topologies.md).
+* Extension 1 supports [availability zone volume placement](use-availability-zones.md) as the new default method for placement. This upgrade mitigates the need for AVset pinning and eliminates the need for proximity placement groups. With support for availability zone volume placement, you only need to select the same availability zone as the database servers. Using availability zone volume placement aligns with the Microsoft recommendation on how to deploy SAP HANA infrastructures to achieve best performance with high-availability, maximum flexibility, and simplified deployment. 
+    If regions do not support availability zones, you can select a regional deployment or choose proximity placement groups.
+
+## Best practices about proximity placement
+
+To deploy SAP HANA volumes using the application volume group, you need to ensure that your HANA database VMs and the Azure NetApp Files resources are in close proximity to ensure lowest possible latency. You can achieve close proximity using either of the following deployment methods: 
+  
+* **Availability zone volume placement (preferred)**
+        Select the availability zone for the volumes and select Standard network features for the deployment. Neither a proximity placement group nor VM pinning are required for this method. Before you can use this workflow, you must [register the feature](application-volume-group-deploy-first-host.md#register-for-extension-1).
+* **Proximity placement group with VM pinning**
+    The application volume group uses a proximity placement group linked (or anchored) to the database VMs. When passed to the application volume group, the PPG is used to find all Azure NetApp Files resources in close proximity to the database servers. Volumes are deployed using Basic network features.
+
 
 > [!IMPORTANT]
-> It is important to understand that a PPG is only anchored and can therefore identify the location of the VMs if at least one VM is started and kept running for the duration of all AVG deployments. If all VMs are stopped, the PPG will lose its anchor, and at the next restart, the VMs may move to a different location. This situation could lead to increased latency as Azure NetApp Files volumes are not moved after initial creation. 
+> A PPG is only anchored and can therefore identify the location of the VMs if at least one VM is started and kept running for the duration of all AVG deployments. If all VMs are stopped, the PPG loses its anchor, and at the next restart, the VMs may move to a different location. This situation could lead to increased latency as Azure NetApp Files volumes are not moved after initial creation. 
 
 To avoid this situation, you should create an availability set per database and use the **[SAP HANA VM pinning request form](https://aka.ms/HANAPINNING)** to pin the availability set to a dedicated compute cluster. After pinning, you need to add a PPG to the availability set, and then deploy all hosts of an SAP HANA database using that availability set. Doing so ensures that all virtual machines are at the same location. As long as one of the virtual machines is started, the PPG retains its anchor to deploy the AVG volumes. 
 
@@ -73,10 +85,10 @@ This situation leads to two possible scenarios:
     SAP HANA capable virtual machine series (that is, M-Series) are mostly placed close to Azure NetApp Files resources so that the application volume group can create the required volumes with lowest possible latency with the help of a PPG. This relationship between volumes and HANA hosts won't change if at least one virtual machine is up and running all the time.
 
 > [!NOTE]
-> When you use application volume group to deploy your HANA volumes, at least one VM in the availability set must be started. Without a running VM, the PPG cannot be used to find the optimal Azure NetApp files hardware, and provisioning will fail.
+> When you use application volume group to deploy your HANA volumes, at least one VM in the availability set must be started. Without a running VM, the PPG can't be used to find the optimal Azure NetApp files hardware, causing provisioning to fail.
 
 > [!NOTE]
-> Do not delete your PPG. Deleting a PPG will remove the pinning and can cause subsequent volume groups to be created in sub-optimal locations which could lead to increased latency.
+> Do not delete your PPG. Deleting a PPG removes the pinning and can cause subsequent volume groups to be created in sub-optimal locations which could lead to increased latency.
 
 ## Next steps
 

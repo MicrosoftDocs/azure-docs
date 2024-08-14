@@ -3,11 +3,11 @@ title: 'Generate and export certificates for User VPN P2S connections: PowerShel
 titleSuffix: Azure Virtual WAN
 description: Learn how to create a self-signed root certificate, export a public key, and generate client certificates for Virtual WAN User VPN (point-to-site) connections using PowerShell.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/23/2023
 ms.author: cherylmc
-
 ---
 # Generate and export certificates for User VPN connections using PowerShell
 

@@ -6,7 +6,8 @@ author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/21/2024
+
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -104,7 +105,7 @@ To configure your tenant application as an eID-ME relying party in eID-Me, suppl
 
 For the following instructions, use the directory with the Azure AD B2C tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home) as Global Administrator of the Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/#home) as at least B2C IEF Policy Administrator of the Azure AD B2C tenant.
 2. In the top menu, select **Directory + subscription**.
 3. Select the directory with the tenant.
 4. In the top-left corner of the Azure portal, select **All services**.
@@ -249,7 +250,7 @@ You can add more identity claims that eID-Me supports.
 2. Find the `BuildingBlocks` element. 
 
 > [!NOTE]
-> Find supported eID-Me identity claims lists on [OID repository](http://www.oid-info.com/get/1.3.6.1.4.1.50715) with OIDC identifiers on [well-known/openid-configuration](https://eid-me.bluink.ca/.well-known/openid-configuration).
+> Find supported eID-Me identity claims lists on [OID repository](https://oid-rep.orange-labs.fr/get/1.3.6.1.4.1.50715) with OIDC identifiers on [well-known/openid-configuration](https://eid-me.bluink.ca/.well-known/openid-configuration).
 
    ```xml
    <BuildingBlocks>

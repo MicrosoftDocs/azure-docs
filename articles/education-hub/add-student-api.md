@@ -1,5 +1,5 @@
 ---
-title: Add students to a lab in the Azure Education Hub
+title: Add students to a lab in the Azure Education Hub with REST APIs
 description: Learn how to add students to a lab in the Azure Education Hub by using REST APIs.
 author: vinnieangel
 ms.author: vangellotti

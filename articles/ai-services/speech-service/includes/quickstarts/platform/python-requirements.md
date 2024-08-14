@@ -20,12 +20,9 @@ Install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 
 
 # [Linux](#tab/linux)
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 The Speech SDK for Python supports the following distributions on the x64 and ARM64 architectures:
 
-- Ubuntu 20.04/22.04
+- Ubuntu 20.04/22.04/24.04
 - Debian 11/12
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
@@ -36,7 +33,7 @@ A macOS version 10.14 or later is required.
 
 ---
 
-Install a version of [Python from 3.7 or later](https://www.python.org/downloads/).
+Install a version of [Python from 3.8 or later](https://www.python.org/downloads/).
 
 - To check your installation, open a terminal and run the command `python --version`. If Python installed properly, you get a response like `Python 3.8.10`.
 

@@ -2,7 +2,7 @@
 title: NV family VM size series
 description: List of sizes in the NV family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/06/2024
@@ -24,7 +24,7 @@ ms.author: mattmcinnes
 ### NV-series V1
 [!INCLUDE [nv-series-summary](./includes/nv-series-summary.md)]
 
-[View the full NV-series page](../../nv-series.md).
+[View the full NV-series page](./nv-series.md).
 
 [!INCLUDE [nv-series-specs](./includes/nv-series-specs.md)]
 
@@ -47,11 +47,11 @@ ms.author: mattmcinnes
 
 
 ### NVads-A10 v5-series
-[!INCLUDE [nvads-a10-v5-series-summary](./includes/nvads-a10-v5-series-summary.md)]
+[!INCLUDE [nvads-a10-v5-series-summary](./includes/nvadsa10v5-series-summary.md)]
 
 [View the full NVads-A10 v5-series page](../../nva10v5-series.md).
 
-[!INCLUDE [nvads-a10-v5-series-specs](./includes/nvads-a10-v5-series-specs.md)]
+[!INCLUDE [nvads-a10-v5-series-specs](./includes/nvadsa10v5-series-specs.md)]
 
 
 ### Previous-generation NV family series

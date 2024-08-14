@@ -20,9 +20,23 @@ Arc resource bridge communicates outbound securely to Azure Arc over TCP port 44
 > [!NOTE]
 > The URLs listed here are required for Arc resource bridge only. Other Arc products (such as Arc-enabled VMware vSphere) may have additional required URLs. For details, see [Azure Arc network requirements](../network-requirements-consolidated.md#azure-arc-enabled-vmware-vsphere).
 
+## Designated IPs used by Arc resource bridge
+
+When Arc resource bridge is deployed, there are designated IPs used exclusively by the appliance VM for the Kubernetes pods and services. These IPs can only be used for Arc resource bridge and can’t be used by any other service. If another service already uses an IP address within these ranges, please submit a support ticket.
+
+
+| Service|Designated Arc resource bridge IPs|
+| -------- | -------- |
+|Arc resource bridge Kubernetes pods   |10.244.0.0/16 |
+| Arc resource bridge Kubernetes services| 10.96.0.0/12  |
+
 ## SSL proxy configuration
 
-If using a proxy, Arc resource bridge must be configured for proxy so that it can connect to the Azure services.
+> [!IMPORTANT]
+> Arc Resource Bridge supports only direct (explicit) proxies, including unauthenticated proxies, proxies with basic authentication, SSL terminating proxies, and SSL passthrough proxies.
+>
+
+If using a proxy, the Arc Resource Bridge must be configured to use the proxy in order to connect to Azure services.
 
 - To configure the Arc resource bridge with proxy, provide the proxy certificate file path during creation of the configuration files.
 
@@ -41,6 +55,7 @@ There are only two certificates that should be relevant when deploying the Arc r
 - SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
 
 In order to deploy Arc resource bridge, images need to be downloaded to the management machine and then uploaded to the on-premises private cloud gallery. If your proxy server throttles download speed, you may not be able to download the required images (~3.5 GB) within the allotted time (90 min).
+
 
 ## Exclusion list for no proxy
 

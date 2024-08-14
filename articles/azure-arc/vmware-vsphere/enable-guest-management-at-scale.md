@@ -2,7 +2,7 @@
 title: Install Arc agent at scale for your VMware VMs
 description: Learn how to enable guest management at scale for Arc enabled VMware vSphere VMs. 
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 07/18/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: PriskeyJeronika-MS
@@ -158,21 +158,15 @@ Arc agents can be installed directly on machines without relying on VMware tools
 
    - The following command scans all the Arc for Server machines that belong to the vCenter in the specified subscription and links the machines with that vCenter. 
 
-     ```azurecli
-     az connectedvmware vm create-from-machines --subscription contoso-sub --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
-     ```
+     [!INCLUDE [azure-cli-subscription](./includes/azure-cli-subscription.md)]
 
    - The following command scans all the Arc for Server machines that belong to the vCenter in the specified Resource Group and links the machines with that vCenter. 
 
-     ```azurecli
-     az connectedvmware vm create-from-machines --resource-group contoso-rg --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter.
-     ```
+     [!INCLUDE [azure-cli-all](./includes/azure-cli-all.md)]
 
    - The following command can be used to link an individual Arc for Server resource to vCenter. 
 
-     ```azurecli
-     az connectedvmware vm create-from-machines --resource-group contoso-rg --name contoso-vm --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
-     ```
+     [!INCLUDE [azure-cli-specified-arc](./includes/azure-cli-specified-arc.md)]
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Enable authentication and authorization in Azure Container Apps with Micr
 description: Learn to use the built-in Microsoft Entra authentication provider in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 04/20/2022
 ms.author: cshoe

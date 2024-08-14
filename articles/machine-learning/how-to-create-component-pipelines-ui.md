@@ -3,11 +3,11 @@ title: Create and run component-based ML pipelines (UI)
 titleSuffix: Azure Machine Learning
 description: Create and run machine learning pipelines using the Azure Machine Learning studio UI.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.author: keli19
-author: likebupt
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: keli19
 ms.date:  01/31/2024
 ms.topic: how-to
 ms.custom: devplatv2, designer
@@ -143,6 +143,12 @@ The **Review + Submit** step is the last step to review all configurations befor
 After submitting the pipeline job, there will be a message on the top with a link to the job detail. You can select this link to review the job details.
 
   :::image type="content" source="./media/how-to-create-component-pipelines-ui/submit-message.png" alt-text="Screenshot showing submission message." lightbox ="./media/how-to-create-component-pipelines-ui/submit-message.png":::
+
+## Specify identity in pipeline job
+
+When submitting pipeline job, you can specify the identity to access the data under `Run settings`. The default identity is `AMLToken` which didn't use any identity meanwhile we support both `UserIdentity` and `Managed`. For `UserIdentity`, the identity of job submitter is used to access input data and write the result to the output folder. If you specify `Managed`, the system will use the managed identity to access the input data and write the result to the output folder.
+
+  :::image type="content" source="./media/how-to-create-component-pipelines-ui/identity-in-pipeline.png" alt-text="Screenshot showing how to set identity in pipeline job." lightbox ="./media/how-to-create-component-pipelines-ui/identity-in-pipeline.png":::
 
 ## Next steps
 

@@ -5,10 +5,10 @@ summary: Azure Batch runs large-scale applications efficiently in the cloud. Sch
 metadata:
   title: Azure Batch documentation
   description: Azure Batch runs large-scale applications efficiently in the cloud. Schedule compute-intensive tasks and dynamically adjust resources for your solution without managing infrastructure.
-  ms.service: batch 
+  ms.service: azure-batch
   ms.topic: landing-page 
-  author: prkannap 
-  ms.author: prkannap 
+  author: prasha-microsoft
+  ms.author: prashabora
   ms.date: 04/20/2022
 
 landingContent:

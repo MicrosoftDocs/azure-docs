@@ -1,8 +1,8 @@
 ---
 title: How to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 01/03/2024
-ms.topic: conceptual
+ms.date: 07/03/2024
+ms.topic: how-to
 ---
 
 # Prepare to deliver Extended Security Updates for Windows Server 2012
@@ -37,12 +37,9 @@ For Azure Arc-enabled servers enrolled in WS2012 ESUs enabled by Azure Arc, free
 
 Other Azure services through Azure Arc-enabled servers are available as well, with offerings such as:
 
-* [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) - As part of the cloud security posture management (CSPM) pillar, it provides server protections through [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers.md) to help protect you from various cyber threats and vulnerabilities.
+* [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) - As part of the cloud security posture management (CSPM) pillar, it provides server protections through [Microsoft Defender for Servers](/azure/defender-for-cloud/plan-defender-for-servers) to help protect you from various cyber threats and vulnerabilities.
 * [Microsoft Sentinel](scenario-onboard-azure-sentinel.md) - Collect security-related events and correlate them with other data sources.
-
-    >[!NOTE]
-    >Activation of ESU is planned for the third quarter of 2023. Using Azure services such as Azure Update Manager and Azure Policy to support managing ESU-eligible Windows Server 2012/2012 R2 machines are also planned for the third quarter.
-
+   
 ## Prepare delivery of ESUs
 
 Plan and prepare to onboard your machines to Azure Arc-enabled servers through the installation of the [Azure Connected Machine agent](agent-overview.md) (version 1.34 or higher) to establish a connection to Azure. Windows Server 2012 Extended Security Updates supports Windows Server 2012 and R2 Standard and Datacenter editions. Windows Server 2012 Storage is not supported.
@@ -70,6 +67,17 @@ Connectivity options include public endpoint, proxy server, and private link or 
 
 > [!TIP]
 > To take advantage of the full range of offerings for Arc-enabled servers, such as extensions and remote connectivity, ensure that you allow the additional URLs that apply to your scenario. For more information, see [Connected machine agent networking requirements](network-requirements.md).
+
+## Required Certificate Authorities
+
+The following [Certificate Authorities](/azure/security/fundamentals/azure-ca-details?tabs=root-and-subordinate-cas-list) are required for Extended Security Updates for Windows Server 2012:
+
+- [Microsoft Azure RSA TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2003%20-%20xsign.crt)
+- [Microsoft Azure RSA TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2004%20-%20xsign.crt)
+- [Microsoft Azure RSA TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2007%20-%20xsign.crt)
+- [Microsoft Azure RSA TLS Issuing CA 08](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2008%20-%20xsign.crt)
+
+If necessary, these Certificate Authorities can be [manually download and installed](troubleshoot-extended-security-updates.md#option-2-manually-download-and-install-the-intermediate-ca-certificates).
 
 ## Next steps
 

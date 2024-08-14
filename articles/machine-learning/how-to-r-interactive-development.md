@@ -2,13 +2,13 @@
 title: Use R interactively on Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn how to work with R interactively on Azure Machine Learning'
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 06/01/2023
 ms.topic: how-to
-author: wahalulu
-ms.author: mavaisma
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: mavaisma
 ms.devlang: r
 ---
 

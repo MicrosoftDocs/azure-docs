@@ -3,10 +3,10 @@ title: Set up MLOps with GitHub
 titleSuffix: Azure Machine Learning
 description: Learn how to set up a sample MLOps environment in Azure Machine Learning with GitHub Actions
 services: machine-learning
-author: fkriti
-ms.author: kritifaujdar
-ms.service: machine-learning
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.service: azure-machine-learning
+ms.reviewer: kritifaujdar
 ms.subservice: mlops
 ms.date: 01/29/2024
 ms.topic: conceptual

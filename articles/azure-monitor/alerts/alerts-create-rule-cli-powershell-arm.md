@@ -34,7 +34,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     > [!NOTE]
     > When you create a metric alert on a single resource, the syntax uses the `TargetResourceId`. When you create a metric alert on multiple resources, the syntax contains the `TargetResourceScope`, `TargetResourceType`, and `TargetResourceRegion`.
 - To create a log search alert rule using PowerShell, use the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) cmdlet.
-- To create an activity log alert rule using PowerShell, use the [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert) cmdlet.
+- To create an activity log alert rule using PowerShell, use the [New-AzActivityLogAlert](/powershell/module/az.monitor/new-azactivitylogalert) cmdlet.
 
 ## Create a new alert rule using an ARM template
 
@@ -44,7 +44,7 @@ You can use an [Azure Resource Manager template (ARM template)](../../azure-reso
     - For metric alerts: `Microsoft.Insights/metricAlerts`
         > [!NOTE]
         > - We recommend that you create the metric alert using the same resource group as your target resource.
-        > - Metric alerts for an Azure Log Analytics workspace resource type (`Microsoft.OperationalInsights/workspaces`) are configured differently than other metric alerts. For more information, see [Resource Template for Metric Alerts for Logs](alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+        > - Metric alerts for an Azure Log Analytics workspace resource type (`Microsoft.OperationalInsights/workspaces`) are configured differently than other metric alerts. For more information, see [Resource Template for Metric Alerts for Logs](alerts-metric-logs.md#resource-manager-templates).
         > - If you are creating a metric alert for a single resource, the template uses the `ResourceId` of the target resource. If you are creating a metric alert for multiple resources, the template uses the `scope`, `TargetResourceType`, and `TargetResourceRegion` for the target resources.
     - For log search alerts: `Microsoft.Insights/scheduledQueryRules`
     - For activity log, service health, and resource health alerts: `microsoft.Insights/activityLogAlerts`

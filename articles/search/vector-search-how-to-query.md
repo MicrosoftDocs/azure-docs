@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 06/12/2024
+ms.date: 08/05/2024
 ---
 
 # Create a vector query in Azure AI Search
@@ -20,19 +20,21 @@ In Azure AI Search, if you have a [vector index](vector-search-how-to-create-ind
 > + [Query vector fields](#vector-query-request)
 > + [Filter a vector query](#vector-query-with-filter)
 > + [Query multiple vector fields at once](#multiple-vector-fields)
-> + [Query with integrated vectorization (preview)](#query-with-integrated-vectorization-preview)
+> + [Set vector weights](#vector-weighting)
+> + [Query with integrated vectorization](#query-with-integrated-vectorization)
 > + [Set thresholds to exclude low-scoring results (preview)](#set-thresholds-to-exclude-low-scoring-results-preview)
-> + [Set vector weights (preview)](#vector-weighting-preview)
 
 This article uses REST for illustration. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) GitHub repository for end-to-end solutions that include vector queries. 
 
-You can also use [Search explorer](search-explorer.md) in the Azure portal if you [configure a vectorizer](vector-search-how-to-configure-vectorizer.md) that converts strings into embeddings.
+You can also use [Search Explorer](search-explorer.md) in the Azure portal.
 
 ## Prerequisites
 
 + Azure AI Search, in any region and on any tier.
 
 + [A vector index on Azure AI Search](vector-search-how-to-create-index.md). Check for a `vectorSearch` section in your index to confirm a vector index.
+
++ Optionally, [add a vectorizer](vector-search-how-to-configure-vectorizer.md) to your index for built-in text-to-vector or image-to-vector conversion during queries.
 
 + Visual Studio Code with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and sample data if you want to run these examples on your own. To get started with the REST client, see [Quickstart: Azure AI Search using REST](search-get-started-rest.md).
 
@@ -42,7 +44,7 @@ To query a vector field, the query itself must be a vector.
 
 One approach for converting a user's text query string into its vector representation is to call an embedding library or API in your application code. As a best practice, *always use the same embedding models used to generate embeddings in the source documents*. You can find code samples showing [how to generate embeddings](vector-search-how-to-generate-embeddings.md) in the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repository.
 
-A second approach is [using integrated vectorization](#query-with-integrated-vectorization-preview), currently in public preview, to have Azure AI Search handle your query vectorization inputs and outputs.
+A second approach is [using integrated vectorization](#query-with-integrated-vectorization), now generally available, to have Azure AI Search handle your query vectorization inputs and outputs.
 
 Here's a REST API example of a query string submitted to a deployment of an Azure OpenAI embedding model:
 
@@ -90,19 +92,20 @@ In this approach, your application code is responsible for connecting to a model
 
 This section shows you the basic structure of a vector query. You can use the Azure portal, REST APIs, or the Azure SDKs to formulate a vector query. If you're migrating from [**2023-07-01-Preview**](/rest/api/searchservice/index-preview), there are breaking changes. See [Upgrade to the latest REST API](search-api-migration.md) for details.
 
-### [**2023-11-01**](#tab/query-2023-11-01)
+### [**2024-07-01**](#tab/query-2024-07-01)
 
-[**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable REST API version for [Search POST](/rest/api/searchservice/documents/search-post). This version supports:
+[**2024-07-01**](/rest/api/searchservice/search-service-api-versions#2024-07-01) is the stable REST API version for [Search POST](/rest/api/searchservice/documents/search-post). This version supports:
 
 + `vectorQueries` is the construct for vector search.
-+ `kind` set to `vector` specifies that the query is a vector array.
-+ `vector` is query (a vector representation of text or an image).
++ `vectorQueries.kind` set to `vector` for a vector array, or set to `text` if the input is a string and [you have a vectorizer](#query-with-integrated-vectorization).
++ `vectorQueries.vector` is query (a vector representation of text or an image).
++ `vectorQueries.weight` (optional) specifies the relative weight of each vector query included in search operations (see [Vector weighting](#vector-weighting)).
 + `exhaustive` (optional) invokes exhaustive KNN at query time, even if the field is indexed for HNSW.
 
 In the following example, the vector is a representation of this string: "what Azure services support full text search". The query targets the `contentVector` field. The query returns `k` results. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -120,30 +123,35 @@ api-key: {{admin-api-key}}
             ],
             "exhaustive": true,
             "fields": "contentVector",
+            "weight": 0.5,
             "k": 5
         }
     ]
 }
 ```
 
-### [**2023-10-01-Preview**](#tab/query-2023-10-01-Preview)
+### [**2024-05-01-preview**](#tab/query-2024-05-01-preview)
 
-[**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) is the preview API version for [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). It supports the same vector query syntax as 2023-11-01 (shown in this tab), but also adds [integrated vectorization of text queries](#query-with-integrated-vectorization-preview). 
+[**2024-05-01-preview**](/rest/api/searchservice/search-service-api-versions#2024-05-01-preview) is the latest preview API version for [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&tabs=HTTP&preserve-view=true). It supports the same vector query syntax as **2024-07-01**, with extra parameters for hybrid search and minimum thresholds for excluding weaker results. 
 
-+ `vectorQueries` is the construct for vector search.
-+ `kind` set to `vector` specifies that the query is a vector array.
-+ `vector` is query (a vector representation of text or an image).
-+ `exhaustive` (optional) invokes exhaustive KNN at query time, even if the field is indexed for HNSW.
+This preview adds:
+
++ [`threshold`](#set-thresholds-to-exclude-low-scoring-results-preview) for excluding low scoring results.
++ [`Hybridsearch.MaxTextRecallSize`](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview) for more control over the inputs to a [hybrid query](hybrid-search-how-to-query.md).
 
 In the following example, the vector is a representation of this string: "what Azure services support full text search". The query targets the `contentVector` field. The query returns `k` results. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-05-01-preview
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
     "count": true,
     "select": "title, content, category",
+    "hybridSearch": {
+        "maxTextRecallSize": 100,
+        "countAndFacetMode": "countAllResults"
+        }
     "vectorQueries": [
         {
             "kind": "vector",
@@ -154,54 +162,26 @@ api-key: {{admin-api-key}}
                 -0.02178128,
                 -0.00086512347
             ],
-            "exhaustive": true,
             "fields": "contentVector",
-            "k": 5
+            "k": 5,
+            "exhaustive": true,
+            "weight": 2,
+            "threshold": {
+                "kind": "vectorSimilarity",
+                "value": 0.8
+            },
+
         }
     ]
-}
 ```
-
-### [**2023-07-01-Preview**](#tab/query-vector-query)
-
-> [!IMPORTANT]
-> The vector query syntax for this version is obsolete in later versions. We recommend [upgrading to the latest REST API](search-api-migration.md).
-
-[**2023-07-01-Preview**](/rest/api/searchservice/index-preview) first introduced vector query support to [Search Documents](/rest/api/searchservice/preview-api/search-documents). This version added:
-
-+ `vectors` for specifying a vector to search for, vector fields to search in, and the k-number of nearest neighbors to return.
-
-In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the `contentVector` field. The query returns `k` results. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
-
-```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
-Content-Type: application/json
-api-key: {{admin-api-key}}
-{
-    "vectors": [{
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 5
-    }],
-    "select": "title, content, category"
-}
-```
-
-The response includes five matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes `k` matches, even if the similarity is weak. For indexes that have fewer than `k` documents, only those number of documents are returned.
-
-Notice that `select` returns textual fields from the index. Although the vector field is `retrievable` in this example, its content isn't meaningful as a search result, so it's often excluded in the results.
 
 ### [**Azure portal**](#tab/portal-vector-query)
 
-Use Search explorer to formulate a vector query. Search explorer has a **Query view** and **JSON View**. You must use **JSON view**, and you must formulate the vector query in JSON. The search bar in **Query view** is for full text search and treats any vector input as plain text (it doesn't execute a vector search).
+Use Search Explorer to formulate a vector query. Search Explorer has a **Query view** and **JSON View**. If you have a vectorizer, you can use **Query view** (see [Query with integrated vectorization](#query-with-integrated-vectorization) for steps.)
 
-1. Sign in to Azure portal and find your search service.
+Otherwise, if you don't have a vectorizer, you must use **JSON view** and formulate the vector query in JSON, pasting in a vector array as the query input.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and find your search service.
 
 1. Under **Search management** and **Indexes**, select the index.
 
@@ -211,7 +191,7 @@ Use Search explorer to formulate a vector query. Search explorer has a **Query v
 
    :::image type="content" source="media/vector-search-how-to-query/select-json-view.png" alt-text="Screenshot of the index list." border="true":::
 
-1. By default, the search API is **2023-10-01-Preview**. You can choose another API version.
+1. By default, the search API is **2024-05-01-preview**. You can choose another API version.
 
 1. Paste in a JSON vector query, and then select **Search**.
 
@@ -285,47 +265,9 @@ You can apply filters as exclusion criteria before the query executes, or after 
 > [!TIP]
 > If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a metadata filter.
 
-### [**2023-11-01**](#tab/filter-2023-11-01)
+### [**2024-07-01**](#tab/filter-2024-07-01)
 
-[**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the stable version for this API. It has:
-
-+ `vectorFilterMode` for prefilter (default) or postfilter [filtering modes](vector-search-filters.md).
-+ `filter` provides the criteria.
-
-In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the `contentVector` field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
-
-The filter criteria are applied to a filterable text field (`category `in this example) before the search engine executes the vector query.
-
-```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
-Content-Type: application/json
-api-key: {{admin-api-key}}
-{
-    "count": true,
-    "select": "title, content, category",
-    "filter": "category eq 'Databases'",
-    "vectorFilterMode": "preFilter",
-    "vectorQueries": [
-        {
-            "kind": "vector",
-            "vector": [
-                -0.009154141,
-                0.018708462,
-                . . . 
-                -0.02178128,
-                -0.00086512347
-            ],
-            "exhaustive": true,
-            "fields": "contentVector",
-            "k": 5
-        }
-    ]
-}
-```
-
-### [**2023-10-01-Preview**](#tab/filter-2023-10-01-Preview)
-
-[**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) introduces filter options. This version adds:
+[**2024-07-01**](/rest/api/searchservice/search-service-api-versions#2024-07-01) is the stable version for this API. It has:
 
 + `vectorFilterMode` for prefilter (default) or postfilter [filtering modes](vector-search-filters.md).
 + `filter` provides the criteria.
@@ -335,7 +277,7 @@ In the following example, the vector is a representation of this query string: "
 The filter criteria are applied to a filterable text field (`category` in this example) before the search engine executes the vector query.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -361,34 +303,41 @@ api-key: {{admin-api-key}}
 }
 ```
 
-### [**2023-07-01-Preview**](#tab/filter-2023-07-01-Preview)
+### [**2024-05-01-preview**](#tab/filter-2024-05-01-preview)
 
-[**2023-07-01-Preview**](/rest/api/searchservice/index-preview) supports post-filtering only.  
+[**2024-05-01-preview**](/rest/api/searchservice/search-service-api-versions#2024-05-01-preview) introduces filter options. This version adds:
+
++ `vectorFilterMode` for prefilter (default) or postfilter [filtering modes](vector-search-filters.md).
++ `filter` provides the criteria.
 
 In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the `contentVector` field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
-In this API version, there's no prefilter support or `vectorFilterMode` parameter. The filter criteria are applied after the search engine executes the vector query. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
+The filter criteria are applied to a filterable text field (`category` in this example) before the search engine executes the vector query.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-05-01-preview
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vectors": [
+    "count": true,
+    "select": "title, content, category",
+    "filter": "category eq 'Databases'",
+    "vectorFilterMode": "preFilter",
+    "vectorQueries": [
         {
-            "value": [
+            "kind": "vector",
+            "vector": [
                 -0.009154141,
                 0.018708462,
                 . . . 
                 -0.02178128,
                 -0.00086512347
             ],
+            "exhaustive": true,
             "fields": "contentVector",
-            "k": 10
-        },
-    ],
-    "select": "title, content, category",
-    "filter": "category eq 'Databases'"
+            "k": 5
+        }
+    ]
 }
 ```
 
@@ -399,7 +348,7 @@ api-key: {{admin-api-key}}
 You can set the "vectorQueries.fields" property to multiple vector fields. The vector query executes against each vector field that you provide in the `fields` list. When querying multiple vector fields, make sure each one contains embeddings from the same embedding model, and that the query is also generated from the same embedding model.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -468,22 +417,43 @@ The following query example looks for similarity in both `myImageVector` and `my
 
 Search results would include a combination of text and images, assuming your search index includes a field for the image file (a search index doesn't store images).
 
-## Query with integrated vectorization (preview)
+## Query with integrated vectorization
 
-This section shows a vector query that invokes the new [integrated vectorization](vector-search-integrated-vectorization.md) preview feature that converts a text query into a vector. Use [**2023-10-01-Preview** REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) or an updated beta Azure SDK package.
+This section shows a vector query that invokes the [integrated vectorization](vector-search-integrated-vectorization.md) that converts a text or [image query](search-get-started-portal-image-search.md) into a vector. We recommend the stable [**2024-07-01**](/rest/api/searchservice/documents/search-post) REST API, Search Explorer, or newer Azure SDK packages for this feature.
 
-A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time.
+A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time. 
 
-Queries provide text strings instead of vectors:
+### [**Azure portal**](#tab/builtin-portal)
 
-+ `kind` must be set to `text` .
-+ `text` must have a text string. It's passed to the vectorizer assigned to the vector field.
-+ `fields` is the vector field to search.
+Search Explorer supports integrated vectorization at query time. If your index contains vector fields and has a vectorizer, you can use the built-in text-to-vector conversion.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure AI Search service.
+
+1. From the left menu, expand **Search management** > **Indexes**, and select your index. Search Explorer is the first tab on the index page.
+
+1. Check **Vector profiles** to confirm you have a vectorizer.
+
+   :::image type="content" source="media/vector-search-how-to-query/check-vectorizer.png" alt-text="Screenshot of a vectorizer setting in a search index.":::
+
+1. In Search Explorer, you can enter a text string into the default search bar in query view. The built-in vectorizer converts your string into a vector, performs the search, and returns results.
+
+   Alternatively, you can select **View** > **JSON view** to view or modify the query. If vectors are present, Search Explorer sets up a vector query automatically. You can use JSON view to select fields used in search and in the response, add filters, or construct more advanced queries like hybrid. A JSON example is provided in the REST API tab of this section.
+
+### [**REST API**](#tab/builtin-2024-07-01)
+
+1. Use [Index - GET](/rest/api/searchservice/indexes/get) to return the index definition and check for the presence of a vectorizer configuration. Look for `vectorizers` in your index definition. It should specify a deployed embedding model.
+
+1. Use [Search - POST](/rest/api/searchservice/documents/search-post) for the query request.
+
+    + `kind` must be set to `text` .
+    + `text` must have a text string. It's passed to the vectorizer assigned to the vector field.
+    + `fields` is the vector field to search.
+    + `k` is the number of vector matches to return.
 
 Here's a simple example of a query that's vectorized at query time. The text string is vectorized and then used to query the descriptionVector field.
 
 ```http
-POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2023-10-01-preview
+POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2024-07-01
 {
     "select": "title, genre, description",
     "vectorQueries": [
@@ -502,7 +472,7 @@ Here's a [hybrid query](hybrid-search-how-to-query.md) using integrated vectoriz
 In this example, the search engine makes three vectorization calls to the vectorizers assigned to `descriptionVector`, `synopsisVector`, and `authorBioVector` in the index. The resulting vectors are used to retrieve documents against their respective fields. The search engine also executes a keyword search on the `search` query, "mystery novel set in London". 
 
 ```http
-POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2023-10-01-preview
+POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -533,7 +503,9 @@ api-key: {{admin-api-key}}
 The scored results from all four queries are fused using [RRF ranking](hybrid-search-ranking.md). Secondary [semantic ranking](semantic-search-overview.md) is invoked over the fused search results, but on the `searchFields` only, boosting results that are the most semantically aligned to `"search":"mystery novel set in London"`.
 
 > [!NOTE]
-> Vectorizers are used during indexing and querying. If you don't need data chunking and vectorization in the index, you can skip steps like creating an indexer, skillset, and data source. In this scenario, the vectorizer is used only at query time to convert a text string to an embedding.
+> Vectorization occurs during indexing and querying. If you don't need data chunking and vectorization in the index, you can skip steps like creating an indexer, skillset, and data source. In this workflow, vectorization is used only at query time to convert a text string or an image into an embedding. You can define a vectorizer in the search index for this step.
+
+---
 
 ## Number of ranked results in a vector query response
 
@@ -569,57 +541,20 @@ Multiple sets are created if the query targets multiple vector fields, runs mult
 
 During query execution, a vector query can only target one internal vector index. So for [multiple vector fields](#multiple-vector-fields) and [multiple vector queries](#multiple-vector-queries), the search engine generates multiple queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Relevance scoring using Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
 
-## Set thresholds to exclude low-scoring results (preview)
+## Vector weighting
 
-Because nearest neighbor search always returns the requested `k` neighbors, it's possible to get low scoring matches as part of meeting the `k` number requirement on search results.
-
-Using the 2024-05-01-preview REST APIs, you can now add a `threshold` query parameter to exclude low-scoring search results.
-
-```http
-POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
-    Content-Type: application/json 
-    api-key: [admin key] 
-
-    { 
-      "vectorQueries": [ 
-        { 
-          "kind": "vector", 
-          "vector": [1.0, 2.0, 3.0], 
-          "fields": "my-cosine-field", 
-          "threshold": { 
-            "kind": "vectorSimilarity", 
-            "value": 0.8 
-          } 
-        }
-      ]
-    }
-```
-
-Filtering occurs before [fusing results](hybrid-search-ranking.md) from different recall sets. 
-
- <!-- Keep H2 as-is. Direct link from a blog post. Bulk of maxtextsizerecall has moved to hybrid query doc-->
-## MaxTextSizeRecall for hybrid search (preview)
-
-Vector queries are often used in hybrid constructs that include nonvector fields. If you discover that BM25-ranked results are over or under represented in a hybrid query results, you can [set `maxTextRecallSize`](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview) to increase or decrease the BM25-ranked results provided for hybrid ranking.
-
-You can only set this property in hybrid requests that include both "search" and "vectorQueries" components.
-
-For more information, see [Set maxTextRecallSize - Create a hybrid query](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview).
-
-## Vector weighting (preview)
-
-Add a `weight` query parameter to specify the relative weight of each vector included in search operations. This value is used when combining the results of multiple ranking lists produced by two or more vector queries in the same request, or from the vector portion of a hybrid query.
+Add a `weight` query parameter to specify the relative weight of each vector query included in search operations. This value is used when combining the results of multiple ranking lists produced by two or more vector queries in the same request, or from the vector portion of a hybrid query.
 
 The default is 1.0 and the value must be a positive number larger than zero.
 
 Weights are used when calculating the [reciprocal rank fusion](hybrid-search-ranking.md#weighted-scores) scores of each document. The calculation is multiplier of the `weight` value against the rank score of the document within its respective result set.
 
-The following example is a hybrid query with two vector query strings and one text string. Weights are assigned to the vector queries. The first query is 0.5 or half the weight, reducing its importance in the request. The second vectory query is twice as important. 
+The following example is a hybrid query with two vector query strings and one text string. Weights are assigned to the vector queries. The first query is 0.5 or half the weight, reducing its importance in the request. The second vector query is twice as important. 
 
 Text queries have no weight parameters, but you can increase or decrease their importance by setting [maxTextRecallSize](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview).
 
 ```http
-POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
+POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-07-01
 
     { 
       "vectorQueries": [ 
@@ -641,6 +576,45 @@ POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?
       "search": "hello world" 
     } 
 ```
+
+## Set thresholds to exclude low-scoring results (preview)
+
+Because nearest neighbor search always returns the requested `k` neighbors, it's possible to get multiple low scoring matches as part of meeting the `k` number requirement on search results. To exclude low-scoring search result, you can add a `threshold` query parameter that filters out results based on a minimum score. Filtering occurs before [fusing results](hybrid-search-ranking.md) from different recall sets. 
+
+This parameter is still in preview. We recommend preview REST API version [2024-05-01-preview](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
+
+In this example, all matches that score below 0.8 are excluded from vector search results, even if the number of results fall below `k`.
+
+```http
+POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-preview 
+    Content-Type: application/json 
+    api-key: [admin key] 
+
+    { 
+      "vectorQueries": [ 
+        { 
+          "kind": "vector", 
+          "vector": [1.0, 2.0, 3.0], 
+          "fields": "my-cosine-field", 
+          "threshold": { 
+            "kind": "vectorSimilarity", 
+            "value": 0.8 
+          } 
+        }
+      ]
+    }
+```
+
+ <!-- Keep H2 as-is. Direct link from a blog post. Bulk of maxtextsizerecall has moved to hybrid query doc-->
+## MaxTextSizeRecall for hybrid search (preview)
+
+Vector queries are often used in hybrid constructs that include nonvector fields. If you discover that BM25-ranked results are over or under represented in a hybrid query results, you can [set `maxTextRecallSize`](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview) to increase or decrease the BM25-ranked results provided for hybrid ranking.
+
+You can only set this property in hybrid requests that include both "search" and "vectorQueries" components.
+
+This parameter is still in preview. We recommend preview REST API version [2024-05-01-preview](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
+
+For more information, see [Set maxTextRecallSize - Create a hybrid query](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview).
 
 ## Next steps
 

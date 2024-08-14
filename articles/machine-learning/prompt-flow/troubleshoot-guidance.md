@@ -3,15 +3,15 @@ title: Troubleshoot guidance
 titleSuffix: Azure Machine Learning
 description: This article addresses frequent questions prompt flow usage.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: reference
-author: ChenJieting
-ms.author: chenjieting
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenjieting
 ms.date: 09/05/2023
 ---
 
@@ -271,6 +271,10 @@ If you encounter an error like "Access denied to list workspace secret", check w
 
 ### How do I use credential-less datastore in prompt flow?
 
+To use credential-less storage in Azure AI studio. You need basically do following things:
+- Change the data store auth type to None.
+- Grant project MSI and user blob/file data contributor permission on storage.
+
 #### Change auth type of datastore to None
 
 You can follow [Identity-based data authentication](../how-to-administrate-data-authentication.md#identity-based-data-authentication) this part to make your datastore credential-less. 
@@ -281,11 +285,11 @@ You need to change auth type of datastore to None, which stands for meid_token b
 
 For blob based datastore, you can change auth type and also enable workspace MSI to access the storage account.
 
-:::image type="content" source="./media/faq/datastore-update-auth-type.png" alt-text="Screenshot of update auth type for blob based datastore. " lightbox = "./media/faq/datastore-update-auth-type.png":::
+:::image type="content" source="./media/faq/datastore-update-auth-type-file.png" alt-text="Screenshot of update auth type for blob based datastore. " lightbox = "./media/faq/datastore-update-auth-type-file.png":::
 
 For file share based datastore, you can change auth type only.
 
-:::image type="content" source="./media/faq/datastore-update-auth-type-file.png" alt-text="Screenshot of update auth type for file share based datastore. " lightbox = "./media/faq/datastore-update-auth-type-file.png":::
+:::image type="content" source="./media/faq/datastore-update-auth-type.png" alt-text="Screenshot of update auth type for file share based datastore. " lightbox = "./media/faq/datastore-update-auth-type.png":::
 
 
 #### Grant permission to user identity or managed identity

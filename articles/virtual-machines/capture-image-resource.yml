@@ -5,8 +5,8 @@ metadata:
   description: Create a legacy managed image of a generalized VM or VHD in Azure.
   author: ju-shim
   ms.author: jushiman
-  ms.date: 03/15/2023
-  ms.service: virtual-machines
+  ms.date: 06/25/2024
+  ms.service: azure-virtual-machines
   ms.subservice: imaging
   ms.topic: how-to
   ms.custom:
@@ -137,8 +137,8 @@ procedureSection:
       - |
         Create the image.
 
-        ```azurepowershell-interactive New-AzImage -Image $image -ImageName
-        $imageName -ResourceGroupName $rgName
+        ```azurepowershell-interactive
+        New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
         ```
   - title: | 
       PowerShell: Create a legacy managed image from a managed disk 

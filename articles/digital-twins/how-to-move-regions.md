@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 02/23/2022
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.reviewer: MSFT-alias-of-reviewer
