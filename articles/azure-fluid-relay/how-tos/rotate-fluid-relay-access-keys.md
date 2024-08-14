@@ -43,6 +43,8 @@ Then use [az fluid-relay server list-key](/cli/azure/fluid-relay/server?view=azu
 az fluid-relay server list-key --resource-group <resource group> --server-name <Fluid Relay Service name>
 ```
 
+---
+
 ## Rotate your access keys
 Two access keys are assigned so that your Azure Fluid Relay Service does not have to be taken offline when you rotate a key. Having two keys ensures that your application maintains access to Azure Fluid Relay throughout the process. You should rotate one of two keys at one time to avoid service interruptions.
 
@@ -95,3 +97,5 @@ az fluid-relay server regenerate-key --resource-group <resource group>--server-n
 ```
 
 3. Update the primary key in your code to reference the new primary access key.
+
+---
