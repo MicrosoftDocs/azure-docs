@@ -8,7 +8,7 @@ ms.subservice: inferencing
 ms.topic: how-to
 author: msakande
 ms.author: mopeakande
-ms.date: 08/13/2024
+ms.date: 08/14/2024
 ms.reviewer: cacrest
 ms.custom: devplatv2
 ---
@@ -31,7 +31,7 @@ In this article, learn how to use batch endpoints in Azure Data Factory activiti
 
 - A model deployed as a batch endpoint. Use the *heart condition classifier* created in [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
 - An Azure Data Factory resource. To create a data factory, follow the steps in [Quickstart: Create a data factory by using the Azure portal](../data-factory/quickstart-create-data-factory-portal.md).
-- After creating your data factory, browse to it in the Azure portal and select **Launch Studio**:
+- After creating your data factory, browse to it in the Azure portal and select **Launch studio**:
 
   :::image type="content" source="./media/how-to-use-batch-adf/data-factory-home-page.png" lightbox="./media/how-to-use-batch-adf/data-factory-home-page.png" alt-text="Screenshot of the home page for the Azure Data Factory, labeled Open Azure Data Factory Studio and Launch studio highlighted.":::
 
@@ -77,7 +77,7 @@ The pipeline looks as follows:
 
 # [Use a managed identity](#tab/mi)
 
-:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" alt-text="Diagram that shows th high level structure of the pipeline you're creating.":::
+:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" lightbox="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" alt-text="Diagram that shows th high level structure of the pipeline you're creating.":::
 
 The pipeline contains the following activities:
 
