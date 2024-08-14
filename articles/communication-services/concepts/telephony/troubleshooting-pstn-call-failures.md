@@ -9,7 +9,6 @@ ms.author: slpavkov
 manager: aakanmu
 audience: ITPro
 ms.topic: troubleshooting
-localization_priority: Normal
 ---
 # Troubleshooting Azure Communication Services PSTN call failures
 
