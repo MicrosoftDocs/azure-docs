@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 08/14/2024
 ms.author: kgremban 
 ms.custom: devx-track-portal, devx-track-azurecli
 ---
@@ -24,7 +24,7 @@ In IoT Hub, a *device twin* is a JSON document that stores state information. Ev
 
 For more information, see [Understand and use device twins in IoT Hub](./iot-hub-devguide-device-twins.md) or [Understand and use module twins in IoT Hub](./iot-hub-devguide-module-twins.md).
 
-[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Prepare the following prerequisites before you begin.
 
 ## Understand tags for device organization
 
-Device twin tags can be used as a powerful tool to help you organize your devices. This is especially important when you have multiple kinds of devices within your IoT solutions, you can use tags to set types, locations etc. For example:
+Device twin tags can be used as a powerful tool to help you organize your devices. When you have multiple kinds of devices within your IoT solutions, you can use tags to set types, locations, etc. For example:
 
 ```json
 {
@@ -82,7 +82,7 @@ Once a device identity is created, a device twin is implicitly created in IoT Hu
 
 1. In your IoT hub, select **Devices** from the **Device management** section of the navigation menu.
 
-   On the **Devices** page, you see a list of all devices registered in your IoT hub. If any of the devices already have tags in their device twins, those are shown in the **Tags** column.
+   On the **Devices** page, you see a list of all devices registered in your IoT hub. If any of the devices already have tags in their device twins, those tags are shown in the **Tags** column.
 
 1. Select the name of the device that you want to manage.
 
@@ -108,7 +108,7 @@ Once a device identity is created, a device twin is implicitly created in IoT Hu
 
 1. Back on the device details page, select **Refresh** to update the page to reflect your changes.
 
-If your device has any module identities associated with it, those are displayed on the device details page as well. Select a module name, then select **Module identity twin** to view and update the module twin JSON.
+If your device has any module identities associated with it, those modules are displayed on the device details page as well. Select a module name, then select **Module identity twin** to view and update the module twin JSON.
 
 ### [Azure CLI](#tab/cli)
 
@@ -187,7 +187,7 @@ az iot hub query --hub-name <IOTHUB_NAME> --query-command "SELECT * FROM devices
 
 ## Update device twins using jobs
 
-The *jobs* capability can executy device twin updates against a set of devices at a scheduled time. For more information, see [Schedule jobs on multiple devices](./iot-hub-devguide-jobs.md).
+The *jobs* capability can execute device twin updates against a set of devices at a scheduled time. For more information, see [Schedule jobs on multiple devices](./iot-hub-devguide-jobs.md).
 
 ### [Azure portal](#tab/portal)
 
