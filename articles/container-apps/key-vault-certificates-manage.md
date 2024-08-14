@@ -80,6 +80,10 @@ For more detail on RBAC vs. legacy access policies, see [Azure role-based access
 
 After configuring your certificate, you can use it to secure your custom domain. Follow the steps in [Add a custom domain](custom-domains-certificates.md#add-a-custom-domain-and-certificate) and select the certificate you imported from Key Vault.
 
+## Rotate certificates
+
+When you rotate your certificate in Key Vault, Azure Container Apps automatically updates the certificate in your environment. It takes up to 12 hours for the new certificate to be applied.
+
 ## Related
 
 > [!div class="nextstepaction"]
