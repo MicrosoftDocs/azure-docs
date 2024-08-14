@@ -42,6 +42,7 @@ This version contains support for the latest Azure OpenAI features including:
 
 - [Batch API support added](./how-to/batch.md)
 - [Vector store chunking strategy parameters](/azure/ai-services/openai/reference-preview?#request-body-17)
+- `max_num_results` that the file search tool should output.
 
 ## Changes between 2024-03-01-preview and 2024-04-01-preview API specification
 
