@@ -1107,16 +1107,22 @@ items:
       href: data-lake-storage-supported-azure-services.md
     - name: Supported open source platforms
       href: data-lake-storage-supported-open-source-platforms.md
+    - name: Premium tier for Data Lake Storage
+      href: premium-tier-for-data-lake-storage.md
     - name: Known issues
       href: data-lake-storage-known-issues.md
   - name: Getting started
     items:
-    - name: Create a storage account
-      href: create-data-lake-storage-account.md
-    - name: Premium tier for Data Lake Storage
-      href: premium-tier-for-data-lake-storage.md
     - name: Best practices
       href: data-lake-storage-best-practices.md
+    - name: Enable Gen2 in a new storage account
+      href: create-data-lake-storage-account.md
+    - name: Enable Gen2 in an existing storage account
+      items:
+      - name: Plan to upgrade an account with Gen2 capabilities
+        href: upgrade-to-data-lake-storage-gen2.md
+      - name: Upgrade an account with Gen2 capabilities
+        href: upgrade-to-data-lake-storage-gen2-how-to.md
   - name: Access control
     items:
     - name: Access control model
