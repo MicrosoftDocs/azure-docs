@@ -20,7 +20,7 @@ Through this process, Microsoft enables organizations to proactively monitor the
 
 ## How it works
 
-To create a comprehensive mapping of your organization’s attack surface, the system first intakes known assets (i.e. “seeds”) that are recursively scanned to discover additional entities through their connections to a seed. An initial seed may be any of the following kinds of web infrastructure indexed by Microsoft:
+To create a comprehensive mapping of your organization’s attack surface, the system first intakes known assets (known as "seeds") that are recursively scanned to discover more entities through their connections to a seed. An initial seed may be any of the following kinds of web infrastructure indexed by Microsoft:
 
 - Domains
 - IP Blocks
@@ -44,11 +44,11 @@ For example, to discover Contoso’s infrastructure, you might use the domain, c
 | SSL certificates | Contoso probably also owns all SSL certificates connected to each of those hosts and any other hosts using the same SSL certs |
 | ASN records | Other IP blocks associated with the same ASN as the IP blocks to which hosts on Contoso’s domain names are connected may also belong to Contoso – as would all the hosts and domains that resolve to them |
 
-Using this set of first-level connections, we can quickly derive an entirely new set of assets to investigate. Before performing additional recursions, Microsoft determines whether a connection is strong enough for a discovered entity to be automatically added to your Confirmed Inventory. For each of these assets, the discovery system runs automated, recursive searches based on all available attributes to find second-level and third-level connections. This repetitive process provides more information on an organization’s online infrastructure and therefore discovers disparate assets that may not have been discovered and subsequently monitored otherwise.
+Using this set of first-level connections, we can quickly derive an entirely new set of assets to investigate. Before performing more recursions, Microsoft determines whether a connection is strong enough for a discovered entity to be automatically added to your Confirmed Inventory. For each of these assets, the discovery system runs automated, recursive searches based on all available attributes to find second-level and third-level connections. This repetitive process provides more information on an organization’s online infrastructure and therefore discovers disparate assets that may not have been discovered and subsequently monitored otherwise.
 
 ## Automated versus customized attack surfaces
 
-When first using Defender EASM, you can access a pre-built inventory for your organization to quickly kick start your workflows. From the “Getting Started” page, users can search for their organization to quickly populate their inventory based on asset connections already identified by Microsoft. It is recommended that all users search for their organization’s pre-built Attack Surface before creating a custom inventory.
+When first using Defender EASM, you can access a pre-built inventory for your organization to quickly kick start your workflows. From the "Getting Started" page, users can search for their organization to quickly populate their inventory based on asset connections already identified by Microsoft. It is recommended that all users search for their organization’s pre-built Attack Surface before creating a custom inventory.
 
 To build a customized inventory, users create Discovery Groups to organize and manage the seeds they use when running discoveries. Separate Discovery groups allow users to automate the discovery process, configuring the seed list and recurrent run schedule.
 
@@ -56,18 +56,19 @@ To build a customized inventory, users create Discovery Groups to organize and m
 
 ## Confirmed inventory vs. candidate assets
 
-If the discovery engine detects a strong connection between a potential asset and the initial seed, the system will automatically include that asset in an organization’s “Confirmed Inventory.” As the connections to this seed are iteratively scanned, discovering third- or fourth-level connections, the system’s confidence in the ownership of any newly detected assets is lower. Similarly, the system may detect assets that are relevant to your organization but may not be directly owned by them.
+If the discovery engine detects a strong connection between a potential asset and the initial seed, the system will automatically include that asset in an organization’s "Confirmed Inventory." As the connections to this seed are iteratively scanned, discovering third- or fourth-level connections, the system’s confidence in the ownership of any newly detected assets is lower. Similarly, the system may detect assets that are relevant to your organization but may not be directly owned by them.
+
 For these reasons, newly discovered assets are labeled as one of the following states:
 
 | State name | Description |
 |--|--|
 | Approved Inventory | A part of your owned attack surface; an item that you are directly responsible for. |
-| Dependency | Infrastructure that is owned by a third party but is part of your attack surface because it directly supports the operation of your owned assets. For example, you might depend on an IT provider to host your web content. While the domain, hostname, and pages would be part of your “Approved Inventory,” you may wish to treat the IP Address running the host as a “Dependency.” |
-| Monitor Only | An asset that is relevant to your attack surface but is neither directly controlled nor a technical dependency. For example, independent franchisees or assets belonging to related companies might be labeled as “Monitor Only” rather than “Approved Inventory” to separate the groups for reporting purposes. |
+| Dependency | Infrastructure that is owned by a third party but is part of your attack surface because it directly supports the operation of your owned assets. For example, you might depend on an IT provider to host your web content. While the domain, hostname, and pages would be part of your "Approved Inventory," you may wish to treat the IP Address running the host as a “Dependency.” |
+| Monitor Only | An asset that is relevant to your attack surface but is neither directly controlled nor a technical dependency. For example, independent franchisees or assets belonging to related companies might be labeled as “Monitor Only” rather than "Approved Inventory" to separate the groups for reporting purposes. |
 | Candidate | An asset that has some relationship to your organization's known seed assets but does not have a strong enough connection to immediately label it as “Approved Inventory.” These candidate assets must be manually reviewed to determine ownership. |
-| Requires Investigation | A state similar to the “Candidate” states, but this value is applied to assets that require manual investigation to validate. This is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It does not indicate the infrastructure's exact relationship to the organization as much as it denotes that this asset has been flagged as requiring additional review to determine how it should be categorized. |
+| Requires Investigation | A state similar to the "Candidate" states, but this value is applied to assets that require manual investigation to validate. This is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It does not indicate the infrastructure's exact relationship to the organization as much as it denotes that this asset has been flagged as requiring additional review to determine how it should be categorized. |
 
-When reviewing assets, it is recommended that you start with those labeled as "Requires Investigation." Asset details are continuously refreshed and updated over time to maintain an accurate map of asset states and relationships, as well as to uncover newly created assets as they emerge. The discovery process is managed by placing seeds in Discovery Groups that can be scheduled to rerun on a recurrent basis. Once an inventory is populated, the Defender EASM system continuously scans your assets with Microsoft’s virtual user technology to uncover fresh, detailed data about each one. This process examines the content and behavior of each page within applicable sites to provide robust information that can be used to identify vulnerabilities, compliance issues and other potential risks to your organization.
+When reviewing assets, it is recommended that you start with the assets labeled with "Requires Investigation." Asset details are continuously refreshed and updated over time to maintain an accurate map of asset states and relationships, as well as to uncover newly created assets as they emerge. The discovery process is managed by placing seeds in Discovery Groups that can be scheduled to rerun on a recurrent basis. Once an inventory is populated, the Defender EASM system continuously scans your assets with Microsoft’s virtual user technology to uncover fresh, detailed data about each one. This process examines the content and behavior of each page within applicable sites to provide robust information that can be used to identify vulnerabilities, compliance issues and other potential risks to your organization.
 
 ## Next steps
 - [Deploying the EASM Azure resource](deploying-the-defender-easm-azure-resource.md)
