@@ -50,7 +50,7 @@ The following table shows support for individual APIs in Calling SDK to individu
 [1] Start Together Mode can only be called by a Microsoft 365 user with the role of organizer, co-organizer, or presenter.
  
 ### SDKs
-The following table shows support of feature in individual Azure Communication Services SDKs.
+The following table shows support for Together Mode feature in individual Azure Communication Services SDKs.
 
 |  Platforms     | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |---------------|-----|--------|--------|--------|----------|--------|---------|
