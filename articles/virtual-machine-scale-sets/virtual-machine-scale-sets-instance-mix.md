@@ -9,7 +9,7 @@ ms.date: 06/26/2024
 ms.reviewer: jushiman
 ---
 
-# Use Multiple Virtual Machine Sizes with Instance Mix (Preview)
+# Use multiple Virtual Machine sizes with Instance Mix (Preview)
 > [!IMPORTANT]
 > Instance Mix for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
@@ -133,5 +133,5 @@ Lastly, be sure to specify the `skuProfile` with **up to five** VM sizes. This s
 ### Can I use Spot and Standard VMs with Instance Mix?
 Yes, you can use both Spot and Standard VMs in your scale set deployments using Instance Mix. To do so, use [Spot Priority Mix](./spot-priority-mix.md) to define a percentage split of Spot and Standard VMs. 
 
-## My region doesn't support Instance Mix today, will it support Instance Mix in the future?
+### My region doesn't support Instance Mix today. Will it support Instance Mix in the future?
 Instance Mix is rolling out to all Azure regions during Public Preview. Instance Mix is currently available in the following regions: West US, West US2, East US, and East US2.
