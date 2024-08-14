@@ -17,7 +17,7 @@ ms.author: danlep
 The `validate-azure-ad-token` policy enforces the existence and validity of a JSON web token (JWT) that was provided by the Microsoft Entra (formerly called Azure Active Directory) service for a specified set of principals in the directory. The JWT can be extracted from a specified HTTP header, query parameter, or value provided using a policy expression or context variable.
 
 > [!NOTE]
-> To validate a JWT that was provided by another identity provider, API Management also provides the generic [`validate-jwt`](validate-jwt-policy.md) policy. 
+> To validate a JWT that was provided by an identity provider other than Microsoft Entra, API Management also provides the generic [`validate-jwt`](validate-jwt-policy.md) policy. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -26,7 +26,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 ```xml
 <validate-azure-ad-token
-    tenant-id="tenant ID or URL (for example, "contoso.onmicrosoft.com") of the Azure Active Directory service"
+    tenant-id="tenant ID or URL (for example, "https://contoso.onmicrosoft.com") of the Microsoft Entra ID tenant"
     header-name="name of HTTP header containing the token (alternatively, use query-parameter-name or token-value attribute to specify token)"
     query-parameter-name="name of query parameter used to pass the token (alternative, use header-name or token-value attribute to specify token)"
     token-value="expression returning the token as a string (alternatively, use header-name or query-parameter attribute to specify token)"
@@ -34,11 +34,11 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
     failed-validation-error-message="error message to return on failure"
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
     <client-application-ids>
-        <application-id>Client application ID from Azure Active Directory</application-id>
+        <application-id>Client application ID from Microsoft Entra</application-id>
         <!-- If there are multiple client application IDs, then add additional application-id elements -->
     </client-application-ids>
     <backend-application-ids>
-        <application-id>Backend application ID from Azure Active Directory</application-id>
+        <application-id>Backend application ID from Microsoft Entra</application-id>
         <!-- If there are multiple backend application IDs, then add additional application-id elements -->
     </backend-application-ids>
     <audiences>
@@ -63,7 +63,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 | Attribute                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| tenant-id | Tenant ID or URL  of the Microsoft Entra service. Policy expressions are allowed.| Yes | N/A |
+| tenant-id | Tenant ID or URL of the Microsoft Entra ID tenant, or one of the following well-known tenants:<br/><br/> - `organizations` or `https://login.microsoftonline.com/organizations` - to allow tokens from accounts in any organizational directory (any Microsoft Entra directory)<br/>- `common` or `https://login.microsoftonline.com/common` - to allow tokens from any organizational directory (any Microsoft Entra directory) and personal Microsoft accounts (for example, Skype, XBox)<br/><br/>Policy expressions are allowed.| Yes | N/A |
 | header-name                     | The name of the HTTP header holding the token. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                       | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | `Authorization`                                                                               |
 | query-parameter-name            | The name of the query parameter holding the token. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | token-value                     | Expression returning a string containing the token. You must not return `Bearer` as part of the token value. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                          | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
@@ -121,12 +121,12 @@ The following policy is the minimal form of the `validate-azure-ad-token` policy
 
 ### Validate that audience and claim are correct
 
-The following policy checks that the audience is the hostname of the API Management instance and that the `ctry` claim is `US`. The hostname is provided using a policy expression, and the Microsoft Entra tenant ID and client application ID are provided using named values. The decoded JWT is provided in the `jwt` variable after validation.
+The following policy checks that the audience is the hostname of the API Management instance and that the `ctry` claim is `US`. The Microsoft tenant ID is the well-known `organizations` tenant, which allows tokens from accounts in any organizational directory. The hostname is provided using a policy expression, and the client application ID is provided using a named value. The decoded JWT is provided in the `jwt` variable after validation.
 
 For more details on optional claims, read [Provide optional claims to your app](../active-directory/develop/active-directory-optional-claims.md).  
 
 ```xml
-<validate-azure-ad-token tenant-id="{{aad-tenant-id}}" output-token-variable-name="jwt">
+<validate-azure-ad-token tenant-id="organizations" output-token-variable-name="jwt">
     <client-application-ids>
         <application-id>{{aad-client-application-id}}</application-id>
     </client-application-ids>
