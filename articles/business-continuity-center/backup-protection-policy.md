@@ -20,16 +20,16 @@ Replication policy defines the settings for recovery point retention history and
 
 ## Prerequisites
 
-- [Review](../backup/guidance-best-practices.md#backup-policy-considerations) the guidelines for creating a backup policy. 
+Before you create a backup policy, [review](../backup/guidance-best-practices.md#backup-policy-considerations) the guidelines for creating a backup policy. 
 
 ## Create policy
 
-Follow these steps to create a policy: 
+To create a policy, follow these steps:
 
-1. In the Azure Business Continuity center, select **Protection Policies** under **Manage**.
+1. On **Business Continuity Center**, go to **Manage** > **Protection Policies**.
     :::image type="content" source="./media/backup-protection-policy/protection-policies.png" alt-text="Screenshot showing **Protection Policies** page." lightbox="./media/backup-protection-policy/protection-policies.png":::
 
-1. On the **Protection polices** pane, select **+Create policy**.  
+1. On **Protection polices**, select **+Create policy**.  
     :::image type="content" source="./media/backup-protection-policy/create-policy.png" alt-text="Screenshot showing **+Create policy** option." lightbox="./media/backup-protection-policy/create-policy.png":::
 
 1. Select the type of policy you want to create. 
