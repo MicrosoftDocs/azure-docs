@@ -15,6 +15,9 @@ ms.author: pafarley
 
 Protected material text describes language that matches known text content (for example, song lyrics, articles, recipes, selected web content). This feature can be used to identify and block known text content from being displayed in language model output (English content only). For more information, see [Protected material concepts](./concepts/protected-material.md).
 
+For more information on protected material detection, see the [Protected material detection concept page](./concepts/protected-material.md). For API input limits, see the [Input requirements](./overview.md#input-requirements) section of the Overview. 
+
+
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
@@ -87,9 +90,9 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 - [Azure portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-## Next steps
 
-Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
+## Related content
 
-> [!div class="nextstepaction"]
-> [Content Safety Studio quickstart](./studio-quickstart.md)
+* [Protected material detection concepts](./concepts/protected-material.md)
+* Configure filters for each category and test on datasets using [Content Safety Studio](studio-quickstart.md), export the code and deploy.
+

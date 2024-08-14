@@ -60,13 +60,13 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Container Instances | [Logging for Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
 | Azure Container Registry | [Logging for Azure Container Registry](../../container-registry/monitor-service.md) |
 | Azure Content Delivery Network | [Diagnostic logs for Azure Content Delivery Network](../../cdn/cdn-azure-diagnostic-logs.md) |
-| Azure Cosmos DB | [Azure Cosmos DB logging](../../cosmos-db/monitor-cosmos-db.md) |
+| Azure Cosmos DB | [Azure Cosmos DB logging](/azure/cosmos-db/monitor-cosmos-db) |
 | Azure Data Explorer | [Azure Data Explorer logs](/azure/data-explorer/using-diagnostic-logs) |
 | Azure Data Factory | [Monitor Data Factory by using Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Azure Data Lake Analytics |[Accessing logs for Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Azure Data Lake Storage |[Accessing logs for Azure Data Lake Storage](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#resource-logs) |
+| Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](/azure/mysql/concepts-server-logs#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](/azure/postgresql/concepts-server-logs#resource-logs) |
 | Azure Databricks | [Diagnostic logging in Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
 | Azure DDoS Protection | [Logging for Azure DDoS Protection](../../ddos-protection/ddos-view-diagnostic-logs.md#example-log-queries) |
 | Azure Digital Twins | [Set up Azure Digital Twins diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)

@@ -18,7 +18,7 @@ This example is prominent when Engineers prefer real-time aggregated data for an
 
 * [Apache Flink 1.17.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
 * [Apache Kafka 3.2 on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
-* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/index.yml)
+* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/)
 * An Ubuntu VM for maven project development environment in the same VNet as HDInsight on AKS cluster.
 
 ## Azure Cosmos DB for Apache Cassandra
@@ -27,8 +27,8 @@ Azure Cosmos DB for Apache Cassandra can be used as the data store for apps writ
 
 For more information, see the following links.
 
-* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
-* [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md).
+* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
+* [Create a API for Cassandra account in Azure Cosmos DB](/azure/cosmos-db/cassandra/create-account-java).
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/create-cosmos-db-account.png" alt-text="Screenshot showing how to create Azure Cosmos DB for Apache Cassandra on Azure portal." border="true" lightbox="./media/cosmos-db-for-apache-cassandra/create-cosmos-db-account.png":::
 
@@ -546,7 +546,7 @@ sshuser@hn0-flinkd:~$ python user.py | /usr/hdp/current/kafka-broker/bin/kafka-c
 
 ### Preferences
 
-* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
-* [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md)
+* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
+* [Create a API for Cassandra account in Azure Cosmos DB](/azure/cosmos-db/cassandra/create-account-java)
 * [Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)
 * Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, Cassandra, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
