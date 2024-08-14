@@ -79,7 +79,7 @@ You need an application that can retrieve events from the hybrid connection. The
 
 1. Compile and run the application from Visual Studio.
 
-[!INCLUDE [microsoft-entra-id-recommendation.md](./inclues/microsoft-entra-id-recommendation.md)]
+[!INCLUDE [microsoft-entra-id-recommendation.md](./includes/microsoft-entra-id-recommendation.md)]
 
 ## Send an event to your topic
 
