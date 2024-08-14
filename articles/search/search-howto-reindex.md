@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/01/2024
+ms.date: 08/14/2024
 ---
 
 # Update or rebuild an index in Azure AI Search
@@ -43,9 +43,11 @@ Queries continue to run, but if you're updating or removing existing fields, you
 
 + [Indexers automate incremental indexing](search-indexer-overview.md). If you can use an indexer, and if the data source supports change tracking, you can run the indexer on a recurring schedule to add, update, or overwrite searchable content so that it's synchronized to your external data.
 
-+ If you're making index calls directly, use `mergeOrUpload` as the search action.
++ If you're making index calls directly through the [push API](search-what-is-data-import.md#pushing-data-to-an-index), use `mergeOrUpload` as the search action.
 
 + The payload must include the keys or identifiers of every document you want to add, update, or delete.
+
++ If your index includes vector fields and you set the [`stored` property to false](vector-search-how-to-configure-compression-storage.md#option-3-set-the-stored-property-to-remove-retrievable-storage), make sure you provide the vector in your partial document update, even if the value is unchanged. A side effect of setting `stored` to false is that vectors are dropped on a reindexing operation. Providing the vector in the documents payload provides a workaround.
 
 + To update the contents of simple fields and subfields in complex types, list only the fields you want to change. For example, if you only need to update a description field, the payload should consist of the document key and the modified description. Omitting other fields retains their existing values.
 
