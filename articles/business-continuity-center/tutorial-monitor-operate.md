@@ -29,7 +29,7 @@ To monitor jobs, follow these steps:
 
 1. To change the scope for **Jobs** view from the scope-picker, select **Change** corresponding to **Currently showing: Protected items job details of Azure managed resources**.
 
-       :::image type="content" source="./media/tutorial-monitor-operate/scope-picker.png" alt-text="Screenshot showing the scope picker option." lightbox="./media/tutorial-monitor-operate/scope-picker.png":::
+    :::image type="content" source="./media/tutorial-monitor-operate/scope-picker.png" alt-text="Screenshot showing the scope picker option." lightbox="./media/tutorial-monitor-operate/scope-picker.png":::
 
 1. On the **Change scope** blade, select the following options as required, and then select **Update**.
 
