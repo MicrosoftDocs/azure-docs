@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 # Install Microsoft Defender for Containers on Azure Operator Nexus Kubernetes Cluster 
 
-This article describes how to install Microsoft Defender for Containers inside a Nexus Kubernetes Cluster. [Microsoft Defender](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-cloud-introduction) can be used to monitor Kubernetes API Server audit logs and trigger alerts when appropriate. The audit logs are sent to the Defender backend and aren't directly accessible. They can't be queried through Kusto or in the Log Analytics Workspace associated with the installed Defender extension. Visit [Alerts for containers - Kubernetes clusters](https://learn.microsoft.com/azure/defender-for-cloud/alerts-containers) for a list of alerts that are currently defined for Kubernetes Clusters.
+This article describes how to install Microsoft Defender for Containers inside a Nexus Kubernetes Cluster. [Microsoft Defender](/azure/defender-for-cloud/defender-for-cloud-introduction) can be used to monitor Kubernetes API Server audit logs and trigger alerts when appropriate. The audit logs are sent to the Defender backend and aren't directly accessible. They can't be queried through Kusto or in the Log Analytics Workspace associated with the installed Defender extension. Visit [Alerts for containers - Kubernetes clusters](/azure/defender-for-cloud/alerts-containers) for a list of alerts that are currently defined for Kubernetes Clusters.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ az extension add --name k8s-extension
 
 ## Installing Microsoft Defender for Containers in Nexus Kubernetes Cluster using Azure CLI
 
-Reference the Microsoft Defender for Containers documentation to [install Defender](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-cli%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-arc#use-azure-cli-to-deploy-the-defender-sensor) on a Nexus Kubernetes Cluster.
+Reference the Microsoft Defender for Containers documentation to [install Defender](/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-cli%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-arc#use-azure-cli-to-deploy-the-defender-sensor) on a Nexus Kubernetes Cluster.
 
 Refer to the Azure CLI command to install the extension in the provided link:
 
@@ -41,6 +41,6 @@ In the Azure CLI command, the cluster-name refers to the ARC connected cluster, 
 
 ## Microsoft Defender for Containers Security Alert Simulation
 
-Reference the documentation here on how to [simulate security alerts](https://learn.microsoft.com/azure/defender-for-cloud/alert-validation#simulate-alerts-on-kubernetes-) for Microsoft Defender for Containers. This simulation has been performed on a Nexus Kubernetes Cluster and the corresponding alert appeared in the Microsoft Defender for Cloud Dashboard in the Azure portal:
+Reference the documentation here on how to [simulate security alerts](/azure/defender-for-cloud/alert-validation#simulate-alerts-on-kubernetes-) for Microsoft Defender for Containers. This simulation has been performed on a Nexus Kubernetes Cluster and the corresponding alert appeared in the Microsoft Defender for Cloud Dashboard in the Azure portal:
 
   :::image type="content" source="media/defender_for_cloud_alerts.png" alt-text="Screenshot of Security Alerts in Microsoft Defender for Cloud Dashboard in the Azure portal.":::
