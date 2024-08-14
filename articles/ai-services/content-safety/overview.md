@@ -22,9 +22,9 @@ Content filtering software can help your app comply with regulations or maintain
 
 This documentation contains the following article types:  
 
+* **[Concepts](concepts/harm-categories.md)** provide in-depth explanations of the service functionality and features.  
 * **[Quickstarts](./quickstart-text.md)** are getting-started instructions to guide you through making requests to the service.  
 * **[How-to guides](./how-to/use-blocklist.md)** contain instructions for using the service in more specific or customized ways.  
-* **[Concepts](concepts/harm-categories.md)** provide in-depth explanations of the service functionality and features.  
 
 ## Where it's used
 
