@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: nodejs
-ms.topic: how-to
+ms.topic: include
 ms.date: 07/01/2024
 ms.custom: mqtt, devx-track-js
 ---
@@ -24,7 +24,7 @@ This section describes how to upload a file from a device to an IoT hub using th
 
 ### Install SDK packages
 
-Run this command to install the **azure-iot-device** device SDK, the **azure-iot-device-mqtt**, and the **@azure/storage-blob** packages: on your development machine:
+Run this command to install the **azure-iot-device** device SDK, the **azure-iot-device-mqtt**, and the **@azure/storage-blob** packages on your development machine:
 
 ```cmd/sh
 npm install azure-iot-device azure-iot-device-mqtt @azure/storage-blob --save

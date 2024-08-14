@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: csharp
-ms.topic: how-to
+ms.topic: include
 ms.date: 07/01/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---

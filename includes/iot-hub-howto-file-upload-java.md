@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: java
-ms.topic: how-to
+ms.topic: include
 ms.date: 07/01/2024
 ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 ---
@@ -89,13 +89,13 @@ String fullFileName = "Path of the file to upload";
 blobClient.uploadFromFile(fullFileName);
 ```
 
-## Send file upload status notification to IoT hub
+### Send file upload status notification to IoT hub
 
 Send an upload status notification to IoT hub after a file upload attempt.
 
 Create a [FileUploadCompletionNotification](/java/api/com.microsoft.azure.sdk.iot.deps.serializer.fileuploadcompletionnotification?#com-microsoft-azure-sdk-iot-deps-serializer-fileuploadcompletionnotification-fileuploadcompletionnotification(java-lang-string-java-lang-boolean)) object. Pass the `correlationId` and `isSuccess` file upload success status. Pass an `isSuccess` `true` value when file upload was successful, `false` when not.
 
-`FileUploadCompletionNotification` must be called even when the file upload fails. IoT hub has a fixed number of SAS URI allowed to be active at any given time. Once you're done with the file upload, you should free your SAS URI so that other SAS URI can be generated. If a SAS URI isn't freed through this API, then it frees itself eventually based on how long SAS URI are configured to live on an IoT hub.
+`FileUploadCompletionNotification` must be called even when the file upload fails. IoT hub has a fixed number of SAS URI allowed to be active at any given time. Once you're done with the file upload, you should free your SAS URI so that other SAS URI can be generated. If a SAS URI isn't freed through this API, then it frees itself eventually based on how long SAS URIs are configured to live on an IoT hub.
 
 This example passes a successful status.
 
