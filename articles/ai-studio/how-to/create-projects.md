@@ -63,7 +63,7 @@ Use the following tabs to select the method you plan to use to create a project:
 
     For more information on authenticating, see [Authentication methods](/cli/azure/authenticate-azure-cli).
 
-1. Once the extension is installed and authenticated to your Azure subscription, use the following command to create a new Azure AI project from an existing Azure AI hub:
+1. Once the extension is installed and authenticated to your Azure subscription, use the following command to create a new Azure AI Studio project from an existing Azure AI Studio hub:
 
     ```azurecli
     az ml workspace create --kind project --hub-id {my_hub_ARM_ID} --resource-group {my_resource_group} --name {my_project_name}

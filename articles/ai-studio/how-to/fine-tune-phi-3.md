@@ -78,7 +78,7 @@ Verify the subscription is registered to the `Microsoft.Network` resource provid
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Subscriptions** from the left menu.
 1. Select the subscription you want to use.
-1. Select **AI project settings** > **Resource providers** from the left menu.
+1. Select **Settings** > **Resource providers** from the left menu.
 1. Confirm that **Microsoft.Network** is in the list of resource providers. Otherwise add it.
 
 

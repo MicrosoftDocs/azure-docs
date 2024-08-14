@@ -556,11 +556,11 @@ Read more about the [capabilities of this API](../reference/reference-model-infe
 
 Endpoints for models deployed as Serverless APIs follow the public network access (PNA) flag setting of the AI Studio Hub that has the project in which the deployment exists. To secure your MaaS endpoint, disable the PNA flag on your AI Studio Hub. You can secure inbound communication from a client to your endpoint by using a private endpoint for the hub.
 
-To set the PNA flag for the Azure AI hub:
+To set the PNA flag for the Azure AI Studio hub:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Search for the Resource group to which the hub belongs, and select your Azure AI hub from the resources listed for this Resource group.
-3. On the hub Overview page, use the left navigation pane to go to Settings > Networking.
+2. Search for the Resource group to which the hub belongs, and select the **Azure AI hub** from the resources listed for this resource group.
+3. From the hub **Overview** page on the left menu, select **Settings** > **Networking**.
 4. Under the **Public access** tab, you can configure settings for the public network access flag.
 5. Save your changes. Your changes might take up to five minutes to propagate.
 
