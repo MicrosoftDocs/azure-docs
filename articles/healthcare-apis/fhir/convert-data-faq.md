@@ -3,7 +3,7 @@ title: $convert-data FAQ for the FHIR service in Azure Health Data Services
 description: Get answers to frequently asked questions about the $convert-data operation.
 services: healthcare-apis
 author: msjasteppe
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: faq
 ms.date: 05/13/2024
 ms.author: jasteppe
