@@ -4,7 +4,7 @@ description: Reference for settings to define the API data collected from Azure 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 05/15/2024
 ms.author: danlep

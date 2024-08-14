@@ -4,7 +4,7 @@ description: Learn how to create a Resource Manager template for a Service Fabri
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: has-azure-ad-ps-ref
 services: service-fabric
 ms.date: 07/14/2022

@@ -6,7 +6,7 @@ metadata:
   author: ju-shim
   ms.author: jushiman
   ms.date: 03/22/2024
-  ms.service: virtual-machines
+  ms.service: azure-virtual-machines
   ms.topic: how-to
   ms.custom:
     - ge-structured-content-pilot

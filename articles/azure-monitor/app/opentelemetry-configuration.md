@@ -15,16 +15,14 @@ This article covers configuration settings for the Azure Monitor OpenTelemetry d
 
 ## Connection string
 
-A connection string in Application Insights defines the target location for sending telemetry data, ensuring it reaches the appropriate resource for monitoring and analysis.
-
+A connection string in Application Insights defines the target location for sending telemetry data.
 ### [ASP.NET Core](#tab/aspnetcore)
 
 Use one of the following three ways to configure the connection string:
 
-- Add `UseAzureMonitor()` to your application startup, in your `program.cs` class.
+- Add `UseAzureMonitor()` to your `program.cs` file:
 
     ```csharp
-    // Create a new ASP.NET Core web application builder.    
     var builder = WebApplication.CreateBuilder(args);
 
     // Add the OpenTelemetry telemetry service to the application.
@@ -33,10 +31,8 @@ Use one of the following three ways to configure the connection string:
         options.ConnectionString = "<Your Connection String>";
     });
 
-    // Build the ASP.NET Core web application.
     var app = builder.Build();
 
-    // Start the ASP.NET Core web application.    
     app.Run();
     ```
 
@@ -627,20 +623,60 @@ useAzureMonitor(options);
 
 ### [Python](#tab/python)
 
+Azure Monitor OpenTelemetry Distro for Python support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
+
+- We recommend `DefaultAzureCredential` for local development.
+- We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
+  - For system-assigned, use the default constructor without parameters.
+  - For user-assigned, provide the `client_id` to the constructor.
+- We recommend `ClientSecretCredential` for service principals.
+  - Provide the tenant ID, client ID, and client secret to the constructor.
+
+If using `ManagedIdentityCredential`
 ```python
 # Import the `ManagedIdentityCredential` class from the `azure.identity` package.
 from azure.identity import ManagedIdentityCredential
 # Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
 
 # Configure the Distro to authenticate with Azure Monitor using a managed identity credential.
+credential = ManagedIdentityCredential(client_id="<client_id>")
 configure_azure_monitor(
     connection_string="your-connection-string",
-    credential=ManagedIdentityCredential(),
+    credential=credential,
 )
+
+tracer = trace.get_tracer(__name__)
+
+with tracer.start_as_current_span("hello with aad managed identity"):
+    print("Hello, World!")
 
 ```
 
+If using `ClientSecretCredential`
+```python
+# Import the `ClientSecretCredential` class from the `azure.identity` package.
+from azure.identity import ClientSecretCredential
+# Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
+
+# Configure the Distro to authenticate with Azure Monitor using a client secret credential.
+credential = ClientSecretCredential(
+    tenant_id="<tenant_id",
+    client_id="<client_id>",
+    client_secret="<client_secret>",
+)
+configure_azure_monitor(
+    connection_string="your-connection-string",
+    credential=credential,
+)
+
+with tracer.start_as_current_span("hello with aad client secret identity"):
+    print("Hello, World!")
+
+```
 ---
 
 ## Offline Storage and Automatic Retries

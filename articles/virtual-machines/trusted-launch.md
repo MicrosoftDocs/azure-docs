@@ -3,7 +3,7 @@ title: Trusted Launch for Azure VMs
 description: Learn about Trusted Launch for Azure virtual machines.
 author: Howie425
 ms.author: howieasmerom
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 11/06/2023

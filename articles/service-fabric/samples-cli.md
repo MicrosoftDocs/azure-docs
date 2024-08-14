@@ -4,7 +4,7 @@ description: Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples on mana
 ms.topic: sample
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurecli
 services: service-fabric
 ms.date: 07/14/2022

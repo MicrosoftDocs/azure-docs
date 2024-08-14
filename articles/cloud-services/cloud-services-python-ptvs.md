@@ -342,7 +342,7 @@ For more details about using Azure services from your web and worker roles, such
 
 [Blob Service]:../storage/blobs/storage-python-how-to-use-blob-storage.md
 [Queue Service]: ../storage/queues/storage-python-how-to-use-queue-storage.md
-[Table Service]:../cosmos-db/table-storage-how-to-use-python.md
+[Table Service]:/azure/cosmos-db/table-storage-how-to-use-python
 [Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 

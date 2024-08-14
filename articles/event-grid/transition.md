@@ -4,7 +4,6 @@ description: This article explains the transition from Event Grid on Azure IoT E
 ms.topic: overview
 ms.date: 03/29/2023
 ms.subservice: iot-edge
-ms.service: azure-event-grid
 ---
 
 # Transition from Event Grid on IoT Edge to Azure IoT Edge native capabilities

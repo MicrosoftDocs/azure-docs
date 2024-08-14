@@ -3,7 +3,7 @@ title: 'Upgrade from v1 to v2'
 titleSuffix: Azure Machine Learning
 description: Upgrade from v1 to v2 of Azure Machine Learning REST APIs, CLI extension, and Python SDK.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 author: sdgilley

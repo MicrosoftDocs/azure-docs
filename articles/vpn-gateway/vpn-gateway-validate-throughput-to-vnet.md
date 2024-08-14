@@ -4,7 +4,7 @@ description: Learn how to validate the network throughput from your on-premises 
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 manager: dcscontentpm
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 02/13/2023

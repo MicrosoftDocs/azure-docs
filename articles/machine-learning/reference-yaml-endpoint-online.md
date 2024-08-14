@@ -3,7 +3,7 @@ title: 'Online endpoints YAML reference'
 titleSuffix: Azure Machine Learning
 description: Learn about the YAML files used to deploy models as online endpoints
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: cliv2

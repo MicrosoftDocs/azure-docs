@@ -313,12 +313,12 @@
       href: ./concepts/policy-for-kubernetes.md
     - name: Secure AKS with Azure Policy
       displayName: aks, psp, rego, opa
-      href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /azure/aks/use-azure-policy?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Key Vault integration
     items:
     - name: Integrate Key Vault with Azure Policy
       displayName: key vault, certificate, key
-      href: ../../key-vault/general/azure-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
+      href: /azure/key-vault/general/azure-policy?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Lighthouse integration
     items:
     - name: Deploy a policy at scale

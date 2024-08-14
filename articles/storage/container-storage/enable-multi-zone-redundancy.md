@@ -10,7 +10,7 @@ ms.author: kendownie
 
 # Enable multi-zone storage redundancy in Azure Container Storage
 
-You can improve stateful application availability by using multi-zone storage pools and zone-redundant storage (ZRS) disks when using [Azure Container Storage](container-storage-introduction.md) in a multi-zone Azure Kubernetes Service (AKS) cluster. To create an AKS cluster that uses availability zones, see [Use availability zones in Azure Kubernetes Service](../../aks/availability-zones.md).
+You can improve stateful application availability by using multi-zone storage pools and zone-redundant storage (ZRS) disks when using [Azure Container Storage](container-storage-introduction.md) in a multi-zone Azure Kubernetes Service (AKS) cluster. To create an AKS cluster that uses availability zones, see [Use availability zones in Azure Kubernetes Service](/azure/aks/availability-zones).
 
 ## Prerequisites
 

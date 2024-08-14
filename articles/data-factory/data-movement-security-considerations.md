@@ -3,7 +3,6 @@ title: Security considerations
 description: Describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data.
 ms.author: susabat
 author: ssabat
-ms.service: azure-data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 01/05/2024
@@ -192,7 +191,7 @@ The following cloud data stores require that you allow the IP address of the sel
 * [Azure SQL Database](/azure/azure-sql/database/firewall-configure)
 * [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-* [Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
+* [Azure Cosmos DB](/azure/cosmos-db/how-to-configure-firewall)
 * [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## Frequently asked questions

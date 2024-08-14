@@ -1,7 +1,7 @@
 ---
 title: HDInsight Interactive Query Cluster(LLAP) sizing guide
 description: LLAP sizing guide 
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 author: reachnijel 
 ms.author: nijelsf

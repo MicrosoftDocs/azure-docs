@@ -2,10 +2,10 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/16/2024
+ ms.date: 08/13/2024
  ms.author: cherylmc
 ---
-1. Go to your virtual network. On your virtual network page, in the left pane, select **Connected devices**. Locate your VPN gateway and select it to open it.
+1. In the portal, go to the virtual network gateway and open it.
 1. On the page for the gateway, select **Connections**.
 1. At the top of the **Connections** page, select **+ Add** to open the **Create connection** page.
 

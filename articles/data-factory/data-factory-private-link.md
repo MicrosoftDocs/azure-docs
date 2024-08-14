@@ -3,7 +3,6 @@ title: Azure Private Link for Azure Data Factory
 description: Learn about how Azure Private Link works in Azure Data Factory.
 ms.author: lle
 author: lrtoyou1223
-ms.service: azure-data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 01/05/2024

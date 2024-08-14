@@ -3,7 +3,7 @@ title: Availability options for Azure Virtual Machines
 description: Learn about the availability options for running virtual machines in Azure
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 10/18/2022
 ms.reviewer: cynthn

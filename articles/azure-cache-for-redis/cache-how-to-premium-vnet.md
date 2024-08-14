@@ -4,7 +4,7 @@ description: Learn how to create and manage virtual network support for your Pre
 
 author: flang-msft
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 08/29/2023
 

@@ -3,7 +3,7 @@ title: "Recover deleted artifacts with soft delete policy in Azure Container Reg
 description: Learn how to enable the soft delete policy in Azure Container Registry to manage and recover the accidentally deleted artifacts as soft deleted artifacts with a set retention period.
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: how-to #Don't change
 ms.date: 01/22/2024
 ms.custom: devx-track-azurecli

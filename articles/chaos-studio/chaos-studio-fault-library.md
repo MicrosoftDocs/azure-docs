@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 01/02/2024
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: linux-related-content
 ---
 
@@ -58,7 +58,7 @@ This section applies to the `Microsoft.Insights/autoscaleSettings` resource type
 
 ## Azure Kubernetes Service
 
-This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](../aks/intro-kubernetes.md).
+This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](/azure/aks/intro-kubernetes).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -89,7 +89,7 @@ This section applies to the `Microsoft.Cache/redis` resource type. [Learn more a
 
 ## Cosmos DB
 
-This section applies to the `Microsoft.DocumentDB/databaseAccounts` resource type. [Learn more about Cosmos DB](../cosmos-db/introduction.md).
+This section applies to the `Microsoft.DocumentDB/databaseAccounts` resource type. [Learn more about Cosmos DB](/azure/cosmos-db/introduction).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -105,7 +105,7 @@ This section applies to the `Microsoft.EventHub/namespaces` resource type. [Lear
 
 ## Key Vault
 
-This section applies to the `Microsoft.KeyVault/vaults` resource type. [Learn more about Key Vault](../key-vault/general/basic-concepts.md).
+This section applies to the `Microsoft.KeyVault/vaults` resource type. [Learn more about Key Vault](/azure/key-vault/general/basic-concepts).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -1373,7 +1373,7 @@ Currently, a maximum of 4 process names can be listed in the processNames parame
 |-|-|
 | Capability name | Failover-1.0 |
 | Target type | Microsoft-CosmosDB |
-| Description | Causes an Azure Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](../cosmos-db/high-availability.md). |
+| Description | Causes an Azure Cosmos DB account with a single write region to fail over to a specified read region to simulate a [write region outage](/azure/cosmos-db/high-availability). |
 | Prerequisites | None. |
 | Urn | `urn:csci:microsoft:cosmosDB:failover/1.0` |
 | Fault type | Continuous. |
