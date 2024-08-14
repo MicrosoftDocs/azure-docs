@@ -31,18 +31,6 @@ Here's information about the SxS Network Stack.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.9103.3700 |
-| Validation | 1.0.9103.5000 |
-
-> [!TIP]
-> The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
-
-Here's information about the SxS Network Stack.
-
-## Latest available versions
-
-| Release | Latest version |
-|--|--|
 | Production | 1.0.2404.16760  |
 | Validation | 1.0.2404.16760  |
 
