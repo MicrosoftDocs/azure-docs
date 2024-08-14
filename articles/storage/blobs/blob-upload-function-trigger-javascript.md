@@ -7,7 +7,7 @@ ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 07/06/2023
 ms.devlang: javascript
-ms.custom: devx-track-js, devx-track-azurecli, engagement
+ms.custom: devx-track-js, devx-track-azurecli, engagement, insecure-sample-warning
 ---
 
 # JavaScript Tutorial: Upload and analyze a file with Azure Functions and Blob Storage
