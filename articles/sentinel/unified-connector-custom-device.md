@@ -54,7 +54,7 @@ The per-application information you need to complete these steps is presented in
 - [Apache HTTP Server](#apache-http-server)
 - [Apache Tomcat](#apache-tomcat)
 - [Cisco Meraki](#cisco-meraki) (appliance)
-- [Jboss Enterprise Application platform](#jboss-enterprise-application-platform)
+- [Jboss Enterprise Application Platform](#jboss-enterprise-application-platform)
 - [JuniperIDP](#juniperidp) (appliance)
 - [MarkLogic Audit](#marklogic-audit)
 - [MongoDB Audit](#mongodb-audit)
@@ -75,18 +75,13 @@ Follow these steps to ingest log messages from Apache HTTP Server:
 
 1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
 
-    Default file locations:
+    Default file locations ("filePatterns"):
     - Windows: `"C:\Server\bin\log\Apache24\logs\*.log"`
     - Linux: `"/var/log/httpd/*.log"`
 
 1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"ApacheHTTPServer_CL"`
-    - **Log path - Windows**: resources > properties > dataSources > filePatterns: 
-    - **Log path - Linux**: resources > properties > dataSources > filePatterns: 
-
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -96,13 +91,14 @@ Follow these steps to ingest log messages from Apache Tomcat:
 
 1. Table name: `Tomcat_CL`
 
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"Tomcat_CL"`
-    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/var/log/tomcat/*.log"`
+    Default file locations ("filePatterns"):
+    - Linux: `"/var/log/tomcat/*.log"`
 
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -112,123 +108,99 @@ Follow these steps to ingest log messages from Cisco Meraki:
 
 1. Table name: `meraki_CL`
 
-1. Create a log file and grant it write permissions. ***(TO WHOM? -YL)***
+1. Log storage location: Create a log file on your external syslog server. Grant the syslog daemon write permissions to the file. Install the AMA on the external syslog server if it's not already installed. Enter this filename and path in the **File pattern** field in the connector, or in place of the `{LOCAL_PATH_FILE}` placeholder in the DCR.
 
-1. Configure a temporary transformation of Meraki logs to text files so the AMA can collect them.
+1. Configure the syslog daemon to export its Meraki log messages to a temporary text file so the AMA can collect them.
 
-    - **For rsyslog daemon:**
-        1. Create custom configuration file for the rsyslog daemon, with the following filtering conditions:
+    # [rsyslog](#tab/rsyslog)
 
-            ```bash
-            if $rawmsg contains "flows" then {
-                action(type="omfile" file="<LOG_FILE_Name>")
-                stop
-            }
-            if $rawmsg contains "urls" then { 
-                action(type="omfile" file="<LOG_FILE_Name>") 
-                stop 
-            } 
-            if $rawmsg contains "ids-alerts" then { 
-                action(type="omfile" file="<LOG_FILE_Name>") 
-                stop 
-            } 
-            if $rawmsg contains "events" then { 
-                action(type="omfile" file="<LOG_FILE_Name>") 
-                stop 
-            } 
-            if $rawmsg contains "ip_flow_start" then { 
-                action(type="omfile" file="<LOG_FILE_Name>") 
-                stop 
-            } 
-            if $rawmsg contains "ip_flow_end" then { 
-                action(type="omfile" file="<LOG_FILE_Name>") 
-                stop 
-            }
-            ```
-            (Replace `<LOG_FILE_Name>` with the name of the log file you created.)
+    1. Create a custom configuration file for the rsyslog daemon and save it to `/etc/rsyslog.d/10-meraki.conf`. Add the following filtering conditions to this configuration file:
 
-            To learn more about filtering conditions for rsyslog, see [rsyslog: Filter conditions](https://rsyslog.readthedocs.io/en/latest/configuration/filters.html)
+        ```bash
+        if $rawmsg contains "flows" then {
+            action(type="omfile" file="<LOG_FILE_Name>")
+            stop
+        }
+        if $rawmsg contains "urls" then { 
+            action(type="omfile" file="<LOG_FILE_Name>") 
+            stop 
+        } 
+        if $rawmsg contains "ids-alerts" then { 
+            action(type="omfile" file="<LOG_FILE_Name>") 
+            stop 
+        } 
+        if $rawmsg contains "events" then { 
+            action(type="omfile" file="<LOG_FILE_Name>") 
+            stop 
+        } 
+        if $rawmsg contains "ip_flow_start" then { 
+            action(type="omfile" file="<LOG_FILE_Name>") 
+            stop 
+        } 
+        if $rawmsg contains "ip_flow_end" then { 
+            action(type="omfile" file="<LOG_FILE_Name>") 
+            stop 
+        }
+        ```
+        (Replace `<LOG_FILE_Name>` with the name of the log file you created.)
 
-        1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
+        To learn more about filtering conditions for rsyslog, see [rsyslog: Filter conditions](https://rsyslog.readthedocs.io/en/latest/configuration/filters.html). We recommend testing and modifying the configuration based on your specific installation.
 
-    - **For syslog-ng daemon:**
-        1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following conditions:
+    1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
+
+    # [syslog-ng](#tab/syslog-ng)
+
+    1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following conditions:
         
-            ```bash
-            filter f_meraki {
-                message("flows") or message("urls") or message("ids-alerts") or message("events") or message("ip_flow_start") or message("ip_flow_end"); 
-            }; 
+        ```bash
+        filter f_meraki {
+            message("flows") or message("urls") or message("ids-alerts") or message("events") or message("ip_flow_start") or message("ip_flow_end"); 
+        }; 
              
-            destination d_meraki { 
-                file("<LOG_FILE_NAME>"); 
-            }; 
+        destination d_meraki { 
+            file("<LOG_FILE_NAME>"); 
+        }; 
 
-            log { 
-                source(s_src); 
-                filter(f_meraki); 
-                destination(d_meraki); 
-                flags(final); #Ensures that once a message matches the filter and is written to the specified destination, it will not be processed by subsequent log statements 
-            }; 
-            ```
-            (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
+        log { 
+            source(s_src); 
+            filter(f_meraki); 
+            destination(d_meraki); 
+            flags(final); #Ensures that once a message matches the filter and is written to the specified destination, it will not be processed by subsequent log statements 
+        }; 
+        ```
+        (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
 
-        1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
+    1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
 
-1. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+    ---
 
-    Update the following keys in the DCR with the values as shown in the sample JSON:
-    - streamDeclarations > columns
-    - transformKql
-    - outputStream
-    ```json
-    {
-       "resources": [
-          {
-             "properties": {
-                "streamDeclarations": {
-                   "Custom-Text-stream": {
-                      "columns": [
-                            {
-                               "name": "TimeGenerated",
-                               "type": "datetime"
-                            },
-                            {
-                               "name": "Message",
-                               "type": "string"
-                            },
-                      ]
-                   }
-                },
-                "dataFlows": [
-                   {
-                      "transformKql": "source | project-rename Message=RawData",
-                      "outputStream": "meraki_CL"
-                   }
-                ]
-             }
-          }
-       ]
-    }
-    ```
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
 
-1. Deploy Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+    - Replace the column name `"RawData"` with the column name `"Message"`.
+
+    - Replace the transformKql value `"source"` with the value `"source | project-rename Message=RawData"`.
+
+    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Configure and connect the Cisco Meraki device(s): follow the [instructions provided by Cisco](https://documentation.meraki.com/General_Administration/Monitoring_and_Reporting/Meraki_Device_Reporting_-_Syslog%2C_SNMP%2C_and_API) for sending syslog messages. Use the IP address or hostname of the virtual machine where the Azure Monitor Agent is installed. 
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### JBoss Enterprise Application platform
+### JBoss Enterprise Application Platform
 
-Follow these steps to ingest log messages from JBoss Enterprise Application platform:
+Follow these steps to ingest log messages from JBoss Enterprise Application Platform:
 
 1. Table name: `JBossLogs_CL`
 
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"JBossLogs_CL"`
+    Default file locations ("filePatterns") - Linux only:
+    - Standalone server: `"{EAP_HOME}/standalone/log/server.log"`
+    - Managed domain: `"{EAP_HOME}/domain/servers/{SERVER_NAME}/log/server.log"`
 
-1. Deploy Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -238,12 +210,65 @@ Follow these steps to ingest log messages from JuniperIDP:
 
 1. Table name: `JuniperIDP_CL`
 
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+1. Log storage location: Create a log file on your external syslog server. Grant the syslog daemon write permissions to the file. Install the AMA on the external syslog server if it's not already installed. Enter this filename and path in the **File pattern** field in the connector, or in place of the `{LOCAL_PATH_FILE}` placeholder in the DCR.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"JuniperIDP_CL"`
+1. Configure the syslog daemon to export its JuniperIDP log messages to a temporary text file so the AMA can collect them.
 
-1. Deploy Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+    # [rsyslog](#tab/rsyslog)
+
+    1. Create custom configuration file for the rsyslog daemon, in the `/etc/rsyslog.d/` folder, with the following filtering conditions:
+
+        ```bash
+         # Define a new ruleset
+        ruleset(name="<RULESET_NAME>") { 
+            action(type="omfile" file="<LOG_FILE_NAME>") 
+        } 
+             
+         # Set the input on port and bind it to the new ruleset 
+        input(type="imudp" port="<PORT>" ruleset="<RULESET_NAME>") 
+        ```
+        (Replace `<parameters>` with the actual names of the objects represented. <LOG_FILE_NAME> is the file you created in step 2.)
+
+    1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
+
+    # [syslog-ng](#tab/syslog-ng)
+
+    1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following conditions:
+
+        ```bash
+        source s_network {
+            network ( 
+                ip(“0.0.0.0”) 
+                port(<PORT>) 
+            ); 
+        }; 
+        destination d_file { 
+            file(“<LOG_FILE_NAME>”); 
+        }; 
+        log { 
+            source(s_network); 
+            destination(d_file); 
+        }; 
+        ```
+        (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
+
+    1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
+
+    ---
+
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    - Replace the column name `"RawData"` with the column name `"Message"`.
+
+    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+
+    - Replace the transformKql value `"source"` with the following Kusto query (enclosed in double quotes):
+
+        ```kusto
+        source | parse RawData with tmp_time " " host_s " " ident_s " " tmp_pid " " msgid_s " " extradata | extend dvc_os_s = extract("\\[(junos\\S+)", 1, extradata) | extend event_end_time_s = extract(".*epoch-time=\"(\\S+)\"", 1, extradata) | extend message_type_s = extract(".*message-type=\"(\\S+)\"", 1, extradata) | extend source_address_s = extract(".*source-address=\"(\\S+)\"", 1, extradata) | extend destination_address_s = extract(".*destination-address=\"(\\S+)\"", 1, extradata) | extend destination_port_s = extract(".*destination-port=\"(\\S+)\"", 1, extradata) | extend protocol_name_s = extract(".*protocol-name=\"(\\S+)\"", 1, extradata) | extend service_name_s = extract(".*service-name=\"(\\S+)\"", 1, extradata) | extend application_name_s = extract(".*application-name=\"(\\S+)\"", 1, extradata) | extend rule_name_s = extract(".*rule-name=\"(\\S+)\"", 1, extradata) | extend rulebase_name_s = extract(".*rulebase-name=\"(\\S+)\"", 1, extradata) | extend policy_name_s = extract(".*policy-name=\"(\\S+)\"", 1, extradata) | extend export_id_s = extract(".*export-id=\"(\\S+)\"", 1, extradata) | extend repeat_count_s = extract(".*repeat-count=\"(\\S+)\"", 1, extradata) | extend action_s = extract(".*action=\"(\\S+)\"", 1, extradata) | extend threat_severity_s = extract(".*threat-severity=\"(\\S+)\"", 1, extradata) | extend attack_name_s = extract(".*attack-name=\"(\\S+)\"", 1, extradata) | extend nat_source_address_s = extract(".*nat-source-address=\"(\\S+)\"", 1, extradata) | extend nat_source_port_s = extract(".*nat-source-port=\"(\\S+)\"", 1, extradata) | extend nat_destination_address_s = extract(".*nat-destination-address=\"(\\S+)\"", 1, extradata) | extend nat_destination_port_s = extract(".*nat-destination-port=\"(\\S+)\"", 1, extradata) | extend elapsed_time_s = extract(".*elapsed-time=\"(\\S+)\"", 1, extradata) | extend inbound_bytes_s = extract(".*inbound-bytes=\"(\\S+)\"", 1, extradata) | extend outbound_bytes_s = extract(".*outbound-bytes=\"(\\S+)\"", 1, extradata) | extend inbound_packets_s = extract(".*inbound-packets=\"(\\S+)\"", 1, extradata) | extend outbound_packets_s = extract(".*outbound-packets=\"(\\S+)\"", 1, extradata) | extend source_zone_name_s = extract(".*source-zone-name=\"(\\S+)\"", 1, extradata) | extend source_interface_name_s = extract(".*source-interface-name=\"(\\S+)\"", 1, extradata) | extend destination_zone_name_s = extract(".*destination-zone-name=\"(\\S+)\"", 1, extradata) | extend destination_interface_name_s = extract(".*destination-interface-name=\"(\\S+)\"", 1, extradata) | extend packet_log_id_s = extract(".*packet-log-id=\"(\\S+)\"", 1, extradata) | extend alert_s = extract(".*alert=\"(\\S+)\"", 1, extradata) | extend username_s = extract(".*username=\"(\\S+)\"", 1, extradata) | extend roles_s = extract(".*roles=\"(\\S+)\"", 1, extradata) | extend msg_s = extract(".*message=\"(\\S+)\"", 1, extradata) | project-away RawData
+        ```
+
+1. For the instructions to configure the Juniper IDP appliance to send syslog messages to an external server, see [SRX Getting Started - Configure System Logging.](https://supportportal.juniper.net/s/article/SRX-Getting-Started-Configure-System-Logging).
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -253,14 +278,15 @@ Follow these steps to ingest log messages from MarkLogic Audit:
 
 1. Table name: `MarkLogicAudit_CL`
 
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"MarkLogicAudit_CL"`
-    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"C:\Program Files\MarkLogic\Data\Logs\AuditLog.txt"`
-    - **Log path - RedHat Linux**: resources > properties > dataSources > filePatterns: `"/var/opt/MarkLogic/Logs/AuditLog.txt"`
+    Default file locations ("filePatterns"):
+    - Windows: `"C:\Program Files\MarkLogic\Data\Logs\AuditLog.txt"`
+    - Linux: `"/var/opt/MarkLogic/Logs/AuditLog.txt"`
 
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Configure MarkLogic Audit to enable it to write logs: (from MarkLogic documentation)
     1. Using your browser, navigate to MarkLogic Admin interface.
@@ -278,14 +304,15 @@ Follow these steps to ingest log messages from MongoDB Audit:
 
 1. Table name: `MongoDBAudit_CL`
 
-1. Data collection rule (DCR): Logs can be stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file). As a resource, choose the machine where MongoDB is installed.
+1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"MongoDBAudit_CL"`
-    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"C:\data\db\auditlog.json"`
-    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/data/db/auditlog.json"`
+    Default file locations ("filePatterns"):
+    - Windows: `"C:\data\db\auditlog.json"`
+    - Linux: `"/data/db/auditlog.json"`
 
-1. Deploy the Azure Monitor Agent to the machine where MongoDB is installed.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Configure MongoDB to write logs:
     1. For Windows, edit the configuration file `mongod.cfg`. For Linux, `mongod.conf`.
@@ -301,13 +328,14 @@ Follow these steps to ingest log messages from NGINX HTTP Server:
 
 1. Table name: `NGINX_CL`
 
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"NGINX_CL"`
-    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/var/log/nginx.log"`
+    Default file locations ("filePatterns"):
+    - Linux: `"/var/log/nginx.log"`
 
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -317,14 +345,15 @@ Follow these steps to ingest log messages from Oracle WebLogic Server:
 
 1. Table name: `OracleWebLogicServer_CL`
 
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"OracleWebLogicServer_CL"`
-    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"<DOMAIN_NAME>\Servers\<SERVER_NAME>\logs*.log"`
-    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"<DOMAIN_HOME>/servers/server_name/logs/*.log"`
+    Default file locations ("filePatterns"):
+    - Windows: `"{DOMAIN_NAME}\Servers\{SERVER_NAME}\logs*.log"`
+    - Linux: `"{DOMAIN_HOME}/servers/{SERVER_NAME}/logs/*.log"`
 
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -334,14 +363,15 @@ Follow these steps to ingest log messages from PostgreSQL Events:
 
 1. Table name: `PostgreSQL_CL`
 
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"PostgreSQL_CL"`
-    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"C:\*.log"`
-    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/var/log/*.log"`
+    Default file locations ("filePatterns"):
+    - Windows: `"C:\*.log"`
+    - Linux: `"/var/log/*.log"`
 
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Edit the PostgreSQL Events configuration file `postgresql.conf` to output logs to files.
     1. Set `log_destination='stderr'`
@@ -356,13 +386,14 @@ Follow these steps to ingest log messages from SecurityBridge Threat Detection f
 
 1. Table name: `SecurityBridgeLogs_CL`
 
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"SecurityBridgeLogs_CL"`
-    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/usr/sap/tmp/sb_events/*.cef"`
+    Default file locations ("filePatterns"):
+    - Linux: `"/usr/sap/tmp/sb_events/*.cef"`
 
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -372,14 +403,15 @@ Follow these steps to ingest log messages from SquidProxy:
 
 1. Table name: `SquidProxy_CL`
 
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+1. Log storage location: Logs are stored as text files on the application's host machine. Install the AMA on the same machine to collect the files.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"SquidProxy_CL"`
-    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"C:\Squid\var\log\squid\*.log"`
-    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/var/log/squid/*.log"`
+    Default file locations ("filePatterns"):
+    - Windows: `"C:\Squid\var\log\squid\*.log"`
+    - Linux: `"/var/log/squid/*.log"`
 
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -389,75 +421,63 @@ Follow these steps to ingest log messages from Ubiquiti UniFi:
 
 1. Table name: `Ubiquiti_CL`
 
-1. Create a log file and grant it write permissions. ***(TO WHOM? -YL)***
+1. Log storage location: Create a log file on your external syslog server. Grant the syslog daemon write permissions to the file. Install the AMA on the external syslog server if it's not already installed. Enter this filename and path in the **File pattern** field in the connector, or in place of the `{LOCAL_PATH_FILE}` placeholder in the DCR.
 
-1. Configure a temporary transformation of Ubiquiti logs to text files so the AMA can collect them.
+1. Configure the syslog daemon to export its Ubiquiti log messages to a temporary text file so the AMA can collect them.
 
-    - **For rsyslog daemon:**
-        1. Create custom configuration file for the rsyslog daemon, in the `/etc/rsyslog.d/` folder, with the following filtering conditions:
+    # [rsyslog](#tab/rsyslog)
 
-            ```bash
-             # Define a new ruleset
-            ruleset(name="<RULESET_NAME>") { 
-                action(type="omfile" file="<LOG_FILE_NAME>") 
-            } 
+    1. Create custom configuration file for the rsyslog daemon, in the `/etc/rsyslog.d/` folder, with the following filtering conditions:
+
+        ```bash
+         # Define a new ruleset
+        ruleset(name="<RULESET_NAME>") { 
+            action(type="omfile" file="<LOG_FILE_NAME>") 
+        } 
              
-             # Set the input on port and bind it to the new ruleset 
-            input(type="imudp" port="<PORT>" ruleset="<RULESET_NAME>") 
-            ```
-            (Replace `<parameters>` with the actual names of the objects represented.)
+         # Set the input on port and bind it to the new ruleset 
+        input(type="imudp" port="<PORT>" ruleset="<RULESET_NAME>") 
+        ```
+        (Replace `<parameters>` with the actual names of the objects represented. <LOG_FILE_NAME> is the file you created in step 2.)
 
-        1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
+    1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
 
-    - **For syslog-ng daemon:**
-        1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following conditions:
+    # [syslog-ng](#tab/syslog-ng)
 
-            ```bash
-            sources_network {
-                network ( 
-                    ip(“0.0.0.0”) 
-                    port(<PORT>) 
-                ); 
-            }; 
-            destination d_file { 
-                file(“<LOG_FILE_NAME>”); 
-            }; 
-            log { 
-                source(s_network); 
-                destination(d_file); 
-            }; 
-            ```
-            (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
+    1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following conditions:
 
-        1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
+        ```bash
+        source s_network {
+            network ( 
+                ip(“0.0.0.0”) 
+                port(<PORT>) 
+            ); 
+        }; 
+        destination d_file { 
+            file(“<LOG_FILE_NAME>”); 
+        }; 
+        log { 
+            source(s_network); 
+            destination(d_file); 
+        }; 
+        ```
+        (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
 
-1. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+    1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"Ubiquiti_CL"`
-    - **Log path**: resources > properties > dataSources > filePatterns: Path where log files are stored.
-    - **Transformation**: resources > properties > dataFlows > transformKql: `"source | project-rename Message=RawData"`
+    ---
 
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    - Replace the column name `"RawData"` with the column name `"Message"`.
+
+    - Replace the transformKql value `"source"` with the value `"source | project-rename Message=RawData"`.
+
+    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Configure and connect the Ubiquiti controller.
     1. Follow the [instructions provided by Ubiquiti](https://help.ui.com/hc/en-us/categories/6583256751383) to enable syslog and optionally debugging logs.
     1. Select Settings > System Settings > Controller Configuration > Remote Logging and enable syslog. 
-
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
-
-### AI Vectra stream
-
-Follow these steps to ingest log messages from AI Vectra stream:
-
-1. Table name: `VectraStream_CL`
-
-1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
-
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"VectraStream_CL"`
-
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -467,91 +487,67 @@ Follow these steps to ingest log messages from VMware vCenter:
 
 1. Table name: `vcenter_CL`
 
-1. Configure a transformation of vCenter logs to text files so the AMA can collect them.
+1. Log storage location: Create a log file on your external syslog server. Grant the syslog daemon write permissions to the file. Install the AMA on the external syslog server if it's not already installed. Enter this filename and path in the **File pattern** field in the connector, or in place of the `{LOCAL_PATH_FILE}` placeholder in the DCR.
 
-    - **For rsyslog daemon:**
-        1. Edit the configuration file `/etc/rsyslog.conf` to add the following template line before the *directive* section:
+1. Configure the syslog daemon to export its vCenter log messages to a temporary text file so the AMA can collect them.
 
-            `$template vcenter,"%timestamp% %hostname% %msg%\ n"`
+    # [rsyslog](#tab/rsyslog)
 
-        1. Create custom configuration file for the rsyslog daemon, saved as `/etc/rsyslog.d/10-vcenter.conf` with the following filtering conditions:
+    1. Edit the configuration file `/etc/rsyslog.conf` to add the following template line before the *directive* section:
 
-            ```bash
-            if $rawmsg contains "vpxd" then {
-                action(type="omfile" file="/<LOG_FILE_NAME>")
-                stop
-            }
-            if $rawmsg contains "vcenter-server" then { 
-                action(type="omfile" file="/<LOG_FILE_NAME>") 
-                stop 
-            } 
-            ```
-            (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
+        `$template vcenter,"%timestamp% %hostname% %msg%\ n"`
 
-        1. Restart rsyslog. The typical command syntax is `sudo systemctl restart rsyslog`.
+    1. Create custom configuration file for the rsyslog daemon, saved as `/etc/rsyslog.d/10-vcenter.conf` with the following filtering conditions:
 
-    - **For syslog-ng daemon:**
-        1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following filtering conditions:
+        ```bash
+        if $rawmsg contains "vpxd" then {
+            action(type="omfile" file="/<LOG_FILE_NAME>")
+            stop
+        }
+        if $rawmsg contains "vcenter-server" then { 
+            action(type="omfile" file="/<LOG_FILE_NAME>") 
+            stop 
+        } 
+        ```
+        (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
+
+    1. Restart rsyslog. The typical command syntax is `sudo systemctl restart rsyslog`.
+
+    # [syslog-ng](#tab/syslog-ng)
+
+    1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following filtering conditions:
         
-            ```bash
-            filter f_vcenter {
-                message("vpxd") or message("vcenter-server"); 
-            }; 
+        ```bash
+        filter f_vcenter {
+            message("vpxd") or message("vcenter-server"); 
+        }; 
              
-            destination d_vcenter { 
-                file("<LOG_FILE_NAME>"); 
-            }; 
+        destination d_vcenter { 
+            file("<LOG_FILE_NAME>"); 
+        }; 
 
-            log { 
-                source(s_src); 
-                filter(f_vcenter); 
-                destination(d_vcenter); 
-                flags(final); #Ensures that once a message matches the filter and is written to the specified destination, it will not be processed by subsequent log statements 
-            }; 
-            ```
-            (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
+        log { 
+            source(s_src); 
+            filter(f_vcenter); 
+            destination(d_vcenter); 
+            flags(final); #Ensures that once a message matches the filter and is written to the specified destination, it will not be processed by subsequent log statements 
+        }; 
+        ```
+        (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
 
-        1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
+    1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
 
-1. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file). Use the text log format.
+    ---
 
-    Update the following keys in the DCR with the values as shown in the sample JSON:
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    - Replace the column name `"RawData"` with the column name `"Message"`.
+
+    - Replace the transformKql value `"source"` with the value `"source | project-rename Message=RawData"`.
+
+    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+
     - dataCollectionEndpointId should be populated with your DCE. If you don't have one, define a new one. See [Create a data collection endpoint](../azure-monitor/essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) for the instructions.
-    - streamDeclarations > columns
-    - transformKql
-    - outputStream
-    ```json
-    {
-       "resources": [
-          {
-             "properties": {
-                "streamDeclarations": {
-                   "Custom-Text-stream": {
-                      "columns": [
-                            {
-                               "name": "TimeGenerated",
-                               "type": "datetime"
-                            },
-                            {
-                               "name": "Message",
-                               "type": "string"
-                            },
-                      ]
-                   }
-                },
-                "dataFlows": [
-                   {
-                      "transformKql": "source | project-rename Message=RawData",
-                      "outputStream": "vcenter_CL"
-                   }
-                ]
-             }
-          }
-       ]
-    }
-    ```
-
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
 1. Configure and connect the vCenter devices. 
     1. Follow the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-9633A961-A5C3-4658-B099-B81E0512DC21.html) for sending syslog messages.
@@ -565,56 +561,59 @@ Follow these steps to ingest log messages from Zscaler Private Access (ZPA):
 
 1. Table name: `ZPA_CL`
 
-1. Create a log file and grant it write permissions. ***(TO WHOM? -YL)***
+1. Log storage location: Create a log file on your external syslog server. Grant the syslog daemon write permissions to the file. Install the AMA on the external syslog server if it's not already installed. Enter this filename and path in the **File pattern** field in the connector, or in place of the `{LOCAL_PATH_FILE}` placeholder in the DCR.
 
-1. Configure a temporary transformation of ZPA logs to text files so the AMA can collect them.
+1. Configure the syslog daemon to export its vCenter log messages to a temporary text file so the AMA can collect them.
 
-    - **For rsyslog daemon:**
-        1. Create custom configuration file for the rsyslog daemon, in the `/etc/rsyslog.d/` folder, with the following filtering conditions:
+    # [rsyslog](#tab/rsyslog)
 
-            ```bash
-             # Define a new ruleset
-            ruleset(name="<RULESET_NAME>") { 
-                action(type="omfile" file="<LOG_FILE_NAME>") 
-            } 
+    1. Create custom configuration file for the rsyslog daemon, in the `/etc/rsyslog.d/` folder, with the following filtering conditions:
+
+        ```bash
+         # Define a new ruleset
+        ruleset(name="<RULESET_NAME>") { 
+            action(type="omfile" file="<LOG_FILE_NAME>") 
+        } 
              
-             # Set the input on port and bind it to the new ruleset 
-            input(type="imudp" port="<PORT>" ruleset="<RULESET_NAME>") 
-            ```
-            (Replace `<parameters>` with the actual names of the objects represented.)
+         # Set the input on port and bind it to the new ruleset 
+        input(type="imudp" port="<PORT>" ruleset="<RULESET_NAME>") 
+        ```
+        (Replace `<parameters>` with the actual names of the objects represented.)
 
-        1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
+    1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
 
-    - **For syslog-ng daemon:**
-        1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following conditions:
+    # [syslog-ng](#tab/syslog-ng)
 
-            ```bash
-            sources_network {
-                network ( 
-                    ip(“0.0.0.0”) 
-                    port(<PORT>) 
-                ); 
-            }; 
-            destination d_file { 
-                file(“<LOG_FILE_NAME>”); 
-            }; 
-            log { 
-                source(s_network); 
-                destination(d_file); 
-            }; 
-            ```
-            (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
+    1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following conditions:
 
-        1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
+        ```bash
+        source s_network {
+            network ( 
+                ip(“0.0.0.0”) 
+                port(<PORT>) 
+            ); 
+        }; 
+        destination d_file { 
+            file(“<LOG_FILE_NAME>”); 
+        }; 
+        log { 
+            source(s_network); 
+            destination(d_file); 
+        }; 
+        ```
+        (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
 
-1. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+    1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
 
-    Update the DCR with the following values:
-    - **Output table name**: resources > properties > dataFlows > outputStream: `"ZPA_CL"`
-    - **Log path**: resources > properties > dataSources > filePatterns: Path where log files are stored.
-    - **Transformation**: resources > properties > dataFlows > transformKql: `"source | project-rename Message=RawData"`
+    ---
 
-1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+
+    - Replace the column name `"RawData"` with the column name `"Message"`.
+
+    - Replace the transformKql value `"source"` with the value `"source | project-rename Message=RawData"`.
+
+    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Configure and connect the ZPA receiver.
     1. Follow the [instructions provided by ZPA](https://help.zscaler.com/zpa/configuring-log-receiver). Select JSON as the log template.

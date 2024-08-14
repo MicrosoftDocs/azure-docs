@@ -30,7 +30,7 @@ The listed features were released in the last three months. For information abou
 With the impending retirement of the Log Analytics Agent, Microsoft Sentinel has consolidated the collection and ingestion of syslog, CEF, and custom-format log messages into three multi-purpose data connectors based on the Azure Monitor Agent (AMA):
 - **Syslog via AMA**, for any device whose logs are ingested into the *Syslog* table in Log Analytics.
 - **Common Event Format (CEF) via AMA**, for any device whose logs are ingested into the *CommonSecurityLog* table in Log Analytics.
-- **Custom Logs via AMA**, for any of 16 device types, or any unlisted device, whose logs are ingested into custom tables with names ending in *_CL* in Log Analytics.
+- **Custom Logs via AMA**, for any of 15 device types, or any unlisted device, whose logs are ingested into custom tables with names ending in *_CL* in Log Analytics.
 
 These connectors replace nearly all the OMS- and AMA-based connectors for individual device and appliance types that have existed until now. The solutions provided in the content hub for all of these devices and appliances now include whichever of these three connectors is appropriate to the solution. The replaced connectors are now marked as "Deprecated" in the data connector gallery.
 
