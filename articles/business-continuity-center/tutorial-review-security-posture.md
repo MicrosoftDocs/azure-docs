@@ -69,7 +69,7 @@ To view the security level for protected items, follow these steps:
 
    On the **Security level details** blade, the help provides guidance on the various security levels and the settings that are required to meet each level. 
 
-    :::image type="content" source="./media/tutorial-review-security-posture/select-security-level-details.png" alt-text="Screenshot shows the security levels details selection." lightbox="./media/tutorial-review-security-posture/select-security-level-details.png":::
+   :::image type="content" source="./media/tutorial-review-security-posture/select-security-level-details.png" alt-text="Screenshot shows the security levels details selection." lightbox="./media/tutorial-review-security-posture/select-security-level-details.png":::
 
 ## Modify security level
 
