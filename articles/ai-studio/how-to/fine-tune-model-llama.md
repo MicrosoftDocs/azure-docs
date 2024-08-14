@@ -56,15 +56,15 @@ Fine-tuning of Llama 2 models is currently supported in projects located in West
 
 
  An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
+- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
 
     > [!IMPORTANT]
-    > For Meta Llama 3.1 models, the pay-as-you-go model fine-tune offering is only available with AI hubs created in **West US 3** regions.
+    > For Meta Llama 3.1 models, the pay-as-you-go model fine-tune offering is only available with hubs created in **West US 3** regions.
 
-- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
+- An [Azure AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
-    - On the Azure subscription—to subscribe the Azure AI project to the Azure Marketplace offering, once for each project, per offering:
+    - On the Azure subscription—to subscribe the AI Studio project to the Azure Marketplace offering, once for each project, per offering:
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
       - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
@@ -75,7 +75,7 @@ Fine-tuning of Llama 2 models is currently supported in projects located in West
       - `Microsoft.SaaS/resources/read`
       - `Microsoft.SaaS/resources/write`
  
-    - On the Azure AI project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
+    - On the AI Studio project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
       - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
       - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
 

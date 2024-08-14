@@ -106,7 +106,7 @@ Check out the following guides if you are looking for instructions on how to ins
 
 - [Quickstart: Azure Blob Storage client library for JavaScript](../blobs/storage-quickstart-blobs-nodejs.md)
 - [Quickstart: Azure Queue client library for JavaScript](../queues/storage-quickstart-queues-nodejs.md)
-- [Getting Started with Azure Table Service in JavaScript](../../cosmos-db/table-storage-how-to-use-nodejs.md)
+- [Getting Started with Azure Table Service in JavaScript](/azure/cosmos-db/table-storage-how-to-use-nodejs)
 
 ## Next steps
 
