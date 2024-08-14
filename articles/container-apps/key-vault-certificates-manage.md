@@ -15,7 +15,7 @@ You can set up Azure Key Vault to centrally manage your container app's TLS/SSL 
 
 ## Prerequisites
 
-An Azure Key Vault resource is required to store your certificate. See [Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md?tabs=azure-portal) or [Configure certificate auto-rotation in Key Vault](../key-vault/certificates/tutorial-rotate-certificates.md) to create a Key Vault and add a certificate.
+An Azure Key Vault resource is required to store your certificate. See [Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal) or [Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates) to create a Key Vault and add a certificate.
 
 ## Enable managed identity for Container Apps environment
 
@@ -42,7 +42,7 @@ Azure Container Apps uses an environment level managed identity to access your K
 
 1. Select **Save**.
 
-For more detail on RBAC vs. legacy access policies, see [Azure role-based access control (Azure RBAC) vs. access policies](../azure/key-vault/general/rbac-access-policy.md).
+For more detail on RBAC vs. legacy access policies, see [Azure role-based access control (Azure RBAC) vs. access policies](/azure/key-vault/general/rbac-access-policy).
 
 ## Import certificate from Key Vault
 
@@ -65,7 +65,7 @@ For more detail on RBAC vs. legacy access policies, see [Azure role-based access
     | Certificate | Select your certificate. |
 
     > [!NOTE]
-    > If you see an error, *"The operation "List" is not enabled in this key vault's access policy."*, you need to configure an access policy in your Key Vault to allow your user account to list certificates. For more information, see [Assign a Key Vault access policy](../azure/key-vault/general/assign-access-policy.md?tabs=azure-portal).
+    > If you see an error, *"The operation "List" is not enabled in this key vault's access policy."*, you need to configure an access policy in your Key Vault to allow your user account to list certificates. For more information, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 
 1. Select **Select**.
 
