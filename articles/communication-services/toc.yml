@@ -1512,7 +1512,7 @@ items:
     - name: Troubleshooting in Azure Communication Services
       href: concepts/troubleshooting-info.md
     - name: Troubleshooting response codes
-      href: concepts/troubleshooting-codes.md
+      href: resources/troubleshooting/voice-video-calling/troubleshooting-codes.md
     - name: Voice and Video
       items:
       - name: General troubleshooting strategies
