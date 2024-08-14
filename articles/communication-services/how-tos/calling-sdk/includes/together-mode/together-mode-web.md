@@ -10,7 +10,7 @@ ms.author: cnwankwo
 
 
 
-`TogetherMode` is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
+Together Mode is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
 ```js
 import { Features} from "@azure/communication-calling";
@@ -22,8 +22,8 @@ Then you can get the feature API object from the call instance:
 const togetherModeFeature = call.feature(Features.TogetherMode);
 ```
 
-### Receive events when together mode stream is started or updated
-You can subscribe to the event `togetherModeStreamsUpdated` to receive notifications when together mode is started or updated. The event contains information about added video stream that can be rendered. 
+### Receive events when Together Mode stream starts or updates
+You can subscribe to the event `togetherModeStreamsUpdated` to receive notifications when Together Mode starts or updates. The event contains information about rendering the added video stream. 
 
 ```js
 // event : { added: TogetherModeVideoStream[]; removed: TogetherModeVideoStream[] }
@@ -34,8 +34,8 @@ togetherModeFeature.on('togetherModeStreamsUpdated', (event) => {
 });
 ```
 
-### Get together mode stream
-You can access together mode streams through the property `togetherModeStream`.
+### Get Together Mode stream
+You can access Together Mode streams through the property `togetherModeStream`.
 
 ```js
 const togetherModeStreams = togetherModeFeature.togetherModeStream;
@@ -43,21 +43,21 @@ const togetherModeStreams = togetherModeFeature.togetherModeStream;
 
 | Together Mode Stream Properties | Description|
 |----------------------------------------------|--------|
-|id		| Unique number used to identify the stream. |
+|`id`		| Unique number used to identify the stream. |
 |`mediaStreamType`		| Returns the Together Mode stream type. The value of `mediaStreamType` is always `video`. |
 |`isReceiving`		| Returns a Boolean value indicating if video packets are received.  |
 |`size`		| 	Returns the size of the stream. The value indicates the quality of the stream. |
 
-### Start Together mode for all participants
-Users with role organizer, co-organizer, or presenter can start together mode for everyone in the meeting. When together mode starts, all subscribers to `togetherModeStreamsUpdated` event receive notification that allows participants to render together mode.
+### Start Together Mode for all participants
+Users with role organizer, co-organizer, or presenter can start Together Mode for everyone in the meeting. When Together Mode starts, all subscribers to the `togetherModeStreamsUpdated` event receive notification that enables participants to render together mode.
 
 ```js
 togetherModeFeature.start();
 ```
-### End together mode
+### End Together Mode
+Together Mode automatically ends for everyone when nobody subscribes to the video for 5 minutes. There's no API to end Together Mode.
 
-Together mode automatically ends for everyone when nobody subscribes to the video for 5 minutes. There's no API to end together mode.
-### Get coordinates of participants in together mode
+### Get coordinates of participants in Together Mode
 The property `togetherModeSeatingMap` provides coordinates for individual participants in the stream. Developers can use these coordinates to overlay participant info such as display name or visual features like spotlight, hand raised, and reactions on the stream. 
 
 ```js
@@ -88,9 +88,9 @@ console.log(`Current scene has the following size: ${JSON.stringify(togetherMode
 
 ### Receive events when scene or seatings updates
 > [!NOTE]
-> Only Microsoft 365 users with role organizer, co-organizer and presenter can change scene or assignment of participants in the together mode. These changes can only be done from Teams Client. 
+> Only Microsoft 365 users with role organizer, co-organizer and presenter can change scene or assignment of participants in Together Mode. These changes can only be made from the Teams Client. 
 
-If there's a scene change or seat reassignment, the `togetherModeSceneUpdated` or `togetherModeSeatingUpdated` events are raised respectively, providing an updated calculation of the participants’ seating positions.
+If there's a scene change or seating, the `togetherModeSceneUpdated` or `togetherModeSeatingUpdated` events are raised respectively, providing an updated calculation of the participants’ seating positions.
 
 ```js
 const seatUpdate = (participantSeatingMap) => {
@@ -106,6 +106,6 @@ togetherModeFeature.on('togetherModeSeatingUpdated', seatUpdate);
 ## Troubleshooting
 |code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
-|403		| 46303	| ExpectedError  | The participant’s role doesn’t have the necessary permissions to invoke the `togetherMode` start API. | Only Microsoft 365 users with role organizer, co-organizer and presenter can start together mode. You can check the role of a user via 'role' property on instance of `Call` class. |
-|403	| 46304 | ExpectedError  | Together mode was started in an unsupported calling scenario.  | Ensure together mode is started only in group call or meeting scenarios. |
-|403 | 46306	| ExpectedError | Together mode `start` API was called by an Azure Communication Services user.  | Only Microsoft 365 users with role organizer, co-organizer and presenter can start together mode. |
+|403		| 46303	| ExpectedError  | The participant’s role doesn’t have the necessary permissions to call the `togetherMode` start API. | Only Microsoft 365 users with role organizer, co-organizer and presenter can start Together Mode. You can check the role of a user via 'role' property on instance of `Call` class. |
+|403	| 46304 | ExpectedError  | Together Mode started in an unsupported calling scenario.  | Ensure Together Mode is started only in group call or meeting scenarios. |
+|403 | 46306	| ExpectedError | Together Mode `start` API called by an Azure Communication Services user.  | Only Microsoft 365 users with role organizer, co-organizer and presenter can start together mode. |
