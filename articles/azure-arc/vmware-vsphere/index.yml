@@ -80,7 +80,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:  
-        - text: Administer for Arc-enabled VMware vSphere
+        - text: Administer Arc-enabled VMware vSphere
           url: administer-arc-vmware.md
         - text: Remove vCenter from Azure Arc
           url: remove-vcenter-from-arc-vmware.md
