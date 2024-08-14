@@ -3,7 +3,7 @@ title: Network data access in studio
 titleSuffix: Azure Machine Learning
 description: Learn how data access works with Azure Machine Learning studio when your workspace or storage is in a virtual network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: larryfr

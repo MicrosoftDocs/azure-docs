@@ -12,15 +12,14 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-This article provides a guide to start using Azure Update Manager (for update management) for virtual machines that are currently using Microsoft Configuration Manager (MCM). 
+This article provides a guide to modernize management of servers for which you are currently using Microsoft Configuration Manager (MCM). We shall focus on Azure Update Manager that provides Azure based experiences for patch management, the major capability of MCM. 
 
-Before initiating migration, you need to understand mapping between System Center components and equivalent services in Azure.
+To start with, let us list the Azure Services that provide equivalent capabilities for the different System Center components.
 
 | **System Center Component** | **Azure equivalent service** |
 | --- | --- |
 | System Center Operations Manager (SCOM) | Azure Monitor SCOM Managed Instance |
-| System Center Configuration Manager (SCCM), now called Microsoft Configuration Manager (MCM) | Azure Update Manager, </br> Change Tracking and Inventory, </br> Guest Config, </br> Azure Automation, </br> Desired State Configuration (DSC), </br> Defender for Cloud | 
-| System Center Virtual Machine Manager (SCVMM) | Arc enabled System Center VMM | 
+| System Center Configuration Manager (SCCM), now called Microsoft Configuration Manager (MCM) | Azure Update Manager, </br> Change Tracking and Inventory, </br> Azure Machine Configuration (formerly called Azure Policy Guest Configuration), </br> Azure Automation, </br> Microsoft Defender for Cloud | 
 | System Center Data Protection Manager (SCDPM) | Azure Backup | 
 | System Center Orchestrator (SCORCH) | Azure Automation | 
 | System Center Service Manager (SCSM)  | - |

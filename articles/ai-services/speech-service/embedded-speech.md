@@ -35,8 +35,6 @@ Embedded TTS with neural voices is only supported on Arm64.
 
 Requires Linux on x64, Arm64, or Arm32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
 
-Embedded speech isn't supported on RHEL/CentOS 7.
-
 Embedded TTS with neural voices isn't supported on Arm32.
 
 # [macOS](#tab/macos-target)
@@ -131,7 +129,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.38.0</version>
+            <version>1.40.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -152,7 +150,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.38.0@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.40.0@aar'
 }
 ```
 ::: zone-end

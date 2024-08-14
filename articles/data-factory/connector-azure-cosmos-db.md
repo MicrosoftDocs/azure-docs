@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/23/2024
+ms.date: 08/13/2024
 ---
 
 # Copy and transform data in Azure Cosmos DB for NoSQL by using Azure Data Factory
@@ -260,6 +260,9 @@ These properties are supported for the linked service:
 }
 ```
 ### User-assigned managed identity authentication
+
+>[!NOTE]
+>Currently, user-assigned managed identity authentication is supported in data flows through the use of advanced properties in JSON format.
 
 A data factory or Synapse pipeline can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity), which represents this specific service instance. You can directly use this managed identity for Azure Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Azure Cosmos DB instance.
 
