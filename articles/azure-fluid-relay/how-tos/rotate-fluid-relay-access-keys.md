@@ -19,7 +19,7 @@ Two keys are associated with each Azure Fluid Relay Service: a primary key and s
 ### [Azure portal](#tab/azure-portal)
 To see your access keys, search for your Azure Fluid Relay Service in the Azure portal. On the left menu of Azure Fluid Relay Service page, select **Settings**. Then, select **Access Keys**. Select the **Copy** button to copy the selected key.
 
-:::image type="content" source="../images/rotate-tenant-keys.png" alt-text="A screenshot of the access keys page on the Azure portal.":::
+[![Screenshot that shows Access Keys page](../images/rotate-tenant-keys.png)](../images/rotate-tenant-keys.png#lightbox)
 
 ### [PowerShell](#tab/azure-powershell)
 To retrieve your access keys with PowerShell, you need to install [Azure Fluid Relay module](/powershell/module/az.fluidrelay) first.
