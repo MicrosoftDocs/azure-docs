@@ -64,7 +64,7 @@ This allocation strategy is focused on workloads where attaining capacity is the
 Following the scale set cost model, usage of Instance Mix is free. You continue to only pay for the underlying resources, like the VM, disk, and networking.
 
 ## Limitations
-- Instance Mix is currently available in the following regions: West US, West US2, West US3, East US, East US2, CentralUS, South Central US, North Central US, West Europe, North Europe, UK South, and France Central. 
+- Instance Mix is currently available in the following regions: West US, West US2, East US, and East US2. 
 - Instance Mix is only available for scale sets using Flexible Orchestration Mode.
 - Instance Mix is currently only available through ARM template and in the Azure portal.
 - You must have quota for the VM sizes you're requesting with Instance Mix.
@@ -134,4 +134,4 @@ Lastly, be sure to specify the `skuProfile` with **up to five** VM sizes. This s
 Yes, you can use both Spot and Standard VMs in your scale set deployments using Instance Mix. To do so, use [Spot Priority Mix](./spot-priority-mix.md) to define a percentage split of Spot and Standard VMs. 
 
 ## My region doesn't support Instance Mix today, will it support Instance Mix in the future?
-Instance Mix is rolling out to all Azure regions during Public Preview. Instance Mix is currently available in the following regions: West US, West US2, West US3, East US, East US2, CentralUS, South Central US, North Central US, West Europe, North Europe, UK South, and France Central.
+Instance Mix is rolling out to all Azure regions during Public Preview. Instance Mix is currently available in the following regions: West US, West US2, East US, and East US2.
