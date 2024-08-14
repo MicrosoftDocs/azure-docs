@@ -275,7 +275,6 @@
             - name: Use Azure CLI
               displayName: automatic device management
               href: iot-hub-automatic-device-management-cli.md
-
     - name: Develop
       items:
         - name: Send cloud-to-device messages
@@ -297,9 +296,6 @@
               href: file-upload-java.md
         - name: Get started with device twins
           items:
-            - name: CLI
-              displayName: device twins
-              href: device-twins-cli.md
             - name: .NET
               displayName: device twins
               href: device-twins-dotnet.md
@@ -317,9 +313,6 @@
             - name: Portal
               displayName: module twins, module identity
               href: module-twins-portal-dotnet.md
-            - name: CLI
-              displayName: module twins, module identity
-              href: module-twins-cli.md
             - name: .NET
               displayName: module twins, module identity
               href: module-twins-dotnet.md

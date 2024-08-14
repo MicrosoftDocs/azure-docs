@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 08/13/2024
 ms.author: kgremban 
 ms.custom: devx-track-portal, devx-track-azurecli
 ---
@@ -15,7 +15,7 @@ ms.custom: devx-track-portal, devx-track-azurecli
 
 Use the Azure portal and Azure CLI to manage devices through device twins and module twins. This article focuses on device twins for simplicity, but all of the concepts and processes work in a similar way for module twins.
 
-This article describes that actions that you can take from the Azure portal or Azure CLI to manage device twins remotely. For information about developing device applications to handle device twin changes, see [Get started with device twins](./device-twins-dotnet.md).
+This article describes device twin management tasks available in the Azure portal or Azure CLI to manage device twins remotely. For information about developing device applications to handle device twin changes, see [Get started with device twins](./device-twins-dotnet.md).
 
 In IoT Hub, a *device twin* is a JSON document that stores state information. Every *device identity* is automatically associated with a device twin when it's created. A backend app or user can update two elements of a device twin:
 
@@ -23,6 +23,8 @@ In IoT Hub, a *device twin* is a JSON document that stores state information. Ev
 * *Tags*: You can use device twin tags to organize and manage devices in your IoT solutions. You can set tags for any meaningful category, like device type, location, or function.
 
 For more information, see [Understand and use device twins in IoT Hub](./iot-hub-devguide-device-twins.md) or [Understand and use module twins in IoT Hub](./iot-hub-devguide-module-twins.md).
+
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
 ## Prerequisites
 
@@ -36,7 +38,9 @@ Prepare the following prerequisites before you begin.
 
 ### [Azure CLI](#tab/cli)
 
-* Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](../cloud-shell/overview.md), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* The Azure CLI, version 2.36 or later. To find the version, run `az --version`. To install or upgrade the Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
+
+  You can also run the commands in this article using the [Azure Cloud Shell](../cloud-shell/overview.md), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything.
 
 * An IoT hub in your Azure subscription. If you don't have a hub yet, follow the steps in [Create an IoT hub](create-hub.md).
 
@@ -50,21 +54,21 @@ Device twin tags can be used as a powerful tool to help you organize your device
 
 ```json
 {
-    "deviceId": "mydevice1",
-    "status": "enabled",
-    "connectionState": "Connected",
-    "cloudToDeviceMessageCount": 0,
-    "authenticationType": "sas",
-    "tags": {
-        "deploymentLocation": {
-            "building": "43",
-            "floor": "1"
-        },
-		"deviceType":"HDCamera"
+  "deviceId": "mydevice1",
+  "status": "enabled",
+  "connectionState": "Connected",
+  "cloudToDeviceMessageCount": 0,
+  "authenticationType": "sas",
+  "tags": {
+    "deploymentLocation": {
+      "building": "43",
+      "floor": "1"
     },
-    "properties": {
-     ...
-    }
+    "deviceType":"HDCamera"
+  },
+  "properties": {
+    ...
+  }
 }
 ```
 
@@ -84,11 +88,17 @@ Once a device identity is created, a device twin is implicitly created in IoT Hu
 
    >[!TIP]
    >If you're updating tags, you can select multiple devices then select **Assign tags** to manage them as a group.
+   >
+   >:::image type="content" source="./media/manage-device-twins/multi-select-assign-tags.png" alt-text="A screenshot that shows selecting multiple devices in the Azure portal to assign tags as a group.":::
 
 1. The device details page displays any current tags for the selected device. Select **edit** next to the **Tags** parameter to add, update, or remove tags.
 
+   :::image type="content" source="./media/manage-device-twins/edit-tags.png" alt-text="A screenshot that shows opening the tags editing option in the Azure portal.":::
+
    >[!TIP]
    >To add or update nested tags, select the **Advanced** tab and provide the JSON.
+   >
+   >:::image type="content" source="./media/manage-device-twins/edit-tags-advanced.png" alt-text="A screenshot that shows using the advanced tags editor to provide JSON text.":::
 
 1. Select **Device twin** to view and update the device twin JSON.
 
@@ -122,9 +132,12 @@ The [az iot hub device-twin replace](/cli/azure/iot/hub/device-twin#az-iot-hub-d
 az iot hub device-twin replace --device-id <DEVICE_ID> --hub-name <IOTHUB_NAME> --json <INLINE_JSON_OR_PATH_TO_JSON_FILE>
 ```
 
+>[!TIP]
+>If you're using Powershell, add a backslash '\' to escape any double quotes. For example: `--tags '{\"country\":\"US\"}'`
+
 ---
 
-## Query your IoT hub for device twins
+## Query for device twins
 
 IoT Hub exposes the device twins for your IoT hub as a document collection called **devices**. You can query devices based on their device twin values.
 
@@ -144,10 +157,10 @@ This section describes how to run twin queries in the Azure portal and Azure CLI
 
      1. Select **Add filter**, and then select **Device tag** as the filter type from the drop-down menu.
 
-     1. Enter the desired tag name and value, select **Apply** to retrieve the list of devices that matches the criteria 
+     1. Enter the desired tag name and value, select **Apply** to retrieve the list of devices that matches the criteria.
 
-        :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-filter.png" alt-text="Screenshot of filtering devices with tags.":::
-   
+        :::image type="content" source="./media/manage-device-twins/filter-device-twin-tags.png" alt-text="Screenshot of filtering devices with tags.":::
+
    * **Find devices using a query**:
 
      1. Select **Find devices using a query**.
@@ -158,11 +171,37 @@ This section describes how to run twin queries in the Azure portal and Azure CLI
 
 ### [Azure CLI](#tab/cli)
 
-Use the [az iot hub query](/cli/azure/iot/hub#az-iot-hub-query) command to return device information based on device twin or module twin queries. For example:
+Use the [az iot hub query](/cli/azure/iot/hub#az-iot-hub-query) command to return device information based on device twin or module twin queries.
 
 ```azurecli
 az iot hub query --hub-name <IOTHUB_NAME> --query-command "SELECT * FROM devices WHERE <QUERY_TEXT>"
 ```
 
+The same `query` command can query module twins by adjusting the query command.
+
+```azurecli
+az iot hub query --hub-name <IOTHUB_NAME> --query-command "SELECT * FROM devices.modules WHERE <QUERY_TEXT>"
+```
+
 ---
 
+## Update device twins using jobs
+
+The *jobs* capability can executy device twin updates against a set of devices at a scheduled time. For more information, see [Schedule jobs on multiple devices](./iot-hub-devguide-jobs.md).
+
+### [Azure portal](#tab/portal)
+
+Jobs aren't supported in the Azure portal. Instead, use the Azure CLI.
+
+### [Azure CLI](#tab/cli)
+
+Use the [az iot hub job](/cli/azure/iot/hub/job) set of commands to create, view, or cancel jobs.
+
+For example, the following command updates desired twin properties on a set of devices at a specific time:
+
+```azurecli
+az iot hub job create --job-id <JOB_NAME> --job-type scheduleUpdateTwin -n <IOTHUB_NAME> --twin-patch <INLINE_JSON_OR_PATH_TO_JSON_FILE> --start-time "<ISO_8601_DATETIME>" --query-condition "<QUERY_TEXT>"
+```
+
+>[!TIP]
+>If you're using Powershell, add a backslash '\' to escape any double quotes. For example: `--tags '{\"country\":\"US\"}'`
