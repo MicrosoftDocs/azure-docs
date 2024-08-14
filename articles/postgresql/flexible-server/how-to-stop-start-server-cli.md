@@ -1,8 +1,8 @@
 ---
 title: Stop/start - Azure CLI
 description: This article describes how to stop/start operations in Azure Database for PostgreSQL - Flexible Server through the Azure CLI.
-author: AlicjaKucharczyk
-ms.author: alkuchar
+author: akashraokm
+ms.author: akashrao
 ms.reviewer: maghan
 ms.date: 04/27/2024
 ms.service: azure-database-postgresql

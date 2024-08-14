@@ -23,6 +23,7 @@ The table shows the batch quota limit. Quota values for global batch are represe
 |Model|Enterprise agreement|Default| Monthly credit card based subscriptions | MSDN subscriptions | Azure for Students, Free Trials |
 |---|---|---|---|---|---|
 | `gpt-4o` | 5 B | 50 M | 1.35 M | 90 K | N/A|
+| `gpt-4o-mini` | 5 B | 50 M | 1.35 M | 90 K | N/A |
 | `gpt-4-turbo` | 300 M | 40 M | 1.35 M | 90 K | N/A |
 | `gpt-4` | 150 M | 5 M | 200 K | 100 K | N/A |
 | `gpt-35-turbo` | 10 B | 100 M | 5 M | 2 M | 50 K |

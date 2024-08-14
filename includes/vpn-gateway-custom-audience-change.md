@@ -12,7 +12,7 @@ If you've already configured your P2S VPN gateway to use a custom value for the 
 
 In the following steps, you add another authorized client application using the Microsoft-registered Azure VPN client App ID audience value. You don't change the value of the existing authorized client application. You can always delete the existing authorized client application if you're no longer using it.
 
-1. There are a couple of different ways to get to the App registrations page. One way is through the [Microsoft Entra admin center](https://entra.microsoft.com). You can also use the Azure portal and **Microsoft Entra ID**. Sign in with an account that has the [Cloud Application Administrator](https://learn.microsoft.com/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) role or higher.
+1. There are a couple of different ways to get to the App registrations page. One way is through the [Microsoft Entra admin center](https://entra.microsoft.com). You can also use the Azure portal and **Microsoft Entra ID**. Sign in with an account that has the [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) role or higher.
 1. If you have access to multiple tenants, use the **Settings** icon in the top menu to switch to the tenant you want to use from the **Directories + subscriptions** menu.
 1. Go to **App registrations** and locate display name for the registered app. Click to open the page.
 1. Click **Expose an API**. On the **Expose an API** page, notice the previous Azure VPN Client audience value `Client Id` is present.

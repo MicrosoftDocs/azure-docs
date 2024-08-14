@@ -17,6 +17,14 @@ ms.author: kavitagaddam
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## **August 2024**
+
+### FHIR service
+
+**Bug Fixes** 
+A fix was implemented to address issues with large exports incorrectly displaying a "completed" status while child tasks are still processing. The solution incorporates a delay to mitigate the occurrence of these status errors, improving export reliability. 
+
+
 ## **July 2024**
 
 ### FHIR service

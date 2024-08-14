@@ -1,6 +1,36 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storage/files/files-samples-dotnet-v11.md",
+      "redirect_url": "/previous-versions/azure/storage/files/files-samples-dotnet-v11",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/files-samples-java-v8.md",
+      "redirect_url": "/previous-versions/azure/storage/files/files-samples-java-v8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/files-samples-python-v2.md",
+      "redirect_url": "/previous-versions/azure/storage/files/files-samples-python-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/storage-c-plus-plus-how-to-use-files.md",
+      "redirect_url": "/previous-versions/azure/storage/files/storage-c-plus-plus-how-to-use-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/queues/queues-v11-samples-dotnet.md",
+      "redirect_url": "/previous-versions/azure/storage/queues/queues-v11-samples-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/queues/queues-v2-samples-python.md",
+      "redirect_url": "/previous-versions/azure/storage/queues/queues-v2-samples-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/files/storage-files-migration-storsimple-1200.md",
       "redirect_url": "/previous-versions/azure/storage/files/storage-files-migration-storsimple-1200",
       "redirect_document_id": false
@@ -412,7 +442,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-portal/tutorial-azureportal-devops.md",
-      "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&tabs=new-nav",
+      "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json\u0026bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json\u0026tabs=new-nav",
       "redirect_document_id": false
     },
     {
@@ -1233,11 +1263,6 @@
     {
       "source_path_from_root": "/articles/cloudfoundry/use-osba-pcf-app.md",
       "redirect_url": "/azure/cloudfoundry",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/confidential-ledger/register-ledger-service-principal.md",
-      "redirect_url": "/azure/confidential-ledger/overview",
       "redirect_document_id": false
     },
     {
@@ -2323,11 +2348,6 @@
     {
       "source_path_from_root": "/articles/jenkins/tutorial-jenkins-github-docker-cicd.md",
       "redirect_url": "/azure/developer/jenkins/pipeline-with-github-and-docker",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/key-vault/general/move-region.md",
-      "redirect_url": "/azure/operational-excellence/relocation-key-vault",
       "redirect_document_id": false
     },
     {
@@ -4617,7 +4637,7 @@
     },
     {
       "source_path_from_root": "/articles/virtual-desktop/partners.md",
-      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1\u0026search=azure%20virtual%20desktop",
       "redirect_document_id": false
     },
     {
@@ -4813,6 +4833,11 @@
     {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md",
       "redirect_url": "/azure/vpn-gateway/about-site-to-site-tunneling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/openvpn-azure-ad-tenant-multi-app.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-entra-users-access",
       "redirect_document_id": false
     },
     {
@@ -5053,6 +5078,11 @@
     {
       "source_path_from_root": "/articles/xplat-cli-install.md",
       "redirect_url": "/cli/azure/install-azure-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/template-samples.md",
+      "redirect_url": "/samples/browse/?expanded=azure&products=azure-resource-manager&terms=virtual%20network",
       "redirect_document_id": false
     }
   ]

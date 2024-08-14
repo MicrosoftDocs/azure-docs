@@ -1,26 +1,26 @@
 ---
-title: Analyze Twitter data with Apache Hive - Azure HDInsight 
-description: Learn how to use Apache Hive and Apache Hadoop on HDInsight to transform raw TWitter data into a searchable Hive table.
+title: Analyze X data with Apache Hive - Azure HDInsight 
+description: Learn how to use Apache Hive and Apache Hadoop on HDInsight to transform raw X data into a searchable Hive table.
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017, hdinsightactive, linux-related-content
 ms.date: 06/15/2024
 ---
 
-# Analyze Twitter data using Apache Hive and Apache Hadoop on HDInsight
+# Analyze X data using Apache Hive and Apache Hadoop on HDInsight
 
-Learn how to use [Apache Hive](https://hive.apache.org/) to process Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
+Learn how to use [Apache Hive](https://hive.apache.org/) to process X data. The result is a list of X users who sent the most tweets that contain a certain word.
 
 > [!IMPORTANT]  
 > The steps in this document were tested on HDInsight 3.6.
 
 ## Get the data
 
-Twitter allows you to retrieve the data for each tweet as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](https://oauth.net) is required for authentication to the API.
+X allows you to retrieve the data for each tweet as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](https://oauth.net) is required for authentication to the API.
 
-### Create a Twitter application
+### Create an X application
 
-1. From a web browser, sign in to [https://developer.twitter.com](https://developer.twitter.com). Select the **Sign-up now** link if you don't have a Twitter account.
+1. From a web browser, sign in to [https://developer.x.com](https://developer.x.com). Select the **Sign-up now** link if you don't have an X account.
 
 2. Select **Create New App**.
 
@@ -46,7 +46,7 @@ Twitter allows you to retrieve the data for each tweet as a JavaScript Object No
 
 ### Download tweets
 
-The following Python code downloads 10,000 tweets from Twitter and save them to a file named **tweets.txt**.
+The following Python code downloads 10,000 tweets from X and save them to a file named **tweets.txt**.
 
 > [!NOTE]  
 > The following steps are performed on the HDInsight cluster, since Python is already installed.
@@ -76,7 +76,7 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
    nano gettweets.py
    ```
 
-1. Edit the code below by replacing `Your consumer secret`, `Your consumer key`, `Your access token`, and `Your access token secret` with the relevant information from your twitter application. Then paste the edited code as the contents of the **gettweets.py** file.
+1. Edit the code below by replacing `Your consumer secret`, `Your consumer key`, `Your access token`, and `Your access token secret` with the relevant information from your X application. Then paste the edited code as the contents of the **gettweets.py** file.
 
    ```python
    #!/usr/bin/python
@@ -87,7 +87,7 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
    import json
    import sys
 
-   #Twitter app information
+   #X app information
    consumer_secret='Your consumer secret'
    consumer_key='Your consumer key'
    access_token='Your access token'
@@ -153,8 +153,8 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
 To upload the data to HDInsight storage, use the following commands:
 
 ```bash
-hdfs dfs -mkdir -p /tutorials/twitter/data
-hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
+hdfs dfs -mkdir -p /tutorials/x/data
+hdfs dfs -put tweets.txt /tutorials/x/data/tweets.txt
 ```
 
 These commands store the data in a location that all nodes in the cluster can access.
@@ -164,7 +164,7 @@ These commands store the data in a location that all nodes in the cluster can ac
 1. Use the following command to create a file containing [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) statements:
 
    ```bash
-   nano twitter.hql
+   nano x.hql
    ```
 
     Use the following text as the contents of the file:
@@ -174,11 +174,11 @@ These commands store the data in a location that all nodes in the cluster can ac
    set hive.exec.dynamic.partition.mode = nonstrict;
    -- Drop table, if it exists
    DROP TABLE tweets_raw;
-   -- Create it, pointing toward the tweets logged from Twitter
+   -- Create it, pointing toward the tweets logged from X
    CREATE EXTERNAL TABLE tweets_raw (
        json_response STRING
    )
-   STORED AS TEXTFILE LOCATION '/tutorials/twitter/data';
+   STORED AS TEXTFILE LOCATION '/tutorials/x/data';
    -- Drop and recreate the destination table
    DROP TABLE tweets;
    CREATE TABLE tweets
@@ -280,10 +280,10 @@ These commands store the data in a location that all nodes in the cluster can ac
 1. Use the following command to run the HiveQL contained in the file:
 
    ```bash
-   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
+   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i x.hql
    ```
 
-    This command runs the **twitter.hql** file. Once the query completes, you see a `jdbc:hive2//localhost:10001/>` prompt.
+    This command runs the **x.hql** file. Once the query completes, you see a `jdbc:hive2//localhost:10001/>` prompt.
 
 1. From the beeline prompt, use the following query to verify that data was imported:
 

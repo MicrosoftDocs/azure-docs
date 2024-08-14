@@ -3,7 +3,7 @@
  description: include file
  services: virtual-machines
  author: roygara
- ms.service: virtual-machines
+ ms.service: azure-virtual-machines
  ms.topic: include
  ms.date: 10/24/2023
  ms.author: rogarana
