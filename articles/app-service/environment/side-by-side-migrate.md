@@ -223,6 +223,8 @@ Once you're ready to redirect traffic, you can complete the final step of the mi
 > [!NOTE]
 > It's important to complete this step as soon as possible. When your App Service Environment is in the hybrid state, it's unable to receive platform upgrades and security patches, which makes it more vulnerable to instability and security threats.
 >
+> **You have 14 days to complete this step. After 14 days, the platform will automatically complete the migration. If you need more time, you can open a support case to discuss your options**.
+>
 
 If you discover any issues with your new App Service Environment v3, don't run the command to redirect customer traffic. This command also initiates the deletion of your App Service Environment v2. If you find an issue, contact support.
 
@@ -458,7 +460,11 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 
 ### 11. Redirect customer traffic, validate your App Service Environment v3, and complete migration
 
-This step is your opportunity to test and validate your new App Service Environment v3.
+This step is your opportunity to test and validate your new App Service Environment v3. 
+
+> [!IMPORTANT]
+> You have 14 days to complete this step. After 14 days, the platform will automatically complete the migration. If you need more time, you can open a support case to discuss your options.
+>
 
 Once you confirm your apps are working as expected, you can finalize the migration by running the following command. This command also deletes your old environment.
 
