@@ -37,12 +37,12 @@ To avoid this problem, create another host route for the firewall's public IP ad
 
 For example, the following routes are for a firewall at public IP address 203.0.113.136, and private IP address 10.0.1.4.
 
-:::image type="content" source="media/integrate-lb/route-table.png" lightbox="media/integrate-lb/route-table.png" alt-text="Screenshot of route table." lightbox="media/integrate-lb/route-table.png":::
+:::image type="content" source="media/integrate-lb/route-table.png" lightbox="media/integrate-lb/route-table.png" alt-text="Screenshot of route table.":::
 ### NAT rule example
 
 In the following example, a NAT rule translates RDP traffic to the firewall at 203.0.113.136 over to the load balancer at 203.0.113.220:
 
-:::image type="content" source="media/integrate-lb/nat-rule-02.png" lightbox="media/integrate-lb/nat-rule-02.png" alt-text="Screenshot of NAT rule." lightbox="media/integrate-lb/nat-rule-02.png":::
+:::image type="content" source="media/integrate-lb/nat-rule-02.png" lightbox="media/integrate-lb/nat-rule-02.png" alt-text="Screenshot of NAT rule.":::
 ### Health probes
 
 Remember, you need to have a web service running on the hosts in the load balancer pool if you use TCP health probes to port 80, or HTTP/HTTPS probes.
