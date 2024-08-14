@@ -4,7 +4,7 @@ description: Deploy Azure Static Web Apps using Bicep including resource creatio
 services: static-web-apps
 ms.custom: 
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 08/13/2024
 ms.author: cshoe
@@ -101,11 +101,9 @@ To create a static web app with a linked backend function app, you need to use a
 
 * [Create the Azure Function app](/azure/azure-functions/functions-create-first-function-bicep). You need the resourceId for the Function app, which looks like: `/subscriptions/<SUBSCRIPTION-ID>/resourcegroups/<RESOURCE-GROUP-NAME>/providers/Microsoft.Web/sites/<FUNCTION-APP-NAME>`.
 * Create the static web app using the [bicep in the previous section](#create-a-static-web-app-resource).
-* Configure the static web app. Configuration includes:
-    * CORS: The Azure Function app needs to know the defaultHostname of the static web app.
-    * Link: The static web app needs to know about the Azure Function app in order to link to it.
+* Link the static web app to the function app.
 
-Create a `config.bicep` file, which creates a static web app and [links to an existing Azure Functions app](functions-bring-your-own#link-an-existing-azure-functions-app). 
+Create a `config.bicep` file to link the static web app to the function app. 
 
 ```bicep
 targetScope = 'resourceGroup'
@@ -122,20 +120,12 @@ param resourceGroup string = '<RESOURCE-GROUP-NAME>'
 @description('Azure Statoc web app name')
 param staticWebAppName string = '<STATIC-WEB-APP-NAME>'
 
-@description('Azure Static web app origin - value from swa.outputs.defaultHostname')
-param staticWebAppOrigin string = 'https://...'
-
 @description('Azure Function App name')
 param functionAppName string = '<FUNCTION-APP-NAME>'
 
 @description('Get reference to static web app')
 resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' existing = {
   name: staticWebAppName
-}
-
-@description('Get reference to function app')
-resource functionApp 'Microsoft.Web/sites@2021-02-01' existing = {
-  name: functionAppName
 }
 
 param functionAppResourceId string = '/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Web/sites/${functionAppName}'
@@ -148,22 +138,6 @@ resource linkedStaticWebAppBackend 'Microsoft.Web/staticSites/linkedBackends@202
     backendResourceId: functionAppResourceId
     region: location
   }
-}
-
-@description('The app settings to be applied to the app service')
-param appSettings object = {
-  cors: {
-    allowedOrigins: [
-      staticWebAppOrigin
-    ]
-  }
-}
-
-@description('Function App settings for CORS')
-resource functionAppSettings 'Microsoft.Web/sites/config@2022-03-01' = {
-  name: 'appsettings'
-  parent: functionApp
-  properties: appSettings
 }
 ```
 Learn more from a full end-to-end application, which provides resource creation and application deployment: 
