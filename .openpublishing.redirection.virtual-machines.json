@@ -7,7 +7,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/spot-placement-score.md",
-            "redirect_url": "/virtual-machines/index",
+            "redirect_url": "/virtual-machines/",
             "redirect_document_id": false
         }    
     ]
