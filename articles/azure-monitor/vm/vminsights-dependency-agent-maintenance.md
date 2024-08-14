@@ -13,7 +13,7 @@ ms.date: 09/28/2023
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-Dependency Agent collects data about processes running on the virtual machine and external process dependencies. Dependency Agent updates include bug fixes or support of new features or functionality. This article describes Dependency Agent requirements and how to upgrade Dependency Agent manually or through automation.
+Dependency Agent collects data about processes running on the virtual machine and external process dependencies. Updates include bug fixes or support of new features or functionality. This article describes Dependency Agent requirements and how to upgrade it manually or through automation.
 
 >[!NOTE]
 > Dependency Agent sends heartbeat data to the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table, for which you incur data ingestion charges. This behavior is different from Azure Monitor Agent, which sends agent health data to the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which is free from data collection charges.
@@ -21,7 +21,8 @@ Dependency Agent collects data about processes running on the virtual machine an
 ## Dependency Agent requirements
 
 * Dependency Agent requires the Azure Monitor Agent to be installed on the same machine.
-* On both the Windows and Linux versions, Dependency Agent collects data using a user-space service and a kernel driver. 
+
+* On both the Windows and Linux versions, Dependency Agent collects data using a user-space service and a kernel driver.
     * Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
     * For Linux, see [Dependency Agent Linux support](#dependency-agent-linux-support).
 
@@ -45,16 +46,16 @@ You can download the latest version of the Windows agent from [aka.ms/dependency
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Execute **InstallDependencyAgent-Windows.exe** to start the Setup Wizard.
+1. Execute **InstallDependencyAgent-Windows.exe** to start the Setup Wizard.
    
-3. Follow the **Dependency Agent Setup** wizard to uninstall the previous version of Dependency Agent and then install the latest version.
+1. Follow the **Dependency Agent Setup** wizard to uninstall the previous version of Dependency Agent and then install the latest version.
 
 
 #### From the command line
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Run the following command:
+1. Run the following command:
 
     ```cmd
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
@@ -62,7 +63,7 @@ You can download the latest version of the Windows agent from [aka.ms/dependency
 
     The `/RebootMode=manual` parameter prevents the upgrade from automatically rebooting the machine if some processes are using files from the previous version and have a lock on them. 
 
-3. To confirm the upgrade was successful, check the `install.log` for detailed setup information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
+1. To confirm the upgrade was successful, check the `install.log` for detailed setup information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
 ### Manually install or upgrade Dependency Agent on Linux
 
@@ -88,34 +89,33 @@ curl -L -o DependencyAgent-Linux64.bin https://aka.ms/dependencyagentlinux
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Navigate to the directory where the agent file you downloaded is located, and run the following command as root:
+1. Run the following command as root:
 
     ```bash
-    ./InstallDependencyAgent-Linux64.bin -s
+    sudo <path>/InstallDependencyAgent-Linux64.bin
     ```
 
 If Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
 
-## Uninstall Dependency Agent 
-
-To uninstall Dependency Agent:
+## Uninstall Dependency Agent
 
 1. From the **Virtual Machines** menu in the Azure portal, select your virtual machine.
+
 1. Select **Extensions + applications** > **DependencyAgentWindows** or **DependencyAgentLinux** > **Uninstall**.
 
     :::image type="content" source="media/vminsights-dependency-agent-maintenance/azure-monitor-uninstall-dependency-agent.png" alt-text="Screenshot showing the Extensions and applications screen for a virtual machine." lightbox="media/vminsights-dependency-agent-maintenance/azure-monitor-uninstall-dependency-agent.png":::
 
 ### Manually uninstall Dependency Agent on Windows
 
-Method 1: In Windows, go to **Add and remove programs**, find Microsoft Dependency Agent, click on the ellipsis to open the context menu, and select **Uninstall**.
+**Method 1:** In Windows, go to **Add and remove programs**, find Microsoft Dependency Agent, click on the ellipsis to open the context menu, and select **Uninstall**.
 
-Method 2: Use the uninstaller located in the Microsoft Dependency Agent folder, for example, `C:\Program Files\Microsoft Dependency Agent"\Uninstall_v.w.x.y.exe` (where v.w.x.y is the version number).
+**Method 2:** Use the uninstaller located in the Microsoft Dependency Agent folder, for example, `C:\Program Files\Microsoft Dependency Agent"\Uninstall_v.w.x.y.exe` (where v.w.x.y is the version number).
 
 ### Manually uninstall Dependency Agent on Linux
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Run the following command as root:
+1. Run the following command as root:
 
     ```bash
     /opt/microsoft/dependency-agent/uninstall -s
