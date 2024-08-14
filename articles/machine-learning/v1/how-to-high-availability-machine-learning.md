@@ -118,12 +118,12 @@ __Data services__
 * **Azure Blob container / Azure Files / Data Lake Storage Gen2**: See [Azure Storage redundancy](../../storage/common/storage-redundancy.md).
 * **Data Lake Storage Gen1**: See [High availability and disaster recovery guidance for Data Lake Storage Gen1](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md).
 * **SQL Database**: See [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla).
-* **Azure Database for PostgreSQL**: See [High availability concepts in Azure Database for PostgreSQL - Single Server](../../postgresql/concepts-high-availability.md).
-* **Azure Database for MySQL**: See [Understand business continuity in Azure Database for MySQL](../../mysql/concepts-business-continuity.md).
+* **Azure Database for PostgreSQL**: See [High availability concepts in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-high-availability).
+* **Azure Database for MySQL**: See [Understand business continuity in Azure Database for MySQL](/azure/mysql/concepts-business-continuity).
 * **Azure Databricks File System**: See [Regional disaster recovery for Azure Databricks clusters](/azure/databricks/scenarios/howto-regional-disaster-recovery).
 
 > [!TIP]
-> If you provide your own customer-managed key to deploy an Azure Machine Learning workspace, Azure Cosmos DB is also provisioned within your subscription. In that case, you're responsible for configuring its high-availability settings. See [High availability with Azure Cosmos DB](../../cosmos-db/high-availability.md).
+> If you provide your own customer-managed key to deploy an Azure Machine Learning workspace, Azure Cosmos DB is also provisioned within your subscription. In that case, you're responsible for configuring its high-availability settings. See [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability).
 
 ## Design for high availability
 

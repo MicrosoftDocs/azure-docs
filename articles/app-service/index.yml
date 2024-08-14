@@ -8,7 +8,7 @@ metadata:
   description: Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts and tutorials to help you succeed with App Service.
   ms.topic: landing-page
   ms.author: msangapu
-  ms.service: app-service
+  ms.service: azure-app-service
   ms.date: 07/18/2023
   ms.custom: UpdateFrequency3
 
