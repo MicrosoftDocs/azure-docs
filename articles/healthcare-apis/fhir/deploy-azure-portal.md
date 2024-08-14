@@ -2,7 +2,7 @@
 title: Deploy the FHIR service in Azure Health Data Services
 description: Learn how to deploy the FHIR service in Azure Health Data Services by using the Azure portal. This article covers prerequisites, workspace deployment, service creation, and security settings.
 author: EXPEkesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: quickstart
 ms.date: 04/30/2024
 ms.author: kesheth
