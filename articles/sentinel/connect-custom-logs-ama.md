@@ -87,8 +87,8 @@ The setup process for the Custom Logs via AMA data connector includes the follow
         (If you're collecting logs from a log forwarder and not directly from the device hosting the application, name this field **Message** instead of **RawData**.)
 
 1. Install the Azure Monitor Agent and create a Data Collection Rule (DCR) by using either of the following methods:
-    - [Azure or Defender portal](?tabs=syslog%2Cportal#create-data-collection-rule-dcr)
-    - [Azure Monitor Logs Ingestion API](?tabs=syslog%2Capi#install-the-azure-monitor-agent)
+    - [Azure or Defender portal](?tabs=portal#create-data-collection-rule-dcr)
+    - [Azure Resource Manager template](?tabs=arm#install-the-azure-monitor-agent)
 
 1. If you're collecting logs using a log forwarder, [**run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the syslog daemon to listen for messages from other machines, and to open the necessary local ports.
 
