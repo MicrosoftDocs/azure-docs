@@ -24,7 +24,7 @@ As Microsoft Sentinel collects logs and alerts from all of its connected data so
 
 To enable or disable this feature (these prerequisites are not required to use the feature):
 
-- Your user must be assigned to at least the Microsoft Entra ID **Security Administrator** role in your tenant.
+- Your user must be assigned to the Microsoft Entra ID **Security Administrator** role in your tenant or the equivalent permissions.
 
 - Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):
     - **Microsoft Sentinel Contributor** at the workspace or resource group levels.

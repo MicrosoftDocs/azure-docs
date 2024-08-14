@@ -54,7 +54,7 @@ Before you begin, verify that you have:
 - A defined Microsoft Sentinel workspace.
 - A valid license to M365 E3, M365 A3, Microsoft Business Basic or any other Audit eligible license. Read more about [auditing solutions in Microsoft Purview](/microsoft-365/compliance/audit-solutions-overview).
 - [Enabled Sensitivity labels for Office](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide#use-the-microsoft-purview-compliance-portal-to-enable-support-for-sensitivity-labels&preserve-view=true) and [enabled auditing](/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#use-the-compliance-center-to-turn-on-auditing&preserve-view=true).
-- At least the Security Administrator role on the workspace.
+- The Security Administrator role on the tenant, or the equivalent permissions.
 
 ## Set up the connector
 
