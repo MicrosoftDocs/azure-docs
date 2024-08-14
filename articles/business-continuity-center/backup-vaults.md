@@ -12,23 +12,23 @@ ms.author: v-abhmallick
 
 # Create a vault to back up and replicate resources
 
-This article explains how to create Recovery Services vault (or Backup vault) that stores backups and replication data. Vault is required to configure protection with Azure Backup and Azure Site Recovery.
+This article describes how to create Recovery Services vault (or Backup vault) that stores backups and replication data. Vault is required to configure protection with Azure Backup and Azure Site Recovery.
 
 A [Recovery Services](../backup/backup-azure-recovery-services-vault-overview.md) vault is a management entity that stores recovery points that are created over time, and it provides an interface to perform backup-related and replication related operations. For certain newer workloads, Azure Backup also uses [Backup vault](../backup/backup-vault-overview.md) to store recovery points and interface for operations. [Learn about](../backup/guidance-best-practices.md#vault-considerations) on the guidelines when creating a vault.
 
 ## Create vault
 
-Follow these steps to create a vault:
+To create a vault, follow these steps:
 
-1.	In the Azure Business Continuity center, select **Vaults** under **Manage**. 
+1.	On **Business Continuity Center**, go to **Manage** > **Vaults**.
     :::image type="content" source="./media/backup-vaults/vaults.png" alt-text="Screenshot showing vaults page." lightbox="./media/backup-vaults/vaults.png":::
  
-2.	On the **Vaults** pane, select **+Vault**.
+2.	On **Vaults**, select **+Vault**.
     :::image type="content" source="./media/backup-vaults/create-vault.png" alt-text="Screenshot showing **+Vault** options." lightbox="./media/backup-vaults/create-vault.png":::
  
-3.	Select the type of vault you want to create. You have two options:
-    1. [Recovery Services vaults](../backup/backup-azure-recovery-services-vault-overview.md) to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and SQL Server in Azure VMs. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and replication data for Azure Site Recovery. 
-    1. [Backup vaults](../backup/backup-vault-overview.md) to hold backup data for various Azure services, such Azure Database for PostgreSQL servers and newer workloads that Azure Backup supports.
+3.	On **Start: Create Vault**, select the type of vault you want to create. You have two options:
+    - [Recovery Services vaults](../backup/backup-azure-recovery-services-vault-overview.md) to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and SQL Server in Azure VMs. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and replication data for Azure Site Recovery. 
+    - [Backup vaults](../backup/backup-vault-overview.md) to hold backup data for various Azure services, such Azure Database for PostgreSQL servers and newer workloads that Azure Backup supports.
     :::image type="content" source="./media/backup-vaults/select-vault-type.png" alt-text="Screenshot showing different vault options." lightbox="./media/backup-vaults/select-vault-type.png":::
  
 4.	Select **Continue** to go to the specific configuration page based on the selected vault type.
