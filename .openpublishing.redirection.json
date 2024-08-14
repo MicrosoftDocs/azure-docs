@@ -5079,6 +5079,11 @@
       "source_path_from_root": "/articles/xplat-cli-install.md",
       "redirect_url": "/cli/azure/install-azure-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/template-samples.md",
+      "redirect_url": "/samples/browse/?expanded=azure&products=azure-resource-manager&terms=virtual%20network",
+      "redirect_document_id": false
     }
   ]
 }
