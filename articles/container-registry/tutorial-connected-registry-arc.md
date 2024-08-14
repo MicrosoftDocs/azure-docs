@@ -133,7 +133,6 @@ export TLS_KEY=$(cat mycert.key | base64 -w0)
 
 Follow the [quickstart][quickstart] and add the Kubernetes TLS secret string variable + value pair. 
 
-
 1. Create self-signed SSL cert with connected-registry service IP as the SAN
 
 ```bash
@@ -143,6 +142,7 @@ mkdir /certs
 ```bash
 openssl req -newkey rsa:4096 -nodes -sha256 -keyout /certs/mycert.key -x509 -days 365 -out /certs/mycert.crt -addext "subjectAltName = IP:<service IP>"
 ```
+
 2. Get base64 encoded strings of these cert files
 
 ```bash
@@ -177,7 +177,7 @@ EOF
 
 Now, you can deploy the Connected registry extension with HTTPS (TLS encryption) using the kubernetes secret management by configuring variables set to `cert-manager.enabled=false` and `cert-manager.install=false`. With these parameters, the cert-manager isn't installed or enabled since the kubernetes secret is used instead for encryption.  
 
-2. Run the [az-k8s-extension-create][az-k8s-extension-create] command for deployment after protected settings file is edited:
+5. Run the [az-k8s-extension-create][az-k8s-extension-create] command for deployment after protected settings file is edited:
 
     ```azurecli
     az k8s-extension create --cluster-name myarck8scluster \

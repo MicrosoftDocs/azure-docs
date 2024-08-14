@@ -28,7 +28,7 @@ This article provides information about known issues with the Connected Registry
     ```azurecli
     az acr connected-registry update --registry mycloudregistry \ 
     --name myacrregistry \
-    --log-level debug \   
+    --log-level debug   
     ```
 
 2. The following log levels can be applied to aid in troubleshooting:

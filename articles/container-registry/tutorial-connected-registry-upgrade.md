@@ -38,7 +38,7 @@ To complete this tutorial, you need the following resources:
     --name myconnectedregistry \
     --resource-group myresourcegroup \ 
     --config service.clusterIP=192.100.100.1 \ 
-    --config-protected-file protected-settings-extension.json  
+    --config-protected-file protected-settings-extension.json \  
     --auto-upgrade-minor-version true
     ```
 
@@ -54,7 +54,7 @@ To complete this tutorial, you need the following resources:
     --cluster-type connectedClusters \ 
     --extension-type  Microsoft.ContainerRegistry.ConnectedRegistry \ 
     --name myconnectedregistry \ 
-    --resource-group myresourcegroup 
+    --resource-group myresourcegroup \ 
     --config service.clusterIP=192.100.100.1 \
     --config-protected-file <JSON file path> \
     --auto-upgrade-minor-version true \

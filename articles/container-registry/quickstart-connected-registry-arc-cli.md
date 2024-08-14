@@ -40,7 +40,6 @@ The Connected registry is a pivotal tool for the edge customers for efficiently 
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
     az provider register --namespace Microsoft.ExtendedLocation
-   
     ```
     An Azure resource provider is a set of REST operations that enable functionality for a specific Azure service. 
 
@@ -220,11 +219,12 @@ To verify the deployment of the Connected registry extension on the Arc-enabled 
     ```
 
     **Example Output**
-    ```console
+
+```console
    | NAME                | MODE      | CONNECTION STATE | PARENT        | LOGIN SERVER             | LAST SYNC(UTC)      | SYNC SCHEDULE | SYNC WINDOW       |
    | ------------------- | --------- | ---------------- | ------------- | ------------------------ | ------------------- | ------------- | ----------------- |
    | myconnectedregistry | ReadWrite | online           | myacrregistry | myacrregistry.azurecr.io | 2024-05-09 12:00:00 | 0 0 * * *     | 00:00:00-23:59:59 |
-    ```
+```
 
 - The [az k8s-extension show][az-k8s-extension-show] command verifies the state of the extension deployment.
 - The command also provides details on the Connected registry's connection status, last sync, sync window, sync schedule, and more.
@@ -235,15 +235,15 @@ To deploy a pod that uses image from Connected registry within the cluster. The 
 
 1. Create a secret in the cluster to authenticate with the Connected registry:
 
-    Run the [kubectl create secret docker-registry][kubectl-create-secret-docker-registry] command to create a secret in the cluster to authenticate with the Connected registry:
+Run the [kubectl create secret docker-registry][kubectl-create-secret-docker-registry] command to create a secret in the cluster to authenticate with the Connected registry:
 
-    ```azurecli
-    kubectl create secret docker-registry regcred --docker-server=192.100.100.1 --docker-username=mytoken --docker-password=mypassword
-    ```
+```bash
+kubectl create secret docker-registry regcred --docker-server=192.100.100.1 --docker-username=mytoken --docker-password=mypassword
+  ```
 
-1. Deploy the pod that uses the desired image from the Connected registry using the value of  service.clusterIP address `192.100.100.1` of the Connected registry, and the Image name `hello-world` with tag `latest`:
+2. Deploy the pod that uses the desired image from the Connected registry using the value of  service.clusterIP address `192.100.100.1` of the Connected registry, and the Image name `hello-world` with tag `latest`:
 
-    ```azurecli
+    ```bash
     kubectl apply -f - <<EOF
     apiVersion: apps/v1
     kind: Deployment
