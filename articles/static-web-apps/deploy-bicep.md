@@ -140,6 +140,14 @@ resource linkedStaticWebAppBackend 'Microsoft.Web/staticSites/linkedBackends@202
   }
 }
 ```
+
+## Deployment
+
+After your resources are created, you'll want to deploy your application to the hosting environment. You may want to be able to deploy from both your local computer as you develop and GitHub Actions for your product workloads. 
+
+* **Local development environment**: Local development environment deployments are completed with [Azure Developer CLI](/azure/developer/azure-developer-cli). This tool allows you to define your deployment in an `azure.yml` file. It includes hooks to plug into the resource creation process at any point to help with deploying full stack applications, which need to know about each other at build time.
+* **Production environment**: The ability to deploy from a GitHub action workflow file is a built-in feature when you create your static web app. Once the file is in your repository, you can edit the file as needed. Deployment from [other source code providers](external-providers.md) is also supported.
+
 Learn more from a full end-to-end application, which provides resource creation and application deployment: 
 
 * [Serverless AI Chat with RAG using LangChain.js](https://github.com/Azure-Samples/serverless-chat-langchainjs)
