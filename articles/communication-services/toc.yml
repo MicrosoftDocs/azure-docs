@@ -361,7 +361,7 @@ items:
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
       - name: Pass contextual information
-        href: how-tos/calling-sdk/call-context.md
+        href: how-tos/calling-sdk/call-context.md     
     - name: Call recording
       items:
       - name: Record a call
@@ -472,6 +472,10 @@ items:
         href: concepts/analytics/insights/rooms-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
+    - name: Teams interoperability
+      items:
+      - name: Breakout rooms
+        href: how-tos/calling-sdk/breakoutrooms.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
