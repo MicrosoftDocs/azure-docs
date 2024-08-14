@@ -78,7 +78,7 @@
    - name: .NET SDK
      href: /dotnet/api/overview/azure/resourcemanager.connectedvmwarevsphere-readme
    - name: Go SDK
-     href: /pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/connectedvmware/armconnectedvmware#section-documentation
+     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/connectedvmware/armconnectedvmware#section-documentation
 - name: Resources
   items:
    - name: Azure Arc Jumpstart
