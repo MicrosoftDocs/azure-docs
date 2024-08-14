@@ -94,5 +94,5 @@ spotLightFeature.maxParticipantsToSpotlight;
 |code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
 |400	| 45900 | ExpectedError  | All provided participant IDs are already spotlighted  | Only participants who aren't currently spotlighted can be spotlighted |
-|400 | 45902	| ExpectedError | The maximum limit of pinned videos is seven | Only seven participants can be in the spotlight state at any given time |
+|400 | 45902	| ExpectedError | The maximum number of participants that can be spotlighted has been reached | Only seven participants can be in the spotlight state at any given time |
 |403 | 45903	| ExpectedError | Only participants with the roles of organizer, co-organizer, or presenter can initiate a spotlight | Ensure the participant calling the `startSpotlight` API has assigned role of organizer, co-organizer or presenter |

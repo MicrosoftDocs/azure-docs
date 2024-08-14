@@ -13,7 +13,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Spotlight states
-In this article, you learn how to implement Microsoft Teams spotlight capability with Azure Communication Services Calling SDKs. This capability allows users in the call or meeting to pin and unpin videos for everyone.
+In this article, you learn how to implement Microsoft Teams spotlight capability with Azure Communication Services Calling SDKs. This capability allows users in the call or meeting to pin and unpin videos for everyone. The maximum limit of pinned videos is seven.
+
 Since the video stream resolution of a participant is increased when spotlighted, it should be noted that the settings done on [Video Constraints](../../concepts/voice-video-calling/video-constraints.md) also apply to spotlight.
 
 ## Prerequisites
