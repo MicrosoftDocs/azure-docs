@@ -253,12 +253,14 @@ Replace the {PLACE_HOLDER} values with the following values:
 | {TABLE_NAME} | The name of the destination table in Log Analytics. Must end with `_CL`. |
 | {LOCAL_PATH_FILE_1}&nbsp;*(required)*,<br>{LOCAL_PATH_FILE_2} *(optional)* | Paths and file names of the text files containing the logs you want to collect. These must be on the machine where the Azure Monitor Agent is installed. |
 | {WORKSPACE_RESOURCE_PATH} | The Azure resource path of your Microsoft Sentinel workspace. |
-| {WORKSPACE_ID} | The GUID of your Microsoft Sentinel workspace. Find it [here](link). |
+| {WORKSPACE_ID} | The GUID of your Microsoft Sentinel workspace. |
   
 
 ### Associate the DCR with the Azure Monitor Agent
 
 If you create the DCR using an ARM template, you still must associate the DCR with the agents that will use it. You can edit the DCR in the Azure portal and select the agents as described in [Define VM resources](#define-vm-resources).
+
+---
 
 ## Run the "installation" script
 

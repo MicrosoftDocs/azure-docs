@@ -79,9 +79,9 @@ Follow these steps to ingest log messages from Apache HTTP Server:
     - Windows: `"C:\Server\bin\log\Apache24\logs\*.log"`
     - Linux: `"/var/log/httpd/*.log"`
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
-    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -96,9 +96,9 @@ Follow these steps to ingest log messages from Apache Tomcat:
     Default file locations ("filePatterns"):
     - Linux: `"/var/log/tomcat/*.log"`
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
-    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -174,13 +174,13 @@ Follow these steps to ingest log messages from Cisco Meraki:
 
     ---
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
     - Replace the column name `"RawData"` with the column name `"Message"`.
 
     - Replace the transformKql value `"source"` with the value `"source | project-rename Message=RawData"`.
 
-    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Configure and connect the Cisco Meraki device(s): follow the [instructions provided by Cisco](https://documentation.meraki.com/General_Administration/Monitoring_and_Reporting/Meraki_Device_Reporting_-_Syslog%2C_SNMP%2C_and_API) for sending syslog messages. Use the IP address or hostname of the virtual machine where the Azure Monitor Agent is installed. 
 
@@ -198,9 +198,9 @@ Follow these steps to ingest log messages from JBoss Enterprise Application Plat
     - Standalone server: `"{EAP_HOME}/standalone/log/server.log"`
     - Managed domain: `"{EAP_HOME}/domain/servers/{SERVER_NAME}/log/server.log"`
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
-    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -256,11 +256,11 @@ Follow these steps to ingest log messages from JuniperIDP:
 
     ---
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
     - Replace the column name `"RawData"` with the column name `"Message"`.
 
-    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
     - Replace the transformKql value `"source"` with the following Kusto query (enclosed in double quotes):
 
@@ -284,9 +284,9 @@ Follow these steps to ingest log messages from MarkLogic Audit:
     - Windows: `"C:\Program Files\MarkLogic\Data\Logs\AuditLog.txt"`
     - Linux: `"/var/opt/MarkLogic/Logs/AuditLog.txt"`
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
-    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Configure MarkLogic Audit to enable it to write logs: (from MarkLogic documentation)
     1. Using your browser, navigate to MarkLogic Admin interface.
@@ -310,9 +310,9 @@ Follow these steps to ingest log messages from MongoDB Audit:
     - Windows: `"C:\data\db\auditlog.json"`
     - Linux: `"/data/db/auditlog.json"`
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
-    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Configure MongoDB to write logs:
     1. For Windows, edit the configuration file `mongod.cfg`. For Linux, `mongod.conf`.
@@ -333,9 +333,9 @@ Follow these steps to ingest log messages from NGINX HTTP Server:
     Default file locations ("filePatterns"):
     - Linux: `"/var/log/nginx.log"`
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
-    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -351,9 +351,9 @@ Follow these steps to ingest log messages from Oracle WebLogic Server:
     - Windows: `"{DOMAIN_NAME}\Servers\{SERVER_NAME}\logs*.log"`
     - Linux: `"{DOMAIN_HOME}/servers/{SERVER_NAME}/logs/*.log"`
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
-    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -369,9 +369,9 @@ Follow these steps to ingest log messages from PostgreSQL Events:
     - Windows: `"C:\*.log"`
     - Linux: `"/var/log/*.log"`
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
-    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Edit the PostgreSQL Events configuration file `postgresql.conf` to output logs to files.
     1. Set `log_destination='stderr'`
@@ -391,9 +391,9 @@ Follow these steps to ingest log messages from SecurityBridge Threat Detection f
     Default file locations ("filePatterns"):
     - Linux: `"/usr/sap/tmp/sb_events/*.cef"`
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
-    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -409,9 +409,9 @@ Follow these steps to ingest log messages from SquidProxy:
     - Windows: `"C:\Squid\var\log\squid\*.log"`
     - Linux: `"/var/log/squid/*.log"`
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
-    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 [Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
@@ -467,13 +467,13 @@ Follow these steps to ingest log messages from Ubiquiti UniFi:
 
     ---
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
     - Replace the column name `"RawData"` with the column name `"Message"`.
 
     - Replace the transformKql value `"source"` with the value `"source | project-rename Message=RawData"`.
 
-    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Configure and connect the Ubiquiti controller.
     1. Follow the [instructions provided by Ubiquiti](https://help.ui.com/hc/en-us/categories/6583256751383) to enable syslog and optionally debugging logs.
@@ -539,13 +539,13 @@ Follow these steps to ingest log messages from VMware vCenter:
 
     ---
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
     - Replace the column name `"RawData"` with the column name `"Message"`.
 
     - Replace the transformKql value `"source"` with the value `"source | project-rename Message=RawData"`.
 
-    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
     - dataCollectionEndpointId should be populated with your DCE. If you don't have one, define a new one. See [Create a data collection endpoint](../azure-monitor/essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) for the instructions.
 
@@ -607,13 +607,13 @@ Follow these steps to ingest log messages from Zscaler Private Access (ZPA):
 
     ---
 
-1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md). 
+1. Create the DCR according to the directions in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md#configure-the-data-connector). 
 
     - Replace the column name `"RawData"` with the column name `"Message"`.
 
     - Replace the transformKql value `"source"` with the value `"source | project-rename Message=RawData"`.
 
-    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the DCR template with the values in steps 1 and 2. Replace the other placeholders as directed.
+    - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the [DCR template](connect-custom-logs-ama.md&tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
 1. Configure and connect the ZPA receiver.
     1. Follow the [instructions provided by ZPA](https://help.zscaler.com/zpa/configuring-log-receiver). Select JSON as the log template.
