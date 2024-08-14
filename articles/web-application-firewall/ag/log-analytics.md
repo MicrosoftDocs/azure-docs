@@ -28,7 +28,7 @@ AzureDiagnostics
 
 This will look similar to the following query:
 
-:::image type="content" source="../media/log-analytics/log-query.png" lightbox="../media/log-analytics/log-query.png" alt-text="Screenshot showing WAF log analyics.":::
+:::image type="content" source="../media/log-analytics/log-query.png" lightbox="../media/log-analytics/log-query.png" alt-text="Screenshot showing WAF log analytics.":::
 
 You can drill down into the data, and plot graphs or create visualizations from here. See the following queries as a starting point:
 
