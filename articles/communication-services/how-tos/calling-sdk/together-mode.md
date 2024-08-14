@@ -55,6 +55,9 @@ The following table shows support for Together Mode feature in individual Azure 
 |  Platforms     | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |---------------|-----|--------|--------|--------|----------|--------|---------|
 |Is Supported | ✔️  |        |        |        |          |        |         |
+
+## Together Mode
+
 [!INCLUDE [Together Mode Client-side JavaScript](./includes/together-mode/together-mode-web.md)]
 
 
