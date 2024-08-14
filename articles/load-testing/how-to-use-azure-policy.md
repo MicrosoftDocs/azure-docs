@@ -3,7 +3,7 @@ title: Use Azure Policy to secure Azure Load Testing
 titleSuffix: Azure Load Testing
 description: Learn how to use Azure Policy to secure your Azure Load Testing resources 
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: vevippar
 author: nagarjuna-vipparthi
 ms.date: 06/12/2024
