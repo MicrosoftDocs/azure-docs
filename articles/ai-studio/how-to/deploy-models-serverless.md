@@ -548,7 +548,7 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
 
 ## Use the serverless API endpoint
 
-Models deployed in Azure Machine Learning and Azure AI studio in Serverless API endpoints support the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions from a diverse set of models in a uniform and consistent way. 
+Models deployed in Azure Machine Learning and Azure AI Studio in Serverless API endpoints support the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) that exposes a common set of capabilities for foundational models and that can be used by developers to consume predictions from a diverse set of models in a uniform and consistent way. 
 
 Read more about the [capabilities of this API](../reference/reference-model-inference-api.md#capabilities) and how [you can use it when building applications](../reference/reference-model-inference-api.md#getting-started). 
 

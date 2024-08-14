@@ -122,7 +122,7 @@ In addition, a number of resources are only accessible by users in your project 
    | workspacefilestore | {project-GUID}-code | Hosts files created on your compute and using prompt flow |
 
 > [!NOTE]
-> Storage connections are not created directly with the project when your storage account has public network access set to disabled. These are created instead when a first user accesses AI studio over a private network connection. [Troubleshoot storage connections](troubleshoot-secure-connection-project.md#troubleshoot-missing-storage-connections)
+> Storage connections are not created directly with the project when your storage account has public network access set to disabled. These are created instead when a first user accesses AI Studio over a private network connection. [Troubleshoot storage connections](troubleshoot-secure-connection-project.md#troubleshoot-missing-storage-connections)
 
 
 ## Next steps
