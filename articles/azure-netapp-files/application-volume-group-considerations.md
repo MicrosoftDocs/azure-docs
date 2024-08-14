@@ -15,7 +15,7 @@ This article describes the requirements and considerations you need to be aware 
 ## Requirements and considerations
 
 * You need to use the [manual QoS capacity pool](manage-manual-qos-capacity-pool.md) functionality.  
-* You must create a proximity placement group (PPG) and anchor it to your SAP HANA compute resources. Application volume group for SAP HANA needs this setup to search for an Azure NetApp Files resource that is close to the SAP HANA servers. For more information, see [Best practices about Proximity Placement Groups](#best-practices-about-proximity-placement-groups) and [Create a Proximity Placement Group using the Azure portal](../virtual-machines/windows/proximity-placement-groups-portal.md).
+* You must create a proximity placement group (PPG) and anchor it to your SAP HANA compute resources. Application volume group for SAP HANA needs this setup to search for an Azure NetApp Files resource that is close to the SAP HANA servers. For more information, see [Best practices about Proximity Placement Groups](#best-practices-about-proximity-placement) and [Create a Proximity Placement Group using the Azure portal](../virtual-machines/windows/proximity-placement-groups-portal.md).
   
    >[!NOTE]
    >Do not delete the PPG. Deleting a PPG removes the pinning and can cause subsequent volume groups to be created in sub-optimal locations which could lead to increased latency.
@@ -44,7 +44,7 @@ This article describes the requirements and considerations you need to be aware 
 * Extension 1 supports [availability zone volume placement](use-availability-zones.md) as the new default method for placement. This upgrade mitigates the need for AVset pinning and eliminates the need for proximity placement groups. With support for availability zone volume placement, you only need to select the same availability zone as the database servers. Using availability zone volume placement aligns with the Microsoft recommendation on how to deploy SAP HANA infrastructures to achieve best performance with high-availability, maximum flexibility, and simplified deployment. 
     If regions do not support availability zones, you can select a regional deployment or choose proximity placement groups.
 
-## Best practices about proximity placement groups
+## Best practices about proximity placement
 
 To deploy SAP HANA volumes using the application volume group, you need to ensure that your HANA database VMs and the Azure NetApp Files resources are in close proximity to ensure lowest possible latency. You can achieve close proximity using either of the following deployment methods: 
   

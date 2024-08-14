@@ -1215,7 +1215,7 @@
         "articles/advisor/**/*.md": "azure-advisor",
         "articles/aks/**/*.md": "azure-kubernetes-service",
         "articles/ansible/**/*.md": "ansible",
-        "articles/app-service/**/*.md": "app-service",
+        "articles/app-service/**/*.md": "azure-app-service",
         "articles/app-service-mobile/**/*.md": "app-service-mobile",
         "articles/app-spaces/**/*.md": "app-spaces",
         "articles/automation/**/*.md": "azure-automation",
