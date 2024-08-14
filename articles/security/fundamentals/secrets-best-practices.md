@@ -21,7 +21,7 @@ This article provides guidance on protecting secrets. Follow this guidance to he
 These best practices are intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
 - Azure Stack Hub: [Rotate secrets](/azure-stack/operator/azure-stack-rotate-secrets)
-- Azure Key Vault: [Centralize storage of application secrets](../../key-vault/general/overview.md)
+- Azure Key Vault: [Centralize storage of application secrets](/azure/key-vault/general/overview)
 - Azure Communications Service: [Create and manage access tokens](../../communication-services/quickstarts/identity/access-tokens.md)
 - Azure Service Bus: [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](../../service-bus-messaging/authenticate-application.md)
 - Azure App Service: [Learn to configure common settings for an App Service application](../../app-service/configure-common.md)

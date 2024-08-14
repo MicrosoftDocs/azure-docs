@@ -3,7 +3,7 @@ title: Quickstart - Azure Cosmos DB for Table for .NET
 description: Learn how to build a .NET app to manage Azure Cosmos DB for Table resources in this quickstart.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.devlang: csharp
 ms.topic: quickstart

@@ -104,7 +104,7 @@
   - name: Containers
     items:
     - name: AKS
-      href: ../../aks/learn/quick-kubernetes-deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/aks/learn/quick-kubernetes-deploy-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Registry
@@ -232,13 +232,13 @@
   - name: Security
     items:
     - name: Attestation
-      href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/attestation/quickstart-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Defender for Cloud
-      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/defender-for-cloud/quickstart-automation-alert?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Key Vault - key
-      href: ../../key-vault/keys/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/key-vault/keys/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Key Vault - secret
-      href: ../../key-vault/secrets/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/key-vault/secrets/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -291,7 +291,7 @@
     href: resource-dependencies.md
   - name: Modules (module)
     href: modules.md
-    displayName: scopes,consume,registry,module registry,private module registry,public module registry
+    displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules 
   - name: Outputs (output)
     href: outputs.md
     displayName: dynamic number of outputs,modules
@@ -301,6 +301,7 @@
   - name: Conditions (if)
     href: conditional-resource-deployment.md
   - name: Using (using)
+    displayName: avm,azure verified modules 
     href: bicep-using.md
   - name: Scopes (targetScope)
     items:
@@ -412,9 +413,9 @@
       href: deployment-stacks.md
     - name: Bicep extensibility
       items:
-      - name: Kubernetes provider
-        href: ./bicep-extensibility-kubernetes-provider.md
-      - name: Microsoft Graph provider
+      - name: Kubernetes extension
+        href: ./bicep-kubernetes-extension.md
+      - name: Microsoft Graph extension
         href: https://aka.ms/graphbicep
     - name: Patterns
       items:
@@ -543,12 +544,18 @@
       - name: Use recent API versions
         displayName: linter
         href: linter-rule-use-recent-api-versions.md
+      - name: Use recent module versions
+        displayName: linter
+        href: linter-rule-use-recent-module-versions.md
       - name: Use resource ID functions
         displayName: linter
         href: linter-rule-use-resource-id-functions.md
       - name: Use resource symbol reference
         displayName: linter
         href: linter-rule-use-resource-symbol-reference.md
+      - name: Use safe access
+        displayName: linter
+        href: linter-rule-use-safe-access.md
       - name: Use secure value for secure inputs
         displayName: linter
         href: linter-rule-use-secure-value-for-secure-inputs.md
@@ -599,31 +606,45 @@
     displayName: build,decompile,install,list-versions,list versions,upgrade,version,module,registry
   - name: Azure PowerShell
     href: /powershell/module/az.resources/
-  - name: Bicep warnings and errors 
+  - name: Bicep core diagnostics 
     items:
     - name: All codes
-      href: bicep-error-codes.md
+      href: bicep-core-diagnostics.md
     - name: BCP033
-      href: bicep-error-bcp033.md
+      href: diagnostics/bcp033.md
     - name: BCP035
-      href: bicep-error-bcp035.md
+      href: diagnostics/bcp035.md
     - name: BCP036
-      href: bicep-error-bcp036.md
-    - name: BCP040
-      href: bicep-error-bcp040.md
+      href: diagnostics/bcp036.md
     - name: BCP037
-      href: bicep-error-bcp037.md
+      href: diagnostics/bcp037.md
+    - name: BCP040
+      href: diagnostics/bcp040.md
+    - name: BCP052
+      href: diagnostics/bcp052.md
+    - name: BCP053
+      href: diagnostics/bcp053.md
     - name: BCP072
-      href: bicep-error-bcp072.md
+      href: diagnostics/bcp072.md
     - name: BCP073
-      href: bicep-error-bcp073.md
+      href: diagnostics/bcp073.md
+    - name: BCP077
+      href: diagnostics/bcp077.md
+    - name: BCP078
+      href: diagnostics/bcp078.md
+    - name: BCP083
+      href: diagnostics/bcp083.md
+    - name: BCP088
+      href: diagnostics/bcp088.md
+    - name: BCP089
+      href: diagnostics/bcp089.md
     - name: BCP327
-      href: bicep-error-bcp327.md
+      href: diagnostics/bcp327.md
     - name: BCP328
-      href: bicep-error-bcp328.md
+      href: diagnostics/bcp328.md
     - name: BCP332
-      href: bicep-error-bcp332.md
+      href: diagnostics/bcp332.md
     - name: BCP333
-      href: bicep-error-bcp333.md
+      href: diagnostics/bcp333.md
   - name: Azure CLI
     href: /cli/azure/resource

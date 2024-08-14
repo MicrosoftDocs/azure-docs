@@ -4,7 +4,7 @@ description: Frequently asked questions about Service Fabric, including capabili
 ms.topic: faq
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---

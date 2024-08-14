@@ -3,7 +3,7 @@ title: Using Azure Data Factory for data ingestion - Azure Cosmos DB for Postgre
 description: See a step-by-step guide for using Azure Data Factory for ingestion on Azure Cosmos DB for PostgreSQL.
 ms.author: suvishod
 author: suvishodcitus
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 12/13/2023

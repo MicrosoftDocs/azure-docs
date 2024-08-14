@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting backup failures in Azure Disk Backup
 description: Learn how to troubleshoot backup failures in Azure Disk Backup
-ms.topic: conceptual
-ms.date: 06/08/2021
+ms.topic: troubleshooting
+ms.date: 07/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

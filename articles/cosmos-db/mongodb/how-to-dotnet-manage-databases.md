@@ -3,7 +3,7 @@ title: Manage a MongoDB database using .NET
 description: Learn how to manage your Azure Cosmos DB resource when it provides the API for MongoDB with a .NET SDK.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: how-to

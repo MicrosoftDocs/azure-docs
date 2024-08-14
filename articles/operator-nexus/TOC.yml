@@ -50,8 +50,10 @@
         href: concepts-nexus-kubernetes-cluster.md
       - name: Resource Placement
         href: concepts-nexus-kubernetes-placement.md
-      - name: Nexus Workload Network
-        href: concepts-nexus-network.md
+      - name: Networking
+        href: concepts-nexus-networking.md
+      - name: Workload Network Types
+        href: concepts-nexus-workload-network-types.md
     - name: Observability
       expanded: false
       items:
@@ -179,6 +181,8 @@
               href: howto-monitor-interface-packet-rate.md
             - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
               href: howto-delete-layer-3-isolation-domains.md
+            - name: How to replace network devices in Azure Operator Nexus Network Fabric
+              href: howto-replace-network-devices.md
             - name: How to put a device into maintenance mode
               href: howto-put-device-in-maintenance-mode.md
             - name: How to upgrade Network Fabric
@@ -284,6 +288,11 @@
           href: howto-baremetal-run-data-extract.md
     - name: Troubleshoot Control Plane Quorum
       href: troubleshoot-control-plane-quorum.md
+    - name: Troubleshoot Bare Metal Machine Provisioning
+      href: troubleshoot-bare-metal-machine-provisioning.md
+    - name: Troubleshoot Nexus Kubernetes Cluster pods
+      href: troubleshoot-nexus-kubernetes-cluster-pods.md
+
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference

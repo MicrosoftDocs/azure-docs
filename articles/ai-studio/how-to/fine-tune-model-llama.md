@@ -5,7 +5,7 @@ description: Learn how to fine-tune Meta Llama models in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 7/23/2024
 ms.reviewer: rasavage
 reviewer: shubhirajMsft
 ms.author: ssalgado
@@ -23,20 +23,28 @@ Fine-tuning provides significant value by enabling customization and optimizatio
 
 In this article, you learn how to fine-tune Meta Llama models in [Azure AI Studio](https://ai.azure.com).
 
-The [Meta Llama family of large language models (LLMs)](./deploy-models-llama.md) is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with Reinforcement Learning from Human Feedback (RLHF), called Llama-2-chat.
+The [Meta Llama family of large language models (LLMs)](./deploy-models-llama.md) is a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with Reinforcement Learning from Human Feedback (RLHF), called Llama-Instruct.
 
 ## Models
-# [Meta Llama 3](#tab/llama-three)
+# [Meta Llama 3.1](#tab/llama-three)
 
-Fine-tuning of Llama 3 models is currently not supported.
+The following models are available in Azure Marketplace for Llama 3.1 when fine-tuning as a service with pay-as-you-go billing:
+
+- `Meta-Llama-3.1-80B-Instruct` (preview)
+- `Meta-LLama-3.1-8b-Instruct` (preview)
+  
+Fine-tuning of Llama 3.1 models is currently supported in projects located in West US 3.
+
+> [!IMPORTANT]
+> At this time we are not able to do fine-tuning for Llama 3.1 with sequence length of 128K. 
 
 # [Meta Llama 2](#tab/llama-two)
 
 The following models are available in Azure Marketplace for Llama 2 when fine-tuning as a service with pay-as-you-go billing:
 
-- `Llama-2-70b` (preview)
-- `Llama-2-13b` (preview)
-- `Llama-2-7b` (preview)
+- `Meta Llama-2-70b` (preview)
+- `Meta Llama-2-13b` (preview)
+- `Meta Llama-2-7b` (preview)
 
 Fine-tuning of Llama 2 models is currently supported in projects located in West US 3.
 
@@ -44,9 +52,35 @@ Fine-tuning of Llama 2 models is currently supported in projects located in West
 
 ## Prerequisites
 
-# [Meta Llama 3](#tab/llama-three)
+# [Meta Llama 3.1](#tab/llama-three)
 
-Fine-tuning of Llama 3 models is currently not supported.
+
+ An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
+- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
+
+    > [!IMPORTANT]
+    > For Meta Llama 3.1 models, the pay-as-you-go model fine-tune offering is only available with AI hubs created in **West US 3** regions.
+
+- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
+
+    - On the Azure subscription—to subscribe the Azure AI project to the Azure Marketplace offering, once for each project, per offering:
+      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
+      - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
+      - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
+      - `Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read`
+      - `Microsoft.SaaS/register/action`
+ 
+    - On the resource group—to create and use the SaaS resource:
+      - `Microsoft.SaaS/resources/read`
+      - `Microsoft.SaaS/resources/write`
+ 
+    - On the Azure AI project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
+      - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
+      - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
+
+    For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
+
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -139,9 +173,43 @@ The supported file type is JSON Lines. Files are uploaded to the default datasto
 
 ## Fine-tune a Meta Llama model
 
-# [Meta Llama 3](#tab/llama-three)
+# [Meta Llama 3.1](#tab/llama-three)
 
-Fine-tuning of Llama 3 models is currently not supported.
+To fine-tune a LLama 3.1 model:
+
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Choose the model you want to fine-tune from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
+
+1. On the model's **Details** page, select **fine-tune**.
+
+1. Select the project in which you want to fine-tune your models. To use the pay-as-you-go model fine-tune offering, your workspace must belong to the **West US 3** region.
+1. On the fine-tune wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
+1. If this is your first time fine-tuning the model in the project, you have to subscribe your project for the particular offering (for example, Meta-Llama-3-70B) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and fine-tune**.
+
+    > [!NOTE]
+    > Subscribing a project to a particular Azure Marketplace offering (in this case, Meta-Llama-3-70B) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
+
+1. Once you sign up the project for the particular Azure Marketplace offering, subsequent fine-tuning of the _same_ offering in the _same_ project don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent fine-tune jobs. If this scenario applies to you, select **Continue to fine-tune**.
+
+1. Enter a name for your fine-tuned model and the optional tags and description.
+1. Select training data to fine-tune your model. See [data preparation](#data-preparation) for more information.
+
+    > [!NOTE]
+    > If you have your training/validation files in a credential less datastore, you will need to allow workspace managed identity access to their datastore in order to proceed with MaaS finetuning with a credential less storage. On the "Datastore" page, after clicking "Update authentication" > Select the following option: 
+    
+    ![Use workspace managed identity for data preview and profiling in Azure Machine Learning Studio.](../media/how-to/fine-tune/llama/credentials.png)
+
+    Make sure all your training examples follow the expected format for inference. To fine-tune models effectively, ensure a balanced and diverse dataset. This involves maintaining data balance, including various scenarios, and periodically refining training data to align with real-world expectations, ultimately leading to more accurate and balanced model responses.
+    - The batch size to use for training. When set to -1, batch_size is calculated as 0.2% of examples in training set and the max is 256.
+    - The fine-tuning learning rate is the original learning rate used for pretraining multiplied by this multiplier. We recommend experimenting with values between 0.5 and 2. Empirically, we've found that larger learning rates often perform better with larger batch sizes. Must be between 0.0 and 5.0.
+    - Number of training epochs. An epoch refers to one full cycle through the data set.
+
+1. Task parameters are an optional step and an advanced option- Tuning hyperparameter is essential for optimizing large language models (LLMs) in real-world applications. It allows for improved performance and efficient resource usage. The default settings can be used or advanced users can customize parameters like epochs or learning rate.
+
+1. Review your selections and proceed to train your model.
+
+Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Llama 3.1 family of large language models with Azure AI Studio](./deploy-models-llama.md).
+
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -162,7 +230,7 @@ To fine-tune a Llama 2 model in an existing Azure AI Studio project, follow thes
 
     :::image type="content" source="../media/how-to/fine-tune/llama/llama-pay-as-you-go-overview.png" alt-text="Screenshot of pay-as-you-go marketplace overview." lightbox="../media/how-to/fine-tune/llama/llama-pay-as-you-go-overview.png":::
 
-1. Choose a base model to fine-tune and select **Confirm**. Your choice influences both the performance and [the cost of your model](./deploy-models-llama.md#cost-and-quotas).
+1. Choose a base model to fine-tune and select **Confirm**. Your choice influences both the performance and [the cost of your model](./deploy-models-llama.md#cost-and-quota-considerations-for-meta-llama-family-of-models-deployed-as-serverless-api-endpoints).
 
     :::image type="content" source="../media/how-to/fine-tune/llama/fine-tune-select-model.png" alt-text="Screenshot of option to select a model to fine-tune." lightbox="../media/how-to/fine-tune/llama/fine-tune-select-model.png":::
 

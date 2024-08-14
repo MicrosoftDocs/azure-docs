@@ -18,14 +18,16 @@ You can view debug snapshots in the portal to see the call stack and inspect var
 
 ## View Snapshots in the Portal
 
-After an exception has occurred in your application and a snapshot has been created, you should have snapshots to view in the Azure portal within 5 to 10 minutes. To view snapshots, in the **Failure** pane, either:
+After an exception has occurred in your application and a snapshot is created, you can view snapshots in the Azure portal within 5 to 10 minutes. To view snapshots, in the **Failure** pane, either:
 
 * Select the **Operations** button when viewing the **Operations** tab, or
 * Select the **Exceptions** button when viewing the **Exceptions** tab.
 
 :::image type="content" source="./media/snapshot-debugger/failures-page.png" alt-text="Screenshot showing the Failures Page in Azure portal.":::
 
-Select an operation or exception in the right pane to open the **End-to-End Transaction Details** pane, then select the exception event. If a snapshot is available for the given exception, an **Open Debug Snapshot** button appears on the right pane with details for the [exception](../app/asp-net-exceptions.md).
+Select an operation or exception in the right pane to open the **End-to-End Transaction Details** pane, then select the exception event. 
+- If a snapshot is available for the given exception, select the **Open debug snapshot** button appears on the right pane with details for the [exception](../app/asp-net-exceptions.md). 
+- [If you do not see this button, no snapshot may be available. See the troubleshooting guide.](./snapshot-debugger-troubleshoot.md#use-the-snapshot-health-check)
 
 :::image type="content" source="./media/snapshot-debugger/e2e-transaction-page.png" alt-text="Screenshot showing the Open Debug Snapshot button on exception.":::
 
@@ -33,13 +35,13 @@ In the Debug Snapshot view, you see a call stack and a variables pane. When you 
 
 :::image type="content" source="./media/snapshot-debugger/open-snapshot-portal.png" alt-text="Screenshot showing the Open debug snapshot highlighted in the Azure portal.":::
 
-Snapshots might include sensitive information. By default,  you can only view snapshots if you've been assigned the `Application Insights Snapshot Debugger` role.
+Snapshots might include sensitive information. By default,  you can only view snapshots if you are assigned the `Application Insights Snapshot Debugger` role.
 
-## View Snapshots in Visual Studio 2017 Enterprise or above
+## View Snapshots in Visual Studio 2017 Enterprise or greater
 
 1. Click the **Download Snapshot** button to download a `.diagsession` file, which can be opened by Visual Studio Enterprise.
 
-1. To open the `.diagsession` file, you need to have the Snapshot Debugger Visual Studio component installed. The Snapshot Debugger component is a required component of the ASP.NET workload in Visual Studio and can be selected from the Individual Component list in the Visual Studio installer. If you're using a version of Visual Studio before Visual Studio 2017 version 15.5, you'll need to install the extension from the [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
+1. To open the `.diagsession` file, you need to have the Snapshot Debugger Visual Studio component installed. The Snapshot Debugger component is a required component of the ASP.NET workload in Visual Studio and can be selected from the Individual Component list in the Visual Studio installer. If you're using a version of Visual Studio before Visual Studio 2017 version 15.5, you need to install the extension from the [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 1. After you open the snapshot file, the Minidump Debugging page in Visual Studio appears. Click **Debug Managed Code** to start debugging the snapshot. The snapshot opens to the line of code where the exception was thrown so that you can debug the current state of the process.
 

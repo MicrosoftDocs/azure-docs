@@ -1,7 +1,7 @@
 ---
 title: Azure Table Storage support in Azure Cosmos DB
 description: Learn how Azure Cosmos DB for Table and Azure Table Storage work together by sharing the same table data model and operations.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.topic: how-to
 ms.date: 03/07/2023

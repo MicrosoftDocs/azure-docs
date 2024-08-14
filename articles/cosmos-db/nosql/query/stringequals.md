@@ -5,11 +5,11 @@ description: An Azure Cosmos DB for NoSQL system function that returns a boolean
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql
-ms.date: 02/27/2024
+ms.date: 08/06/2024
 ms.custom: query-reference
 ---
 
@@ -22,7 +22,7 @@ Returns a boolean indicating whether the first string expression matches the sec
 ## Syntax
 
 ```nosql
-STRINGEQUALS(<string_expr_1>, <string_expr_2> [, <boolean_expr>])  
+StringEquals(<string_expr_1>, <string_expr_2> [, <boolean_expr>])  
 ```
 
 ## Arguments
@@ -39,7 +39,7 @@ Returns a boolean expression.
 
 ## Examples
 
-The following example checks if "abc" matches "abc" and if "abc" matches "ABC."
+The following example checks if `abc` matches `abc` and if `abc` matches `ABC`.
 
 :::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/stringequals/query.sql" highlight="2-4":::
 

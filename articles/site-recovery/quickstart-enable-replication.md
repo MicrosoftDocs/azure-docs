@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 10/03/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
 
 # Quickstart: Set up disaster recovery to Azure for on-premises VMware VMs - Modernized

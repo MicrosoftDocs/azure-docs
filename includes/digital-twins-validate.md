@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file describing how to validate Azure Digital Twins models
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 06/29/2023
 ms.author: baanders

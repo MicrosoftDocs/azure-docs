@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for NoSQL
 description: Connect to Azure Cosmos DB for NoSQL by using the Spark 3 OLTP connector. Use the connector to query data in your API for a NoSQL account.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-python
 ms.topic: tutorial
@@ -624,7 +624,7 @@ When you work with API for NoSQL data in Spark, you can perform partial updates 
 - [Apache Spark](https://spark.apache.org/)
 - [Azure Cosmos DB Catalog API](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/docs/catalog-api.md)
 - [Configuration parameter reference](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/docs/configuration-reference.md)
-- [Sample "New York City Taxi data" notebook](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/Python/NYC-Taxi-Data)
+- [Azure Cosmos DB Spark Connector Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples)
 - [Migrate from Spark 2.4 to Spark 3.*](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/docs/migration.md)
 - Version compatibility:
   - [Version compatibility for Spark 3.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/README.md#version-compatibility)

@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute Insights using Network Insights'
 description: Learn about Azure ExpressRoute Insights using Network Insights.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau

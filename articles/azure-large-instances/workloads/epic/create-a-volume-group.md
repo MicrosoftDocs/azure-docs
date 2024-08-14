@@ -6,7 +6,7 @@ ms.title: Create a volume group
 ms.topic: conceptual
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: baremetal-infrastructure
+ms.service: azure-baremetal-infrastructure
 ms.date: 06/01/2023
 ---
 

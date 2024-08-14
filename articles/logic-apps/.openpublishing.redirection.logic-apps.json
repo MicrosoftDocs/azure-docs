@@ -1,9 +1,19 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/monitor-logic-apps.md",
+            "redirect_url": "/azure/logic-apps/view-workflow-status-run-history",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/logic-apps-move-from-mabs.md",
             "redirect_url": "/azure/logic-apps/biztalk-server-to-azure-integration-services-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/export-from-microsoft-flow-logic-app-template.md",
+            "redirect_url": "https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-scenario-function-sb-trigger.md",

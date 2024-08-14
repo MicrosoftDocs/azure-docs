@@ -4,7 +4,7 @@ description: Learn how to troubleshoot known issues with Azure Load Balancer hea
 services: load-balancer
 author: mbender-ms
 manager: KumudD
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 06/26/2024
 ms.author: mbender

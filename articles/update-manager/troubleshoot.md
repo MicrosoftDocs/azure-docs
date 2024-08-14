@@ -165,7 +165,7 @@ If you see an `HRESULT` error code, double-click the exception displayed in red 
 |Exception  |Resolution or action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Search the relevant error code in the [Windows Update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find more information about the cause of the exception.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Indicates network connectivity problems. Make sure your machine has network connectivity to Update Management. For a list of required ports and addresses, see the [Network planning](overview.md#network-planning) section.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Indicates network connectivity problems. Make sure your machine has network connectivity to Update Management. For a list of required ports and addresses, see the [Network planning](prerequisites.md#network-planning) section.        |
 |`0x8024001E`| The update operation didn't finish because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |

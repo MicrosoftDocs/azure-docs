@@ -4,7 +4,7 @@ description: Learn about encryption of data persisted for your container instanc
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.date: 06/17/2022
@@ -29,7 +29,7 @@ You can rely on Microsoft-managed keys for the encryption of your container data
 
 This article reviews two flows for encrypting data with a customer-managed key:
 * Encrypt data with a customer-managed key stored in a standard Azure Key Vault
-* Encrypt data with a customer-managed key stored in a network-protected Azure Key Vault with [Trusted Services](../key-vault/general/network-security.md) enabled.
+* Encrypt data with a customer-managed key stored in a network-protected Azure Key Vault with [Trusted Services](/azure/key-vault/general/network-security) enabled.
 
 ## Encrypt data with a customer-managed key stored in a standard Azure Key Vault
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
@@ -55,7 +55,7 @@ In case you are unable to successfully create the service principal:
 
 ### Create a Key Vault resource
 
-Create an Azure Key Vault using [Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
+Create an Azure Key Vault using [Azure portal](/azure/key-vault/general/quick-create-portal), [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
 
 For the properties of your key vault, use the following guidelines: 
 * Name: A unique name is required. 
@@ -242,7 +242,7 @@ Within a few seconds, you should receive an initial response from Azure. Once th
 
 ### Create a Key Vault resource
 
-Create an Azure Key Vault using [Azure portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md), or [Azure PowerShell](../key-vault/general/quick-create-powershell.md). To start, do not apply any network-limitations so we can add necessary keys to the vault. In subsequent steps, we will add network-limitations and enable trusted services. 
+Create an Azure Key Vault using [Azure portal](/azure/key-vault/general/quick-create-portal), [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell). To start, do not apply any network-limitations so we can add necessary keys to the vault. In subsequent steps, we will add network-limitations and enable trusted services. 
 
 For the properties of your key vault, use the following guidelines: 
 * Name: A unique name is required. 

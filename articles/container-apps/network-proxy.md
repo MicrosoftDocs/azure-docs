@@ -3,7 +3,7 @@ title: Network proxying in Azure Container Apps
 description: Learn how network requests are proxied and routed in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic:  conceptual
 ms.date: 08/02/2023
 ms.author: cshoe

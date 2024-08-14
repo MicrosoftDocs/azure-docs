@@ -1,19 +1,19 @@
 ---
 title: Web application firewall rate limiting for Azure Front Door
 description: Learn how to use web application firewall rate limiting to protect your web applications from malicious attacks.
-author: johndowns
-ms.service: web-application-firewall
-ms.topic: article
+author: vhorne
+ms.service: azure-web-application-firewall
+ms.topic: concept-article
 services: web-application-firewall
-ms.date: 04/20/2023
-ms.author: jodowns
+ms.date: 07/29/2024
+ms.author: victorh
 ---
 
 # What is rate limiting for Azure Front Door?
 
-Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address.  By using Azure Web Application Firewall in Azure Front Door, you can mitigate some types of denial-of-service attacks. Rate limiting also protects you against clients that were accidentally misconfigured to send large volumes of requests in a short time period.
+Rate limiting enables you to detect and block abnormally high levels of traffic from any socket IP address. By using Azure Web Application Firewall in Azure Front Door, you can mitigate some types of denial-of-service attacks. Rate limiting also protects you against clients that were accidentally misconfigured to send large volumes of requests in a short time period.
 
-The socket IP address is the address of the client that initiated the TCP connection to Azure Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and Azure Front Door.  If you have multiple clients that access Azure Front Door from different socket IP addresses, they each have their own rate limits applied. 
+The socket IP address is the address of the client that initiated the TCP connection to Azure Front Door. Typically, the socket IP address is the IP address of the user, but it might also be the IP address of a proxy server or another device that sits between the user and Azure Front Door  If you have multiple clients that access Azure Front Door from different socket IP addresses, they each have their own rate limits applied. 
 
 ## Configure a rate limit policy
 

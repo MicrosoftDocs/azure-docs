@@ -2,7 +2,6 @@
 title: Changing a password for a Workflow Orchestration Manager environment
 description: This article describes how to change a password for a Workflow Orchestration Manager environment.
 author: nabhishek
-ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 10/20/2023

@@ -47,6 +47,10 @@ To improve Speech to text recognition accuracy, customization is available for s
 
 These are the locales that support the [display text format feature](./how-to-custom-speech-display-text-format.md): da-DK, de-DE, en-AU, en-CA, en-GB, en-HK, en-IE, en-IN, en-NG, en-NZ, en-PH, en-SG, en-US, es-ES, es-MX, fi-FI, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, sv-SE, tr-TR, zh-CN, zh-HK.
 
+### Fast transcription
+
+The supported locales for the [fast transcription API](fast-transcription-create.md) are: en-US, es-ES, es-MX, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, pt-BR, and zh-CN. You can only specify one locale per transcription request.
+
 # [Text to speech](#tab/tts)
 
 The table in this section summarizes the locales and voices supported for Text to speech. See the table footnotes for more details.

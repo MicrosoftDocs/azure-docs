@@ -22,7 +22,7 @@ Target-based scaling replaces the previous Azure Functions incremental scaling m
 
 ![Illustration of the equation: desired instances = event source length / target executions per instance.](./media/functions-target-based-scaling/target-based-scaling-formula.png)
 
-The default _target executions per instance_ values come from the SDKs used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
+In this equation, _event source length_ refers to the number of events that must be processed. The default _target executions per instance_ values come from the SDKs used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
 
 ## Considerations
 

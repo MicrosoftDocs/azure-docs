@@ -10,8 +10,6 @@ items:
     href: concepts/architecture.md
   - name: Region support
     href: reference/region-support.md
-  - name: What's new in Azure AI Studio?
-    href: whats-new.md
   - name: Azure AI FAQ
     href: faq.yml
 - name: Quickstarts
@@ -20,10 +18,9 @@ items:
     href: quickstarts/get-started-playground.md
   - name: Get started building a chat app using the prompt flow SDK
     href: quickstarts/get-started-code.md
+    displayName: code
   - name: Get started with Assistants and code interpreter in the playground
     href: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
-  - name: Hear and speak with chat in the playground
-    href: quickstarts/hear-speak-playground.md
   - name: Moderate text and images with Content Safety
     href: quickstarts/content-safety.md
   - name: Use Azure AI Studio with a screen reader
@@ -32,8 +29,16 @@ items:
   items:
   - name: Deploy an enterprise chat web app
     href: tutorials/deploy-chat-web-app.md
-  - name: Build your own copilot using prompt flow
+  - name: Build your own copilot with prompt flow UI
     href: tutorials/deploy-copilot-ai-studio.md
+  - name: Build your own copilot with the prompt flow SDK
+    items:
+      - name: "Part 1: Build a custom copilot that implements RAG"
+        href: tutorials/copilot-sdk-build-rag.md
+        displayName: code,sdk
+      - name: "Part 2: Evaluate and deploy your custom copilot"
+        href: tutorials/copilot-sdk-evaluate-deploy.md
+        displayName: code,sdk
 - name: How-to
   expanded: true
   items:
@@ -51,6 +56,7 @@ items:
         href: how-to/create-azure-ai-hub-template.md
       - name: Create a hub using the Azure Machine Learning SDK and CLI
         href: how-to/develop/create-hub-project-sdk.md
+        displayName: code
       - name: Create a hub using Terraform
         href: how-to/create-hub-terraform.md
     - name: Create a project
@@ -65,6 +71,7 @@ items:
         href: how-to/connections-add.md
       - name: Create a connection using the Azure Machine Learning SDK
         href: how-to/develop/connections-add-sdk.md
+        displayName: code
   - name: Select and deploy AI models
     items:
     - name: Model catalog
@@ -73,53 +80,69 @@ items:
       href: how-to/concept-data-privacy.md
     - name: Model benchmarks
       href: how-to/model-benchmarks.md
-    - name: Deployments overview
-      href: concepts/deployments-overview.md
-      displayName: endpoint
     - name: Fine-tune models
       href: concepts/fine-tuning-overview.md
-    - name: Serverless API models
-      items:
-      - name: Deploy models as serverless API
-        href: how-to/deploy-models-serverless.md
-        displayName: maas, paygo, models-as-a-service
-      - name: Consume serverless API models from a different project or hub
-        href: how-to/deploy-models-serverless-connect.md
-        displayName: maas, paygo, models-as-a-service
-      - name: Model and region availability for Serverless API deployments
-        href: how-to/deploy-models-serverless-availability.md
+    - name: Distillation
+      href: concepts/concept-model-distillation.md
     - name: Azure OpenAI models
       items:
-      - name: Deploy Azure OpenAI models
+      - name: Azure OpenAI models
         href: how-to/deploy-models-openai.md
       - name: Fine-tune Azure OpenAI models
         href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
+    - name: Phi-3 models
+      items:
+      - name: Phi-3 chat models
+        href: how-to/deploy-models-phi-3.md
+      - name: Phi-3 chat models with vision
+        href: how-to/deploy-models-phi-3-vision.md
+      - name: Fine-tune Phi-3 chat models
+        href: how-to/fine-tune-phi-3.md
     - name: Cohere models
       items:
-      - name: Deploy Cohere Command models
+      - name: Cohere Command models
         href: how-to/deploy-models-cohere-command.md
-      - name: Deploy Cohere Embed models
+      - name: Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
     - name: Meta Llama models
       items:
-      - name: Deploy Meta Llama family models
+      - name: Meta Llama family models
         href: how-to/deploy-models-llama.md
       - name: Fine-tune Meta Llama family models
         href: how-to/fine-tune-model-llama.md
-    - name: Deploy JAIS models
-      href: how-to/deploy-jais-models.md
-    - name: Deploy Jamba Instruct model
-      href: how-to/deploy-models-jamba.md
-    - name: Deploy Mistral family models
-      href: how-to/deploy-models-mistral.md
+    - name: Mistral family models
+      items:
+        - name: Mistral premium models
+          href: how-to/deploy-models-mistral.md
+        - name: Mistral Nemo model
+          href: how-to/deploy-models-mistral-nemo.md
+        - name: Mistral-7B and Mixtral models
+          href: how-to/deploy-models-mistral-open.md
       displayName: maas
-    - name: Deploy Phi-3 models
-      href: how-to/deploy-models-phi-3.md
-    - name: Deploy TimeGEN-1 model
+    - name: JAIS model
+      href: how-to/deploy-models-jais.md
+    - name: Jamba instruct model
+      href: how-to/deploy-models-jamba.md
+    - name: TimeGEN-1 model
       href: how-to/deploy-models-timegen-1.md
-    - name: Deploy open models
-      href: how-to/deploy-models-open.md
-      displayName: oss, open source
+    - name: Deploy models
+      items:
+        - name: Deployments overview
+          href: concepts/deployments-overview.md
+          displayName: endpoint
+        - name: Serverless API models
+          items:
+          - name: Deploy models as serverless API
+            href: how-to/deploy-models-serverless.md
+            displayName: maas, paygo, models-as-a-service
+          - name: Consume serverless API models from a different project or hub
+            href: how-to/deploy-models-serverless-connect.md
+            displayName: maas, paygo, models-as-a-service
+          - name: Model and region availability for Serverless API deployments
+            href: how-to/deploy-models-serverless-availability.md
+        - name: Deploy and inference a managed compute deployment with code
+          href: how-to/deploy-models-managed.md
+          displayName: endpoint, online, SDK, CLI
   - name: Data for your generative AI app
     items:
     - name: Overview of retrieval augmented generation (RAG)
@@ -132,6 +155,9 @@ items:
       href: how-to/index-add.md
     - name: Build and consume indexes using code
       href: how-to/develop/index-build-consume-sdk.md
+    - name: Synthetic Data Generation
+      href: concepts/concept-synthetic-data.md
+      displayName: code,sdk
   - name: Develop generative AI apps
     items:
     - name: Develop generative AI apps in AI Studio
@@ -170,16 +196,20 @@ items:
               href: how-to/prompt-flow-tools/embedding-tool.md
             - name: Serp API tool
               href: how-to/prompt-flow-tools/serp-api-tool.md
+        - name: Troubleshoot prompt flow
+          href: how-to/prompt-flow-troubleshoot.md
     - name: Develop generative AI apps using code
       items:
       - name: Overview of SDKs
         href: how-to/develop/sdk-overview.md
+        displayName: code
       - name: Work with AI Studio projects in VS Code
         href: how-to/develop/vscode.md
       - name: Start with an AI template
         href: how-to/develop/ai-template-get-started.md
       - name: Trace your application with prompt flow
         href: how-to/develop/trace-local-sdk.md
+        displayName: code,sdk
   - name: Evaluate generative AI apps
     items:
     - name: Evaluations concepts
@@ -196,10 +226,12 @@ items:
       href: how-to/develop/simulator-interaction-data.md
     - name: Evaluate with the prompt flow SDK
       href: how-to/develop/flow-evaluate-sdk.md
+      displayName: code,accuracy,metrics
     - name: Evaluate with Azure AI Studio
       href: how-to/evaluate-generative-ai-app.md
     - name: View evaluation results in Azure AI Studio
       href: how-to/evaluate-flow-results.md
+      displayName: accuracy,metrics
     - name: Evaluate flows in AI Studio
       items:
         - name: Submit batch run and evaluate a flow
@@ -213,6 +245,7 @@ items:
       displayName: endpoint
     - name: Enable tracing and collect feedback for a flow deployment
       href: how-to/develop/trace-production-sdk.md
+      displayName: code
     - name: Monitor prompt flow deployments
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
@@ -355,3 +388,5 @@ items:
     href: https://azure.microsoft.com/blog/
   - name: Artificial Intelligence and Machine Learning Blog
     href: https://techcommunity.microsoft.com/t5/artificial-intelligence-and/ct-p/AI
+  - name: LLMOps with Prompt Flow
+    href: https://github.com/microsoft/llmops-promptflow-template

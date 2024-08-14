@@ -3,7 +3,7 @@ title: Rewrite URL and query string with Azure Application Gateway - Azure porta
 description: Learn how to use the Azure portal to configure an Azure Application Gateway to rewrite URL and query string
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 4/05/2021
 ms.author: greglin
@@ -111,7 +111,7 @@ Observe the below fields in access logs to verify if the URL rewrite happened as
 * **originalRequestUriWithArgs**: This field contains the original request URL
 * **requestUri**: This field contains the URL after the rewrite operation on Application Gateway
 
-For more information on all the fields in the access logs, see [here](application-gateway-diagnostics.md#for-application-gateway-and-waf-v2-sku).
+For more information on all the fields in the access logs, see [Access log](monitor-application-gateway-reference.md#access-log-category).
 
 ##  Next steps
 

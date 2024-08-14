@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 05/03/2023
+ms.date: 07/30/2024
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -62,6 +62,10 @@ Azure NetApp Files doesn't support using MMC to manage `Sessions` and `Open File
 ## How can I obtain the IP address of an SMB volume via the portal?
 
 Use the **JSON View** link on the volume overview pane, and look for the **startIp** identifier under **properties** > **mountTargets**.
+
+## Can Azure NetApp Files SMB volumes be accessed via a web browser such as Microsoft Edge?
+
+No. Azure NetApp Files volumes do not support data access via web browsers. 
 
 ## Can an Azure NetApp Files SMB share act as a DFS Namespace (DFS-N) root?
 

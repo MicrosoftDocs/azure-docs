@@ -3,7 +3,7 @@ title: How to enable encryption with customer-managed keys in Azure Cosmos DB fo
 description: Steps to enable data encryption with customer-managed keys.
 ms.author: akashrao
 author: akashraokm
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 01/03/2024
@@ -58,8 +58,8 @@ Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to 
  
 1. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles.
 
-   * How to use [soft-delete with PowerShell.](../../key-vault/general/key-vault-recovery.md)
-   * How to use [soft-delete with Azure CLI.](../../key-vault/general/key-vault-recovery.md)
+   * How to use [soft-delete with PowerShell.](/azure/key-vault/general/key-vault-recovery)
+   * How to use [soft-delete with Azure CLI.](/azure/key-vault/general/key-vault-recovery)
 
 1. The key Vault must be set with 90 days for **Days to retain deleted vaults**. If the existing key Vault is configured with a lower number, you'll need to create a new key vault as this setting can't be modified after creation.
 
