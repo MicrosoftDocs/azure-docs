@@ -75,7 +75,7 @@ The distinction between each role lies in the capabilities they possess during a
 
 Closed captions enable a wide range of scenarios, including interoperability with Teams, Azure Communication Services Group calls, Rooms calls, and one-on-one calls. This feature ensures that users can follow along with conversations in various calling environments, **enhancing accessibility** and user experience. However, it's important to note that users need to manually select the language for captions using the UI Library out of the box, as the system doesn't automatically detect the spoken language.
 
-:::image type="content" source="mobile-ui-closed-captions.png" alt-text="Closed captions looks like into the UI Library":::
+:::image type="content" source="mobile-ui-closed-captions.png" alt-text="Screenshot of how it looks like closed captions into the UI Library":::
 
 > [!NOTE]
 >Closed Captions will not be billed at the beginning of its Public Preview. This is for a limited time only, usage of Captions will likely be billed starting from June.

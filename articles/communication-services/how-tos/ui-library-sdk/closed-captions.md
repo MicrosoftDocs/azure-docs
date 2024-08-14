@@ -1,5 +1,5 @@
 ---
-title: Enable scenarios using close captions and the UI Library
+title: Enable scenarios using closed captions and the UI Library
 titleSuffix: An Azure Communication Services how-to guide
 description: Enable scenarios using closed captions and Azure Communication Services UI Library.
 author: garchiro7
@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
 ms.date: 07/01/2024
-ms.custom: template-how-to
+ms.custom: references_regions
 zone_pivot_groups: acs-plat-ios-android
 
 #Customer intent: As a developer, I want setup closed captions into a call using the UI Library.
@@ -20,43 +20,43 @@ Closed captions play a critical role in video voice calling apps, providing nume
 
 In this article, you learn how to enable closed captions scenarios using the UI Library. There's two main scenarios to enable closed captions: Azure Communication Services video and voice calls and Interop calls.
 
-## Azure Communication Service Based Captions
+## Azure Communication Service based captions
 
 Supported for calls involving Azure Communication Service users only. Currently, Azure Communication Service captions **do not support language translation**.
 
-## Teams Interop Closed Captions
+## Teams Interop closed captions
 
 Supported during calls with one or more Teams users.
 
-### Translation Support
+### Translation support
 
 Unlike Azure Communication Service closed captions, Teams Interop closed captions support translation. Users can opt to have closed captions translated into a different language through the captions settings.
 
-## How to Use Captions
+## How to use captions
 
 Captions are seamlessly integrated within the `CallingUILibrary`.
 
-1. **Activate Captions**:
+1. **Activate captions**:
    - During a connected call, navigate to the control bar and click the **more button**.
    - In the menu pop-up, toggle to turn on captions.
 
-2. **Adjust Spoken Language**:
+2. **Adjust spoken language**:
    - If a different language is being used in the meeting, users can change the spoken language via the UI. This change applies to all users in the call.
 
-3. **Set Caption Language** (for Teams Interop Closed Captions):
-   - By default, live captions are displayed in the language that's spoken during the meeting or event. Live translated captions allow users to see captions translated into the language they’re most comfortable with.
-   - Change the caption language by clicking on the **Captions Language button** after captions have started, if translation to a different language is desired.
+3. **Set caption language** (for Teams Interop Closed Captions):
+   - By default, live captions are displayed in the meeting or event spoken language. Live translated captions allow users to see captions translated into the language they’re most comfortable with.
+   - Change the caption language by clicking on the **Captions language** button after captions starts, if translation to a different language is desired.
 
-:::image type="content" source="./includes/closed-captions/mobile-ui-closed-captions.png" alt-text="Closed captions looks like into the UI Library":::
+:::image type="content" source="./includes/closed-captions/mobile-ui-closed-captions.png" alt-text="Screenshot of how it looks like closed captions into the UI Library":::
 
 > [!NOTE]
 > Live translated captions in meetings are only available as part of [**Teams Premium**](https://learn.microsoft.com/> MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings), an add-on license that provides additional features to make Teams meetings more personalized, intelligent, and secure. To get access to Teams Premium, contact your IT admin. More details you can find it [here](../calling-sdk/closed-captions-teams-interop-how-to.md).
 
 ## Supported languages
 
-Azure Communication Services supports various spoken languages for captions. Below is the list of supported language codes that can be used with the `setSpokenLanguage` method to set the desired language for captions:
+Azure Communication Services supports various spoken languages for captions. The next table contains the list of supported language codes that you can use with the `setSpokenLanguage` method to set the desired language for captions.
 
-| Language              | ACS Spoken Code | Teams Spoken Code | Teams Caption Code |
+| Language              | ACS Spoken Code | Teams Spoken Code | Teams Captions Code |
 |-----------------------|-----------------|-------------------|--------------------|
 | Arabic                | ar-ae, ar-sa    | ar-ae, ar-sa      | ar                 |
 | Danish                | da-dk           | da-dk             | da                 |
