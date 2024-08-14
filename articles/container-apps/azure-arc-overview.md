@@ -3,7 +3,7 @@ title: Container Apps on Azure Arc Overview
 description: Learn how Azure Arc integrates with Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 07/18/2024
 ms.author: cshoe

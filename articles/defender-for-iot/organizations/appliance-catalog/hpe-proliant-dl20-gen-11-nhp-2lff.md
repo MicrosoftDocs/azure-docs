@@ -36,7 +36,7 @@ This article describes the **HPE ProLiant DL20 Gen 11** appliance for OT sensors
 |Power|HPE 800 W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit |
 |Rack support|HPE Easy Install Rail 12 Kit |
 
-## DL20 Gen11 (NHP 2LFF) - Bill of Materials
+## DL20 Gen11 (NHP 2LFF) - Bill of materials
 
 |Quantity|PN|Description|
 |----|---|----|

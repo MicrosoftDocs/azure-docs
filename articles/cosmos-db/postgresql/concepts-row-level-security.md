@@ -3,7 +3,7 @@ title: Row level security – Azure Cosmos DB for PostgreSQL
 description: Multi-tenant security through database roles
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 10/02/2023

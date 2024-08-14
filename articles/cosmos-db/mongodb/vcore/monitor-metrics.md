@@ -1,7 +1,7 @@
 ---
 title: Monitor metrics in Azure Cosmos DB for MongoDB (vCore)
 description: Discover how to monitor memory or CPU usage for operations in Azure Cosmos DB. Account owners can identify resource-intensive operations.
-ms.service:  cosmos-db
+ms.service: azure-cosmos-db
 ms.topic: how-to
 ms.author: khelanmodi
 author: KhelanModi

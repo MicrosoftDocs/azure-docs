@@ -1,5 +1,5 @@
 ---
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: include
 ms.date: 07/07/2022
 author: tejaswikolli-web

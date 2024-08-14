@@ -3,7 +3,7 @@ title: Azure role-based access control
 titleSuffix: Azure Deployment Environments
 description: Learn how Azure Deployment Environments provides protection with Azure role-based access control (Azure RBAC) integration.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
@@ -116,14 +116,14 @@ In addition to the custom role, the user must be assigned the Owner, Contributor
 
 ## Dev Manager roles
 
-These roles have more restricted permissions at lower-level scopes than the platform engineer roles. You can assign these roles to developer teams to enable them to perform administrative tasks for their team. 
+There is one dev manager role: DevCenter Project Admin. This role has more restricted permissions at lower-level scopes than the platform engineer roles. You can assign this role to dev managers to enable them to perform administrative tasks for their team. 
 
 :::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-project-scopes.png" alt-text="Diagram that shows the dev manager role assignment at the project level scopes for Azure Deployment Environments.":::
 
 
 ### DevCenter Project Admin role
 
-The DevCenter Project Admin is the most powerful of the Dev Manager roles. Assign the DevCenter Project Admin role to enable:
+Assign the DevCenter Project Admin role to enable the user to:
 
 - Manage all environments within the project.
 - Add, sync, remove catalog (project-level catalogs must be enabled on the dev center)

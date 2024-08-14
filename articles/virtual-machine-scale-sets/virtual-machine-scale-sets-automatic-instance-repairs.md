@@ -4,21 +4,16 @@ description: Learn how to configure automatic repairs policy for VM instances in
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: instance-protection
-ms.date: 06/14/2024
+ms.date: 08/09/2024
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Automatic instance repairs for Azure Virtual Machine Scale Sets
 
-> [!IMPORTANT]
-> The **Reimage** and **Restart** repair actions are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. Some aspects of this feature may change prior to general availability (GA).
-
-
-Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps achieve high availability for applications by maintaining a set of healthy instances. If an unhealthy instance is found by [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md), automatic instance repairs will attempt to recover the instance by triggering repair actions such as deleting the unhealthy instance and creating a new one to replace it, reimaging the unhealthy instance (Preview), or restarting the unhealthy instance (Preview).
+Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps achieve high availability for applications by maintaining a set of healthy instances. If an unhealthy instance is found by [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md), automatic instance repairs will attempt to recover the instance by triggering repair actions such as deleting the unhealthy instance and creating a new one to replace it, reimaging the unhealthy instance, or restarting the unhealthy instance.
 
 ## Requirements for using automatic instance repairs
 
@@ -36,7 +31,7 @@ For instances marked as "Unhealthy" or "Unknown" (*Unknown* state is only availa
 
 Automatic repairs policy is supported for compute API version 2018-10-01 or higher.
 
-The `repairAction` setting for Reimage (Preview) and Restart (Preview) is supported for compute API versions 2021-11-01 or higher.
+The `repairAction` setting for Reimage and Restart is supported for compute API versions 2021-11-01 or higher.
 
 **Restrictions on resource or subscription moves**
 
@@ -64,11 +59,7 @@ The automatic instance repairs process goes as follows:
 
 ### Available repair actions
 
-> [!CAUTION]
-> The `repairAction` setting, is currently under PREVIEW and not suitable for production workloads. To preview the **Restart** and **Reimage** repair actions, you must register your Azure subscription with the AFEC flag `AutomaticRepairsWithConfigurableRepairActions` and your compute API version must be 2021-11-01 or higher.
-> For more information, see [feature registration](#feature-registration).
-
-There are three available repair actions for automatic instance repairs – Replace, Reimage (Preview), and Restart (Preview). The default repair action is Replace, but you can switch to Reimage (Preview) or Restart (Preview) by enrolling in the preview and modifying the `repairAction` setting under `automaticRepairsPolicy` object.
+There are three available repair actions for automatic instance repairs – Replace, Reimage, and Restart. The default repair action is Replace, but you can configure automatic repairs to use Reimage or Restart by modifying the `repairAction` setting under `automaticRepairsPolicy` object.
 
 - **Replace** deletes the unhealthy instance and creates a new instance to replace it. The latest Virtual Machine Scale Set model is used to create the new instance. This repair action is the default.
 
@@ -80,7 +71,7 @@ The following table compares the differences between all three repair actions:
 
 | Repair action | VM instance ID preserved? | Private IP preserved? | Managed data disk preserved? | Managed OS disk preserved? | Local (temporary) disk preserved? |
 |--|--|--|--|--|--|
-| Replace | No | No | No | No | No |
+| Replace (default) | No | No | No | No | No |
 | Reimage | Yes | Yes | Yes | No | Yes |
 | Restart | Yes | Yes | Yes | Yes | Yes |
 
@@ -272,28 +263,7 @@ az vmss update \
 
 ---
 
-## Feature Registration
-
-Before configuring `repairAction` setting under `automaticRepairsPolicy`, register the feature providers to your subscription.
-
-### [Azure CLI](#tab/cli-3)
-
-```azurecli-interactive
-az feature register --name AutomaticRepairsWithConfigurableRepairActions --namespace Microsoft.Compute
-```
-### [Azure PowerShell](#tab/powershell-3)
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName "AutomaticRepairsWithConfigurableRepairActions" -ProviderNamespace "Microsoft.Compute"
-```
-
----
-
 ## Configure a repair action on automatic repairs policy
-
-> [!CAUTION]
-> The `repairAction` setting, is currently under PREVIEW and not suitable for production workloads. To preview the **Restart** and **Reimage** repair actions, you must register your Azure subscription with the AFEC flag `AutomaticRepairsWithConfigurableRepairActions` and your compute API version must be 2021-11-01 or higher.
-> For more information, see [feature registration](#feature-registration).
 
 The `repairAction` setting under `automaticRepairsPolicy` allows you to specify the desired repair action performed in response to an unhealthy instance. If you are updating the repair action on an existing automatic repairs policy, you must first disable automatic repairs on the scale set and re-enable with the updated repair action. This process is illustrated in the examples below.
 

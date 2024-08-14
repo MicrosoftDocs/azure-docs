@@ -3,7 +3,7 @@ title: Determine application type - Azure Cosmos DB for PostgreSQL
 description: Identify your application for effective distributed data modeling
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 01/30/2023

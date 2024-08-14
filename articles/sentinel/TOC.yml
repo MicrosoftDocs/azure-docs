@@ -31,6 +31,8 @@
     href: prioritize-data-connectors.md 
   - name: Plan roles and permissions
     href: roles.md
+  - name: Plan interactive and long-term data retention
+    href: log-plans.md
   - name: Plan costs
     href: billing.md
   - name: Availability and support
@@ -57,7 +59,7 @@
     href: use-multiple-workspaces.md
   - name: Enable User and Entity Behavior Analytics (UEBA)
     href: enable-entity-behavior-analytics.md
-  - name: Configure data retention and archive 
+  - name: Configure interactive and long-term data retention 
     href: configure-data-retention-archive.md
   - name: Deploy side-by-side
     href: deploy-side-by-side.md
@@ -260,6 +262,8 @@
     href: data-transformation.md
   - name: AMA migration for Microsoft Sentinel
     href: ama-migrate.md
+  - name: Ingest data to an auxiliary logs table
+    href: ../azure-monitor/logs/create-custom-table-auxiliary.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find data connector
     href: data-connectors-reference.md
   - name: All connectors
@@ -918,6 +922,8 @@
       href: normalization-manage-parsers.md
     - name: Modify content to use ASIM
       href: normalization-modify-content.md
+  - name: Aggregate data with summary rules
+    href: summary-rules.md
 - name: Integrate threat intelligence
   items:
   - name: Overview
@@ -1173,7 +1179,7 @@
       href: enroll-simplified-pricing-tier.md
     - name: Tutorial - Configure data retention policy
       href: configure-data-retention.md
-    - name: Basic logs best practices
+    - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
     href: /microsoft-365/security/defender/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json

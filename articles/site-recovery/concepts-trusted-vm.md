@@ -3,7 +3,7 @@ title: Trusted launch VMs with Azure Site Recovery
 description: Describes how to use trusted launch virtual machines with Azure Site Recovery for disaster recovery and migration.
 services: site-recovery
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 07/29/2024
 ms.author: ankitadutta

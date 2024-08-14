@@ -3,7 +3,7 @@ title: Quickstart - Create Azure Managed Instance for Apache Cassandra cluster f
 description: This quickstart shows how to create an Azure Managed Instance for Apache Cassandra cluster using the Azure portal.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 05/31/2022
 ms.custom:
@@ -286,8 +286,12 @@ For external data centers, such as those hosted on-premises, they can be include
 
 1. For non-production environments, you can pause/de-allocate resources in the cluster in order to avoid being charged for them (you will continue to be charged for storage). First change cluster type to `NonProduction`, then `deallocate`.
 
+> [!TIP]
+> Cluster type should be used as "NonProduction" only to save development costs. They may come with smaller SKU's, and should NOT be used to run production workloads.
+
 > [!WARNING] 
-> Do not execute any schema or write operations during de-allocation - this can lead to data loss and in rare cases schema corruption requiring manual intervention from the support team.
+> - Cluster type defined as "Nonproduction" will not have SLA guarantees applied to it.
+> - Do not execute any schema or write operations during de-allocation - this can lead to data loss and in rare cases schema corruption requiring manual intervention from the support team.
 
    :::image type="content" source="./media/create-cluster-portal/pause-cluster.png" alt-text="Screenshot of pausing a cluster." lightbox="./media/create-cluster-portal/pause-cluster.png" border="true":::
 

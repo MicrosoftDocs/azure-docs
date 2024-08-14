@@ -1,6 +1,6 @@
 ---
 author: anthonychu
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic:  include
 ms.date: 05/08/2024
 ms.author: antchu

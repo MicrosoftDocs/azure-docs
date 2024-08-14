@@ -54,7 +54,7 @@ This example demonstrates how to create an assistant that adds a new todo task t
 
 This example demonstrates how to create an assistant that adds a new todo task to a database. The trigger has a static description of `Create a new todo task` used by the model. The function itself takes a string, which represents a new task to add. When executed, the function adds the task as a new todo item in a custom item store and returns a response from the store. 
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantSkills.ts" range="9-24" :::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantSkills.ts" range="9-24" :::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

@@ -6,6 +6,7 @@ ms.subservice: update-management
 ms.date: 06/29/2024
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell, linux-related-content
+ms.service: azure-automation
 ---
 
 # Troubleshoot Update Management issues

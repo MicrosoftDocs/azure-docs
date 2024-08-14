@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: This article guides you through how to submit a support request if you have a problem with your AP5GC service. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 05/31/2023
 ms.custom: template-how-to

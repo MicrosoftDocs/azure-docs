@@ -600,7 +600,7 @@
           displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
-        - name: Monitoring options
+        - name: Monitor Azure Functions
           href: monitor-functions.md
           displayName: monitor metrics
         - name: Monitor function executions
@@ -1118,7 +1118,7 @@
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-functions
     - name: X
-      href: https://twitter.com/azurefunctions
+      href: https://x.com/azurefunctions
     - name: Provide product feedback
       href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
     - name: Azure Functions GitHub repository

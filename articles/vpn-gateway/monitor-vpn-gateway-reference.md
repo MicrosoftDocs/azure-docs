@@ -2,7 +2,7 @@
 title: 'Monitoring Azure VPN Gateway - Data reference'
 description: Learn about Azure VPN Gateway logs and metrics using Azure Monitor.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: reference
 ms.date: 07/25/2022
 ms.author: cherylmc

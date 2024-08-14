@@ -5,7 +5,7 @@ author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
 ms.date: 05/28/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: concept-article
 ms.custom:
@@ -157,34 +157,14 @@ For more information on index tuning and related articles, see the documentation
 
 ### Supported regions
 
-Index tuning feature is available in the following regions:
-
-- Australia Southeast
-- Canada Central
-- Central India
-- East Asia
-- East US 2
-- France Central
-- Jio India Central
-- Korea South
-- North Central US
-- North Europe
-- South Africa North
-- South Central US
-- Southeast Asia
-- Sweden Central
-- Switzerland North
-- UK South
-- West Central US
-- West US
-- West US 3
+There's no regional limitation for index tuning feature. It is available in [all regions](./overview.md#azure-regions) where Azure Database for PostgreSQL Flexible Server is available.
 
 ### Supported tiers and SKUs
 
 Index tuning is supported on all [currently available tiers](concepts-compute.md): Burstable, General Purpose, and Memory Optimized, and on any [currently supported compute SKU](concepts-compute.md) with at least 4 vCores.
 
 > [!IMPORTANT]  
-> If a server has index tuning enabled and is scaled down to a compute with less than the minimum number of required vCores, the feature will remain enabled. Because the feature is not supported on servers with less than 4 vCores, ifyou plan to enable it in a server which is less than 4 vCores, or you plan to scale down your instance to less than 4 vCores, make sure you disable index tuning first, setting `index_tuning.mode`to `OFF`.
+> If a server has index tuning enabled and is scaled down to a compute with less than the minimum number of required vCores, the feature will remain enabled. Because the feature is not supported on servers with less than 4 vCores, if you plan to enable it in a server which is less than 4 vCores, or you plan to scale down your instance to less than 4 vCores, make sure you disable index tuning first, setting `index_tuning.mode`to `OFF`.
 
 ### Supported versions of PostgreSQL
 

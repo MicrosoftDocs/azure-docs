@@ -2,7 +2,7 @@
 title: Share Azure Compute Gallery resources with a community gallery
 description: Learn how to use a community gallery to share VM images stored in an Azure Compute Gallery.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 09/20/2023

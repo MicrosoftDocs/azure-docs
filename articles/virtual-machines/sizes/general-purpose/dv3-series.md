@@ -2,7 +2,7 @@
 title: Dv3 size series
 description: Information on and specifications of the Dv3-series sizes
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 07/29/2024
@@ -11,6 +11,7 @@ ms.reviewer: mattmcinnes
 ---
 
 # Dv3 sizes series
+[!INCLUDE [previous-gen-header](../includes/sizes-previous-gen-header.md)]
 
 [!INCLUDE [dv3-summary](./includes/dv3-series-summary.md)]
 

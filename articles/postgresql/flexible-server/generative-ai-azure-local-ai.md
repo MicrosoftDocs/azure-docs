@@ -7,7 +7,7 @@ title: Generate vector embeddings in PostgreSQL with the azure_local_ai extensio
 description: Generate text embeddings in PostgreSQL for retrieval augmented generation (RAG) patterns with the azure_local_ai extension and locally deployed LLM.
 author:      jojohnso-msft # GitHub alias
 ms.author: jojohnso
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.topic: how-to
 ms.date: 05/20/2024
 ms.collection: ce-skilling-ai-copilot
