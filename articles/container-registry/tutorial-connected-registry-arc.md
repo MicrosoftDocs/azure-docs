@@ -22,7 +22,7 @@ Follow the [quickstart][quickstart] to create an Azure Arc-enabled Kubernetes cl
 In this tutorial, you:
 
 > [!div class="checklist"]
-> - [Deploy Connected registry extension using pre installed cert-manager.](#deploy-connected-registry-extension-using-pre-installed-cert-manager)
+> - [Deploy Connected registry extension using preinstalled cert-manager.](#deploy-connected-registry-extension-using-pre-installed-cert-manager)
 > - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC).](#deploy-connected-registry-extension-using-bring-your-own-certificate-byoc)
 > - [Deploy Connected registry with kubernetes secret management.](#deploy-connected-registry-with-kubernetes-secret-management)
 > - [Deploy the Connected registry Arc extension with inherent trust distribution or reject Connected registry trust distribution.](#deploy-the-connected-registry-arc-extension-with-inherent-trust-distribution-and-reject-connected-registry-trust-distribution)
@@ -56,7 +56,7 @@ To complete this tutorial, you need:
 
 * Follow the [quickstart][quickstart] to create an Azure Arc-enabled Kubernetes cluster. Apply Secure-by-default settings imply the following configuration is being used: HTTPS, Read Only, Trust Distribution, Cert Manager service. 
 
-## Deploy Connected registry extension using pre installed cert-manager
+## Deploy Connected registry extension using preinstalled cert-manager
 
 While using a preinstalled cert-manager service on the cluster, you can deploy the Connected registry extension with HTTPS (TLS encryption) by following the steps:
 
