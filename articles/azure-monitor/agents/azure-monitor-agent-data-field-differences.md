@@ -45,7 +45,7 @@ The perf table collects performance counters from Windows and Linux agents. It o
 
 \* Doesn't apply to records ingested by the Microsoft Monitoring Agent (MMA) on Windows.
 
-:::image type="content" source="./media/azure-monitor-agent-data-field-differences/oms-agent-vs-ama.png" alt-text="Screenshot that shows the **Availability** tab with SLA Report highlighted." lightbox="./media/azure-monitor-agent-data-field-differences/oms-agent-vs-ama.png":::
+:::image type="content" source="./media/azure-monitor-agent-data-field-differences/oms-agent-vs-azure-monitor-agent.png" alt-text="Screenshot that shows the **Availability** tab with SLA Report highlighted." lightbox="./media/azure-monitor-agent-data-field-differences/oms-agent-vs-azure-monitor-agent.png":::
 
 ## Next steps
 
