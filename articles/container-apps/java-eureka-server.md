@@ -39,7 +39,7 @@ When running in Eureka Server for Spring in Azure Container Apps, be aware of th
 | Item | Explanation |
 |---|---|
 | **Scope** | The Eureka Server for Spring component runs in the same environment as the connected container app. |
-| **Scaling** | The Eureka Server for Spring can’t scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. |
+| **Scaling** | The Eureka Server for Spring can’t scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. To achieve high availability, you can refer to [Create a Highly Available Eureka Service in Azure Container Apps](java-eureka-server-ha.md).|
 | **Resources** | The container resource allocation for Eureka Server for Spring is fixed. The number of the CPU cores is 0.5, and the memory size is 1Gi. |
 | **Pricing** | The Eureka Server for Spring billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You can delete components that are no longer in use to stop billing. |
 | **Binding** | Container apps connect to a Eureka Server for Spring component via a binding. The bindings inject configurations into container app environment variables. Once a binding is established, the container app can read the configuration values from environment variables and connect to the Eureka Server for Spring. |
