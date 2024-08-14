@@ -763,7 +763,7 @@ For more information on creating an environment in the studio, see [Create an en
 
 ### Configure a deployment that uses registered assets
 
-Your deployment configuration uses the registered model that you wish to deploy and your registered environment..
+Your deployment configuration uses the registered model that you wish to deploy and your registered environment.
 
 # [Azure CLI](#tab/cli)
 
