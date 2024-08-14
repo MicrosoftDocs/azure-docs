@@ -77,13 +77,13 @@ items:
   - name: Azure AI Content Safety REST API
     href: https://aka.ms/content-safety-api
   - name: Azure AI Content Safety Python SDK
-    href: https://aka.ms/content-safety-python-sdk
+    href: /python/api/overview/azure/ai-contentsafety-readme
   - name: Azure AI Content Safety C# SDK
-    href: https://aka.ms/content-safety-csharp-sdk
+    href: /dotnet/api/overview/azure/ai.contentsafety-readme
   - name: Azure AI Content Safety Java SDK
     href: /java/api/overview/azure/ai-contentsafety-readme
   - name: Azure AI Content Safety JavaScript SDK
-    href: https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0-beta.1
+    href: /javascript/api/overview/azure/ai-content-safety-rest-readme
   - name: Response codes
     href: concepts/response-codes.md
 - name: Resources
