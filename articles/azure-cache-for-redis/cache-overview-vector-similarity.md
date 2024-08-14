@@ -110,8 +110,8 @@ Additionally, Redis is often an economical choice because it's already so common
 There are multiple other solutions on Azure for vector storage and search. Other solutions include:
 
 - [Azure AI Search](../search/vector-search-overview.md)
-- [Azure Cosmos DB](../cosmos-db/mongodb/vcore/vector-search.md) using the MongoDB vCore API
-- [Azure Database for PostgreSQL - Flexible Server](../postgresql/flexible-server/how-to-use-pgvector.md) using `pgvector`
+- [Azure Cosmos DB](/azure/cosmos-db/mongodb/vcore/vector-search) using the MongoDB vCore API
+- [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-use-pgvector) using `pgvector`
 
 ## Related content
 
