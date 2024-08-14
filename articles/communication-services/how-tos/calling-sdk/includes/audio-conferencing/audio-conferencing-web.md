@@ -43,7 +43,7 @@ try {
 }
 ```
 ## Troubleshooting
-|code| Subcode | Result Category | Reason | Resolution |
+| Code | Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
 |400	| 45950 | ExpectedError  | Audio conferencing feature is available only in Teams meetings | Join Teams meeting with configured Audio conferencing |
 |405 | 45951	| ExpectedError | ACS service disabled audio conferencing |  Create Azure Support ticket to request assistance |
