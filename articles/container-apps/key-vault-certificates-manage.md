@@ -5,11 +5,11 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 08/14/2024
 ms.author: cshoe
 ---
 
-# Import certificates from Azure Key Vault to Azure Container Apps (preview)
+# Import certificates from Azure Key Vault to Azure Container Apps
 
 You can set up Azure Key Vault to manage your container app's certificates to handle updates, renewals, and monitoring. Without Key Vault, you're left managing your certificate manually, which means you can't manage certificates in a central location and can't take advantage of lifecycle automation or notifications.
 
@@ -20,7 +20,7 @@ You can set up Azure Key Vault to manage your container app's certificates to ha
 - [Azure CLI](/cli/azure/install-azure-cli): You need the Azure CLI updated with the Azure Container Apps extension version `0.3.49` or higher. Use the `az extension add` command to install the latest version.
 
     ```azurecli
-    az extension add --name containerapp --upgrade --allow-preview`
+    az extension add --name containerapp --upgrade --allow-preview
     ```
 
 - [Managed identity](./managed-identity.md): Enable managed identity on your Container Apps environment.
