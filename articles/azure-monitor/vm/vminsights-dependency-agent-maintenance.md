@@ -39,7 +39,7 @@ You can upgrade the Dependency agent for Windows and Linux manually or automatic
 
 Update the agent on a Windows VM from the command prompt, with a script or other automation solution, or by using the InstallDependencyAgent-Windows.exe Setup Wizard.  
 
-[Download the latest version of the Windows agent](https://aka.ms/dependencyagentwindows).
+You can download the latest version of the Windows agent from [aka.ms/dependencyagentwindows](https://aka.ms/dependencyagentwindows).
 
 #### Using the Setup Wizard
 
@@ -54,7 +54,7 @@ Update the agent on a Windows VM from the command prompt, with a script or other
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Run the following command.
+2. Run the following command:
 
     ```cmd
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
@@ -64,22 +64,29 @@ Update the agent on a Windows VM from the command prompt, with a script or other
 
 3. To confirm the upgrade was successful, check the `install.log` for detailed setup information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
-### Manually install or upgrade Dependency Agent on Linux 
+### Manually install or upgrade Dependency Agent on Linux
 
-Upgrade from prior versions of the Dependency Agent on Linux is supported and performed following the same command as a new installation.
+> [!IMPORTANT]
+> The Log Analytics agent, also referred to as the Microsoft Monitor Agent (MMA) and OMS, will be deprecated on August 31, 2024. It will be succeeded by the Azure Monitor Agent, which does not support the manual installation of the Dependency Agent on Linux systems.
 
-You can download the latest version of the Linux agent from [here](https://aka.ms/dependencyagentlinux).
+Upgrading from prior versions of Dependency Agent on Linux is supported and performed following the same command as a new installation.
+
+You can download the latest version of the Linux agent from [aka.ms/dependencyagentlinux](https://aka.ms/dependencyagentlinux) or via curl:
+
+```curl
+curl -L -o DependencyAgent-Linux64.bin https://aka.ms/dependencyagentlinux
+```
+
+> [!NOTE]
+> Curl does not automatically set execution permissions. You need to manually set them using chmod.
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Navigate to the directory of the agent file and run the following command as root:
+2. Navigate to the directory where the agent file you downloaded is located, and run the following command as root:
 
     ```bash
     ./InstallDependencyAgent-Linux64.bin -s
     ```
-
-    >[!NOTE]
-    > Because the above download link uses a redirect, the file name can differ when downloaded via CURL or other command line tools in Linux. Make sure to adjust the command accordingly.
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
 
