@@ -22,12 +22,14 @@ landingContent:
         links:
           - text: What is Azure Dev Tools for Teaching?
             url: ./azure-dev-tools-teaching/about-program.md
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
           - text: Enroll in Azure Dev Tools for Teaching
             url: ./azure-dev-tools-teaching/enroll-renew-subscription.md
           - text: Set up access
             url: ./azure-dev-tools-teaching/set-up-access.md
+      - linkListType: how-to-guide
+        links:
           - text: Manage students
             url: ./azure-dev-tools-teaching/manage-students.md
           - text: Download software
@@ -57,5 +59,11 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Get started with the Azure Education Hub
+            url: get-started-education-hub.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your academic grant
+            url: hub-overview-page.md
           - text: Find IDs
             url: find-ids.md
