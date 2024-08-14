@@ -58,15 +58,11 @@ Go to your resource in the Azure portal. The **Keys and Endpoint** can be found 
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
-Create and assign persistent environment variables for your key and endpoint.
-
 [!INCLUDE [environment-variables](environment-variables.md)]
 
 Add additional environment variables for the deployment name and API version: 
 * `AZURE_OPENAI_DEPLOYMENT_NAME`: Your deployment name as shown in the Azure portal.
 * `OPENAI_API_VERSION`: Learn more about [API Versions](/azure/ai-services/openai/concepts/model-versions).
-
-Create and assign persistent environment variables for your key and endpoint.
 
 # [Command Line](#tab/command-line)
 
