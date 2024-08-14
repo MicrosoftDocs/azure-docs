@@ -17,7 +17,7 @@ Each of the data changes was carefully considered and the rational for each chan
 
 ## Log analytics workspace tables
 
-### W3CIISLog Table for Internet Information Services (IIS)
+### W3CIISLog table for Internet Information Services (IIS)
 
 This table collects log data from the Internet Information Service on Window systems.
 
@@ -34,9 +34,9 @@ This table collects Events from the Windows Event log. There are two other table
 |-----------|------------|--------|------------------------|
 | UserName | MMA enriches the event with the username before sending the event for ingestion. AMA doesn't do the same enrichment. | The AMA enrichment isn't implemented yet. | AMA principles dictate that the event data should remain unchanged by default. Adding and enriched field adds possible processing errors and extra costs for storage. In this case, the customer demand for the field is very high and work is underway to add the username. |
 
-### Perf Table for Performance Counters
+### Perf table for performance counters
 
-The Perf table collects performance counters from Windows and Linux agents. It offers valuable insights into the performance of hardware components, operating systems, and applications. The following table shows key differences in how data is reported between OMS and Azure Monitor Agent (AMA).
+The perf table collects performance counters from Windows and Linux agents. It offers valuable insights into the performance of hardware components, operating systems, and applications. The following table shows key differences in how data is reported between OMS and Azure Monitor Agent (AMA).
 
 | LAW Field    | Difference | Reason | Additional Information |
 |--------------|------------|--------|------------------------|
