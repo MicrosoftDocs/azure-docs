@@ -54,9 +54,9 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * VNet resources required when configuring a new subnet for migration:
-    * A new subnet in the current virtual network, in each region where the API Management instance is deployed. (Alternatively, set up a subnet in a different virtual network in the same regions and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
+    * A new subnet in the current virtual network, in each region where the API Management instance is deployed. (Alternatively, set up a subnet in a different virtual network in the same regions and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](virtual-network-reference.md#required-ports) for API Management must be configured.
 
-    * (Optional) A new Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance. For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
+    * (Optional) A new Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance. For details, see [Prerequisites for network connections](virtual-network-injection-resources.md).
 
     [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
 
@@ -117,7 +117,7 @@ The following image shows a high level overview of what happens during migration
 
 ### Additional prerequisites
 
-* The unlocked original subnet, in each region where the API Management instance is deployed. A network security group must be attached to the subnet, and [NSG rules](api-management-using-with-vnet.md#configure-nsg-rules) for API Management must be configured.
+* The unlocked original subnet, in each region where the API Management instance is deployed. A network security group must be attached to the subnet, and [NSG rules](virtual-network-reference.md#required-ports) for API Management must be configured.
 
 * (Optional) A new Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance.
 
@@ -160,7 +160,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **What are the prerequisites for the migration?**
 
-   For VNet-injected instances, you'll need a new subnet to migrate in each VNet (either external or internal mode). In external mode, optionally supply a public IP address resource. The subnet must have an NSG attached to it following the rules for `stv2` platform as described [here](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules).
+   For VNet-injected instances, you'll need a new subnet to migrate in each VNet (either external or internal mode). In external mode, optionally supply a public IP address resource. The subnet must have an NSG attached to it following the rules for `stv2` platform as described [here](virtual-network-reference.md#required-ports).
   
 - **Will the migration cause a downtime?**
 
@@ -172,7 +172,7 @@ After you update the VNet configuration, the status of your API Management insta
    - First of all, make sure that the new subnet(s) you created for the migration retains the following configuration (they should be already configured in your current subnet):
       - Enable service endpoints as described [here](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance)
       - The UDR (user-defined route) has the hop from **ApiManagement** service tag set to "Internet" and not only to your firewall address
-   - The [requirements for NSG configuration for stv2](./api-management-using-with-vnet.md?tabs=stv2#configure-nsg-rules) remain the same whether you have firewall or not; make sure your new subnet has it
+   - The [requirements for NSG configuration for stv2](virtual-network-reference.md#required-ports) remain the same whether you have firewall or not; make sure your new subnet has it
    - Firewall rules referring to the current IP address range of the API Management instance should be updated to use the IP address range of your new subnet.
 
 - **Can data or configuration losses occur by/during the migration?**
@@ -231,7 +231,7 @@ After you update the VNet configuration, the status of your API Management insta
 
    - Currently, you can only upgrade to the same subnet in a single pass when using the [Migrate to stv2 REST API](#migrate-the-instance-using-the-rest-api). Currently, if you use the **Platform migration** blade in the portal, you need to migrate to a new subnet and then migrate back to the original subnet:
        - The old gateway takes between 15 mins to 45 mins to vacate the subnet, so that you can initiate the move. However, you can enable a migration setting to retain the old gateway for 48 hours.
-       - Ensure that the old subnet's networking for [NSG](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
+       - Ensure that the old subnet's networking for [NSG](./virtual-network-reference.md#required-ports) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
        - Subnet IP address allocation is nondeterministic, therefore the original ILB (ingress) IP for "internal mode" deployments may change when you move back to the original subnet. This would require a DNS change if you're using A records.
     
 - **Can I test the new gateway before switching the live traffic?**
