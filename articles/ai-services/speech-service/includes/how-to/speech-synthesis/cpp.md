@@ -198,7 +198,11 @@ While using the [SpeechSynthesizer](/cpp/cognitive-services/speech/speechsynthes
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=cpp), but replace the contents of that *main.cpp* file with the following code:
+Here's an example that shows how to subscribe to events for speech synthesis. 
+
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+
+You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=cpp), but replace the contents of that *main.cpp* file with the following code:
 
 ```cpp
 #include <iostream> 

@@ -20,8 +20,8 @@ To better understand regions and availability zones in Azure, it helps to unders
 |-|-|
 | Region | A geographic perimeter that contains a set of datacenters. |
 | Datacenter | A facility that contains servers, networking equipment, and other hardware to support Azure resources and workloads. |
-| Availability zone | [A separated group of datacenters within a region.][availability-zones-overview] Each availability zone is independent of the others, with its own power, cooling, and networking infrastructure. [Many regions support availability zones.][azure-regions-with-availability-zone-support] |
-| Paired regions |A relationship between two Azure regions. [Some Azure regions][azure-region-pairs] are connected to another defined region to enable specific types of multi-region solutions. [Newer Azure regions aren't paired.][regions-with-availability-zones-and-no-region-pair] |
+| Availability zone | [A separated group of datacenters within a region](./availability-zones-overview.md). Each availability zone is independent of the others, with its own power, cooling, and networking infrastructure. [Many regions support availability zones](./availability-zones-service-support.md) |
+| Paired regions |A relationship between two Azure regions. [Some Azure regions](./cross-region-replication-azure.md#azure-paired-regions) are connected to another defined region to enable specific types of multi-region solutions. [Newer Azure regions aren't paired](./cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair) |
 | Region architecture | The specific configuration of the Azure region, including the number of availability zones and whether the region is paired with another region. |
 | Locally redundant deployment | A deployment model in which a resource is deployed into a single region without reference to an availability zone. In a region that supports availability zones, the resource might be deployed in any of the region's availability zones. |
 | Zonal (pinned) deployment | A deployment model in which a resource is deployed into a specific availability zone. |

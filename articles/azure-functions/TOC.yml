@@ -600,7 +600,7 @@
           displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
-        - name: Monitoring options
+        - name: Monitor Azure Functions
           href: monitor-functions.md
           displayName: monitor metrics
         - name: Monitor function executions

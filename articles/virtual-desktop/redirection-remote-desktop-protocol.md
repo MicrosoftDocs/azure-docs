@@ -1,13 +1,13 @@
 ---
-title: Redirection over the Remote Desktop Protocol
-description: Learn about redirection over the Remote Desktop Protocol, which enables users to share resources between their local device and a remote session. It applies to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and Remote PC connections.
+title: Peripheral and resource redirection over the Remote Desktop Protocol
+description: Learn about redirection over the Remote Desktop Protocol, which enables users to share peripherals and resources between their local device and a remote session. It applies to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and Remote PC connections.
 ms.topic: concept-article
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 08/06/2024
 ---
 
-# Redirection over the Remote Desktop Protocol
+# Peripheral and resource redirection over the Remote Desktop Protocol
 
 Redirection enables users to share resources and peripherals, such as the clipboard, webcams, USB devices, printers, and more, between their local device (client-side) and a remote session (server-side) over the *Remote Desktop Protocol* (RDP). Redirection aims to provide a seamless remote experience, comparable to the experience using their local device. This experience helps users be more productive and efficient when working remotely. As an administrator, you can configure redirection to help balance between your security requirements and the needs of your users.
 
@@ -48,7 +48,7 @@ The following table compares redirecting a USB peripheral using opaque low-level
 |--|--|
 | Requires the driver for the USB peripheral to be installed in the remote session. Doesn't require the driver to be installed on the local device. | Requires the driver for the peripheral to be installed on the local device. In most cases, it doesn't require the driver to be installed in the remote session. |
 | Uses a single redirection method for many peripheral classes. | Uses a specific redirection method for each peripheral class. |
-| Forwards URB to and from the USB peripheral over the RDP connection. | Exposes high-level peripheral functionality in a remote session by using an optimized protocol for the peripheral class. |
+| Forwards USB request blocks to and from the USB peripheral over the RDP connection. | Exposes high-level peripheral functionality in a remote session by using an optimized protocol for the peripheral class. |
 | The USB peripheral can't be used on the local device while it's being used in a remote session. It can only be used in one remote session at a time. | The peripheral can be used simultaneously on the local device and in a remote session. |
 | Optimized for low latency connections. Variable based on peripheral driver implementation. | Optimized for LAN and WAN connections and is aware of changes in conditions, such as bandwidth and latency. |
 
