@@ -1089,11 +1089,6 @@ items:
       href: data-lake-storage-introduction.md
     - name: Blob Storage feature support
       href: storage-feature-support-in-storage-accounts.md
-      items:
-      - name: Plan to upgrade an account with Gen2 capabilities
-        href: upgrade-to-data-lake-storage-gen2.md
-      - name: Upgrade an account with Gen2 capabilities
-        href: upgrade-to-data-lake-storage-gen2-how-to.md
   - name: Getting started
     items:
     - name: Best practices
@@ -1101,6 +1096,11 @@ items:
     - name: Enable Gen2 in a new storage account
       href: create-data-lake-storage-account.md
     - name: Enable Gen2 in an existing storage account
+      items:
+      - name: Plan to upgrade an account with Gen2 capabilities
+        href: upgrade-to-data-lake-storage-gen2.md
+      - name: Upgrade an account with Gen2 capabilities
+        href: upgrade-to-data-lake-storage-gen2-how-to.md
   - name: Architecture
     items:
     - name: Azure Blob File System driver for Hadoop
