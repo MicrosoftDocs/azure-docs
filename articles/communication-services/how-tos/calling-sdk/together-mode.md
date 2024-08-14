@@ -27,7 +27,7 @@ In this article, you learn how to implement Microsoft Teams Together Mode with A
 ## Support
 The following tables define support for Together Mode in Azure Communication Services.
 
-### Identities & call types
+### Identities and call types
 The following table shows support for call and identity types. 
 
 |Identities                                         | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
