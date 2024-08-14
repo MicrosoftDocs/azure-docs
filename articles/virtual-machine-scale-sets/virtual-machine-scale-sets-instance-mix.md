@@ -36,7 +36,7 @@ az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfile
 
 ## Changes to existing scale set properties
 ### sku.tier
-The `sku.tier` property is currently an optional scale set property and will be `null` for Instance Mix scenarios.
+The `sku.tier` property is currently an optional scale set property and should be set to `null` for Instance Mix scenarios.
 
 ### sku.capacity
 The `sku.capacity` property continues to represent the overall size of the scale set in terms of the total number of VMs.
@@ -55,7 +55,7 @@ The `vmSizes` property is where you specify the specific VM sizes that you're us
 Instance Mix introduces the ability to set allocation strategies for your scale set. The `allocationStrategy` property is where you specify which allocation strategy you'd like to use for your Instance Flexible scale set deployments. There are two options for allocation strategies, `lowestPrice` and `capacityOptimized`. Allocation strategies apply to both Spot and Standard VMs.
 
 #### lowestPrice (default)
-This allocation strategy is focused on workloads where cost and cost-optimization are most important. When evaluating what VM split to use, Azure looks at the lowest priced VMs of the VM sizes specified. Azure also considers capacity as part of this allocation strategy. When using the `lowestPrice` allocation strategy, the scale set deploys as many of the lowest priced VMs as it can, depending on available capacity, before moving on to the next lowest priced VM size specified.
+This allocation strategy is focused on workloads where cost and cost-optimization are most important. When evaluating what VM split to use, Azure looks at the lowest priced VMs of the VM sizes specified. Azure also considers capacity as part of this allocation strategy. When using `lowestPrice` allocation strategy, the scale set deploys as many of the lowest priced VMs as it can, depending on available capacity, before moving on to the next lowest priced VM size specified.
 
 #### capacityOptimized
 This allocation strategy is focused on workloads where attaining capacity is the primary concern. When evaluating what VM size split to deploy in the scale set, Azure looks only at the underlying capacity available. It doesn't take price into account when determining what VMs to deploy. Using `capacityOptimized` can result in the scale set deploying the most expensive, but most readily available VMs. 
@@ -66,7 +66,7 @@ Following the scale set cost model, usage of Instance Mix is free. You continue 
 ## Limitations
 - Instance Mix is currently available in the following regions: West US, West US2, East US, and East US2. 
 - Instance Mix is only available for scale sets using Flexible Orchestration Mode.
-- Instance Mix is currently only available through ARM template and in the Azure portal.
+- Instance Mix is currently only available through ARM template.
 - You must have quota for the VM sizes you're requesting with Instance Mix.
 - You can specify **up to** five VM sizes with Instance Mix at this time.
 - Existing scale sets can't be updated to use Instance Mix. 
