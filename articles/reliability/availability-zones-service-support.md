@@ -197,6 +197,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure SignalR](../azure-signalr/availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Spring Apps](reliability-spring-apps.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Azure Storage: Ultra Disk | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| [Azure VMware Services](../azure-vmware/architecture-private-clouds.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | [Azure Web PubSub](../azure-web-pubsub/concept-availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Microsoft Fabric](reliability-fabric.md#availability-zone-support) |  ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 

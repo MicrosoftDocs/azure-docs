@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/vpn-gateway/bgp-diagnostics.md",
+            "redirect_url": "/azure/vpn-gateway/monitor-vpn-gateway",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/create-routebased-vpn-gateway-portal.md",
             "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
             "redirect_document_id": false
@@ -18,6 +23,16 @@
         {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-about#protocol",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md",
+            "redirect_url": "/azure/vpn-gateway/monitor-vpn-gateway-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md",
+            "redirect_url": "/azure/vpn-gateway/monitor-vpn-gateway-reference",
             "redirect_document_id": false
         },
         {

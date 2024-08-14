@@ -3,7 +3,7 @@ title: Best practices for Azure Operator Service Manager
 description: Understand best practices for Azure Operator Service Manager to onboard and deploy a network function (NF).
 author: msftadam
 ms.author: adamdor
-ms.date: 08/09/2024
+ms.date: 08/12/2024
 ms.topic: best-practice
 ms.service: azure-operator-service-manager
 ---
@@ -28,7 +28,7 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
 - After the desired set of Azure Operator Service Manager publisher resources and artifacts is tested and approved for production use, we recommend marking the entire set as immutable to prevent accidental changes and ensure a consistent deployment experience. Consider relying on immutability capabilities to distinguish between resources and artifacts used in production versus the ones used for testing and development purposes. You can query the state of the publisher resources and the artifact manifests to determine which ones are marked as immutable. For more information, see [Publisher tenants, subscriptions, regions, and preview management](publisher-resource-preview-management.md).
 
    Keep in mind the following logic:
-    - If Network Service Design Function (NSDV) is marked as immutable, CGS has to be marked as immutable too. Otherwise, the deployment call fails.
+    - If Network Service Design Version (NSDV) is marked as immutable, CGS has to be marked as immutable too. Otherwise, the deployment call fails.
     - If Network Function Design Version (NFDV) is marked as immutable, the artifact manifest must be marked as immutable too. Otherwise, the deployment call fails.
     - If only artifact manifest or CGS is marked immutable, the deployment call succeeds regardless of whether NFDV and NSDV are marked as immutable.
     - Marking an artifact manifest as immutable ensures that all artifacts listed in that manifest (typically, charts, images, and Azure Resource Manager templates [ARM templates]) are marked immutable too by enforcing necessary permissions on the artifact store.
@@ -300,8 +300,9 @@ Any user trying to install cert-manager on the cluster, as part of a workload de
 ### Other Configuration Changes to Consider
 
 In addition to disabling the NfApp associated with the old user cert-manager, we have found other changes may be needed;
-1.	If any other NfApps have DependsOn references to the old user cert-manager NfApp, these will need to be removed. 
-2.	If any other NfApps reference the old user cert-manager namespace value, this will need to be changed to the new azurehybridnetwork namespace value.  
+1.	If one NfApp contains both cert-manager and the CA installation, these must broken into two NfApps, so that the partner can disable cert-manager but enable CA installation.
+2.	If any other NfApps have DependsOn references to the old user cert-manager NfApp, these will need to be removed. 
+3.	If any other NfApps reference the old user cert-manager namespace value, this will need to be changed to the new azurehybridnetwork namespace value.  
 
 ### Cert-Manager Version Compatibility & Management
 

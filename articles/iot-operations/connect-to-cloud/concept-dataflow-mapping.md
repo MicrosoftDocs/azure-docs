@@ -49,7 +49,7 @@ In the output record, the following changes are made to the input record data:
 
 * **Fields renamed**: The **Birth Date** field is now **Date of Birth**.
 * **Fields restructured**: Both **Name** and **Date of Birth** are grouped under the new **Employee** category.
-* **Field deleted**: The **Place of Birth** field is removed because it isn't present in the output.
+* **Field deleted**: The **Place of birth** field is removed because it isn't present in the output.
 * **Field added**: The **Base Salary** field is a new field in the **Employment** category.
 * **Field values changed or merged**: The **Position** field in the output combines the **Position** and **Office** fields from the input.
 
@@ -123,7 +123,7 @@ The previous example, among other special characters, contains dots within the f
 While a dataflow parses a path, it treats only two characters as special:
 
 * Dots (`.`) act as field separators.
-* Quotation marks, when placed at the beginning or the end of a segment, start an escaped section where dots aren't treated as field separators.
+* Single quotation marks, when placed at the beginning or the end of a segment, start an escaped section where dots aren't treated as field separators.
 
 Any other characters are treated as part of the field name. This flexibility is useful in formats like JSON, where field names can be arbitrary strings.
 
@@ -131,8 +131,8 @@ The path definition must also adhere to the rules of YAML. When a character with
 
 ```yaml
 - inputs:
-  - ':Person:.:name:'   # ':' cannot be used as the first character without quotation marks
-  - '100 celsius.hot'   # numbers followed by text would not be interpreted as a string without quotation marks
+  - ':Person:.:name:'   # ':' cannot be used as the first character without single quotation marks
+  - '100 celsius.hot'   # numbers followed by text would not be interpreted as a string without single quotation marks
 ```
 
 ## Escaping
@@ -148,7 +148,7 @@ In the previous example, the path consists of three segments: `Payload`, `Tag.10
 
 ### Escaping rules in dot notation
 
-* **Escape each segment separately:** If multiple segments contain dots, those segments must be enclosed in quotation marks. Other segments can also be quoted, but it doesn't affect the path interpretation:
+* **Escape each segment separately:** If multiple segments contain dots, those segments must be enclosed in double quotation marks. Other segments can also be quoted, but it doesn't affect the path interpretation:
   
     ```yaml
     - inputs:
