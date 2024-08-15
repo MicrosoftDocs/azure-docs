@@ -60,5 +60,5 @@ Find the new indicators in the **Threat intelligence** blade or directly in **Lo
 In this document, you learned how to connect Microsoft Sentinel to Microsoft's threat intelligence feed with the MDTI data connector. To learn more about Microsoft Defender for Threat Intelligence see the following articles.
 
 - Learn about [What is Microsoft Defender Threat Intelligence?](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti).
-- Get started with the MDTI community portal [MDTI portal](https://ti.defender.microsoft.com).
+- Get started with the MDTI portal [MDTI portal](/defender/threat-intelligence/learn-how-to-access-microsoft-defender-threat-intelligence-and-make-customizations-in-your-portal).
 - Use MDTI in analytics [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md).
