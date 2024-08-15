@@ -27,12 +27,19 @@ This article describes how to create and manage Microsoft Sentinel playbooks. Yo
 
 To create and manage playbooks, you need access to Microsoft Sentinel with one of the following Azure roles:
 
-- **Logic App Contributor**, to edit and manage logic apps
-- **Logic App Operator**, to read, enable, and disable logic apps
+| Logic app workflow | Azure roles | Description |
+|--------------------|-------------|-------------|
+| Consumption | **Logic App Contributor** | Edit and manage logic apps. |
+| Consumption | **Logic App Operator** | Read, enable, and disable logic apps. |
+| Standard | **Logic Apps Standard Operator** | Enable, resubmit, and disable workflows. |
+| Standard | **Logic Apps Standard Developer** | Create and edit workflows. |
+| Standard | **Logic Apps Standard Contributor** | Manage all aspects of a workflow. |
+
+For more information, see [Access to logic app operationss](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations).
 
 For more information, see [Microsoft Sentinel playbook prerequisites](automate-responses-with-playbooks.md#prerequisites).
 
-We recommend that you read [Azure Logic Apps for Microsoft Sentinel playbooks](../automation/logic-apps-playbooks.md) before creating your playbook.
+Before you create your playbook, we recommend that you read [Azure Logic Apps for Microsoft Sentinel playbooks](../automation/logic-apps-playbooks.md).
 
 ## Create a playbook
 
