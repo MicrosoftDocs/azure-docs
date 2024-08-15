@@ -171,7 +171,7 @@ This section covers common issues that occur during VM creation.
 
 ### VM creation fails
 
-**Error description:** If you have a Marketplace image created with Azure Stack Edge 2403 or earlier, or if you updated to Azure Stack Edge 2403 release, and then tried to create a VM from the existing Marketplace image, your VM creation will fail, because this release changed the download path for the Marketplace image.
+**Error description:** If you have a Marketplace image created with Azure Stack Edge earlier than 2403 and then create a VM from the existing Marketplace image, your VM creation fails because Azure Stack Edge 2407 changed the download path for the Marketplace image.
 
 **Suggested solution:** Use the following steps to delete the existing Marketplace image, and then create a new Marketplace image from Azure portal.
 
