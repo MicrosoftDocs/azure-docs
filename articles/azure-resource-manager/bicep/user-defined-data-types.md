@@ -229,7 +229,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 
 ## Tagged union data type
 
-To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declaration. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The following example shows how to declare a tagged union data type:
+To declare a custom tagged union data type within a Bicep file, you can place a `discriminator` decorator above a user-defined type declaration. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The following example shows how to declare a tagged union data type:
 
 ```bicep
 type FooConfig = {
@@ -254,9 +254,7 @@ For more information, see [Custom tagged union data type](./data-types.md#custom
 
 ## Import types between Bicep files
 
-[Bicep CLI version 0.21.X or higher](./install.md) is required to use this compile-time import feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
-
-Only user-defined data types that bear the `@export()` decorator can be imported to other templates. Currently, this decorator can only be used on `type` statements.
+Only user-defined data types that bear the `@export()` decorator can be imported to other templates.
 
 The following example enables you to import the two user-defined data types from other templates:
 

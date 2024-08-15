@@ -53,7 +53,7 @@ This example demonstrates the creation process, where the HTTP POST function tha
 
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantApis.ts" range="32-50":::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="32-50":::
 
  ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

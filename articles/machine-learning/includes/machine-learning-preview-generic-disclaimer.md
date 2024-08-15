@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: lobrien
-ms.service: machine-learning
+ms.service: azure-machine-learning
 services: machine-learning
 ms.topic: include
 ms.date: 03/17/2021

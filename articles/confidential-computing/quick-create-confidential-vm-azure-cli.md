@@ -2,7 +2,7 @@
 title: Create a confidential VM with the Azure CLI for Azure confidential computing
 description: Learn how to use the Azure CLI to create a confidential virtual machine for use with Azure confidential computing.
 author: simranparkhe
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 mms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023

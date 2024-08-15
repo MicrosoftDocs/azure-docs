@@ -3,7 +3,7 @@ title: Managed computes in managed virtual network isolation
 titleSuffix: Azure Machine Learning
 description: Use managed compute resources with managed virtual network isolation with Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: None
 ms.author: larryfr

@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 08/03/2024
+ms.date: 08/13/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
 ---
@@ -228,6 +228,8 @@ renewBefore: 240h
 san:
   dns:
   - iotmq.example.com
+  # To connect to the broker from a different namespace, add the following DNS name:
+  - aio-mq-dmqtt-frontend.azure-iot-operations.svc.cluster.local
   ip:
   - 192.168.1.1
 ```

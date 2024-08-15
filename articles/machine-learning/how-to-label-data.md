@@ -8,7 +8,7 @@ ms.reviewer: vkann
 ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/13/2024
 ---
 
 # Labeling images and text documents
@@ -27,17 +27,17 @@ After your project administrator creates an Azure Machine Learning [image data l
 
 ## Sign in to the studio
 
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 
-1. Select the subscription and the workspace containing the labeling project. Your project administrator has this information.
+1. Select the subscription and the workspace that contains the labeling project. Your project administrator has this information
 
-1. You may notice multiple sections on the left, depending on your access level. If you do, select **Data labeling** on the left-hand side to find the project.
+1. You might notice multiple sections on the left, depending on your access level. If you do, select **Data labeling** on the left-hand side to find the project
 
 ## Understand the labeling task
 
 In the data labeling project table, select the **Label data** link for your project.
 
-You'll see instructions, specific to your project. They explain the type of data involved, how you should make your decisions, and other relevant information. Read the information, and select **Tasks** at the top of the page. You can also select **Start labeling** at the bottom of the page.
+You have instructions specific to your project available to you. These instructions explain the type of data involved, how you should make your decisions, and other relevant information. Read the information, and select **Tasks** at the top of the page. You can also select **Start labeling** at the bottom of the page.
 
 ## Selecting a label
 
@@ -45,35 +45,37 @@ In all data labeling tasks, you choose an appropriate tag or tags from a set spe
 
 ## Assisted machine learning
 
-Machine learning algorithms may be triggered during your labeling. If your project has these algorithms enabled, you may see:
+The labeling process might trigger machine learning algorithms. If your project has these algorithms enabled, you might see:
 
 * Images
 
-    * After some amount of data is labeled, you might notice **Tasks clustered** at the top of your screen, next to the project name. Images are grouped together to present similar images on the same page. If you notice this, switch to one of the multiple image views to take advantage of the grouping.
+  - After some of the data is labeled, you might notice **Tasks clustered** at the top of your screen, next to the project name. Images are grouped together to present similar images on the same page. In this case, switch to one of the multiple image views to take advantage of the grouping.
     
-    * Later on, you might notice **Tasks prelabeled** next to the project name. Items appear with a suggested label produced by a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model has confidence, these data values might still have incorrect prelabels. When you notice labels, correct any wrong labels before you submit the page.
+  - Later on, you might notice **Tasks prelabeled** next to the project name. Items appear with a suggested label produced by a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model has confidence, these data values might still have incorrect prelabels. When you notice labels, correct any incorrect labels before you submit the page.
     
-    * For object identification models, you may notice bounding boxes and labels already present. Correct all mistakes with them before you submit the page.
+  - For object identification models, you might notice bounding boxes and labels already present. Correct all mistakes with them before you submit the page.
     
-    * For segmentation models, you may notice polygons and labels already present. Correct all mistakes with them before you submit the page.
+  - For segmentation models, you might notice polygons and labels already present. Correct all mistakes with them before you submit the page.
 
 * Text
     
-    * You may eventually see **Tasks prelabeled** next to the project name. Items appear with a suggested label that a machine learning classification model produces. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data values might still be incorrectly prelabeled. When you see labels, correct any wrong labels before submitting the page.
+  - Later on, you might notice **Tasks prelabeled** next to the project name. Items appear with a suggested label produced by a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model has confidence, these data values might still have incorrect prelabels. When you notice labels, correct any wrong labels before submitting the page.
 
-Early in a labeling project, the machine learning model may only have enough accuracy to prelabel a small image subset. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next model training round. Over time, the model will become more confident about a higher proportion of images. Later in the project, its confidence results in more prelabel tasks.
+Early in a labeling project, the machine learning model might only have enough accuracy to prelabel a small image subset. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next model training round. Over time, the model will become more confident about a higher proportion of images. Later in the project, its confidence results in more prelabeling tasks.
 
-When there are no more prelabeled tasks, you stop confirming or correcting labels, and go back to manual item tagging.
+When there are no more prelabeled tasks, the label confirmation or correction process stops, and returns to manual item tagging.
 
 ## Image tasks
 
-For image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout.
+For image-classification tasks, you can choose to view multiple images simultaneously. To select the layout, use the icons above the image area.
 
 To select all the displayed images simultaneously, use **Select all**. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select applies to all the selected images.
 
-Here, we chose a two-by-two layout, and applied the tag "Mammal" to the bear and orca images. The shark image was already tagged as "Cartilaginous fish," and the iguana doesn't yet have a tag.
+For example, we can choose a two-by-two layout, and applied the tag "Mammal" to the bear and orca images, as shown in this screenshot:
 
-![Multiple image layouts and selection](./media/how-to-label-data/layouts.png)
+:::image type="content" source="./media/how-to-label-data/layouts.png" lightbox="./media/how-to-label-data/layouts.png" alt-text="Screenshot showing selection of multiple images.":::
+
+This shows multiple image layouts and selection. The shark image was already tagged as "Cartilaginous fish," and the iguana doesn't yet have a tag.
 
 > [!Important]
 > Switch layouts only when you have a fresh page of unlabeled data. Switching layouts clears the in-progress tagging work of the page.
@@ -87,13 +89,15 @@ After you submit tags for the data at hand, Azure refreshes the page with a new 
 > [!IMPORTANT]
 > The capability to label DICOM or similar image types is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Data Labeling for DICOM or similar image types.
 
-Image projects support DICOM image format for X-ray file images.
+Image projects support DICOM image format for X-ray file images, as shown in this screenshot:
 
-:::image type="content" source="media/how-to-label-data/x-ray-image.png" alt-text="X-ray DICOM image to be labeled.":::
+:::image type="content" source="./media/how-to-label-data/x-ray-image.png" lightbox="./media/how-to-label-data/x-ray-image.png" alt-text="Screenshot showing an X-ray DICOM image to be labeled.":::
 
-While you label the medical images with the same tools as any other images, you can use a different tool for DICOM images. Select the **Window and level** tool to change the intensity of the image. This tool is available only for DICOM images.
+While you label the medical images with the same tools as any other images, you can use a different tool for DICOM images, as shown in this screenshot:
 
-:::image type="content" source="media/how-to-label-data/window-level-tool.png" alt-text="Window and level tool for DICOM images.":::
+:::image type="content" source="./media/how-to-label-data/window-level-tool.png" lightbox="./media/how-to-label-data/window-level-tool.png" alt-text="Screenshot showing the window and level tool for DICOM images.":::
+
+Select the **Window and level** tool to change the intensity of the image. This tool is available only for DICOM images.
 
 ## Tag images for multi-class classification
 
@@ -105,17 +109,19 @@ If you realize that you made a mistake after you assign a tag to an image, you c
 
 If your project is of type "Image Classification Multi-Label," you apply one *or more* tags to an image. To see the project-specific directions, select **Instructions**, and go to **View detailed instructions**.
 
-Select the image that you want to label, and then select the tag. The tag is applied to all the selected images, and then the images are deselected. To apply more tags, you must reselect the images. The following animation shows multi-label tagging:
+Select the image that you want to label, and then select the tag. The tag is applied to all the selected images, and then the images are deselected. To apply more tags, you must reselect the images. This animation shows multi-label tagging:
 
-1. **Select all** is used to apply the "Ocean" tag.
-1. A single image is selected and tagged "Closeup."
-1. Three images are selected and tagged "Wide angle."
+:::image type="content" source="./media/how-to-label-data/multilabel.gif" lightbox="./media/how-to-label-data/multilabel.gif" alt-text="Animation showing multi-label tagging.":::
 
-![Animation shows multilabel flow](./media/how-to-label-data/multilabel.gif)
+The animation shows that
 
-To correct a mistake, select the "**X**" to clear an individual tag, or select the images and then select the tag, to clear the tag from all the selected images. This scenario is shown here. Selecting "Land" clears that tag from the two selected images.
+1. **Select all** is used to apply the "Ocean" tag
+1. A single image is selected and tagged "Closeup"
+1. Three images are selected and tagged "Wide angle"
 
-![A screenshot shows multiple deselections](./media/how-to-label-data/multiple-deselection.png)
+To correct a mistake, select the "**X**" to clear an individual tag, or select the images and then select the tag, to clear the tag from all the selected images. This scenario is shown here. Selecting "Land" clears that tag from the two selected images. This screenshot shows the scenario:
+
+:::image type="content" source="./media/how-to-label-data/multiple-deselection.png" lightbox="./media/how-to-label-data/multiple-deselection.png" alt-text="Screenshot showing clearance of tags from multiple selected images.":::
 
 Azure will only enable the **Submit** button after you apply at least one tag to each image. Select **Submit** to save your work.
 
@@ -123,23 +129,40 @@ Azure will only enable the **Submit** button after you apply at least one tag to
 
 If your project is of type "Object Identification (Bounding Boxes)," specify one or more bounding boxes in the image, and apply a tag to each box. Images can have multiple bounding boxes, each with a single tag. Use **View detailed instructions** to determine if your project uses multiple bounding boxes.
 
-1. Select a tag for the bounding box you plan to create.
-1. Select the **Rectangular box** tool ![Rectangular box tool](./media/how-to-label-data/rectangular-box-tool.png), or select "R."
-3. Select and diagonally drag across your target, to create a rough bounding box. Drag the edges or corners to adjust the bounding box.
+1. Select a tag for the bounding box you plan to create
+1. Select "R.", or select the **Rectangular box** tool, as shown in this screenshot:
 
-![Bounding box creation](./media/how-to-label-data/bounding-box-sequence.png)
+   :::image type="content" source="./media/how-to-label-data/rectangular-box-tool.png" lightbox="./media/how-to-label-data/rectangular-box-tool.png" alt-text="Screenshot showing selection of the Rectangular box tool.":::
+
+1. To create a rough bounding box, select and diagonally drag across your target. Drag the edges or corners to adjust the bounding box, as shown in this screenshot:
+
+   :::image type="content" source="./media/how-to-label-data/bounding-box-sequence.png" lightbox="./media/how-to-label-data/bounding-box-sequence.png" alt-text="Screenshot showing creation of a bounding box.":::
 
 To delete a bounding box, select the X-shaped target that appears next to the bounding box after creation.
 
 You can't change the tag of an existing bounding box. To fix a tag-assignment mistake, you must delete the bounding box, and create a new one with the correct tag.
 
-By default, you can edit existing bounding boxes. The **Lock/unlock regions** tool ![Lock/unlock regions tool](./media/how-to-label-data/lock-bounding-boxes-tool.png) or "L" toggles that behavior. If regions are locked, you can only change the shape or location of a new bounding box.
+By default, you can edit existing bounding boxes. The "L", or **Lock/unlock regions** tool toggles that behavior, as shown in this screenshot:
 
-Use the **Regions manipulation** tool ![This is the regions manipulation tool icon - four arrows pointing outward from the center, up, right, down, and left.](./media/how-to-label-data/regions-tool.png), or "M", to adjust an existing bounding box. Drag the edges or corners to adjust the shape. Select in the interior if you want to drag the whole bounding box. If you can't edit a region, you probably toggled the **Lock/unlock regions** tool.
+:::image type="content" source="./media/how-to-label-data/lock-bounding-boxes-tool.png" lightbox="./media/how-to-label-data/lock-bounding-boxes-tool.png" alt-text="Screenshot showing selection of the Lock/unlock regions tool.":::
 
-Use the **Template-based box** tool ![Template-box tool](./media/how-to-label-data/template-box-tool.png), or "T", to create multiple bounding boxes of the same size. If the image has no bounding boxes, and you activate template-based boxes, the tool produces 50-by-50-pixel boxes. If you create a bounding box, and then activate template-based boxes, the size of any new bounding boxes matches the size of the last box that you created. You can resize template-based boxes after placement. Resizing a template-based box only resizes that particular box.
+If regions are locked, you can only change the shape or location of a new bounding box.
 
-To delete *all* bounding boxes in the current image, select the **Delete all regions** tool ![Delete regions tool](./media/how-to-label-data/delete-regions-tool.png).
+The **Regions manipulation** tool is four arrows that start from the center and point outward up, down, to the right, and to the left, as shown in this screenshot:
+
+:::image type="content" source="./media/how-to-label-data/regions-tool.png" lightbox="./media/how-to-label-data/regions-tool.png" alt-text="Screenshot showing selection of the Regions manipulation tool.":::
+
+Use the **Regions manipulation** tool, or "M", to adjust an existing bounding box. Drag the edges or corners to adjust the shape. Select in the interior if you want to drag the whole bounding box. If you can't edit a region, you probably toggled the **Lock/unlock regions** tool.
+
+The **Template-based box** tool creates multiple bounding boxes of the same size, as shown in this screenshot:
+
+:::image type="content" source="./media/how-to-label-data/template-box-tool.png" lightbox="./media/how-to-label-data/template-box-tool.png" alt-text="Screenshot showing selection of the Template-based box tool.":::
+
+Use the **Template-based box** tool, or "T", to create multiple bounding boxes of the same size. If the image has no bounding boxes, and you activate template-based boxes, the tool produces 50-by-50-pixel boxes. If you create a bounding box, and then activate template-based boxes, the size of any new bounding boxes matches the size of the last box that you created. You can resize template-based boxes after placement. Resizing a template-based box only resizes that particular box.
+
+To delete *all* bounding boxes in the current image, select the **Delete all regions** tool as shown in this screenshot:
+
+:::image type="content" source="./media/how-to-label-data/delete-regions-tool.png" lightbox="./media/how-to-label-data/delete-regions-tool.png" alt-text="Screenshot showing selection of the Delete all regions tool.":::
 
 After you create the bounding boxes for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
@@ -147,21 +170,34 @@ After you create the bounding boxes for an image, select **Submit** to save your
 
 If your project is of type "Instance Segmentation (Polygon)," specify one or more polygons in the image, and apply a tag to each polygon. Images can have multiple bounding polygons, each with a single tag. Use **View detailed instructions** to determine if your project uses multiple bounding polygons.
 
-1. Select a tag for the polygon that you plan to create.
-1. Select the **Draw polygon region** tool ![Draw polygon region tool](./media/how-to-label-data/polygon-tool.png), or select "P."
-1. Select for each point in the polygon. When you complete the shape, double-click to finish.
+1. Select a tag for the polygon that you plan to create
+1. Select "P", or select the **Draw polygon region** tool as shown in this screenshot:
 
-    :::image type="content" source="media/how-to-label-data/polygon.gif" alt-text="Create polygons for Cat and Dog":::
+:::image type="content" source="./media/how-to-label-data/polygon-tool.png" lightbox="./media/how-to-label-data/polygon-tool.png" alt-text="Screenshot showing selection of the Draw polygon region tool.":::
+
+1. Select for each point in the polygon. When you complete the shape, select twice to finish, as shown in this animation:
+
+    :::image type="content" source="./media/how-to-label-data/polygon.gif" lightbox="./media/how-to-label-data/polygon.gif" alt-text="Create polygons for Cat and Dog.":::
 
 To delete a polygon, select the X-shaped target that appears next to the polygon after creation.
 
 To change the tag for a polygon, select the **Move region** tool, select the polygon, and select the correct tag.
 
-You can edit existing polygons. The **Lock/unlock regions** tool ![Edit polygons with the lock/unlock regions tool](./media/how-to-label-data/lock-bounding-boxes-tool.png), or "L", toggles that behavior. If regions are locked, you can only change the shape or location of a new polygon.
+You can edit existing polygons. The **Lock/unlock regions** tool, or "L", toggles that behavior, as shown in this screenshot:
 
-Use the **Add or remove polygon points** tool ![This is the add or remove polygon points tool icon.](./media/how-to-label-data/add-remove-points-tool.png), or "U", to adjust an existing polygon. Select the polygon to add or remove a point. If you can't edit a region, you probably toggled the **Lock/unlock regions** tool.
+:::image type="content" source="./media/how-to-label-data/lock-bounding-boxes-tool.png" lightbox="./media/how-to-label-data/lock-bounding-boxes-tool.png" alt-text="Screenshot showing selection of the Lock/Unlock regions tool.":::
 
-To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete all regions tool](./media/how-to-label-data/delete-regions-tool.png).
+If regions are locked, you can only change the shape or location of a new polygon.
+
+Use the **Add or remove polygon points** tool, or "U", to adjust an existing polygon, as shown in this screenshot:
+
+:::image type="content" source="./media/how-to-label-data/add-remove-points-tool.png" lightbox="./media/how-to-label-data/add-remove-points-tool.png" alt-text="Screenshot showing selection of the Lock / Unlock regions tool.":::
+
+Select the polygon to add or remove a point. If you can't edit a region, you probably toggled the **Lock/unlock regions** tool.
+
+To delete *all* bounding boxes in the current image, select the **Delete all regions** tool as shown in this screenshot:
+
+:::image type="content" source="./media/how-to-label-data/delete-regions-tool.png" lightbox="./media/how-to-label-data/delete-regions-tool.png" alt-text="Screenshot showing deletion of all regions.":::
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
@@ -169,38 +205,44 @@ After you create the polygons for an image, select **Submit** to save your work,
 
 If your project is of type "Semantic segmentation (Preview)," use the paintbrush to paint a mask over the area you wish to tag.
 
-1. Select a tag for the area you will paint over.
-1. Select the **paintbrush** tool ![Screenshot of the Paintbrush tool.](./media/how-to-label-data/paintbrush-tool.png).
-1. Select the **size** tool![Screenshot of the Size tool.](./media/how-to-label-data/width-tool.png) to pick a size for your paintbrush.
-1. Paint over the area you wish to tag.  The color corresponding to your tag will be applied to the area you paint over.
+1. Select a tag for the area you want to paint over
+1. Select the **paintbrush** tool, as shown in this screenshot:
+
+   :::image type="content" source="./media/how-to-label-data/paintbrush-tool.png" lightbox="./media/how-to-label-data/paintbrush-tool.png" alt-text="Screenshot showing selection of the paintbrush tool.":::
+
+1. Select the **size** tool to pick a size for your paintbrush, as shown in this screenshot:
+
+   :::image type="content" source="./media/how-to-label-data/width-tool.png" lightbox="./media/how-to-label-data/width-tool.png" alt-text="Screenshot showing selection of the paintbrush size.":::
+
+1. Paint over the area you wish to tag. The color corresponding to your tag is applied to the area you paint over
     
-    :::image type="content" source="media/how-to-label-data/paintbrush.gif" alt-text="Screenshot of paint area for cat and dog faces for semantic segmentation.":::
+    :::image type="content" source="./media/how-to-label-data/paintbrush.gif" lightbox="./media/how-to-label-data/paintbrush.gif" alt-text="Screenshot of paint area for cat and dog faces for semantic segmentation.":::
 
 To delete parts of the area, select **Eraser** tool.
 
-To change the tag for an area, select the new tag and re-paint the area.
+To change the tag for an area, select the new tag and repaint the area.
 
 You can also use the [Polygon tool](#tag-images-and-specify-polygons-for-image-segmentation) to specify a region.
 
-After you create the areas for an image, select **Submit** to save your work, or your work in progress won't be saved. If you used the Polygon tool, all polygons will be converted to a mask when you submit.
+After you create the areas for an image, select **Submit** to save your work, or your work in progress won't be saved. If you used the Polygon tool, all polygons are converted to a mask when you submit.
 
 ## Label text
 
 When you tag text, use the toolbar to:
 
-* Increase or decrease the text size
-* Change the font
-* Skip labeling this item and move to the next item
+- Increase or decrease the text size
+- Change the font
+- Skip labeling this item and move to the next item
 
-If you notice that you made a mistake after you assign a tag, you can fix it. Select the "**X**" on the label that's displayed below the text to clear the tag.
+If you notice that you made a mistake after you assign a tag, you can fix it. Select the "**X**" on the label displayed below the text to clear the tag.
 
 There are three text project types:
 
 |Project type  | Description  |
 |---------|---------|
-| Classification Multi-Class | Assign a single tag to the entire text entry.  You can only select one tag for each text item.  Select a tag, and then select **Submit** to move to the next entry.  |
-| Classification Multi-Label     | Assign one *or more* tags to each text entry.  You can select multiple tags for each text item.   Select all the tags that apply, and then select **Submit** to move to the next entry.    |
-| Named entity recognition | Tag different words or phrases in each text entry.  See directions in the next section.
+| Classification Multi-Class | Assign a single tag to the entire text entry. You can only select one tag for each text item. Select a tag, and then select **Submit** to move to the next entry.  |
+| Classification Multi-Label     | Assign one *or more* tags to each text entry. You can select multiple tags for each text item. Select all the tags that apply, and then select **Submit** to move to the next entry.    |
+| Named entity recognition | Tag different words or phrases in each text entry. See directions in the next section. |
 
 To see the project-specific directions, select **Instructions**, and go to **View detailed instructions**.
 
@@ -211,15 +253,15 @@ If your project is set up for named entity recognition, you tag different words 
 1. Select the label, or type the number corresponding to the appropriate label
 1. Double-click on a word, or use your mouse to select multiple words.
 
-:::image type="content" source="media/how-to-label-data/named-entity-labeling.png" alt-text="Screenshot: Named entity recognition.":::
+:::image type="content" source="./media/how-to-label-data/named-entity-labeling.png" lightbox="./media/how-to-label-data/named-entity-labeling.png" alt-text="Screenshot: Named entity recognition.":::
 
 To change a label, you can:
 
-* Delete the label and start over.
-* Change the value for some or all of a specific label in your current item:
-    * Select the label itself, which selects all instances of that label.
-    * Select again on the instances of this label, to unselect any instances you want to keep.
-    * Finally, select a new label to change all the labels that are still selected.
+- Delete the label and start over.
+- Change the value for some or all of a specific label in your current item:
+  * Select the label itself, which selects all instances of that label.
+  * To unselect any instances you want to keep, select the instances of this label once again.
+  * Finally, select a new label to change all the labels that are still selected.
 
 Once you tag all the items in an entry, select **Submit** to move to the next entry.
 

@@ -2,7 +2,7 @@
 title: Set up Azure Key Vault using CLI 
 description: How to set up Key Vault for virtual machine using the Azure CLI.
 author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 10/20/2022
 ms.author: mimckitt 
