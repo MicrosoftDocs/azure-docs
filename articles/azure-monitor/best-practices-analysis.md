@@ -70,90 +70,6 @@ The [out-of-the-box Grafana Azure alerts dashboard](https://grafana.com/grafana/
 
 Azure Monitor suggests using Azure Managed Grafana for data visualizations and dashboards in cloud-native scenarios, such as Kubernetes and Azure Kubernetes Service (AKS), as well as multicloud, OSS, and third-party integrations. For other Azure scenarios, including Azure hybrid environments with Azure Arc, workbooks are the recommended option.
 
-#### When to use Azure Managed Grafana
-
-* **Monitoring cloud-native environments:** Utilize Prometheus and CNCF tools for comprehensive insights.
-
-* **Multi-cloud and multi-platform monitoring:** Achieve broad visibility across various environments.
-
-* **Support for multi-tenancy and portability:** Ensuring flexibility and scalability.
-
-* **Interoperability with open-source and third-party tools:** Expand capabilities with diverse integrations.
-
-* **Advanced flexibility in data handling:** Combine data queries and client-side processing for tailored results.
-
-* **Dashboard sharing beyond the Azure portal:** Facilitate broader collaboration and insight sharing.
-
-* **Leverage open-source community dashboards:** Tap into a wealth of shared resources for enhanced monitoring.
-
-## Option 1
-
-#### When to use Azure workbooks
-
-* **Pre-configured and customizable reports native to Azure:**
-    * Easily accessible within the Azure portal
-    * Managed through Azure Automation tools like ARM, Bicep, and Terraform
-    * Tailored to your Azure RBAC assignments
-    * Come at no extra cost
-* **Comprehensive Azure data sources:** Offering the most extensive collection of Azure data sources.
-* **Azure-managed hybrid and Edge environments:** Seamlessly integrated for optimal management.
-* **Azure Actions and Automation integration:** Enhancing functionality and efficiency.
-* **Custom report creation with Azure Monitor Insights:** Tailor reports to meet specific monitoring needs.
-* **Community templates from Azure GitHub:** Utilize shared knowledge and resources for report creation.
-
-#### When to use Azure Managed Grafana
-
-* **Monitoring cloud-native environments:** Utilize Prometheus and CNCF tools for comprehensive insights.
-* **Multi-cloud and multi-platform monitoring:** Achieve broad visibility across various environments.
-* **Support for multi-tenancy and portability:** Ensuring flexibility and scalability.
-* **Interoperability with open-source and third-party tools:** Expand capabilities with diverse integrations.
-* **Advanced flexibility in data handling:** Combine data queries and client-side processing for tailored results.
-* **Dashboard sharing beyond the Azure portal:** Facilitate broader collaboration and insight sharing.
-* **Leverage open-source community dashboards:** Tap into a wealth of shared resources for enhanced monitoring.
-
-## Option 2
-
-#### When to use Azure workbooks
-
-* **Pre-configured and customizable reports native to Azure:** Easily accessible within the Azure portal and managed through Azure Automation tools like ARM, Bicep, and Terraform. These reports are tailored to your Azure RBAC assignments and come at no extra cost.
-* **Comprehensive Azure data sources:** Offering the most extensive collection of Azure data sources.
-* **Azure-managed hybrid and Edge environments:** Seamlessly integrated for optimal management.
-* **Azure Actions and Automation integration:** Enhancing functionality and efficiency.
-* **Custom report creation with Azure Monitor Insights:** Tailor reports to meet specific monitoring needs.
-* **Community templates from Azure GitHub:** Utilize shared knowledge and resources for report creation.
-
-#### When to use Azure Managed Grafana
-
-* **Monitoring cloud-native environments:** Utilize Prometheus and CNCF tools for comprehensive insights.
-* **Multi-cloud and multi-platform monitoring:** Achieve broad visibility across various environments.
-* **Support for multi-tenancy and portability:** Ensuring flexibility and scalability.
-* **Interoperability with open-source and third-party tools:** Expand capabilities with diverse integrations.
-* **Advanced flexibility in data handling:** Combine data queries and client-side processing for tailored results.
-* **Dashboard sharing beyond the Azure portal:** Facilitate broader collaboration and insight sharing.
-* **Leverage open-source community dashboards:** Tap into a wealth of shared resources for enhanced monitoring.
-
-### Option 3
-
-#### When to use Azure workbooks
-
-* **Pre-configured and customizable reports native to Azure:**
-    * Easily accessible within the Azure portal
-    * Managed through Azure Automation tools like ARM, Bicep, and Terraform
-    * Tailored to your Azure RBAC assignments
-    * Come at no extra cost
-
-* **Comprehensive Azure data sources:** Offering the most extensive collection of Azure data sources.
-
-* **Azure-managed hybrid and Edge environments:** Seamlessly integrated for optimal management.
-
-* **Azure Actions and Automation integration:** Enhancing functionality and efficiency.
-
-* **Custom report creation with Azure Monitor Insights:** Tailor reports to meet specific monitoring needs.
-
-* **Community templates from Azure GitHub:** Utilize shared knowledge and resources for report creation.
-
-### Option 4
-
 #### When to use Azure workbooks
 
 * **Pre-configured and customizable reports native to Azure:** Easily accessible within the Azure portal and managed through Azure Automation tools like ARM, Bicep, and Terraform. These reports are tailored to your Azure RBAC assignments and come at no extra cost.
@@ -167,6 +83,22 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 * **Custom report creation with Azure Monitor Insights:** Tailor reports to meet specific monitoring needs.
 
 * **Community templates from Azure GitHub:** Utilize shared knowledge and resources for report creation.
+
+#### When to use Azure Managed Grafana
+
+* **Monitoring cloud-native environments:** Utilize Prometheus and CNCF tools for comprehensive insights.
+
+* **Multi-cloud and multi-platform monitoring:** Achieve broad visibility across various environments.
+
+* **Support for multi-tenancy and portability:** Ensuring flexibility and scalability.
+
+* **Interoperability with open-source and third-party tools:** Expand capabilities with diverse integrations.
+
+* **Advanced flexibility in data handling:** Combine data queries and client-side processing for tailored results.
+
+* **Dashboard sharing beyond the Azure portal:** Facilitate broader collaboration and insight sharing.
+
+* **Leverage open-source community dashboards:** Tap into a wealth of shared resources for enhanced monitoring.
 
 ### Benefits and use cases
 
