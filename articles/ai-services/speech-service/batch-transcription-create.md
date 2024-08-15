@@ -109,7 +109,7 @@ Call [Transcriptions_Delete](/rest/api/speechtotext/transcriptions/delete)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
 > [!TIP]
-> You can also try the Batch Transcription API using Python on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/batch/python/python-client/main.py).
+> You can also try the Batch Transcription API using Python, C#, or Node.js on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
 
 
 ::: zone-end
