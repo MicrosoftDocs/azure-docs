@@ -650,7 +650,7 @@ The separation between configuration and code becomes important when you want to
 
 - Azure Cosmos DB
 
-  This service is a fully managed NoSQL database for modern app development with single-digit millisecond response times plus automatic and instant scalability that guarantee speed at any scale. You can load configuration data into [Azure Cosmos DB](../cosmos-db/introduction.md) and then access that data using the [Azure Cosmos DB connector](/connectors/documentdb/) in Azure Logic Apps.
+  This service is a fully managed NoSQL database for modern app development with single-digit millisecond response times plus automatic and instant scalability that guarantee speed at any scale. You can load configuration data into [Azure Cosmos DB](/azure/cosmos-db/introduction) and then access that data using the [Azure Cosmos DB connector](/connectors/documentdb/) in Azure Logic Apps.
 
 - Azure Table Storage
 

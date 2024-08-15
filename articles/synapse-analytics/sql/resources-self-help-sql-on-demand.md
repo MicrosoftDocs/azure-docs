@@ -836,7 +836,7 @@ ALTER DATABASE CURRENT COLLATE Latin1_General_100_CI_AS_SC_UTF8;
 Some items from Azure Cosmos DB might not be returned by the `OPENROWSET` function. Be aware that:
 
 - There's a synchronization delay between the transactional and analytical store. The document you entered in the Azure Cosmos DB transactional store might appear in the analytical store after two to three minutes.
-- The document might violate some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints).
+- The document might violate some [schema constraints](/azure/cosmos-db/analytical-store-introduction#schema-constraints).
 
 ### Query returns NULL values in some Azure Cosmos DB items
 
@@ -844,9 +844,9 @@ Azure Synapse SQL returns NULL instead of the values that you see in the transac
 
 - There's a synchronization delay between the transactional and analytical store. The value that you entered in the Azure Cosmos DB transactional store might appear in the analytical store after two to three minutes.
 - There might be a wrong column name or path expression in the WITH clause. The column name (or path expression after the column type) in the WITH clause must match the property names in the Azure Cosmos DB collection. Comparison is case sensitive. For example, `productCode` and `ProductCode` are different properties. Make sure that your column names exactly match the Azure Cosmos DB property names.
-- The property might not be moved to the analytical storage because it violates some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints), such as more than 1,000 properties or more than 127 nesting levels.
-- If you use well-defined [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation), the value in the transactional store might have a wrong type. Well-defined schema locks the types for each property by sampling the documents. Any value added in the transactional store that doesn't match the type is treated as a wrong value and not migrated to the analytical store.
-- If you use full-fidelity [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation), make sure that you're adding the type suffix after the property name like `$.price.int64`. If you don't see a value for the referenced path, maybe it's stored under a different type path, for example, `$.price.float64`. For more information, see [Query Azure Cosmos DB collections in the full-fidelity schema](query-cosmos-db-analytical-store.md#query-items-with-full-fidelity-schema).
+- The property might not be moved to the analytical storage because it violates some [schema constraints](/azure/cosmos-db/analytical-store-introduction#schema-constraints), such as more than 1,000 properties or more than 127 nesting levels.
+- If you use well-defined [schema representation](/azure/cosmos-db/analytical-store-introduction#schema-representation), the value in the transactional store might have a wrong type. Well-defined schema locks the types for each property by sampling the documents. Any value added in the transactional store that doesn't match the type is treated as a wrong value and not migrated to the analytical store.
+- If you use full-fidelity [schema representation](/azure/cosmos-db/analytical-store-introduction#schema-representation), make sure that you're adding the type suffix after the property name like `$.price.int64`. If you don't see a value for the referenced path, maybe it's stored under a different type path, for example, `$.price.float64`. For more information, see [Query Azure Cosmos DB collections in the full-fidelity schema](query-cosmos-db-analytical-store.md#query-items-with-full-fidelity-schema).
 
 ### Column isn't compatible with external data type
 
@@ -854,7 +854,7 @@ The error `Column 'column name' of the type 'type name' is not compatible with t
 
 ### <a id="resolving-azure-cosmos-db-path-has-failed-with-error"></a>Resolve: Azure Cosmos DB path has failed with error
 
-If you get the error `Resolving Azure Cosmos DB path has failed with error 'This request is not authorized to perform this operation'.` check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
+If you get the error `Resolving Azure Cosmos DB path has failed with error 'This request is not authorized to perform this operation'.` check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](/azure/cosmos-db/analytical-store-private-endpoints#using-synapse-serverless-sql-pools).
 
 ### Azure Cosmos DB performance issues
 

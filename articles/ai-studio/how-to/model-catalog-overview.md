@@ -165,7 +165,7 @@ To set the PNA flag for the AI Studio hub:
 
 * If you have an AI Studio hub with a private endpoint created before July 11, 2024, new MaaS endpoints added to projects in this hub won't follow the networking configuration of the hub. Instead, you need to create a new private endpoint for the hub and create new serverless API deployments in the project so that the new deployments can follow the hub's networking configuration.
 
-* If you have an AI studio hub with MaaS deployments created before July 11, 2024, and you enable a private endpoint on this hub, the existing MaaS deployments won't follow the hub's networking configuration. For serverless API deployments in the hub to follow the hub's networking configuration, you need to create the deployments again.
+* If you have an AI Studio hub with MaaS deployments created before July 11, 2024, and you enable a private endpoint on this hub, the existing MaaS deployments won't follow the hub's networking configuration. For serverless API deployments in the hub to follow the hub's networking configuration, you need to create the deployments again.
 
 * Currently, [Azure OpenAI On Your Data](/azure/ai-services/openai/concepts/use-your-data) support isn't available for MaaS deployments in private hubs, because private hubs have the PNA flag disabled.
 
