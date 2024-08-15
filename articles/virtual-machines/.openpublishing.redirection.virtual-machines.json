@@ -5117,7 +5117,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-machines/spot-placement-score.md",
-            "redirect_url": "/azure/virtual-machines/",
+            "redirect_url": "/azure/virtual-machines/index",
             "redirect_document_id": false
         }    
     ]
