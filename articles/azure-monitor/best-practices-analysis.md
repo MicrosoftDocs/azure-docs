@@ -62,13 +62,15 @@ The [out-of-the-box Grafana Azure alerts dashboard](https://grafana.com/grafana/
 
 ### Power BI
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is useful for creating business-centric dashboards and reports, along with reports that analyze long-term KPI (Key Performance Indicator) trends. You can [import the results of a log query](./logs/log-powerbi.md) into a Power BI dataset. This will allow you to take advantage of features such as combining data from different sources and sharing reports on the web and mobile devices.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is useful for creating business-centric dashboards and reports, along with reports that analyze long-term KPI (Key Performance Indicator) trends. You can [import the results of a log query](./logs/log-powerbi.md) into a Power BI dataset, which allows you to take advantage of features such as combining data from different sources and sharing reports on the web and mobile devices.
 
 :::image type="content" source="media/visualizations/power-bi.png" lightbox="media/visualizations/power-bi.png" alt-text="Screenshot that shows an example Power BI report for IT operations." border="false":::
 
 ## Choose the right visualization tool
 
-Azure Monitor suggests using Azure Managed Grafana for data visualizations and dashboards in cloud-native scenarios, such as Kubernetes and AKS, as well as multicloud, OSS, and third-party integrations. For other Azure scenarios, including Azure hybrid environments with Azure Arc, workbooks are the recommended option.
+Azure Monitor suggests using Azure Managed Grafana for data visualizations and dashboards in cloud-native scenarios, such as Kubernetes and Azure Kubernetes Service (AKS), as well as multicloud, OSS, and third-party integrations. For other Azure scenarios, including Azure hybrid environments with Azure Arc, workbooks are the recommended option.
+
+**Option 1**
 
 **Use Azure workbooks for:**
 
@@ -76,7 +78,7 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
     * Within the Azure portal
     * Accessed exclusively via users' Azure RBAC (role-based access control) assignments
     * Managed with Azure Automation including ARM, Bicep, and Terraform
-    * With no additional cost
+    * With no extra cost
 * Most complete set of Azure datasources
 * Azure-managed hybrid and edge environments
 * Integrations with Azure actions and Azure Automation
@@ -93,6 +95,12 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 * Sharing dashboards outside of the Azure portal
 * Leveraging open-source community dashboards
 
+**Option 2**
+
+| Use Azure workbooks for: | Use Azure Managed Grafana for: |
+|---------|---------|
+| • Out of the box and customizable Azure-native reports<br>&nbsp;&nbsp;&nbsp;• Within the Azure portal<br>&nbsp;&nbsp;&nbsp;• Accessed exclusively via users' Azure RBAC (role-based access control) assignments<br>&nbsp;&nbsp;&nbsp;• Managed with Azure Automation including ARM, Bicep, and Terraform<br>&nbsp;&nbsp;&nbsp;• With no extra cost<br>• Most complete set of Azure datasources<br>• Azure-managed hybrid and edge environments<br>• Integrations with Azure actions and Azure Automation<br>• Creating custom reports based on Azure Monitor Insights<br>• Leveraging Azure GitHub community templates<br> | • Cloud-native environments monitored with Prometheus and CNCF (Cloud Native Computing Foundation) tools<br>• Multicloud and multi-platform environments<br>• Multi-tenancy and portability support<br>• Interoperability with open-source and third party tools<br>• Extensive flexibility combining data queries, query results, and performing open-ended client-side data processing<br>• Sharing dashboards outside of the Azure portal<br>• Leveraging open-source community dashboards<br> |
+
 **Option 1**
 
 | Visualization tool | Benefits | Recommended uses |
@@ -108,12 +116,12 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 | &nbsp; |    |    |
 | [**Azure dashboards**](../azure-portal/azure-portal-dashboards.md) | Native Azure dashboarding platform | For Azure/Arc exclusive environments |
 |    | No added cost |    |
-|    | Supports at scale deployments    |    |
+|    | Supports at scale deployments |    |
 |    | Can combine a metrics graph and the results of a log query with operational data for related services |    |
 |    | Share a dashboard with service owners through integration with [Azure role-based access control](../role-based-access-control/overview.md) |    |
 | &nbsp; |    |    |
-|[**Azure Managed Grafana**](../managed-grafana/overview.md)|Multi-platform, multicloud single pane of glass visualizations    |For users without Azure access |
-|    | Seamless integration with Azure |Use for external visualization experiences, especially for RAG type dashboards in SOC and NOC environments |
+|[**Azure Managed Grafana**](../managed-grafana/overview.md)| Multi-platform multicloud single pane of glass visualizations | For users without Azure access |
+|    | Seamless integration with Azure | Use for external visualization experiences, especially for RAG type dashboards in SOC and NOC environments |
 |    | Can combine time-series and event data in a single visualization panel    |Cloud Native CNCF monitoring |
 |    | Can create dynamic dashboards based on user selection of dynamic variables    |Multicloud environments |
 |    | Prometheus support|Overall Statuses, Up/Down, and high level trend reports for management or executive level users |
