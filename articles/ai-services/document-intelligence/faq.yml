@@ -291,13 +291,13 @@ sections:
     - question: |
         Am I charged when training a custom models?
       answer: |
-        **Yes**
+        **Yes.**
 
         Training is free for all custom generative and custom template models. However, creating the training dataset for all models requires running the Layout model on the training documents. Customers are responsible for this cost. 
         
         Custom generative models also rely on the auto label feature to speed up the generation of the labeled dataset. There's a cost associated with this action. While the build operation for template and generative models is free, creating the labeled dataset can result in some minimal costs.
 
-        For `v4.0 2024-07-31-preview`, custom neural models can be trained for free for a **maximum of 10 hours**. Whether you are training a single model for the 10 hours, or training multiple models for the total of 10 hours, you won't be charged for the first 10 hours. After using up the free 10 hours, you will be **automatically charged by the extra training hour**. For details on the prices, refer to the [pricing page].(https://azure.microsoft.com/pricing/details/ai-document-intelligence/). This new paid training feature enables training models for an extended duration to process larger documents. For more information on this paid training feature, check [custom neural model billing section](concept-custom-neural.md#billing).
+        For `v4.0 2024-07-31-preview`, custom neural models can be trained for free for a **maximum of 10 hours**. Whether you are training a single model for the 10 hours, or training multiple models for the total of 10 hours, you won't be charged for the first 10 hours. After using up the free 10 hours, you will be **automatically charged by the extra training hour**. For details on the prices, refer to the [pricing page](https://azure.microsoft.com/pricing/details/ai-document-intelligence/). This new paid training feature enables training models for an extended duration to process larger documents. For more information on this paid training feature, check [custom neural model billing section](concept-custom-neural.md#billing).
         
         For `v3.0 2022-08-31` or `v3.1 2023-07-31`, custom neural models can be trained for free for a maximum of 20 training sessions, with each session capped at 30 minutes of training duration. Once you use up all of the 20 training sessions, you can submit Azure support ticket to increase the training session limit. For increasing the limit, 2 training sessions will considered as 1 training hour, and you will be charged per 2 sessions / 1 training hour. For details on the prices, refer to the [pricing page]. For more information on ways to increase the limit, check [custom neural model billing section](concept-custom-neural.md#billing). **Note that for `v3.0` and `v3.1`, paid training feature is unavailable. Paid training feature for custom neural model is only available on `v4.0`.**
 
