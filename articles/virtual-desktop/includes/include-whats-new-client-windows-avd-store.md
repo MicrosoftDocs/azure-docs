@@ -18,13 +18,13 @@ The following table lists the current versions available for the public and Insi
 
 *Date published: August 13, 2024* 
 
-- [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131)
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
 
 ## Updates for version 1.2.5620
 
 *Date published: August 13, 2024* 
 
-- [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131)
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
 
 > [!NOTE]
 > This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release.  
