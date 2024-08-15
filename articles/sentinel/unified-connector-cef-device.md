@@ -176,6 +176,19 @@ Set your security solution to send syslog messages in CEF format to the proxy ma
 
 In ForgeRock, install and configure this Common Audit (CAUD) for Microsoft Sentinel per the documentation at https://github.com/javaservlets/SentinelAuditEventHandler. Next, in Azure, follow the steps to configure the CEF via AMA data connector.
 
+## Fortinet
+
+Set your Fortinet to send Syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine’s IP address.<br/><br/>Copy the CLI commands below and:<br/>
+-   Replace \"server &lt;ip address&gt;\" with the Syslog agent's IP address.<br/>
+-   Set the \"&lt;facility_name&gt;\" to use the facility you configured in the Syslog agent (by default, the agent sets this to local4).<br/>
+-   Set the Syslog port to 514, the port your agent uses.<br/>
+-   To enable CEF format in early FortiOS versions, you may need to run the command \"set csv disable\".<br/>For more information, go to the  [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary), choose your version, and use the \"Handbook\" and \"Log Message Reference\" PDFs.<br/>
+
+[Learn more >](https://aka.ms/CEF-Fortinet)
+
+Set up the connection using the CLI to run the following commands:
+`config log syslogd setting/n    set status enable/nset format cef/nset port 514/nset server <ip_address_of_Receiver>/nend`
+
 ## iboss
 
 Set your Threat Console to send syslog messages in CEF format to your Azure workspace. Make note of your **Workspace ID** and **Primary Key** within your Log Analytics workspace. Select the workspace from the Log Analytics workspaces menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
