@@ -221,7 +221,7 @@ ml_client.evaluators.download("answer_len_uploaded", version=1, download_path=".
 evaluator = load_flow(os.path.join("answer_len_uploaded", flex_flow_path))
 ```
 
-After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](../evaluate-generative-ai-app.md#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
+After logging your custom evaluator to your AI Studio project, you can view it in your [Evaluator library](../evaluate-generative-ai-app.md#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI Studio.
 
 ### Prompt-based evaluators
 
@@ -307,7 +307,7 @@ ml_client.evaluators.download("prompty_uploaded", version=1, download_path=".")
 evaluator = load_flow(os.path.join("prompty_uploaded", "apology.prompty"))
 ```
 
-After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](../evaluate-generative-ai-app.md#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
+After logging your custom evaluator to your AI Studio project, you can view it in your [Evaluator library](../evaluate-generative-ai-app.md#view-and-manage-the-evaluators-in-the-evaluator-library) under **Evaluation** tab in AI Studio.
 
 ## Evaluate on test dataset using `evaluate()`
 
@@ -328,7 +328,7 @@ result = evaluate(
             "ground_truth": "${data.truth}"
         }
     },
-    # Optionally provide your AI Studio project information to track your evaluation results in your Azure AI studio project
+    # Optionally provide your AI Studio project information to track your evaluation results in your Azure AI Studio project
     azure_ai_project = azure_ai_project,
     # Optionally provide an output path to dump a json of metric summary, row level data and metric and studio URL
     output_path="./myevalresults.json"

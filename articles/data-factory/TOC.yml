@@ -369,6 +369,8 @@ items:
     items:
     - name: Connector overview
       href: connector-overview.md
+    - name: Connectors to be deprecated
+      href: connector-deprecation-plan.md
     - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
