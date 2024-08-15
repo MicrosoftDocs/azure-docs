@@ -46,6 +46,7 @@ For Windows App:
 | Device platform | Managed devices | Unmanaged devices |
 |--|:--:|:--:|
 | iOS and iPadOS | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Android | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
 
 For the Remote Desktop app:
 
@@ -144,6 +145,7 @@ Before you can configure redirection settings on a client device using Microsoft
 - A client device running one of the following versions of Windows App or the Remote Desktop app:
    - For Windows App:
       - iOS and iPadOS: 10.5.2 or later.
+      - Android: 
 
    - Remote Desktop app:
       - iOS and iPadOS: 10.5.8 or later.
@@ -186,7 +188,7 @@ To create and apply an app configuration policy for managed apps, follow the ste
 
 - On the **Basics** tab, do the following, depending on whether you're targeting Windows App or the Remote Desktop app
 
-   - For Windows App, select **Select custom apps**, then for **Bundle or Package ID**, enter `com.microsoft.rdc.apple` and for platform, select **iOS/iPadOS**.
+   - For Windows App, select **Select custom apps**, then for **Bundle or Package ID**, enter `com.microsoft.rdc.apple` and for platform, select **iOS/iPadOS**. For Android...
 
    - For the Remote Desktop app, select **Select public apps**, then search for and select **Remote Desktop** for each platform you want to target.
 
@@ -213,7 +215,7 @@ To create and apply an app protection policy, follow the steps in [How to create
 
 - On the **Apps** tab, do the following, depending on whether you're targeting Windows App or the Remote Desktop app
 
-   - For Windows App on iOS/iPadOS, select **Select custom apps**, then for **Bundle or Package ID**, enter `com.microsoft.rdc.apple`.
+   - For Windows App on iOS/iPadOS, select **Select custom apps**, then for **Bundle or Package ID**, enter `com.microsoft.rdc.apple`. For Android...
 
    - For the Remote Desktop app, select **Select public apps**, then search for and select **Remote Desktop**.
 
