@@ -19,6 +19,7 @@ Before proceeding with this how-to guide, it's recommended that you:
 
 * Refer to the Nexus Kubernetes cluster [QuickStart guide](./quickstarts-kubernetes-cluster-deployment-cli.md) for a comprehensive overview and steps involved.
 * Ensure that you meet the outlined prerequisites to ensure smooth implementation of the guide.
+* Minimum required `networkcloud` az-cli extension version: `3.0.0b1`
 
 ## Limitations
 
