@@ -398,9 +398,10 @@ To protect sensitive information in your logic app's workflow definition, use se
 > [!IMPORTANT]
 >
 > For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
-> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication whenever possible. 
-> Microsoft Entra ID and managed identities provides superior security and is easier to use than basic authentication. To learn 
-> how to set up a managed identity for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
+> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
+> This option provides superior security without having to provide credentials. Azure manages this identity and helps keep 
+> authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity 
+> for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
 
 ```json
 "definition": {
@@ -451,9 +452,10 @@ A [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-te
 > [!IMPORTANT]
 >
 > For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
-> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication whenever possible. 
-> Microsoft Entra ID and managed identities provides superior security and is easier to use than other authentication types. To learn 
-> how to set up a managed identity for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
+> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
+> This option provides superior security without having to provide credentials. Azure manages this identity and helps keep 
+> authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity 
+> for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
 
 This list includes more information about these `parameters` sections:
 
@@ -606,9 +608,10 @@ The following table identifies the authentication types that are available on th
 > [!IMPORTANT]
 >
 > For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
-> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication whenever possible. 
-> Microsoft Entra ID and managed identities provides superior security and is easier to use than other authentication types. To learn 
-> how to set up a managed identity for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
+> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
+> This option provides superior security without having to provide credentials. Azure manages this identity and helps keep 
+> authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity 
+> for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
 
 <a name="secure-inbound-requests"></a>
 
@@ -689,7 +692,8 @@ In Consumption workflows, inbound calls to a request-based trigger endpoint can 
 >
 > For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
 > with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
-> This authentication type provides superior security and is easier to use than other types. To set up a managed identity 
+> This option provides superior security without having to provide credentials. Azure manages this identity and helps keep 
+> authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity 
 > for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
 
 For more information about using SAS, see the following later sections in this guide:
@@ -801,7 +805,7 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 
 ### Enable Open Authorization with Microsoft Entra ID  (Microsoft Entra ID OAuth)
 
-In a Consumption workflow that starts with a request-based trigger, you can authenticate inbound calls sent to the endpoint created by that trigger by enabling [Microsoft Entra ID OAuth](../active-directory/develop/index.yml). To set up this authentication, [define or add an authorization policy at the logic app level](#enable-azure-ad-inbound). This way, inbound calls use [OAuth access tokens](../active-directory/develop/access-tokens.md) for authorization.
+In a Consumption workflow that starts with a request-based trigger, you can authenticate inbound calls sent to the endpoint created by that trigger by enabling [Microsoft Entra ID OAuth](/entra/architecture/auth-oauth2). To set up this authentication, [define or add an authorization policy at the logic app level](#enable-azure-ad-inbound). This way, inbound calls use [OAuth access tokens](/entra/identity-platform/access-tokens) for authorization.
 
 When your logic app workflow receives an inbound request that includes an OAuth access token, Azure Logic Apps compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
 
@@ -813,13 +817,13 @@ In a Standard logic app workflow that starts with the **Request trigger** (but n
 
 * In Consumption workflows, inbound calls to the endpoint URL for a request-based trigger can use only one authorization scheme, either OAuth with Microsoft Entra ID or [Shared Access Signature (SAS)](#sas). Although using one scheme doesn't disable the other scheme, if you use both schemes at the same time, Azure Logic Apps generates an error because the service doesn't know which scheme to choose. If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas). For Standard workflows, you can use other authentication types without disabling SAS.
 
-* Azure Logic Apps supports either the [bearer type](../active-directory/develop/active-directory-v2-protocols.md#tokens) or [proof-of-possession type (Consumption logic app only)](/entra/msal/dotnet/advanced/proof-of-possession-tokens) authorization schemes for Microsoft Entra ID OAuth access tokens. However, the `Authorization` header for the access token must specify either the `Bearer` type or `PoP` type. For more information about how to get and use a PoP token, see [Get a Proof of Possession (PoP) token](#get-pop).
+* Azure Logic Apps supports either the [bearer type](/entra/identity-platform/v2-protocols#tokens) or [proof-of-possession type (Consumption logic app only)](/entra/msal/dotnet/advanced/proof-of-possession-tokens) authorization schemes for Microsoft Entra ID OAuth access tokens. However, the `Authorization` header for the access token must specify either the `Bearer` type or `PoP` type. For more information about how to get and use a PoP token, see [Get a Proof of Possession (PoP) token](#get-pop).
 
-* Your logic app resource is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](../active-directory/develop/developer-glossary.md#claim). For more information, review [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+* Your logic app resource is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](/entra/identity-platform/developer-glossary.md#claim). For more information, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#authentication-limits).
 
 * An authorization policy must include at least the **Issuer** claim, which has a value that starts with either **`https://sts.windows.net/`** or **`https://login.microsoftonline.com/`** (OAuth V2) as the issuer for Microsoft Entra ID.
 
-  For example, suppose that your logic app resource has an authorization policy that requires two claim types, **Audience** and **Issuer**. This sample [payload section](../active-directory/develop/access-token-claims-reference.md#payload-claims) for a decoded access token includes both claim types where `aud` is the **Audience** value and `iss` is the **Issuer** value:
+  For example, suppose that your logic app resource has an authorization policy that requires two claim types, **Audience** and **Issuer**. This sample [payload section](/entra/identity-platform/access-token-claims-reference#payload-claims) for a decoded access token includes both claim types where `aud` is the **Audience** value and `iss` is the **Issuer** value:
 
   ```json
   {
@@ -918,7 +922,7 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
 
    ![Screenshot that shows Azure portal, Consumption logic app menu, Authorization page, and selected button to add policy.](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
-1. Provide information about the authorization policy by specifying the [claim types](../active-directory/develop/developer-glossary.md#claim) and values that your logic app expects in the access token presented by each inbound call to the Request trigger:
+1. Provide information about the authorization policy by specifying the [claim types](/entra/identity-platform/developer-glossary.md#claim) and values that your logic app expects in the access token presented by each inbound call to the Request trigger:
 
    ![Screenshot that shows Azure portal, Consumption logic app Authorization page, and information for authorization policy.](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
@@ -926,7 +930,7 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
    |----------|----------|------|-------------|
    | **Policy name** | Yes | String | The name that you want to use for the authorization policy |
    | **Policy type** | Yes | String | Either **AAD** for bearer type tokens or **AADPOP** for Proof-of-Possession type tokens. |
-   | **Claims** | Yes | String | A key-value pair that specifies the claim type and value that the workflow's Request trigger expects in the access token presented by each inbound call to the trigger. You can add any standard claim you want by selecting **Add standard claim**. To add a claim that's specific to a PoP token, select **Add custom claim**. <br><br>Available standard claim types: <br><br>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <br><br>Requirements: <br><br>- At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID. <br><br>- Each claim must be a single string value, not an array of values. For example, you can have a claim with **Role** as the type and **Developer** as the value. You can't have a claim that has **Role** as the type and the values set to **Developer** and **Program Manager**. <br><br>- The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). <br><br>For more information about these claim types, review [Claims in Microsoft Entra security tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). You can also specify your own claim type and value. |
+   | **Claims** | Yes | String | A key-value pair that specifies the claim type and value that the workflow's Request trigger expects in the access token presented by each inbound call to the trigger. You can add any standard claim you want by selecting **Add standard claim**. To add a claim that's specific to a PoP token, select **Add custom claim**. <br><br>Available standard claim types: <br><br>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <br><br>Requirements: <br><br>- At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID. <br><br>- Each claim must be a single string value, not an array of values. For example, you can have a claim with **Role** as the type and **Developer** as the value. You can't have a claim that has **Role** as the type and the values set to **Developer** and **Program Manager**. <br><br>- The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). <br><br>For more information about these claim types, review [Claims in Microsoft Entra security tokens](/entra/identity-platform/security-tokens#json-web-tokens-and-claims). You can also specify your own claim type and value. |
 
    The following example shows the information for a PoP token:
 
@@ -936,7 +940,7 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
 
    * To add another claim type, select **Add standard claim**, select the claim type, and specify the claim value.
 
-   * To add your own claim, select **Add custom claim**. For more information, review [how to provide optional claims to your app](../active-directory/develop/active-directory-optional-claims.md). Your custom claim is then stored as a part of your JWT ID; for example, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"`. 
+   * To add your own claim, select **Add custom claim**. For more information, review [how to provide optional claims to your app](/entra/identity-platform/optional-claims.md). Your custom claim is then stored as a part of your JWT ID; for example, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"`. 
 
 1. To add another authorization policy, select **Add policy**. Repeat the previous steps to set up the policy.
 
@@ -960,7 +964,7 @@ In your ARM template, define an authorization policy following these steps and s
 
 1. Provide a name for authorization policy, set the policy type to `AAD`, and include a `claims` array where you specify one or more claim types.
 
-   At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID. For more information about these claim types, see [Claims in Microsoft Entra security tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). You can also specify your own claim type and value.
+   At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID. For more information about these claim types, see [Claims in Microsoft Entra security tokens](/entra/identity-platform/security-tokens#json-web-tokens-and-claims). You can also specify your own claim type and value.
 
 1. To include the `Authorization` header from the access token in the request-based trigger outputs, see [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
@@ -1049,7 +1053,7 @@ For more information, see the following documentation:
 
 Along with Shared Access Signature (SAS), you might want to specifically limit the clients that can call your logic app workflow. For example, if you manage your request endpoint by using [Azure API Management](../api-management/api-management-key-concepts.md), you can restrict your logic app workflow to accept requests only from the IP address for the [API Management service instance that you create](../api-management/get-started-create-service-instance.md).
 
-Regardless of any IP addresses that you specify, you can still run a logic app workflow that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
+Regardless of any IP addresses that you specify, you can still run a logic app workflow that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](/entra/identity-platform/authentication-vs-authorization) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
 To restrict the inbound IP addresses for your logic app workflow, follow the corresponding steps for either the Azure portal or your Azure Resource Manager template. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
@@ -1403,17 +1407,34 @@ Here are more ways that you can help secure endpoints that handle calls sent fro
 
 ### Add authentication to outbound calls
 
-HTTP and HTTPS endpoints support various kinds of authentication. On some triggers and actions that you use for sending outbound calls or requests to these endpoints, you can specify an authentication type. In the workflow designer, triggers and actions that support choosing an authentication type have an **Authentication** property. However, this property might not always appear by default. In these cases, on the trigger or action, open the **Add new parameter** list, and select **Authentication**.
+HTTP and HTTPS endpoints support various kinds of authentication. On some triggers and actions that you use for sending outbound calls or requests to these endpoints, you can specify an authentication type. In the workflow designer, triggers and actions that support choosing an authentication type have an **Authentication** property. However, this property might not always appear by default. In these cases, on the trigger or action, open the **Advanced parameters** list, and select **Authentication**.
 
 > [!IMPORTANT]
-> To protect sensitive information that your logic app handles, use secured parameters and encode data as necessary.
+>
+> To protect sensitive information that your logic app workflow handles, use secured parameters and encode data as necessary.
 > For more information about using and securing parameters, review [Access to parameter inputs](#secure-action-parameters).
+>
+> For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
+> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
+> This option provides superior security without having to provide credentials. Azure manages this identity and helps keep 
+> authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity 
+> for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
 
 <a name="basic-authentication"></a>
 
 #### Basic authentication
 
-If the [Basic](../active-directory-b2c/secure-rest-api.md) option is available, specify these property values:
+For HTTP calls, basic authentication uses a base64-encoded string that contains a username and password to make a request. This method transmits credentials without encryption and poses significant security risks unless you use this option with the HTTPS/SSL protocol.
+
+[!IMPORTANT]
+>
+> For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
+> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
+> This option provides superior security without having to provide credentials. Azure manages this identity and helps keep 
+> authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity 
+> for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
+
+If the **Basic** option is available and selected, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -1441,9 +1462,19 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 <a name="client-certificate-authentication"></a>
 
-#### Client Certificate authentication
+#### Client certificate authentication
 
-If the [Client Certificate](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) option is available, specify these property values:
+[Client certificate authentication](/entra/identity/authentication/concept-certificate-based-authentication) allows or requires users to authenticate directly with X.509 certificates against their Microsoft Entra ID for applications and browser sign-in. This capability helps you adopt a phishing resistant authentication and authenticate with an X.509 certificate against your Public Key Infrastructure (PKI).
+
+[!IMPORTANT]
+>
+> For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
+> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
+> This option provides superior security without having to provide credentials. Azure manages this identity and helps keep 
+> authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity 
+> for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
+
+If the **Client certificate** option is available and selected, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -1495,19 +1526,29 @@ For more information about securing services by using client certificate authent
 * [Improve security for APIs by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Improve security for back-end services by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
 * [Improve security for your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api.md)
-* [Certificate credentials for application authentication](../active-directory/develop/active-directory-certificate-credentials.md)
+* [Certificate credentials for application authentication](/entra/identity-platform/certificate-credentials)
 * [Use a TLS/SSL certificate in your code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="oauth-microsoft-entra"></a>
 
-#### Microsoft identity platform
+#### Microsoft Entra platform
 
-On Request triggers, you can use [Microsoft identity platform](../active-directory/develop/index.yml), for authenticating incoming calls after you [set up Microsoft Entra authorization policies](#enable-oauth) for your logic app. For all other triggers and actions that provide the **Active Directory OAuth** authentication type for you to select, specify these property values:
+On the **Request** trigger, you can use the [Microsoft Entra platform](/entra/fundamentals/what-is-entra) to authenticate incoming calls after you [set up Microsoft Entra authorization policies](#enable-oauth) for your logic app.
+
+[!IMPORTANT]
+>
+> For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
+> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
+> This option provides superior security without having to provide credentials. Azure manages this identity and helps keep 
+> authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity 
+> for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
+
+On all other triggers and actions that support the **Active Directory OAuth** authentication type, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | **Active Directory OAuth** <br>or <br>`ActiveDirectoryOAuth` | The authentication type to use. Azure Logic Apps currently follows the [OAuth 2.0 protocol](../active-directory/develop/v2-overview.md). |
-| **Authority** | `authority` | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the access token, such as `https://login.microsoftonline.com/` for Azure global service regions. For other national clouds, review [Microsoft Entra authentication endpoints - Choosing your identity authority](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints). |
+| **Authentication** | `type` | Yes | **Active Directory OAuth** <br>or <br>`ActiveDirectoryOAuth` | The authentication type to use. Azure Logic Apps currently follows the [OAuth 2.0 protocol](/entra/architecture/auth-oauth2). |
+| **Authority** | `authority` | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the access token, such as `https://login.microsoftonline.com/` for Azure global service regions. For other national clouds, review [Microsoft Entra authentication endpoints - Choosing your identity authority](/entra/identity-platform/authentication-national-cloud#application-endpoints). |
 | **Tenant** | `tenant` | Yes | <*tenant-ID*> | The tenant ID for the Microsoft Entra tenant |
 | **Audience** | `audience` | Yes | <*resource-to-authorize*> | The resource that you want to use for authorization, for example, `https://management.core.windows.net/` |
 | **Client ID** | `clientId` | Yes | <*client-ID*> | The client ID for the app requesting authorization |
@@ -1516,7 +1557,7 @@ On Request triggers, you can use [Microsoft identity platform](../active-directo
 | **Pfx** | `pfx` | Yes, but only for the "Certificate" credential type | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
 | **Password** | `password` | Yes, but only for the "Certificate" credential type | <*password-for-pfx-file*> | The password for accessing the PFX file |
 
-When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ActiveDirectoryOAuth`, the credential type as `Secret`, and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
+When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ActiveDirectoryOAuth`, the credential type as `Secret`, and uses the [parameters() function](workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
 ```json
 "HTTP": {
@@ -1540,16 +1581,23 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 > [!IMPORTANT]
 >
 > If you have a Standard logic app resource in single-tenant Azure Logic Apps, and you want to use an HTTP
-> operation with a TSL/SSL certificate, client certificate, or Microsoft Entra ID Open Authentication
-> (Microsoft Entra ID OAuth) with the `Certificate` credential type, make sure to complete the extra setup
-> steps for this authentication type. Otherwise, the call fails. For more information, review 
-> [Authentication in single-tenant environment](../connectors/connectors-native-http.md#single-tenant-authentication).
+> operation with a TSL/SSL certificate, client certificate, or Microsoft Entra ID OAuth with the `Certificate` 
+> credential type, make sure to complete the extra setup steps for this authentication type. Otherwise, the call 
+> fails. For more information, see [Authentication in single-tenant environment](../connectors/connectors-native-http.md#single-tenant-authentication).
 
 <a name="raw-authentication"></a>
 
 #### Raw authentication
 
 If the **Raw** option is available, you can use this authentication type when you have to use [authentication schemes](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) that don't follow the [OAuth 2.0 protocol](https://oauth.net/2/). With this type, you manually create the authorization header value that you send with the outgoing request, and specify that header value in your trigger or action.
+
+[!IMPORTANT]
+>
+> For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
+> with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
+> This option provides superior security without having to provide credentials. Azure manages this identity and helps keep 
+> authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity 
+> for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
 
 The following example shows a sample header for an HTTPS request that follows the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849):
 
@@ -1591,11 +1639,11 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 #### Managed identity authentication
 
-When the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) option is available on the [trigger or action that supports managed identity authentication](#authentication-types-supported-triggers-actions), your logic app can use this identity for authenticating access to Azure resources that are protected by Microsoft Entra ID, rather than credentials, secrets, or Microsoft Entra tokens. Azure manages this identity for you and helps you secure your credentials because you don't have to manage secrets or directly use Microsoft Entra tokens. Learn more about [Azure services that support managed identities for Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+When the [managed identity](/entra/identity/managed-identities-azure-resources/overview) option is available on the [trigger or action that supports managed identity authentication](#authentication-types-supported-triggers-actions), your logic app can use this identity for authenticating access to Azure resources that are protected by Microsoft Entra ID, rather than credentials, secrets, or Microsoft Entra tokens. Azure manages this identity for you and helps you secure your credentials because you don't have to manage secrets or directly use Microsoft Entra tokens. Learn more about [Azure services that support managed identities for Microsoft Entra authentication](/entra/identity/managed-identities-azure-resources/managed-identities-status).
 
 * A Consumption logic app resource can use the system-assigned identity or a *single* manually created user-assigned identity.
 
-* A Standard logic app resource supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
+* A Standard logic app resource supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](authenticate-with-managed-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
 
   > [!NOTE]
   > By default, the system-assigned identity is already enabled to authenticate connections at run time. 
@@ -1603,7 +1651,7 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
   > create a connection. If you disable this identity, connections won't work at run time. To view 
   > this setting, on your logic app menu, under **Settings**, select **Identity**.
 
-1. Before your logic app can use a managed identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
+1. Before your logic app can use a managed identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](authenticate-with-managed-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
 1. Before an Azure function can use a managed identity, first [enable authentication for Azure functions](logic-apps-azure-functions.md#enable-authentication-functions).
 
@@ -1615,9 +1663,9 @@ When the [managed identity](../active-directory/managed-identities-azure-resourc
    |---------------------|-----------------|----------|-------|-------------|
    | **Authentication** | `type` | Yes | **Managed Identity** <br>or <br>`ManagedServiceIdentity` | The authentication type to use |
    | **Managed Identity** | `identity` | No | <*user-assigned-identity-ID*> | The user-assigned managed identity to use. **Note**: Don't include this property when using the system-assigned managed identity. |
-   | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. <br><br>For example, `https://storage.azure.com/` makes the [access tokens](../active-directory/develop/access-tokens.md) for authentication valid for all storage accounts. However, you can also specify a root service URL, such as `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account. <br><br>**Note**: The **Audience** property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Add new parameter** list, and select **Audience**. <br><br>**Important**: Make sure that this target resource ID *exactly matches* the value that Microsoft Entra ID expects, including any required trailing slashes. So, the `https://storage.azure.com/` resource ID for all Azure Blob Storage accounts requires a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. To find these resource IDs, review [Azure services that support Microsoft Entra ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access. <br><br>For example, `https://storage.azure.com/` makes the [access tokens](/entra/identity-platform/access-tokens) for authentication valid for all storage accounts. However, you can also specify a root service URL, such as `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account. <br><br>**Note**: The **Audience** property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Advanced parameters** list, and select **Audience**. <br><br>**Important**: Make sure that this target resource ID *exactly matches* the value that Microsoft Entra ID expects, including any required trailing slashes. So, the `https://storage.azure.com/` resource ID for all Azure Blob Storage accounts requires a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. To find these resource IDs, review [Azure services that support Microsoft Entra ID](/entra/identity/managed-identities-azure-resources/managed-identities-status). |
 
-   When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. For example, this HTTP action definition specifies the authentication `type` as `ManagedServiceIdentity` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
+   When you use [secured parameters](#secure-action-parameters) to handle and secure sensitive information, for example, in an [Azure Resource Manager template for automating deployment](logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. For example, this HTTP action definition specifies the authentication `type` as `ManagedServiceIdentity` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
 
    ```json
    "HTTP": {
