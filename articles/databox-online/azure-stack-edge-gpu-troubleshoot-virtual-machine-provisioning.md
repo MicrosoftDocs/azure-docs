@@ -181,7 +181,7 @@ This section covers common issues that occur during VM creation.
     
       Specify the subscription ID in the following Uri:
       
-      $uri1 = "https://management.<appliance name>.<DNS domain>/subscriptions/<sid>/providers/Microsoft.AzureBridge/locations/DBELocal/ingestionJobs/?api-version=2022-03-01  
+      $uri1 = "https://management.appliance name.DNS domain/subscriptions/sid/providers/Microsoft.AzureBridge/locations/DBELocal/ingestionJobs/?api-version=2022-03-01"
 
       ```powershell
       Function Get-AzCachedAccessToken() 
