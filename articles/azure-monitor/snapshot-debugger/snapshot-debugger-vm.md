@@ -210,5 +210,5 @@ If you set `TrackExceptionsAsExceptionTelemetry` to `false` when configuring the
 
 ## Next steps
 
-- See [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
+- See [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#access-debug-snapshots-in-the-portal) in the Azure portal.
 - [Troubleshoot](snapshot-debugger-troubleshoot.md) Snapshot Debugger problems.

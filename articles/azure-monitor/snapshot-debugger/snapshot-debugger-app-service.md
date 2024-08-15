@@ -147,7 +147,7 @@ Below you can find scenarios where Snapshot Collector isn't supported:
 
 ## Next steps
 
-* See [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
+* See [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#access-debug-snapshots-in-the-portal) in the Azure portal.
 * For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
