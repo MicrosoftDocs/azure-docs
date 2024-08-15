@@ -165,4 +165,4 @@ To disable Snapshot Debugger in your Functions app, update your `host.json` file
 
 - [View snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#access-debug-snapshots-in-the-portal) in the Azure portal.
 - Customize Snapshot Debugger configuration based on your use case on your Functions app. For more information, see [Snapshot configuration in host.json](../../azure-functions/functions-host-json.md#applicationinsightssnapshotconfiguration).
-- To troubleshoot Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).
+- [Troubleshoot Snapshot Debugger issues](snapshot-debugger-troubleshoot.md).
