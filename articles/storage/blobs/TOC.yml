@@ -135,6 +135,8 @@ items:
         href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Troubleshoot AzCopy issues
         href: /troubleshoot/azure/azure-storage/storage-use-azcopy-troubleshoot?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Map of AzCopy commands to REST operations
+        href: ../common/storage-ref-azcopy-map-commands-to-rest-operations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Azure Data Factory
       href: ../../data-factory/connector-azure-blob-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
@@ -460,65 +462,34 @@ items:
         href: ../common/last-sync-time-get.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Failover considerations for storage accounts with private endpoints
         href: ../common/storage-failover-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-  - name: Performance, scale, and cost
+  - name: Performance and scale
     items:
-    - name: Performance & scale
+    - name: Performance and scalability checklist
+      href: storage-performance-checklist.md
+    - name: Latency in Blob storage
+      href: storage-blobs-latency.md
+    - name: Scalability and performance targets
       items:
-      - name: Performance and scalability checklist
-        href: storage-performance-checklist.md
-      - name: Latency in Blob storage
-        href: storage-blobs-latency.md
-      - name: Scalability and performance targets
-        items:
-        - name: Blob storage
-          href: scalability-targets.md
-        - name: Standard storage accounts
-          href: ../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Premium block blob storage accounts
-          href: scalability-targets-premium-block-blobs.md
-        - name: Premium page blob storage accounts
-          href: scalability-targets-premium-page-blobs.md
-        - name: Storage resource provider
-          href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: 'Tutorial: Optimize performance and scalability'
-        items:
-        - name: 1 - Create a VM and storage account
-          href: storage-blob-scalable-app-create-vm.md
-        - name: 2 - Upload large data to an Azure storage account
-          href: storage-blob-scalable-app-upload-files.md
-        - name: 3- Download large data from an Azure storage account
-          href: storage-blob-scalable-app-download-files.md
-        - name: 4 - Verify throughput and latency metrics
-          href: storage-blob-scalable-app-verify-metrics.md
-    - name: Cost management
+      - name: Blob storage
+        href: scalability-targets.md
+      - name: Standard storage accounts
+        href: ../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Premium block blob storage accounts
+        href: scalability-targets-premium-block-blobs.md
+      - name: Premium page blob storage accounts
+        href: scalability-targets-premium-page-blobs.md
+      - name: Storage resource provider
+        href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: 'Tutorial: Optimize performance and scalability'
       items:
-      - name: Plan and manage costs
-        href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Azure Storage reserved capacity
-        href: storage-blob-reserved-capacity.md
-      - name: Map each REST operation to a price
-        href: map-rest-apis-transaction-categories.md
-      - name: Estimate the cost of AzCopy transfers
-        href: azcopy-cost-estimation.md
-      - name: Estimate the cost to archive data
-        href: archive-cost-estimation.md
-    - name: Access tiers
-      href: access-tiers-overview.md
-      items:
-      - name: Best practices
-        href: access-tiers-best-practices.md
-      - name: Change a blob's access tier
-        href: access-tiers-online-manage.md
-      - name: Archive and rehydrate
-        items:
-        - name: Blob rehydration overview
-          href: archive-rehydrate-overview.md
-        - name: Archive blobs
-          href: archive-blob.md
-        - name: Rehydrate blobs
-          href: archive-rehydrate-to-online-tier.md
-        - name: Handle an event on blob rehydration
-          href: archive-rehydrate-handle-event.md
+      - name: 1 - Create a VM and storage account
+        href: storage-blob-scalable-app-create-vm.md
+      - name: 2 - Upload large data to an Azure storage account
+        href: storage-blob-scalable-app-upload-files.md
+      - name: 3- Download large data from an Azure storage account
+        href: storage-blob-scalable-app-download-files.md
+      - name: 4 - Verify throughput and latency metrics
+        href: storage-blob-scalable-app-verify-metrics.md
     - name: Object replication
       items:
       - name: Object replication
@@ -527,6 +498,47 @@ items:
         href: object-replication-configure.md
       - name: Prevent object replication across tenants
         href: object-replication-prevent-cross-tenant-policies.md
+  - name: Cost management
+    items:
+    - name: Plan and manage costs
+      href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Find prices
+      items:
+        - name: Azure Blob Storage prices
+          href: https://azure.microsoft.com/pricing/details/storage/blobs/
+        - name: Azure Data Lake Storage prices
+          href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+        - name: Map each REST operation to a price
+          href: map-rest-apis-transaction-categories.md
+    - name: Estimate costs
+      items:
+      - name: Estimate the cost of Azure Blob Storage
+        href: blob-storage-estimate-costs.md
+      - name: Estimate the cost of AzCopy transfers
+        href: azcopy-cost-estimation.md
+      - name: Estimate the cost to archive data
+        href: archive-cost-estimation.md
+    - name: Optimize costs
+      items:
+      - name: Access tiers
+        href: access-tiers-overview.md
+        items:
+        - name: Best practices
+          href: access-tiers-best-practices.md
+        - name: Change a blob's access tier
+          href: access-tiers-online-manage.md
+        - name: Archive and rehydrate
+          items:
+          - name: Blob rehydration overview
+            href: archive-rehydrate-overview.md
+          - name: Archive blobs
+            href: archive-blob.md
+          - name: Rehydrate blobs
+            href: archive-rehydrate-to-online-tier.md
+          - name: Handle an event on blob rehydration
+            href: archive-rehydrate-handle-event.md
+      - name: Azure Storage reserved capacity
+        href: storage-blob-reserved-capacity.md
   - name: Monitoring metrics and logs
     items:
     - name: Monitor Blob storage
