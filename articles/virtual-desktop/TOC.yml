@@ -51,18 +51,18 @@
       href: whats-new-multimedia-redirection.md
     - name: Remote Desktop client
       items:
-      - name: Windows
-        displayName: what's new, apps, remote desktop, rdp
-        href: whats-new-client-windows.md
-      - name: macOS
-        displayName: what's new, apps, clients, remote desktop, rdp
-        href: whats-new-client-macos.md
-      - name: iOS/iPadOS
-        displayName: what's new, apps, clients, remote desktop, rdp
-        href: whats-new-client-ios-ipados.md
       - name: Android/Chrome OS
         displayName: what's new, apps, clients, remote desktop, rdp
         href: whats-new-client-android-chrome-os.md
+      - name: iOS/iPadOS
+        displayName: what's new, apps, clients, remote desktop, rdp
+        href: whats-new-client-ios-ipados.md
+      - name: macOS
+        displayName: what's new, apps, clients, remote desktop, rdp
+        href: whats-new-client-macos.md
+      - name: Windows
+        displayName: what's new, apps, remote desktop, rdp
+        href: whats-new-client-windows.md
     - name: WebRTC Redirector Service
       displayName: what's new, teams
       href: whats-new-webrtc.md
