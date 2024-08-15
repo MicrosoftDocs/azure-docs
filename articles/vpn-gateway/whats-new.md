@@ -23,6 +23,7 @@ You can also find the latest VPN Gateway updates and subscribe to the RSS feed [
 
 | Type | Area | Name | Description | Date added | Limitations |
 |---|---|---|---|---|---|
+| Deprecation | All |Classic Gateway Deprecation|Classic gateways will no longer be supported after August 31, 2024. View the announcement [here](https://azure.microsoft.com/en-us/updates/cloud-services-retirement-announcement/). Please follow [instructions here](vpn-gateway-classic-resource-manager-migration.md) to migrate your classic gateways to ARM.|August 2021|Read [supported scenarios](vpn-gateway-classic-resource-manager-migration.md).|
 | P2S VPN | P2S | [Azure VPN Client for Linux](azure-vpn-client-versions.md)| [Certificate](point-to-site-certificate-client-linux-azure-vpn-client.md) authentication, [Microsoft Entra ID ](point-to-site-entra-vpn-client-linux.md) authentication.| May 2024 | N/A|
 | P2S VPN | P2S | [Azure VPN Client for macOS](azure-vpn-client-versions.md) | Microsoft Entra ID authentication updates, additional features.  | May 2024 | N/A|
 | P2S VPN | P2S | [Azure VPN Client for Windows](azure-vpn-client-versions.md) | Microsoft Entra ID authentication updates, additional features.  | May 2024 | N/A|
