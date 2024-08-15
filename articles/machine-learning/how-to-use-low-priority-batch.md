@@ -18,7 +18,7 @@ ms.custom: devplatv2
 
 [!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
-Azure Batch Deployments supports low priority virtual machines (VMs) to reduce the cost of batch inference workloads. Low priority virtual machines enable a large amount of compute power to be used for a low cost. Low priority virtual machines take advantage of surplus capacity in Azure. When you specify low priority virtual machines in your pools, Azure can use this surplus, when available.
+Azure Batch Deployments supports low priority virtual machines (VMs) to reduce the cost of batch inference workloads. Low priority virtual machines enable a large amount of compute power to be used for a low cost. Low priority virtual machines take advantage of surplus capacity in Azure. When you specify low priority VMs in your pools, Azure can use this surplus, when available.
 
 > [!TIP]
 > The tradeoff for using low priority VMs is that those virtual machines might not be available or they might be preempted at any time, depending on available capacity. For this reason, this approach is most suitable for batch and asynchronous processing workloads, where job completion time is flexible and the work is distributed across many virtual machines.
@@ -37,7 +37,7 @@ Azure Machine Learning Batch Deployments provides several capabilities that make
 
 Many batch workloads are a good fit for low priority VMs. Using low priority VMs can introduce execution delays when deallocation of VMs occurs. If you have flexibility in the time jobs have to finish, you might tolerate the potential drops in capacity.
 
-When *deploying models* under batch endpoints, rescheduling can be done at the minibatch level. That approach has the benefit that deallocation only impacts those minibatches that are currently being processed and not finished on the affected node. All completed progress is kept.
+When you deploy models under batch endpoints, rescheduling can be done at the minibatch level. That approach has the benefit that deallocation only impacts those minibatches that are currently being processed and not finished on the affected node. All completed progress is kept.
 
 ## Creating batch deployments with low priority VMs
 
