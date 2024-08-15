@@ -66,10 +66,8 @@ The freely available **MDTI Threat Analytics** rule gives you a taste of what th
 | Open-source intelligence (OSINT) | Open-source intelligence (OSINT) |
 | | Microsoft IOCs |
 | | Microsoft-enriched OSINT |
-| | URL and file intelligence |
 
 For more information see the following articles:
--
 - To learn how to get a premium license and explore all the differences between the standard and premium versions, see the [Microsoft Defender Threat Intelligence product page](https://www.microsoft.com/en-us/security/business/siem-and-xdr/microsoft-defender-threat-intelligence?msockid=17d38211b42b6cc31a2c93f1b57c6d22).
 - To learn more about the free MDTI experience, see [Introducing MDTI free experience for Microsoft Defender XDR](https://techcommunity.microsoft.com/t5/microsoft-defender-threat/introducing-mdti-free-experience-for-microsoft-defender-xdr/ba-p/3976635).
 - To learn how to enable the MDTI and the PMDTI data connectors, see [Enable MDTI data connector](connect-mdti-data-connector.md).
