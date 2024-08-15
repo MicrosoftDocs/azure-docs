@@ -104,6 +104,8 @@ items:
         href: how-to/deploy-models-cohere-command.md
       - name: Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
+      - name: Cohere Rerank models
+        href: how-to/deploy-models-cohere-rerank.md
     - name: Meta Llama models
       items:
       - name: Meta Llama family models
