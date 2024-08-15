@@ -49,8 +49,8 @@ Following is the list of supported images and no other marketplace images releas
 
 #### Supported Windows OS versions
 
-| **Publisher**| **Offer** | **SKU**|  **Unsupported image(s)** |
-|----------|-------------|-----| ---|
+| **Publisher**| **Offer** | **SKU**| **Plan** |**Unsupported image(s)** |
+|----------|-------------|-----| ---| --- |
 |microsoftwindowsserver | windows server | * | windowsserver 2008|
 |microsoftbiztalkserver | biztalk-server | *|
 |microsoftdynamicsax | dynamics | * |
@@ -72,6 +72,7 @@ Following is the list of supported images and no other marketplace images releas
 | | sql2019-ws2019 | standard-gen2|
 |microsoftazuresiterecovery  | process-server | windows-2012-r2-datacenter |
 |microsoft-dvsm | dsvm-windows </br> dsvm-win-2019 </br> dsvm-win-2022 | * </br> * </br> * |
+| | cis-windows-server| | cis-windows-server2016-l1-gen1 </br> cis-windows-server2019-l1-gen1 </br> cis-windows-server2019-l1-gen2 </br> cis-windows-server2019-l2-gen1 </br> cis-windows-server2022-l1-gen2 </br> cis-windows-server2022-l2-gen2 </br> cis-windows-server2022-l1-gen1 | |
 
 #### Supported Linux OS versions
 
