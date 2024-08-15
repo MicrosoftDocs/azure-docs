@@ -125,7 +125,7 @@ Site-to-site connections to an on-premises network require a VPN device. In this
 
 ## <a name="CreateConnection"></a>Create VPN connections
 
-Create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device. If you're using an active-active mode gateway (recommended), each gateway VM instance has a separate assigned IP address object. To properly configure [highly available connectivity](vpn-gateway-highlyavailable.md), you must connect each VM instance to your VPN device.
+Create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device. If you're using an active-active mode gateway (recommended), each gateway VM instance has a separate IP address. To properly configure [highly available connectivity](vpn-gateway-highlyavailable.md), you must establish a tunnel between each VM instance and your VPN device. Both tunnels are part of the same connection.
 
 Create a connection by using the following values:
 

@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 06/26/2024
+ms.date: 08/12/2024
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -68,7 +68,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [App Service](../../app-service/index.yml) | &#x2705; | &#x2705; |
 | [Application Gateway](../../application-gateway/index.yml) | &#x2705; | &#x2705; |
 | [Automation](../../automation/index.yml) | &#x2705; | &#x2705; |
-| [Microsoft Entra ID (Free)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; |
+| [Microsoft Entra ID (Free)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) **&ast;**| &#x2705; | &#x2705; |
 | [Microsoft Entra ID (P1 + P2)](../../active-directory/fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) | &#x2705; | &#x2705; |
 | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) | &#x2705; | &#x2705; |
 | [Microsoft Entra Domain Services](../../active-directory-domain-services/index.yml) | &#x2705; | &#x2705; |
@@ -81,7 +81,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; |
 | [Azure Cosmos DB](/azure/cosmos-db/) | &#x2705; | &#x2705; |
 | [Azure Container Apps](../../container-apps/index.yml) | &#x2705; | &#x2705; |
-| [Azure Database for MariaDB](/azure/mariadb/) | &#x2705; | &#x2705; |
 | [Azure Database for MySQL](/azure/mysql/) | &#x2705; | &#x2705; |
 | [Azure Database for PostgreSQL](/azure/postgresql/) | &#x2705; | &#x2705; |
 | [Azure Databricks](/azure/databricks/) **&ast;&ast;** | &#x2705; | &#x2705; |
@@ -104,7 +103,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Sign-up portal](https://signup.azure.com/) | &#x2705; | &#x2705; |
 | [Azure Sphere](/azure-sphere/) | &#x2705; | &#x2705; |
 | [Azure Spring Apps](../../spring-apps/index.yml) | &#x2705; | &#x2705; |
-| [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; |
+| [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) **&ast;&ast;&ast;** | &#x2705; | &#x2705; |
 | [Azure Stack HCI](/azure-stack/hci/) | &#x2705; | &#x2705; |
 | [Azure Static WebApps](../../static-web-apps/index.yml) | &#x2705; | &#x2705; |
 | [Azure Video Indexer](/azure/azure-video-indexer/) | &#x2705; | &#x2705; |
@@ -243,7 +242,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Traffic Manager](../../traffic-manager/index.yml) | &#x2705; | &#x2705; |
 | [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) | &#x2705; | &#x2705; |
-| [Virtual Machines](../../virtual-machines/index.yml) (incl. [Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)) | &#x2705; | &#x2705; |
+| [Virtual Machines](../../virtual-machines/index.yml) | &#x2705; | &#x2705; |
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; |
 | [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | &#x2705; | &#x2705; |
 | [Virtual WAN](../../virtual-wan/index.yml) | &#x2705; | &#x2705; |
@@ -252,9 +251,11 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Web Application Firewall](../../web-application-firewall/index.yml) | &#x2705; | &#x2705; |
 | [Windows 10 IoT Core Services](/windows-hardware/manufacture/iot/iotcoreservicesoverview) | &#x2705; | &#x2705; |
 
-**&ast;** FedRAMP High authorization for edge devices (such as Azure Data Box and Azure Stack Edge) applies only to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Data Box pod and disk service, which are the online software components supporting your Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
+**&ast;** FedRAMP High and DoD SRG Impact Level 2 authorization for Microsoft Entra ID applies to Microsoft Entra External ID. To learn more about Entra External ID, refer to the documentation [here](/entra/)
 
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
+
+**&ast;&ast;&ast;** FedRAMP High authorization for edge devices (such as Azure Data Box and Azure Stack Edge) applies only to Azure services that support on-premises, customer-managed devices. For example, FedRAMP High authorization for Azure Data Box covers datacenter infrastructure services and Data Box pod and disk service, which are the online software components supporting your Data Box hardware appliance. You are wholly responsible for the authorization package that covers the physical devices. For assistance with accelerating your onboarding and authorization of devices, contact your Microsoft account representative.
 
 ## Azure Government services by audit scope
 *Last updated: June 2024*
@@ -295,7 +296,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Cosmos DB](/azure/cosmos-db/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure CXP Nomination Portal](https://cxp.azure.com/nominationportal/nominationform/fasttrack) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Database for MariaDB](/azure/mariadb/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Database for MySQL](/azure/mysql/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Database for PostgreSQL](/azure/postgresql/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Databricks](/azure/databricks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -441,7 +441,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Traffic Manager](../../traffic-manager/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Virtual Machines](../../virtual-machines/index.yml) (incl. [Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Virtual Machines](../../virtual-machines/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Virtual Network NAT](../../virtual-network/nat-gateway/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Virtual WAN](../../virtual-wan/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
