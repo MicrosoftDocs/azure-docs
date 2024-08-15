@@ -10,9 +10,11 @@ ms.date: 07/31/2024
 
 # Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications
 
-Microsoft Sentinel's **Custom Logs via AMA** data connector supports log collection from several different network and security applications. This article supplies the configuration instructions for this data connector that are unique to the specific security applications that use the connector, as provided by their manufacturers. Contact the manufacturer for updates, more information, or where information is unavailable for your security application.
+Microsoft Sentinel's **Custom Logs via AMA** data connector supports the collection of logs from text files from several different network and security applications and devices.
 
-This article shows you how to ingest data from these applications to your Microsoft Sentinel workspace. These steps include installation of the **Custom Logs via AMA** data connector in Microsoft Sentinel. After the connector is installed, use the instructions appropriate to your application, shown later in this article, to complete the setup.
+This article supplies the configuration information, unique to each specific security application, that you need to supply when configuring this data connector. This information is provided by the application providers. Contact the provider for updates, for more information, or when information is unavailable for your security application. For the full instructions to install and configure the connector, see [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md), but refer back to this article for the unique information to supply for each application.
+
+This article also shows you how to ingest data from these applications to your Microsoft Sentinel workspace without using the connector. These steps include installation of the Azure Monitor Agent. After the connector is installed, use the instructions appropriate to your application, shown later in this article, to complete the setup.
 
 The devices from which you collect custom text logs fall into two categories:
 
@@ -43,11 +45,17 @@ The steps for collecting logs from machines hosting applications and appliances 
 
 1. Configure logging on your application. If an appliance, configure it to send its logs to the external server (log forwarder) where the Azure Monitor Agent is installed.
 
-These general steps (except for the last one) are described in detail in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md).
+These general steps (except for the last one) are automated when you use the **Custom Logs via AMA** data connector, and are described in detail in [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md).
 
 ## Specific instructions per application type
 
 The per-application information you need to complete these steps is presented in the rest of this article. Some of these applications are on self-contained appliances and require a different type of configuration, starting with the use of a log forwarder.
+
+Each application section contains the following information:
+
+- Unique parameters to supply to the configuration of the **Custom Logs via AMA** data connector, if you're using it.
+- The outline of the procedure required to ingest data manually, without using the connector. For the details of this procedure, see [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md).
+- Specific instructions for configuring the originating applications or devices themselves, and/or links to the instructions on the providers' web sites. These steps must be taken whether using the connector or not.
 
 **The following devices' instructions are provided here:**
 

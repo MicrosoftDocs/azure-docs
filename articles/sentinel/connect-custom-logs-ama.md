@@ -123,13 +123,15 @@ To get started, open either the **Custom Logs via AMA** data connector in Micros
 
 ### Define VM resources
 
-In the **Resources** tab, select the machines on which you want to install the AMA. This is either the machine on which your application is installed, or your log forwarder machine. If the machine you're looking for doesn't appear in the list, it might not be an Azure VM with the Azure Connected Machine agent installed.
+In the **Resources** tab, select the machines from which you want to collect the logs. These are either the machines on which your application is installed, or your log forwarder machines. If the machine you're looking for doesn't appear in the list, it might not be an Azure VM with the Azure Connected Machine agent installed.
 
 1. Use the available filters or search box to find the machine you're looking for. Expand a subscription in the list to see its resource groups, and a resource group to see its VMs.
 
-1. Select the machine that you want to install the AMA on. The check box appears next to the VM name when you hover over it.
+1. Select the machine that you want to collect logs from. The check box appears next to the VM name when you hover over it.
 
-   :::image type="content" source="media/connect-cef-ama/dcr-select-resources.png" alt-text="Screenshot showing how to select resources when setting up the DCR." lightbox="media/connect-cef-ama/dcr-select-resources.png":::
+    :::image type="content" source="media/connect-cef-ama/dcr-select-resources.png" alt-text="Screenshot showing how to select resources when setting up the DCR." lightbox="media/connect-cef-ama/dcr-select-resources.png":::
+
+    If the machines you selected don't already have the Azure Monitor Agent installed on them, the agent is installed when the DCR is created and deployed.
 
 1. Review your changes and select **Next: Collect >**. 
 
