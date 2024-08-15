@@ -135,7 +135,7 @@ Service endpoints are enabled per service, per subnet.
     ```azurepowershell-interactive
     $subpriv = @{
         Name = "subnet-private"
-        AddressPrefix = "10.0.1.0/24"
+        AddressPrefix = "10.0.2.0/24"
         VirtualNetwork = $virtualNetwork
         ServiceEndpoint = "Microsoft.Storage"
     }
@@ -675,7 +675,7 @@ To restrict network access to a subnet:
         Name = "subnet-private"
     }
     $privateSubnet = Get-AzVirtualNetwork @subnetpriv | Get-AzVirtualNetworkSubnetConfig -Name "subnet-private"
-```
+    ```
 
 1. Allow network access to the storage account from the *subnet-private* subnet with [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
 
