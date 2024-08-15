@@ -18,10 +18,10 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 
 > [!CAUTION]
 > Deprecation and disablement notification for Azure Synapse Runtime for Apache Spark 3.2
-> * End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 July 8, 2023.
-> * Effective July 8, 2024, Azure Synapse will discontinue official support for Spark 3.2 Runtimes.
-> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.2 will be retired as of July 8, 2024. Existing workflows will continue to run but security updates and bug fixes will no longer be available. Metadata will temporarily remain in the Synapse workspace.
-> * **We strongly recommend that you upgrade your Apache Spark 3.2 workloads to [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md) before July 8, 2024.** 
+> * End of Support was announced for Azure Synapse Runtime for Apache Spark 3.2 July 8, 2023. 
+> * Effective July 8, 2024, Azure Synapse discontinued official support for Spark 3.2 Runtimes. The Synapse Spark Team is moving forward with the 3.2 __job disablement__ process __September 12, 2024.__
+* In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.2 will be retired as of July 8, 2024. Existing workflows will continue to run but security updates and bug fixes will no longer be available. Metadata will temporarily remain in the Synapse workspace.
+* **We strongly recommend that you upgrade your Apache Spark 3.2 workloads to [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md) before July 8, 2024.** 
 
 ## Component versions
 
