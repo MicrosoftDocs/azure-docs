@@ -8,13 +8,13 @@ ms.date: 06/14/2024
 
 # User-defined data types in Bicep
 
-Learn how to use user-defined data types in Bicep. For system-defined data types, see [Data types](./data-types.md).
+Learn how to create user-defined data types in Bicep. For system-defined data types, see [Data types](./data-types.md).
 
 [Bicep CLI version 0.12.X or higher](./install.md) is required to use this feature.
 
 ## Syntax
 
-You can use the `type` statement to define user-defined data types. In addition, you can also use type expressions in some places to define custom types.
+You can use the `type` statement to create user-defined data types. In addition, you can also use type expressions in some places to define custom types.
 
 ```bicep
 type <user-defined-data-type-name> = <type-expression>
@@ -81,7 +81,7 @@ The valid type expressions include:
     }
     ```
 
-  Decorators may be used on properties. `*` may be used to make all values require a constraint. Additional properties may still be defined when using `*`. This example creates an object that requires a key of type int named `id`, and that all other entries in the object must be a string value at least 10 characters long.
+  Decorators may be used on properties. `*` may be used to make all values require a constraint. Additional properties may still be defined when using `*`. This example creates an object that requires a key of type `int` named _id_, and that all other entries in the object must be a string value at least 10 characters long.
 
     ```bicep
     type obj = {
