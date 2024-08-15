@@ -439,8 +439,8 @@
       href: develop-rest-api-powershell.md
     - name: SDKs, CLI tools, and ARM templates
       href: azure-netapp-files-sdk-cli.md
-  - name: Relocate to a another region
-    href: ../operational-excellence/relocation-net-app.md?toc=/azure/azure-netapp-files/toc.json
+  - name: Relocate to another region
+    href: ../operational-excellence/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
   - name: Troubleshoot
     items:
     - name: Troubleshoot using diagnose and solve problems tool 

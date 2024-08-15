@@ -1,6 +1,6 @@
 ---
-title: Relocate Azure Net App Files to another region
-description: Learn how to relocate an Azure Net App Files to a another region
+title: Relocate AzureNetApp Files to another region
+description: Learn how to relocate an Azure NetApp Files to nother region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -11,9 +11,9 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocate Azure Net App Files to another region
+# Relocate Azure NetApp Files to another region
 
-This article cover guidance for relocating [Azure Net App Files](../azure-netapp-files/azure-netapp-files-introduction.md) resources to another region.
+This article cover guidance for relocating [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) resources to another region.
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
@@ -24,7 +24,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 - The target NetApp account instance should already be created.
 
-- Source and target regions must be paired regions. To see if they are paired, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction?#supported-region-pairs).
+- Source and target regions must be paired regions. To see if they are paired, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction.md?#supported-region-pairs).
 
 - Understand all dependent resources. Some of the resources could be the following:
     - Azure Entra ID
@@ -50,13 +50,13 @@ Before you begin the relocation planning stage, first review the following prere
 
 - Understand the following considerations in regards to replication:
     
-    - SMB volumes are supported along with NFS volumes. Replication of SMB volumes requires an Microsoft Entra ID connection in the source and target  NetApp accounts.
+    - SMB, NFS, and dual-protocol volumes are supported. Replication of SMB volumes requires an Microsoft Entra ID connection in the source and target NetApp accounts.
     
     - The replication destination volume is read-only until the entire move is complete.
     
     - Azure NetApp Files replication doesn't currently support multiple subscriptions. All replications must be performed under a single subscription.
     
-    - There can be resource limits for the maximum number of cross-region replication destination volumes. For more information, see [Resource limits for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md)
+    - There are resource limits for the maximum number of cross-region replication destination volumes. For more information, see [Resource limits for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md)
     
 ## Redeploy
 
@@ -75,7 +75,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 ## Cleanup
 
-Once the replication is complete, the replication peering, the source volume and replication can be deleted.
+Once the replication is complete, you can then safely delete the replication peering the source volume.
 
 ## Related content
 

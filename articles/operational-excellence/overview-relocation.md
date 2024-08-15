@@ -85,7 +85,7 @@ The following tables provide links to each Azure service relocation document. Th
 | --- | --- | --- | ---|
 [Azure Automation](./relocation-automation.md)| ✅ | ✅| ❌ |
 [Azure IoT Hub](/azure/iot-hub/iot-hub-how-to-clone?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
-[Azure NetApps Files](./relocation-net-app.md)| ✅ | ✅|  ❌  |
+[Azure NetApp Files](./relocation-netapp.md)| ✅ | ✅|  ❌  |
 [Power BI](/power-bi/admin/service-admin-region-move?toc=/azure/operational-excellence/toc.json)| ✅ |❌ | ❌ |
 
 
