@@ -172,7 +172,7 @@ saConnectionString=$(az storage account show-connection-string \
   --out tsv)
 ```
 
-<a name="account-key"></a>View the contents of the variable and note the value for **AccountKey** returned in the output, because it's used in a later step.
+View the contents of the variable and note the value for **AccountKey** returned in the output, because it's used in a later step.
 
 ```azurecli-interactive
 echo $saConnectionString

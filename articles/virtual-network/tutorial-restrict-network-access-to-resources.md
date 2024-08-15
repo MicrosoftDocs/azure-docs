@@ -26,9 +26,9 @@ In this tutorial, you learn how to:
 > * Confirm access to a resource from a subnet
 > * Confirm access is denied to a resource from a subnet and the internet
 
-### [Portal](#tab/portal)
-
 ## Prerequisites
+
+### [Portal](#tab/portal)
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -50,11 +50,11 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ---
 
+## Enable a service endpoint
+
 ### [Portal](#tab/portal)
 
 [!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
-
-## Enable a service endpoint
 
 Service endpoints are enabled per service, per subnet. 
 
@@ -80,7 +80,55 @@ Service endpoints are enabled per service, per subnet.
 > [!CAUTION]
 > Before enabling a service endpoint for an existing subnet that has resources in it, see [Change subnet settings](virtual-network-manage-subnet.md#change-subnet-settings).
 
+### [CLI](#tab/cli)
+
+## Create a virtual network
+
+Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *test-rg* in the *eastus* location.
+
+```azurecli-interactive
+az group create \
+  --name test-rg \
+  --location eastus
+```
+
+Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet).
+
+```azurecli-interactive
+az network vnet create \
+  --name vnet-1 \
+  --resource-group test-rg \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name subnet-public \
+  --subnet-prefix 10.0.0.0/24
+```
+
+You can enable service endpoints only for services that support service endpoints. View service endpoint-enabled services available in an Azure location with [az network vnet list-endpoint-services](/cli/azure/network/vnet). The following example returns a list of service-endpoint-enabled services available in the *eastus* region. The list of services returned will grow over time, as more Azure services become service endpoint enabled.
+
+```azurecli-interactive
+az network vnet list-endpoint-services \
+  --location eastus \
+  --out table
+```
+
+Create another subnet in the virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet). In this example, a service endpoint for `Microsoft.Storage` is created for the subnet: 
+
+```azurecli-interactive
+az network vnet subnet create \
+  --vnet-name vnet-1 \
+  --resource-group test-rg \
+  --name subnet-private \
+  --address-prefix 10.0.1.0/24 \
+  --service-endpoints Microsoft.Storage
+```
+
+### [PowerShell](#tab/powershell)
+
+---
+
 ## Restrict network access for a subnet
+
+### [Portal](#tab/portal)
 
 By default, all virtual machine instances in a subnet can communicate with any resources. You can limit communication to and from all resources in a subnet by creating a network security group, and associating it to the subnet.
 
@@ -103,14 +151,22 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 ### [CLI](#tab/cli)
 
+Create a network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *nsg-private*.
+
+```azurecli-interactive
+az network nsg create \
+  --resource-group test-rg \
+  --name nsg-private
+```
+
 ### [PowerShell](#tab/powershell)
 
 ---
 
 
-### [Portal](#tab/portal)
-
 ### Create outbound NSG rules
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal page, search for **Network security group**. Select **Network security groups** in the search results.
 
@@ -160,16 +216,6 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 1. Select **Add**.
 
-### [CLI](#tab/cli)
-
-### [PowerShell](#tab/powershell)
-
----
-
-### [Portal](#tab/portal)
-
-### Associate the network security group to a subnet
-
 1. In the search box at the top of the portal page, search for **Network security group**. Select **Network security groups** in the search results.
 
 1. Select **nsg-storage**.
@@ -184,15 +230,78 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 1. Select **OK**.
 
+
 ### [CLI](#tab/cli)
+
+Create security rules with [az network nsg rule create](/cli/azure/network/nsg/rule). The rule that follows allows outbound access to the public IP addresses assigned to the Azure Storage service: 
+
+```azurecli-interactive
+az network nsg rule create \
+  --resource-group test-rg \
+  --nsg-name nsg-private \
+  --name Allow-Storage-All \
+  --access Allow \
+  --protocol "*" \
+  --direction Outbound \
+  --priority 100 \
+  --source-address-prefix "VirtualNetwork" \
+  --source-port-range "*" \
+  --destination-address-prefix "Storage" \
+  --destination-port-range "*"
+```
+
+Each network security group contains several [default security rules](./network-security-groups-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+
+```azurecli-interactive
+az network nsg rule create \
+  --resource-group test-rg \
+  --nsg-name nsg-private \
+  --name Deny-Internet-All \
+  --access Deny \
+  --protocol "*" \
+  --direction Outbound \
+  --priority 110 \
+  --source-address-prefix "VirtualNetwork" \
+  --source-port-range "*" \
+  --destination-address-prefix "Internet" \
+  --destination-port-range "*"
+```
+
+The following rule allows SSH traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. SSH is allowed to the subnet so that connectivity can be tested in a later step.
+
+```azurecli-interactive
+az network nsg rule create \
+  --resource-group test-rg \
+  --nsg-name nsg-private \
+  --name Allow-SSH-All \
+  --access Allow \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 120 \
+  --source-address-prefix "*" \
+  --source-port-range "*" \
+  --destination-address-prefix "VirtualNetwork" \
+  --destination-port-range "22"
+```
+
+Associate the network security group to the *subnet-private* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet). The following example associates the *nsg-private* network security group to the *subnet-private* subnet:
+
+```azurecli-interactive
+az network vnet subnet update \
+  --vnet-name vnet-1 \
+  --name subnet-private \
+  --resource-group test-rg \
+  --network-security-group nsg-private
+```
+
 
 ### [PowerShell](#tab/powershell)
 
 ---
 
-### [Portal](#tab/portal)
-
 ## Restrict network access to a resource
+
+### [Portal](#tab/portal)
 
 The steps required to restrict network access to resources created through Azure services, which are enabled for service endpoints vary across services. See the documentation for individual services for specific steps for each service. The rest of this tutorial includes steps to restrict network access for an Azure Storage account, as an example.
 
@@ -200,13 +309,43 @@ The steps required to restrict network access to resources created through Azure
 
 ### [CLI](#tab/cli)
 
+The steps necessary to restrict network access to resources created through Azure services enabled for service endpoints varies across services. See the documentation for individual services for specific steps for each service. The remainder of this article includes steps to restrict network access for an Azure Storage account, as an example.
+
+### Create a storage account
+
+Create an Azure storage account with [az storage account create](/cli/azure/storage/account). Replace `<replace-with-your-unique-storage-account-name>` with a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters.
+
+```azurecli-interactive
+storageAcctName="<replace-with-your-unique-storage-account-name>"
+
+az storage account create \
+  --name $storageAcctName \
+  --resource-group test-rg \
+  --sku Standard_LRS \
+  --kind StorageV2
+```
+
+After the storage account is created, retrieve the connection string for the storage account into a variable with [az storage account show-connection-string](/cli/azure/storage/account). The connection string is used to create a file share in a later step.
+
+For the purposes of this tutorial, the connection string is used to connect to the storage account. Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
+For more information about connecting to a storage account using a managed identity, see [Use a managed identity to access Azure Storage](/entra/identity/managed-identities-azure-resources/tutorial-linux-managed-identities-vm-access?pivots=identity-linux-mi-vm-access-storage).
+
+```azurecli-interactive
+saConnectionString=$(az storage account show-connection-string \
+  --name $storageAcctName \
+  --resource-group test-rg \
+  --query 'connectionString' \
+  --out tsv)
+```
+
 ### [PowerShell](#tab/powershell)
 
 ---
 
-### [Portal](#tab/portal)
-
 ### Create a file share in the storage account
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
 
@@ -231,14 +370,22 @@ The steps required to restrict network access to resources created through Azure
 
 ### [CLI](#tab/cli)
 
+Create a file share in the storage account with [az storage share create](/cli/azure/storage/share). In a later step, this file share is mounted to confirm network access to it.
+
+```azurecli-interactive
+az storage share create \
+  --name file-share \
+  --quota 2048 \
+  --connection-string $saConnectionString > /dev/null
+```
+
 ### [PowerShell](#tab/powershell)
 
 ---
 
+## Restrict network access to a subnet
 
 ### [Portal](#tab/portal)
-
-### Restrict network access to a subnet
 
 By default, storage accounts accept network connections from clients in any network, including the internet. You can restrict network access from the internet, and all other subnets in all virtual networks (except the **subnet-private** subnet in the **vnet-1** virtual network.) 
 
@@ -272,13 +419,32 @@ To restrict network access to a subnet:
 
 ### [CLI](#tab/cli)
 
+By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account). Once network access is denied, the storage account isn't accessible from any network.
+
+```azurecli-interactive
+az storage account update \
+  --name $storageAcctName \
+  --resource-group test-rg \
+  --default-action Deny
+```
+
+Allow network access to the storage account from the *subnet-private* subnet with [az storage account network-rule add](/cli/azure/storage/account/network-rule).
+
+```azurecli-interactive
+az storage account network-rule add \
+  --resource-group test-rg \
+  --account-name $storageAcctName \
+  --vnet-name vnet-1 \
+  --subnet subnet-private
+```
+
 ### [PowerShell](#tab/powershell)
 
 ---
 
-### [Portal](#tab/portal)
+### Restrict network access to a subnet
 
-## Create virtual machines
+### [Portal](#tab/portal)
 
 To test network access to a storage account, deploy a virtual machine to each subnet.
 
@@ -300,14 +466,60 @@ To test network access to a storage account, deploy a virtual machine to each su
 
 ### [CLI](#tab/cli)
 
+To test network access to a storage account, deploy a VM to each subnet.
+
+### Create the first virtual machine
+
+Create a VM in the *subnet-public* subnet with [az vm create](/cli/azure/vm). If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
+
+```azurecli-interactive
+az vm create \
+  --resource-group test-rg \
+  --name vm-public \
+  --image Ubuntu2204 \
+  --vnet-name vnet-1 \
+  --subnet subnet-public \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+The VM takes a few minutes to create. After the VM is created, the Azure CLI shows information similar to the following example: 
+
+```azurecli 
+{
+  "fqdns": "",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/vm-public",
+  "location": "eastus",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "203.0.113.24",
+  "resourceGroup": "test-rg"
+}
+```
+
+### Create the second virtual machine
+
+```azurecli-interactive
+az vm create \
+  --resource-group test-rg \
+  --name vm-private \
+  --image Ubuntu2204 \
+  --vnet-name vnet-1 \
+  --subnet subnet-private \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+The VM takes a few minutes to create. After creation, take note of the **publicIpAddress** in the output returned. This address is used to access the VM from the internet in a later step.
+
 ### [PowerShell](#tab/powershell)
 
 ---
 
+## Confirm access to storage account
 
 ### [Portal](#tab/portal)
-
-## Confirm access to storage account
 
 The virtual machine you created earlier that is assigned to the **subnet-private** subnet is used to confirm access to the storage account. The virtual machine you created in the previous section that is assigned to the **subnet-1** subnet is used to confirm that access to the storage account is blocked.
 
@@ -371,13 +583,49 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 ### [CLI](#tab/cli)
 
+SSH into the *vm-private* VM.
+
+Run the following command to store the IP address of the VM as an environment variable:
+
+```bash
+export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-private --query publicIps --output tsv)
+```
+
+```bash 
+ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
+```
+
+Create a folder for a mount point:
+
+```bash
+sudo mkdir /mnt/file-share
+```
+
+Mount the Azure file share to the directory you created. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account).
+
+```bash
+sudo mount --types cifs //<storage-account-name>.file.core.windows.net/my-file-share /mnt/file-share --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+```
+
+You receive the `user@vm-private:~$` prompt. The Azure file share successfully mounted to */mnt/file-share*.
+
+Confirm that the VM has no outbound connectivity to any other public IP addresses:
+
+```bash
+ping bing.com -c 4
+```
+
+You receive no replies, because the network security group associated to the *subnet-private* subnet doesn't allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
+
+Exit the SSH session to the *vm-private* VM.
+
 ### [PowerShell](#tab/powershell)
 
 ---
 
-### [Portal](#tab/portal)
-
 ## Confirm access is denied to storage account
+
+### [Portal](#tab/portal)
 
 ### From vm-1
 
@@ -424,14 +672,6 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 4. Close the Bastion connection to **vm-1**.
 
-### [CLI](#tab/cli)
-
-### [PowerShell](#tab/powershell)
-
----
-
-### [Portal](#tab/portal)
-
 ### From a local machine:
 
 1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
@@ -453,10 +693,47 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 ### [CLI](#tab/cli)
 
+SSH into the *vm-public* VM.
+
+Run the following command to store the IP address of the VM as an environment variable:
+
+```bash
+export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-public --query publicIps --output tsv)
+```
+
+```bash 
+ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
+```
+
+Create a directory for a mount point:
+
+```bash
+sudo mkdir /mnt/file-share
+```
+
+Attempt to mount the Azure file share to the directory you created. This article assumes you deployed the latest version of Ubuntu. If you're using earlier versions of Ubuntu, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for more instructions about mounting file shares. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account):
+
+```bash
+sudo mount --types cifs //storage-account-name>.file.core.windows.net/file-share /mnt/file-share --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+```
+
+Access is denied, and you receive a `mount error(13): Permission denied` error, because the *vm-public* VM is deployed within the *subnet-public* subnet. The *subnet-public* subnet doesn't have a service endpoint enabled for Azure Storage, and the storage account only allows network access from the *subnet-private* subnet, not the *subnet-public* subnet.
+
+Exit the SSH session to the *vm-public* VM.
+
+From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
+
+```azurecli-interactive
+az storage share list \
+  --account-name <account-name> \
+  --account-key <account-key>
+```
+
+Access is denied and you receive a **This request isn't authorized to perform this operation** error, because your computer isn't in the *subnet-private* subnet of the *vnet-1* virtual network.
+
 ### [PowerShell](#tab/powershell)
 
 ---
-
 
 ### [Portal](#tab/portal)
 
@@ -464,10 +741,19 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 ### [CLI](#tab/cli)
 
+## Clean up resources
+
+When no longer needed, use [az group delete](/cli/azure) to remove the resource group and all of the resources it contains.
+
+```azurecli-interactive 
+az group delete \
+    --name test-rg \
+    --yes \
+    --no-wait
+```
 ### [PowerShell](#tab/powershell)
 
 ---
-
 
 ## Next steps
 
