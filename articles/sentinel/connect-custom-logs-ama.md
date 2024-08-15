@@ -90,7 +90,7 @@ The setup process for the Custom Logs via AMA data connector includes the follow
     - [Azure or Defender portal](?tabs=portal#create-data-collection-rule-dcr)
     - [Azure Resource Manager template](?tabs=arm#install-the-azure-monitor-agent)
 
-1. If you're collecting logs using a log forwarder, [**run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the syslog daemon to listen for messages from other machines, and to open the necessary local ports.
+1. If you're collecting logs using a log forwarder, configure the syslog daemon on that machine to listen for messages from other sources, and open the required local ports. For details, see [Configure the log forwarder to accept logs](#configure-the-log-forwarder-to-accept-logs).
 
 Select the appropriate tab for instructions.
 
@@ -262,7 +262,7 @@ If you create the DCR using an ARM template, you still must associate the DCR wi
 
 ---
 
-## Run the "installation" script
+## Configure the log forwarder to accept logs
 
 If you're collecting logs from an appliance using a log forwarder, configure the syslog daemon on the log forwarder to listen for messages from other machines, and open the necessary local ports.
 
@@ -290,46 +290,6 @@ If you're collecting logs from an appliance using a log forwarder, configure the
 For specific instructions to configure your security application or appliance, see [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md)
 
 Contact the solution provider for more information or where information is unavailable for the appliance or device.
-
-## Test the connector
-
-***(IS THIS SECTION RELEVANT??? -YL)***
-
-Verify that logs messages from your linux machine or security devices and appliances are ingested into Microsoft Sentinel. 
-
-1. To validate that the syslog daemon is running on the UDP port and that the AMA is listening, run this command:
-
-    ```
-    netstat -lnptv
-    ```
-
-    You should see the `rsyslog` or `syslog-ng` daemon listening on port 514. 
-
-1. To capture messages sent from a logger or a connected device, run this command in the background:
-
-    ```
-    tcpdump -i any port 514 -A -vv &
-    ```
-1. After you complete the validation, we recommend that you stop the `tcpdump`: Type `fg` and then select <kbd>Ctrl</kbd>+<kbd>C</kbd>.
-1. To send demo messages, complete of the following steps: 
-    - Use the netcat utility. In this example, the utility reads data posted through the `echo` command with the newline switch turned off. The utility then writes the data to UDP port `514` on the localhost with no timeout. To execute the netcat utility, you might need to install another package.
-    
-        ```
-        echo -n "<164>CEF:0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time" | nc -u -w0 localhost 514
-        ```
-    - Use the logger. This example writes the message to the `local 4` facility, at severity level `Warning`, to port `514`, on the local host, in the CEF RFC format. The `-t` and `--rfc3164` flags are used to comply with the expected RFC format.
-    
-        ```
-        logger -p local4.warn -P 514 -n 127.0.0.1 --rfc3164 -t CEF "0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time"
-        ```    
-
-1. To verify that the connector is installed correctly, run the troubleshooting script with one of these commands:
-
-    - For CEF logs, run:
-        
-        ```python
-         sudo wget -O Sentinel_AMA_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Sentinel_AMA_troubleshoot.py&&sudo python Sentinel_AMA_troubleshoot.py --cef
-        ```
 
 ## Related content
 
