@@ -652,7 +652,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/twin-get-started-cli.md",
-      "redirect_url": "/azure/iot-hub/device-twins-cli",
+      "redirect_url": "/azure/iot-hub/manage-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-twins-cli.md",
+      "redirect_url": "/azure/iot-hub/manage-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/module-twins-cli.md",
+      "redirect_url": "/azure/iot-hub/manage-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hubs-manage-device-twin-tags.md",
+      "redirect_url": "/azure/iot-hub/manage-device-twins",
       "redirect_document_id": true
     },
     {
