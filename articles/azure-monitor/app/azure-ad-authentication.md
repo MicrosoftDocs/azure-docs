@@ -33,7 +33,7 @@ The following Software Development Kits (SDKs) and features are unsupported for 
  Microsoft Entra authentication is only available for Application Insights Java Agent greater than or equal to 3.2.0.
 - [ApplicationInsights JavaScript web SDK](javascript.md).
 - [Application Insights OpenCensus Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) with Python version 3.4 and 3.5.
-- [AutoInstrumentation for Python on Azure App Service](https://learn.microsoft.com/en-us/azure/azure-monitor/app/azure-web-apps-python)
+- [AutoInstrumentation for Python on Azure App Service](azure-web-apps-python.md)
 - [Profiler](profiler-overview.md).
 
 <a name='configure-and-enable-azure-ad-based-authentication'></a>
