@@ -498,9 +498,9 @@ Azure service: [Storage](/azure/storage/)
 
 ## Microsoft.StorageCache
 
-File caching for high-performance computing (HPC).
+File caching and Lustre file system capabilities for high-performance computing (HPC).
 
-Azure service: [Azure HPC Cache](/azure/hpc-cache/)
+Azure services: [Azure HPC Cache](/azure/hpc-cache/), [Azure Managed Lustre](/azure/azure-managed-lustre/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
