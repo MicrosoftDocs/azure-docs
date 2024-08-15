@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 08/14/2024
 ms.reviewer: rygraham
 ms.author: banders
 ---
@@ -83,7 +83,7 @@ When you create an MCA subscription in the source tenant, you must specify the s
 Sign in to Azure CLI and use the [az ad sp show](/cli/azure/ad/sp#az-ad-sp-show) command:
 
 ```sh
-az ad sp show --id 00000000-0000-0000-0000-000000000000 --query 'id'
+az ad sp show --id aaaaaaaa-bbbb-cccc-1111-222222222222 --query 'id'
 ```
 
 #### Azure PowerShell
@@ -91,7 +91,7 @@ az ad sp show --id 00000000-0000-0000-0000-000000000000 --query 'id'
 Sign in to Azure PowerShell and use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) cmdlet:
 
 ```sh
-Get-AzADServicePrincipal -ApplicationId 00000000-0000-0000-0000-000000000000 | Select-Object -Property Id
+Get-AzADServicePrincipal -ApplicationId aaaaaaaa-bbbb-cccc-1111-222222222222 | Select-Object -Property Id
 ```
 
 Save the `Id` value returned by the command.

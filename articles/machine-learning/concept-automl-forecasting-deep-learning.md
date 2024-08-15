@@ -10,7 +10,7 @@ ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.custom: automl, sdkv2
-ms.date: 08/01/2023
+ms.date: 08/09/2024
 show_latex: true
 ---
 
@@ -18,19 +18,19 @@ show_latex: true
 
 This article focuses on the deep learning methods for time series forecasting in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-Deep learning has made a major impact in fields ranging from [language modeling](../ai-services/openai/concepts/models.md) to [protein folding](https://www.deepmind.com/research/highlighted-research/alphafold), among many others. Time series forecasting has likewise benefitted from recent advances in deep learning technology. For example, deep neural network (DNN) models feature prominently in the top performing models from the [fourth](https://www.uber.com/blog/m4-forecasting-competition/) and [fifth](https://www.sciencedirect.com/science/article/pii/S0169207021001874) iterations of the high-profile Makridakis forecasting competition.
+Deep learning has numerous use cases in fields ranging from [language modeling](../ai-services/openai/concepts/models.md) to [protein folding](https://www.deepmind.com/research/highlighted-research/alphafold), among many others. Time series forecasting also benefits from recent advances in deep learning technology. For example, deep neural network (DNN) models feature prominently in the top performing models from the [fourth](https://www.uber.com/blog/m4-forecasting-competition/) and [fifth](https://www.sciencedirect.com/science/article/pii/S0169207021001874) iterations of the high-profile Makridakis forecasting competition.
 
-In this article, we'll describe the structure and operation of the TCNForecaster model in AutoML to help you best apply the model to your scenario. 
+In this article, we describe the structure and operation of the TCNForecaster model in AutoML to help you best apply the model to your scenario. 
 
 ## Introduction to TCNForecaster
 
-TCNForecaster is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, which has a DNN architecture specifically designed for time series data. The model uses historical data for a target quantity, along with related features, to make probabilistic forecasts of the target up to a specified forecast horizon. The following image shows the major components of the TCNForecaster architecture:
+TCNForecaster is a [temporal convolutional network](https://arxiv.org/abs/1803.01271), or TCN, which has a DNN architecture designed for time series data. The model uses historical data for a target quantity, along with related features, to make probabilistic forecasts of the target up to a specified forecast horizon. The following image shows the major components of the TCNForecaster architecture:
 
 :::image type="content" source="media/how-to-auto-train-forecast/tcn-basic.png" alt-text="Diagram showing major components of AutoML's TCNForecaster.":::
 
 TCNForecaster has the following main components: 
 
-* A **pre-mix** layer that mixes the input time series and feature data into an array of signal **channels** that the convolutional stack will process.
+* A **pre-mix** layer that mixes the input time series and feature data into an array of signal **channels** that the convolutional stack processes.
 * A stack of **dilated convolution** layers that processes the channel array sequentially; each layer in the stack processes the output of the previous layer to produce a new channel array. Each channel in this output contains a mixture of convolution-filtered signals from the input channels. 
 * A collection of **forecast head** units that coalesce the output signals from the convolution layers and generate forecasts of the target quantity from this latent representation. Each head unit produces forecasts up to the horizon for a quantile of the prediction distribution.
 
@@ -42,7 +42,7 @@ Stacking dilated convolutions gives the TCN the ability to model correlations ov
 
 :::image type="content" source="media/concept-automl-forecasting-deep-learning/tcn-dilated-conv.png" alt-text="Diagram showing stacked, dilated convolution layers.":::
 
-The dashed lines show paths through the network that end on the output at a time $t$. These paths cover the last eight points in the input, illustrating that each output point is a function of the eight most relatively recent points in the input. The length of history, or "look back," that a convolutional network uses to make predictions is called the **receptive field** and it is determined completely by the TCN architecture.
+The dashed lines show paths through the network that end on the output at a time $t$. These paths cover the last eight points in the input, illustrating that each output point is a function of the eight most relatively recent points in the input. The length of history, or "look back," that a convolutional network uses to make predictions is called the **receptive field** and it's determined completely by the TCN architecture.
 
 ### TCNForecaster architecture
 
@@ -66,7 +66,7 @@ We can give a more precise definition of the TCNForecaster architecture in terms
  
 :::image type="content" source="media/concept-automl-forecasting-deep-learning/tcn-equations.png" alt-text="Equations describing TCNForecaster operations.":::
 
-where $W_{e}$ is an [embedding](https://huggingface.co/blog/getting-started-with-embeddings) matrix for the categorical features, $n_{l} = n_{b}n_{c}$ is the total number of residual cells, the $H_{k}$ denote hidden layer outputs, and the $f_{q}$ are forecast outputs for given quantiles of the prediction distribution. To aid  understanding, the dimensions of these variables are in the following table:
+Where $W_{e}$ is an [embedding](https://huggingface.co/blog/getting-started-with-embeddings) matrix for the categorical features, $n_{l} = n_{b}n_{c}$ is the total number of residual cells, the $H_{k}$ denote hidden layer outputs, and the $f_{q}$ are forecast outputs for given quantiles of the prediction distribution. To aid  understanding, the dimensions of these variables are in the following table:
 
 |Variable|Description|Dimensions|
 |--|--|--|
@@ -80,7 +80,7 @@ In the table, $n_{\text{input}} = n_{\text{features}} + 1$, the number of predic
 
 TCNForecaster is an optional model in AutoML. To learn how to use it, see [enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning).
 
-In this section, we'll describe how AutoML builds TCNForecaster models with your data, including explanations of data preprocessing, training, and model search. 
+In this section, we describe how AutoML builds TCNForecaster models with your data, including explanations of data preprocessing, training, and model search. 
 
 ### Data preprocessing steps
 
@@ -94,7 +94,7 @@ Fill missing data|[Impute missing values and observation gaps](./concept-automl-
 |Target transform|Optionally apply the natural logarithm function to the target depending on the results of certain statistical tests.|
 |Normalization|[Z-score normalize](https://en.wikipedia.org/wiki/Standard_score) all numeric data; normalization is performed per feature and per time series group, as defined by the [time series ID columns](./how-to-auto-train-forecast.md#forecasting-job-settings).
 
-These steps are included in AutoML's transform pipelines, so they are automatically applied when needed at inference time. In some cases, the inverse operation to a step is included in the inference pipeline. For example, if AutoML applied a $\log$ transform to the target during training, the raw forecasts are exponentiated in the inference pipeline.  
+These steps are included in AutoML's transform pipelines, so they're automatically applied when needed at inference time. In some cases, the inverse operation to a step is included in the inference pipeline. For example, if AutoML applied a $\log$ transform to the target during training, the raw forecasts are exponentiated in the inference pipeline.  
 
 ### Training
 
@@ -135,7 +135,7 @@ The model search has two phases:
 1. AutoML performs a search over 12 "landmark" models. The landmark models are static and chosen to reasonably span the hyper-parameter space.
 2. AutoML continues searching through the hyper-parameter space using a random search.
   
-The search terminates when stopping criteria are met. The stopping criteria depend on the [forecast training job configuration](./how-to-auto-train-forecast.md#configure-experiment), but some examples include time limits, limits on number of search trials to perform, and early stopping logic when the validation metric is not improving.
+The search terminates when stopping criteria are met. The stopping criteria depend on the [forecast training job configuration](./how-to-auto-train-forecast.md#configure-experiment), but some examples include time limits, limits on number of search trials to perform, and early stopping logic when the validation metric isn't improving.
  
 ## Next steps
 
