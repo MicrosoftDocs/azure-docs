@@ -60,7 +60,7 @@ By specifying interactive applications at job creation, you can connect directly
   > [!NOTE]
   > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
-5. Select at least one training application you want to use to interact with the job. If you don't select an application, the debug feature won't be available. 
+5. In compute settings, expand the option for **Training applications**. Select at least one training application you want to use to interact with the job. If you don't select an application, the debug feature won't be available. 
 
   :::image type="content" source="./media/interactive-jobs/select-training-apps.png" alt-text="Screenshot of selecting a training application for the user to use for a job.":::
 
