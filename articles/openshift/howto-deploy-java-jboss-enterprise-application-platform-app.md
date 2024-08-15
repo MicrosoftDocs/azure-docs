@@ -25,14 +25,9 @@ If you're interested in providing feedback or working closely on your migration 
 
 - A local developer command line with a UNIX-like command environment - for example, Ubuntu, macOS, or Windows Subsystem for Linux - and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-  > [!NOTE]
-  > You can also execute this guidance from the [Azure Cloud Shell](../cloud-shell/get-started/classic.md). This approach has all the prerequisite tools pre-installed.
-  >
-  > :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+- The `mysql` CLI. For example, you can install the CLI by using the following commands on Ubuntu or Debian-based systems:
 
-- The `mysql` CLI. You can install the CLI by using the following commands:
-
-  ```azurecli-interactive
+  ```bash
   sudo apt update
   sudo apt install mysql-server
   ```
@@ -146,7 +141,7 @@ The sample is a Java application backed by a MySQL database, and is deployed to 
 
 Open a shell and set the following environment variables. Replace the substitutions as appropriate.
 
-```azurecli-interactive
+```bash
 RG_NAME=<resource-group-name>
 SERVER_NAME=<database-server-name>
 DB_DATABASE_NAME=testdb
@@ -179,7 +174,7 @@ Next, use the following steps to create an Azure Database for MySQL - Flexible S
 
 1. Use the following command to create an Azure Database for MySQL - Flexible Server:
 
-   ```azurecli-interactive
+   ```bash
    az mysql flexible-server create \
        --resource-group ${RG_NAME} \
        --name ${SERVER_NAME} \
@@ -210,7 +205,7 @@ Next, use the following steps to create an Azure Database for MySQL - Flexible S
 
 1. Use the following commands to get the host of the created MySQL server:
 
-   ```azurecli-interactive
+   ```bash
    DB_HOST=$(az mysql flexible-server show \
        --resource-group ${RG_NAME} \
        --name ${SERVER_NAME} \
@@ -223,7 +218,7 @@ Next, use the following steps to create an Azure Database for MySQL - Flexible S
 
 1. Use the following command to create a temporary firewall rule to allow connection to the MySQL server from the public internet:
 
-   ```azurecli-interactive
+   ```bash
    az mysql flexible-server firewall-rule create \
        --resource-group ${RG_NAME} \
        --name ${SERVER_NAME} \
@@ -234,7 +229,7 @@ Next, use the following steps to create an Azure Database for MySQL - Flexible S
 
 1. Use the following command to create a new database user with permissions to read and write the specific database. This command is useful to send SQL directly to the database.
 
-   ```azurecli-interactive
+   ```bash
    mysql --host ${DB_HOST} --user ${ADMIN_USERNAME} --password=${ADMIN_PASSWORD} << EOF
    CREATE USER '${DB_USERNAME}'@'%' IDENTIFIED BY '${DB_PASSWORD}';
    GRANT ALL PRIVILEGES ON ${DB_DATABASE_NAME} . * TO '${DB_USERNAME}'@'%';
@@ -244,7 +239,7 @@ Next, use the following steps to create an Azure Database for MySQL - Flexible S
 
 1. Use the following command to delete the temporary firewall rule:
 
-   ```azurecli-interactive
+   ```bash
    az mysql flexible-server firewall-rule delete \
        --resource-group ${RG_NAME} \
        --name ${SERVER_NAME}  \
@@ -274,7 +269,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. Open the shell, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
 
-   ```azurecli
+   ```bash
    az aro list-credentials --resource-group eaparo033123rg --name clusterf9e8b9
    ```
 
@@ -295,7 +290,7 @@ Next, use the following steps to connect to the OpenShift cluster using the Open
 
 1. In the shell, use the following commands to download the latest OpenShift 4 CLI for GNU/Linux. If running on an OS other than GNU/Linux, download the appropriate binary for that OS.
 
-   ```azurecli-interactive
+   ```bash
    cd ~
    wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
 
@@ -306,7 +301,7 @@ Next, use the following steps to connect to the OpenShift cluster using the Open
 
 1. Paste the value from the **cmdToLoginWithKubeadmin** field into the shell, and execute it. You should see the `login successful` message and the project you're using. The following content is an example of the command to connect to the OpenShift cluster using the OpenShift CLI.
 
-   ```azurecli-interactive
+   ```bash
    oc login \
        $(az aro show \
            --resource-group ${RG_NAME} \
@@ -345,7 +340,7 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
 
 1. In the shell, run the following commands. The commands create a project, apply a permission to enable S2I to work, image the pull secret, and link the secret to the relative service accounts in the project to enable the image pull. Disregard the Git warning about "'detached HEAD' state".
 
-   ```azurecli-interactive
+   ```bash
    git clone https://github.com/Azure/rhel-jboss-templates.git
    cd rhel-jboss-templates
    git checkout 20230615
@@ -363,7 +358,7 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
 
    Because the next section uses HEREDOC format, it's best to include and execute it in its own code excerpt.
 
-   ```azurecli-interactive
+   ```bash
    cat <<EOF | oc apply -f -
    apiVersion: v1
    kind: Secret
@@ -380,14 +375,14 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
 
    You must see `secret/eaparo-sample-pull-secret created` to indicate successful creation of the secret. If you don't see this output, troubleshoot and resolve the problem before proceeding. Finally, link the secret to the default service account for downloading container images so the cluster can run them.
 
-   ```azurecli-interactive
+   ```bash
    oc secrets link default ${CON_REG_SECRET_NAME} --for=pull
    oc secrets link builder ${CON_REG_SECRET_NAME} --for=pull
    ```
 
 1. Use the following commands to pull the image stream `jboss-eap74-openjdk11-openshift`. Then, start the source to image process and wait until it completes.
 
-   ```azurecli-interactive
+   ```bash
    oc apply -f https://raw.githubusercontent.com/jboss-container-images/jboss-eap-openshift-templates/eap74/eap74-openjdk11-image-stream.json
    oc new-build --name=${APPLICATION_NAME} --binary --image-stream=jboss-eap74-openjdk11-openshift:7.4.0 -e CUSTOM_INSTALL_DIRECTORIES=extensions
    oc start-build ${APPLICATION_NAME} --from-dir=rhel-jboss-templates/eap-coffee-app --follow
@@ -410,13 +405,13 @@ Next, use the following steps to create a secret:
 
 1. Use the following command to create a secret for holding the password of the database:
 
-   ```azurecli-interactive
+   ```bash
    oc create secret generic db-secret --from-literal=password=${DB_PASSWORD}
    ```
 
 1. Use the following commands to deploy and run three replicas of the containerized app in the cluster:
 
-   ```azurecli-interactive
+   ```bash
    cat <<EOF | oc apply -f -
    apiVersion: wildfly.org/v1alpha1
    kind: WildFlyServer
@@ -466,7 +461,7 @@ Next, use the following steps to create a secret:
 
 1. Run the following command to return the URL of the application. You can use this URL to access the deployed sample app. Copy the output to the clipboard.
 
-   ```azurecli-interactive
+   ```bash
    echo http://$(oc get route ${APPLICATION_NAME}-route -o=jsonpath='{.spec.host}')/javaee-cafe
    ```
 
