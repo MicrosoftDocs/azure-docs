@@ -84,7 +84,7 @@ items:
         href: ../common/classic-account-migration-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Migrate a classic storage account to Resource Manager
         href: ../common/classic-account-migrate.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Data Lake Storage Gen2
+    - name: Data Lake Storage
       items:
       - name: Plan to upgrade an account
         href: upgrade-to-data-lake-storage-gen2.md
@@ -1093,13 +1093,13 @@ items:
     items:
     - name: Best practices
       href: data-lake-storage-best-practices.md
-    - name: Enable Gen2 (New storage accounts)
+    - name: Enable Data Lake Storage (New storage accounts)
       href: create-data-lake-storage-account.md
-    - name: Enable Gen2 (Existing storage account)
+    - name: Enable Data Lake Storage (Existing storage account)
       items:
-      - name: Plan to upgrade an account with Gen2 capabilities
+      - name: Plan to upgrade an account
         href: upgrade-to-data-lake-storage-gen2.md
-      - name: Upgrade an account with Gen2 capabilities
+      - name: Upgrade an account
         href: upgrade-to-data-lake-storage-gen2-how-to.md
   - name: Architecture
     items:
