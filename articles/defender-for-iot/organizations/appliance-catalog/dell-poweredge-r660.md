@@ -38,7 +38,7 @@ The following image shows a view of the Dell PowerEdge R660 back panel:
 |Management|iDRAC Group Manager, Disabled|
 |Rack support| ReadyRails Sliding Rails With Cable Management Arm|
 
-## Dell PowerEdge R660 - Bill of Materials
+## Dell PowerEdge R660 - Bill of materials
 
 ### Components
 
@@ -53,7 +53,7 @@ The following image shows a view of the Dell PowerEdge R660 back panel:
 |1| 338-CHQT | Processor thermal configuration | Heatsink for 2 CPU configuration (CPU less than or equal to 150 W)|
 |1| 370-AAIP | Memory configuration type | Performance Optimized |
 |1| 370-AHCL | Memory DIMM type and speed | 4800-MT/s RDIMMs |
-|4| 370-AGZP | Memory capacity | 32 GB RDIMM, 4,800 MT/s dual rank |
+|4| 370-AGZP | Memory capacity | 8 * 16 GB RDIMM, 4,800 MT/s single rank |
 |1| 780-BCDS | RAID configuration | unconfigured RAID |
 |1| 405-AAZB | RAID controller | PERC H755 SAS Front |
 |1| 750-ACFR | RAID controller | Front PERC Mechanical Parts, front load |
