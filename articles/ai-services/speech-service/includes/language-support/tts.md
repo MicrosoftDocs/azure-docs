@@ -162,7 +162,7 @@ ms.custom: references_regions
 | `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) | `zh-CN-sichuan-YunxiNeural`<sup>1,3</sup> (Male) |
 | `zh-HK` | Chinese (Cantonese, Traditional) | `zh-HK-HiuMaanNeural` (Female)<br/>`zh-HK-WanLungNeural` (Male)<br/>`zh-HK-HiuGaaiNeural` (Female) |
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | `zh-TW-HsiaoChenNeural` (Female)<br/>`zh-TW-YunJheNeural` (Male)<br/>`zh-TW-HsiaoYuNeural` (Female) |
-| `zu-ZA` | isiZulu (South Africa) | `zu-ZA-ThandoNeural`<sup>3</sup> (Female)<br/>`zu-ZA-ThembaNeural`<sup>3</sup> (Male) |
+| `zu-ZA` | Zulu (South Africa) | `zu-ZA-ThandoNeural`<sup>3</sup> (Female)<br/>`zu-ZA-ThembaNeural`<sup>3</sup> (Male) |
 
 <sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in these service [regions](../../regions.md): East US, Southeast Asia, and West Europe. 
 
