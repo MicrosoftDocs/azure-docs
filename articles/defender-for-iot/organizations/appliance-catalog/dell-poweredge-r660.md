@@ -12,9 +12,9 @@ The Dell PowerEdge R660 is also available for the on-premises management console
 
 |Appliance characteristic  | Description|
 |---------|---------|
-|**Hardware profile** | R660 |
+|**Hardware profile** | C5600 |
 |**Performance** | Max bandwidth: 3 Gbps<br>Max devices: 12,000 |
-|**Physical Specifications** | Mounting: 1U with rail kit<br>Ports: 6x RJ45 1 GbE|
+|**Physical Specifications** | Mounting: 1U with rail kit<br>Ports: 6x RJ45 1 GbE |
 |**Status** | Supported, available as a preconfigured appliance|
 
 The following image shows a view of the Dell PowerEdge R660 front panel:
