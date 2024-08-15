@@ -819,7 +819,7 @@ In a Standard logic app workflow that starts with the **Request trigger** (but n
 
 * Azure Logic Apps supports either the [bearer type](/entra/identity-platform/v2-protocols#tokens) or [proof-of-possession type (Consumption logic app only)](/entra/msal/dotnet/advanced/proof-of-possession-tokens) authorization schemes for Microsoft Entra ID OAuth access tokens. However, the `Authorization` header for the access token must specify either the `Bearer` type or `PoP` type. For more information about how to get and use a PoP token, see [Get a Proof of Possession (PoP) token](#get-pop).
 
-* Your logic app resource is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](/entra/identity-platform/developer-glossary.md#claim). For more information, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#authentication-limits).
+* Your logic app resource is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](/entra/identity-platform/developer-glossary#claim). For more information, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#authentication-limits).
 
 * An authorization policy must include at least the **Issuer** claim, which has a value that starts with either **`https://sts.windows.net/`** or **`https://login.microsoftonline.com/`** (OAuth V2) as the issuer for Microsoft Entra ID.
 
@@ -922,7 +922,7 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
 
    ![Screenshot that shows Azure portal, Consumption logic app menu, Authorization page, and selected button to add policy.](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
-1. Provide information about the authorization policy by specifying the [claim types](/entra/identity-platform/developer-glossary.md#claim) and values that your logic app expects in the access token presented by each inbound call to the Request trigger:
+1. Provide information about the authorization policy by specifying the [claim types](/entra/identity-platform/developer-glossary#claim) and values that your logic app expects in the access token presented by each inbound call to the Request trigger:
 
    ![Screenshot that shows Azure portal, Consumption logic app Authorization page, and information for authorization policy.](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
@@ -940,7 +940,7 @@ In the [Azure portal](https://portal.azure.com), add one or more authorization p
 
    * To add another claim type, select **Add standard claim**, select the claim type, and specify the claim value.
 
-   * To add your own claim, select **Add custom claim**. For more information, review [how to provide optional claims to your app](/entra/identity-platform/optional-claims.md). Your custom claim is then stored as a part of your JWT ID; for example, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"`. 
+   * To add your own claim, select **Add custom claim**. For more information, review [how to provide optional claims to your app](/entra/identity-platform/optional-claims). Your custom claim is then stored as a part of your JWT ID; for example, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"`. 
 
 1. To add another authorization policy, select **Add policy**. Repeat the previous steps to set up the policy.
 

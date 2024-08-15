@@ -299,11 +299,11 @@ In [Azure Logic Apps](./logic-apps-overview.md), [REST](/azure/architecture/best
 
 Based on the software vendor who implements the underlying service that a connector calls, [authentication schemes](./logic-apps-securing-a-logic-app.md) vary by connector. Generally, these schemes include the following types:
 
-- [Basic](./logic-apps-securing-a-logic-app.md#basic-authentication)
-- [Client Certificate](./logic-apps-securing-a-logic-app.md#client-certificate-authentication)
-- [Active Directory OAuth](./logic-apps-securing-a-logic-app.md#azure-active-directory-oauth-authentication)
-- [Raw](./logic-apps-securing-a-logic-app.md#raw-authentication)
-- [Managed Identity](./logic-apps-securing-a-logic-app.md#managed-identity-authentication)
+- [Basic](logic-apps-securing-a-logic-app.md#basic-authentication)
+- [Client certificate](logic-apps-securing-a-logic-app.md#client-certificate-authentication)
+- [Active Directory OAuth](logic-apps-securing-a-logic-app.md#oauth-microsoft-entra)
+- [Raw](logic-apps-securing-a-logic-app.md#raw-authentication)
+- [Managed Identity](logic-apps-securing-a-logic-app.md#managed-identity-authentication)
 
 Microsoft provides strong layers of protection by [encrypting data during transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) and at rest. When Azure customer traffic moves between datacenters, outside physical boundaries that aren't controlled by Microsoft or on behalf of Microsoft, a data-link layer encryption method that uses [IEEE 802.1AE MAC Security Standards (MACsec)](https://1.ieee802.org/security/802-1ae/) applies from point-to-point across the underlying network hardware.
 
