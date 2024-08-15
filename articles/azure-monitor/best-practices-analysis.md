@@ -105,11 +105,13 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 |    | Can query more sources than other visualizations |    |
 |    | Fully customizable |    |
 |    | Designed for collaborating and troubleshooting |    |
+|    |    |    |
 | [Azure dashboards](../azure-portal/azure-portal-dashboards.md) | Native Azure dashboarding platform | For Azure/Arc exclusive environments |
 |    | No added cost   |    |
 |    | Supports at scale deployments    |    |
 |    | Can combine a metrics graph and the results of a log query with operational data for related services |    |
 |    | Share a dashboard with service owners through integration with [Azure role-based access control](../role-based-access-control/overview.md) |    |
+|    |    |    |
 |[Azure Managed Grafana](../managed-grafana/overview.md)|Multi-platform, multicloud single pane of glass visualizations    |For users without Azure access |
 |    | Seamless integration with Azure |Use for external visualization experiences, especially for RAG type dashboards in SOC and NOC environments |
 |    | Can combine time-series and event data in a single visualization panel    |Cloud Native CNCF monitoring |
@@ -120,6 +122,7 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 |    | Dashboard templates with focus on operations |    |
 |    | Can create a dashboard from a community-created and community-supported template |    |
 |    | Can create a vendor-agnostic business continuity and disaster scenario that runs on any cloud provider or on-premises |    |
+|    |    |    |
 | [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) | Rich visualizations | Use for external visualizations aimed at management and executive levels |
 |    | Supports BI analytics with extensive slicing and dicing | Use to help design business centric KPI dashboards for long term trends |
 |    | Integrate data from multiple data sources |    |
