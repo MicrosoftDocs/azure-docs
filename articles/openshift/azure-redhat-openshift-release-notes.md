@@ -17,7 +17,7 @@ Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to
 
 You can now create up to 20 IP addresses per Azure Red Hat OpenShift cluster load balancer. This feature was previously in preview but is now generally available. See [Configure multiple IP addresses per cluster load balancer](howto-multiple-ips.md) for details. Azure Red Hat OpenShift 4.x has a 250 pod-per-node limit and a 250 compute node limit.
 
-There's a change in the order of actions performed by Site Reliability Engineers of Azure RedHat OpenShift. To maintain the health of a cluster, a timely action is necessary if control plane resources are over-utilized. Now the control plane is resized proactively to maintain cluster health. After the resize of the control plane, a notification is sent out to you with the details of the changes made to the control plane. Make sure you have the quota available in your subscription for Site Reliability Engineers to perform this action.
+There's a change in the order of actions performed by Site Reliability Engineers of Azure RedHat OpenShift. To maintain the health of a cluster, a timely action is necessary if control plane resources are over-utilized. Now the control plane is resized proactively to maintain cluster health. After the resize of the control plane, a notification is sent out to you with the details of the changes made to the control plane. Make sure you have the quota available in your subscription for Site Reliability Engineers to perform the cluster resize action.
 
 ## Version 4.14 - May 2024
 
