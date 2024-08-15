@@ -1,7 +1,7 @@
 ---
 title: Enable data connector for Microsoft's threat intelligence
 titleSuffix: Microsoft Defender Threat Intelligence
-keywords: premium, TI, STIX objects, relationships, threat actor, watchlist
+keywords: premium, TI, STIX objects, relationships, threat actor, watchlist, license
 description: Learn how to ingest Microsoft's threat intelligence into your Sentinel workspace to generate high fidelity alerts and incidents.
 author: austinmccollum
 ms.topic: how-to
