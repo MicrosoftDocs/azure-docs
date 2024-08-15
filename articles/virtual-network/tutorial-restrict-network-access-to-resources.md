@@ -91,58 +91,58 @@ Service endpoints are enabled per service, per subnet.
 
 ## Create a virtual network
 
-Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *test-rg*: 
+1. Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *test-rg*: 
 
-```azurepowershell-interactive
-$rg = @{
-    ResourceGroupName = "test-rg"
-    Location = "westus2"
-}
-New-AzResourceGroup @rg
-```
+    ```azurepowershell-interactive
+    $rg = @{
+        ResourceGroupName = "test-rg"
+        Location = "westus2"
+    }
+    New-AzResourceGroup @rg
+    ```
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *vnet-1* with the address prefix *10.0.0.0/16*.
+1. Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *vnet-1* with the address prefix *10.0.0.0/16*.
 
-```azurepowershell-interactive
-$vnet = @{
-    ResourceGroupName = "test-rg"
-    Location = "westus2"
-    Name = "vnet-1"
-    AddressPrefix = "10.0.0.0/16"
-}
-$virtualNetwork = New-AzVirtualNetwork @vnet
-```
+    ```azurepowershell-interactive
+    $vnet = @{
+        ResourceGroupName = "test-rg"
+        Location = "westus2"
+        Name = "vnet-1"
+        AddressPrefix = "10.0.0.0/16"
+    }
+    $virtualNetwork = New-AzVirtualNetwork @vnet
+    ```
 
-Create a subnet configuration with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The following example creates a subnet configuration for a subnet named *subnet-public*:
+1. Create a subnet configuration with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The following example creates a subnet configuration for a subnet named *subnet-public*:
 
-```azurepowershell-interactive
-$subpub = @{
-    Name = "subnet-public"
-    AddressPrefix = "10.0.0.0/24"
-    VirtualNetwork = $virtualNetwork
-}
-$subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig @subpub
-```
+    ```azurepowershell-interactive
+    $subpub = @{
+        Name = "subnet-public"
+        AddressPrefix = "10.0.0.0/24"
+        VirtualNetwork = $virtualNetwork
+    }
+    $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig @subpub
+    ```
 
-Create the subnet in the virtual network by writing the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
+1. Create the subnet in the virtual network by writing the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
 
-```azurepowershell-interactive
-$virtualNetwork | Set-AzVirtualNetwork
-```
+    ```azurepowershell-interactive
+    $virtualNetwork | Set-AzVirtualNetwork
+    ```
 
-Create an additional subnet in the virtual network. In this example, a subnet named *subnet-private* is created with a service endpoint for *Microsoft.Storage*: 
+1. Create an additional subnet in the virtual network. In this example, a subnet named *subnet-private* is created with a service endpoint for *Microsoft.Storage*: 
 
-```azurepowershell-interactive
-$subpriv = @{
-    Name = "subnet-private"
-    AddressPrefix = "10.0.1.0/24"
-    VirtualNetwork = $virtualNetwork
-    ServiceEndpoint = "Microsoft.Storage"
-}
-$subnetConfigPrivate = Add-AzVirtualNetworkSubnetConfig @subpriv
+    ```azurepowershell-interactive
+    $subpriv = @{
+        Name = "subnet-private"
+        AddressPrefix = "10.0.1.0/24"
+        VirtualNetwork = $virtualNetwork
+        ServiceEndpoint = "Microsoft.Storage"
+    }
+    $subnetConfigPrivate = Add-AzVirtualNetworkSubnetConfig @subpriv
 
-$virtualNetwork | Set-AzVirtualNetwork
-```
+    $virtualNetwork | Set-AzVirtualNetwork
+    ```
 
 ## Deploy Azure Bastion
 
@@ -202,43 +202,43 @@ It takes about 10 minutes to deploy the Bastion resources. You can create VMs in
 
 ## Create a virtual network
 
-Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *test-rg* in the *westus2* location.
+1. Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *test-rg* in the *westus2* location.
 
-```azurecli-interactive
-az group create \
-  --name test-rg \
-  --location westus2
-```
+    ```azurecli-interactive
+    az group create \
+      --name test-rg \
+      --location westus2
+    ```
 
-Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet).
+1. Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet).
 
-```azurecli-interactive
-az network vnet create \
-  --name vnet-1 \
-  --resource-group test-rg \
-  --address-prefix 10.0.0.0/16 \
-  --subnet-name subnet-public \
-  --subnet-prefix 10.0.0.0/24
-```
+    ```azurecli-interactive
+    az network vnet create \
+      --name vnet-1 \
+      --resource-group test-rg \
+      --address-prefix 10.0.0.0/16 \
+      --subnet-name subnet-public \
+      --subnet-prefix 10.0.0.0/24
+    ```
 
-You can enable service endpoints only for services that support service endpoints. View service endpoint-enabled services available in an Azure location with [az network vnet list-endpoint-services](/cli/azure/network/vnet). The following example returns a list of service-endpoint-enabled services available in the *westus2* region. The list of services returned will grow over time, as more Azure services become service endpoint enabled.
+1. You can enable service endpoints only for services that support service endpoints. View service endpoint-enabled services available in an Azure location with [az network vnet list-endpoint-services](/cli/azure/network/vnet). The following example returns a list of service-endpoint-enabled services available in the *westus2* region. The list of services returned will grow over time, as more Azure services become service endpoint enabled.
 
-```azurecli-interactive
-az network vnet list-endpoint-services \
-  --location westus2 \
-  --out table
-```
+    ```azurecli-interactive
+    az network vnet list-endpoint-services \
+      --location westus2 \
+      --out table
+    ```
 
-Create another subnet in the virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet). In this example, a service endpoint for `Microsoft.Storage` is created for the subnet: 
+1. Create another subnet in the virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet). In this example, a service endpoint for `Microsoft.Storage` is created for the subnet: 
 
-```azurecli-interactive
-az network vnet subnet create \
-  --vnet-name vnet-1 \
-  --resource-group test-rg \
-  --name subnet-private \
-  --address-prefix 10.0.1.0/24 \
-  --service-endpoints Microsoft.Storage
-```
+    ```azurecli-interactive
+    az network vnet subnet create \
+      --vnet-name vnet-1 \
+      --resource-group test-rg \
+      --name subnet-private \
+      --address-prefix 10.0.1.0/24 \
+      --service-endpoints Microsoft.Storage
+    ```
 
 ---
 
@@ -267,7 +267,7 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 ### [PowerShell](#tab/powershell)
 
-Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). The following example creates a network security group named *nsg-private*.
+1. Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). The following example creates a network security group named *nsg-private*.
 
 ```azurepowershell-interactive
 $nsgpriv = @{
@@ -358,137 +358,137 @@ az network nsg create \
 
 ### [PowerShell](#tab/powershell)
 
-Create network security group security rules with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). The following rule allows outbound access to the public IP addresses assigned to the Azure Storage service: 
+1. Create network security group security rules with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). The following rule allows outbound access to the public IP addresses assigned to the Azure Storage service: 
 
-```azurepowershell-interactive
-$r1 = @{
-    Name = "Allow-Storage-All"
-    Access = "Allow"
-    DestinationAddressPrefix = "Storage"
-    DestinationPortRange = "*"
-    Direction = "Outbound"
-    Priority = 100
-    Protocol = "*"
-    SourceAddressPrefix = "VirtualNetwork"
-    SourcePortRange = "*"
-}
+    ```azurepowershell-interactive
+    $r1 = @{
+        Name = "Allow-Storage-All"
+        Access = "Allow"
+        DestinationAddressPrefix = "Storage"
+        DestinationPortRange = "*"
+        Direction = "Outbound"
+        Priority = 100
+        Protocol = "*"
+        SourceAddressPrefix = "VirtualNetwork"
+        SourcePortRange = "*"
+    }
 
-$rule1 = New-AzNetworkSecurityRuleConfig @r1
-```
+    $rule1 = New-AzNetworkSecurityRuleConfig @r1
+    ```
 
-The following rule denies access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+1. The following rule denies access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
 
-```azurepowershell-interactive
-$r2 = @{
-    Name = "Deny-Internet-All"
-    Access = "Deny"
-    DestinationAddressPrefix = "Internet"
-    DestinationPortRange = "*"
-    Direction = "Outbound"
-    Priority = 110
-    Protocol = "*"
-    SourceAddressPrefix = "VirtualNetwork"
-    SourcePortRange = "*"
-}
-$rule2 = New-AzNetworkSecurityRuleConfig @r2
-```
+    ```azurepowershell-interactive
+    $r2 = @{
+        Name = "Deny-Internet-All"
+        Access = "Deny"
+        DestinationAddressPrefix = "Internet"
+        DestinationPortRange = "*"
+        Direction = "Outbound"
+        Priority = 110
+        Protocol = "*"
+        SourceAddressPrefix = "VirtualNetwork"
+        SourcePortRange = "*"
+    }
+    $rule2 = New-AzNetworkSecurityRuleConfig @r2
+    ```
 
-Use [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) to retrieve the network security group object into a variable. Use [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig) to add the rules to the network security group. 
+1. Use [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) to retrieve the network security group object into a variable. Use [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig) to add the rules to the network security group. 
 
-```azurepowershell-interactive
-# Retrieve the existing network security group
-$nsgpriv = @{
-    ResourceGroupName = 'test-rg'
-    Name = 'nsg-private'
-}
-$nsg = Get-AzNetworkSecurityGroup @nsgpriv
+    ```azurepowershell-interactive
+    # Retrieve the existing network security group
+    $nsgpriv = @{
+        ResourceGroupName = 'test-rg'
+        Name = 'nsg-private'
+    }
+    $nsg = Get-AzNetworkSecurityGroup @nsgpriv
 
-# Add the new rules to the security group
-$nsg.SecurityRules += $rule1
-$nsg.SecurityRules += $rule2
-$nsg.SecurityRules += $rule3
+    # Add the new rules to the security group
+    $nsg.SecurityRules += $rule1
+    $nsg.SecurityRules += $rule2
+    $nsg.SecurityRules += $rule3
 
-# Update the network security group with the new rules
-Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
-```
+    # Update the network security group with the new rules
+    Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
 
-Associate the network security group to the *subnet-private* subnet with [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) and then write the subnet configuration to the virtual network. The following example associates the *nsg-private* network security group to the *subnet-private* subnet:
+1. Associate the network security group to the *subnet-private* subnet with [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) and then write the subnet configuration to the virtual network. The following example associates the *nsg-private* network security group to the *subnet-private* subnet:
 
-```azurepowershell-interactive
-$subnet = @{
-    VirtualNetwork = $VirtualNetwork
-    Name = "subnet-private"
-    AddressPrefix = "10.0.1.0/24"
-    ServiceEndpoint = "Microsoft.Storage"
-    NetworkSecurityGroup = $nsg
-}
-Set-AzVirtualNetworkSubnetConfig @subnet
+    ```azurepowershell-interactive
+    $subnet = @{
+        VirtualNetwork = $VirtualNetwork
+        Name = "subnet-private"
+        AddressPrefix = "10.0.1.0/24"
+        ServiceEndpoint = "Microsoft.Storage"
+        NetworkSecurityGroup = $nsg
+    }
+    Set-AzVirtualNetworkSubnetConfig @subnet
 
-$virtualNetwork | Set-AzVirtualNetwork
-```
+    $virtualNetwork | Set-AzVirtualNetwork
+    ```
 
 ### [CLI](#tab/cli)
 
-Create security rules with [az network nsg rule create](/cli/azure/network/nsg/rule). The rule that follows allows outbound access to the public IP addresses assigned to the Azure Storage service: 
+1. Create security rules with [az network nsg rule create](/cli/azure/network/nsg/rule). The following rule allows outbound access to the public IP addresses assigned to the Azure Storage service: 
 
-```azurecli-interactive
-az network nsg rule create \
-  --resource-group test-rg \
-  --nsg-name nsg-private \
-  --name Allow-Storage-All \
-  --access Allow \
-  --protocol "*" \
-  --direction Outbound \
-  --priority 100 \
-  --source-address-prefix "VirtualNetwork" \
-  --source-port-range "*" \
-  --destination-address-prefix "Storage" \
-  --destination-port-range "*"
-```
+    ```azurecli-interactive
+    az network nsg rule create \
+      --resource-group test-rg \
+      --nsg-name nsg-private \
+      --name Allow-Storage-All \
+      --access Allow \
+      --protocol "*" \
+      --direction Outbound \
+      --priority 100 \
+      --source-address-prefix "VirtualNetwork" \
+      --source-port-range "*" \
+      --destination-address-prefix "Storage" \
+      --destination-port-range "*"
+    ```
 
-Each network security group contains several [default security rules](./network-security-groups-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+1. Each network security group contains several [default security rules](./network-security-groups-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
 
-```azurecli-interactive
-az network nsg rule create \
-  --resource-group test-rg \
-  --nsg-name nsg-private \
-  --name Deny-Internet-All \
-  --access Deny \
-  --protocol "*" \
-  --direction Outbound \
-  --priority 110 \
-  --source-address-prefix "VirtualNetwork" \
-  --source-port-range "*" \
-  --destination-address-prefix "Internet" \
-  --destination-port-range "*"
-```
+    ```azurecli-interactive
+    az network nsg rule create \
+      --resource-group test-rg \
+      --nsg-name nsg-private \
+      --name Deny-Internet-All \
+      --access Deny \
+      --protocol "*" \
+      --direction Outbound \
+      --priority 110 \
+      --source-address-prefix "VirtualNetwork" \
+      --source-port-range "*" \
+      --destination-address-prefix "Internet" \
+      --destination-port-range "*"
+    ```
 
-The following rule allows SSH traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. SSH is allowed to the subnet so that connectivity can be tested in a later step.
+1. The following rule allows SSH traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. SSH is allowed to the subnet so that connectivity can be tested in a later step.
 
-```azurecli-interactive
-az network nsg rule create \
-  --resource-group test-rg \
-  --nsg-name nsg-private \
-  --name Allow-SSH-All \
-  --access Allow \
-  --protocol Tcp \
-  --direction Inbound \
-  --priority 120 \
-  --source-address-prefix "*" \
-  --source-port-range "*" \
-  --destination-address-prefix "VirtualNetwork" \
-  --destination-port-range "22"
-```
+    ```azurecli-interactive
+    az network nsg rule create \
+      --resource-group test-rg \
+      --nsg-name nsg-private \
+      --name Allow-SSH-All \
+      --access Allow \
+      --protocol Tcp \
+      --direction Inbound \
+      --priority 120 \
+      --source-address-prefix "*" \
+      --source-port-range "*" \
+      --destination-address-prefix "VirtualNetwork" \
+      --destination-port-range "22"
+    ```
 
-Associate the network security group to the *subnet-private* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet). The following example associates the *nsg-private* network security group to the *subnet-private* subnet:
+1. Associate the network security group to the *subnet-private* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet). The following example associates the *nsg-private* network security group to the *subnet-private* subnet:
 
-```azurecli-interactive
-az network vnet subnet update \
-  --vnet-name vnet-1 \
-  --name subnet-private \
-  --resource-group test-rg \
-  --network-security-group nsg-private
-```
+    ```azurecli-interactive
+    az network vnet subnet update \
+      --vnet-name vnet-1 \
+      --name subnet-private \
+      --resource-group test-rg \
+      --network-security-group nsg-private
+    ```
 
 ---
 
@@ -502,30 +502,30 @@ The steps required to restrict network access to resources created through Azure
 
 ### [PowerShell](#tab/powershell)
 
-Create an Azure storage account with [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Replace `<replace-with-your-unique-storage-account-name>` with a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters.
+1. Create an Azure storage account with [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Replace `<replace-with-your-unique-storage-account-name>` with a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters.
 
-```azurepowershell-interactive
-$storageAcctName = '<replace-with-your-unique-storage-account-name>'
+    ```azurepowershell-interactive
+    $storageAcctName = '<replace-with-your-unique-storage-account-name>'
 
-$storage = @{
-    Location = 'westus2'
-    Name = $storageAcctName
-    ResourceGroupName = 'test-rg'
-    SkuName = 'Standard_LRS'
-    Kind = 'StorageV2'
-}
-New-AzStorageAccount @storage
-```
+    $storage = @{
+        Location = 'westus2'
+        Name = $storageAcctName
+        ResourceGroupName = 'test-rg'
+        SkuName = 'Standard_LRS'
+        Kind = 'StorageV2'
+    }
+    New-AzStorageAccount @storage
+    ```
 
-After the storage account is created, retrieve the key for the storage account into a variable with [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey):
+1. After the storage account is created, retrieve the key for the storage account into a variable with [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey):
 
-```azurepowershell-interactive
-$storagekey = @{
-  ResourceGroupName = 'test-rg'
-  AccountName       = $storageAcctName
-}
-$storageAcctKey = (Get-AzStorageAccountKey @storagekey).Value[0]
-```
+    ```azurepowershell-interactive
+    $storagekey = @{
+      ResourceGroupName = 'test-rg'
+      AccountName       = $storageAcctName
+    }
+    $storageAcctKey = (Get-AzStorageAccountKey @storagekey).Value[0]
+    ```
 
 For the purposes of this tutorial, the connection string is used to connect to the storage account. Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
@@ -539,31 +539,31 @@ The steps necessary to restrict network access to resources created through Azur
 
 ### Create a storage account
 
-Create an Azure storage account with [az storage account create](/cli/azure/storage/account). Replace `<replace-with-your-unique-storage-account-name>` with a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters.
+1. Create an Azure storage account with [az storage account create](/cli/azure/storage/account). Replace `<replace-with-your-unique-storage-account-name>` with a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters.
 
-```azurecli-interactive
-storageAcctName="<replace-with-your-unique-storage-account-name>"
+    ```azurecli-interactive
+    storageAcctName="<replace-with-your-unique-storage-account-name>"
 
-az storage account create \
-  --name $storageAcctName \
-  --resource-group test-rg \
-  --sku Standard_LRS \
-  --kind StorageV2
-```
+    az storage account create \
+      --name $storageAcctName \
+      --resource-group test-rg \
+      --sku Standard_LRS \
+      --kind StorageV2
+    ```
 
-After the storage account is created, retrieve the connection string for the storage account into a variable with [az storage account show-connection-string](/cli/azure/storage/account). The connection string is used to create a file share in a later step.
+1. After the storage account is created, retrieve the connection string for the storage account into a variable with [az storage account show-connection-string](/cli/azure/storage/account). The connection string is used to create a file share in a later step.
 
-For the purposes of this tutorial, the connection string is used to connect to the storage account. Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+    For the purposes of this tutorial, the connection string is used to connect to the storage account. Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
-For more information about connecting to a storage account using a managed identity, see [Use a managed identity to access Azure Storage](/entra/identity/managed-identities-azure-resources/tutorial-linux-managed-identities-vm-access?pivots=identity-linux-mi-vm-access-storage).
+    For more information about connecting to a storage account using a managed identity, see [Use a managed identity to access Azure Storage](/entra/identity/managed-identities-azure-resources/tutorial-linux-managed-identities-vm-access?pivots=identity-linux-mi-vm-access-storage).
 
-```azurecli-interactive
-saConnectionString=$(az storage account show-connection-string \
-  --name $storageAcctName \
-  --resource-group test-rg \
-  --query 'connectionString' \
-  --out tsv)
-```
+    ```azurecli-interactive
+    saConnectionString=$(az storage account show-connection-string \
+      --name $storageAcctName \
+      --resource-group test-rg \
+      --query 'connectionString' \
+      --out tsv)
+    ```
 
 ---
 
@@ -594,28 +594,28 @@ saConnectionString=$(az storage account show-connection-string \
 
 ### [PowerShell](#tab/powershell)
 
-Create a context for your storage account and key with [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). The context encapsulates the storage account name and account key:
+1. Create a context for your storage account and key with [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). The context encapsulates the storage account name and account key:
 
-```azurepowershell-interactive
-$storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
-```
+    ```azurepowershell-interactive
+    $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
+    ```
 
-Create a file share with [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
+1. Create a file share with [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
-```azurepowershell-interactive
-$share = New-AzStorageShare file-share -Context $storageContext
-```
+    ```azurepowershell-interactive
+    $share = New-AzStorageShare file-share -Context $storageContext
+    ```
 
 ### [CLI](#tab/cli)
 
-Create a file share in the storage account with [az storage share create](/cli/azure/storage/share). In a later step, this file share is mounted to confirm network access to it.
+1. Create a file share in the storage account with [az storage share create](/cli/azure/storage/share). In a later step, this file share is mounted to confirm network access to it.
 
-```azurecli-interactive
-az storage share create \
-  --name file-share \
-  --quota 2048 \
-  --connection-string $saConnectionString > /dev/null
-```
+    ```azurecli-interactive
+    az storage share create \
+      --name file-share \
+      --quota 2048 \
+      --connection-string $saConnectionString > /dev/null
+    ```
 
 ---
 
@@ -655,60 +655,59 @@ To restrict network access to a subnet:
 
 ### [PowerShell](#tab/powershell)
 
-By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Once network access is denied, the storage account is not accessible from any network.
+1. By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Once network access is denied, the storage account is not accessible from any network.
 
-```azurepowershell-interactive
-$storagerule = @{
-    ResourceGroupName = "test-rg"
-    Name = $storageAcctName
-    DefaultAction = "Deny"
-}
-Update-AzStorageAccountNetworkRuleSet @storagerule
+    ```azurepowershell-interactive
+    $storagerule = @{
+        ResourceGroupName = "test-rg"
+        Name = $storageAcctName
+        DefaultAction = "Deny"
+    }
+    Update-AzStorageAccountNetworkRuleSet @storagerule
+    ```
+
+1. Retrieve the created virtual network with [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and then retrieve the private subnet object into a variable with [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
+
+    ```azurepowershell-interactive
+    $subnetpriv = @{
+        ResourceGroupName = "test-rg"
+        VirtualNetworkName = "vnet-1"
+        Name = "subnet-private"
+    }
+    $privateSubnet = Get-AzVirtualNetwork @subnetpriv | Get-AzVirtualNetworkSubnetConfig -Name "subnet-private"
 ```
 
-Retrieve the created virtual network with [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and then retrieve the private subnet object into a variable with [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
+1. Allow network access to the storage account from the *subnet-private* subnet with [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
 
-```azurepowershell-interactive
-$subnetpriv = @{
-    ResourceGroupName = "test-rg"
-    VirtualNetworkName = "vnet-1"
-    Name = "subnet-private"
-}
-
-$privateSubnet = Get-AzVirtualNetwork @subnetpriv | Get-AzVirtualNetworkSubnetConfig -Name "subnet-private"
-```
-
-Allow network access to the storage account from the *subnet-private* subnet with [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
-
-```azurepowershell-interactive
-$storagenetrule = @{
-    ResourceGroupName = "test-rg"
-    Name = $storageAcctName
-    VirtualNetworkResourceId = $privateSubnet.Id
-}
-Add-AzStorageAccountNetworkRule @storagenetrule
-```
+    ```azurepowershell-interactive
+    $storagenetrule = @{
+        ResourceGroupName = "test-rg"
+        Name = $storageAcctName
+        VirtualNetworkResourceId = $privateSubnet.Id
+    }
+    Add-AzStorageAccountNetworkRule @storagenetrule
+    ```
 
 ### [CLI](#tab/cli)
 
-By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account). Once network access is denied, the storage account isn't accessible from any network.
+1. By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account). Once network access is denied, the storage account isn't accessible from any network.
 
-```azurecli-interactive
-az storage account update \
-  --name $storageAcctName \
-  --resource-group test-rg \
-  --default-action Deny
-```
+    ```azurecli-interactive
+    az storage account update \
+      --name $storageAcctName \
+      --resource-group test-rg \
+      --default-action Deny
+    ```
 
-Allow network access to the storage account from the *subnet-private* subnet with [az storage account network-rule add](/cli/azure/storage/account/network-rule).
+1. Allow network access to the storage account from the *subnet-private* subnet with [az storage account network-rule add](/cli/azure/storage/account/network-rule).
 
-```azurecli-interactive
-az storage account network-rule add \
-  --resource-group test-rg \
-  --account-name $storageAcctName \
-  --vnet-name vnet-1 \
-  --subnet subnet-private
-```
+    ```azurecli-interactive
+    az storage account network-rule add \
+      --resource-group test-rg \
+      --account-name $storageAcctName \
+      --vnet-name vnet-1 \
+      --subnet subnet-private
+    ```
 
 ---
 
@@ -969,39 +968,37 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 SSH into the *vm-private* VM.
 
-Run the following command to store the IP address of the VM as an environment variable:
+1. Run the following command to store the IP address of the VM as an environment variable:
 
-```bash
-export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-private --query publicIps --output tsv)
-```
+    ```bash
+    export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-private --query publicIps --output tsv)
+ 
+    ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
+    ```
 
-```bash 
-ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
-```
+1. Create a folder for a mount point:
 
-Create a folder for a mount point:
+    ```bash
+    sudo mkdir /mnt/file-share
+    ```
 
-```bash
-sudo mkdir /mnt/file-share
-```
+1. Mount the Azure file share to the directory you created. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account).
 
-Mount the Azure file share to the directory you created. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account).
+    ```bash
+    sudo mount --types cifs //<storage-account-name>.file.core.windows.net/my-file-share /mnt/file-share --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    ```
 
-```bash
-sudo mount --types cifs //<storage-account-name>.file.core.windows.net/my-file-share /mnt/file-share --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
-```
+    You receive the `user@vm-private:~$` prompt. The Azure file share successfully mounted to */mnt/file-share*.
 
-You receive the `user@vm-private:~$` prompt. The Azure file share successfully mounted to */mnt/file-share*.
+1. Confirm that the VM has no outbound connectivity to any other public IP addresses:
 
-Confirm that the VM has no outbound connectivity to any other public IP addresses:
+    ```bash
+    ping bing.com -c 4
+    ```
 
-```bash
-ping bing.com -c 4
-```
+    You receive no replies, because the network security group associated to the *subnet-private* subnet doesn't allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
 
-You receive no replies, because the network security group associated to the *subnet-private* subnet doesn't allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
-
-Exit the SSH session to the *vm-private* VM.
+1. Exit the SSH session to the *vm-private* VM.
 
 ---
 
@@ -1118,7 +1115,7 @@ Exit the SSH session to the *vm-private* VM.
         + FullyQualifiedErrorId : CouldNotMapNetworkDrive,Microsoft.PowerShell.Commands.NewPSDriveCommand
     ```
 
-4. Close the Bastion connection to **vm-1**.
+1. Close the Bastion connection to **vm-1**.
 
 1. From your computer, attempt to view the file shares in the storage account with the following command:
 
@@ -1131,47 +1128,45 @@ Exit the SSH session to the *vm-private* VM.
 
     ```
 
-Access is denied, and you receive a *Get-AzStorageFile : The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation* error, because your computer is not in the *subnet-private* subnet of the *vnet-1* virtual network.
+    Access is denied, and you receive a *Get-AzStorageFile : The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation* error, because your computer is not in the *subnet-private* subnet of the *vnet-1* virtual network.
 
 ### [CLI](#tab/cli)
 
 SSH into the *vm-public* VM.
 
-Run the following command to store the IP address of the VM as an environment variable:
+1. Run the following command to store the IP address of the VM as an environment variable:
 
-```bash
-export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-public --query publicIps --output tsv)
-```
+    ```bash
+    export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-public --query publicIps --output tsv)
+ 
+    ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
+    ```
 
-```bash 
-ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
-```
+1. Create a directory for a mount point:
 
-Create a directory for a mount point:
+    ```bash
+    sudo mkdir /mnt/file-share
+    ```
 
-```bash
-sudo mkdir /mnt/file-share
-```
+1. Attempt to mount the Azure file share to the directory you created. This article assumes you deployed the latest version of Ubuntu. If you're using earlier versions of Ubuntu, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for more instructions about mounting file shares. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account):
 
-Attempt to mount the Azure file share to the directory you created. This article assumes you deployed the latest version of Ubuntu. If you're using earlier versions of Ubuntu, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for more instructions about mounting file shares. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account):
+    ```bash
+    sudo mount --types cifs //storage-account-name>.file.core.windows.net/file-share /mnt/file-share --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    ```
 
-```bash
-sudo mount --types cifs //storage-account-name>.file.core.windows.net/file-share /mnt/file-share --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
-```
+    Access is denied, and you receive a `mount error(13): Permission denied` error, because the *vm-public* VM is deployed within the *subnet-public* subnet. The *subnet-public* subnet doesn't have a service endpoint enabled for Azure Storage, and the storage account only allows network access from the *subnet-private* subnet, not the *subnet-public* subnet.
 
-Access is denied, and you receive a `mount error(13): Permission denied` error, because the *vm-public* VM is deployed within the *subnet-public* subnet. The *subnet-public* subnet doesn't have a service endpoint enabled for Azure Storage, and the storage account only allows network access from the *subnet-private* subnet, not the *subnet-public* subnet.
+1. Exit the SSH session to the *vm-public* VM.
 
-Exit the SSH session to the *vm-public* VM.
+1. From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
 
-From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
+    ```azurecli-interactive
+    az storage share list \
+      --account-name <account-name> \
+      --account-key <account-key>
+    ```
 
-```azurecli-interactive
-az storage share list \
-  --account-name <account-name> \
-  --account-key <account-key>
-```
-
-Access is denied and you receive a **This request isn't authorized to perform this operation** error, because your computer isn't in the *subnet-private* subnet of the *vnet-1* virtual network.
+    Access is denied and you receive a **This request isn't authorized to perform this operation** error, because your computer isn't in the *subnet-private* subnet of the *vnet-1* virtual network.
 
 ---
 
