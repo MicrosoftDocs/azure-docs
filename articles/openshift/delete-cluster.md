@@ -45,7 +45,8 @@ az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 You'll then be prompted to confirm if you are sure you want to perform this operation. After you confirm with `y`, it will take several minutes to delete the cluster. When the command finishes, the cluster will be deleted and all the managed objects.
 
-**NOTE:** User-created objects such as virtual network and subnets, must be manually deleted accordingly.
+> [!NOTE] 
+> User-created objects such as virtual network and subnets must be manually deleted accordingly.
 
 ## Next steps
 
