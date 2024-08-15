@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 08/15/2024
+ms.date: 06/18/2024
 ms.author: radeltch
 ---
 
@@ -942,13 +942,8 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
         params SID="HN1" InstanceNumber="03" PREFER_SITE_TAKEOVER="true" \
         DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
       
-      # Run the following command if the cluster nodes are running on SLES 12 SP05.
       sudo crm configure ms msl_SAPHana_HN1_HDB03 rsc_SAPHana_HN1_HDB03 \
         meta clone-node-max="1" master-max="1" interleave="true"
-
-      # Run the following command if the cluster nodes are running on SLES 15 SP03 or later.
-      sudo crm configure clone msl_SAPHana_HN1_HDB03 rsc_SAPHana_HN1_HDB03 \
-        meta clone-node-max="1" master-max="1" interleave="true" promotable="true"
       ```
 
       > [!IMPORTANT]
