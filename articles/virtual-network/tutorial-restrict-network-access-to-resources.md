@@ -442,7 +442,7 @@ az storage account network-rule add \
 
 ---
 
-### Restrict network access to a subnet
+## Deploy virtual machines to subnets
 
 ### [Portal](#tab/portal)
 
