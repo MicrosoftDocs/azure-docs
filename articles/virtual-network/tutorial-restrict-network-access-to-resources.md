@@ -6,7 +6,8 @@ ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: tutorial
 ms.date: 08/15/2024
-ms.custom: template-tutorial, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: template-tutorial, devx-track-azurecli, devx-track-azurepowershell, ai-assisted
+
 # Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ---
 
@@ -87,26 +88,34 @@ Service endpoints are enabled per service, per subnet.
 Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *test-rg*: 
 
 ```azurepowershell-interactive
-New-AzResourceGroup -ResourceGroupName test-rg -Location westus2
+$rg = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+}
+New-AzResourceGroup @rg
 ```
 
 Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *vnet-1* with the address prefix *10.0.0.0/16*.
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName test-rg `
-  -Location westus2 `
-  -Name vnet-1 `
-  -AddressPrefix 10.0.0.0/16
+$vnet = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    Name = "vnet-1"
+    AddressPrefix = "10.0.0.0/16"
+}
+$virtualNetwork = New-AzVirtualNetwork @vnet
 ```
 
 Create a subnet configuration with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The following example creates a subnet configuration for a subnet named *subnet-public*:
 
 ```azurepowershell-interactive
-$subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
-  -Name subnet-public `
-  -AddressPrefix 10.0.0.0/24 `
-  -VirtualNetwork $virtualNetwork
+$subpub = @{
+    Name = "subnet-public"
+    AddressPrefix = "10.0.0.0/24"
+    VirtualNetwork = $virtualNetwork
+}
+$subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig @subpub
 ```
 
 Create the subnet in the virtual network by writing the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
@@ -118,14 +127,70 @@ $virtualNetwork | Set-AzVirtualNetwork
 Create an additional subnet in the virtual network. In this example, a subnet named *subnet-private* is created with a service endpoint for *Microsoft.Storage*: 
 
 ```azurepowershell-interactive
-$subnetConfigPrivate = Add-AzVirtualNetworkSubnetConfig `
-  -Name subnet-private `
-  -AddressPrefix 10.0.1.0/24 `
-  -VirtualNetwork $virtualNetwork `
-  -ServiceEndpoint Microsoft.Storage
+$subpriv = @{
+    Name = "subnet-private"
+    AddressPrefix = "10.0.1.0/24"
+    VirtualNetwork = $virtualNetwork
+    ServiceEndpoint = "Microsoft.Storage"
+}
+$subnetConfigPrivate = Add-AzVirtualNetworkSubnetConfig @subpriv
 
 $virtualNetwork | Set-AzVirtualNetwork
 ```
+
+## Deploy Azure Bastion
+
+Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Bastion, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
+
+ [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+1. Configure a Bastion subnet for your virtual network. This subnet is reserved exclusively for Bastion resources and must be named **AzureBastionSubnet**.
+
+    ```azurepowershell-interactive
+    $subnet = @{
+        Name = 'AzureBastionSubnet'
+        VirtualNetwork = $virtualNetwork
+        AddressPrefix = '10.0.1.0/26'
+    }
+    $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
+    ```
+
+1. Set the configuration:
+
+    ```azurepowershell-interactive
+    $virtualNetwork | Set-AzVirtualNetwork
+    ```
+
+1. Create a public IP address for Bastion. The Bastion host uses the public IP to access SSH and RDP over port 443.
+
+    ```azurepowershell-interactive
+    $ip = @{
+            ResourceGroupName = 'test-rg'
+            Name = 'public-ip'
+            Location = 'westus2'
+            AllocationMethod = 'Static'
+            Sku = 'Standard'
+            Zone = 1,2,3
+    }
+    New-AzPublicIpAddress @ip
+    ```
+
+1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new Standard SKU Bastion host in **AzureBastionSubnet**:
+
+    ```azurepowershell-interactive
+    $bastion = @{
+        Name = 'bastion'
+        ResourceGroupName = 'test-rg'
+        PublicIpAddressRgName = 'test-rg'
+        PublicIpAddressName = 'public-ip'
+        VirtualNetworkRgName = 'test-rg'
+        VirtualNetworkName = 'vnet-1'
+        Sku = 'Basic'
+    }
+    New-AzBastion @bastion
+    ```
+
+It takes about 10 minutes to deploy the Bastion resources. You can create VMs in the next section while Bastion deploys to your virtual network.
 
 ### [CLI](#tab/cli)
 
@@ -199,11 +264,12 @@ By default, all virtual machine instances in a subnet can communicate with any r
 Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). The following example creates a network security group named *nsg-private*.
 
 ```azurepowershell-interactive
-$nsg = New-AzNetworkSecurityGroup `
-  -ResourceGroupName test-rg `
-  -Location westus2 `
-  -Name nsg-private `
-  -SecurityRules $rule1,$rule2,$rule3
+$nsgpriv = @{
+    ResourceGroupName = 'test-rg'
+    Location = 'westus2'
+    Name = 'nsg-private'
+}
+$nsg = New-AzNetworkSecurityGroup @nsgpriv
 ```
 
 ### [CLI](#tab/cli)
@@ -289,57 +355,68 @@ az network nsg create \
 Create network security group security rules with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). The following rule allows outbound access to the public IP addresses assigned to the Azure Storage service: 
 
 ```azurepowershell-interactive
-$rule1 = New-AzNetworkSecurityRuleConfig `
-  -Name Allow-Storage-All `
-  -Access Allow `
-  -DestinationAddressPrefix Storage `
-  -DestinationPortRange * `
-  -Direction Outbound `
-  -Priority 100 `
-  -Protocol * `
-  -SourceAddressPrefix VirtualNetwork `
-  -SourcePortRange *
+$r1 = @{
+    Name = "Allow-Storage-All"
+    Access = "Allow"
+    DestinationAddressPrefix = "Storage"
+    DestinationPortRange = "*"
+    Direction = "Outbound"
+    Priority = 100
+    Protocol = "*"
+    SourceAddressPrefix = "VirtualNetwork"
+    SourcePortRange = "*"
+}
+
+$rule1 = New-AzNetworkSecurityRuleConfig @r1
 ```
 
 The following rule denies access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
 
 ```azurepowershell-interactive
-$rule2 = New-AzNetworkSecurityRuleConfig `
-  -Name Deny-Internet-All `
-  -Access Deny `
-  -DestinationAddressPrefix Internet `
-  -DestinationPortRange * `
-  -Direction Outbound `
-  -Priority 110 `
-  -Protocol * `
-  -SourceAddressPrefix VirtualNetwork `
-  -SourcePortRange *
+$r2 = @{
+    Name = "Deny-Internet-All"
+    Access = "Deny"
+    DestinationAddressPrefix = "Internet"
+    DestinationPortRange = "*"
+    Direction = "Outbound"
+    Priority = 110
+    Protocol = "*"
+    SourceAddressPrefix = "VirtualNetwork"
+    SourcePortRange = "*"
+}
+$rule2 = New-AzNetworkSecurityRuleConfig @r2
 ```
 
-The following rule allows Remote Desktop Protocol (RDP) traffic inbound to the subnet from anywhere. Remote desktop connections are allowed to the subnet, so that you can confirm network access to a resource in a later step.
+Use [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) to retrieve the network security group object into a variable. Use [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig) to add the rules to the network security group. 
 
 ```azurepowershell-interactive
-$rule3 = New-AzNetworkSecurityRuleConfig `
-  -Name Allow-RDP-All `
-  -Access Allow `
-  -DestinationAddressPrefix VirtualNetwork `
-  -DestinationPortRange 3389 `
-  -Direction Inbound `
-  -Priority 120 `
-  -Protocol * `
-  -SourceAddressPrefix * `
-  -SourcePortRange *
+# Retrieve the existing network security group
+$nsgpriv = @{
+    ResourceGroupName = 'test-rg'
+    Name = 'nsg-private'
+}
+$nsg = Get-AzNetworkSecurityGroup @nsgpriv
+
+# Add the new rules to the security group
+$nsg.SecurityRules += $rule1
+$nsg.SecurityRules += $rule2
+$nsg.SecurityRules += $rule3
+
+# Update the network security group with the new rules
+Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
 ```
 
 Associate the network security group to the *subnet-private* subnet with [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) and then write the subnet configuration to the virtual network. The following example associates the *nsg-private* network security group to the *subnet-private* subnet:
 
 ```azurepowershell-interactive
-Set-AzVirtualNetworkSubnetConfig `
-  -VirtualNetwork $VirtualNetwork `
-  -Name subnet-private `
-  -AddressPrefix 10.0.1.0/24 `
-  -ServiceEndpoint Microsoft.Storage `
-  -NetworkSecurityGroup $nsg
+$subnet = @{
+    VirtualNetwork = $VirtualNetwork
+    Name = "subnet-private"
+    AddressPrefix = "10.0.1.0/24"
+    ServiceEndpoint = "Microsoft.Storage"
+    NetworkSecurityGroup = $nsg
+}
+Set-AzVirtualNetworkSubnetConfig @subnet
 
 $virtualNetwork | Set-AzVirtualNetwork
 ```
@@ -424,20 +501,24 @@ Create an Azure storage account with [New-AzStorageAccount](/powershell/module/a
 ```azurepowershell-interactive
 $storageAcctName = '<replace-with-your-unique-storage-account-name>'
 
-New-AzStorageAccount `
-  -Location westus2 `
-  -Name $storageAcctName `
-  -ResourceGroupName test-rg `
-  -SkuName Standard_LRS `
-  -Kind StorageV2
+$storage = @{
+    Location = 'westus2'
+    Name = $storageAcctName
+    ResourceGroupName = 'test-rg'
+    SkuName = 'Standard_LRS'
+    Kind = 'StorageV2'
+}
+New-AzStorageAccount @storage
 ```
 
 After the storage account is created, retrieve the key for the storage account into a variable with [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey):
 
 ```azurepowershell-interactive
-$storageAcctKey = (Get-AzStorageAccountKey `
-  -ResourceGroupName test-rg `
-  -AccountName $storageAcctName).Value[0]
+$storagekey = @{
+  ResourceGroupName = 'test-rg'
+  AccountName       = $storageAcctName
+}
+$storageAcctKey = (Get-AzStorageAccountKey @storagekey).Value[0]
 ```
 
 For the purposes of this tutorial, the connection string is used to connect to the storage account. Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
@@ -571,29 +652,35 @@ To restrict network access to a subnet:
 By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Once network access is denied, the storage account is not accessible from any network.
 
 ```azurepowershell-interactive
-Update-AzStorageAccountNetworkRuleSet  `
-  -ResourceGroupName "test-rg" `
-  -Name $storageAcctName `
-  -DefaultAction Deny
+$storagerule = @{
+    ResourceGroupName = "test-rg"
+    Name = $storageAcctName
+    DefaultAction = "Deny"
+}
+Update-AzStorageAccountNetworkRuleSet @storagerule
 ```
 
 Retrieve the created virtual network with [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and then retrieve the private subnet object into a variable with [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
-$privateSubnet = Get-AzVirtualNetwork `
-  -ResourceGroupName "test-rg" `
-  -Name "vnet-1" `
-  | Get-AzVirtualNetworkSubnetConfig `
-  -Name "subnet-private"
+$subnetpriv = @{
+    ResourceGroupName = "test-rg"
+    VirtualNetworkName = "vnet-1"
+    Name = "subnet-private"
+}
+
+$privateSubnet = Get-AzVirtualNetwork @subnetpriv | Get-AzVirtualNetworkSubnetConfig -Name "subnet-private"
 ```
 
 Allow network access to the storage account from the *subnet-private* subnet with [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
-Add-AzStorageAccountNetworkRule `
-  -ResourceGroupName "test-rg" `
-  -Name $storageAcctName `
-  -VirtualNetworkResourceId $privateSubnet.Id
+$storagenetrule = @{
+    ResourceGroupName = "test-rg"
+    Name = $storageAcctName
+    VirtualNetworkResourceId = $privateSubnet.Id
+}
+Add-AzStorageAccountNetworkRule @storagenetrule
 ```
 
 ### [CLI](#tab/cli)
@@ -648,18 +735,20 @@ To test network access to a storage account, deploy a virtual machine to each su
 Create a virtual machine in the *subnet-public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM. The `-AsJob` option creates the VM in the background, so that you can continue to the next step.
 
 ```azurepowershell-interactive
-New-AzVm `
-    -ResourceGroupName "test-rg" `
-    -Location "WestUS2" `
-    -VirtualNetworkName "vnet-1" `
-    -SubnetName "subnet-public" `
-    -Name "vm-public" `
-    -AsJob
+$vm1 = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    VirtualNetworkName = "vnet-1"
+    SubnetName = "subnet-public"
+    Name = "vm-public"
+    PublicIpAddressName  = $null
+}
+New-AzVm @vm1 -AsJob
 ```
 
 Output similar to the following example output is returned:
 
-```powershell
+```output
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command                  
 --     ----            -------------   -----         -----------     --------             -------                  
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM     
@@ -670,12 +759,15 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 Create a virtual machine in the *subnet-private* subnet:
 
 ```azurepowershell-interactive
-New-AzVm `
-    -ResourceGroupName "test-rg" `
-    -Location "East US" `
-    -VirtualNetworkName "vnet-1" `
-    -SubnetName "subnet-private" `
-    -Name "vm-private" `
+$vm2 = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    VirtualNetworkName = "vnet-1"
+    SubnetName = "subnet-private"
+    Name = "vm-private"
+    PublicIpAddressName = $null
+}
+New-AzVm @vm2
 ```
 
 It takes a few minutes for Azure to create the VM. Do not continue to the next step until Azure finishes creating the VM and returns output to PowerShell.
@@ -797,42 +889,67 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 ### [PowerShell](#tab/powershell)
 
-Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to return the public IP address of a VM. The following example returns the public IP address of the *vm-private" `* VM:
+The virtual machine you created earlier that is assigned to the **subnet-private** subnet is used to confirm access to the storage account. The virtual machine you created in the previous section that is assigned to the **subnet-1** subnet is used to confirm that access to the storage account is blocked.
 
-```azurepowershell-interactive
-Get-AzPublicIpAddress `
-  -Name vm-private" ` `
-  -ResourceGroupName test-rg `
-  | Select IpAddress
-```
+### Get storage account access key
 
-Replace `<publicIpAddress>` in the following command, with the public IP address returned from the previous command, and then enter the following command:
+1. Sign-in to the [Azure portal](https://portal.azure.com/).
 
-```powershell
-mstsc /v:<publicIpAddress>
-```
+1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
 
-A Remote Desktop Protocol (.rdp) file is created and downloaded to your computer. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM. Select **OK**. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
+1. In **Storage accounts**, select your storage account.
 
-On the *vm-private" `* VM, map the Azure file share to drive Z using PowerShell. Before running the commands that follow, replace `<storage-account-key>` and `<storage-account-name>` with values from you supplied or retrieved in [Create a storage account](#create-a-storage-account).
+1. In **Security + networking**, select **Access keys**.
 
-```powershell
-$acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
-New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
-```
+1. Copy the value of **key1**. You may need to select the **Show** button to display the key.
 
-PowerShell returns output similar to the following example output:
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/storage-account-access-key.png" alt-text="Screenshot of storage account access key.":::
 
-```powershell
-Name           Used (GB)     Free (GB) Provider      Root
-----           ---------     --------- --------      ----
-Z                                      FileSystem    \\vnt.file.core.windows.net\my-f...
-```
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-The Azure file share successfully mapped to the Z drive.
+1. Select **vm-private**.
 
-Confirm that the VM has no outbound connectivity to any other public IP addresses:
+1. Select **Bastion** in **Operations**.
+
+1. Enter the username and password you specified when creating the virtual machine. Select **Connect**.
+
+1. Open Windows PowerShell. Use the following script to map the Azure file share to drive Z. 
+
+    * Replace `<storage-account-key>` with the key you copied in the previous step. 
+
+    * Replace `<storage-account-name>` with the name of your storage account. In this example, it's **storage8675**.
+
+   ```powershell
+    $key = @{
+        String = "<storage-account-key>"
+    }
+    $acctKey = ConvertTo-SecureString @key -AsPlainText -Force
+    
+    $cred = @{
+        ArgumentList = "Azure\<storage-account-name>", $acctKey
+    }
+    $credential = New-Object System.Management.Automation.PSCredential @cred
+
+    $map = @{
+        Name = "Z"
+        PSProvider = "FileSystem"
+        Root = "\\<storage-account-name>.file.core.windows.net\file-share"
+        Credential = $credential
+    }
+    New-PSDrive @map
+   ```
+
+   PowerShell returns output similar to the following example output:
+
+   ```output
+   Name        Used (GB)     Free (GB) Provider      Root
+   ----        ---------     --------- --------      ----
+   Z                                      FileSystem    \\storage8675.file.core.windows.net\f...
+   ```
+
+   The Azure file share successfully mapped to the Z drive.
+
+1. Confirm that the VM has no outbound connectivity to any other public IP addresses:
 
 ```powershell
 ping bing.com
@@ -840,7 +957,7 @@ ping bing.com
 
 You receive no replies, because the network security group associated to the *Private* subnet does not allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
 
-Close the remote desktop session to the *vm-private" `* VM.
+1. Close the Bastion connection to **vm-private**.
 
 ### [CLI](#tab/cli)
 
@@ -952,39 +1069,60 @@ Exit the SSH session to the *vm-private* VM.
 
 ### [PowerShell](#tab/powershell)
 
-Get the public IP address of the *vm-public* VM:
+### From vm-1
 
-```azurepowershell-interactive
-Get-AzPublicIpAddress `
-  -Name vm-public `
-  -ResourceGroupName test-rg `
-  | Select IpAddress
-```
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-Replace `<publicIpAddress>` in the following command, with the public IP address returned from the previous command, and then enter the following command: 
+1. Select **vm-1**.
 
-```powershell
-mstsc /v:<publicIpAddress>
-```
+1. Select **Bastion** in **Operations**.
 
-On the *vm-public* VM, attempt to map the Azure file share to drive Z. Before running the commands that follow, replace `<storage-account-key>` and `<storage-account-name>` with values from you supplied or retrieved in [Create a storage account](#create-a-storage-account).
+1. Enter the username and password you specified when creating the virtual machine. Select **Connect**.
 
-```powershell
-$acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
-New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\file-share" -Credential $credential
-```
+1. Repeat the previous command to attempt to map the drive to the file share in the storage account. You may need to copy the storage account access key again for this procedure:
 
-Access to the share is denied, and you receive a `New-PSDrive : Access is denied` error. Access is denied because the *vm-public* VM is deployed in the *subnet-public* subnet. The *subnet-public* subnet does not have a service endpoint enabled for Azure Storage, and the storage account only allows network access from the *subnet-private* subnet, not the *subnet-public* subnet.
+    ```powershell
+    $key = @{
+        String = "<storage-account-key>"
+    }
+    $acctKey = ConvertTo-SecureString @key -AsPlainText -Force
+    
+    $cred = @{
+        ArgumentList = "Azure\<storage-account-name>", $acctKey
+    }
+    $credential = New-Object System.Management.Automation.PSCredential @cred
 
-Close the remote desktop session to the *vm-public* VM.
+    $map = @{
+        Name = "Z"
+        PSProvider = "FileSystem"
+        Root = "\\<storage-account-name>.file.core.windows.net\file-share"
+        Credential = $credential
+    }
+    New-PSDrive @map
+   ```
+    
+1. You should receive the following error message:
+
+    ```output
+    New-PSDrive : Access is denied
+    At line:1 char:5
+    +     New-PSDrive @map
+    +     ~~~~~~~~~~~~~~~~
+        + CategoryInfo          : InvalidOperation: (Z:PSDriveInfo) [New-PSDrive], Win32Exception
+        + FullyQualifiedErrorId : CouldNotMapNetworkDrive,Microsoft.PowerShell.Commands.NewPSDriveCommand
+    ```
+
+4. Close the Bastion connection to **vm-1**.
 
 From your computer, attempt to view the file shares in the storage account with the following command:
 
 ```powershell-interactive
-Get-AzStorageFile `
-  -ShareName file-share `
-  -Context $storageContext
+$storage = @{
+    ShareName = "file-share"
+    Context = $storageContext
+}
+Get-AzStorageFile @storage
+
 ```
 
 Access is denied, and you receive a *Get-AzStorageFile : The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation* error, because your computer is not in the *subnet-private* subnet of the *vnet-1* virtual network.
@@ -1040,7 +1178,10 @@ Access is denied and you receive a **This request isn't authorized to perform th
 When no longer needed, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains:
 
 ```azurepowershell-interactive 
-Remove-AzResourceGroup -Name test-rg -Force
+$cleanup = @{
+  Name  = "test-rg"
+}
+Remove-AzResourceGroup @cleanup -Force
 ```
 
 ### [CLI](#tab/cli)
