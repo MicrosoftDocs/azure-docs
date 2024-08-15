@@ -33,7 +33,6 @@ The following Software Development Kits (SDKs) and features are unsupported for 
  Microsoft Entra authentication is only available for Application Insights Java Agent greater than or equal to 3.2.0.
 - [ApplicationInsights JavaScript web SDK](javascript.md).
 - [Application Insights OpenCensus Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) with Python version 3.4 and 3.5.
-- On-by-default [autoinstrumentation/codeless monitoring](codeless-overview.md) (for languages) for Azure App Service, Azure Virtual Machines/Azure Virtual Machine Scale Sets, and Azure Functions.
 - [Profiler](profiler-overview.md).
 
 <a name='configure-and-enable-azure-ad-based-authentication'></a>
@@ -93,10 +92,24 @@ services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
     ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/"
 });
 ```
+#### Environment variable configuration
+
+Use the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable to let Application Insights authenticate to Microsoft Entra ID and send telemetry when using [Azure App Services autoinstrumentation](./azure-web-apps-net-core.md).
+
+- For system-assigned identity:
+
+| App setting    | Value    |
+| -------------- |--------- |
+| APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD`    |
+
+- For user-assigned identity:
+
+| App setting   | Value    |
+| ------------- | -------- |
+| APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD;ClientId={Client id of the User-Assigned Identity}`    |
+
 
 ### [Node.js](#tab/nodejs)
-
-
 
 Azure Monitor OpenTelemetry and Application Insights Node.JS supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
 
