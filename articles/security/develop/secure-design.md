@@ -143,7 +143,7 @@ updated software versions are released continuously. Ensure that you
 have an ongoing plan to monitor, triage, and apply updates or
 configuration changes to the libraries and components you use.
 
-See the [Open Web Application Security Project](https://www.owasp.org/) (OWASP) page on [using components with known vulnerabilities](https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities) for tool suggestions. You can also subscribe to email alerts for security vulnerabilities that are related to components you use.
+See the [Open Web Application Security Project (OWASP)](https://www.owasp.org/) page on [using components with known vulnerabilities](https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities) for tool suggestions. You can also subscribe to email alerts for security vulnerabilities that are related to components you use.
 
 ### Use threat modeling during application design
 
@@ -161,7 +161,7 @@ Modeling the application design and enumerating [STRIDE](https://docs.google.com
 | Threat | Security property | Potential Azure platform mitigation |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Spoofing               | Authentication        | [Require HTTPS connections](/aspnet/core/security/enforcing-ssl?tabs=visual-studio). |
-| Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](../../key-vault/general/about-keys-secrets-certificates.md). |
+| Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](/azure/key-vault/general/about-keys-secrets-certificates). |
 | Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](/azure/architecture/best-practices/monitoring).|
 | Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](../fundamentals/encryption-atrest.md) and [in transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md), combined with application design best practices, provides defense against DDoS attacks.|
@@ -284,7 +284,7 @@ manual techniques to find keys and secrets that are stored in code
 repositories like GitHub. Don't put keys and secrets in these public
 code repositories or on any other server.
 
-Always put your keys, certificates, secrets, and connection strings in a key management solution. You can use a centralized solution in which keys and secrets are stored in hardware security modules (HSMs). Azure provides you with an HSM in the cloud with [Azure Key Vault](../../key-vault/general/overview.md).
+Always put your keys, certificates, secrets, and connection strings in a key management solution. You can use a centralized solution in which keys and secrets are stored in hardware security modules (HSMs). Azure provides you with an HSM in the cloud with [Azure Key Vault](/azure/key-vault/general/overview).
 
 Key Vault is a *secret store*: it's a centralized cloud service for
 storing application secrets. Key Vault keeps your confidential data safe
@@ -329,7 +329,7 @@ When you put comments in your code, ensure that you don't save any sensitive inf
 
 Basically, assume that everything in your development project is public knowledge when it's deployed. Avoid including sensitive data of any kind in the project.
 
-Earlier, we discussed [Azure Key Vault](../../key-vault/general/overview.md). You can use Key Vault to store secrets like keys and passwords instead of hard-coding them. When you use Key Vault in combination with managed identities for Azure resources, your Azure web app can access secret configuration values easily and securely without storing any secrets in your source control or configuration. To learn more, see [Manage secrets in your server apps with Azure Key Vault](/training/modules/manage-secrets-with-azure-key-vault/).
+Earlier, we discussed [Azure Key Vault](/azure/key-vault/general/overview). You can use Key Vault to store secrets like keys and passwords instead of hard-coding them. When you use Key Vault in combination with managed identities for Azure resources, your Azure web app can access secret configuration values easily and securely without storing any secrets in your source control or configuration. To learn more, see [Manage secrets in your server apps with Azure Key Vault](/training/modules/manage-secrets-with-azure-key-vault/).
 
 ### Implement fail-safe measures
 

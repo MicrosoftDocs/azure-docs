@@ -7,9 +7,10 @@ services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-azurecli
 
-author: timoklimmer
-ms.author: tklimmer
+author: fbsolo-ms1 
+ms.author: franksolomon
 ms.topic: conceptual
+ms.reviewer: tklimmer
 ms.date: 04/19/2024
 ---
 
@@ -41,13 +42,13 @@ The DSVM offers these data movement tools:
 
 ## Azure Cosmos DB Data Migration tool
 
-|--|--|
+| Category | Value |
 | ------------- | ------------- |
 | What is it? | Tool to import data from various sources into Azure Cosmos DB, a NoSQL database in the cloud. These sources include JSON files<br>CSV files<br>SQL<br>MongoDB<br>Azure Table storage<br>Amazon DynamoDB<br>Azure Cosmos DB for NoSQL collections |
 | Supported DSVM versions | Windows |
 | Typical uses | Import files from a VM to Azure Cosmos DB<br>import data from Azure table storage to Azure Cosmos DB<br>import data from a Microsoft SQL Server database to Azure Cosmos DB |
 | How to use / run it? | To use the command-line version, open a command prompt and type `dt`. To use the GUI tool, open a command prompt and type `dtui` |
-| Links to samples | [Import data into Azure Cosmos DB](../../cosmos-db/import-data.md) |
+| Links to samples | [Import data into Azure Cosmos DB](/azure/cosmos-db/import-data) |
 
 ## Azure Storage Explorer
 

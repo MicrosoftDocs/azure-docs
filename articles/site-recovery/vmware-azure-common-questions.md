@@ -1,9 +1,9 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 04/01/2024
+ms.date: 04/10/2024
 ms.topic: conceptual
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
@@ -172,6 +172,10 @@ For every source disk, data is replicated to a managed disk in Azure. This disk 
 ### Can I exclude disks from replication?
 
 Yes, you can exclude disks.
+
+### Does upgrading kernel firmware on a server protected by Azure Site Recovery for disaster recovery have any impact?
+
+No, it won't have any impact on the ongoing replication because the server is already protected through Azure Site Recovery.
 
 ### Can I replicate VMs that have dynamic disks?
 

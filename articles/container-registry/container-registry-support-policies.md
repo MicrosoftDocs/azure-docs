@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 #Customer intent: As a developer, I want to understand what ACR components I need to manage, what components are managed by Microsoft.
 ---
 
@@ -19,7 +19,7 @@ This article provides details about Azure Container Registry (ACR) support polic
 >* [Push and pull Helm charts to ACR](container-registry-helm-repos.md)
 >* [Encrypt using Customer managed keys](tutorial-enable-customer-managed-keys.md)
 >* [Enable Content trust](container-registry-content-trust.md)
->* [Scan Images using Azure Security Center](../defender-for-cloud/defender-for-container-registries-introduction.md)
+>* [Scan Images using Azure Security Center](/azure/defender-for-cloud/defender-for-container-registries-introduction)
 >* [ACR Tasks](./container-registry-tasks-overview.md)
 >* [Import container images to ACR](container-registry-import-images.md)
 >* [Image locking in ACR](container-registry-image-lock.md)

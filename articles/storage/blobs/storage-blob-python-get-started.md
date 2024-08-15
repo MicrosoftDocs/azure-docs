@@ -5,11 +5,11 @@ description: Get started developing a Python application that works with Azure B
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 11/14/2023
+ms.date: 08/05/2024
 ms.custom: devx-track-python, devguide-python
+ai-usage: ai-assisted
 ---
 
 # Get started with Azure Blob Storage and Python
@@ -89,11 +89,11 @@ To connect an application to Blob Storage, create an instance of the [BlobServic
 
 To learn more about creating and managing client objects, including best practices, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
-You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS).
+You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS). For optimal security, Microsoft recommends using Microsoft Entra ID with managed identities to authorize requests against blob data. For more information, see [Authorize access to blobs using Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 <a name='azure-ad'></a>
 
-## [Microsoft Entra ID](#tab/azure-ad)
+## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 To authorize with Microsoft Entra ID, you need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). Which type of security principal you need depends on where your application runs. Use the following table as a guide:
 
@@ -150,6 +150,9 @@ To learn more about generating and managing SAS tokens, see the following articl
 - [Create a service SAS for a blob with Python](sas-service-create-python.md)
 - [Create a user delegation SAS for a container with Python](storage-blob-container-user-delegation-sas-create-python.md)
 - [Create a user delegation SAS for a blob with Python](storage-blob-user-delegation-sas-create-python.md)
+
+> [!NOTE]
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. 
 
 ## [Account key](#tab/account-key)
 

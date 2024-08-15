@@ -121,6 +121,8 @@
         href: concept-azure-machine-learning-v2.md
       - name: Workspaces
         href: concept-workspace.md
+      - name: Hub workspaces
+        href: concept-hub-workspace.md
       - name: Searching for Assets and Resources
         href: how-to-search-assets.md
       - name: Compute
@@ -184,10 +186,6 @@
         items:
           - name: MLflow and Azure Machine Learning
             href: concept-mlflow.md
-          # v1
-          - name: MLflow
-            href: ./v1/concept-mlflow.md
-          # end v1
           - name: MLflow models
             displayName: tracking models, mlflow, custom, flavors
             href: concept-mlflow-models.md
@@ -590,10 +588,16 @@
   items:
     - name: Model Catalog Overview
       href: concept-model-catalog.md
+    - name: Data, privacy, and security for Model Catalog
+      href: concept-data-privacy.md
     - name: Open source models curated by Azure Machine Learning
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
       href: how-to-deploy-models-from-huggingface.md
+    - name: How to deploy Phi-3 models
+      href: how-to-deploy-models-phi-3.md
+    - name: How to deploy TimeGEN-1 model
+      href: how-to-deploy-models-timegen-1.md
     - name: How to deploy Mistral family models
       href: how-to-deploy-models-mistral.md
     - name: Deploy Cohere models
@@ -602,14 +606,36 @@
           href: how-to-deploy-models-cohere-command.md
         - name: How to deploy Cohere Embed models
           href: how-to-deploy-models-cohere-embed.md
-    - name: Deploy Llama models
+        - name: How to deploy Cohere Rerank models
+          href: how-to-deploy-models-cohere-rerank.md
+    - name: Deploy Meta Llama models
       items:
-        - name: How to deploy Llama family models
+        - name: How to deploy Meta Llama family models
           href: how-to-deploy-models-llama.md
+    - name: How to deploy JAIS models
+      href: deploy-jais-models.md
+    - name: How to deploy Jamba Instruct model
+      href: how-to-deploy-models-jamba.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
     - name: Use Model Catalog collections with virtual network
       href: how-to-network-isolation-model-catalog.md
+    - name: Azure AI Model Inference API
+      items:
+        - name: What's the Azure AI Model Inference API?
+          href: reference-model-inference-api.md
+        - name: Reference
+          items:
+            - name: Get Info
+              href: reference-model-inference-info.md
+            - name: Embeddings
+              href: reference-model-inference-embeddings.md
+            - name: Completions
+              href: reference-model-inference-completions.md
+            - name: Chat Completions
+              href: reference-model-inference-chat-completions.md
+            - name: Images Embeddings
+              href: reference-model-inference-images-embeddings.md
 - name: Use Generative AI
   items:
     - name: Build AI solutions with prompt flow
@@ -620,8 +646,8 @@
           items:
             - name: Connections
               href: ./prompt-flow/concept-connections.md
-            - name: Runtimes
-              href: ./prompt-flow/concept-runtime.md
+            - name: Session
+              href: ./prompt-flow/concept-session.md
             - name: Flows
               href: ./prompt-flow/concept-flows.md
             - name: Tools
@@ -636,12 +662,10 @@
           href: ./prompt-flow/community-ecosystem.md
         - name: Set up infrastructure
           items:
-            - name: Create and manage runtime
-              href: ./prompt-flow/how-to-create-manage-runtime.md
-            - name: Customize environment for runtime
-              href: ./prompt-flow/how-to-customize-environment-runtime.md
-            - name: Migrate from managed online endpoint/deployment runtime
-              href: ./prompt-flow/migrate-managed-inference-runtime.md
+            - name: Manage compute_session
+              href: ./prompt-flow/how-to-manage-compute-session.md
+            - name: Customize base image for compute session
+              href: ./prompt-flow/how-to-customize-session-base-image.md
             - name: Network isolation in prompt flow
               href: ./prompt-flow/how-to-secure-prompt-flow.md
         - name: Develop flows
@@ -670,6 +694,10 @@
               href: ./prompt-flow/how-to-integrate-with-llm-app-devops.md
             - name: Deploy a flow to online endpoint for real-time inference with CLI 
               href: ./prompt-flow/how-to-deploy-to-code.md
+            - name: Trace your application with prompt flow
+              href: ./prompt-flow/how-to-trace-local-sdk.md
+            - name: Enable trace and collect feedback for a flow deployment 
+              href: ./prompt-flow/how-to-enable-trace-feedback-for-deployment.md
             - name: How to use streaming endpoints deployed from prompt flow
               href: ./prompt-flow/how-to-enable-streaming-mode.md
             - name: Set up end-to-end LLMOps with prompt flow and GitHub 
@@ -682,8 +710,8 @@
               href: ./prompt-flow/concept-llmops-maturity.md
         - name: Monitor generative AI applications in production
           href: ./prompt-flow/how-to-monitor-generative-ai-applications.md
-        - name: Troubleshoot prompt flow deployments
-          href: ./prompt-flow/how-to-troubleshoot-prompt-flow-deployment.md
+        - name: Troubleshoot prompt flow
+          href: ./prompt-flow/troubleshoot-guidance.md
         - name: Transparency note
           href: ./prompt-flow/transparency-note.md
         - name: Tools Reference
@@ -698,16 +726,10 @@
               href: ./prompt-flow/tools-reference/python-tool.md
             - name: Embedding tool
               href: ./prompt-flow/tools-reference/embedding-tool.md
-            - name: Vector Index Lookup tool
-              href: ./prompt-flow/tools-reference/vector-index-lookup-tool.md
             - name: Content Safety (text) tool
               href: ./prompt-flow/tools-reference/content-safety-text-tool.md
             - name: Index Lookup tool
               href: ./prompt-flow/tools-reference/index-lookup-tool.md
-            - name: Faiss Index Lookup tool
-              href: ./prompt-flow/tools-reference/faiss-index-lookup-tool.md
-            - name: Vector DB Lookup tool
-              href: ./prompt-flow/tools-reference/vector-db-lookup-tool.md
             - name: SERP API tool
               href: ./prompt-flow/tools-reference/serp-api-tool.md
             - name: Open Model LLM tool
@@ -767,25 +789,25 @@
       href: how-to-responsible-ai-insights-ui.md
     - name: Generate responsible AI insights (SDK, CLI)
       href: how-to-responsible-ai-insights-sdk-cli.md
-    - name: Responsible AI image insights
+    - name: Generate responsible AI image insights
       href: how-to-responsible-ai-vision-insights.md
-    - name: Responsible AI text insights
+    - name: Generate responsible AI text insights
       href: how-to-responsible-ai-text-insights.md
   - name: Configure Responsible AI dashboards
     items:
     - name: Responsible AI dashboard overview
       href: concept-responsible-ai-dashboard.md
-    - name: Using the Responsible AI dashboard in studio
+    - name: Use the Responsible AI dashboard in studio
       href: how-to-responsible-ai-dashboard.md
-    - name: Using the Responsible AI text dashboard
+    - name: Use the Responsible AI text dashboard
       href: how-to-responsible-ai-text-dashboard.md
-    - name: Using the Responsible AI image dashboard
+    - name: Use the Responsible AI image dashboard
       href: how-to-responsible-ai-image-dashboard.md
-  - name: Viewing a Responsible AI scorecard
+  - name: View a Responsible AI scorecard
     items:
       - name: Responsible AI scorecard
         href: concept-responsible-ai-scorecard.md
-      - name: Using the Responsible AI scorecard in studio
+      - name: Use the Responsible AI scorecard in studio
         href: how-to-responsible-ai-scorecard.md
 - name: Orchestrate workflows using pipelines
   items:
@@ -879,10 +901,20 @@
   items:
     - name: Endpoints for inferencing
       href: concept-endpoints.md
+    - name: Serverless API endpoints
+      items:
+        - name: Deploy serverless API endpoints
+          href: how-to-deploy-models-serverless.md
+        - name: Consume serverless API endpoints from a different workspace
+          href: how-to-connect-models-serverless.md
+        - name: Region availability for models in Serverless API endpoints
+          href: concept-endpoint-serverless-availability.md
     - name: Online endpoints (real-time)
       items:
         - name: Online endpoints
           href: concept-endpoints-online.md
+        - name: Model specification for online deployment
+          href: concept-online-deployment-model-specification.md
         - name: Deploy an ML model with an online endpoint
           href: how-to-deploy-online-endpoints.md
         - name: Deploy models with safe rollout strategy
@@ -1008,8 +1040,6 @@
           href: ./v1/how-to-deploy-inferencing-gpus.md
         - name: Azure AI Search
           href: ./v1/how-to-deploy-model-cognitive-search.md
-        - name: FPGA inference
-          href: ./v1/how-to-deploy-fpga-web-service.md
     - name: Hyperparameter tuning a model (v1)
       displayName: azurecli, AzureML
       href: ./v1/how-to-tune-hyperparameters.md
@@ -1284,6 +1314,12 @@
           href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md
+    - name: Create & manage hub workspaces
+      items:
+        - name: Use Azure portal
+          href: how-to-manage-hub-workspace-portal.md
+        - name: Use Resource Manager template
+          href: how-to-manage-hub-workspace-template.md
     - name: Create & manage registries
       href: how-to-manage-registries.md
     - name: Create & manage compute resources
@@ -1369,7 +1405,7 @@
     - name: Manage and optimize cost
       displayName: cost-management,cost-optimization
       href: how-to-manage-optimize-cost.md
-    - name: Monitor
+    - name: Monitor Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure code
       displayName: security threat
@@ -1455,12 +1491,16 @@
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: ./v1/samples-notebooks.md
     # end v1
+    - name: Browse code samples
+      displayName: example, examples, python, notebook
+      href: /samples/browse/?expanded=azure&products=azure-machine-learning
     - name: Examples repository (v2)
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/Azure/azureml-examples
     - name: Examples repository (v1)
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/azure/machinelearningnotebooks
+
     # v1
     - name: Designer examples & datasets
       displayName: example, examples, studio, pipelines, data sets, modules, components
@@ -1586,6 +1626,40 @@
               href: reference-yaml-component-command.md
             - name: Pipeline
               href: reference-yaml-component-pipeline.md
+        - name: Connection
+          items:
+            - name: Azure AI Services
+              href: reference-yaml-connection-ai-services.md
+            - name: Azure OpenAI
+              href: reference-yaml-connection-azure-openai.md
+            - name: Azure AI Content Safety
+              href: reference-yaml-connection-ai-content-safety.md
+            - name: Azure AI Speech
+              href: reference-yaml-connection-speech.md
+            - name: Azure AI Search
+              href: reference-yaml-connection-ai-search.md
+            - name: Blob store
+              href: reference-yaml-connection-blob.md
+            - name: Azure Data Lake Store Gen2
+              href: reference-yaml-connection-data-lake.md
+            - name: Microsoft OneLake
+              href: reference-yaml-connection-onelake.md
+            - name: Serverless
+              href: reference-yaml-connection-serverless.md
+            - name: Git
+              href: reference-yaml-connection-git.md
+            - name: Serp
+              href: reference-yaml-connection-serp.md
+            - name: OpenAI
+              href: reference-yaml-connection-openai.md
+            - name: Python feed
+              href: reference-yaml-connection-python-feed.md
+            - name: Azure Container Registry
+              href: reference-yaml-connection-container-registry.md
+            - name: API key
+              href: reference-yaml-connection-api-key.md
+            - name: Custom
+              href: reference-yaml-connection-custom-key.md
         - name: Registry
           items:
             - name: Registry

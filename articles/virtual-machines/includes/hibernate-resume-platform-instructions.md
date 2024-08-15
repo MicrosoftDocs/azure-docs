@@ -3,7 +3,7 @@
  description: include file
  services: virtual-machines
  author: mattmcinnes
- ms.service: virtual-machines
+ ms.service: azure-virtual-machines
  ms.topic: include
  ms.date: 04/10/2024
  ms.author: jainan
@@ -20,7 +20,7 @@ Once a VM with hibernation enabled has been created and the guest OS is configur
 
 To hibernate a VM in the Azure portal, click the 'Hibernate' button on the VM Overview page.
 
-![Screenshot of the button to hibernate a VM in the Azure portal.](/azure/virtual-machines/media/hibernate-resume/hibernate-overview-button.png)
+![Screenshot of the button to hibernate a VM in the Azure portal.](/azure/virtual-machines/media/hibernate-resume/hibernate-the-vm.png)
 
 #### [CLI](#tab/CLIDoHiber) 
 
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/.../providers/Microsoft.Compute/virtu
 
 To view the state of a VM in the portal, check the 'Status' on the overview page. It should report as "Hibernated (deallocated)"
 
-![Screenshot of the Hibernated VM's status in the Azure portal listing as 'Hibernated (deallocated)'.](/azure/virtual-machines/media/hibernate-resume/is-hibernated-status.png)
+![Screenshot of the Hibernated VM's status in the Azure portal listing as 'Hibernated (deallocated)'.](/azure/virtual-machines/media/hibernate-resume/vm-in-hibernated-state.png)
 
 #### [PowerShell](#tab/PSStatCheck)
 
@@ -193,7 +193,7 @@ You can start hibernated VMs just like how you would start a stopped VM. This ca
 ### [Portal](#tab/PortalStartHiber)
 To start a hibernated VM using the Azure portal, click the 'Start' button on the VM Overview page.
 
-![Screenshot of the Azure portal button to start a hibernated VM with an underlined status listed as 'Hibernated (deallocated)'.](/azure/virtual-machines/media/hibernate-resume/start-hibernated-vm.png)
+![Screenshot of the Azure portal button to start a hibernated VM with an underlined status listed as 'Hibernated (deallocated)'.](/azure/virtual-machines/media/hibernate-resume/start-vm.png)
 
 ### [CLI](#tab/CLIStartHiber)
 

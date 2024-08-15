@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: faq
   ms.service: azure-vmware
-  ms.date:  2/29/2024
+  ms.date:  5/24/2024
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -97,7 +97,7 @@ sections:
         answer: vRealize Automation, vRealize Operations Manager, and vRealize Network Insight are certified for use with Azure VMware Solution when those products are installed in an on-premises data center. The cloud-based versions of these products--vRealize Automation Cloud, vRealize Operations Cloud, and vRealize Network Insight Cloud--are also certified for use. Installing these products within an Azure VMware Solution private cloud isn't supported.
 
       - question: Can I migrate vSphere VMs from on-premises environments to Azure VMware Solution private clouds?
-        answer: Yes. This is possible and recommended via the VMware HCX add-on. Cross vCenter cold migration and cloning is also possible, but Cross vCenter vMotion isn't.
+        answer: Yes. This is possible and recommended via the VMware HCX add-on. While cross vCenter cold migration and cloning is possible, not cross vCenter vMotion, HCX is the fully-supported method.
           
       - question: Is a specific version of vSphere required in on-premises environments?
         answer: The on-premises environment must be running vSphere 6.5 or later if VMware HCX will be used to migrate VMs.
@@ -115,7 +115,7 @@ sections:
          Remember that you can only resize a VM within the same series or to an available series in the same Azure region. Ensure the new plan supports your VM's storage and networking configurations.
 
       - question: Is VMware HCX supported on VPNs?
-        answer: Yes, provided VMware HCX [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) are met.
+        answer: Yes, provided VMware HCX [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.9/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) are met.
 
       - question: What versions of VMware software are used in private clouds?
         answer: |
@@ -136,6 +136,9 @@ sections:
 
       - question: Is NSX Identity Firewall and distributed IDS/IPS supported with Azure VMware Solution?
         answer: Yes with an add-on license. Azure VMware Solution supports distributed IDFW and distributed IDS/IPS with add-on firewall license. This add-on license needs to be bought from VMware and Microsoft will apply that license to the Azure VMware Solution private cloud with a support request.
+
+      - question: Is NSX Service Insertion supported with Azure VMware Solution?
+        answer: No.
         
       - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
@@ -232,7 +235,7 @@ sections:
 
       - question: Why can't I reach the Azure VMware Solution vCenter Server Appliance and NSX Manager from on-premises or Azure Virtual Network?
         answer: |
-          By design, you won't be able to reach NSX Manager and vCenter Server Appliance (vCSA) from on-premises when only 0.0.0.0/0 (default route) is being advertised over ExpressRoute Global Reach between Azure VMware Solution and your on-premises ExpressRoute or through Azure Virtual Network to Azure VMware Solution. You need to advertise specific networking routes/subnets to access NSX-T Manager and vCSA. 
+          By design, you won't be able to reach NSX Manager and vCenter Server Appliance (vCSA) from on-premises when only 0.0.0.0/0 (default route) is being advertised over ExpressRoute Global Reach between Azure VMware Solution and your on-premises ExpressRoute or through Azure Virtual Network to Azure VMware Solution. You need to advertise specific networking routes/subnets to access NSX Manager and vCSA. 
 
 
   - name: Storage
@@ -330,9 +333,6 @@ sections:
 
       - question: I use Azure VMware Solution to create end-user applications or workloads accessed on multiple VMs through public IP. Can I sell this solution to multiple tenants?
         answer: Customers can create multitenant environments in their Azure VMware Solution private cloud and sell to customers provided the product isn't a standard VM and have added substantial intellectual property embedded in the VM as an application.
-
-      - question: As a service provider or customer, can I use my existing VMware Cloud Director (vCD) or new vCD deployment in Azure VMware Solution?
-        answer: VMware doesn't allow vCD in the cloud or from on-premises to be licensed with any Hyperscaler, including Microsoft.
 
       - question: Can I connect VMware Cloud Director Service (CDS) to my Azure VMware Solution instance in Azure?
         answer: Yes. You can connect your Azure VMware Solution private cloud to VMware Cloud Director Service from VMware. This integration of both services is [currently in public preview](https://azure.microsoft.com/updates/public-preview-enterprise-vmware-cloud-director-service-for-azure-vmware-solution/).

@@ -58,6 +58,9 @@ There are four steps to the migration process, as shown in the following diagram
 > [!NOTE]
 > The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation.
 
+> [!NOTE]
+> Accounts left in a **Prepare** migration state more 30 days may have their migrations committed on your behalf. If you need more than 30 days to validate your migration to Azure Resource Manager, you can abort the current migration and restart it when you are ready.
+
 ### Validate
 
 The Validation step is the first step in the migration process. The goal of this step is to analyze the state of the resources that you want to migrate from the classic deployment model. The Validation step evaluates whether the resources are capable of migration (success or failure). If the classic storage account isn't capable of migration, Azure lists the reasons why.

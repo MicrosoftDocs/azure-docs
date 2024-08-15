@@ -1,7 +1,7 @@
 ---
 title: Azure FPGA Attestation Service
 description: Attestation service for the NP-series VMs.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/27/2023
@@ -55,14 +55,6 @@ You can also use the Azure portal for this as well.
 There are several ways to copy the file; an example using the az storage upload cmdlet is shown below. The az commands run on both Linux and Windows. You can choose any name for the "blob" name but make sure to retain the `xclbin` extension.
 
 `az storage blob upload --account-name <storage account to receive netlist> --container-name <blob container name> --name <blob filename> --file <local file with netlist>`
-
-## Download the attestation scripts  
-
-The Validation scripts can be downloaded from the following Azure storage blob container:  
-
-[https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip](https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip)
-
-The zip file has two PowerShell scripts, one to submit and the other to monitor while the third file is a bash script which performs both functions.  
 
 ## Running the attestation scripts  
 

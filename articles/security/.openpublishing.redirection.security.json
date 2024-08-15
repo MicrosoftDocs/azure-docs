@@ -1239,6 +1239,26 @@
             "source_path_from_root": "/articles/security/fundamentals/trust-center.md",
             "redirect_url": "https://www.microsoft.com/trust-center",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-linux.md",
+            "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-windows.md",
+            "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-linux-aad.md",
+            "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview-aad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-windows-aad.md",
+            "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview-aad",
+            "redirect_document_id": false
         }
     ]
 }

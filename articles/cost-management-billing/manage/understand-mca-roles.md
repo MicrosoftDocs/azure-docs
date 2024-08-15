@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/26/2024
+ms.date: 04/25/2024
 ms.author: banders
 ---
 
@@ -89,7 +89,11 @@ The following tables show what role you need to complete tasks in the context of
 
 ## Billing profile roles and tasks
 
-Each billing account has at least one billing profile. Your first billing profile is set up when you sign up to use Azure. A monthly invoice is generated for the billing profile and contains all its associated charges from the prior month. You can set up more billing profiles based on your needs. Users with roles on a billing profile can view cost, set budget, and manage and pay its invoices. Assign these roles to users who are responsible for managing budget and paying invoices for the billing profile like members of the business administration teams in your organization. For more information, see [Understand billing profiles](../understand/mca-overview.md#billing-profiles).
+Each billing account has at least one billing profile. Your first billing profile is set up when you sign up to use Azure. A monthly invoice is generated for the billing profile and contains all its associated charges from the prior month. You can set up more billing profiles based on your needs. Users with roles on a billing profile can view cost, set budget, and manage and pay its invoices. Assign these roles to users who are responsible for managing budget and paying invoices for the billing profile like members of the business administration teams in your organization. 
+
+For more information, see [Understand billing profiles](../understand/mca-overview.md#billing-profiles).
+
+For more information about assigning access for users, see  [Access of enterprise administrators, department administrators, and account owners on invoice sections](mca-setup-account.md#access-of-enterprise-administrators-department-administrators-and-account-owners-on-invoice-sections).
 
 The following tables show what role you need to complete tasks in the context of the billing profile.
 

@@ -6,7 +6,7 @@ summary: Learn how Azure Relay service allows you to securely expose services th
 metadata:
   title: Azure Relay documentation
   description: Learn how Azure Relay service allows you to securely expose services that run in your corporate network to the public cloud.
-  ms.service: service-bus-relay
+  ms.service: azure-relay
   ms.topic: landing-page
   author: spelluru
   ms.author: spelluru
@@ -30,14 +30,16 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Send and receive messages using Websockets - .NET
+          - text: Send and receive messages using WebSockets - .NET
             url: relay-hybrid-connections-dotnet-get-started.md
           - text: Send and receive messages using HTTP - .NET
             url: relay-hybrid-connections-http-requests-dotnet-get-started.md
-          - text: Send and receive messages using Websockets - Node.js 
+          - text: Send and receive messages using WebSockets - Node.js 
             url: relay-hybrid-connections-node-get-started.md
           - text: Send and receive messages using HTTP - Node.js
             url: relay-hybrid-connections-http-requests-node-get-started.md
+          - text: Send and receive messages using WebSockets - Python
+            url: relay-hybrid-connections-python-get-started.md
       - linkListType: download
         links:
           - text: Samples on GitHub
@@ -48,11 +50,11 @@ landingContent:
     linkLists:
       - linkListType: tutorial      
         links:
-          - text: Expose an on-prem WCF service to a web application in the cloud
+          - text: Expose an on-premises WCF service to a web application in the cloud
             url: service-bus-dotnet-hybrid-app-using-service-bus-relay.md    
-          - text: Expose an on-prem WCF service to a WCF service outside your network
+          - text: Expose an on-premises WCF service to a WCF service outside your network
             url: service-bus-relay-tutorial.md            
-          - text: Expose an on-prem WCF REST service to a client outside your network
+          - text: Expose an on-premises WCF REST service to a client outside your network
             url: service-bus-relay-rest-tutorial.md
       - linkListType: download      
         links:

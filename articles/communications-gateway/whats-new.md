@@ -3,7 +3,7 @@ title: What's new in Azure Communications Gateway?
 description: Discover what's new in Azure Communications Gateway. Learn how to get started with the latest features.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: whats-new
 ms.date: 04/03/2024
 ---
@@ -14,9 +14,15 @@ This article covers new features and improvements for Azure Communications Gatew
 
 ## April 2024
 
+### VNet injection for Azure Communications Gateway (preview)
+
+From April 2024, you can set up private networking between your on-premises environment and Azure Communications Gateway. VNet injection for Azure Communications Gateway (preview) allows the network interfaces on your Azure Communications Gateway which connect to your network to be deployed into virtual networks in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and Virtual Private Networks (VPNs).
+
+For more information about private networking, see [Connecting to Azure Communications Gateway](./connectivity.md). For deployment instructions, see [Prepare to connect Azure Communications Gateway to your own virtual network](./prepare-for-vnet-injection.md).
+
 ### Support for Azure Operator Call Protection Preview
 
-From April 2023, you can use Azure Communications Gateway to provide Azure Operator Call Protection Preview. Azure Operator Call Protection uses AI to perform real-time analysis of consumer phone calls to detect potential phone scams and alert subscribers when they are at risk of being scammed. It's built on Azure Communications Gateway.
+From April 2024, you can use Azure Communications Gateway to provide Azure Operator Call Protection Preview. Azure Operator Call Protection uses AI to perform real-time analysis of consumer phone calls to detect potential phone scams and alert subscribers when they are at risk of being scammed. It's built on Azure Communications Gateway.
 
 For more information about Azure Operator Call Protection, see [What is Azure Operator Call Protection Preview?](../operator-call-protection/overview.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json). For deployment instructions, see [Set up Azure Operator Call Protection Preview](../operator-call-protection/set-up-operator-call-protection.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json).
 
@@ -48,10 +54,6 @@ Provisioning Azure Communications Gateway and the Operator Connect and Teams Pho
 
 Before you launch your Operator Connect or Teams Phone Mobile service, you can also use the [Number Management Portal (preview)](manage-enterprise-operator-connect.md).
 
-### Custom headers for Teams Phone Mobile calls
-
-From February 2024, you can use the Provisioning API (preview) to set a custom header on Teams Phone Mobile calls. This enhancement extends the function introduced in [November 2023](#custom-header-on-messages-to-operator-networks) for configuring a custom header for Operator Connect, Microsoft Teams Direct Routing, and Zoom Phone Cloud Peering.
-
 ### Connectivity metrics
 
 From February 2024, you can monitor the health of the connection between your network and Azure Communications Gateway with new metrics for responses to SIP INVITE and OPTIONS exchanges. You can view statistics for all INVITE and OPTIONS requests, or narrow your view down to individual regions, request types, or response codes. For more information on the available metrics, see [Connectivity metrics](monitoring-azure-communications-gateway-data-reference.md#connectivity-metrics). For an overview of working with metrics, see [Analyzing, filtering and splitting metrics in Azure Monitor](monitor-azure-communications-gateway.md#analyzing-filtering-and-splitting-metrics-in-azure-monitor).
@@ -72,7 +74,7 @@ You must choose the name of the custom header when you [deploy Azure Communicati
 
 You must then use the [Provisioning API](provisioning-platform.md) to configure each number with the contents of the custom header.
 
-In November 2023, custom header configuration is available for all communications services except Teams Phone Mobile.
+In November 2023, custom header configuration is available for Microsoft Teams Direct Routing, Operator Connect, and Zoom Phone Cloud Peering.
 
 ## October 2023
 

@@ -4,7 +4,7 @@ description: Learn how to quickly get started with Azure API Management and rout
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -16,7 +16,7 @@ Deploying Azure API Management with Service Fabric is an advanced scenario.  API
 This article shows you how to set up [Azure API Management](../api-management/api-management-key-concepts.md) with Service Fabric to route traffic to a back-end service in Service Fabric.  When you're finished, you have deployed API Management to a VNET, configured an API operation to send traffic to back-end stateless services. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Availability
 
@@ -292,7 +292,7 @@ az group delete --name $ResourceGroupName
 
 Learn more about using [API Management](../api-management/import-and-publish.md).
 
-You can also use the [Azure portal](../api-management/how-to-configure-service-fabric-backend.md) to create and manage Service Fabric backends for API Management.
+You can also use the [Azure portal](../api-management/how-to-configure-service-fabric-backend.yml) to create and manage Service Fabric backends for API Management.
 
 [azure-powershell]: /powershell/azure/
 

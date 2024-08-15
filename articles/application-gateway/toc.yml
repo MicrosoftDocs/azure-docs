@@ -101,7 +101,7 @@
       href: ssl-certificate-management.md
   - name: Health monitoring
     items:
-    - name: Monitor Azure Application Gateway
+    - name: Monitor Application Gateway
       href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
@@ -279,10 +279,18 @@
         href: application-gateway-create-probe-classic-ps.md
       - name: Resource Manager PowerShell
         href: application-gateway-create-probe-ps.md
+  - name: Deploy Application Gateway Basic
+    href: deploy-basic-portal.md
   - name: Configure App Service
     href: configure-web-app.md
   - name: Schedule autoscaling
     href: application-gateway-externally-managed-scheduled-autoscaling.md
+  - name: Relocate
+    items:
+    - name: Relocate to another region
+      href: ../operational-excellence/relocation-app-gateway.md?toc=/azure/application-gateway/toc.json
+    - name: Migrate to availability zone support
+      href: ../reliability/migrate-app-gateway-v2.md?toc=/azure/application-gateway/toc.json
   - name: Troubleshoot
     items:
       - name: ILB with an App Service Environment
@@ -329,7 +337,7 @@
     href: private-link-configure.md
 - name: Reference
   items:
-  - name: Monitoring data
+  - name: Monitoring data reference
     href: monitor-application-gateway-reference.md
   - name: Ingress for AKS annotations
     href: ingress-controller-annotations.md

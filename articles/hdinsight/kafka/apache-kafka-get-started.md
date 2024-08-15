@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Set up Apache Kafka on HDInsight using Azure portal'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using the Azure portal. You also learn about Kafka topics, subscribers, and consumers.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 11/23/2023
+ms.date: 05/09/2024
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 

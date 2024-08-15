@@ -1,19 +1,18 @@
 ---
-title: Tutorial - Move Azure single instance Virtual Machines from regional to zonal availability zones
+title: Tutorial - Move Azure single instance Virtual Machines from regional to zonal availability zones 
 description: Learn how to move single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region.
 author: ankitaduttaMSFT
-ms.service: virtual-machines
-ms.topic: article
-ms.date: 09/25/2023
+ms.service: azure-virtual-machines
+ms.topic: tutorial
+ms.date: 07/08/2024
 ms.author: ankitadutta
 ---
 
-# Move Azure single instance VMs from regional to zonal target availability zones
+# Move Azure single instance VMs from regional to zonal target availability zones 
 
 This article provides information on how to move Azure single instance Virtual Machines (VMs) from a regional to a zonal configuration within the same Azure region.
 
-> [!IMPORTANT]
-> Regional to zonal move of single instance VM(s) configuration is currently in *Public Preview*.
+
 ## Prerequisites
 
 Ensure the following before you begin:
@@ -38,16 +37,13 @@ To select the VMs you want to move from Regional to Zonal configuration within s
 
 To select the VMs for the move, follow these steps: 
 
-1.	On the [Azure portal](https://ms.portal.azure.com/#home), select the VM. In this tutorial, we're using **DemoTestVM1** as an example.
-    
-    :::image type="content" source="./media/tutorial-move-regional-zonal/demo-test-machine.png" alt-text="Screenshot of demo virtual machine."::: 
- 
-2.	In the DemoTestVM1 resource pane, select **Availability + scaling** > **edit**. 
-    :::image type="content" source="./media/tutorial-move-regional-zonal/availability-scaling.png" alt-text="Screenshot of Availability + scaling option."::: 
+1.	On the [Azure portal](https://ms.portal.azure.com/#home), select the VM. 
+2.	In the virtual machine resource pane, select **Availability + scaling** > **edit**. 
+    :::image type="content" source="./media/tutorial-move-regional-zonal/scaling-pane.png" alt-text="Screenshot of Availability + scaling pane.":::  
 
-    Alternatively, in the **DemoTestVM1** overview plane, you can select **Availability + scale** > **Availability + scaling**.
-        :::image type="content" source="./media/tutorial-move-regional-zonal/scaling-pane.png" alt-text="Screenshot of Availability + scaling pane."::: 
-    
+    Alternatively, in the virtual machine overview plane, you can select **Availability + scale** > **Availability + scaling**.
+        
+
  
 ### Select the target availability zones
 

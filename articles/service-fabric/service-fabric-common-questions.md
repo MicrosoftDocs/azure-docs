@@ -4,7 +4,7 @@ description: Frequently asked questions about Service Fabric, including capabili
 ms.topic: faq
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -15,7 +15,7 @@ ms.date: 07/14/2022
 There are many commonly asked questions about what Service Fabric can do and how it should be used. This document covers many of those common questions and their answers.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Cluster setup and management
 

@@ -72,6 +72,6 @@ Now that you've learned about IoT Plug and Play device development, here are som
 
 - [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md)
 - [C device SDK](https://github.com/Azure/azure-iot-sdk-c/)
-- [IoT REST API](/rest/api/iothub/device)
+- [IoT REST API](/rest/api/iothub/service/devices/get-devices)
 - [Understand components in IoT Plug and Play models](concepts-modeling-guide.md)
 - [IoT Plug and Play service developer guide](concepts-developer-guide-service.md)

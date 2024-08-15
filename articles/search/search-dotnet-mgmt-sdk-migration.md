@@ -12,7 +12,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: conceptual
-ms.date: 09/15/2023
+ms.date: 07/22/2024
 ---
 
 # Upgrade versions of the Azure Search .NET Management SDK
@@ -27,12 +27,12 @@ The following table lists the client libraries used to provision a search servic
 
 | Namespace | Version| Status | Change log |
 |-----------|--------|--------|------------|
-| [Azure.ResourceManager.Search](/dotnet/api/overview/azure/resourcemanager.search-readme?view=azure-dotnet&preserve-view=true) | [Package versions](https://www.nuget.org/packages/Azure.ResourceManager.Search/1.0.0) | **Current** | [Release notes](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Search_1.2.0-beta.1/sdk/search/Azure.ResourceManager.Search/CHANGELOG.md) |
+| [Azure.ResourceManager.Search](/dotnet/api/overview/azure/resourcemanager.search-readme?view=azure-dotnet&preserve-view=true) | [Package versions](https://www.nuget.org/packages/Azure.ResourceManager.Search) | **Current** | [Change Lot](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.ResourceManager.Search/CHANGELOG.md) |
 | [Microsoft.Azure.Management.Search](/dotnet/api/overview/azure/search/management/management-cognitivesearch(deprecated)?view=azure-dotnet&preserve-view=true) | [Package versions](https://www.nuget.org/packages/Microsoft.Azure.Management.Search#versions-body-tab) | **Deprecated** | [Release notes](https://www.nuget.org/packages/Microsoft.Azure.Management.Search#release-body-tab) |
 
 ## Checklist for upgrade
 
-1. Review the [client library change list](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Search_1.0.0/sdk/search/Azure.ResourceManager.Search/CHANGELOG.md) for insight into the scope of changes.
+1. Review the [change log](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.ResourceManager.Search/CHANGELOG.md) for updates to the library.
 
 1. In your application code, delete the reference to `Microsoft.Azure.Management.Search` and its dependencies.
 

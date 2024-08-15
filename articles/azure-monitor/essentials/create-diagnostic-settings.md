@@ -6,7 +6,7 @@ ms.author: edbaynash
 services: azure-monitor
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/19/2023
+ms.date: 08/11/2024
 ms.reviewer: lualderm
 ---
 
@@ -90,12 +90,10 @@ Use the [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnostic
 The following example PowerShell cmdlet creates a diagnostic setting for all logs, or for audit logs, and metrics for a key vault by using Log Analytics Workspace.
 
 ```powershell
-$KV= Get-AzKeyVault -ResourceGroupName <resource group name> -VaultName <key vault name>
-$Law= Get-AzOperationalInsightsWorkspace -ResourceGroupName <resource group name> -Name <workspace name>  #LAW name is case sensitive
+$KV = Get-AzKeyVault -ResourceGroupName <resource group name> -VaultName <key vault name>
+$Law = Get-AzOperationalInsightsWorkspace -ResourceGroupName <resource group name> -Name <workspace name>  # LAW name is case sensitive
 
-$metric = @()
-$log = @()
-$metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics
+$metric = New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics
 # For all available logs, use:
 $log = New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs  
 # or, for audit logs, use:
@@ -223,6 +221,15 @@ Diagnostic settings don't support resource IDs with non-ASCII characters. For ex
 ### Possibility of duplicated or dropped data
 
 Every effort is made to ensure all log data is sent correctly to your destinations, however it's not possible to guarantee 100% data transfer of logs between endpoints. Retries and other mechanisms are in place to work around these issues and attempt to ensure log data arrives at the endpoint.
+
+### Inactive resources
+
+When a resource is inactive and exporting zero-value metrics, the diagnostic settings export mechanism backs off incrementally to avoid unnecessary costs of exporting and storing zero values. The back-off may lead to a delay in the export of the next non-zero value. 
+
+When a resource is inactive for one hour, the export mechanism backs off to 15 minutes. This means that there is a potential latency of up to 15 minutes for the next nonzero value to be exported. The maximum backoff time of two hours is reached after seven days of inactivity. Once the resource starts exporting nonzero values, the export mechanism reverts to the original export latency of three minutes. 
+
+This behavior only applies to exported metrics and doesn't affect metrics-based alerts or autosacle.
+
 
 ## Next steps
 

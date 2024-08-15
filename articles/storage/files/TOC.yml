@@ -13,6 +13,10 @@
     href: files-nfs-protocol.md
   - name: What's new in Azure Files?
     href: files-whats-new.md
+- name: Architecture
+  items:
+  - name: Well-architected considerations
+    href: /azure/well-architected/service-guides/azure-files?toc=/azure/storage/files/toc.json&bc=/azure/storage/files/breadcrumb/toc.json
 - name: Tutorials
   items:
   - name: Create a Windows SMB file share
@@ -50,7 +54,7 @@
   - name: Target a cloud-only deployment
     items:
     - name: Use Azure Storage Mover to migrate to SMB Azure file shares
-      href: migrate-files-storage-mover.md    
+      href: migrate-files-storage-mover.md
     - name: Use Robocopy to migrate to SMB Azure file shares
       href: storage-files-migration-robocopy.md
     - name: Migrate from an on-premises NAS to Azure file shares with DataBox
@@ -58,15 +62,15 @@
   - name: Target a hybrid deployment with Azure File Sync
     items:
     - name: Replace Windows file servers with Azure File Sync
-      href: windows-server-to-azure-files.md    
+      href: windows-server-to-azure-files.md
     - name: Migrate from Linux to a hybrid file server with Azure File Sync
       href: storage-files-migration-linux-hybrid.md
     - name: Migrate from on-premises NAS to a hybrid file server using Azure File Sync
       href: storage-files-migration-nas-hybrid.md
     - name: Migrate from on-premises NAS to a hybrid file server using DataBox
-      href: storage-files-migration-nas-hybrid-databox.md      
+      href: storage-files-migration-nas-hybrid-databox.md
   - name: Transfer files with AzCopy
-    items: 
+    items:
     - name: Get started with AzCopy
       href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json
     - name: Use AzCopy with Files
@@ -85,7 +89,7 @@
       href: storage-files-configure-p2s-vpn-windows.md
     - name: Configure Point-to-Site VPN on Linux
       href: storage-files-configure-p2s-vpn-linux.md
-    - name: Configure Site-to-Site VPN 
+    - name: Configure Site-to-Site VPN
       href: storage-files-configure-s2s-vpn.md
     - name: Configure firewalls and virtual networks
       href: ../common/storage-network-security.md?toc=/azure/storage/files/toc.json
@@ -130,9 +134,9 @@
     - name: Manage Transport Layer Security (TLS)
       items:
       - name: Enforce minimum TLS version for incoming requests
-        href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/files/toc.json 
+        href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/files/toc.json
       - name: Configure TLS version for a client application
-        href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/files/toc.json      
+        href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/files/toc.json
   - name: Authorization
     items:
     - name: Overview of identity-based authentication options
@@ -232,7 +236,7 @@
   - name: NFS performance
     href: nfs-performance.md
   - name: NFS large directory best practices
-    href: nfs-large-directories.md    
+    href: nfs-large-directories.md
   - name: Scalability and performance targets
     href: storage-files-scale-targets.md
   - name: Understanding billing
@@ -255,8 +259,6 @@
     href: storage-dotnet-how-to-use-files.md
   - name: Java
     href: storage-java-how-to-use-file-storage.md
-  - name: C++
-    href: storage-c-plus-plus-how-to-use-files.md
   - name: Python
     href: storage-python-how-to-use-file-storage.md
 - name: Troubleshooting
@@ -278,7 +280,7 @@
   - name: Troubleshoot backing up file shares
     href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
   - name: Troubleshoot ClientOtherErrors
-    href: /troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json      
+    href: /troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json
 - name: Reference
   items:
   - name: Azure Files FAQ
@@ -361,7 +363,7 @@
     - name: .NET
       items:
       - name: Azure Storage client library
-        items: 
+        items:
         - name: Version 12.x (preview)
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
         - name: Version 11.x and earlier
@@ -380,23 +382,11 @@
       items:
       - name: Azure Storage client library version 12.x (preview)
         href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
-      - name: Azure Storage client library version 10.x     
+      - name: Azure Storage client library version 10.x
         href: https://github.com/Azure/azure-storage-node
     - name: Python
-      items: 
+      items:
       - name: Azure Storage client library version 12.x (preview)
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
-      - name: Azure Storage client library version 2.1     
+      - name: Azure Storage client library version 2.1
         href: https://github.com/Azure/azure-storage-python
-  - name: Code samples using deprecated SDKs
-    items:
-    - name: .NET
-      items:
-      - name: Version 11.x samples
-        href: files-samples-dotnet-v11.md
-      - name: Design highly available applications (.NET version 11.x)
-        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/files/toc.json
-    - name: Java version 8 samples
-      href: files-samples-java-v8.md
-    - name: Python version 2 samples
-      href: files-samples-python-v2.md

@@ -4,7 +4,7 @@ description: How to migrate from the metrics API to the getBatch API
 author: EdB-MSFT
 services: azure-monitor
 ms.topic: how-to
-ms.date: 03/11/2024
+ms.date: 06/27/2024
 ms.author: edbaynash
 ms.reviewer: priyamishra
 
@@ -617,8 +617,7 @@ In the `metrics:getBatch` error response, the error content is wrapped inside a 
     - Another common cause is specifying a filter that doesn't match any resources. For example, if the filter specifies a dimension value that doesn't exist on any resources in the subscription and region combination, `"timeseries": []` is returned. 
     
 +  Wildcard filters  
-    Using a wildcard filter such as `Microsoft.ResourceId eq '*'` causes the API to return a time series for every resourceId in the subscription and region. If the subscription and region combination contains no resources, an empty time series is returned. The same query without the wildcard filter would return a single time series, aggregating the requested metric over the requested dimensions, for example subscription and region. If there are no resources in the subscription and region combination, the API returns a single time series with a single data point of `0`.
- 
+    Using a wildcard filter such as `Microsoft.ResourceId eq '*'` causes the API to return a time series for every resourceId in the subscription and region. If the subscription and region combination contains no resources, an empty time series is returned. The same query without the wildcard filter would return a single time series, aggregating the requested metric over the requested dimensions, for example subscription and region.
  
 + Custom metrics aren't currently supported.  
     The `metrics:getBatch` API doesn't support querying custom metrics, or queries where the metric namespace name isn't a resource type. This is the case for VM Guest OS metrics that use the namespace "azure.vm.windows.guestmetrics" or "azure.vm.linux.guestmetrics".

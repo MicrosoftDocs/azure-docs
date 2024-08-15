@@ -4,7 +4,7 @@ description: Understand Azure Monitor alert processing rules and how to configur
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 6/19/2023
+ms.date: 7/30/2024
 ms.reviewer: nolavime
 ---
 
@@ -16,7 +16,7 @@ ms.reviewer: nolavime
 > [!NOTE]
 > Alert processing rules were previously known as 'action rules'. For backward compatibility, the Azure resource type of these rules is still **Microsoft.AlertsManagement/actionRules** .
 
-Alert processing rules allow you to apply processing on fired alerts. Alert processing rules are different from alert rules. Alert rules generate new alerts, while alert processing rules modify the fired alerts as they're being fired.
+Alert processing rules allow you to apply processing on fired alerts. Alert processing rules are different from alert rules. Alert rules generate new alerts that notify you when something happens, while alert processing rules modify the fired alerts as they're being fired to change the usual alert behavior.
 
 You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. You can apply alert processing rules to different resource scopes, from a single resource, or to an entire subscription, as long as they are within the same subscription as the alert processing rule. You can also use them to apply various filters or have the rule work on a predefined schedule.
 
@@ -54,7 +54,7 @@ For those alert types, you can use alert processing rules to add action groups.
 
 This section describes the scope and filters for alert processing rules.
 
-Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, a specific resource group, or an entire subscription. The alert processing rule applies to alerts that fired on resources within that scope. You cannot create an alert processing rule on a resource from a different subsciption.   
+Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, a specific resource group, or an entire subscription. The alert processing rule applies to alerts that fired on resources within that scope. You can't create an alert processing rule on a resource from a different subscription.   
 
 You can also define filters to narrow down which specific subset of alerts are affected within the scope. The available filters are described in the following table.  
 
@@ -77,8 +77,8 @@ Severity |  The rule applies only to alerts with the selected severities. |
 * If you define multiple filters in a rule, all the rules apply. There's a logical AND between all filters.  
   For example, if you set both `resource type = "Virtual Machines"` and `severity = "Sev0"`, then the rule applies only for `Sev0` alerts on virtual machines in the scope.
 * Each filter can include up to five values. There's a logical OR between the values.  
-  For example, if you set description contains "this, that" (in the field there is no need to write the apostrophes), then the rule applies only to alerts whose description contains either "this" or "that".
-* Notice that you dont have any spaces (before, after or between) the string that is matched it will effect the matching of the filter.
+  For example, if your set description contains "this, that" (in the field there's no need to write the apostrophes), then the rule applies only to alerts whose description contains either "this" or "that".
+* Notice that you dont have any spaces (before, after or between) the string that is matched it effects the matching of the filter.
 
 ### What should this rule do?
 
@@ -89,7 +89,7 @@ Choose one of the following actions:
 
 ### When should this rule apply?
 
-You can control when the rule will apply. The rule is always active, by default. You can select a one-time window for this rule to apply, or you can have a recurring window, such as a weekly recurrence.
+You can control when the rule applies. The rule is always active, by default. You can select a one-time window for this rule to apply, or you can have a recurring window, such as a weekly recurrence.
 
 ## Configure an alert processing rule
 
@@ -119,7 +119,7 @@ Let's review the new alert processing rule wizard.
 
    :::image type="content" source="media/alerts-processing-rules/alert-processing-rule-scheduling-recurring.png" alt-text="Screenshot that shows the Scheduling tab of the alert processing rules wizard with a recurring rule.":::
 
-1. On the **Details** tab, you give this rule a name, pick where it will be stored, and optionally add a description for your reference.
+1. On the **Details** tab, you give this rule a name, pick where it is stored, and optionally add a description for your reference.
 
 1. On the **Tags** tab, you can optionally add tags to the rule.
 

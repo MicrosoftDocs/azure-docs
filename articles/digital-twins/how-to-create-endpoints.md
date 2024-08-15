@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 02/08/2023
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -160,7 +160,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the desired role to the managed identity of your Azure Digital Twins instance, using the information below. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the desired role to the managed identity of your Azure Digital Twins instance, using the information below. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -168,7 +168,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
     | Assign access to | **Managed identity** |
     | Members | Select the user-assigned or system-assigned managed identity of your Azure Digital Twins instance that's being assigned the role. A user-assigned identity will have the name you chose when you created the identity, and a system-assigned identity will have a name that matches the name of your Azure Digital Twins instance. |
     
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page for an Azure Digital Twins instance." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page for an Azure Digital Twins instance." lightbox="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png":::
 
 # [CLI](#tab/cli)
 
@@ -301,7 +301,7 @@ Next, create a SAS token for your storage account that the endpoint can use to a
 
 # [Portal](#tab/portal)
 
-To create an endpoint with dead-lettering enabled, you must use the [CLI commands](/cli/azure/dt) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+To create an endpoint with dead-lettering enabled, you must use the [CLI commands](/cli/azure/dt) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digital-twins-endpoint-create-or-update) to create your endpoint, rather than the Azure portal.
 
 For instructions on how to create this type of endpoint with the Azure CLI, switch to the CLI tab for this section.
 
@@ -318,7 +318,7 @@ The value for the parameter is the dead letter SAS URI made up of the storage ac
 >[!TIP]
 >To create a dead-letter endpoint with identity-based authentication, add both the dead-letter parameter from this section and the appropriate [managed identity parameter](#3-create-the-endpoint-with-identity-based-authentication) to the same command.
 
-You can also create dead letter endpoints using the [Azure Digital Twins control plane APIs](concepts-apis-sdks.md#control-plane-apis) instead of the CLI. To do so, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to see how to structure the request and add the dead letter parameters.
+You can also create dead letter endpoints using the [Azure Digital Twins control plane APIs](concepts-apis-sdks.md#control-plane-apis) instead of the CLI. To do so, view the [DigitalTwinsEndpoint documentation](/rest/api/digital-twins/controlplane/endpoints/digital-twins-endpoint-create-or-update) to see how to structure the request and add the dead letter parameters.
 
 ---
 

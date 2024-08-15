@@ -73,28 +73,28 @@ $headers = @{
 To return a list of all search indexes, set the endpoint to the indexes collection.
 
 ```powershell
-$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes?api-version=2023-11-01&$select=name'
+$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes?api-version=2024-07-01&$select=name'
 Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 ```
 
 To return a specific index definition, provide its name in the path. The encryptionKey property is at the end.
 
 ```powershell
-$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/<YOUR-INDEX-NAME>?api-version=2023-11-01'
+$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/<YOUR-INDEX-NAME>?api-version=2024-07-01'
 Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 ```
 
 To return synonym maps, set the endpoint to the synonyms collection and then send the request.
 
 ```powershell
-$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/synonyms?api-version=2023-11-01&$select=name'
+$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/synonyms?api-version=2024-07-01&$select=name'
 Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 ```
 
 The following example returns a specific synonym map definition, including the encryptionKey property is towards the end of the definition.
 
 ```powershell
-$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/synonyms/<YOUR-SYNONYM-MAP-NAME>?api-version=2023-11-01'
+$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/synonyms/<YOUR-SYNONYM-MAP-NAME>?api-version=2024-07-01'
 Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 ```
 
@@ -102,10 +102,10 @@ Use the same pattern to return the encryptionKey property for other top-level ob
 
 ## Next steps
 
-We recommend that you [enable logging](../key-vault/general/logging.md) on Azure Key Vault so that you can monitor key usage.
+We recommend that you [enable logging](/azure/key-vault/general/logging) on Azure Key Vault so that you can monitor key usage.
 
 For more information about using Azure Key or configuring customer managed encryption:
 
-+ [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell.md)
++ [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](/azure/key-vault/secrets/quick-create-powershell)
 
 + [Configure customer-managed keys for data encryption in Azure AI Search](search-security-manage-encryption-keys.md)

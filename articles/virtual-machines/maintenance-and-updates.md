@@ -1,7 +1,7 @@
 ---
 title: Maintenance and updates
 description: Overview of maintenance and updates for virtual machines running in Azure.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date: 04/01/2024
 #pmcontact:shants

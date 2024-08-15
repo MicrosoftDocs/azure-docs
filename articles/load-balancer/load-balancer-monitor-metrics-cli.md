@@ -5,9 +5,9 @@ description: In this article, get started using the Azure Monitor CLI to collect
 services: load-balancer
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to 
-ms.date: 06/27/2023
+ms.date: 06/27/2024
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 ---
 
@@ -23,7 +23,7 @@ When you use CLI, Load Balancer metrics may use a different metric name for the 
 
 Here's a table of common Load Balancer metrics, the CLI metric name, and recommend aggregation values for queries:
 
-|Metric|CLI metric name|Recommended aggregation|
+|**Metric**|**CLI metric name**|**Recommended aggregation**|
 |-----------------|-----------------|-----------------|
 |Data path availability |VipAvailability |Average |
 |Health probe status |DipAvailability |Average |

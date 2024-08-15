@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 07/18/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -27,9 +27,130 @@ This video shows you how to download and run the AzCopy utility.
 
 The steps in the video are also described in the following sections.
 
-## Download AzCopy
+## Install AzCopy on Linux by using a package manager
 
-First, download the AzCopy V10 executable file to any directory on your computer. AzCopy V10 is just an executable file, so there's nothing to install.
+You can install AzCopy by using a Linux package that is hosted on the [Linux Software Repository for Microsoft Products](/linux/packages).
+
+### [dnf (RHEL)](#tab/dnf)
+
+1. Download the repository configuration package.
+
+   > [!IMPORTANT]
+   > Make sure to replace the distribution and version with the appropriate strings.
+
+   ```bash
+   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
+   ```
+
+2. Install the repository configuration package.
+
+   ```bash
+   sudo rpm -i packages-microsoft-prod.rpm
+   ````
+
+3. Delete the repository configuration package after you've installed it.
+
+   ```bash
+   rm packages-microsoft-prod.rpm
+   ````
+
+4. Update the package index files.
+
+   ```bash
+   sudo dnf update
+   ```
+5. Install AzCopy.
+
+   ```bash
+   sudo dnf install azcopy
+   ```
+
+
+### [zypper (OpenSUSE, SLES)](#tab/zypper)
+
+1. Download the repository configuration package.
+
+   > [!IMPORTANT]
+   > Make sure to replace the distribution and version with the appropriate strings.
+
+   ```bash
+   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
+   ```
+
+2. Install the repository configuration package.
+
+   ```bash
+   sudo rpm -i packages-microsoft-prod.rpm
+   ```
+
+3. Delete the repository configuration package after you've installed it.
+
+   ```bash
+   rm packages-microsoft-prod.rpm
+   ```
+
+4. Update the package index files.
+
+   ```bash
+   sudo dnf update
+   ```
+
+5. Install AzCopy.
+   
+   ```bash
+   sudo zypper install -y azcopy
+   ```
+
+### [apt (Ubuntu, Debian)](#tab/apt)
+
+1. Download the repository configuration package.
+
+   > [!IMPORTANT]
+   > Make sure to replace the distribution and version with the appropriate strings.
+
+   ```bash
+   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.deb
+   ```
+
+2. Install the repository configuration package.
+   
+   ```bash
+   sudo dpkg -i packages-microsoft-prod.deb
+   ```
+
+3. Delete the repository configuration package after you've installed it.
+
+   ```bash
+   rm packages-microsoft-prod.deb
+   ```
+
+4. Update the package index files.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+5. Install AzCopy.
+   
+   ```bash
+   sudo apt-get install azcopy
+   ```
+
+# [tdnf (Azure Linux)](#tab/tdnf)
+
+Install AzCopy.
+
+```bash
+sudo tdnf install azcopy
+```
+
+---
+
+<a id="download-azcopy"></a>
+
+## Download the AzCopy portable binary
+
+As an alternative to installing a package, you can download the AzCopy V10 executable file to any directory on your computer. 
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
@@ -43,7 +164,7 @@ These files are compressed as a zip file (Windows and Mac) or a tar file (Linux)
 For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
 
 > [!NOTE]
-> If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
+> If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
 
 ## Run AzCopy
 

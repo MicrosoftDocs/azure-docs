@@ -3,7 +3,7 @@ title: Authentication and authorization in Azure Container Apps
 description: Use built-in authentication in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 04/20/2022
 ms.author: cshoe
@@ -18,8 +18,8 @@ For details surrounding authentication and authorization, refer to the following
 * [Microsoft Entra ID](authentication-azure-active-directory.md)
 * [Facebook](authentication-facebook.md)
 * [GitHub](authentication-github.md)
-* [Google](authentication-google.md)
-* [Twitter](authentication-twitter.md)
+* [Google](authentication-google.yml)
+* [X](authentication-twitter.md)
 * [Custom OpenID Connect](authentication-openid.md)
 
 ## Why use the built-in authentication?
@@ -32,7 +32,7 @@ The benefits include:
 
 * Azure Container Apps provides access to various built-in authentication providers.
 * The built-in auth features don’t require any particular language, SDK, security expertise, or even any code that you have to write.
-* You can integrate with multiple providers including Microsoft Entra ID, Facebook, Google, and Twitter.
+* You can integrate with multiple providers including Microsoft Entra ID, Facebook, Google, and X.
 
 ## Identity providers
 
@@ -43,8 +43,8 @@ Container Apps uses [federated identity](https://en.wikipedia.org/wiki/Federated
 | [Microsoft identity platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Microsoft identity platform](authentication-azure-active-directory.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [Facebook](authentication-facebook.md) |
 | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps) | `/.auth/login/github` | [GitHub](authentication-github.md) |
-| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Google](authentication-google.md) |
-| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [Twitter](authentication-twitter.md) |
+| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Google](authentication-google.yml) |
+| [X](https://developer.x.com/en/docs/basics/authentication) | `/.auth/login/x` | [X](authentication-twitter.md) |
 | Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [OpenID Connect](authentication-openid.md) |
 
 When you use one of these providers, the sign-in endpoint is available for user authentication and authentication token validation from the provider. You can provide your users with any number of these provider options.
@@ -116,7 +116,7 @@ Container Apps Authentication provides built-in endpoints for sign in and sign o
 
 ### Use multiple sign-in providers
 
-The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your app. The steps are outlined as follows:
+The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and X). However, it isn't difficult to add the functionality to your app. The steps are outlined as follows:
 
 First, in the **Authentication / Authorization** page in the Azure portal, configure each of the identity provider you want to enable.
 
@@ -128,7 +128,7 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 <a href="/.auth/login/aad">Log in with the Microsoft Identity Platform</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
-<a href="/.auth/login/twitter">Log in with Twitter</a>
+<a href="/.auth/login/x">Log in with X</a>
 ```
 
 When the user selects on one of the links, the UI for the respective providers is displayed to the user.
@@ -224,6 +224,6 @@ Refer to the following articles for details on securing your container app.
 * [Microsoft Entra ID](authentication-azure-active-directory.md)
 * [Facebook](authentication-facebook.md)
 * [GitHub](authentication-github.md)
-* [Google](authentication-google.md)
-* [Twitter](authentication-twitter.md)
+* [Google](authentication-google.yml)
+* [X](authentication-twitter.md)
 * [Custom OpenID Connect](authentication-openid.md)

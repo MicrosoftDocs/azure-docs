@@ -6,7 +6,7 @@ ms.author: edbaynash
 services: azure-monitor
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 02/25/2023
+ms.date: 02/25/2024
 ms.reviewer: lualderm
 --- 
 
@@ -16,7 +16,7 @@ Policies and policy initiatives provide a simple method to enable logging at-sca
 Enable resource logs to track activities and events that take place on your resources and give you visibility and insights into any changes that occur.
 Assign policies to enable resource logs and to send them to destinations according to your needs. Send logs to event hubs for third-party SIEM systems, enabling continuous security operations. Send logs to storage accounts for longer term storage or the fulfillment of regulatory compliance. 
 
-A set of built-in policies and initiatives exists to direct resource logs to Log Analytics Workspaces, Event Hubs, and Storage Accounts. The policies enable audit logging, sending logs belonging to the **audit** log category group to an event hub, Log Analytics workspace or Storage Account. The policies' `effect` is `DeployIfNotExists`, which deploys the policy as a default if there aren't other settings defined.
+A set of built-in policies and initiatives exists to direct resource logs to Log Analytics Workspaces, Event Hubs, and Storage Accounts. The policies enable audit logging, sending logs belonging to the **audit** or the **All logs** log category group,  to an event hub, Log Analytics workspace or Storage Account. The policies' `effect` is `DeployIfNotExists`, which deploys the policy as a default if there aren't other settings defined.
 
 
 ## Deploy policies.
@@ -37,12 +37,12 @@ The following steps show how to apply the policy to send audit logs to for key v
 1. Select the **Parameters** tab.
 1. Select the Log Analytics Workspace that you want to send the audit logs to.
 1. Select the **Remediation** tab.
- :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-parameters.png" alt-text="A screenshot of the assign policy page, parameters tab.":::
+ :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-parameters.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-parameters.png" alt-text="A screenshot of the assign policy page, parameters tab.":::
 1. On the remediation tab, select the keyvault policy from the **Policy to remediate** dropdown.
 1. Select the **Create a Managed Identity** checkbox.
 1. Under **Type of Managed Identity**, select **System assigned Managed Identity**.
 1. Select **Review + create**, then select **Create** .
-  :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-remediation.png" alt-text="A screenshot of the assign policy page, remediation tab.":::
+  :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-remediation.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-remediation.png" alt-text="A screenshot of the assign policy page, remediation tab.":::
 
 
 ### [CLI](#tab/cli)
@@ -92,7 +92,7 @@ Find the role in the policy definition by searching for *roleDefinitionIds*
 
     For example,
     ```azurecli
-    az policy remediation create -g rg-001 -n remediation-001 --policy-assignment  policy-assignment-1
+    az policy remediation create -g rg-001 -n remediation-001 --policy-assignment policy-assignment-1
     ```
 
 For more information on policy assignment using CLI, see [Azure CLI reference - az policy assignment](/cli/azure/policy/assignment#az-policy-assignment-create)
@@ -133,7 +133,7 @@ To apply a policy using the PowerShell, use the following commands:
         }
     ```
 
-1. Scan for compliance, then  create a remediation task to force compliance for existing resources.
+1. Scan for compliance, then create a remediation task to force compliance for existing resources.
     ```azurepowershell
         Start-AzPolicyComplianceScan -ResourceGroupName $rg.ResourceGroupName
         Start-AzPolicyRemediation -Name $policyAssignment.Name -PolicyAssignmentId $policyAssignment.PolicyAssignmentId  -ResourceGroupName $rg.ResourceGroupName
@@ -141,7 +141,7 @@ To apply a policy using the PowerShell, use the following commands:
 
 1. Check compliance 
     ```azurepowershell
-    Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant , ResourceID
+    Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant, ResourceID
     ```
 ---
 
@@ -159,12 +159,12 @@ To create a remediation task for policies during the policy assignment, select t
 
 To create a remediation task after the policy has been assigned, select your assigned policy from the list on the Policy Assignments page.
  
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png" alt-text="A screenshot showing the policy remediation page.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png"  lightbox="./media/diagnostics-settings-policies-deployifnotexists/remediation-after-assignment.png" alt-text="A screenshot showing the policy remediation page.":::
 
 Select **Remediate**.
 Track the status of your remediation task in the **Remediation tasks** tab of the Policy Remediation page.
 
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/new-remediation-task-after-assignment.png" alt-text="A screenshot showing the new remediation task page.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/new-remediation-task-after-assignment.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/new-remediation-task-after-assignment.png" alt-text="A screenshot showing the new remediation task page.":::
 
 
 
@@ -173,10 +173,18 @@ For more information on remediation tasks, see [Remediate noncompliant resources
 
 ## Assign initiatives
 
-Initiatives are collections of policies. There are three initiatives for Azure Monitor Diagnostics settings:
-+ [Enable audit category group resource logging for supported resources to Event Hubs](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F1020d527-2764-4230-92cc-7035e4fcf8a7/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
-+ [Enable audit category group resource logging for supported resources to Log Analytics](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Ff5b29bc4-feca-4cc6-a58a-772dd5e290a5/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
-+ [Enable audit category group resource logging for supported resources to storage](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F8d723fb6-6680-45be-9d37-b1a4adb52207/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
+Initiatives are collections of policies. There are two sets of initiatives for Azure Monitor Diagnostics settings:
+
+1. Enable the *audit* category group resource logging
+    + [Enable audit category group resource logging for supported resources to Event Hubs](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F1020d527-2764-4230-92cc-7035e4fcf8a7/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
+    + [Enable audit category group resource logging for supported resources to Log Analytics](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Ff5b29bc4-feca-4cc6-a58a-772dd5e290a5/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
+    + [Enable audit category group resource logging for supported resources to storage](https://portal.azure.com/?feature.customportal=false&feature.canmodifystamps=true&Microsoft_Azure_Monitoring_Logs=stage1&Microsoft_OperationsManagementSuite_Workspace=stage1#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F8d723fb6-6680-45be-9d37-b1a4adb52207/scopes~/%5B%22%2Fsubscriptions%2F12345678-aaaa-bbbb-cccc-1234567890ab%22%5D)
+
+1. Enable the *allLogs* category group resource logging
+    + [Enable allLogs category group resource logging for supported resources to storage](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fb6b86da9-e527-49de-ac59-6af0a9db10b8/version~/null/scopes~/)
+    + [Enable allLogs category group resource logging for supported resources to Event Hubs](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F85175a36-2f12-419a-96b4-18d5b0096531/version~/null/scopes/)
+    + [Enable allLogs category group resource logging for supported resources to Log Analytics](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F0884adba-2312-4468-abeb-5422caed1038/version~/null/scopes/%5B%22%2Fsubscriptions%2F""%22%22%5D)
+
 
 In this example, we assign an initiative for sending audit logs to a Log Analytics workspace.
 
@@ -189,37 +197,37 @@ In this example, we assign an initiative for sending audit logs to a Log Analyti
 1. Enter *audit* in the **Search** field.
 1. Select thee *Enable audit category group resource logging for supported resources to Log Analytics* initiative.
 1. On the following page, select **Assign**
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/initiatives-definitions.png" alt-text="A screenshot showing the initiatives definitions page.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/initiatives-definitions.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/initiatives-definitions.png" alt-text="A screenshot showing the initiatives definitions page.":::
 
 1. On the **Basics** tab of the **Assign initiative** page, select a **Scope** that you want the initiative to apply to.
 1. Enter a name in the **Assignment name** field.
 1. Select the **Parameters** tab.
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-basics.png" alt-text="A screenshot showing the assign initiatives basics tab.":::  
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-basics.png"  lightbox="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-basics.png" alt-text="A screenshot showing the assign initiatives basics tab.":::  
 
     The **Parameters** contains the parameters defined in the policy. In this case, we need to select the Log Analytics workspace that we want to send the logs to. For more information in the individual parameters for each policy, see [Policy-specific parameters](#policy-specific-parameters).
 
 1. Select the **Log Analytics workspace** to send your audit logs to.
 
 1. Select **Review + create** then **Create**
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-parameters.png" alt-text="A screenshot showing the assign initiatives parameters tab.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-parameters.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/assign-initiatives-parameters.png" alt-text="A screenshot showing the assign initiatives parameters tab.":::
 
 To verify that your policy or initiative assignment is working, create a resource in the subscription or resource group scope that you defined in your policy assignment.
 
 After 10 minutes, select the **Diagnostics settings** page for your resource.
 Your diagnostic setting appears in the list with the default name *setByPolicy-LogAnalytics* and the workspace name that you configured in the policy.
 
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/diagnostics-settings.png" alt-text="A screenshot showing the Diagnostics setting page for a resource.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/diagnostics-settings.png"  lightbox="./media/diagnostics-settings-policies-deployifnotexists/diagnostics-settings.png" alt-text="A screenshot showing the Diagnostics setting page for a resource.":::
 
 Change the default name in the **Parameters** tab of the **Assign initiative** or policy page by unselecting the **Only show parameters that need input or review** checkbox.
 
-:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/edit-initiative-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
+:::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/edit-initiative-assignment.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/edit-initiative-assignment.png" alt-text="A screenshot showing the edit-initiative-assignment page with the checkbox unselected.":::
 
 ### [PowerShell](#tab/Powershell)
 
 
 1. Set up your environment variables
     ```azurepowershell
-    # Set up  your environment variables.
+    # Set up your environment variables.
     $subscriptionId = <your subscription ID>;
     $rg = Get-AzResourceGroup -Name <your resource group name>;
     Select-AzSubscription $subscriptionId;
@@ -269,7 +277,7 @@ Log Analytics*,  ResourceID "/providers/Microsoft.Authorization/policySetDefinit
 
 1. Check the compliance state when the remediation tasks have completed. 
     ```azurepowershell
-    Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName|select-object IsCompliant , ResourceID
+    Get-AzPolicyState -PolicyAssignmentName  $assignmentName -ResourceGroupName $rg.ResourceGroupName|select-object IsCompliant, ResourceID
     ```
 
 You can get your policy assignment details using the following command:
@@ -349,8 +357,9 @@ The following table describes the common parameters for each set of policies.
 |Parameter| Description| Valid Values|Default|
 |---|---|---|---|
 |effect| Enable or disable the execution of the policy|DeployIfNotExists,<br>AuditIfNotExists,<br>Disabled|DeployIfNotExists|
-|diagnosticSettingName|Diagnostic Setting Name||setByPolicy-LogAnalytics|
+|diagnosticSettingName|Diagnostic Setting Name||setByPolicy-{LogAnalytics\|EventHubs\|Storage}|
 |categoryGroup|Diagnostic category group|none,<br>audit,<br>allLogs|audit|
+|resourceTypeList|For initiatives, a list of resource types to be evaluated for diagnostic setting existence.|Supported resources|All supported resources|
 
 ## Policy-specific parameters
 ### Log Analytics policy parameters
@@ -380,43 +389,151 @@ This policy deploys a diagnostic setting using a category group to route logs to
 |resourceLocation|Resource Location must be in the same location as the Storage Account|Supported locations|
 |storageAccount|Storage Account resourceId|||
 
-## Supported Resources
+## Supported resources
 
-Built-in Audit logs policies for Log Analytics workspaces, Event Hubs, and Storage Accounts exist for the following resources:
+Built-in All logs and Audit logs policies for Log Analytics workspaces, Event Hubs, and Storage Accounts exist for the following resources:
 
-* microsoft.agfoodplatform/farmbeats
-* microsoft.apimanagement/service
-* microsoft.appconfiguration/configurationstores
-* microsoft.attestation/attestationproviders
-* microsoft.automation/automationaccounts
-* microsoft.avs/privateclouds
-* microsoft.cache/redis
-* microsoft.cdn/profiles
-* microsoft.cognitiveservices/accounts
-* microsoft.containerregistry/registries
-* microsoft.devices/iothubs
-* microsoft.eventgrid/topics
-* microsoft.eventgrid/domains
-* microsoft.eventgrid/partnernamespaces
-* microsoft.eventhub/namespaces
-* microsoft.keyvault/vaults
-* microsoft.keyvault/managedhsms
-* microsoft.machinelearningservices/workspaces
-* microsoft.media/mediaservices
-* microsoft.media/videoanalyzers
-* microsoft.netapp/netappaccounts/capacitypools/volumes
-* microsoft.network/publicipaddresses
-* microsoft.network/virtualnetworkgateways
-* microsoft.network/p2svpngateways
-* microsoft.network/frontdoors
-* microsoft.network/bastionhosts
-* microsoft.operationalinsights/workspaces
-* microsoft.purview/accounts
-* microsoft.servicebus/namespaces
-* microsoft.signalrservice/signalr
-* microsoft.signalrservice/webpubsub
-* microsoft.sql/servers/databases
-* microsoft.sql/managedinstances
+|Resource Type| All logs| Audit Logs|
+|---|---|---| 
+|microsoft.aad/domainservices|Yes|Yes|
+|microsoft.agfoodplatform/farmbeats|Yes|Yes|
+|microsoft.analysisservices/servers|Yes|No|
+|microsoft.apimanagement/service|Yes|Yes|
+|microsoft.app/managedenvironments|Yes|Yes|
+|microsoft.appconfiguration/configurationstores|Yes|Yes|
+|microsoft.appplatform/spring|Yes|No|
+|microsoft.attestation/attestationproviders|Yes|Yes|
+|microsoft.automation/automationaccounts|Yes|Yes|
+|microsoft.autonomousdevelopmentplatform/workspaces|Yes|No|
+|microsoft.avs/privateclouds|Yes|Yes|
+|microsoft.azureplaywrightservice/accounts|Yes|Yes|
+|microsoft.azuresphere/catalogs|Yes|Yes|
+|microsoft.batch/batchaccounts|Yes|Yes|
+|microsoft.botservice/botservices|Yes|No|
+|microsoft.cache/redis|Yes|Yes|
+|microsoft.cache/redisenterprise/databases|Yes|Yes|
+|microsoft.cdn/cdnwebapplicationfirewallpolicies|Yes|No|
+|microsoft.cdn/profiles|Yes|Yes|
+|microsoft.cdn/profiles/endpoints|Yes|No|
+|microsoft.chaos/experiments|Yes|Yes|
+|microsoft.classicnetwork/networksecuritygroups|Yes|No|
+|microsoft.cloudtest/hostedpools|Yes|No|
+|microsoft.codesigning/codesigningaccounts|Yes|Yes|
+|microsoft.cognitiveservices/accounts|Yes|Yes|
+|microsoft.communication/communicationservices|Yes|No|
+|microsoft.community/communitytrainings|Yes|Yes|
+|microsoft.confidentialledger/managedccfs|Yes|Yes|
+|microsoft.connectedcache/enterprisemcccustomers|Yes|No|
+|microsoft.connectedcache/ispcustomers|Yes|No|
+|microsoft.containerinstance/containergroups|Yes|No|
+|microsoft.containerregistry/registries|Yes|Yes|
+|microsoft.customproviders/resourceproviders|Yes|No|
+|microsoft.d365customerinsights/instances|Yes|No|
+|microsoft.dashboard/grafana|Yes|Yes|
+|microsoft.databricks/workspaces|Yes|No|
+|microsoft.datafactory/factories|Yes|No|
+|microsoft.datalakeanalytics/accounts|Yes|No|
+|microsoft.datalakestore/accounts|Yes|No|
+|microsoft.dataprotection/backupvaults|Yes|No|
+|microsoft.datashare/accounts|Yes|No|
+|microsoft.dbformariadb/servers|Yes|No|
+|microsoft.dbformysql/flexibleservers|Yes|Yes|
+|microsoft.dbformysql/servers|Yes|No|
+|microsoft.dbforpostgresql/flexibleservers|Yes|Yes|
+|microsoft.dbforpostgresql/servergroupsv2|Yes|No|
+|microsoft.dbforpostgresql/servers|Yes|No|
+|microsoft.desktopvirtualization/applicationgroups|Yes|No|
+|microsoft.desktopvirtualization/hostpools|Yes|No|
+|microsoft.desktopvirtualization/scalingplans|Yes|No|
+|microsoft.desktopvirtualization/workspaces|Yes|No|
+|microsoft.devcenter/devcenters|Yes|Yes|
+|microsoft.devices/iothubs|Yes|Yes|
+|microsoft.devices/provisioningservices|Yes|No|
+|microsoft.digitaltwins/digitaltwinsinstances|Yes|No|
+|microsoft.documentdb/cassandraclusters|Yes|Yes|
+|microsoft.documentdb/databaseaccounts|Yes|Yes|
+|microsoft.documentdb/mongoclusters|Yes|Yes|
+|microsoft.eventgrid/domains|Yes|Yes|
+|microsoft.eventgrid/partnernamespaces|Yes|Yes|
+|microsoft.eventgrid/partnertopics|Yes|No|
+|microsoft.eventgrid/systemtopics|Yes|No|
+|microsoft.eventgrid/topics|Yes|Yes|
+|microsoft.eventhub/namespaces|Yes|Yes|
+|microsoft.experimentation/experimentworkspaces|Yes|No|
+|microsoft.healthcareapis/services|Yes|No|
+|microsoft.healthcareapis/workspaces/dicomservices|Yes|No|
+|microsoft.healthcareapis/workspaces/fhirservices|Yes|No|
+|microsoft.healthcareapis/workspaces/iotconnectors|Yes|No|
+|microsoft.insights/autoscalesettings|Yes|No|
+|microsoft.insights/components|Yes|No|
+|microsoft.insights/datacollectionrules|Yes|No|
+|microsoft.keyvault/managedhsms|Yes|Yes|
+|microsoft.keyvault/vaults|Yes|Yes|
+|microsoft.kusto/clusters|Yes|Yes|
+|microsoft.loadtestservice/loadtests|Yes|Yes|
+|microsoft.logic/integrationaccounts|Yes|No|
+|microsoft.logic/workflows|Yes|No|
+|microsoft.machinelearningservices/registries|Yes|Yes|
+|microsoft.machinelearningservices/workspaces|Yes|Yes|
+|microsoft.machinelearningservices/workspaces/onlineendpoints|Yes|No|
+|microsoft.managednetworkfabric/networkdevices|Yes|No|
+|microsoft.media/mediaservices|Yes|Yes|
+|microsoft.media/mediaservices/liveevents|Yes|Yes|
+|microsoft.media/mediaservices/streamingendpoints|Yes|Yes|
+|microsoft.netapp/netappaccounts/capacitypools/volumes|Yes|Yes|
+|microsoft.network/applicationgateways|Yes|No|
+|microsoft.network/azurefirewalls|Yes|No|
+|microsoft.network/bastionhosts|Yes|Yes|
+|microsoft.network/dnsresolverpolicies|Yes|No|
+|microsoft.network/expressroutecircuits|Yes|No|
+|microsoft.network/frontdoors|Yes|Yes|
+|microsoft.network/loadbalancers|Yes|No|
+|microsoft.network/networkmanagers|Yes|Yes|
+|microsoft.network/networkmanagers/ipampools|Yes|Yes|
+|microsoft.network/networksecuritygroups|Yes|No|
+|microsoft.network/networksecurityperimeters|Yes|No|
+|microsoft.network/p2svpngateways|Yes|Yes|
+|microsoft.network/publicipaddresses|Yes|Yes|
+|microsoft.network/publicipprefixes|Yes|Yes|
+|microsoft.network/trafficmanagerprofiles|Yes|No|
+|microsoft.network/virtualnetworkgateways|Yes|Yes|
+|microsoft.network/virtualnetworks|Yes|No|
+|microsoft.network/vpngateways|Yes|No|
+|microsoft.networkanalytics/dataproducts|Yes|Yes|
+|microsoft.networkcloud/baremetalmachines|Yes|No|
+|microsoft.networkcloud/clusters|Yes|No|
+|microsoft.networkcloud/storageappliances|Yes|No|
+|microsoft.networkfunction/azuretrafficcollectors|Yes|No|
+|microsoft.notificationhubs/namespaces|Yes|Yes|
+|microsoft.notificationhubs/namespaces/notificationhubs|Yes|Yes|
+|microsoft.openenergyplatform/energyservices|Yes|No|
+|microsoft.operationalinsights/workspaces|Yes|Yes|
+|microsoft.powerbi/tenants/workspaces|Yes|No|
+|microsoft.powerbidedicated/capacities|Yes|No|
+|microsoft.purview/accounts|Yes|Yes|
+|microsoft.recoveryservices/vaults|Yes|No|
+|microsoft.relay/namespaces|Yes|No|
+|microsoft.search/searchservices|Yes|Yes|
+|microsoft.servicebus/namespaces|Yes|Yes|
+|microsoft.servicenetworking/trafficcontrollers|Yes|No|
+|microsoft.signalrservice/signalr|Yes|Yes|
+|microsoft.signalrservice/webpubsub|Yes|Yes|
+|microsoft.sql/managedinstances|Yes|Yes|
+|microsoft.sql/managedinstances/databases|Yes|No|
+|microsoft.sql/servers/databases|Yes|Yes|
+|microsoft.storagecache/caches|Yes|No|
+|microsoft.storagemover/storagemovers|Yes|No|
+|microsoft.streamanalytics/streamingjobs|Yes|No|
+|microsoft.synapse/workspaces|Yes|Yes|
+|microsoft.synapse/workspaces/bigdatapools|Yes|Yes|
+|microsoft.synapse/workspaces/kustopools|Yes|Yes|
+|microsoft.synapse/workspaces/scopepools|Yes|Yes|
+|microsoft.synapse/workspaces/sqlpools|Yes|Yes|
+|microsoft.timeseriesinsights/environments|Yes|No|
+|microsoft.timeseriesinsights/environments/eventsources|Yes|No|
+|microsoft.videoindexer/accounts|Yes|No|
+|microsoft.web/hostingenvironments|Yes|Yes|
+|microsoft.workloads/sapvirtualinstances|Yes|Yes|
 
 ## Next Steps
 

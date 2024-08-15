@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 08/06/2024
 ## As a developer, I want to access my SQL database from my logic app workflow.
 ---
 
@@ -21,7 +21,7 @@ If you're new to Azure Logic Apps, review the following get started documentatio
 
 * [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)
 
-* [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md)
+* [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md)
 
 * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
@@ -39,7 +39,7 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Standard** label, and the ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector differs in the following ways: <br><br>- The built-in connector can directly connect to an SQL database and access Azure virtual networks by using a connection string without an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
@@ -59,8 +59,19 @@ For more information, review the [SQL Server managed connector reference](/conne
 
   > [!IMPORTANT]
   >
-  > If you use an SQL Server connection string that you copied directly from the Azure portal, 
-  > you have to manually add your password to the connection string.
+  > If you use an SQL Server connection string that you copied directly from the Azure portal, you have to manually 
+  > add your password to the connection string. For sensitive information, such as this string, make sure to use the 
+  > most secure authentication flow available. Microsoft recommends that you authenticate access to Azure resources 
+  > with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) when possible, and assign 
+  > a role that has the least privilege necessary.
+  >
+  > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+  > [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings in Standard workflows](../logic-apps/edit-app-settings-host-settings.md). 
+  > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+  > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+  > app settings within your [Standard logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+  > You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+  > For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
   * For an SQL database in Azure, the connection string has the following format:
 

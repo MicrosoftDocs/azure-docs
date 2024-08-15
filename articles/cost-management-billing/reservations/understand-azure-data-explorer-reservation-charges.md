@@ -4,7 +4,7 @@ description: Learn how the reservation discount is applied to Azure Data Explore
 author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
-ms.service: data-explorer
+ms.service: azure-data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2022
 ms.custom: kr2b-contr-experiment
@@ -59,7 +59,7 @@ To understand and view the application of your Azure Reservations in billing usa
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about Azure reservations, see the following articles:
 

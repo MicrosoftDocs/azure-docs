@@ -1,21 +1,21 @@
 ---
-title: "Quickstart: Use Document Summarization"
+title: "Quickstart: Use Summarization"
 titleSuffix: Azure AI services
-description: Use this quickstart to start using Document Summarization.
+description: Use this quickstart to start using Summarization.
 #services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 12/19/2023
+ms.date: 05/07/2024
 ms.author: jboback
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
-ms.custom: language-service-summarization, mode-api, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: language-service-summarization, mode-api, devx-track-extended-java, devx-track-js, devx-track-python, build-2024
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: using document summarization and conversation summarization
+# Quickstart: using text, document and conversation summarization
 
 [!INCLUDE [availability](includes/regional-availability.md)]
 
@@ -53,12 +53,12 @@ zone_pivot_groups: programming-languages-text-analytics
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 
 
 ## Next steps
 
-* [How to call document summarization](./how-to/document-summarization.md)
+* [How to call text summarization](./how-to/document-summarization.md)
 * [How to call conversation summarization](./how-to/conversation-summarization.md)

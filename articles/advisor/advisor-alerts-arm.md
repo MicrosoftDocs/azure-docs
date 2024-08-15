@@ -1,18 +1,18 @@
 ---
-title: Create Azure Advisor alerts for new recommendations using Resource Manager template
-description: Learn how to set up an alert for new recommendations from Azure Advisor using an Azure Resource Manager template (ARM template).
+title: Create Advisor alerts for new recommendations by using Resource Manager template
+description: Learn how to set up an alert for new recommendations from Azure Advisor by using an Azure Resource Manager template (ARM template).
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 06/29/2020
 ---
 
-# Quickstart: Create Azure Advisor alerts on new recommendations using an ARM template
+# Quickstart: Create Advisor alerts on new recommendations by using an ARM template
 
-This article shows you how to set up an alert for new recommendations from Azure Advisor using an Azure Resource Manager template (ARM template).
+This article shows you how to set up an alert for new recommendations from Azure Advisor by using an Azure Resource Manager template (ARM template).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](../azure-monitor/essentials/platform-logs-overview.md). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on.
+Whenever Advisor detects a new recommendation for one of your resources, an event is stored in an [Azure activity log](../azure-monitor/essentials/platform-logs-overview.md). You can set up alerts for these events from Advisor by using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on.
 
 You can also determine the types of recommendations by using these properties:
 
@@ -20,20 +20,20 @@ You can also determine the types of recommendations by using these properties:
 - Impact level
 - Recommendation type
 
-You can also configure the action that will take place when an alert is triggered by:
+You can also configure the action that takes place when an alert is triggered by:
 
-- Selecting an existing action group
-- Creating a new action group
+- Selecting an existing action group.
+- Creating a new action group.
 
 To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE]
-> Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported.
+> Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations aren't supported.
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- To run the commands from your local computer, install Azure CLI or the Azure PowerShell modules. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
+- To run the commands from your local computer, install the Azure CLI or the Azure PowerShell modules. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Review the template
 
@@ -141,7 +141,7 @@ The template defines two resources:
 
 ## Deploy the template
 
-Deploy the template using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-portal.md) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group**, and **emailAddress** with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
+Deploy the template by using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-portal.md), such as the following examples that use the CLI and PowerShell. Replace the sample values for `ResourceGroup`, and `emailAddress` with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
 
 # [CLI](#tab/CLI)
 
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-res
 
 ## Validate the deployment
 
-Verify that the workspace has been created using one of the following commands. Replace the sample values for **Resource Group** with the value you used above.
+Verify that the workspace was created by using one of the following commands. Replace the sample values for **Resource Group** with the value that you used in the previous example.
 
 # [CLI](#tab/CLI)
 
@@ -180,7 +180,7 @@ Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name AdvisorAlertsT
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the alert rule and the related resources. To delete the resource group by using Azure CLI or Azure PowerShell
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, delete the resource group, which deletes the alert rule and the related resources. To delete the resource group by using the CLI or PowerShell:
 
 # [CLI](#tab/CLI)
 
@@ -196,7 +196,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ---
 
-## Next steps
+## Related content
 
-- Get an [overview of activity log alerts](../azure-monitor/alerts/alerts-overview.md), and learn how to receive alerts.
+- Get an [overview of activity log alerts](../azure-monitor/alerts/alerts-overview.md) and learn how to receive alerts.
 - Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

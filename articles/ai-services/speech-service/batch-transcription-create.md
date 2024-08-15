@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 4/15/2024
+ms.date: 7/16/2024
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 # Customer intent: As a user who implements audio transcription, I want create transcriptions in bulk so that I don't have to submit audio content repeatedly.
@@ -22,8 +22,7 @@ With batch transcriptions, you submit [audio data](batch-transcription-audio-dat
 
 ## Prerequisites
 
-- The [Speech SDK](quickstarts/setup-platform.md) installed.
-- A standard (S0) Speech resource. Free resources (F0) aren't supported.
+You need a standard (S0) Speech resource. Free resources (F0) aren't supported.
 
 ## Create a transcription job
 
@@ -63,19 +62,19 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
       ],
     }
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/5988d691-0893-472c-851e-8e36a0fe7aaf"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -94,9 +93,9 @@ You should receive a response body in the following format:
       ]
     }
   },
-  "lastActionDateTime": "2022-10-21T14:18:06Z",
+  "lastActionDateTime": "2024-05-21T14:18:06Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-10-21T14:18:06Z",
+  "createdDateTime": "2024-05-21T14:18:06Z",
   "locale": "en-US",
   "displayName": "My Transcription"
 }
@@ -108,6 +107,10 @@ You can query the status of your transcriptions with the [Transcriptions_Get](/r
 
 Call [Transcriptions_Delete](/rest/api/speechtotext/transcriptions/delete)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
+
+> [!TIP]
+> You can also try the Batch Transcription API using Python on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/batch/python/python-client/main.py).
+
 
 ::: zone-end
 
@@ -129,12 +132,12 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/5988d691-0893-472c-851e-8e36a0fe7aaf"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -146,9 +149,9 @@ You should receive a response body in the following format:
     "punctuationMode": "DictatedAndAutomatic",
     "profanityFilterMode": "Masked"
   },
-  "lastActionDateTime": "2022-10-21T14:21:59Z",
+  "lastActionDateTime": "2024-05-21T14:21:59Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-10-21T14:21:59Z",
+  "createdDateTime": "2024-05-21T14:21:59Z",
   "locale": "en-US",
   "displayName": "My Transcription",
   "description": ""
@@ -169,7 +172,7 @@ spx help batch transcription
 
 ::: zone pivot="rest-api"
 
-Here are some property options that you can use to configure a transcription when you call the [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create) operation.
+Here are some property options to configure a transcription when you call the [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create) operation. You can find more examples on the same page, such as [creating a transcription with language identification](/rest/api/speechtotext/transcriptions/create/#create-a-transcription-with-language-identification).
 
 | Property | Description |
 |----------|-------------|
@@ -220,12 +223,12 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
   "displayName": "My Transcription",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/5988d691-0893-472c-851e-8e36a0fe7aaf"
   },
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions"
 ```
 
 ::: zone-end
@@ -233,7 +236,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 ::: zone pivot="speech-cli"
 
 ```azurecli
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/5988d691-0893-472c-851e-8e36a0fe7aaf"
 ```
 
 ::: zone-end
@@ -265,13 +268,13 @@ You can make a [Models_ListBaseModels](/rest/api/speechtotext/models/list-base-m
 Make an HTTP GET request as shown in the following example for the `eastus` region. Replace `YourSubscriptionKey` with your Speech resource key. Replace `eastus` if you're using a different region.
 
 ```azurecli-interactive
-curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 By default, only the 100 oldest base models are returned. Use the `skip` and `top` query parameters to page through the results. For example, the following request returns the next 100 base models after the first 100.
 
 ```azurecli-interactive
-curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base?skip=100&top=100" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base?skip=100&top=100" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 ::: zone-end
@@ -280,7 +283,7 @@ curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-pre
 Make sure that you set the [configuration variables](spx-basics.md#create-a-resource-configuration) for a Speech resource in one of the supported regions. You can run the `spx csr list --base` command to get available base models for all locales.
 
 ```azurecli
-spx csr list --base --api-version v3.2-preview.2
+spx csr list --base --api-version v3.2
 ```
 
 ::: zone-end
@@ -289,9 +292,9 @@ The `displayName` property of a Whisper model contains "Whisper" as shown in thi
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950",
   "links": {
-    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950/manifest"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950/manifest"
   },
   "properties": {
     "deprecationDates": {
@@ -333,12 +336,12 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
   "displayName": "My Transcription",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950"
   },
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
-}'  "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/transcriptions"
+}'  "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions"
 ```
 
 ::: zone-end
@@ -346,7 +349,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 ::: zone pivot="speech-cli"
 
 ```azurecli
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.2/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6" --api-version v3.2-preview.2
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950" --api-version v3.2
 ```
 
 ::: zone-end

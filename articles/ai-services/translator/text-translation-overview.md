@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 07/18/2023
+ms.date: 08/12/2024
 ms.author: lajanuar
 ---
 
@@ -18,14 +18,14 @@ ms.author: lajanuar
 Text translation documentation contains the following article types:
 
 * [**Quickstarts**](quickstart-text-rest-api.md). Getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](create-translator-resource.md). Instructions for accessing and using the service in more specific or customized ways.
+* [**How-to guides**](create-translator-resource.yml). Instructions for accessing and using the service in more specific or customized ways.
 * [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
 
 ## Text translation features
 
  Text Translation supports the following methods:
 
-* [**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate**, and **Dictionary Lookup** operations. This request doesn't require authentication; just copy and paste the following GET request into Postman or your favorite API tool or browser:
+* [**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate**, and **Dictionary Lookup** operations. This request doesn't require authentication; just copy and paste the following GET request into your favorite REST API tool or browser:
 
     ```http
     https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
@@ -62,29 +62,42 @@ Add Text Translation to your projects and applications using the following resou
 
 Text Translation data residency depends on the Azure region where your Translator resource was created:
 
-* Translator resources **created** in any region in Europe are **processed** at data center in West Europe and North Europe.
-* Translator resources **created** in any region in Asia or Australia are **processed** at data center in Southeast Asia and Australia East.
-* Translator resource **created** in all other regions including Global, North America and South America are **processed** at data center in East US and West US 2.
-
 ### Text Translation data residency
 
 ✔️ Feature: **Translator Text** </br>
-✔️ Region where resource created: **Any**
 
 | Service endpoint | Request processing data center |
 |------------------|--------------------------|
 |**Global (recommended):**</br>**`api.cognitive.microsofttranslator.com`**|Closest available data center.|
-|**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US &bull; South Central US &bull; West Central US &bull; West US 2|
-|**Europe:**</br>**`api-eur.cognitive.microsofttranslator.com`**|North Europe &bull; West Europe|
-| **Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Korea South &bull; Japan East &bull; Southeast Asia &bull; Australia East|
+|**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US 2 &bull; West US 2|
+|**Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Japan East &bull; Southeast Asia|
+|**Europe (except Switzerland):**</br>**`api-eur.cognitive.microsofttranslator.com`**|France Central &bull; West Europe|
+|**Switzerland:**</br> For more information, *see* [Switzerland service endpoints](#switzerland-service-endpoints).|Switzerland North &bull; Switzerland West|
+
+#### Switzerland service endpoints
+
+Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the `Resource region` `Switzerland North` or `Switzerland West`, then use the resource's custom endpoint in your API requests.
+
+For example: If you create a Translator resource in Azure portal with `Resource region` as `Switzerland North` and your resource name is `my-swiss-n`, then your custom endpoint is `https&#8203;://my-swiss-n.cognitiveservices.azure.com`. And a sample request to translate is:
+
+```curl
+// Pass secret key and region using headers to a custom endpoint
+curl -X POST "https://my-swiss-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
+-H "Ocp-Apim-Subscription-Key: xxx" \
+-H "Ocp-Apim-Subscription-Region: switzerlandnorth" \
+-H "Content-Type: application/json" \
+-d "[{'Text':'Hello'}]" -v
+```
+
+Custom Translator isn't currently available in Switzerland.
 
 ## Get started with Text Translation
 
 Ready to begin?
 
-* [**Create a Translator resource**](create-translator-resource.md "Go to the Azure portal.") in the Azure portal.
+* [**Create a Translator resource**](create-translator-resource.yml "Go to the Azure portal.") in the Azure portal.
 
-* [**Get your access keys and API endpoint**](create-translator-resource.md#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
+* [**Get your access keys and API endpoint**](create-translator-resource.yml#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
 
 * Explore our [**Quickstart**](quickstart-text-rest-api.md "Learn to use Translator via REST and a preferred programming language.") and view use cases and code samples for the following programming languages: 
   * [**C#/.NET**](quickstart-text-rest-api.md?tabs=csharp)

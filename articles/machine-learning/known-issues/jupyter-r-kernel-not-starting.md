@@ -5,7 +5,7 @@ description: When trying to launch an R kernel in JupyterLab or a notebook in a 
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 08/14/2023
 ms.custom: known-issue

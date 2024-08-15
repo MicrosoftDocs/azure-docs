@@ -224,12 +224,19 @@ You can use the `CreateReleaseAnnotation` PowerShell script to create annotation
     $annotation = ConvertTo-Json $annotation -Compress
     $annotation = Convert-UnicodeToEscapeHex -JsonString $annotation  
  
-    $body = $annotation -replace '(\\+)"', '$1$1"' -replace "`"", "`"`""
-
-    az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) "
-
-    # Use the following command for Linux Azure DevOps Hosts or other PowerShell scenarios
-    # Invoke-AzRestMethod -Path "$aiResourceId/Annotations?api-version=2015-05-01" -Method PUT -Payload $body
+    $accessToken = (az account get-access-token | ConvertFrom-Json).accessToken
+    $headers = @{
+        "Authorization" = "Bearer $accessToken"
+        "Accept"        = "application/json"
+        "Content-Type"  = "application/json"
+    }
+    $params = @{
+        Headers = $headers
+        Method  = "Put"
+        Uri     = "https://management.azure.com$($aiResourceId)/Annotations?api-version=2015-05-01"
+        Body    = $annotation
+    }
+    Invoke-RestMethod @params
     ```
 
     > [!NOTE]

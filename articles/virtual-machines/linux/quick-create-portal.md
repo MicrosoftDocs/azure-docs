@@ -2,7 +2,7 @@
 title: Quickstart - Create a Linux VM in the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create a Linux virtual machine.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.date: 01/04/2024
@@ -31,22 +31,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Enter *myResourceGroup* for the name.*.
 
-	![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/quick-create-portal/project-details.png)
+	![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](~/reusable-content/ce-skilling/azure/media/virtual-machines/project-details.png)
 
 1. Under **Instance details**, enter *myVM* for the **Virtual machine name**, and choose *Ubuntu Server 22.04 LTS - Gen2* for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing are dependent on your region and subscription.
 
-    :::image type="content" source="media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image, and size.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image, and size.":::
 
     > [!NOTE]
     > Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see [Create virtual machines in an availability zone](../create-portal-availability-zone.md).
     > :::image type="content" source="../media/create-portal-availability-zone/preview.png" alt-text="Screenshot showing that you have the option to create virtual machines in multiple availability zones.":::
-
-1. On the right side, you see an example summary of the estimated costs. This updates as you select options that affect the cost, such as choosing *Ubuntu Server 22.04 LTS - Gen2* for your **Image**.
-
-
-   ![Screenshot of Linux virtual machine estimated cost on creation page in the Azure portal.](./media/quick-create-portal/linux-estimated-monthly-cost.png)
-
-   If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
 
 1. Under **Administrator account**, select **SSH public key**.
 
@@ -54,11 +47,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. For **SSH public key source**, leave the default of **Generate new key pair**, and then enter *myKey* for the **Key pair name**.
 
-    ![Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials](./media/quick-create-portal/administrator-account.png)
+    ![Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials](~/reusable-content/ce-skilling/azure/media/virtual-machines/administrator-account.png)
 
 1. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
 
-	![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](./media/quick-create-portal/inbound-port-rules.png)
+	![Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on](~/reusable-content/ce-skilling/azure/media/virtual-machines/inbound-port-rules.png)
 
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
@@ -71,7 +64,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. On the page for your new VM, select the public IP address and copy it to your clipboard.
 
 
-	![Screenshot showing how to copy the IP address for the virtual machine](./media/quick-create-portal/ip-address.png)
+	![Screenshot showing how to copy the IP address for the virtual machine](~/reusable-content/ce-skilling/azure/media/virtual-machines/ip-address.png)
 
 
 ## Connect to virtual machine

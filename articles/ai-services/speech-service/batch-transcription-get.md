@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/18/2024
+ms.date: 7/16/2024
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 ---
@@ -28,19 +28,19 @@ To get the status of the transcription job, call the [Transcriptions_Get](/rest/
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/YourTranscriptionId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/YourTranscriptionId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -61,9 +61,9 @@ You should receive a response body in the following format:
       ]
     }
   },
-  "lastActionDateTime": "2022-09-10T18:39:09Z",
+  "lastActionDateTime": "2024-05-10T18:39:09Z",
   "status": "Succeeded",
-  "createdDateTime": "2022-09-10T18:39:07Z",
+  "createdDateTime": "2024-05-10T18:39:07Z",
   "locale": "en-US",
   "displayName": "My Transcription"
 }
@@ -86,19 +86,19 @@ To get the status of the transcription job, use the `spx batch transcription sta
 Here's an example Speech CLI command to get the transcription status:
 
 ```azurecli-interactive
-spx batch transcription status --api-version v3.1 --transcription YourTranscriptionId
+spx batch transcription status --api-version v3.2 --transcription YourTranscriptionId
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/aaa321e9-5a4e-4db1-88a2-f251bbe7b555"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -112,9 +112,9 @@ You should receive a response body in the following format:
     "profanityFilterMode": "Masked",
     "duration": "PT3S"
   },
-  "lastActionDateTime": "2022-09-10T18:39:09Z",
+  "lastActionDateTime": "2024-05-10T18:39:09Z",
   "status": "Succeeded",
-  "createdDateTime": "2022-09-10T18:39:07Z",
+  "createdDateTime": "2024-05-10T18:39:07Z",
   "locale": "en-US",
   "displayName": "My Transcription"
 }
@@ -139,7 +139,7 @@ The [Transcriptions_ListFiles](/rest/api/speechtotext/transcriptions/list-files)
 Make an HTTP GET request using the "files" URI from the previous response body. Replace `YourTranscriptionId` with your transcription ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/YourTranscriptionId/files" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/YourTranscriptionId/files" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 You should receive a response body in the following format:
@@ -148,39 +148,39 @@ You should receive a response body in the following format:
 {
   "values": [
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/2dd180a1-434e-4368-a1ac-37350700284f",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/2dd180a1-434e-4368-a1ac-37350700284f",
       "name": "contenturl_0.json",
       "kind": "Transcription",
       "properties": {
         "size": 3407
       },
-      "createdDateTime": "2022-09-10T18:39:09Z",
+      "createdDateTime": "2024-05-10T18:39:09Z",
       "links": {
-        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_0_0.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=AobsqO9DH9CIOuGC5ifFH3QpkQay6PjHiWn5G87FcIg%3D"
+        "contentUrl": "YourTranscriptionUrl"
       }
     },
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/c027c6a9-2436-4303-b64b-e98e3c9fc2e3",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/c027c6a9-2436-4303-b64b-e98e3c9fc2e3",
       "name": "contenturl_1.json",
       "kind": "Transcription",
       "properties": {
         "size": 8233
       },
-      "createdDateTime": "2022-09-10T18:39:09Z",
+      "createdDateTime": "2024-05-10T18:39:09Z",
       "links": {
-        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_1_0.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=wO3VxbhLK4PhT3rwLpJXBYHYQi5EQqyl%2Fp1lgjNvfh0%3D"
+        "contentUrl": "YourTranscriptionUrl"
       }
     },
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/faea9a41-c95c-4d91-96ff-e39225def642",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/faea9a41-c95c-4d91-96ff-e39225def642",
       "name": "report.json",
       "kind": "TranscriptionReport",
       "properties": {
         "size": 279
       },
-      "createdDateTime": "2022-09-10T18:39:09Z",
+      "createdDateTime": "2024-05-10T18:39:09Z",
       "links": {
-        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_report.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=gk1k%2Ft5qa1TpmM45tPommx%2F2%2Bc%2FUUfsYTX5FoSa1u%2FY%3D"
+        "contentUrl": "YourTranscriptionReportUrl"
       }
     }
   ]
@@ -203,7 +203,7 @@ The `spx batch transcription list` command returns a list of result files for a 
 Here's an example Speech CLI command that gets a list of result files for a transcription:
 
 ```azurecli-interactive
-spx batch transcription list --api-version v3.1 --files --transcription YourTranscriptionId
+spx batch transcription list --api-version v3.2 --files --transcription YourTranscriptionId
 ```
 
 You should receive a response body in the following format:
@@ -212,39 +212,39 @@ You should receive a response body in the following format:
 {
   "values": [
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/2dd180a1-434e-4368-a1ac-37350700284f",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/2dd180a1-434e-4368-a1ac-37350700284f",
       "name": "contenturl_0.json",
       "kind": "Transcription",
       "properties": {
         "size": 3407
       },
-      "createdDateTime": "2022-09-10T18:39:09Z",
+      "createdDateTime": "2024-05-10T18:39:09Z",
       "links": {
-        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_0_0.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=AobsqO9DH9CIOuGC5ifFH3QpkQay6PjHiWn5G87FcIg%3D"
+        "contentUrl": "YourTranscriptionUrl"
       }
     },
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/c027c6a9-2436-4303-b64b-e98e3c9fc2e3",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/c027c6a9-2436-4303-b64b-e98e3c9fc2e3",
       "name": "contenturl_1.json",
       "kind": "Transcription",
       "properties": {
         "size": 8233
       },
-      "createdDateTime": "2022-09-10T18:39:09Z",
+      "createdDateTime": "2024-05-10T18:39:09Z",
       "links": {
-        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_1_0.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=wO3VxbhLK4PhT3rwLpJXBYHYQi5EQqyl%2Fp1lgjNvfh0%3D"
+        "contentUrl": "YourTranscriptionUrl"
       }
     },
     {
-      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/faea9a41-c95c-4d91-96ff-e39225def642",
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/637d9333-6559-47a6-b8de-c7d732c1ddf3/files/faea9a41-c95c-4d91-96ff-e39225def642",
       "name": "report.json",
       "kind": "TranscriptionReport",
       "properties": {
         "size": 279
       },
-      "createdDateTime": "2022-09-10T18:39:09Z",
+      "createdDateTime": "2024-05-10T18:39:09Z",
       "links": {
-        "contentUrl": "https://spsvcprodeus.blob.core.windows.net/bestor-c6e3ae79-1b48-41bf-92ff-940bea3e5c2d/TranscriptionData/637d9333-6559-47a6-b8de-c7d732c1ddf3_report.json?sv=2021-08-06&st=2022-09-10T18%3A36%3A01Z&se=2022-09-11T06%3A41%3A01Z&sr=b&sp=rl&sig=gk1k%2Ft5qa1TpmM45tPommx%2F2%2Bc%2FUUfsYTX5FoSa1u%2FY%3D"
+        "contentUrl": "YourTranscriptionReportUrl"
       }
     }
   ]
@@ -375,12 +375,12 @@ Depending in part on the request parameters set when you created the transcripti
 |`combinedRecognizedPhrases`|The concatenated results of all phrases for the channel.|
 |`confidence`|The confidence value for the recognition.|
 |`display`|The display form of the recognized text. Added punctuation and capitalization are included.|
-|`displayWords`|The timestamps for each word of the transcription. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property isn't present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
+|`displayWords`|The timestamps for each word of the transcription. The `displayFormWordLevelTimestampsEnabled` request property must be set to `true`, otherwise this property isn't present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1 and later.|
 |`duration`|The audio duration. The value is an ISO 8601 encoded duration.|
 |`durationInTicks`|The audio duration in ticks (one tick is 100 nanoseconds).|
 |`itn`|The inverse text normalized (ITN) form of the recognized text. Abbreviations such as "Doctor Smith" to "Dr Smith", phone numbers, and other transformations are applied.|
 |`lexical`|The actual words recognized.|
-|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set, otherwise this property isn't present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1.|
+|`locale`|The locale identified from the input the audio. The `languageIdentification` request property must be set, otherwise this property isn't present.<br/><br/>**Note**: This property is only available with Speech to text REST API version 3.1 and later.|
 |`maskedITN`|The ITN form with profanity masking applied.|
 |`nBest`|A list of possible transcriptions for the current phrase with confidences.|
 |`offset`|The offset in audio of this phrase. The value is an ISO 8601 encoded duration.|

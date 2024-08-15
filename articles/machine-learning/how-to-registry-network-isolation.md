@@ -3,13 +3,13 @@ title: Machine Learning registry network isolation
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning registry with Azure Virtual Networks
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.custom: build-2023
-author: fkriti
-ms.author: kritifaujdar
-ms.reviewer: larryfr
-ms.date: 05/23/2023
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: kritifaujdar
+ms.date: 04/29/2024
 ms.topic: how-to
 ---
 
@@ -45,7 +45,9 @@ If you don't have a secure workspace configuration, you can create it using the 
 :::image type="content" source="./media/how-to-registry-network-isolation/basic-network-isolation-registry.png" alt-text="Diagram of registry connected to Virtual network containing workspace and associated resources using private endpoint.":::
 
 ## Limitations
-If you are using an Azure Machine Learning registry with network isolation, you won't be able to see the assets in Studio. You also won't be able to perform any operations on Azure Machine Learning registry or assets under it using Studio. Please use the Azure Machine Learning CLI or SDK instead.
+
+If you are using an Azure Machine Learning registry with network isolation, you can view *model* assets in Azure Machine Learning studio. You won't be able to view other types of assets. You won't be able to perform any operations on Azure Machine Learning registry or assets under it using studio. Please use the Azure Machine Learning CLI or SDK instead.
+
 ## Scenario: workspace configuration is secure and Azure Machine Learning registry is public
 
 This section describes the scenarios and required network configuration if you have a secure workspace configuration but using a public registry. 
@@ -59,7 +61,7 @@ The identity (for example, a Data Scientist's Microsoft Entra user identity) use
 > Sharing a component from Azure Machine Learning workspace to Azure Machine Learning registry is not supported currently.
 
 Due to data exfiltration protection, it isn't possible to share an asset from secure workspace to a public registry if the storage account containing the asset has public access disabled. To enable asset sharing from workspace to registry:
-* Go to the **Networking** blade on the storage account attached to the workspace (from where you would like to allow sharing of assets to registry)
+* Go to the **Networking** section of the storage account attached to the workspace (from where you would like to allow sharing of assets to registry)
 * Set __Public network access__ to **Enabled from selected virtual networks and IP addresses**
 * Scroll down and go to __Resource instances__ section. Select __Resource type__ to **Microsoft.MachineLearningServices/registries** and set __Instance name__ to the name of Azure Machine Learning registry resource were you would like to enable sharing to from workspace.
 * Make sure to check rest of the settings as per your network configuration.
@@ -126,7 +128,7 @@ To connect to a registry that's secured behind a VNet, use one of the following 
 > Sharing a component from Azure Machine Learning workspace to Azure Machine Learning registry is not supported currently.
 
 Due to data exfiltration protection, it isn't possible to share an asset from secure workspace to a private registry if the storage account containing the asset has public access disabled. To enable asset sharing from workspace to registry:
-* Go to the **Networking** blade on the storage account attached to the workspace (from where you would like to allow sharing of assets to registry)
+* Go to the **Networking** section of the storage account attached to the workspace (from where you would like to allow sharing of assets to registry)
 * Set __Public network access__ to **Enabled from selected virtual networks and IP addresses**
 * Scroll down and go to __Resource instances__ section. Select __Resource type__ to **Microsoft.MachineLearningServices/registries** and set __Instance name__ to the name of Azure Machine Learning registry resource were you would like to enable sharing to from workspace.
 * Make sure to check rest of the settings as per your network configuration.
@@ -202,6 +204,9 @@ For a system registry, we recommend creating a Service Endpoint Policy for the S
 
 ## How to find the registry's fully qualified domain name
 
+> [!NOTE]
+> Make sure your DNS is able to resolve the registry private FQDN which is in this format: `<registry-guid>.registry.<region>.privatelink.api.azureml.ms` as there is no public resource specific FQDN  which is recursively resolved by Azure DNS.
+
 The following examples show how to use the discovery URL to get the fully qualified domain name (FQDN) of your registry. When calling the discovery URL, you must provide an Azure access token in the request header. The following examples show how to get an access token and call the discovery URL:
 
 > [!TIP]
@@ -233,12 +238,12 @@ $accessToken = (az account get-access-token | ConvertFrom-Json).accessToken
     az account get-access-token --query accessToken
     ```
 
-1. Use a REST client such as Postman or Curl to make a GET request to the discovery URL. Use the access token retrieved in the previous step for authorization. In the following example, replace `<region>` with the region where your registry is located and `<registry_name>` with the name of your registry. Replace `<token>` with the access token retrieved in the previous step:
+1. Use a REST client such as Curl to make a GET request to the discovery URL. Use the access token retrieved in the previous step for authorization. In the following example, replace `<region>` with the region where your registry is located and `<registry_name>` with the name of your registry. Replace `<token>` with the access token retrieved in the previous step:
 
     ```bash
     curl -X GET "https://<region>.api.azureml.ms/registrymanagement/v1.0/registries/<registry_name>/discovery" -H "Authorization: Bearer <token>" -H "Content-Type: application/json"
     ```
 
-## Next steps
+## Next step
 
 Learn how to [Share models, components, and environments across workspaces with registries](how-to-share-models-pipelines-across-workspaces-with-registries.md).

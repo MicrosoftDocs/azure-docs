@@ -3,7 +3,7 @@ title:  "Convert to CSV: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Convert to CSV component in Azure Machine Learning designer to convert a dataset into a CSV file that can be reused later.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

@@ -1,5 +1,5 @@
 ---
-title: "Container: Translate text method"
+title: "Container: Translate text"
 titleSuffix: Azure AI services
 description: Understand the parameters, headers, and body messages for the Azure AI Translator container translate document operation.
 author: laujan
@@ -7,7 +7,7 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 04/08/2024
+ms.date: 08/14/2024
 ms.author: lajanuar
 ---
 
@@ -20,19 +20,14 @@ ms.author: lajanuar
 Send a `POST` request to:
 
 ```HTTP
-POST {Endpoint}/translate?api-version=3.0&&from={from}&to={to}
+POST http://localhost:{port}/translate?api-version=3.0&&from={from}&to={to}
 ```
 
 ***Example request***
 
-```rest
-POST https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=es
-
-[
-  {
-    "Text": "I would really like to drive your car."
-  }
-]
+```bash
+curl -x POST "https:localhost:5000/translate?api-version=3.0&from=en&to=es" -H "Content-Type: application/json" -d "[{
+'Text': 'I would really like to drive your car.'}]"
 
 ```
 
@@ -50,7 +45,6 @@ POST https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&fro
   }
 ]
 ```
-
 
 ## Request parameters
 
@@ -96,7 +90,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 100 elements.
-* The entire text included in the request can't exceed 10,000 characters including spaces.
+* The entire text included in the request can't exceed 50,000 characters including spaces.
 
 ## Response body
 
@@ -136,7 +130,7 @@ If an error occurs, the request returns a JSON error response. The error code is
 > * Each sample runs on the `localhost` that you specified with the `docker run` command.
 > * While your container is running, `localhost` points to the container itself.
 > * You don't have to use `localhost:5000`. You can use any port that is not already in use in your host environment.
-> To specify a port, use the `-p` option.
+
 
 ### Translate a single input
 
@@ -285,7 +279,7 @@ namespace TranslateContainer
 Translating multiple strings at once is simply a matter of specifying an array of strings in the request body.
 
 ```bash
-curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
+curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
 The response contains the translation of all pieces of text in the exact same order as in the request.
@@ -311,7 +305,7 @@ The response body is:
 This example shows how to translate the same input to several languages in one request.
 
 ```bash
-curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 The response body is:
@@ -339,7 +333,7 @@ It's common to translate content that includes markup such as content from an HT
 Here's a sample request to illustrate.
 
 ```bash
-curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
+curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
 
 The response is:
@@ -367,7 +361,7 @@ The markup to supply uses the following syntax.
 For example, consider the English sentence "The word wordomatic is a dictionary entry." To preserve the word _wordomatic_ in the translation, send the request:
 
 ```bash
-curl -X POST "http://localhost:{port}/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 The result is:
@@ -386,13 +380,13 @@ This feature works the same way with `textType=text` or with `textType=html`. Th
 
 ## Request limits
 
-Each translate request is limited to 10,000 characters, across all the target languages you're translating to. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3000x3 = 9,000 characters, which satisfy the request limit. You're charged per character, not by the number of requests. We recommended sending shorter requests.
+Each translate request is limited to 50,000 characters, across all the target languages you're translating to. For example, sending a translate request of 3,000 characters to translate to three different languages results in a request size of 3000x3 = 9,000 characters, which satisfy the request limit. You're charged per character, not by the number of requests. We recommended sending shorter requests.
 
 The following table lists array element and character limits for the Translator **translation** operation.
 
 | Operation | Maximum size of array element | Maximum number of array elements | Maximum request size (characters) |
 |:----|:----|:----|:----|
-| translate | 10,000 | 100 | 10,000 |
+| translate | 10,000 | 100 | 50,000 |
 
 ## Use docker compose: Translator with supporting containers
 

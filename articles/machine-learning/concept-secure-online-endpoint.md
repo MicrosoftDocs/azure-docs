@@ -3,13 +3,12 @@ title: Network isolation with managed online endpoints
 titleSuffix: Azure Machine Learning
 description: Learn how private endpoints provide network isolation for Azure Machine Learning managed online endpoints.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom: devplatv2, moe-wsvnet
 ms.date: 02/29/2024
 ---
@@ -27,7 +26,8 @@ The following architecture diagram shows how communications flow through private
 :::image type="content" source="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png" alt-text="Diagram showing inbound communication via a workspace private endpoint and outbound communication via private endpoints of a workspace managed virtual network." lightbox="media/concept-secure-online-endpoint/endpoint-network-isolation-with-workspace-managed-vnet.png":::
 
 > [!NOTE]
-> This article focuses on network isolation using the workspace's managed virtual network. For a description of the legacy method for network isolation, in which Azure Machine Learning creates a managed virtual network for each deployment in an endpoint, see the [Appendix](#appendix).
+> - This article focuses on network isolation using the workspace's managed virtual network. For a description of the legacy method for network isolation, in which Azure Machine Learning creates a managed virtual network for each deployment in an endpoint, see the [Appendix](#appendix).
+> - Each deployment is isolated from other deployments, regardless of inbound and outbound communication discussed in this article. In other words, even with endpoints/deployments that allow internet inbound/outbound, there's a network isolation between deployments, which blocks any deployment from directly connecting to other deployments. 
 
 ## Limitations
 

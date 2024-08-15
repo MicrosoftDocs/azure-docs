@@ -3,33 +3,31 @@ title: Use datastores
 titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to connect to Azure storage services during training with Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: yogipandey
-author: ynpandey
-ms.reviewer: franksolomon
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: yogipandey
 ms.date: 02/20/2024
 ms.custom: data4ml, ignite-2023, devx-track-azurecli
-# Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource, to train my machine learning models.
+# Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource to train my machine learning models.
 ---
 
 # Create datastores
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, learn how to connect to Azure data storage services with Azure Machine Learning datastores.
+In this article, you learn how to connect to Azure data storage services with Azure Machine Learning datastores.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-
 - The [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
-
-- An Azure Machine Learning workspace.
+- A Machine Learning workspace.
 
 > [!NOTE]
-> Azure Machine Learning datastores do **not** create the underlying storage account resources. Instead, they link an **existing** storage account for Azure Machine Learning use. This does not require Azure Machine Learning datastores. If you have access to the underlying data, you can use storage URIs directly.
+> Machine Learning datastores do *not* create the underlying storage account resources. Instead, they link an *existing* storage account for Machine Learning use. Machine Learning datastores aren't required. If you have access to the underlying data, you can use storage URIs directly.
 
 ## Create an Azure Blob datastore
 
@@ -97,7 +95,7 @@ ml_client.create_or_update(store)
 ```
 
 # [CLI: Identity-based access](#tab/cli-identity-based-access)
-Create the following YAML file (make sure you update the appropriate values):
+Create the following YAML file (update the appropriate values):
 
 ```yaml
 # my_blob_datastore.yml
@@ -109,14 +107,14 @@ account_name: my_account_name # add the storage account name here
 container_name: my_container_name # add the storage container name here
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the Azure CLI:
 
 ```azurecli
 az ml datastore create --file my_blob_datastore.yml
 ```
 
 # [CLI: Account key](#tab/cli-account-key)
-Create this YAML file (make sure you update the appropriate values):
+Create this YAML file (update the appropriate values):
 
 ```yaml
 # my_blob_datastore.yml
@@ -130,14 +128,14 @@ credentials:
   account_key: XXXxxxXXXxXXXXxxXXXXXxXXXXXxXxxXxXXXxXXXxXXxxxXXxxXXXxXxXXXxxXxxXXXXxxxxxXXxxxxxxXXXxXXX
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_blob_datastore.yml
 ```
 
 # [CLI: SAS](#tab/cli-sas)
-Create this YAML file (make sure you update the appropriate values):
+Create this YAML file (update the appropriate values):
 
 ```yaml
 # my_blob_datastore.yml
@@ -151,14 +149,14 @@ credentials:
   sas_token: ?xx=XXXX-XX-XX&xx=xxxx&xxx=xxx&xx=xxxxxxxxxxx&xx=XXXX-XX-XXXXX:XX:XXX&xx=XXXX-XX-XXXXX:XX:XXX&xxx=xxxxx&xxx=XXxXXXxxxxxXXXXXXXxXxxxXXXXXxxXXXXXxXXXXxXXXxXXxXX
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_blob_datastore.yml
 ```
 ---
 
-## Create an Azure Data Lake Gen2 datastore
+## Create an Azure Data Lake Storage Gen2 datastore
 
 # [Python SDK: Identity-based access](#tab/sdk-adls-identity-access)
 
@@ -204,33 +202,33 @@ ml_client.create_or_update(store)
 ```
 
 # [CLI: Identity-based access](#tab/cli-adls-identity-based-access)
-Create this YAML file (updating the values):
+Create this YAML file (update the values):
 
 ```yaml
 # my_adls_datastore.yml
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json
 name: adls_gen2_credless_example
 type: azure_data_lake_gen2
-description: Credential-less datastore pointing to an Azure Data Lake Storage Gen2.
+description: Credential-less datastore pointing to an Azure Data Lake Storage Gen2 instance.
 account_name: mytestdatalakegen2
 filesystem: my-gen2-container
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_adls_datastore.yml
 ```
 
 # [CLI: Service principal](#tab/cli-adls-sp)
-Create this YAML file (updating the values):
+Create this YAML file (update the values):
 
 ```yaml
 # my_adls_datastore.yml
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json
 name: adls_gen2_example
 type: azure_data_lake_gen2
-description: Datastore pointing to an Azure Data Lake Storage Gen2.
+description: Datastore pointing to an Azure Data Lake Storage Gen2 instance.
 account_name: mytestdatalakegen2
 filesystem: my-gen2-container
 credentials:
@@ -239,7 +237,7 @@ credentials:
   client_secret: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_adls_datastore.yml
@@ -293,7 +291,7 @@ ml_client.create_or_update(store)
 ```
 
 # [CLI: Account key](#tab/cli-azfiles-account-key)
-Create this YAML file (updating the values):
+Create this YAML file (update the values):
 
 ```yaml
 # my_files_datastore.yml
@@ -307,35 +305,35 @@ credentials:
   account_key: XxXxXxXXXXXXXxXxXxxXxxXXXXXXXXxXxxXXxXXXXXXXxxxXxXXxXXXXXxXXxXXXxXxXxxxXXxXXxXXXXXxXxxXX
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_files_datastore.yml
 ```
 
 # [CLI: SAS](#tab/cli-azfiles-sas)
-Create this YAML file (updating the values):
+Create this YAML file (update the values):
 
 ```yaml
 # my_files_datastore.yml
 $schema: https://azuremlschemas.azureedge.net/latest/azureFile.schema.json
 name: file_sas_example
 type: azure_file
-description: Datastore pointing to an Azure File Share using SAS token.
+description: Datastore pointing to an Azure File Share using an SAS token.
 account_name: mytestfilestore
 file_share_name: my-share
 credentials:
   sas_token: ?xx=XXXX-XX-XX&xx=xxxx&xxx=xxx&xx=xxxxxxxxxxx&xx=XXXX-XX-XXXXX:XX:XXX&xx=XXXX-XX-XXXXX:XX:XXX&xxx=xxxxx&xxx=XXxXXXxxxxxXXXXXXXxXxxxXXXXXxxXXXXXxXXXXxXXXxXXxXX
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_files_datastore.yml
 ```
 ---
 
-## Create an Azure Data Lake Gen1 datastore
+## Create an Azure Data Lake Storage Gen1 datastore
 
 # [Python SDK: Identity-based access](#tab/sdk-adlsgen1-identity-access)
 
@@ -378,32 +376,32 @@ ml_client.create_or_update(store)
 ```
 
 # [CLI: Identity-based access](#tab/cli-adlsgen1-identity-based-access)
-Create this YAML file (updating the values):
+Create this YAML file (update the values):
 
 ```yaml
 # my_adls_datastore.yml
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.json
 name: alds_gen1_credless_example
 type: azure_data_lake_gen1
-description: Credential-less datastore pointing to an Azure Data Lake Storage Gen1.
+description: Credential-less datastore pointing to an Azure Data Lake Storage Gen1 instance.
 store_name: mytestdatalakegen1
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_adls_datastore.yml
 ```
 
 # [CLI: Service principal](#tab/cli-adlsgen1-sp)
-Create this YAML file (updating the values):
+Create this YAML file (update the values):
 
 ```yaml
 # my_adls_datastore.yml
 $schema: https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.json
 name: adls_gen1_example
 type: azure_data_lake_gen1
-description: Datastore pointing to an Azure Data Lake Storage Gen1.
+description: Datastore pointing to an Azure Data Lake Storage Gen1 instance.
 store_name: mytestdatalakegen1
 credentials:
   tenant_id: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -411,43 +409,36 @@ credentials:
   client_secret: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_adls_datastore.yml
 ```
 ---
 
----
 
 ## Create a OneLake (Microsoft Fabric) datastore (preview)
 
-This section describes various options to create a OneLake datastore. The OneLake datastore is part of Microsoft Fabric. At this time, Azure Machine Learning supports connection to Microsoft Fabric Lakehouse artifacts that include folders / files and Amazon S3 shortcuts. For more information about Lakehouse, visit [What is a lakehouse in Microsoft Fabric](/fabric/data-engineering/lakehouse-overview).
+This section describes various options to create a OneLake datastore. The OneLake datastore is part of Microsoft Fabric. At this time, Machine Learning supports connection to Microsoft Fabric lakehouse artifacts in "Files" folder that include folders or files and Amazon S3 shortcuts. For more information about lakehouses, see [What is a lakehouse in Microsoft Fabric?](/fabric/data-engineering/lakehouse-overview).
 
-OneLake datastore creation requires
+OneLake datastore creation requires the following information from your Microsoft Fabric instance:
 
 - Endpoint
-- Fabric workspace name or GUID
-- Artifact name or GUID
+- Workspace GUID
+- Artifact GUID
 
-information from your Microsoft Fabric instance. These three screenshots describe retrieval of these required information resources from your Microsoft Fabric instance:
+ The following screenshots describe the retrieval of these required information resources from your Microsoft Fabric instance.
 
-#### OneLake workspace name
-In your Microsoft Fabric instance, you can find the workspace information as shown in this screenshot. You can use either a GUID value, or a "friendly name" to create an Azure Machine Learning OneLake datastore.
+:::image type="content" source="media/how-to-datastore/onelake-properties.png" alt-text="Screenshot that shows how to click into artifact properties of Microsoft Fabric workspace artifact in Microsoft Fabric UI." lightbox="./media/how-to-datastore/onelake-properties.png":::
 
-:::image type="content" source="media/how-to-datastore/fabric-workspace.png" alt-text="Screenshot that shows Fabric Workspace details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-workspace.png":::
+You will then find "Endpoint", "Workspace GUID" and "Artifact GUID" in "URL" and "ABFS path" from the "Properties" page:
 
-#### OneLake endpoint
-This screenshot shows how you can find endpoint information in your Microsoft Fabric instance:
+- **URL format**: https://**{your_one_lake_endpoint}**/**{your_one_lake_workspace_guid}**/**{your_one_lake_artifact_guid}**/Files
+- **ABFS path format**: abfss://**{your_one_lake_workspace_guid}**@**{your_one_lake_endpoint}**/**{your_one_lake_artifact_guid}**/Files
 
-:::image type="content" source="media/how-to-datastore/fabric-endpoint.png" alt-text="Screenshot that shows Fabric endpoint details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-endpoint.png":::
+:::image type="content" source="media/how-to-datastore/onelake-url-abfs-path.png" alt-text="Screenshot that shows URL and ABFS path of a OneLake artifact in Microsoft Fabric UI." lightbox="./media/how-to-datastore/onelake-url-abfs-path.png":::
 
-#### OneLake artifact name
-This screenshot shows how you can find the artifact information in your Microsoft Fabric instance. The screenshot also shows how you can either use a GUID value or a "friendly name" to create an Azure Machine Learning OneLake datastore:
-
-:::image type="content" source="media/how-to-datastore/fabric-lakehouse.png" alt-text="Screenshot showing how to get Fabric LH artifact details in Microsoft Fabric UI." lightbox="./media/how-to-datastore/fabric-lakehouse.png":::
-
-### Create a OneLake datastore
+## Create a OneLake datastore
 
 # [Python SDK: Identity-based access](#tab/sdk-onelake-identity-access)
 
@@ -460,10 +451,10 @@ ml_client = MLClient.from_config()
 store = OneLakeDatastore(
     name="onelake_example_id",
     description="Datastore pointing to an Microsoft fabric artifact.",
-    one_lake_workspace_name="AzureML_Sample_OneLakeWS",
-    endpoint="msit-onelake.dfs.fabric.microsoft.com"
+    one_lake_workspace_name="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", #{your_one_lake_workspace_guid}
+    endpoint="msit-onelake.dfs.fabric.microsoft.com" #{your_one_lake_endpoint}
     artifact = OneLakeArtifact(
-        name="AzML_Sample_LH",
+        name="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Files", #{your_one_lake_artifact_guid}/Files
         type="lake_house"
     )
 )
@@ -488,10 +479,10 @@ ml_client = MLClient.from_config()
 store = OneLakeDatastore(
     name="onelake_example_sp",
     description="Datastore pointing to an Microsoft fabric artifact.",
-    one_lake_workspace_name="AzureML_Sample_OneLakeWS",
-    endpoint="msit-onelake.dfs.fabric.microsoft.com"
+    one_lake_workspace_name="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", #{your_one_lake_workspace_guid}
+    endpoint="msit-onelake.dfs.fabric.microsoft.com" #{your_one_lake_endpoint}
     artifact = OneLakeArtifact(
-    name="AzML_Sample_LH",
+    name="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Files", #{your_one_lake_artifact_guid}/Files
     type="lake_house"
     )
     credentials=ServicePrincipalCredentials(
@@ -505,48 +496,48 @@ ml_client.create_or_update(store)
 ```
 
 # [CLI: Identity-based access](#tab/cli-onelake-identity-based-access)
-Create the following YAML file (updating the values):
+Create the following YAML file (update the values):
 
 ```yaml
 # my_onelake_datastore.yml
 $schema: http://azureml/sdk-2-0/OneLakeDatastore.json
 name: onelake_example_id
 type: one_lake
-description: Credential-less datastore pointing to an OneLake Lakehouse.
-one_lake_workspace_name: "AzureML_Sample_OneLakeWS"
+description: Credential-less datastore pointing to a OneLake lakehouse.
+one_lake_workspace_name: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 endpoint: "msit-onelake.dfs.fabric.microsoft.com"
 artifact:
   type: lake_house
-  name: "AzML_Sample_LH"
+  name: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Files"
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_onelake_datastore.yml
 ```
 
 # [CLI: Service principal](#tab/cli-onelake-sp)
-Create the following YAML file (updating the values):
+Create the following YAML file (update the values):
 
 ```yaml
 # my_onelakesp_datastore.yml
 $schema: http://azureml/sdk-2-0/OneLakeDatastore.json
 name: onelake_example_id
 type: one_lake
-description: Credential-less datastore pointing to an OneLake Lakehouse.
-one_lake_workspace_name: "AzureML_Sample_OneLakeWS"
+description: Credential-less datastore pointing to a OneLake lakehouse.
+one_lake_workspace_name: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 endpoint: "msit-onelake.dfs.fabric.microsoft.com"
 artifact:
   type: lake_house
-  name: "AzML_Sample_LH"
+  name: "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Files"
 credentials:
   tenant_id: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
   client_id: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
   client_secret: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Machine Learning datastore in the CLI:
 
 ```azurecli
 az ml datastore create --file my_onelakesp_datastore.yml

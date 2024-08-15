@@ -34,6 +34,10 @@ items:
       href: project-manage.md
     - name: Define and start a migration job
       href: job-definition-create.md
+  - name: Manage
+    items:
+    - name: Configure bandwidth limits
+      href: bandwidth-management.md
   - name: Decommission
     items: 
     - name: Unregister an agent

@@ -4,7 +4,7 @@ description: Troubleshoot common Azure deployment errors for resources that are 
 tags: top-support-issue
 ms.custom: devx-track-arm-template, devx-track-bicep
 ms.topic: troubleshooting
-ms.date: 04/05/2023
+ms.date: 06/20/2024
 ---
 
 # Troubleshoot common Azure deployment errors
@@ -21,7 +21,7 @@ If your error code isn't listed, submit a GitHub issue. On the right side of the
 | AccountPropertyCannotBeSet | Check available storage account properties. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux) <br><br> [Provisioning and allocation issues for Windows](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) <br><br> [Troubleshoot allocation failures](/troubleshoot/azure/virtual-machines/allocation-failure)|
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
-| AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](error-register-resource-provider.md) |
+| AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml)<br><br>[Resolve registration](error-register-resource-provider.md) |
 | BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. <br><br> Validate the template's syntax to resolve deployment errors when using a template that was exported from an existing Azure resource. | [Template reference](/azure/templates/) <br><br> [Resource location in ARM template](../templates/resource-location.md) <br><br> [Resource location in Bicep file](../bicep/resource-declaration.md#location) <br><br> [Resolve invalid template](error-invalid-template.md)|
 | Conflict | You're requesting an operation that isn't allowed in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActiveAndUneditable | Wait for concurrent deployment to this resource group to complete. | |
@@ -58,7 +58,7 @@ If your error code isn't listed, submit a GitHub issue. On the right side of the
 | MissingSubscriptionRegistration | Register your subscription with the resource provider. | [Resolve registration](error-register-resource-provider.md) |
 | NoRegisteredProviderFound | Check resource provider registration status. | [Resolve registration](error-register-resource-provider.md) |
 | NotFound | You might be attempting to deploy a dependent resource in parallel with a parent resource. Check if you need to add a dependency. | [Resolve dependencies](error-not-found.md) |
-| OperationNotAllowed | There can be several reasons for this error message.<br><br>1. The deployment is attempting an operation which is not allowed on spcecified SKU.<br><br>2. The deployment is attempting an operation that exceeds the quota for the subscription, resource group, or region. If possible, revise your deployment to stay within the quotas. Otherwise, consider requesting a change to your quotas. | [Resolve quotas](error-resource-quota.md) |
+| OperationNotAllowed | There can be several reasons for this error message.<br><br>1. The deployment is attempting an operation which is not allowed on specified SKU.<br><br>2. The deployment is attempting an operation that exceeds the quota for the subscription, resource group, or region. If possible, revise your deployment to stay within the quotas. Otherwise, consider requesting a change to your quotas. | [Resolve quotas](error-resource-quota.md) |
 | OperationNotAllowedOnVMImageAsVMsBeingProvisioned | You might be attempting to delete an image that is currently being used to provision VMs. You cannot delete an image that is being used by any virtual machine during the deployment process. Retry the image delete operation after the deployment of the VM is complete. |  |
 | ParentResourceNotFound | Make sure a parent resource exists before creating the child resources. | [Resolve parent resource](error-parent-resource.md) |
 | PasswordTooLong | You might have selected a password with too many characters, or converted your password value to a secure string before passing it as a parameter. If the template includes a **secure string** parameter, you don't need to convert the value to a secure string. Provide the password value as text. |  |

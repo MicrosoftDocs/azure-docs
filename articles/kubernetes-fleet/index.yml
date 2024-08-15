@@ -6,6 +6,7 @@ metadata:
   title: Azure Kubernetes Fleet Manager
   description: Learn how to address multi-cluster and at-scale scenarios for Azure Kubernetes Service (AKS) clusters
   ms.service: kubernetes-fleet
+  ms.author: rayoflores
   ms.custom: ignite-2023
   ms.topic: landing-page
   ms.date: 04/01/2024

@@ -4,7 +4,7 @@ description: Learn about the blocking operations in place to mitigate cluster de
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 09/15/2022
 ---
@@ -19,7 +19,7 @@ To help prevent synchronization issues, Service Fabric Explorer now blocks the m
 
 * Applications that ARM manages are now labeled in the list of applications.
 * Application type versions that ARM manages are now labeled in the list of application type versions.
-* Services that ARM manages are now labeled in the list. A banner is now shown if the service is managed in ARM. The following screen capture shows an ARM-managed service in Service Fabric explorer.
+* Services that ARM manages are now labeled in the list. A banner is now shown if the service is managed in ARM.
 
 ## Best practices
 

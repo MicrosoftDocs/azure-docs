@@ -5,13 +5,14 @@ summary: Microsoft Dev Box gives you self-service access to high-performance, pr
 
 metadata:
   title: Microsoft Dev Box documentation
-  description: Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations. 
+  description: Microsoft Dev Box gives you self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.
   ms.service: dev-box
+  ms.custom:
+    - build-2024
   ms.topic: landing-page
   ms.author: rosemalcolm
   author: RoseHJM
   ms.date: 06/06/2023
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -38,14 +39,16 @@ landingContent:
             url: quickstart-configure-dev-box-service.md
           - text: Create a dev box
             url: quickstart-create-dev-box.md
+      - linkListType: deploy
+        links:
+          - text: Microsoft Dev Box deployment guide
+            url: concept-dev-box-deployment-guide.md
 
   # Card
   - title: Quota management
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Determine resource usage and quota
-            url: how-to-determine-your-quota-usage.md
           - text: Request a quota limit increase
             url: how-to-request-quota-increase.md
             
@@ -53,7 +56,9 @@ landingContent:
   - title: Connect to a dev box
     linkLists:
       - linkListType: tutorial
-        links:              
+        links:
+          - text: Use Dev Home to manage dev boxes
+            url: how-to-use-dev-home-customize-dev-box.md              
           - text: Configure the Remote Desktop client to connect to a dev box
             url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
           - text: Use multiple monitors with your dev box 
@@ -90,3 +95,11 @@ landingContent:
             url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
           - text: REST API
             url: https://aka.ms/dev-box/restapidocs
+
+   # Card
+  - title: Dev Center Quick Start Samples
+    linkLists:
+        - linkListType: sample
+          links:
+          - text: Dev Center Samples
+            url: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter

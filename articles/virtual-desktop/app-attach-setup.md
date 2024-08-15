@@ -1,22 +1,18 @@
 ---
-title: Add and manage MSIX app attach and app attach applications - Azure Virtual Desktop
-description: Learn how to add and manage applications with MSIX app attach and app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell, where you can dynamically attach applications from an application package to a user session.
+title: Add and manage app attach and MSIX app attach applications - Azure Virtual Desktop
+description: Learn how to add and manage applications with app attach and MSIX app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell, where you can dynamically attach applications from an application package to a user session.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 zone_pivot_groups: azure-virtual-desktop-app-attach
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 12/08/2023
+ms.date: 03/04/2024
 ---
 
-# Add and manage MSIX app attach and app attach applications in Azure Virtual Desktop
-
-> [!IMPORTANT]
-> App attach is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Add and manage app attach and MSIX app attach applications in Azure Virtual Desktop
 
 > [!TIP]
-> A new version of app attach for Azure Virtual Desktop is available in preview. Select a button at the top of this article to choose between *MSIX app attach* (current) and *app attach* (preview) to see the relevant documentation.
+> A new version of app attach for Azure Virtual Desktop is available. Select a button at the top of this article to choose between *app attach* and *MSIX app attach* to see the relevant documentation.
 
 ::: zone pivot="app-attach"
 App attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, enabling you to create fewer custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with app attach also gives you greater control over which applications your users can access in a remote session.
@@ -27,15 +23,15 @@ MSIX app attach enables you to dynamically attach applications from an applicati
 ::: zone-end
 
 ::: zone pivot="app-attach"
-This article shows you how to add and manage applications with app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell. You can't add or manage app attach applications using Azure CLI. Before you start, make sure you read the overview for [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md).
+This article shows you how to add and manage applications with app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell. You can't add or manage app attach applications using Azure CLI. Before you start, make sure you read the overview for [app attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md).
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"
-This article shows you how to add and manage MSIX packages with MSIX app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell. You can't add or manage MSIX app attach applications using Azure CLI. Before you start, make sure you read the overview for [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md).
+This article shows you how to add and manage MSIX packages with MSIX app attach in Azure Virtual Desktop using the Azure portal and Azure PowerShell. You can't add or manage MSIX app attach applications using Azure CLI. Before you start, make sure you read the overview for [app attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md).
 ::: zone-end
 
 > [!IMPORTANT]
-> You have to choose whether you want to use MSIX app attach or app attach with a host pool. You can't use both versions with the same host pool.
+> You have to choose whether you want to use app attach or MSIX app attach with a host pool. You can't use both versions with the same host pool.
 
 ## Prerequisites
 
@@ -50,10 +46,6 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 - An existing [host pool](create-host-pool.md) with [session hosts](add-session-hosts-host-pool.md), an [application group, and a workspace](create-application-group-workspace.md).
 
 - Your session hosts need to run a [supported Windows client operating system](prerequisites.md#operating-systems-and-licenses) and at least one of them must be powered on. Windows Server isn't supported.
-
-::: zone pivot="app-attach"
-- Your host pool needs to be [configured as a validation environment](configure-validation-environment.md).
-::: zone-end
 
 ::: zone pivot="app-attach"
 - Your session hosts need to be joined to Microsoft Entra ID or an Active Directory Domain Services (AD DS) domain.
@@ -99,7 +91,7 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 >
 > - All MSIX and Appx application packages include a certificate. You're responsible for making sure the certificates are trusted in your environment. Self-signed certificates are supported with the appropriate chain of trust.
 >
-> - You have to choose whether you want to use MSIX app attach or app attach with a host pool. You can't use both versions with the same package in the same host pool.
+> - You have to choose whether you want to use app attach or MSIX app attach with a host pool. You can't use both versions with the same package in the same host pool.
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"
@@ -211,13 +203,13 @@ Here's how to add an MSIX or Appx image as an app attach package using the [Az.D
    $app = Import-AzWvdAppAttachPackageInfo @parameters
    ```
 
-4. Check you only have one object in the application properties by running the following command:
+4. Check you only have one object in the application properties by running the following commands:
 
    ```azurepowershell
    $app | FL *
    ```
 
-   *Optional*: if you have more than one object in the output, for example an x64 and an x86 version of the same application, you can use the parameter `PackageFullName` to specify which application you want to add by running the following command:
+   *Optional*: if you have more than one object in the output, for example an x64 and an x86 version of the same application, you can use the parameter `PackageFullName` to specify which application you want to add by running the following commands:
 
    ```azurepowershell
    # Specify the package full name
@@ -251,7 +243,7 @@ Here's how to add an MSIX or Appx image as an app attach package using the [Az.D
 
    There's no output when the package is added successfully.
 
-6. You can verify the package is added by running the following command:
+6. You can verify the package is added by running the following commands:
 
    ```azurepowershell
    $parameters = @{
@@ -317,7 +309,7 @@ Here's how to assign an application package to host pools as well as groups and 
 > [!IMPORTANT]
 > The host pool IDs you specify each time will overwrite any existing assignments. If you want to add or remove a host pool to or from an existing list of host pools, you need to specify all the host pools you want to assign the application to.
 
-1. In the same PowerShell session, get the resource IDs of the host pool(s) you want to assign the application to and add them to an array to by running the following command:
+1. In the same PowerShell session, get the resource IDs of the host pool(s) you want to assign the application to and add them to an array to by running the following commands:
 
    ```azurepowershell
    # Add a comma-separated list of host pools names
@@ -330,7 +322,7 @@ Here's how to assign an application package to host pools as well as groups and 
    }
    ```
 
-1. Once you have the resource IDs of the host pool(s), you can assign the application package to them by running the following command:
+1. Once you have the resource IDs of the host pool(s), you can assign the application package to them by running the following commands:
 
    ```azurepowershell
    $parameters = @{
@@ -343,7 +335,7 @@ Here's how to assign an application package to host pools as well as groups and 
    Update-AzWvdAppAttachPackage @parameters
    ```
 
-1. To unassign the application package from all host pools, you can pass an empty array of host pools by running the following command:
+1. To unassign the application package from all host pools, you can pass an empty array of host pools by running the following commands:
 
    ```azurepowershell
    $parameters = @{
@@ -362,7 +354,7 @@ Here's how to assign an application to groups and users using the [Az.DesktopVir
 
 1. Get the object ID of the groups or users you want to add to or remove from the application and add them to an array to by using one of the following examples. We recommend you assign applications to groups.
 
-   1. Get the object ID of the group or groups and add them to an array to by running the following command. This example uses the group display name:
+   1. Get the object ID of the group or groups and add them to an array to by running the following commands. This example uses the group display name:
 
       ```azurepowershell
       # Add a comma-separated list of group names
@@ -379,7 +371,7 @@ Here's how to assign an application to groups and users using the [Az.DesktopVir
       }
       ```
 
-   1. Get the object ID of the user(s) and add them to an array to by running the following command. This example uses the user principal name (UPN):
+   1. Get the object ID of the user(s) and add them to an array to by running the following commands. This example uses the user principal name (UPN):
 
       ```azurepowershell
       # Add a comma-separated list of user principal names
@@ -389,39 +381,43 @@ Here's how to assign an application to groups and users using the [Az.DesktopVir
       Connect-MgGraph -Scopes 'User.Read.All'
 
       # Create an array and add the ID for each user
-      $Ids = @()
+      $userIds = @()
 
       foreach ($user in $users) {
-          $Ids += (Get-MgUser | ? UserPrincipalName -eq $user).Id
+          $userIds += (Get-MgUser | ? UserPrincipalName -eq $user).Id
       }
       ```
 
-1. Once you have the object IDs of the users or groups, you can add them to or remove them from the application by using one of the following examples, which assigns the [Desktop Virtualization User](rbac.md#desktop-virtualization-user) RBAC role. You can also assign the Desktop Virtualization User RBAC role to your groups or users using the [New-AzRoleAssignment](../role-based-access-control/role-assignments-powershell.md) cmdlet.
+1. Once you have the object IDs of the users or groups, you can add them to or remove them from the application by using one of the following examples, which assigns the [Desktop Virtualization User](rbac.md#desktop-virtualization-user) RBAC role.
 
-   1. To add the groups or users to the application, run the following command:
+   1. To add the groups or users to the application, run the following commands:
       
       ```azurepowershell
       $parameters = @{
-          Name = '<AppName>'
-          ResourceGroupName = '<ResourceGroupName>'
-          Location = '<AzureRegion>'
-          PermissionsToAdd = $Ids
+         Name = '<AppName>'
+         ResourceGroupName = '<ResourceGroupName>'
       }
-      
-      Update-AzWvdAppAttachPackage @parameters
+
+      $appAttachPackage = Get-AzWvdAppAttachPackage @parameters
+
+      foreach ($userId in $userIds) {
+         New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Desktop Virtualization User" -Scope $appAttachPackage.Id
+      }
       ```
 
-   1. To remove the groups or users to the application, run the following command:
+   1. To remove the groups or users to the application, run the following commands:
 
       ```azurepowershell
       $parameters = @{
-          Name = '<AppName>'
-          ResourceGroupName = '<ResourceGroupName>'
-          Location = '<AzureRegion>'
-          PermissionsToRemove = $objectIds
+         Name = '<AppName>'
+         ResourceGroupName = '<ResourceGroupName>'
       }
-      
-      Update-AzWvdAppAttachPackage @parameters
+
+      $appAttachPackage = Get-AzWvdAppAttachPackage @parameters
+
+      foreach ($userId in $userIds) {
+         Remove-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Desktop Virtualization User" -Scope $appAttachPackage.Id
+      }
       ```
 
 ---
@@ -441,7 +437,7 @@ Here's how to change a package's registration type and state using the Azure por
 
 1. Select the name of the package you want to change.
 
-   1. To change the registration type, select **On-demand** or **Log on blocking**, then select **Save**.
+   1. To change the registration type, select **On-demand** or **Register at log on**, then select **Save**.
 
    1. To change the state, select **Inactive** or **Active**, then select **Save**.
 
@@ -451,12 +447,11 @@ Here's how to change a package's registration type and state using the [Az.Deskt
 
 1. In the same PowerShell session, you can change the registration type and state by running the following commands:
 
-   1. Change the registration type by running the following command. Set `IsRegularRegistration` to `$true` for **Log on blocking** or `$false` for **On-demand**.
+   1. Change the registration type by running the following command. Set `IsRegularRegistration` to `$true` for **Register at log on** or `$false` for **On-demand**.
 
       ```azurepowershell
       $parameters = @{
-          FullName = '<FullName>'
-          HostPoolName = '<HostPoolName>'
+          Name = '<Name>'
           ResourceGroupName = '<ResourceGroupName>'
           Location = '<AzureRegion>'
           IsRegularRegistration = $true
@@ -470,7 +465,6 @@ Here's how to change a package's registration type and state using the [Az.Deskt
       ```azurepowershell
       $parameters = @{
           Name = '<Name>'
-          HostPoolName = '<HostPoolName>'
           ResourceGroupName = '<ResourceGroupName>'
           Location = '<AzureRegion>'
           IsActive = $true
@@ -520,7 +514,7 @@ Here's how to add an application from the package you added in this article to a
 
 Here's how to add an application from the package you added in this article to a RemoteApp application group using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module.
 
-1. In the same PowerShell session, if there are multiple applications in the package, you need to get the application ID of the application you want to add from the package by running the following command:
+1. In the same PowerShell session, if there are multiple applications in the package, you need to get the application ID of the application you want to add from the package by running the following commands:
 
    ```azurepowershell
    Write-Host "These are the application IDs available in the package. Many packages only contain one application." -ForegroundColor Yellow
@@ -543,7 +537,7 @@ Here's how to add an application from the package you added in this article to a
    New-AzWvdApplication @parameters
    ```
 
-1. Verify the list of applications in the application group by running the following command:
+1. Verify the list of applications in the application group by running the following commands:
 
    ```azurepowershell
    $parameters = @{
@@ -588,7 +582,7 @@ Here's how to update an existing package using the Azure portal:
 
 Here's how to update an existing package using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module.
 
-1. In the same PowerShell session, get the properties of the updated application and store them in a variable by running the following command:
+1. In the same PowerShell session, get the properties of the updated application and store them in a variable by running the following commands:
 
    ```azurepowershell
    # Get the properties of the application
@@ -601,13 +595,13 @@ Here's how to update an existing package using the [Az.DesktopVirtualization](/p
    $app = Import-AzWvdAppAttachPackageInfo @parameters
    ```
 
-1. Check you only have one object in the application properties by running the following command:
+1. Check you only have one object in the application properties by running the following commands:
 
    ```azurepowershell
    $app | FL *
    ```
 
-   If you have more than one object in the output, for example an x64 and an x86 version of the same application, you can use the parameter `PackageFullName` to specify which one you want to add by running the following command:
+   If you have more than one object in the output, for example an x64 and an x86 version of the same application, you can use the parameter `PackageFullName` to specify which one you want to add by running the following commands:
 
    ```azurepowershell
    # Specify the package full name
@@ -711,7 +705,7 @@ Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershe
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Get the properties of the application in the MSIX image you want to add and store them in a variable by running the following command:
+2. Get the properties of the application in the MSIX image you want to add and store them in a variable by running the following commands:
 
    ```azurepowershell
    # Get the properties of the MSIX image
@@ -732,13 +726,13 @@ Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershe
    hp01/expandmsiximage
    ```
 
-3. Check you only have one object in the application properties by running the following command:
+3. Check you only have one object in the application properties by running the following commands:
 
    ```azurepowershell
    $app | FL *
    ```
 
-   If you have more than one object in the output, for example an x64 and an x86 version of the same application, you can use the parameter `PackageFullName` to specify which one you want to add by running the following command:
+   If you have more than one object in the output, for example an x64 and an x86 version of the same application, you can use the parameter `PackageFullName` to specify which one you want to add by running the following commands:
 
    ```azurepowershell
    # Specify the package full name
@@ -771,7 +765,7 @@ Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershe
 
    There's no output when the MSIX package is added successfully.
 
-5. You can verify the MSIX package is added by running the following command:
+5. You can verify the MSIX package is added by running the following commands:
 
    ```azurepowershell
    $parameters = @{
@@ -823,7 +817,7 @@ Here's how to change a package's registration type and state using the Azure por
 
 1. Select the name of the MSIX package you want to change.
 
-   1. To change the registration type, select **On-demand** or **Log on blocking**, then select **Save**.
+   1. To change the registration type, select **On-demand** or **Register at log on**, then select **Save**.
 
    1. To change the state, select **Inactive** or **Active**, then select **Save**.
 
@@ -831,7 +825,7 @@ Here's how to change a package's registration type and state using the Azure por
 
 Here's how to change a package's registration type and state using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module.
 
-1. In the same PowerShell session, get a list of MSIX packages on a host pool and their current registration type and state by running the following command:
+1. In the same PowerShell session, get a list of MSIX packages on a host pool and their current registration type and state by running the following commands:
 
    ```azurepowershell
    $parameters = @{
@@ -852,7 +846,7 @@ Here's how to change a package's registration type and state using the [Az.Deskt
 
 1. Find the package you want to remove and use the value for the `Name` parameter, but remove the **host pool name** and `/` from the start. For example, `hp01/MyApp_1.0.0.0_neutral__abcdef123ghij` becomes `MyApp_1.0.0.0_neutral__abcdef123ghij`. Here are a couple of examples.
 
-   1. Change the registration type by running the following command. Set `IsRegularRegistration` to `$true` for **Log on blocking** or `$false` for **On-demand**.
+   1. Change the registration type by running the following command. Set `IsRegularRegistration` to `$true` for **Register at log on** or `$false` for **On-demand**.
 
       ```azurepowershell
       $parameters = @{
@@ -949,7 +943,7 @@ Here's how to add MSIX applications to an application group using the [Az.Deskto
       New-AzWvdApplication @parameters
       ```
 
-   1. To add an MSIX application to a RemoteApp application group, if there are multiple applications in the package, you need to get the application ID of the application you want to add from the package by running the following command:
+   1. To add an MSIX application to a RemoteApp application group, if there are multiple applications in the package, you need to get the application ID of the application you want to add from the package by running the following commands:
 
       ```azurepowershell
       Write-Host "These are the application IDs available in the package. Many packages only contain one application." -ForegroundColor Yellow
@@ -972,7 +966,7 @@ Here's how to add MSIX applications to an application group using the [Az.Deskto
       New-AzWvdApplication @parameters
       ```
 
-      Verify the list of applications in the application group by running the following command:
+      Verify the list of applications in the application group by running the following commands:
 
       ```azurepowershell
       $parameters = @{
@@ -1006,7 +1000,7 @@ Here's how to remove an MSIX package from your host pool using the Azure portal:
 
 Here's how to remove applications using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module.
 
-1. In the same PowerShell session, get a list of MSIX packages on a host pool by running the following command:
+1. In the same PowerShell session, get a list of MSIX packages on a host pool by running the following commands:
 
    ```azurepowershell
    $parameters = @{
@@ -1025,7 +1019,7 @@ Here's how to remove applications using the [Az.DesktopVirtualization](/powershe
    My App      \\fileshare\Apps\MyApp\MyApp.cim hp01/MyApp_1.0.0.0_neutral__abcdef123ghij 1.0.0.0
    ```
 
-1. Find the package you want to remove and use the value for the `Name` parameter, but remove the **host pool name** and `/` from the start. For example, `hp01/MyApp_1.0.0.0_neutral__abcdef123ghij` becomes `MyApp_1.0.0.0_neutral__abcdef123ghij`. Then remove the package by running the following command:
+1. Find the package you want to remove and use the value for the `Name` parameter, but remove the **host pool name** and `/` from the start. For example, `hp01/MyApp_1.0.0.0_neutral__abcdef123ghij` becomes `MyApp_1.0.0.0_neutral__abcdef123ghij`. Then remove the package by running the following commands:
 
    ```azurepowershell
    $parameters = @{

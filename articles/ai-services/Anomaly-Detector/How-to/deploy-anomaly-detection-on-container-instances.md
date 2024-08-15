@@ -24,7 +24,7 @@ Learn how to deploy the Azure AI services [Anomaly Detector](../anomaly-detector
 
 [!INCLUDE [Create an Anomaly Detector container on Azure Container Instances](../../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 
-[!INCLUDE [API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [API documentation](../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Next steps
 

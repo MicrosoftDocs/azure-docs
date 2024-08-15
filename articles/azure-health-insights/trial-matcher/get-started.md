@@ -7,7 +7,7 @@ author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: quickstart
-ms.date: 01/27/2023
+ms.date: 05/05/2024
 ms.author: behoorne
 ---
 

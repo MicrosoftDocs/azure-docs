@@ -4,7 +4,7 @@ description: Learn about custom image templates in Azure Virtual Desktop, where 
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/05/2024
+ms.date: 05/29/2024
 ---
 
 # Custom image templates in Azure Virtual Desktop
@@ -21,7 +21,7 @@ There are two parts to creating a custom image:
 
 A custom image template is a JSON file that contains your choices of source image, distribution targets, build properties, and customizations. Azure Image Builder uses this template to create a custom image, which you can use as the source image for your session hosts when creating or updating a host pool. When creating the image, Azure Image Builder also takes care of generalizing the image with sysprep.
 
-Custom images can be stored in [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md) or as a [managed image](../virtual-machines/windows/capture-image-resource.md), or both. Azure Compute Gallery allows you to manage  region replication, versioning, and sharing of custom images. See [Create a legacy managed image of a generalized VM in Azure](../virtual-machines/capture-image-resource.md) to review limitations for managed images.
+Custom images can be stored in [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md) or as a [managed image](../virtual-machines/windows/capture-image-resource.yml or both. Azure Compute Gallery allows you to manage  region replication, versioning, and sharing of custom images. See [Create a legacy managed image of a generalized VM in Azure](../virtual-machines/capture-image-resource.yml) to review limitations for managed images.
 
 The source image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and can be from:
 
@@ -44,6 +44,7 @@ Here are some examples of the built-in scripts you can add to a custom image tem
 - Enable [screen capture protection](screen-capture-protection.md).
 - Configure [Teams optimizations](teams-on-avd.md).
 - Configure session timeouts.
+- Disable automatic updates for [MSIX applications](app-attach-setup.md#disable-automatic-updates).
 - Add or remove Microsoft Office applications.
 - Apply Windows Updates.
 

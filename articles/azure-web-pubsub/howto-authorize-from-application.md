@@ -105,7 +105,7 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a service p
 > Azure role assignments may take up to 30 minutes to propagate.
 > To learn more about how to assign and manage Azure role assignments, see these articles:
 
-- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
 - [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md)
 - [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [Assign Azure roles using Azure CLI](../role-based-access-control/role-assignments-cli.md)

@@ -3,11 +3,11 @@ title: Create a secure workspace with Azure Virtual Network
 titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and required Azure services inside an Azure Virtual Network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 08/22/2023
 ms.topic: how-to
 ms.custom: subject-rbac-steps, cliv2, build-2023
@@ -316,11 +316,11 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
     1. Select __Access control (IAM)__ from the left side.
     1. Select __+ Add__, and then __Add role assignment (Preview)__.
 
-        ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+        ![Access control (IAM) page with Add role assignment menu open.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png)
 
     1. On the __Role__ tab, select the __Reader__.
 
-        ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+        ![Add role assignment page with Role tab selected.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png)
 
     1. On the __Members__ tab, select __User, group, or service principal__ in the __Assign access to__ area and then select __+ Select members__. In the __Select members__ dialog, enter the name as your Azure Machine Learning workspace. Select the service principal for the workspace, and then use the __Select__ button.
 

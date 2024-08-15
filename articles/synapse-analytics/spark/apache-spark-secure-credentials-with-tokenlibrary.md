@@ -1,14 +1,15 @@
 ---
 title: Secure access credentials with Linked Services in Apache Spark for Azure Synapse Analytics
 description: This article provides concepts on how to securely integrate Apache Spark for Azure Synapse Analytics with other services using linked services and token library
-author: vijaysr 
-ms.service:  synapse-analytics 
-ms.topic: overview
-ms.subservice: spark
-ms.custom: devx-track-python
-ms.date: 10/31/2023
+author: vijaysr
 ms.author: vijaysr
 ms.reviewer: shravan
+ms.date: 06/24/2024
+ms.service: azure-synapse-analytics
+ms.subservice: spark
+ms.topic: overview
+ms.custom:
+  - devx-track-python
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
@@ -20,7 +21,7 @@ Azure Synapse Analytics uses Microsoft Entra passthrough by default for authenti
 
 Microsoft Entra passthrough uses permissions assigned to you as a user in Microsoft Entra ID, rather than permissions assigned to Synapse or a separate service principal. For example, if you want to use Microsoft Entra passthrough to access a blob in a storage account, then you should go to that storage account and assign blob contributor role to yourself.
 
-When retrieving secrets from Azure Key Vault, we recommend creating a linked service to your Azure Key Vault. Ensure that the Synapse workspace managed service identity (MSI) has Secret Get privileges on your Azure Key Vault. Synapse will authenticate to Azure Key Vault using the Synapse workspace managed service identity. If you connect directly to Azure Key Vault without a linked service, you will authenticate using your user Microsoft Entra credential.
+When retrieving secrets from Azure Key Vault, we recommend creating a linked service to your Azure Key Vault. Ensure that the Synapse workspace managed service identity (MSI) has Secret Get privileges on your Azure Key Vault. Synapse will authenticate to Azure Key Vault using the Synapse workspace managed service identity. If you connect directly to Azure Key Vault without a linked service, authenticate using your user Microsoft Entra credential.
 
 For more information, see [linked services](../../data-factory/concepts-linked-services.md?context=/azure/synapse-analytics/context/context).
 
@@ -69,7 +70,7 @@ Get result:
  putSecretWithLS(linkedService: String, secretName: String, secretValue: String): puts AKV secret for a given linked service, secretName
 ```
 
-## Accessing Azure Data Lake Storage Gen2
+## <a id="accessing-azure-data-lake-storage-gen2"></a> Access Azure Data Lake Storage Gen2
 
 #### ADLS Gen2 Primary Storage
 
@@ -97,9 +98,12 @@ display(df.limit(10))
 
 Azure Synapse Analytics provides an integrated linked services experience when connecting to Azure Data Lake Storage Gen2. Linked services can be configured to authenticate using an **Account Key**, **Service Principal**, **Managed Identity**, or **Credential**.
 
-When the linked service authentication method is set to **Account Key**, the linked service will authenticate using the provided storage account key, request a SAS key, and automatically apply it to the storage request using the **LinkedServiceBasedSASProvider**.
+When the linked service authentication method is set to **Account Key**, the linked service authenticates using the provided storage account key, request a SAS key, and automatically apply it to the storage request using the **LinkedServiceBasedSASProvider**.
 
-Synapse allows users to set the linked service for a particular storage account. This makes it possible to read/write data from **multiple storage accounts** in a single spark application/query. Once we set **spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName** for each storage account that will be used, Synapse figures out which linked service to use for a particular read/write operation. However if our spark job only deals with a single storage account, we can simply omit the storage account name and use **spark.storage.synapse.linkedServiceName**
+Synapse allows users to set the linked service for a particular storage account. This makes it possible to read/write data from **multiple storage accounts** in a single spark application/query. Once we set `spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName` for each storage account that will be used, Synapse figures out which linked service to use for a particular read/write operation. However if our spark job only deals with a single storage account, we can omit the storage account name and use `spark.storage.synapse.linkedServiceName`. 
+
+> [!NOTE]
+> It is not possible to change the authentication method of the default ABFS storage container.
 
 ::: zone pivot = "programming-language-scala"
 
@@ -135,7 +139,7 @@ df.show()
 
 ::: zone-end
 
-When the linked service authentication method is set to **Managed Identity** or **Service Principal**, the linked service will use the Managed Identity or Service Principal token with the **LinkedServiceBasedTokenProvider** provider.  
+When the linked service authentication method is set to **Managed Identity** or **Service Principal**, the linked service uses the Managed Identity or Service Principal token with the **LinkedServiceBasedTokenProvider** provider.  
 
 
 ::: zone pivot = "programming-language-scala"
@@ -167,6 +171,15 @@ df.show()
 ```
 
 ::: zone-end
+
+### <a id="setting-authentication-settings-through-spark-configuration"></a> Set authentication settings through spark configuration
+
+Authentication settings can also be specified through spark configurations, instead of running spark statements. All spark configurations should be prefixed with `spark.` and all hadoop configurations should be prefixed with `spark.hadoop.`.
+
+|Spark config name|Config value|
+|------------------|-----------|
+| `spark.storage.synapse.teststorage.dfs.core.windows.net.linkedServiceName` |LINKED SERVICE NAME|
+| `spark.hadoop.fs.azure.account.oauth.provider.type.teststorage.dfs.core.windows.net` |`microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider`|
 
 #### ADLS Gen2 storage without linked services
 
@@ -271,7 +284,44 @@ display(df.limit(10))
 
 ::: zone-end
 
-#### ADLS Gen2 storage with Azure Key Vault
+#### Use MSAL to acquire tokens (using custom app credentials)
+
+When the ABFS storage driver is [configured](https://hadoop.apache.org/docs/current/hadoop-azure/abfs.html) to use MSAL directly for authentications, the provider doesn't cache tokens. This can result in reliability issues. We recommend using the `ClientCredsTokenProvider` is part of the Synapse Spark.
+
+::: zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+val source_full_storage_account_name = "teststorage.dfs.core.windows.net"
+sc.hadoopConfiguration.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ClientCredsTokenProvider")
+spark.conf.set("fs.azure.account.oauth2.client.id.$source_full_storage_account_name", "<Entra AppId>")
+spark.conf.set("fs.azure.account.oauth2.client.secret.$source_full_storage_account_name", "<Entra app secret>")
+spark.conf.set("fs.azure.account.oauth2.client.endpoint.$source_full_storage_account_name", "https://login.microsoftonline.com/<tenantid>")
+
+val df = spark.read.csv("abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>")
+
+display(df.limit(10))
+```
+
+::: zone-end
+
+::: zone pivot = "programming-language-python"
+
+```python
+%%pyspark
+source_full_storage_account_name = "teststorage.dfs.core.windows.net"
+sc._jsc.hadoopConfiguration().set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.ClientCredsTokenProvider")
+spark.conf.set(f"fs.azure.account.oauth2.client.id.{source_full_storage_account_name}.linkedServiceName", "<Entra AppId>")
+spark.conf.set(f"fs.azure.account.oauth2.client.secret.{source_full_storage_account_name}.linkedServiceName", "<Entra app secret>")
+spark.conf.set(f"fs.azure.account.oauth2.client.endpoint.{source_full_storage_account_name}.linkedServiceName", "https://login.microsoftonline.com/<tenantid>")
+
+df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<FILE PATH>')
+display(df.limit(10))
+```
+
+::: zone-end
+
+### ADLS Gen2 storage with SAS token (from Azure Key Vault)
 
 Connect to ADLS Gen2 storage using a SAS token stored in Azure Key Vault secret.  
 
@@ -313,7 +363,7 @@ To connect to other linked services, you can make a direct call to the TokenLibr
 
 #### getConnectionString()
 
- To retrieve the connection string, use the **getConnectionString** function and pass in the **linked service name**.
+ To retrieve the connection string, use the `getConnectionString` function and pass in the **linked service name**.
 
 ::: zone pivot = "programming-language-scala"
 
@@ -378,11 +428,11 @@ The output will look like
 
 To retrieve a secret stored from Azure Key Vault, we recommend that you create a linked service to Azure Key Vault within the Synapse workspace. The Synapse workspace managed service identity will need to be granted **GET** Secrets permission to the Azure Key Vault. The linked service will use the managed service identity to connect to Azure Key Vault service to retrieve the secret. Otherwise, connecting directly to Azure Key Vault will use the user's Microsoft Entra credential. In this case, the user will need to be granted the Get Secret permissions in Azure Key Vault.
 
-In government clouds, please provide the fully qualified domain name of the keyvault.
+In government clouds, provide the fully qualified domain name of the keyvault.
 
 `mssparkutils.credentials.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>" [, <LINKED SERVICE NAME>])`
 
-To retrieve a secret from Azure Key Vault, use the **mssparkutils.credentials.getSecret()** function.
+To retrieve a secret from Azure Key Vault, use the `mssparkutils.credentials.getSecret()` function.
 
 ::: zone pivot = "programming-language-scala"
 
@@ -415,7 +465,7 @@ Console.WriteLine(connectionString);
 
 #### Linked service connections supported from the Spark runtime
 
-While Azure Synapse Analytics supports a variety of linked service connections (from pipelines and other Azure products), not all of them are supported from the Spark runtime. Here is the list of supported linked services:
+While Azure Synapse Analytics supports various linked service connections (from pipelines and other Azure products), not all of them are supported from the Spark runtime. Here is the list of supported linked services:
 
  - Azure Blob Storage
  - Azure AI services
@@ -434,33 +484,34 @@ While Azure Synapse Analytics supports a variety of linked service connections (
  #### mssparkutils.credentials.getToken()
  When you need an OAuth bearer token to access services directly, you can use the `getToken` method. The following resources are supported:
 
-| Service Name                                          | String literal to be used in API call |
+| Service Name         | String literal to be used in API call |
 |-------------------------------------------------------|---------------------------------------|
-| Azure Storage                                         | `Storage`                             |
-| Azure Key Vault                                       | `Vault`                               |
-| Azure Management                                      | `AzureManagement`                     |
-| Azure SQL Data Warehouse (Dedicated and Serverless)   | `DW`                                  |
-| Azure Synapse                                         | `Synapse`                             |
-| Azure Data Lake Store                                 | `DataLakeStore`                       |
-| Azure Data Factory                                    | `ADF`                                 |
-| Azure Data Explorer                                   | `AzureDataExplorer`                   |
-| Azure Database for MySQL            | `AzureOSSDB`                          |
-| Azure Database for MariaDB          | `AzureOSSDB`                          |
-| Azure Database for PostgreSQL       | `AzureOSSDB`                          |
+| `Azure Storage` | `Storage`    |
+| `Azure Key Vault` | `Vault`      |
+| `Azure Management` | `AzureManagement`                     |
+| `Azure SQL Data Warehouse (Dedicated and Serverless)` | `DW` |
+| `Azure Synapse` | `Synapse`    |
+| `Azure Data Lake Store` | `DataLakeStore`                       |
+| `Azure Data Factory` | `ADF`        |
+| `Azure Data Explorer` | `AzureDataExplorer`                   |
+| `Azure Database for MySQL` | `AzureOSSDB` |
+| `Azure Database for MariaDB` | `AzureOSSDB` |
+| `Azure Database for PostgreSQL` | `AzureOSSDB` |
 
 #### Unsupported linked service access from the Spark runtime
 
 The following methods of accessing the linked services are not supported from the Spark runtime:
 
   - Passing arguments to parameterized linked service
-  - Connections with User assigned managed identities (UAMI)
-  - System Assigned Managed identities are not supported on Keyvault resource
+  - Connections with user-assigned managed identities (UAMI)
+  - Getting the bearer token to Keyvault resource when your Notebook / SparkJobDefinition runs as managed identity
+    - As an alternative, instead of getting an access token, you can create a linked service to Keyvault and get the secret from your Notebook / batch job
   - For Azure Cosmos DB connections, key based access alone is supported. Token based access is not supported.
 
-While running a notebook or a Spark job, requests to get a token / secret using a linked service might fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, please contact Microsoft Azure Support at the [Azure portal](https://portal.azure.com).
+While running a notebook or a Spark job, requests to get a token / secret using a linked service might fail with an error message that indicates 'BadRequest'. This is often caused by a configuration issue with the linked service. If you see this error message, please check the configuration of your linked service. If you have any questions, contact Microsoft Azure Support at the [Azure portal](https://portal.azure.com).
 
 ## Related content
 
-- [Write to dedicated SQL pool](./synapse-spark-sql-pool-import-export.md)
+- [Write to dedicated SQL pool](synapse-spark-sql-pool-import-export.md)
 - [Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md)

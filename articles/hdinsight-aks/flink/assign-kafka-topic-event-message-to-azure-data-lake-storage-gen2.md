@@ -16,7 +16,7 @@ Apache Flink uses file systems to consume and persistently store data, both for 
 
 * [Apache Flink cluster on HDInsight on AKS ](../flink/flink-create-cluster-portal.md)
 * [Apache Kafka cluster on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
-  * You're  required to ensure the network settings are taken care as described on [Using Apache Kafka on HDInsight](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS and HDInsight clusters are in the same Virtual Network 
+  * You're  required to ensure the network settings taken care as described on [Using Apache Kafka on HDInsight](../flink/process-and-consume-data.md). Make sure HDInsight on AKS and HDInsight clusters are in the same Virtual Network.
 * Use MSI to access ADLS Gen2 
 * IntelliJ for development on an Azure VM in HDInsight on AKS Virtual Network 
 
@@ -126,8 +126,14 @@ public class KafkaSinkToGen2 {
     public static void main(String[] args) throws Exception {
         // 1. get stream execution env
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+         
+        Configuration flinkConfig = new Configuration(); 
 
-        // 1. read kafka message as stream input, update your broker ip's
+         flinkConfig.setString("classloader.resolve-order", "parent-first"); 
+
+         env.getConfig().setGlobalJobParameters(flinkConfig);  
+
+        // 2. read kafka message as stream input, update your broker ip's
         String brokers = "<update-broker-ip>:9092,<update-broker-ip>:9092,<update-broker-ip>:9092";
         KafkaSource<String> source = KafkaSource.<String>builder()
                 .setBootstrapServers(brokers)
@@ -161,18 +167,32 @@ public class KafkaSinkToGen2 {
 
 ```
 
-**Submit the job on Flink Dashboard UI**
+**Package jar, and submit to Apache Flink.**
 
-We are using Maven to package a jar onto local and submitting to Flink, and using Kafka to sink into ADLS Gen2.
+1. Upload the jar to ABFS.
 
-:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-flink-job.png" alt-text="Diagram showing how to submit Flink Job." border="true" lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-flink-job.png":::
+    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/app-mode.png" alt-text="Screenshot showing Flink app mode screen." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/app-mode.png":::
 
-:::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/submit-the-job-flink-ui.png" alt-text="Screenshot showing jar submission to Flink dashboard.":::
+
+1. Pass the job jar information in `AppMode` cluster creation.
+
+    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/create-app-mode.png" alt-text="Screenshot showing create app mode." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/create-app-mode.png":::
+
+    > [!NOTE]
+    >  Make sure to add classloader.resolve-order as ‘parent-first’ and hadoop.classpath.enable as `true`
+
+1. Select Job Log aggregation to push job logs to storage account.
+
+    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/enable-job-log.png" alt-text="Screenshot showing how to enable job log." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/enable-job-log.png":::
+
+1. You can see the job running.
+
+    :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/flink-ui.png" alt-text="Screenshot showing Flink UI." lightbox="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/flink-ui.png":::
 
 
 **Validate streaming data on ADLS Gen2**
 
-We are seeing the `click_events` streaming into ADLS Gen2
+We're seeing the `click_events` streaming into ADLS Gen2.
 
 :::image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-azure-data-lake-storage-gen2-1.png" alt-text="Screenshot showing ADLS Gen2 output.":::
 :::Image type="content" source="./media/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2/validate-stream-azure-data-lake-storage-gen2-2.png" alt-text="Screenshot showing Flink click event output.":::

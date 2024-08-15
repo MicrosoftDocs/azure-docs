@@ -3,20 +3,21 @@ title: Get started in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to use prompt flow in Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: tutorial
-author: ishinzhang
-ms.author: yijunzhang
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: yijunzhang
 ms.date: 09/12/2023
 ---
 
 # Get started with prompt flow 
 
-This article walks you through the main user journey of using prompt flow in Azure Machine Learning studio. You'll learn how to enable prompt flow in your Azure Machine Learning workspace, create and develop your first prompt flow, test and evaluate it, then deploy it to production.
+This article walks you through the main user journey of using prompt flow in Azure Machine Learning studio. You learn how to enable prompt flow in your Azure Machine Learning workspace, create, and develop your first prompt flow, test, and evaluate it, then deploy it to production.
 
 ## Prerequisites 
 
@@ -30,15 +31,15 @@ First you need to set up connection.
 
 Connection helps securely store and manage secret keys or other sensitive credentials required for interacting with LLM (Large Language Models) and other external tools, for example,  Azure Content Safety.
 
-Navigate to the prompt flow homepage, select **Connections** tab. Connection is a shared resource to all members in the workspace. So, if you already see a connection whose provider is AzureOpenAI, you can skip this step, go to create runtime.
+Navigate to the prompt flow homepage, select **Connections** tab. Connection is a shared resource to all members in the workspace. So, if you already see a connection whose provider is AzureOpenAI, you can skip this step, go to Start compute session.
 
 If you aren't already connected to AzureOpenAI, select the **Create** button then *AzureOpenAI* from the drop-down.
 
 :::image type="content" source="./media/get-started-prompt-flow/connection-creation-entry-point.png" alt-text="Screenshot of the connections tab with create highlighted." lightbox = "./media/get-started-prompt-flow/connection-creation-entry-point.png":::
 
-Then a right-hand panel will appear. Here, you'll need to select the subscription and resource name, provide the connection name, API key, API base, API type, and API version before selecting the **Save** button.
+Then a right-hand panel will appear. Here, you'll need to select the subscription and resource name, provide the connection name, API key (if auth type equals to API key), API base, API type, and API version before selecting the **Save** button. Prompt flow also support Microsoft Entra ID as auth type for identity based auth for Azure OpenAI resource. Learn more about [How to configure Azure OpenAI Service with managed identities](../../ai-services/openai/how-to/managed-identity.md).
 
-:::image type="content" source="./media/get-started-prompt-flow/azure-openai-connection.png" alt-text="Screenshot of the add Azure OpenAI connections." lightbox = "./media/get-started-prompt-flow/azure-openai-connection.png":::
+:::image type="content" source="./media/get-started-prompt-flow/azure-openai-connection.png" alt-text="Screenshot of the added Azure OpenAI connections." lightbox = "./media/get-started-prompt-flow/azure-openai-connection.png":::
 
 To obtain the API key, base, type, and version, you can navigate to the [chat playground](https://oai.azure.com/portal/chat) in the Azure OpenAI portal and select the **View code** button. From here, you can copy the necessary information and paste it into the connection creation panel.
 
@@ -54,25 +55,24 @@ In **Flows** tab of prompt flow home page, select **Create** to create your firs
 
 The built-in samples are shown in the gallery.
 
-In this guide, we'll use **Web Classification** sample to walk you through the main user journey. You can select **View detail** on Web Classification tile to preview the sample. Then a preview window is popped up. You can browse the sample introduction to see if the sample is similar to your scenario. Or you can just select **Clone** to clone the sample directly, then check the flow, test it, modify it.
+In this guide, we use **Web Classification** sample to walk you through the main user journey. You can select **View detail** on Web Classification tile to preview the sample. Then a preview window is popped up. You can browse the sample introduction to see if the sample is similar to your scenario. Or you can just select **Clone** to clone the sample directly, then check the flow. Test it, modify it.
 
 :::image type="content" source="./media/get-started-prompt-flow/sample-in-gallery.png" alt-text="Screenshot of create from galley highlighting web classification. " lightbox = "./media/get-started-prompt-flow/sample-in-gallery.png":::
 
 After selecting **Clone**, a new flow is created, and saved in a specific folder within your workspace file share storage. You can customize the folder name according to your preferences in the right panel.
 
-### Start automatic runtime (preview)
+### Start compute session
 
-Then you'll enter the flow authoring page. Before we dive in, please first start a runtime.
+Then you enter the flow authoring page. Before we dive in, first start a compute session.
 
-Runtime serves as the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. 
+Compute session serves as the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. 
 
-For new users, we would recommend using the automatic runtime (preview) that can be used out of box, and you can easily customize the environment by adding packages in requirements.txt file in flow folder. Since starting the automatic runtime takes a while, we suggest you start it first before authoring the flow.
 
-:::image type="content" source="./media/get-started-prompt-flow/views.png" alt-text="Screenshot of starting an automatic runtime." lightbox = "./media/get-started-prompt-flow/start-automatic-runtime.png":::
+:::image type="content" source="./media/get-started-prompt-flow/start-compute-session.png" alt-text="Screenshot of starting a start-compute-session." lightbox = "./media/get-started-prompt-flow/start-compute-session.png":::
 
 ### Flow authoring page
 
-When the automatic runtime is creating, we can take a look at the flow authoring page.
+When the compute session is starting, we can take a look at the flow authoring page.
 
 :::image type="content" source="./media/get-started-prompt-flow/views.png" alt-text="Screenshot of web classification highlighting the main working area." lightbox = "./media/get-started-prompt-flow/flatten-view.png":::
 
@@ -86,7 +86,7 @@ In addition to inline editing the node in the flatten view, you can also turn on
 
 In the bottom right corner, it's the graph view for visualization only. You can zoom in, zoom out, auto layout, etc.
 
-In this guide, we use **Web Classification** sample to walk you through the main user journey. Web Classification is a flow demonstrating multi-class classification with LLM. Given a URL, it will classify the URL into a web category with just a few shots, simple summarization and classification prompts. For example, given \"https://www.imdb.com/\", it will classify this URL into \"Movie\".
+In this guide, we use **Web Classification** sample to walk you through the main user journey. Web Classification is a flow demonstrating multi-class classification with LLM. Given a URL, it classifies the URL into a web category with just a few shots, simple summarization, and classification prompts. For example, given \"https://www.imdb.com/\", it classifies this URL into \"Movie\".
 
 In the graph view, you can see how the sample flow looks like. The input is a URL to classify, then it uses a Python script to fetch text content from the URL, use LLM to summarize the text content within 100 words, then classify based on the URL and summarized text content, last use Python script to convert LLM output into a dictionary. The prepare_examples node is to feed few-shot examples to classification node's prompt.
 
@@ -112,7 +112,7 @@ We have two LLM nodes (summarize_text_content and classify_with_llm) in the flow
 
 ### Run single node
 
-To test and debug a single node, select the **Run** icon on node in flatten view. Run status is shown at the very top, once running completed, check output in node output section.
+To test and debug a single node, select the **Run** icon on node in flatten view. Run status is shown at the top, once running completed, check output in node output section.
 
 :::image type="content" source="./media/get-started-prompt-flow/run-single-node.png" alt-text="Screenshot of Web classification showing first you run the python node then check the output, next you run the LLM node then check its output." lightbox = "./media/get-started-prompt-flow/run-single-node.png":::
 
@@ -136,13 +136,19 @@ Instead of checking outputs on each node, you can also set flow output and check
 - Define evaluation interface mapping
 - Set deployment response schema
 
-When you clone the sample, the flow outputs (category and evidence) are already set. You can select **View outputs** to check the outputs in a table.
+When you clone the sample, the flow outputs (category and evidence) are already set. 
+
+You can select **View trace** button in the banner to view detailed input, output, flow execution and orchestration information. You can see that the flow predicts the input URL with a category and evidence.
+
+:::image type="content" source="./media/get-started-prompt-flow/authoring-view-trace.png" alt-text="Screenshot of viewing trace in authoring page." lightbox = "./media/get-started-prompt-flow/authoring-view-trace.png":::
+
+:::image type="content" source="./media/how-to-develop-flow/authoring-trace.png" alt-text=" Screenshot of view output button in two locations." lightbox ="./media/how-to-develop-flow/authoring-trace.png":::
+
+You can select **View test result** to check all historical tests in a list.
 
 :::image type="content" source="./media/get-started-prompt-flow/view-outputs-entry-point.png" alt-text="Screenshot of Web classification showing the view outputs button." lightbox = "./media/get-started-prompt-flow/view-outputs-entry-point.png":::
 
-You can see that the flow predicts the input URL with a category and evidence.
-
-:::image type="content" source="./media/get-started-prompt-flow/view-outputs.png" alt-text="Screenshot of Web classification showing outputs tab." lightbox = "./media/get-started-prompt-flow/view-outputs.png":::
+:::image type="content" source="./media/how-to-develop-flow/authoring-test-result.png" alt-text="Screenshot of flow test result." lightbox ="./media/how-to-develop-flow/authoring-test-result.png":::
 
 ## Test and evaluation
 
@@ -158,7 +164,7 @@ Go to [GitHub](https://aka.ms/web-classification-data) to download "data.csv", t
 
 Select **Evaluate** button next to Run button, then a right panel pops up. It's a wizard that guides you to submit a batch run and to select the evaluation method (optional).​​​​​​​
 
-You need to set a batch run name, description, select a runtime, then select **Add new data** to upload the data you just downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first five rows. The dataset selection drop down supports search and autosuggestion.
+You need to set a batch run name, description, then select **Add new data** to upload the data you downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first five rows. The dataset selection drop down supports search and autosuggestion.
 
 In addition, the **input mapping** supports mapping your flow input to a specific data column in your dataset, which means that you can use any column as the input, even if the column names don't match.
 
@@ -182,13 +188,13 @@ When your run have been submitted successfully, select **View run list** to navi
 
 The batch run might take a while to finish. You can **Refresh** the page to load the latest status. 
 
-After the batch run is completed, select the run, then **Visualize outputs** to view the result of your batch run. Select **View outputs** (eye icon) to append evaluation results to the table of batch run results. You can see the total token count and overall accuracy, then in the table you will see the results for each row of data: input, flow output and evaluation results (which cases are predicted correctly and which are not.).
+After the batch run is completed, select the run, then **Visualize outputs** to view the result of your batch run. Select **View outputs** (eye icon) to append evaluation results to the table of batch run results. You can see the total token count and overall accuracy, then in the table you'll see the results for each row of data: input, flow output and evaluation results (which cases are predicted correctly and which aren't.).
 
 :::image type="content" source="./media/get-started-prompt-flow/check-outputs.png" alt-text="Screenshot of Web classification batch run details page to view outputs." lightbox = "./media/get-started-prompt-flow/check-outputs.png":::
 
 You can adjust column width, hide/unhide columns, change column orders. You can also select **Export** to download the output table for further investigation, we provide 2 options: 
 * Download current page: a csv file of the batch run outputs in current page.
-* Download all data: what you download is a Jupyter notebook file, you need to run it to download outputs in jsonl or csv format.
+* Download all data: what your download is a Jupyter notebook file, you need to run it to download outputs in jsonl or csv format.
 
 As you might know, accuracy isn't the only metric that can evaluate a classification task, for example you can also use recall to evaluate. In this case, you can select **Evaluate** next to "Visualize outputs" button, choose other evaluation methods to evaluate.
 
@@ -229,9 +235,9 @@ If you don't plan to use any of the resources that you created, delete them so y
 
 ## Next steps
 
-Now that you have an idea of what's involved in flow developing, testing, evaluating and deploying, learn more about the process in these tutorials:
+Now that you have an idea of what's involved in flow developing, testing, evaluating, and deploying, learn more about the process in these tutorials:
 
-- [Create and manage runtimes](how-to-create-manage-runtime.md)
+- [Manage compute session](how-to-manage-compute-session.md)
 - [Develop a standard flow](how-to-develop-a-standard-flow.md)
 - [Submit bulk test and evaluate a flow](how-to-develop-a-standard-flow.md)
 - [Tune prompts using variants](how-to-tune-prompts-using-variants.md)

@@ -3,7 +3,7 @@ title: Create a Capacity Reservation in Azure
 description: Learn how to reserve Compute capacity in an Azure region or an Availability Zone by creating a Capacity Reservation.
 author: bdeforeest
 ms.author: bidefore
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.reviewer: cynthn, jushiman, mattmcinnes
@@ -228,13 +228,6 @@ To learn more, go to Azure PowerShell commands [New-AzResourceGroup](/powershell
 An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create Capacity Reservation group and Capacity Reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration/continuous delivery (CI/CD) pipelines. 
-
-If your environment meets the prerequisites and you're familiar with using ARM templates, use any of the following templates: 
-
-- [Create Zonal Capacity Reservation](https://github.com/Azure/on-demand-capacity-reservation/blob/main/ZonalCapacityReservation.json)
-- [Create VM with Capacity Reservation](https://github.com/Azure/on-demand-capacity-reservation/blob/main/VirtualMachineWithReservation.json)
-- [Create Virtual Machine Scale Sets with Capacity Reservation](https://github.com/Azure/on-demand-capacity-reservation/blob/main/VirtualMachineScaleSetWithReservation.json)
-
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Do not remove them :) -->

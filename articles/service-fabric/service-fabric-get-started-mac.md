@@ -4,7 +4,7 @@ description: Install the runtime, SDK, and tools and create a local development 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-dotnet
 services: service-fabric
 ms.date: 07/14/2022
@@ -89,7 +89,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     ```
     
     >[!TIP]
-    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/_/microsoft-service-fabric-onebox) page.
 
     To build your reusable image from the `Dockerfile`, open a terminal and `cd` to the directory holding your `Dockerfile` then run:
 

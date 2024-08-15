@@ -68,6 +68,8 @@ For more information, review the following documentation:
   > which differs in specific cases from the [Shopify implementation for Liquid](https://shopify.github.io/liquid). 
   > For more information, see [Liquid template considerations](#liquid-template-considerations).
 
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
+
 <a name="create-template"></a>
 
 ## Step 1: Create the template
@@ -171,7 +173,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations don't have any triggers available.
 
-   This example continues with the Request trigger named **When a HTTP request is received**.
+   This example continues with the **Request** trigger named **When a HTTP request is received**.
 
 1. On the workflow designer, under the step where you want to add the Liquid action, select **New step**.
 
@@ -216,7 +218,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations don't have any triggers available.
 
-   This example continues with the Request trigger named **When a HTTP request is received**.
+   This example continues with the **Request** trigger named **When a HTTP request is received**.
 
 1. On the designer, under the step where you want to add the Liquid action, select the plus sign (**+**), and then select **Add an action**.
 
@@ -271,7 +273,15 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 ## Test your workflow
 
-1. By using [Postman](https://www.getpostman.com/postman) or a similar tool and the `POST` method, send a call to the Request trigger's URL, which appears in the Request trigger's **HTTP POST URL** property, and include the JSON input to transform, for example:
+To trigger your workflow, follow these steps:
+
+1. In the **Request** trigger, find the **HTTP POST URL** property, and copy the URL.
+
+1. Open your HTTP request tool and use its instructions to send an HTTP request to the copied URL, including the method that the **Request** trigger expects.
+
+   This example uses the **`POST`** method with the URL.
+
+1. Include the JSON input to transform, for example:
 
    ```json
    {

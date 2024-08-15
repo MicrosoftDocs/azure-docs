@@ -4,18 +4,15 @@ titleSuffix: Azure Network Watcher
 description: In this tutorial, you'll learn how to use Azure Network Watcher connection monitor tool to monitor network communication with a virtual machine scale set using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: tutorial
-ms.date: 01/25/2023
+ms.date: 05/31/2024
 
 #CustomerIntent: I need to monitor communication between a virtual machine scale set and a virtual machine. If the communication fails, I need to know why, so that I can resolve the problem.
 
 ---
 
 # Tutorial: Monitor network communication with a virtual machine scale set using the Azure portal
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Successful communication between a virtual machine scale set and another endpoint, such as virtual machine (VM), can be critical for your organization. Sometimes, the introduction of configuration changes can break communication.
 
@@ -75,7 +72,7 @@ First, create a public standard load balancer using the Azure portal. The name a
 
 ### Create a virtual machine scale set
 
-You can deploy a scale set with a Windows Server image or Linux images such as RHEL, CentOS, Ubuntu, or SLES.
+You can deploy a scale set with a Windows Server image or Linux images such as Ubuntu or Red Hat Enterprise Linux.
 
 1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual machine scale sets**. 
 1. On the **Virtual machine scale sets** pane, select **Create**. The **Create a virtual machine scale set** page opens. 

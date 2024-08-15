@@ -2,12 +2,12 @@
 title: Monitor performance metrics for the MedTech service in Azure Health Data Services
 description: Learn how to monitor the performance metrics of the MedTech service in Azure Health Data Services. Find out how to configure, display, and save the metrics in an Azure portal dashboard.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: iomt
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: how-to
 ms.date: 11/21/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Monitor performance metrics for the MedTech service

@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 ms.topic: how-to
 ms.date: 02/23/2024
 ms.custom: engagement-fy23
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
 
 # Enable replication for a disk added to a VMware virtual machine 
