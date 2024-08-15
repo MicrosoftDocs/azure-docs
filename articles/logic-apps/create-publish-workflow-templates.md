@@ -53,17 +53,35 @@ You can also include any other files to maintain and support your template, for 
 
 - To correctly register your template package folder, you must add the folder name to the [repository's root-level manifest.json file](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
 
-### Create a workflow.json file
+## Create a workflow.json file
 
 The **workflow.json** file contains the underlying definition for a workflow in JSON format. To create the **workflow.json** file, you need to copy and save your workflow definition as a file named **workflow.json**.
 
-For the easiest and best way to get the workflow definition, create your workflow using the designer. Make sure to review [Workflow best practices](#workflow-best-practices) along with [Names and style conventions](#names-and-style-conventions). As a starting point, you can use the prebuilt workflow templates from the template gallery in the Azure portal.
+For the easiest and best way to get the workflow definition, create your workflow using the designer. Make sure to review [Workflow best practices](#workflow-best-practices) along with [Names and style conventions](#names-and-style-conventions). Or, as a starting point, you can use the prebuilt workflow templates from the template gallery in the Azure portal.
 
 As you build your workflow, the designer automatically includes references to any added built-in, service provider connections, managed API connections, or libraries in the underlying workflow definition.
 
-To get the workflow definition after you're done, follow these steps in the [Azure portal](https://portal.azure.com) with your opened workflow:
+After you're done, [copy the underlying workflow definition](#copy-workflow-definition) to an empty **workflow.json** file.
 
-1. On the workflow menu, under **Developer**, select **Code**.
+<a name="workflow-best-practices"></a>
+
+### Workflow best practices
+
+- Use the built-in operations as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
+
+  - A built-in, service provider version, which appears in the connectors gallery with the **In App** label. This version is hosted and run with the single-tenant Azure Logic Apps runtime, offering better performance, throughput, and other benefits.
+
+  - A Microsoft-managed API version, which appears in the connectors gallery with the **Shared** label. This version is hosted and run in multitenant Azure using shared global resources.
+
+- Don't use hardcoded properties and their values in trigger and action definitions.
+
+- Provide more context about trigger and action definitions by adding descriptive and helpful comments.
+
+<a name="copy-workflow-definition"></a>
+
+### Copy the underlying workflow definition
+
+1. In the Azure portal, on the workflow menu, under **Developer**, select **Code**.
 
 1. From the code view window, copy the entire workflow definition, for example:
 
@@ -71,7 +89,7 @@ To get the workflow definition after you're done, follow these steps in the [Azu
 
 1. In an empty file named **workflow.json**, save the workflow definition.
 
-## Parameter references in workflow.json
+### Parameter references in workflow.json
 
 When you reference parameters in the **workflow.json** file, you must reflect the parameter names that use the suffix **_#workflowname#** in the following way:
 
@@ -81,7 +99,7 @@ For example:
 
 **`"name": "@parameters('sharepoint-folder-path_#workflowname#')"`**
 
-## Connection references in workflow.json
+### Connection references in workflow.json
 
 When you reference connections in the **workflow.json** file, you must reflect the connection names that use the suffix **_#workflowname#** in the following way:
 
@@ -99,21 +117,7 @@ For example:
 
 For more information about the connector ID, see [Find the connector ID](#find-connector-id).
 
-<a name="workflow-best-practices"></a>
-
-## Workflow best practices
-
-- Use the built-in operations as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
-
-  - A built-in, service provider version, which appears in the connectors gallery with the **In App** label. This version is hosted and run with the single-tenant Azure Logic Apps runtime, offering better performance, throughput, and other benefits.
-
-  - A Microsoft-managed API version, which appears in the connectors gallery with the **Shared** label. This version is hosted and run in multitenant Azure using shared global resources.
-
-- Don't use hardcoded properties and their values in trigger and action definitions.
-
-- Provide more context about trigger and action definitions by adding descriptive and helpful comments.
-
-### Create a workflow template image
+## Create a workflow template image
 
 In the Azure portal, each workflow template has an overview pane in the workflow templates gallery. This pane includes a read-only preview image for the workflow that the template creates plus other template information.
 

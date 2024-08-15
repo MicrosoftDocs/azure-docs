@@ -69,9 +69,17 @@ After the **Create a new workflow** pane appears, the **Connections** tab lists 
 
 1. For each connection type, follow the prompts to provide the necessary connection information.
 
-   If a connection type supports using a managed identity to authenticate access, choose this option. 
+   If a connection type supports using a managed identity to authenticate access, choose this option.
 
-1. On the **Parameters** tab, provide the necessary resources or other information that the connection needs to work.
+1. When you finish, select **Next** or the **Parameters** tab.
+
+## Enter values for action parameters
+
+1. On the **Parameters** tab, provide the necessary values for various action parameters in the workflow.
+
+   The parameters on this tab vary, based on the actions that appear in the workflow template.
+
+1. When you finish, select **Next** or the **Name + state** tab.
 
 ## Provide other workflow information
 
@@ -80,6 +88,10 @@ After the **Create a new workflow** pane appears, the **Connections** tab lists 
 1. Under **State type**, select either **Stateful** or **Stateless**, which determines whether to record the run history, inputs, outputs, and other data for the workflow.
 
    For more information, see [Stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless).
+
+1. When you finish, select **Next** or the **Review + create** tab.
+
+## Review details and create workflow
 
 1. On the **Review + create** tab, review all the provided information for your workflow.
 
