@@ -52,12 +52,12 @@ Microsoft Sentinel supports both *consumption* and *standard* Azure Logic Apps r
 
 ## Playbook authentications to Microsoft Sentinel
 
-Azure Logic Apps must connect separately and authenticate independently to each resource, of each type, that it interacts with, including to Microsoft Sentinel itself. Logic Apps uses [specialized connectors](/connectors/connector-reference/) for this purpose, with each resource type having its own connector.
+Azure Logic Apps must connect separately and authenticate independently to each resource, of each type, that it interacts with, including to Microsoft Sentinel itself. Azure Logic Apps uses [specialized connectors](/connectors/connector-reference/) for this purpose, with each resource type having its own connector.
 
 For more information, see [Authenticate playbooks to Microsoft Sentinel](../authenticate-playbooks-to-sentinel.md).
 
 ## Related content
 
 - [Resource type and host environment differences](/azure/logic-apps/logic-apps-overview#resource-environment-differences) in the Azure Logic Apps documentation
-- [Microsoft Sentinel Logic Apps connector](/connectors/azuresentinel/) in the Azure Logic Apps documentation
+- [Microsoft Sentinel connector for Azure Logic Apps](/connectors/azuresentinel/) in the Azure Logic Apps documentation
 - [Create and manage Microsoft Sentinel playbooks](create-playbooks.md)
