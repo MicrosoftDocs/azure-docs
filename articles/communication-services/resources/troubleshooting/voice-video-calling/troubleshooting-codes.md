@@ -19,7 +19,7 @@ This article describes troubleshooting call end response codes for Calling SDK, 
 
 ## Troubleshooting tips
 
-Consider the following tips when troubleshooting certain issues: 
+Consider the following tips when troubleshooting: 
 - Your application isn't receiving an `IncomingCall Event Grid` event: Make sure the application endpoint is [validated with Event Grid](../../../../event-grid/webhook-event-delivery.md) when creating an event subscription. The provisioning status for your event subscription is marked as succeeded if the validation was successful. 
 - For error `The field CallbackUri is invalid`: Call Automation doesn't support HTTP endpoints. Make sure the callback URL you provide supports HTTPS.
 - The `PlayAudio` action doesn't play anything: Currently only Wave file (.wav) format is supported for audio files. The audio content in the wave file must be mono (single-channel), 16-bit samples with a 16,000 (16 KHz) sampling rate.
