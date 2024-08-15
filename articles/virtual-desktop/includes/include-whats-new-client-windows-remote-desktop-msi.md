@@ -30,7 +30,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Wi
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
-- [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131)
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
 
 > [!NOTE]
 > This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release.  
