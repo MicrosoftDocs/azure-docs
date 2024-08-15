@@ -49,6 +49,10 @@ Adhere to the following recommendations to ensure that you don't experience data
 
 
 ## Incoming stream
+
+> [!NOTE]
+> Multiline support that uses an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) time stamp to delimited events is expected mid-October 2024
+
 The incoming stream of data includes the columns in the following table. 
 
 | Column | Type | Description |
