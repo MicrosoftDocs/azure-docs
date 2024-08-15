@@ -259,7 +259,7 @@ Here are some considerations for using the Azure Linux Agent:
    Then enable the agent and cloud-init on all distributions:
 
    ```bash
-   sudo systemctl enable waagent.service
+   sudo systemctl enable walinuxagent.service
    sudo systemctl enable cloud-init.service
    ```
 
