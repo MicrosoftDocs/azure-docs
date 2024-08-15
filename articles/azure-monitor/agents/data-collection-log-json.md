@@ -107,7 +107,7 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 ### Incoming stream schema
 
 > [!NOTE]
-> Multiline support that uses and [ISO 8601](https://wikipedia.org/wiki/ISO_8601) time stamp to delimited events is expected mid-October 2024
+> Multiline support that uses an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) time stamp to delimited events is expected mid-October 2024
 
 JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. You need to modify the `columns` section of the ARM template with the columns from your log.
 
