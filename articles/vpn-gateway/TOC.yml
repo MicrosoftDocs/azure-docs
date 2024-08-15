@@ -339,7 +339,6 @@
         href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
       - name: Site-to-site connection disconnects intermittently
         href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
-  - name: Classic deployment model articles
 - name: Reference
   items:
   - name: Azure PowerShell
