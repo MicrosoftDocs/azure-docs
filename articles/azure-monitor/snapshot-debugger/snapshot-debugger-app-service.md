@@ -21,7 +21,7 @@ We recommend that you run your application on the Basic or higher service tiers 
 - The Free and Shared service tiers don't have enough memory or disk space to save snapshots. 
 - The Consumption tier isn't currently available for Snapshot Debugger.
 
-Although Snapshot Debugger is pre-installed as part of the App Services runtime, you need to turn it on to get snapshots for your App Service app. Codeless installation of Snapshot Debugger follows [the .NET Core support policy.](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+Although Snapshot Debugger is preinstalled as part of the App Services runtime, you need to turn it on to get snapshots for your App Service app. Codeless installation of Snapshot Debugger follows [the .NET Core support policy.](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 # [Azure portal](#tab/portal)
 
@@ -116,14 +116,14 @@ As of today, Snapshot Debugger only supports Microsoft Entra authentication when
 
 To turn on Microsoft Entra ID for snapshot ingestion in your App Services resource:
 
-1. Add the managed identity that will authenticate against your Application Insights resource to your App Service. You can create either:
+1. Add the managed identity that authenticates against your Application Insights resource to your App Service. You can create either:
 
     - [Add a  System-Assigned Managed identity](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-system-assigned-identity).
     - [Add a User-Assigned Managed identity](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity).
 
 1. Configure and turn on Microsoft Entra ID in your Application Insights resource. For more information, see the following [documentation](../app/azure-ad-authentication.md?tabs=net#configure-and-enable-azure-ad-based-authentication)
 
-1. Add the following application setting, which tells the Snapshot Debugger agent which managed identity to use:
+1. Add the following application setting. This setting tells the Snapshot Debugger agent which managed identity to use:
 
 For System-Assigned Identity:
 
@@ -143,12 +143,12 @@ Below you can find scenarios where Snapshot Collector isn't supported:
 
 |Scenario    | Side Effects | Recommendation |
 |------------|--------------|----------------|
-|You're using the Snapshot Collector SDK in your application directly (*.csproj*) and have enabled the advanced option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost and no Snapshots will be available. <br/> Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.` <br/> [Learn more about the Application Insights feature "Interop".](../app/azure-web-apps-net-core.md#troubleshooting) | If you're using the advanced option "Interop", use the codeless Snapshot Collector injection (enabled through the Azure portal). |
+|You're using the Snapshot Collector SDK in your application directly (*.csproj*) and enabled the advanced option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) are lost and no Snapshots are available. <br/> Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.` <br/> [Learn more about the Application Insights feature "Interop".](../app/azure-web-apps-net-core.md#troubleshooting) | If you're using the advanced option "Interop", use the codeless Snapshot Collector injection (enabled through the Azure portal). |
 
 ## Next steps
 
-* See [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#access-debug-snapshots-in-the-portal) in the Azure portal.
-* For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).
+* View [snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#access-debug-snapshots-in-the-portal) in the Azure portal.
+* To troubleshoot Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png

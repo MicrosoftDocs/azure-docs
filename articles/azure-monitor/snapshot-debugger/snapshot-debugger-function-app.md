@@ -18,7 +18,7 @@ We recommend that you run your application on the Basic or higher service tiers 
 - The Free and Shared service tiers don't have enough memory or disk space to save snapshots. 
 - The Consumption tier isn't currently available for Snapshot Debugger.
 
-Although Snapshot Debugger is pre-installed as part of the Azure Functions runtime, you don't need to add extra NuGet packages or application settings.
+Snapshot Debugger is preinstalled as part of the Azure Functions runtime, so you don't need to add extra NuGet packages or application settings.
 
 ## Prerequisite
 
@@ -165,4 +165,4 @@ To disable Snapshot Debugger in your Functions app, update your `host.json` file
 
 - [View snapshots](snapshot-debugger-data.md?toc=/azure/azure-monitor/toc.json#access-debug-snapshots-in-the-portal) in the Azure portal.
 - Customize Snapshot Debugger configuration based on your use case on your Functions app. For more information, see [Snapshot configuration in host.json](../../azure-functions/functions-host-json.md#applicationinsightssnapshotconfiguration).
-- For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).
+- To troubleshoot Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md).

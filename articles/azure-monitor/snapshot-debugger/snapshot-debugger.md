@@ -107,7 +107,7 @@ If you enabled the Snapshot Debugger but you aren't seeing snapshots, see the [T
 
 ## Upgrading Snapshot Debugger
 
-Snapshot Debugger auto-upgrades via the built-in, pre-installed Application Insights site extension. 
+Snapshot Debugger auto-upgrades via the built-in, preinstalled Application Insights site extension. 
 
 Manually adding an Application Insights site extension to keep Snapshot Debugger up-to-date is deprecated.  
 
