@@ -21,7 +21,7 @@ The following table lists the current versions available for the public and Insi
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
-- [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131)
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
 
 
 ## Updates for version 1.2.5620

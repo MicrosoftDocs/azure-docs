@@ -18,7 +18,7 @@ The following table lists the current versions available for the public and Insi
 
 *Date published: August 13, 2024* 
 
-- [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131)
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
 
 ## Updates for version 1.2.5620
 
