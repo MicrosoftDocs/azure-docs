@@ -1499,6 +1499,26 @@
       "source_path_from_root": "/articles/iot-hub/c2d-messaging-node.md",
       "redirect_url": "/azure/iot-hub/how-to-cloud-to-device-messaging",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/file-upload-dotnet.md",
+      "redirect_url": "/azure/iot-hub/how-to-file-upload",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/file-upload-java.md",
+      "redirect_url": "/azure/iot-hub/how-to-file-upload",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/file-upload-node.md",
+      "redirect_url": "/azure/iot-hub/how-to-file-upload",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/file-upload-python.md",
+      "redirect_url": "/azure/iot-hub/how-to-file-upload",
+      "redirect_document_id": false
     }
   ]
 }
