@@ -951,11 +951,11 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 1. Confirm that the VM has no outbound connectivity to any other public IP addresses:
 
-```powershell
-ping bing.com
-```
+    ```powershell
+    ping bing.com
+    ```
 
-You receive no replies, because the network security group associated to the *Private* subnet does not allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
+    You receive no replies, because the network security group associated to the *Private* subnet does not allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
 
 1. Close the Bastion connection to **vm-private**.
 
@@ -1114,16 +1114,16 @@ Exit the SSH session to the *vm-private* VM.
 
 4. Close the Bastion connection to **vm-1**.
 
-From your computer, attempt to view the file shares in the storage account with the following command:
+1. From your computer, attempt to view the file shares in the storage account with the following command:
 
-```powershell-interactive
-$storage = @{
-    ShareName = "file-share"
-    Context = $storageContext
-}
-Get-AzStorageFile @storage
+    ```powershell-interactive
+    $storage = @{
+        ShareName = "file-share"
+        Context = $storageContext
+    }
+    Get-AzStorageFile @storage
 
-```
+    ```
 
 Access is denied, and you receive a *Get-AzStorageFile : The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation* error, because your computer is not in the *subnet-private* subnet of the *vnet-1* virtual network.
 
