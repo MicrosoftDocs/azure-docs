@@ -46,7 +46,7 @@ The following models are available:
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
 
 
-# [Phi-3.5](#tab/phi-3.5)
+# [Phi-3.5](#tab/phi-3-5)
 
 Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
 
@@ -369,7 +369,7 @@ The following models are available:
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
 
 
-# [Phi-3.5](#tab/phi-3.5)
+# [Phi-3.5](#tab/phi-3-5)
 
 Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
 
@@ -715,7 +715,7 @@ The following models are available:
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
 
 
-# [Phi-3.5](#tab/phi-3.5)
+# [Phi-3.5](#tab/phi-3-5)
 
 Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
 
@@ -1073,7 +1073,7 @@ The following models are available:
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
 
 
-# [Phi-3.5](#tab/phi-3.5)
+# [Phi-3.5](#tab/phi-3-5)
 
 Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
 
