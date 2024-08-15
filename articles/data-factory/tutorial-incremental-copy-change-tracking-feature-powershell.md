@@ -227,7 +227,7 @@ In this step, you link your Azure Storage Account to the data factory.
 ### Create Azure SQL Database linked service.
 In this step, you link your database to the data factory.
 
-1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace &lt;your-server-name&gt; and &lt;your-database-name&gt; with the name of your server and database before you save the file. You must also configure your Azure SQL Server to [grant access to your data factory's managed identity](connector-azure-sql-database.md#use-managed-identity-for-authentication).
+1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace &lt;your-server-name&gt; and &lt;your-database-name&gt; with the name of your server and database before you save the file. You must also configure your Azure SQL Server to [grant access to your data factory's managed identity](connector-azure-sql-database.md#user-assigned-managed-identity-authentication).
 
     ```json
     {
