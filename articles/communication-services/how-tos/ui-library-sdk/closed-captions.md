@@ -47,7 +47,7 @@ Captions are seamlessly integrated within the `CallingUILibrary`.
    - By default, live captions are displayed in the meeting or event spoken language. Live translated captions allow users to see captions translated into the language they’re most comfortable with.
    - Change the caption language by clicking on the **Captions language** button after captions start, if translation to a different language is desired.
 
-:::image type="content" source="./includes/closed-captions/mobile-ui-closed-captions.png" alt-text="Screenshot that shows how it is the experience of closed captions integration in the UI Library.":::
+:::image type="content" source="./includes/closed-captions/mobile-ui-closed-captions.png" alt-text="Screenshot that shows the experience of closed captions integration in the UI Library.":::
 
 > [!NOTE]
 > Live translated captions in meetings are only available as part of [**Teams Premium**](https://learn.microsoft.com/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings), an add-on license that provides additional features to make Teams meetings more personalized, intelligent, and secure. To get access to Teams Premium, contact your IT admin. More details you can find it [here](../calling-sdk/closed-captions-teams-interop-how-to.md).
