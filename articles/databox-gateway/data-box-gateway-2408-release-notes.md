@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 08/13/2024
+ms.date: 08/15/2024
 ms.author: shaas
 ---
 
@@ -19,35 +19,25 @@ The release notes are continuously updated. Critical issues that require a worka
 
 This release corresponds to the software version:
 
-- **Data Box Gateway 2408 (X.X.XXXX.XXX)** - KB XXXXXXX
+- **Data Box Gateway 2408 (2.0.2780.3333)** - KB 5043357
 
 > [!NOTE]
 > Update 2408 can be applied only to devices that are running 2301 versions of the software or later. If you are running a version earlier than 2105, update your device to 2301 and then update to 2408.
 
-Select the appropriate link to download the latest version.
-
-- [VHDX v. X.X.XXXX.XXX](data-box-gateway-2408-release-notes.md)
-- [VMDK v. X.X.XXXX.XXX](data-box-gateway-2408-release-notes.md)
-
 ## What's new
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. Luctus dis neque et amet pharetra consequat quis. Odio porta et nec molestie; sociosqu gravida erat.
-
-## Bug Fixes
 This release contains the following bug fixes:
 
 - **Web UI certificate format** - Implemented bug fixes pertaining to the web UI certificate format, potentially causing compatibility issues when using web UI.
 
-## Updates
-
 This release contains the following updates:
 
-1. **Migration to a newer OS version** - Provides better long term security and vulnerability management.
-1. **Defense in depth:**
+- **Migration to a newer OS version** - Provides better long term security and vulnerability management.
+- **Defense in depth:**
     - Malware protection on OS disk
     - Defender-based Device Guard support for more stringent checks on the binary running within the system.
-1. **Utilizing a newer .NET framework** - Provides better security.
-1. **Improved Hypervisor support** - Support added for Hyper-V 2022.
+- **Utilizing a newer .NET framework** - Provides better security.
+- **Improved Hypervisor support** - Support added for Hyper-V 2022.
 
 ## Known issues in this release
 
