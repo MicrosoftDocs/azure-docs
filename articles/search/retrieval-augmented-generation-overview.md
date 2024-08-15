@@ -153,7 +153,7 @@ In comparison and benchmark testing, hybrid queries with text and vector fields,
 
 ### Example code of an Azure AI Search query for RAG scenarios
 
-The following Python code demonstrates the essential components of a RAG pattern in Azure AI Search. You need to set up the clients, define a system prompt, and provide a query. The prompt tells the LLM to use just the results from the query, and how to return the results. For an end-to-end workflow, see this [RAG quickstart](search-get-started-rag.md).
+The following Python code demonstrates the essential components of a RAG workflow in Azure AI Search. You need to set up the clients, define a system prompt, and provide a query. The prompt tells the LLM to use just the results from the query, and how to return the results. For more steps based on this example, see this [RAG quickstart](search-get-started-rag.md).
 
 ```python
 # Set up the query for generating responses
