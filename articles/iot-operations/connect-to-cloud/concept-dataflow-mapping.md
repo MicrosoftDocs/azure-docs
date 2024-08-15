@@ -47,11 +47,11 @@ Compare it with the output record:
 
 In the output record, the following changes are made to the input record data:
 
-* **Fields renamed**: The **Birth Date** field is now **Date of Birth**.
-* **Fields restructured**: Both **Name** and **Date of Birth** are grouped under the new **Employee** category.
-* **Field deleted**: The **Place of birth** field is removed because it isn't present in the output.
-* **Field added**: The **Base Salary** field is a new field in the **Employment** category.
-* **Field values changed or merged**: The **Position** field in the output combines the **Position** and **Office** fields from the input.
+* **Fields renamed**: The `Birth Date` field is now `Date of Birth`.
+* **Fields restructured**: Both `Name` and `Date of Birth` are grouped under the new `Employee` category.
+* **Field deleted**: The `Place of birth` field is removed because it isn't present in the output.
+* **Field added**: The `Base Salary` field is a new field in the `Employment` category.
+* **Field values changed or merged**: The `Position` field in the output combines the `Position` and `Office` fields from the input.
 
 The transformations are achieved through *mapping*, which typically involves:
 
@@ -144,7 +144,7 @@ The primary function of escaping in a dot-notated path is to accommodate the use
   - 'Payload."Tag.10".Value'
 ```
 
-In the previous example, the path consists of three segments: `Payload`, `Tag.10`, and `Value`. The outer single quotation marks (`'`) are necessary because of YAML syntax rules, which allows the inclusion of double quotation marks within the string.
+In the previous example, the path consists of three segments: `Payload`, `Tag.10`, and `Value`. The outer single quotation marks (`'`) are necessary because of YAML syntax rules, which allow the inclusion of double quotation marks within the string.
 
 ### Escaping rules in dot notation
 
@@ -178,7 +178,7 @@ In the previous example, the path consists of three segments: `Payload`, `Tag.10
 
 ## Wildcard
 
-In many scenarios, the output record closely resembles the input record, with only minor modifications required. When dealing with records that contain numerous fields, manually specifying mappings for each field can become tedious. Wildcards simplify this process by allowing for generalized mappings that can automatically apply to multiple fields.
+In many scenarios, the output record closely resembles the input record, with only minor modifications required. When you deal with records that contain numerous fields, manually specifying mappings for each field can become tedious. Wildcards simplify this process by allowing for generalized mappings that can automatically apply to multiple fields.
 
 Let's consider a basic scenario to understand the use of asterisks in mappings:
 
@@ -218,7 +218,7 @@ Original JSON:
 }
 ```
 
-Mapping configuration using wildcards:
+Mapping configuration that uses wildcards:
 
 ```yaml
 - inputs:
@@ -247,7 +247,7 @@ Resulting JSON:
 
 ### Wildcard placement
 
-When you place a wildcard, the following rules must be followed:
+When you place a wildcard, you must follow these rules:
 
 * **Single asterisk per dataDestination:** Only one asterisk (`*`) is allowed within a single path.
 * **Full segment matching:** The asterisk must always match an entire segment of the path. It can't be used to match only a part of a segment, such as `path1.partial*.path3`.
@@ -277,7 +277,7 @@ Original JSON:
 }
 ```
 
-Mapping configuration using wildcards:
+Mapping configuration that uses wildcards:
 
 ```yaml
 - inputs:
@@ -334,7 +334,7 @@ Original JSON:
 }
 ```
 
-Initial mapping configuration using wildcards:
+Initial mapping configuration that uses wildcards:
 
 ```yaml
 - inputs:
@@ -369,7 +369,7 @@ Corrected mapping configuration:
   expression: ($1, $2, $3, $4)
 ```
 
-This revised mapping accurately captures the necessary fields by correctly specifying the paths to include the nested `Mid` object, ensuring that the asterisks work effectively across different levels of the JSON structure.
+This revised mapping accurately captures the necessary fields. It correctly specifies the paths to include the nested `Mid` object, which ensures that the asterisks work effectively across different levels of the JSON structure.
 
 ### Second rule vs. specialization
 
@@ -454,15 +454,15 @@ Resolution of overlapping mappings by dataflows:
 
 * The evaluation progresses from the top rule in the mapping definition.
 * If a new mapping resolves to the same fields as a previous rule, the following conditions apply:
-  * A `Rank` is calculated for each resolved input based on the number of segments the wildcard captures. For instance, if the `Captured Segments` are `Properties.Opacity`, the `Rank` is 2. If only `Opacity`, the `Rank` is 1. A mapping without wildcards has a `Rank` of 0.
+  * A `Rank` is calculated for each resolved input based on the number of segments the wildcard captures. For instance, if the `Captured Segments` are `Properties.Opacity`, the `Rank` is 2. If it's only `Opacity`, the `Rank` is 1. A mapping without wildcards has a `Rank` of 0.
   * If the `Rank` of the latter rule is equal to or higher than the previous rule, a dataflow treats it as a `Second Rule`.
-  * Otherwise, it treats the configuration as a `Specialization`.
+  * Otherwise, the dataflow treats the configuration as a `Specialization`.
 
 For example, the mapping that directs `Opacity.Max` and `Opacity.Min` to an empty output has a `Rank` of 0. Because the second rule has a lower `Rank` than the previous one, it's considered a specialization and overrides the previous rule, which would calculate a value for `Opacity`.
 
 ### Wildcards in contextualization datasets
 
-While a detailed explanation of contextualization datasets is explained later, let's see now how they can be used with wildcards through an example. Consider a dataset named `position` that contains the following record:
+Now, let's see how contextualization datasets can be used with wildcards through an example. Consider a dataset named `position` that contains the following record:
 
 ```json
 {
@@ -480,7 +480,7 @@ In an earlier example, we used a specific field from this dataset:
   output: Employment.BaseSalary
 ```
 
-This mapping copies `BaseSalary` from the context dataset directly into the `Employment` section of the output record. If you want to automate the process and include all fields from the `position` dataset into the `Employment` section, you can utilize wildcards:
+This mapping copies `BaseSalary` from the context dataset directly into the `Employment` section of the output record. If you want to automate the process and include all fields from the `position` dataset into the `Employment` section, you can use wildcards:
 
 ```yaml
 - inputs:

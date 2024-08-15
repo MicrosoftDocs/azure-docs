@@ -95,7 +95,7 @@ The mapper is designed to be flexible by converting internal types into output t
 
 ### Explicit type conversions
 
-While the automatic conversions operate as you might expect based on common implementation practices, there are instances where the right conversion can't be determined automatically and results in an *unsupported* error. To address these situations, several conversion functions are available to explicitly define how data should be transformed. These functions provide more control over how data is converted and ensure that data integrity is maintained even when automatic methods fall short.
+Although the automatic conversions operate as you might expect based on common implementation practices, there are instances where the right conversion can't be determined automatically and results in an *unsupported* error. To address these situations, several conversion functions are available to explicitly define how data should be transformed. These functions provide more control over how data is converted and help maintain data integrity even when automatic methods fall short.
 
 ### Use a conversion formula with types
 
@@ -112,11 +112,11 @@ If a formula is specified, the data types available for use in formulas are limi
 
 `Map` and `byte` can't participate in formulas.
 
-Types related to time (`datetime`, `time`, and `duration`) are converted into integer values representing time in seconds. After formula evaluation, results are stored in the internal representation and not converted back. For example, `datetime` converted to seconds remains an integer. If the value is to be used in `datetime` fields, an explicit conversion method must be applied. An example is converting the value into an ISO8601 string that's automatically converted to the `datetime` type of the output serialization format.
+Types related to time (`datetime`, `time`, and `duration`) are converted into integer values that represent time in seconds. After formula evaluation, results are stored in the internal representation and not converted back. For example, `datetime` converted to seconds remains an integer. If the value will be used in `datetime` fields, an explicit conversion method must be applied. An example is converting the value into an ISO8601 string that's automatically converted to the `datetime` type of the output serialization format.
 
 ### Use irregular types
 
-Special considerations apply to types like arrays and *missing value*:
+Special considerations apply to types like arrays and *missing value*.
 
 ### Arrays
 
@@ -169,7 +169,7 @@ Missing value is a special type used in scenarios, such as:
 * Handling missing fields in the input by providing an alternative value.
 * Conditionally removing a field based on its presence.
 
-Example mapping using missing value:
+Example mapping that uses a missing value:
 
 ```json
 {
@@ -191,7 +191,7 @@ The input record contains the `BaseSalary` field, but possibly that's optional. 
 }
 ```
 
-A mapping can check if the field is present in the input record. If found, the output receives that existing value. Otherwise, the output receives the value from the context dataset. For example:
+A mapping can check if the field is present in the input record. If the field is found, the output receives that existing value. Otherwise, the output receives the value from the context dataset. For example:
 
 ```yaml
 - inputs:
@@ -223,23 +223,23 @@ Dataflows offer a wide range of out-of-the-box conversion functions that allow u
 
 | Conversion | Formula | Function name |
 | --- | --- | --- |
-| Celsius to Fahrenheit | F = (C * 9/5) + 32 | cToF |
-| PSI to bar | Bar = PSI * 0.0689476 | psiToBar |
-| Inch to cm | Cm = inch * 2.54 | inToCm |
-| Foot to meter | Meter = foot * 0.3048 | ftToM |
-| Lbs to kg | Kg = lbs * 0.453592 | lbToKg |
-| Gallons to liters | Liters = gallons * 3.78541 | galToL |
+| Celsius to Fahrenheit | F = (C * 9/5) + 32 | `cToF` |
+| PSI to bar | Bar = PSI * 0.0689476 | `psiToBar` |
+| Inch to cm | Cm = inch * 2.54 | `inToCm` |
+| Foot to meter | Meter = foot * 0.3048 | `ftToM` |
+| Lbs to kg | Kg = lbs * 0.453592 | `lbToKg` |
+| Gallons to liters | Liters = gallons * 3.78541 | `galToL` |
 
 In addition to these unidirectional conversions, we also support the reverse calculations:
 
 | Conversion | Formula | Function name |
 | --- | --- | --- |
-| Fahrenheit to Celsius | C = (F - 32) * 5/9 | fToC |
-| Bar to PSI | PSI = bar / 0.0689476 | barToPsi |
-| Cm to inch | Inch = cm / 2.54 | cmToIn |
-| Meter to foot | Foot = meter / 0.3048 | mToFt |
-| Kg to lbs | Lbs = kg / 0.453592 | kgToLb |
-| Liters to gallons | Gallons = liters / 3.78541 | lToGal |
+| Fahrenheit to Celsius | C = (F - 32) * 5/9 | `fToC` |
+| Bar to PSI | PSI = bar / 0.0689476 | `barToPsi` |
+| Cm to inch | Inch = cm / 2.54 | `cmToIn` |
+| Meter to foot | Foot = meter / 0.3048 | `mToFt` |
+| Kg to lbs | Lbs = kg / 0.453592 | `kgToLb` |
+| Liters to gallons | Gallons = liters / 3.78541 | `lToGal` |
 
 These functions are designed to simplify the conversion process. They allow users to input values in one unit and receive the corresponding value in another unit effortlessly.
 
@@ -285,7 +285,7 @@ Because `Exponentiation` has the highest precedence, it's executed first unless 
 
 `Addition` and `Subtraction` are considered weaker operations compared to the operations in the previous group:
 
-* `$1 + 2 * 3` results in `$1 + 6` because `2 * 3` is executed first owing to the higher precedence of `multiplication`.
+* `$1 + 2 * 3` results in `$1 + 6` because `2 * 3` is executed first because of the higher precedence of `multiplication`.
 * `($1 + 2) * 3` prioritizes `Addition` before `Multiplication`.
 
 | Operator | Description |

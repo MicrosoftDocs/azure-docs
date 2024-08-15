@@ -14,7 +14,7 @@ ms.date: 08/13/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can enrich data by using the *contextualization datasets* function. When incoming records are processed, these datasets can be queried based on conditions that relate to the fields of the incoming record. This capability allows for dynamic interactions. Data from these datasets can be used to supplement information in the output fields and participate in complex calculations during the mapping process.
+You can enrich data by using the *contextualization datasets* function. When incoming records are processed, you can query these datasets based on conditions that relate to the fields of the incoming record. This capability allows for dynamic interactions. Data from these datasets can be used to supplement information in the output fields and participate in complex calculations during the mapping process.
 
 For example, consider the following dataset with a few records, represented as JSON records:
 
@@ -86,7 +86,7 @@ Then use the references mixed:
   - $context(permission).NightShift  #    - - $2
 ```
 
-The input references use the key of the dataset like `position` or `permission`. If the key in DSS is inconvenient to use, an alias can be defined:
+The input references use the key of the dataset like `position` or `permission`. If the key in DSS is inconvenient to use, you can define an alias:
 
 ```yaml
 datasets:
@@ -97,4 +97,4 @@ datasets:
     expression: $1 == $2
 ```
 
-Which configuration renames the dataset with key `datasets.parag10.rule42` to `position`.
+The configuration renames the dataset with the key `datasets.parag10.rule42` to `position`.
