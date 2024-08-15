@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/14/2024
+ms.date: 08/15/2024
 ms.author: alkohli
 ---
 
@@ -51,7 +51,6 @@ The 2407 release has the following new features and enhancements:
 
 - Base OS updates for Kubernetes nodes.
 - OpenSSH version update for Kubernetes nodes.
-- STIG security fixes for Azure Stack Edge Kubernetes.
 - Azure Stack Edge Kubernetes v1.28.
 - Azure Arc for Kubernetes v1.16.10.
 - Deprecated support for Ubuntu 18.04 LTS GPU extension. The GPU extension is no longer supported on Ubuntu 18.04 GPU VMs running on Azure Stack Edge devices. If you plan to utilize the Ubuntu version 18.04 LTS distro, see steps for manual GPU driver installation at [CUDA Toolkit 12.1 Update 1 Downloads](https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local).
