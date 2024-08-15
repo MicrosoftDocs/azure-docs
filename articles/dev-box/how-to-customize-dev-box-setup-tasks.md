@@ -214,7 +214,7 @@ Make your configuration file seamlessly available to your developers by naming i
 
 When the creation process is complete, the new dev box has nodejs and Visual Studio Code installed.
 
-The new dev box has the repository cloned, and all instructions from configuration file applied. 
+The new dev box has all instructions from configuration file applied and requested repositories cloned.
 
 ## Define new tasks in a catalog
 

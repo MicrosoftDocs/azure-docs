@@ -59,13 +59,13 @@ For information on how to use customer-managed keys for transparent data encrypt
 
 By default, Azure Database for PostgreSQL uses Azure Storage encryption to encrypt data at rest by using Microsoft-managed keys. It's similar to transparent data encryption in other databases, such as SQL Server.
 
-For information on how to use customer-managed keys for transparent data encryption, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](../postgresql/single-server/concepts-data-encryption-postgresql.md).
+For information on how to use customer-managed keys for transparent data encryption, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](/azure/postgresql/single-server/concepts-data-encryption-postgresql).
 
 #### Azure Database for MySQL
 
 Azure Database for MySQL is a relational database service in the Microsoft Cloud. It's based on the MySQL Community Edition database engine. The Azure Database for MySQL service uses the FIPS 140-2 validated cryptographic module for Azure Storage encryption of data at rest.
 
-To encrypt data by using customer-managed keys, see [Azure Database for MySQL data encryption with a customer-managed key](../mysql/single-server/concepts-data-encryption-mysql.md).
+To encrypt data by using customer-managed keys, see [Azure Database for MySQL data encryption with a customer-managed key](/azure/mysql/single-server/concepts-data-encryption-mysql).
 
 ### Azure Cosmos DB
 

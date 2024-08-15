@@ -361,7 +361,7 @@ items:
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
       - name: Pass contextual information
-        href: how-tos/calling-sdk/call-context.md
+        href: how-tos/calling-sdk/call-context.md     
     - name: Call recording
       items:
       - name: Record a call
@@ -430,6 +430,8 @@ items:
         items: 
         - name: Configure default orientation
           href: how-tos/ui-library-sdk/orientation.md
+        - name: Configure closed captions
+          href: how-tos/ui-library-sdk/closed-captions.md
         - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
         - name: Disable end call confirmation
@@ -472,6 +474,12 @@ items:
         href: concepts/analytics/insights/rooms-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
+    - name: Teams interoperability
+      items:
+      - name: Breakout rooms
+        href: how-tos/calling-sdk/breakoutrooms.md
+      - name: Together Mode
+        href: how-tos/calling-sdk/together-mode.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions

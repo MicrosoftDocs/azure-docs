@@ -231,7 +231,7 @@
       - name: Uniform Resource Identifier schemes
         displayName: uri schemes
         href: uri-scheme.md
-    - name: Redirect peripherals and resources
+    - name: Peripheral and resource redirection
       displayName: devices, microphone, audio, usb, drives, clipboard, printers, scanners, cameras, webcams, smart cards, smartcards, webauthn, location, plug and play, mtp, ptp, serial, com, ports,
       href: redirection-remote-desktop-protocol.md
     - name: Multimedia redirection

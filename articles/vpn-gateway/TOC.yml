@@ -261,8 +261,6 @@
         href: vpn-gateway-bgp-resource-manager-ps.md
       - name: Azure CLI
         href: bgp-how-to-cli.md
-    - name: BGP diagnostics
-      href: bgp-diagnostics.md
     - name: Configure site-to-site forced tunneling
       href: site-to-site-tunneling.md
     - name: Configure gateway transit for VNet peering
@@ -307,14 +305,8 @@
     href: create-zone-redundant-vnet-gateway.md
   - name: Monitoring
     items:
-    - name: Monitoring VPN Gateway
+    - name: Monitor VPN Gateway
       href: monitor-vpn-gateway.md
-    - name: Set up alerts based on metrics
-      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
-    - name: Set up alerts based on resource logs
-      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
-    - name: Monitoring - Data reference
-      href: monitor-vpn-gateway-reference.md
     - name: Configure packet captures
       href: packet-capture.md
   - name: Configure customer-controlled gateway maintenance
@@ -347,22 +339,6 @@
         href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
       - name: Site-to-site connection disconnects intermittently
         href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
-  - name: Classic deployment model articles
-    items:
-    - name: Configure a site-to-site connection
-      href: vpn-gateway-howto-site-to-site-classic-portal.md
-    - name: Configure a point-to-site connection
-      href: vpn-gateway-howto-point-to-site-classic-azure-portal.md
-    - name: Configure a VNet-to-VNet connection
-      href: vpn-gateway-howto-vnet-vnet-portal-classic.md
-    - name: Delete a VPN gateway
-      href: vpn-gateway-delete-vnet-gateway-classic-powershell.md
-    - name: Add or remove site-to-site connections
-      href: vpn-gateway-multi-site.md
-    - name: Configure a VPN gateway
-      href: ./vpn-gateway-howto-site-to-site-classic-portal.md
-    - name: Classic to Resource Manager migration
-      href: vpn-gateway-classic-resource-manager-migration.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -373,6 +349,8 @@
     href: /previous-versions/azure/reference/jj154113(v=azure.100)
   - name: Azure CLI
     href: /cli/azure/network/vnet-gateway
+  - name: Monitoring data reference
+    href: monitor-vpn-gateway-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

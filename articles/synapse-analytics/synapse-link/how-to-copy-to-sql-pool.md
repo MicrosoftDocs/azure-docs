@@ -19,7 +19,7 @@ Azure Synapse Link for Azure Cosmos DB enables users to run near real-time analy
 * [Provision a Synapse workspace](../quickstart-create-workspace.md) with:
     * [Serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md)
     * [dedicated SQL pool](../quickstart-create-sql-pool-studio.md)
-* [Provision an Azure Cosmos DB account with a HTAP container with data](../../cosmos-db/configure-synapse-link.md)
+* [Provision an Azure Cosmos DB account with a HTAP container with data](/azure/cosmos-db/configure-synapse-link)
 * [Connect the Azure Cosmos DB HTAP container to the workspace](./how-to-connect-synapse-link-cosmos-db.md)
 * [Have the right setup to import data into a dedicated SQL pool from Spark](../spark/synapse-spark-sql-pool-import-export.md)
 
