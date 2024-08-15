@@ -116,7 +116,7 @@ The following example shows the rules that are available for configuration.
           "maxAllowedAgeInDays": 730
         },
         "use-recent-module-versions": {
-          "level": "warning",
+          "level": "warning"
         },
         "use-resource-id-functions": {
           "level": "warning"

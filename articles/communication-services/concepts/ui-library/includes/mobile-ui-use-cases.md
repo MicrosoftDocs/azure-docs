@@ -22,6 +22,8 @@ You can use the call composite in Communication Services to create these use cas
 | [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
 |                                                                                                 | Display a transcription and recording alert banner               |
 |                                                                                                 | Admit/Reject lobby participants                                 |
+| Closed Captions                                                                                 | Teams interoperability                                      |
+|                                                                                                 | Group call, Rooms call, and 1:1 call                                       |
 | Participant gallery                                                                   | Show remote participants on a grid              |
 |                                                                                                 | Make video preview available throughout a call for a local user |
 |                                                                                                 | Make default avatars available when video is off            |
@@ -68,6 +70,17 @@ The distinction between each role lies in the capabilities they possess during a
 
 > [!NOTE]
 > The Rooms API serves the purpose of creating rooms, managing users, and adjusting the lifetime of rooms. It is important to note that the Rooms API is a back-end service that is separate from the UI Library.
+
+### Closed captions
+
+Closed captions enable a wide range of scenarios, including interoperability with Teams, Azure Communication Services Group calls, Rooms calls, and one-on-one calls. This feature ensures that users can follow along with conversations in various calling environments, **enhancing accessibility** and user experience. However, it's important to note that users need to manually select the language for captions using the UI Library out of the box, as the system doesn't automatically detect the spoken language.
+
+:::image type="content" source="mobile-ui-closed-captions.png" alt-text="Screenshot that shows the experience of closed captions integration in the UI Library.":::
+
+> [!NOTE]
+>Closed Captions will not be billed at the beginning of its Public Preview. This is for a limited time only, usage of Captions will likely be billed starting from June.
+
+If you're looking more detailed information about closed captions, feel free to visit [the documentation](../../voice-video-calling/closed-captions.md) to review explanations and usage guidelines. Additionally, if you want to jump directly into the configuration of closed captions directly within the UI Library, you can follow our [tutorial](../../../how-tos/ui-library-sdk/closed-captions.md) for easy setup.
 
 ### View shared content
 

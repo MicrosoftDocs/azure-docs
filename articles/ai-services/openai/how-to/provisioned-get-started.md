@@ -158,7 +158,7 @@ When you deploy a specified number of provisioned throughput units (PTUs), a set
 
 PTU deployment utilization = (PTUs consumed in the time period) / (PTUs deployed in the time period)
 
-You can find the utilization measure in the Azure-Monitor section for your resource. To access the monitoring dashboards sign-in to [https://portal.azure.com](https://portal.azure.com), go to your Azure OpenAI resource and select the Metrics page from the left nav. On the metrics page, select the 'Provisioned-managed utilization' measure. If you have more than one deployment in the resource, you should also split the values by each deployment by clicking the 'Apply Splitting' button.
+You can find the utilization measure in the Azure-Monitor section for your resource. To access the monitoring dashboards sign-in to [https://portal.azure.com](https://portal.azure.com), go to your Azure OpenAI resource and select the Metrics page from the left nav. On the metrics page, select the 'Provisioned-managed utilization V2' metric. If you have more than one deployment in the resource, you should also split the values by each deployment by clicking the 'Apply Splitting' button.
 
 :::image type="content" source="../media/provisioned/azure-monitor-utilization.jpg" alt-text="Screenshot of the provisioned managed utilization on the resource's metrics blade in the Azure portal." lightbox="../media/provisioned/azure-monitor-utilization.jpg":::
 
