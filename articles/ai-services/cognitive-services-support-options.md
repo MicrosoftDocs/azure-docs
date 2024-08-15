@@ -25,6 +25,11 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 * [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
+>[!NOTE]
+>
+> You can click your Azure AI resource in *Help + Support* in Azure Portal, *Support + Troubleshooting* under *Help*, then input your brief question in the text box under the question "Tell us about the issue to get solutions and support." You can find *Cognitive Services* and your resource are correctly selected.
+
+
 ## Post a question on Microsoft Q&A
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure?product=all), Azure's preferred destination for community support.
