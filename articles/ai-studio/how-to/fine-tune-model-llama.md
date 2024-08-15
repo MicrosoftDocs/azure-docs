@@ -134,7 +134,7 @@ Different model types require a different format of training data.
 
 # [Chat Completion](#tab/chatcompletion)
 
-The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document. For `Llama-3-80B-chat` the fine-tuning dataset must be formatted in the conversational format that is used by the Chat completions API.
+The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document. For `Meta-Llama-3.1-70B-Instruct` the fine-tuning dataset must be formatted in the conversational format that is used by the Chat completions API.
 
 ### Example file format
 
