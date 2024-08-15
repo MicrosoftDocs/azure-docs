@@ -193,7 +193,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over S
         VirtualNetworkName = 'vnet-1'
         Sku = 'Basic'
     }
-    New-AzBastion @bastion
+    New-AzBastion @bastion -AsJob
     ```
 
 It takes about 10 minutes to deploy the Bastion resources. You can create VMs in the next section while Bastion deploys to your virtual network.
@@ -269,14 +269,14 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 1. Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). The following example creates a network security group named *nsg-private*.
 
-```azurepowershell-interactive
-$nsgpriv = @{
-    ResourceGroupName = 'test-rg'
-    Location = 'westus2'
-    Name = 'nsg-private'
-}
-$nsg = New-AzNetworkSecurityGroup @nsgpriv
-```
+    ```azurepowershell-interactive
+    $nsgpriv = @{
+        ResourceGroupName = 'test-rg'
+        Location = 'westus2'
+        Name = 'nsg-private'
+    }
+    $nsg = New-AzNetworkSecurityGroup @nsgpriv
+    ```
 
 ### [CLI](#tab/cli)
 
@@ -406,7 +406,6 @@ az network nsg create \
     # Add the new rules to the security group
     $nsg.SecurityRules += $rule1
     $nsg.SecurityRules += $rule2
-    $nsg.SecurityRules += $rule3
 
     # Update the network security group with the new rules
     Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
@@ -418,7 +417,7 @@ az network nsg create \
     $subnet = @{
         VirtualNetwork = $VirtualNetwork
         Name = "subnet-private"
-        AddressPrefix = "10.0.1.0/24"
+        AddressPrefix = "10.0.2.0/24"
         ServiceEndpoint = "Microsoft.Storage"
         NetworkSecurityGroup = $nsg
     }
@@ -597,13 +596,21 @@ The steps necessary to restrict network access to resources created through Azur
 1. Create a context for your storage account and key with [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). The context encapsulates the storage account name and account key:
 
     ```azurepowershell-interactive
-    $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
+    $storagecontext = @{
+        StorageAccountName = $storageAcctName
+        StorageAccountKey = $storageAcctKey
+    }
+    $storageContext = New-AzStorageContext @storagecontext
     ```
 
 1. Create a file share with [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
     ```azurepowershell-interactive
-    $share = New-AzStorageShare file-share -Context $storageContext
+    $fs = @{
+        Name = "file-share"
+        Context = $storageContext
+    }
+    $share = New-AzStorageShare @fs
     ```
 
 ### [CLI](#tab/cli)
@@ -671,8 +678,7 @@ To restrict network access to a subnet:
     ```azurepowershell-interactive
     $subnetpriv = @{
         ResourceGroupName = "test-rg"
-        VirtualNetworkName = "vnet-1"
-        Name = "subnet-private"
+        Name = "vnet-1"
     }
     $privateSubnet = Get-AzVirtualNetwork @subnetpriv | Get-AzVirtualNetworkSubnetConfig -Name "subnet-private"
     ```
@@ -737,7 +743,7 @@ To test network access to a storage account, deploy a virtual machine to each su
 
 ### Create the first virtual machine
 
-Create a virtual machine in the *subnet-public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM. The `-AsJob` option creates the VM in the background, so that you can continue to the next step.
+Create a virtual machine in the *subnet-public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM.
 
 ```azurepowershell-interactive
 $vm1 = @{
@@ -748,15 +754,7 @@ $vm1 = @{
     Name = "vm-public"
     PublicIpAddressName  = $null
 }
-New-AzVm @vm1 -AsJob
-```
-
-Output similar to the following example output is returned:
-
-```output
-Id     Name            PSJobTypeName   State         HasMoreData     Location             Command                  
---     ----            -------------   -----         -----------     --------             -------                  
-1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM     
+New-AzVm @vm1
 ```
 
 ### Create the second virtual machine
@@ -914,7 +912,7 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 1. Select **vm-private**.
 
-1. Select **Bastion** in **Operations**.
+1. Select **Connect** then **Connect via Bastion** in **Overview**.
 
 1. Enter the username and password you specified when creating the virtual machine. Select **Connect**.
 
@@ -1125,7 +1123,6 @@ SSH into the *vm-private* VM.
         Context = $storageContext
     }
     Get-AzStorageFile @storage
-
     ```
 
     Access is denied, and you receive a *Get-AzStorageFile : The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation* error, because your computer is not in the *subnet-private* subnet of the *vnet-1* virtual network.
