@@ -22,13 +22,22 @@ Arc resource bridge communicates outbound securely to Azure Arc over TCP port 44
 
 ## Designated IPs used by Arc resource bridge
 
-When Arc resource bridge is deployed, there are designated IPs used exclusively by the appliance VM for the Kubernetes pods and services. These IPs can only be used for Arc resource bridge and can’t be used by any other service. If another service already uses an IP address within these ranges, please submit a support ticket.
-
+When Arc resource bridge is deployed, there are designated IPs used exclusively by the appliance VM for the Kubernetes pods and services. 
 
 | Service|Designated Arc resource bridge IPs|
 | -------- | -------- |
 |Arc resource bridge Kubernetes pods   |10.244.0.0/16 |
 | Arc resource bridge Kubernetes services| 10.96.0.0/12  |
+
+When configuring your Arc resource bridge settings, the following values must not fall into the Arc resource bridge designated IP ranges:
+
+- DNS servers
+
+- Proxy servers
+
+- vSphere endpoint and any ESXi host that is associated with the targeted vSphere (Arc-enabled VMware only)
+
+If any of the above values fall into the Arc resource bridge designated IP ranges, this may cause an IP conflict once the bridge is deployed.
 
 ## SSL proxy configuration
 
