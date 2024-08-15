@@ -265,6 +265,9 @@ ml_client.begin_create_or_update(entity=compute)
 
 Use the following information to configure **serverless compute** nodes with no public IP address in the VNet for a given workspace:
 
+> [!IMPORTANT]
+> If you are using a no public IP serverless compute and the workspace uses an IP allow list, you must add an outbound private endpoint to the workspace. The serverless compute needs to communicate with the workspace, but when configured for no public IP it is dynamically assigned a private IP. The dynamic IP can't be added to the IP allow list. Creating an outbound private endpoint to the workspace allows traffic from the serverless compute bound for the workspace to bypass the IP allow list.
+
 # [Azure CLI](#tab/cli)
 
 Create a workspace:
