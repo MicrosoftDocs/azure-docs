@@ -69,7 +69,7 @@ The 2407 release has the following new features and enhancements:
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|VM creation | Image directory is still the old location causing VM creation failure on Azure Stack Edge 2403. |  |
+|**1.**|VM creation | Image directory is still the old location causing VM creation failure on Azure Stack Edge 2403. | Delete the Marketplace image and then create a new image from Azure portal. For detailed steps, see [Troubleshoot VM creation issues](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md#vm-creation-fails). |
 
 ## Known issues from previous releases
 

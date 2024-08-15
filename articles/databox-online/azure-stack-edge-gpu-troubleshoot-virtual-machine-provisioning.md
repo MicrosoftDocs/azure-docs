@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 03/24/2023
+ms.date: 08/15/2024
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -168,6 +168,56 @@ To verify whether the network interface was created successfully, do these steps
 ## VM creation issues
 
 This section covers common issues that occur during VM creation.
+
+### VM creation fails
+
+**Error description:** If you have a Marketplace image created with Azure Stack Edge 2403 or earlier, or if you updated to Azure Stack Edge 2403 release, and then tried to create a VM from the existing Marketplace image, your VM creation will fail, because this release changed the download path for the Marketplace image.
+
+**Suggested solution:** Use the following steps to delete the existing Marketplace image, and then create a new Marketplace image from Azure portal.
+
+1. From Azure portal, delete the existin Marketplace image.
+
+   1. List the ingestion and the BlobDownload ingestion job for the Marketplace image. Use these steps to [Connect to ARM](azure-stack-edge-gpu-connect-resource-manager.md?tabs=Az). Run the following script to list ingestion jobs:
+    
+      Specify the subscription ID in the following Uri:
+      
+      $uri1 = "https://management.<appliance name>.<DNS domain>/subscriptions/<sid>/providers/Microsoft.AzureBridge/locations/DBELocal/ingestionJobs/?api-version=2022-03-01  
+
+      ```powershell
+      Function Get-AzCachedAccessToken() 
+      {
+      $ErrorActionPreference = 'Stop' 
+      $azureRmProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile 
+      $currentAzureContext = Get-AzContext 
+      $profileClient = New-Object Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient($azureRmProfile) 
+      Write-Debug ("Getting access token for tenant" + $currentAzureContext.Subscription.TenantId) 
+      $token = $profileClient.AcquireAccessToken($currentAzureContext.Subscription.TenantId) 
+      $token.AccessToken 
+      } 
+
+      $token = Get-AzCachedAccessToken 
+      $headers = @{Authorization = "Bearer $token"; "Content-Type" = "application/json" } 
+      $v = Invoke-RestMethod -Method Get -Uri $uri1 -Headers $headers 
+      v.value
+      ```
+
+   1. Find the ingestion job name = `Marketplace image sku name` and kind = `BlobDownload`.
+
+      Example: ingestion job name = `Ubuntu-18-04` and kind = `BlobDownload`.
+
+      ![Screenshot of example syntax to find ingestion job name.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/ingestion-job-name.png)
+
+1. If the ingestion job is found in Step 1, use the following steps to delete the ingestion job.
+
+   1. Run the following commands to delete image. For example, the ingestion job name in the example above is `ubuntu-18-04`. Additionally, `Subscription ID` and `Resource group` name can be found in the example.
+   
+      ```powershell
+      $uri2 = "https://management.<appliance name>.<DNS domain>/subscriptions/sid/resourceGroups/rgname/providers/Microsoft.AzureBridge/locations/dbelocal/ingestionJobs/<ingestion job name>?api-version=2018-06-01" 
+
+      Invoke-RestMethod -Method DELETE -Uri $uri2 -Headers $headers
+      ```
+
+1. Create a new Marketplace image from Azure portal.
 
 ### Not enough memory to create the VM
 
