@@ -36,19 +36,19 @@ Azure Logic Apps also supports other types of connectors, such as managed connec
 
 ## Supported logic app types
 
-Microsoft Sentinel supports both *consumption* and *standard* Azure Logic Apps resource types:
+Microsoft Sentinel supports both Consumption and Standard logic apps:
 
-- **Consumption** resources run in multitenant Azure Logic Apps and use the classic, original Azure Logic Apps engine.
+- **Consumption**: Runs in multitenant Azure Logic Apps, and uses the classic, original Azure Logic Apps engine.
 
-- **Standard** resources run in single-tenant Azure Logic Apps and use a more recently designed Azure Logic Apps engine.
+- **Standard**: Runs in single-tenant Azure Logic Apps, and uses a more recently designed Azure Logic Apps engine.
 
-    Standard resources offer higher performance, fixed pricing, multiple workflow capability, easier API connections management, built-in network capabilities and CI/CD features, and more. However, the following playbook functionality differs for Standard resources in Microsoft Sentinel:
+   Standard resources offer higher performance, fixed pricing, multiple workflow capability, easier API connections management, built-in network capabilities and CI/CD features, and more. However, the following playbook functionality differs for Standard logic apps in Microsoft Sentinel:
 
-    |Feature  |Description  |
-    |---------|---------|
-    |**Creating playbooks**  | Playbook templates aren't currently supported for Standard workflows, which means that you can't use a template to create your playbook directly in Microsoft Sentinel. <br><br>Instead, create your workflow manually in Azure Logic Apps to use it as a playbook in Microsoft Sentinel.       |
-    |**Private endpoints**    |   If you're using Standard workflows with private endpoints, Microsoft Sentinel requires you to [define an access restriction policy in Logic apps](../define-playbook-access-restrictions.md) to support those private endpoints in any playbooks based on Standard workflows. <br><br> Without an access restriction policy, workflows with private endpoints might still be visible and selectable in Microsoft Sentinel, but running them will fail. |
-    |**Stateless workflows**    | While Standard workflows support both *stateful* and *stateless* in Azure Logic Apps, Microsoft Sentinel doesn't support stateless workflows. <br><br>For more information, see [Stateful and stateless workflows](/azure/logic-apps/single-tenant-overview-compare#stateful-and-stateless-workflows).
+  | Feature | Description |
+  |---------|-------------|
+  | **Creating playbooks** | Playbook templates aren't currently supported for Standard workflows, which means that you can't use a template to create your playbook directly in Microsoft Sentinel. <br><br>Instead, create your workflow manually in Azure Logic Apps to use it as a playbook in Microsoft Sentinel. |
+  | **Private endpoints** | If you're using Standard workflows with private endpoints, Microsoft Sentinel requires you to [define an access restriction policy in Logic apps](../define-playbook-access-restrictions.md) to support those private endpoints in any playbooks based on Standard workflows. <br><br>Without an access restriction policy, workflows with private endpoints might still be visible and selectable in Microsoft Sentinel, but running them will fail. |
+  | **Stateless workflows** | While Standard workflows support both *stateful* and *stateless* in Azure Logic Apps, Microsoft Sentinel doesn't support stateless workflows. <br><br>For more information, see [Stateful and stateless workflows](/azure/logic-apps/single-tenant-overview-compare#stateful-and-stateless-workflows). |
 
 ## Playbook authentications to Microsoft Sentinel
 
