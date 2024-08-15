@@ -15,7 +15,7 @@ This article describes suggested workspace designs for organizations with the fo
 - Single tenant with multiple clouds
 - Multiple tenants, with multiple regions and centralized security
 
-The samples in this article use the [Microsoft Sentinel workspace design decision tree](design-your-workspace-architecture.md) to determine the best workspace design for each organization. For more information, see [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
+For more information, see [Design a Log Analytics workspace architecture](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json).
 
 This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
@@ -60,36 +60,24 @@ The Contoso Operations team needs to have access to all the logs that they curre
 
 ### Contoso's solution
 
-The following steps apply the [Microsoft Sentinel workspace design decision tree](design-your-workspace-architecture.md) to determine the best workspace design for Contoso:
+Constoso's solution includes the following considerations:
 
-1. Contoso already has an existing workspace, so we can explore enabling Microsoft Sentinel in that same workspace.
-
-    Non-SOC data ingestion is less than 100 GB/day, so we can continue to [step 2](design-your-workspace-architecture.md#step-2-keeping-data-in-different-azure-geographies), and making sure to select the relevant option in [step 5](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).
-
-1.	Contoso has regulatory requirements, so we need at least one Microsoft Sentinel workspace in Europe.
-
-1.	Contoso has two different Microsoft Entra tenants, and collects from tenant-level data sources, like Office 365 and Microsoft Entra sign-in and audit logs, so we need at least one workspace per tenant.
-
-1.	Contoso doesn't need [charge-back](design-your-workspace-architecture.md#step-4-splitting-billing--charge-back), so we can continue with [step 5](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).
-
-1.	Contoso does need to collect non-SOC data, although there isn't any overlap between SOC and non-SOC data. Also, SOC data accounts for approximately 250 GB/day, so they should use separate workspaces for the sake of cost efficiency.
-
-1.	Most Contoso's VMs are the EU North region, where they already have a workspace. Therefore, in this case, bandwidth costs aren't a concern.
-
-1.	Contoso has a single SOC team that will be using Microsoft Sentinel, so no extra separation is needed.
-
-1.	All members of Contoso's SOC team will have access to all the data, so no extra separation is needed.
+- Contoso already has an existing workspace, and they'd like to explore enabling Microsoft Sentinel in that same workspace.
+- Contoso has regulatory requirements, so we need at least one Microsoft Sentinel workspace in Europe.
+- Contoso has two different Microsoft Entra tenants, and collects from tenant-level data sources, like Office 365 and Microsoft Entra sign-in and audit logs, so we need at least one workspace per tenant.
+- Contoso does need to collect non-SOC data, although there isn't any overlap between SOC and non-SOC data. Also, SOC data accounts for approximately 250 GB/day, so they should use separate workspaces for the sake of cost efficiency.
+- Most Contoso's VMs are the EU North region, where they already have a workspace. Therefore, in this case, bandwidth costs aren't a concern.
+- Contoso has a single SOC team that will be using Microsoft Sentinel, so no extra separation is needed.
+- All members of Contoso's SOC team will have access to all the data, so no extra separation is needed.
 
 The resulting Microsoft Sentinel workspace design for Contoso is illustrated in the following image:
 
-:::image type="content" source="media/best-practices/contoso-solution.png" alt-text="Diagram of Contoso's solution, with a separate workspace for the Ops team." border="false":::
+:::image type="content" source="media/best-practices/contoso-solution.png" alt-text="Diagram of Contoso's solution, with a separate workspace for the Ops team." border="false"::: <!--update diagram to read microsoft sentinel-->
 
 The suggested solution includes:
 
 - A separate Log Analytics workspace for the Contoso Operations team. This workspace will only contain data that's not needed by Contoso’s SOC team, such as the **Perf**, **InsightsMetrics**, or **ContainerLog** tables.
-
 - Two Microsoft Sentinel workspaces, one in each Microsoft Entra tenant, to ingest data from Office 365, Azure Activity, Microsoft Entra ID, and all Azure PaaS services.
-
 - All other data, coming from on-premises data sources, can be routed to one of the two Microsoft Sentinel workspaces.
 
 
@@ -136,17 +124,15 @@ The Fabrikam SOC team needs to access:
 
 ### Fabrikam's solution
 
-The following steps apply the [Microsoft Sentinel workspace design decision tree](design-your-workspace-architecture.md) to determine the best workspace design for Fabrikam:
+Fabrikam's solution includes the following considerations:
 
-1.	Fabrikam has no existing workspace, so continue to [step 2](design-your-workspace-architecture.md#step-2-keeping-data-in-different-azure-geographies).
+- Fabrikam has no existing workspace, so they'll automatically need a new workspace.
 
-1.	Fabrikam has no regulatory requirements, so continue to [step 3](design-your-workspace-architecture.md#step-3-do-you-have-multiple-azure-tenants).
+- Fabrikam has no regulatory requirements that requires them to keep data separate.
 
-1.	Fabrikam has a single-tenant environment. so continue to [step 4](design-your-workspace-architecture.md#step-4-splitting-billing--charge-back).
+- Fabrikam has a single-tenant environment, and wouldn't need separate workspaces per tenant.
 
-1.	Fabrikam has no need to split up charges, so continue to [step 5](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).
-
-1.	Fabrikam will need separate workspaces for their SOC and Operations teams:
+- However, Fabrikam will need separate workspaces for their SOC and Operations teams.
 
     The Fabrikam Operations team needs to collect performance data, from both VMs and AKS. Since AKS is based on diagnostic settings, they can select specific logs to send to specific workspaces. Fabrikam can choose to send AKS audit logs to the Microsoft Sentinel workspace, and all AKS logs to a separate workspace, where Microsoft Sentinel isn't enabled. In the workspace where Microsoft Sentinel isn't enabled, Fabrikam will enable the Container Insights solution.
 
@@ -154,13 +140,7 @@ The following steps apply the [Microsoft Sentinel workspace design decision tree
 
     Fabrikam chooses to consider their overlapping data, such as security events and Azure activity events, as SOC data only, and sends this data to the workspace with Microsoft Sentinel.
 
-1.	Bandwidth costs aren't a major concern for Fabrikam, so continue with [step 7](design-your-workspace-architecture.md#step-7-segregating-data-or-defining-boundaries-by-ownership).
-
-1.	Fabrikam has already decided to use separate workspaces for the SOC and Operations teams. No further separation is needed.
-
-1.	Fabrikam does need to control access for overlapping data, including security events and Azure activity events, but there's no row-level requirement.
-
-    Security events and Azure activity events aren't custom logs, so Fabrikam can use table-level RBAC to grant access to these two tables for the Operations team.
+- Fabrikam needs to control access for overlapping data, including security events and Azure activity events, but there's no row-level requirement. Since security events and Azure activity events aren't custom logs, Fabrikam can use table-level RBAC to grant access to these two tables for the Operations team.
 
 The resulting Microsoft Sentinel workspace design for Fabrikam is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
@@ -168,13 +148,10 @@ The resulting Microsoft Sentinel workspace design for Fabrikam is illustrated in
 
 The suggested solution includes:
 
-- Two separate workspaces in the US region: one for the SOC team with Microsoft Sentinel enabled, and another for the Operations team, without Microsoft Sentinel.
-
-- The [Azure Monitoring Agent (AMA)](connect-windows-security-events.md#connector-options), used to determine which logs are sent to each workspace from Azure and on-premises VMs.
-
-- Diagnostic settings, used to determine which logs are sent to each workspace from Azure resources such as AKS.
-
-- Overlapping data being sent to the Microsoft Sentinel workspace, with table-level RBAC to grant access to the Operations team as needed.
+- **Two separate workspaces in the US region**: one for the SOC team with Microsoft Sentinel enabled, and another for the Operations team, without Microsoft Sentinel.
+- **The [Azure Monitoring Agent (AMA)](connect-windows-security-events.md#connector-options)**, used to determine which logs are sent to each workspace from Azure and on-premises VMs.
+- **Diagnostic settings**, used to determine which logs are sent to each workspace from Azure resources such as AKS.
+- **Overlapping data being sent to the Microsoft Sentinel workspace**, with table-level RBAC to grant access to the Operations team as needed.
 
 ## Sample 3: Multiple tenants and regions and centralized security
 
@@ -217,23 +194,15 @@ Adventure Works’ Operations team runs independently, and has its own workspace
 
 ### Adventure Works solution
 
-The following steps apply the [Microsoft Sentinel workspace design decision tree](design-your-workspace-architecture.md) to determine the best workspace design for Adventure Works:
+The Adventure Works solution includes the following considerations:
 
-1.	Adventure Works' Operations team has its own workspaces, so continue to [step 2](design-your-workspace-architecture.md#step-2-keeping-data-in-different-azure-geographies).
+- The Adventure Works' Operations team already has its own workspaces, so there's no need to create a new one.
 
-1.	Adventure Works has no regulatory requirements, so continue to [step 3](design-your-workspace-architecture.md#step-3-do-you-have-multiple-azure-tenants).
+- Adventure Works has no regulatory requirements that requires them to keep data separate.
 
-1.	Adventure Works has three Microsoft Entra tenants, and needs to collect tenant-level data sources, such as Office 365 logs. Therefore, Adventure Works should create at least Microsoft Sentinel workspaces, one for each tenant.
+- Adventure Works has three Microsoft Entra tenants, and needs to collect tenant-level data sources, such as Office 365 logs. Therefore, Adventure Works should create at least Microsoft Sentinel workspaces, one for each tenant.
 
-1.	Adventure Works has no need to split up charges, so continue to [step 5](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).
-
-1.	Since Adventure Works' Operations team has its own workspaces, all data considered in this decision will be used by the Adventure Works SOC team.
-
-1.	Bandwidth costs aren't a major concern for Adventure Works, so continue with [step 7](design-your-workspace-architecture.md#step-7-segregating-data-or-defining-boundaries-by-ownership).
-
-1.	Adventure Works does need to segregate data by ownership, as each content's SOC team needs to access only data that is relevant to that content. However, each continent's SOC team also needs access to the full Microsoft Sentinel portal.
-
-1.	Adventure Works doesn't need to control data access by table.
+- While all data considered in this decision will be used by the Adventure Works SOC team, they do need to segregate data by ownership, as each SOC team needs to access only data that is relevant to that team. Each SOC team also needs access to the full Microsoft Sentinel portal. Adventure Works doesn't need to control data access by table.
 
 The resulting Microsoft Sentinel workspace design for Adventure Works is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
@@ -242,11 +211,8 @@ The resulting Microsoft Sentinel workspace design for Adventure Works is illustr
 The suggested solution includes:
 
 - A separate Microsoft Sentinel workspace for each Microsoft Entra tenant. Each workspace collects data related to its tenant for all data sources.
-
 - Each continent's SOC team has access only to the workspace in its own tenant, ensuring that only logs generated within the tenant boundary are accessible by each SOC team.
-
 - The central SOC team can still operate from a separate Microsoft Entra tenant, using Azure Lighthouse to access each of the different Microsoft Sentinel environments. If there's no other tenant, the central SOC team can still use Azure Lighthouse to access the remote workspaces.
-
 - The central SOC team can also create another workspace if it needs to store artifacts that remain hidden from the continent SOC teams, or if it wants to ingest other data that isn't relevant to the continent SOC teams.
 
 ## Next steps

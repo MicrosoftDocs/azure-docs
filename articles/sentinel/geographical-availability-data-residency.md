@@ -17,7 +17,7 @@ When you set up Microsoft Sentinel or prepare for compliance checks, you need th
 
 After your data is collected, stored, and processed, compliance can become an important design requirement, with a significant impact on your Microsoft Sentinel architecture. Having the ability to validate and prove who has access to what data under all conditions is a critical data sovereignty requirement in many countries and regions, and assessing risks and getting insights in Microsoft Sentinel workflows is a priority for many customers.
 
-Learn more about [compliance considerations](best-practices-workspace-architecture.md#compliance-considerations).
+Learn more about [compliance considerations](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json).
 
 ## Where Microsoft Sentinel data is stored
 

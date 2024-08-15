@@ -25,7 +25,7 @@ Before deploying Microsoft Sentinel, make sure that your Azure tenant meets the 
 
   For more information about other roles and permissions supported for Microsoft Sentinel, see [Permissions in Microsoft Sentinel](roles.md).
 
-- A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) is required to house the data that Microsoft Sentinel ingests and analyzes for detections, analytics, and other features. For more information, see [Microsoft Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
+- A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) is required to house the data that Microsoft Sentinel ingests and analyzes for detections, analytics, and other features. For more information, see [Design a Log Analytics workspace architecture](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json).
 
 - The Log Analytics workspace must not have a resource lock applied, and the workspace pricing tier must be Pay-as-You-Go or a commitment tier. Log Analytics legacy pricing tiers and resource locks aren't supported when enabling Microsoft Sentinel. For more information about pricing tiers, see [Simplified pricing tiers for Microsoft Sentinel](enroll-simplified-pricing-tier.md#prerequisites).
 
@@ -40,4 +40,4 @@ Before deploying Microsoft Sentinel, make sure that your Azure tenant meets the 
 In this article, you reviewed the prerequisites that help you plan and prepare before deploying Microsoft Sentinel.
 
 > [!div class="nextstepaction"]
-> >[Review workspace architecture best practices](best-practices-workspace-architecture.md)
+> >[Design a Log Analytics workspace architecture](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json  )
