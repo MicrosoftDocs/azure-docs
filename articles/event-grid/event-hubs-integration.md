@@ -241,7 +241,7 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
 
 
 > [!IMPORTANT]
-> We use connection string to authenticate to Azure Event Hubs namespace to keep the tutorial simple. We recommend that you use Microsoft Entra ID authentication in production environments. When using an application, you can enable managed identity for the application and assign an appropriate role (Azure Event Hubs Owner, Azure Event Hubs Data Sender, or Azure Event Hubs Data Receiver) on the Event Hubs namespace. For more information, see [Authorize access to Event Hubs using Microsoft Entra ID](../event-hubs/authorize-access-azure-active-directory.md).
+> We use connection string to authenticate to Azure Event Hubs namespace to keep the tutorial simple. We recommend that you use Microsoft Entra ID authentication in production environments. When using an application, you can enable managed identity for the application and assign the identity an appropriate role (Azure Event Hubs Owner, Azure Event Hubs Data Sender, or Azure Event Hubs Data Receiver) on the Event Hubs namespace. For more information, see [Authorize access to Event Hubs using Microsoft Entra ID](../event-hubs/authorize-access-azure-active-directory.md).
 
 
 ## Monitor the solution
