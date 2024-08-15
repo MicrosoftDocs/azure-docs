@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
         $notificationPayload = ConvertFrom-Json -InputObject $WebhookData.RequestBody  
         $eventType = $notificationPayload[0].eventType  
       
-        if ($eventType -ne “Microsoft.Maintenance.PreMaintenanceEvent” -or $eventType –ne “Microsoft.Maintenance.PostMaintenanceEvent” ) {  
+        if ($eventType -ne "Microsoft.Maintenance.PreMaintenanceEvent" -and $eventType –ne "Microsoft.Maintenance.PostMaintenanceEvent" ) {  
           Write-Output "Webhook not triggered as part of pre or post patching for maintenance run"  
         return  
         } 
