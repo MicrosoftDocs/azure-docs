@@ -14,6 +14,8 @@ ms.author: jordanselig
 >
 > If you're looking for information on the in-place migration feature, see [Migrate to App Service Environment v3 by using the in-place migration feature](migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
+> Side-by-side migration comes with additional challenges compared to in-place migration. For customers who need to decide between the two options, the recommendation is to use in-place migration since there are fewer steps and less complexity. If you decide to use side-by-side migration, review the [common sources of issues when migrating using the side-by-side migration feature](#common-sources-of-issues-when-migrating-using-the-side-by-side-migration-feature) section to avoid common pitfalls.
+>
 
 App Service can automate migration of your App Service Environment v1 and v2 to an [App Service Environment v3](overview.md). There are different migration options. Review the [migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree) to decide which option is best for your use case. App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue. 
 
@@ -220,6 +222,8 @@ Once you're ready to redirect traffic, you can complete the final step of the mi
 
 > [!NOTE]
 > It's important to complete this step as soon as possible. When your App Service Environment is in the hybrid state, it's unable to receive platform upgrades and security patches, which makes it more vulnerable to instability and security threats.
+>
+> **You have 14 days to complete this step. After 14 days, the platform will automatically complete the migration and delete your old environment. If you need more time, you can open a support case to discuss your options**.
 >
 
 If you discover any issues with your new App Service Environment v3, don't run the command to redirect customer traffic. This command also initiates the deletion of your App Service Environment v2. If you find an issue, contact support.
@@ -456,7 +460,11 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 
 ### 11. Redirect customer traffic, validate your App Service Environment v3, and complete migration
 
-This step is your opportunity to test and validate your new App Service Environment v3.
+This step is your opportunity to test and validate your new App Service Environment v3. 
+
+> [!IMPORTANT]
+> You have 14 days to complete this step. After 14 days, the platform will automatically complete the migration and delete your old environment. If you need more time, you can open a support case to discuss your options.
+>
 
 Once you confirm your apps are working as expected, you can finalize the migration by running the following command. This command also deletes your old environment.
 

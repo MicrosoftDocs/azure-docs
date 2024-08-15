@@ -20,7 +20,7 @@ You can use these same steps to set up and run an experiment for any service-dir
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- An Azure Cosmos DB account. If you don't have an Azure Cosmos DB account, you can [create one](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
+- An Azure Cosmos DB account. If you don't have an Azure Cosmos DB account, you can [create one](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 - At least one read and one write region setup for your Azure Cosmos DB account.
 
 ## Open Azure Cloud Shell
