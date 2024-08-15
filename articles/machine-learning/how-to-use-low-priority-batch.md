@@ -29,22 +29,30 @@ Low priority virtual machines are offered at a reduced price compared with dedic
 
 Azure Machine Learning Batch Deployments provides several capabilities that make it easy to consume and benefit from low priority VMs:
 
-- Batch deployment jobs consume low priority VMs by running on Azure Machine Learning compute clusters created with low priority VMs. After a deployment is associated with a low priority VMs' cluster, all the jobs produced by such deployment use low priority VMs. Per-job configuration isn't possible.
+- Batch deployment jobs consume low priority VMs by running on Azure Machine Learning compute clusters created with low priority VMs. After a deployment is associated with a low priority VMs cluster, all the jobs produced by such deployment use low priority VMs. Per-job configuration isn't possible.
 - Batch deployment jobs automatically seek the target number of VMs in the available compute cluster based on the number of tasks to submit. If VMs are preempted or unavailable, batch deployment jobs attempt to replace the lost capacity by queuing the failed tasks to the cluster.
 - Low priority VMs have a separate vCPU quota that differs from the one for dedicated VMs. Low-priority cores per region have a default limit of 100 to 3,000, depending on your subscription. The number of low-priority cores per subscription can be increased and is a single value across VM families. See [Azure Machine Learning compute quotas](how-to-manage-quotas.md#azure-machine-learning-compute).
 
-## Considerations and use cases
+### Considerations and use cases
 
 Many batch workloads are a good fit for low priority VMs. Using low priority VMs can introduce execution delays when deallocation of VMs occurs. If you have flexibility in the time jobs have to finish, you might tolerate the potential drops in capacity.
 
 When you deploy models under batch endpoints, rescheduling can be done at the minibatch level. That approach has the benefit that deallocation only impacts those minibatches that are currently being processed and not finished on the affected node. All completed progress is kept.
 
-## Creating batch deployments with low priority VMs
+### Limitations
+
+- After a deployment is associated with a low priority VMs cluster, all the jobs produced by such deployment use low priority VMs. Per-job configuration isn't possible.
+- Rescheduling is done at the mini-batch level, regardless of the progress. No checkpointing capability is provided.
+
+> [!WARNING]
+> In the cases where the entire cluster is preempted or running on a single-node cluster, the job is cancelled because there is no capacity available for it to run. Resubmitting is required in this case.
+
+## Create batch deployments that use low priority VMs
 
 Batch deployment jobs consume low priority VMs by running on Azure Machine Learning compute clusters created with low priority VMs.
 
 > [!NOTE]
-> After a deployment is associated with a low priority VMs' cluster, all the jobs produced by such deployment use low priority VMs. Per-job configuration is not possible.
+> After a deployment is associated with a low priority VMs cluster, all the jobs produced by such deployment use low priority VMs. Per-job configuration is not possible.
 
 You can create a low priority Azure Machine Learning compute cluster as follows:
 
@@ -161,10 +169,8 @@ To view these metrics in the Azure portal:
 
 :::image type="content" source="./media/how-to-use-low-priority-batch/metrics.png" lightbox="./media/how-to-use-low-priority-batch/metrics.png" alt-text="Screenshot of the metrics section in the resource monitoring pane that shows the relevant metrics for low priority VMs.":::
 
-## Limitations
+## Related content
 
-- After a deployment is associated with a low priority VMs' cluster, all the jobs produced by such deployment use low priority VMs. Per-job configuration isn't possible.
-- Rescheduling is done at the mini-batch level, regardless of the progress. No checkpointing capability is provided.
-
-> [!WARNING]
-> In the cases where the entire cluster is preempted or running on a single-node cluster, the job is cancelled because there is no capacity available for it to run. Resubmitting is required in this case.
+- [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)
+- [Deploy MLflow models in batch deployments](how-to-mlflow-batch.md)
+- [Manage compute resources for model training](how-to-create-attach-compute-studio.md)
