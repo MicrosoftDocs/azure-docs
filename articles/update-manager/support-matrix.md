@@ -73,11 +73,23 @@ Following is the list of supported images and no other marketplace images releas
 |microsoftazuresiterecovery  | process-server | windows-2012-r2-datacenter |
 |microsoft-dvsm | dsvm-windows </br> dsvm-win-2019 </br> dsvm-win-2022 | * </br> * </br> * |
 | | cis-windows-server| | cis-windows-server2016-l1-gen1 </br> cis-windows-server2019-l1-gen1 </br> cis-windows-server2019-l1-gen2 </br> cis-windows-server2019-l2-gen1 </br> cis-windows-server2022-l1-gen2 </br> cis-windows-server2022-l2-gen2 </br> cis-windows-server2022-l1-gen1 | |
+| | cis-windows-server-2022-l1| | cis-windows-server-2022-l1 </br> cis-windows-server-2022-l1-gen2 | |
+| | cis-windows-server-2022-l2 | | cis-windows-server-2022-l2 </br> cis-windows-server-2022-l2-gen2 | |
+| | cis-windows-server-2019-v1-0-0-l1 | | cis-ws2019-l1 ||
+| | cis-windows-server-2019-v1-0-0-l2 | | cis-ws2019-l2 ||
+| | cis-windows-server-2016-v1-0-0-l1 | | cis--l1 ||
+| | cis-windows-server-2016-v1-0-0-l2 | | cis-ws2016-l2 ||
+| | cis-windows-server-2012-r2-v2-2-1-l2 | |cis-ws2012-r2-l2 |
+| | cis-rhel9-l1 | | cis-rhel9-l1 </br> cis-rhel9-l1-gen2 |
+| | cis-rhel-8-l1 | | | |
+| | cis-rhel-8-l2 | | cis-rhel8-l2 | |
+| | cis-rhel-7-l2| |  cis-rhel7-l2 | |
+| | cis-rhel | | cis-redhat7-l1-gen1 </br> cis-redhat8-l1-gen1 </br> cis-redhat8-l2-gen1 </br>  cis-redhat9-l1-gen1 </br> cis-redhat9-l1-gen2| |
 
 #### Supported Linux OS versions
 
-| **Publisher**| **Offer** | **SKU**| **Unsupported image(s)**  |
-|----------|-------------|-----|----|
+| **Publisher**| **Offer** | **SKU**| **Plan** |**Unsupported image(s)** |
+|----------|-------------|-----| ---| --- |
 |canonical | * | *||
 |microsoftsqlserver | * | * | **Offers**: sql2019-sles* </br> sql2019-rhel7 </br> sql2017-rhel 7 </br></br> Example  </br> Publisher: </br> microsoftsqlserver </br> Offer: sql2019-sles12sp5 </br> sku:webARM </br></br> Publisher: microsoftsqlserver </br> Offer: sql2019-rhel7 </br> sku: web-ARM | 
 |microsoftsqlserver | * | *|**Offers**:  sql2019-sles*</br> sql2019-rhel7 </br> sql2017-rhel7 |
@@ -87,6 +99,13 @@ Following is the list of supported images and no other marketplace images releas
 |microsoft-dsvm | aml-workstation | ubuntu |
 || ubuntu-hpc | 1804, 2004-preview-ndv5, 2004, 2204, 2204-preview-ndv5 |
 || ubuntu-2004 | 2004, 2004-gen2 |
+|| cis-ubuntu-linux-2204-l1 || cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
+|| cis-ubuntu-linux-2004-l1 ||cis-ubuntu2004-l1 </br> cis-ubuntu-linux-2204-l1-gen2||
+|| cis-ubuntu-linux-2004-l1||cis-ubuntu2004-l1||
+|| cis-ubuntu-linux-1804-l1|| cis-ubuntu1804-l1||
+|| cis-ubuntu ||cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
+|| cis-oracle-linux-8-l1 ||cis-oracle8-l1||
+|Almalinux | almalinux-x86_64 || 8_7-gen2||
 |redhat | rhel| 7*,8*,9* |  |
 |redhat | rhel-ha | 8* | 81_gen2 |
 |redhat | rhel-raw | 7*,8*,9* | |
