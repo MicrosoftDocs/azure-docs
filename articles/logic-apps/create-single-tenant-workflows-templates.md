@@ -19,7 +19,11 @@ ms.date: 08/23/2024
 
 Azure Logic Apps gives you a faster way to start creating integration applications by providing prebuilt templates to use when you build Standard workflows in the Azure portal. These workflow templates follow commonly used patterns and help you streamline development because they offer a starting point or baseline with predefined business logic and configurations.
 
-This how-to guide shows how to use a template to kickstart your Standard workflow.
+The following screenshot shows the templates gallery from which you can create a Standard workflow:
+
+:::image type="content" source="media/create-single-tenant-workflows-templates/templates-gallery.png" alt-text="Screenshot shows Azure portal and workflow templates gallery for Standard workflows." lightbox="media/create-single-tenant-workflows-templates/templates-gallery.png":::
+
+This how-to guide shows how to use a template to kickstart your workflow.
 
 ## Limitations
 
@@ -35,7 +39,7 @@ Workflow templates are currently available only for Standard logic apps and sing
 
 - To authenticate access for connections that support using a managed identity, you need to set up your logic app resource and the managed identity with the necessary permissions.
 
-  A managed identity provides the best option for keeping your data secure because you don't need to provide account or user credentials to sign in. Azure manages this identity and removes the burden on you to rotate credentials, secrets, access tokens, and so on. The managed identity option also reduces security risks because unauthorized users don't have access to individual sign-in details.
+  A managed identity provides the best option for keeping your data secure because you don't need to provide account or user credentials to sign in. Azure manages this identity and removes the burden on you to rotate credentials, secrets, access tokens, and so on. The managed identity option also reduces security risks because unauthorized users don't have access to your sign-in details.
 
   Before you can use a managed identity for authentication, you need to set up your logic app resource and the managed identity with the necessary permissions. For more information, see the following documentation:
 
@@ -51,13 +55,17 @@ Workflow templates are currently available only for Standard logic apps and sing
 
 1. On the **Workflows** page toolbar, select **Add** > **Add from Template**, which opens the **Templates** gallery.
 
-   :::image type="content" source="media/create-single-tenant-workflows-templates/templates-gallery.png" alt-text="Screenshot shows Azure portal and workflow templates gallery for Standard workflows." lightbox="media/create-single-tenant-workflows-templates/templates-gallery.png":::
-
 1. Browse the gallery or find the template you want by using the search box or filters.
 
-1. Select your template, which opens the templates overview pane.
+1. Select your template, which opens the templates overview pane, which summarizes the workflow's purpose.
 
-   This pane provides more information about the workflow's purpose along with a workflow preview.
+   - The **Workflow** tab shows a preview for the workflow that the template creates. 
+
+   - The **Summary** tab shows more detailed information, such as any connections, prerequisites, and more information about the workflow.
+
+   The following example shows the **Workflow** tab and **Summary** tab for a template information pane:
+
+   :::image type="content" source="media/create-single-tenant-workflows-templates/template-information.png" alt-text="Screenshot shows template information with Workflow and Summary tabs." lightbox="media/create-single-tenant-workflows-templates/template-information.png":::
 
 1. Select **Use this template**.
 
