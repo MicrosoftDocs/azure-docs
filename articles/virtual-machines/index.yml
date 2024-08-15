@@ -1,6 +1,7 @@
 ### YamlMime:Landing
 
-title: Virtual machines in Azure # < 60 chars
+title: Azure Virtual Desktop documentation
+Securely deliver virtual desktops and applications remotely with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 11 and Windows 10 experience, with exceptional scale and reduced IT costs. # < 60 chars
 summary: Documentation for creating and managing virtual machines in Azure. # < 160 chars
 
 metadata:
