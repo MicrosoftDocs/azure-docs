@@ -44,7 +44,7 @@ Create a filter to scope data to your Azure Machine Learning workspace resource:
 
 1. In the second filter dropdown, select your Azure Machine Learning workspace.
 
-   :::image type="content" source="./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png" lightbox="./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png" alt-text="creenshot of the Cost Analysis view showing a red box around the Add filter button.":::
+   :::image type="content" source="./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png" lightbox="./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-add-filter.png" alt-text="Screenshot of the Cost Analysis view showing a red box around the Add filter button.":::
 
 Create a tag filter to show your managed online endpoint and managed online deployment:
 
