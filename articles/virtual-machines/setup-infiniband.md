@@ -1,6 +1,6 @@
 ---
-title: Setup InfiniBand on HPC VMs - Azure Virtual Machines | Microsoft Docs
-description: Learn how to setup InfiniBand on Azure HPC VMs.
+title: Set up InfiniBand on HPC VMs - Azure Virtual Machines | Microsoft Docs
+description: Learn how to set up InfiniBand on Azure HPC VMs.
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: article
@@ -10,7 +10,7 @@ ms.author: padmalathas
 author: padmalathas
 ---
 
-# Setup InfiniBand
+# Set up InfiniBand
 
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
