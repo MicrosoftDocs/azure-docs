@@ -1,17 +1,17 @@
 ---
-title: Understanding Kubernetes cluster feature in Azure Operator Nexus Kubernetes service #Required; page title is displayed in search results. Include the brand.
-description: Working with Kubernetes cluster features in Azure Operator Nexus Kubernetes clusters #Required; article description that is displayed in search results. 
-author: dramasamy #Required; your GitHub user alias, with correct capitalization.
-ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
-ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 08/14/2024 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
+title: Understanding Kubernetes cluster features in Azure Operator Nexus Kubernetes service 
+description: Working with Kubernetes cluster features in Azure Operator Nexus Kubernetes clusters 
+author: dramasamy 
+ms.author: dramasamy 
+ms.service: azure-operator-nexus 
+ms.topic: how-to 
+ms.date: 08/14/2024 
+ms.custom: template-how-to-pattern 
 ---
 
-# Working with Kubernetes cluster features in Nexus Kubernetes clusters
+# Work with Kubernetes cluster features in Nexus Kubernetes clusters
 
-In this article, you learn how to work with Nexus Kubernetes Cluster Features. Nexus Kubernetes Cluster Features is a functionality of the Nexus platform that allows customers to enhance their Nexus Kubernetes clusters by adding extra packages or features.
+In this article, you learn how to work with Nexus Kubernetes cluster features. Nexus Kubernetes Cluster Features is a functionality of the Nexus platform that allows customers to enhance their Nexus Kubernetes clusters by adding extra packages or features.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ The following Kubernetes cluster features are available to each Nexus Kubernetes
 
 The following interactions allow for the creation and management of the Kubernetes cluster feature configuration.
 
-### Installing a Kubernetes cluster feature
+### Install a Kubernetes cluster feature
 
 To install a Kubernetes cluster feature in the cluster, use the `az networkcloud kubernetescluster feature create` command. If you have multiple Azure subscriptions, you must specify the subscription ID either by using the `--subscription` flag in the CLI command or by selecting the appropriate subscription ID with the [az account set](/cli/azure/account#az-account-set) command.
 
@@ -105,7 +105,7 @@ az networkcloud kubernetescluster feature list \
 
 ```
 
-### Retrieving a Kubernetes cluster feature
+### Retrieve a Kubernetes cluster feature
 
 After a Kubernetes cluster is created, you can check the details of a specific Kubernetes cluster feature using the `networkcloud kubernetescluster feature show` command. This provides detailed information about the feature:
 
@@ -117,7 +117,7 @@ az networkcloud kubernetescluster feature show \
 
 This command returns a JSON representation of the Kubernetes cluster feature configuration.
 
-### Updating a Kubernetes cluster feature
+### Update a Kubernetes cluster feature
 
 Much like the creation of a Kubernetes cluster feature, you can perform an update action to modify the tags assigned to the Kubernetes cluster feature. Use the following command to update the tags:
 
@@ -135,7 +135,7 @@ az networkcloud kubernetescluster feature update \
 
 Specifying `--no-wait --debug` options in az command results in the execution of this command asynchronously. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
 
-### Deleting Kubernetes cluster feature
+### Delete Kubernetes cluster feature
 
 Deleting a Kubernetes cluster feature removes the resource from the cluster. To delete a Kubernetes cluster feature, use the following command:
 
