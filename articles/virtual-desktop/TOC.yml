@@ -27,23 +27,28 @@
       displayName: what's new, avd
       href: whats-new.md
     - name: Azure Virtual Desktop Agent
-      displayName: what's new, agent
-      href: whats-new-agent.md
-    - name: Azure Virtual Desktop Insights
-      displayName: what's new, avd insights, avdi
-      href: whats-new-insights.md
+      items:
+      - name: Agent
+        displayName: what's new, agent
+        href: whats-new-agent.md
+      - name: SxS Network Stack
+        displayName: what's new, sxs, side-by-side
+        href: whats-new-sxs.md
+    - name: Documentation
+      displayName: what's new, docs
+      href: whats-new-documentation.md
     - name: FSLogix
       displayName: what's new, profile, profiles
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
-    - name: WebRTC Redirector Service
-      displayName: what's new, teams
-      href: whats-new-webrtc.md
-    - name: Multimedia redirection
-      displayName: what's new, mmr
-      href: whats-new-multimedia-redirection.md
+    - name: Insights
+      displayName: what's new, avd insights, avdi
+      href: whats-new-insights.md
     - name: MSIXMGR tool
       displayName: what's new, msix app attach
       href: whats-new-msixmgr.md
+    - name: Multimedia redirection
+      displayName: what's new, mmr
+      href: whats-new-multimedia-redirection.md
     - name: Remote Desktop client
       items:
       - name: Windows
@@ -58,9 +63,9 @@
       - name: Android/Chrome OS
         displayName: what's new, apps, clients, remote desktop, rdp
         href: whats-new-client-android-chrome-os.md
-    - name: Documentation
-      displayName: what's new, docs
-      href: whats-new-documentation.md
+    - name: WebRTC Redirector Service
+      displayName: what's new, teams
+      href: whats-new-webrtc.md
 - name: Tutorials
   expanded: true
   items:
