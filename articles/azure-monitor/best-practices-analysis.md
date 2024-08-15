@@ -97,60 +97,35 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 
 ## Option 2
 
-### Azure workbooks use cases
+### Azure Workbooks use cases
 
-* Out of the box and customizable Azure-native reports
-    * Within the Azure portal
-    * Accessed exclusively via users' Azure RBAC (role-based access control) assignments
-    * Managed with Azure Automation including ARM, Bicep, and Terraform
-    * With no extra cost
+* **Pre-configured and customizable reports native to Azure:** Easily accessible within the Azure portal and managed through Azure Automation tools like ARM, Bicep, and Terraform. These reports are tailored to your Azure RBAC assignments and come at no additional cost.
 
-* Most complete set of Azure datasources
+* **Comprehensive Azure data sources:** Offering the most extensive collection of Azure data sources.
 
-* Azure-managed hybrid and edge environments
+* **Azure-managed hybrid and Edge environments:** Seamlessly integrated for optimal management.
 
-* Integrations with Azure actions and Azure Automation
+* **Azure actions and automation integration:** Enhancing functionality and efficiency.
 
-* Creating custom reports based on Azure Monitor Insights
+* **Custom report creation with Azure Monitor Insights:** Tailor reports to meet specific monitoring needs.
 
-* Leveraging Azure GitHub community templates
+* **Community templates from Azure GitHub:** Utilize shared knowledge and resources for report creation.
 
 ### Azure Managed Grafana use cases
 
-* Cloud-native environments monitored with Prometheus and CNCF (Cloud Native Computing Foundation) tools
+* **Monitoring cloud-native environments:** Utilize Prometheus and CNCF tools for comprehensive insights.
 
-* Multicloud and multi-platform environments
+* **Multi-cloud and multi-platform monitoring:** Achieve broad visibility across various environments.
 
-* Multi-tenancy and portability support
+* **Support for multi-tenancy and portability:** Ensuring flexibility and scalability.
 
-* Interoperability with open-source and third party tools
+* **Interoperability with open-source and third-party tools:** Expand capabilities with diverse integrations.
 
-* Extensive flexibility combining data queries, query results, and performing open-ended client-side data processing
+* **Advanced flexibility in data handling:** Combine data queries and client-side processing for tailored results.
 
-* Sharing dashboards outside of the Azure portal
+* **Dashboard sharing beyond the Azure portal:** Facilitate broader collaboration and insight sharing.
 
-* Leveraging open-source community dashboards
-
-## Option 3
-
-### Azure Workbooks Use Cases
-
-* **Pre-configured and Customizable Reports Native to Azure:** Easily accessible within the Azure portal and managed through Azure Automation tools like ARM, Bicep, and Terraform. These reports are tailored to your Azure RBAC assignments and come at no additional cost.
-* **Comprehensive Azure Data Sources:** Offering the most extensive collection of Azure data sources.
-* **Azure-Managed Hybrid and Edge Environments:** Seamlessly integrated for optimal management.
-* **Azure Actions and Automation Integration:** Enhancing functionality and efficiency.
-* **Custom Report Creation with Azure Monitor Insights:** Tailor reports to meet specific monitoring needs.
-* **Community Templates from Azure GitHub:** Utilize shared knowledge and resources for report creation.
-
-### Azure Managed Grafana Use Cases
-
-* **Monitoring Cloud-Native Environments:** Utilize Prometheus and CNCF tools for comprehensive insights.
-* **Multi-Cloud and Multi-Platform Monitoring:** Achieve broad visibility across various environments.
-* **Support for Multi-Tenancy and Portability:** Ensuring flexibility and scalability.
-* **Interoperability with Open-Source and Third-Party Tools:** Expand capabilities with diverse integrations.
-* **Advanced Flexibility in Data Handling:** Combine data queries and client-side processing for tailored results.
-* **Dashboard Sharing Beyond Azure Portal:** Facilitate broader collaboration and insight sharing.
-* **Leverage Open-Source Community Dashboards:** Tap into a wealth of shared resources for enhanced monitoring.
+* **Leverage open-source community dashboards:** Tap into a wealth of shared resources for enhanced monitoring.
 
 ## Tables
 
