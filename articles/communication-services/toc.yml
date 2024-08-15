@@ -430,6 +430,8 @@ items:
         items: 
         - name: Configure default orientation
           href: how-tos/ui-library-sdk/orientation.md
+        - name: Configure closed captions
+          href: how-tos/ui-library-sdk/closed-captions.md
         - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
         - name: Disable end call confirmation
