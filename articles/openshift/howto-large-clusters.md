@@ -9,7 +9,7 @@ ms.date: 08/15/2024
 ---
 # Deploy a large Azure Red Hat OpenShift cluster
 
-This article provides the steps and best practices for deploying large scale Azure Red Hat OpenShift clusters up to 250 nodes. For clusters of that size, a combination of control plane nodes and infrastructure nodes to ensure the cluster functions properly is recommended.
+This article provides the steps and best practices for deploying large scale Azure Red Hat OpenShift clusters up to 250 nodes. For clusters of that size, a combination of control plane nodes and infrastructure nodes is needed to ensure the cluster functions properly is recommended.
 
 > [!CAUTION]
 > Before deleting a large cluster, descale the cluster to 120 nodes or below.
