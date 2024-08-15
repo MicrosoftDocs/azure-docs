@@ -105,6 +105,12 @@ While the Snapshot Debugger process continues to run and serve traffic to users 
 
 If you enabled the Snapshot Debugger but you aren't seeing snapshots, see the [Troubleshooting guide](snapshot-debugger-troubleshoot.md).
 
+## Upgrading Snapshot Debugger
+
+Snapshot Debugger auto-upgrades via the built-in, pre-installed Application Insights site extension. 
+
+Manually adding an Application Insights site extension to keep Snapshot Debugger up-to-date is deprecated.  
+
 ## Overhead
 
 The Snapshot Debugger is designed for use in production environments. The default settings include rate limits to minimize the impact on your applications. 

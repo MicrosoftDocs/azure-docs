@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/azure-monitor/snapshot-debugger/snapshot-debugger-upgrade.md",
+            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger#upgrading-snapshot-debugger",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/snapshot-debugger/snapshot-collector-release-notes.md",
             "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger#release-notes-for-microsoftapplicationinsightssnapshotcollector",
             "redirect_document_id": false
