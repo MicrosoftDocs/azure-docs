@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 08/08/2024
+ms.date: 08/15/2024
 ---
 # Deploy a large Azure Red Hat OpenShift cluster
 
@@ -17,7 +17,7 @@ This article provides the steps and best practices for deploying large scale Azu
 
 ## Deploy a cluster
 
-For clusters with over 101 nodes, use the following [virtual machine instance types](support-policies-v4.md#supported-virtual-machine-sizes) size recommendations (or similar, newer generation instance types):
+For clusters with over 101 control plane nodes, use the following [virtual machine instance types](support-policies-v4.md#supported-virtual-machine-sizes) size recommendations (or similar, newer generation instance types):
 
 - Standard_D32s_v3
 - Standard_D32s_v4
