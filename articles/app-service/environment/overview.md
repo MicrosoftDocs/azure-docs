@@ -141,7 +141,7 @@ App Service Environment v3 is available in the following regions:
 | France South         | ✅                           |                             | ✅                           | 
 | Germany North        | ✅                           |                             | ✅                           | 
 | Germany West Central | ✅                           | ✅                          | ✅                           | 
-| Isreal Central       | ✅                           | ✅                          |                              | 
+| Israel Central       | ✅                           | ✅                          |                              | 
 | Italy North          | ✅                           | ✅**                        |                              | 
 | Japan East           | ✅                           | ✅                          | ✅                           | 
 | Japan West           | ✅                           |                             | ✅                           | 
