@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the model deprecations and retirements in Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 08/08/2024
+ms.date: 08/14/2024
 ms.custom: 
 manager: nitinme
 author: mrbullwinkle
@@ -74,9 +74,11 @@ Azure OpenAI notifies those who are members of the following roles for each subs
 
 ## How to get ready for model retirements and version upgrades
 
-To prepare for model retirements and version upgrades, we recommend that customers evaluate their applications with the new models and versions and evaluate their behavior. We also recommend that customers update their applications to use the new models and versions before the retirement date.
+To prepare for model retirements and version upgrades, we recommend that customers test their applications with the new models and versions and evaluate their behavior. We also recommend that customers update their applications to use the new models and versions before the retirement date.
 
-For more information, see [How to upgrade to a new model or version](./model-versions.md).
+For more information on the model evaluation process, see the [Getting started with model evaluation guide](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/how-to-evaluate-amp-upgrade-model-versions-in-the-azure-openai/ba-p/4218880).
+
+For information on the model upgrade process, see [How to upgrade to a new model or version](./model-versions.md).
 
 ## Current models
 
@@ -87,22 +89,22 @@ For more information, see [How to upgrade to a new model or version](./model-ver
 
 These models are currently available for use in Azure OpenAI Service.
 
-| Model | Version | Retirement date |
-| ---- | ---- | ---- |
-| `gpt-35-turbo` | 0301 | No earlier than October 1, 2024 |
-| `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | November 1, 2024 |
-| `gpt-35-turbo` | 1106 | No earlier than Nov 17, 2024 |
-| `gpt-35-turbo` | 0125 | No earlier than Feb 22, 2025 |
-| `gpt-4`<br>`gpt-4-32k` | 0314 | **Deprecation:** October 1, 2024 <br> **Retirement:** June 6, 2025 |
-| `gpt-4`<br>`gpt-4-32k` | 0613 | **Deprecation:** October 1, 2024 <br> **Retirement:** June 6, 2025 |
-| `gpt-4` | 1106-preview | To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on November 15, 2024, or later **<sup>1</sup>** |
-| `gpt-4` | 0125-preview |To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on November 15, 2024, or later  **<sup>1</sup>**  |
-| `gpt-4` | vision-preview | To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on November 15, 2024, or later  **<sup>1</sup>** |
-| `gpt-3.5-turbo-instruct` | 0914 | No earlier than Sep 14, 2025 |
-| `text-embedding-ada-002` | 2 | No earlier than April 3, 2025 |
-| `text-embedding-ada-002` | 1 | No earlier than April 3, 2025 |
-| `text-embedding-3-small` | | No earlier than Feb 2, 2025 |
-| `text-embedding-3-large` | | No earlier than Feb 2, 2025 |
+| Model | Version | Retirement date | Suggested replacement |
+| ---- | ---- | ---- | --- |
+| `gpt-35-turbo` | 0301 | No earlier than October 1, 2024 | `gpt-4o-mini`  | 
+| `gpt-35-turbo`<br>`gpt-35-turbo-16k` | 0613 | November 1, 2024 | `gpt-4o-mini` |
+| `gpt-35-turbo` | 1106 | No earlier than Nov 17, 2024 | `gpt-4o-mini` |
+| `gpt-35-turbo` | 0125 | No earlier than Feb 22, 2025 | `gpt-4o-mini` |
+| `gpt-4`<br>`gpt-4-32k` | 0314 | **Deprecation:** October 1, 2024 <br> **Retirement:** June 6, 2025 | `gpt-4o` |
+| `gpt-4`<br>`gpt-4-32k` | 0613 | **Deprecation:** October 1, 2024 <br> **Retirement:** June 6, 2025 | `gpt-4o` |
+| `gpt-4` | 1106-preview | To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on November 15, 2024, or later **<sup>1</sup>** | `gpt-4o`|
+| `gpt-4` | 0125-preview |To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on November 15, 2024, or later  **<sup>1</sup>**  | `gpt-4o` |
+| `gpt-4` | vision-preview | To be upgraded to `gpt-4` Version: `turbo-2024-04-09`, starting on November 15, 2024, or later  **<sup>1</sup>** | `gpt-4o`|
+| `gpt-3.5-turbo-instruct` | 0914 | No earlier than Sep 14, 2025 |  |
+| `text-embedding-ada-002` | 2 | No earlier than April 3, 2025 | `text-embedding-3-small` or `text-embedding-3-large` |
+| `text-embedding-ada-002` | 1 | No earlier than April 3, 2025 | `text-embedding-3-small` or `text-embedding-3-large` |
+| `text-embedding-3-small` | | No earlier than Feb 2, 2025 | |
+| `text-embedding-3-large` | | No earlier than Feb 2, 2025 | |
 
  **<sup>1</sup>** We will notify all customers with these preview deployments at least 30 days before the start of the upgrades. We will publish an upgrade schedule detailing the order of regions and model versions that we will follow during the upgrades, and link to that schedule from here.
 
@@ -114,7 +116,7 @@ These models were deprecated on July 6, 2023 and were retired on June 14, 2024. 
 If you're an existing customer looking for information about these models, see [Legacy models](./legacy-models.md).
 
 | Model | Deprecation date | Retirement date | Suggested replacement |
-| --------- | --------------------- | ------------------- | -------------------- | 
+| --------- | --------------------- | ------------------- | -------------------- |
 | ada | July 6, 2023 | June 14, 2024 | babbage-002 |
 | babbage | July 6, 2023 | June 14, 2024 | babbage-002 |
 | curie | July 6, 2023 | June 14, 2024 | davinci-002 |

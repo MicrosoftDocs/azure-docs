@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java, 
 > For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination. See [Java Workload Destination Guidance](https://aka.ms/javadestinations) for advice.
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
-When you are finished, you will have a [Spring Boot](https://spring.io/projects/spring-boot) application storing data in [Azure Cosmos DB](../cosmos-db/index.yml) running on [Azure App Service on Linux](overview.md).
+When you are finished, you will have a [Spring Boot](https://spring.io/projects/spring-boot) application storing data in [Azure Cosmos DB](/azure/cosmos-db/) running on [Azure App Service on Linux](overview.md).
 
 ![Spring Boot application storing data in Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
@@ -308,7 +308,7 @@ az group delete --name <your-azure-group-name> --yes
 [Azure for Java Developers](/java/azure/)
 [Spring Boot](https://spring.io/projects/spring-boot), 
 [Spring Data for Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db), 
-[Azure Cosmos DB](../cosmos-db/introduction.md) and
+[Azure Cosmos DB](/azure/cosmos-db/introduction) and
 [App Service Linux](overview.md).
 
 Learn more about running Java apps on App Service on Linux in the developer guide.

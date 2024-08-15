@@ -58,7 +58,7 @@ DCRLogErrors
 ```kusto
 DCRLogErrors
 | where _ResourceId == "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
-| where InputStream == "Custom-MyTable_CL"
+| where InputStreamId == "Custom-MyTable_CL"
 ```
 
 
