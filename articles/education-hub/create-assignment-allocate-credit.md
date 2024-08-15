@@ -30,7 +30,8 @@ If you're a teaching assistant or a professor for a course, be sure to inform st
 
 ## Create a lab and invite students
 
-1. Create a lab and fill in the the required information such as lab name and method to invite students.
+1. Create a lab and fill in the required information such as lab name and method to invite students.
+
 2. After you create the lab, you can begin inviting students to the lab
 3. Optionally, you can remove existing students by selecting **Remove** next to each student's name.
 4. When you finish, the students added will receive an invitation to join the lab.
