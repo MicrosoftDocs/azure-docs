@@ -45,7 +45,7 @@ You can configure the max message size by using **Max batch count**. The default
 
 ## Output data type mappings
 
-As the schema of the target table in your SQL database must exactly match the fields and their types in your job's output, you can refer to [Data Types (Azure Stream Analytics)](https://learn.microsoft.com/en-us/stream-analytics-query/data-types-azure-stream-analytics) for detailed type mappings between ASA and SQL.
+As the schema of the target table in your SQL database must exactly match the fields and their types in your job's output, you can refer to [Data Types (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics) for detailed type mappings between ASA and SQL.
 
 ## Limitation
 
