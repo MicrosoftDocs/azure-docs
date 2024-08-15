@@ -8,6 +8,8 @@ ms.author: jordanselig
 ---
 # Resolve issues caused by an auto-migration of an App Service Environment
 
+TODO: point other docs to this (all asev1/2 docs, landing page, migration, version compare)
+
 TODO:> [!IMPORTANT]
 > App Service Environment v1 and v2 are retired and no longer supported. If you have an App Service Environment v1 or v2, you must migrate to App Service Environment v3. For more information, see [Upgrade to App Service Environment v3](upgrade-to-asev3.md).
 >
@@ -27,6 +29,10 @@ Auto-migrations are done using the [in-place migration feature](migrate.md). The
 If you need additional time to complete your migrations, we can offer a one-time 30-day grace period. Your App Service Environment won't be auto-migrated during the grace period. When the grace period ends, we will attempt to auto-migrate your App Service Environment. If auto-migration is not feasible, your resources and associated app data will be deleted. To receive this grace period, go to [Azure portal](https://portal.azure.com) and visit the Migration blade for your App Service Environment(s). You need to acknowledge and receive a grace period for each of your environments that requires more time to migrate.
 
 TODO: screenshot of the grace period request
+
+Once you receive the grace period, the banner at the top of the Migration blade will show the grace period end date. You might need to refresh the page to see the updated banner.
+
+TODO: screenshot of the grace period end date in banner
 
 If you need additional support or have questions, contact Azure Support using the *Open support ticket* option in the Azure portal on the Migration blade. It's important that you acknowledge and receive a grace period for each of your environments that require more time to migrate before you open the support request to ensure your environments don't get auto-migrated while the support request is being processed.
 
