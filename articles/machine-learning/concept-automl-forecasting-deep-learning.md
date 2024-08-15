@@ -7,7 +7,6 @@ author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: erwright
 ms.service: machine-learning
-ms.subservice: automl
 ms.topic: conceptual
 ms.custom: automl, sdkv2
 ms.date: 08/09/2024
