@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 2/1/2024
+ms.date: 8/07/2024
 ms.author: eur
 ---
 
@@ -16,13 +16,13 @@ ms.author: eur
 
 ## Set up the environment
 
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) that implements .NET Standard 2.0. Install the Speech SDK later in this guide. For any requirements, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp).
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) that implements .NET Standard 2.0. Install the Speech SDK later in this guide by using the console. For detailed installation instructions, see [Install the Speech SDK](../../../quickstarts/setup-platform.md?pivots=programming-language-csharp).
 
 ### Set environment variables
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-## Synthesize to speaker output
+## Create the application
 
 Follow these steps to create a console application and install the Speech SDK.
 
@@ -103,7 +103,7 @@ Follow these steps to create a console application and install the Speech SDK.
 
 1. To change the speech synthesis language, replace `en-US-AvaMultilingualNeural` with another [supported voice](~/articles/ai-services/speech-service/language-support.md#prebuilt-neural-voices).
 
-   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+   All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is *I'm excited to try text to speech* and you set `es-ES-ElviraNeural` as the language, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 1. Run your new console application to start speech synthesis to the default speaker.
 

@@ -6,8 +6,8 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 02/29/2024
-ms.author: luzhan
+ms.date: 08/13/2024
+ms.author: lajanuar
 monikerRange: '>=doc-intel-3.1.0'
 ---
 
@@ -130,11 +130,11 @@ key = "<api_key>"
 
 from langchain_community.document_loaders import AzureAIDocumentIntelligenceLoader
 from langchain.text_splitter import MarkdownHeaderTextSplitter
- 
+
 # Initiate Azure AI Document Intelligence to load the document. You can either specify file_path or url_path to load the document.
 loader = AzureAIDocumentIntelligenceLoader(file_path="<path to your file>", api_key = key, api_endpoint = endpoint, api_model="prebuilt-layout")
 docs = loader.load()
- 
+
 # Split the document into chunks base on markdown headers.
 headers_to_split_on = [
     ("#", "Header 1"),
@@ -142,14 +142,14 @@ headers_to_split_on = [
     ("###", "Header 3"),
 ]
 text_splitter = MarkdownHeaderTextSplitter(headers_to_split_on=headers_to_split_on)
- 
+
 docs_string = docs[0].page_content
 splits = text_splitter.split_text(docs_string)
 splits
 ```
+
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Retrieval_Augmented_Generation_(RAG)_samples/sample_rag_langchain.ipynb)
-
 
 ## Next steps
 

@@ -53,7 +53,7 @@ This example shows how to perform a semantic search on a file.
 
 This example shows how to perform a semantic search on a file.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/nodejs/src/app.ts" range="40-58":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="40-58":::
 
 
  ::: zone-end  

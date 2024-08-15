@@ -148,7 +148,7 @@ For non-zone-redundant and non-zonal gateways that were previously created (gate
 
 ### How does the retirement of Basic SKU public IP addresses affect my VPN gateways?
 
-We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses. If you already have VPN gateways with Basic SKU public IP addresses, there's no need for you to take any action.
+We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses until the retirement of Basic IP in September 2025. Before this retirement, we will provide customers with a migration path from Basic to Standard IP. 
 
 However, Basic SKU public IP addresses are being phased out. Going forward, when you create a VPN gateway, you must use the Standard SKU public IP address. You can find details on the retirement of Basic SKU public IP addresses in the [Azure Updates announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
 

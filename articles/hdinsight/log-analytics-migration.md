@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 ms.author: sairamyeturi
 author: yeturis
-ms.date: 04/11/2024
+ms.date: 08/12/2024
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters
@@ -29,10 +29,6 @@ Considering customer feedback, the Azure HDInsight team invested in integration 
 - Higher reliability
 - Faster log delivery
 - Resource-based table grouping and default queries
-
-> [!NOTE]  
-> New Azure Montitor integration is in Public Preview across all regions where HDInsight is available.
-
 
 ## Benefits of the new Azure Monitor integration
 

@@ -9,7 +9,6 @@ ms.author: slpavkov
 manager: aakanmu
 audience: ITPro
 ms.topic: troubleshooting
-localization_priority: Normal
 zone_pivot_groups: acs-calling-automation-pstn
 ---
 

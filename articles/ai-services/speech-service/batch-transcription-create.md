@@ -108,6 +108,10 @@ You can query the status of your transcriptions with the [Transcriptions_Get](/r
 Call [Transcriptions_Delete](/rest/api/speechtotext/transcriptions/delete)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
+> [!TIP]
+> You can also try the Batch Transcription API using Python on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/batch/python/python-client/main.py).
+
+
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -168,7 +172,7 @@ spx help batch transcription
 
 ::: zone pivot="rest-api"
 
-Here are some property options that you can use to configure a transcription when you call the [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create) operation.
+Here are some property options to configure a transcription when you call the [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create) operation. You can find more examples on the same page, such as [creating a transcription with language identification](/rest/api/speechtotext/transcriptions/create/#create-a-transcription-with-language-identification).
 
 | Property | Description |
 |----------|-------------|

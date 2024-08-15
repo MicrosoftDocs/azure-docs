@@ -169,7 +169,7 @@ The response is as follows:
 ```python
 print("Model name:", model_info.model_name)
 print("Model type:", model_info.model_type)
-print("Model provider name:", model_info.model_provider)
+print("Model provider name:", model_info.model_provider_name)
 ```
 
 ```console
@@ -246,14 +246,12 @@ To visualize the output, define a helper function to print the stream.
 ```python
 def print_stream(result):
     """
-    Prints the chat completion with streaming. Some delay is added to simulate 
-    a real-time conversation.
+    Prints the chat completion with streaming.
     """
     import time
     for update in result:
         if update.choices:
             print(update.choices[0].delta.content, end="")
-            time.sleep(0.05)
 ```
 
 You can visualize how streaming generates content:
@@ -1068,7 +1066,7 @@ catch (RequestFailedException ex)
 {
     if (ex.ErrorCode == "content_filter")
     {
-        Console.WriteLine($"Your query has trigger Azure Content Safeaty: {ex.Message}");
+        Console.WriteLine($"Your query has trigger Azure Content Safety: {ex.Message}");
     }
     else
     {
