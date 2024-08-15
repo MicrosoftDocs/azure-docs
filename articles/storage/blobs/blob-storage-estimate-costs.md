@@ -12,7 +12,7 @@ ms.custom: subject-cost-optimization
 
 # Estimate the cost of using Azure Blob Storage
 
-This article helps you estimate the cost to store, upload, download, and copy blobs between containers. 
+This article helps you estimate the cost to store, upload, download, and work with data in Azure Blob Storage. 
 
 All calculations are based on a fictitious price. You can find each price in the [sample prices](#sample-prices) section at the end of this article. 
 
@@ -21,7 +21,7 @@ All calculations are based on a fictitious price. You can find each price in the
 
 ## The cost to store data
 
-You can calculate your storage costs by multiplying the <u>size of your data</u> in GB by the <u>price of storage</u>. For example (assuming [sample pricing](#sample-prices)), if you plan to store 10 TB of blobs in the cool access tier, the capacity cost is $0.0115 * 10 * 1024 = **$117.78** per month. 
+You can calculate your storage costs by multiplying the <u>size of your data</u> in GB by the <u>storage price of the chosen access tier</u>. For example (assuming [sample pricing](#sample-prices)), if you plan to store 10 TB of blobs in the cool access tier, the capacity cost is $0.0115 * 10 * 1024 = **$117.78** per month. 
 
 Depending on how much storage space you require, it might make sense to [reserve capacity](../blobs/storage-blob-reserved-capacity.md) at a discount. You can reserve capacity in increments of 100 TB and 1 PB for a 1-year or 3-year commitment duration. Reserved capacity is available only for data stored in the hot, cool, and archive access tiers.
 
@@ -33,7 +33,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Monthly price for 100 TB of storage (1-year reserved) | $1,747 | $966 | $183    |
 | Monthly price for 100 TB of storage (3-year reserved) | $1,406 | $872 | $168    |
 
-To calculate the point at which reserved capacity begins to make sense, divide the cost of reserved capacity by the pay-as-you-go rate. For example, if the cost of 1-year reserved capacity for cool tier storage is $966 and the pay-as-you-go rate is $0.0115, then the calculation is  $966 / $0.0115 = 84,000 GB (roughly **82 TB**). If you plan to store at least 82 TB of data in the cool tier, then reserved capacity begins to make sense. The following table calculates break even point in TB for each access tier.
+To calculate the point at which reserved capacity begins to make sense, divide the cost of reserved capacity by the pay-as-you-go rate. For example, if the cost of 1-year reserved capacity for cool tier storage is $966 and the pay-as-you-go rate is $0.0115, then the calculation is  $966 / $0.0115 = 84,000 GB (roughly **82 TB**). If you plan to store at least 82 TB of data in the cool tier for the entirety of the reservation period, then reserved capacity begins to make sense. The following table calculates break even point in TB for each access tier.
 
 | Calculation                                          | Hot         | Cool    | Archive |
 |------------------------------------------------------|-------------|---------|---------|

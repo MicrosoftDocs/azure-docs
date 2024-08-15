@@ -42,4 +42,4 @@ The following table includes sample prices (fictitious) prices for each request 
 | Price of 100 TB (3-year reserved capacity)                      | $1,406         | $872           | Not available  | $168           |
 | Price of high priority read operations (per 10,000)             | Not applicable | Not applicable | Not applicable | $84.50         |
 | Price of high priority data retrieval (per GB)                  | Not applicable | Not applicable | Not applicable | $0.13          |
-| Index (GB / month)                                              | $0.0297        | Not applicable | $0.0297        | Not applicable |
+| Index (GB / month)                                              | $0.0297        | Not applicable | Not applicable | Not applicable |
