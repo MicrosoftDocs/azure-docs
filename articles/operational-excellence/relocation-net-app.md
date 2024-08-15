@@ -24,7 +24,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 - The target NetApp account instance should already be created.
 
-- Source and target regions must be paired regions. To see if they are paired, see [Azure paired regions](../reliability/cross-region-replication-azure.md#azure-paired-regions).
+- Source and target regions must be paired regions. To see if they are paired, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction?#supported-region-pairs).
 
 - Understand all dependent resources. Some of the resources could be the following:
     - Azure Entra ID
