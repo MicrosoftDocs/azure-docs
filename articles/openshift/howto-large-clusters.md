@@ -42,7 +42,7 @@ The following instance types are recommended for infrastructure nodes:
 - Standard_E16as_v5
 - Standard_E16s_v5
 
-For instructions on configuring infrastructure nodes, see [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infrastructure-nodes.md).
+For instructions on configuring infrastructure nodes, see [Deploy infrastructure nodes in an Azure Red Hat OpenShift cluster](howto-infrastructure-nodes.md).
 
 ## Add IP addresses to the cluster
 
