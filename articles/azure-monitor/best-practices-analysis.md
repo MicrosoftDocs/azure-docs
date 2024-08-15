@@ -47,7 +47,7 @@ Here's a video about how to create dashboards:
 * Detecting, isolating, and triaging operational incidents.
 * Combining visualizations of Azure and non-Azure data sources. These sources include on-premises, third-party tools, and data stores in other clouds.
 
-Grafana has popular plug-ins and dashboard templates for application performance monitoring(APM) tools such as Dynatrace, New Relic, and AppDynamics. You can use these resources to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS CloudWatch and GCP BigQuery plug-ins for multicloud monitoring in a single pane of glass.
+Grafana has popular plug-ins and dashboard templates for application performance monitoring (APM) tools such as Dynatrace, New Relic, and AppDynamics. You can use these resources to visualize Azure platform data alongside other metrics from higher in the stack collected by other tools. It also has AWS CloudWatch and GCP BigQuery plug-ins for multicloud monitoring in a single pane of glass.
 
 All versions of Grafana include the [Azure Monitor datasource plug-in](visualize/grafana-plugin.md) to visualize your Azure Monitor metrics and logs.
 
@@ -104,17 +104,6 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 
 | Visualization tool | Benefits | Recommended uses |
 |--------------------|----------|------------------|
-| [**Azure Managed Grafana**](../managed-grafana/overview.md) |    |    |
-|    | Multi-platform, multicloud single pane of glass visualizations | For users without Azure access |
-|    | Seamless integration with Azure | Use for external visualization experiences, especially for RAG type dashboards in SOC and NOC environments |
-|    | Can combine time-series and event data in a single visualization panel | Cloud Native CNCF monitoring |
-|    | Can create dynamic dashboards based on user selection of dynamic variables | Multicloud environments |
-|    | Prometheus support|Overall Statuses, Up/Down, and high level trend reports for management or executive level users |
-|    | Integrates with third party monitoring tools|Use to show status of environments, apps, security, and network for continuous display in Network Operations Center (NOC) dashboards |
-|    | Out-of-the-box plugins from most monitoring tools and platforms |    |
-|    | Dashboard templates with focus on operations |    |
-|    | Can create a dashboard from a community-created and community-supported template |    |
-|    | Can create a vendor-agnostic business continuity and disaster scenario that runs on any cloud provider or on-premises |    |
 | [**Azure workbooks**](./visualize/workbooks-overview.md) |    |    |
 |    | Native Azure dashboarding platform | Use as a tool for engineering and technical teams to visualize and investigate scenarios. |
 |    | Autorefresh | Use as a reporting tool for App developers, Cloud engineers, and other technical personnel |
@@ -130,6 +119,17 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 |    | Supports at scale deployments    |    |
 |    | Can combine a metrics graph and the results of a log query with operational data for related services |    |
 |    | Share a dashboard with service owners through integration with [Azure role-based access control](../role-based-access-control/overview.md) |    |
+| [**Azure Managed Grafana**](../managed-grafana/overview.md) |    |    |
+|    | Multi-platform, multicloud single pane of glass visualizations | For users without Azure access |
+|    | Seamless integration with Azure | Use for external visualization experiences, especially for RAG type dashboards in SOC and NOC environments |
+|    | Can combine time-series and event data in a single visualization panel | Cloud Native CNCF monitoring |
+|    | Can create dynamic dashboards based on user selection of dynamic variables | Multicloud environments |
+|    | Prometheus support|Overall Statuses, Up/Down, and high level trend reports for management or executive level users |
+|    | Integrates with third party monitoring tools|Use to show status of environments, apps, security, and network for continuous display in Network Operations Center (NOC) dashboards |
+|    | Out-of-the-box plugins from most monitoring tools and platforms |    |
+|    | Dashboard templates with focus on operations |    |
+|    | Can create a dashboard from a community-created and community-supported template |    |
+|    | Can create a vendor-agnostic business continuity and disaster scenario that runs on any cloud provider or on-premises |    |
 | [**Power BI**](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) |    |    |
 |    | Rich visualizations | Use for external visualizations aimed at management and executive levels |
 |    | Supports BI analytics with extensive slicing and dicing | Use to help design business centric KPI dashboards for long term trends |
