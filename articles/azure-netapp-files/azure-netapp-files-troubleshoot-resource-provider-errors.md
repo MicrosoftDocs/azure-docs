@@ -261,7 +261,7 @@ Wait a few minutes and check if the problem persists.
 
 ***Not allowed to mix protocol types CIFS and NFS***
 
-This error occurs when you're trying to create a Volume and there are both the CIFS (SMB) and NFS protocol types in the volume properties.
+This error occurs when you're trying to create a volume that has both the CIFS (SMB) and NFS protocol types in the volume properties.
 
 * Cause:   
 Both the CIFS (SMB) and NFS protocol types are used in the volume properties.
@@ -299,7 +299,7 @@ This error indicates that the operation isn't available for the active subscript
 * Cause:   
 The operation isn't available for the subscription or resource.
 * Solution:   
-Make sure that the operation is entered correctly and that it is available for the resource and subscription that you're using.
+Make sure that the operation is entered correctly. The operation should be available for the resource and subscription that you're using.
 
 ***OwnerId cannot be changed***
 
@@ -495,7 +495,7 @@ This error occurs when nonexistent properties are provided for a resource such a
 * Cause:   
 The request has a set of properties that can be used with each resource. You can't include any nonexistent properties in the request.
 * Solution:   
-Make sure that all property names are spelled correctly and that the properties are available for the subscription and resource.
+Make sure all property names are spelled correctly. Make sure the properties are available for the subscription and resource.
 * Workaround:   
 Reduce the number of properties defined in the request to eliminate the property that is causing the error.
 
@@ -635,7 +635,7 @@ This error occurs when you try to create an SMB volume, but a DNS server (specif
 * Cause:   
 You're trying to create an SMB volume, but a DNS server (specified in your Active Directory configuration) is unreachable.
 * Solution:   
-Review your Active Directory configuration and make sure that the DNS server IP addresses are correct and reachable.
+Review your Active Directory configuration. Make sure that the DNS server IP addresses are correct and reachable.
 If there’s no issues with the DNS server IP addresses, then verify that no firewalls are blocking the access.
 
 ***Too many concurrent jobs***
