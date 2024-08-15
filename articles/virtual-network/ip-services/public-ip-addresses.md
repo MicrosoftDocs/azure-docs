@@ -23,23 +23,14 @@ In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) a
 The following resources can be associated with a public IP address:
 
 * Virtual machine network interfaces
-
 * Virtual Machine Scale Sets
-
-* Public Load Balancers
-
+* Azure Load Balancers (public)
 * Virtual Network Gateways (VPN/ER)
-
 * NAT gateways
-
 * Application Gateways
-
 * Azure Firewalls
-
 * Bastion Hosts
-
 * Route Servers
-
 * Api Management
 
 For Virtual Machine Scale Sets, use [Public IP Prefixes](public-ip-address-prefix.md).
@@ -67,7 +58,10 @@ Public IP addresses can be created with an IPv4 or IPv6 address. You may be give
 
 ## SKU
 
-Public IP addresses are created with a SKU of **Standard** or **Basic**.  The SKU determines their functionality including allocation method, feature support, and resources they can be associated with.  Full details are listed in the table below:
+Basic SKU IPv4 addresses can be upgraded after creation to Standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](public-ip-upgrade-portal.md).
+Public IP addresses are created with a SKU of **Standard** or **Basic**.  The SKU determines their functionality including allocation method, feature support, and resources they can be associated with.  
+
+Full details are listed in the table below:
 
 | Public IP address | Standard  | Basic |
 | --- | --- | --- |
@@ -78,9 +72,6 @@ Public IP addresses are created with a SKU of **Standard** or **Basic**.  The SK
 | [Routing preference](routing-preference-overview.md)| Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported.| 
 | Global tier | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md).| Not supported. |
 
-> [!NOTE]
-> Basic SKU IPv4 addresses can be upgraded after creation to Standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](public-ip-upgrade-portal.md).
-
 >[!IMPORTANT]
 > Virtual machines attached to a backend pool do not need a public IP address to be attached to a public load balancer. But if they do, matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources. For more information about a standard load balancer, see [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -88,7 +79,7 @@ Public IP addresses are created with a SKU of **Standard** or **Basic**.  The SK
 
 Public IPs have two types of assignments:
 
-- **Static** - The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted. 
+- **Static** - The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted. When you set the allocation method to **static**, you cannot specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
 
 - **Dynamic** - The IP address **isn't** given to the resource at the time of creation when selecting dynamic.  The IP is assigned when you associate the public IP address with a resource. The IP address is released when you stop, or delete the resource.
 
@@ -101,9 +92,6 @@ Public IPs have two types of assignments:
 * Your Azure resources communicate with other apps or services that use an IP address-based security model.
 
 * You use TLS/SSL certificates linked to an IP address.
-
-> [!NOTE]
-> Even when you set the allocation method to **static**, you cannot specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
 
 **Basic public IP addresses** are commonly used for when there's no dependency on the IP address. 
 
@@ -169,17 +157,11 @@ In regions without availability zones, all public IP addresses are created as no
 
 ## Other public IP address features
 
-There are other attributes that can be used for a public IP address.  
+There are other attributes that can be used for a public IP address (Standard SKU only).  
 
 * The Global **Tier** option creates a global anycast IP that can be used with cross-region load balancers.
 
 * The Internet **Routing Preference** option minimizes the time that traffic spends on the Microsoft network, lowering the egress data transfer cost.
-
-> [!NOTE]
-> At this time, both the **Tier** and **Routing Preference** feature are available for standard SKU IPv4 addresses only. They can't be utilized on the same IP address concurrently.
->
-
-[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Limits 
 
