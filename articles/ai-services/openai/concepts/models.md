@@ -281,12 +281,12 @@ These models can only be used with Embedding API requests.
 > [!NOTE]
 > `text-embedding-3-large` is the latest and most capable embedding model. Upgrading between embedding models is not possible. In order to migrate from using `text-embedding-ada-002` to `text-embedding-3-large` you would need to generate new embeddings.  
 
-|  Model ID | Max Request (tokens) | Output Dimensions |Training Data (up-to)
-|---|---| :---:|:---:|:---:|
-| `text-embedding-ada-002` (version 2) |8,191 | 1,536 | Sep 2021 |
+| Model ID | Max Request (tokens) | Output Dimensions | Training Data (up-to) |
+| --- | :---: | :---: | :---: |
+| `text-embedding-ada-002` (version 2) |8,192 | 1,536 | Sep 2021 |
 | `text-embedding-ada-002` (version 1) |2,046 | 1,536 | Sep 2021 |
-| `text-embedding-3-large` | 8,191 | 3,072 |Sep 2021 |
-| `text-embedding-3-small` | 8,191|  1,536 | Sep 2021 |
+| `text-embedding-3-large` | 8,192 | 3,072 | Sep 2021 |
+| `text-embedding-3-small` | 8,192 | 1,536 | Sep 2021 |
 
 > [!NOTE]
 > When sending an array of inputs for embedding, the max number of input items in the array per call to the embedding endpoint is 2048.
