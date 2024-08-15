@@ -79,11 +79,11 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) | &#x2705; | &#x2705; |
 | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) | &#x2705; | &#x2705; |
 | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; |
-| [Azure Cosmos DB](../../cosmos-db/index.yml) | &#x2705; | &#x2705; |
+| [Azure Cosmos DB](/azure/cosmos-db/) | &#x2705; | &#x2705; |
 | [Azure Container Apps](../../container-apps/index.yml) | &#x2705; | &#x2705; |
-| [Azure Database for MariaDB](../../mariadb/index.yml) | &#x2705; | &#x2705; |
-| [Azure Database for MySQL](../../mysql/index.yml) | &#x2705; | &#x2705; |
-| [Azure Database for PostgreSQL](../../postgresql/index.yml) | &#x2705; | &#x2705; |
+| [Azure Database for MariaDB](/azure/mariadb/) | &#x2705; | &#x2705; |
+| [Azure Database for MySQL](/azure/mysql/) | &#x2705; | &#x2705; |
+| [Azure Database for PostgreSQL](/azure/postgresql/) | &#x2705; | &#x2705; |
 | [Azure Databricks](/azure/databricks/) **&ast;&ast;** | &#x2705; | &#x2705; |
 | [Azure Fluid Relay](../../azure-fluid-relay/index.yml) | &#x2705; | &#x2705; |
 | [Azure for Education](https://azureforeducation.microsoft.com/) | &#x2705; | &#x2705; |
@@ -143,7 +143,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Data Explorer](/azure/data-explorer/) | &#x2705; | &#x2705; |
 | [Data Factory](../../data-factory/index.yml) | &#x2705; | &#x2705; |
 | [Data Share](../../data-share/index.yml) | &#x2705; | &#x2705; |
-| [Database Migration Service](../../dms/index.yml) | &#x2705; | &#x2705; |
+| [Database Migration Service](/azure/dms/) | &#x2705; | &#x2705; |
 | [Dataverse](/powerapps/maker/data-platform/) (incl. [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake)) | &#x2705; | &#x2705; |
 | [DDoS Protection](../../ddos-protection/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
@@ -293,11 +293,11 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure Cosmos DB](../../cosmos-db/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Cosmos DB](/azure/cosmos-db/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure CXP Nomination Portal](https://cxp.azure.com/nominationportal/nominationform/fasttrack) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Database for MariaDB](../../mariadb/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Database for MySQL](../../mysql/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Database for PostgreSQL](../../postgresql/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Database for MariaDB](/azure/mariadb/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Database for MySQL](/azure/mysql/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Database for PostgreSQL](/azure/postgresql/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Databricks](/azure/databricks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Information Protection](/azure/information-protection/) **&ast;&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Kubernetes Service (AKS)](/azure/aks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -348,7 +348,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Data Explorer](/azure/data-explorer/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Data Factory](../../data-factory/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Data Share](../../data-share/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Database Migration Service](../../dms/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Database Migration Service](/azure/dms/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dataverse](/powerapps/maker/data-platform/) (formerly Common Data Service) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [DDoS Protection](../../ddos-protection/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dedicated HSM](/azure/dedicated-hsm/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |

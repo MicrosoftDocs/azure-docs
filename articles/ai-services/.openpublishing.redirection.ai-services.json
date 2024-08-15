@@ -384,6 +384,16 @@
             "source_path_from_root": "/articles/ai-services/speech-service/faq-voice-assistants.yml",
             "redirect_url": "/azure/ai-services/speech-service/custom-commands",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md",
+            "redirect_url": "/azure/ai-services/speech-service/quickstarts/setup-platform",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-configure-rhel-centos-7.md",
+            "redirect_url": "/azure/ai-services/speech-service/quickstarts/setup-platform",
+            "redirect_document_id": false
           }
 
     ]
