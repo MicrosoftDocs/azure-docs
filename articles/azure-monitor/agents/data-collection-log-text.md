@@ -160,7 +160,7 @@ Use the following ARM template to create or modify a DCR for collecting text log
         }
     },
     "variables": {
-      "tableOutputStream": "['Custom-',concat(parameters('tableName'))]"
+      "tableOutputStream": "[concat('Custom-', parameters('tableName'))]"
     },
     "resources": [
         {
