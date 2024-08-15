@@ -93,6 +93,79 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 * Sharing dashboards outside of the Azure portal
 * Leveraging open-source community dashboards
 
+**Option 1**
+
+| Visualization tool | Benefits | Recommended uses |
+|--------------------|----------|------------------|
+| [Azure Workbooks](./visualize/workbooks-overview.md) | Native Azure dashboarding platform | Use as a tool for engineering and technical teams to visualize and investigate scenarios. |
+|    | Autorefresh | Use as a reporting tool for App developers, Cloud engineers, and other technical personnel |
+|    | Out-of-the-box and public GitHub templates and reports |    |
+|    | Parameters allow dynamic real time updates |    |
+|    | Can provide high-level summaries that allow you to select any item for more in-depth data using the selected value in the query |    |
+|    | Can query more sources than other visualizations |    |
+|    | Fully customizable |    |
+|    | Designed for collaborating and troubleshooting |    |
+| [Azure dashboards](../azure-portal/azure-portal-dashboards.md) | Native Azure dashboarding platform | For Azure/Arc exclusive environments |
+|    | No added cost   |    |
+|    | Supports at scale deployments    |    |
+|    | Can combine a metrics graph and the results of a log query with operational data for related services |    |
+|    | Share a dashboard with service owners through integration with [Azure role-based access control](../role-based-access-control/overview.md) |    |
+|[Azure Managed Grafana](../managed-grafana/overview.md)|Multi-platform, multicloud single pane of glass visualizations    |For users without Azure access |
+|    | Seamless integration with Azure |Use for external visualization experiences, especially for RAG type dashboards in SOC and NOC environments |
+|    | Can combine time-series and event data in a single visualization panel    |Cloud Native CNCF monitoring |
+|    | Can create dynamic dashboards based on user selection of dynamic variables    |Multicloud environments |
+|    | Prometheus support|Overall Statuses, Up/Down, and high level trend reports for management or executive level users |
+|    | Integrates with third party monitoring tools|Use to show status of environments, apps, security, and network for continuous display in Network Operations Center (NOC) dashboards |
+|    | Out-of-the-box plugins from most monitoring tools and platforms |    |
+|    | Dashboard templates with focus on operations |    |
+|    | Can create a dashboard from a community-created and community-supported template |    |
+|    | Can create a vendor-agnostic business continuity and disaster scenario that runs on any cloud provider or on-premises |    |
+| [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) | Rich visualizations | Use for external visualizations aimed at management and executive levels |
+|    | Supports BI analytics with extensive slicing and dicing | Use to help design business centric KPI dashboards for long term trends |
+|    | Integrate data from multiple data sources |    |
+|    | Results cached in a cube for better performance |    |
+|    | Extensive interactivity, including zoom-in and cross-filtering |    |
+|    | Share easily throughout your organization |    |
+
+**Option 2**
+
+| Visualization tool | Benefits | Recommended uses |
+|--------------------|----------|------------------|
+| [**Azure Workbooks**](./visualize/workbooks-overview.md) |    |    |
+|    | Native Azure dashboarding platform | Use as a tool for engineering and technical teams to visualize and investigate scenarios. |
+|    | Autorefresh | Use as a reporting tool for App developers, Cloud engineers, and other technical personnel |
+|    | Out-of-the-box and public GitHub templates and reports |    |
+|    | Parameters allow dynamic real time updates |    |
+|    | Can provide high-level summaries that allow you to select any item for more in-depth data using the selected value in the query |    |
+|    | Can query more sources than other visualizations |    |
+|    | Fully customizable |    |
+|    | Designed for collaborating and troubleshooting |    |
+| [**Azure dashboards**](../azure-portal/azure-portal-dashboards.md) |    |    |
+|    | Native Azure dashboarding platform | For Azure/Arc exclusive environments |
+|    | No added cost   |    |
+|    | Supports at scale deployments    |    |
+|    | Can combine a metrics graph and the results of a log query with operational data for related services |    |
+|    | Share a dashboard with service owners through integration with [Azure role-based access control](../role-based-access-control/overview.md) |    |
+|[**Azure Managed Grafana**](../managed-grafana/overview.md) |    |    |
+|    | Multi-platform, multicloud single pane of glass visualizations | For users without Azure access |
+|    | Seamless integration with Azure | Use for external visualization experiences, especially for RAG type dashboards in SOC and NOC environments |
+|    | Can combine time-series and event data in a single visualization panel | Cloud Native CNCF monitoring |
+|    | Can create dynamic dashboards based on user selection of dynamic variables | Multicloud environments |
+|    | Prometheus support|Overall Statuses, Up/Down, and high level trend reports for management or executive level users |
+|    | Integrates with third party monitoring tools|Use to show status of environments, apps, security, and network for continuous display in Network Operations Center (NOC) dashboards |
+|    | Out-of-the-box plugins from most monitoring tools and platforms |    |
+|    | Dashboard templates with focus on operations |    |
+|    | Can create a dashboard from a community-created and community-supported template |    |
+|    | Can create a vendor-agnostic business continuity and disaster scenario that runs on any cloud provider or on-premises |    |
+| [**Power BI**](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) |    |    |
+|    | Rich visualizations | Use for external visualizations aimed at management and executive levels |
+|    | Supports BI analytics with extensive slicing and dicing | Use to help design business centric KPI dashboards for long term trends |
+|    | Integrate data from multiple data sources |    |
+|    | Results cached in a cube for better performance |    |
+|    | Extensive interactivity, including zoom-in and cross-filtering |    |
+|    | Share easily throughout your organization |    |
+
+<!--
 ### Compare capabilities
 
 ✅ Supported<br>
@@ -138,7 +211,7 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 |                                        | Event and annotations combined with time series data                            |                                                                    | ✅                                             |
 |                                        | Client-side Processing – Expressions & Transforms                               |                                                                    | ✅                                             |
 |                                        | Dashboard playlists/rotation                                                    |                                                                    | ✅                                             |
-
+-->
 
 ## Other options
 
