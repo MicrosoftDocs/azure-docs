@@ -18,9 +18,11 @@ This article provides steps to migrate an API Management instance hosted on the 
 
 For this scenario, you have the following migration options:
 
-* Use the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API. The REST API migrates the instance in-place using the instances's existing subnet configuration. Currently, for instances in external mode, you can also choose to preserve the instance's VIP address (or addresses) during migration. 
+* Use the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API. The REST API migrates the instance in-place using the instances's existing subnet configuration. You can choose whether the API Management instance's original VIP address(es) is preserved (recommended) or whether a new VIP address will be generated. 
 
-* Use the **Platform migration** blade in the Azure portal. Currently, using the portal, you migrate your instance in-place but must specify a different subnet in the same or a different VNet. After migration, optionally migrate back to the instance's original subnet. The migration process changes the VIP address(es) of the instance. After migration, you need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address(es).
+    With this option, the `stv1` compute is deleted permanently after the migration is complete, with no option to retain it temporarily.
+
+* Use the **Platform migration** blade in the Azure portal. Currently, using the portal, you migrate your instance by specifying a different subnet in the same or a different VNet. After migration, optionally migrate back to the instance's original subnet. The migration process changes the VIP address(es) of the instance. After migration, you need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address(es).
 
 If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1` platform, see [Migrate a non-VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-no-vnet.md).
 
@@ -53,24 +55,98 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-* VNet resources required when configuring a new subnet for migration:
-    * A new subnet in the current virtual network, in each region where the API Management instance is deployed. (Alternatively, set up a subnet in a different virtual network in the same regions and subscription as your API Management instance). A network security group must be attached to the subnet, and [NSG rules](virtual-network-reference.md#required-ports) for API Management must be configured.
+* VNet resources required when performing migration **within existing subnet(s)**:
+    * A network security group must be attached to each subnet, and [NSG rules](virtual-network-reference.md#required-ports) for API Management on the `stv2` platform must be configured. The following are minimum connectivity settings:
+
+        * Outbound to Azure Storage over port 443
+        * Outbound to Azure SQL over port 1433
+        * Outbound to Azure Key Vault over port 443
+        * Inbound from Azure Load Balancer over port 6390
+        * Inbound from ApiManagement service tag over port 3443
+        * Inbound over port 80/443 for clients calling API Management service
+        * The subnet must have service endpoints enabled for Azure Storage, Azure SQL,  and Azure Key Vault
+    * The address space of each existing subnet must be large enough to host a copy of your existing service side-by side with your existing service during migration. 
+
+* VNet resources required when configuring **new subnet(s) for migration**:
+    * A new subnet in the current virtual network, in each region where the API Management instance is deployed. (Alternatively, set up a subnet in a different virtual network in the same regions and subscription as your API Management instance). A network security group must be attached to each subnet, and [NSG rules](virtual-network-reference.md#required-ports) for API Management on the `stv2` platform must be configured.
 
     * (Optional) A new Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region(s) and subscription as your API Management instance. For details, see [Prerequisites for network connections](virtual-network-injection-resources.md).
 
     [!INCLUDE [api-management-publicip-internal-vnet](../../includes/api-management-publicip-internal-vnet.md)]
 
-## Migrate the instance using the REST API
+## Migrate the instance using the REST API - keep same subnet configuration
 
-With the Migrate to stv2 REST API, you migrate your API Management instance to the `stv2` platform using the original subnet configuration, simplifying your migration. You can choose whether the API Management instance's original VIP address is preserved (recommended) or whether a new VIP address will be generated.
+With the Migrate to stv2 REST API, you migrate your API Management instance to the `stv2` platform keeping the same subnet configuration, simplifying your migration. 
 
-> [!IMPORTANT]
-> Currently, the option to preserve the VIP address when migrating using the REST API is only available for VNet-injected services in the *external* mode, not in the internal mode.
+### Public IP address options
 
-* **Preserve IP address** - If you preserve the VIP address, API requests will be unresponsive for approximately 15 minutes while the IP address is migrated to the new infrastructure. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration.
+You can choose whether the API Management instance's original VIP address is preserved (recommended) or whether a new VIP address will be generated. 
 
-* **New virtual IP address** - If you choose this option, API Management generates a new VIP address for your instance. API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. 
+* **Preserve virtual IP address** - If you preserve the VIP address in a VNet in external mode, API requests can remain responsive during migration (see [Expected downtime](#expected-downtime)); for a VNet in internal mode, temporary downtime is expected. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration. 
 
+    With this option, the `stv1` compute is deleted permanently after the migration is complete. There is no option to retain it temporarily.
+
+* **New virtual IP address** - If you choose this option, API Management generates a new VIP address for your instance. API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address.
+
+    With this option, the `stv1` compute is retained for approximately 1 hour after migration is complete so that you can validate the migrated instance and confirm the network and DNS configuration. Optionally, set a custom retention time by setting using the [REST API](/rest/api/apimanagement/api-management-service/create-or-update). 
+
+If your API Management instance is deployed in multiple regions, the REST API migrates the VNet settings for all locations of your instance.
+
+<!--
+### Pre-created IP addresses for migration
+
+API Management pre-creates public IP addresses for the migration process. Find the pre-created IP address in [TBD]. The pre-created IP address is used in the following scenarios:
+
+* When you migrate and preserve the VIP address, the pre-created IP address is assigned temporarily to the new `stv2` deployment during migration. The pre-created IP address is released after the migration is complete and the original IP address is assigned to the `stv2` deployment.
+* When you migrate and generate a new VIP address, the pre-created IP address is assigned to the new `stv2` deployment during migration and persists after migration is complete. 
+
+You can configure the pre-created IP address to serve runtime traffic during migration and, in the case of migration to a new IP address, afterward. For example, whitelist the pre-created IP address in your firewall rules to allow traffic to the new `stv2` deployment during migration.
+-->
+
+### Limitations and considerations for same-subnet migration
+
+* Verify that each subnet meets the [prerequisites](#prerequisites) for migration. If the subnet doesn't meet the requirements, the migration may fail.
+* Turn off any autoscale rules configured for API Management instances deployed in the subnet. Autoscale rules can interfere with the migration process.
+* If you have multiple API Management instances in the same subnet, migrate each instance in sequence. We recommend that you promptly migrate all instances in the subnet to avoid any potential issues with instances hosted on different platforms in the same subnet.
+
+### Expected downtime
+
+When migrating a VNet-injected instance keeping the same subnet configuration, minimal or no downtime for the API gateway is expected. The following table summarizes the expected downtime for the API gateway for each migration scenario when keeping the same subnet:
+
+|VNet mode  |Public IP option  |Expected downtime  | `stv1` compute retention  |
+|---------|---------|---------|-----------|
+|External     |   Preserve VIP      |   No downtime; traffic is served on a temporary IP address for up to 20 minutes during migration to the new `stv2` deployment     | No retention |
+|External     |  New VIP       |  No downtime<br/><br/>New IP address can be used to serve runtime traffic | Retained for configurable period to allow you to update network dependencies      |
+|Internal     |    Preserve VIP     |  Downtime for approximately 20 minutes during migration when the existing IP address is assigned to the new `stv2` deployment.       | No retention |
+|Internal     |  New VIP       |   No downtime | Retained for configurable period to allow you to update network dependencies    |
+
+### Set custom retention time for `stv1` compute
+
+When you migrate your VNet-injected instance and a new IP address is generated, the `stv1` compute is retained by default for 1 hour. In most cases the default retention time is sufficient. If you need a different retention time, set the `Microsoft.WindowsAzure.ApiManagement.Stv1VnetRetentionInMinutes` custom property using the [API Management Service - Update](/rest/api/apimanagement/api-management-service/create-or-update) API. You must configure the retention time before migration.
+
+The following are brief steps to set the custom retention time:
+
+1. Identify existing custom properties for your API Management instance by calling the [API Management Service - Get](/rest/api/apimanagement/api-management-service/get) API.
+1. In the JSON response, locate and copy the `customProperties` element.
+1. Add the `Microsoft.WindowsAzure.ApiManagement.Stv1VnetRetentionInMinutes` custom property to the copied `customProperties` element. Set the value using a UTC date/time in the format `YYYY-MM-DD HH:MM`. The UTC timestamp represents the time until which the `stv1` deployment remains active. Example: `"Microsoft.WindowsAzure.ApiManagement.Stv1VnetRetentionInMinutes": "2024-08-16 18:00"`. 
+1. Update the API Management instance using the [API Management Service - Update](/rest/api/apimanagement/api-management-service/update) API. Pass the updated `customProperties` in the body of the API request. For example:
+   
+      ```http
+      PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}?api-version=2023-09-01-preview
+      ```
+   
+      ```json
+      {
+         "properties": {
+               "customProperties": {
+                  "Microsoft.WindowsAzure.ApiManagement.Stv1VnetRetentionInMinutes": "2024-08-16 18:00",
+                  [...]
+               }
+         }
+      }
+      ```
+
+### Migration script
 
 [!INCLUDE [api-management-migration-cli-steps](../../includes/api-management-migration-cli-steps.md)]
 
@@ -105,7 +181,7 @@ If your API Management instance is deployed in multiple regions, repeat the prec
 
 ## (Optional) Migrate back to original subnet
 
-If you used platform migration in the portal, optionally migrate back to the original subnet you used in each region after migration to the `stv2` platform. To do so, update the VNet configuration again, this time specifying the original VNet and subnet in each region. As in the preceding migration, expect a long-running operation, and expect the VIP address to change.
+If you used platform migration in the portal, optionally migrate back to the original subnet you used in each region. To do so, update the VNet configuration again, this time specifying the original VNet and subnet in each region. As in the preceding migration, expect a long-running operation, and expect the VIP address to change.
 
 The following image shows a high level overview of what happens during migration back to the original subnet.
 
@@ -229,7 +305,9 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **Can I upgrade my stv1 instance to the same subnet?**
 
-   - Currently, you can only upgrade to the same subnet in a single pass when using the [Migrate to stv2 REST API](#migrate-the-instance-using-the-rest-api). Currently, if you use the **Platform migration** blade in the portal, you need to migrate to a new subnet and then migrate back to the original subnet:
+   - Currently, you can only upgrade to the same subnet in a single pass when using the [Migrate to stv2 REST API](#migrate-the-instance-using-the-rest-api). 
+       
+      Currently, if you use the **Platform migration** blade in the portal, you need to migrate to a new subnet and then migrate back to the original subnet:
        - The old gateway takes between 15 mins to 45 mins to vacate the subnet, so that you can initiate the move. However, you can enable a migration setting to retain the old gateway for 48 hours.
        - Ensure that the old subnet's networking for [NSG](./virtual-network-reference.md#required-ports) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
        - Subnet IP address allocation is nondeterministic, therefore the original ILB (ingress) IP for "internal mode" deployments may change when you move back to the original subnet. This would require a DNS change if you're using A records.
