@@ -16,7 +16,7 @@ ms.author: danlep
 
 Here we help you find guidance to migrate your API Management instance hosted on the `stv1` compute platform to the newer `stv2` platform. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).
 
-There are two different in-place migration scenarios, depending on whether or not your API Management instance is currently deployed (injected) in a VNet (either external mode or internal mode). Choose the migration guide for your scenario. 
+There are two different in-place migration scenarios, depending on whether or not your API Management instance is currently deployed (injected) in a VNet. Choose the migration guide for your scenario. 
 
 [!INCLUDE [api-management-migration-alert](../../includes/api-management-migration-alert.md)]
 
