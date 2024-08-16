@@ -121,7 +121,13 @@ More workflows in your logic app raise the risk of longer load times, which nega
 
    :::image type="content" source="media/create-single-tenant-workflows-azure-portal/create-logic-app-basics.png" alt-text="Screenshot shows Azure portal and page named Create Logic App Workflow Service Plan." lightbox="media/create-single-tenant-workflows-azure-portal/create-logic-app-basics.png":::
 
-   [!INCLUDE [functions-language-runtime](includes/functions-language-runtime.md)]
+   > [!NOTE]
+   > 
+   > By default, the language worker runtime value for your Standard logic app is **`dotnet`**. 
+   > Previously, **`node`** was the default value. However, **`dotnet`** is now the default value 
+   > for all new and existing deployed Standard logic apps, even for apps that had a different value. 
+   > This change shouldn't affect your workflow's runtime, and everything should work the same way 
+   > as before. For more information, see the [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 1. When you finish, select **Next: Storage**.
 
