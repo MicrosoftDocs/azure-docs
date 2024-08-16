@@ -147,7 +147,7 @@ If you're creating a new Azure VM for monitoring connectivity your VNet, you can
 
 #### Existing Azure virtual machine
 
-If you're using an existing VM to monitor connectivity, you can install the Network Agent separately for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
+If you're using an existing VM to monitor connectivity, you can install the Network Agent separately for [Linux](../network-watcher/network-watcher-linux.md) and [Windows](../network-watcher/network-watcher-windows.md).
 
 ### <a name="firewall"></a>Open the firewall ports on the monitoring agent servers
 

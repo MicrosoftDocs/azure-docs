@@ -38,9 +38,9 @@ Connection troubleshoot provides the capability to check TCP or ICMP connections
 
 > [!IMPORTANT]
 > Connection troubleshoot requires that the virtual machine you troubleshoot from has the *Network Watcher agent VM extension* installed. The extension is not required on the destination virtual machine.
-> - To install the extension on a Windows VM, see [Azure Network Watcher agent VM extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
-> - To install the extension on a Linux VM, see [Azure Network Watcher agent VM extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
-> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-windows.md).
+> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-linux.md).
+> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-update.md).
 
 Connection troubleshoot can test connections to any of these destinations:
 

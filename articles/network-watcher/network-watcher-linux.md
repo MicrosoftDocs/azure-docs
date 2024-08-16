@@ -15,7 +15,7 @@ ms.custom: devx-track-arm-template, linux-related-content
 
 # Manage Network Watcher Agent virtual machine extension for Linux
 
-The Network Watcher Agent virtual machine extension is a requirement for some of Azure Network Watcher features that capture network traffic to diagnose and monitor Azure virtual machines (VMs). For more information, see [What is Azure Network Watcher?](../../network-watcher/network-watcher-overview.md)
+The Network Watcher Agent virtual machine extension is a requirement for some of Azure Network Watcher features that capture network traffic to diagnose and monitor Azure virtual machines (VMs). For more information, see [What is Azure Network Watcher?](network-watcher-overview.md)
 
 In this article, you learn how to install and uninstall Network Watcher Agent for Linux. Installation of the agent doesn't disrupt, or require a reboot of the virtual machine. If the virtual machine is deployed by an Azure service, check the documentation of the service to determine whether or not it permits installing extensions in the virtual machine.
 
@@ -30,7 +30,7 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 - Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
 
-- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](packet-capture-overview.md).
 
 # [**PowerShell**](#tab/powershell)
 
@@ -38,7 +38,7 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 - Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
 
-- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](packet-capture-overview.md).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -52,7 +52,7 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 - Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
 
-- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](packet-capture-overview.md).
 
 - Azure Cloud Shell or Azure CLI.
 
@@ -66,7 +66,7 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 - Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
 
-- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](../../network-watcher/packet-capture-overview.md).
+- Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures. For more information, see [Packet capture overview](packet-capture-overview.md).
 
 - Azure PowerShell or Azure CLI installed locally to deploy the template. 
 
@@ -315,10 +315,10 @@ N/A
 
 ## Frequently asked questions (FAQ)
 
-To get answers to most frequently asked questions about Network Watcher Agent, see [Network Watcher Agent FAQ](../../network-watcher/frequently-asked-questions.yml#network-watcher-agent).
+To get answers to most frequently asked questions about Network Watcher Agent, see [Network Watcher Agent FAQ](frequently-asked-questions.yml#network-watcher-agent).
 
 ## Related content
 
 - [Update Azure Network Watcher extension to the latest version](network-watcher-update.md).
-- [Network Watcher documentation](../../network-watcher/index.yml).
+- [Network Watcher documentation](index.yml).
 - [Microsoft Q&A - Network Watcher](/answers/topics/azure-network-watcher.html).
