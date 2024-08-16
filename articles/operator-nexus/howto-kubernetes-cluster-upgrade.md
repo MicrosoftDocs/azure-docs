@@ -27,6 +27,7 @@ This article provides instructions on how to upgrade an Operator Nexus Kubernete
 
 * An Azure Operator Nexus Kubernetes cluster deployed in a resource group in your Azure subscription.
 * If you're using Azure CLI, this article requires that you're running the latest Azure CLI version. If you need to install or upgrade, see [Install Azure CLI](./howto-install-cli-extensions.md)
+* Minimum required `networkcloud` az-cli extension version: `3.0.0b1`
 * Understand the version bundles concept. For more information, see [Nexus Kubernetes version bundles](./reference-nexus-kubernetes-cluster-supported-versions.md#version-bundles).
 
 ## Check for available upgrades
