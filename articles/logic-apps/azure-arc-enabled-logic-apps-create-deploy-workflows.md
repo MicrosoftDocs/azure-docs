@@ -23,7 +23,7 @@ For example, this cluster can be Azure Kubernetes Service, bare-metal Kubernetes
 For more information, review the following documentation:
 
 - [What is Azure Arc-enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
-- [Single-tenant versus multitenant and integration service environment](../logic-apps/single-tenant-overview-compare.md)
+- [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)
 - [Azure Arc overview](../azure-arc/overview.md)
 - [Azure Kubernetes Service overview](/azure/aks/intro-kubernetes)
 - [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)

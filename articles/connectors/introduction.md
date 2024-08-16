@@ -146,7 +146,7 @@ In Standard workflows for single-tenant Azure Logic Apps, you can create nativel
 > and provide the same capabilities plus more. For example, Standard workflows support using private endpoints 
 > for inbound traffic so that your workflows can communicate privately and securely with virtual networks. 
 > Standard workflows also support virtual network integration for outbound traffic. For more information, 
-> review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+> review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
 If you use a dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where workflows can directly access to resources in an Azure virtual network, you can build, deploy, and run your workflows on dedicated resources.
 
