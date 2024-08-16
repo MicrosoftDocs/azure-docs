@@ -15,8 +15,8 @@ Upgrading Nexus CNF Workload Software Using Azure Operator Service Manage
 # What Are Safe Upgrade Practices 
 
 A given network service supported by Azure Operator Service Manager will be composed of one-to-many container-based network functions (CNFs) which, over time, will require frequent software updates.  For each CNF update, it is necessary to run one-to-many helm operations, upgrading dependent network function applications (NfApps), in a particular order, in a manner which least impacts the network service.  At Azure Operator Service Manager, “Safe Upgrade Practices” represents a set of features which can automate the CNF operations required to update a network service on Azure Operator Nexus.
-
-![image](https://github.com/user-attachments/assets/1db5b2fe-7dbf-44b8-975c-367496483796)
+  
+![iFigre 1 - Overview](media/sup1.png)
 
 # Safe Upgrade Practices Overview
 
@@ -32,7 +32,7 @@ To ensure outcomes, NfApp testing is supported using helm, either helm upgrade p
 # Safe Upgrade Practices - Prerequisites for CNF
 When planning for an upgrade using Azure Operator Service Manager, address the following requirements in advance of upgrade execution to optimize the time spent attempting the upgrade.
 
-![image](https://github.com/user-attachments/assets/b03cfda0-cf7b-4735-9724-a6e851a50ff6)
+![iFigre 2 - Prerequisites](media/sup2.png)
 
 - Onboard updated artifacts using publisher and/or designer workflows.
   - Publisher, store, NSDG and NFDG are static and do not need to change.  
@@ -65,19 +65,19 @@ Helm chart versions can be updated, or Helm values can be updated or parameteriz
 
 UpdateDependsOn is a NFDV parameter used to specify ordering of NfApps during update operations. If UpdateDependsOn is not provided, serial ordering of NF applications, as appearing in the NFDV, will be used. See below dependsOnProfile example.
 
-![image](https://github.com/user-attachments/assets/973cd7c4-fae6-4d92-a172-2f64fbc63447)
+![iFigre 3 - UpdateDependsOn](media/sup3.png)
 
 ### Update NFDV roleOverrideValues for desired upgrade behavior.
 
 Make sure to set any desired NF application timeouts, as well as the atomic and rollbackOnTestFailure parameters.  It may be useful to change these parameters over time as more confidence is gained in the upgrade.
 
-![image](https://github.com/user-attachments/assets/0a9608ae-d7eb-4819-aeca-1094e1dfd82f)
+![iFigre 4 - roleOverrides](media/sup4.png)
 
 ### Issue SNS Re-Put
 
 With onboarding complete, the Re-Put operation is submitted by an AOSM operator role using standard Azure interfaces. Depending on the number, size and complexity of the NfApps, the Re-Put operation could take some time to complete (multiple hours).
 
-![image](https://github.com/user-attachments/assets/3f45b45b-909a-4b5d-8790-53a866e94dbc)
+![iFigre 5 - SNS Re-put](media/sup5.png)
 
 ### Examine Re-Put Results
 
@@ -115,12 +115,11 @@ In the NFDV resource, under deployParametersMappingRuleProfile there is the prop
 
 Publisher.  For the applicationEnablement property, the publisher has two options: either provide a default value or parameterize it. In the below example below, applicationEnablement is parameterized for the NfApp “testroletwo” so that its value must be provided by the operator at run-time.
 
-![image](https://github.com/user-attachments/assets/3bfae19f-4775-4922-bece-451ffaebee2d)
+![iFigre 6 - applicationEnablement Publisher](media/sup6.png)
 
 Operator.  Operators specify applicationEnablement as defined by the NFDV. If applicationEnablement for specific application is parameterized, then it must be passed through the deploymentValues property at run-time. The below example shows deploymentValues "enableRoleTwoDeployment" property set. Also show is how Operators can override any applicationEnablement value using the roleOverrideValues property.
 
-![image](https://github.com/user-attachments/assets/0fb41d58-6435-4ee9-a60a-18919fa00180)
-
+![iFigre 7 - applicationEnablement Operator](media/sup7.png)
 
 # Appendix B - Support for In-Service upgrades (ISSU)
 
