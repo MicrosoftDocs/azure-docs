@@ -36,7 +36,6 @@ Arc resource bridge has the following minimum resource requirements:
 - 8 GB memory
 - supported storage configuration - hybrid storage (flash and HDD) or all-flash storage (SSDs or NVMe)
 
-
 These minimum requirements enable most scenarios for products that use Arc resource bridge. Review the product's documentation for specific resource requirements. Failure to provide sufficient resources may cause errors during deployment or upgrade. 
 
 ## IP address prefix (subnet) requirements
