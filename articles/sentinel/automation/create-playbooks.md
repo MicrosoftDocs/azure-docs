@@ -130,7 +130,7 @@ Follow these steps to create your playbook:
 
    Azure takes a few minutes to create and deploy your playbook. After deployment completes, your playbook opens in the Consumption workflow designer for [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). The trigger that you selected earlier automatically appears as the first step in your workflow, so now you can continue building the workflow from here.
 
-   :::image type="content" source="../media/create-playbooks/logic-app-blank.png" alt-text="Screenshot shows Consumption workflow designer with selected trigger." lightbox="../media/create-playbooks/designer-consumption.png":::
+   :::image type="content" source="../media/create-playbooks/designer-consumption.png" alt-text="Screenshot shows Consumption workflow designer with selected trigger." lightbox="../media/create-playbooks/designer-consumption.png":::
 
 1. If you previously chose **Playbook with entity trigger**, select the type of entity you want this playbook to receive as an input.
 

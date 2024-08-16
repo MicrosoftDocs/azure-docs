@@ -9,7 +9,7 @@ ms.topic: include
 | Role | Description  |
 |------|--------------|
 | **Owner** | Lets you grant access to playbooks in the resource group. |
-| **Microsoft Sentinel Contributor** |Lets you attach a playbook to an analytics or automation rule.      |
+| **Microsoft Sentinel Contributor** | Lets you attach a playbook to an analytics or automation rule. |
 | **Microsoft Sentinel Responder** | Lets you access an incident in order to run a playbook manually, but doesn't allow you to run the playbook. |
 | **Microsoft Sentinel Playbook Operator** | Lets you run a playbook manually. |
 | **Microsoft Sentinel Automation Contributor** | Allows automation rules to run playbooks. This role isn't used for any other purpose. |
