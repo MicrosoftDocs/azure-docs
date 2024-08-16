@@ -40,7 +40,7 @@ This article describes how to create and manage Microsoft Sentinel playbooks. Yo
 
   For more information, see the following documentation:
 
-  - [Access to logic app operationss](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
+  - [Access to logic app operations](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
   - [Microsoft Sentinel playbook prerequisites](automate-responses-with-playbooks.md#prerequisites).
 
 - Before you create your playbook, we recommend that you read [Azure Logic Apps for Microsoft Sentinel playbooks](../automation/logic-apps-playbooks.md).
@@ -112,7 +112,7 @@ Follow these steps to create your playbook:
 
    1. For **Subscription** and **Resource group**, select the values you want from their respective lists.
 
-      The **Region** value is set to the same region as the associated Log Analyics workspace.
+      The **Region** value is set to the same region as the associated Log Analytics workspace.
 
    1. For **Playbook name**, enter a name for your playbook.
 
@@ -120,7 +120,7 @@ Follow these steps to create your playbook:
 
 1. Select **Next : Connections >**.
 
-1. On the **Connections** tab, we recommend leaving the default values, which configures a logic app to connect to Microsoft Sentinel with a managed identity.
+1. On the **Connections** tab, we recommend leaving the default values, which configure a logic app to connect to Microsoft Sentinel with a managed identity.
 
    For more information, see [Authenticate playbooks to Microsoft Sentinel](authenticate-playbooks-to-sentinel.md).
 
@@ -162,7 +162,7 @@ Follow these steps to create your Standard logic app:
 
    1. For **Pricing plan**, select the compute resources and their pricing for your logic app.
 
-   1. Under **Zone redunancy**, you can enable this capability if you selected an Azure region that supports availability zone redundancy.
+   1. Under **Zone redundancy**, you can enable this capability if you selected an Azure region that supports availability zone redundancy.
 
       For this example, leave the option disabled. For more information, see [Protect logic apps from region failures with zone redundancy and availability zones](/azure/logic-apps/set-up-zone-redundancy-availability-zones).
 
@@ -188,7 +188,7 @@ Follow these steps to create your Standard logic app:
 
    1. Under **Application Insights**, set **Enable Application Insights** to **No**.
 
-      This setting disables or enables performance monitoring with Application Insights in Azure Monitor. However, for Microsoft Sentintel, this capability isn't required and costs extra.
+      This setting disables or enables performance monitoring with Application Insights in Azure Monitor. However, for Microsoft Sentinel, this capability isn't required and costs extra.
 
    1. To apply tags to this logic app for resource categorization and billing purposes, select **Next : Tags >**. Otherwise, select **Review + create**.
 
@@ -255,7 +255,7 @@ Follow these steps to create your Standard logic app:
 
    1. Based on your selected authentication option, provide the necessary parameter values for the corresponding option.
 
-      For more information about these these parameters, see [Microsoft Sentinel connector reference](/connectors/azuresentinel/).
+      For more information about these parameters, see [Microsoft Sentinel connector reference](/connectors/azuresentinel/).
 
    1. When you finish, select **Create new**.
 
@@ -308,7 +308,7 @@ To prevent this failure, we recommend that you create a condition that checks fo
 
 1. In the editor, enter **null**, and select **Add**.
 
-When you finish, your condtion looks simlar to the following example:
+When you finish, your condition looks similar to the following example:
 
 :::image type="content" source="../media/create-playbooks/no-incident-id.png" alt-text="Screenshot shows extra condition to add before the Incident ARM ID field." lightbox="../media/create-playbooks/no-incident-id.png":::
 
@@ -316,7 +316,7 @@ When you finish, your condtion looks simlar to the following example:
 
 In the **Microsoft Sentinel incident** trigger, the **Alert custom details** output is an array of JSON objects where each represents a [custom detail from an alert](../surface-custom-details-in-alerts.md). Custom details are key-value pairs that let you surface information from events in the alert so they can be represented, tracked, and analyzed as part of the incident.
 
-This field in the alert is customizable, so its schema depends on the type of event that's surfaced. To generate the schema that determines how to parse the custom details output, provide the data from an instance of this event:
+This field in the alert is customizable, so its schema depends on the type of event that is surfaced. To generate the schema that determines how to parse the custom details output, provide the data from an instance of this event:
 
 1. On the Microsoft Sentinel workspace menu, under **Configuration**, select **Analytics**.
 
@@ -365,17 +365,17 @@ To use custom fields for incident triggers, follow these steps for your workflow
 
    :::image type="content" source="../media/create-playbooks/sample-payload.png" alt-text="Screenshot shows sample JSON payload." lightbox="../media/create-playbooks/sample-payload.png":::
 
-   When you finish, the **Schema** box now contains the generated schema based on the sample that you provided. The **Parse JSON** action creates custom fields that you cannow use as dynamic fields with **Array** type in your workflow's subsequent actions.
+   When you finish, the **Schema** box now contains the generated schema based on the sample that you provided. The **Parse JSON** action creates custom fields that you can now use as dynamic fields with **Array** type in your workflow's subsequent actions.
 
-   The following example shows an array and its items, both in the schema and in the dynamic content list for a subsquent action named **Compose**:
+   The following example shows an array and its items, both in the schema and in the dynamic content list for a subsequent action named **Compose**:
 
-   :::image type="content" source="../media/create-playbooks/custom-fields-ready-to-use.png" alt-text="Screenshot shows ready-to-use dynamic fields from the schema." lightbox="../media/create-playbooks/custom-fields-ready-to-use.png":::
+   :::image type="content" source="../media/create-playbooks/custom-fields-ready-to-use.png" alt-text="Screenshot shows ready to use dynamic fields from the schema." lightbox="../media/create-playbooks/custom-fields-ready-to-use.png":::
 
 ## Manage your playbooks
 
 Select the **Automation > Active playbooks** tab to view all the playbooks you have access to, filtered by your subscription view.
 
-After onboarding to the unified security operations platform, by default the **Active playbooks** tab shows a predefined filter with onboarded workspace's subscription. **In the Azure portal**, edit the subscriptions you're showing from the **Directory + subscription** menu in the global Azure page header.
+After you onboard to the unified security operations platform, by default the **Active playbooks** tab shows a predefined filter with onboarded workspace's subscription. **In the Azure portal**, edit the subscriptions you're showing from the **Directory + subscription** menu in the global Azure page header.
 
 While the **Active playbooks** tab displays all the active playbooks available across any selected subscriptions, by default a playbook can be used only within the subscription to which it belongs, unless you specifically grant Microsoft Sentinel permissions to the playbook's resource group.
 
