@@ -144,11 +144,11 @@ This section provides sample screenshots of how you might use a playbook to upda
 
 **Update an incident based on a new incident** (incident trigger):
 
-![Screenshot of an incident trigger simple update flow example.](../media/playbook-triggers-actions/incident-simple-flow.png)
+![Screenshot of an incident trigger simple update flow example.](../media/playbook-recommendations/incident-simple-flow.png)
 
 **Update an incident based on a new alert** (alert trigger):
 
-![Screenshot of an alert trigger simple update incident flow example.](../media/playbook-triggers-actions/alert-update-flow.png)
+![Screenshot of an alert trigger simple update incident flow example.](../media/playbook-recommendations/alert-update-flow.png)
 
 ### Use incident details in your flow
 
@@ -156,11 +156,11 @@ This section provides sample screenshots of how you might use your playbook to u
 
 **Send incident details by mail, using a playbook triggered by a new incident**: 
 
-![Screenshot of an incident trigger simple get flow example.](../media/playbook-triggers-actions/incident-simple-mail-flow.png)
+![Screenshot of an incident trigger simple get flow example.](../media/playbook-recommendations/incident-simple-mail-flow.png)
 
 **Send incident details by mail, using a playbook triggered by a new alert**:
 
-![Screenshot of an alert trigger simple get incident flow example.](../media/playbook-triggers-actions/alert-simple-mail-flow.png)
+![Screenshot of an alert trigger simple get incident flow example.](../media/playbook-recommendations/alert-simple-mail-flow.png)
 
 ### Add a comment to an incident
 
@@ -168,17 +168,17 @@ This section provides sample screenshots of how you might use your playbook to a
 
 **Add a comment to an incident, using a playbook triggered by a new incident**:
 
-![Screenshot of an incident trigger simple add comment example.](../media/playbook-triggers-actions/incident-comment.png)
+![Screenshot of an incident trigger simple add comment example.](../media/playbook-recommendations/incident-comment.png)
 
 **Add a comment to an incident, using a playbook triggered by a new alert**:
 
-![Screenshot of an alert trigger simple add comment example.](../media/playbook-triggers-actions/alert-comment.png)
+![Screenshot of an alert trigger simple add comment example.](../media/playbook-recommendations/alert-comment.png)
 
 ### Disable a user
 
 The following screenshot shows an example of how you might use your playbook to disable a user account, based on a Microsoft Sentinel entity trigger:
 
-:::image type="content" source="../media/playbook-triggers-actions/entity-trigger-actions.png" alt-text="Screenshot showing actions to take in an entity-trigger playbook to disable a user.":::
+:::image type="content" source="../media/playbook-recommendations/entity-trigger-actions.png" alt-text="Screenshot showing actions to take in an entity-trigger playbook to disable a user.":::
 
 ## Related content
 

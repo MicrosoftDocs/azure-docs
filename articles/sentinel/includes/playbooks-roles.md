@@ -14,7 +14,7 @@ ms.topic: include
 | **Microsoft Sentinel Playbook Operator** | Lets you run a playbook manually. |
 | **Microsoft Sentinel Automation Contributor** | Allows automation rules to run playbooks. This role isn't used for any other purpose. |
 
-The following table describes required roles based on whether you select a *Consumption* or *Standard* logic app to create your playbook:
+The following table describes required roles based on whether you select a Consumption or Standard logic app to create your playbook:
 
 | Logic app | Azure roles | Description |
 |-----------|-------------|-------------|

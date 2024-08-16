@@ -56,10 +56,10 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
    - In the [Defender portal](https://security.microsoft.com/), go to your Microsoft Sentinel workspace. Select **Microsoft Sentinel** > **Configuration** > **Automation**.
 
    #### [Azure portal](#tab/azure-portal)
-   :::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="../media/tutorial-respond-threats-playbook/add-new-playbook.png":::
+   :::image type="content" source="../media/create-playbooks/add-new-playbook.png" alt-text="Screenshot shows Azure portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook.png":::
 
    #### [Defender portal](#tab/defender-portal)
-   :::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-playbook-defender.png" alt-text="Screenshot of the menu selection for adding a new playbook in the Automation screen." lightbox="../media/tutorial-respond-threats-playbook/add-new-playbook-defender.png":::
+   :::image type="content" source="../media/create-playbooks/add-new-playbook-defender.png" alt-text="Screenshot shows Defender portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook-defender.png":::
 
    ---
 
@@ -130,7 +130,7 @@ Follow these steps to create your playbook:
 
    Azure takes a few minutes to create and deploy your playbook. After deployment completes, your playbook opens in the Consumption workflow designer for [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). The trigger that you selected earlier automatically appears as the first step in your workflow, so now you can continue building the workflow from here.
 
-   :::image type="content" source="../media/create-playbooks/logic-app-blank.png" alt-text="Screenshot shows Consumption workflow designer with selected trigger." lightbox="../media/tutorial-respond-threats-playbook/logic-app-blank.png":::
+   :::image type="content" source="../media/create-playbooks/logic-app-blank.png" alt-text="Screenshot shows Consumption workflow designer with selected trigger." lightbox="../media/create-playbooks/designer-consumption.png":::
 
 1. If you previously chose **Playbook with entity trigger**, select the type of entity you want this playbook to receive as an input.
 
