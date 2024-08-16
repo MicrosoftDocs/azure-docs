@@ -49,18 +49,18 @@ Deployment instructions are in the README.md.
 
 ## Create a cache
 
-[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create-entra-id.md)]
 
-[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
 
-Make a note of the **HOST NAME** and the **Primary** access key. You use these values later to construct the *CacheConnection* secret.
+[!INCLUDE [redis-access-policy](includes/redis-access-policy.md)]
 
-## Add a local secret for the connection string
+## Add a local secret for the host name
 
-In your command window, execute the following command to store a new secret named *CacheConnection*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
+In your command window, execute the following command to store a new secret named *RedisHostName*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
 
 ```dos
-dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<primary-access-key>"
+dotnet user-secrets set RedisHostName "<cache-name>.redis.cache.windows.net"
 ```
 
 ## Connect to the cache with RedisConnection
@@ -71,10 +71,11 @@ The `RedisConnection` class manages the connection to your cache. The connection
 _redisConnection = await _redisConnectionFactory;
 ```
 
-In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace is added to the code. This is needed for the `RedisConnection` class.
+The `RedisConnection.cs` class includes the `StackExchange.Redis` and `Azure.Identity` namespaces at the top of the file to include essential types to connect to Azure Cache for Redis.
 
 ```csharp
 using StackExchange.Redis;
+using Azure.Identity;
 ```
 
 The `RedisConnection` code ensures that there's always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
