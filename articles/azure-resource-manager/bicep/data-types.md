@@ -329,7 +329,7 @@ type oneOfSeveralObjects = {foo: 'bar'} | {fizz: 'buzz'} | {snap: 'crackle'}
 type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
 ```
 
-Type unions must be reduceable to a single ARM type, such as 'string', 'int', or 'bool'. Otherwise, you get the [BCP294](./diagnostics/bcp294.md) error code. For example:
+Type unions must be reducible to a single ARM type, such as 'string', 'int', or 'bool'. Otherwise, you get the [BCP294](./diagnostics/bcp294.md) error code. For example:
 
 ```bicep
 type foo = 'a' | 1
