@@ -2,7 +2,7 @@
 title: Create a Python function using Visual Studio Code - Azure Functions
 description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 06/03/2024
+ms.date: 08/15/2024
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete, ai-video-demo
 ai-usage: ai-assisted
@@ -61,23 +61,6 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select how you would like to open your project** | Choose `Open in current window`.|
 
 4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. The generated `function_app.py` project file contains your functions.   
-<!--- Remove these last steps after the next Core Tools version is released (4.28.0)---> 
-5. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model when running locally.  
-
-6. In the local.settings.json file, update the `AzureWebJobsStorage` setting as in the following example:
-
-    ```json
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    ```
-
-    This tells the local Functions host to use the storage emulator for the storage connection currently required by the Python v2 model. When you publish your project to Azure, you need to instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.
-
-## Start the emulator
-
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azurite: Start`.
-
-1. Check the bottom bar and verify that Azurite emulation services are running. If so, you can now run your function locally.
-::: zone-end
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
