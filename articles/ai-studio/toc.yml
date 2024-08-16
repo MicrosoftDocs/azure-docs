@@ -90,9 +90,9 @@ items:
         href: how-to/deploy-models-openai.md
       - name: Fine-tune Azure OpenAI models
         href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
-    - name: Phi 3 family models
+    - name: Phi-3 family models
       items:
-        - name: Phi 3 family chat models
+        - name: Phi-3 family chat models
           href: how-to/deploy-models-phi-3.md
         - name: Phi-3 chat model with vision
           href: how-to/deploy-models-phi-3-vision.md

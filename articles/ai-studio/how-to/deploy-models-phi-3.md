@@ -1,7 +1,7 @@
 ---
-title: How to use Phi-3 chat models with Azure AI Studio
+title: How to use Phi-3 family chat models with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to use Phi-3 chat models with Azure AI Studio.
+description: Learn how to use Phi-3 family chat models with Azure AI Studio.
 ms.service: azure-ai-studio
 manager: scottpolly
 ms.topic: how-to
@@ -14,18 +14,32 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Phi-3 chat models
+# How to use Phi-3 family chat models
 
-In this article, you learn about Phi-3 chat models and how to use them.
+In this article, you learn about Phi-3 family chat models and how to use them.
 The Phi-3 family of small language models (SLMs) is a collection of instruction-tuned generative text models.
 
 
 
 ::: zone pivot="programming-language-python"
 
-## Phi-3 chat models
+## Phi-3 family chat models
 
-The Phi-3 chat models include the following models:
+The Phi-3 family chat models include the following models:
+
+# [Phi-3.5](#tab/phi-3-5)
+
+Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
+
+The models underwent a rigorous enhancement process, incorporating both supervised fine-tuning, proximal policy optimization, and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3.5 models showcased robust and state-of-the-art performance among models with less than 13 billion parameters.
+
+The Phi-3.5 models come in the following variants, with the variants having a context length (in tokens) of 128K.
+
+
+The following models are available:
+
+* [Phi-3.5-Mini-Instruct](https://aka.ms/azureai/landing/Phi-3.5-Mini-Instruct)
+
 
 # [Phi-3](#tab/phi-3)
 
@@ -46,31 +60,17 @@ The following models are available:
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
 
 
-# [Phi-3.5](#tab/phi-3-5)
-
-Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
-
-The models underwent a rigorous enhancement process, incorporating both supervised fine-tuning, proximal policy optimization, and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3.5 models showcased robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-The Phi-3.5 models come in the following variants, with the variants having a context length (in tokens) of 128K.
-
-
-The following models are available:
-
-* [Phi-3.5-Mini-Instruct](https://aka.ms/azureai/landing/Phi-3.5-Mini-Instruct)
-
-
 ---
 
 ## Prerequisites
 
-To use Phi-3 chat models with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 family chat models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Phi-3 family chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -79,7 +79,7 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 family chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -107,7 +107,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 family chat models.
 
 ### Create a client to consume the model
 
@@ -161,7 +161,7 @@ print("Model provider name:", model_info.model_provider_name)
 ```
 
 ```console
-Model name: Phi-3-mini-4k-Instruct
+Model name: Phi-3.5-Mini-Instruct
 Model type: chat-completions
 Model provider name: Microsoft
 ```
@@ -182,7 +182,7 @@ response = client.complete(
 ```
 
 > [!NOTE]
-> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-8k-Instruct, Phi-3-small-128k-Instruct, Phi-3-medium-4k-Instruct and Phi-3.5-Mini-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3.5-Mini-Instruct, Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-8k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -198,7 +198,7 @@ print("\tCompletion tokens:", response.usage.completion_tokens)
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Phi-3-mini-4k-Instruct
+Model: Phi-3.5-Mini-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -295,7 +295,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to Phi-3 chat models:
+The following extra parameters can be passed to Phi-3 family chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -346,9 +346,23 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
-## Phi-3 chat models
+## Phi-3 family chat models
 
-The Phi-3 chat models include the following models:
+The Phi-3 family chat models include the following models:
+
+# [Phi-3.5](#tab/phi-3-5)
+
+Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
+
+The models underwent a rigorous enhancement process, incorporating both supervised fine-tuning, proximal policy optimization, and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3.5 models showcased robust and state-of-the-art performance among models with less than 13 billion parameters.
+
+The Phi-3.5 models come in the following variants, with the variants having a context length (in tokens) of 128K.
+
+
+The following models are available:
+
+* [Phi-3.5-Mini-Instruct](https://aka.ms/azureai/landing/Phi-3.5-Mini-Instruct)
+
 
 # [Phi-3](#tab/phi-3)
 
@@ -369,31 +383,17 @@ The following models are available:
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
 
 
-# [Phi-3.5](#tab/phi-3-5)
-
-Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
-
-The models underwent a rigorous enhancement process, incorporating both supervised fine-tuning, proximal policy optimization, and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3.5 models showcased robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-The Phi-3.5 models come in the following variants, with the variants having a context length (in tokens) of 128K.
-
-
-The following models are available:
-
-* [Phi-3.5-Mini-Instruct](https://aka.ms/azureai/landing/Phi-3.5-Mini-Instruct)
-
-
 ---
 
 ## Prerequisites
 
-To use Phi-3 chat models with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 family chat models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Phi-3 family chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -402,7 +402,7 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 family chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -428,7 +428,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 family chat models.
 
 ### Create a client to consume the model
 
@@ -482,7 +482,7 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 ```
 
 ```console
-Model name: Phi-3-mini-4k-Instruct
+Model name: Phi-3.5-Mini-Instruct
 Model type: chat-completions
 Model provider name: Microsoft
 ```
@@ -505,7 +505,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!NOTE]
-> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-8k-Instruct, Phi-3-small-128k-Instruct, Phi-3-medium-4k-Instruct and Phi-3.5-Mini-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3.5-Mini-Instruct, Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-8k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -525,7 +525,7 @@ console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Phi-3-mini-4k-Instruct
+Model: Phi-3.5-Mini-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -635,7 +635,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to Phi-3 chat models:
+The following extra parameters can be passed to Phi-3 family chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -692,9 +692,23 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
-## Phi-3 chat models
+## Phi-3 family chat models
 
-The Phi-3 chat models include the following models:
+The Phi-3 family chat models include the following models:
+
+# [Phi-3.5](#tab/phi-3-5)
+
+Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
+
+The models underwent a rigorous enhancement process, incorporating both supervised fine-tuning, proximal policy optimization, and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3.5 models showcased robust and state-of-the-art performance among models with less than 13 billion parameters.
+
+The Phi-3.5 models come in the following variants, with the variants having a context length (in tokens) of 128K.
+
+
+The following models are available:
+
+* [Phi-3.5-Mini-Instruct](https://aka.ms/azureai/landing/Phi-3.5-Mini-Instruct)
+
 
 # [Phi-3](#tab/phi-3)
 
@@ -715,31 +729,17 @@ The following models are available:
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
 
 
-# [Phi-3.5](#tab/phi-3-5)
-
-Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
-
-The models underwent a rigorous enhancement process, incorporating both supervised fine-tuning, proximal policy optimization, and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3.5 models showcased robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-The Phi-3.5 models come in the following variants, with the variants having a context length (in tokens) of 128K.
-
-
-The following models are available:
-
-* [Phi-3.5-Mini-Instruct](https://aka.ms/azureai/landing/Phi-3.5-Mini-Instruct)
-
-
 ---
 
 ## Prerequisites
 
-To use Phi-3 chat models with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 family chat models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Phi-3 family chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -748,7 +748,7 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 family chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -797,7 +797,7 @@ using System.Reflection;
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 family chat models.
 
 ### Create a client to consume the model
 
@@ -843,7 +843,7 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 ```
 
 ```console
-Model name: Phi-3-mini-4k-Instruct
+Model name: Phi-3.5-Mini-Instruct
 Model type: chat-completions
 Model provider name: Microsoft
 ```
@@ -865,7 +865,7 @@ Response<ChatCompletions> response = client.Complete(requestOptions);
 ```
 
 > [!NOTE]
-> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-8k-Instruct, Phi-3-small-128k-Instruct, Phi-3-medium-4k-Instruct and Phi-3.5-Mini-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3.5-Mini-Instruct, Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-8k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -881,7 +881,7 @@ Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Phi-3-mini-4k-Instruct
+Model: Phi-3.5-Mini-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -993,7 +993,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to Phi-3 chat models:
+The following extra parameters can be passed to Phi-3 family chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1050,9 +1050,23 @@ catch (RequestFailedException ex)
 
 ::: zone pivot="programming-language-rest"
 
-## Phi-3 chat models
+## Phi-3 family chat models
 
-The Phi-3 chat models include the following models:
+The Phi-3 family chat models include the following models:
+
+# [Phi-3.5](#tab/phi-3-5)
+
+Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
+
+The models underwent a rigorous enhancement process, incorporating both supervised fine-tuning, proximal policy optimization, and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3.5 models showcased robust and state-of-the-art performance among models with less than 13 billion parameters.
+
+The Phi-3.5 models come in the following variants, with the variants having a context length (in tokens) of 128K.
+
+
+The following models are available:
+
+* [Phi-3.5-Mini-Instruct](https://aka.ms/azureai/landing/Phi-3.5-Mini-Instruct)
+
 
 # [Phi-3](#tab/phi-3)
 
@@ -1073,31 +1087,17 @@ The following models are available:
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
 
 
-# [Phi-3.5](#tab/phi-3-5)
-
-Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 Mini uses 3.8B parameters, and is a dense decoder-only transformer model using the same tokenizer as Phi-3 Mini.
-
-The models underwent a rigorous enhancement process, incorporating both supervised fine-tuning, proximal policy optimization, and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3.5 models showcased robust and state-of-the-art performance among models with less than 13 billion parameters.
-
-The Phi-3.5 models come in the following variants, with the variants having a context length (in tokens) of 128K.
-
-
-The following models are available:
-
-* [Phi-3.5-Mini-Instruct](https://aka.ms/azureai/landing/Phi-3.5-Mini-Instruct)
-
-
 ---
 
 ## Prerequisites
 
-To use Phi-3 chat models with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 family chat models with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to serverless APIs**
 
-Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Phi-3 family chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -1106,7 +1106,7 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 family chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -1125,7 +1125,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 family chat models.
 
 ### Create a client to consume the model
 
@@ -1152,7 +1152,7 @@ The response is as follows:
 
 ```json
 {
-    "model_name": "Phi-3-mini-4k-Instruct",
+    "model_name": "Phi-3.5-Mini-Instruct",
     "model_type": "chat-completions",
     "model_provider_name": "Microsoft"
 }
@@ -1178,7 +1178,7 @@ The following example shows how you can create a basic chat completions request 
 ```
 
 > [!NOTE]
-> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-8k-Instruct, Phi-3-small-128k-Instruct, Phi-3-medium-4k-Instruct and Phi-3.5-Mini-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3.5-Mini-Instruct, Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-8k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -1188,7 +1188,7 @@ The response is as follows, where you can see the model's usage statistics:
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "Phi-3.5-Mini-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1245,7 +1245,7 @@ You can visualize how streaming generates content:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "Phi-3.5-Mini-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1268,7 +1268,7 @@ The last message in the stream has `finish_reason` set, indicating the reason fo
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "Phi-3.5-Mini-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1319,7 +1319,7 @@ Explore other parameters that you can specify in the inference client. For a ful
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Phi-3-mini-4k-Instruct",
+    "model": "Phi-3.5-Mini-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1376,7 +1376,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to Phi-3 chat models:
+The following extra parameters can be passed to Phi-3 family chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
