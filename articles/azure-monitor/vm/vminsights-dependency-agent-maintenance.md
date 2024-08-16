@@ -40,22 +40,21 @@ You can upgrade Dependency Agent for Windows and Linux manually or automatically
 
 Update the agent on a Windows VM from the command prompt, with a script or other automation solution, or by using the InstallDependencyAgent-Windows.exe Setup Wizard.  
 
+#### Prerequisites
+
+Download the latest version of the Windows agent from [aka.ms/dependencyagentwindows](https://aka.ms/dependencyagentwindows).
+
 #### Using the Setup Wizard
 
 1. Sign on to the computer with an account that has administrative rights.
-
-1. Download the latest version of the Windows agent from [aka.ms/dependencyagentwindows](https://aka.ms/dependencyagentwindows).
 
 1. Execute **InstallDependencyAgent-Windows.exe** to start the Setup Wizard.
    
 1. Follow the **Dependency Agent Setup** wizard to uninstall the previous version of Dependency Agent and then install the latest version.
 
-
 #### From the command line
 
-1. Sign on to the computer with an account that has administrative rights.
-
-1. Download the latest version of the Windows agent from [aka.ms/dependencyagentwindows](https://aka.ms/dependencyagentwindows).
+1. Log in to the computer using an account with administrative rights.
 
 1. Run the following command:
 
@@ -74,24 +73,26 @@ Update the agent on a Windows VM from the command prompt, with a script or other
 
 Upgrading from prior versions of Dependency Agent on Linux is supported and performed following the same command as a new installation.
 
+#### Prerequisites
+
+Download the latest version of the Linux agent from [aka.ms/dependencyagentlinux](https://aka.ms/dependencyagentlinux) or via curl:
+
+```bash
+curl -L -o DependencyAgent-Linux64.bin https://aka.ms/dependencyagentlinux
+```
+
+> [!NOTE]
+> Curl doesn't automatically set execution permissions. You need to manually set them using chmod:
+> 
+> ```bash
+> chmod +x DependencyAgent-Linux64.bin
+> ```
+
 #### From the command line
 
-1. Sign on to the computer with an account that has administrative rights.
+1. Log in to the computer with a user account that has sudo privileges to execute commands as the root user.
 
-1. Download the latest version of the Linux agent from [aka.ms/dependencyagentlinux](https://aka.ms/dependencyagentlinux) or via curl:
-
-    ```bash
-    curl -L -o DependencyAgent-Linux64.bin https://aka.ms/dependencyagentlinux
-    ```
-    
-    > [!NOTE]
-    > Curl doesn't automatically set execution permissions. You need to manually set them using chmod:
-    > 
-    > ```bash
-    > chmod +x DependencyAgent-Linux64.bin
-    > ```
-
-1. Run the following command as root:
+1. Run the following command:
 
     ```bash
     sudo <path>/InstallDependencyAgent-Linux64.bin
