@@ -85,8 +85,8 @@
     items:
     - name: Azure Arc-enabled VMware vSphere
       href: /azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-terraform
-   - name: Python SDK
-     items:
+  - name: Python SDK
+    items:
     - name: Azure Arc-enabled VMware vSphere
       href: /python/api/overview/azure/mgmt-connectedvmware-readme
   - name: Java SDK
