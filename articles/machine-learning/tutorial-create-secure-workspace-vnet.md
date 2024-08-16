@@ -429,7 +429,8 @@ A compute instance provides a Jupyter Notebook experience on a shared compute re
 
 1. From the Configure Settings dialog, enter cpu-cluster as the Compute name. Set the Subnet to Training and then select Create to create the cluster.
 
-    [!TIP] Compute clusters dynamically scale the nodes in the cluster as needed. We recommend leaving the minimum number of nodes at 0 to reduce costs when the cluster isn't in use.
+    > [!TIP]
+    > Compute clusters dynamically scale the nodes in the cluster as needed. We recommend leaving the minimum number of nodes at 0 to reduce costs when the cluster isn't in use.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-settings.png" alt-text="Screenshot of the configure settings form.":::
 
