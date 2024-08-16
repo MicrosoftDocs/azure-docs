@@ -4,7 +4,7 @@ description: Learn about changes in the Microsoft Defender portal with the integ
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 07/11/2024
+ms.date: 08/16/2024
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -15,6 +15,7 @@ ms.collection: usx-security
 This article describes the Microsoft Sentinel experience in the Microsoft Defender portal. Microsoft Sentinel is now generally available within the Microsoft unified security operations platform in the Microsoft Defender portal. For more information, see:
 
 - Blog post: [General availability of the Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
+- Blog post: [Frequently asked questions about the unified security operations platform](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/frequently-asked-questions-about-the-unified-security-operations/ba-p/4212048)
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
 
 ## New and improved capabilities
