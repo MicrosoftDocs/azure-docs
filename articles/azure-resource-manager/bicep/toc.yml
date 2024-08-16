@@ -610,6 +610,8 @@
     items:
     - name: All codes
       href: bicep-core-diagnostics.md
+    - name: BCP018
+      href: diagnostics/bcp018.md
     - name: BCP033
       href: diagnostics/bcp033.md
     - name: BCP035
@@ -624,6 +626,12 @@
       href: diagnostics/bcp052.md
     - name: BCP053
       href: diagnostics/bcp053.md
+    - name: BCP055
+      href: diagnostics/bcp055.md      
+    - name: BCP057
+      href: diagnostics/bcp057.md
+    - name: BCP062
+      href: diagnostics/bcp062.md
     - name: BCP072
       href: diagnostics/bcp072.md
     - name: BCP073
@@ -638,6 +646,14 @@
       href: diagnostics/bcp088.md
     - name: BCP089
       href: diagnostics/bcp089.md
+    - name: BCP192
+      href: diagnostics/bcp192.md
+    - name: BCP288
+      href: diagnostics/bcp288.md
+    - name: BCP294
+      href: diagnostics/bcp294.md
+    - name: BCP302
+      href: diagnostics/bcp302.md
     - name: BCP327
       href: diagnostics/bcp327.md
     - name: BCP328
@@ -646,5 +662,9 @@
       href: diagnostics/bcp332.md
     - name: BCP333
       href: diagnostics/bcp333.md
+    - name: BCP338
+      href: diagnostics/bcp338.md      
+    - name: BCP401
+      href: diagnostics/bcp401.md
   - name: Azure CLI
     href: /cli/azure/resource
