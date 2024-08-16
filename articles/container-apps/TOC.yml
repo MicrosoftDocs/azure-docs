@@ -333,6 +333,7 @@
       items:
       - name: Overview
         href: dotnet-overview.md
+        displayName: .NET overview
       - name: Deploy a .NET Aspire app
         href: /dotnet/aspire/deployment/azure/aca-deployment
       - name: Deploy and scale an ASP.NET Core app
