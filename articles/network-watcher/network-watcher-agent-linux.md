@@ -3,9 +3,7 @@ title: Manage Network Watcher Agent VM extension - Linux
 description: Learn about the Network Watcher Agent virtual machine extension for Linux virtual machines and how to install and uninstall it.
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-virtual-machines
-ms.subservice: extensions
-ms.collection: linux
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 07/16/2024
 ms.custom: devx-track-arm-template, linux-related-content
