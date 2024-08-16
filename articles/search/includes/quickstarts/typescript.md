@@ -332,7 +332,7 @@ console.log(`Index named ${index.name} has been created.`);
 
 #### Run the sample
 
-At this point, you're ready to build and run the sample. Use a terminal window to run the following command:
+At this point, you're ready to build and run the sample. Use a terminal window to run the following commands to build your source with `tsc` then run your source with `node`:
 
 ```cmd
 tsc
@@ -471,7 +471,7 @@ Alternatively, you can use the `getSearchClient()` method of the `SearchIndexCli
 const searchClient = indexClient.getSearchClient<Hotel>(indexName);
 ```
 
-Now that the client is defined, upload the documents into the search index. In this case, we use the `mergeOrUploadDocuments()` method, which will upload the documents or merge them with an existing document if a document with the same key already exists.
+Now that the client is defined, upload the documents into the search index. In this case, we use the `mergeOrUploadDocuments()` method, which will upload the documents or merge them with an existing document if a document with the same key already exists. Then check that the operation succeeded because at least the first document exists.
 
 ```typescript
 console.log("Uploading documents...");
@@ -572,7 +572,7 @@ for await (const result of searchResults.results) {
 }
 ```
 
-Another common option to include in a query is `facets`. Facets allow you to build out filters on your UI to make it easy for users to know what values they can filter down to.
+Another common option to include in a query is `facets`. Facets allow you to provide self-directed drilldown from the results in your UI. The facets results can be turned into checkboxes in the result pane. 
 
 ```typescript
 console.log('Query #4 - limit searchFields and use facets:');
@@ -596,6 +596,6 @@ let documentResult = await searchClient.getDocument('3')
 console.log(`HotelId: ${documentResult.HotelId}; HotelName: ${documentResult.HotelName}`)
 ```
 
-#### Run the sample
+#### Rerun the sample
 
 Build and run the program with `tsc && node index.ts`. Now, in addition to the previous steps, the queries will be sent and the results written to the console.
