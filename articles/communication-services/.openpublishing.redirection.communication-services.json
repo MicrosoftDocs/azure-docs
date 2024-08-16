@@ -452,7 +452,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/communication-services/concepts/troubleshooting-codes.md",
+            "source_path_from_root": "/articles/communication-services/concepts/troubleshooting-codes.md",
             "redirect_url": "/azure/communication-services/resources/troubleshooting/voice-video-calling/troubleshooting-codes",
             "redirect_document_id": false
         }
