@@ -125,7 +125,7 @@ Azure Resource Manager is the deployment and management service for Azure. You c
 
 - Secure and organize your resources after deployment with the management features, like access control, locks, and tags. 
 - Create, update, and delete resources in your Azure subscription using the management layer.
-- Use [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to deploy confidential VMs on AMD processors. There is an available [ARM template for confidential VMs](https://aka.ms/CVMTemplate). 
+- Use [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to deploy confidential VMs on AMD processors.
 
 Make sure to specify the following properties for your VM in the parameters section (`parameters`): 
 
