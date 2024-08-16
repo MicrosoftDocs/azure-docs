@@ -49,19 +49,15 @@ This article describes how to create and manage Microsoft Sentinel playbooks. Yo
 
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
-1. Choose your starting point:
+1. In the [Azure portal](https://portal.azure.com) or in the [Defender portal](https://security.microsoft.com/), go to your Microsoft Sentinel workspace. On the workspace menu, under **Configuration**, select **Automation**.
 
-   - In the [Azure portal](https://portal.azure.com), go to your Microsoft Sentinel workspace. On the workspace menu, under **Configuration**, select **Automation**.
+     #### [Azure portal](#tab/azure-portal)
+     :::image type="content" source="../media/create-playbooks/add-new-playbook.png" alt-text="Screenshot shows Azure portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook.png":::
 
-   - In the [Defender portal](https://security.microsoft.com/), go to your Microsoft Sentinel workspace. Select **Microsoft Sentinel** > **Configuration** > **Automation**.
-
-   #### [Azure portal](#tab/azure-portal)
-   :::image type="content" source="../media/create-playbooks/add-new-playbook.png" alt-text="Screenshot shows Azure portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook.png":::
-
-   #### [Defender portal](#tab/defender-portal)
+     #### [Defender portal](#tab/defender-portal)
    :::image type="content" source="../media/create-playbooks/add-new-playbook-defender.png" alt-text="Screenshot shows Defender portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook-defender.png":::
 
-   ---
+     ---
 
 1. From the top menu, select **Create**, and then select one of the following options:
 
@@ -92,13 +88,6 @@ Select one of the following tabs for details about how to create a logic app for
 > traffic so that your workflows can communicate privately and securely with virtual networks. Standard 
 > workflows also support virtual network integration for outbound traffic. For more information, see 
 > [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint).
-
-### Authentication prompts
-
-When you add a trigger or subsequent action that requires authentication, you might be prompted to choose from the available authentication types supported by the corresponding resource provider. In this example, a Microsoft Sentinel trigger is the first operation that you add to your workflow. So, the resource provider is Microsoft Sentinel, which supports several authentication options. For more information, see the following documentation:
-
-- [**Authenticate playbooks to Microsoft Sentinel**](authenticate-playbooks-to-sentinel.md)
-- [**Supported triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
 
 ### [Consumption](#tab/consumption)
 
@@ -131,6 +120,28 @@ Follow these steps to create your playbook:
    Azure takes a few minutes to create and deploy your playbook. After deployment completes, your playbook opens in the Consumption workflow designer for [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). The trigger that you selected earlier automatically appears as the first step in your workflow, so now you can continue building the workflow from here.
 
    :::image type="content" source="../media/create-playbooks/designer-consumption.png" alt-text="Screenshot shows Consumption workflow designer with selected trigger." lightbox="../media/create-playbooks/designer-consumption.png":::
+
+1. On the designer, select the Microsoft Sentinel trigger, if not already selected.
+
+1. On the **Create connection** pane, follow these steps to provide the required information to connect to Microsoft Sentinel.
+
+   1. For **Authentication**, select from the following methods, which affect subsequent connection parameters:
+
+      | Method | Description |
+      |--------|-------------|
+      | **OAuth** | Open Authorization (OAuth) is a technology standard that lets you authorize an app or service to sign in to another without exposing private information, such as passwords. OAuth 2.0 is the industry protocol for authorization and grants limited access to protected resources. For more information, see the following resources: <br><br>- [What is OAuth](https://www.microsoft.com/security/business/security-101/what-is-oauth)? <br>- [OAuth 2.0 authorization with Microsoft Entra ID](/entra/architecture/auth-oauth2) |
+      | **Service principal** | A service principal represents an entity that requires access to resources that are secured by a Microsoft Entra tenant. For more information, see [Service principal object](/entra/identity-platform/app-objects-and-service-principals). |
+      | **Managed identity** | An identity that is automatically managed in Microsoft Entra ID. Apps can use this identity to access resources that support Microsoft Entra authentication and to obtain Microsoft Entra tokens without having to manage any credentials. <br><br>For optimal security, Microsoft recommends using a managed identity for authentication when possible. This option provides superior security and helps keep authentication information secure so that you don't have to manage this sensitive information. For more information, see the following resources: <br><br>- [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)? <br>- [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity). | 
+
+      For more information, see [Authentication prompts](#authentication-prompts).
+
+   1. Based on your selected authentication option, provide the necessary parameter values for the corresponding option.
+
+      For more information about these parameters, see [Microsoft Sentinel connector reference](/connectors/azuresentinel/).
+
+   1. For **Tenant ID**, select your [Microsoft Entra tenant ID](/entra/fundamentals/how-to-find-tenant).
+
+   1. When you finish, select **Sign in**.
 
 1. If you previously chose **Playbook with entity trigger**, select the type of entity you want this playbook to receive as an input.
 
@@ -241,7 +252,9 @@ Follow these steps to create your Standard logic app:
 
 1. Select the trigger that you want to use for your playbook. 
 
-   This example continues with the **Microsoft Sentinel entity** trigger. 
+   This example continues with the **Microsoft Sentinel entity** trigger.
+
+1. On the designer, select the trigger, if not already selected.
 
 1. On the **Create connection** pane, provide the required information to connect to Microsoft Sentinel.
 
@@ -251,13 +264,17 @@ Follow these steps to create your Standard logic app:
       |--------|-------------|
       | **OAuth** | Open Authorization (OAuth) is a technology standard that lets you authorize an app or service to sign in to another without exposing private information, such as passwords. OAuth 2.0 is the industry protocol for authorization and grants limited access to protected resources. For more information, see the following resources: <br><br>- [What is OAuth](https://www.microsoft.com/security/business/security-101/what-is-oauth)? <br>- [OAuth 2.0 authorization with Microsoft Entra ID](/entra/architecture/auth-oauth2) |
       | **Service principal** | A service principal represents an entity that requires access to resources that are secured by a Microsoft Entra tenant. For more information, see [Service principal object](/entra/identity-platform/app-objects-and-service-principals). |
-      | **Managed identity** | An identity that is automatically managed in Microsoft Entra ID. Apps can use this identity to access resources that support Microsoft Entra authentication and to obtain Microsoft Entra tokens without having to manage any credentials. <br><br>For optimal security, Microsoft recommends using a managed identity for authentication when possible. This option provides superior security and helps keep authentication information secure so that you don't have to manage this sensitive information. For more information, see the following resources: <br><br>- [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)? <br>- [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity). | 
+      | **Managed identity** | An identity that is automatically managed in Microsoft Entra ID. Apps can use this identity to access resources that support Microsoft Entra authentication and to obtain Microsoft Entra tokens without having to manage any credentials. <br><br>For optimal security, Microsoft recommends using a managed identity for authentication when possible. This option provides superior security and helps keep authentication information secure so that you don't have to manage this sensitive information. For more information, see the following resources: <br><br>- [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)? <br>- [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity). |
+
+      For more information, see [Authentication prompts](#authentication-prompts).
 
    1. Based on your selected authentication option, provide the necessary parameter values for the corresponding option.
 
       For more information about these parameters, see [Microsoft Sentinel connector reference](/connectors/azuresentinel/).
 
-   1. When you finish, select **Create new**.
+   1. For **Tenant ID**, select your [Microsoft Entra tenant ID](/entra/fundamentals/how-to-find-tenant).
+
+   1. When you finish, select **Sign in**.
 
 1. If you chose **Playbook with entity trigger**, select the type of entity you want this playbook to receive as an input.
 
@@ -266,6 +283,15 @@ Follow these steps to create your Standard logic app:
 For more information, see [Supported triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md).
 
 ---
+
+<a name="authentication-prompts"></a>
+
+### Authentication prompts
+
+When you add a trigger or subsequent action that requires authentication, you might be prompted to choose from the available authentication types supported by the corresponding resource provider. In this example, a Microsoft Sentinel trigger is the first operation that you add to your workflow. So, the resource provider is Microsoft Sentinel, which supports several authentication options. For more information, see the following documentation:
+
+- [**Authenticate playbooks to Microsoft Sentinel**](authenticate-playbooks-to-sentinel.md)
+- [**Supported triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md)
 
 ### Add actions to your playbook
 
