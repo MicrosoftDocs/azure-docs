@@ -254,7 +254,7 @@ Choose the actions you want this automation rule to take. Available actions incl
 
 For whichever action you choose, fill out the fields that appear for that action according to what you want done.
 
-If you add a **Run playbook** action, you are prompted to choose from the drop-down list of available playbooks. 
+If you add a **Run playbook** action, you're prompted to choose from the drop-down list of available playbooks. 
 
 - Only playbooks that start with the **incident trigger** can be run from automation rules using one of the incident triggers, so only they appear in the list. Likewise, only playbooks that start with the **alert trigger** are available in automation rules using the alert trigger.
 
