@@ -62,7 +62,7 @@ The following sections provide you with a quick guide to the default quotas and 
 
 `gpt-4o` and `gpt-4o-mini`, and `gpt-4` (turbo-2024-04-09) have rate limit tiers with higher limits for certain customer types.
 
-### gpt-4o global standard
+### gpt-4o & GPT-4 Turbo global standard
 
 | Model|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
 |---|---|:---:|:---:|
