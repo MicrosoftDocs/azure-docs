@@ -938,7 +938,7 @@ The SAS in the URL has query parameters, which the following table describes:
 
 Inbound calls to the endpoint on a request-based trigger can use only one authorization scheme, either SAS or [OAuth 2.0 with Microsoft Entra ID](#enable-oauth). Although using one scheme doesn't disable the other, if you use both schemes at the same time, Azure Logic Apps generates an error because the service doesn't know which scheme to choose.
 
-If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas). This option works even if you also [restrict authorization to use only OAuth 2.0 with Microsoft Entra ID](#enable-oath-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
+If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas). This option works even if you also [restrict authorization to use only OAuth 2.0 with Microsoft Entra ID](#enable-oauth-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
 
 > [!IMPORTANT]
 >
