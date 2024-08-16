@@ -52,6 +52,8 @@ const apiKey = new AzureKeyCredential("your API key");
 
 Authenticating `AzureOpenAI` with an API key involves setting the `AZURE_OPENAI_API_KEY` environment variable or setting the `apiKey` string property in the options object when creating the `AzureOpenAI` client.
 
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
+
 ## Constructing the client
 
 # [OpenAI JavaScript (new)](#tab/javascript-new)

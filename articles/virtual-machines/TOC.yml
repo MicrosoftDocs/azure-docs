@@ -279,14 +279,14 @@
           href: ./sizes/general-purpose/dcasv5-series.md
         - name: DCadsv5 series
           href: ./sizes/general-purpose/dcadsv5-series.md
-        - name: DCas_cc_v5 series
-          href: ./sizes/general-purpose/dcasccv5-series.md
-        - name: DCads_cc_v5 series
-          href: ./sizes/general-purpose/dcadsccv5-series.md
         - name: DCesv5 series
           href: ./sizes/general-purpose/dcesv5-series.md  
         - name: DCedsv5 series
           href: ./sizes/general-purpose/dcedsv5-series.md 
+        - name: DCas_cc_v5 series
+          href: ./sizes/general-purpose/dcasccv5-series.md
+        - name: DCads_cc_v5 series
+          href: ./sizes/general-purpose/dcadsccv5-series.md
         - name: DCsv3 series
           href: ./sizes/general-purpose/dcsv3-series.md
         - name: DCdsv3 series
@@ -380,10 +380,10 @@
           href: ./sizes/memory-optimized/ec-family.md
         - name: ECasv5 and ECadsv5 series
           href: ecasv5-ecadsv5-series.md
-        - name: ECas_cc_v5 and ECads_cc_v5 series
-          href: ecasccv5-ecadsccv5-series.md
         - name: ECesv5 and ECedsv5 series
           href: ecesv5-ecedsv5-series.md  
+        - name: ECas_cc_v5 and ECads_cc_v5 series
+          href: ecasccv5-ecadsccv5-series.md
       - name: M family
         items:
         - name: Overview
@@ -601,6 +601,9 @@
       - name: Set up Azure HPC or AI VMs
         displayName: How to setup HPC/AI VMs
         href: set-up-hpc-vms.md
+      - name: Set up InfiniBand
+        displayName: How to set up Infiniband
+        href: setup-infiniband.md  
       - name: Configure and optimize VMs
         displayName: Configure and optimize Infiniband enabled VMs
         href: configure.md
@@ -1011,8 +1014,6 @@
       href: ./linux/spot-template.md
     - name: Spot Priority Mix
       href: /azure/virtual-machine-scale-sets/spot-priority-mix?toc=/azure/virtual-machines/toc.json
-    - name: Spot Placement Score (Preview)
-      href: /azure/virtual-machines/spot-placement-score.md
     - name: VM size recommendation
       href: /azure/virtual-machine-scale-sets/spot-vm-size-recommendation?toc=/azure/virtual-machines/toc.json
     - name: Error codes

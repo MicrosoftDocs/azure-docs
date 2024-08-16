@@ -110,7 +110,7 @@ For more information, see [Availability zone service and regional support](/azur
 
 Determine the level of business continuity that you're aiming for. The level might differ between the components of your solution. For example, you might want to have a hot/hot configuration for production pipelines or model deployments, and hot/cold for development.
 
-Azure AI studio is a regional service and stores data both service-side and on a storage account in your subscription. If a regional disaster occurs, service data can't be recovered. But you can recover the data stored by the service on the storage account in your subscription given storage redundancy is enforced. Service-side stored data is mostly metadata (tags, asset names, descriptions). Stored on your storage account is typically non-metadata, for example, uploaded data. 
+Azure AI Studio is a regional service and stores data both service-side and on a storage account in your subscription. If a regional disaster occurs, service data can't be recovered. But you can recover the data stored by the service on the storage account in your subscription given storage redundancy is enforced. Service-side stored data is mostly metadata (tags, asset names, descriptions). Stored on your storage account is typically non-metadata, for example, uploaded data. 
 
 For connections, we recommend creating two separate resources in two distinct regions and then create two connections for the hub. For example, if AI Services is a critical resource for business continuity, creating two AI Services resources and two connections for the hub, would be a good strategy for business continuity. With this configuration, if one region goes down there's still one region operational. 
 

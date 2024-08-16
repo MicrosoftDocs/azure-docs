@@ -76,7 +76,7 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 
 ## Real-time stream and event processing
 
-So much telemetry is generated and collected from cloud applications, IoT devices, and networking devices. Azure Functions can process that data in near real-time as the hot path, then store it in [Azure Cosmos DB](../cosmos-db/introduction.md) for use in an analytics dashboard.
+So much telemetry is generated and collected from cloud applications, IoT devices, and networking devices. Azure Functions can process that data in near real-time as the hot path, then store it in [Azure Cosmos DB](/azure/cosmos-db/introduction) for use in an analytics dashboard.
 
 Your functions can also use low-latency event triggers, like Event Grid, and real-time outputs like SignalR to process data in near-real-time.  
 
