@@ -40,11 +40,11 @@ You can upgrade Dependency Agent for Windows and Linux manually or automatically
 
 Update the agent on a Windows VM from the command prompt, with a script or other automation solution, or by using the InstallDependencyAgent-Windows.exe Setup Wizard.  
 
-You can download the latest version of the Windows agent from [aka.ms/dependencyagentwindows](https://aka.ms/dependencyagentwindows).
-
 #### Using the Setup Wizard
 
 1. Sign on to the computer with an account that has administrative rights.
+
+1. Download the latest version of the Windows agent from [aka.ms/dependencyagentwindows](https://aka.ms/dependencyagentwindows).
 
 1. Execute **InstallDependencyAgent-Windows.exe** to start the Setup Wizard.
    
@@ -54,6 +54,8 @@ You can download the latest version of the Windows agent from [aka.ms/dependency
 #### From the command line
 
 1. Sign on to the computer with an account that has administrative rights.
+
+1. Download the latest version of the Windows agent from [aka.ms/dependencyagentwindows](https://aka.ms/dependencyagentwindows).
 
 1. Run the following command:
 
@@ -72,22 +74,22 @@ You can download the latest version of the Windows agent from [aka.ms/dependency
 
 Upgrading from prior versions of Dependency Agent on Linux is supported and performed following the same command as a new installation.
 
-You can download the latest version of the Linux agent directly from [aka.ms/dependencyagentlinux](https://aka.ms/dependencyagentlinux) or via curl:
-
-```bash
-curl -L -o DependencyAgent-Linux64.bin https://aka.ms/dependencyagentlinux
-```
-
-> [!NOTE]
-> Curl doesn't automatically set execution permissions. You need to manually set them using chmod:
-> 
-> ```bash
-> chmod +x DependencyAgent-Linux64.bin
-> ```
-
 #### From the command line
 
 1. Sign on to the computer with an account that has administrative rights.
+
+1. Download the latest version of the Linux agent from [aka.ms/dependencyagentlinux](https://aka.ms/dependencyagentlinux) or via curl:
+
+    ```bash
+    curl -L -o DependencyAgent-Linux64.bin https://aka.ms/dependencyagentlinux
+    ```
+    
+    > [!NOTE]
+    > Curl doesn't automatically set execution permissions. You need to manually set them using chmod:
+    > 
+    > ```bash
+    > chmod +x DependencyAgent-Linux64.bin
+    > ```
 
 1. Run the following command as root:
 
@@ -118,7 +120,7 @@ If Dependency Agent fails to start, check the logs for detailed error informatio
 1. Run the following command as root:
 
     ```bash
-    /opt/microsoft/dependency-agent/uninstall -s
+    sudo /opt/microsoft/dependency-agent/uninstall -s
     ```
 
 ## Dependency Agent Linux support
