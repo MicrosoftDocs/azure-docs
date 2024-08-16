@@ -62,7 +62,7 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
 
 1. On GitHub, fork the [azure-search-static-web-app repository](https://github.com/Azure-Samples/azure-search-static-web-app). 
 
-    Complete the fork process in your web browser with your GitHub account. This tutorial uses your fork as part of the deployment to an Azure Static Web App. 
+    Complete the [fork process](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) in your web browser with your GitHub account. This tutorial uses your fork as part of the deployment to an Azure Static Web App. 
 
 1. At a Bash terminal, download your forked sample application to your local computer. 
 
@@ -86,5 +86,5 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
 
 ## Next steps
 
-- [Create a Search Index and load with documents](tutorial-csharp-create-load-index.md)
+- [Create an index and load it with documents](tutorial-csharp-create-load-index.md)
 - [Deploy your Static Web App](tutorial-csharp-deploy-static-web-app.md)

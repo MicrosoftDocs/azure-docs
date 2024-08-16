@@ -24,14 +24,14 @@ Continue to build your search-enabled website by following these steps:
 - Create a new index
 - Load data
 
-Before you start, make sure you have room on your search service for a new index. The free tier limit is three indexes. The Basic tier limit is 15.
-
-## Prepare the bulk import script for Search
-
-The script uses [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) in the Azure SDK for .NET:
+The program uses [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) in the Azure SDK for .NET:
 
 - [NuGet package Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/)
 - [Reference Documentation](/dotnet/api/overview/azure/search)
+
+Before you start, make sure you have room on your search service for a new index. The free tier limit is three indexes. The Basic tier limit is 15.
+
+## Prepare the bulk import script for Search
 
 1. In Visual Studio Code, open the `Program.cs` file in the subdirectory, `azure-search-static-web-app/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK.
 
@@ -40,7 +40,9 @@ The script uses [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Se
 
     :::code language="csharp" source="~/azure-search-static-web-app/bulk-insert/Program.cs" :::
 
-1. Open an integrated terminal in Visual Studio Code for the project directory's subdirectory, `azure-search-static-web-app/bulk-insert`, then run the following command to install the dependencies. 
+1. Open an integrated terminal in Visual Studio Code for the project directory's subdirectory, `azure-search-static-web-app/bulk-insert`.
+
+1. Run the following command to install the dependencies. 
 
     ```bash
     dotnet restore
@@ -48,7 +50,7 @@ The script uses [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Se
 
 ## Run the bulk import script for Search
 
-1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory (`azure-search-static-web-app/bulk-insert`) to run the following bash command to run the `Program.cs` script:
+1. Still in the same subdirectory (`azure-search-static-web-app/bulk-insert`), run the program:
 
     ```bash
     dotnet run
