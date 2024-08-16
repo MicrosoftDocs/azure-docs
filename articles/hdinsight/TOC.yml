@@ -165,18 +165,48 @@ items:
         href: hdinsight-authorize-users-to-ambari.md
     - name: Migrate
       items:
-      - name: Motivation and benefits
-        href: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
-      - name: Best practices - architecture
-        href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-architecture.md
-      - name: Best practices - infrastructure
-        href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-infrastructure.md
-      - name: Best practices - storage
-        href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-storage.md
-      - name: Best practices - data migration
-        href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
-      - name: Best practices - security and DevOps
-        href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
+      - name: Hadoop
+        items:
+        - name: Motivation and benefits
+          href: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
+        - name: Best practices - architecture
+          href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-architecture.md
+        - name: Best practices - infrastructure
+          href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-infrastructure.md
+        - name: Best practices - storage
+          href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-storage.md
+        - name: Best practices - data migration
+          href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
+        - name: Best practices - security and DevOps
+          href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
+      - name: Kafka
+        items:
+        - name: Migrate Apache Kafka workloads to Azure HDInsight 5.1
+          href: ./kafka/migrate-5-1-versions.md
+        - name: Migrate Kafka workloads to 4.0
+          href: ./kafka/migrate-versions.md
+      - name: HBase
+        items:
+        - name: Migrate Apache HBase cluster to newer version
+          href: ./hbase/apache-hbase-migrate-new-version.md
+        - name: Migrate an Apache HBase cluster to an HDInsight 5.1
+          href: ./hbase/apache-hbase-migrate-hdinsight-5-1.md
+        - name: Migrate Apache HBase version and storage account
+          href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
+        - name: Migrate Apache HBase to an HDInsight 5.1 and new storage account
+          href: ./hbase/apache-hbase-migrate-hdinsight-5-1-new-storage-account.md
+      - name: Interactive Query
+        items:
+        - name: Migrate default Hive metastore to external metastore on Azure HDInsight
+          href: ./interactive-query/hive-default-metastore-export-import.md
+        - name: Migrate Hive workloads to HDInsight 4.0
+          href: ./interactive-query/apache-hive-migrate-workloads.md
+        - name: Copy Hive tables across Storage Accounts
+          href: ./interactive-query/hive-migration-across-storage-accounts.md 
+        - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
+          href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
+        - name: Significant version changes in HDInsight 4.0 and advantages
+          href: ./benefits-of-migrating-to-hdinsight-40.md    
     - name: Manage
       items:
       - name: Manage clusters using the Apache Ambari web UI
@@ -735,12 +765,6 @@ items:
         href: ./kafka/kafka-mirrormaker-2-0-guide.md
       - name: Connect HDInsight Kafka cluster with client VM in different VNet
         href: ./kafka/connect-kafka-with-vnet.md 
-    - name: Migrate
-      items:
-      - name: Migrate Apache Kafka workloads to Azure HDInsight 5.1
-        href: ./kafka/migrate-5-1-versions.md
-      - name: Migrate Kafka workloads to 4.0
-        href: ./kafka/migrate-versions.md   
     - name: Troubleshoot
       items:
       - name: Insufficient fault domains
@@ -803,17 +827,6 @@ items:
         href: ./hbase/apache-hbase-provision-vnet.md
       - name: Use Apache HBase HBCK2 Tool
         href: ./hbase/how-to-use-hbck2-tool.md
-    - name: Migrate
-      items:
-      - name: Migrate Apache HBase cluster to newer version
-        href: ./hbase/apache-hbase-migrate-new-version.md
-      - name: Migrate an Apache HBase cluster to an HDInsight 5.1
-        href: ./hbase/apache-hbase-migrate-hdinsight-5-1.md
-      - name: Migrate Apache HBase version and storage account
-        href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
-      - name: Migrate Apache HBase to an HDInsight 5.1 and new storage account
-        href: ./hbase/apache-hbase-migrate-hdinsight-5-1-new-storage-account.md
-
     - name: Troubleshoot
       items:
       - name: Troubleshoot Apache HBase performance issues
@@ -920,18 +933,6 @@ items:
       items:
       - name: Optimize Apache Hive queries
         href: ./hdinsight-hadoop-optimize-hive-query.md
-    - name: Migrate
-      items:
-      - name: Migrate default Hive metastore to external metastore on Azure HDInsight
-        href: ./interactive-query/hive-default-metastore-export-import.md
-      - name: Migrate Hive workloads to HDInsight 4.0
-        href: ./interactive-query/apache-hive-migrate-workloads.md
-      - name: Copy Hive tables across Storage Accounts
-        href: ./interactive-query/hive-migration-across-storage-accounts.md 
-      - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
-        href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
-      - name: Significant version changes in HDInsight 4.0 and advantages
-        href: ./benefits-of-migrating-to-hdinsight-40.md      
     - name: Troubleshoot
       items:
       - name: Apache Hive settings fix Out of Memory error
