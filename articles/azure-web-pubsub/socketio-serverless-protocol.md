@@ -9,7 +9,9 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-# Socket.IO Serverless Mode Spec
+# Socket.IO Serverless Mode Specification
+
+This documents describe the details of serverless support. As the Socket.IO supports including the serverless supports highly depends on the Web PubSub service's existing interface, it introduces many complicated transforming and mapping. For most users, we s
 
 ## Lifetime workflow
 
@@ -77,7 +79,7 @@ Client disconnects from a namespace or the corresponding Engine.IO connection cl
 
 A server can leverage RESTful APIs to manage Socket.IO clients and send message to clients as well. As Socket.IO reuses the Web PubSub service RESTful APIs, Socket.IO terminology will be transformed into Web PubSub terminology. The following documents will elaborate the transformation.
 
-### Terminology
+### Key Concept
 
 #### Namespace, Room and Group Mapping
 
