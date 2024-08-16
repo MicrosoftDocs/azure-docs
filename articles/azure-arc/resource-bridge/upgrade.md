@@ -1,13 +1,13 @@
 ---
 title: Upgrade Arc resource bridge
 description: Learn how to upgrade Arc resource bridge using either cloud-managed upgrade or manual upgrade.  
-ms.date: 12/07/2023
+ms.date: 08/16/2024
 ms.topic: how-to
 ---
 
 # Upgrade Arc resource bridge
 
-This article describes how Arc resource bridge is upgraded, and the two ways upgrade can be performed: cloud-managed upgrade or manual upgrade. Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades. 
+This article describes how Arc resource bridge is upgraded, and the two ways upgrade can be performed: cloud-managed upgrade or manual upgrade. Currently, some private cloud providers differ in how they handle Arc resource bridge upgrades.
 
 ## Private cloud providers
 Currently, private cloud providers differ in how they perform Arc resource bridge upgrades. Review the following information to see how to upgrade your Arc resource bridge for a specific provider.
@@ -88,7 +88,7 @@ To upgrade a resource bridge on Azure Stack HCI, please transition to 23H2 and u
 
 ## Version releases
 
-The Arc resource bridge version is tied to the versions of underlying components used in the appliance image, such as the Kubernetes version. When there's a change in the appliance image, the Arc resource bridge version gets incremented. This generally happens when a new `az arcappliance` CLI extension version is released. A new extension is typically released on a monthly cadence at the end of the month or early in the month. For detailed release info, see the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
+The Arc resource bridge version is tied to the versions of underlying components used in the appliance image, such as the Kubernetes version. When there's a change in the appliance image, the Arc resource bridge version gets incremented. This generally happens when a new `az arcappliance` CLI extension version is released. A new extension is typically released on a monthly cadence at the end of the month or early in the month. For detailed release info, see the [Arc resource bridge release notes](release-notes).
 
 ## Supported versions
 
@@ -103,7 +103,7 @@ For example, if the current version is 1.0.18, then the typical n-3 supported ve
 
 There might be instances where supported versions aren't sequential. For example, version 1.0.18 is released and later found to contain a bug. A hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
 
-Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month, although it's possible that delays could push the release date further out. Regardless of when a new release comes out, if you're within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub.
+Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month, although it's possible that delays could push the release date further out. Regardless of when a new release comes out, if you're within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](release-notes.md).
 
 If a resource bridge isn't upgraded to one of the supported versions (n-3), then it will fall outside the support window and be unsupported. If this happens, it might not always be possible to upgrade an unsupported resource bridge to a newer version, as component services used by Arc resource bridge could no longer be compatible. In addition, the unsupported resource bridge might not be able to provide reliable monitoring and health metrics.
 
