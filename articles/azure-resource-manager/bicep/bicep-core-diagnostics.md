@@ -61,7 +61,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP052' />[BCP052](./diagnostics/bcp052.md)     | Error/Warning | The type \<type-name> doesn't contain property \<property-name>. |
 | <a id='BCP053' />[BCP053](./diagnostics/bcp053.md) | Error/Warning | The type \<type-name> doesn't contain property \<property-name>. Available properties include \<property-names>. |
 | BCP054     | Error | The type "{type}" doesn't contain any properties. |
-| BCP055     | Error | Can't access properties of type "{wrongType}". An "{LanguageConstants.Object}" type is required. |
+| <a id='BCP055' />[BCP055](./diagnostics/bcp055.md) | Error | Can't access properties of type "{wrongType}". An "{LanguageConstants.Object}" type is required. |
 | BCP056     | Error | The reference to name "{name}" is ambiguous because it exists in namespaces {ToQuotedString(namespaces)}. The reference must be fully qualified. |
 | <a id='BCP057' />[BCP057](./diagnostics/bcp057.md) | Error | The name \<name> doesn't exist in the current context. |
 | BCP059     | Error | The name "{name}" isn't a function. |

@@ -626,6 +626,8 @@
       href: diagnostics/bcp052.md
     - name: BCP053
       href: diagnostics/bcp053.md
+    - name: BCP055
+      href: diagnostics/bcp055.md      
     - name: BCP057
       href: diagnostics/bcp057.md
     - name: BCP062
@@ -660,6 +662,8 @@
       href: diagnostics/bcp332.md
     - name: BCP333
       href: diagnostics/bcp333.md
+    - name: BCP338
+      href: diagnostics/bcp338.md      
     - name: BCP401
       href: diagnostics/bcp401.md
   - name: Azure CLI
