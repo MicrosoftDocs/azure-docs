@@ -135,7 +135,7 @@ Following is the list of supported images and no other marketplace images releas
 || aviatrix-companion-gateway-v13 | aviatrix-companion-gateway-v13,</br> aviatrix-companion-gateway-v13u|
 || aviatrix-companion-gateway-v14 | aviatrix-companion-gateway-v14,</br> aviatrix-companion-gateway-v14u |
 || aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16|
-| belindaczsro1588885355210 |belvmsrv01 || belvmsrv003||rds-farm-2019||rds-farm-2019|| 
+| belindaczsro1588885355210 |belvmsrv01 || belvmsrv003|| 
 | cloudera | cloudera-centos-os||7_5||
 | cloud-infrastructure-services |rds-farm-2019||rds-farm-2019|
 || ad-dc-2019||ad-dc-2019 |
