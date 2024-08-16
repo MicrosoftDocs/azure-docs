@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: overview
-ms.date: 08/10/2024
+ms.date: 08/16/2024
 ---
 
 # What are Azure Extended Zones (Preview)?
@@ -37,12 +37,20 @@ The following diagram shows how Azure services are deployed at the Azure Extende
 
 The following table lists key services that are available in Azure Extended Zones:
 
-| Service category | Available services |
+| Service category | Available Azure services and features |
 | ------------------ | ------------------- |
-| **Compute** | Azure virtual machines (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series) <br> Virtual Machine Scale Sets <br> Azure Kubernetes Service |
-| **Networking** | Azure Private Link <br> Standard public IP <br> Virtual networks <br> Virtual network peering <br> ExpressRoute <br> Azure Standard Load Balancer <br> DDoS (Standard protection) |
-| **Storage** | Azure managed disks <br> Azure Premium Page Blobs <br> Azure Premium Block Blobs <br> Azure Premium Files <br>  Azure Data Lake Storage Gen2<br> Hierarchical Namespace <br>Azure Data Lake Storage Gen2 Flat Namespace <br> Change Feed <br> Blob Features <br> - SFTP <br> - NFS |
+| **Compute** | Azure Kubernetes Service <br> Azure Virtual Desktop <br> Virtual Machine Scale Sets <br> Virtual machines (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series)  |
+| **Networking** | DDoS (Standard protection) <br> ExpressRoute <br> Private Link <br> Standard Load Balancer <br> Standard public IP <br> Virtual Network <br> Virtual network peering      |
+| **Storage** | Managed disks <br> Premium Page Blobs <br> Premium Block Blobs <br> Premium Files <br> Data Lake Storage Gen2<br> Hierarchical Namespace <br>Data Lake Storage Gen2 Flat Namespace <br> Change Feed <br> Blob Features <br> - SFTP <br> - NFS |
 | **BCDR** | Azure Site Recovery <br> Azure Backup |
+
+## Availability
+
+Currently, Los Angeles is the only available Extended Zone to test.
+
+## Pricing
+
+Currently, resources created in Los Angeles Extended Zone aren't billed. However, any resources you create in the parent region to use with Extended Zone resources are subject to charges. For example, if you create a virtual machine in Los Angeles with a network security group in West US, you'll only be billed for the network security group.
 
 ## Frequently asked questions (FAQ)
 
