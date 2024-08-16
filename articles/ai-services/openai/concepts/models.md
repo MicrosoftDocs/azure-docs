@@ -229,6 +229,7 @@ The following models support global batch:
 
 | Model | Version | Input format |
 |---|---|
+|`gpt-4o-mini`| 2024-07-18 | text + image |
 |`gpt-4o` | 2024-05-13 |text + image |
 |`gpt-4` | turbo-2024-04-09 | text |
 |`gpt-4` | 0613 | text |
