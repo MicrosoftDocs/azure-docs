@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: Understand how threat intelligence feeds are connected to, managed, and used in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
 author: austinmccollum
 ms.topic: concept-article
-ms.date: 3/06/2024
+ms.date: 8/16/2024
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal

@@ -5,7 +5,7 @@ keywords: premium, TI, STIX objects, relationships, threat actor, watchlist, lic
 description: Learn how to ingest Microsoft's threat intelligence into your Sentinel workspace to generate high fidelity alerts and incidents.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 3/14/2024
+ms.date: 8/16/2024
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal
