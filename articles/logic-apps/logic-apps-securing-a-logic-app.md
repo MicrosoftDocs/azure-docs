@@ -671,7 +671,7 @@ In a Consumption workflow that starts with a request-based trigger, you can auth
 
 When your logic app workflow receives an inbound request that includes an OAuth access token, Azure Logic Apps compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
 
-In a Standard logic app workflow that starts with the **Request** trigger (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by the **Request** trigger by using a managed identity. This provision is also known as "**Easy Auth**". For more information, see [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
+In a Standard workflow that starts with the **Request** trigger (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by the **Request** trigger by using a managed identity. This provision is also known as "**Easy Auth**". For more information, see [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
 
 <a name="considerations-before-you-enable-azure-ad-oauth"></a>
 
@@ -679,11 +679,11 @@ In a Standard logic app workflow that starts with the **Request** trigger (but n
 
 * For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. This option provides superior security without having to provide credentials. Azure manages this identity and helps keep authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
 
-* In Consumption workflows, inbound calls to the endpoint URL for a request-based trigger can use only one authorization scheme, either [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) or [Shared Access Signature (SAS)](#sas). Although using one scheme doesn't disable the other scheme, if you use both schemes at the same time, Azure Logic Apps generates an error because the service doesn't know which scheme to choose. If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas). For Standard workflows, you can use other authentication types without disabling SAS.
+* In Consumption workflows, inbound calls to the endpoint URL for a request-based trigger can use only one authorization scheme, either [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) or [Shared Access Signature (SAS)](#sas). Although using one scheme doesn't disable the other scheme, if you use both schemes at the same time, Azure Logic Apps generates an error because the service doesn't know which scheme to choose. If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas). You can also [limit restrict authentication to use only OAuth 2.0 with Microsoft Entra ID]. For Standard workflows, you can use other authentication types without disabling SAS.
 
 * Azure Logic Apps supports either the [bearer type](/entra/identity-platform/v2-protocols#tokens) or [proof-of-possession type (Consumption logic app only)](/entra/msal/dotnet/advanced/proof-of-possession-tokens) authorization schemes for Microsoft Entra ID OAuth access tokens. However, the `Authorization` header for the access token must specify either the `Bearer` type or `PoP` type. For more information about how to get and use a PoP token, see [Get a Proof of Possession (PoP) token](#get-pop).
 
-* Your logic app resource is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](/entra/identity-platform/developer-glossary#claim). For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#authentication-limits).
+* Your Consumption logic app resource is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](/entra/identity-platform/developer-glossary#claim). For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#authentication-limits).
 
 * An authorization policy must include at least the **Issuer** claim, which has a value that starts with either **`https://sts.windows.net/`** or **`https://login.microsoftonline.com/`** (OAuth V2) as the issuer for Microsoft Entra ID.
 
@@ -730,9 +730,11 @@ In a Standard logic app workflow that starts with the **Request** trigger (but n
    }
    ```
 
-<a name="enable-azure-ad-oauth-as-the-only-option-to-call-a-request-endpoint"></a>
+<a name="enable-oauth-only-option"></a>
 
-#### Enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request endpoint
+#### Enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request endpoint (Consumption only)
+
+For request-based endpoints, you can restrict authentication to use only [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2). This option works even if you also [disable shared access signature (SAS) authentication](#disable-sas).
 
 1. For your Consumption workflow, set up your **Request** trigger or **HTTP Webhook** trigger with the capability to check the OAuth access token by [following the steps to include the 'Authorization' header in the Request or HTTP webhook trigger outputs](#include-auth-header).
 
@@ -926,7 +928,9 @@ Each endpoint URL includes query parameters, which the following table describes
 > which is secured with [Microsoft Entra ID](/entra/identity/authentication/overview-authentication), 
 > rather than an account key.
 
-Inbound calls to a request-based trigger endpoint can use only one authorization scheme, either SAS or [OAuth with Microsoft Entra ID](#enable-oauth). Although using one scheme doesn't disable the other, if you use both schemes at the same time, Azure Logic Apps generates an error because the service doesn't know which scheme to choose. If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas). For Standard workflows, you can use other authentication types without disabling SAS.
+Inbound calls to a request-based trigger endpoint can use only one authorization scheme, either SAS or [OAuth 2.0 with Microsoft Entra ID](#enable-oauth). Although using one scheme doesn't disable the other, if you use both schemes at the same time, Azure Logic Apps generates an error because the service doesn't know which scheme to choose. If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas). This option works even if you also [restrict authentication to use only OAuth 2.0 with Microsoft Entra ID](#enable-oath-only-option).
+
+For Standard workflows, you can use other authentication types without disabling SAS.
 
 > [!IMPORTANT]
 >
