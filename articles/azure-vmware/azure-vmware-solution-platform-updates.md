@@ -13,7 +13,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## August 2024
 
-All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0. [Learn more](/azure/azure-vmware/architecture-private-clouds)
+All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version. [Learn more](/azure/azure-vmware/architecture-private-clouds)
 
 ## May 2024
 
