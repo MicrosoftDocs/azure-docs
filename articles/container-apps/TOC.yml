@@ -325,8 +325,6 @@
           href: user-defined-routes.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
-    - name: Network proxying
-      href: network-proxy.md
     - name: Use a custom VNET
       href: vnet-custom.md
 - name: Languages and runtimes
