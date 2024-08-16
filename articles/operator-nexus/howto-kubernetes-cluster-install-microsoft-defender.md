@@ -43,4 +43,4 @@ In the Azure CLI command, the cluster-name refers to the ARC connected cluster, 
 
 Reference the documentation here on how to [simulate security alerts](/azure/defender-for-cloud/alert-validation#simulate-alerts-on-kubernetes-) for Microsoft Defender for Containers. This simulation has been performed on a Nexus Kubernetes Cluster and the corresponding alert appeared in the Microsoft Defender for Cloud Dashboard in the Azure portal:
 
-  :::image type="content" source="media/defender_for_cloud_alerts.png" alt-text="Screenshot of Security Alerts in Microsoft Defender for Cloud Dashboard in the Azure portal.":::
+[ ![Screenshot of Security Alerts in Microsoft Defender for Cloud Dashboard in the Azure portal.](media/defender-for-cloud-alerts.png)](media/defender-for-cloud-alerts.png#lightbox)
