@@ -10,11 +10,9 @@ ms.date: 6/12/2024
 # Upgrade to App Service Environment v3
 
 > [!IMPORTANT]
-> If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Failure to migrate by that date will result in loss of the environments, running applications, and all application data. 
+> If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/v2/App-Service-Environment-v1v2-Retirement-Update). After that date, decommissioning of the App Service Environment v1 and v2 hardware will begin, and this may affect the availability and performance of your apps and data. Service Level Agreement (SLA) and Service Credits will no longer apply for App Service Environment v1 and v2 workloads that continue to be in production after 31 August 2024.  
 >
->At this time, the recommendation for all App Service Environment v1 and v2 users is to migrate to App Service Environment v3. If you'd like to explore the [public multi-tenant offering of App Service](../../app-service/overview.md), you can do so once your migration to App Service Environment v3 is complete. There are feature differences and functionality gaps between App Service Environment v3 and the public multi-tenant offering of App Service. Due to these differences, and with the retirement of App Service Environment v1 and v2 on 31 August 2024, we recommend migrating to App Service Environment v3.
->
-> As of [29 January 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-4/), you can no longer create new App Service Environment v1 and v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API.
+> You must complete migration to App Service Environment v3 before 31 August 2024 or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios. 
 >
 > For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
@@ -75,6 +73,12 @@ When migrating to App Service Environment v3, we map App Service plan tiers as f
 Use the following decision tree to determine which migration path is right for you. The recommendation for all customers is to use the in-place migration feature if your App Service Environment meets the criteria for an automated migration. In-place migration is the simplest and fastest way to upgrade to App Service Environment v3.
 
 :::image type="content" source="./media/migration/migration-path-decision-tree.png" alt-text="Screenshot of the decision tree for helping decide which App Service Environment upgrade option to use." lightbox="./media/migration/migration-path-decision-tree-expanded.png":::
+
+### Post-retirement date activities
+
+After 31 August 2024, decommissioning of the App Service Environment v1 and v2 hardware will begin, and this may affect the availability and performance of your apps and data. Additionally, since these products will be retired, after the official retirement on 31 August 2024, Service Level Agreement (SLA) and Service Credits will no longer apply for App Service Environment v1 and v2 workloads that continue to be in production.  
+
+You must complete migration to App Service Environment v3 as soon as possible or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios. 
 
 ### Cost saving opportunities after upgrading to App Service Environment v3
 

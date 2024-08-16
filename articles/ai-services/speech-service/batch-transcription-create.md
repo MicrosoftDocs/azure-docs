@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 7/16/2024
+ms.date: 8/14/2024
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 # Customer intent: As a user who implements audio transcription, I want create transcriptions in bulk so that I don't have to submit audio content repeatedly.
@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 With batch transcriptions, you submit [audio data](batch-transcription-audio-data.md) in a batch. The service transcribes the audio data and stores the results in a storage container. You can then [retrieve the results](batch-transcription-get.md) from the storage container.
 
 > [!IMPORTANT]
-> New pricing is in effect for batch transcription by using [Speech to text REST API v3.2](./migrate-v3-1-to-v3-2.md). For more information, see the [pricing guide](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
+> New pricing is in effect for batch transcription that uses the [speech to text REST API v3.2](./migrate-v3-1-to-v3-2.md). For more information, see the [pricing guide](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ You need a standard (S0) Speech resource. Free resources (F0) aren't supported.
 
 ::: zone pivot="rest-api"
 
-To create a transcription, use the [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create) operation of the [Speech to text REST API](rest-speech-to-text.md#batch-transcription). Construct the request body according to the following instructions:
+To create a batch transcription job, use the [Transcriptions_Create](/rest/api/speechtotext/transcriptions/create) operation of the [speech to text REST API](rest-speech-to-text.md#batch-transcription). Construct the request body according to the following instructions:
 
 - You must set either the `contentContainerUrl` or `contentUrls` property. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
 - Set the required `locale` property. This value should match the expected locale of the audio data to transcribe. You can't change the locale later.
@@ -109,7 +109,7 @@ Call [Transcriptions_Delete](/rest/api/speechtotext/transcriptions/delete)
 regularly from the service, after you retrieve the results. Alternatively, set the `timeToLive` property to ensure the eventual deletion of the results.
 
 > [!TIP]
-> You can also try the Batch Transcription API using Python on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/batch/python/python-client/main.py).
+> You can also try the Batch Transcription API using Python, C#, or Node.js on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
 
 
 ::: zone-end
@@ -118,14 +118,14 @@ regularly from the service, after you retrieve the results. Alternatively, set t
 
 To create a transcription, use the `spx batch transcription create` command. Construct the request parameters according to the following instructions:
 
-- Set the required `content` parameter. You can specify a semi-colon delimited list of individual files or the URL for an entire container. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
+- Set the required `content` parameter. You can specify a comma delimited list of individual files or the URL for an entire container. For more information about Azure blob storage for batch transcription, see [Locate audio files for batch transcription](batch-transcription-audio-data.md).
 - Set the required `language` property. This value should match the expected locale of the audio data to transcribe. You can't change the locale later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
 - Set the required `name` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
 
 Here's an example Speech CLI command that creates a transcription job:
 
 ```azurecli
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav,https://crbn.us/whatstheweatherlike.wav
 ```
 
 You should receive a response body in the following format:
@@ -236,7 +236,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 ::: zone pivot="speech-cli"
 
 ```azurecli
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/5988d691-0893-472c-851e-8e36a0fe7aaf"
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav,https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/5988d691-0893-472c-851e-8e36a0fe7aaf"
 ```
 
 ::: zone-end
@@ -260,7 +260,7 @@ To use a Whisper model for batch transcription, you need to set the `model` prop
 > [!IMPORTANT]
 > For Whisper models, you should always use [version 3.2](./migrate-v3-1-to-v3-2.md) of the speech to text API.
 
-Whisper models by batch transcription are supported in the Australia East, Central US, East US, North Central US, South Central US, Southeast Asia, and West Europe regions.
+Batch transcription using Whisper models is supported in the Australia East, Central US, East US, North Central US, South Central US, Southeast Asia, and West Europe regions.
 
 ::: zone pivot="rest-api"
 You can make a [Models_ListBaseModels](/rest/api/speechtotext/models/list-base-models) request to get available base models for all locales.
@@ -323,9 +323,9 @@ The `displayName` property of a Whisper model contains "Whisper" as shown in thi
 },
 ```
 
-You set the full model URI as shown in this example for the `eastus` region. Replace `YourSubscriptionKey` with your Speech resource key. Replace `eastus` if you're using a different region.
-
 ::: zone pivot="rest-api"
+
+You set the full model URI as shown in this example for the `eastus` region. Replace `YourSubscriptionKey` with your Speech resource key. Replace `eastus` if you're using a different region.
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
@@ -348,8 +348,10 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 
 ::: zone pivot="speech-cli"
 
+You set the full model URI as shown in this example for the `eastus` region. Replace `eastus` if you're using a different region.
+
 ```azurecli
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950" --api-version v3.2
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav,https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950" --api-version v3.2
 ```
 
 ::: zone-end
