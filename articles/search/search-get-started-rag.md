@@ -6,7 +6,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/22/2024
+ms.date: 08/16/2024
 ---
 
 # Quickstart: Generative search (RAG) with grounding data from Azure AI Search
@@ -35,11 +35,11 @@ Requests to the search endpoint must be authenticated and authorized. You can us
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Configure Azure OpenAI to use a system-assigned managed identity:
+1. Configure Azure AI Search to use a system-assigned managed identity:
 
-    1. In the Azure portal, find your Azure OpenAI resource.
+    1. In the Azure portal, [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
  
-    1. On the left menu, select **Resource management** > **Identity**.
+    1. On the left menu, select **Settings** > **Identity**.
 
     1. On the System assigned tab, set status to **On**.
 
@@ -53,12 +53,13 @@ Requests to the search endpoint must be authenticated and authorized. You can us
 
     1. On the left menu, select **Access control (IAM)**.
 
-    1. On Azure AI Search, add two role assignments for the Azure OpenAI managed identity: 
+    1. On Azure AI Search, make sure you have permissions to create, load, and query a search index:
 
        - **Search Index Data Reader**
+       - **Search Index Data Contributor**
        - **Search Service Contributor**
 
-    1. On Azure OpenAI, select **Access control (IAM)** to assign yourself to a role. The code for this quickstart runs locally. Requests to Azure OpenAI originate from your system: 
+    1. On Azure OpenAI, select **Access control (IAM)** to assign yourself and the search service identity permissions on Azure OpenAI. The code for this quickstart runs locally. Requests to Azure OpenAI originate from your system. Also, search results from the search engine are passed to Azure OpenAI. For these reasons, both you and the search service need permissions on Azure OpenAI.
 
        - **Cognitive Services OpenAI User**
 
@@ -165,6 +166,7 @@ This section uses Visual Studio Code and Python to call the chat completion APIs
    ! pip install azure-search-documents==11.6.0b4 --quiet
    ! pip install azure-identity==1.16.0 --quiet
    ! pip install openai --quiet
+   ! pip intall aiohttp --quiet
    ```
 
 1. Set the following variables, substituting placeholders with the endpoints you collected in the previous step. 
@@ -175,7 +177,7 @@ This section uses Visual Studio Code and Python to call the chat completion APIs
     AZURE_DEPLOYMENT_MODEL: str = "gpt-35-turbo"
    ```
 
-1. Run the following code to set query parameters. The query is a keyword search using semantic ranking. In a keyword search, the search engine returns up to 50 matches, but only the top 5 are provided to the model. If you can't enable semantic ranking on your search service, set the value to false.
+1. Run the following code to set query parameters. The query is a keyword search using semantic ranking. In a keyword search, the search engine returns up to 50 matches, but only the top 5 are provided to the model. If you can't [enable semantic ranking](semantic-how-to-enable-disable.md) on your search service, set the value to false.
 
    ```python
    # Set query parameters for grounding the conversation on your search index
@@ -307,6 +309,8 @@ This section uses Visual Studio Code and Python to call the chat completion APIs
     
     Several other hotels have views and water features, but do not offer beach access or views of the ocean.
     ```
+
+    If you get an authorization error message, wait a few minutes and try again. It can take several minutes for role assignments to become operational.
 
     To experiment further, change the query and rerun the last step to better understand how the model works with your data.
 
