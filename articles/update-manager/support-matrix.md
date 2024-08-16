@@ -94,7 +94,7 @@ Following is the list of supported images and no other marketplace images releas
 
 | **Publisher**| **Offer** | **SKU**| **Plan** |**Unsupported image(s)** |
 |----------|-------------|-----| ---| --- |
-|canonical | * | *||
+|canonical | * | *|||
 |microsoftsqlserver | * | * | |**Offers**: sql2019-sles* </br> sql2019-rhel7 </br> sql2017-rhel 7 </br></br> Example  </br> Publisher: </br> microsoftsqlserver </br> Offer: sql2019-sles12sp5 </br> sku:webARM </br></br> Publisher: microsoftsqlserver </br> Offer: sql2019-rhel7 </br> sku: web-ARM | 
 |microsoftsqlserver | * | *||**Offers**:  sql2019-sles*</br> sql2019-rhel7 </br> sql2017-rhel7 |
 |microsoftcblmariner | cbl-mariner | cbl-mariner-1 </br> 1-gen2 </br> cbl-mariner-2 </br> cbl-mariner-2-gen2. | |
