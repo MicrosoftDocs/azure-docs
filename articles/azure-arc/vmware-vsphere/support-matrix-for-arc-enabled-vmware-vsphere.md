@@ -2,7 +2,7 @@
 title: Plan for deployment
 description: Learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements, and more.
 ms.topic: how-to 
-ms.date: 04/23/2024
+ms.date: 08/16/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: PriskeyJeronika-MS
@@ -43,7 +43,7 @@ You need a vSphere account that can:
 
 For Arc-enabled VMware vSphere, resource bridge has the following minimum virtual hardware requirements:
 
-- 16 GB of memory
+- 8 GB of memory
 - 4 vCPUs
 - An external virtual switch that can provide access to the internet directly or through a proxy. If internet access is through a proxy or firewall, ensure [these URLs](#resource-bridge-networking-requirements) are allow-listed.
 

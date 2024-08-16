@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge system requirements
 description: Learn about system requirements for Azure Arc resource bridge.
 ms.topic: conceptual
-ms.date: 08/13/2024
+ms.date: 05/22/2024
 ---
 
 # Azure Arc resource bridge system requirements
@@ -31,8 +31,10 @@ Arc Appliance CLI extension, `arcappliance`, needs to be installed on the CLI. T
 
 Arc resource bridge has the following minimum resource requirements:
 
--	A resource pool or a cluster with a minimum capacity of 8 GB of RAM and 4 vCPUs.
--	A datastore with a minimum of 200 GB of free disk space or 400 GB for High Availability deployment available through the resource pool or cluster.
+- 200 GB disk space
+- 4 vCPUs
+- 8 GB memory
+- supported storage configuration - hybrid storage (flash and HDD) or all-flash storage (SSDs or NVMe)
 
 
 These minimum requirements enable most scenarios for products that use Arc resource bridge. Review the product's documentation for specific resource requirements. Failure to provide sufficient resources may cause errors during deployment or upgrade. 
