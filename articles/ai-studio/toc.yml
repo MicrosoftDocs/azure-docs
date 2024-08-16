@@ -92,20 +92,14 @@ items:
         href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
     - name: Phi 3 family models
       items:
-        - name: Phi-3.5 models
-          items:
-          - name: Phi-3.5 chat models
-            href: how-to/deploy-models-phi-3-5.md
-          - name: Phi-3.5 chat models with vision
-            href: how-to/deploy-models-phi-3-5-vision.md
-        - name: Phi-3 models
-          items:
-          - name: Phi-3 chat models
-            href: how-to/deploy-models-phi-3.md
-          - name: Phi-3 chat models with vision
-            href: how-to/deploy-models-phi-3-vision.md
-          - name: Fine-tune Phi-3 chat models
-            href: how-to/fine-tune-phi-3.md
+        - name: Phi 3 family chat models
+          href: how-to/deploy-models-phi-3.md
+        - name: Phi-3 chat model with vision
+          href: how-to/deploy-models-phi-3-vision.md
+        - name: Phi-3.5 chat model with vision
+          href: how-to/deploy-models-phi-3-5-vision.md
+        - name: Fine-tune Phi-3 chat models
+          href: how-to/fine-tune-phi-3.md
     - name: Cohere models
       items:
       - name: Cohere Command models
