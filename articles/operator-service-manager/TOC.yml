@@ -30,6 +30,11 @@
         href: concepts-cli-containerized-network-function-image-upload.md
       - name: Exposing parameters in a configuration group schema
         href: concepts-expose-parameters-configuration-group-schema.md
+  - name: Safe Upgrade Practices
+    expanded: false
+    items:
+      - name: Getting Started with Safe Upgrade Practices
+        href: safe-upgrade-practices.md
 - name: Quickstarts
   expanded: false
   items:
