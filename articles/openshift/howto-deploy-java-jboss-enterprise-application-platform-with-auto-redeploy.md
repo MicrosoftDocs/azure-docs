@@ -36,9 +36,9 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
 Use the following steps to create a service principal:
 
-1. Create a service principal by using the following command on your local terminal:
+1. Create a service principal by using the following command:
 
-   ```bash
+   ```azurecli
    az ad sp create-for-rbac --name "sp-aro-s2i-$(date +%s)"
    ```
 
@@ -139,7 +139,7 @@ If you navigated away from the **Deployment is in progress** page, use the follo
 
 1. Open your local terminal, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
 
-   ```bash
+   ```azurecli
    az aro list-credentials -g eaparo033123rg -n aro-cluster
    ```
 

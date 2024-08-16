@@ -174,7 +174,7 @@ Next, use the following steps to create an Azure Database for MySQL - Flexible S
 
 1. Use the following command to create an Azure Database for MySQL - Flexible Server:
 
-   ```bash
+   ```azurecli
    az mysql flexible-server create \
        --resource-group ${RG_NAME} \
        --name ${SERVER_NAME} \
@@ -205,7 +205,7 @@ Next, use the following steps to create an Azure Database for MySQL - Flexible S
 
 1. Use the following commands to get the host of the created MySQL server:
 
-   ```bash
+   ```azurecli
    DB_HOST=$(az mysql flexible-server show \
        --resource-group ${RG_NAME} \
        --name ${SERVER_NAME} \
@@ -218,7 +218,7 @@ Next, use the following steps to create an Azure Database for MySQL - Flexible S
 
 1. Use the following command to create a temporary firewall rule to allow connection to the MySQL server from the public internet:
 
-   ```bash
+   ```azurecli
    az mysql flexible-server firewall-rule create \
        --resource-group ${RG_NAME} \
        --name ${SERVER_NAME} \
@@ -239,7 +239,7 @@ Next, use the following steps to create an Azure Database for MySQL - Flexible S
 
 1. Use the following command to delete the temporary firewall rule:
 
-   ```bash
+   ```azurecli
    az mysql flexible-server firewall-rule delete \
        --resource-group ${RG_NAME} \
        --name ${SERVER_NAME}  \
@@ -269,7 +269,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 1. Open the shell, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
 
-   ```bash
+   ```azurecli
    az aro list-credentials --resource-group eaparo033123rg --name clusterf9e8b9
    ```
 
@@ -301,7 +301,7 @@ Next, use the following steps to connect to the OpenShift cluster using the Open
 
 1. Paste the value from the **cmdToLoginWithKubeadmin** field into the shell, and execute it. You should see the `login successful` message and the project you're using. The following content is an example of the command to connect to the OpenShift cluster using the OpenShift CLI.
 
-   ```bash
+   ```azurecli
    oc login \
        $(az aro show \
            --resource-group ${RG_NAME} \

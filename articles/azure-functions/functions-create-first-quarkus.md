@@ -305,9 +305,9 @@ Now that you've opened your Azure function in the portal, here are more features
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following command on your local terminal:
+If you don't need these resources, you can delete them by running the following command:
 
-```bash
+```azurecli
 az group delete --name <yourResourceGroupName> --yes
 ```
 
