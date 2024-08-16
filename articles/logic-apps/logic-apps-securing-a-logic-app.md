@@ -679,7 +679,7 @@ In a Standard workflow that starts with the **Request** trigger (but not a webho
 
 * For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. This option provides superior security without having to provide credentials. Azure manages this identity and helps keep authentication information secure so that you don't have to manage this sensitive information. To set up a managed identity for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](authenticate-with-managed-identity.md).
 
-* In Consumption workflows, inbound calls to the endpoint URL for a request-based trigger can use only one authorization scheme, either [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) or [Shared Access Signature (SAS)](#sas). Although using one scheme doesn't disable the other scheme, if you use both schemes at the same time, Azure Logic Apps generates an error because the service doesn't know which scheme to choose. If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas). You can also [limit restrict authentication to use only OAuth 2.0 with Microsoft Entra ID]. For Standard workflows, you can use other authentication types without disabling SAS.
+* In Consumption workflows, inbound calls to the endpoint URL for a request-based trigger can use only one authorization scheme, either [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) or [Shared Access Signature (SAS)](#sas). Although using one scheme doesn't disable the other scheme, if you use both schemes at the same time, Azure Logic Apps generates an error because the service doesn't know which scheme to choose. If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas) as well as [restrict authorization to use only OAuth 2.0 with Microsoft Entra ID](#enable-oauth-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
 
 * Azure Logic Apps supports either the [bearer type](/entra/identity-platform/v2-protocols#tokens) or [proof-of-possession type (Consumption logic app only)](/entra/msal/dotnet/advanced/proof-of-possession-tokens) authorization schemes for Microsoft Entra ID OAuth access tokens. However, the `Authorization` header for the access token must specify either the `Bearer` type or `PoP` type. For more information about how to get and use a PoP token, see [Get a Proof of Possession (PoP) token](#get-pop).
 
@@ -734,7 +734,7 @@ In a Standard workflow that starts with the **Request** trigger (but not a webho
 
 #### Enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request endpoint (Consumption only)
 
-For request-based endpoints, you can restrict authentication to use only [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2). This option works even if you also [disable shared access signature (SAS) authentication](#disable-sas).
+For request-based endpoints, you can restrict authorization to use only [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2). This option works even if you also [disable shared access signature (SAS) authentication](#disable-sas).
 
 1. For your Consumption workflow, set up your **Request** trigger or **HTTP Webhook** trigger with the capability to check the OAuth access token by [following the steps to include the 'Authorization' header in the Request or HTTP webhook trigger outputs](#include-auth-header).
 
@@ -742,7 +742,7 @@ For request-based endpoints, you can restrict authentication to use only [OAuth 
    >
    > This step makes the `Authorization` header visible in the workflow's run history and in the trigger's outputs.
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption workflow in the designer.
 
 1. On the designer, select the trigger. On the information pane that opens, select **Settings**.
 
@@ -904,23 +904,31 @@ For more information, review these topics:
 
 ### Generate a shared access signature (SAS) key or token
 
-A request-based trigger in a logic app workflow creates a callable endpoint to receive inbound requests that start the workflow. The URL for this endpoint includes a [Shared Access Signature (SAS)](/rest/api/storageservices/constructing-a-service-sas), which is a key or token that grants permissions, for example, to storage services. This URL uses the following format:
+When a workflow starts with a request-based trigger, and you save that workflow for the first time, Azure Logic Apps creates a callable endpoint on that trigger. This endpoint has a URL that can receive inbound calls or requests to start the workflow. The URL includes a [Shared Access Signature (SAS)](/rest/api/storageservices/constructing-a-service-sas), which is a key or token that grants permissions, for example, to storage services. This endpoint URL uses the following format:
 
 **`https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`**
 
-Each endpoint URL includes query parameters, which the following table describes:
+For example, to view this URL in a **Request** trigger, find the trigger's **HTTP URL** property:
+
+:::image type="content" source="media/logic-apps-securing-a-logic-app/request-trigger-url.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and Request trigger endpoint URL." lightbox="media/logic-apps-securing-a-logic-app/request-trigger-url.png":::
+
+The complete URL looks like the following example:
+
+**`https://{domain}:443/workflows/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ`**
+
+The SAS in the URL has query parameters, which the following table describes:
 
 | Query parameter | Description |
 |-----------------|-------------|
-| `sp` | Specifies permissions for the allowed HTTP methods to use. |
-| `sv` | Specifies the SAS version to use for generating the signature. |
-| `sig` | Specifies the signature to use for authenticating access to the trigger. This signature is generated by using the SHA256 algorithm with a secret access key on all the URL paths and properties. This key is kept encrypted, stored with the logic app, and is never exposed or published. Your logic app authorizes only those triggers that contain a valid signature created with the secret key. |
+| **`sp`** | Specifies permissions for the allowed HTTP methods to use. |
+| **`sv`** | Specifies the SAS version to use for generating the signature. |
+| **`sig`** | Specifies the signature to use for authenticating access to the trigger. This signature is generated by using the SHA256 algorithm with a secret access key on all the URL paths and properties. This key is kept secret and encrypted, stored with the logic app, and is never exposed or published. Your logic app authorizes only those triggers that contain a valid signature created with the secret key. |
 
 > [!CAUTION]
 >
 > Make sure to protect an SAS just as you would protect an account key from unauthorized use. 
-> Set up or have a plan in place for revoking a compromised SAS. Employ discretion in 
-> distributing an SAS, and only distribute SAS URIs over a secure connection such as HTTPS. 
+> Set up or have a plan in place for revoking a compromised SAS key. Employ discretion in 
+> distributing an SAS URI, and only distribute SAS URIs over a secure connection such as HTTPS. 
 > Make sure to only perform operations that use an SAS over an HTTPS connection. 
 >
 > If you use an SAS to access storage services, Microsoft recommends that you 
@@ -928,9 +936,9 @@ Each endpoint URL includes query parameters, which the following table describes
 > which is secured with [Microsoft Entra ID](/entra/identity/authentication/overview-authentication), 
 > rather than an account key.
 
-Inbound calls to a request-based trigger endpoint can use only one authorization scheme, either SAS or [OAuth 2.0 with Microsoft Entra ID](#enable-oauth). Although using one scheme doesn't disable the other, if you use both schemes at the same time, Azure Logic Apps generates an error because the service doesn't know which scheme to choose. If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas). This option works even if you also [restrict authentication to use only OAuth 2.0 with Microsoft Entra ID](#enable-oath-only-option).
+Inbound calls to the endpoint on a request-based trigger can use only one authorization scheme, either SAS or [OAuth 2.0 with Microsoft Entra ID](#enable-oauth). Although using one scheme doesn't disable the other, if you use both schemes at the same time, Azure Logic Apps generates an error because the service doesn't know which scheme to choose.
 
-For Standard workflows, you can use other authentication types without disabling SAS.
+If your Consumption workflow starts with the **Request** trigger, you can [disable SAS authentication](#disable-sas). This option works even if you also [restrict authorization to use only OAuth 2.0 with Microsoft Entra ID](#enable-oath-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
 
 > [!IMPORTANT]
 >
@@ -948,33 +956,55 @@ For more information about using SAS, see the following sections in this guide:
 
 <a name="disable-sas"></a>
 
-### Disable shared access signature (SAS) authentication
+### Disable shared access signature (SAS) authentication (Consumption only)
 
-If your Consumption workflow starts with the **Request** trigger, and you want to use [OAuth with Microsoft Entra ID](#enable-oauth), you can disable SAS to avoid errors and problems running your workflow. You also add a security layer by removing the dependency on secrets, which reduces the risk in having secrets logged or leaked. For Standard workflows, you can use other authentication types without disabling SAS.
-
-After you disable SAS authentication, the endpoint URL for the **Request** trigger in your workflow no longer includes the SAS key, for example:
-
-**Before**
+By default, a request-based trigger has SAS authentication enabled. The trigger's endpoint URL includes an SAS, starting with the query parameters, **`sp-<permissions>sv-<SAS-version>sig=<signature>`**, for example:
 
 **`https://{domain}:443/workflows/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ`**
 
-**After**
+If your Consumption workflow starts with the **Request** trigger, and you want to use [OAuth with Microsoft Entra ID](#enable-oauth), you can disable SAS to avoid errors and problems running your workflow. You also add a security layer by removing the dependency on secrets, which reduces the risk in having secrets logged or leaked. This option works even if you also [enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request-based endpoint](#enable-oauth-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
+
+After you disable SAS authentication, the endpoint URL for the **Request** trigger no longer includes the SAS key, for example:
 
 **`https://{domain}:443/workflows/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01`**
 
-:::image type="content" source="media/logic-apps-securing-a-logic-app/request-trigger-url.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and Request trigger endpoint URL." lightbox="media/logic-apps-securing-a-logic-app/request-trigger-url.png":::
-
 #### Prerequisites
 
-For this task, you'll need a tool to send REST API calls, for example:
+For this task, you need a tool to send REST API calls, for example:
 
 [!INCLUDE [api-test-http-request-tools-list](../../includes/api-test-http-request-tools-list.md)]
 
 [!INCLUDE [api-test-http-request-tools-caution](../../includes/api-test-http-request-tools-caution.md)]
 
+#### Check for triggers with SAS enabled or disabled
+
+When SAS authentication is disabled, the trigger's endpoint URL doesn't include the SAS key anymore. Also, the Consumption workflow definition includes the **sasAuthenticationPolicy** JSON object. This object has a **state** property that is set to **Disabled**, for example:
+
+```json
+"properties": {
+    "accessControl": {
+        "triggers": {
+            "sasAuthenticationPolicy": {
+                "state": "Disabled"
+            }
+        }
+    }
+}
+```
+
+To find Consumption workflows where SAS is either enabled or disabled, check whether the workflow definition includes the **sasAuthenticationPolicy** object where the **state** property is set to **Disabled**.
+
+1. With your tool that sends REST API calls, get information about your workflow by running the [**Workflows - Get** operation](/rest/api/logic/workflows/get) using the following **GET** request, for example:
+
+   **`GET https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}?api-version=2016-06-01`**
+
+1. Take the output from the **Workflows - Get** operation, and check whether the **sasAuthenticationPolicy** object exists where the **state** property is set to **Disabled**.
+
 #### Add the sasAuthenticationPolicy property to your workflow definition
 
-1. With your tool that sends REST API calls, get information about your workflow by running the [**Workflows - Get** operation](/rest/api/logic/workflows/get) with the following **GET** request:
+For Consumption workflows where you want to disable SAS, follow these steps:
+
+1. If you haven't done so already, get information about your workflow by running the [**Workflows - Get** operation](/rest/api/logic/workflows/get) using the following **GET** request, for example:
 
    **`GET https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}?api-version=2016-06-01`**
 
@@ -998,15 +1028,15 @@ For this task, you'll need a tool to send REST API calls, for example:
    }
    ```
 
-1. Send another request to update your workflow with the edited output, which you use as input in the request body, by running the [**Workflows - Update** operation](/rest/api/logic/workflows/update) with the following **PATCH** request:
+1. Send another request to update your workflow with the edited output, which you use as input in the request body, by running the [**Workflows - Update** operation](/rest/api/logic/workflows/update) using the following **PATCH** request, for example:
 
    **`PATCH https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}?api-version=2016-06-01`**
 
-1. In the [Azure portal](https://portal.azure.com), go to your Consumption workflow, and confirm that the endpoint URL for the **Request** trigger no longer includes the SAS.
+1. In the [Azure portal](https://portal.azure.com), go to your Consumption workflow in the designer, and confirm that the **Request** trigger's URL no longer includes the SAS.
 
-1. At the logic app resource level, [add an authorization policy for OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
+1. To enable Oauth 2.0 with Microsoft Entra ID, at the logic app resource level, [add an authorization policy for OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
 
-   For more information, see [Enable Open Authorization with Microsoft Entra ID (Microsoft Entra ID OAuth)](#enable-oauth).
+   For more information, see [Enable OAuth 2.0 with Microsoft Entra ID](#enable-oauth).
 
 <a name="regenerate-access-keys"></a>
 
@@ -1026,23 +1056,19 @@ To generate a new security access key at any time, use the Azure REST API or Azu
 
 If you share the endpoint URL for a request-based trigger with other parties, you can generate callback URLs that use specific keys and have expiration dates. That way, you can seamlessly roll keys or restrict access to triggering your logic app based on a specific timespan. To specify an expiration date for a URL, use the [Azure Logic Apps REST API](/rest/api/logic/workflowtriggers), for example:
 
-```http
-POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
-```
+**`POST /subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2016-06-01`**
 
-In the body, include the `NotAfter`property by using a JSON date string. This property returns a callback URL that's valid only until the `NotAfter` date and time.
+In the body, include the **`NotAfter`** property by using a JSON date string. This property returns a callback URL that's valid only until the **`NotAfter`** date and time.
 
 <a name="primary-secondary-key"></a>
 
 ### Create URLs with primary or secondary secret key
 
-When you generate or list callback URLs for a request-based trigger, you can specify the key to use for signing the URL. To generate a URL that's signed by a specific key, use the [Logic Apps REST API](/rest/api/logic/workflowtriggers), for example:
+When you generate or list callback URLs for a request-based trigger, you can specify the key to use for signing the URL. To generate a URL that's signed by a specific key, use the [Azure Logic Apps REST API](/rest/api/logic/workflowtriggers), for example:
 
-```http
-POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
-```
+**`POST /subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2016-06-01`**
 
-In the body, include the `KeyType` property as either `Primary` or `Secondary`. This property returns a URL that's signed by the specified security key.
+In the body, include the **`KeyType`** property as either **`Primary`** or **`Secondary`**. This property returns a URL that's signed by the specified security key.
 
 <a name="azure-api-management"></a>
 
@@ -1063,7 +1089,7 @@ For more information, see the following documentation:
 
 Along with Shared Access Signature (SAS), you might want to specifically limit the clients that can call your logic app workflow. For example, if you manage your request endpoint by using [Azure API Management](../api-management/api-management-key-concepts.md), you can restrict your logic app workflow to accept requests only from the IP address for the [API Management service instance that you create](../api-management/get-started-create-service-instance.md).
 
-Regardless of any IP addresses that you specify, you can still run a logic app workflow that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](/entra/identity-platform/authentication-vs-authorization) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
+Regardless of any IP addresses that you specify, you can still run a logic app workflow that has a request-based trigger by using the [**Workflow Triggers - Run** operation](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](/entra/identity-platform/authentication-vs-authorization) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
 To restrict the inbound IP addresses for your logic app workflow, follow the corresponding steps for either the Azure portal or your Azure Resource Manager template. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
@@ -1071,7 +1097,7 @@ To restrict the inbound IP addresses for your logic app workflow, follow the cor
 
 #### [Portal](#tab/azure-portal)
 
-In the Azure portal, IP address restriction affects both triggers *and* actions, contrary to the description in the portal under **Allowed inbound IP addresses**. To set up this filter separately for triggers and for actions, use the `accessControl` object in an Azure Resource Manager template for your logic app resource or the [Azure Logic Apps REST API: Workflow - Create Or Update operation](/rest/api/logic/workflows/createorupdate).
+In the Azure portal, IP address restriction affects both triggers *and* actions, contrary to the description in the portal under **Allowed inbound IP addresses**. To set up this filter separately for triggers and for actions, use the `accessControl` object in an Azure Resource Manager template for your logic app resource or the [**Workflow - Create Or Update** operation](/rest/api/logic/workflows/createorupdate) in the Azure Logic Apps REST API.
 
 ##### Consumption workflows
 
@@ -1081,7 +1107,7 @@ In the Azure portal, IP address restriction affects both triggers *and* actions,
 
 1. In the **Access control configuration** section, under **Allowed inbound IP addresses**, choose the path for your scenario:
 
-   * To make your workflow callable using the [**Azure Logic Apps** built-in action](logic-apps-http-endpoint.md), but only as a nested workflow, select **Only other Logic Apps**. This option works *only* when you use the **Azure Logic Apps** action to call the nested workflow.
+   * To make your workflow callable using the [**Azure Logic Apps** built-in action](logic-apps-http-endpoint.md#call-other-workflows), but only as a nested workflow, select **Only other Logic Apps**. This option works *only* when you use the **Azure Logic Apps** action to call the nested workflow.
 
      This option writes an empty array to your logic app resource and requires that only calls from parent workflows that use the built-in **Azure Logic Apps** action can trigger the nested workflow.
 
