@@ -73,32 +73,22 @@
     items:
     - name: Azure Arc-enabled VMware vSphere
       href: /rest/api/azure-arc-vmware/operation-groups
-    - name: Azure Arc Resource Bridge
-      href: 
   - name: ARM Templates
     items:
     - name: Azure Arc-enabled VMware vSphere
       href: /azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-arm-template
-    - name: Azure Arc Resource Bridge
-      href: 
   - name: Bicep Templates
     items:
     - name: Azure Arc-enabled VMware vSphere
       href: /azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-bicep
-    - name: Azure Arc Resource Bridge
-      href:
   - name: Terraform Templates
     items:
     - name: Azure Arc-enabled VMware vSphere
       href: /azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-terraform
-    - name: Azure Arc Resource Bridge
-      href:
    - name: Python SDK
      items:
     - name: Azure Arc-enabled VMware vSphere
       href: /python/api/overview/azure/mgmt-connectedvmware-readme
-    - name: Azure Arc Resource Bridge
-      href:
   - name: Java SDK
     items:
     - name: Azure Arc-enabled VMware vSphere
@@ -107,20 +97,14 @@
     items:
     - name: Azure Arc-enabled VMware vSphere
       href: /javascript/api/overview/azure/arm-connectedvmware-readme
-    - name: Azure Arc Resource Bridge
-      href:
   - name: .NET SDK
     items:
     - name: Azure Arc-enabled VMware vSphere
       href: /dotnet/api/overview/azure/resourcemanager.connectedvmwarevsphere-readme
-    - name: Azure Arc Resource Bridge
-      href:
   - name: Go SDK
     items:
     - name: Azure Arc-enabled VMware vSphere
       href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/connectedvmware/armconnectedvmware#section-documentation
-    - name: Azure Arc Resource Bridge
-      href:
 - name: Resources
   items:
    - name: Azure Arc Jumpstart
