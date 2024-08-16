@@ -34,7 +34,10 @@ To turn off the automatic updates, toggle the **Allow Site Recovery to manage** 
 
 If you have turned off automatic updates for your mobility agent, you can update the agent manually using the following procedures:
 
-### Upgrade mobility agent on multiple protected items
+> [!IMPORTANT]
+> These steps are applicable only when the mobility agent is healthy.
+
+### Upgrade mobility agent on multiple protected items through portal
 
 To manually update mobility agent on multiple protected items, follow these steps:
 
@@ -50,7 +53,10 @@ To manually update mobility agent on multiple protected items, follow these step
 
 4. After initiating the upgrade, a Site Recovery job is created in the vault for each upgrade operation, and can be tracked by navigating to **Monitoring** > **Site Recovery jobs**.
 
-### Update mobility agent for a single protected machine
+### Update mobility agent for a single protected machine through portal
+
+> [!IMPORTANT]
+> These steps are applicable only when the mobility agent is healthy.
 
 To update mobility agent of a protected item, follow these steps:
 1. Navigate to **recovery services vault** > **Replicated items**, select a VM.
@@ -65,7 +71,11 @@ To update mobility agent of a protected item, follow these steps:
    > [!NOTE]
    > If upgrade is blocked, check and resolve the errors as detailed [here](#resolve-blocking-issues-for-agent-upgrade).
 
-### Update mobility agent when private endpoint is enabled 
+
+
+### Update mobility agent using command prompts
+
+#### Update mobility agent when private endpoint is enabled 
 
 When you enable private endpoints, automatic updates will not be available. To update mobility agent of a protected item, follow these steps:  
 
@@ -75,7 +85,7 @@ When you enable private endpoints, automatic updates will not be available. To u
 
 3. Confirm the availability of new version, download the latest agent version’s package from [here](./site-recovery-whats-new.md#supported-updates) on the source machine and update the agent version. 
 
-### Update mobility agent on Windows machines
+#### Update mobility agent on Windows machines
 
 To update mobility agent on Windows machines, follow these steps:
 
@@ -85,17 +95,17 @@ To update mobility agent on Windows machines, follow these steps:
 
 2.	To extract the update package, run the below command:
 
-    `.\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent`
+    `Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent`
 
 3.	To proceed with the update, run the below command:
 
-    `.\UnifiedAgent.exe /Role "MS" /Platform VmWare /Silent  /InstallationType Upgrade /CSType CSPrime  /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"`
+    `UnifiedAgent.exe /Role "MS" /Platform VmWare /Silent  /InstallationType Upgrade /CSType CSPrime  /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"`
 
 4.	Registration will be triggered automatically after the agent has been updated. To manually check the status of registration, run the below command:
 
     `"C:\Azure Site Recovery\Agent\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime`
 
-#### Upgrade settings
+##### Upgrade settings
 
 |Setting|Details|
 |---|---|
@@ -106,7 +116,7 @@ To update mobility agent on Windows machines, follow these steps:
 |`/Silent`|Optional. </br>Specifies whether to run the installer in silent mode.|
 |`/CSType`|Mandatory. </br>Defines modernized or legacy architecture. (Use CSPrime)|
 
-#### Registration settings
+##### Registration settings
 
 |Setting|Details|
 |---|---|
@@ -114,7 +124,7 @@ To update mobility agent on Windows machines, follow these steps:
 |`/SourceConfigFilePath`|Mandatory. </br>Full file path of the Mobility Service configuration file. Use any valid folder.|
 |`/CSType`|Mandatory. </br>Defines modernized or legacy architecture. (CSPrime or CSLegacy).|
 
-### Update mobility agent on Linux machines
+#### Update mobility agent on Linux machines
 
 To update mobility agent on Linux machines, follow these steps:
 
@@ -131,7 +141,7 @@ To update mobility agent on Linux machines, follow these steps:
 
     `<InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q`
 
-#### Installation settings
+##### Installation settings
 
 |Setting|Details|
 |---|---|
@@ -143,7 +153,7 @@ To update mobility agent on Linux machines, follow these steps:
 |`-c`|Mandatory. </br>Defines modernized or legacy architecture. (CSPrime or CSLegacy).|
 |`-a`|Mandatory. </br>Specifies that the mobility agent needs to be upgraded and not installed.|
 
-#### Registration settings
+##### Registration settings
 
 |Setting|Details|
 |---|---|

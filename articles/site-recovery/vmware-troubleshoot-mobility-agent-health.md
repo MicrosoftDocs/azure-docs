@@ -28,9 +28,13 @@ To troubleshoot mobility agent health errors, follow these recommendations:
 
 1. Log in to source machine whose health is critical and check the `svagents_curr<>.log` file.
 1. Locate the `svagents_curr<>.log` file in the following location:
-    - **Windows**: `/var/log/svagents_curr<>.log`
-    - **Linux**: `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents_curr<>.log`
+    - **Linux**: `/var/log/svagents_curr<>.log`
+    - **Windows**: `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents_curr<>.log`
 
+
+## Troubleshoot certificate renewal
+
+If you see the following error in the appliance health status:
 
 ### Error 1 - ClientCertificateIsInvalidOrExpired
 
@@ -83,7 +87,7 @@ handshake: **certificate verify failed** (SSL routines)
 
 Follow these recommendations:
 1. Navigate to the replication appliance where the process server component health is critical and log in into the appliance.
-1. [Upgrade](./upgrade-mobility-service-modernized.md#upgrade-appliance) proxy server on the appliance to the latest version and wait for an hour.
+1. [Upgrade](./upgrade-mobility-service-modernized.md#upgrade-appliance) process server on the appliance to the latest version and wait for an hour.
 1. Restart the services - *Process Server* and *Process Server Monitor* and wait for an hour.
 
 
@@ -136,7 +140,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 #### Full error message
 
-```md
+```
 #~> (07-01-2024 13:13:34):   ERROR  2952 5016 19 Could not perform curl. Curl error: (6) Couldn't resolve host name 
 #~> (07-01-2024 13:13:34):   ERROR  2952 5016 20 Curl internal error: Could not resolve host: <> 
 #~> (07-01-2024 13:13:34):   ERROR  2952 5016 21 Curl operation failed with error (6) Couldn't resolve host name 

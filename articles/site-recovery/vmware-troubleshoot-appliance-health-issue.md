@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 07/11/2024
+ms.date: 08/16/2024
 
 ---
 # Troubleshoot replication appliance health issues
@@ -29,6 +29,7 @@ This document describes how to troubleshoot replication appliance health issues 
 | Issue | Error ID |
 |-------|----------|
 | Process Server | 549009 |
+| Proxy server | 549003 |
 | Replication service | 549005 |
 | Recovery services agent | 549011 |
 | Site Recovery provider | 305 |
@@ -42,6 +43,10 @@ To troubleshoot these issues, follow these steps:
 
 :::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/certificate.png" alt-text="Screenshot of aplliance health error.":::
    
+## Troubleshoot certificate renewal
+
+If you see the following error in the appliance health status:s
+
 #### Error
 
 **If you see the following for your web app in replication appliance:**

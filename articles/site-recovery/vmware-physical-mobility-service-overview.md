@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 03/13/2024
+ms.date: 08/16/2024
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -41,7 +41,7 @@ Push installation is an integral part of the job that runs from the Azure portal
 
 The push installation workflow is described in the following sections:
 
-### Mobility service agent version 9.23 and higher
+### Mobility service agent version 9.23 and later
 
 For more information about version 9.23, see [Update Rollup 35 for Azure Site Recovery](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery).
 
@@ -57,7 +57,7 @@ During a push installation of the Mobility service, the following steps are perf
     - To generate application-consistent recovery points, refer to [our guidance](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) to complete a manual installation of the Site Recovery VSS provider.
     - If you don't want to generate application-consistent recovery points, [modify the replication policy](vmware-azure-set-up-replication.md#create-a-policy) to turn off application-consistent recovery points.
 
-### Mobility service agent version 9.22 and below
+### Mobility service agent version 9.22 and older
 
 1. The agent is pushed to the source machine. Copying the agent to the source machine can fail due to multiple environmental errors. Refer to [our guidance](vmware-azure-troubleshoot-push-install.md) to troubleshoot push installation failures.
 1. After the agent is successfully copied to the server, a prerequisite check is performed on the server.
@@ -117,6 +117,7 @@ Locate the installer files for the server’s operating system using the followi
 > This section is applicable to Azure Site Recovery - Modernized. [Here are the installation instructions for Classic](#install-the-mobility-service-using-command-prompt-classic).
 
 ### Windows machine
+
 1. Open command prompt and navigate to the folder where the installer file has been placed.
 
    ```cmd
@@ -124,13 +125,13 @@ Locate the installer files for the server’s operating system using the followi
    ```
 2. Run the following command to extract the installer file:
    ```cmd
-       .\Microsoft-ASR_UA*Windows*release.exe /q /x:"C:\Program Files (x86)\Microsoft Azure Site Recovery"
+       Microsoft-ASR_UA*Windows*release.exe /q /x:"C:\Program Files (x86)\Microsoft Azure Site Recovery"
     ```
 3. To proceed with the installation, run the following command:
 
    ```cmd
 
-    .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"
+    UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"
    ```
     Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
@@ -216,8 +217,8 @@ When providing both the machine credentials and the vCenter server or vSphere ES
   Use the following steps to generate mobility service configuration file:
 
   1. Navigate to the appliance with which you want to register your source machine. Open the Microsoft Azure Appliance Configuration Manager and navigate to the section **Mobility service configuration details**.
-  2. Paste the Machine Details string that you copied from Mobility Service and paste it in the input field here.
-  3. Click **Download configuration file**.
+  2. Paste the machine details string that you've copied from the Mobility Service and paste it in the input field here. In case you're re-registering the Mobility service, use the following commands to get the machine details string and paste it in the input field here.
+  3. Select **Download configuration file**.
 
   ![Image showing download configuration file option for Mobility Service](./media/vmware-physical-mobility-service-overview-modernized/download-configuration-file.png)
 
