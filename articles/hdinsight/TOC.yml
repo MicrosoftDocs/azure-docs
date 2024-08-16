@@ -169,7 +169,7 @@ items:
         href: ./hdinsight-hadoop-migrate-dotnet-to-linux.md
       - name: Migrate to granular role-based access for cluster configurations
         href: ./hdinsight-migrate-granular-access-cluster-configurations.md
-        - name: Ambari user configs migration
+      - name: Ambari user configs migration
         href: ./migrate-ambari-recent-version-hdinsight.md  
       - name: Hadoop
         items:
