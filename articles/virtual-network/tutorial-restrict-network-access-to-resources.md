@@ -45,7 +45,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ### [CLI](#tab/cli)
 
@@ -73,7 +73,7 @@ Service endpoints are enabled per service, per subnet.
 
 1. Select **+ Subnet**.
 
-1. On the **Add subnet** page, enter or select the following information:
+1. On the **Add subnet** page, enter, or select the following information:
 
     | Setting | Value |
     | --- | --- |
@@ -130,7 +130,7 @@ Service endpoints are enabled per service, per subnet.
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Create an additional subnet in the virtual network. In this example, a subnet named *subnet-private* is created with a service endpoint for *Microsoft.Storage*: 
+1. Create another subnet in the virtual network. In this example, a subnet named *subnet-private* is created with a service endpoint for *Microsoft.Storage*: 
 
     ```azurepowershell-interactive
     $subpriv = @{
@@ -181,7 +181,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over S
     New-AzPublicIpAddress @ip
     ```
 
-1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new Standard SKU Bastion host in **AzureBastionSubnet**:
+1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new standard Bastion host in **AzureBastionSubnet**:
 
     ```azurepowershell-interactive
     $bastion = @{
@@ -252,7 +252,7 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 1. In **Network security groups**, select **+ Create**.
 
-1. In the **Basics** tab of **Create network security group**, enter or select the following information:
+1. In the **Basics** tab of **Create network security group**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -290,7 +290,7 @@ az network nsg create \
 
 ---
 
-### Create outbound NSG rules
+### Create outbound Network Security Group (NSG) rules
 
 ### [Portal](#tab/portal)
 
@@ -312,7 +312,7 @@ az network nsg create \
     | Destination | Select **Service Tag**. |
     | Destination service tag | Select **Storage**. |
     | Service | Leave default of **Custom**. |
-    | Destination port ranges | Enter **445**. </br> SMB protocol is used to connect to a file share created in a later step. |
+    | Destination port ranges | Enter **445**. |
     | Protocol | Select **Any**. |
     | Action | Select **Allow**. |
     | Priority | Leave the default of **100**. |
@@ -530,7 +530,7 @@ The steps required to restrict network access to resources created through Azure
 
     For more information about connecting to a storage account using a managed identity, see [Use a managed identity to access Azure Storage](/entra/identity/managed-identities-azure-resources/tutorial-linux-managed-identities-vm-access?pivots=identity-linux-mi-vm-access-storage).
 
-    The key is used to create a file share in a later step. Enter `$storageAcctKey` and note the value, as you'll also need to manually enter it in a later step when you map the file share to a drive in a VM.
+    The key is used to create a file share in a later step. Enter `$storageAcctKey` and note the value. You manually enter it in a later step when you map the file share to a drive in a virtual machine.
 
 ### [CLI](#tab/cli)
 
@@ -662,7 +662,7 @@ To restrict network access to a subnet:
 
 ### [PowerShell](#tab/powershell)
 
-1. By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Once network access is denied, the storage account is not accessible from any network.
+1. By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Once network access is denied, the storage account isn't accessible from any network.
 
     ```azurepowershell-interactive
     $storagerule = @{
@@ -727,7 +727,7 @@ To test network access to a storage account, deploy a virtual machine to each su
 
 ### Create the second virtual machine
 
-1. Repeat the steps in the previous section to create a second virtual machine. Replace the following values in **Create a virtual machine**:
+1. Create a second virtual machine repeating the steps in the previous section. Replace the following values in **Create a virtual machine**:
 
     | Setting | Value |
     | ------- | ----- |
@@ -743,7 +743,7 @@ To test network access to a storage account, deploy a virtual machine to each su
 
 ### Create the first virtual machine
 
-Create a virtual machine in the *subnet-public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM.
+Create a virtual machine in the *subnet-public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you're prompted for credentials. The values that you enter are configured as the user name and password for the VM.
 
 ```azurepowershell-interactive
 $vm1 = @{
@@ -773,7 +773,7 @@ $vm2 = @{
 New-AzVm @vm2
 ```
 
-It takes a few minutes for Azure to create the VM. Do not continue to the next step until Azure finishes creating the VM and returns output to PowerShell.
+It takes a few minutes for Azure to create the VM. Don't continue to the next step until Azure finishes creating the VM and returns output to PowerShell.
 
 ### [CLI](#tab/cli)
 
@@ -840,7 +840,7 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 1. In **Security + networking**, select **Access keys**.
 
-1. Copy the value of **key1**. You may need to select the **Show** button to display the key.
+1. Copy the value of **key1**. You might need to select the **Show** button to display the key.
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/storage-account-access-key.png" alt-text="Screenshot of storage account access key.":::
 
@@ -904,7 +904,7 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 1. In **Security + networking**, select **Access keys**.
 
-1. Copy the value of **key1**. You may need to select the **Show** button to display the key.
+1. Copy the value of **key1**. You might need to select the **Show** button to display the key.
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/storage-account-access-key.png" alt-text="Screenshot of storage account access key.":::
 
@@ -958,7 +958,7 @@ The virtual machine you created earlier that is assigned to the **subnet-private
     ping bing.com
     ```
 
-    You receive no replies, because the network security group associated to the *Private* subnet does not allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
+    You receive no replies, because the network security group associated to the *Private* subnet doesn't allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
 
 1. Close the Bastion connection to **vm-private**.
 
@@ -1014,7 +1014,7 @@ SSH into the *vm-private* VM.
 
 1. Enter the username and password you specified when creating the virtual machine. Select **Connect**.
 
-1. Repeat the previous command to attempt to map the drive to the file share in the storage account. You may need to copy the storage account access key again for this procedure:
+1. Repeat the previous command to attempt to map the drive to the file share in the storage account. You might need to copy the storage account access key again for this procedure:
 
     ```powershell
     $key = @{
@@ -1080,7 +1080,7 @@ SSH into the *vm-private* VM.
 
 1. Enter the username and password you specified when creating the virtual machine. Select **Connect**.
 
-1. Repeat the previous command to attempt to map the drive to the file share in the storage account. You may need to copy the storage account access key again for this procedure:
+1. Repeat the previous command to attempt to map the drive to the file share in the storage account. You might need to copy the storage account access key again for this procedure:
 
     ```powershell
     $key = @{
@@ -1125,7 +1125,12 @@ SSH into the *vm-private* VM.
     Get-AzStorageFile @storage
     ```
 
-    Access is denied, and you receive a *Get-AzStorageFile : The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation* error, because your computer is not in the *subnet-private* subnet of the *vnet-1* virtual network.
+    Access is denied. You receive an output similar to the following example.
+
+    ```output
+     Get-AzStorageFile : The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request isn't authorized to perform this operation
+    ```
+    Your computer isn't in the *subnet-private* subnet of the *vnet-1* virtual network.
 
 ### [CLI](#tab/cli)
 
@@ -1209,7 +1214,7 @@ In this tutorial:
 
 To learn more about service endpoints, see [Service endpoints overview](virtual-network-service-endpoints-overview.md) and [Manage subnets](virtual-network-manage-subnet.md).
 
-If you have multiple virtual networks in your account, you may want to establish connectivity between them so that resources can communicate with each other. To learn how to connect virtual networks, advance to the next tutorial.
+If you have multiple virtual networks in your account, you might want to establish connectivity between them so that resources can communicate with each other. To learn how to connect virtual networks, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Connect virtual networks](./tutorial-connect-virtual-networks-portal.md)
