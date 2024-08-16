@@ -19,14 +19,11 @@ This guide assumes you have successfully followed the steps mentioned in the [qu
 
 To authenticate against the Image Analysis service, you need a Computer Vision key and endpoint URL.
 
-> [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](/azure/ai-services/security-features) article for more authentication options like [Azure Key Vault](/azure/ai-services/use-key-vault). 
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 The SDK example assumes that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
 
-
 Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription-Key** and setting it to your vision key. The call is made to the URL `<endpoint>/computervision/imageanalysis:analyze?api-version=2024-02-01`, where `<endpoint>` is your unique computer vision endpoint URL. You add query strings based on your analysis options.
-
 
 ## Select the image to analyze
 

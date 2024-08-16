@@ -60,13 +60,13 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Container Instances | [Logging for Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
 | Azure Container Registry | [Logging for Azure Container Registry](../../container-registry/monitor-service.md) |
 | Azure Content Delivery Network | [Diagnostic logs for Azure Content Delivery Network](../../cdn/cdn-azure-diagnostic-logs.md) |
-| Azure Cosmos DB | [Azure Cosmos DB logging](../../cosmos-db/monitor-cosmos-db.md) |
+| Azure Cosmos DB | [Azure Cosmos DB logging](/azure/cosmos-db/monitor-cosmos-db) |
 | Azure Data Explorer | [Azure Data Explorer logs](/azure/data-explorer/using-diagnostic-logs) |
 | Azure Data Factory | [Monitor Data Factory by using Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Azure Data Lake Analytics |[Accessing logs for Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Azure Data Lake Storage |[Accessing logs for Azure Data Lake Storage](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#resource-logs) |
+| Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](/azure/mysql/concepts-server-logs#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](/azure/postgresql/concepts-server-logs#resource-logs) |
 | Azure Databricks | [Diagnostic logging in Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
 | Azure DDoS Protection | [Logging for Azure DDoS Protection](../../ddos-protection/ddos-view-diagnostic-logs.md#example-log-queries) |
 | Azure Digital Twins | [Set up Azure Digital Twins diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
@@ -78,7 +78,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Application Insights | [Application Insights Data Reference Resource Logs](../monitor-azure-monitor-reference.md#supported-resource-logs-for-microsoftinsightscomponents) |
 | Azure IoT Hub | [IoT Hub operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Azure IoT Hub Device Provisioning Service| [Device Provisioning Service operations](../../iot-dps/monitor-iot-dps-reference.md#resource-logs) |
-| Azure Key Vault |[Azure Key Vault logging](../../key-vault/general/logging.md) |
+| Azure Key Vault |[Azure Key Vault logging](/azure/key-vault/general/logging) |
 | Azure Kubernetes Service |[Azure Kubernetes Service logging](/azure/aks/monitor-aks-reference#resource-logs) |
 | Azure Load Balancer |[Log Analytics for Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
 | Azure Load Testing |[Azure Load Testing logs](../../load-testing/monitor-load-testing-reference.md#resource-logs) |

@@ -431,9 +431,6 @@ items:
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
           href: how-to-track-speech-sdk-memory-usage.md
-    - name: Configure RHEL/CentOS 7
-      href: how-to-configure-rhel-centos-7.md
-      displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Generate a REST API client library
       href: swagger-documentation.md
       displayName: rest, swagger
@@ -549,6 +546,8 @@ items:
           href: /rest/api/aiservices/speechapi/operation-groups
         - name: Batch synthesis REST API
           href: /rest/api/batchtexttospeech/operation-groups
+        - name: Batch avatar REST API
+          href: /rest/api/batchavatar/operation-groups
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 

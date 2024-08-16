@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 05/28/2024
+ms.date: 08/14/2024
 ms.author: anfdocs
 ---
 
@@ -32,6 +32,7 @@ This article describes requirements and considerations about [using the volume c
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You can't delete manual snapshots for the destination volume until the replication relationship is broken.
 * You can revert a source or destination volume of a cross-region replication to a snapshot, provided the snapshot is newer than the most recent SnapMirror snapshot. Snapshots older than the SnapMirror snapshot can't be used for a volume revert operation. For more information, see [Revert a volume using snapshot revert](snapshots-revert-volume.md). 
 * Data replication volumes support [customer-managed keys](configure-customer-managed-keys.md).
+* If you are copying large data sets into a volume that has cross-region replication enabled and you have spare capacity in the capacity pool, you should set the replication interval to 10 minutes, increase the volume size to allow for the changes to be stored, and temporarily disable replication.
 * If you use the cool access feature, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations.
 * [Large volumes](large-volumes-requirements-considerations.md) are supported with cross-region replication only with an hourly or daily replication schedule.
 

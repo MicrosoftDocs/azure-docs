@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop diagnostics log analytics - Azure
 description: How to use log analytics with the Azure Virtual Desktop diagnostics feature.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # Send diagnostic data to Log Analytics for Azure Virtual Desktop
