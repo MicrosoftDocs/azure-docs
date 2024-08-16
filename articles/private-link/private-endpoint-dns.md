@@ -83,6 +83,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
 >| Azure Batch (Microsoft.Batch/batchAccounts) | batchAccount | privatelink.batch.azure.com | batch.azure.com |
+>| Azure Batch (Microsoft.Batch/batchAccounts) | nodeManagement | privatelink.batch.azure.com | batch.azure.com |
 >| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.microsoft.com | wvd.microsoft.com |
 >| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | feed | privatelink.wvd.microsoft.com | wvd.microsoft.com |
 >| Azure Virtual Desktop (Microsoft.DesktopVirtualization/hostpools) | connection | privatelink.wvd.microsoft.com | wvd.microsoft.com |
