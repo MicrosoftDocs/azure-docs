@@ -39,14 +39,14 @@ The following table lists key services that are available in Azure Extended Zone
 
 | Service category | Available Azure services and features |
 | ------------------ | ------------------- |
-| **Compute** | Azure Kubernetes Service <br> Azure Virtual Desktop <br> Virtual Machine Scale Sets <br> Virtual machines (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series)  |
-| **Networking** | DDoS (Standard protection) <br> ExpressRoute <br> Private Link <br> Standard Load Balancer <br> Standard public IP <br> Virtual Network <br> Virtual network peering      |
+| **Compute** | Azure Kubernetes Service <br> Azure Virtual Desktop <br> Virtual Machine Scale Sets <br> Virtual machines (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series) |
+| **Networking** | DDoS (Standard protection) <br> ExpressRoute <br> Private Link <br> Standard Load Balancer <br> Standard public IP <br> Virtual Network <br> Virtual network peering |
 | **Storage** | Managed disks <br> Premium Page Blobs <br> Premium Block Blobs <br> Premium Files <br> Data Lake Storage Gen2<br> Hierarchical Namespace <br>Data Lake Storage Gen2 Flat Namespace <br> Change Feed <br> Blob Features <br> - SFTP <br> - NFS |
 | **BCDR** | Azure Site Recovery <br> Azure Backup |
 
 ## Availability
 
-Currently, Los Angeles is the only available Extended Zone to test.
+Currently, Los Angeles is the only available Extended Zone in preview.
 
 ## Pricing
 
