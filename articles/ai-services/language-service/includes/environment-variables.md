@@ -12,13 +12,12 @@ ms.author: jboback
 
 Your application must be authenticated to send API requests. For production, use a secure way of storing and accessing your credentials. In this example, you will write your credentials to environment variables on the local machine running the application.
 
-> [!TIP]
-> Don't include the key directly in your code, and never post it publicly. See the Azure AI services [security](../../security-features.md) article for more authentication options like [Azure Key Vault](../../use-key-vault.md). 
-
 To set the environment variable for your Language resource key, open a console window, and follow the instructions for your operating system and development environment. 
 
-1. To set the `LANGUAGE_KEY` environment variable, replace `your-key` with one of the keys for your resource.
-2. To set the `LANGUAGE_ENDPOINT` environment variable, replace `your-endpoint` with the endpoint for your resource.
+- To set the `LANGUAGE_KEY` environment variable, replace `your-key` with one of the keys for your resource.
+- To set the `LANGUAGE_ENDPOINT` environment variable, replace `your-endpoint` with the endpoint for your resource.
+
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]
 
 #### [Windows](#tab/windows)
 

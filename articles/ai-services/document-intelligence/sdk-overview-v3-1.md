@@ -178,6 +178,8 @@ Here's where to find your Document Intelligence API key in the Azure portal:
 
 :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint location in the Azure portal.":::
 
+[!INCLUDE [Microsoft Entra ID or AKV](~/reusable-content/ce-skilling/azure/includes/ai-services/security/microsoft-entra-id-akv.md)]
+
 ### [C#/.NET](#tab/csharp)
 
 ```csharp

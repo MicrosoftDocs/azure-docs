@@ -13,7 +13,7 @@
   expanded: true
 - name: Concepts
   items:
-  - name: What's new?
+  - name: What's new in VPN Gateway?
     href: whats-new.md
   - name: Work remotely
     items:
@@ -339,22 +339,6 @@
         href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
       - name: Site-to-site connection disconnects intermittently
         href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
-  - name: Classic deployment model articles
-    items:
-    - name: Configure a site-to-site connection
-      href: vpn-gateway-howto-site-to-site-classic-portal.md
-    - name: Configure a point-to-site connection
-      href: vpn-gateway-howto-point-to-site-classic-azure-portal.md
-    - name: Configure a VNet-to-VNet connection
-      href: vpn-gateway-howto-vnet-vnet-portal-classic.md
-    - name: Delete a VPN gateway
-      href: vpn-gateway-delete-vnet-gateway-classic-powershell.md
-    - name: Add or remove site-to-site connections
-      href: vpn-gateway-multi-site.md
-    - name: Configure a VPN gateway
-      href: ./vpn-gateway-howto-site-to-site-classic-portal.md
-    - name: Classic to Resource Manager migration
-      href: vpn-gateway-classic-resource-manager-migration.md
 - name: Reference
   items:
   - name: Azure PowerShell

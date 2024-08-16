@@ -131,9 +131,15 @@ For example, if **SubscriptionReuse** is selected as the option, and a customer 
 ## Availability Zone
 
 Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). Basic SKU Public IPs do not have any zones and are created as non-zonal.
+A public IP's availability zone can't be changed after the public IP's creation.
 
-A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "nonzonal" public IP address is placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
-In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain nonzonal.  A public IP's availability zone can't be changed after the public IP's creation.
+| Value | Behavior |
+| --- | --- |
+| Non-zonal |  A non-zonal public IP address is placed into a zone for you by Azure and doesn't give a guarantee of redundancy. |
+| Zonal  |	 A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. |
+| Zone-redundant	| A zone-redundant IP is created in all zones for a region and can survive any single zone failure. |
+
+In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  
 
 > [!IMPORTANT]
 > We are updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following 12 regions, all IPs created (except zonal) are zone-redundant.
