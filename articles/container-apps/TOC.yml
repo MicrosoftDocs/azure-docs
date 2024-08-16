@@ -384,6 +384,9 @@
           - name: Query managed component logs
             href: java-component-logs.md
             displayName: java
+          - name: Create a highly-available Eureka server component cluster
+            href: java-eureka-server-highly-available.md
+            displayName: java
 - name: Billing & quotas
   items:
     - name: Billing
