@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 08/14/2024
+ms.date: 08/16/2024
 ms.author: mbullwin
 ---
 
@@ -52,16 +52,15 @@ The following sections provide you with a quick guide to the default quotas and 
 
 <sup>1</sup> Our current APIs allow up to 10 custom headers, which are passed through the pipeline, and returned. We have noticed some customers now exceed this header count resulting in HTTP 431 errors. There is no solution for this error, other than to reduce header volume.  **In future API versions we will no longer pass through custom headers**. We recommend customers not depend on custom headers in future system architectures.
 
-
 ## Regional quota limits
 
 [!INCLUDE [Quota](./includes/model-matrix/quota.md)]
 
 [!INCLUDE [Quota](./includes/global-batch-limits.md)]
 
-## gpt-4o rate limits
+## gpt-4o & GPT-4 Turbo rate limits
 
-`gpt-4o` and `gpt-4o-mini` have rate limit tiers with higher limits for certain customer types.
+`gpt-4o` and `gpt-4o-mini`, and `gpt-4` (turbo-2024-04-09) have rate limit tiers with higher limits for certain customer types.
 
 ### gpt-4o global standard
 
@@ -69,8 +68,10 @@ The following sections provide you with a quick guide to the default quotas and 
 |---|---|:---:|:---:|
 |`gpt-4o`|Enterprise agreement | 30 M | 180 K |
 |`gpt-4o-mini` | Enterprise agreement | 50 M | 300 K |
+|`gpt-4` (turbo-2024-04-09) | Enterprise agreement | 2 M | 12 K |
 |`gpt-4o` |Default | 450 K | 2.7 K |
 |`gpt-4o-mini` | Default | 2 M | 12 K  |
+|`gpt-4` (turbo-2024-04-09) | Default | 450 K | 2.7 K |
 
 M = million | K = thousand
 
