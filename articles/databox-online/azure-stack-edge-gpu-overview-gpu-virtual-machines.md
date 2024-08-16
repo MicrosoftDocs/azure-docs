@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/15/2024
+ms.date: 08/16/2024
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.
 ---
@@ -50,7 +50,7 @@ This extension supports the following OS distro, depending on the driver support
 | Red Hat Enterprise Linux | 7.4 |
 
 > [!NOTE]
-> Ubuntu 18.04 LTS GPU extension has been deprecated. The GPU extension is no longer supported on Ubuntu 18.04 GPU VMs running on Azure Stack Edge devices. If you plan to utilize the Ubuntu version 18.04 LTS distro, see steps for manual GPU driver installation at [CUDA Toolkit 12.1 Update 1 Downloads](https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local). You may need to download the CUDA signing key before the installation. For detailed steps to install the signing key, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#in-versions-lower-than-2205-linux-gpu-extension-installs-old-signing-keys-signature-andor-required-key-missing).
+> Ubuntu 18.04 LTS GPU extension has been deprecated. The GPU extension is no longer supported on Ubuntu 18.04 GPU VMs running on Azure Stack Edge devices. If you plan to utilize the Ubuntu version 18.04 LTS distro, see steps for manual GPU driver installation at [CUDA Toolkit 12.1 Update 1 Downloads](https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local). You may need to download the CUDA signing key before the installation. For an example of installing the signing key, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#in-versions-lower-than-2205-linux-gpu-extension-installs-old-signing-keys-signature-andor-required-key-missing).
 
 ## GPU VM deployment
 
