@@ -45,11 +45,11 @@ For more information about how to manage the solution components, see [Discover 
 
 1. Find and select the Microsoft Defender Threat Intelligence data connector > **Open connector page** button.
 
-    :::image type="content" source="media/connect-mdti-data-connector/pmdti-data-connector-config.png" alt-text="Screenshot displaying the data connectors page with the MDTI data connector listed." lightbox="media/connect-mdti-data-connector/pmdti-data-connector-config.png"::: 
+    :::image type="content" source="media/connect-mdti-data-connector/premium-microsoft-defender-threat-intelligence-data-connector-config.png" alt-text="Screenshot displaying the data connectors page with the MDTI data connector listed." lightbox="media/connect-mdti-data-connector/premium-microsoft-defender-threat-intelligence-data-connector-config.png"::: 
 
 1. Enable the feed by selecting the **Connect** button
 
-    :::image type="content" source="media/connect-mdti-data-connector/mdti-data-connector-connect.png" alt-text="Screenshot displaying the MDTI data connector page and the connect button." lightbox="media/connect-mdti-data-connector/mdti-data-connector-connect.png"::: 
+    :::image type="content" source="media/connect-mdti-data-connector/microsoft-defender-threat-intelligence-data-connector-connect.png" alt-text="Screenshot displaying the MDTI data connector page and the connect button." lightbox="media/connect-mdti-data-connector/microsoft-defender-threat-intelligence-data-connector-connect.png"::: 
 
 1. When MDTI indicators start populating the Microsoft Sentinel workspace, the connector status displays **Connected**.
 
