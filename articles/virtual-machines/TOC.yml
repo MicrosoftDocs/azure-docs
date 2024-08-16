@@ -1243,13 +1243,13 @@
       items:
       - name: Linux
         displayName: Network Watcher, extension, Azure Network Watcher
-        href: ./extensions/network-watcher-linux.md
+        href: ../network-watcher/network-watcher-linux.md?toc=/azure/virtual-machines/toc.json
       - name: Windows
         displayName: Network Watcher, extension, Azure Network Watcher
-        href: ./extensions/network-watcher-windows.md
+        href: ../network-watcher/network-watcher-windows.md?toc=/azure/virtual-machines/toc.json
       - name: Update to latest version
         displayName: Network Watcher, extension, Azure Network Watcher
-        href: ./extensions/network-watcher-update.md
+        href: ../network-watcher/network-watcher-update.md?toc=/azure/virtual-machines/toc.json
     - name: InfiniBand Drivers
       items:
       - name: Linux
