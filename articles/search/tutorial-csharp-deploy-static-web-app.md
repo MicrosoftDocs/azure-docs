@@ -29,7 +29,7 @@ The static web app pulls the information and files for deployment from GitHub us
 
 1. Right-click **Static Web Apps** and then select **Create Static Web App (Advanced)**. If you don't see this option, verify that you have the Azure Functions extension for Visual Studio Code.
 
-    :::image type="content" source="media/tutorial-csharp-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Screenshot of Visual Studio Code, with the Azure Static Web Apps explorer showing the option to create an advanced static web app.":::
+    :::image type="content" source="media/tutorial-csharp-static-web-app/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Screenshot of Visual Studio Code, with the Azure Static Web Apps explorer showing the option to create an advanced static web app.":::
 
 1. If you see a pop-up window asking you to commit your changes, don't do this. The secrets from the bulk import step shouldn't be committed to the repository. 
 

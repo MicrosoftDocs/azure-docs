@@ -249,4 +249,4 @@ The Autocomplete function takes the search term input. The method creates an [Au
 The following tutorial demonstrates a search-as-you-type experience.
 
 > [!div class="nextstepaction"]
-> [Add search to a web site (C#)](tutorial-csharp-search-query-integration.md#add-autocomplete-and-search-suggestions-in-client-apps)
+> [Add search to a web site (C#)](tutorial-csharp-overview.md)
