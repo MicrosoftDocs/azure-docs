@@ -26,7 +26,7 @@ This article covers copying an incremental snapshot from one region to another. 
 - If you use the REST API, you must use version 2020-12-01 or newer of the Azure Compute REST API.
 - You can only copy one incremental snapshot of a particular disk at a time.
 - Snapshots must be copied in the order they were created.
-- Copy of full snapshots to another region is not supported, only incremental snapshots are supported.
+- Only incremental snapshots can be copied across regions, full snapshots can't be copied across regions.
 
 
 ## Managed copy
