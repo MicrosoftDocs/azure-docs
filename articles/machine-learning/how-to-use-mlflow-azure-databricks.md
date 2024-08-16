@@ -198,9 +198,7 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
    mlflow_tracking_uri = f"azureml://{region}.api.azureml.ms/mlflow/v1.0/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}"
    ```
 
-   ---
-
-1. Configuring the tracking URI:
+1. Configure the tracking URI:
 
    # [Use MLflow SDK](#tab/mlflow)
 
