@@ -60,6 +60,7 @@ Here are the three options to mount Azure storage to your app:
 - Mapping `/mounts`, `mounts/foo/bar`, `/`, and `/mounts/foo.bar/` to custom-mounted storage isn't supported (you can only use /mounts/pathname for mounting custom storage to your web app.)
 - Storage mounts aren't included in [backups](../../manage-backup.md). Be sure to follow best practices to back up Azure Storage accounts.
 - With VNET integration on your app, the mounted drive uses an RFC1918 IP address and not an IP address from your VNET.
+- Azure File Shares must have SMB channel encryption AES-128-GCM enabled.
 
 ## Prepare for mounting
 
