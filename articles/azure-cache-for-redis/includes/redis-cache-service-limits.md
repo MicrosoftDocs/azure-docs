@@ -1,9 +1,11 @@
 ---
 author: flang-msft
+
 ms.service: cache
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 08/16/2024
 ms.author: franlanglois
+
 ---
 | Resource | Limit |
 | --- | --- |

@@ -1,3 +1,13 @@
+--- 
+author: flang-msft
+
+ms.service: cache
+ms.topic: include
+ms.date: 08/16/2024
+ms.author: franlanglois
+ms.topic: include
+---
+
 ## Add the Redis access policy
 
 You need to assign a data access policy to the identity that accesses Azure Cache for Redis. For this example, you assign a data access policy to the same Microsoft Entra ID account you use to log into the Azure CLI or Visual Studio.

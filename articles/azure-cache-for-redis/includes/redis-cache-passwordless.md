@@ -1,9 +1,11 @@
 ---
+author: flang-msft
+
 ms.service: cache
 ms.topic: include
-ms.date: 07/03/2024
+ms.date: 08/16/2024
 ms.author: franlanglois
-author: flang-msft
+ms.topic: include
 ---
 
 ### Retrieve the host name from the Azure portal
@@ -12,4 +14,4 @@ The cache client needs the host name and port for the cache to connect to your A
 
 - Select **Overview** from the Resource menu. The host name is of the form `<DNS-name>.redis.cache.windows.net`.
 
-  ![Azure Cache for Redis properties](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+  :::image type="content" source="media/redis-cache-access-keys/redis-cache-hostname-ports.png" alt-text="Screenshot showing Azure Cache for Redis properties with a red box around the host name.":::
