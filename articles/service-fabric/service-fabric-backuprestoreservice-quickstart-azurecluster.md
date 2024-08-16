@@ -15,9 +15,9 @@ ms.date: 07/14/2022
 > * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
 >
 
-Service Fabric is a distributed systems platform that makes it easy to develop and manage reliable, distributed, microservices based cloud applications. It allows running of both stateless and stateful micro services. Stateful services can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a Stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to some recent backup of its state in order to continue providing service after it comes back up.
+Service Fabric is a platform for developing and managing reliable, distributed cloud applications. It supports both stateless and stateful microservices. Stateful services can keep important data beyond a single request or transaction. If a stateful service goes down or loses data, it may need to be restored from a recent backup to continue working properly.
 
-Service Fabric replicates the state across multiple nodes to ensure that the service is highly available. Even if one node in the cluster fails, the service continues to be available. In certain cases, however, it is still desirable for the service data to be reliable against broader failures.
+Service Fabric replicates the state across multiple nodes to ensure that the service is highly available. Even if one node in the cluster fails, the service continues to be available. In certain cases, however, it's still desirable for the service data to be reliable against broader failures.
 
 For example, service may want to back up its data in order to protect from the following scenarios:
 - In the event of the permanent loss of an entire Service Fabric cluster.
@@ -45,7 +45,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 ## Prerequisites
 * Service Fabric cluster with Fabric version 6.4 or above. Refer to this [article](service-fabric-cluster-creation-via-arm.md) for steps to create Service Fabric cluster using Azure resource template.
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-cluster-creation-via-arm.md) to know how to get or create an X.509 certificate.
-* Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .NET Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
+* Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .NET Core 2.0, the application should be built using Service Fabric SDK version 3.1 or above.
 * Create Azure Storage account for storing application backups.
 * Install Microsoft.ServiceFabric.Powershell.Http Module (Preview) for making configuration calls.
 
@@ -74,7 +74,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 
 Enable `Include backup restore service` check box under `+ Show optional settings` in `Cluster Configuration` tab.
 
-![Enable Backup Restore Service With Portal][1]
+![Enable Backup Restore Service with Portal][1]
 
 
 ### Using Azure Resource Manager Template
@@ -97,7 +97,7 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
     ```json
         "properties": {
             ...
-            "addonFeatures":  ["BackupRestoreService"],
+            "addonFeatures": ["BackupRestoreService"],
             "fabricSettings": [ ... ]
             ...
         }
@@ -109,40 +109,44 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
     "properties": {
         ...
         "addonFeatures": ["BackupRestoreService"],
-        "fabricSettings": [{
+        "fabricSettings": [
+        {
             "name": "BackupRestoreService",
-            "parameters":  [{
-                "name": "SecretEncryptionCertThumbprint",
-                "value": "[Thumbprint]"
-            },{
-                "name": "SecretEncryptionCertX509StoreName",
-                "value": "My"
-            }]
-        }
+            "parameters": [
+                {
+                    "name": "SecretEncryptionCertThumbprint",
+                    "value": "[Thumbprint]"
+                },
+                {
+                    "name": "SecretEncryptionCertX509StoreName",
+                    "value": "My"
+                }
+            ]
+        }]
         ...
     }
     ```
 
     > [!NOTE]
-    > \[Thumbprint\] needs to replaced by valid certificate thumbprint to be used for encryption.
+    > \[Thumbprint\] needs to replace by valid certificate thumbprint to be used for encryption.
     >
     
 4. Once you have updated your cluster template with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the _backup and restore service_ starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and the service can be located under system service section in the Service Fabric explorer. 
 
 
 ## Enabling periodic backup for Reliable Stateful service and Reliable Actors
-Let's walk through steps to enable periodic backup for Reliable Stateful service and Reliable Actors. These steps assume
-- That the cluster is setup using X.509 security with _backup and restore service_.
-- A Reliable Stateful service is deployed on the cluster. For the purpose of this quickstart guide, application Uri is `fabric:/SampleApp` and the Uri for Reliable Stateful service belonging to this application is `fabric:/SampleApp/MyStatefulService`. This service is deployed with single partition, and the partition ID is `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
+Let's walk through steps to enable periodic backup for Reliable Stateful service and Reliable Actors. These steps assume that
+- The cluster is setup using X.509 security with _backup and restore service_.
+- A Reliable Stateful service is deployed on the cluster. For this quickstart guide, application Uri is `fabric:/SampleApp` and the Uri for Reliable Stateful service belonging to this application is `fabric:/SampleApp/MyStatefulService`. This service is deployed with a single partition, and the partition ID is `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 - The client certificate with administrator role is installed in _My_ (_Personal_) store name of _CurrentUser_ certificate store location on the machine from where below scripts will be invoked. This example uses `1b7ebe2174649c45474a4819dafae956712c31d3` as thumbprint of this certificate. For more information on client certificates, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
 ### Create backup policy
 
-First step is to create backup policy describing backup schedule, target storage for backup data, policy name, maximum incremental backups to be allowed before triggering full backup and retention policy for backup storage.
+The first step is to create a backup policy. This policy should include the backup schedule, target storage for the backup data, policy name, the maximum number of incremental backups allowed before a full backup is triggered, and the retention policy for the backup storage.
 
-For backup storage, use the Azure Storage account created above. Container `backup-container` is configured to store backups. A container with this name is created, if it does not already exist, during backup upload. Populate `BlobServiceUri` with the Azure Storage account url replacing `account-name` with your storage account name, and populate optional parameter `ManagedIdentityClientId` with Client-Id of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource.
+For backup storage, use the Azure Storage account created above. Container `backup-container` is configured to store backups. A container with this name is created, if it doesn't already exist, during backup upload. Populate `BlobServiceUri` with the Azure Storage account url replacing `account-name` with your storage account name and populate optional parameter `ManagedIdentityClientId` with Client-ID of User-Assigned Managed Identity if there are multiple managed identities assigned to your resource.
 
-follow steps for managed-identity assigment on azure resource:
+Follow steps for managed-identity assignment on Azure resource:
 
 1. Enable system assigned or User assigned managed identity in the VMSS [Configure managed identities on virtual machine scale set](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities-scale-sets?pivots=identity-mi-methods-azp)
 
@@ -153,18 +157,18 @@ follow steps for managed-identity assigment on azure resource:
 
 #### PowerShell using Microsoft.ServiceFabric.Powershell.Http Module
 
-Execute following PowerShell cmdlets for creating new backup policy. Replace `account-name` with your storage account name.
+Execute the following PowerShell cmdlets for creating new backup policy. Replace `account-name` with your storage account name.
 
 ```powershell
 
     New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $false -MaxIncrementalBackups 20 -FrequencyBased -Interval "<hh:mm>" -ManagedIdentityAzureBlobStore -FriendlyName "AzureMI_storagesample" -BlobServiceUri 'https://<account-name>.blob.core.windows.net' -ContainerName 'backup-container' -ManagedIdentityType "VMSS" -ManagedIdentityClientId "<Client-Id of User-Assigned MI>" -Basic -RetentionDuration '10.00:00:00'
 
-    # Use Optional parameter `ManagedIdentityClientId` with Client-Id of User-Assigned Managed Identity in case of multiple User-Assigned Managed Identities assigned to your resource or both SAMI & UAMI assigned and we need to use UAMI as the default, else no need of this paramter.
+    # Use Optional parameter `ManagedIdentityClientId` with Client-Id of User-Assigned Managed Identity in case of multiple User-Assigned Managed Identities assigned to your resource, or both SAMI & UAMI assigned and we need to use UAMI as the default, else no need of this paramter.
 ```
 
 #### Rest Call using PowerShell
 
-Execute following PowerShell script for invoking required REST API to create new policy. Replace `account-name` with your storage account name.
+Execute the following PowerShell script for invoking required REST API to create new policy. Replace `account-name` with your storage account name.
 
 ```powershell
 $StorageInfo = @{
@@ -173,7 +177,7 @@ $StorageInfo = @{
     BlobServiceUri = "https://<account-name>.blob.core.windows.net"
     ContainerName = "backup-container"
     ManagedIdentityType = "VMSS"
-    ManagedIdentityClientId = "<Client-Id of User-Assigned MI>" # Use Optional parameter `ManagedIdentityClientId` with Client-Id of User-Assigned Managed Identity in case of multiple User-Assigned Managed Identities assigned to your resource or both SAMI & UAMI assigned and we need to use UAMI as the default, else no need of this paramter.
+    ManagedIdentityClientId = "<Client-Id of User-Assigned MI>" # Use Optional parameter `ManagedIdentityClientId` with Client-Id of User-Assigned Managed Identity in case of multiple User-Assigned Managed Identities assigned to your resource, or both SAMI & UAMI assigned and we need to use UAMI as the default, else no need of this paramter.
 }
 
 $ScheduleInfo = @{
@@ -183,7 +187,7 @@ $ScheduleInfo = @{
 
 $RetentionPolicy = @{
     RetentionPolicyType = 'Basic'
-    RetentionDuration =  'P10D'
+    RetentionDuration = 'P10D'
 }
 
 $BackupPolicy = @{
@@ -207,12 +211,12 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
     ![Create Backup Policy][6]
 
-2. Fill out the information. For details out how to specify a frequency based interval, see the [TimeGrain property](/dotnet/api/microsoft.azure.management.monitor.models.metricavailability.timegrain?view=azure-dotnet&preserve-view=true). For Azure clusters, AzureBlobStore should be selected.
+2. Fill out the information. For details out how to specify a frequency-based interval, see the [TimeGrain property](/dotnet/api/microsoft.azure.management.monitor.models.metricavailability.timegrain?view=azure-dotnet&preserve-view=true). For Azure clusters, AzureBlobStore should be selected.
 
     ![Create Backup Policy Azure Blob Storage][7]
 
 ### Enable periodic backup
-After defining backup policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
+After defining backup policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on the requirement, the backup policy can be associated with an application, service, or a partition.
 
 #### PowerShell using Microsoft.ServiceFabric.Powershell.Http Module
 
@@ -223,7 +227,7 @@ After defining backup policy to fulfill data protection requirements of the appl
 ```
 #### Rest Call using PowerShell
 
-Execute following PowerShell script for invoking required REST API to associate backup policy with name `BackupPolicy1` created in above step with application `SampleApp`.
+Execute the following PowerShell script for invoking required REST API to associate backup policy with name `BackupPolicy1` created in above step with application `SampleApp`.
 
 ```powershell
 $BackupPolicyReference = @{
@@ -270,7 +274,7 @@ Get-SFApplicationBackupList -ApplicationId WordCount
 
 #### Rest Call using PowerShell
 
-Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application.
+Execute the following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
