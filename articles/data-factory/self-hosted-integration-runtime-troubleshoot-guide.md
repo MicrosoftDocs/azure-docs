@@ -850,12 +850,6 @@ Successful scenarios are shown in the following examples:
 
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png" alt-text="Diagram of a TCP 4 handshake workflow."::: 
 
-### Microsoft email notification about updating your network configuration
-
-You might receive the following email notification, which recommends that you update your network configuration to allow communication with new IP addresses for Azure Data Factory by 8 November 2020:
-
-   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png" alt-text="Screenshot of Microsoft email notification requesting update of network configuration.":::
-
 #### Determine whether this notification affects you
 
 This notification applies to the following scenarios:

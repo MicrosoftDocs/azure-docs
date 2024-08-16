@@ -83,7 +83,7 @@ param emptyArray array = []
 param numberArray array = [1, 2, 3]
 
 output foo bool = empty(emptyArray) || emptyArray[0] == 'bar'
-output bar bool = length(numberArray) >= 3 || numberArray[3] == 4
+output bar bool = length(numberArray) <= 3 || numberArray[3] == 4
 ```
 
 ## Booleans

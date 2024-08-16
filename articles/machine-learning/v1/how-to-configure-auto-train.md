@@ -6,7 +6,7 @@ author: CESARDELATORRE
 ms.author: cesardl
 ms.reviewer: nibaccam
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.date: 01/24/2021
 ms.topic: how-to

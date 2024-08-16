@@ -104,6 +104,8 @@ items:
         href: how-to/deploy-models-cohere-command.md
       - name: Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
+      - name: Cohere Rerank models
+        href: how-to/deploy-models-cohere-rerank.md
     - name: Meta Llama models
       items:
       - name: Meta Llama family models
@@ -140,6 +142,9 @@ items:
             displayName: maas, paygo, models-as-a-service
           - name: Model and region availability for Serverless API deployments
             href: how-to/deploy-models-serverless-availability.md
+        - name: Deploy and inference a managed compute deployment with code
+          href: how-to/deploy-models-managed.md
+          displayName: endpoint, online, SDK, CLI
   - name: Data for your generative AI app
     items:
     - name: Overview of retrieval augmented generation (RAG)

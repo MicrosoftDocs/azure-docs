@@ -320,15 +320,15 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP334     | Warning | The provided value can have a length as small as {sourceMinLength} and may be too short to assign to a target with a configured minimum length of {targetMinLength}. |
 | BCP335     | Warning | The provided value can have a length as large as {sourceMaxLength} and may be too long to assign to a target with a configured maximum length of {targetMaxLength}. |
 | BCP337     | Error | This declaration type isn't valid for a Bicep Parameters file. Specify a "{LanguageConstants.UsingKeyword}", "{LanguageConstants.ParameterKeyword}" or "{LanguageConstants.VariableKeyword}" declaration. |
-| BCP338     | Error | Failed to evaluate parameter "{parameterName}": {message} |
-| BCP339     | Error | The provided array index value of "{indexSought}" isn't valid. Array index should be greater than or equal to 0. |
-| BCP340     | Error | Unable to parse literal YAML value. Ensure that it's well-formed. |
+| <a id='BCP338' />[BCP338](./diagnostics/bcp338.md) | Error | Failed to evaluate parameter \<parameter-name>: \<error-message>` |
+| BCP339     | Error | The provided array index value of "{indexSought}" is not valid. Array index should be greater than or equal to 0. |
+| BCP340     | Error | Unable to parse literal YAML value. Please ensure that it is well-formed. |
 | BCP341     | Error | This expression is being used inside a function declaration, which requires a value that can be calculated at the start of the deployment. {variableDependencyChainClause}{accessiblePropertiesClause} |
 | BCP342     | Error | User-defined types aren't supported in user-defined function parameters or outputs. |
 | BCP344     | Error | Expected an assert identifier at this location. |
 | BCP345     | Error | A test declaration can only reference a Bicep File |
-| BCP0346    | Error | Expected a test identifier at this location. |
-| BCP0347    | Error | Expected a test path string at this location. |
+| BCP346    | Error | Expected a test identifier at this location. |
+| BCP347    | Error | Expected a test path string at this location. |
 | BCP348     | Error | Using a test declaration statement requires enabling EXPERIMENTAL feature "{nameof(ExperimentalFeaturesEnabled.TestFramework)}". |
 | BCP349     | Error | Using an assert declaration requires enabling EXPERIMENTAL feature "{nameof(ExperimentalFeaturesEnabled.Assertions)}". |
 | BCP350       | Error | Value of type "{valueType}" can't be assigned to an assert. Asserts can take values of type 'bool' only. |

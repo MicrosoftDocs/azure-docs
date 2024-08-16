@@ -73,7 +73,7 @@ var faces = response.Value;
 
 The Face service can extract face data from an image and associate it with a **Person** object through the [Add Person Group Person Face] API. In this API call, you can specify the detection model in the same way as in [Detect].
 
-See the following code example for the .NET client library.
+See the following .NET code example.
 
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_03" model
@@ -110,7 +110,7 @@ This code creates a **PersonGroup** with ID `mypersongroupid` and adds a **Perso
 
 ## Add face to FaceList with specified model
 
-You can also specify a detection model when you add a face to an existing **FaceList** object. See the following code example for the .NET client library.
+You can also specify a detection model when you add a face to an existing **FaceList** object. See the following .NET code example.
 
 ```csharp
 using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = "My face collection", ["recognitionModel"] = "recognition_04" }))))
@@ -139,6 +139,7 @@ In this article, you learned how to specify the detection model to use with diff
 
 * [Face .NET SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Face Java SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-java%253fpivots%253dprogramming-language-java)
 * [Face JavaScript SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-javascript%253fpivots%253dprogramming-language-javascript)
 
 [Detect]: /rest/api/face/face-detection-operations/detect
