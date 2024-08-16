@@ -35,8 +35,8 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 The following models are available:
 
 * [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
-* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
-* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+* [Meta-Llama-3.1-70B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3.1-70B-Instruct/version/1/registry/azureml-meta)
+* [Meta-Llama-3.1-8B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3.1-8B-Instruct/version/1/registry/azureml-meta)
 
 
 # [Meta Llama-3](#tab/meta-llama-3)
@@ -46,8 +46,8 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
-* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+* [Meta-Llama-3-70B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3-70B-Instruct/version/6/registry/azureml-meta)
+* [Meta-Llama-3-8B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3-8B-Instruct/version/6/registry/azureml-meta)
 
 
 # [Meta Llama-2](#tab/meta-llama-2)
@@ -57,9 +57,9 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
-* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
-* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+* [Llama-2-70b-chat](https://ai.azure.com/explore/models/Llama-2-70b-chat/version/20/registry/azureml-meta)
+* [Llama-2-13b-chat](https://ai.azure.com/explore/models/Llama-2-13b-chat/version/20/registry/azureml-meta)
+* [Llama-2-7b-chat](https://ai.azure.com/explore/models/Llama-2-7b-chat/version/24/registry/azureml-meta)
 
 
 ---
@@ -360,8 +360,8 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 The following models are available:
 
 * [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
-* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
-* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+* [Meta-Llama-3.1-70B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3.1-70B-Instruct/version/1/registry/azureml-meta)
+* [Meta-Llama-3.1-8B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3.1-8B-Instruct/version/1/registry/azureml-meta)
 
 
 # [Meta Llama-3](#tab/meta-llama-3)
@@ -371,8 +371,8 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
-* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+* [Meta-Llama-3-70B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3-70B-Instruct/version/6/registry/azureml-meta)
+* [Meta-Llama-3-8B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3-8B-Instruct/version/6/registry/azureml-meta)
 
 
 # [Meta Llama-2](#tab/meta-llama-2)
@@ -382,9 +382,9 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
-* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
-* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+* [Llama-2-70b-chat](https://ai.azure.com/explore/models/Llama-2-70b-chat/version/20/registry/azureml-meta)
+* [Llama-2-13b-chat](https://ai.azure.com/explore/models/Llama-2-13b-chat/version/20/registry/azureml-meta)
+* [Llama-2-7b-chat](https://ai.azure.com/explore/models/Llama-2-7b-chat/version/24/registry/azureml-meta)
 
 
 ---
@@ -708,8 +708,8 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 The following models are available:
 
 * [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
-* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
-* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+* [Meta-Llama-3.1-70B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3.1-70B-Instruct/version/1/registry/azureml-meta)
+* [Meta-Llama-3.1-8B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3.1-8B-Instruct/version/1/registry/azureml-meta)
 
 
 # [Meta Llama-3](#tab/meta-llama-3)
@@ -719,8 +719,8 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
-* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+* [Meta-Llama-3-70B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3-70B-Instruct/version/6/registry/azureml-meta)
+* [Meta-Llama-3-8B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3-8B-Instruct/version/6/registry/azureml-meta)
 
 
 # [Meta Llama-2](#tab/meta-llama-2)
@@ -730,9 +730,9 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
-* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
-* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+* [Llama-2-70b-chat](https://ai.azure.com/explore/models/Llama-2-70b-chat/version/20/registry/azureml-meta)
+* [Llama-2-13b-chat](https://ai.azure.com/explore/models/Llama-2-13b-chat/version/20/registry/azureml-meta)
+* [Llama-2-7b-chat](https://ai.azure.com/explore/models/Llama-2-7b-chat/version/24/registry/azureml-meta)
 
 
 ---
@@ -1068,8 +1068,8 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 The following models are available:
 
 * [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
-* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
-* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+* [Meta-Llama-3.1-70B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3.1-70B-Instruct/version/1/registry/azureml-meta)
+* [Meta-Llama-3.1-8B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3.1-8B-Instruct/version/1/registry/azureml-meta)
 
 
 # [Meta Llama-3](#tab/meta-llama-3)
@@ -1079,8 +1079,8 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
-* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+* [Meta-Llama-3-70B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3-70B-Instruct/version/6/registry/azureml-meta)
+* [Meta-Llama-3-8B-Instruct](https://ai.azure.com/explore/models/Meta-Llama-3-8B-Instruct/version/6/registry/azureml-meta)
 
 
 # [Meta Llama-2](#tab/meta-llama-2)
@@ -1090,9 +1090,9 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
-* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
-* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+* [Llama-2-70b-chat](https://ai.azure.com/explore/models/Llama-2-70b-chat/version/20/registry/azureml-meta)
+* [Llama-2-13b-chat](https://ai.azure.com/explore/models/Llama-2-13b-chat/version/20/registry/azureml-meta)
+* [Llama-2-7b-chat](https://ai.azure.com/explore/models/Llama-2-7b-chat/version/24/registry/azureml-meta)
 
 
 ---
@@ -1444,7 +1444,7 @@ For more examples of how to use Meta Llama, see the following examples and tutor
 | Description                               | Language          | Sample                                                             |
 |-------------------------------------------|-------------------|------------------------------------------------------------------- |
 | CURL request                              | Bash              | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-webrequests)    |
-| Azure AI Inference package for JavaScript | JavaScript        | [Link](https://aka.ms/azsdk/azure-ai-inference/javascript/samples) |
+| Azure AI Inference package for JavaScript | JavaScript        | [Link](https://github.com/Azure/azureml-examples/blob/main/sdk/typescript/README.md) |
 | Azure AI Inference package for Python     | Python            | [Link](https://aka.ms/azsdk/azure-ai-inference/python/samples)     |
 | Python web requests                       | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-webrequests)    |
 | OpenAI SDK (experimental)                 | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-openai)         |
