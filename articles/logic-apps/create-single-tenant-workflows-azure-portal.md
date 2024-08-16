@@ -117,6 +117,14 @@ More workflows in your logic app raise the risk of longer load times, which nega
    | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <br><br>This example uses the name **My-App-Service-Plan**. <br><br>**Note**: Don't use a Linux-based App Service plan. Only the Windows-based App Service plan is supported. |
    | **Pricing plan** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for your logic app and workflows. Your selection affects the pricing, compute, memory, and storage that your logic app and workflows use. <br><br>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
 
+   > [!NOTE]
+   >
+   > If you select an Azure region that supports availability zone redundancy, the **Zone redundancy** 
+   > section is enabled. This section offers the choice to enable availability zone redundancy 
+   > for your logic app. However, currently supported Azure regions don't include **West US**, 
+   > so you can ignore this section for this example. For more information, see 
+   > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
+
    When you finish, your settings look similar to the following example:
 
    :::image type="content" source="media/create-single-tenant-workflows-azure-portal/create-logic-app-basics.png" alt-text="Screenshot shows Azure portal and page named Create Logic App Workflow Service Plan." lightbox="media/create-single-tenant-workflows-azure-portal/create-logic-app-basics.png":::
