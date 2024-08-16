@@ -35,7 +35,7 @@ If you have a workflow to estimate, get the JSON code for your workflow:
 
 1. Go to the **Logic apps** service, and select your workflow.
 
-1. In your logic app's menu, under **Development tools**, select **Logic app code view**.
+1. In the logic app menu, under **Development tools**, select **Logic app code view**.
 
 1. Copy the workflow's JSON code.
 

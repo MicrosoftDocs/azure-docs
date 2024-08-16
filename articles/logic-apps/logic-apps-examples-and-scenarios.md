@@ -37,9 +37,9 @@ Every workflow starts with a single [*trigger*](logic-apps-overview.md#logic-app
 | [**Request** trigger](../connectors/connectors-native-reqres.md) | Receive incoming HTTPS requests. |
 | [**HTTP Webhook** trigger](../connectors/connectors-native-webhook.md) | Subscribe to a service endpoint by registering a *callback URL* with that service. That way, the service can just notify the trigger when the specified event happens, so that the trigger doesn't need to poll the service. |
 
-After you add the trigger, continue building your workflow by adding one or more actions. The following quickstarts help you build your first Consumption logic app workflow, which runs in global, multi-tenant Azure Logic Apps:
+After you add the trigger, continue building your workflow by adding one or more actions. The following quickstarts help you build your first Consumption logic app workflow, which runs in global, multitenant Azure Logic Apps:
 
-* [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps - Azure portal](quickstart-create-example-consumption-workflow.md)
+* [Quickstart: Create an example Consumption logic app workflow in multitenant Azure Logic Apps - Azure portal](quickstart-create-example-consumption-workflow.md)
 * [Quickstart: Create automated tasks, processes, and workflows by using Azure Logic Apps - Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 * [Quickstart: Create and manage automated logic app workflows by using Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
@@ -73,7 +73,7 @@ For enterprise integration solutions and seamless communication between organiza
 
 ## Access Azure virtual network resources
 
-Sometimes, your logic app workflow might need access to secured resources, such as virtual machines (VMs) in an Azure virtual network. To directly access such resources, [create a Standard logic app workflow](create-single-tenant-workflows-azure-portal.md). This type of logic app workflow runs in single-tenant Azure Logic Apps, separately from Consumption logic app workflows in multi-tenant Azure Logic Apps, and uses dedicated storage and other resources. With this option, you can reduce the impact that other Azure tenants might have on your apps' performance, which is also known as the "noisy neighbors" effect.
+Sometimes, your logic app workflow might need access to secured resources, such as virtual machines (VMs) in an Azure virtual network. To directly access such resources, [create a Standard logic app workflow](create-single-tenant-workflows-azure-portal.md). This type of logic app workflow runs in single-tenant Azure Logic Apps, separately from Consumption logic app workflows in multitenant Azure Logic Apps, and uses dedicated storage and other resources. With this option, you can reduce the impact that other Azure tenants might have on your apps' performance, which is also known as the "noisy neighbors" effect.
 
 ## Deploy, manage, and monitor logic app workflows
 

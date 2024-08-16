@@ -14,9 +14,9 @@ ms.date: 08/06/2024
 
 In Azure Logic Apps, you can abstract values that might change in workflows across development, test, and production environments by defining *parameters*. When you use parameters rather than environment-specific variables, you can initially focus more on designing your workflows, and insert your environment-specific variables later.
 
-This article introduces how to create, use, and edit parameters for multi-tenant Consumption logic app workflows and for single-tenant Standard logic app workflows. You'll also learn how to manage environment variables.
+This article introduces how to create, use, and edit parameters for multitenant Consumption logic app workflows and for single-tenant Standard logic app workflows. You'll also learn how to manage environment variables.
 
-For more information about multi-tenant and single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant in Azure Logic Apps](single-tenant-overview-compare.md).
+For more information about multitenant and single-tenant Azure Logic Apps, review [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ For more information about multi-tenant and single-tenant Azure Logic Apps, revi
 
 For both Consumption and Standard logic app workflows, you can define parameters using the designer. After you define the parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app resource.
 
-In multi-tenant Consumption logic app workflows, after you create and use parameters in the designer, you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*, which means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
+In multitenant Consumption logic app workflows, after you create and use parameters in the designer, you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*, which means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
 
 In single-tenant Standard logic app workflows, you can work with environment variables both at runtime and deployment by using parameters *and* app settings. App settings contain global configuration options for *all the workflows* in the same logic app resource. For more information, review [Edit host and app settings for single-tenant based logic apps](edit-app-settings-host-settings.md).
 
@@ -349,4 +349,4 @@ This example shows file settings for either ARM templates or Bicep templates:
 
 ## Related content
 
-* [Single-tenant versus multi-tenant in Azure Logic Apps](single-tenant-overview-compare.md)
+* [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md)
