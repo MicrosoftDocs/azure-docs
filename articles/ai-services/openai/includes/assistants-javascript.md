@@ -114,7 +114,7 @@ To use the service key for authentication, you can create and run an assistant w
 
 #### [JavaScript](#tab/javascript)
 
-Sign in to Azure with `az login` then create and run an assistant with the following **recommended** passwordless Javascript module (index.mjs):
+Sign in to Azure with `az login` then create and run an assistant with the following **recommended** passwordless JavaScript module (index.mjs):
 
 :::code language="javascript" source="~/azure-typescript-e2e-apps/quickstarts/azure-openai-assistants/js/src/index.mjs" :::
 
