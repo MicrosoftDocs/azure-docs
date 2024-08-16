@@ -113,18 +113,18 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
 
    [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-1. Sign in and configure your workspace:
+   1. Sign in and configure your workspace:
 
-   ```bash
-   az account set --subscription <subscription>
-   az configure --defaults workspace=<workspace> group=<resource-group> location=<location> 
-   ```
+      ```bash
+      az account set --subscription <subscription>
+      az configure --defaults workspace=<workspace> group=<resource-group> location=<location> 
+      ```
 
-1. You can get the tracking URI using the `az ml workspace` command:
+   1. You can get the tracking URI using the `az ml workspace` command:
 
-   ```bash
-   az ml workspace show --query mlflow_tracking_uri
-   ```
+      ```bash
+      az ml workspace show --query mlflow_tracking_uri
+      ```
 
    # [Python](#tab/python)
 
@@ -132,46 +132,46 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
 
    You can get the Azure Machine Learning MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the compute you're using. The following sample gets the unique MLFLow tracking URI associated with your workspace.
 
-1. Sign in into your workspace using the `MLClient`. The easier way to do that is by using the workspace config file:
+   1. Sign in into your workspace using the `MLClient`. The easier way to do that is by using the workspace config file:
 
-   ```python
-   from azure.ai.ml import MLClient
-   from azure.identity import DefaultAzureCredential
+      ```python
+      from azure.ai.ml import MLClient
+      from azure.identity import DefaultAzureCredential
 
       ml_client = MLClient.from_config(credential=DefaultAzureCredential())
-   ```
+      ```
 
-   > [!TIP]
-   > To download the workspace configuration file:
-   >
-   > 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
-   > 1. Click on the upper-right corner of the page -> Download config file.
-   > 1. Save the file `config.json` in the same directory where you are working on.
+      > [!TIP]
+      > To download the workspace configuration file:
+      >
+      > 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
+      > 1. Select the upper-right corner of the page > **Download config file**.
+      > 1. Save the file `config.json` in the same directory where you are working.
 
-   Alternatively, you can use the subscription ID, resource group name, and workspace name to get it:
+      Alternatively, you can use the subscription ID, resource group name, and workspace name to get it:
 
-   ```python
-   from azure.ai.ml import MLClient
-   from azure.identity import DefaultAzureCredential
+      ```python
+      from azure.ai.ml import MLClient
+      from azure.identity import DefaultAzureCredential
 
-   #Enter details of your Azure Machine Learning workspace
-   subscription_id = '<SUBSCRIPTION_ID>'
-   resource_group = '<RESOURCE_GROUP>'
-   workspace_name = '<WORKSPACE_NAME>'
+      #Enter details of your Azure Machine Learning workspace
+      subscription_id = '<SUBSCRIPTION_ID>'
+      resource_group = '<RESOURCE_GROUP>'
+      workspace_name = '<WORKSPACE_NAME>'
 
-   ml_client = MLClient(credential=DefaultAzureCredential(),
-                           subscription_id=subscription_id, 
-                           resource_group_name=resource_group)
-   ```
+      ml_client = MLClient(credential=DefaultAzureCredential(),
+                              subscription_id=subscription_id, 
+                              resource_group_name=resource_group)
+      ```
 
-   > [!IMPORTANT]
-   > `DefaultAzureCredential` tries to pull the credentials from the available context. If you want to specify credentials in a different way, for instance using the web browser in an interactive way, you can use `InteractiveBrowserCredential` or any other method available in [`azure.identity`](https://pypi.org/project/azure-identity/) package.
+      > [!IMPORTANT]
+      > `DefaultAzureCredential` tries to pull the credentials from the available context. If you want to specify credentials in a different way, for instance using the web browser in an interactive way, you can use `InteractiveBrowserCredential` or any other method available in [`azure.identity`](https://pypi.org/project/azure-identity/) package.
 
-1. Get the Azure Machine Learning Tracking URI:
+   1. Get the Azure Machine Learning Tracking URI:
 
-   ```python
-   mlflow_tracking_uri = ml_client.workspaces.get(ml_client.workspace_name).mlflow_tracking_uri
-   ```
+      ```python
+      mlflow_tracking_uri = ml_client.workspaces.get(ml_client.workspace_name).mlflow_tracking_uri
+      ```
 
    # [Studio](#tab/studio)
 
