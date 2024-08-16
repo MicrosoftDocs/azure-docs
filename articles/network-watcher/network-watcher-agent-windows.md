@@ -301,6 +301,6 @@ To get answers to most frequently asked questions about Network Watcher Agent, s
 
 ## Related content
 
-- [Update Azure Network Watcher extension to the latest version](network-watcher-update.md).
+- [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
 - [Network Watcher documentation](index.yml).
 - [Microsoft Q&A - Network Watcher](/answers/topics/azure-network-watcher.html).
