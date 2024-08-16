@@ -75,22 +75,6 @@ For enterprise integration solutions and seamless communication between organiza
 
 Sometimes, your logic app workflow might need access to secured resources, such as virtual machines (VMs) in an Azure virtual network. To directly access such resources, [create a Standard logic app workflow](create-single-tenant-workflows-azure-portal.md). This type of logic app workflow runs in single-tenant Azure Logic Apps, separately from Consumption logic app workflows in multi-tenant Azure Logic Apps, and uses dedicated storage and other resources. With this option, you can reduce the impact that other Azure tenants might have on your apps' performance, which is also known as the "noisy neighbors" effect.
 
-> [!IMPORTANT]
->
-> On August 31, 2024, the Integration Service Environment (ISE) resource will retire, due to its dependency on Azure Cloud Services (classic), 
-> which retires at the same time. Before the retirement date, export any logic app resources from your ISE to Standard logic app workflows so that you can avoid 
-> service disruption. Standard logic app workflows run in single-tenant Azure Logic Apps and provide the same capabilities plus more.
->
-> Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
-> before this date are supported through August 31, 2024. For more information, see the following resources:
->
-> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
-> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
-> - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
-> - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
-> - [Integration Service Environment will be retired on 31 August 2024 - transition to Azure Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
-> - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
-
 ## Deploy, manage, and monitor logic app workflows
 
 You can fully develop and deploy logic app resources with Visual Studio, Azure DevOps, or any other source control and automated build tools. To support deployment for workflows and dependent connections in a resource template, logic app resources use Azure resource deployment templates. Visual Studio tools automatically generate these templates, which you can check in to source control for versioning. For notification and diagnostic logs for workflow run status, Azure Logic Apps also provides monitoring and alerts.

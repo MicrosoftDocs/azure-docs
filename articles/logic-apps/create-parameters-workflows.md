@@ -16,7 +16,7 @@ In Azure Logic Apps, you can abstract values that might change in workflows acro
 
 This article introduces how to create, use, and edit parameters for multi-tenant Consumption logic app workflows and for single-tenant Standard logic app workflows. You'll also learn how to manage environment variables.
 
-For more information about multi-tenant and single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+For more information about multi-tenant and single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant in Azure Logic Apps](single-tenant-overview-compare.md).
 
 ## Prerequisites
 
@@ -347,6 +347,6 @@ This example shows file settings for either ARM templates or Bicep templates:
 
 ---
 
-## Next steps
+## Related content
 
-* [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+* [Single-tenant versus multi-tenant in Azure Logic Apps](single-tenant-overview-compare.md)
