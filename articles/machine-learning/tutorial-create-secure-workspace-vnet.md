@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: None
 ms.author: larryfr
 author: Blackmist
-ms.date: 08/22/2023
+ms.date: 08/16/2024
 ms.topic: how-to
 ms.custom: subject-rbac-steps, cliv2, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
@@ -101,7 +101,7 @@ To create a virtual network, use the following steps:
 
     1. Select the __Default__ subnet and then select the __edit icon__.
     
-        :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet.":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/edit-default-subnet.png" alt-text="Screenshot of selecting the edit icon of default subnet.":::
 
     1. Change the subnet __Name__ to __Training__. Leave the other values at the default settings, then select __Save__ to save the changes.
 
@@ -111,6 +111,8 @@ To create a virtual network, use the following steps:
         * __Subnet size__: /24 (256 addresses)
 
         :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet.":::
+
+    1. Select __Add__ to add the subnet.
 
 1. Select __Review + create__.
 
@@ -226,11 +228,19 @@ To create a virtual network, use the following steps:
     * __Private DNS integration__: Yes
     * __Resource group__: Select the resource group that contains the virtual network and container registry.
 
-    Select __OK__ to create the private endpoint.
+    Select __Add__ to create the private endpoint.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-private-endpoint.png" alt-text="Screenshot of the configuration form for the container registry private endpoint.":::
 
 1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
+
+1. After the container registry has been created, select __Go to resource__.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-go-to-resource.png" alt-text="Screenshot of the 'go to resource' button.":::
+
+1. From the left of the page, select __Access keys__, and then enable __Admin user__. This setting is required when using Azure Container Registry inside a virtual network with Azure Machine Learning.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/container-registry-admin-user.png" alt-text="Screenshot of the container registry access keys form, with the 'admin user' option enabled.":::
 
 ## Create a workspace
 
@@ -239,7 +249,7 @@ To create a virtual network, use the following steps:
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/machine-learning-create.png" alt-text="Screenshot of the create page for Azure Machine Learning.":::
 
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Use the following values for the other fields:
-    * __Workspace name__: A unique name for your workspace.
+    * __Name__: A unique name for your workspace.
     * __Storage account__: Select the storage account you created previously.
     * __Key vault__: Select the key vault you created previously.
     * __Application insights__: Use the default value.
@@ -390,15 +400,13 @@ Use the following steps to create an Azure Virtual Machine to use as a jump box.
 ### Connect to the jump box
 
 1. Once the virtual machine has been created, select __Go to resource__.
-1. From the top of the page, select __Connect__ and then __Bastion__.
+1. From the top of the page, select __Connect__ and then __Connect via Bastion__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/virtual-machine-connect.png" alt-text="Screenshot of the 'connect' list, with 'Bastion' selected.":::
 
-1. Select __Use Bastion__, and then provide your authentication information for the virtual machine, and a connection will be established in your browser.
+1. Provide your authentication information for the virtual machine, and a connection will be established in your browser.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/use-bastion.png" alt-text="Screenshot of the Use Bastion button.":::
-
-## Create a compute instance
+## Create a compute cluster and instance
 
 A compute instance provides a Jupyter Notebook experience on a shared compute resource attached to your workspace.
 
@@ -411,16 +419,29 @@ A compute instance provides a Jupyter Notebook experience on a shared compute re
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-select-workspace.png" alt-text="Screenshot of the select Machine Learning workspace form.":::
 
+1. From studio, select Compute, Compute clusters, and then + New.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-cluster.png" alt-text="Screenshot of the compute clusters page, with the 'new' button selected.":::
+
+1. From the Virtual Machine dialog, select Next to accept the default virtual machine configuration.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-vm.png" alt-text="Screenshot of the compute cluster virtual machine configuration.":::
+
+1. From the Configure Settings dialog, enter cpu-cluster as the Compute name. Set the Subnet to Training and then select Create to create the cluster.
+
+    [!TIP] Compute clusters dynamically scale the nodes in the cluster as needed. We recommend leaving the minimum number of nodes at 0 to reduce costs when the cluster is not in use.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-new-compute-settings.png" alt-text="Screenshot of the configure settings form.":::
 
 1. From studio, select __Compute__, __Compute instance__, and then __+ New__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-compute-instance.png" alt-text="Screenshot of the compute instances page, with the 'new' button selected.":::
 
-1. From the __Virtual Machine__ dialog, enter a unique __Computer name__ and select __Next: Advanced Settings__.
+1. From __Required settings__, enter a unique __Computer name__ and select __Next__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-compute-instance-vm.png" alt-text="Screenshot of compute instance virtual machine configuration.":::
 
-1. From the __Advanced Settings__ dialog, set the __Subnet__ to __Training__, and then select __Create__.
+1. Continue selecting __Next__ until you arrive at __Security__ dialog, select the __Virtual network__ and set the __Subnet__ to __Training__. Select __Review + Create__ and then select __Create__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/create-compute-instance-settings.png" alt-text="Screenshot of the advanced settings.":::
 
@@ -456,9 +477,9 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
     
     ```azurecli-interactive
     az ml workspace update \
-      -n myworkspace \
-      -g myresourcegroup \
-      -i mycomputecluster
+      -n docs-ml-ws \
+      -g docs-ml-rg \
+      -i cpu-cluster
     ```
 
     > [!NOTE]
