@@ -128,7 +128,7 @@ sections:
       - question: |
           What is the latest version of the Network Watcher Agent?
         answer: |
-          [!INCLUDE [Network Watcher Agent version](~/reusable-content/ce-skilling/azure/includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](network-watcher-update.md).
+          [!INCLUDE [Network Watcher Agent version](~/reusable-content/ce-skilling/azure/includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
 
       - question: |
           What ports does the Network Watcher Agent use?

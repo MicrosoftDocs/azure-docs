@@ -35,9 +35,9 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
     You can also install Azure PowerShell locally to run the cmdlets. This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-InstalledModule -Name Az`. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 > [!NOTE]
-> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-windows.md).
-> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-linux.md).
-> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-update.md).
+> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-agent-windows.md).
+> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-agent-linux.md).
+> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-agent-update.md).
 
 ## Check connectivity to a virtual machine
 

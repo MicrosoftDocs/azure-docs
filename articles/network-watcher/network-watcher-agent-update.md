@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Update Azure Network Watcher extension to the latest version
 
-[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. It's used by connection monitor, connection troubleshoot, and packet capture.
+[Azure Network Watcher](network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. It's used by connection monitor, connection troubleshoot, and packet capture.
 
 ## Prerequisites
 
@@ -149,7 +149,7 @@ Locate **"AzureNetworkWatcherExtension"** in the output and identify the ver
 Information about the extension appears multiple times in the JSON output. The full version number of the extension is available under the Extensions block. 
 
 You should see something like the below:
-![Azure CLI Screenshot](./media/network-watcher/azure-cli-screenshot.png)
+![Azure CLI Screenshot](./media/network-watcher-agent-update/azure-cli-screenshot.png)
 
 #### Use PowerShell
 
@@ -161,7 +161,7 @@ Get-AzVM -ResourceGroupName "SampleRG" -Name "Sample-VM" -Status
 Locate the Azure Network Watcher extension in the output and identify the version number from the *“TypeHandlerVersion”* field in the output.   
 
 You should see something like the below:
-![PowerShell Screenshot](./media/network-watcher/powershell-screenshot.png)
+![PowerShell Screenshot](./media/network-watcher-agent-update/powershell-screenshot.png)
 
 ### Update your extension
 

@@ -35,9 +35,9 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
     You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 > [!NOTE]
-> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-windows.md).
-> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-linux.md).
-> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-update.md).
+> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-agent-windows.md).
+> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-agent-linux.md).
+> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-agent-update.md).
 
 ## Test connectivity to a virtual machine
 

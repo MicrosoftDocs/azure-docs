@@ -88,11 +88,11 @@
   - name: Network Watcher Agent
     items:
     - name: Windows
-      href: network-watcher-windows.md
+      href: network-watcher-agent-windows.md
     - name: Linux
-      href: network-watcher-linux.md
+      href: network-watcher-agent-linux.md
     - name: Update to latest version
-      href: network-watcher-update.md
+      href: network-watcher-agent-update.md
   - name: View topology
     href: network-insights-topology.md
   - name: Create a connection monitor

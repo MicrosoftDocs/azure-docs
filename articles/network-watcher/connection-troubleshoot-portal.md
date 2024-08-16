@@ -29,9 +29,9 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 
 > [!NOTE]
 > When you use connection troubleshoot, Azure portal automatically installs the Network Watcher agent VM extension on the source virtual machine if it's not already installed.
-> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-windows.md).
-> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-linux.md).
-> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-update.md).
+> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-agent-windows.md).
+> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-agent-linux.md).
+> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-agent-update.md).
 
 ## Test connectivity to a virtual machine
 

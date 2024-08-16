@@ -131,7 +131,7 @@ From the virtual machine page in the Azure portal, you can view the installed ex
 
 1. In the **Extensions** tab, you can see all installed extensions on the virtual machine. If the list is long, you can use the search box to filter the list.
 
-    :::image type="content" source="./media/network-watcher/list-vm-extensions.png" alt-text="Screenshot that shows how to view installed extensions on a VM in the Azure portal." lightbox="./media/network-watcher/list-vm-extensions.png":::
+    :::image type="content" source="./media/network-watcher-agent-linux/list-vm-extensions.png" alt-text="Screenshot that shows how to view installed extensions on a VM in the Azure portal." lightbox="./media/network-watcher-agent-linux/list-vm-extensions.png":::
 
 # [**PowerShell**](#tab/powershell)
 
@@ -183,11 +183,11 @@ From the virtual machine page in the Azure portal, you can install the Network W
 
 1. Select **+ Add** and search for **Network Watcher Agent** and install it. If the extension is already installed, you can see it in the list of extensions.
 
-    :::image type="content" source="./media/network-watcher/vm-extensions.png" alt-text="Screenshot that shows the VM's extensions page in the Azure portal." lightbox="./media/network-watcher/vm-extensions.png":::
+    :::image type="content" source="./media/network-watcher-agent-linux/vm-extensions.png" alt-text="Screenshot that shows the VM's extensions page in the Azure portal." lightbox="./media/network-watcher-agent-linux/vm-extensions.png":::
 
 1. In the search box of **Install an Extension**, enter *Network Watcher Agent for Linux*. Select the extension from the list and select **Next**.
 
-    :::image type="content" source="./media/network-watcher/install-extension-linux.png" alt-text="Screenshot that shows how to install Network Watcher Agent for Linux in the Azure portal." lightbox="./media/network-watcher/install-extension-linux.png":::
+    :::image type="content" source="./media/network-watcher-agent-linux/install-extension-linux.png" alt-text="Screenshot that shows how to install Network Watcher Agent for Linux in the Azure portal." lightbox="./media/network-watcher-agent-linux/install-extension-linux.png":::
 
 1. Select **Review + create** and then select **Create**.
 
@@ -284,7 +284,7 @@ From the virtual machine page in the Azure portal, you can uninstall the Network
 
 1. Select **AzureNetworkWatcherExtension** from the list of extensions, and then select **Uninstall**.
 
-    :::image type="content" source="./media/network-watcher/uninstall-extension-linux.png" alt-text="Screenshot that shows how to uninstall Network Watcher Agent for Linux in the Azure portal." lightbox="./media/network-watcher/uninstall-extension-linux.png":::
+    :::image type="content" source="./media/network-watcher-agent-linux/uninstall-extension-linux.png" alt-text="Screenshot that shows how to uninstall Network Watcher Agent for Linux in the Azure portal." lightbox="./media/network-watcher-agent-linux/uninstall-extension-linux.png":::
 
     > [!NOTE]
     > You might see Network Watcher Agent VM extension named differently than **AzureNetworkWatcherExtension**.
