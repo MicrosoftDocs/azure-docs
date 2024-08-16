@@ -165,6 +165,12 @@ items:
         href: hdinsight-authorize-users-to-ambari.md
     - name: Migrate
       items:
+      - name: Migrate .NET to Linux
+        href: ./hdinsight-hadoop-migrate-dotnet-to-linux.md
+      - name: Migrate to granular role-based access for cluster configurations
+        href: ./hdinsight-migrate-granular-access-cluster-configurations.md
+        - name: Ambari user configs migration
+        href: ./migrate-ambari-recent-version-hdinsight.md  
       - name: Hadoop
         items:
         - name: Motivation and benefits
@@ -253,8 +259,6 @@ items:
         href: ./hdinsight-upload-data.md
       - name: Multiple HDInsight clusters with Data Lake Storage
         href: ./hdinsight-multiple-clusters-data-lake-store.md
-      - name: Migrate .NET to Linux
-        href: ./hdinsight-hadoop-migrate-dotnet-to-linux.md
       - name: Import and export data with Apache Sqoop
         items:
         - name: Overview - using Apache Sqoop
@@ -377,8 +381,6 @@ items:
         href: ./hdinsight-release-notes-archive.md 
     - name: Frequently asked questions (FAQ)
       href: ./hdinsight-faq.yml
-    - name: Migrate to granular role-based access for cluster configurations
-      href: ./hdinsight-migrate-granular-access-cluster-configurations.md
     - name: Information about using HDInsight on Linux
       href: ./hdinsight-hadoop-linux-information.md
     - name: Apache Hadoop memory and performance
@@ -685,8 +687,6 @@ items:
         href: ./hadoop/troubleshoot-wasbs-storage-exception.md
       - name: Manage disk space
         href: ./hadoop/troubleshoot-disk-space.md
-      - name: Ambari user configs migration
-        href: ./migrate-ambari-recent-version-hdinsight.md  
 - name: Apache Kafka
   items:
   - name: Overview
