@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/15/2024
+ms.date: 08/16/2024
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -177,7 +177,9 @@ This section covers common issues that occur during VM creation.
 
 1. From Azure portal, delete the existing Marketplace image.
 
-   1. List the ingestion and the BlobDownload ingestion job for the Marketplace image. Use these steps to [Connect to ARM](azure-stack-edge-gpu-connect-resource-manager.md?tabs=Az). Run the following script to list ingestion jobs:
+   1. List the ingestion and the BlobDownload ingestion job for the Marketplace image. Use these steps to [Connect to Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md?tabs=Az). 
+   
+      Run the following script to list ingestion jobs:
     
       Specify the subscription ID in the following Uri:
       
