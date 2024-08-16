@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure Spring Apps
   description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
-  ms.service: spring-apps
+  ms.service: azure-spring-apps
   ms.topic: hub-page
   author: KarlErickson
   ms.author: karler

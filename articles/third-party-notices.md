@@ -3,7 +3,7 @@ title: Legal notices
 description: Legal notices for Azure documentation
 author: SyntaxC4
 ms.author: cfowler
-ms.service: rights-management
+ms.service: azure-information-protection
 ms.topic: conceptual
 ms.date: 03/08/2019
 ---

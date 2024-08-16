@@ -4,7 +4,7 @@ description: Learn to use the Azure libraries for Python for Azure Managed Confi
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/11/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-api
 ---

@@ -27,6 +27,7 @@ You need to configure following network isolation configurations.
 - Create private endpoint outbound rules to your private Azure resources. Private Azure AI Search isn't supported yet. 
 - If you use Visual Studio Code integration with allow only approved outbound mode, create FQDN outbound rules described in the [use Visual Studio Code](#scenario-use-visual-studio-code) section.
 - If you use HuggingFace models in Models with allow only approved outbound mode, create FQDN outbound rules described in the [use HuggingFace models](#scenario-use-huggingface-models) section.
+- If you use one of the open-source models with allow only approved outbound mode, create FQDN outbound rules described in the [curated by Azure AI](#scenario-curated-by-azure-ai) section.
 
 ## Network isolation architecture and isolation modes
 
@@ -759,29 +760,42 @@ If you plan to use __HuggingFace models__ with the hub, add outbound _FQDN_ rule
 * cnd.auth0.com
 * cdn-lfs.huggingface.co
 
+### Scenario: Curated by Azure AI
+
+These models involve dynamic installation of dependencies at runtime, and reequire outbound _FQDN_ rules to allow traffic to the following hosts:
+
+*.anaconda.org
+*.anaconda.com
+anaconda.com
+pypi.org
+*.pythonhosted.org
+*.pytorch.org
+pytorch.org
+
 ## Private endpoints
 
 Private endpoints are currently supported for the following Azure services:
 
 * AI Studio hub
+* Azure AI Search
+* Azure AI services
+* Azure API Management
+* Azure Container Registry
+* Azure Cosmos DB (all sub resource types)
+* Azure Data Factory
+* Azure Database for MariaDB
+* Azure Database for MySQL
+* Azure Database for PostgreSQL Single Server
+* Azure Database for PostgreSQL Flexible Server
+* Azure Databricks
+* Azure Event Hubs
+* Azure Key Vault
 * Azure Machine Learning
 * Azure Machine Learning registries
-* Azure Storage (all sub resource types)
-* Azure Container Registry
-* Azure Key Vault
-* Azure AI services
-* Azure AI Search
-* Azure SQL Server
-* Azure Data Factory
-* Azure Cosmos DB (all sub resource types)
-* Azure Event Hubs
 * Azure Redis Cache
-* Azure Databricks
-* Azure Database for MariaDB
-* Azure Database for PostgreSQL Single Server
-* Azure Database for MySQL
-* Azure SQL Managed Instance
-* Azure API Management
+* Azure SQL Server
+* Azure Storage (all sub resource types)
+
 
 > [!IMPORTANT]
 > While you can create a private endpoint for Azure AI services and Azure AI Search, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).

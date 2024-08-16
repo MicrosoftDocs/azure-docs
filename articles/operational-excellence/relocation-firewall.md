@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 07/23/2024
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.custom:
   - subject-relocation

@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to transform data from an SAP ODP source by using mapping data flows in Azure Data Factory or Azure Synapse Analytics.
 author: ukchrist
 ms.author: ulrichchrist
-ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse

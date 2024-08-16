@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: spelluru
 ms.author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ---
 
 # Monitor Azure Stream Analytics

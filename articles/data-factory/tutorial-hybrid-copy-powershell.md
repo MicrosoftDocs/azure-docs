@@ -3,7 +3,6 @@ title: Copy data from SQL Server to Blob storage using PowerShell
 description: Learn how to copy data from an on-premises data store to the Azure cloud by using a self-hosted integration runtime in Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
-ms.service: azure-data-factory
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 05/15/2024

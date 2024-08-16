@@ -2,7 +2,7 @@
 title: Azure Load Balancer health probes
 description: Azure Load Balancer health probes and configuration for detecting application failures, managing load, and planned downtime. Includes probe properties and SKU comparison.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 10/10/2023
 ms.author: mbender
@@ -116,13 +116,15 @@ If you don't allow the [source IP](#probe-source-ip-address) of the probe in you
 
  ## Limitations
 
-* HTTPS probes don't support mutual authentication with a client certificate.
+* HTTPS probes doesn't support mutual authentication with a client certificate.
+
+* HTTP probes doesn't support using hostnames to probes backends
 
 * Enabling TCP timestamps can cause throttling or other performance issues, which can then cause health probes to timeout.
 
 * A Basic SKU load balancer health probe isn't supported with a virtual machine scale set.
 
-* HTTP probes don't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
+* HTTP probes doesn't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
 
 ## Next steps
 

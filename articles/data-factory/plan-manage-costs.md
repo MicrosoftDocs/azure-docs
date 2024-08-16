@@ -3,7 +3,6 @@ title: Plan to manage costs for Azure Data Factory
 description: Learn how to plan for and manage costs for Azure Data Factory by using cost analysis in the Azure portal.
 author: kromerm
 ms.author: makromer
-ms.service: azure-data-factory
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization

@@ -114,7 +114,7 @@ By default, a search returns all fields that are marked as retrievable. As such,
 #### Example in REST
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2024-07-01
 {
     "search": "animaux acceptés",
     "searchFields": "Tags, Description_fr",
@@ -167,7 +167,7 @@ Sometimes the language of the agent issuing a query isn't known, in which case t
 You would then include the scoring profile in the search request:
 
 ```http
-POST /indexes/hotels/docs/search?api-version=2023-11-01
+POST /indexes/hotels/docs/search?api-version=2024-07-01
 {
   "search": "pets allowed",
   "searchFields": "Tags, Description_fr",

@@ -3,7 +3,7 @@ title:  "Two-Class Averaged Perceptron: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Two-Class Averaged Perceptron component in the designer to create a binary classifier.  
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

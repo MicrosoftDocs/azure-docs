@@ -3,7 +3,7 @@ title: Azure Firewall performance
 description: Compare Azure Firewall performance for Azure Firewall Basic, Standard, and Premium.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: conceptual
 ms.date: 01/30/2024
 ms.author: victorh

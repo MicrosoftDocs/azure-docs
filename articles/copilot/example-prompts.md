@@ -18,11 +18,11 @@ To learn more about the ways that you can use Copilot for Azure, see [Capabiliti
 
 [!INCLUDE [preview-note](includes/preview-note.md)]
 
-## Skill and prompt library
+## Prompt library
 
 To get started with Copilot for Azure, try a few prompts from this list. Feel free to experiment and make changes, or create your own prompts based on your current tasks and interests.
 
-| Scenario | Skill description | Example prompt to try |
+| Scenario | Outcome | Example prompt to try |
 |----------|-------------------|-----------------------|
 | [Azure portal](capabilities.md#manage-portal-settings) | Changes Azure portal theme. | "Change my theme to dark mode." |
 | [Learn](capabilities.md#get-information) | Explains documentation and purposes of Azure services. | "What are the benefits and applications of Azure API Management?" |

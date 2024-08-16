@@ -5,7 +5,7 @@ description: Learn best practices for distributed training with supported framew
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: ratanase
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: conceptual
 ms.date: 01/29/2024

@@ -1,7 +1,7 @@
 ---
 title: Benefits of migrating to Azure HDInsight 4.0.
 description: Learn the benefits of migrating to Azure HDInsight 4.0.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 07/23/2024
 ---

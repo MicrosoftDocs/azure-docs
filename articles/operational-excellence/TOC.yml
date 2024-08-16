@@ -49,9 +49,9 @@
       - name: Azure Cosmos DB
         href: relocation-cosmos-db.md
       - name: Azure Database for MariaDB Server
-        href: ../mariadb/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json
+        href: /azure/mariadb/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json
       - name: Azure Database for MySQL Server
-        href: ../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json
+        href: /azure/mysql/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json
       - name: Azure Database for PostgreSQL
         href: relocation-postgresql-flexible-server.md
       - name: Azure Firewall

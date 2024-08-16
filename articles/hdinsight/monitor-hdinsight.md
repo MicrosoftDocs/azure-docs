@@ -4,7 +4,7 @@ description: Start here to learn how to monitor Azure HDInsight.
 ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ---
 
 # Monitor Azure HDInsight

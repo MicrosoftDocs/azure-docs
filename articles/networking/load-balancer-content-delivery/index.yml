@@ -6,7 +6,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure load balancing and content delivery
   summary: Learn about the various Azure load balancing and content delivery services available that provide security for your resources in Azure. Services include Azure Load Balancer, Azure Gateway Load Balancer, Azure Application Gateway, and Azure Front Door.
-  ms.service: load-balancer 
+  ms.service: azure-load-balancer
   ms.topic: hub-page
   author: mbender-ms
   ms.author: mbender

@@ -81,7 +81,7 @@ $collation = "Latin1_General_100_BIN2_UTF8"
 docker pull mcr.microsoft.com/mssql/server:$tag
 
 # run the image and provide some basic setup parameters
-docker run --name mssql-server -e 'ACCEPT_EULA=Y' -e "SA_PASSWORD=$pw" -e "MSSQL_PID=$edition" -p ${port}:1433 -d mcr.microsoft.com/mssql/server:$tag
+docker run --name mssql-server -e 'ACCEPT_EULA=Y' -e "MSSQL_SA_PASSWORD=$pw" -e "MSSQL_PID=$edition" -p ${port}:1433 -d mcr.microsoft.com/mssql/server:$tag
 
 # wait a few seconds for the container to start...
 

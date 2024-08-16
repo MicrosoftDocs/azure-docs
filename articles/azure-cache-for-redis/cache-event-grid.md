@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.date: 12/21/2020
 ms.topic: conceptual
-ms.service: cache
+ms.service: azure-cache-redis
 ---
 
 # Azure Cache for Redis Event Grid Overview 

@@ -3,7 +3,7 @@ title: How to deploy Cohere Rerank models as serverless APIs
 titleSuffix: Azure Machine Learning
 description: Learn to deploy and use Cohere Rerank models with Azure Machine Learning studio.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 07/24/2024

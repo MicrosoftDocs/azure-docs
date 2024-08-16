@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use the Two-Class Logistic Regression component in Azure Machine Learning to create a binary classifier. 
 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

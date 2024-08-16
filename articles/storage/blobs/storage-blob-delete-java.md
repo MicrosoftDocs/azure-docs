@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 08/02/2023
+ms.date: 08/12/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 [!INCLUDE [storage-dev-guide-selector-delete-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-blob.md)]
 
-This article shows how to delete blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).  If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
+This article shows how to delete blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme), and how to restore [soft-deleted](soft-delete-blob-overview.md) blobs during the retention period.
 
 ## Prerequisites
 
@@ -28,7 +28,9 @@ This article shows how to delete blobs with the [Azure Storage client library fo
 
 ## Delete a blob
 
-To delete a blob, call one of these methods:
+[!INCLUDE [storage-dev-guide-delete-blob-note](../../../includes/storage-dev-guides/storage-dev-guide-delete-blob-note.md)]
+
+To delete a blob, call either of the following methods:
 
 - [delete](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
 - [deleteIfExists](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)

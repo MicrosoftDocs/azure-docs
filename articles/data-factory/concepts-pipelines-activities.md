@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about pipelines and activities in Azure Data Factory and Azure Synapse Analytics.
 author: dcstwh
 ms.author: weetok
-ms.service: azure-data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

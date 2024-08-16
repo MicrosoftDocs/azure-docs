@@ -1,7 +1,7 @@
 ---
 title: Seattle Safety Data
 description: Learn how to use the Seattle Safety dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.custom: devx-track-python
 ms.topic: sample
 ms.date: 04/16/2021

@@ -21,13 +21,13 @@ This section guides you on configuring and running your function app as securely
 
 ### Defender for Cloud
 
-Defender for Cloud integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use Defender for Cloud's enhanced security features for an extra cost. To learn more, see [Protect your Azure App Service web apps and APIs](../defender-for-cloud/defender-for-app-service-introduction.md). 
+Defender for Cloud integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use Defender for Cloud's enhanced security features for an extra cost. To learn more, see [Protect your Azure App Service web apps and APIs](/azure/defender-for-cloud/defender-for-app-service-introduction). 
 
 ### Log and monitor
 
-One way to detect attacks is through activity monitoring and logging analytics. Functions integrates with Application Insights to collect log, performance, and error data for your function app. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
+One way to detect attacks is through activity monitoring and logging analytics. Functions integrates with Application Insights to collect log, performance, and error data for your function app. Application Insights automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and understand how your functions are used. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
-Functions also integrates with Azure Monitor Logs to enable you to consolidate function app logs with system events for easier analysis. You can use diagnostic settings to configure streaming export of platform logs and metrics for your functions to the destination of your choice, such as a Logs Analytics workspace. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md). 
+Functions also integrates with Azure Monitor Logs to enable you to consolidate function app logs with system events for easier analysis. You can use diagnostic settings to configure the streaming export of platform logs and metrics for your functions to the destination of your choice, such as a Logs Analytics workspace. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md). 
 
 For enterprise-level threat detection and response automation, stream your logs and events to a Logs Analytics workspace. You can then connect Microsoft Sentinel to this workspace. To learn more, see [What is Microsoft Sentinel](../sentinel/overview.md).  
 
@@ -46,7 +46,7 @@ HTTP endpoints that are exposed publicly provide a vector of attack for maliciou
 
 ### Require HTTPS
 
-By default, clients can connect to function endpoints by using both HTTP or HTTPS. You should redirect HTTP to HTTPs because HTTPS uses the SSL/TLS protocol to provide a secure connection, which is both encrypted and authenticated. To learn how, see [Enforce HTTPS](../app-service/configure-ssl-bindings.md#enforce-https).
+By default, clients can connect to function endpoints by using either HTTP or HTTPS. You should redirect HTTP to HTTPS because HTTPS uses the SSL/TLS protocol to provide a secure connection, which is both encrypted and authenticated. To learn how, see [Enforce HTTPS](../app-service/configure-ssl-bindings.md#enforce-https).
 
 When you require HTTPS, you should also require the latest TLS version. To learn how, see [Enforce TLS versions](../app-service/configure-ssl-bindings.md#enforce-tls-versions).
 
@@ -74,7 +74,7 @@ APIM provides various API security options for incoming requests. To learn more,
 
 ### Permissions
 
-As with any application or service, the goal is run your function app with the lowest possible permissions. 
+As with any application or service, the goal is to run your function app with the lowest possible permissions. 
 
 #### User management permissions
 
@@ -84,7 +84,7 @@ Permissions are effective at the function app level. The Contributor role is req
 
 #### Organize functions by privilege 
 
-Connection strings and other credentials stored in application settings gives all of the functions in the function app the same set of permissions in the associated resource. Consider minimizing the number of functions with access to specific credentials by moving functions that don't use those credentials to a separate function app. You can always use techniques such as [function chaining](/training/modules/chain-azure-functions-data-using-bindings/) to pass data between functions in different function apps.  
+Connection strings and other credentials stored in application settings give all of the functions in the function app the same set of permissions in the associated resource. Consider minimizing the number of functions with access to specific credentials by moving functions that don't use those credentials to a separate function app. You can always use techniques such as [function chaining](/training/modules/chain-azure-functions-data-using-bindings/) to pass data between functions in different function apps.  
 
 #### Managed identities
 
@@ -102,7 +102,7 @@ While it's tempting to use a wildcard that allows all sites to access your endpo
 
 ### Managing secrets 
 
-To be able to connect to the various services and resources need to run your code, function apps need to be able to access secrets, such as connection strings and service keys. This section describes how to store secrets required by your functions.
+To be able to connect to the various services and resources needed to run your code, function apps need to be able to access secrets, such as connection strings and service keys. This section describes how to store secrets required by your functions.
 
 Never store secrets in your function code. 
 
@@ -112,15 +112,15 @@ By default, you store connection strings and secrets used by your function app a
 
 For example, every function app requires an associated storage account, which is used by the runtime. By default, the connection to this storage account is stored in an application setting named `AzureWebJobsStorage`.
 
-App settings and connection strings are stored encrypted in Azure. They're decrypted only before being injected into your app's process memory when the app starts. The encryption keys are rotated regularly. If you prefer to instead manage the secure storage of your secrets, the app setting should instead be references to Azure Key Vault. 
+App settings and connection strings are stored encrypted in Azure. They're decrypted only before being injected into your app's process memory when the app starts. The encryption keys are rotated regularly. If you prefer to manage the secure storage of your secrets, the app settings should instead be references to Azure Key Vault secrets. 
 
-You can also encrypt settings by default in the local.settings.json file when developing functions on your local computer. For more information, see [Encrypt the local settings file](functions-run-local.md#encrypt-the-local-settings-file).  
+You can also encrypt settings by default in the `local.settings.json` file when developing functions on your local computer. For more information, see [Encrypt the local settings file](functions-run-local.md#encrypt-the-local-settings-file).  
 
 #### Key Vault references
 
-While application settings are sufficient for most many functions, you may want to share the same secrets across multiple services. In this case, redundant storage of secrets results in more potential vulnerabilities. A more secure approach is to a central secret storage service and use references to this service instead of the secrets themselves.      
+While application settings are sufficient for most functions, you may want to share the same secrets across multiple services. In this case, redundant storage of secrets results in more potential vulnerabilities. A more secure approach is to use a central secret storage service and use references to this service instead of the secrets themselves.      
 
-[Azure Key Vault](../key-vault/general/overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history. You can use a Key Vault reference in the place of a connection string or key in your application settings. To learn more, see [Use Key Vault references for App Service and Azure Functions](../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json).
+[Azure Key Vault](/azure/key-vault/general/overview) is a service that provides centralized secrets management, with full control over access policies and audit history. You can use a Key Vault reference in the place of a connection string or key in your application settings. To learn more, see [Use Key Vault references for App Service and Azure Functions](../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json).
 
 ### Identity-based connections
 
@@ -132,7 +132,7 @@ Some Azure Functions binding extensions can be configured to access services usi
 
 ### Set usage quotas
 
-Consider setting a usage quota on functions running in a Consumption plan. When you set a daily GB-sec limit on the sum total execution of functions in your function app, execution is stopped when the limit is reached. This could potentially help mitigate against malicious code executing your functions. To learn how to estimate consumption for your functions, see [Estimating Consumption plan costs](functions-consumption-costs.md). 
+Consider setting a usage quota for functions running in a Consumption plan. When you set a daily GB-sec limit on the total execution of functions in your function app, execution is stopped when the limit is reached. This could potentially help mitigate against malicious code executing your functions. To learn how to estimate consumption for your functions, see [Estimating Consumption plan costs](functions-consumption-costs.md). 
 
 ### Data validation
 
@@ -142,7 +142,7 @@ Don't assume that the data coming into your function has already been validated 
 
 ### Handle errors
 
-While it seems basic, it's important to write good error handling in your functions. Unhandled errors bubble-up to the host and are handled by the runtime. Different bindings handle processing of errors differently. To learn more, see [Azure Functions error handling](functions-bindings-error-pages.md).
+While it seems basic, it's important to write good error handling in your functions. Unhandled errors bubble up to the host and are handled by the runtime. Different bindings handle the processing of errors differently. To learn more, see [Azure Functions error handling](functions-bindings-error-pages.md).
 
 ### Disable remote debugging
 
@@ -168,7 +168,7 @@ You should also consult the guidance for any resource types your application log
 
 ## Secure deployment
 
-Azure Functions tooling an integration make it easy to publish local function project code to Azure. It's important to understand how deployment works when considering security for an Azure Functions topology.   
+Azure Functions tooling integration makes it easy to publish local function project code to Azure. It's important to understand how deployment works when considering security for an Azure Functions topology.   
 
 ### Deployment credentials
 
@@ -188,11 +188,11 @@ FTP isn't recommended for deploying your function code. FTP deployments are manu
 
 When you're not planning on using FTP, you should disable it in the portal. If you do choose to use FTP, you should [enforce FTPS](../app-service/deploy-ftp.md#enforce-ftps).
 
-### Secure the scm endpoint
+### Secure the `scm` endpoint
 
-Every function app has a corresponding `scm` service endpoint that used by the Advanced Tools (Kudu) service for deployments and other App Service [site extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions). The scm endpoint for a function app is always a URL in the form `https://<FUNCTION_APP_NAME.scm.azurewebsites.net>`. When you use network isolation to secure your functions, you must also account for this endpoint. 
+Every function app has a corresponding `scm` service endpoint that is used by the Advanced Tools (Kudu) service for deployments and other App Service [site extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions). The `scm` endpoint for a function app is always a URL in the form `https://<FUNCTION_APP_NAME>.scm.azurewebsites.net`. When you use network isolation to secure your functions, you must also account for this endpoint. 
 
-By having a separate scm endpoint, you can control deployments and other advanced tools functionalities for function app that are isolated or running in a virtual network. The scm endpoint supports both basic authentication (using deployment credentials) and single sign-on with your Azure portal credentials. To learn more, see [Accessing the Kudu service](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). 
+By having a separate `scm` endpoint, you can control deployments and other Advanced Tools functionalities for function apps that are isolated or running in a virtual network. The `scm` endpoint supports both basic authentication (using deployment credentials) and single sign-on with your Azure portal credentials. To learn more, see [Accessing the Kudu service](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). 
 
 ### Continuous security validation
 
@@ -204,7 +204,7 @@ Restricting network access to your function app lets you control who can access 
 
 ### Set access restrictions
 
-Access restrictions allow you to define lists of allow/deny rules to control traffic to your app. Rules are evaluated in priority order. If there are no rules defined, then your app will accept traffic from any address. To learn more, see [Azure App Service Access Restrictions](../app-service/app-service-ip-restrictions.md?toc=/azure/azure-functions/toc.json).
+Access restrictions allow you to define lists of allow/deny rules to control traffic to your app. Rules are evaluated in priority order. If no rules are defined, your app will accept traffic from any address. To learn more, see [Azure App Service Access Restrictions](../app-service/app-service-ip-restrictions.md?toc=/azure/azure-functions/toc.json).
 
 ### Secure the storage account
 

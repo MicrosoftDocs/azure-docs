@@ -5099,6 +5099,26 @@
             "source_path_from_root": "/articles/virtual-machines/dlsv5-dldsv5-series.md",
             "redirect_url": "/azure/virtual-machines/sizes/general-purpose/dlsv5-series",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/sizes/gpu-accelerated/nd-mi300x-v5-series.md",
+            "redirect_url": "/azure/virtual-machines/sizes/gpu-accelerated/ndmi300xv5-series",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/sizes/memory-optimized/d-family.md",
+            "redirect_url": "/azure/virtual-machines/sizes/previous-gen-sizes-list#memory-optimized-previous-gen-sizes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/dv2-dsv2-series-memory.md",
+            "redirect_url": "/azure/virtual-machines/sizes/memory-optimized/dv2-dsv2-series-memory",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/spot-placement-score.md",
+            "redirect_url": "/azure/virtual-machines/index",
+            "redirect_document_id": false
+        }    
     ]
 }

@@ -2,10 +2,10 @@
 title: HBv4-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs
 description: Learn about the HBv4-series VM size in Azure.
 services: virtual-machines
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 07/25/2024
+ms.date: 08/06/2024
 ms.reviewer: cynthn
 ms.author: padmalathas
 author: padmalathas
@@ -127,7 +127,7 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 
 > [!NOTE] 
 > * These VMs support only Generation 2.
-> * There is no official kernel level support from AMD on CentOS. Support starts at RHEL 8.6 and a derivative of RHEL which is AlmaLinux 8.6.
+> * Official kernel-level support from AMD starts with RHEL 8.6 and AlmaLinux 8.6, which is a derivative of RHEL.
 > * Windows Server 2012 R2 is not supported on HBv4 and other VMs with more than 64 (virtual or physical) cores. For more information, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Windows Server 2022 is required for 144 and 176 core sizes, Windows Server 2016 also works for 24, 48, and 96 core sizes, Windows Server works for only 24 and 48 core sizes.  
 
 > [!IMPORTANT] 

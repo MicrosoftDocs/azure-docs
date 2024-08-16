@@ -1,11 +1,6 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/storage/common/storage-failover-customer-managed-planned.md",
-            "redirect_url": "/articles/storage/common/storage-failover-customer-managed-unplanned",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/storage/common/azure-defender-storage-configure.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-storage-introduction",
             "redirect_document_id": false
@@ -2278,27 +2273,27 @@
         {
             "source_path_from_root": "/articles/storage/storage-table-design-guide.md",
             "redirect_url": "/azure/cosmos-db/table-storage-design-guide",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-tables.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-c-plus",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-dotnet-how-to-use-tables.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-dotnet",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-java-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-java",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-nodejs",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-nodejs-use-table-storage-cloud-service-app.md",
@@ -2313,12 +2308,12 @@
         {
             "source_path_from_root": "/articles/storage/storage-python-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-python",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-ruby-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-ruby",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-about-disks-and-vhds-linux.md",

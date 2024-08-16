@@ -123,6 +123,8 @@ items:
         href: quickstarts/rooms/get-started-rooms.md
       - name: Join a room call
         href: quickstarts/rooms/join-rooms-call.md
+      - name: Manage a room call
+        href: quickstarts/rooms/manage-rooms-call.md
     - name: Use UI components for voice and video
       href: quickstarts/ui-library/get-started-composites.md
     - name: Add data channel messaging to your calling app
@@ -352,12 +354,14 @@ items:
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+      - name: Enable Closed captions
+        href: quickstarts/voice-video-calling/get-started-with-closed-captions.md
       - name: Enable Closed captions for Teams Interoperability
         href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
       - name: Pass contextual information
-        href: how-tos/calling-sdk/call-context.md
+        href: how-tos/calling-sdk/call-context.md     
     - name: Call recording
       items:
       - name: Record a call
@@ -426,6 +430,8 @@ items:
         items: 
         - name: Configure default orientation
           href: how-tos/ui-library-sdk/orientation.md
+        - name: Configure closed captions
+          href: how-tos/ui-library-sdk/closed-captions.md
         - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
         - name: Disable end call confirmation
@@ -468,6 +474,12 @@ items:
         href: concepts/analytics/insights/rooms-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
+    - name: Teams interoperability
+      items:
+      - name: Breakout rooms
+        href: how-tos/calling-sdk/breakoutrooms.md
+      - name: Together Mode
+        href: how-tos/calling-sdk/together-mode.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
@@ -522,12 +534,16 @@ items:
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
+      - name: Get Real-time Transcription of call audio
+        href: how-tos/call-automation/real-time-transcription-tutorial.md  
       - name: How to secure webhook endpoint
         href: how-tos/call-automation/secure-webhook-endpoint.md
       - name: Handling Call Automation Events with EventProcessor
         href: how-tos/call-automation/handle-events-with-event-processor.md
       - name: How to pass call contextual data in Call Automation
         href: how-tos/call-automation/custom-context.md
+      - name: How to use Audio Streaming
+        href: how-tos/call-automation/audio-streaming-quickstart.md
     - name: Call recording
       items:
       - name: Record a call
@@ -789,6 +805,9 @@ items:
       - name: End of Call Survey
         href: concepts/voice-video-calling/end-of-call-survey-concept.md
         displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+      - name: Troubleshooting PSTN call failures
+        href: concepts/telephony/troubleshooting-pstn-call-failures.md
+        displayName: diagnostics, Survey, feedback, quality, reliability, call, voip, troubleshooting
       - name: Troubleshooting VoIP call quality
         href: concepts/voice-video-calling/troubleshoot-web-voip-quality.md
         displayName: diagnostics, Survey, feedback, quality, reliability, call, voip, troubleshooting
@@ -943,8 +962,12 @@ items:
         href: concepts/call-automation/play-action.md
       - name: Gather user input 
         href: concepts/call-automation/recognize-action.md
+      - name: Get Real-Time Audio Insights using Transcriptions
+        href: concepts/call-automation/real-time-transcription.md     
       - name: Ring Microsoft Teams users
         href: concepts/call-automation/call-automation-teams-interop.md
+      - name: Get Audio Streams from a call
+        href: concepts/call-automation/audio-streaming-concept.md
     - name: Call recording
       href: concepts/voice-video-calling/call-recording.md
     - name: Events
@@ -1081,6 +1104,10 @@ items:
     href: resources/learn-modules.md
   - name: Troubleshooting Guides
     items:
+    - name: Troubleshooting in Azure Communication Services
+      href: concepts/troubleshooting-info.md
+    - name: Troubleshooting response codes
+      href: concepts/troubleshooting-codes.md
     - name: Voice and Video
       items:
       - name: General troubleshooting strategies

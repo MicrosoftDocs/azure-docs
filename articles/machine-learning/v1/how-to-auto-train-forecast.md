@@ -6,7 +6,7 @@ services: machine-learning
 author: manashgoswami
 ms.author: manashg
 ms.reviewer: ssalgado
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.custom: UpdateFrequency5, automl, sdkv1, devx-track-python

@@ -2,7 +2,7 @@
 title: NVMe overview
 description: Learn about NVMe and how to enable it 
 author: MelissaHollingshed
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.date: 07/31/2024
 ms.author: mehollin
 ms.topic: article
@@ -10,7 +10,7 @@ ms.topic: article
 ---
 # NVMe Overview
 
-Learn about NVM Express (NVMe) support on virtual machine (VM) created in Azure. NVMe is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems by using nonvolatile memory (NVM). With NVMe, data can be transferred at the highest throughput and with the fastest response times.
+NVM Express (NVMe) is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems by using nonvolatile memory (NVM). With NVMe, data can be transferred at the highest throughput and with the fastest response times. In this overview, learn about NVMe support on virtual machines (VM) created in Azure.
 
 NVMe offers higher input/output operations per second (IOPS) and higher throughput in megabytes per second (MBps). This capability can significantly improve the performance of both temporary (local) and remote NVMe disk storage with [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Higher performance is especially beneficial for I/O-intensive workloads that require fast data transfer to the Azure managed disks.
 
@@ -42,7 +42,7 @@ For v6, Ebsv5, and greater VMs; you need to transition from SCSI to NVMe. For mo
 
 ### VM sizes
 
-Typically, the older generations of general purpose, memory optimized, and compute optimized VMs (D/Ev5 or Fv2 and older) support SCSI. The newer generations (Da/Ea/Fav6 and newer) typically support only the NVMe storage interface. However, Ebsv5/Ebdsv5 and Lsv2/Lsv3/Lasv3 VMs introduced NVMe as an option for temporary disks.
+Typically, the older generations of general purpose, memory optimized, and compute optimized VMs (D/Ev5 or Fv2 and older) support SCSI. The newer generations (Ebsv5, Da/Ea/Fav6 and newer) typically support only the NVMe storage interface (or some offering supports SCSI and NVMe, both interfaces, Ebsv5 is an example of such offering).  Also, starting from Da/Ea/Fav6 and some of the future offering, we have introduced the NVMe interface for the local SSD disks.
 
 For specifics about which VM generations support which storage types, check the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes).
 
@@ -74,7 +74,7 @@ To create an NVMe-enabled VM, you must first enable the NVMe option on a VM and 
 
 #### Mark as NVMe capable  
 
-You can create an NVMe-supported VM only by using an image (Platform Image Repository and [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) marked as NVMe.
+You can create NVMe interface enabled VM only by using an image (available in [Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home), or shared in [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli) within your company) marked as NVMe.
 
 > [!WARNING]
 > If you use an unmarked image, a SCSI-based VM is created, and the VM might not perform as you intended.

@@ -101,8 +101,6 @@
       href: connection-monitor-create-using-portal.md
     - name: PowerShell
       href: connection-monitor-create-using-powershell.md
-    - name: ARMClient
-      href: connection-monitor-create-using-template.md
   - name: Migrate to Connection monitor
     items:
     - name: From Network performance monitor

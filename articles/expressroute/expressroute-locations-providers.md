@@ -3,7 +3,7 @@ title: Locations and connectivity providers for Azure ExpressRoute
 description: This article provides a detailed overview of available providers and services per each ExpressRoute location to connect to Azure.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 07/31/2024
 ms.author: duau

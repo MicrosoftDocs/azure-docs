@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to onboard a custom IPv6 address prefix using the Azure portal, Azure CLI, or PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/24/2023

@@ -25,11 +25,11 @@ Secrets management in Azure IoT Operations Preview uses Azure Key Vault as the m
 
 Azure IoT Operations supports Key Vault for storing secrets and certificates. The `az iot ops init` Azure CLI command automates the steps to set up a service principal to give access to the key vault and configure the secrets that you need for running Azure IoT Operations.
 
-For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md?tabs=cli).
+For more information, see [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md?tabs=cli).
 
 ## Configure service principal and Key Vault manually
 
-If the Azure account executing the `az iot ops init` command doesn't have permissions to query the Microsoft Graph and create service principals, you can prepare these upfront and use extra arguments when running the CLI command as described in [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
+If the Azure account executing the `az iot ops init` command doesn't have permissions to query the Microsoft Graph and create service principals, you can prepare these upfront and use extra arguments when running the CLI command as described in [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md?tabs=cli).
 
 ### Configure service principal for interacting with Key Vault via Microsoft Entra ID
 
@@ -120,7 +120,7 @@ az keyvault set-policy --name "<your unique key vault name>" --resource-group "<
 
 ### Pass service principal and Key Vault arguments to Azure IoT Operations deployment
 
-When following the guide [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli), pass in additional flags to the `az iot ops init` command in order to use the preconfigured service principal and key vault.
+When following the guide [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md?tabs=cli), pass in additional flags to the `az iot ops init` command in order to use the preconfigured service principal and key vault.
 
 The following example shows how to prepare the cluster for Azure IoT Operations without fully deploying it by using `--no-deploy` flag. You can also run the command without this argument for a default Azure IoT Operations deployment.
 
@@ -171,7 +171,3 @@ The CSI driver updates secrets by using a polling interval, therefore the new se
 kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations
 kubectl delete pod aio-dp-runner-worker-0 -n azure-iot-operations
 ```
-
-## Azure IoT MQ Preview secrets
-
-The steps to manage secrets with Azure Key Vault for Azure IoT MQ Preview are different. For more information, see [Manage MQ secrets using Key Vault](../manage-mqtt-connectivity/howto-manage-secrets.md).

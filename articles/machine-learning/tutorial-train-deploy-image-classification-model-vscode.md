@@ -3,7 +3,7 @@ title: "Tutorial: Train image classification model: VS Code (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to train an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: ssalgadodev

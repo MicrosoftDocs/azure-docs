@@ -3,7 +3,7 @@ title: 'Quickstart: Create a private endpoint - Bicep'
 description: In this quickstart, you'll learn how to create a private endpoint using Bicep.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 03/28/2024
 ms.author: abell
