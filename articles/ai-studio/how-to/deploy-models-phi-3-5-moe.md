@@ -1,7 +1,7 @@
 ---
-title: How to use Phi-3 MoE chat model with Azure AI Studio
+title: How to use Phi-3.5 MoE chat model with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to use Phi-3 MoE chat model with Azure AI Studio.
+description: Learn how to use Phi-3.5 MoE chat model with Azure AI Studio.
 ms.service: azure-ai-studio
 manager: scottpolly
 ms.topic: how-to
@@ -14,16 +14,16 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Phi-3 MoE chat model
+# How to use Phi-3.5 MoE chat model
 
-In this article, you learn about Phi-3 MoE chat model and how to use it.
+In this article, you learn about Phi-3.5 MoE chat model and how to use it.
 The Phi-3 family of small language models (SLMs) is a collection of instruction-tuned generative text models.
 
 
 
 ::: zone pivot="programming-language-python"
 
-## Phi-3 MoE chat model
+## Phi-3.5 MoE chat model
 
 Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 MoE uses 16x3.8B parameters with 6.6B active parameters when using 2 experts. The model is a mixture-of-expert decoder-only transformer model, using a tokenizer with vocabulary size of 32,064.
 
@@ -39,13 +39,13 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 MoE chat model with Azure AI Studio, you need the following prerequisites:
+To use Phi-3.5 MoE chat model with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 MoE chat model can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3.5 MoE chat model can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -73,7 +73,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 MoE chat model.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3.5 MoE chat model.
 
 ### Create a client to consume the model
 
@@ -258,7 +258,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to Phi-3 MoE chat model:
+The following extra parameters can be passed to Phi-3.5 MoE chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -273,7 +273,7 @@ The following extra parameters can be passed to Phi-3 MoE chat model:
 
 ::: zone pivot="programming-language-javascript"
 
-## Phi-3 MoE chat model
+## Phi-3.5 MoE chat model
 
 Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 MoE uses 16x3.8B parameters with 6.6B active parameters when using 2 experts. The model is a mixture-of-expert decoder-only transformer model, using a tokenizer with vocabulary size of 32,064.
 
@@ -289,13 +289,13 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 MoE chat model with Azure AI Studio, you need the following prerequisites:
+To use Phi-3.5 MoE chat model with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 MoE chat model can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3.5 MoE chat model can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -321,7 +321,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 MoE chat model.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3.5 MoE chat model.
 
 ### Create a client to consume the model
 
@@ -525,7 +525,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to Phi-3 MoE chat model:
+The following extra parameters can be passed to Phi-3.5 MoE chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -540,7 +540,7 @@ The following extra parameters can be passed to Phi-3 MoE chat model:
 
 ::: zone pivot="programming-language-csharp"
 
-## Phi-3 MoE chat model
+## Phi-3.5 MoE chat model
 
 Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 MoE uses 16x3.8B parameters with 6.6B active parameters when using 2 experts. The model is a mixture-of-expert decoder-only transformer model, using a tokenizer with vocabulary size of 32,064.
 
@@ -556,13 +556,13 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 MoE chat model with Azure AI Studio, you need the following prerequisites:
+To use Phi-3.5 MoE chat model with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 MoE chat model can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3.5 MoE chat model can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -597,7 +597,7 @@ using Azure.Identity;
 using Azure.AI.Inference;
 ```
 
-This example also uses the following namespaces but you may not always need them:
+This example also use the following namespaces but you may not always need them:
 
 
 ```csharp
@@ -611,7 +611,7 @@ using System.Reflection;
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 MoE chat model.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3.5 MoE chat model.
 
 ### Create a client to consume the model
 
@@ -804,7 +804,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to Phi-3 MoE chat model:
+The following extra parameters can be passed to Phi-3.5 MoE chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -819,7 +819,7 @@ The following extra parameters can be passed to Phi-3 MoE chat model:
 
 ::: zone pivot="programming-language-rest"
 
-## Phi-3 MoE chat model
+## Phi-3.5 MoE chat model
 
 Phi-3.5 models are lightweight, state-of-the-art open models. These models were trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties. Phi-3.5 MoE uses 16x3.8B parameters with 6.6B active parameters when using 2 experts. The model is a mixture-of-expert decoder-only transformer model, using a tokenizer with vocabulary size of 32,064.
 
@@ -835,13 +835,13 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 MoE chat model with Azure AI Studio, you need the following prerequisites:
+To use Phi-3.5 MoE chat model with Azure AI Studio, you need the following prerequisites:
 
 ### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
-Phi-3 MoE chat model can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3.5 MoE chat model can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -860,7 +860,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 MoE chat model.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3.5 MoE chat model.
 
 ### Create a client to consume the model
 
@@ -1108,7 +1108,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to Phi-3 MoE chat model:
+The following extra parameters can be passed to Phi-3.5 MoE chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |

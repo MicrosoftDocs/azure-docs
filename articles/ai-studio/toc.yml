@@ -94,6 +94,8 @@ items:
       items:
         - name: Phi-3 family chat models
           href: how-to/deploy-models-phi-3.md
+        - name: Phi-3.5 MoE chat model
+          href: how-to/deploy-models-phi-3-5-moe.md
         - name: Phi-3 chat model with vision
           href: how-to/deploy-models-phi-3-vision.md
         - name: Phi-3.5 chat model with vision
