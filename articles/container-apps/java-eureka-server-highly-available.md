@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Create a highly available Eureka service in Azure Container Apps"
-description: Learn to create a highly available Eureka service in Azure Container Apps.
+title: "Tutorial: Create a highly-available Eureka server component cluster in Azure Container Apps"
+description: Learn to create a highly-available Eureka service in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -11,7 +11,7 @@ ms.author: cshoe
 #customer intent: As a developer, I want to create an Eureka server cluster so that I can ensure there is no downtime of my service registries regardless of load and failures.
 ---
 
-# Tutorial: Create a highly available Eureka service in Azure Container Apps
+# Tutorial: Create a highly-available Eureka server component cluster in Azure Container Apps
 
 In this tutorial, you learn to create a Eureka service designed to remain operational in the face of failures and high demand. Building a highly available Eureka service ensures the service registry is always available to clients regardless of demand.
 
