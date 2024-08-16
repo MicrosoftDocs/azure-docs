@@ -39,6 +39,10 @@ If you want to inspect your on-premises traffic using a firewall, you can force 
 
 Yes, this is expected behavior. User-defined routes with next hop type **Virtual Network Gateway** are not supported for subnets within Route Server's virtual network and peered virtual networks. However, if you want to configure your next hop to be a network virtual appliance (NVA) or the internet, adding a user-defined route with next hop type **VirtualAppliance** or **Internet** is supported. 
 
+### In my VM's network interface's effective routes, why do I have a user-defined route (UDR) with Next Hop Type set to **None**? 
+
+If you advertise a route from your NVA to Route Server that is an exact prefix match as another user-defined route, then the advertised route's next hop must be valid. If the advertised next hop is a load balancer without a configured backend pool, then this invalid route will take precedence over the user-defined route. In your network interface's effective routes, the invalid advertised route will be displayed as a user-defined route with Next Hop Type set to **None**. 
+
 ### Why do I lose connectivity after associating a service endpoint policy to the RouteServerSubnet or GatewaySubnet?
  
 If you associate a service endpoint policy to the RouteServerSubnet or GatewaySubnet, then communication may break between Azure's underlying management platform and these respective Azure services (Route Server and VPN/ExpressRoute gateway). This can cause these Azure resources to enter an unhealthy state, resulting in connectivity loss between your on-premises and Azure workloads.
