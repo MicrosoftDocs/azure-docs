@@ -201,7 +201,7 @@ We also improved the out-of-box dashboards both at the cluster-level. There's a 
 
 ## Release and support timeline
 
-* Classic Azure Monitoring integration isn't unavailable after October 15, 2021. You can't enable classic Azure Monitoring integration after that date. 
+* Classic Azure Monitoring integration isn't available after October 15, 2021. You can't enable classic Azure Monitoring integration after that date. 
 
 * Classic Azure Monitoring integration ingestion will not be working after August 31, 2024.
 
