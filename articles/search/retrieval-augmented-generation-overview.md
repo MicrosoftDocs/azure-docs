@@ -151,7 +151,7 @@ Here are some tips for maximizing relevance and recall:
 
 In comparison and benchmark testing, hybrid queries with text and vector fields, supplemented with semantic ranking, produce the most relevant results.
 
-### Example code of an Azure AI Search query for RAG scenarios
+### Example code for a RAG workflow
 
 The following Python code demonstrates the essential components of a RAG workflow in Azure AI Search. You need to set up the clients, define a system prompt, and provide a query. The prompt tells the LLM to use just the results from the query, and how to return the results. For more steps based on this example, see this [RAG quickstart](search-get-started-rag.md).
 
@@ -176,7 +176,8 @@ search_client = SearchClient(
     credential=credential
 )
 
-# This prompt provides instructions to the model
+# This prompt provides instructions to the model. 
+# The prompt includes the query and the source, which are specified further down in the code.
 GROUNDED_PROMPT="""
 You are a friendly assistant that recommends hotels based on activities and amenities.
 Answer the query using only the sources provided below in a friendly and concise bulleted manner.
@@ -187,7 +188,7 @@ Query: {query}
 Sources:\n{sources}
 """
 
-# Query is the question being asked
+# The query is sent to the search engine, but it's also passed in the prompt
 query="Can you recommend a few hotels near the ocean with beach access and good views"
 
 # Retrieve the selected fields from the search index related to the question
@@ -205,7 +206,7 @@ response = openai_client.chat.completions.create(
             "content": GROUNDED_PROMPT.format(query=query, sources=sources_formatted)
         }
     ],
-    model="gpt-4o"
+    model="gpt-35"
 )
 
 print(response.choices[0].message.content)

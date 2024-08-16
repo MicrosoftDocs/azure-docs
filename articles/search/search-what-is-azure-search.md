@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/05/2024
+ms.date: 08/15/2024
 ---
 
 # What's Azure AI Search?
@@ -78,7 +78,7 @@ An end-to-end exploration of core search features can be accomplished in four st
 
 1. [**Create a search service**](search-create-service-portal.md) in the Azure portal.
 
-1. [**Start with Import data wizard**](search-get-started-portal.md). Choose a built-in sample or a supported data source to create, load, and query an index in minutes.
+1. [**Start with Import data wizard**](search-get-started-portal.md). Choose a built-in sample or a supported data source to create, load, and query an index in minutes. 
 
 1. [**Finish with Search Explorer**](search-explorer.md), using a portal client to query the search index you just created.
 

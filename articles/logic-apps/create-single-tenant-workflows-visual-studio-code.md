@@ -624,7 +624,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
       "IsEncrypted": false,
       "Values": {
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "FUNCTIONS_WORKER_RUNTIME": "node",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
          "FUNCTIONS_V2_COMPATIBILITY_MODE": "true",
          <...>
          "Workflows.WebhookRedirectHostUri": "http://xxxXXXXxxxXXX.ngrok.io",
@@ -632,6 +632,8 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
       }
    }
    ```
+
+   [!INCLUDE [functions-language-runtime](./includes/functions-language-runtime.md)]
 
 The first time when you start a local debugging session or run the workflow without debugging, the Azure Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
 
@@ -968,7 +970,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
             "IsEncrypted": false,
             "Values": {
                "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-               "FUNCTIONS_WORKER_RUNTIME": "node",
+               "FUNCTIONS_WORKER_RUNTIME": "dotnet",
                "APPINSIGHTS_INSTRUMENTATIONKEY": <instrumentation-key>
             }
          }
@@ -1237,7 +1239,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
       "IsEncrypted": false,
       "Values": {
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "FUNCTIONS_WORKER_RUNTIME": "node",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
          "Workflows.{yourWorkflowName}.OperationOptions": "WithStatelessRunHistory"
       }
    }
@@ -1251,7 +1253,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
       "Values": {
          "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct; \
              AccountKey=<access-key>;EndpointSuffix=core.windows.net",
-         "FUNCTIONS_WORKER_RUNTIME": "node",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
          "Workflows.{yourWorkflowName}.OperationOptions": "WithStatelessRunHistory"
       }
    }

@@ -439,7 +439,7 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
             },
             {
                "name": "FUNCTIONS_WORKER_RUNTIME",
-               "value": "node"
+               "value": "dotnet"
             },
             {
                "name": "AzureWebJobsStorage",
@@ -537,7 +537,7 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
             },
             {
                "name": "FUNCTIONS_WORKER_RUNTIME",
-               "value": "node"
+               "value": "dotnet"
             },
             {
                "name": "AzureWebJobsStorage",
@@ -574,6 +574,8 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
    }
 }
 ```
+
+[!INCLUDE [functions-language-runtime](includes/functions-language-runtime.md)]
 
 <a name="include-app-service-plan"></a>
 
