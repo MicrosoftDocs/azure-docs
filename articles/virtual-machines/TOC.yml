@@ -601,6 +601,9 @@
       - name: Set up Azure HPC or AI VMs
         displayName: How to setup HPC/AI VMs
         href: set-up-hpc-vms.md
+      - name: Set up InfiniBand
+        displayName: How to set up Infiniband
+        href: setup-infiniband.md  
       - name: Configure and optimize VMs
         displayName: Configure and optimize Infiniband enabled VMs
         href: configure.md
