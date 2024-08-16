@@ -10,7 +10,7 @@ description: "Learn about the latest releases of Azure Arc resource bridge."
 Azure Arc resource bridge is updated on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about recent releases.
 
 
-We generally recommend using the most recent versions of the agents. The [version support policy](overview.md#version-support-policy) generally covers the most recent version and the three previous versions (n-3).
+We generally recommend using the most recent versions of the agents. The [version support policy](overview.md#supported-versions) generally covers the most recent version and the three previous versions (n-3).
 
 ## Version 1.2.0 (July 2024)
 
