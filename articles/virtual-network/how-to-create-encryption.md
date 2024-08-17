@@ -42,8 +42,6 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ---
 
-## Create a virtual network
-
 ### [Portal](#tab/portal)
 
 [!INCLUDE [virtual-network-create.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create.md)]
