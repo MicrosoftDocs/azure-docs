@@ -1,7 +1,7 @@
 ---
-title: Enable client certificate authentication for Azure Web PubSub Service (Preview)
+title: Enable client certificate authentication for Azure Web PubSub (Preview)
 titleSuffix: Azure Web PubSub Service
-description: How to enable client certificate authentication for Azure Web PubSub Service (Preview)
+description: Learn how to enable client certificate authentication for Azure Web PubSub (Preview)
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.topic: how-to
@@ -9,27 +9,27 @@ ms.date: 06/20/2023
 ms.author: dayshen
 ---
 
-# Enable client certificate authentication for Azure Web PubSub Service (Preview)
+# Enable client certificate authentication for Azure Web PubSub (Preview)
 
-You can restrict access to your Azure Web PubSub Service by enabling different types of authentication for it. One way to do it is to request a client certificate and validate the certificate in event handlers. This mechanism is called TLS mutual authentication or client certificate authentication. This article shows how to set up your Azure Web PubSub Service to use client certificate authentication.
+You can restrict access to your instance of Azure Web PubSub by enabling different types of authentication for it. One way to do it is to request a client certificate and validate the certificate in event handlers. This mechanism is called *client certificate authentication* or *Transport Layer Security (TLS) mutual authentication*. This article shows you how to set up your Web PubSub instance to use client certificate authentication.
 
-> [!Note]
-> Enabling client certificate authentication in browser scenarios is generally not recommended. Different browsers have different behaviors when dealing with client certificate request, while you have little control in JavaScript appliations. If you want to enable client certificate authentication, we recommend you in scenarios where you have strong control over TLS settings, for example, in native applications.
+> [!NOTE]
+> Enabling client certificate authentication in a browser scenario generally is not recommended. Different browsers have different behaviors when they process a client certificate request, and you have little control in a JavaScript application. If you want to enable client certificate authentication, we recommend that you use it in scenarios in which you have strong control over TLS settings. An example is in a native application.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/free/).
-* An Azure Web PubSub service (must be Standard tier or above).
-* An Azure Function used to handle connect events.
+* An Azure Web PubSub instance (must be minimum Standard tier).
+* A function created in Azure Functions to handle connect events.
 * A client certificate. You need to know its SHA-1 thumbprint.
 
-## Deploy Azure Web PubSub Service
+## Deploy Web PubSub
 
-Suppose you're going to use a function called `func-client-cert` as event handler to process `connect` events. Clients connect to a hub called `echo`. Here are the Bicep/ARM templates to deploy an Azure Web PubSub service with client certificate authentication enabled and event handlers configured.
+In this example, you use a function called `func-client-cert` as an event handler to process `connect` events. Clients connect to a hub called `echo`. Here are the Bicep and Azure Resource Manager templates you use to deploy an Azure Web PubSub service with client certificate authentication enabled and event handlers configured.
 
-We enable client certificate authentication via the property `tls.clientCertEnabled`.
+The templates enable client certificate authentication via the property `tls.clientCertEnabled`.
 
-We configure an event handler for `connect` event so we can validate client thumbprint. Also note that `anonymousConnectPolicy` needs to be set to `allow` so clients no longer need to send access tokens. 
+The templates configure an event handler for the `connect` event to validate the client thumbprint. Also note that `anonymousConnectPolicy` is set to `allow` so that clients no longer need to send access tokens.
 
 ### Bicep
 
@@ -73,7 +73,7 @@ resource hub 'Microsoft.SignalRService/WebPubSub/hubs@2023-03-01-preview' = {
 }
 ```
 
-### ARM
+### Azure Resource Manager
 
 ```json
 {
@@ -138,11 +138,11 @@ resource hub 'Microsoft.SignalRService/WebPubSub/hubs@2023-03-01-preview' = {
 }
 ```
 
-## Validate client certificate in event handler
+## Validate a client certificate in an event handler
 
-You can validate incoming client certificate via its SHA-1 thumbprint in the `connect` event. The value is available in `clientCertificates` field. See [CloudEvents HTTP extension for event handler](reference-cloud-events.md#connect).
+You can validate an incoming client certificate via its SHA-1 thumbprint in the `connect` event. The value is available in `clientCertificates` field. For more information, see [CloudEvents HTTP extension for event handler](reference-cloud-events.md#connect).
 
-Here are sample function codes to implement validation logic.
+The following code samples have function codes that you can use to implement validation logic.
 
 ### JavaScript
 
@@ -176,13 +176,13 @@ module.exports = async function (context, req) {
 
 ## Certificate rotation
 
-In case you want to rotate the certificate, you can update your event handler code to accept multiple thumbprints.
+If you want to rotate the certificate, you can update your event handler code to accept multiple thumbprints.
 
 ## Missing client certificate
 
-Azure Web PubSub Service doesn't abort TLS handshake when clients don't provide client certificate. It's up to event handler to decide whether to accept or reject a connection without client certificate.
+Azure Web PubSub doesn't abort a TLS handshake when a client doesn't provide a client certificate. It's up to the event handler to decide whether to accept or reject a connection without a client certificate.
 
-## Next steps
+## Related content
 
 * [How to configure event handler](howto-develop-eventhandler.md)
 * [Golang sample](https://github.com/Azure/azure-webpubsub/blob/main/samples/golang/clientWithCert/Readme.md)

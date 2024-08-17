@@ -41,7 +41,7 @@ Learn how to [create a user-assigned managed identity](../active-directory/manag
 
 ### Configure managed identities for Azure App Service and Azure Functions
 
-Learn how to [use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
+Learn how to [use managed identities for App Service and Functions](../app-service/overview-managed-identity.md).
 
 ## Add a role assignment in the Azure portal
 
