@@ -1,7 +1,7 @@
 ---
-title: How to deploy AI21's Jamba-Family models with Azure AI Studio
+title: How to deploy AI21's Jamba family models with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: How to deploy AI21's Jamba-Family models with Azure AI Studio
+description: How to deploy AI21's Jamba family models with Azure AI Studio
 manager: scottpolly
 ms.service: machine-learning
 ms.topic: how-to
