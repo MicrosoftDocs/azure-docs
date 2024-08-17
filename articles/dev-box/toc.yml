@@ -82,8 +82,8 @@ items:
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
     href: tutorial-configure-multiple-monitors.md
-  - name: Troubleshoot dev box connectivity issues
-    href: how-to-troubleshoot-repair-dev-box.md
+  - name: Access a dev box with Task view
+    href: how-to-access-dev-box-task-view.md
 - name: Security
   items:
   - name: Provide access to project admins
@@ -112,6 +112,10 @@ items:
     href: how-to-configure-stop-on-disconnect.md
   - name: Skip or delay an automatic shutdown
     href: how-to-skip-delay-stop.md
+- name: Troubleshooting
+  items: 
+  - name: Troubleshoot dev box connectivity issues
+    href: how-to-troubleshoot-repair-dev-box.md
 - name: Reference
   items:
     - name: Install Azure CLI devcenter extension
