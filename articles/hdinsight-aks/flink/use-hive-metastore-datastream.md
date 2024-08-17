@@ -1,7 +1,7 @@
 ---
 title: Use Hive Metastore with Apache Flink® DataStream API
 description: Use Hive Metastore with Apache Flink® DataStream API
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 03/29/2024
 ---

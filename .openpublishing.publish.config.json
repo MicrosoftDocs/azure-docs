@@ -411,6 +411,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-search-static-web-app",
+      "url": "https://github.com/Azure-Samples/azure-search-static-web-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
       "branch": "master",
