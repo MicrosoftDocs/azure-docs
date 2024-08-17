@@ -1,28 +1,28 @@
 ---
 title: Secure Azure Web PubSub outbound traffic through shared private endpoints
 titleSuffix: Azure Web PubSub Service
-description: How to secure Azure Web PubSub outbound traffic through shared private endpoints
+description: Learn how to secure Azure Web PubSub outbound traffic through shared private endpoints.
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 08/16/2024
 ms.author: dayshen
 ---
 
 # Secure Azure Web PubSub outbound traffic through shared private endpoints
 
-If you're using an [event handler](concept-service-internals.md#event-handler) in Azure Web PubSub Service, you might have outbound traffic to upstream endpoints to an Azure Static Web App or an Azure Function. Azure Static Web Apps and Azure Functions can be configured with endpoints to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. You can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) in your Web PubSub services to reach these endpoints.
+If you're using an [event handler](concept-service-internals.md#event-handler) in Azure Web PubSub, you might have outbound traffic to upstream endpoints to an Azure Static Web App or an Azure Functions. Azure Static Web Apps and Azure Functions can be configured with endpoints to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. You can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) in your Web PubSub services to reach these endpoints.
 
-   :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-secure-shared-private-endpoints\shared-private-endpoint-overview.png" border="false" :::
+:::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-secure-shared-private-endpoints\shared-private-endpoint-overview.png" border="false" :::
 
-This article shows you how to configure your Web PubSub service to send upstream calls to an Azure Function through a shared private endpoint rather than public network.
+This article shows you how to configure your Web PubSub service to send upstream calls to a function in Azure through a shared private endpoint instead of through a public network.
 
 This outbound method is subject to the following requirements:
 
-- The upstream endpoint must be Azure Web App or Azure Function.
-- The Azure Static Web PubSub Service service must be on the Standard or Premium tier.
-- The Azure Static Web App or Azure Function must be on certain SKUs. See [Use Private Endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
+- The upstream endpoint must be deployed by using Azure Web App or Azure Functions.
+- The Azure Static Web PubSub resource must be on the Standard tier or the Premium tier.
+- The Azure Static Web App or Azure Function must be on specific SKUs. See [Use Private Endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
 
 Private endpoints of secured resources created through Azure Web PubSub Service APIs are referred to as *shared private link resources*.  This term is used because you're "sharing" access to a resource, such as an Azure Function that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside Azure Web PubSub service execution environment and aren't directly visible to you.
 
@@ -195,7 +195,7 @@ At this point, the private endpoint between Azure Web PubSub Service and Azure F
 
 ## Step 4: Verify upstream calls are from a private IP
 
-Once the private endpoint is set up, you can verify incoming calls are from a private IP by checking the `X-Forwarded-For` header at upstream side.
+When the private endpoint is set up, you can verify incoming calls are from a private IP by checking the `X-Forwarded-For` header on the upstream side.
 
 :::image type="content" alt-text="Screenshot of the Azure portal, showing incoming requests are from a private IP." source="media\howto-secure-shared-private-endpoints\portal-function-log.png" :::
 
