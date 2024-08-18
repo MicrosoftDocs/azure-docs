@@ -393,6 +393,42 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-quickstart-dotnet-azd",
+      "url": "https://github.com/Azure-Samples/functions-quickstart-dotnet-azd",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-quickstart-java-azd",
+      "url": "https://github.com/Azure-Samples/azure-functions-java-flex-consumption-azd",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-quickstart-python-azd",
+      "url": "https://github.com/Azure-Samples/functions-quickstart-python-http-azd",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-quickstart-powershell-azd",
+      "url": "https://github.com/Azure-Samples/functions-quickstart-powershell-azd",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-quickstart-javascript-azd",
+      "url": "https://github.com/Azure-Samples/functions-quickstart-javascript-azd",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-quickstart-typescript-azd",
+      "url": "https://github.com/Azure-Samples/functions-quickstart-typescript-azd",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-search-javascript-samples",
       "url": "https://github.com/Azure-Samples/azure-search-javascript-samples",
       "branch": "main",

@@ -1,62 +1,119 @@
-# Quickstart: Create a Python function in Azure with Azure Developer CLI
+---
+title: Create functions in Azure using the Azure Developer CLI
+description: "Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions."
+ms.date: 11/08/2022
+ms.topic: quickstart
+zone_pivot_groups: programming-languages-set-functions
+#customer intent: 
+---
 
-In this article, you use Azure Developer command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+# Quickstart: Create and deploy functions to Azure Functions using the Azure Developer CLI
 
-This article uses the Python v2 programming model for Azure Functions, which provides a decorator-based approach for creating functions. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python.md?pivots=python-mode-decorators)
+In this Quickstart, you use Azure Developer command-line tools to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+The project you acquire is configured to use the Azure Developer CLI (azd). This command-line interface simplies the process to create your function app and required resources in Azure and deploy your code using the `azd up` command. The deployment creates a function app running on the Flex Consumption plan in a virtual network. Connections between services are made using managed identities instead of stored connection strings. This deployment follows current best practices for secure and scalable Azure Functions deployments.
 
-There's also a [Visual Studio Code-based version](create-first-function-vs-code-python.md) of this article.
+[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
-## Configure your local environment
+Because of the Flex Consumption plan, completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-Before you begin, you must have the following requirements in place:
+## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ One of the following tools for creating Azure resources:
++ [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd).
 
-  + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
+::: zone pivot="programming-language-csharp"  
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version: 8, 11, 17, 21 (Linux only).  
+   The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.
 
-  + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
++ [Apache Maven](https://maven.apache.org), version 3.0 or above.  
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
++ [Node.js](https://nodejs.org/) version 18 or above.  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd)
-
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)  
+::: zone-end
+::: zone pivot="programming-language-python" 
 + [A Python version supported by Azure Functions](supported-languages.md#languages-by-runtime-version).
+::: zone-end  
 
-+ The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
+## Initialize the project
 
-## Install the Azure Functions Core Tools
+<!--- replace this with `azd init` after the samples make it into awesomeazd -->
 
-* Embed from existing documentation
+The project is maintained in its own GitHub repository. You must first clone the project locally.
 
+::: zone pivot="programming-language-csharp" 
+1. In your local terminal or command prompt, run these commands to clone the sample repository:
+ 
+    ```command
+    git clone https://github.com/Azure-Samples/functions-quickstart-dotnet-azd
+    cd functions-quickstart-dotnet-azd
+    ```
+
+1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+
+    ```command
+    func init --worker-runtime dotnet-isolated --target-framework net8.0
+    ```
+3. (Optional) Review the code that defines the functions:
+    <detail>
+    <summary>`httpget`</summary>
+    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpGetFunction.cs" :::
+    </detail>
+    <detail>
+    <summary>`httppostbody`</summary>
+    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpPostBodyFunction.cs" :::
+    </detail>
+::: zone-end
+::: zone pivot="programming-language-java"  
+```git
+git clone https://github.com/Azure-Samples/azure-functions-java-flex-consumption-azd
+cd azure-functions-java-flex-consumption-azd
+```
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+```git
+git clone https://github.com/Azure-Samples/functions-quickstart-javascript-azd
+cd functions-quickstart-javascript-azd
+```
+::: zone-end
+::: zone pivot="programming-language-powershell"  
+```git
+git clone https://github.com/Azure-Samples/functions-quickstart-powershell-azd
+cd functions-quickstart-powershell-azd
+```
+::: zone-end
+::: zone pivot="programming-language-python"  
+```git
+git clone https://github.com/Azure-Samples/functions-quickstart-python-http-azd
+cd functions-quickstart-python-http-azd
+```
+::: zone-end
+::: zone pivot="programming-language-typescript"  
+```git
+git clone https://github.com/Azure-Samples/functions-quickstart-typescript-azd
+cd functions-quickstart-typescript-azd
+```
+::: zone-end
+
+
+::: zone pivot="programming-language-python" 
 ## Create and activate a virtual environment
 
 In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using a [version of Python supported by Azure Functions](supported-languages.md?pivots=programming-language-python#languages-by-runtime-version).
 
-* Embed from existing documentation
+::: zone-end
 
-## Create a local function
 
-In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. 
- 
-In this section, you create a function project and add an HTTP triggered function.
-
-1. Run the [`func init`](functions-core-tools-reference.md#func-init) command as follows to create a Python v2 functions project in the virtual environment.
-
-    ```console
-    func init --python
-    ```
-
-    The environment now contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
-
-1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
-
-    ```console
-    func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-    ```
-
-    If prompted, choose the **ANONYMOUS** option. [`func new`](functions-core-tools-reference.md#func-new) adds an HTTP trigger endpoint named `HttpExample` to the `function_app.py` file, which is accessible without authentication. 
 
 ## Run the function locally
 
@@ -101,4 +158,7 @@ Because your function uses an HTTP trigger, you invoke it by making an HTTP requ
 
 ## Clean up resources
 
-* Embed from existing documentation
+`azd down`
+
+## Related content
+
