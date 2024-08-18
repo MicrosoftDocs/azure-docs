@@ -183,7 +183,7 @@ When `properties.provisioningState` is `Succeeded` and `properties.status` (conn
 
 -----
 
-Now you can configure features like a custom domain as you typically would. You don't have to use a special domain for your key vault. Web PubSub automatically handles DNS resolution.
+Now you can configure features like a custom domain as you typically would. You don't have to use a special domain for your key vault. Web PubSub automatically handles Domain Name System (DNS) resolution.
 
 ## Related conte
 

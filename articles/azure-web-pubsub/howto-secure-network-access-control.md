@@ -12,7 +12,7 @@ ms.date: 08/16/2024
 
 Azure Web PubSub enables you to secure and control the level of access to your service endpoint, based on the request type and subset of networks used. When network rules are configured, only applications that request data over the specified set of networks can access your Web PubSub resource.
 
-Azure Web PubSub service has a public endpoint that is accessible through the internet. You can also create a [private endpoint for your Web PubSub resource](howto-secure-private-endpoints.md). A private endpoint assigns a private IP address from your virtual network to the Web PubSub resource. It also secures all traffic between your virtual network and the Web PubSub resource over a private link. The Web PubSub network access control provides access control for both a public endpoint and for private endpoints.
+Azure Web PubSub has a public endpoint that is accessible through the internet. You can also create a [private endpoint for your Web PubSub resource](howto-secure-private-endpoints.md). A private endpoint assigns a private IP address from your virtual network to the Web PubSub resource. It also secures all traffic between your virtual network and the Web PubSub resource over a private link. The Web PubSub network access control provides access control for both a public endpoint and for private endpoints.
 
 Optionally, you can choose to allow or deny certain types of requests for a public endpoint and for each private endpoint.
 
@@ -43,7 +43,7 @@ You can manage network access control for Azure Web PubSub by using the Azure po
 
 1. To edit a public network rule, under **Public network**, select allowed types of requests.
 
-    :::image type="content" source="./media/howto-secure-network-access-control/portal-public-network.png" alt-text="Edit s public network ACL in the Azure portal.":::
+    :::image type="content" source="./media/howto-secure-network-access-control/portal-public-network.png" alt-text="Edit a public network access control list in the Azure portal.":::
 
 1. To edit private endpoint network rules, under **Private endpoint connections**, select the allowed types of requests in each row.
 

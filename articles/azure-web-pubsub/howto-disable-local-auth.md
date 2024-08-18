@@ -35,7 +35,7 @@ To disable local authentication by using the Azure portal:
 
 ![Screenshot that shows disabling local authentication.](./media/howto-disable-local-auth/disable-local-auth.png)
 
-## Use a Azure Resource Manager template
+## Use an Azure Resource Manager template
 
 You can disable local authentication by setting `disableLocalAuth` property to `true` as shown in the following Azure Resource Manager template:
 

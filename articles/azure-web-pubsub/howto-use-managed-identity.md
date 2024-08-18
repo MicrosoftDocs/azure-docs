@@ -8,7 +8,7 @@ ms.date: 08/16/2024
 ms.author: lianwei
 ---
 
-# Managed identities for Azure Web PubSub Service
+# Managed identities for Azure Web PubSub
 
 This article shows you how to create a managed identity for Azure Web PubSub and how to use it.
 
@@ -57,7 +57,7 @@ Azure Web PubSub is a fully managed service, so you can't use a managed identity
 
 1. Under **Authentication**, select **Use Authentication**, and then select **Specify the issued token audience**. The audience becomes the `aud` claim in the access token. It can be part of validation in your event handler.
 
-   You can choose one of the following:
+   You can choose one of these options:
 
    - Select from existing Microsoft Entra applications. The application ID of the application you choose is used.
    - The Application ID URI of the service principal.
@@ -89,7 +89,7 @@ If you're not using Web Apps or Azure Functions, you also can validate the token
 
 The token in the `Authorization` header is a [Microsoft identity platform access token](../active-directory/develop/access-tokens.md).
 
-To validate access tokens, your app should also validate the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
+To validate access tokens, your app should also validate the audience and the signing tokens. Signing tokens must be validated against the values in the OpenID discovery document. For example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
 The Microsoft Entra middleware has built-in capabilities for validating access tokens. You can browse our [samples](../active-directory/develop/sample-v2-code.md) to find one in the language you want to use.
 

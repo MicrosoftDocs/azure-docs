@@ -48,16 +48,16 @@ az network nsg rule create -n <rule-name> --nsg-name <nsg-name> -g <resource-gro
 
 ## Inbound traffic
 
-In the following scenarios, Azure Web PubSub can generate network traffic to your resource. The source of traffic is guaranteed to be within IP ranges of the the `AzureWebPubSub` service tag.
+In the following scenarios, Azure Web PubSub can generate network traffic to your resource. The source of traffic is guaranteed to be within IP ranges of the `AzureWebPubSub` service tag.
 
 * Use [event handlers](howto-develop-eventhandler.md).
 * Use [event listeners](howto-develop-event-listener.md).
-* Use a [Key Vault secret reference](howto-use-managed-identity.md#use-a-managed-identity-for-key-vault-reference) in URL template settings.
+* Use a [Key Vault secret reference](howto-use-managed-identity.md#use-a-managed-identity-for-a-key-vault-reference) in URL template settings.
 * Use a [custom certificate](howto-custom-domain.md#add-a-custom-certificate).
 
 ### Event handler endpoints in a virtual network
 
-You can configure a *network security group* to allow inbound traffic to virtual network.
+You can configure a *network security group* to allow inbound traffic to a virtual network.
 
 #### [Azure portal](#tab/azure-portal)
 
