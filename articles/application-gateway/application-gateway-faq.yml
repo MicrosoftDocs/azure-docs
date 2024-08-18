@@ -485,7 +485,7 @@ sections:
           If you're referencing certificates from Key Vault in your Application Gateway listener, we recommend the following steps for a quick change:
           
           1. In the [Azure portal](https://portal.azure.com/), go to your Key Vault settings that are associated with the application gateway.
-          1. Add or import the reissued certificate in your store. For more information, see [Quickstart: Create a key vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
+          1. Add or import the reissued certificate in your store. For more information, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal).
           1. After the certificate has been imported, go to your Application Gateway listener settings and under **Choose a certificate from Key Vault**, select the **Certificate** dropdown and select the recently added certificate.
           1. Select **Save**.
           For more information on TLS termination on Application Gateway with Key Vault certificates, see [TLS termination with Key Vault certificates](./key-vault-certs.md).

@@ -18,7 +18,7 @@ Images in an Azure Compute Gallery (formerly known as Shared Image Gallery) are 
 
 You can rely on platform-managed keys for the encryption of your images, or use your own keys. You can also use both of these features together for doubled encryption. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 
 
-Server-side encryption through customer-managed keys uses Azure Key Vault. You can either import [your RSA keys](../key-vault/keys/hsm-protected-keys.md) to your key vault or generate new RSA keys in Azure Key Vault.
+Server-side encryption through customer-managed keys uses Azure Key Vault. You can either import [your RSA keys](/azure/key-vault/keys/hsm-protected-keys) to your key vault or generate new RSA keys in Azure Key Vault.
 
 ## Prerequisites
 

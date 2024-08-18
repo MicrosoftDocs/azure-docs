@@ -59,10 +59,10 @@
   items:
   - name: Dev tutorials
     items:
+    - name: Add search to ASP.NET Core (MVC)
+      href: tutorial-csharp-create-mvc-app.md
     - name: Add search to static web apps
       items: 
-      - name: C#
-        items: 
         - name: Overview
           href: tutorial-csharp-overview.md
         - name: Create a search index
@@ -71,30 +71,8 @@
           href: tutorial-csharp-deploy-static-web-app.md
         - name: Explore the code
           href: tutorial-csharp-search-query-integration.md          
-      - name: JavaScript 
-        items:         
-        - name: Overview
-          href: tutorial-javascript-overview.md
-        - name: Create a search index
-          href: tutorial-javascript-create-load-index.md
-        - name: Deploy static web app
-          href: tutorial-javascript-deploy-static-web-app.md
-        - name: Explore the code
-          href: tutorial-javascript-search-query-integration.md
-      - name: Python 
-        items:         
-        - name: Overview
-          href: tutorial-python-overview.md
-        - name: Create a search index
-          href: tutorial-python-create-load-index.md
-        - name: Deploy static web app
-          href: tutorial-python-deploy-static-web-app.md
-        - name: Explore the code
-          href: tutorial-python-search-query-integration.md
-    - name: Add search to ASP.NET Core (MVC)
-      href: tutorial-csharp-create-mvc-app.md
     - name: Query from Power Apps   
-    href: search-howto-powerapps.md     
+      href: search-howto-powerapps.md     
   - name: Indexing tutorials
     items:
     - name: Index any data

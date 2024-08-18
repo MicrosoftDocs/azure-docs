@@ -5,7 +5,7 @@ services: virtual-machines
 author: mimckitt
 ms.author: mimckitt
 ms.reviewer: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 05/01/2023

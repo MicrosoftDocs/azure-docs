@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/19/2024
-ms.service: automation
+ms.service: azure-automation
 ms.topic: concept-article
 ms.custom:
   - subject-relocation
@@ -13,7 +13,7 @@ ms.custom:
 
 # Relocate Azure Automation to another region
 
-This article covers relocation guidance for [Azure Automation](../automation/overview.md) across regions.
+This article covers relocation guidance for relocating [Azure Automation](../automation/overview.md) across regions.
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 

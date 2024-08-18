@@ -4,7 +4,7 @@ description: Common Azure CLI commands to manage Virtual Machine Scale Sets, suc
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli

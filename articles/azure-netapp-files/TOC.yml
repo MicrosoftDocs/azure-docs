@@ -67,6 +67,12 @@
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
+    - name: High file counts 
+      items: 
+        - name: Understand maxfiles 
+          href: maxfiles-concept.md
+        - name: Understand maximum directory sizes 
+          href: directory-sizes-concept.md
     - name: Ways to monitor Azure NetApp Files
       href: monitor-azure-netapp-files.md
     - name: Metrics for Azure NetApp Files
@@ -313,6 +319,8 @@
         href: configure-network-features.md
       - name: Configure customer-managed keys 
         href: configure-customer-managed-keys.md
+      - name: Configure customer-managed keys with managed HSM
+        href: configure-customer-managed-keys-hardware.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes

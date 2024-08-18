@@ -36,4 +36,4 @@ Azure AI Document Intelligence automatically encrypts your data when persisting 
 
 ## Next steps
 
-* [Learn more about Azure Key Vault](../../key-vault/general/overview.md)
+* [Learn more about Azure Key Vault](/azure/key-vault/general/overview)

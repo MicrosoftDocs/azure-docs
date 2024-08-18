@@ -31,4 +31,4 @@ default, and there is no need for modifications to your code or applications in 
 
 - [Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)
 - [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md)
-- [What is Azure Key Vault?](../key-vault/general/overview.md)
+- [What is Azure Key Vault?](/azure/key-vault/general/overview)
