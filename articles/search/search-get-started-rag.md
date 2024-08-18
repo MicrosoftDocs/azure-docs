@@ -33,11 +33,11 @@ You can also start a new file on your local system and create requests manually 
 
 Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure. This quickstart assumes roles.
 
-You're calling two clients, so you need permissions on both.
+You're setting up two clients, so you need permissions on both resources.
 
 Azure AI Search is receiving the query request from your local system. Assign yourself the **Search Index Data Reader** role assignment for that task. If you're also creating and loading the hotel sample index, add **Search Service Contributor** and **Search Index Data Contributor** roles as well.
 
-Azure OpenAI is receiving the (query) "Can you recommend a few hotels" from your local system, plus its receiving the response (source) from the search service. Assign yourself and the search service the **Cognitive Services OpenAI User** role.
+Azure OpenAI is receiving the (query) "Can you recommend a few hotels" from your local system, plus its receiving the search results (source) from the search service. Assign yourself and the search service the **Cognitive Services OpenAI User** role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
