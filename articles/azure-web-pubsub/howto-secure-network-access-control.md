@@ -10,7 +10,7 @@ ms.date: 08/16/2024
 
 # Configure network access control for Azure Web PubSub
 
-Azure Web PubSub enables you to secure and control the level of access to your service endpoint, based on the request type and subset of networks used. When network rules are configured, only applications that request data over the specified set of networks can access your Web PubSub resource.
+You can configure Azure Web PubSub to secure and control the level of access to your service endpoint based on the request type and subset of networks used. When network rules are configured, only applications that request data over the specified set of networks can access your Web PubSub resource.
 
 Azure Web PubSub has a public endpoint that is accessible through the internet. You can also create a [private endpoint for your Web PubSub resource](howto-secure-private-endpoints.md). A private endpoint assigns a private IP address from your virtual network to the Web PubSub resource. It also secures all traffic between your virtual network and the Web PubSub resource over a private link. The Web PubSub network access control provides access control for both a public endpoint and for private endpoints.
 

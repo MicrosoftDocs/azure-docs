@@ -28,7 +28,7 @@ You can allow outbound traffic from your network to Web PubSub by adding a new o
 
 1. In the portal, go to the network security group.
 1. On the left menu, select **Outbound security rules**.
-1. Select the **Add** button.
+1. Select **Add**.
 1. Select **Destination**, and then select **Service Tag**.
 1. Select **Destination service tag**, and then select **AzureWebPubSub**.
 1. For **Destination port ranges**, enter **443**.
@@ -62,10 +62,10 @@ You can configure a *network security group* to allow inbound traffic to a virtu
 #### [Azure portal](#tab/azure-portal)
 
 1. In the Azure portal, go to the network security group.
-1. In the left menu, select **Inbound security rules**.
+1. On the left menu, select **Inbound security rules**.
 1. Select **Add**.
-1. Select **Source**, and then select **Service Tag** in the list.
-1. Select **Source service tag**, and then select **AzureWebPubSub** in the list.
+1. Select **Source**, and then select **Service Tag**.
+1. Select **Source service tag**, and then select **AzureWebPubSub**.
 1. For **Source port ranges**, enter **\***.
 
    :::image type="content" alt-text="Screenshot showing dialogue to create an inbound security rule." source="media/howto-service-tags/portal-add-inbound-security-rule.png" :::
@@ -84,13 +84,13 @@ az network nsg rule create -n <rule-name> --nsg-name <nsg-name> -g <resource-gro
 > [!NOTE]
 > Azure Web PubSub is a shared service. By allowing the `AzureWebPubSub` service tag or its associated IP address prefixes, you also allow traffic from other resources, even if they belong to other customers. Make sure that you implement appropriate authentication on your endpoints.
 
-### Event handler endpoints of Azure Functions
+### Event handler endpoints for Azure Functions
 
 You can configure a [service tag-based rule](../app-service/app-service-ip-restrictions.md#set-a-service-tag-based-rule).
 
-Alternatively, you can use [shared private endpoints](howto-secure-shared-private-endpoints.md) for better security. Shared private endpoints are dedicated to your resources. No traffic from other resources can access your endpoints.
+Alternatively, you can use [shared private endpoints](howto-secure-shared-private-endpoints.md) for increased security. Shared private endpoints are dedicated to your resources. No traffic from other resources can access your endpoints.
 
-### Event Hubs and Key Vault access
+### Azure Event Hubs and Azure Key Vault access
 
 We recommend that you use [shared private endpoints](howto-secure-shared-private-endpoints-key-vault.md) to help you maintain the best security.
 

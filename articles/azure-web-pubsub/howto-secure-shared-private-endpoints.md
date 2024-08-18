@@ -115,7 +115,7 @@ When the shared private endpoint connection has a **Pending** status, you must a
 1. On the left menu, select **Networking**.
 1. Under **Inbound Traffic**, select **Private endpoints**.
 1. Select the pending connection that you created in your Web PubSub resource.
-1. Select **Approve** and then select **Yes** to confirm.
+1. Select **Approve**, and then select **Yes** to confirm.
 
 :::image type="content" alt-text="Screenshot of approving a private endpoint connection." source="media\howto-secure-shared-private-endpoints\portal-function-approve-private-endpoint.png" lightbox="media\howto-secure-shared-private-endpoints\portal-function-approve-private-endpoint.png" :::
 
@@ -172,7 +172,7 @@ It takes a few minutes for the approval to be reflected in Web PubSub. You can c
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview
 ```
 
-This command returns JSON. The connection state is indicated as `status` under `properties`.
+This command returns JSON. The connection state is indicated in `status` under `properties`.
 
 ```json
 {
@@ -196,7 +196,7 @@ At this point, the private endpoint between Azure Web PubSub and Azure Functions
 
 ## Verify that upstream calls are from a private IP
 
-When the private endpoint is set up, you can verify that incoming calls are from a private IP address by checking the `X-Forwarded-For` header for network traffic.
+When the private endpoint is set up, you can verify that incoming calls are from a private IP address by checking the `X-Forwarded-For` header for upstream calls.
 
 :::image type="content" alt-text="Screenshot of the Azure portal, showing that incoming requests are from a private IP." source="media\howto-secure-shared-private-endpoints\portal-function-log.png" :::
 

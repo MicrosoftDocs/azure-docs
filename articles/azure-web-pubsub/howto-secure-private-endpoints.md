@@ -35,7 +35,7 @@ You can manage consent requests and private endpoints for your Web PubSub resour
 
 ### Connect to a private endpoint
 
-Clients on a VNet that uses a private endpoint should use the same connection string for the Web PubSub resource that clients that connect via a public endpoint use. We rely on Domain Naming Service (DNS) resolution to automatically route the connections from the VNet to Web PubSub over a private link.
+Clients on a VNet that uses a private endpoint should use the same connection string for the Web PubSub resource that clients that connect via a public endpoint use. We rely on Domain Naming System (DNS) resolution to automatically route the connections from the VNet to Web PubSub over a private link.
 
 > [!IMPORTANT]
 > Use the same connection string to connect to Web PubSub by using private endpoints as you would use for a public endpoint. Don't connect to Web PubSub by using its `privatelink` subdomain URL.
@@ -48,25 +48,25 @@ When you create a private endpoint, the DNS CNAME resource record for your Web P
 
 When you resolve your Web PubSub resource domain name from outside the VNet with the private endpoint, it resolves to the public endpoint of the Web PubSub resource. When resolved from the VNet hosting the private endpoint, the domain name resolves to the private endpoint's IP address.
 
-For the preceding illustrated example, the DNS resource records for the Web PubSub resource `foobar` when it's resolved from outside the VNet hosting the private endpoint:
+For the preceding illustrated example, the DNS resource records for the Web PubSub resource `sample` when it's resolved from outside the VNet hosting the private endpoint:
 
 | Name                                                  | Type  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| `foobar.webpubsub.azure.com`                        | CNAME | `foobar.privatelink.webpubsub.azure.com`            |
-| `foobar.privatelink.webpubsub.azure.com`            | A     | \<Azure Web PubSub public IP address\>           |
+| `sample.webpubsub.azure.com`                        | CNAME | `sample.privatelink.webpubsub.azure.com`            |
+| `sample.privatelink.webpubsub.azure.com`            | A     | \<Azure Web PubSub public IP address\>           |
 
-As previously mentioned, you can deny or control access for clients outside the VNet through the public endpoint using the network access control.
+As previously mentioned, you can deny or control access for clients outside the VNet through the public endpoint by using network access control.
 
-The DNS resource records for the Web PubSub resource `foobar` when it's resolved by a client in the VNet hosting the private endpoint:
+The DNS resource records for the Web PubSub resource `sample` when it's resolved by a client in the VNet that hosts the private endpoint:
 
 | Name                                                  | Type  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| `foobar.webpubsub.azure.com`                        | CNAME | `foobar.privatelink.webpubsub.azure.com`            |
-| `foobar.privatelink.webpubsub.azure.com`            | A     | 10.1.1.5                                              |
+| `sample.webpubsub.azure.com`                        | CNAME | `sample.privatelink.webpubsub.azure.com`            |
+| `sample.privatelink.webpubsub.azure.com`            | A     | 10.1.1.5                                              |
 
 This approach gives access to Web PubSub *by using the same connection string* for clients on the VNet that hosts the private endpoints and to clients outside the VNet.
 
-If you use a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the Web PubSub resource endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet or configure the A records for `foobar.privatelink.webpubsub.azure.com` with the private endpoint IP address.
+If you use a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the Web PubSub resource endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet or configure the A records for `sample.privatelink.webpubsub.azure.com` to use the private endpoint IP address.
 
 > [!TIP]
 > If you use a custom or on-premises DNS server, you should configure your DNS server to resolve the Web PubSub resource name in the `privatelink` subdomain to the private endpoint IP address. You can do this by delegating the `privatelink` subdomain to the private DNS zone of the VNet or by configuring the DNS zone on your DNS server and then adding the DNS A records.

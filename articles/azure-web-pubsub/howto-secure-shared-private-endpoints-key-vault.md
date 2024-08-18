@@ -163,7 +163,7 @@ It takes a few minutes for the approval to be propagated to Azure Web PubSub Ser
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webpubsub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2022-08-01-preview
 ```
 
-This command returns JSON. The connection state is indicated as `status` under `properties`.
+This command returns JSON. The connection state is indicated in `status` under `properties`.
 
 ```json
 {
@@ -185,7 +185,7 @@ When `properties.provisioningState` is `Succeeded` and `properties.status` (conn
 
 Now you can configure features like a custom domain as you typically would. You don't have to use a special domain for your key vault. Web PubSub automatically handles Domain Name System (DNS) resolution.
 
-## Related conte
+## Related content
 
 * [What is a private endpoint?](../private-link/private-endpoint-overview.md)
 * [Configure a custom domain](howto-custom-domain.md)

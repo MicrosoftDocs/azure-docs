@@ -24,7 +24,7 @@ In addition to the default domain that the Azure Web PubSub service provides, yo
 
 Before you can add a custom domain, add a matching custom certificate. A custom certificate is a resource of your instance of Web PubSub. It references a certificate in your key vault. For security and compliance, Web PubSub doesn't permanently store your certificate. Instead, it fetches the certificate from your key vault and keeps it in memory.
 
-### Step 1: Grant your Web PubSub resource access to the key vault
+### Grant your Web PubSub resource access to the key vault
 
 Azure Web PubSub Service uses Managed Identity to access your Key Vault. In order to authorize, it needs to be granted permissions.
 
@@ -53,7 +53,7 @@ Azure Web PubSub Service uses Managed Identity to access your Key Vault. In orde
 
 Depending on how you configure your Azure Key Vault permissions model, you might need to grant permissions at different locations in the Azure portal.
 
-#### [Vault access policy](#tab/vault-access-policy)
+#### [Key vault access policy](#tab/vault-access-policy)
 
 If you use a key vault built-in access policy as a key vault permissions model:
 
@@ -105,7 +105,7 @@ If you're using Azure role-based access control as Key Vault permission model:
 
 -----
 
-### Step 2: Create a custom certificate
+### Create a custom certificate
 
 1. In the Azure portal, go to your Web PubSub resource.
 1. On the left menu, select **Custom domain**.
@@ -114,7 +114,7 @@ If you're using Azure role-based access control as Key Vault permission model:
    :::image type="content" alt-text="Screenshot of custom certificate management." source="media\howto-custom-domain\portal-custom-certificate-management.png" :::
 
 1. Enter a name for the custom certificate.
-1. Select **Select from your Key Vault** to choose a key vault certificate. After you select a key vault, values for **Key Vault Base URI** and **Key Vault Secret Name** are automatically added. You also have to option to edit these fields manually.
+1. Choose **Select from your Key Vault** to choose a key vault certificate. After you select a key vault, values for **Key Vault Base URI** and **Key Vault Secret Name** are automatically added. You also have to option to edit these fields manually.
 1. (Optional) To pin the certificate to a specific version, enter a value for **Key Vault Secret Version**.
 1. Select **Add**.
 

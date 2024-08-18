@@ -92,7 +92,7 @@ This section demonstrates how to assign a Web PubSub Service Owner role to a ser
 
 1. Search for and select the application that you want to assign the role to.
 
-1. Select **Select** to confirm the selection.
+1. Choose **Select** to confirm the selection.
 
 1. Select **Next**.
 

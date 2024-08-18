@@ -76,7 +76,7 @@ This section demonstrates how to assign the Web PubSub Service Owner role to a s
 
 1. Search for and then select the virtual machine that you want to assign the role to.
 
-1. Select **Select** to confirm the selection.
+1. Choose **Select** to confirm the selection.
 
 1. Select **Next**.
 
