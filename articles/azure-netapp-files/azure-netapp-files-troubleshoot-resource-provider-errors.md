@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 02/09/2022
+ms.date: 08/15/2024
 ms.author: anfdocs
 ---
 # Troubleshoot Azure NetApp Files Resource Provider errors 
@@ -91,7 +91,7 @@ This error occurs when the export policy isn't defined with a unique index. When
 * Cause:   
 The defined export policy doesn't meet the requirement for export policy rules. You must have one export policy rule at the minimum and five export policy rules at the maximum.
 * Solution:   
-Make sure that the index isn't already used and that it is in the range from 1 to 5.
+Make sure that the index isn't already used and that it's in the range from 1 to 5.
 * Workaround:   
 Use a different index for the rule that you're trying to set.
 
@@ -113,7 +113,7 @@ This error occurs when the file path contains unsupported characters, for exampl
 * Cause:   
 The file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("_"), or dollar sign ("$").
 * Solution:   
-Remove characters that are not alphabetical letters, numbers, or hyphens ("-") from the file path you entered.
+Remove all characters other than alphabetical letters, numbers, or hyphens ("-") from the file path you entered.
 * Workaround:   
 You can replace an underscore with a hyphen or use capitalization instead of spaces to indicate the beginning of new words.  For example, use "NewVolume" instead of "new volume".
 
@@ -261,7 +261,7 @@ Wait a few minutes and check if the problem persists.
 
 ***Not allowed to mix protocol types CIFS and NFS***
 
-This error occurs when you're trying to create a Volume and there are both the CIFS (SMB) and NFS protocol types in the volume properties.
+This error occurs when you're trying to create a volume that has both the CIFS (SMB) and NFS protocol types in the volume properties.
 
 * Cause:   
 Both the CIFS (SMB) and NFS protocol types are used in the volume properties.
@@ -299,7 +299,7 @@ This error indicates that the operation isn't available for the active subscript
 * Cause:   
 The operation isn't available for the subscription or resource.
 * Solution:   
-Make sure that the operation is entered correctly and that it is available for the resource and subscription that you're using.
+Make sure that the operation is entered correctly. The operation should be available for the resource and subscription that you're using.
 
 ***OwnerId cannot be changed***
 
@@ -317,14 +317,14 @@ This error occurs when you try to create a volume and the capacity pool in which
 * Cause:   
 The capacity pool where the volume is being created isn't found.
 * Solution:   
-Most likely the pool was not fully created or was already deleted at the time of the volume creation.
+Most likely the pool wasn't fully created or was already deleted at the time of the volume creation.
 
 ***Patch operation is not supported for this resource type.***
 
 This error occurs when you try to change the mount target or snapshot.
 
 * Cause:   
-The mount target is defined when it is created, and it can't be changed subsequently.
+The mount target is defined when it's created, and it can't be changed subsequently.
 The snapshots don’t contain any properties that can be changed.
 * Solution:   
 None. Those resources don't have any properties that can be changed.
@@ -407,7 +407,7 @@ This error occurs when you try to reference a nonexistent resource, for example,
 * Cause:   
 You're trying to reference a nonexistent resource (for example, a volume or snapshot) that has already been deleted or has a misspelled resource name.
 * Solution:   
-Check the request for spelling errors to make sure that it is correctly referenced.
+Check the request for spelling errors to make sure that it's correctly referenced.
 * Workaround:   
 See the Solution section above.
 
@@ -495,7 +495,7 @@ This error occurs when nonexistent properties are provided for a resource such a
 * Cause:   
 The request has a set of properties that can be used with each resource. You can't include any nonexistent properties in the request.
 * Solution:   
-Make sure that all property names are spelled correctly and that the properties are available for the subscription and resource.
+Make sure all property names are spelled correctly. Make sure the properties are available for the subscription and resource.
 * Workaround:   
 Reduce the number of properties defined in the request to eliminate the property that is causing the error.
 
@@ -534,7 +534,7 @@ See the solution above.
 
 ***Volume is being deleted and cannot be deleted at the moment.***
 
-This error occurs when you try to delete a volume when it is already being deleted.
+This error occurs when you try to delete a volume when it's already being deleted.
 
 * Cause:   
 A volume is already being deleted when you try to delete the volume.
@@ -635,7 +635,7 @@ This error occurs when you try to create an SMB volume, but a DNS server (specif
 * Cause:   
 You're trying to create an SMB volume, but a DNS server (specified in your Active Directory configuration) is unreachable.
 * Solution:   
-Review your Active Directory configuration and make sure that the DNS server IP addresses are correct and reachable.
+Review your Active Directory configuration. Make sure that the DNS server IP addresses are correct and reachable.
 If there’s no issues with the DNS server IP addresses, then verify that no firewalls are blocking the access.
 
 ***Too many concurrent jobs***

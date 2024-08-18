@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/14/2024
+ms.date: 08/15/2024
 ms.author: alkohli
 ---
 
@@ -51,7 +51,6 @@ The 2407 release has the following new features and enhancements:
 
 - Base OS updates for Kubernetes nodes.
 - OpenSSH version update for Kubernetes nodes.
-- STIG security fixes for Azure Stack Edge Kubernetes.
 - Azure Stack Edge Kubernetes v1.28.
 - Azure Arc for Kubernetes v1.16.10.
 - Deprecated support for Ubuntu 18.04 LTS GPU extension. The GPU extension is no longer supported on Ubuntu 18.04 GPU VMs running on Azure Stack Edge devices. If you plan to utilize the Ubuntu version 18.04 LTS distro, see steps for manual GPU driver installation at [CUDA Toolkit 12.1 Update 1 Downloads](https://developer.nvidia.com/cuda-12-1-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local).
@@ -70,7 +69,7 @@ The 2407 release has the following new features and enhancements:
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|VM creation | Image directory is still the old location causing VM creation failure on Azure Stack Edge 2403. |  |
+|**1.**|VM creation | If you have a Marketplace image created with Azure Stack Edge earlier than 2403 and then create a VM from the existing Marketplace image, your VM creation fails because Azure Stack Edge 2407 changed the download path for the Marketplace image. | Delete the Marketplace image and then create a new image from Azure portal. For detailed steps, see [Troubleshoot VM creation issues](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md#vm-creation-fails). |
 
 ## Known issues from previous releases
 
@@ -103,7 +102,7 @@ The following table provides a summary of known issues carried over from the pre
 |**23.**|Custom script VM extension |There's a known issue in the Windows VMs that were created in an earlier release and the device was updated to 2103. <br> If you add a custom script extension on these VMs, the Windows VM Guest Agent (Version 2.7.41491.901 only) gets stuck in the update causing the extension deployment to time out. | To work around this issue: <br> 1. Connect to the Windows VM using remote desktop protocol (RDP). <br> 2. Make sure that the `waappagent.exe` is running on the machine: `Get-Process WaAppAgent`. <br> 3. If the `waappagent.exe` isn't running, restart the `rdagent` service: `Get-Service RdAgent` \| `Restart-Service`. Wait for 5 minutes.<br> 4. While the `waappagent.exe` is running, kill the `WindowsAzureGuest.exe` process. <br> 5. After you kill the process, the process starts running again with the newer version. <br> 6. Verify that the Windows VM Guest Agent version is 2.7.41491.971 using this command: `Get-Process WindowsAzureGuestAgent` \| `fl ProductVersion`.<br> 7. [Set up custom script extension on Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md).  |
 |**24.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting isn't retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
 |**25.**|Wi-Fi |Wi-Fi doesn't work on Azure Stack Edge Pro 2 in this release. |
-|**26.**|Azure IoT Edge |The managed Azure IoT Edge solution on Azure Stack Edge is running on an older, obsolete IoT Edge runtime that is at end of life. For more information, see [IoT Edge v1.1 EoL: What does that mean for me?](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137). Although the solution doesn't stop working past end of life, there are no plans to update it.  |To run the latest version of Azure IoT Edge [LTSs](../iot-edge/version-history.md#version-history) with the latest updates and features on their Azure Stack Edge, we **recommend** that you deploy a [customer self-managed IoT Edge solution](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md) that runs on a Linux VM. For more information, see [Move workloads from managed IoT Edge on Azure Stack Edge to an IoT Edge solution on a Linux VM](azure-stack-edge-move-to-self-service-iot-edge.md). |
+|**26.**|Azure IoT Edge |The managed Azure IoT Edge solution on Azure Stack Edge is running on an older, obsolete IoT Edge runtime that is at end of life. For more information, see [IoT Edge v1.1 end of life: What does that mean for me?](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137). Although the solution doesn't stop working past end of life, there are no plans to update it.  |To run the latest version of Azure IoT Edge [LTSs](../iot-edge/version-history.md#version-history) with the latest updates and features on their Azure Stack Edge, we **recommend** that you deploy a [customer self-managed IoT Edge solution](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md) that runs on a Linux VM. For more information, see [Move workloads from managed IoT Edge on Azure Stack Edge to an IoT Edge solution on a Linux VM](azure-stack-edge-move-to-self-service-iot-edge.md). |
 |**27.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you must delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
 |**28.**|AKS Update |The AKS Kubernetes update might fail if one of the AKS VMs isn't running. This issue might be seen in the two-node cluster. |If the AKS update has failed, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Check the state of the Kubernetes VMs by running `Get-VM` cmdlet. If the VM is off, run the `Start-VM` cmdlet to restart the VM. Once the Kubernetes VM is running, reapply the update. |
 |**29.**|Wi-Fi |Wi-Fi functionality for Azure Stack Edge Mini R is deprecated. |  |

@@ -4544,6 +4544,31 @@
       "source_path_from_root": "/articles/virtual-network/template-samples.md",
       "redirect_url": "/samples/browse/?expanded=azure&products=azure-resource-manager&terms=virtual%20network",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-restrict-network-access-to-resources-cli.md",
+      "redirect_url": "/azure/virtual-network/tutorial-restrict-network-access-to-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-restrict-network-access-to-resources-powershell.md",
+      "redirect_url": "/azure/virtual-network/tutorial-restrict-network-access-to-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/how-to-create-encryption-portal.md",
+      "redirect_url": "/azure/virtual-network/how-to-create-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/how-to-create-encryption-powershell.md",
+      "redirect_url": "/azure/virtual-network/how-to-create-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/how-to-create-encryption-cli.md",
+      "redirect_url": "/azure/virtual-network/how-to-create-encryption",
+      "redirect_document_id": false
     }
   ]
 }
