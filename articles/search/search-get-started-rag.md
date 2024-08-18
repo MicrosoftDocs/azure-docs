@@ -6,7 +6,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 08/16/2024
+ms.date: 08/18/2024
 ---
 
 # Quickstart: Generative search (RAG) with grounding data from Azure AI Search
@@ -33,9 +33,15 @@ You can also start a new file on your local system and create requests manually 
 
 Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure. This quickstart assumes roles.
 
+You're setting up two clients, so you need permissions on both resources.
+
+Azure AI Search is receiving the query request from your local system. Assign yourself the **Search Index Data Reader** role assignment for that task. If you're also creating and loading the hotel sample index, add **Search Service Contributor** and **Search Index Data Contributor** roles as well.
+
+Azure OpenAI is receiving the (query) "Can you recommend a few hotels" from your local system, plus its receiving the search results (source) from the search service. Assign yourself and the search service the **Cognitive Services OpenAI User** role.
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Configure Azure AI Search to use a system-assigned managed identity:
+1. Configure Azure AI Search to use a system-assigned managed identity so that you can you give it role assignments:
 
     1. In the Azure portal, [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
  
@@ -69,7 +75,7 @@ It can take several minutes for permissions to take effect.
 
 We recommend the hotels-sample-index, which can be created in minutes and runs on any search service tier. This index is created using built-in sample data.
 
-1. In the Azure portal, find your search service.
+1. In the Azure portal, [find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
 1. On the **Overview** home page, select [**Import data**](search-get-started-portal.md) to start the wizard.
 
@@ -272,4 +278,4 @@ You can find and manage resources in the portal by using the **All resources** o
 
 ## Next steps
 
-As a next step, we recommend that you review the demo code for [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet), or [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript).
+As a next step, we recommend that you review the demo code for [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python), [C#](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-dotnet), or [JavaScript](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-javascript) on the azure-search-vector-samples repository.
