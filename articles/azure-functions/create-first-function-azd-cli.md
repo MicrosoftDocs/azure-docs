@@ -4,7 +4,7 @@ description: "Learn how to create a C# function from the command line, then publ
 ms.date: 11/08/2022
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-#customer intent: 
+#Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy my function code securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
 ---
 
 # Quickstart: Create and deploy functions to Azure Functions using the Azure Developer CLI
@@ -21,20 +21,22 @@ Because of the Flex Consumption plan, completing this quickstart incurs a small 
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd).
++ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
+
++ (Optional) [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) (Only if you want run and debug locally using Visual Studio Code.)
 ::: zone pivot="programming-language-csharp"  
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-+ [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version: 8, 11, 17, 21 (Linux only).  
-   The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.
-
-+ [Apache Maven](https://maven.apache.org), version 3.0 or above.  
++ [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
+    + If you use another [supported version of Java](supported-languages.md?pivots=programming-language-java#languages-by-runtime-version), you must update the project's pom.xml file. 
+    + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.
++ [Apache Maven 3.8.x](https://maven.apache.org)  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js](https://nodejs.org/) version 18 or above.  
++ [Node.js 20](https://nodejs.org/)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
@@ -42,7 +44,7 @@ Because of the Flex Consumption plan, completing this quickstart incurs a small 
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download)  
 ::: zone-end
 ::: zone pivot="programming-language-python" 
-+ [A Python version supported by Azure Functions](supported-languages.md#languages-by-runtime-version).
++ [Python 3.11](https://www.python.org/).
 ::: zone-end  
 
 ## Initialize the project
@@ -56,23 +58,21 @@ The project is maintained in its own GitHub repository. You must first clone the
  
     ```command
     git clone https://github.com/Azure-Samples/functions-quickstart-dotnet-azd
-    cd functions-quickstart-dotnet-azd
+    cd functions-quickstart-dotnet-azd/FunctionHttp
     ```
 
-1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+1. Add a file named _local.settings.json_ in the root function app folder (_FunctionHttp_) containing this information, which is required to run locally:
 
-    ```command
-    func init --worker-runtime dotnet-isolated --target-framework net8.0
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+            "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
+        }
+    }
     ```
-3. (Optional) Review the code that defines the functions:
-    
-    **`httpget`**:
-    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpGetFunction.cs" :::
-
-    **`httppostbody`**:
-    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpPostBodyFunction.cs" :::
-
-::: zone-end
+::: zone-end  
 ::: zone pivot="programming-language-java"  
 1. In your local terminal or command prompt, run these commands to clone the sample repository:
  
@@ -81,55 +81,125 @@ The project is maintained in its own GitHub repository. You must first clone the
     cd azure-functions-java-flex-consumption-azd
     ```
 
-    1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
 
     ```command
     func init --worker-runtime java
     ```
-3. (Optional) Review the code that defines the function:
-    
-    **`httpexample`**:
-    :::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" :::
-::: zone-end
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-```git
-git clone https://github.com/Azure-Samples/functions-quickstart-javascript-azd
-cd functions-quickstart-javascript-azd
-```
-::: zone-end
+1. In your local terminal or command prompt, run these commands to clone the sample repository:
+ 
+    ```command
+    git clone https://github.com/Azure-Samples/functions-quickstart-javascript-azd
+    cd functions-quickstart-javascript-azd
+    ```
+
+1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+
+    ```command
+    func init --worker-runtime javascript
+    ```
+::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-```git
-git clone https://github.com/Azure-Samples/functions-quickstart-powershell-azd
-cd functions-quickstart-powershell-azd
-```
-::: zone-end
+1. In your local terminal or command prompt, run these commands to clone the sample repository:
+ 
+    ```command
+    git clone https://github.com/Azure-Samples/functions-quickstart-powershell-azd
+    cd functions-quickstart-powershell-azd
+    ```
+1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+
+    ```command
+    func init --worker-runtime powershell
+    ```
+::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-```git
-git clone https://github.com/Azure-Samples/functions-quickstart-typescript-azd
-cd functions-quickstart-typescript-azd
-```
-::: zone-end
+1. In your local terminal or command prompt, run these commands to clone the sample repository:
+ 
+    ```command
+    git clone https://github.com/Azure-Samples/functions-quickstart-typescript-azd
+    cd functions-quickstart-typescript-azd
+    ```
+1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+
+    ```command
+    func init --worker-runtime typescript
+    ```
+::: zone-end  
 ::: zone pivot="programming-language-python"  
-```git
-git clone https://github.com/Azure-Samples/functions-quickstart-python-http-azd
-cd functions-quickstart-python-http-azd
-```
+1. In your local terminal or command prompt, run these commands to clone the sample repository:
+ 
+    ### [Command / bash](#tab/cmd+bash)
+
+    ```bash
+    git clone https://github.com/Azure-Samples/functions-quickstart-python-http-azd
+    cd functions-quickstart-python-http-azd
+    ```
+    
+    ---
+
+1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+
+    ### [Command / bash](#tab/cmd+bash)
+
+    ```command
+    func init --worker-runtime python 
+    ```
 
 ## Create and activate a virtual environment
 
-In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using a [version of Python supported by Azure Functions](supported-languages.md?pivots=programming-language-python#languages-by-runtime-version).
+In a suitable folder, run these commands to create and activate a virtual environment named `.venv`:
+
+### [Command](#tab/cmd)
+
+```cmd
+py -m venv .venv
+```
+
+```cmd
+.venv\scripts\activate
+```
+
+### [bash](#tab/bash)
+
+```bash
+python -m venv .venv
+```
+
+```bash
+source .venv/bin/activate
+```
+
+If Python didn't install the venv package on your Linux distribution, run the following command:
+
+```bash
+sudo apt-get install python3-venv
+```
+---
 
 ::: zone-end
 
-
-
-## Run the function locally
+### Run the function locally
 
 * Embed from existing documentation
 
-## Install Azure Developer CLI
+## Review the code (optional)
+::: zone pivot="programming-language-csharp"  
+You can review the code that defines the functions:
+    
+### `httpget`
 
-* Embed from existing documentation (https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd)
+:::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpGetFunction.cs" :::
+
+ ### `httppostbody`
+  
+:::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpPostBodyFunction.cs" :::
+::: zone-end
+::: zone pivot="programming-language-java" 
+You can review the code that defines the `httpexample` function:
+:::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" :::
+::: zone-end  
 
 ## Deploy the Azure Function to Azure
 
