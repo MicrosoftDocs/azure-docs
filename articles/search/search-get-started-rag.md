@@ -33,7 +33,7 @@ You can also start a new file on your local system and create requests manually 
 
 Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure. This quickstart assumes roles.
 
-You're setting up two clients, so you need permissions on both resource.
+You're setting up two clients, so you need permissions on both resources.
 
 Azure AI Search is receiving the query request from your local system. Assign yourself the **Search Index Data Reader** role assignment for that task. If you're also creating and loading the hotel sample index, add **Search Service Contributor** and **Search Index Data Contributor** roles as well.
 
