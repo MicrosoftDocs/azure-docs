@@ -1,5 +1,5 @@
 ---
-title: "Connector: Azure Modeling and Simulation Workbench"
+title: "Connectors in Azure Modeling and Simulation Workbench"
 description: Overview of how the Azure Modeling and Simulation Workbench implements connectors.
 author: lynnar
 ms.author: lynnar
@@ -7,21 +7,28 @@ ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
-#Customer intent: As a Modeling and Simulation Workbench user, I want to understand the connector component.
+#Customer intent: As a Modeling and Simulation Workbench user, I want to understand the Connector component.
 ---
 
-# Connector: Azure Modeling and Simulation Workbench
+Connectors define the network access method between users and the Azure Modeling and Simulation Workbench Chamber. Connectors support connectivity through allowlisted public IPs, VPN, or Azure ExpressRoute.  A Chamber can have only one Connector configured at a time.  Connectors also configure copy-paste functionality into Chamber VMs. Connector types are immutable and once created cannot be changed to another access model. Connectors are part of the Idle mode setting to reduce cost.
 
-Connectors are used to define and configure the network access between an organization's on-premises or cloud environment into the Azure Modeling and Simulation Workbench chamber. The connector supports protocols established through VPN, Azure Express Route, or network Access Control Lists.
+## Public IP access via allowlist
 
-## VPN or Azure Express Route
+For organizations who don't have an existing Azure network or prefer to access Chambers without establishing a VPN, a Connector can be created to allow access to the Chamber via allowlisted public IP addresses. The allowlist uses CIDR notation to more conveniently manage access from large network ranges. Only IPs listed in the allowlist are able to make connections to its associated Chamber.
 
-For organizations who have an Azure network setup to manage access for their employees, they can have strict controls of the virtual network subnet addresses used for connecting into the chamber. At creation time of the connector, the Chamber Admin or Workbench Owner can connect a virtual network subnet with VPN gateway or ExpressRoute gateway to establish a secure connection from your on-premises network to the chamber. The subnet selection should be a non gateway subnet within the same virtual network with the gateway subnet for VPN gateway or ExpressRoute gateway.
+## Private Azure networking
 
-## Allowlisted Public IP addresses
+A Connector can be created for private network access from Azure virtual networks. This method is best suited for organizations which have a private, dedicated ExpressRoute connection to an Azure data center; have existing network presence in Azure; have security monitoring or compliance requirements provided by other Azure services; or will use point-to-site or site-to-site VPN connectivity to the Modeling and Simulation Workbench.
 
-For those organizations who don't have an Azure network setup, or prefer to use the public network, they can configure their connector to allow access to the chamber via allowlisted Public IP addresses. The connector object allows the allowed IP list to be configured at creation time or added or removed dynamically after the connector object is created.
+### VPN
+
+A VPN Connector can be created which deploys infrastructure specifically for VPN access. The VPN Connector is required if the Chamber will be accessed through a point-to-site or site-to-site VPN.
+
+### Azure ExpressRoute
+
+[Azure ExpressRoute](../expressroute/) provides secure, dedicated, encrypted connectivity from on-premise to an Azure landing zone. A Workbench Owner must create a Connector expressly for ExpressRoute, providing the necessary virtual network, supporting network infrastructure and peer the appropriate vnets. 
 
 ## Next steps
 
+- [Create a Connector](./how-to-guide-connector.md)
 - [Data pipeline](./concept-data-pipeline.md)
