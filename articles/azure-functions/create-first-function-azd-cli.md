@@ -65,20 +65,31 @@ The project is maintained in its own GitHub repository. You must first clone the
     func init --worker-runtime dotnet-isolated --target-framework net8.0
     ```
 3. (Optional) Review the code that defines the functions:
-    <detail>
-    <summary>`httpget`</summary>
+    
+    **`httpget`**:
     :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpGetFunction.cs" :::
-    </detail>
-    <detail>
-    <summary>`httppostbody`</summary>
+
+    **`httppostbody`**:
     :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/httpPostBodyFunction.cs" :::
-    </detail>
+
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-```git
-git clone https://github.com/Azure-Samples/azure-functions-java-flex-consumption-azd
-cd azure-functions-java-flex-consumption-azd
-```
+1. In your local terminal or command prompt, run these commands to clone the sample repository:
+ 
+    ```command
+    git clone https://github.com/Azure-Samples/azure-functions-java-flex-consumption-azd
+    cd azure-functions-java-flex-consumption-azd
+    ```
+
+    1. Run this command to restore the _local.settings.json_ file, which is required to run locally:
+
+    ```command
+    func init --worker-runtime java
+    ```
+3. (Optional) Review the code that defines the function:
+    
+    **`httpexample`**:
+    :::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" :::
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
 ```git
@@ -92,21 +103,18 @@ git clone https://github.com/Azure-Samples/functions-quickstart-powershell-azd
 cd functions-quickstart-powershell-azd
 ```
 ::: zone-end
-::: zone pivot="programming-language-python"  
-```git
-git clone https://github.com/Azure-Samples/functions-quickstart-python-http-azd
-cd functions-quickstart-python-http-azd
-```
-::: zone-end
 ::: zone pivot="programming-language-typescript"  
 ```git
 git clone https://github.com/Azure-Samples/functions-quickstart-typescript-azd
 cd functions-quickstart-typescript-azd
 ```
 ::: zone-end
+::: zone pivot="programming-language-python"  
+```git
+git clone https://github.com/Azure-Samples/functions-quickstart-python-http-azd
+cd functions-quickstart-python-http-azd
+```
 
-
-::: zone pivot="programming-language-python" 
 ## Create and activate a virtual environment
 
 In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using a [version of Python supported by Azure Functions](supported-languages.md?pivots=programming-language-python#languages-by-runtime-version).
