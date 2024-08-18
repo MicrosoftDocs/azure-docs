@@ -55,11 +55,11 @@ To create a client secret:
 
 ### Certificate
 
-You can also upload a certification instead of creating a client secret.
+You can also upload a certificate instead of creating a client secret.
 
-![Screenshot that shows uploading a certification.](./media/howto-authorize-from-application/upload-certificate.png)
+![Screenshot that shows uploading a certificate.](./media/howto-authorize-from-application/upload-certificate.png)
 
-For more information about adding credentials, see [Add credentials](../active-directory/develop/quickstart-register-app.md#add-credentials).
+For information about adding credentials, see [Add credentials](../active-directory/develop/quickstart-register-app.md#add-credentials).
 
 ## Add a role assignment in the Azure portal
 
@@ -70,7 +70,7 @@ This section demonstrates how to assign a Web PubSub Service Owner role to a ser
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Web PubSub resource.
 
-1. On the left menu, select **Access control (IAM)** to display access control settings for your Web PubSub service.
+1. On the left menu, select **Access control (IAM)** to display access control settings for your Web PubSub resource.
 
 1. Select the **Role assignments** tab and view the role assignments at this scope.
 
