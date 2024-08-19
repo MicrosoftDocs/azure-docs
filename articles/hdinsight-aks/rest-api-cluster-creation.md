@@ -1,7 +1,7 @@
 ---
 title: Manage HDInsight on AKS clusters using Azure REST API 
 description: Manage HDInsight on AKS clusters using Azure REST API 
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 11/26/2023
 ---
