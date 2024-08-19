@@ -40,7 +40,7 @@ The following steps show the steps required to prepare sample customer range (1.
      
     After the public comments are filled out, the Whois/RDAP record should look like the following example. When copying, ensure there aren't spaces, or carriage returns and include all dashes:
 
-    :::image type="content" source="./media/ip-services-pre-provisioning-steps/certificate-example.png" alt-text="Screenshot of example certificate comment":::
+    :::image type="content" source="./media/ip-services-pre-provisioning-steps/certificate-example.png" alt-text="Screenshot of example certificate comment.":::
     
 3. To create the message passed to Microsoft, create a string that contains relevant information about your prefix and subscription. Sign this message with the key pair generated previously. Use the following format, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
@@ -92,7 +92,7 @@ The following steps show the steps required to prepare sample customer range (1.
      
     After the public comments are filled out, the Whois/RDAP record should look like the following example. Ensure there aren't spaces or carriage returns and include all dashes:
 
-    :::image type="content" source="./media/ip-services-pre-provisioning-steps/certificate-example.png" alt-text="Screenshot of example certificate comment":::
+    :::image type="content" source="./media/ip-services-pre-provisioning-steps/certificate-example.png" alt-text="Screenshot of example certificate comment.":::
     
 3. To create the message passed to Microsoft, create a string that contains relevant information about your prefix and subscription. Sign this message with the key pair generated previously. Use the following format, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
@@ -110,6 +110,9 @@ The following steps show the steps required to prepare sample customer range (1.
 
     ```console
     byoipauthsigned
-    dIlwFQmbo9ar2GaiWRlSEtDSZoH00I9BAPb2ZzdAV2A/XwzrUdz/85rNkXybXw457//gHNNB977CQvqtFxqqtDaiZd9bngZKYfjd203pLYRZ4GFJnQFsMPFSeePa8jIFwGJk6JV4reFqq0bglJ3955dVz0v09aDVqjj5UJx2l3gmyJEeU7PXv4wF2Fnk64T13NESMeQk0V+IaEOt1zXgA+0dTdTLr+ab56pR0RZIvDD+UKJ7rVE7nMlergLQdpCx1FoCTm/quY3aiSxndEw7aQDW15+rSpy+yxV1iCFIrUa/4WHQqP4LtNs3FATvLKbT4dBcBLpDhiMR+j9MgiJymA==
+
+    # Output
+
+    ABCDEFG0a1b2c0a1b2c0a1b2c0ca1b2c0a1b2c0a10a/1234567a/ABCDEFG0a1b2c0//ABCDEFG0a1b2c0a1b2c0a1b2c0ca1b2c0a1b2c0a10aABCDEFG0a1b2c0a1b2c0a1b2c0ca1b2c0a1b2c0a10aABCDEFG0a1b2c0a1b2c0a1b2c0ca1b2c0a1b2c0a10aABCDEFG0a1b2c0a1b2c0a1b2c0ca1b2c0a1b2c0a10aABCDEFG0a1b2c0a1b2c0a1b2c0ca1b2c0/ABCDEFG0a1b2c0a1b2c0a1b21212121212/ABCDEFG0a1b2c0a1b2c0a1b2c0ca1b2c0a1b2c0a10a==
     ```
 ---

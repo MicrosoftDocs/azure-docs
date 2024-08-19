@@ -7,7 +7,8 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-maims.date: 08/08/2024
+ms.date: 08/08/2024
+ms.custom: references_regions
 ---
 
 # Create a custom IPv4 address prefix in Azure
