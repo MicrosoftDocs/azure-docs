@@ -4,7 +4,7 @@ description: This article covers the usage of Azure Resource Graph with Azure Vi
 author: mbender-ms
 ms.author: mbender
 ms.topic: how-to
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.date: 11/02/2023
 ---
 

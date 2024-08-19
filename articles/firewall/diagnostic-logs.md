@@ -3,7 +3,7 @@ title: Azure Firewall Diagnostic logs (legacy)
 description: Diagnostic logs are the original Azure Firewall log queries that output log data in an unstructured or free-form text format.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: article
 ms.date: 12/04/2023
 ms.author: victorh

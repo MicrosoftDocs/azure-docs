@@ -381,6 +381,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-openapi-turbine-repair-isolated",
+      "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair-isolated",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-templates-v3",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "v3.x",
@@ -401,6 +407,12 @@
     {
       "path_to_root": "azure-search-python-samples",
       "url": "https://github.com/Azure-Samples/azure-search-python-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-search-static-web-app",
+      "url": "https://github.com/Azure-Samples/azure-search-static-web-app",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -897,6 +909,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "storage-mgmt-devguide-dotnet",
+      "url": "https://github.com/Azure-Samples/storage-mgmt-devguide-dotnet",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "main",
@@ -1278,12 +1296,10 @@
   ".openpublishing.redirection.availability-zones.json",
   ".openpublishing.redirection.azure-app-configuration.json",
   ".openpublishing.redirection.azure-arc-data.json",
-  ".openpublishing.redirection.azure-attestation.json",
   ".openpublishing.redirection.azure-australia.json",
   ".openpublishing.redirection.azure-databricks.json",
   ".openpublishing.redirection.azure-datalake-storage-gen1.json",
   ".openpublishing.redirection.azure-hpc.json",
-  ".openpublishing.redirection.azure-kubernetes-service.json",
   ".openpublishing.redirection.azure-monitor.json",
   ".openpublishing.redirection.azure-percept.json",
   ".openpublishing.redirection.azure-productivity.json",
@@ -1296,10 +1312,10 @@
   ".openpublishing.redirection.cognitive-services.json",
   ".openpublishing.redirection.container-service.json",
   ".openpublishing.redirection.data-lake-analytics.json",
-  ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
   ".openpublishing.redirection.dev-spaces.json",
   ".openpublishing.redirection.devops-project.json",
+  ".openpublishing.redirection.dms.json",
   ".openpublishing.redirection.document-db.json",
   ".openpublishing.redirection.germany.json",
   ".openpublishing.redirection.government.json",
@@ -1309,7 +1325,6 @@
   ".openpublishing.redirection.iot-develop.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.json",
-  ".openpublishing.redirection.key-vault.json",
   ".openpublishing.redirection.machine-configuration.json",
   ".openpublishing.redirection.marketplace.json",
   ".openpublishing.redirection.openshift.json",
@@ -1330,7 +1345,6 @@
   "articles/active-directory-b2c/.openpublishing.redirection.active-directory-b2c.json",
   "articles/ai-services.openpublishing.redirection.ai-services.json",
   "articles/ai-studio/.openpublishing.redirection.ai-studio.json",
-  "articles/aks/.openpublishing.redirection.aks.json",
   "articles/analysis-services/.openpublishing.redirection.analysis-services.json",
   "articles/application-gateway/.openpublishing.redirection.application-gateway.json",
   "articles/automation/.openpublishing.redirection.automation.json",

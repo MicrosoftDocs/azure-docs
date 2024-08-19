@@ -1,14 +1,13 @@
 ---
-title: Dasv4-series summary include
-description: Include file containing a summary of the Dasv4-series size series.
-services: virtual-machines
+title: Dasv4-series summary include file
+description: Include file for Dasv4-series summary
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
-ms.date: 04/11/2024
+ms.date: 07/29/2024
 ms.author: mattmcinnes
+ms.reviewer: mattmcinnes
 ms.custom: include file
 ---
-
-The Dasv4-series run on 2nd Generation AMD EPYC<sup>TM</sup> 7452 or 3rd Generation EPYC<sup>TM</sup> 7763v processors in a multi-threaded configuration. The Dav4-series and Dasv4-series have the same memory and disk configurations as the D & Dsv3-series.
+The Dasv4-series run on 2nd Generation AMD EPYC™ 7452 (up to 3.35GHz) or 3rd Generation EPYC™ 7763v processors (up to 3.5GHz) and use premium SSD. The Dasv4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.

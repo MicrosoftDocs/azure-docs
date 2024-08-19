@@ -3,7 +3,7 @@ title: What's new in Azure Spring Apps?
 description: Learn about the new features and recent improvements in Azure Spring Apps.
 author: KarlErickson
 ms.author: hangwan
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.date: 07/29/2024
@@ -24,11 +24,11 @@ The following updates are now available in the Enterprise plan:
 
 - **Richer log of Application Configuration Service**: The Git revision is a crucial piece of information that indicates the recency of configuration files. Currently, the Application Configuration Service logs the Git revision to enhance troubleshooting efficiency. For more information, see the [Examine Git revisions of the configuration files](how-to-enterprise-application-configuration-service.md#examine-git-revisions-of-the-configuration-files) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
 
-- **Managed OSS Spring Cloud Config Server (preview)**: The open-source version of Spring Cloud Config Server provides a native Spring experience to developers. Now we offer managed Spring Config Server to dynamically retrieve configuration properties from central repositories. For more information, see [Configure a managed Spring Cloud Config Server in Azure Spring App](how-to-config-server.md).
+- **Managed OSS Spring Cloud Config Server (preview)**: The open-source version of Spring Cloud Config Server provides a native Spring experience to developers. Now we offer managed Spring Cloud Config Server to dynamically retrieve configuration properties from central repositories. For more information, see [Configure a managed Spring Cloud Config Server in Azure Spring App](how-to-config-server.md).
 
 - **Custom actuator endpoint support**: Users might want to use a different port or path for the actuator due to security concerns, but this choice can result in the Application Live View being unable to connect to the app. This feature enables Application Live View to work with apps that have a non-default port or path for the actuator. For more information, see the [Configure customized Spring Boot actuator](how-to-use-application-live-view.md#configure-customized-spring-boot-actuator) section of [Use Application Live View with the Azure Spring Apps Enterprise plan](how-to-use-application-live-view.md).
 
-- **Disable basic auth for the test endpoint of an app**: Azure Spring Apps provides basic authentication to protect the test endpoint of an application instance. When a user's app is integrated with their authentication server, this basic authentication becomes unnecessary. If the user has a good understanding of the application's security, this feature lets them disable the basic authentication provided by the Azure Spring Apps service, making the tests against the application closer to a real-world environment. For more information, see the second tip in [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
+- **Disable basic auth for the test endpoint of an app**: Azure Spring Apps provides basic authentication to protect the test endpoint of an application instance. When a user's app is integrated with their auth server, this basic authentication becomes unnecessary. If the user has a good understanding of the application's security, this feature lets them disable the basic authentication provided by the Azure Spring Apps service, making the tests against the application closer to a real-world environment. For more information, see the second tip in [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
 
 - **Private storage access for virtual network injection**: The private storage access feature enables routing of traffic through a private network for backend storage hosting application assets like JAR files and logs. This feature enhances security and can potentially improve performance for users. For more information, see [Configure private network access for backend storage in your virtual network (Preview)](how-to-private-network-access-backend-storage.md).
 

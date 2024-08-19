@@ -3,7 +3,7 @@ title: 'ONNX models: Optimize inference'
 titleSuffix: Azure Machine Learning
 description: Learn how using the Open Neural Network Exchange (ONNX) can help optimize the inference of your machine learning model.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: concept-article
 ms.author: mopeakande

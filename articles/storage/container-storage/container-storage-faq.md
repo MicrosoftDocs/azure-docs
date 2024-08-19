@@ -55,11 +55,9 @@ ms.custom: references_regions
   **Does Azure Container Storage support Windows containers on AKS?**  
   No, Azure Container Storage only supports AKS containers running on Ubuntu and Azure Linux nodes.
 
-## Billing and pricing
-
-* <a id="azure-container-storage-extension-operation-failed"></a>
-  **How much does Azure Container Storage cost to use?**  
-  See the [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage) and [Understand Azure Container Storage billing](container-storage-billing.md).
+* <a id="azure-container-storage-ephemeralosdisk"></a>
+  **Does Azure Container Storage use the capacity from Ephemeral OS disks for ephemeral disk storage pool?**  
+  No, Azure Container Storage only discovers and uses the capacity from ephemeral data disks for ephemeral disk storage pool.
 
 ## See also
 

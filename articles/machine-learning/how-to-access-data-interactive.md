@@ -3,7 +3,7 @@ title: Access data from Azure cloud storage during interactive development
 titleSuffix: Azure Machine Learning
 description: Access data from Azure cloud storage during interactive development
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 author: fbsolo-ms1
@@ -35,11 +35,13 @@ A machine learning project typically starts with exploratory data analysis (EDA)
 > The guidance in this article describes data access during interactive development. It applies to any host that can run a Python session. This can include your local machine, a cloud VM, a GitHub Codespace, etc. We recommend use of an Azure Machine Learning compute instance - a fully managed and pre-configured cloud workstation. For more information, visit [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md).
 
 > [!IMPORTANT]
-> Ensure you have the latest `azure-fsspec` and `mltable` python libraries installed in your Python environment:
+> Ensure you have the latest `azure-fsspec`, `mltable`, and `azure-ai-ml` python libraries installed in your Python environment:
 >
 > ```bash
-> pip install -U azureml-fsspec mltable
+> pip install -U azureml-fsspec==1.3.1 mltable azure-ai-ml
 > ```
+
+The latest `azure-fsspec` package version can potentially change over time. For more information about the `azure-fsspec` package, visit [this resource](https://pypi.org/project/azureml-fsspec/).
 
 ## Access data from a datastore URI, like a filesystem
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to grant a user access to create labs.
 ms.topic: tutorial
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.date: 06/27/2024

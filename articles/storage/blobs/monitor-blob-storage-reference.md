@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Blob Storage
 description: This article contains important reference material you need when you monitor Azure Blob Storage.
-ms.date: 02/12/2024
+ms.date: 08/08/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: normesta
@@ -64,7 +64,7 @@ The following sections describe the properties for Azure Storage resource logs w
 ```json
 {
     "time": "2019-02-28T19:10:21.2123117Z",
-    "resourceId": "/subscriptions/12345678-2222-3333-4444-555555555555/resourceGroups/mytestrp/providers/Microsoft.Storage/storageAccounts/testaccount1/blobServices/default",
+    "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/mytestrp/providers/Microsoft.Storage/storageAccounts/testaccount1/blobServices/default",
     "category": "StorageWrite",
     "operationName": "PutBlob",
     "operationVersion": "2017-04-17",
@@ -73,7 +73,7 @@ The following sections describe the properties for Azure Storage resource logs w
     "statusText": "Success",
     "durationMs": 5,
     "callerIpAddress": "192.168.0.1:11111",
-    "correlationId": "ad881411-201e-004e-1c99-cfd67d000000",
+    "correlationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "location": "uswestcentral",
     "uri": "http://mystorageaccount.blob.core.windows.net/cont1/blobname?timeout=10"
 }
@@ -89,17 +89,17 @@ The following sections describe the properties for Azure Storage resource logs w
         "authorization": [
             {
                 "action": "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-                "denyAssignmentId": "821ddce4-021d-4d04-8a41-gggggggggggg",
+                "denyAssignmentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
                 "principals": [
                     {
-                        "id": "fde5ba15-4355-4223-b811-cccccccccccc",
+                        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
                         "type": "User"
                     }
                 ],
                 "reason": "Policy",
                 "result": "Granted",
-                "roleAssignmentId": "ecf75cb8-491c-4a25-ad6e-aaaaaaaaaaaa",
-                "roleDefinitionId": "b7e6dc6d-f1e8-4753-8033-ffffffffffff",
+                "roleAssignmentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                "roleDefinitionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
                 "type": "RBAC"
             }
         ],
@@ -108,11 +108,11 @@ The following sections describe the properties for Azure Storage resource logs w
             "objectKey": "/samplestorageaccount/samplecontainer/sampleblob.png"
            },
         "requester": {
-            "appId": "691458b9-1327-4635-9f55-bbbbbbbbbbbb",
+            "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "audience": "https://storage.azure.com/",
-            "objectId": "fde5ba15-4355-4223-b811-cccccccccccc",
-            "tenantId": "72f988bf-86f1-41af-91ab-dddddddddddd",
-            "tokenIssuer": "https://sts.windows.net/72f988bf-86f1-41af-91ab-eeeeeeeeeeee/"
+            "objectId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "tokenIssuer": "https://sts.windows.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
            },
         "type": "OAuth"
     },
@@ -130,7 +130,7 @@ The following sections describe the properties for Azure Storage resource logs w
         "accountName": "testaccount1",
         "requestUrl": "https://testaccount1.blob.core.windows.net:443/upload?restype=container&comp=list&prefix=&delimiter=/&marker=&maxresults=30&include=metadata&_=1551405598426",
         "userAgentHeader": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134",
-        "referrerHeader": "blob:https://portal.azure.com/6f50025f-3b88-488d-b29e-3c592a31ddc9",
+        "referrerHeader": "blob:https://portal.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "clientRequestId": "",
         "etag": "",
         "serverLatencyMs": 63,

@@ -3,7 +3,7 @@ title: Data concepts in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn key data concepts in Azure Machine Learning
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
 author: fbsolo-ms1 

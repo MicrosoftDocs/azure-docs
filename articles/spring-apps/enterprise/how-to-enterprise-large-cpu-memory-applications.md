@@ -3,7 +3,7 @@ title: How to deploy large CPU and memory applications in Azure Spring Apps in t
 description: Learn how to deploy large CPU and memory applications in the Enterprise plan for Azure Spring Apps.
 author: KarlErickson
 ms.author: haital
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 03/17/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

@@ -3,7 +3,7 @@ title: Overview of Azure Compute Gallery
 description: Learn about the Azure Compute Gallery and how to share Azure resources.
 author: ju-shim
 ms.author: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: overview
 ms.date: 09/20/2023
@@ -49,7 +49,7 @@ There are limits, per subscription, for deploying resources using Azure Compute 
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 - 100 replicas per image version however 50 replicas should be sufficient for most use cases
-- Any disk attached to the image must be less than or equal to 1 TB in size
+- Any disk attached to the image must be less than or equal to 2 TB in size
 - Resource move isn't supported for Azure compute gallery resources
 
 For more information, see [Check resource usage against limits](../networking/check-usage-against-limits.md) for examples on how to check your current usage.

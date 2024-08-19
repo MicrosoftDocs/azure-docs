@@ -3,8 +3,8 @@ title: Machine learning fairness
 titleSuffix: Azure Machine Learning
 description: Learn about machine learning fairness and how the Fairlearn Python package can help you assess and mitigate unfairness. 
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: rai
+ms.service: azure-machine-learning
+ms.subservice: responsible-ai
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt

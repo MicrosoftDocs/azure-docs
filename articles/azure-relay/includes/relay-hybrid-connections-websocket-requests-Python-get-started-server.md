@@ -1,6 +1,6 @@
 ---
 author: clemensv
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
 ms.date: 05/16/2024
 ms.author: samurp
@@ -92,3 +92,4 @@ a Hybrid Connections URL with SAS Tokens utilizing WebSockets.
 
 	    asyncio.run(run_application(config))
     ```
+

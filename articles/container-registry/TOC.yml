@@ -169,7 +169,7 @@
           - name: Kubernetes scenarios
             href: authenticate-kubernetes-options.md
           - name: Attach registry to Azure Kubernetes Service (AKS)
-            href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+            href: /azure/aks/cluster-container-registry-integration?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
           - name: Cross-tenant authentication from AKS
             href: authenticate-aks-cross-tenant.md
           - name: Authenticate using Kubernetes pull secret
@@ -191,7 +191,7 @@
         - name: Azure Container Instances
           href: ../container-instances/container-instances-tutorial-prepare-app.md
         - name: Azure Kubernetes Service (AKS)
-          href: ../aks/tutorial-kubernetes-prepare-app.md
+          href: /azure/aks/tutorial-kubernetes-prepare-app
         - name: Service Fabric
           href: ../service-fabric/service-fabric-tutorial-create-container-images.md
     - name: Monitor

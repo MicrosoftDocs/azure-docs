@@ -46,7 +46,7 @@ If you'd like download a Personalizer model that has been trained on 5,000 event
 
 To clean up your Azure AI services subscription, you can delete the resource or delete the resource group, which will delete any associated resources.
 
-* [Portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

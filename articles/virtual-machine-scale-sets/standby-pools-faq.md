@@ -3,7 +3,7 @@ title: Frequently asked questions about standby pools for Virtual Machine Scale 
 description: Get answers to frequently asked questions for standby pools on Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.topic: how-to
 ms.date: 06/14/2024
 ms.reviewer: ju-shim

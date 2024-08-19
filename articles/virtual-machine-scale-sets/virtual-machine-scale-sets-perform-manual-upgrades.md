@@ -4,7 +4,7 @@ description: Learn about how to perform a manual upgrade on Virtual Machine Scal
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 6/14/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy

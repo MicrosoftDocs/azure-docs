@@ -3,7 +3,6 @@ title: Migrate on-premises SQL Server Integration Services (SSIS) workloads to S
 description: Migrate on-premises SSIS workloads to SSIS in ADF.
 author: chugugrace
 ms.author: chugu
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 05/15/2024
@@ -65,7 +64,7 @@ It is also a practical way to use [SSIS DevOps Tools](/sql/integration-services/
 - [Database Migration Assistant](/sql/dma/dma-overview)
 - [Lift and shift SSIS workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
 - [SSIS DevOps Tools](/sql/integration-services/devops/ssis-devops-overview)
-- [Redeploy packages to Azure SQL Database](../dms/how-to-migrate-ssis-packages.md)
+- [Redeploy packages to Azure SQL Database](/azure/dms/how-to-migrate-ssis-packages)
 
 - [On-premises data access from Azure-SSIS Integration Runtime](https://techcommunity.microsoft.com/t5/sql-server-integration-services/vnet-or-no-vnet-secure-data-access-from-ssis-in-azure-data/ba-p/1062056)
 - [Customize the setup for an Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-custom-setup.md)

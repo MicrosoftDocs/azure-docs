@@ -97,7 +97,7 @@ After you create your cluster resource, you can edit properties such as *sku*, *
 Deleted clusters take two weeks to be completely removed. You can have up to seven clusters per subscription and region, five active, and two deleted in past two weeks.
 
 > [!NOTE]
-> Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
+> Creating a cluster involves multiple resources and operation typically complete in two hours.
 > Dedicated cluster is billed once provisioned regardless data ingestion and it's recommended to prepare the deployment to expedite the provisioning and workspaces link to cluster. Verify the following:
 > - A list of initial workspace to be linked to cluster is identified
 > - You have permissions to subscription intended for the cluster and any workspace to be linked
@@ -407,8 +407,8 @@ N/A
 
 > [!NOTE]
 > - Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
-> - Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
-> - When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove sku in workspace template to prevent conflict during workspace deployment.
+> - Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which typically complete in two hours.
+> - When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove SKU in workspace template to prevent conflict during workspace deployment.
 > - Other than the billing aspects that is governed by the cluster plan, all workspace configurations and query aspects remain unchanged during and after the link.
 
 You need 'write' permissions to both the workspace and the cluster resource for workspace link operation:
@@ -1135,7 +1135,7 @@ N/A
 -  400--Cluster is in deleting state. Async operation is in progress. Cluster must complete its operation before any update operation is performed.
 -  400--KeyVaultProperties isn't empty but has a bad format. See [key identifier update](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details).
 -  400--Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn't exist. Verify that you [set key and access policy](../logs/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
--  400--Key isn't recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
+-  400--Key isn't recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](/azure/key-vault/general/soft-delete-overview)
 -  400--Operation can't be executed now. Wait for the Async operation to complete and try again.
 -  400--Cluster is in deleting state. Wait for the Async operation to complete and try again.
 

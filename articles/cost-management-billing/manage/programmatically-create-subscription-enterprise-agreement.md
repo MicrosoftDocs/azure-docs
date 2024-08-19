@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 08/14/2024
 ms.reviewer: sapnakeshari
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
@@ -210,7 +210,7 @@ Allowed values for `Workload` are `Production` and `DevTest`.
   "name": "sampleAlias",
   "type": "Microsoft.Subscription/aliases",
   "properties": {
-    "subscriptionId": "b5bab918-e8a9-4c34-a2e2-ebc1b75b9d74",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "provisioningState": "Accepted"
   }
 }
@@ -232,7 +232,7 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
   "name": "sampleAlias",
   "type": "Microsoft.Subscription/aliases",
   "properties": {
-    "subscriptionId": "b5bab918-e8a9-4c34-a2e2-ebc1b75b9d74",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "provisioningState": "Succeeded"
   }
 }
@@ -259,7 +259,7 @@ You get the subscriptionId as part of the response from the command.
   "type": "Microsoft.Subscription/aliases",
   "properties": {
     "provisioningState": "Succeeded",
-    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
   }
 }
 ```
@@ -282,7 +282,7 @@ You get the subscriptionId as part of the response from the command.
   "name": "sampleAlias",
   "properties": {
     "provisioningState": "Succeeded",
-    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
   },
   "type": "Microsoft.Subscription/aliases"
 }

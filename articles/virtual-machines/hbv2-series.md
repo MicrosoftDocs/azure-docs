@@ -1,7 +1,7 @@
 ---
 title: HBv2-series - Azure Virtual Machines
 description: Specifications for the HBv2-series VMs.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 07/25/2024

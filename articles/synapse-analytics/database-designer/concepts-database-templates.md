@@ -3,7 +3,7 @@ title: Azure Synapse database templates concepts
 description: Learn more about the database templates within Azure Synapse
 author: gsaurer
 ms.author: gesaur
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: conceptual
 ms.date: 11/02/2021

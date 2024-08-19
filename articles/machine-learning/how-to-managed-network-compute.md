@@ -3,12 +3,12 @@ title: Managed computes in managed virtual network isolation
 titleSuffix: Azure Machine Learning
 description: Use managed compute resources with managed virtual network isolation with Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: None
 ms.author: larryfr
 author: Blackmist
-ms.date: 08/22/2023
+ms.date: 08/16/2024
 ms.topic: how-to
 ---
 
@@ -16,7 +16,7 @@ ms.topic: how-to
 
 Learn how to configure compute clusters or compute instances in an Azure Machine Learning managed virtual network.
 
-When using a managed network, compute resources managed by Azure Machine Learning can participate in the virtual network. Azure Machine Learning _compute clusters_, _compute instances_, and _managed online endpoints_ are created in the managed network.
+When you use a managed network, compute resources managed by Azure Machine Learning can participate in the virtual network. Azure Machine Learning _compute clusters_, _compute instances_, and _managed online endpoints_ are created in the managed network.
 
 This article focuses on configuring compute clusters and compute instances in a managed network. For information on managed online endpoints, see [secure online endpoints with network isolation](how-to-secure-online-endpoint.md).
 
@@ -57,7 +57,7 @@ Before following the steps in this article, make sure you have the following pre
     > pip install --upgrade azure-ai-ml azure-identity
     > ```
 
-* The examples in this article assume that your code begins with the following Python. This code imports the classes required when creating a workspace with managed VNet, sets variables for your Azure subscription and resource group, and creates the `ml_client`:
+* The examples in this article assume that your code begins with the following Python. This code imports the classes required when creating a workspace with managed virtual network, sets variables for your Azure subscription and resource group, and creates the `ml_client`:
 
     ```python
     from azure.ai.ml import MLClient
@@ -74,9 +74,15 @@ Before following the steps in this article, make sure you have the following pre
     # Replace with the values for your Azure subscription and resource group.
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
+    workspace_name = "<WORKSPACE_NAME>"
 
     # get a handle to the subscription
-    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
+    ml_client = MLClient(
+        workspace_name=workspace_name,
+        subscription_id=subscription_id,
+        resource_group_name=resource_group,
+        credential=DefaultAzureCredential()
+    )
     ```
 
 # [Studio](#tab/studio)
@@ -87,10 +93,10 @@ Before following the steps in this article, make sure you have the following pre
 
 ## Configure compute resources
 
-Use the tabs below to learn how to configure compute clusters and compute instances in a managed virtual network:
+Use the following tabs to learn how to configure compute clusters and compute instances in a managed virtual network:
 
 > [!TIP]
-> When using a managed virtual network, compute clusters and compute instances are automatically created in the managed network. The steps below focus on configuring the compute resources to not use a public IP address.
+> When using a managed virtual network, compute clusters and compute instances are automatically created in the managed network. The following steps focus on configuring the compute resources to not use a public IP address.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -115,7 +121,7 @@ from azure.ai.ml.entities import AmlCompute
 
 # Create a compute cluster
 compute_cluster = AmlCompute(
-    name="mycomputecluster,
+    name="mycomputecluster",
     size="STANDARD_D2_V2",
     min_instances=0,
     max_instances=4,

@@ -9,13 +9,10 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 06/25/2024
+ms.date: 08/05/2024
 ---
 
 # Index projections in Azure AI Search
-
-> [!Important]
-> Index projections are in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST APIs, Azure portal, and beta client libraries that have been updated to include the feature.
 
 *Index projections* are a component of a skillset definition that defines the shape of a secondary index, supporting a one-to-many index pattern, where content from an enrichment pipeline can target multiple indexes.
 
@@ -85,10 +82,9 @@ Because index projections effectively generate "child" documents for each "paren
 
 ### [**REST**](#tab/kstore-rest)
 
-You can use `2023-10-01-Preview` or newer preview REST APIs to create index projections through additions to a skillset. We recommend the latest preview API.
+Index projections are generally available. We recommend the most recent stable API.
 
-+ [Create Skillset (api-version=2024-05-01-preview)](/rest/api/searchservice/skillsets/create?view=rest-searchservice-2024-05-01-preview&preserve-view=true)
-+ [Create or Update Skillset (api-version=2024-05-01-preview)](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true)
++ [Create Skillset (api-version=2024-07-01)](/rest/api/searchservice/skillsets/create)
 
 ### [**.NET**](#tab/kstore-csharp)
 

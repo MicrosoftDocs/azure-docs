@@ -2,7 +2,7 @@
 title: Troubleshoot connectivity issues
 description: Include file with some common content that helps you with troubleshooting connectivity issues. 
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 07/29/2024
 ms.author: spelluru
