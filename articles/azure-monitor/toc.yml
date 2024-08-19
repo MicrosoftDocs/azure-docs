@@ -540,8 +540,6 @@ items:
         href: containers/container-insights-syslog.md  
       - name: Reports tab
         href: containers/container-insights-reports.md
-      - name: Custom metrics
-        href: containers/container-insights-custom-metrics.md
       - name: Log queries
         href: containers/container-insights-log-query.md
     - name: View live data
