@@ -15,7 +15,7 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Phi-3 family chat models
+# How to use Phi-3 family chat models with Azure Machine Learning
 
 In this article, you learn about Phi-3 family chat models and how to use them.
 The Phi-3 family of small language models (SLMs) is a collection of instruction-tuned generative text models.
@@ -75,10 +75,10 @@ To use Phi-3 family chat models with Azure Machine Learning, you need the follow
 
 Phi-3 family chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
-Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure Machine Learning studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure Machine Learning studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](how-to-deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
-> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+> [Deploy models as serverless API endpoints](how-to-deploy-models-serverless.md)
 
 **Deployment to a self-hosted managed compute**
 
@@ -87,7 +87,7 @@ Phi-3 family chat models can be deployed to our self-hosted managed inference so
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### The inference package installed
 
@@ -398,10 +398,11 @@ To use Phi-3 family chat models with Azure Machine Learning studio, you need the
 
 Phi-3 family chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
-Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure Machine Learning studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure Machine Learning studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](how-to-deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
-> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+> [Deploy models as serverless API endpoints](how-to-deploy-models-serverless.md)
+
 
 **Deployment to a self-hosted managed compute**
 
@@ -410,7 +411,7 @@ Phi-3 family chat models can be deployed to our self-hosted managed inference so
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### The inference package installed
 
@@ -744,10 +745,10 @@ To use Phi-3 family chat models with Azure Machine Learning studio, you need the
 
 Phi-3 family chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
-Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure Machine Learning studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure Machine Learning studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](how-to-deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
-> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+> [Deploy models as serverless API endpoints](how-to-deploy-models-serverless.md)
 
 **Deployment to a self-hosted managed compute**
 
@@ -756,7 +757,7 @@ Phi-3 family chat models can be deployed to our self-hosted managed inference so
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### The inference package installed
 
@@ -1102,10 +1103,10 @@ To use Phi-3 family chat models with Azure Machine Learning studio, you need the
 
 Phi-3 family chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
-Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure Machine Learning studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure Machine Learning studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](how-to-deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
-> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+> [Deploy models as serverless API endpoints](how-to-deploy-models-serverless.md)
 
 **Deployment to a self-hosted managed compute**
 
@@ -1114,7 +1115,7 @@ Phi-3 family chat models can be deployed to our self-hosted managed inference so
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### A REST client
 
