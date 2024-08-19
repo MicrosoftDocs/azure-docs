@@ -1024,6 +1024,7 @@
         "articles/azure-arc/**/*.md": "jenhayes",
         "articles/azure-arc/servers/**/*.md": "johnmarc",
         "articles/azure-cache-for-redis/**/*.md": "franlanglois",
+        "articles/azure-cache-for-redis/**/*.yml": "franlanglois",
         "articles/azure-functions/**/*.md": "glenga",
         "articles/azure-fluid-relay/**/*.md": "jken",
         "articles/azure-government/**/*.md": "eliotgra",

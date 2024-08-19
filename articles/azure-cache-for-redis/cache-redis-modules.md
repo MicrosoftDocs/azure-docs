@@ -100,7 +100,7 @@ RedisBloom adds four probabilistic data structures to a Redis server: **bloom fi
 **Bloom and Cuckoo** filters are similar to each other, but each has a unique set of advantages and disadvantages that are beyond the scope of
 this documentation.
 
-For more information, see [RedisBloom](https://redis.io/bloom/).
+For more information, see [RedisBloom](https://redis.io/probabilistic/).
 
 ### RedisTimeSeries
 
