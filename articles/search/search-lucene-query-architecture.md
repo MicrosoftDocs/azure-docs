@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/09/2023
+ms.date: 08/19/2024
 ---
 
 # Full text search in Azure AI Search
