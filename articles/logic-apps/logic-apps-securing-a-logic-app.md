@@ -964,14 +964,14 @@ By default, a request-based trigger has SAS authentication enabled. The trigger'
 
 If your Consumption workflow starts with the **Request** trigger, and you want to use [OAuth with Microsoft Entra ID](#enable-oauth), you can disable SAS authentication to avoid errors and problems running your workflow. You also add a security layer by removing the dependency on secrets, which reduces the risk in having secrets logged or leaked.
 
+This option works even if you also [enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request-based endpoint](#enable-oauth-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
+
 > [!NOTE]
 >
-> This action only disables SAS authentication for incoming requests, 
-> not existing SAS tokens or signatures. When SAS authentication is 
-> enabled, existing secrets still work. To disable SAS tokens and 
-> signatures, see [Regenerate access keys](#regenerate-access-keys).
-
-This option works even if you also [enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request-based endpoint](#enable-oauth-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
+> This action disables SAS authentication for incoming requests and blocks existing SAS tokens or 
+> signatures from working. However, your SAS tokens or signatures remain valid and still work 
+> if you enable SAS authentication again. To disable SAS tokens and signatures, see 
+> [Regenerate access keys](#regenerate-access-keys).
 
 After you disable SAS authentication, the endpoint URL for the **Request** trigger no longer includes the SAS key, for example:
 
