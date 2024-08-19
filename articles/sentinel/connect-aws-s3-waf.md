@@ -20,43 +20,19 @@ This connector features the debut of a new *AWS CloudFormation*-based onboarding
 
 The AWS S3 WAF connector serves the following use cases:
 
-- **Security monitoring and threat detection:** Analyzing AWS WAF logs can help identify and respond to security threats such as SQL injection and cross-site scripting (XSS) attacks. By ingesting these logs into Microsoft Sentinel, you can leverage its advanced analytics and threat intelligence to detect malicious activities. 
+- **Security monitoring and threat detection:** Analyze AWS WAF logs to help identify and respond to security threats such as SQL injection and cross-site scripting (XSS) attacks. By ingesting these logs into Microsoft Sentinel, you can use its advanced analytics and threat intelligence to detect and investigate malicious activities.
 
 - **Compliance and auditing:** AWS WAF logs provide detailed records of web ACL traffic, which can be crucial for compliance reporting and auditing purposes. The connector ensures that these logs are available within Sentinel for easy access and analysis.
 
-# [S3 connector (new)](#tab/s3)
-
-This tab explains how to configure the AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
+This article explains how to configure the AWS S3 WAF connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
 
 ## Prerequisites
 
-- Make sure that the logs from your selected AWS service use the format accepted by Microsoft Sentinel:
-
-    - **Amazon VPC**: .csv file in GZIP format with headers; delimiter: space.
-    - **Amazon GuardDuty**: json-line and GZIP formats.
-    - **AWS CloudTrail**: .json file in a GZIP format.
-    - **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.yml).
-
 - You must have write permission on the Microsoft Sentinel workspace.
-- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
-## Architecture overview
+- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. If you have version 3.0.2 of the solution (or earlier) already installed, update the solution in the content hub to ensure you have the latest version that includes this connector. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
-This graphic and the following text show how the parts of this connector solution interact.
-
-:::image type="content" source="media/connect-aws/s3-connector-architecture.png" alt-text="Screenshot of A W S S 3 connector architecture.":::
-
-- AWS services are configured to send their logs to S3 (Simple Storage Service) storage buckets.
-
-- The S3 bucket sends notification messages to the SQS (Simple Queue Service) message queue whenever it receives new logs.
-
-- The Microsoft Sentinel AWS S3 connector polls the SQS queue at regular, frequent intervals. If there is a message in the queue, it will contain the path to the log files.
-
-- The connector reads the message with the path, then fetches the files from the S3 bucket.
-
-- To connect to the SQS queue and the S3 bucket, Microsoft Sentinel uses a federated web identity provider (Microsoft Entra ID) for authenticating with AWS through OpenID Connect (OIDC), and assuming an AWS IAM role. The role is configured with a permissions policy giving it access to those resources.
-
-## Connect the S3 connector
+## Connect the AWS S3 WAF connector
 
 - **In your AWS environment:**
 
