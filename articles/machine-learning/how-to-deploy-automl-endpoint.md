@@ -41,7 +41,7 @@ Deploying an AutoML-trained model from the Automated ML page is a no-code experi
 1. After you select a model, the **Deploy** button is available with a dropdown menu.
 1. Select *Real-time endpoint* option.
 
-   :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" lightbox="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu":::
+   :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" lightbox="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu.":::
 
    The system generates the Model and Environment needed for the deployment.
 
@@ -58,7 +58,7 @@ To download the components, you need for deployment:
 1. Select the model you want to use. After you select a model, the *Download* button is enabled.
 1. Choose **Download**.
 
-   :::image type="content" source="media/how-to-deploy-automl-endpoint/download-model.png" lightbox="media/how-to-deploy-automl-endpoint/download-model.png" alt-text="Screenshot showing the selection of the model and download button":::
+   :::image type="content" source="media/how-to-deploy-automl-endpoint/download-model.png" lightbox="media/how-to-deploy-automl-endpoint/download-model.png" alt-text="Screenshot showing the selection of the model and download button.":::
 
 You receive a zip file that contains:
 
