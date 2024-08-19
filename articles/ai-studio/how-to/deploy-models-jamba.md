@@ -25,6 +25,7 @@ The Jamba family models are AI21's production-grade Mamba-based large language m
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription. 
 
 # [AI21 Jamba-Instruct](#tab/AI21-Jamba-Instruct)
+
 The [AI21-Jamba-Instruct model](https://aka.ms/aistudio/landing/ai21-labs-jamba-instruct) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-instruct). AI21 can change or update the terms of use and pricing of this model.
 
 To get started with Jamba Instruct deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-instruct-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-instruct-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-instruct-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-instruct-azure-api-sample).
@@ -33,6 +34,7 @@ To get started with Jamba Instruct deployed as a serverless API, explore our int
 > See our announcements of AI21's Jamba family models available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
 
 # [AI21 Jamba-1.5](#tab/AI21-Jamba-1.5)
+
 The [AI21-Jamba-1.5 model](https://aka.ms/aistudio/landing/ai21-labs-jamba-1.5) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-1.5). AI21 can change or update the terms of use and pricing of this model.
 
 To get started with Jamba 1.5 deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-1.5-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-1.5-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-1.5-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-1.5-azure-api-sample).
@@ -41,6 +43,7 @@ To get started with Jamba 1.5 deployed as a serverless API, explore our integrat
 > See our announcements of AI21's Jamba family models available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
 
 # [AI21 Jamba-1.5 Large](#tab/AI21-Jamba-1.5-large)
+
 The [AI21-Jamba-1.5-large model](https://aka.ms/aistudio/landing/ai21-labs-jamba-1.5-large) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-1.5-large). AI21 can change or update the terms of use and pricing of this model.
 
 To get started with Jamba 1.5 large deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-1.5-large-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-1.5-large-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-1.5-large-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-1.5-large-azure-api-sample).
