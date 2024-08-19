@@ -20,8 +20,8 @@ This Vertica connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|
-|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; (only for the legacy driver version) &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; (only for the legacy driver version) &#9313;|
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
@@ -32,6 +32,24 @@ The service provides a built-in driver to enable connectivity, therefore you don
 ## Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
+
+To use the Vertica connector with the recommended driver version, install the Vertica ODBC driver on the machine running the self-hosted Integration runtime by following these steps:
+
+1. Download the Vertica client setup for ODBC driver from [Client Drivers | OpenText™ Vertica™](https://www.vertica.com/download/vertica/client-drivers/). Take Windows system setup as an example:
+
+   :::image type="content" source="media/connector-vertica/download.png" alt-text="Screenshot of a Windows system setup example.":::  
+
+1. Open the downloaded .exe to begin the installation process. 
+
+   :::image type="content" source="media/connector-vertica/install.png" alt-text="Screenshot of the installation process.":::
+
+1. Select **ODBC driver** under Vertica Component List, then select **Next** to start the installation.
+
+   :::image type="content" source="media/connector-vertica/select-odbc-driver.png" alt-text="Screenshot of selecting ODBC driver.":::
+
+1. After the installation process is successfully completed, you can go to  Start -> ODBC Data Source Administrator to confirm the successful installation.
+
+   :::image type="content" source="media/connector-vertica/confirm-the successful-installation.png" alt-text="Screenshot of confirming the successful installation.":::
 
 ## Getting started
 
@@ -238,6 +256,14 @@ To copy data from Vertica, set the source type in the copy activity to **Vertica
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Upgrade the Vertica driver version 
+
+Here are steps that help you upgrade your Vertica driver version: 
+
+1. Install a Vertica driver by following the steps in [Prerequisite](#prerequisites). 
+1. In **Edit linked service page**, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
+1. Apply a self-hosted integration runtime with version 5.44.8969.2 or above. Azure integration runtime is not supported by the recommended driver version. 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
