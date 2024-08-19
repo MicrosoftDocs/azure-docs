@@ -104,7 +104,7 @@ You can configure the pre-created IP address to serve runtime traffic during mig
 
 ### Expected downtime
 
-When migrating a VNet-injected instance and keeping the same subnet configuration, minimal or no downtime for the API gateway is expected. The following table summarizes the expected downtime for the API gateway for each migration scenario when keeping the same subnet:
+When migrating a VNet-injected instance and keeping the same subnet configuration, minimal or no downtime for the API gateway is expected. The following table summarizes the expected downtime and `stv1` compute retention for each migration scenario when keeping the same subnet:
 
 |VNet mode  |Public IP option  |Expected downtime  | `stv1` compute retention  |
 |---------|---------|---------|-----------|
@@ -248,7 +248,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **Can I preserve the IP address of the instance?**
 
-   Yes, you can preserve the IP address by using the [Migrate to stv2 REST API](#migrate-the-instance-using-the-rest-api---keep-same-subnet-configuration).
+   Yes, you can preserve the IP address by [migrating and keeping the same subnet](#option-1-migrate-and-keep-same-subnet).
    
 - **Is there a migration path without modifying the existing instance?**
  
@@ -288,7 +288,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **Can I upgrade my stv1 instance to the same subnet?**
 
-   - Currently, you can only upgrade to the same subnet in a single pass when using the [Migrate to stv2 REST API](#migrate-the-instance-using-the-rest-api---keep-same-subnet-configuration). 
+   - Currently, you can only upgrade to the same subnet in a single pass when using the [Migrate to stv2 REST API](#option-1-migrate-and-keep-same-subnet). 
        
       Currently, if you use the **Platform migration** blade in the portal, you need to migrate to a new subnet and then migrate back to the original subnet:
        - The old gateway takes between 15 mins to 45 mins to vacate the subnet, so that you can initiate the move. However, you can enable a migration setting to retain the old gateway for 48 hours.
