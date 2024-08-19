@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 08/19/2024
 ms.author: kendownie
 ms.custom: monitoring, devx-track-azurepowershell
 ---
@@ -254,13 +254,13 @@ The following example shows how to read metric data on the metric supporting mul
 
 You can use Azure Monitor to analyze workloads that utilize Azure Files. Follow these steps.
 
-1. Go to your storage account in the [Azure portal](https://portal.azure.com). 
-1. From the left navigation, select **Data storage** > **File shares**. Select the file share you want to monitor.
-1. From the left navigation, select **Monitoring** > **Metrics**.
-1. When using Azure Monitor for Azure Files, it’s important to always select the **Files** metric namespace. Select **Add metric**.
-1. Under **Metric namespace** select **File**.
+1. Navigate to your storage account in the [Azure portal](https://portal.azure.com). 
+1. In the service menu, under **Monitoring**, select **Metrics**.
+1. Under **Metric namespace**, select **File**.
 
 :::image type="content" source="media/analyze-files-metrics/add-metric-namespace-file.png" alt-text="Screenshot showing how to select the Files metric namespace." lightbox="media/analyze-files-metrics/add-metric-namespace-file.png":::
+
+Now you can select a metric depending on what you want to monitor.
 
 ### Monitor availability
 
