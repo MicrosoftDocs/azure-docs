@@ -430,6 +430,8 @@ items:
         items: 
         - name: Configure default orientation
           href: how-tos/ui-library-sdk/orientation.md
+        - name: Configure closed captions
+          href: how-tos/ui-library-sdk/closed-captions.md
         - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
         - name: Disable end call confirmation
@@ -476,6 +478,8 @@ items:
       items:
       - name: Breakout rooms
         href: how-tos/calling-sdk/breakoutrooms.md
+      - name: Together Mode
+        href: how-tos/calling-sdk/together-mode.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions

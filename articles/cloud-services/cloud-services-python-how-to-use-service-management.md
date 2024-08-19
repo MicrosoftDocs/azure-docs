@@ -2,7 +2,7 @@
 title: Use the classic deployment model (Python) - feature guide
 description: Learn how to programmatically perform common service management tasks from Python.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
@@ -188,7 +188,7 @@ sms.delete_deployment('myhostedservice', 'v1')
 ```
 
 ## <a name="CreateStorageService"> </a>Create a storage service
-A [storage service](../storage/common/storage-account-create.md) gives you access to Azure [blobs](../storage/blobs/storage-quickstart-blobs-python.md), [tables](../cosmos-db/table-storage-how-to-use-python.md), and [queues](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli). To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Azure). You also need a description, a label (up to 100 characters, automatically encoded to base64), and a location. The following example shows how to create a storage service by specifying a location:
+A [storage service](../storage/common/storage-account-create.md) gives you access to Azure [blobs](../storage/blobs/storage-quickstart-blobs-python.md), [tables](/azure/cosmos-db/table-storage-how-to-use-python), and [queues](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli). To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Azure). You also need a description, a label (up to 100 characters, automatically encoded to base64), and a location. The following example shows how to create a storage service by specifying a location:
 
 ```python
 from azure import *
