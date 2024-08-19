@@ -2,7 +2,7 @@
 title: Troubleshoot Application Insights Profiler
 description: Walk through troubleshooting steps and information to enable and use Application Insights Profiler.
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 08/19/2024
 ms.reviewer: charles.weininger
 ---
 
