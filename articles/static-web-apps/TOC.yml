@@ -160,6 +160,11 @@
   - name: Overview
     href: local-development.md
     displayName: swa cli
+- name: Relocation
+  items:
+  - name: Relocate to another region
+    href: ../operational-excellence/relocation-static-web-apps.md?toc=/azure/static-web-apps/toc.json
+    displayName: swa cli
 - name: Traffic management
   items:
   - name: Split traffic
