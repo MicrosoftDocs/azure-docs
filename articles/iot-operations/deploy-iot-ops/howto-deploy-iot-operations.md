@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure IoT Operations to a cluster
-description: Use the Azure CLI to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster.
+description: Use the Azure CLI or Azure portal to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster.
 author: kgremban
 ms.author: kgremban
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.date: 08/02/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure CLI. Once you have Azure IoT Operations deployed, then you can manage and deploy other workloads to your cluster.
+Learn how to deploy Azure IoT Operations Preview to a Kubernetes cluster and then manage that Azure IoT Operations instance using the Azure CLI or Azure portal.
 
 * An Azure IoT Operations *deployment* describes all of the components and resources that enable the Azure IoT Operations scenario. These components and resources include:
   * An Azure IoT Operations instance
@@ -26,6 +26,24 @@ Deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure CLI.
 * An Azure IoT Operations *instance* is one part of a deployment. It's the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md), like MQ, Akri, and OPC UA connector.
 
 In this article, when we talk about deploying Azure IoT Operations we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
+
+## Choose your features
+
+Azure IoT Operations offers two deployment modes. You can choose to deploy a basic subset of features that are simpler to get started with for evaluation scenarios, or you can choose to deploy the full feature set.
+
+* Basic feature deployment:
+
+  * Does not configure secrets or user-assigned managed identity capabilities.
+  * Is meant to enable the end-to-end quickstart sample for evaluation purposes, so does support the OPC PLC simulator and connect to cloud resources using system-assigned managed identity.
+  * Can be upgraded to include the full set of features. For the steps to enable secrets and user-assigned managed identity, see [Configure secrets on your cluster](./howto-manage-secrets.md)
+
+* Full feature deployment:
+
+  * Includes the steps to enable secrets and user-assignment managed identity, which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow source or destination endpoint.
+
+If you want to deploy the basic subset, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+
+This article provides steps to deploy the full feature set for Azure IoT Operations.
 
 ## Prerequisites
 
