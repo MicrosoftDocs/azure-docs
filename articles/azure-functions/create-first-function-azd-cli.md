@@ -1,6 +1,6 @@
 ---
 title: Create functions in Azure using the Azure Developer CLI
-description: "Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions."
+description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy the local project to a Flex Consumption plan on Azure."
 ms.date: 11/08/2022
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
@@ -204,7 +204,7 @@ sudo apt-get install python3-venv
 
 1. From your HTTP test tool in a second terminal, send an HTTP POST request like this example:
 
-    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/text.http" range="5-11":::
+    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/test.http" range="5-11":::
 
 You can find examples of both HTTP requests in the test.http project file.  
 ::: zone-end
@@ -271,7 +271,7 @@ Because your function uses an HTTP trigger, you invoke it by making an HTTP requ
 
 1. From your HTTP test tool in a second terminal, send an HTTP POST request like this example:
 
-    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/text.http" range="5-11":::
+    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/test.http" range="5-11":::
 
 ## Review Bicep files (optional)
 
@@ -285,7 +285,7 @@ When you are done working with your function app and related resources, you can 
 azd down
 ```
 
-This command doesn't affect your source code repository. For more information about Functions costs, see [Estimating Consumption plan costs](../articles/azure-functions/functions-consumption-costs.md).
+This command doesn't affect your source code repository. For more information about Functions costs, see [Estimating Flex Consumption plan costs](./flex-consumption-plan.md#billing).
 
 ## Related content
 
