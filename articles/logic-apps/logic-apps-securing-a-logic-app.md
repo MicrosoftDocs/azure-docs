@@ -962,7 +962,16 @@ By default, a request-based trigger has SAS authentication enabled. The trigger'
 
 **`https://{domain}:443/workflows/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ`**
 
-If your Consumption workflow starts with the **Request** trigger, and you want to use [OAuth with Microsoft Entra ID](#enable-oauth), you can disable SAS to avoid errors and problems running your workflow. You also add a security layer by removing the dependency on secrets, which reduces the risk in having secrets logged or leaked. This option works even if you also [enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request-based endpoint](#enable-oauth-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
+If your Consumption workflow starts with the **Request** trigger, and you want to use [OAuth with Microsoft Entra ID](#enable-oauth), you can disable SAS authentication to avoid errors and problems running your workflow. You also add a security layer by removing the dependency on secrets, which reduces the risk in having secrets logged or leaked.
+
+> [!NOTE]
+>
+> This action only disables SAS authentication for incoming requests, 
+> not existing SAS tokens or signatures. When SAS authentication is 
+> enabled, existing secrets still work. To disable SAS tokens and 
+> signatures, see [Regenerate access keys](#regenerate-access-keys).
+
+This option works even if you also [enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request-based endpoint](#enable-oauth-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
 
 After you disable SAS authentication, the endpoint URL for the **Request** trigger no longer includes the SAS key, for example:
 
@@ -1002,7 +1011,7 @@ To find Consumption workflows where SAS is either enabled or disabled, check whe
 
 #### Add the sasAuthenticationPolicy property to your workflow definition
 
-For Consumption workflows where you want to disable SAS, follow these steps:
+For Consumption workflows where you want to disable SAS authentication, follow these steps:
 
 1. If you haven't done so already, get information about your workflow by running the [**Workflows - Get** operation](/rest/api/logic/workflows/get) using the following **GET** request, for example:
 
