@@ -62,8 +62,8 @@ class Program
         using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
         Console.WriteLine("Speak into your microphone.");
-        var result = await speechRecognizer.RecognizeOnceAsync();
-        Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+        var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
+        Console.WriteLine($"RECOGNIZED: Text={speechRecognitionResult.Text}");
     }
 
     async static Task Main(string[] args)
@@ -94,8 +94,8 @@ class Program
         using var audioConfig = AudioConfig.FromWavFileInput("PathToFile.wav");
         using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
-        var result = await speechRecognizer.RecognizeOnceAsync();
-        Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+        var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
+        Console.WriteLine($"RECOGNIZED: Text={speechRecognitionResult.Text}");
     }
 
     async static Task Main(string[] args)
@@ -137,8 +137,8 @@ class Program
             audioConfigStream.Write(readBytes, readBytes.Length);
         } while (readBytes.Length > 0);
 
-        var result = await speechRecognizer.RecognizeOnceAsync();
-        Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+        var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
+        Console.WriteLine($"RECOGNIZED: Text={speechRecognitionResult.Text}");
     }
 
     async static Task Main(string[] args)
@@ -149,27 +149,27 @@ class Program
 }
 ```
 
-Using a push stream as input assumes that the audio data is a raw PCM and skips any headers. The API still works in certain cases if the header hasn't been skipped. For the best results, consider implementing logic to read off the headers so that `byte[]` begins at the *start of the audio data*.
+Using a push stream as input assumes that the audio data is a raw PCM and skips any headers. The API still works in certain cases if the header hasn't been skipped. For the best results, consider implementing logic to read off the headers so that `byte[]` begins at the *start of the audio data*. To address this issue, you can utilize [GStreamer](./how-to-use-codec-compressed-audio-input-streams.md). GStreamer provides a flexible pipeline-based framework that allows you to implement logic to read off the headers, ensuring that the byte array begins at the start of the audio data.
 
 ## Handle errors
 
-The previous examples only get the recognized text from the `result.Text` property. To handle errors and other responses, you need to write some code to handle the result. The following code evaluates the [`result.Reason`](/dotnet/api/microsoft.cognitiveservices.speech.recognitionresult.reason) property and:
+The previous examples only get the recognized text from the `speechRecognitionResult.Text` property. To handle errors and other responses, you need to write some code to handle the result. The following code evaluates the [`speechRecognitionResult.Reason`](/dotnet/api/microsoft.cognitiveservices.speech.recognitionresult.reason) property and:
 
 * Prints the recognition result: `ResultReason.RecognizedSpeech`.
 * If there's no recognition match, it informs the user: `ResultReason.NoMatch`.
 * If an error is encountered, it prints the error message: `ResultReason.Canceled`.
 
 ```csharp
-switch (result.Reason)
+switch (speechRecognitionResult.Reason)
 {
     case ResultReason.RecognizedSpeech:
-        Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+        Console.WriteLine($"RECOGNIZED: Text={speechRecognitionResult.Text}");
         break;
     case ResultReason.NoMatch:
         Console.WriteLine($"NOMATCH: Speech could not be recognized.");
         break;
     case ResultReason.Canceled:
-        var cancellation = CancellationDetails.FromResult(result);
+        var cancellation = CancellationDetails.FromResult(speechRecognitionResult);
         Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
 
         if (cancellation.Reason == CancellationReason.Error)
