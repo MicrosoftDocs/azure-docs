@@ -1,10 +1,10 @@
 ---
 title: Using Redis modules with Azure Cache for Redis
 description: You can use Redis modules with your Azure Cache for Redis instances to extend your caches on the Enterprise tiers.
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
+
 ms.topic: conceptual
 ms.date: 04/10/2024
 ms.custom: template-concept
