@@ -215,6 +215,28 @@ The suggested solution includes:
 - The central SOC team can still operate from a separate Microsoft Entra tenant, using Azure Lighthouse to access each of the different Microsoft Sentinel environments. If there's no other tenant, the central SOC team can still use Azure Lighthouse to access the remote workspaces.
 - The central SOC team can also create another workspace if it needs to store artifacts that remain hidden from the continent SOC teams, or if it wants to ingest other data that isn't relevant to the continent SOC teams.
 
+## Combining your SOC and non-SOC data
+
+We generally recommend that customers keep a separate workspace for their non-SOC data so that non-SOC data isn't subject to Microsoft Sentinel costs. However, this recommendation for separate workspaces for non-SOC data comes from a purely cost-based perspective, and there are other key design factors to examine when determining whether to use a single or multiple workspaces. To avoid double ingestion costs, consider collecting overlapped data on a single workspace only with table-level Azure RBAC.
+
+For example, consider an organization that has security logs ingesting at 50 GB/day, operations logs ingesting at 50 GB/day, and a workspace in the East US region.
+
+The following table compares workspace options with and without separate workspaces.
+
+> [!NOTE]
+> Costs and terms listed in the following table are fake, and used for illustrative purposes only. For up-to-date cost information, see the Microsoft Sentinel pricing calculator.
+>
+
+|Workspace architecture  |Description  |
+|---------|---------|
+|The SOC team has its own workspace, with Microsoft Sentinel enabled. <br><br>The Ops team has its own workspace, without Microsoft Sentinel enabled.     |   **SOC team**:<br>Microsoft Sentinel cost for 50 GB/day is $6,500 per month.<br>First three months of retention are free.<br><br>Ops team:<br>- Cost of Log Analytics at 50 GB/day is around $3,500 per month.<br>- First 31 days of retention are free.<br><br>The total cost for both equals $10,000 per month.      |
+|Both SOC and Ops teams share the same workspace with Microsoft Sentinel enabled.     | By combining both logs, ingestion will be 100 GB / day, qualifying for eligibility for Commitment Tier (50% for Sentinel and 15% for LA).   <br><br>     |
+
+In this example, you'd have a cost savings of $1,000 per month by combining both workspaces, and the Ops team will also enjoy 3 months of free retention instead of only 31 days.
+
+This example is relevant only when both SOC and non-SOC data each have an ingestion size of >=50 GB/day and <100 GB/day.
+
+
 ## Next steps
 
 In this article, you reviewed a set of suggested workspace designs for organizations.

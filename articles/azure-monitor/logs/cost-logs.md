@@ -141,7 +141,10 @@ For more information about legacy tiers that are available to early adopters of 
 
 When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collected in that workspace is subject to Microsoft Sentinel charges along with Log Analytics charges. For this reason, you'll often separate your security and operational data in different workspaces so that you don't incur [Microsoft Sentinel charges](../../sentinel/billing.md) for operational data.
 
-In some scenarios, combining this data can result in cost savings. Typically, this situation occurs when you aren't collecting enough security and operational data for each to reach a commitment tier on their own, but the combined data is enough to reach a commitment tier. For more information and a sample cost calculation, see the section "Combining your SOC and non-SOC data" in [Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md#decision-tree).
+In some scenarios, combining this data can result in cost savings. Typically, this situation occurs when you aren't collecting enough security and operational data for each to reach a commitment tier on their own, but the combined data is enough to reach a commitment tier. For more information, see:
+
+- [Design a Log Analytics workspace architecture](workspace-design.md)
+- (Sample workspace planning) [Combining your SOC and non-SOC data](../../sentinel/sample-workspace-designs.md#combining-your-soc-and-non-soc-data)
 
 ## Workspaces with Microsoft Defender for Cloud
 
