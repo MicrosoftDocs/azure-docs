@@ -1446,8 +1446,6 @@
           - name: Troubleshoot pipelines
             displayName: designer
             href: ./v1/how-to-debug-pipelines.md
-          - name: Log pipeline data to Application Insights
-            href: ./v1/how-to-log-pipelines-application-insights.md
           - name: Troubleshoot the ParallelRunStep
             displayName: debug_batch consume pipeline parallelrunstep inference
             href: ./v1/how-to-debug-parallel-run-step.md
