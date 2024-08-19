@@ -82,11 +82,11 @@ The client library is available through NuGet, as the `Azure.Health.Deidentifica
 
 
 ## Code examples
-- [Create a Deidentification Client](#create-a-deidentification-client)
+- [Create a Deidentification Client](#create-a-de-identification-client)
 - [De-identify a string](#de-identify-a-string)
 - [Tag a string](#tag-a-string)
-- [Create a Deidentification Job](#create-a-deidentification-job)
-- [Get the status of a Deidentification Job](#get-the-status-of-a-deidentification-job)
+- [Create a Deidentification Job](#create-a-de-identification-job)
+- [Get the status of a Deidentification Job](#get-the-status-of-a-de-identification-job)
 
 ### Create a de-identification client
 
@@ -200,7 +200,7 @@ az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage 
 
 Ensure the permissions are given, and the Managed Identity for the De-identification service (preview) is set up properly.
 
-See [Authorize Deidentification Service on Storage Account](#authorize-de-identification-service-preview-on-storage-account)
+See [Authorize Deidentification Service on Storage Account](#authorize-de-identification-service-preview-on-azure-storage-account)
 
 ### Job failed with status PartialFailed
 
