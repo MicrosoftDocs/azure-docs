@@ -113,7 +113,7 @@ To learn more, see [az iot ops asset endpoint](/cli/azure/iot/ops/asset/endpoint
 
 This configuration deploys a new `assetendpointprofile` resource called `opc-ua-connector-0` to the cluster. After you define an asset, a connector for OPC UA pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server.
 
-When the OPC PLC simulator is running, dataflows from the simulator, to the connector, to the OPC UA broker, and finally to the MQTT broker.
+When the OPC PLC simulator is running, data flows from the simulator, to the connector for OPC UA, and then to the MQTT broker.
 
 ### Configure an asset endpoint to use a username and password
 

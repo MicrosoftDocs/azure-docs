@@ -35,7 +35,7 @@ items:
         href: discover-manage-assets/concept-opcua-message-format.md
       - name: OPC UA (connect to your assets)
         items:
-        - name: OPC UA broker overview
+        - name: Connector for OPC UA overview
           href: discover-manage-assets/overview-opcua-broker.md
         - name: OPC UA application authentication overview
           href: discover-manage-assets/overview-opcua-broker-certificates-management.md
@@ -167,11 +167,11 @@ items:
         items:
         - name: MQTT broker
           href: reference/observability-metrics-mq.md
-        - name: Azure IoT Akri
+        - name: Akri services
           href: reference/observability-metrics-akri.md
-        - name: Azure IoT OPC UA Broker
+        - name: Connector for OPC UA
           href: reference/observability-metrics-opcua-broker.md
-        - name: Azure IoT Layered Network Management
+        - name: Layered Network Management
           href: reference/observability-metrics-layered-network.md
       - name: MQTT support
         href: reference/mqtt-support.md
