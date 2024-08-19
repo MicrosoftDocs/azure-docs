@@ -68,7 +68,20 @@ Publishing locations for individual SDK packages:
 - Support for Android API Level 21 or Higher
 - Support for Java 7 or higher
 - Support for Android Studio 2.0
-- **Android Auto (AAOS)** and **IoT devices running Android** are currently not supported
+
+The Android ecosystem is extensive, encompassing various versions and specialized platforms designed for diverse types of devices. The next table lists the key Android platforms currently available:
+
+| Type                                     | Devices              | Description                                               | Support  |
+| ---------------------------------------  | ----------           | ----------------------------------------------------------| -------  |
+|[Android Commercial](https://developer.android.com/get-started)  | Commercial smartphones and tablets.| Standard Android OS designed for smartphones and tablets.|✔️      |
+|[Android Open Source Project (AOSP)](https://source.android.com/) | Custom smartphones or tablets, kiosks, and custom devices  |AOSP is the base code that device manufacturers can modify and customize for their hardware.| ❌     |
+|[Android Automotive OS (AAOS)](https://source.android.com/docs/automotive/start/what_automotive)  | In-vehicle infotainment systems | AAOS is a full-stack, open-source platform tailored specifically for vehicles. Runs directly on the vehicle's hardware.| ❌    |
+|[Android Auto](https://www.android.com/auto/)                     | In-vehicle infotainment systems (mirroring) | Android platform equivalent to Apple CarPlay. Allows driver to mirror their phone to a car’s built-in screens.  |❌     |
+|[Android TV](https://developer.android.com/tv)                    | Smart TVs and streaming devices.  | Optimized for the TV experience, focused on streaming services and gaming.| ❌      |
+|[Wear OS](https://wearos.google.com/)                             | Smartwatches and wearables devices.        | Simplified user interface and lower power consumption, designed to operate on small screens with limited hardware.| ❌   |
+|[Android Things](https://developer.android.com/reference/com/google/android/things/AndroidThings) | IoT devices (for example, smart home hubs, connected devices)| Simplified version of Android with a focus on low power consumption and connectivity.   | ❌     |
+
+You're welcome to validate the scenario that aligns with your application, even if the current versions don't support it. We strongly encourage you to reach out to us before starting your development to identify the best approach.
 
 #### iOS Calling SDK support
 
@@ -133,7 +146,7 @@ In the future we may retire versions of the Communication Services SDKs, and we 
 
 **You've integrated the v24 version of the SMS REST API into your application. Azure Communication releases v25.**
 
-You'll get three years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
+You get three years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
 
 **You've integrated the v2.02 version of the Calling SDK into your application. Azure Communication releases v2.05.**
 

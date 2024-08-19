@@ -30,7 +30,8 @@ Here are the minimum OS platform requirements to ensure optimal functionality of
 - Support for Android API Level 21 or Higher.
 - Support for Java 7 or higher.
 - Support for Android Studio 2.0.
-- **Android Auto** and **IoT devices running Android** are currently not supported.
+- 
+We highly recommend identifying and validating your scenario by visiting the supported [Calling Android platforms](../sdk-options.md?android-calling-sdk-support)
 
 ### [Windows](#tab/windows)
 
