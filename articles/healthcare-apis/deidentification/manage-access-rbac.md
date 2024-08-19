@@ -68,7 +68,6 @@ New-AzRoleAssignment
 A successful response should look like:
 
 ```
-
 console
 RoleAssignmentId   : /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.HealthDataAIServices/deidServices/<Deidentification Service Name>/providers/Microsoft.Authorization/roleAssignments/<Role Assignment ID>
 Scope              : /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.HealthDataAIServices/deidServices/<Deidentification Service Name>
@@ -79,7 +78,6 @@ RoleDefinitionId   : <Role Definition ID>
 ObjectId           : <Object ID>
 ObjectType         : User
 CanDelegate        : False
-
 ```
 
 For more information, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
