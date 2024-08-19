@@ -42,7 +42,8 @@ Update the agent on a Windows VM from the command prompt, with a script or other
 
 #### Prerequisites
 
-Download the latest version of the Windows agent from [aka.ms/dependencyagentwindows](https://aka.ms/dependencyagentwindows).
+> [!div class="checklist"]
+> * Download the latest version of the Windows agent from [aka.ms/dependencyagentwindows](https://aka.ms/dependencyagentwindows).
 
 #### Using the Setup Wizard
 
@@ -72,7 +73,8 @@ Upgrading from prior versions of Dependency Agent on Linux is supported and perf
 
 #### Prerequisites
 
-Download the latest version of the Linux agent from [aka.ms/dependencyagentlinux](https://aka.ms/dependencyagentlinux) or via curl:
+> [!div class="checklist"]
+> * Download the latest version of the Linux agent from [aka.ms/dependencyagentlinux](https://aka.ms/dependencyagentlinux) or via curl:
 
 ```bash
 curl -L -o DependencyAgent-Linux64.bin https://aka.ms/dependencyagentlinux
