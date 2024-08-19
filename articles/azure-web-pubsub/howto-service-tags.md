@@ -1,5 +1,5 @@
 ---
-title: Use service tags
+title: Use service tags for access control
 titleSuffix: Azure Web PubSub
 description: Learn how to use service tags to allow outbound traffic to your Azure Web PubSub resource.
 author: ArchangelSDY
@@ -10,11 +10,11 @@ ms.date: 08/16/2024
 ms.author: dayshen
 ---
 
-# Use service tags for Azure Web PubSub
+# Use service tags for access control
 
 You can use [service tags](../virtual-network/service-tags-overview.md) to identify Azure Web PubSub traffic. A service tag represents a group of IP address prefixes. Web PubSub manages a service tag called `AzureWebPubSub` for both inbound and outbound traffic.
 
-You can use a service tag to configure a network security group. Alternatively, you can query the IP address prefixes by using the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#service-tags-on-premises).
+You can use a service tag to configure a network security group. Or, you can query the IP address prefixes by using the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#service-tags-on-premises).
 
 ## Outbound traffic
 
@@ -33,10 +33,9 @@ You can allow outbound traffic from your network to Web PubSub by adding a new o
 1. Select **Destination service tag**, and then select **AzureWebPubSub**.
 1. For **Destination port ranges**, enter **443**.
 
-    :::image type="content" alt-text="Screenshot showing dialogue to create an outbound security rule." source="media/howto-service-tags/portal-add-outbound-security-rule.png" :::
+    :::image type="content" alt-text="Screenshot that shows how to create an outbound security rule." source="media/howto-service-tags/portal-add-outbound-security-rule.png" :::
 
-1. Update other fields as needed.
-1. Select **Add**.
+1. Update other fields as needed, and then select **Add**.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -48,7 +47,9 @@ az network nsg rule create -n <rule-name> --nsg-name <nsg-name> -g <resource-gro
 
 ## Inbound traffic
 
-In the following scenarios, Azure Web PubSub can generate network traffic to your resource. The source of traffic is guaranteed to be within IP ranges of the `AzureWebPubSub` service tag.
+Azure Web PubSub can generate network traffic to your resource by using service tags. The source of traffic is guaranteed to be within IP ranges that are defined by the `AzureWebPubSub` service tag.
+
+You can use service tags to control access to your Web PubSub resource if you:
 
 * Use [event handlers](howto-develop-eventhandler.md).
 * Use [event listeners](howto-develop-event-listener.md).
@@ -57,7 +58,7 @@ In the following scenarios, Azure Web PubSub can generate network traffic to you
 
 ### Event handler endpoints in a virtual network
 
-You can configure a *network security group* to allow inbound traffic to a virtual network.
+You can configure a network security group to allow inbound traffic to a virtual network.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -86,13 +87,13 @@ az network nsg rule create -n <rule-name> --nsg-name <nsg-name> -g <resource-gro
 
 ### Event handler endpoints for Azure Functions
 
-You can configure a [service tag-based rule](../app-service/app-service-ip-restrictions.md#set-a-service-tag-based-rule).
+For an Azure Functions app, you can use a [service tag-based rule](../app-service/app-service-ip-restrictions.md#set-a-service-tag-based-rule) to manage event handler endpoints securely.
 
 Alternatively, you can use [shared private endpoints](howto-secure-shared-private-endpoints.md) for increased security. Shared private endpoints are dedicated to your resources. No traffic from other resources can access your endpoints.
 
 ### Azure Event Hubs and Azure Key Vault access
 
-We recommend that you use [shared private endpoints](howto-secure-shared-private-endpoints-key-vault.md) to help you maintain the best security.
+For Azure Event Hubs and Azure Key Vault resources, we recommend that you use [shared private endpoints](howto-secure-shared-private-endpoints-key-vault.md) to help you maintain the highest level of security.
 
 ## Related content
 

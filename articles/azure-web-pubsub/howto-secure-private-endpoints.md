@@ -1,5 +1,5 @@
 ---
-title: Secure traffic by using a private endpoint
+title: Use a private endpoint for access control
 description: Learn how to use private endpoints for secure access to Azure Web PubSub from a virtual network.
 author: yjin81
 ms.author: yajin1
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/16/2024
 ---
 
-# Use private endpoints for Azure Web PubSub
+# Use private endpoints for access control
 
 You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Azure Web PubSub resource to allow clients in a virtual network (VNet) to securely access data over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your Web PubSub resource. Network traffic between the clients on the VNet and your Web PubSub resource traverses a private link on the Microsoft network, eliminating exposure on the public internet.
 
@@ -16,17 +16,19 @@ Using private endpoints for your Web PubSub resource helps you:
 
 - Secure your Web PubSub resource by using network access control to block all connections on the public endpoint for Web PubSub.
 - Increase security for the VNet by enabling you to block exfiltration of data from the VNet.
-- Securely connect to Web PubSub from on-premises networks that connect to the VNet by using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Azure ExpressRoute](../expressroute/expressroute-locations.md) with private-peering.
+- Securely connect to Web PubSub from on-premises networks that connect to the VNet by using a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Azure ExpressRoute](../expressroute/expressroute-locations.md) with private peering.
 
-## Conceptual overview
+## Use private endpoints in a virtual network
 
-:::image type="content" source="./media/howto-secure-private-endpoints/private-endpoint-overview.png" alt-text="Overview of private endpoints for Azure Web PubSub.":::
+:::image type="content" source="./media/howto-secure-private-endpoints/private-endpoint-overview.png" alt-text="Diagram that shows an overview of private endpoints for Azure Web PubSub." lightbox="media/howto-secure-private-endpoints/private-endpoint-overview.png":::
 
-A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your Web PubSub resource, it provides secure connectivity between clients on your VNet and your service. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and Azure Web PubSub uses a secure private link.
+A private endpoint is a special network interface for an Azure service in your [virtual network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your Web PubSub resource, it provides secure connectivity between clients on your VNet and your service. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and Azure Web PubSub uses a secure private link.
 
-Applications in the VNet can connect to Azure Web PubSub over the private endpoint seamlessly, **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the Web PubSub resource, including REST API.
+Applications in the VNet can connect to Web PubSub resources seamlessly by using the private endpoint. The applications *use the same connection strings and authorization mechanisms that they would use otherwise.*
 
-When you create a private endpoint for a Web PubSub resource in your VNet, a consent request is sent for approval to the Web PubSub resource owner. If the user requesting the creation of the private endpoint is also an owner of the Web PubSub resource, this consent request is automatically approved.
+Private endpoints can be used with all protocols that the Web PubSub resource supports, including REST API.
+
+When you create a private endpoint for a Web PubSub resource in your VNet, a consent request is sent for approval to the Web PubSub resource owner. If the user who requests the private endpoint is also an owner of the Web PubSub resource, this consent request is automatically approved.
 
 You can manage consent requests and private endpoints for your Web PubSub resource on the **Private endpoints** tab in the [Azure portal](https://portal.azure.com).
 

@@ -1,7 +1,7 @@
 ---
 title: Access a key vault in a private network via shared private endpoints
-titleSuffix: Azure Web PubSub Service
-description: Learn how to access a key vault in private network through shared private endpoints.
+titleSuffix: Azure Web PubSub
+description: Learn how to access a key vault in a private network through shared private endpoints.
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
@@ -45,8 +45,11 @@ Private endpoints of secured resources created through Azure Web PubSub APIs are
    :::image type="content" alt-text="Screenshot of shared private endpoints management." source="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" lightbox="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" :::
 
 1. For **Name**, enter a name to use for the shared private endpoint.
-1. Enter your key vault resource: Choose **Select from your resources** and then select your resource from the lists, or select **Specify resource ID** and enter your key vault resource ID.
-1. For **Request message**, enter **please approve**.
+1. To select your key vault resource, complete one of the following steps:
+
+   * Choose **Select from your resources** and select your resource from the lists.
+   * Select **Specify resource ID** and enter your key vault resource ID.
+1. For **Request message**, enter **Please approve**.
 1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-secure-shared-private-endpoints-key-vault\portal-shared-private-endpoints-add.png" :::
@@ -94,7 +97,7 @@ az rest --method get --uri https://management.azure.com/subscriptions/00000000-0
 
 ### Approve the private endpoint connection for the key vault
 
-After the private endpoint connection is created, you need to approve the connection request from Web PubSub in your Key Vault resource.
+After the private endpoint connection is created, the connection request from Web PubSub must be approved in your Key Vault resource.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -105,8 +108,9 @@ After the private endpoint connection is created, you need to approve the connec
    :::image type="content" alt-text="Screenshot of the Azure portal, showing the Private endpoint connections pane." source="media\howto-secure-shared-private-endpoints-key-vault\portal-key-vault-approve-private-endpoint.png" :::
 
 1. Select the private endpoint that Web PubSub created.
-1. Select **Approve** and then select **Yes** to confirm.
-1. Wait for the private endpoint connection to be approved.
+1. Select **Approve**, and then select **Yes** to confirm.
+
+    It might take a few minutes for the private endpoint connection status to change to **Approved**.
 
    :::image type="content" alt-text="Screenshot of the Azure portal, showing an Approved status on the Private endpoint connections pane." source="media\howto-secure-shared-private-endpoints-key-vault\portal-key-vault-approved-private-endpoint.png" :::
 

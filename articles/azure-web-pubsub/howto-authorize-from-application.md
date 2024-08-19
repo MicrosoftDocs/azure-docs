@@ -1,5 +1,5 @@
 ---
-title: Authorize an application request to Web PubSub resources
+title: Authorize an application request by using Microsoft Entra ID
 description: Learn how to authorize an application request to Web PubSub resources by using Microsoft Entra ID.
 author: terencefan
 ms.author: tefa
@@ -8,9 +8,9 @@ ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
 
-# Authorize an application request to Web PubSub resources by using Microsoft Entra ID
+# Authorize an application request by using Microsoft Entra ID
 
-Azure Web PubSub Service supports Microsoft Entra ID for authorizing requests from [applications](../active-directory/develop/app-objects-and-service-principals.md).
+Azure Web PubSub supports Microsoft Entra ID for authorizing requests from [applications](../active-directory/develop/app-objects-and-service-principals.md).
 
 This article shows you how to configure your Web PubSub resource and codes to authorize the request to a Web PubSub resource from an Azure application.
 
@@ -141,7 +141,7 @@ To learn more about how to assign and manage Azure role assignments, see these a
 
    ![Screenshot that shows the response token when you use Postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-response.png)
 
-## Sample codes that use Microsoft Entra authorization
+## Code samples that use Microsoft Entra authorization
 
 Get samples that use Microsoft Entra authorization in our four officially supported programming languages:
 
@@ -153,5 +153,5 @@ Get samples that use Microsoft Entra authorization in our four officially suppor
 ## Related content
 
 - [Overview of Microsoft Entra ID for Web PubSub](concept-azure-ad-authorization.md)
-- [Authorize a request to Web PubSub resources with Microsoft Entra ID from managed identities](howto-authorize-from-managed-identity.md)
+- [Use Microsoft Entra ID to authorize a request from a managed identity to Web PubSub resources](howto-authorize-from-managed-identity.md)
 - [Disable local authentication](./howto-disable-local-auth.md)

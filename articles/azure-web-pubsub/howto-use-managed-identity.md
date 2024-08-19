@@ -1,16 +1,16 @@
 ---
-title: Managed identities in Azure Web PubSub
+title: Use a managed identity in Azure Web PubSub
 description: Learn how managed identities work in Azure Web PubSub and how to use a managed identity in a serverless scenario.
 author: vicancy
 ms.service: azure-web-pubsub
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/16/2024
 ms.author: lianwei
 ---
 
-# Managed identities for Azure Web PubSub
+# Use a managed identity in Azure Web PubSub
 
-This article shows you how to create a managed identity for Azure Web PubSub and demonstrates how to use it.
+This article shows you how to create and use a managed identity for Azure Web PubSub.
 
 > [!IMPORTANT]
 > Azure Web PubSub can support only one managed identity. You can add *either* a system-assigned identity or a user-assigned identity.
@@ -19,13 +19,13 @@ This article shows you how to create a managed identity for Azure Web PubSub and
 
 To set up a managed identity in the Azure portal, create an Azure Web PubSub instance, and then enable the feature.
 
-1. In the Azure portal, create a standard Web PubSub resource. Go to the resource in the portal.
+1. In the Azure portal, create a Web PubSub resource. Go to the resource in the portal.
 
 1. On the left menu, select **Identity**.
 
 1. Select the **System assigned** tab, and then set **Status** to **On**. Select **Save**.
 
-   :::image type="content" source="media/howto-use-managed-identity/system-identity-portal.png" alt-text="Add a system-assigned identity in the Azure portal.":::
+   :::image type="content" source="media/howto-use-managed-identity/system-identity-portal.png" alt-text="Screenshot that shows adding a system-assigned identity in the Azure portal.":::
 
 ## Add a user-assigned identity
 
@@ -33,7 +33,7 @@ To create a Web PubSub resource by using a user-assigned identity, create the id
 
 1. Create a [user-assigned managed identity resource](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-1. In the Azure portal, create a standard Web PubSub resource. Go to the resource in the portal.
+1. In the Azure portal, create a Web PubSub resource. Go to the resource in the portal.
 
 1. On the left menu, select **Identity**.
 
@@ -41,7 +41,7 @@ To create a Web PubSub resource by using a user-assigned identity, create the id
 
 1. Search for the identity that you created and select it. Select **Add**.
 
-   :::image type="content" source="media/howto-use-managed-identity/user-identity-portal.png" alt-text="Add a user-assigned identity in the portal":::
+   :::image type="content" source="media/howto-use-managed-identity/user-identity-portal.png" alt-text="Screenshot that shows adding a user-assigned identity in the Azure portal":::
 
 ## Use a managed identity in client events scenarios
 
@@ -51,9 +51,9 @@ Azure Web PubSub is a fully managed service, so you can't use a managed identity
 
 1. Add a system-assigned identity or a user-assigned identity.
 
-1. Go to **Configure Hub Settings** and add or edit an event handler for the network.
+1. Go to **Configure hub settings** and add or edit an event handler for the network.
 
-   :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
+   :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="Screenshot that shows settings to use on the Configure hub settings pane.":::
 
 1. Under **Authentication**, select **Use Managed Identity**, and then select the **Specify the issued token audience** checkbox. The audience becomes the `aud` claim in the access token. The claim can be part of validation for your event handler.
 
@@ -63,7 +63,7 @@ Azure Web PubSub is a fully managed service, so you can't use a managed identity
    - Use the Application ID URI of the service principal.
 
    > [!IMPORTANT]
-   > Using an empty resource actually acquires a token target for Microsoft Graph. Currently, Microsoft Graph enables token encryption, so it's not supported for an application to authenticate the token other than with Microsoft Graph. You should always create a service principal to represent your network target. Set the **Application ID** or **Application ID URI** of the service principal you created.
+   > Using an empty resource actually acquires a token target for Microsoft Graph. Currently, Microsoft Graph enables token encryption, so it's not supported for an application to authenticate the token other than with Microsoft Graph. You should always create a service principal to represent your upstream target. Set **Application ID** or **Application ID URI** for the service principal you created.
 
 #### Authentication in an Azure Functions app
 
@@ -72,7 +72,7 @@ You can easily set access validation for a Functions app without code changes.
 1. In the Azure portal, go to the Functions app.
 1. On the left menu, select **Authentication**.
 1. Select **Add an identity provider**.
-1. Select the **Basics** tab. For **Identity provider**, select **Microsoft**.
+1. On the **Basics** tab, for **Identity provider**, select **Microsoft**.
 1. For **Action to take when request is not authenticated**, select **Log in with Microsoft Entra ID**.
 1. The option to create a new registration is selected by default. You can change the name of the registration. For more information about how to enable a Microsoft Entra provider, see [Configure your Azure App Service or Azure Functions app to use a Microsoft Entra ID sign-in](../app-service/configure-authentication-provider-aad.md).
 
@@ -83,7 +83,7 @@ You can easily set access validation for a Functions app without code changes.
 
 After you configure these settings, the Functions app rejects requests that don't have an access token in the header.
 
-### Validate access tokens
+### Validate an access token
 
 If you're not using the Web Apps feature of Azure App Service or Azure Functions, you also can validate the token.
 
@@ -91,7 +91,7 @@ The token in the `Authorization` header is a [Microsoft identity platform access
 
 To validate access tokens, your app should also validate the audience and the signing tokens. Signing tokens must be validated against the values in the OpenID discovery document. For example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-The Microsoft Entra middleware has built-in capabilities for validating access tokens. You can browse our [samples](../active-directory/develop/sample-v2-code.md) to find one in the language you want to use.
+The Microsoft Entra middleware has built-in capabilities for validating access tokens. You can browse our [samples](../active-directory/develop/sample-v2-code.md) to find one in the language that you want to use.
 
 We provide libraries and code samples that show you how to handle token validation. There are also several open-source partner libraries available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language. For more information about Microsoft Entra authorization libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
@@ -111,4 +111,4 @@ Currently, this feature can be used in the following scenario:
 
 ## Related content
 
-- [Tutorial: Create a serverless real-time chat app with Azure Functions and Azure Web PubSub](quickstart-serverless.md)
+- [Tutorial: Create a serverless real-time chat app by using Azure Functions and Azure Web PubSub](quickstart-serverless.md)
