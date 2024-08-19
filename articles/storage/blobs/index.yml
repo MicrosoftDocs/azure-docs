@@ -151,6 +151,8 @@ landingContent:
         links:
           - text: Compare data transfer solutions
             url: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json
+          - text: Tape migration overview
+            url: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json
           - text: Use Azure Data Box for offline transfer
             url: ../../databox/data-box-overview.md?toc=/azure/storage/blobs/toc.json
       - linkListType: how-to-guide

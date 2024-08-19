@@ -1,10 +1,10 @@
 ---
 title: Set up Message Passing Interface (MPI) for HPC - Azure Virtual Machines | Microsoft Docs
 description: Learn how to set up MPI for HPC on Azure.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/10/2023
+ms.date: 07/25/2024
 ms.reviewer: cynthn
 ms.author: jushiman
 author: ju-shim
@@ -12,18 +12,15 @@ author: ju-shim
 
 # Set up Message Passing Interface for HPC
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface) is an open library and de-facto standard for distributed memory parallelization. It is commonly used across many HPC workloads. HPC workloads on the [RDMA capable](sizes-hpc.md#rdma-capable-instances) [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs can use MPI to communicate over the low latency and high bandwidth InfiniBand network.
+The [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface) is an open library and defacto standard for distributed memory parallelization. It's commonly used across many HPC workloads. HPC workloads on the [RDMA capable](sizes-hpc.md#rdma-capable-instances) [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) VMs can use MPI to communicate over the low latency and high bandwidth InfiniBand network.
 - The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used with Mellanox OFED.
 - On non-SR-IOV enabled VMs, supported MPI implementations use the Microsoft Network Direct (ND) interface to communicate between VMs. Hence, only Microsoft MPI (MS-MPI) 2012 R2 or later and Intel MPI 5.x versions are supported. Later versions (2017, 2018) of the Intel MPI runtime library may or may not be compatible with the Azure RDMA drivers.
 
-For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubuntu-HPC VM images](configure.md#ubuntu-hpc-vm-images) and [AlmaLinux-HPC VM images](configure.md#almalinux-hpc-vm-images) are suitable. These VM images come optimized and pre-loaded with the OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages and are the easiest way to get started.
+For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubuntu-HPC VM images](configure.md#ubuntu-hpc-vm-images) and [AlmaLinux-HPC VM images](configure.md#almalinux-hpc-vm-images) are suitable. These VM images come optimized and preloaded with the OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages and are the easiest way to get started.
 
-Though the examples here are for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (18.04, 20.04, 22.04) and SLES (12 SP4 and 15 SP4). More examples for setting up other MPI implementations on others distros is on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mpis.sh).
+Though the examples here are for RHEL, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (18.04, 20.04, 22.04) and SLES (12 SP4 and 15 SP4). More examples for setting up other MPI implementations on others distros is on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mpis.sh).
 
 > [!NOTE]
 > Running MPI jobs on SR-IOV enabled VMs with certain MPI libraries (such as Platform MPI) may require setting up of partition keys (p-keys) across a tenant for isolation and security. Follow the steps in the [Discover partition keys](#discover-partition-keys) section for details on determining the p-key values and setting them correctly for an MPI job with that MPI library.
@@ -73,7 +70,7 @@ ${HPCX_PATH}mpirun -np 2 --map-by ppr:2:node -x UCX_TLS=rc ${HPCX_PATH}/ompi/tes
 
 ### Optimizing MPI collectives
 
-MPI Collective communication primitives offer a flexible, portable way to implement group communication operations. They are widely used across various scientific parallel applications and have a significant impact on the overall application performance. Refer to the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/optimizing-mpi-collective-communication-using-hpc-x-on-azurehpc/ba-p/1356740) for details on configuration parameters to optimize collective communication performance using HPC-X and HCOLL library for collective communication.
+MPI Collective communication primitives offer a flexible, portable way to implement group communication operations. They're widely used across various scientific parallel applications and have a significant impact on the overall application performance. Refer to the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/optimizing-mpi-collective-communication-using-hpc-x-on-azurehpc/ba-p/1356740) for details on configuration parameters to optimize collective communication performance using HPC-X and HCOLL library for collective communication.
 
 As an example, if you suspect your tightly coupled MPI application is doing an excessive amount of collective communication, you can try enabling hierarchical collectives (HCOLL). To enable those features, use the following parameters.
 ```bash
@@ -85,7 +82,7 @@ As an example, if you suspect your tightly coupled MPI application is doing an e
 
 ## OpenMPI
 
-Install UCX as described above. HCOLL is part of the [HPC-X software toolkit](https://www.mellanox.com/products/hpc-x-toolkit) and does not requires special installation.
+Install UCX as described above. HCOLL is part of the [HPC-X software toolkit](https://www.mellanox.com/products/hpc-x-toolkit) and doesn't requires special installation.
 
 OpenMPI can be installed from the packages available in the repo.
 
@@ -208,14 +205,6 @@ sudo ./platform_mpi-09.01.04.03r-ce.bin
 ```
 
 Follow the installation process.
-
-The following commands are examples of running MPI pingpong and allreduce using Platform MPI on HBv3 VMs using CentOS-HPC 7.6, 7.8, and 8.1 VM images.
-
-```bash
-/opt/ibm/platform_mpi/bin/mpirun -hostlist 10.0.0.8:1,10.0.0.9:1 -np 2 -e MPI_IB_PKEY=0x800a  -ibv  /home/jijos/mpi-benchmarks/IMB-MPI1 pingpong
-/opt/ibm/platform_mpi/bin/mpirun -hostlist 10.0.0.8:120,10.0.0.9:120 -np 240 -e MPI_IB_PKEY=0x800a  -ibv  /home/jijos/mpi-benchmarks/IMB-MPI1 allreduce -npmin 240
-```
-
 
 ## MPICH
 

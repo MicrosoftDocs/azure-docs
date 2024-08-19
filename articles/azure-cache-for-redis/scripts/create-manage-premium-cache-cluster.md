@@ -3,7 +3,7 @@ title: Create, query, and delete a Premium Azure Cache for Redis with clustering
 description: This Azure CLI code sample shows how to create a 6 GB Premium tier Azure Cache for Redis with clustering enabled and two shards. It then gets details of an Azure Cache for Redis instance, including provisioning status, the hostname, ports, and keys for an Azure Cache for Redis instance. Finally, it deletes the cache.
 author: flang-msft
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/11/2022

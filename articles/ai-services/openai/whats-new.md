@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 05/31/2024
+ms.date: 08/14/2024
 recommendations: false
 ---
 
@@ -18,7 +18,157 @@ recommendations: false
 
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
+## August 2024
+
+### New preview API release
+
+API version `2024-07-01-preview` is the latest dataplane authoring & inference API release. It replaces API version `2024-05-01-preview` and adds support for:
+
+- [Batch API support added](./how-to/batch.md)
+- [Vector store chunking strategy parameters](/azure/ai-services/openai/reference-preview?#request-body-17)
+- `max_num_results` that the file search tool should output.
+
+For more information see our [reference documentation](./reference-preview.md)
+
+### GPT-4o mini regional availability
+
+- GPT-4o mini is available for standard and global standard deployment in the East US and Sweden Central regions.
+- GPT-4o mini is available for global batch deployment in East US, Sweden Central, and West US regions.
+
+### Evaluations guide
+
+- New blog post on [getting started with model evaluations](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/how-to-evaluate-amp-upgrade-model-versions-in-the-azure-openai/ba-p/4218880). We recommend using this guide as part of the [model upgrade and retirement process](./concepts/model-retirements.md).
+
+### Latest GPT-4o model available in the early access playground (preview)
+
+On August 6, 2024, OpenAI [announced](https://openai.com/index/introducing-structured-outputs-in-the-api/) the latest version of their flagship GPT-4o model version `2024-08-06`. GPT-4o `2024-08-06` has all the capabilities of the previous version as well as:
+
+* An enhanced ability to support complex structured outputs.
+* Max output tokens have been increased from 4,096 to 16,384.
+
+Azure customers can test out GPT-4o `2024-08-06` today in the new AI Studio early access playground (preview).
+
+Unlike the previous early access playground, the AI Studio early access playground (preview) does not require you to have a resource in a specific region.
+
+> [!NOTE]
+> Prompts and completions made through the early access playground (preview) may be processed in any Azure OpenAI region, and are currently subject to a 10 request per minute per Azure subscription limit. This limit may change in the future.
+>
+> Azure OpenAI Service abuse monitoring is enabled for all early access playground users even if approved for modification; default content filters are enabled and cannot be modified.
+
+To test out GPT-4o `2024-08-06`, sign-in to the Azure AI early access playground (preview) using this [link](https://aka.ms/oai/docs/earlyaccessplayground).
+
+### Global batch deployments are now available
+
+The Azure OpenAI Batch API is designed to handle large-scale and high-volume processing tasks efficiently. Process asynchronous groups of requests with separate quota, with 24-hour target turnaround, at [50% less cost than global standard](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/). With batch processing, rather than send one request at a time you send a large number of requests in a single file. Global batch requests have a separate enqueued token quota avoiding any disruption of your online workloads.  
+
+Key use cases include:
+
+* **Large-Scale Data Processing:** Quickly analyze extensive datasets in parallel.
+
+* **Content Generation:** Create large volumes of text, such as product descriptions or articles.
+
+* **Document Review and Summarization:** Automate the review and summarization of lengthy documents.
+
+* **Customer Support Automation:** Handle numerous queries simultaneously for faster responses.
+
+* **Data Extraction and Analysis:** Extract and analyze information from vast amounts of unstructured data.
+
+* **Natural Language Processing (NLP) Tasks:** Perform tasks like sentiment analysis or translation on large datasets.
+
+* **Marketing and Personalization:** Generate personalized content and recommendations at scale.
+
+For more information on [getting started with global batch deployments](./how-to/batch.md).
+
+## July 2024
+
+### GPT-4o mini is now available for fine-tuning
+
+GPT-4o mini fine-tuning is [now available in public preview](./concepts/models.md#fine-tuning-models) in Sweden Central and in North Central US.
+
+### Assistants File Search tool is now billed
+
+The [file search](./how-to/file-search.md) tool for Assistants now has additional charges for usage. See the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for more information.
+
+### GPT-4o mini model available for deployment
+
+GPT-4o mini is the latest Azure OpenAI model first [announced on July 18, 2024](https://azure.microsoft.com/blog/openais-fastest-model-gpt-4o-mini-is-now-available-on-azure-ai/):
+
+*"GPT-4o mini allows customers to deliver stunning applications at a lower cost with blazing speed. GPT-4o mini is significantly smarter than GPT-3.5 Turbo—scoring 82% on Measuring Massive Multitask Language Understanding (MMLU) compared to 70%—and is more than 60% cheaper.1 The model delivers an expanded 128K context window and integrates the improved multilingual capabilities of GPT-4o, bringing greater quality to languages from around the world."*
+
+The model is currently available for both [standard and global standard deployment](./how-to/deployment-types.md) in the East US region.
+
+For information on model quota, consult the [quota and limits page](./quotas-limits.md) and for the latest info on model availability refer to the [models page](./concepts/models.md).
+
+### New Responsible AI default content filtering policy 
+
+The new default content filtering policy `DefaultV2` delivers the latest safety and security mitigations for the GPT model series (text), including:
+- Prompt Shields for jailbreak attacks on user prompts (filter), 
+- Protected material detection for text (filter) on model completions 
+- Protected material detection for code (annotate) on model completions
+
+While there are no changes to content filters for existing resources and deployments (default or custom content filtering configurations remain unchanged), new resources and GPT deployments will automatically inherit the new content filtering policy `DefaultV2`. Customers have the option to switch between safety defaults and create custom content filtering configurations. 
+
+Refer to our [Default safety policy documentation](./concepts/default-safety-policies.md) for more information.
+
+### New GA API release
+
+API version `2024-06-01` is the latest GA data plane inference API release. It replaces API version `2024-02-01` and adds support for:
+
+- embeddings `encoding_format` & `dimensions` parameters.
+- chat completions `logprobs` & `top_logprobs` parameters.
+
+Refer to our [data plane inference reference documentation](./reference.md) for more information.
+
+### Expansion of regions available for global standard deployments of gpt-4o
+
+ GPT-4o is now available for [global standard deployments](./how-to/deployment-types.md) in:
+
+- australiaeast     
+- brazilsouth       
+- canadaeast        
+- eastus            
+- eastus2           
+- francecentral     git
+- germanywestcentral
+- japaneast         
+- koreacentral      
+- northcentralus    
+- norwayeast        
+- polandcentral     
+- southafricanorth  
+- southcentralus    
+- southindia        
+- swedencentral     
+- switzerlandnorth  
+- uksouth           
+- westeurope        
+- westus            
+- westus3           
+
+For information on global standard quota, consult the [quota and limits page](./quotas-limits.md).
+
+
 ## June 2024
+
+### Retirement date updates
+
+* Updated `gpt-35-turbo` 0301 retirement date to no earlier than October 1, 2024.
+* Updated `gpt-35-turbo` & `gpt-35-turbo-16k`0613 retirement date to October 1, 2024.
+* Updated `gpt-4` & `gpt-4-32k` 0314 deprecation date to October 1, 2024, and retirement date to June 6, 2025.  
+
+Refer to our [model retirement guide](./concepts/model-retirements.md) for the latest information on model deprecation and retirement.
+
+### Token based billing for fine-tuning
+
+* Azure OpenAI fine-tuning billing is now based on the number of tokens in your training file – instead of the total elapsed training time. This can result in a significant cost reduction for some training runs, and makes estimating fine-tuning costs much easier. To learn more, you can consult the [official announcement](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/pricing-update-token-based-billing-for-fine-tuning-training/ba-p/4164465).
+
+### GPT-4o released in new regions
+
+* GPT-4o is now also available in:
+    -  Sweden Central for standard regional deployment.
+    -  Australia East, Canada East, Japan East, Korea Central, Sweden Central, Switzerland North, & West US 3 for provisioned deployment.
+
+For the latest information on model availability, see the [models page](./concepts/models.md).
 
 ### Customer-managed key (CMK) support for Assistants
 
@@ -78,7 +228,7 @@ For more information, see the [deployment types guide](https://aka.ms/aoai/docs/
 
 ### DALL-E and GPT-4 Turbo Vision GA configurable content filters
 
-Create custom content filters for your DALL-E 2 and 3 and GPT-4 Turbo with Vision GA (gpt-4-turbo-2024-04-09) deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
+Create custom content filters for your DALL-E 2 and 3, GPT-4 Turbo with Vision GA (`turbo-2024-04-09`), and GPT-4o deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
 
 ### Asynchronous Filter available for all Azure OpenAI customers
 
@@ -359,7 +509,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 - Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
 - [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-types). 
-- [View your chat history in the deployed web app](./how-to/use-web-app.md#chat-history)
+- [View your chat history in the deployed web app](./how-to/use-web-app.md#enabling-chat-history-using-cosmos-db)
 
 ## July 2023
 
@@ -425,7 +575,7 @@ If you are currently using the `2023-03-15-preview` API, we recommend migrating 
 
 ## April 2023
 
-- **DALL-E 2 public preview**. Azure OpenAI Service now supports image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md). To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/access).
+- **DALL-E 2 public preview**. Azure OpenAI Service now supports image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md).
 
 - **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio#deploy-a-custom-model).
 

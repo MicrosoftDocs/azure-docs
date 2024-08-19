@@ -1,7 +1,7 @@
 ---
 title: Choosing the right Azure Arc service for machines
 description: Learn about the different services offered by Azure Arc and how to choose the right one for your machines.
-ms.date: 05/07/2024
+ms.date: 06/19/2024
 ms.topic: conceptual
 ---
 
@@ -147,7 +147,7 @@ The following table provides a quick way to see the major capabilities of the th
 
 If you currently use Azure Arc-enabled servers, you can get the additional capabilities that come with Arc-enabled VMware vSphere or Arc-enabled SCVMM:
 
-- [Enable virtual hardware and VM CRUD capabilities in a machine with Azure Arc agent installed](/azure/azure-arc/vmware-vsphere/enable-virtual-hardware)
+- [Enable virtual hardware and VM CRUD capabilities in a VMware machine with Azure Arc agent installed](/azure/azure-arc/vmware-vsphere/enable-virtual-hardware)
 
 - [Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Azure Arc agent installed](/azure/azure-arc/system-center-virtual-machine-manager/enable-virtual-hardware-scvmm)
 

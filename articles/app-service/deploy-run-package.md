@@ -10,6 +10,9 @@ ms.author: cephalin
 
 # Run your app in Azure App Service directly from a ZIP package
 
+> [!NOTE]
+> Run from package is not supported for Python apps. When deploying a ZIP file of your Python code, you need to set a flag to enable Azure build automation. The build automation will create the Python virtual environment for your app and install any necessary requirements and package needed. See [build automation](quickstart-python.md?tabs=flask%2Cmac-linux%2Cazure-cli%2Czip-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#enable-build-automation) for more details.
+
 In [Azure App Service](overview.md), you can run your apps directly from a deployment ZIP package file. This article shows how to enable this functionality in your app.
 
 All other deployment methods in App Service have something in common: your files are deployed to *D:\home\site\wwwroot* in your app (or */home/site/wwwroot* for Linux apps). Since the same directory is used by your app at runtime, it's possible for deployment to fail because of file lock conflicts, and for the app to behave unpredictably because some of the files are not yet updated.
@@ -63,7 +66,7 @@ If you publish an updated package with the same name to Blob storage, you need t
 
 ### Access a package in Azure Blob Storage using a managed identity
 
-[!INCLUDE [Run from package via Identity](~/reusable-content/ce-skilling/azure/includes/app-service-run-from-package-via-identity.md)]
+[!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
 
 ## Deploy WebJob files when running from package
 

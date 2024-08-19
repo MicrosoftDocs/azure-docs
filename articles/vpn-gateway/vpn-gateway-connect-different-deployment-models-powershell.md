@@ -3,7 +3,7 @@ title: 'Connect classic virtual networks to Azure Resource Manager VNets: PowerS
 description: Learn how to connect classic VNets to Resource Manager VNets using PowerShell.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: how-to
 ms.date: 03/12/2024
@@ -113,7 +113,7 @@ In this section, you configure your already existing classic VNet. If your VNet 
 
 In the **VirtualNetworkSites** element, add a gateway subnet to your VNet if one hasn't already been created. The gateway subnet MUST be named "GatewaySubnet" or Azure can't recognize and use it as a gateway subnet.
 
-[!INCLUDE [No NSG](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [No NSG](../../includes/vpn-gateway-no-nsg-include.md)]
 
 **Example:**
 

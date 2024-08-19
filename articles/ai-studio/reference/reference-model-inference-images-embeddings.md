@@ -6,10 +6,10 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
 ms.date: 5/21/2024
-ms.reviewer: msakande 
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: fasantia 
+reviewer: santiagxf
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---
@@ -30,6 +30,14 @@ POST /images/embeddings?api-version=2024-04-01-preview
 | --- | --- | --- | --- | --- |
 | api-version | query | True | string | The version of the API in the format "YYYY-MM-DD" or "YYYY-MM-DD-preview". |
 
+## Request Header
+
+
+| Name | Required | Type | Description |
+| --- | --- | --- | --- |
+| extra-parameters | | string | The behavior of the API when extra parameters are indicated in the payload. Using `pass-through` makes the API to pass the parameter to the underlying model. Use this value when you want to pass parameters that you know the underlying model can support. Using `ignore` makes the API to drop any unsupported parameter. Use this value when you need to use the same payload across different models, but one of the extra parameters may make a model to error out if not supported. Using `error` makes the API to reject any extra parameter in the payload. Only parameters specified in this API can be indicated, or a 400 error is returned. |
+| azureml-model-deployment |     | string | Name of the deployment you want to route the request to. Supported for endpoints that support multiple deployments. |
+
 ## Request Body
 
 
@@ -48,7 +56,7 @@ POST /images/embeddings?api-version=2024-04-01-preview
 | 200 OK | [CreateEmbeddingResponse](#createembeddingresponse) | OK  |
 | 401 Unauthorized | [UnauthorizedError](#unauthorizederror) | Access token is missing or invalid<br><br>Headers<br><br>x-ms-error-code: string |
 | 404 Not Found | [NotFoundError](#notfounderror) | Modality not supported by the model. Check the documentation of the model to see which routes are available.<br><br>Headers<br><br>x-ms-error-code: string |
-| 422 Unprocessable Entity | [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content<br><br>Headers<br><br>x-ms-error-code: string |
+| 422 Unprocessable Entity | [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content. The error is returned when the payload indicated is valid according to this specification. However, some of the instructions indicated in the payload are not supported by the underlying model. Use the `details` section to understand the offending parameter.<br><br>Headers<br><br>x-ms-error-code: string |
 | 429 Too Many Requests | [TooManyRequestsError](#toomanyrequestserror) | You have hit your assigned rate limit and your request need to be paced.<br><br>Headers<br><br>x-ms-error-code: string |
 | Other Status Codes | [ContentFilterError](#contentfiltererror) | Bad request<br><br>Headers<br><br>x-ms-error-code: string |
 
@@ -149,7 +157,7 @@ Status code: 200
 | [NotFoundError](#notfounderror) |     |
 | [TooManyRequestsError](#toomanyrequestserror) |     |
 | [UnauthorizedError](#unauthorizederror) |     |
-| [UnprocessableContentError](#unprocessablecontenterror) |     |
+| [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content. The error is returned when the payload indicated is valid according to this specification. However, some of the instructions indicated in the payload are not supported by the underlying model. Use the `details` section to understand the offending parameter.    |
 | [Usage](#usage) | The usage information for the request. |
 
 ### ContentFilterError
@@ -287,6 +295,7 @@ The object type, which is always "list".
 
 ### UnprocessableContentError
 
+The request contains unprocessable content. The error is returned when the payload indicated is valid according to this specification. However, some of the instructions indicated in the payload are not supported by the underlying model. Use the `details` section to understand the offending parameter.
 
 | Name | Type | Description |
 | --- | --- | --- |

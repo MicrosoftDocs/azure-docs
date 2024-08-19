@@ -9,16 +9,18 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/14/2024
+ms.date: 08/05/2024
 ---
 
 # Filters in vector queries
 
-You can set a [**vector filter modes on a vector query**](vector-search-how-to-query.md) to specify whether you want filtering before or after query execution. 
+You can set a vector filter modes on a vector query to specify whether you want filtering before or after query execution. 
 
 Filters determine the scope of a vector query. Filters are set on and iterate over nonvector string and numeric fields attributed as `filterable` in the index, but the purpose of a filter determines *what* the vector query executes over: the entire searchable space, or the contents of a search result.
 
-This article describes each filter mode and provides guidance on when to use each one.
+This article provides conceptual information, describing each filter mode and providing guidance on when to use each one. 
+
+For instructions on setting up the vector filter in your query, see [Vector query with filter](vector-search-how-to-query.md#vector-query-with-filter).
 
 ## Prefilter mode
 
@@ -42,7 +44,7 @@ To understand the conditions under which one filter mode performs better than th
 
 For the small and medium workloads, we used a Standard 2 (S2) service with one partition and one replica. For the large workload, we used a Standard 3 (S3) service with 12 partitions and one replica.
 
-Indexes had an identical construction: one key field, one vector field, one text field, and one numeric filterable field. The following index is defined using the 2023-07-01-preview syntax.
+Indexes had an identical construction: one key field, one vector field, one text field, and one numeric filterable field. The following index is defined using the 2023-11-03 syntax.
 
 ```python
 def get_index_schema(self, index_name, dimensions):
@@ -52,18 +54,27 @@ def get_index_schema(self, index_name, dimensions):
             {"name": "id", "type": "Edm.String", "key": True, "searchable": True},
             {"name": "content_vector", "type": "Collection(Edm.Single)", "dimensions": dimensions,
               "searchable": True, "retrievable": True, "filterable": False, "facetable": False, "sortable": False,
-              "vectorSearchConfiguration": "defaulthnsw"},
+              "vectorSearchProfile": "defaulthnsw"},
             {"name": "text", "type": "Edm.String", "searchable": True, "filterable": False, "retrievable": True,
               "sortable": False, "facetable": False},
             {"name": "score", "type": "Edm.Double", "searchable": False, "filterable": True,
               "retrievable": True, "sortable": True, "facetable": True}
         ],
-        "vectorSearch":
-        {
-            "algorithmConfigurations": [
-                {"name": "defaulthnsw", "kind": "hnsw", "hnswParameters": {"metric": "euclidean"}}
-            ]
-        }
+      "vectorSearch": {
+        "algorithms": [
+            {
+              "name": "defaulthnsw",
+              "kind": "hnsw",
+              "hnswParameters": { "metric": "euclidean" }
+            }
+          ],
+          "profiles": [
+            {
+              "name": "defaulthnsw",
+              "algorithm": "defaulthnsw"
+            }
+        ]
+      }
     }
 ```
 

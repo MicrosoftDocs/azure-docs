@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.date: 04/18/2024
 ms.topic: conceptual
-ms.service: site-recovery
+ms.service: azure-site-recovery
 
 ---
 # Common questions: Azure-to-Azure disaster recovery
@@ -283,7 +283,7 @@ You can start failover. Site Recovery doesn't need connectivity from the primary
 
 ### What is the RTO of a virtual machine failover?
 
-Site Recovery has an RTO SLA of [two hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Most of the time, Site Recovery fails over virtual machines within minutes. To calculate the RTO, review the failover job, which shows the time it took to bring up a virtual machine.
+Site Recovery has an RTO SLA of [one hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Most of the time, Site Recovery fails over virtual machines within minutes. To calculate the RTO, review the failover job, which shows the time it took to bring up a virtual machine.
 
 ## Recovery plans
 

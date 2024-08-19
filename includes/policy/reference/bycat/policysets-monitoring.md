@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/07/2024
+ms.date: 08/14/2024
 ms.author: davidsmatlak
 author: davidsmatlak
 ms.custom: generated
@@ -21,7 +21,7 @@ ms.custom: generated
 |[Enable audit category group resource logging for supported resources to Log Analytics](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_DiagSettings_logAnalytics_audit.json) |Resource logs should be enabled to track activities and events that take place on your resources and give you visibility and insights into any changes that occur. This initiative deploys diagnostic setting using the audit category group to route logs to Log Analytics for all supported resources. |69 |1.1.0 |
 |[Enable audit category group resource logging for supported resources to storage](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_DiagSettings_storage_audit.json) |Resource logs should be enabled to track activities and events that take place on your resources and give you visibility and insights into any changes that occur. This initiative deploys diagnostic setting using the audit category group to route logs to storage for all supported resources. |69 |1.1.0 |
 |[Enable Azure Monitor for Hybrid VMs with AMA](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_HybridVM_AMA_new.json) |Enable Azure Monitor for the hybrid virtual machines with AMA. |6 |1.0.0 |
-|[Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA)](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VM_AMA_new.json) |Enable Azure Monitor for the virtual machines (VMs) with AMA. |7 |1.1.0 |
-|[Enable Azure Monitor for VMSS with Azure Monitoring Agent(AMA)](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VMSS_AMA_new.json) |Enable Azure Monitor for the virtual machines scale set (VMSS) with AMA. |7 |1.1.0 |
+|[Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA)](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VM_AMA_new.json) |Enable Azure Monitor for the virtual machines (VMs) with AMA. |7 |1.2.0 |
+|[Enable Azure Monitor for VMSS with Azure Monitoring Agent(AMA)](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VMSS_AMA_new.json) |Enable Azure Monitor for the virtual machines scale set (VMSS) with AMA. |7 |1.2.0 |
 |[Legacy - Enable Azure Monitor for Virtual Machine Scale Sets](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VMSS.json) |Legacy - Enable Azure Monitor for the Virtual Machine Scale Sets in the specified scope (Management group, Subscription or resource group). Takes Log Analytics workspace as parameter. Use the new initiative named: Enable Azure Monitor for VMSS with Azure Monitoring Agent(AMA). Note: if your scale set upgradePolicy is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be az vmss update-instances. |6 |1.0.2 |
 |[Legacy - Enable Azure Monitor for VMs](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VM.json) |Legacy - Enable Azure Monitor for the virtual machines (VMs) in the specified scope (management group, subscription or resource group). Takes Log Analytics workspace as parameter. Use the new initiative named: Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA) |10 |2.0.1 |

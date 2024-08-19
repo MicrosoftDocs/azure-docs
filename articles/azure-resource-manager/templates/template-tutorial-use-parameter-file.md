@@ -1,7 +1,7 @@
 ---
 title: Tutorial - use parameter file to deploy template
 description: Use parameter files that contain the values to use for deploying your Azure Resource Manager template (ARM template).
-ms.date: 07/28/2023
+ms.date: 06/20/2024
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---

@@ -3,8 +3,8 @@ title: Query your Azure Virtual Network Manager using Azure Resource Graph (ARG)
 description: This article covers the usage of Azure Resource Graph with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.topic: conceptual
-ms.service: virtual-network-manager
+ms.topic: how-to
+ms.service: azure-virtual-network-manager
 ms.date: 11/02/2023
 ---
 

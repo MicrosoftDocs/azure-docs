@@ -6,10 +6,10 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
 ms.date: 5/21/2024
-ms.reviewer: msakande 
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: fasantia 
+reviewer: santiagxf
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---
@@ -110,7 +110,7 @@ The information about the deployed model.
 
 ### ModelType
 
-The infernce task associated with the mode.
+The inference task associated with the mode.
 
 
 | Name | Type | Description |

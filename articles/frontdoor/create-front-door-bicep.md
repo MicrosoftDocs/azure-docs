@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.date: 12/29/2023
 ms.topic: quickstart
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
@@ -15,7 +15,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 This quickstart describes how to use Bicep to create an Azure Front Door Standard/Premium with a Web App as origin.
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 

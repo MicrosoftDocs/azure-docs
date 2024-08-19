@@ -45,6 +45,8 @@
         href: understand-data-encryption.md
       - name: Understand guidelines for Active Directory Domain Services
         href: understand-guidelines-active-directory-domain-service-site.md
+      - name: Understand DNS 
+        href: domain-name-system-concept.md
       - name: Understand the use of LDAP
         href: lightweight-directory-access-protocol.md
       - name: Understand NFS group memberships and supplemental groups
@@ -65,6 +67,12 @@
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
+    - name: High file counts 
+      items: 
+        - name: Understand maxfiles 
+          href: maxfiles-concept.md
+        - name: Understand maximum directory sizes 
+          href: directory-sizes-concept.md
     - name: Ways to monitor Azure NetApp Files
       href: monitor-azure-netapp-files.md
     - name: Metrics for Azure NetApp Files
@@ -172,16 +180,48 @@
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
-        href: azacsnap-introduction.md
-      - name: Release Notes for AzAcSnap
-        href: azacsnap-release-notes.md
+        items:
+        - name: Introduction to AzAcSnap
+          href: azacsnap-introduction.md
+        - name: Release Notes for AzAcSnap
+          href: azacsnap-release-notes.md
       - name: Get started with AzAcSnap
-        href: azacsnap-get-started.md
-      - name: Install AzAcSnap
-        href: azacsnap-installation.md
+        items:
+        - name: Overall workflow
+          href: azacsnap-get-started.md
+        - name: Install AzAcSnap
+          href: azacsnap-installation.md
+        - name: Configure Database
+          items:
+          - name: All databases
+            href: azacsnap-configure-database.md
+          - name: SAP HANA
+            href: azacsnap-configure-database.md?tabs=sap-hana
+          - name: Oracle Database
+            href: azacsnap-configure-database.md?tabs=oracle
+          - name: IBM Db2
+            href: azacsnap-configure-database.md?tabs=db2
+          - name: Microsoft SQL Server (PREVIEW)
+            href: azacsnap-preview.md?tabs=mssql#microsoft-sql-server
+        - name: Configure Storage
+          items:
+          - name: All storage
+            href: azacsnap-configure-storage.md
+          - name: Azure NetApp Files
+            href: azacsnap-configure-storage.md?tabs=azure-netapp-files
+          - name: Azure Large Instance
+            href: azacsnap-configure-storage.md?tabs=azure-large-instance
+          - name: Azure Managed Disk (PREVIEW)
+            href: azacsnap-preview.md?tabs=mssql#azure-managed-disks
+        - name: Configure AzAcSnap
+          href: azacsnap-cmd-ref-configure.md
+        - name: Test configuration of AzAcSnap
+          href: azacsnap-cmd-ref-test.md
+        - name: Backup your database with AzAcSnap
+          href: azacsnap-cmd-ref-backup.md
       - name: Disaster recovery using AzAcSnap
         href: azacsnap-disaster-recovery.md
-      - name: Tips and tricks for using AzAcSnap
+      - name: Tips for using AzAcSnap
         href: azacsnap-tips.md
       - name: Troubleshoot AzAcSnap
         href: azacsnap-troubleshoot.md
@@ -279,6 +319,8 @@
         href: configure-network-features.md
       - name: Configure customer-managed keys 
         href: configure-customer-managed-keys.md
+      - name: Configure customer-managed keys with managed HSM
+        href: configure-customer-managed-keys-hardware.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes

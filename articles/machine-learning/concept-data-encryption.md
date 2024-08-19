@@ -3,12 +3,12 @@ title: Data encryption with Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn how Azure Machine Learning computes and datastores provide data encryption at rest and in transit.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 01/16/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -59,13 +59,13 @@ For information on how to use customer-managed keys for transparent data encrypt
 
 By default, Azure Database for PostgreSQL uses Azure Storage encryption to encrypt data at rest by using Microsoft-managed keys. It's similar to transparent data encryption in other databases, such as SQL Server.
 
-For information on how to use customer-managed keys for transparent data encryption, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](../postgresql/single-server/concepts-data-encryption-postgresql.md).
+For information on how to use customer-managed keys for transparent data encryption, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](/azure/postgresql/single-server/concepts-data-encryption-postgresql).
 
 #### Azure Database for MySQL
 
 Azure Database for MySQL is a relational database service in the Microsoft Cloud. It's based on the MySQL Community Edition database engine. The Azure Database for MySQL service uses the FIPS 140-2 validated cryptographic module for Azure Storage encryption of data at rest.
 
-To encrypt data by using customer-managed keys, see [Azure Database for MySQL data encryption with a customer-managed key](../mysql/single-server/concepts-data-encryption-mysql.md).
+To encrypt data by using customer-managed keys, see [Azure Database for MySQL data encryption with a customer-managed key](/azure/mysql/single-server/concepts-data-encryption-mysql).
 
 ### Azure Cosmos DB
 
@@ -117,7 +117,7 @@ For more information on using a customer-managed key with Container Instances, s
 
 ### Azure Kubernetes Service
 
-You can encrypt a deployed Azure Kubernetes Service resource by using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md).
+You can encrypt a deployed Azure Kubernetes Service resource by using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](/azure/aks/azure-disk-customer-managed-keys).
 
 This process allows you to encrypt both the data and the OS disk of the deployed virtual machines in the Kubernetes cluster.
 

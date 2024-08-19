@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Adds a network security group to a
 services: service-fabric
 author: athinanthny
 manager: chackdan
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 11/28/2017
 ms.author: atsenthi

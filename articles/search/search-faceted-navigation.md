@@ -191,7 +191,7 @@ In application code, the pattern is to use facet query parameters to return the 
 
 ### Facet and filter combination
 
-The following code snippet from the `JobsSearch.cs` file in the NYCJobs demo adds the selected Business Title to the filter if you select a value from the Business Title facet.
+The following code snippet from the `JobsSearch.cs` file in the [NYCJobs demo](/samples/azure-samples/search-dotnet-asp-net-mvc-jobs/search-dotnet-asp-net-mvc-jobs/) adds the selected Business Title to the filter if you select a value from the Business Title facet.
 
 ```cs
 if (businessTitleFacet != "")
@@ -289,5 +289,3 @@ If you build the list of facets dynamically based on untrusted user input, valid
 We recommend the following samples for faceted navigation. The samples also include filters, suggestions, and autocomplete. These samples use React for the presentation layer.
 
 * [C#: Add search to web apps](tutorial-csharp-overview.md)
-* [Python: Add search to web apps](tutorial-python-overview.md)
-* [JavaScript: Add search to web apps](tutorial-javascript-overview.md)

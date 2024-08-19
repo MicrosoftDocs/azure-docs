@@ -106,10 +106,6 @@ If the original purchase was made as an overage, the original invoice on which t
 
 The original invoice is canceled, and a new invoice is created. The money is refunded to the credit card that was used for the original purchase. If you changed your card, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Cancel, exchange, and refund policies
-
-You can't cancel, exchange, or refund a savings plan.
-
 ## Need help? Contact us.
 
 If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.

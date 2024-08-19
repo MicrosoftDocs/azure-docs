@@ -2,9 +2,9 @@
 title: Troubleshooting Azure Spring Apps in virtual network
 description: Troubleshooting guide for Azure Spring Apps virtual network.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 09/19/2020
+ms.date: 06/27/2024
 ms.author: karler
 ms.custom: devx-track-java
 ---
@@ -46,7 +46,7 @@ The applications running inside the Azure Spring Apps user cluster need to acces
 
 This problem occurs if your virtual network is configured with custom DNS settings. In this case, the private DNS zone used by Azure Spring Apps is ineffective. Add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
 
-If your custom DNS server can't add the Azure DNS IP `168.63.129.16` as the upstream DNS server, then add the DNS record `*.svc.private.azuremicroservices.io` to the IP of your application. For more information, see the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access an app in Azure Spring Apps in a virtual network](access-app-virtual-network.md).
+If your custom DNS server can't add the Azure DNS IP `168.63.129.16` as the upstream DNS server, then add the DNS record `*.svc.private.azuremicroservices.io` to the IP of your application. For more information, see the [Find the IP address for your application](access-app-virtual-network.md#find-the-ip-address-for-your-application) section of [Access an app in Azure Spring Apps in a virtual network](access-app-virtual-network.md).
 
 ## I can't access my application's endpoint or test endpoint in a virtual network
 
@@ -65,7 +65,7 @@ For more information, see [Access your application in a private network](./acces
 
 ## I can't access my application's public endpoint from public network
 
-Azure Spring Apps supports exposing applications to the internet by using public endpoints. For more information, see [Expose applications on Azure Spring Apps to the internet from a public network](how-to-access-app-from-internet-virtual-network.md). 
+Azure Spring Apps supports exposing applications to the internet by using public endpoints. For more information, see [Expose applications on Azure Spring Apps to the internet from a public network](how-to-access-app-from-internet-virtual-network.md).
 
 If you're using a user defined route feature, some features aren't supported because of asymmetric routing. For unsupported features, see the following list:
 

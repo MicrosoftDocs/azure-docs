@@ -8,7 +8,7 @@ metadata:
   description: Learn about solutions for Oracle workloads on Azure VMs
   ms.service: oracle-on-azure
   ms.topic: landing-page
-  ms.author: jjaygbay1
+  ms.author: jacobjaygbay 
   author: jjaygbay1
   ms.date: 05/11/2023
   keywords: oracle workloads on azure virtual machines, database, oracle, data migration to cloud, workloads on azure, azure data migration 

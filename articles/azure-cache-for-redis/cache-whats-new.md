@@ -5,15 +5,43 @@ author: flang-msft
 
 ms.custom: references_regions
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
-ms.date: 05/20/2024
+ms.date: 08/05/2024
 
 ---
 
 # What's New in Azure Cache for Redis
 
+## August 2024
+
+### Availability zones
+
+For the Standard and Premium tiers, you can now use availability zones (Preview) with the ability to select zones automatically. With the Standard and Premium, you can choose to have the zones chosen automatically by Azure. With Premium, you can continue to choose your availability zones explicitly.
+
 ## June 2024
+
+### Redis 7.2 (preview) on the Enterprise tier
+
+Azure cache for Redis now offers you the ability to use Redis 7.2 (preview) with your Enterprise and Enterprise Flash tiers.
+
+You can upgrade your caches automatically or manually. For more information, see [How to upgrade an existing cache](cache-how-to-upgrade.md). 
+
+You are able to manually trigger an upgrade to the latest version of Redis software. This provides two benefits above waiting for the automatic upgrade to occur:
+
+1. You can control when the upgrade occurs.
+1. You can upgrade to preview releases of Redis software.
+
+| **Tier**         | Basic, Standard, Premium                                | Enterprise, Enterprise Flash |
+|:--------------------------|:----------------------------------------------:|:----------------------------:|
+| **Lastest Redis Version** | Redis 6.0 (GA)                                 | Redis 6.0 (GA) / Redis 7.2 (Preview)|
+| **Upgrade Policy** | Manual upgrade to newer version     | Automatic upgrade to latest GA version         |
+
+### Enterprise tier E1 (preview) SKU
+
+The E1 SKU is intended primarily for dev/test scenarios. It runs on smaller [burstable virtual machines](../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md). As a result, E1 offers variable performance depending on how much CPU is consumed. Unlike other Enterprise offerings, it isn't possible to scale E1 out. However, it is still possible to scale up to a larger SKU. The E1 SKU also does not support [active geo-replication](cache-how-to-active-geo-replication.md).
+
+For more information, see 
 
 ### .NET Output cache and HybridCache
 
@@ -118,7 +146,7 @@ Azure Cache for Redis now supports clustered caches with up to 30 shards. Now, y
 
 A new metric is available to track the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. This metric can be used to track the health of your cache instance and to see if long-running commands are compromising latency performance.
 
-For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md#list-of-metrics).
+For more information, see [Monitor Azure Cache for Redis](monitor-cache.md#azure-cache-for-redis-metrics).
 
 ## March 2023
 
@@ -172,7 +200,7 @@ For more information, see [Redis 6 becomes default for new cache instances](#red
 
 Several enhancements were made to the passive geo-replication functionality offered on the Premium tier of Azure Cache for Redis.
 
-- New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](cache-how-to-monitor.md).
+- New metrics are available for customers to better track the health and status of their geo-replication link, including statistics around the amount of data that is waiting to be replicated. For more information, see [Monitor Azure Cache for Redis](monitor-cache.md).
   
   - Geo Replication Connectivity Lag (preview)
   - Geo Replication Data Sync Offset (preview)
@@ -248,7 +276,7 @@ These two new metrics can help identify whether Azure Cache for Redis clients ar
 - Connections Created Per Second
 - Connections Closed Per Second
 
-For more information, see [View cache metrics](cache-how-to-monitor.md#view-cache-metrics).
+For more information, see [View cache metrics](monitor-cache.md#view-cache-metrics).
 
 ### Default cache change
 

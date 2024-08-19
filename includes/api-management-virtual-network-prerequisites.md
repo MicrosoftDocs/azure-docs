@@ -1,6 +1,6 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 ms.date: 05/10/2024
 ms.author: danlep
@@ -41,6 +41,8 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
   * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
 
+* For multi-region API Management deployments, configure virtual network resources separately for each location.
+
 ### [stv1](#tab/stv1)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).
@@ -50,4 +52,6 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
   * The subnet used to connect to the API Management instance should not have any delegations enabled. The **Delegate subnet to a service** setting for the subnet should be set to *None*. 
 
 * For certain scenarios, enable **service endpoints** in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article. 
+
+* For multi-region API Management deployments, configure virtual network resources separately for each location.
 ---

@@ -3,10 +3,10 @@ title: Connect to a Linux VM
 description: Learn how to connect to a Linux VM in Azure.
 author: mattmcinnes
 ms.collection: linux
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom: linux-related-content
 ms.topic: article
-ms.date: 04/06/2023
+ms.date: 06/27/2024
 ms.author: mattmcinnes
 ms.reviewer: jamesser
 ---
@@ -153,7 +153,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
     If you have never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
 
     ```azurepowershell-interactive
-    Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -CommandId 'RunPowerShellScript' -ScriptString
+    Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -CommandId 'RunShellScript' -ScriptString
     'ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}''
     ```
 

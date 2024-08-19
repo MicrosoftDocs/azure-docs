@@ -2,7 +2,7 @@
 title: DropDown UI element
 description: Describes the Microsoft.Common.DropDown UI element for Azure portal. The element is used to select from the available options when deploying a managed application.
 ms.topic: reference
-ms.date: 01/27/2023
+ms.date: 06/24/2024
 ---
 
 # Microsoft.Common.DropDown UI element
@@ -11,7 +11,7 @@ A selection control with a dropdown list. You can allow selection of only a sing
 
 ## UI sample
 
-The DropDown element has different options that determine its appearance in the portal.
+The `DropDown` element has different options that determine its appearance in the portal.
 
 When only a single item is allowed for selection, the control appears as:
 
@@ -80,7 +80,7 @@ When filtering is enabled, the control includes a text box for adding the filter
 - By default, `selectAll` is `true` when multi-select is enabled.
 - The `filter` property enables users to search within a long list of options.
 - The label for `constraints.allowedValues` is the display text for an item, and its value is the output value of the element when selected.
-- If specified, the default value must be a label present in `constraints.allowedValues`. If not specified, the first item in `constraints.allowedValues` is selected. The default value is **null**.
+- If specified, the default value must be a label present in `constraints.allowedValues`. If not specified, the first item in `constraints.allowedValues` is selected. The default value is `null`.
 - `constraints.allowedValues` must have at least one item.
 - To emulate a value not being required, add an item with a label and value of `""` (empty string) to `constraints.allowedValues`.
 - The `defaultDescription` property is used for items that don't have a description.

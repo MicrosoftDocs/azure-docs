@@ -2,7 +2,7 @@
 title: Create an Azure Files StorageClass on Azure Red Hat OpenShift 4
 description: Learn how to create an Azure Files StorageClass on Azure Red Hat OpenShift
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2023
 author: johnmarco
 ms.author: johnmarc
@@ -23,7 +23,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Before you begin
 
-Deploy an Azure Red Hat OpenShift 4 cluster into your subscription, see [Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md)
+Deploy an Azure Red Hat OpenShift 4 cluster into your subscription, see [Create an Azure Red Hat OpenShift 4 cluster](create-cluster.md)
 
 
 ### Set up Azure storage account
@@ -134,7 +134,7 @@ oc patch storageclass azure-file -p '{"metadata": {"annotations":{"storageclass.
 Create a new application and assign storage to it.
 
 > [!NOTE]
-> To use the `httpd-example` template, you must deploy your ARO cluster with the pull secret enabled. For more information, see [Get a Red Hat pull secret](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
+> To use the `httpd-example` template, you must deploy your ARO cluster with the pull secret enabled. For more information, see [Get a Red Hat pull secret](create-cluster.md#get-a-red-hat-pull-secret-optional).
 
 ```bash
 oc new-project azfiletest

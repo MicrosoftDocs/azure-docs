@@ -3,14 +3,14 @@ title: Create a Training Job with the job creation UI
 titleSuffix: Azure Machine Learning
 description: Learn how to submit a training job in Azure Machine Learning studio
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: how-to
 ms.custom: devplatv2
-author: amibp
-ms.author: amipatel
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 02/04/2024
-ms.reviewer: ssalgado
+ms.reviewer: amipatel
 ---
 
 # Submit a training job in studio

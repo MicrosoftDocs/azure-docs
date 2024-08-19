@@ -2,7 +2,7 @@
 title: 'Migration approaches: BizTalk Server to Azure Integration Services'
 description: Learn about migration strategies, planning, and best practices for moving from BizTalk Server to Azure Integration Services.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: kewear
 ms.author: kewear

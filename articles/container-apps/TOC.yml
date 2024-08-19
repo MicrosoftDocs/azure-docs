@@ -60,6 +60,7 @@
       items:
       - name: Overview
         href: sessions.md
+        displayName: Dynamic sessions overview
       - name: Code interpreter sessions
         href: sessions-code-interpreter.md
       - name: Custom container sessions
@@ -82,6 +83,7 @@
           items:
             - name: Overview
               href: services.md
+              displayName: Connecting to services overview
             - name: Tutorials
               items:
               - name: Apache Kafka
@@ -156,6 +158,7 @@
   items:
     - name: Overview
       href: observability.md
+      displayName: Observability overview
     - name: Application logging
       href: logging.md
     - name: Real time data
@@ -178,12 +181,14 @@
   items:
     - name: Overview
       href: scale-app.md
+      displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
 - name: Domains & certificates
   items:
   - name: Overview
     href: certificates-overview.md
+    displayName: Domains & certificates overview
   - name: Custom domain with a free certificate
     href: custom-domains-managed-certificates.md
     displayName: Set up custom domain with a managed certificate
@@ -197,6 +202,7 @@
   items:
     - name: Overview
       href: authentication.md
+      displayName: Authentication overview
     - name: Enable authentication
       items:
         - name: Microsoft Entra ID
@@ -207,7 +213,7 @@
           href: authentication-github.md
         - name: Google
           href: authentication-google.yml
-        - name: Twitter
+        - name: X
           href: authentication-twitter.md
         - name: Custom OpenID Connect
           href: authentication-openid.md
@@ -249,6 +255,7 @@
       items:
       - name: Overview
         href: dapr-overview.md
+        displayName: Developing with Dapr overview
       - name: Get started
         items:
         - name: Connect to Azure services via Dapr components
@@ -293,6 +300,7 @@
       items:
         - name: Overview
           href: ingress-overview.md
+          displayName: Ingress overview
         - name: Configure ingress
           href: ingress-how-to.md
         - name: Configure IP restrictions
@@ -317,18 +325,19 @@
           href: user-defined-routes.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
-    - name: Network proxying
-      href: network-proxy.md
     - name: Use a custom VNET
       href: vnet-custom.md
 - name: Languages and runtimes
   items:
     - name: .NET
       items:
-      - name: Deploy and scale an ASP.NET Core app
-        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
+      - name: Overview
+        href: dotnet-overview.md
+        displayName: .NET overview
       - name: Deploy a .NET Aspire app
         href: /dotnet/aspire/deployment/azure/aca-deployment
+      - name: Deploy and scale an ASP.NET Core app
+        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
     - name: Java
       items:
       - name: Overview
@@ -336,6 +345,9 @@
         displayName: java
       - name: Launch your first Java app
         href: java-get-started.md
+        displayName: java
+      - name: Get started using IntelliJ
+        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij
         displayName: java
       - name: Automatic memory fitting
         href: java-memory-fit.md
@@ -348,6 +360,8 @@
         displayName: java
       - name: Use Eureka Server for Spring
         href: java-eureka-server-usage.md
+      - name: Use Admin for Spring
+        href: java-admin-for-spring-usage.md
       - name: Use Config Server for Spring
         href: java-config-server-usage.md
         displayName: java
@@ -358,8 +372,13 @@
         items:
           - name: Connect to Eureka Server for Spring
             href: java-eureka-server.md
+          - name: Connect to Admin for Spring
+            href: java-admin.md
           - name: Connect to Config Server for Spring
             href: java-config-server.md
+            displayName: java
+          - name: Integrate Eureka Server with Admin for Spring
+            href: java-admin-eureka-integration.md
             displayName: java
           - name: Query managed component logs
             href: java-component-logs.md

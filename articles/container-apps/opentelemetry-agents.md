@@ -3,7 +3,7 @@ title: Collect and read OpenTelemetry data in Azure Container Apps (preview)
 description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.date: 03/08/2024
 ms.author: cshoe
 ms.topic: how-to
@@ -199,15 +199,15 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az containerap env telemetry otlp add \
-  --name "otlp1"
+az containerapp env telemetry otlp add \
+  --name "otlp1" \
   --endpoint "ENDPOINT_URL_1" \
   --insecure false \
   --headers "api-key-1=key" \
   --enable-open-telemetry-traces true \
   --enable-open-telemetry-metrics true
-az containerap env telemetry otlp add \
-  --name "otlp2"
+az containerapp env telemetry otlp add \
+  --name "otlp2" \
   --endpoint "ENDPOINT_URL_2" \
   --insecure true \
   --enable-open-telemetry-traces true \

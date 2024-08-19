@@ -207,7 +207,7 @@ Now that you've created and connected to a Windows 11 desktop with Azure Virtual
 
 - [Publish applications](manage-app-groups.md).
 
-- Manage user profiles using [FSLogix profile containers and Azure Files](create-profile-container-azure-ad.yml).
+- [User profile management for Azure Virtual Desktop with FSLogix profile containers](create-profile-container-azure-ad.yml).
 
 - [Understand network connectivity](network-connectivity.md).
 

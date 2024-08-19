@@ -4,8 +4,8 @@ description: Learn how to create a Virtual Machine Scale Set in Flexible orchest
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
+ms.service: azure-virtual-machine-scale-sets
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, vmss-flex, devx-track-arm-template
 ---
@@ -358,6 +358,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
                     "type": "CustomScript",
                     "typeHandlerVersion": "2.0",
                     "autoUpgradeMinorVersion": true,
+                    "enableAutomaticUpgrade": true,
                     "settings": {
                       "fileUris": [
                         "[uri(parameters('_artifactsLocation'), concat('installserver.sh', parameters('_artifactsLocationSasToken')))]",

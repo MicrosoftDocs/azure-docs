@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 05/15/2024
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Use source control integration
@@ -42,7 +43,7 @@ Azure Automation supports three types of source control:
 > Azure Automation Run As Account will retire on **September 30, 2023** and will be replaced with Managed Identities. Before that date, you need to [migrate from a Run As account to Managed identities](migrate-run-as-accounts-managed-identity.md).
 
 > [!NOTE]
-> According to [this](/azure/devops/organizations/accounts/change-application-access-policies#application-connection-policies) Azure DevOps documentation, **Third-party application access via OAuth** policy is defaulted to **off** for all new organizations. So if you try to configure source control in Azure Automation with **Azure Devops (Git)** as source control type without enabling **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps then you might get **SourceControl securityToken is invalid** error. Hence to avoid this error, make sure you first enable **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps. 
+> According to [this](/azure/devops/organizations/accounts/change-application-access-policies#application-connection-policies) Azure DevOps documentation, **Third-party application access via OAuth** policy is defaulted to **off** for all new organizations. So if you try to configure source control in Azure Automation with **Azure DevOps (Git)** as source control type without enabling **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps then you might get **SourceControl securityToken is invalid** error. Hence to avoid this error, make sure you first enable **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps. 
 
 ## Configure source control
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 06/13/2024
 ms.custom:
   - references_regions
   - build-2024
@@ -40,7 +40,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 |----------|------|--------|----|----|----|------------|----|----|
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
 | Maximum simple fields per index&nbsp;<sup>2</sup> |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
-| Maximum dimensions per vector field | 3072 |3072 |3072 |3072 |3072 |3072 |3072 |3072 |
+| Maximum dimensions per vector field | 4098|4098|4098|4098|4098|4098|4098|4098|
 | Maximum complex collections per index |40 |40 |40 |40 |40 |40 |40 |40 |
 | Maximum elements across all complex collections per document&nbsp;<sup>3</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximum depth of complex fields |10 |10 |10 |10 |10 |10 |10 |10 |
@@ -229,6 +229,10 @@ Static rate request limits for operations related to an index:
 Static rate request limits for operations related to a service:
 
 + Service Statistics (GET /servicestats): 4 per second per search unit
+
+L2 reranking using the semantic reranker has an expected volume:
+
++ Up to 10 concurrent queries per replica. If you anticipate consistent throughput requirements near, at, or higher than this level, please file a support ticket so that we can provision for your workload.
 
 ## API request limits
 

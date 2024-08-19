@@ -4,7 +4,7 @@ description: Launch and run notebooks with the Microsoft Sentinel hunting capabi
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 03/08/2024
+ms.date: 06/20/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -145,7 +145,9 @@ If you have multiple notebooks, make sure to select a default AML workspace to u
 
 ## Launch a notebook in your Azure Machine Learning workspace
 
-After you create an Azure Machine Learning workspace, launch your notebooks in that workspace from Microsoft Sentinel.
+After you create an Azure Machine Learning workspace, launch your notebook in that workspace from Microsoft Sentinel. Be aware that if you have private endpoints enabled in your Azure storage account, you can't launch notebooks in the Azure Machine Learning workspace from Microsoft Sentinel. You must copy the notebook template from Microsoft Sentinel and upload the notebook to the Azure Machine Learning studio.
+
+To launch your Microsoft Sentinel notebook in your Azure Machine Learning workspace, complete the following steps. 
 
 1.  For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Notebooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
 1. Select the **Templates** tab to see the notebooks that Microsoft Sentinel provides.

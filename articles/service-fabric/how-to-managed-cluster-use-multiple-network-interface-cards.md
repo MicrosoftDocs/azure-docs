@@ -4,7 +4,7 @@ description: Learn how to create node types with multiple virtual NICs in Servic
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 10/05/2023
 ---

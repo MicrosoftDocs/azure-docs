@@ -63,7 +63,7 @@ Use the following tabs to select the method you plan to use to create a project:
 
     For more information on authenticating, see [Authentication methods](/cli/azure/authenticate-azure-cli).
 
-1. Once the extension is installed and authenticated to your Azure subscription, use the following command to create a new Azure AI project from an existing Azure AI hub:
+1. Once the extension is installed and authenticated to your Azure subscription, use the following command to create a new Azure AI Studio project from an existing Azure AI Studio hub:
 
     ```azurecli
     az ml workspace create --kind project --hub-id {my_hub_ARM_ID} --resource-group {my_resource_group} --name {my_project_name}
@@ -122,7 +122,7 @@ In addition, a number of resources are only accessible by users in your project 
    | workspacefilestore | {project-GUID}-code | Hosts files created on your compute and using prompt flow |
 
 > [!NOTE]
-> Storage connections are not created directly with the project when your storage account has public network access set to disabled. These are created instead when a first user accesses AI studio over a private network connection.
+> Storage connections are not created directly with the project when your storage account has public network access set to disabled. These are created instead when a first user accesses AI Studio over a private network connection. [Troubleshoot storage connections](troubleshoot-secure-connection-project.md#troubleshoot-missing-storage-connections)
 
 
 ## Next steps

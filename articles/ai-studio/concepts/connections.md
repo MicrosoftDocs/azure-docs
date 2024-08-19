@@ -26,9 +26,9 @@ You can [create connections](../how-to/connections-add.md) to Azure AI services 
 
 :::image type="content" source="../media/prompt-flow/llm-tool-connection.png" alt-text="Screenshot of a connection used by the LLM tool in prompt flow." lightbox="../media/prompt-flow/llm-tool-connection.png":::
 
-As another example, you can [create a connection](../how-to/connections-add.md) to an Azure AI Search resource. The connection can then be used by prompt flow tools such as the Vector DB Lookup tool.
+As another example, you can [create a connection](../how-to/connections-add.md) to an Azure AI Search resource. The connection can then be used by prompt flow tools such as the Index Lookup tool.
 
-:::image type="content" source="../media/prompt-flow/vector-db-lookup-tool-connection.png" alt-text="Screenshot of a connection used by the Vector DB Lookup tool in prompt flow." lightbox="../media/prompt-flow/vector-db-lookup-tool-connection.png":::
+:::image type="content" source="../media/prompt-flow/index-lookup-tool-connection.png" alt-text="Screenshot of a connection used by the Index Lookup tool in prompt flow." lightbox="../media/prompt-flow/index-lookup-tool-connection.png":::
 
 ## Connections to non-Microsoft services
 
@@ -37,6 +37,9 @@ Azure AI Studio supports connections to non-Microsoft services, including the fo
 - The [custom connection](../how-to/connections-add.md) allows you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you wouldn't need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you'll have to manage authentication on your own.
 
 ## Connections to datastores
+
+> [!IMPORTANT]
+> Data connections cannot be shared across projects. They are created exclusively in the context of one project. 
 
 Creating a data connection allows you to access external data without copying it to your project. Instead, the connection provides a reference to the data source.
 

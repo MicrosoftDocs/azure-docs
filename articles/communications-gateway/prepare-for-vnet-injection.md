@@ -3,7 +3,7 @@ title: Prepare to connect Azure Communications Gateway to your own virtual netwo
 description: Learn how to complete the prerequisite tasks required to deploy Azure Communications Gateway with VNet injection. 
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 04/26/2024
 ---
@@ -60,7 +60,7 @@ The network security group configuration consists of two steps, to be carried ou
 1. Create a network security group that allows the desired traffic.
 1. Associate the network security group with the virtual network subnets.
 
-[!INCLUDE [nsg intro](~/reusable-content/ce-skilling/azure/includes/virtual-networks-create-nsg-intro-include.md)]
+[!INCLUDE [nsg intro](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 ### Create the relevant network security group
 

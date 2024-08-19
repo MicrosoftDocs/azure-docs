@@ -19,13 +19,11 @@ Get started with facial recognition using the Face REST API. The Face service pr
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* [!INCLUDE [contributor-requirement](../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You'll need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
-* [cURL](https://curl.haxx.se/) installed.
-
+* [cURL](https://curl.se/) installed.
 
 
 
@@ -34,21 +32,45 @@ Get started with facial recognition using the Face REST API. The Face service pr
 > [!NOTE]
 > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
 
-1. First, call the Detect API on the source face. This is the face that we'll try to identify from the larger group. Copy the following command to a text editor, insert your own key, and then copy it into a shell window and run it.
+1. First, call the Detect API on the source face. This is the face that we'll try to identify from the larger group. Copy the following command to a text editor, insert your own key and endpoint, and then copy it into a shell window and run it.
+
+    #### [Windows](#tab/windows)
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.ps1" ID="identify_detect":::
+
+    #### [Linux](#tab/linux)
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_detect":::
 
+    ---
+
     Save the returned face ID string to a temporary location. You'll use it again at the end.
 
-1. Next you'll need to create a **LargePersonGroup**. This object will store the aggregated face data of several persons. Run the following command, inserting your own key. Optionally, change the group's name and metadata in the request body.
+1. Next you'll need to create a **LargePersonGroup** and give it an arbitrary ID that matches regex pattern `^[a-z0-9-_]+$`. This object will store the aggregated face data of several persons. Run the following command, inserting your own key. Optionally, change the group's name and metadata in the request body.
+
+    #### [Windows](#tab/windows)
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.ps1" ID="identify_create_persongroup":::
+
+    #### [Linux](#tab/linux)
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_create_persongroup":::
 
-    Save the returned ID of the created group to a temporary location.
+    ---
+
+    Save the specified ID of the created group to a temporary location.
 
 1. Next, you'll create **Person** objects that belong to the group. Run the following command, inserting your own key and the ID of the **LargePersonGroup** from the previous step. This command creates a **Person** named "Family1-Dad".
 
+    #### [Windows](#tab/windows)
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.ps1" ID="identify_create_person":::
+
+    #### [Linux](#tab/linux)
+
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_create_person":::
+
+    ---
 
     After you run this command, run it again with different input data to create more **Person** objects: "Family1-Mom", "Family1-Son", "Family1-Daughter", "Family2-Lady", and "Family2-Man".
 
@@ -56,7 +78,15 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
 1. Next you'll need to detect new faces and associate them with the **Person** objects that exist. The following command detects a face from the image *Family1-Dad1.jpg* and adds it to the corresponding person. You need to specify the `personId` as the ID that was returned when you created the "Family1-Dad" **Person** object. The image name corresponds to the name of the created **Person**. Also enter the **LargePersonGroup** ID and your key in the appropriate fields.
 
+    #### [Windows](#tab/windows)
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.ps1" ID="identify_add_face":::
+
+    #### [Linux](#tab/linux)
+
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_add_face":::
+
+    ---
 
     Then, run the above command again with a different source image and target **Person**. The images available are: *Family1-Dad1.jpg*, *Family1-Dad2.jpg* *Family1-Mom1.jpg*, *Family1-Mom2.jpg*, *Family1-Son1.jpg*, *Family1-Son2.jpg*, *Family1-Daughter1.jpg*, *Family1-Daughter2.jpg*, *Family2-Lady1.jpg*, *Family2-Lady2.jpg*, *Family2-Man1.jpg*, and *Family2-Man2.jpg*. Be sure that the **Person** whose ID you specify in the API call matches the name of the image file in the request body.
 
@@ -64,17 +94,53 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
 1. Next, train the **LargePersonGroup** with the current face data. The training operation teaches the model how to associate facial features, sometimes aggregated from multiple source images, to each single person. Insert the **LargePersonGroup** ID and your key before running the command.
 
+    #### [Windows](#tab/windows)
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.ps1" ID="identify_train":::
+
+    #### [Linux](#tab/linux)
+
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_train":::
+
+    ---
  
+1. Check whether the training status is succeeded. If not, wait for a while and query again.
+
+    #### [Windows](#tab/windows)
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.ps1" ID="identify_check_status":::
+
+    #### [Linux](#tab/linux)
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_check_status":::
+
+    ---
+
 1. Now you're ready to call the Identify API, using the source face ID from the first step and the **LargePersonGroup** ID. Insert these values into the appropriate fields in the request body, and insert your key.
 
+    #### [Windows](#tab/windows)
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.ps1" ID="identify_identify":::
+
+    #### [Linux](#tab/linux)
+
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_identify":::
+
+    ---
 
     The response should give you a **Person** ID indicating the person identified with the source face. It should be the ID that corresponds to the "Family1-Dad" person, because the source face is of that person.
 
 1. To do face verification, you'll use the **Person** ID returned in the previous step, the **LargePersonGroup** ID, and also the source face ID. Insert these values into the fields in the request body, and insert your key.
 
+    #### [Windows](#tab/windows)
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.ps1" ID="verify":::
+
+    #### [Linux](#tab/linux)
+
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="verify":::
+
+    ---
 
     The response should give you a boolean verification result along with a confidence value.
 
@@ -82,13 +148,21 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
 ## Clean up resources
 
-To delete the **LargePersonGroup** you created in this exercise, run the LargePersonGroup - Delete call.
+To delete the **LargePersonGroup** you created in this exercise, run the [LargePersonGroup - Delete](/rest/api/face/person-group-operations/delete-large-person-group) call.
+
+#### [Windows](#tab/windows)
+
+:::code source="~/cognitive-services-quickstart-code/curl/face/detect.ps1" ID="identify_delete":::
+
+#### [Linux](#tab/linux)
 
 :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_delete":::
 
+---
+
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

@@ -3,7 +3,7 @@ title: Azure Functions scale and hosting
 description: Compare the various options you need to consider when choosing a hosting plan in which to run your function app in Azure Functions.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
-ms.date: 05/10/2024
+ms.date: 07/16/2024
 ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024
 ---
 # Azure Functions hosting options
@@ -55,8 +55,8 @@ This table shows operating system support for the hosting options.
 | **[Dedicated plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only |
 | **[Container Apps]** | ✅ Container-only | ❌ Not supported |
 
-<sup>1</sup> Linux is the only supported operating system for the [Python runtime stack](./functions-reference-python.md).  
-<sup>2</sup> Windows deployments are code-only. Functions doesn't currently support Windows containers. 
+1. Linux is the only supported operating system for the [Python runtime stack](./functions-reference-python.md).  
+2. Windows deployments are code-only. Functions doesn't currently support Windows containers. 
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
@@ -75,24 +75,26 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 | **[Flex Consumption plan]** | [Per-function scaling](./flex-consumption-plan.md#per-function-scaling). Event-driven scaling decisions are calculated on a per-function basis, which provides a more deterministic way of scaling the functions in your app. With the exception of HTTP, Blob storage (Event Grid), and Durable Functions, all other function trigger types in your app scale on independent instances. All HTTP triggers in your app scale together as a group on the same instances, as do all Blob storage (Event Grid) triggers. All Durable Functions triggers also share instances and scale together. | Limited only by total memory usage of all instances across a given region. For more information, see [Instance memory](flex-consumption-plan.md#instance-memory).  | 
 | **[Premium plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding more instances of the Functions host, based on the number of events that its functions are triggered on. | **Windows:** 100<br/>**Linux:** 20-100<sup>2</sup>| 
 | **[Dedicated plan]**<sup>3</sup> | Manual/autoscale |10-30<br/>100 (ASE)| 
+| **[Container Apps]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding more instances of the Functions host, based on the number of events that its functions are triggered on. | 300-1000<sup>4</sup>  |
 
-
-<sup>1</sup> During scale-out, there's currently a limit of 500 instances per subscription per hour for Linux apps on a Consumption plan.  <br/>
-<sup>2</sup> In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
-<sup>3</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
+1. During scale-out, there's currently a limit of 500 instances per subscription per hour for Linux apps on a Consumption plan.  <br/>
+2. In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
+3. For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
+4. On Container Apps, the default is 10 instances, but you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which has an overall maximum of 1000. This setting is honored as long as there's enough cores quota available. When you create your function app from the Azure portal you're limited to 300 instances.
 
 ## Cold start behavior
 
 | Plan | Details | 
 | -- | -- |
-| **[Consumption plan]** | Apps can scale to zero when idle, meaning some requests might have more latency at startup. The consumption plan does have some optimizations to help decrease cold start time, including pulling from prewarmed placeholder functions that already have the function host and language processes running. |
+| **[Consumption plan]** | Apps can scale to zero when idle, meaning some requests might have more latency at startup. The consumption plan does have some optimizations to help decrease cold start time, including pulling from prewarmed placeholder functions that already have the host and language processes running. |
 | **[Flex Consumption plan]** | Supports [always ready instances](./flex-consumption-plan.md#always-ready-instances) to reduce the delay when provisioning new instances. |
 | **[Premium plan]** | Supports [always ready instances](./functions-premium-plan.md#always-ready-instances) to avoid cold starts by letting you maintain one or more _perpetually warm_ instances. |
 | **[Dedicated plan]** | When running in a Dedicated plan, the Functions host can run continuously on a prescribed number of instances, which means that cold start isn't really an issue. |
+| **[Container Apps]** | Depends on the [minimum number of replicas](../container-apps/scale-app.md#scale-definition):<br/> • When set to zero: apps can scale to zero when idle and some requests might have more latency at startup.<br/>• When set to one or more: the host process runs continuously, which means that cold start isn't an issue.  | 
 
 ## Service limits
 
-[!INCLUDE [functions-limits](~/reusable-content/ce-skilling/azure/includes/functions-limits.md)]
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]
 
 ## Networking features
 
@@ -106,6 +108,7 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 | **[Flex Consumption plan]** | Billing is based on number of executions, the memory of instances when they're actively executing functions, plus the cost of any [always ready instances](./flex-consumption-plan.md#always-ready-instances). For more information, see [Flex Consumption plan billing](flex-consumption-plan.md#billing).
 | **[Premium plan]** | Premium plan is based on the number of core seconds and memory used across needed and prewarmed instances. At least one instance per plan must always be kept warm. This plan provides the most predictable pricing. |
 | **[Dedicated plan]** | You pay the same for function apps in an App Service Plan as you would for other App Service resources, like web apps.<br/><br/>For an ASE, there's a flat monthly rate that pays for the infrastructure and doesn't change with the size of the environment. There's also a cost per App Service plan vCPU. All apps hosted in an ASE are in the Isolated pricing SKU. For more information, see the [ASE overview article](../app-service/environment/overview.md#pricing). |
+| **[Container Apps]** | Billing in Azure Container Apps is based on your plan type. For more information, see [Billing in Azure Container Apps](../container-apps/billing.md).|  
 
 For a direct cost comparison between dynamic hosting plans (Consumption, Flex Consumption, and Premium), see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). For pricing of the various Dedicated plan options, see the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service). For pricing Container Apps hosting, see [Azure Container Apps pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 

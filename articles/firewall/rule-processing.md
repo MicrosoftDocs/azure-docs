@@ -3,14 +3,14 @@ title: Azure Firewall rule processing logic
 description: Azure Firewall has NAT rules, network rules, and applications rules. The rules are processed according to the rule type.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: article
-ms.date: 06/06/2024
+ms.date: 07/02/2024
 ms.author: victorh
 ---
 
 # Configure Azure Firewall rules
-You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic.
+You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic. The rules are terminating, so rule processing stops on a match.
 
 ## Rule processing using classic rules
 
@@ -24,10 +24,21 @@ With Firewall Policy, rules are organized inside Rule Collections and Rule Colle
 
 Rules are processed based on Rule Collection Group Priority and Rule Collection priority. Priority is any number between 100 (highest priority) to 65,000 (lowest priority). Highest priority Rule Collection Groups are processed first. Inside a rule collection group, Rule Collections with highest priority (lowest number) are processed first.  
 
-If a Firewall Policy is inherited from a parent policy, Rule Collection Groups in the parent policy always takes precedence regardless of the priority of a child policy.  
+If a Firewall Policy is inherited from a parent policy, Rule Collection Groups in the parent policy always takes precedence regardless of the priority of a child policy.
+
+
 
 > [!NOTE]
 > Application rules are always processed after Network rules, which are processed after DNAT rules regardless of Rule collection group or Rule collection priority and policy inheritance.
+
+So, to summarize:
+
+Parent policy always takes precedence.
+
+1. Rule collection groups are processed in priority order.
+1. Rule collections are processed in priority order.
+1. DNAT rules, then Network rules, then Application rules are processed.
+
 
 Here's an example policy:
 
@@ -195,7 +206,7 @@ As a stateful service, Azure Firewall completes a TCP three-way handshake for al
 
 Creating an allow rule from VNet-A to VNet-B doesn't mean that new initiated connections from VNet-B to VNet-A are allowed.
 
-As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. If you create this deny rule, you interrupt the three-way handshake from the initial allow rule from VNet-A to VNet-B. 
+As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. 
 
 ## Next steps
 

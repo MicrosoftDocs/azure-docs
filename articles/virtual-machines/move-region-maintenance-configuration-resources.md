@@ -1,7 +1,7 @@
 ---
 title: Move resources associated with a maintenance configuration to another region
 description: Learn how to move resources associated with a VM maintenance configuration to another Azure region
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
 #Customer intent: As an admin responsible for maintenance, I want move resources associated with a Maintenance Control configuration to another Azure region.

@@ -11,13 +11,13 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-ms.date: 06/11/2024
+ms.date: 07/25/2024
 ---
 
 # Configure a search service to connect using a managed identity in Azure AI Search
 
 > [!IMPORTANT]
-> User-assigned managed identity is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management 2024-03-01-Preview REST API](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity) provides user-assigned managed identities for Azure AI Search. Support for a system-assigned managed identity is generally available.
+> User-assigned managed identity assignment is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management preview REST API](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity) provides user-assigned managed identity assignment for Azure AI Search. Support for a system-assigned managed identity is generally available.
 
 You can use Microsoft Entra ID and role assignments for outbound connections from Azure AI Search to resources providing data, applied AI, or vectorization during indexing or queries. 
 
@@ -52,7 +52,7 @@ A search service uses Azure Storage as an indexer data source and as a data sink
 
 <sup>1</sup> For connectivity between search and storage, your network security configuration imposes constraints on which type of managed identity you can use. Only a system managed identity can be used for a same-region connection to storage via the trusted service exception or resource instance rule. See [Access to a network-protected storage account](search-indexer-securing-resources.md#access-to-a-network-protected-storage-account) for details.
 
-<sup>2</sup> For enrichment caching in Azure table storage, the search service currently can't connect to tables on a storage account that has [shared key access turned off](../storage/common/shared-key-authorization-prevent.md).
+<sup>2</sup> AI search service currently can't connect to tables on a storage account that has [shared key access turned off](../storage/common/shared-key-authorization-prevent.md).
 
 <sup>3</sup> Connections to Azure OpenAI or Azure AI include: [Custom skill](cognitive-search-custom-skill-interface.md), [Custom vectorizer](vector-search-vectorizer-custom-web-api.md), [Azure OpenAI embedding skill](cognitive-search-skill-azure-openai-embedding.md), [Azure OpenAI vectorizer](vector-search-how-to-configure-vectorizer.md), [AML skill](cognitive-search-aml-skill.md), [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), [Azure AI Vision multimodal embeddings skill](cognitive-search-skill-vision-vectorize.md), [Azure AI Vision vectorizer](vector-search-vectorizer-ai-services-vision.md).
 
@@ -138,9 +138,9 @@ A user-assigned managed identity is a resource on Azure. You can create multiple
 Steps are:
 
 + In your Azure subscription, create a user-assigned managed identity.
-+ On your search service, update a search service to use the user-assigned managed identity (this step is in preview).
-+ On other Azure services you want to connect to, create a role assignment.
-+ In data source connections on Azure AI Search, such as an indexer data source, specify a connection that references the user-managed identity (this step is generally available if support for the feature is generally available).
++ On your search service, update the service definition to enable the user-assigned managed identity (this step is in preview).
++ On other Azure services you want to connect to, create a role assignment for the identity.
++ In data source connections on Azure AI Search, such as an indexer data source, reference the user-managed identity in the connection details (this step is generally available if support for the feature is generally available).
 
 A user-assigned managed identity can be scoped to subscriptions, resource groups, or resource types. 
 
@@ -170,12 +170,12 @@ Associating a user-assigned managed identity is supported in the Azure portal, i
 
 ### [**REST API**](#tab/rest-user)
 
-You can use a preview Management REST API instead of the portal to assign a user-assigned managed identity. Use API versions `2021-04-01-preview` or later. This example uses `2024-03-01-preview`.
+You can use a preview Management REST API instead of the portal to assign a user-assigned managed identity. Use API versions `2021-04-01-preview` or later. This example uses `2024-06-01-preview`.
 
-1. Formulate a request to [UPDATE](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity) a search service.
+1. Formulate a request to [UPDATE](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-06-01-preview&preserve-view=true#identity) a search service.
 
     ```http
-    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice?api-version=2024-03-01-preview
+    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice?api-version=2024-06-01-preview
     {
       "location": "[region]",
       "sku": {
@@ -200,6 +200,7 @@ You can use a preview Management REST API instead of the portal to assign a user
    + "type" is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" clears any previously assigned identities from the search service.
 
    + "userAssignedIdentities" includes the details of the user assigned managed identity. This identity [must already exist](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) before you can specify it in the Update Service request.
+  
 
 ---
 
@@ -313,6 +314,7 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
 
  An Azure OpenAI embedding skill and vectorizer in AI Search target the endpoint of an Azure OpenAI service hosting an embedding model. The endpoint is specified in the [Azure OpenAI embedding skill definition](cognitive-search-skill-azure-openai-embedding.md) and/or in the [Azure OpenAI vectorizer definition](vector-search-how-to-configure-vectorizer.md). The system-managed identity is used if configured and if the "apikey" and "authIdentity" are empty. The "authIdentity" property is used for user-assigned managed identity only.
 
+**System-managed identity example:**
  
 ```json
 {
@@ -344,6 +346,51 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
         "resourceUri": "https://url.openai.azure.com",
         "deploymentId": "text-embedding-ada-002",
         "modelName": "text-embedding-ada-002"
+      }
+    }
+  ]
+```
+
+**User-assigned managed identity example:**
+
+```json
+{
+  "@odata.type": "#Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill",
+  "description": "Connects a deployed embedding model.",
+  "resourceUri": "https://url.openai.azure.com/",
+  "deploymentId": "text-embedding-ada-002",
+  "modelName": "text-embedding-ada-002",
+  "inputs": [
+    {
+      "name": "text",
+      "source": "/document/content"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "embedding"
+    }
+  ],
+  "authIdentity": {
+    "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+    "userAssignedIdentity": "/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-managed-identity-name>"
+   }
+}
+```
+
+```json
+ "vectorizers": [
+    {
+      "name": "my_azure_open_ai_vectorizer",
+      "kind": "azureOpenAI",
+      "azureOpenAIParameters": {
+        "resourceUri": "https://url.openai.azure.com",
+        "deploymentId": "text-embedding-ada-002",
+        "modelName": "text-embedding-ada-002"
+        "authIdentity": {
+            "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+            "userAssignedIdentity": "/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-managed-identity-name>"
+          }
       }
     }
   ]

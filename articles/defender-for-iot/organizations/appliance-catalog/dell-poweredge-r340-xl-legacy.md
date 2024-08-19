@@ -156,7 +156,7 @@ Configure the appliance BIOS only if you didn't purchase your appliance from Arr
 
 1. Select **Boot Settings**.
 
-1. For the **Boot Mode** option, select **BIOS**.
+1. For the **Boot Mode** option, select **UEFI**.
 
 1. Select **Back**, and then select **Finish** to exit the BIOS settings.
 

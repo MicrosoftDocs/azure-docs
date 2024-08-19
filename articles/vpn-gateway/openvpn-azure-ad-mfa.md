@@ -1,34 +1,34 @@
 ---
-title: 'Enable MFA for VPN users: Microsoft Entra authentication'
+title: 'Enable MFA for VPN users: Microsoft Entra ID authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn how to enable multifactor authentication (MFA) for VPN users.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 05/15/2024
 ms.author: cherylmc
 
 ---
-# Enable Microsoft Entra multifactor authentication (MFA) for VPN users
+# Enable Microsoft Entra ID multifactor authentication (MFA) for VPN users
 
-[!INCLUDE [overview](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
+[!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
 ## <a name="enableauth"></a>Enable authentication
 
-[!INCLUDE [enable authentication](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-openvpn-enable-auth.md)]
+[!INCLUDE [enable authentication](../../includes/vpn-gateway-vwan-openvpn-enable-auth.md)]
 
 ## <a name="enablesign"></a>Configure sign-in settings
 
-[!INCLUDE [sign in](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-openvpn-sign-in.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-vwan-openvpn-sign-in.md)]
 
 ## <a name="peruser"></a>Option 1 - Per User access
 
-[!INCLUDE [per user](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-openvpn-per-user.md)]
+[!INCLUDE [per user](../../includes/vpn-gateway-vwan-openvpn-per-user.md)]
 
 ## <a name="conditional"></a>Option 2 - Conditional Access
 
-[!INCLUDE [conditional access](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-openvpn-conditional.md)]
+[!INCLUDE [conditional access](../../includes/vpn-gateway-vwan-openvpn-conditional.md)]
 
 ## Next steps
 
-To connect to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+To connect to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](point-to-site-entra-gateway.md#download).

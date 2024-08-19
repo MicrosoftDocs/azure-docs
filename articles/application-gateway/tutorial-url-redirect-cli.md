@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: In this tutorial, you learn how to create an application gateway with URL path-based redirected traffic using the Azure CLI.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 04/27/2023
 ms.author: greglin
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 The following example shows site traffic coming from both ports 8080 and 8081 and being directed to the same backend pools:
 
-![URL routing example](./media/tutorial-url-redirect-cli/scenario.png)
+:::image type="content" source="./media/tutorial-url-redirect-cli/scenario.png" alt-text="Diagram of application gateway URL routing example." lightbox="./media/tutorial-url-redirect-cli/scenario.png":::
 
 If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-url-redirect-powershell.md).
 

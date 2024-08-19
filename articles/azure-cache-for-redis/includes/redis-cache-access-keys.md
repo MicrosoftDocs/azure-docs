@@ -1,13 +1,11 @@
 ---
-title: "include file"
-description: "include file"
-services: cache
 author: flang-msft
-ms.service: cache
-ms.topic: "include"
-ms.date: 04/25/2024
+
+ms.service: azure-cache-redis
+ms.topic: include
+ms.date: 08/16/2024
 ms.author: franlanglois
-ms.custom: "include file"
+ms.topic: include
 ---
 
 ### Retrieve host name, ports, and access keys from the Azure portal

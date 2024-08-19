@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
  
 # Azure Tables bindings for Azure Functions
 
-Azure Functions integrates with [Azure Tables](../cosmos-db/table/introduction.md) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Azure Tables allows you to build functions that read and write data using [Azure Cosmos DB for Table](../cosmos-db/table/introduction.md) and [Azure Table Storage](../storage/tables/table-storage-overview.md).
+Azure Functions integrates with [Azure Tables](/azure/cosmos-db/table/introduction) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Azure Tables allows you to build functions that read and write data using [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction) and [Azure Table Storage](../storage/tables/table-storage-overview.md).
 
 | Action | Type |
 |---------|---------|
@@ -27,7 +27,7 @@ Functions execute in an isolated C# worker process. To learn more, see [Guide fo
 
 # [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 

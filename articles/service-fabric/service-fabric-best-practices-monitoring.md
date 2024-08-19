@@ -4,14 +4,14 @@ description: Best practices and design considerations for monitoring clusters an
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
 
 # Monitoring and diagnostic best practices for Azure Service Fabric
 
-[Monitoring and diagnostics](./service-fabric-diagnostics-overview.md) are critical to developing, testing, and deploying workloads in any cloud environment. For example, you can track how your applications are used, the actions taken by the Service Fabric platform, your resource utilization with performance counters, and the overall health of your cluster. You can use this information to diagnose and correct issues, and prevent them from occurring in the future.
+[Monitoring and diagnostics](monitor-service-fabric.md) are critical to developing, testing, and deploying workloads in any cloud environment. For example, you can track how your applications are used, the actions taken by the Service Fabric platform, your resource utilization with performance counters, and the overall health of your cluster. You can use this information to diagnose and correct issues, and prevent them from occurring in the future.
 
 ## Application monitoring
 
@@ -35,7 +35,7 @@ Generally, a watchdog is a separate service that watches health and load across 
 
 ## Next steps
 
-* Get started instrumenting your applications: [Application level event and log generation](service-fabric-diagnostics-event-generation-app.md).
+* Get started instrumenting your applications: [Application level event and log generation](monitor-service-fabric.md#application-logging).
 * Go through the steps to set up Application Insights for your application with [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
 * Learn more about monitoring the platform and the events Service Fabric provides for you: [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md).
 * Configure Azure Monitor logs integration with Service Fabric: [Set up Azure Monitor logs for a cluster](service-fabric-diagnostics-oms-setup.md)

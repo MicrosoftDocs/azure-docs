@@ -3,12 +3,12 @@ title: Model Catalog and Collections
 titleSuffix: Azure Machine Learning
 description: Overview of models in the model catalog.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: conceptual
-ms.author: timanghn
-author: tinaem
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: timanghn
 ms.custom: references_regions, build-2024
 ms.date: 05/02/2024
 #Customer intent: As a data scientist, I want to learn about models available in the model catalog.
@@ -56,10 +56,10 @@ Network isolation | Managed Virtual Network with Online Endpoints. [Learn more.]
 Model | Managed compute | Serverless API (pay-as-you-go)
 --|--|--
 Llama family models  | Llama-2-7b <br> Llama-2-7b-chat <br> Llama-2-13b <br> Llama-2-13b-chat <br> Llama-2-70b <br> Llama-2-70b-chat <br> Llama-3-8B-Instruct <br> Llama-3-70B-Instruct <br> Llama-3-8B <br> Llama-3-70B | Llama-3-70B-Instruct <br> Llama-3-8B-Instruct <br> Llama-2-7b <br> Llama-2-7b-chat <br> Llama-2-13b <br> Llama-2-13b-chat <br> Llama-2-70b <br> Llama-2-70b-chat 
-Mistral family models | mistralai-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x22B-Instruct-v0-1 <br> mistral-community-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x7B-v01 <br> mistralai-Mistral-7B-Instruct-v0-2 <br> mistralai-Mistral-7B-v01 <br> mistralai-Mixtral-8x7B-Instruct-v01 <br> mistralai-Mistral-7B-Instruct-v01 | Mistral-large <br> Mistral-small
-Cohere family models | Not available | Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual
+Mistral family models | mistralai-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x22B-Instruct-v0-1 <br> mistral-community-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x7B-v01 <br> mistralai-Mistral-7B-Instruct-v0-2 <br> mistralai-Mistral-7B-v01 <br> mistralai-Mixtral-8x7B-Instruct-v01 <br> mistralai-Mistral-7B-Instruct-v01 | Mistral-large (2402) <br> Mistral-large (2407) <br> Mistral-small <br> Mistral-Nemo
+Cohere family models | Not available | Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual <br> Cohere-rerank-3-english <br> Cohere-rerank-3-multilingual
 JAIS | Not available | jais-30b-chat
-Phi3 family models | Phi-3-small-128k-Instruct <br> Phi-3-small-8k-Instruct <br> Phi-3-mini-4k-Instruct <br> Phi-3-mini-128k-Instruct <br> Phi3-medium-128k-instruct <br> Phi3-medium-4k-instruct | Phi-3-mini-4k-Instruct <br> Phi-3-mini-128k-Instruct <br> Phi3-medium-128k-instruct <br> Phi3-medium-4k-instruct <br> Phi-3-vision-128k-instruct 
+Phi3 family models | Phi-3-mini-4k-Instruct <br> Phi-3-mini-128k-Instruct <br> Phi-3-small-8k-Instruct <br> Phi-3-small-128k-Instruct <br> Phi-3-medium-4k-instruct <br> Phi-3-medium-128k-instruct | Phi-3-mini-4k-Instruct <br> Phi-3-mini-128k-Instruct <br> Phi-3-small-8k-Instruct <br> Phi-3-small-128k-Instruct <br> Phi-3-medium-4k-instruct <br> Phi-3-medium-128k-instruct  
 Nixtla | Not available | TimeGEN-1
 Other models | Available | Not available
 
@@ -133,21 +133,34 @@ Azure AI Studio enables users to make use of Vector Indexes and Retrieval Augmen
 
 ### Regional availability of offers and models 
 
-Pay-as-you-go deployment is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see "offer availability region" in the table in the next section). If the offer is available in the relevant region, the user then must have a Workspace in the Azure region where the model is available for deployment or fine-tuning, as applicable (see "Workspace region" columns in the table below). 
+PPay-as-you-go billing is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available. If the offer is available in the relevant region, the user then must have a Hub/Project in the Azure region where the model is available for deployment or fine-tuning, as applicable. See [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md) for detailed information.
 
-Model | Offer availability region | Workspace Region for Deployment | Workspace Region for Finetuning
---|--|--|--
-Llama-3-70B-Instruct <br> Llama-3-8B-Instruct | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
-Llama-2-7b <br> Llama-2-13b <br> Llama-2-70b | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, West US 3 | West US 3
-Llama-2-7b-chat <br> Llama-2-13b-chat <br> Llama-2-70b-chat | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, West US 3 | Not available
-Mistral-Large <br> Mistral Small | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US 2, Sweden Central | Not available
-Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Japan | East US 2, Sweden Central | Not available
+
 
 ### Content safety for models deployed via MaaS  
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning implements a default configuration of [Azure AI Content Safety](../ai-services/content-safety/overview.md) text moderation filters for harmful content (hate, self-harm, sexual, and violence) for language models deployed with MaaS. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering (preview) for individual serverless endpoints when you first deploy a language model or in the deployment details page by selecting the content filtering toggle. You may be at higher risk of exposing users to harmful content if you turn off content filters. 
+[!INCLUDE [content-safety-serverless-models](../ai-studio/includes/content-safety-serverless-models.md)]
+
+### Network isolation for models deployed via Serverless APIs
+
+Endpoints for models deployed as Serverless APIs follow the public network access (PNA) flag setting of the workspace in which the deployment exists. To secure your MaaS endpoint, disable the PNA flag on your workspace. You can secure inbound communication from a client to your endpoint by using a private endpoint for the workspace.
+
+To set the PNA flag for the workspace:
+
+* Go to the [Azure portal](https://ms.portal.azure.com/).
+* Search for _Azure Machine Learning_, and select your workspace from the list of workspaces.
+* On the Overview page, use the left navigation pane to go to **Settings** > **Networking**.
+* Under the **Public access** tab, you can configure settings for the public network access flag.
+* Save your changes. Your changes might take up to five minutes to propagate.
+
+#### Limitations
+
+* If you have a workspace with a private endpoint created before July 11, 2024, new MaaS endpoints added to this workspace won't follow its networking configuration. Instead, you need to create a new private endpoint for the workspace and create new serverless API deployments in the workspace so that the new deployments can follow the workspace's networking configuration. 
+* If you have a workspace with MaaS deployments created before July 11, 2024, and you enable a private endpoint on this workspace, the existing MaaS deployments won't follow the workspace's networking configuration. For serverless API deployments in the workspace to follow the workspace's configuration, you need to create the deployments again.
+* Currently [On Your Data](#rag-with-models-deployed-through-maas) support isn't available for MaaS deployments in private workspaces, since private workspaces have the PNA flag disabled.
+* Any network configuration change (for example, enabling or disabling the PNA flag) might take up to five minutes to propagate.
 
 ## Learn more
 

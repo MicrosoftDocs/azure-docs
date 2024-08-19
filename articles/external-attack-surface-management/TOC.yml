@@ -19,6 +19,8 @@
     href: using-and-managing-discovery.md
   - name: Modifying inventory assets 
     href: modifying-inventory-assets.md
+  - name: Policy engine automation
+    href: policy-engine.md 
   - name: Understand billable assets
     href: understanding-billable-assets.md
   - name: Leveraging data connections

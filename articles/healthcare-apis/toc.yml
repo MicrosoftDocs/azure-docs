@@ -1,3 +1,4 @@
+items:
 - name: Azure Health Data Services documentation
   href: index.yml
 - name: Overview
@@ -6,14 +7,13 @@
     - name: What is Azure Health Data Services?
       href: healthcare-apis-overview.md
     - name: FHIR service
-      displayName: FHIR service
       href: ./fhir/overview.md
     - name: DICOM service
-      displayName: DICOM service
       href: ./dicom/dicom-services-overview.md
     - name: MedTech service
-      displayName: MedTech service
       href: ./iot/overview.md
+    - name: De-identification service
+      href: ./deidentification/overview.md
     - name: Events
       href: ./events/events-overview.md
     - name: Azure API for FHIR
@@ -27,10 +27,10 @@
   items: 
     - name: Workspace overview
       href: workspace-overview.md
-    - name: Workspace quickstart
-      href: healthcare-apis-quickstart.md
     - name: Deployment overview
       href: health-data-services-get-started.md
+    - name: Azure Health Data Services quickstart
+      href: healthcare-apis-quickstart.md
     - name: Deploy services programatically
       href: deploy-healthcare-apis-using-bicep.md
 - name: How-tos
@@ -54,20 +54,20 @@
       href: configure-private-link.md
     - name: Configure events
       href: ./events/events-deploy-portal.md
-    - name: Enable diagnostic logging
+    - name: Enable logging
       href: logging.md
     - name: Built-in policy definitions
       href: azure-health-data-services-policy-reference.md
 - name: Release notes
   expanded: false
   items: 
-    - name: 2024
+    - name: "2024"
       href: release-notes-2024.md
-    - name: 2023
+    - name: "2023"
       href: release-notes-2023.md
-    - name: 2022
+    - name: "2022"
       href: release-notes-2022.md
-    - name: 2021
+    - name: "2021"
       href: release-notes-2021.md
     - name: Known issues
       href: known-issues.md

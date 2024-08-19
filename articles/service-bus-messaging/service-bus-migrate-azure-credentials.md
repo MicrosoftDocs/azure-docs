@@ -6,7 +6,6 @@ author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
 ms.date: 06/12/2023
-ms.service: service-bus-messaging
 ms.topic: how-to
 ms.custom:
 - devx-track-csharp
@@ -131,7 +130,7 @@ Next, update your code to use passwordless connections.
 1. Identify the code that creates a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
 
    ```csharp
-    var serviceBusNamespace = $"https://{namespace}.servicebus.windows.net";
+    var serviceBusNamespace = $"{namespace}.servicebus.windows.net";
     ServiceBusClient client = new(
         serviceBusNamespace,
         new DefaultAzureCredential());
@@ -163,7 +162,7 @@ Next, update your code to use passwordless connections.
     }
 
     serviceBusNamespace := fmt.Sprintf(
-        "https://%s.servicebus.windows.net",
+        "%s.servicebus.windows.net",
         namespace)
     client, err := azservicebus.NewClient(serviceBusNamespace, credential, nil)
 
@@ -202,7 +201,7 @@ Next, update your code to use passwordless connections.
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
         String serviceBusNamespace = 
-            "https://" + namespace + ".servicebus.windows.net";
+            namespace + ".servicebus.windows.net";
     
         ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
             credential,
@@ -218,7 +217,7 @@ Next, update your code to use passwordless connections.
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
         String serviceBusNamespace = 
-            "https://" + namespace + ".servicebus.windows.net";
+            namespace + ".servicebus.windows.net";
     
         ServiceBusReceiverClient receiver = new ServiceBusClientBuilder()
             .credential(serviceBusNamespace, credential)
@@ -234,7 +233,7 @@ Next, update your code to use passwordless connections.
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
         String serviceBusNamespace = 
-            "https://" + namespace + ".servicebus.windows.net";
+            namespace + ".servicebus.windows.net";
     
         ServiceBusSenderClient client = new ServiceBusClientBuilder()
             .credential(serviceBusNamespace, credential)
@@ -261,7 +260,7 @@ Next, update your code to use passwordless connections.
 
     ```nodejs
     const credential = new DefaultAzureCredential();
-    const serviceBusNamespace = `https://${namespace}.servicebus.windows.net`;    
+    const serviceBusNamespace = `${namespace}.servicebus.windows.net`;    
 
     const client = new ServiceBusClient(
       serviceBusNamespace,
@@ -287,7 +286,7 @@ Next, update your code to use passwordless connections.
 
     ```python
     credential = DefaultAzureCredential()
-    service_bus_namespace = "https://%s.servicebus.windows.net" % namespace
+    service_bus_namespace = "%s.servicebus.windows.net" % namespace
 
     client = ServiceBusClient(
         fully_qualified_namespace = service_bus_namespace,
@@ -422,7 +421,7 @@ If you connected your services using the Service Connector you don't need to com
 
 1. Choose **Add role assignment**.
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/passwordless/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/passwordless/migration-add-role.png":::
+   :::image type="content" source="../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../includes/passwordless/media/migration-add-role.png":::
 
 1. In the **Role** search box, search for *Azure Service Bus Data Owner*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Azure Service Bus Data Owner* from the list and choose **Next**.
 
@@ -430,7 +429,7 @@ If you connected your services using the Service Connector you don't need to com
 
 1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/passwordless/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/passwordless/migration-select-identity.png":::
+   :::image type="content" source="../../includes/passwordless/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../../includes/passwordless/media/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 

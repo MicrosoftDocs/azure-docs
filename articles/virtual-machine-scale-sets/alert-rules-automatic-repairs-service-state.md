@@ -4,8 +4,8 @@ description: Learn how to use Azure Alert Rules to get notified of changes to Au
 author: hilaryw29
 ms.author: hilarywang
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
-ms.date: 11/14/2023
+ms.service: azure-virtual-machine-scale-sets
+ms.date: 06/14/2024
 ---
 
 # Use Azure Alert Rules to monitor changes in Automatic Instance Repairs ServiceState

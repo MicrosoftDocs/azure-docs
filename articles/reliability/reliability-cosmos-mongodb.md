@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Cosmos DB for MongoDB vCore
 author: anaharris-ms
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: concept-article
 ms.date: 03/11/2024
@@ -34,26 +34,9 @@ When HA is enabled in a region that supports availability zones, HA replica shar
 If HA is disabled, each shard has its own locally redundant storage (LRS) with three synchronous replicas maintained by Azure Storage service. If there's a single replica failure, the Azure Storage service detects the failure, and transparently re-creates the relevant data. For LRS storage durability, see [Summary of redundancy options](/azure/storage/common/storage-redundancy#summary-of-redundancy-options). However, in the case of a region failure,  you run the risk of extensive downtime and possible data loss.
 
 
-### Prerequisites
-
-Your Azure Cosmos DB for MongoDB vCore cluster must be created in the following regions:
-
--	Australia East  
--	Southeast Asia 
--	Canada Central
--	North Europe
--	UK South
--	West Europe
--	Central US
--	East US
--	East US 2
--	South Central US
--	West US 2
-
-
 ### Create a resource with availability zones enabled
 
-To enable availability zones, you must enable High availability (HA) when [creating a cluster](../cosmos-db/mongodb/vcore/quickstart-portal.md) or in the [**Scale** section of an existing cluster](../cosmos-db/mongodb/vcore/how-to-scale-cluster.md) in the Azure portal.
+To enable availability zones, you must enable High availability (HA) when [creating a cluster](/azure/cosmos-db/mongodb/vcore/quickstart-portal) or in the [**Scale** section of an existing cluster](/azure/cosmos-db/mongodb/vcore/how-to-scale-cluster) in the Azure portal.
 
 
 ## Cross-region disaster recovery and business continuity
@@ -89,6 +72,6 @@ Synchronous replication between the primary and secondary shards guarantees no d
 
 ## Next steps
 
-- Read more about [feature compatibility with MongoDB](../cosmos-db/mongodb/vcore/compatibility.md).
-- Review options for [migrating from MongoDB to Azure Cosmos DB for MongoDB vCore](../cosmos-db/mongodb/vcore/migration-options.md)
-- Get started by [creating an account](../cosmos-db/mongodb/vcore/quickstart-portal.md).
+- Read more about [feature compatibility with MongoDB](/azure/cosmos-db/mongodb/vcore/compatibility).
+- Review options for [migrating from MongoDB to Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/migration-options)
+- Get started by [creating an account](/azure/cosmos-db/mongodb/vcore/quickstart-portal).

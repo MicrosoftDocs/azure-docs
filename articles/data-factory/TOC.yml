@@ -350,8 +350,6 @@ items:
         href: continuous-integration-delivery.md
       - name: Automate with Azure Pipelines releases
         href: continuous-integration-delivery-automate-azure-pipelines.md
-      - name: Automate with GitHub Actions
-        href: continuous-integration-delivery-automate-github-actions.md
       - name: Manually promote a Resource Manager template for each environment
         href: continuous-integration-delivery-manual-promotion.md
       - name: Use custom parameters with a Resource Manager template
@@ -371,7 +369,9 @@ items:
     items:
     - name: Connector overview
       href: connector-overview.md
-    - name: Amazon Marketplace Web Service
+    - name: Connectors to be deprecated
+      href: connector-deprecation-plan.md
+    - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
       href: connector-amazon-rds-for-oracle.md

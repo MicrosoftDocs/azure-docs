@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: zhihaoguo
 ms.date: 01/18/2024
 ms.topic: quickstart
-ms.service: cache
+ms.service: azure-cache-redis
 ms.devlang: java
 ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-track-java, devx-track-extended-java, devx-track-javaee
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
@@ -27,7 +27,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
 ## Create an Azure Cache for Redis
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 

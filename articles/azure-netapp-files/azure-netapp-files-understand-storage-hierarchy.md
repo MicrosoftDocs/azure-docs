@@ -5,18 +5,18 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: overview
-ms.date: 07/27/2023
+ms.date: 07/18/2024
 ms.author: anfdocs
 ---
 # Storage hierarchy of Azure NetApp Files
 
-Before creating a volume in Azure NetApp Files, you must purchase and set up a pool for provisioned capacity.  To set up a capacity pool, you must have a NetApp account. Understanding the storage hierarchy helps you set up and manage your Azure NetApp Files resources.
+Before creating a volume in Azure NetApp Files, you must purchase and set up a pool for provisioned capacity. To set up a capacity pool, you must have a NetApp account. Understanding the storage hierarchy helps you set up and manage your Azure NetApp Files resources.
 
 > [!IMPORTANT] 
 > Azure NetApp Files currently doesn't support resource migration between subscriptions.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
-The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   
+The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools, and volumes.   
 
 :::image type="content" source="./media/azure-netapp-files-understand-storage-hierarchy/azure-netapp-files-storage-hierarchy.png" alt-text="Conceptual diagram of storage hierarchy." lightbox="./media/azure-netapp-files-understand-storage-hierarchy/azure-netapp-files-storage-hierarchy.png":::
 
@@ -73,11 +73,11 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - A volume’s throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual-qos-type).
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
-- Volumes contain a capacity of between 100 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 50 TiB and 500 TiB.
+- Volumes contain a capacity of between 50 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 50 and 1 PiB.
 
 ## Large volumes
 
-Azure NetApp Files allows you to create volumes up to 500 TiB in size. Large volumes begin at a capacity of 50 TiB and scale up to 500 TiB. Regular Azure NetApp Files volumes are offered between 100 GiB and 102,400 GiB. 
+Azure NetApp Files allows you to create large volumes up to 1 PiB in size. Large volumes begin at a capacity of 50 TiB and scale up to 1 PiB. Regular Azure NetApp Files volumes are offered between 50 GiB and 102,400 GiB. 
 
 For more information, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md).
 

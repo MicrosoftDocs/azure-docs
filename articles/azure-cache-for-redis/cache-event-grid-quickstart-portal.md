@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.date: 1/5/2021
 ms.topic: quickstart
-ms.service: cache
+ms.service: azure-cache-redis
 ms.custom: mode-ui
 ---
 
@@ -21,7 +21,7 @@ When you're finished, you'll see that the event data has been sent to the web ap
 
 ## Create an Azure Cache for Redis cache instance
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## Create a message endpoint
 

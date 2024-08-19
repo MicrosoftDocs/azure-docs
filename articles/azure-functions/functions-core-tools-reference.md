@@ -53,7 +53,7 @@ When you supply `<PROJECT_FOLDER>`, the project is created in a new folder with 
 |
 
 > [!NOTE]
-> When you use either `--docker` or `--dockerfile` options, Core Tools automatically create the Dockerfile for C#, JavaScript, Python, and PowerShell functions. For Java functions, you must manually create the Dockerfile. For more information, see [Creating containerized function apps](functions-how-to-custom-container.md#creating-containerized-function-apps).
+> When you use either `--docker` or `--docker-only` options, Core Tools automatically create the Dockerfile for C#, JavaScript, Python, and PowerShell functions. For Java functions, you must manually create the Dockerfile. For more information, see [Creating containerized function apps](functions-how-to-custom-container.md#creating-containerized-function-apps).
 
 ## func logs
 
@@ -86,7 +86,7 @@ The `func new` action supports the following options:
 
 | Option     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--authlevel`** | Lets you set the authorization level for an HTTP trigger. Supported values are: `function`, `anonymous`, `admin`. Authorization isn't enforced when running locally. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). |
+| **`--authlevel`** | Lets you set the authorization level for an HTTP trigger. Supported values are: `function`, `anonymous`, `admin`. Authorization isn't enforced when running locally. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
 | **`--csx`** | (Version 2.x and later versions.) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
 | **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x and later versions, you don't use this option because the language is defined by the worker runtime. |
 | **`--name`**, **`-n`** | The function name. |
@@ -226,7 +226,7 @@ The following publish options apply, based on version:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--access-token`** | Lets you use a specific access token when performing authenticated azure actions. |
+| **`--access-token`** | Lets you use a specific access token when performing authenticated `azure` actions. |
 | **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--build`**, **`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
@@ -278,7 +278,7 @@ The following deployment options apply:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--access-token`** | Lets you use a specific access token when performing authenticated azure actions. |
+| **`--access-token`** | Lets you use a specific access token when performing authenticated `azure` actions. |
 | **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
 | **`--environment`** | The name of an existing Container Apps environment.| 
 | **`--image-build`** | When set to `true`, skips the local Docker build. |
@@ -553,10 +553,10 @@ The following Kubernetes deployment options are available:
 | **`--ignore-errors`** | Continues the deployment after a resource returns an error. The default behavior is to stop on error. |
 | **`--image-name`** | The name of the image to use for the pod deployment and from which to read functions. |
 | **`--keda-version`** | Sets the version of KEDA to install. Valid options are: `v1` and `v2` (default). |
-| **`--keys-secret-name`** | The name of a Kubernetes Secrets collection to use for storing [function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). |
+| **`--keys-secret-name`** | The name of a Kubernetes Secrets collection to use for storing [access keys](function-keys-how-to.md). |
 | **`--max-replicas`** | Sets the maximum replica count for to which the Horizontal Pod Autoscaler (HPA) scales. |
 | **`--min-replicas`** | Sets the minimum replica count below which HPA won't scale. |
-| **`--mount-funckeys-as-containervolume`** | Mounts the [function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys) as a container volume. |
+| **`--mount-funckeys-as-containervolume`** | Mounts the [access keys](function-keys-how-to.md) as a container volume. |
 | **`--name`** | The name used for the deployment and other artifacts in Kubernetes. |
 | **`--namespace`** | Sets the Kubernetes namespace to which to deploy, which defaults to the default namespace. |
 | **`--no-docker`** | Functions are read from the current directory instead of from an image. Requires mounting the image filesystem. |

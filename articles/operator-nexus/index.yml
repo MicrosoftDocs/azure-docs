@@ -11,8 +11,8 @@ metadata:
    Learn how to deploy, manage, and use Operator Nexus with these concepts and quickstarts.
   ms.service: azure-operator-nexus
   ms.topic: landing-page
-  author: jashobhit
-  ms.author: shobhitjain
+  author: scottsteinbrueck
+  ms.author: ssteinbrueck
   ms.date: 01/23/2023
 # linkListType: architecture | concept | how-to-guide | overview | quickstart | reference | tutorial # | whats-new
 
@@ -104,6 +104,8 @@ landingContent:
         links:
            - text: List of metrics collected
              url: List-of-metrics-collected.md
+           - text: List of logs available
+             url: list-logs-available.md
            - text: Near-edge Compute
              url: reference-near-edge-compute.md
            - text: Near-edge BMM roles

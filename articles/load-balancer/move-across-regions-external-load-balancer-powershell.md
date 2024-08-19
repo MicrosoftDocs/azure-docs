@@ -2,9 +2,9 @@
 title: Move Azure external Load Balancer to another Azure region - Azure PowerShell
 description: Use Azure Resource Manager template to move Azure external Load Balancer from one Azure region to another using Azure PowerShell.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 06/27/2024
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell, template-how-to, devx-track-arm-template, engagment-fy23
 ---

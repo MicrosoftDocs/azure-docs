@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.date: 12/28/2023
 ms.topic: quickstart
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 This quickstart shows you how to create an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
 
-:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure PowerShell.":::
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure PowerShell." lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
 
 ## Prerequisites
 
