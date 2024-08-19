@@ -42,6 +42,8 @@ The voice that speaks is determined in order of priority as follows:
 - If both `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` are set, the `SpeechSynthesisLanguage` setting is ignored. The voice that you specify by using `SpeechSynthesisVoiceName` speaks.
 - If the voice element is set by using [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup.md), the `SpeechSynthesisVoiceName` and `SpeechSynthesisLanguage` settings are ignored.
 
+[!INCLUDE [Voice Priority Summary](voice-priority.md)]
+
 ## Synthesize text to speech
 
 # [browserjs](#tab/browserjs)

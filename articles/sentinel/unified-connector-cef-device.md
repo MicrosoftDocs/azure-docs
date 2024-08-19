@@ -10,11 +10,13 @@ ms.date: 06/27/2024
 
 #  CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion
 
-Log collection from many security appliances and devices  are supported by the **Common Event Format (CEF) via AMA** data connector in Microsoft Sentinel. This article lists  provider supplied installation instructions for specific security appliances and devices that use this data connector. Contact the provider for updates, more information, or where information is unavailable for your security appliance or device.
+Log collection from many security appliances and devices is supported by the **Common Event Format (CEF) via AMA** data connector in Microsoft Sentinel. This article lists provider-supplied installation instructions for specific security appliances and devices that use this data connector. Contact the provider for updates, more information, or where information is unavailable for your security appliance or device.
 
-To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). As you complete those steps, install the **Common Event Format (CEF) via AMA** data connector in Microsoft Sentinel. Then, use the appropriate provider's instructions in this article to complete the setup.
+To ingest data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). Those steps include the installation of the **Common Event Format (CEF) via AMA** data connector in Microsoft Sentinel. After the connector is installed, use the instructions appropriate to your device, shown later in this article, to complete the setup.
 
 For more information about the related Microsoft Sentinel solution for each of these appliances or devices, search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for the **Product Type** > **Solution Templates** or review the solution from the **Content hub** in Microsoft Sentinel.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## AI Analyst Darktrace
 

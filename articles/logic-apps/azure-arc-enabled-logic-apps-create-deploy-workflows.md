@@ -23,7 +23,7 @@ For example, this cluster can be Azure Kubernetes Service, bare-metal Kubernetes
 For more information, review the following documentation:
 
 - [What is Azure Arc-enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
-- [Single-tenant versus multitenant and integration service environment](../logic-apps/single-tenant-overview-compare.md)
+- [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)
 - [Azure Arc overview](../azure-arc/overview.md)
 - [Azure Kubernetes Service overview](/azure/aks/intro-kubernetes)
 - [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
@@ -439,7 +439,7 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
             },
             {
                "name": "FUNCTIONS_WORKER_RUNTIME",
-               "value": "node"
+               "value": "dotnet"
             },
             {
                "name": "AzureWebJobsStorage",
@@ -537,7 +537,7 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
             },
             {
                "name": "FUNCTIONS_WORKER_RUNTIME",
-               "value": "node"
+               "value": "dotnet"
             },
             {
                "name": "AzureWebJobsStorage",
@@ -574,6 +574,8 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
    }
 }
 ```
+
+[!INCLUDE [functions-language-runtime](includes/functions-language-runtime.md)]
 
 <a name="include-app-service-plan"></a>
 
