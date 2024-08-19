@@ -56,7 +56,7 @@ For more information about in-place migrations and to see what process is follow
 
 ### Ineligible for auto-migration
 
-There are two scenarios where you might be ineligible for auto-migration. The first scenario is if you're current environment is in a region that doesn't support App Service Environment v3. The other scenario is if you have an App Service Environment v1 in a Classic virtual network. If you're ineligible for auto-migration and can never auto-migrate, the portal displays a message with the reason why you're ineligible. Your App Service Environment is suspended. You must [migrate manually](migration-alternatives.md). **Your old App Service Environment will be automatically deleted in February 2025.**
+There are two scenarios where you might be ineligible for auto-migration. The first scenario is if your current environment is in a region that doesn't support App Service Environment v3. The other scenario is if you have an App Service Environment v1 in a Classic virtual network. If you're ineligible for auto-migration and can never auto-migrate, the portal displays a message with the reason why you're ineligible. Your App Service Environment is suspended. You must [migrate manually](migration-alternatives.md). **Your old App Service Environment will be automatically deleted in February 2025.**
 
 In some cases, you might be temporarily blocked from auto-migration, but you can resolve the blocking issue and enable auto-migration. For example, if you have a resource lock on your App Service Environment, you can remove the resource lock to enable auto-migration. An auto-migration that is blocked by a resource lock, Azure Policy, or networking configuration is automatically suspended. If you need to unsuspend your App Service Environment, open a support ticket.
 
@@ -75,7 +75,7 @@ To limit the effect of auto-migrations, we implemented the following changes to 
 
 ### Outbound IP address preservation
 
-Previously, the outbound IP address of your App Service Environment was changed during the migration process. Now, the outbound IP address of your App Service Environment is preserved during the migration process. The App Service Environment v1/v2 public IP address is preserved and used as the outbound IP address of the App Service Environment v3. However, App Service Environment v3 has two outbound IP addresses. If you have a custom domain suffix configuration and connect to your Azure Key Vault over the public internet, you might still need to account for the other new outbound IP address.
+Previously, the outbound IP address of your App Service Environment was changed during the migration process. Now, the outbound IP address of your App Service Environment is preserved during the migration process. The App Service Environment v1/v2 public IP address is preserved and used as the outbound IP address of the App Service Environment v3. However, App Service Environment v3 has two outbound IP addresses. If you have a custom domain suffix configuration and you connect to your Azure Key Vault over the public internet, you might still need to account for the other new outbound IP address.
 
 For internal load balancer (ILB) App Service Environment migrations, the inbound IP is always preserved. This functionality is the same as before.
 
@@ -83,7 +83,7 @@ For external load balancer (ELB) App Service Environment migrations, the inbound
 
 ### App Service Environment v2 custom domain suffix configuration compatibility
 
-[Custom domain suffix on App Service Environment v3](how-to-custom-domain-suffix.md) is implemented differently than on App Service Environment v2. On App Service Environment v2, the certificate is uploaded directly to the App Service Environment. Additionally, wildcard certificates are allowed. On App Service Environment v3, the certificate must be stored in Azure Key Vault and the App Service Environment must be able to access the key vault. Also, wildcard certificates aren't allowed.
+[Custom domain suffix on App Service Environment v3](how-to-custom-domain-suffix.md) is implemented differently than on App Service Environment v2. On App Service Environment v2, the certificate is uploaded directly to the App Service Environment. Additionally, non-wildcard certificates are allowed. On App Service Environment v3, the certificate must be stored in Azure Key Vault and the App Service Environment must be able to access the key vault. Also, non-wildcard certificates aren't allowed.
 
 To reduce the effect of auto-migrations, we implemented a limited compatibility mode for App Service Environment v2 custom domain suffix configurations on App Service Environment v3. If you have a custom domain suffix configuration on App Service Environment v2, the configuration is migrated to App Service Environment v3. The certificate is uploaded to the App Service Environment v3 and the configuration is updated to use the uploaded certificate. This process is done as a temporary measure and is only valid until the current certificate expires. You must [update the configuration to use Azure Key Vault](how-to-custom-domain-suffix.md) after the migration process is complete and before the certificate expires. If you don't update the configuration, once the certificate expires, the custom domain suffix doesn't work. For more information, see [Custom domain suffix on App Service Environment v3](how-to-custom-domain-suffix.md).
 
@@ -124,7 +124,7 @@ The following are notable changes in App Service Environment v3:
 - IP-based TLS/SSL bindings aren't supported.
 - Custom domain suffix configuration is different.
 - Default domain is always maintained even if you have a custom domain suffix.
-- Wildcard certificates for custom domain suffix aren't allowed.
+- Non-wildcard certificates for custom domain suffix aren't allowed.
 - App Service Environment v3 has two outbound IP addresses.
 - The [available SKUs](https://azure.microsoft.com/pricing/details/app-service/windows/) are different sizes.
 - The [pricing model](overview.md#pricing) is different.
@@ -153,7 +153,7 @@ The following statement represents the Azure App Service Environment v1 and v2 s
 This support policy expires at the end of any extension or grace-period that you have been granted written approval by Microsoft to run the services past the scheduled retirement date. Failure to migrate by that date will result in all remaining Azure App Service Environments v1 and v2 being retired which may include but not be limited to deletion of the apps and data, automated in-place auto-migration, and other retirement procedures. 
 
 The extended support policy includes the following items:  
-- As of September 1, 2024, the [Service Level Agreement (SLA)](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&year=2024) will no longer be applicable for App Service Environment v1 and v2. Through continued use of the product beyond the retirement date, you acknowledge that Azure does not commit to the SLA of 99.95% for the retired environment.
+- As of September 1, 2024, the [Service Level Agreement (SLA)](https://aka.ms/postEOL/ASE/SLA) will no longer be applicable for App Service Environment v1 and v2. Through continued use of the product beyond the retirement date, you acknowledge that Azure does not commit to the SLA of 99.95% for the retired environment.
 - We are committed to maintaining the platform and allowing you to complete your migrations. Therefore, Customer Support Services (CSS) and Product Group (PG) support channels will continue to handle support cases and Critical Response Incidents (CRIs) in a commercially reasonable manner. No new security and compliance investments will be made in App Service Environment v1 and v2. 
 - App Service will continue to patch the operating system and language runtimes in accordance with the platform’s update processes documented [here](../overview-patch-os-runtime.md).
 - App Service will continue to test and validate Azure App Service updates prior to rollout and will continue to follow safe deployment procedures for platform updates.
@@ -166,6 +166,8 @@ We encourage you to complete migration to Azure App Service Environment v3 as so
 
 ## Frequently asked questions
 
+- **Why am I experiencing temporary application outages?**  
+  The Azure platform is preparing for the retirement of Cloud Services (Classic), which is the infrastructure that App Service Environment v1 and v2 run on. As part of this preparation, you should expect temporary outages and service disruptions. To minimize the impact of these disruptions, we recommend that you migrate to App Service Environment v3 as soon as possible.
 - **Why was my App Service Environment auto-migrated?**  
   App Service Environment v1 and v2 are retired and no longer supported. The supporting infrastructure for App Service Environment v1 and v2 is being decommissioned. To ensure that your App Service Environment is running on a supported platform, Microsoft initiates auto-migrations to App Service Environment v3.
 - **What is the downtime during the migration process?**  
