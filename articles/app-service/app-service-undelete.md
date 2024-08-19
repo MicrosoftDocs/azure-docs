@@ -95,7 +95,7 @@ The inputs for command are:
 - **TargetName**: Target app for the deleted app to be restored to
 - **TargetAppServicePlanName**: App Service plan linked to the app
 - **Name**: Name for the app, should be globally unique.
-- **ResourceGroupName**: Original resource group for the deleted app 
+- **ResourceGroupName**: Original resource group for the deleted app , you can get it from Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location> 
 - **Slot**: Slot for the deleted app 
 - **RestoreContentOnly**: By default `Restore-AzDeletedWebApp` restores both your app configuration as well any content. If you want to only restore content, you can use the `-RestoreContentOnly` flag with this commandlet.
 
