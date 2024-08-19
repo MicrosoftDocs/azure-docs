@@ -8,7 +8,13 @@ ms.service: azure-virtual-network
 ms.topic: tutorial
 ms.date: 08/19/2024
 ms.author: allensu
-ms.custom: template-tutorial
+ms.custom: 
+  - template-tutorial
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
 # Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ---
 
@@ -58,26 +64,37 @@ If you choose to install and use PowerShell locally, this article requires the A
 First create a resource group for all the resources created in this article with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group in the _westus2_ location:
 
 ```azurepowershell-interactive
-New-AzResourceGroup -ResourceGroupName test-rg -Location westus2
+$rg = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+}
+
+New-AzResourceGroup @rg
 ```
 
 Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual named _vnet-1_:
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName test-rg `
-  -Location westus2 `
-  -Name vnet-1 `
-  -AddressPrefix 10.0.0.0/16
+$vnet = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    Name = "vnet-1"
+    AddressPrefix = "10.0.0.0/16"
+}
+
+$virtualNetwork = New-AzVirtualNetwork @vnet
 ```
 
 Create a subnet configuration with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), and then write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). The following example adds a subnet named _subnet-1_ to the virtual network and associates the _nsg-1_ network security group to it:
 
 ```azurepowershell-interactive
-Add-AzVirtualNetworkSubnetConfig `
-  -Name subnet-1 `
-  -VirtualNetwork $virtualNetwork `
-  -AddressPrefix "10.0.2.0/24"
+$subnet = @{
+    Name = "subnet-1"
+    VirtualNetwork = $virtualNetwork
+    AddressPrefix = "10.0.2.0/24"
+}
+Add-AzVirtualNetworkSubnetConfig @subnet
+
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
@@ -130,15 +147,19 @@ An [application security group (ASGs)](application-security-groups.md) enables y
 Create an application security group with [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup). An application security group enables you to group servers with similar port filtering requirements. The following example creates two application security groups.
 
 ```azurepowershell-interactive
-$webAsg = New-AzApplicationSecurityGroup `
-  -ResourceGroupName test-rg `
-  -Name asg-web `
-  -Location westus2
+$web = @{
+    ResourceGroupName = "test-rg"
+    Name = "asg-web"
+    Location = "westus2"
+}
+$webAsg = New-AzApplicationSecurityGroup @web
 
-$mgmtAsg = New-AzApplicationSecurityGroup `
-  -ResourceGroupName test-rg `
-  -Name asg-mgmt `
-  -Location westus2
+$mgmt = @{
+    ResourceGroupName = "test-rg"
+    Name = "asg-mgmt"
+    Location = "westus2"
+}
+$mgmtAsg = New-AzApplicationSecurityGroup @mgmt
 ```
 
 ### [CLI](#tab/cli)
@@ -178,10 +199,12 @@ A [network security group (NSG)](network-security-groups-overview.md) secures ne
 Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). The following example creates a network security group named _nsg-1_:
 
 ```powershell-interactive
-$nsg = New-AzNetworkSecurityGroup `
-  -ResourceGroupName test-rg `
-  -Location westus2 `
-  -Name nsg-1
+$nsgParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    Name = "nsg-1"
+}
+$nsg = New-AzNetworkSecurityGroup @nsgParams
 ```
 
 ### [CLI](#tab/cli)
@@ -213,24 +236,20 @@ In this section, you associate the network security group with the subnet of the
 Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to retrieve the virtual network object, and then use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate the network security group with the subnet. The following example retrieves the virtual network object and updates the subnet configuration to associate the network security group:
 
 ```azurepowershell-interactive
-
 # Retrieve the virtual network
 $vnet = Get-AzVirtualNetwork -Name "vnet-1" -ResourceGroupName "test-rg"
 
 # Update the subnet configuration to associate the network security group
 $subnetConfigParams = @{
-  VirtualNetwork       = $vnet
-  Name                 = "subnet-1"
-  AddressPrefix        = $vnet.Subnets[0].AddressPrefix
-  NetworkSecurityGroup = Get-AzNetworkSecurityGroup -Name "nsg-1" -ResourceGroupName "test-rg"
+    VirtualNetwork = $vnet
+    Name = "subnet-1"
+    AddressPrefix = $vnet.Subnets[0].AddressPrefix
+    NetworkSecurityGroup = Get-AzNetworkSecurityGroup -Name "nsg-1" -ResourceGroupName "test-rg"
 }
-
 Set-AzVirtualNetworkSubnetConfig @subnetConfigParams
 
 # Update the virtual network with the new subnet configuration
-
 $vnet | Set-AzVirtualNetwork
-
 ```
 
 ### [CLI](#tab/cli)
@@ -282,29 +301,47 @@ $vnet | Set-AzVirtualNetwork
 Create a security rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). The following example creates a rule that allows traffic inbound from the internet to the _asg-web_ application security group over ports 80 and 443:
 
 ```azurepowershell-interactive
-$webRule = New-AzNetworkSecurityRuleConfig `
-  -Name "Allow-Web-All" `
-  -Access Allow `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 100 `
-  -SourceAddressPrefix Internet `
-  -SourcePortRange * `
-  -DestinationApplicationSecurityGroupId $webAsg.id `
-  -DestinationPortRange 80,443
+$webAsgParams = @{
+    Name = "asg-web"
+    ResourceGroupName = "test-rg"
+}
+$webAsg = Get-AzApplicationSecurityGroup @webAsgParams
 
-The following example creates a rule that allows traffic inbound from the internet to the *myMgmtServers* application security group over port 3389:
+$webRuleParams = @{
+    Name = "Allow-Web-All"
+    Access = "Allow"
+    Protocol = "Tcp"
+    Direction = "Inbound"
+    Priority = 100
+    SourceAddressPrefix = "Internet"
+    SourcePortRange = "*"
+    DestinationApplicationSecurityGroupId = $webAsg.id
+    DestinationPortRange = "80,443"
+}
+$webRule = New-AzNetworkSecurityRuleConfig @webRuleParams
+```
 
-$mgmtRule = New-AzNetworkSecurityRuleConfig `
-  -Name "Allow-RDP-All" `
-  -Access Allow `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 110 `
-  -SourceAddressPrefix Internet `
-  -SourcePortRange * `
-  -DestinationApplicationSecurityGroupId $mgmtAsg.id `
-  -DestinationPortRange 3389
+The following example creates a rule that allows traffic inbound from the internet to the *asg-mgmt* application security group over port 3389:
+
+```azurepowershell-interactive
+$mgmtAsgParams = @{
+    Name = "nsg-mgmt"
+    ResourceGroupName = "test-rg"
+}
+$mgmtAsg = Get-AzApplicationSecurityGroup @mgmtAsgParams
+
+$mgmtRuleParams = @{
+    Name = "Allow-RDP-All"
+    Access = "Allow"
+    Protocol = "Tcp"
+    Direction = "Inbound"
+    Priority = 110
+    SourceAddressPrefix = "Internet"
+    SourcePortRange = "*"
+    DestinationApplicationSecurityGroupId = $mgmtAsg.id
+    DestinationPortRange = 3389
+}
+$mgmtRule = New-AzNetworkSecurityRuleConfig @mgmtRuleParams
 ```
 
 Use [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) to retrieve the existing network security group, and then add the new rules with the `+=` operator. Finally, update the network security group with [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup):
@@ -387,47 +424,57 @@ Create two virtual machines (VMs) in the virtual network.
 Before creating the VMs, retrieve the virtual network object with the subnet with [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork):
 
 ```powershell-interactive
-$virtualNetwork = Get-AzVirtualNetwork `
- -Name vnet-1 `
- -Resourcegroupname test-rg
+$virtualNetworkParams = @{
+    Name = "vnet-1"
+    ResourceGroupName = "test-rg"
+}
+$virtualNetwork = Get-AzVirtualNetwork @virtualNetworkParams
 ```
 
 Create a public IP address for each VM with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress):
 
 ```powershell-interactive
-$publicIpWeb = New-AzPublicIpAddress `
-  -AllocationMethod Dynamic `
-  -ResourceGroupName test-rg `
-  -Location westus2 `
-  -Name vm-web
+$publicIpWebParams = @{
+    AllocationMethod = "Dynamic"
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    Name = "public-ip-vm-web"
+}
+$publicIpWeb = New-AzPublicIpAddress @publicIpWebParams
 
-$publicIpMgmt = New-AzPublicIpAddress `
-  -AllocationMethod Dynamic `
-  -ResourceGroupName test-rg `
-  -Location westus2 `
-  -Name vm-mgmt
+$publicIpMgmtParams = @{
+    AllocationMethod = "Dynamic"
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    Name = "public-ip-vm-mgmt"
+}
+$publicIpMgmt = New-AzPublicIpAddress @publicIpMgmtParams
 ```
 
-Create two network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface), and assign a public IP address to the network interface. The following example creates a network interface, associates the _vm-web_ public IP address to it.
+Create two network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface), and assign a public IP address to the network interface. The following example creates a network interface, associates the _public-ip-vm-web_ public IP address to it.
 
 ```powershell-interactive
-$webNic = New-AzNetworkInterface `
-  -Location westus2 `
-  -Name vm-web `
-  -ResourceGroupName test-rg `
-  -SubnetId $virtualNetwork.Subnets[0].Id `
-  -PublicIpAddressId $publicIpWeb.Id
+$webNicParams = @{
+    Location = "westus2"
+    Name = "vm-web-nic"
+    ResourceGroupName = "test-rg"
+    SubnetId = $virtualNetwork.Subnets[0].Id
+    PublicIpAddressId = $publicIpWeb.Id
+}
+$webNic = New-AzNetworkInterface @webNicParams
 ```
 
-The following example creates a network interface, associates the _vm-mgmt_ public IP address to it.
+The following example creates a network interface, associates the _public-ip-vm-mgmt_ public IP address to it.
 
 ```powershell-interactive
-$mgmtNic = New-AzNetworkInterface `
-  -Location westus2 `
-  -Name vm-mgmt `
-  -ResourceGroupName test-rg `
-  -SubnetId $virtualNetwork.Subnets[0].Id `
-  -PublicIpAddressId $publicIpMgmt.Id
+$mgmtNicParams = @{
+    Location = "westus2"
+    Name = "vm-mgmt-nic"
+    ResourceGroupName = "test-rg"
+    SubnetId = $virtualNetwork.Subnets[0].Id
+    PublicIpAddressId = $publicIpMgmt.Id
+}
+$mgmtNic = New-AzNetworkInterface @mgmtNicParams
 ```
 
 Create two VMs in the virtual network so you can validate traffic filtering in a later step.
@@ -438,24 +485,32 @@ Create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/ne
 # Create user object
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
-$webVmConfig = New-AzVMConfig `
-  -VMName vm-web `
-  -VMSize Standard_DS1_V2 | `
-Set-AzVMOperatingSystem -Windows `
-  -ComputerName vm-web `
-  -Credential $cred | `
-Set-AzVMSourceImage `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2022-Datacenter `
-  -Version latest | `
-Add-AzVMNetworkInterface `
-  -Id $webNic.Id
-New-AzVM `
-  -ResourceGroupName test-rg `
-  -Location westus2 `
-  -VM $webVmConfig `
-  -AsJob
+$webVmConfigParams = @{
+    VMName = "vm-web"
+    VMSize = "Standard_DS1_V2"
+}
+
+$vmOSParams = @{
+    ComputerName = "vm-web"
+    Credential = $cred
+}
+
+$vmImageParams = @{
+    PublisherName = "MicrosoftWindowsServer"
+    Offer = "WindowsServer"
+    Skus = "2022-Datacenter"
+    Version = "latest"
+}
+
+$webVmConfig = New-AzVMConfig @webVmConfigParams | Set-AzVMOperatingSystem -Windows @vmOSParams | Set-AzVMSourceImage @vmImageParams | Add-AzVMNetworkInterface -Id $webNic.Id
+
+$webVmParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    VM = $webVmConfig
+}
+
+New-AzVM @webVmParams -AsJob
 ```
 
 Create a VM to serve as a management server:
@@ -464,24 +519,32 @@ Create a VM to serve as a management server:
 # Create user object
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
-# Create the web server virtual machine configuration and virtual machine.
-$mgmtVmConfig = New-AzVMConfig `
-  -VMName vm-mgmt `
-  -VMSize Standard_DS1_V2 | `
-Set-AzVMOperatingSystem -Windows `
-  -ComputerName vm-mgmt `
-  -Credential $cred | `
-Set-AzVMSourceImage `
-  -PublisherName MicrosoftWindowsServer `
-  -Offer WindowsServer `
-  -Skus 2022-Datacenter `
-  -Version latest | `
-Add-AzVMNetworkInterface `
-  -Id $mgmtNic.Id
-New-AzVM `
-  -ResourceGroupName test-rg `
-  -Location westus2 `
-  -VM $mgmtVmConfig
+$webVmConfigParams = @{
+    VMName = "vm-mgmt"
+    VMSize = "Standard_DS1_V2"
+}
+
+$vmOSParams = @{
+    ComputerName = "vm-mgmt"
+    Credential = $cred
+}
+
+$vmImageParams = @{
+    PublisherName = "MicrosoftWindowsServer"
+    Offer = "WindowsServer"
+    Skus = "2022-Datacenter"
+    Version = "latest"
+}
+
+$mgmtVmConfig = New-AzVMConfig @webVmConfigParams | Set-AzVMOperatingSystem -Windows @vmOSParams | Set-AzVMSourceImage @vmImageParams | Add-AzVMNetworkInterface -Id $mgmtNic.Id
+
+$mgmtVmParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    VM = $mgmtVmConfig
+}
+
+New-AzVM @mgmtVmParams
 ```
 
 The virtual machine takes a few minutes to create. Don't continue with the next step until Azure finishes creating the VM.
@@ -510,36 +573,50 @@ Add the network interface of each VM to one of the application security groups y
 
 ### [PowerShell](#tab/powershell)
 
-Use [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to retrieve the network interface of the virtual machine, and then use [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) to retrieve the application security group. Finally, use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to associate the application security group with the network interface. The following example associates the _asg-web_ application security group with the _vm-web_ network interface:
+Use [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to retrieve the network interface of the virtual machine, and then use [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) to retrieve the application security group. Finally, use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to associate the application security group with the network interface. The following example associates the _asg-web_ application security group with the _vm-web-nic_ network interface:
 
 ```azurepowershell-interactive
-# Retrieve the network interface of the virtual machine
-$nic = Get-AzNetworkInterface -Name "vm-web-nic" -ResourceGroupName "test-rg"
+$params = @{
+    Name = "vm-web-nic"
+    ResourceGroupName = "test-rg"
+}
+$nic = Get-AzNetworkInterface @params
 
-# Retrieve the application security group
-$asg = Get-AzApplicationSecurityGroup -Name "asg-web" -ResourceGroupName "test-rg"
+$params = @{
+    Name = "asg-web"
+    ResourceGroupName = "test-rg"
+}
+$asg = Get-AzApplicationSecurityGroup @params
 
-# Associate the application security group with the network interface
 $nic.IpConfigurations[0].ApplicationSecurityGroups = @($asg)
 
-# Update the network interface with the new configuration
-Set-AzNetworkInterface -NetworkInterface $nic
+$params = @{
+    NetworkInterface = $nic
+}
+Set-AzNetworkInterface @params
 ```
 
-Repeat the command to associate the _asg-mgmt_ application security group with the _vm-mgmt_ network interface.
+Repeat the command to associate the _asg-mgmt_ application security group with the _vm-mgmt-nic_ network interface.
 
 ```azurepowershell-interactive
-# Retrieve the network interface of the virtual machine
-$nic = Get-AzNetworkInterface -Name "vm-mgmt-nic" -ResourceGroupName "test-rg"
+$params = @{
+    Name = "vm-mgmt-nic"
+    ResourceGroupName = "test-rg"
+}
+$nic = Get-AzNetworkInterface @params
 
-# Retrieve the application security group
-$asg = Get-AzApplicationSecurityGroup -Name "asg-mgmt" -ResourceGroupName "test-rg"
+$params = @{
+    Name = "asg-mgmt"
+    ResourceGroupName = "test-rg"
+}
+$asg = Get-AzApplicationSecurityGroup @params
 
-# Associate the application security group with the network interface
 $nic.IpConfigurations[0].ApplicationSecurityGroups = @($asg)
 
-# Update the network interface with the new configuration
-Set-AzNetworkInterface -NetworkInterface $nic
+$params = @{
+    NetworkInterface = $nic
+}
+Set-AzNetworkInterface @params
 ```
 
 ### [CLI](#tab/cli)
@@ -605,10 +682,11 @@ The network interface attached for **vm-web** is associated with the **asg-web**
 Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to return the public IP address of a VM. The following example returns the public IP address of the _vm-mgmt_ VM:
 
 ```azurepowershell-interactive
-Get-AzPublicIpAddress `
-  -Name vm-mgmt `
-  -ResourceGroupName test-rg `
-  | Select IpAddress
+$params = @{
+    Name = "public-ip-vm-mgmt"
+    ResourceGroupName = "test-rg"
+}
+Get-AzPublicIpAddress @params | Select IpAddress
 ```
 
 Use the following command to create a remote desktop session with the _vm-mgmt_ VM from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous command.
@@ -644,10 +722,11 @@ Disconnect from the _vm-mgmt_ VM.
 On your computer, enter the following command from PowerShell to retrieve the public IP address of the _vm-web_ server:
 
 ```azurepowershell-interactive
-Get-AzPublicIpAddress `
-  -Name vm-web `
-  -ResourceGroupName test-rg `
-  | Select IpAddress
+$params = @{
+    Name = "public-ip-vm-web"
+    ResourceGroupName = "test-rg"
+}
+Get-AzPublicIpAddress @params | Select IpAddress
 ```
 
 To confirm that you can access the _vm-web_ web server from outside of Azure, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. The connection succeeds, because port 80 is allowed inbound from the internet to the _asg-web_ application security group that the network interface attached to the _vm-web_ VM is in.
@@ -665,7 +744,11 @@ To confirm that you can access the _vm-web_ web server from outside of Azure, op
 When no longer needed, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name test-rg -Force
+$params = @{
+    Name = "test-rg"
+    Force = $true
+}
+Remove-AzResourceGroup @params
 ```
 
 ### [CLI](#tab/cli)
