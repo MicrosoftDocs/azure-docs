@@ -42,8 +42,8 @@ def from_mic():
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 
     print("Speak into your microphone.")
-    result = speech_recognizer.recognize_once_async().get()
-    print(result.text)
+    speech_recognition_result = speech_recognizer.recognize_once_async().get()
+    print(speech_recognition_result.text)
 
 from_mic()
 ```
@@ -62,27 +62,27 @@ def from_file():
     audio_config = speechsdk.AudioConfig(filename="your_file_name.wav")
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
 
-    result = speech_recognizer.recognize_once_async().get()
-    print(result.text)
+    speech_recognition_result = speech_recognizer.recognize_once_async().get()
+    print(speech_recognition_result.text)
 
 from_file()
 ```
 
 ## Handle errors
 
-The previous examples only get the recognized text from the `result.text` property. To handle errors and other responses, you need to write some code to handle the result. The following code evaluates the [`result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason) property and:
+The previous examples only get the recognized text from the `speech_recognition_result.text` property. To handle errors and other responses, you need to write some code to handle the result. The following code evaluates the [`speech_recognition_result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason) property and:
 
 * Prints the recognition result: `speechsdk.ResultReason.RecognizedSpeech`.
 * If there's no recognition match, it informs the user: `speechsdk.ResultReason.NoMatch`.
 * If an error is encountered, it prints the error message: `speechsdk.ResultReason.Canceled`.
 
 ```Python
-if result.reason == speechsdk.ResultReason.RecognizedSpeech:
-    print("Recognized: {}".format(result.text))
-elif result.reason == speechsdk.ResultReason.NoMatch:
-    print("No speech could be recognized: {}".format(result.no_match_details))
-elif result.reason == speechsdk.ResultReason.Canceled:
-    cancellation_details = result.cancellation_details
+if speech_recognition_result.reason == speechsdk.ResultReason.RecognizedSpeech:
+    print("Recognized: {}".format(speech_recognition_result.text))
+elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
+    print("No speech could be recognized: {}".format(speech_recognition_result.no_match_details))
+elif speech_recognition_result.reason == speechsdk.ResultReason.Canceled:
+    cancellation_details = speech_recognition_result.cancellation_details
     print("Speech Recognition canceled: {}".format(cancellation_details.reason))
     if cancellation_details.reason == speechsdk.CancellationReason.Error:
         print("Error details: {}".format(cancellation_details.error_details))
