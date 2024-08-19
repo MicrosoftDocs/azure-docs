@@ -1,5 +1,5 @@
 ---
-title: MLflow Tracking for Azure Databricks ML experiments
+title: MLflow tracking for Azure Databricks ML experiments
 titleSuffix: Azure Machine Learning
 description: Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks ML experiments.
 services: machine-learning
@@ -30,9 +30,9 @@ In this article, you learn:
 
 - The `azureml-mlflow` package, which handles the connectivity with Azure Machine Learning, including authentication.
 - An [Azure Databricks workspace and cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
-- [An Azure Machine Learning Workspace](quickstart-create-resources.md).
+- An [Azure Machine Learning Workspace](quickstart-create-resources.md).
 
-See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
+See which [access permissions](how-to-assign-roles.md#mlflow-operations) you need to perform your MLflow operations with your workspace.
 
 ### Example notebooks
 
@@ -75,12 +75,12 @@ To link your Azure Databricks workspace to a new or existing Azure Machine Learn
 
    :::image type="content" source="./media/how-to-use-mlflow-azure-databricks/link-workspaces.png" lightbox="./media/how-to-use-mlflow-azure-databricks/link-workspaces.png" alt-text="Screenshot shows the Link Azure Databricks and Azure Machine Learning workspaces option.":::
 
-After you link your Azure Databricks workspace with your Azure Machine Learning workspace, MLflow Tracking is automatically tracked in the following places:
+After you link your Azure Databricks workspace with your Azure Machine Learning workspace, MLflow tracking is automatically tracked in the following places:
 
 - The linked Azure Machine Learning workspace.
 - Your original Azure Databricks workspace.
 
-You can use then MLflow in Azure Databricks in the same way that you're used to. The following example sets the experiment name as usual in Azure Databricks and start logging some parameters:
+You can use then MLflow in Azure Databricks in the same way that you're used to. The following example sets the experiment name as usual in Azure Databricks and start logging some parameters.
 
 ```python
 import mlflow 
@@ -107,20 +107,20 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
 
 #### Configure tracking URI
 
-1. Get the tracking URI for your workspace:
+1. Get the tracking URI for your workspace.
 
    # [Azure CLI](#tab/cli)
 
    [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-   1. Sign in and configure your workspace:
+   1. Sign in and configure your workspace.
 
       ```bash
       az account set --subscription <subscription>
       az configure --defaults workspace=<workspace> group=<resource-group> location=<location> 
       ```
 
-   1. You can get the tracking URI using the `az ml workspace` command:
+   1. You can get the tracking URI using the `az ml workspace` command.
 
       ```bash
       az ml workspace show --query mlflow_tracking_uri
@@ -130,9 +130,9 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
 
    [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-   You can get the Azure Machine Learning MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the compute you're using. The following sample gets the unique MLFLow tracking URI associated with your workspace.
+   You can get the Azure Machine Learning MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the compute that you're using. The following sample gets the unique MLFLow tracking URI associated with your workspace.
 
-   1. Sign in into your workspace using the `MLClient`. The easier way to do that is by using the workspace config file:
+   1. Sign in into your workspace using the `MLClient`. The easier way to do that is by using the workspace config file.
 
       ```python
       from azure.ai.ml import MLClient
@@ -148,7 +148,7 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
       > 1. Select the upper-right corner of the page > **Download config file**.
       > 1. Save the file `config.json` in the same directory where you are working.
 
-      Alternatively, you can use the subscription ID, resource group name, and workspace name to get it:
+      Alternatively, you can use the subscription ID, resource group name, and workspace name to get it.
 
       ```python
       from azure.ai.ml import MLClient
@@ -167,7 +167,7 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
       > [!IMPORTANT]
       > `DefaultAzureCredential` tries to pull the credentials from the available context. If you want to specify credentials in a different way, for instance using the web browser in an interactive way, you can use `InteractiveBrowserCredential` or any other method available in [`azure.identity`](https://pypi.org/project/azure-identity/) package.
 
-   1. Get the Azure Machine Learning Tracking URI:
+   1. Get the Azure Machine Learning Tracking URI.
 
       ```python
       mlflow_tracking_uri = ml_client.workspaces.get(ml_client.workspace_name).mlflow_tracking_uri
@@ -175,7 +175,7 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
 
    # [Studio](#tab/studio)
 
-   Use the Azure Machine Learning portal to get the tracking URI:
+   Use the Azure Machine Learning portal to get the tracking URI.
 
    1. Open the [Azure Machine Learning studio portal](https://ml.azure.com) and sign in using your credentials.
    1. Select the name of your workspace to show the **Directory + Subscription + Workspace** page.
@@ -184,7 +184,7 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
 
    # [Manually](#tab/manual)
 
-   You can construct the Azure Machine Learning Tracking URI using the subscription ID, region of where the resource is deployed, resource group name, and workspace name. The following code sample shows how:
+   You can construct the Azure Machine Learning Tracking URI using the subscription ID, region of where the resource is deployed, resource group name, and workspace name. The following code sample shows how.
 
    > [!WARNING]
    > If you're working in a private link-enabled workspace, the MLflow endpoint also uses a private link to communicate with Azure Machine Learning. Consequently, the tracking URI looks different than shown here. You need to get the tracking URI using the Azure Machine Learning SDK or CLI v2 on those cases.
@@ -198,11 +198,11 @@ Configure the MLflow tracking URI to point exclusively to Azure Machine Learning
    mlflow_tracking_uri = f"azureml://{region}.api.azureml.ms/mlflow/v1.0/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}"
    ```
 
-1. Configure the tracking URI:
+1. Configure the tracking URI.
 
    # [Use MLflow SDK](#tab/mlflow)
 
-   Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
+   The method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
    ```python
    import mlflow
@@ -235,7 +235,7 @@ After you configure tracking, configure how to authenticate to the associated wo
 
 #### Experiment names in Azure Machine Learning
 
-When you configure MLflow to exclusively track experiments in Azure Machine Learning workspace, the experiment naming convention has to follow the one used by Azure Machine Learning. In Azure Databricks, experiments are named with the path to where the experiment is saved, for instance `/Users/alice@contoso.com/iris-classifier`. However, in Azure Machine Learning, you provide the experiment name directly. The same experiment would be named `iris-classifier` directly:
+When you configure MLflow to exclusively track experiments in Azure Machine Learning workspace, the experiment naming convention has to follow the one used by Azure Machine Learning. In Azure Databricks, experiments are named with the path to where the experiment is saved, for instance `/Users/alice@contoso.com/iris-classifier`. However, in Azure Machine Learning, you provide the experiment name directly. The same experiment would be named `iris-classifier` directly.
 
 ```python
 mlflow.set_experiment(experiment_name="experiment-name")
@@ -249,7 +249,7 @@ After this configuration, you can use MLflow in Azure Databricks in the same way
 
 After your model is trained, you can log it to the tracking server with the `mlflow.<model_flavor>.log_model()` method. `<model_flavor>` refers to the framework associated with the model. [Learn what model flavors are supported](https://mlflow.org/docs/latest/models.html#model-api).
 
-In the following example, a model created with the Spark library MLLib is being registered:
+In the following example, a model created with the Spark library MLLib is being registered.
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model")
@@ -264,9 +264,9 @@ Models are logged inside of the run being tracked. That fact means that models a
 
 ## Registering models in the registry with MLflow
 
-As opposite to tracking, model registries can't operate at the same time in Azure Databricks and Azure Machine Learning. They have to use either one or the other. By default, model registries use the Azure Databricks workspace. If you choose to [set MLflow Tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace), the model registry is the Azure Machine Learning workspace.
+As opposed to tracking, model registries can't operate at the same time in Azure Databricks and Azure Machine Learning. They have to use either one or the other. By default, model registries use the Azure Databricks workspace. If you choose to [set MLflow tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace), the model registry is the Azure Machine Learning workspace.
 
-If you use the default configuration, the following code logs a model inside the corresponding runs of both Azure Databricks and Azure Machine Learning, but it registers it only on Azure Databricks:
+If you use the default configuration, the following code logs a model inside the corresponding runs of both Azure Databricks and Azure Machine Learning, but it registers it only on Azure Databricks.
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model", 
@@ -278,7 +278,7 @@ mlflow.spark.log_model(model, artifact_path = "model",
 
 ### Using Azure Machine Learning Registry with MLflow
 
-If you want to use Azure Machine Learning Model Registry instead of Azure Databricks, we recommend that you [set MLflow Tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace). This approach removes the ambiguity of where models are being registered and simplifies the configuration.
+If you want to use Azure Machine Learning Model Registry instead of Azure Databricks, we recommend that you [set MLflow tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace). This approach removes the ambiguity of where models are being registered and simplifies the configuration.
 
 If you want to continue using the dual-tracking capabilities but register models in Azure Machine Learning, you can instruct MLflow to use Azure Machine Learning for model registries by configuring the MLflow Model Registry URI. This URI has the same format and value that the MLflow that tracks URI.
 
@@ -287,7 +287,7 @@ mlflow.set_registry_uri(azureml_mlflow_uri)
 ```
 
 > [!NOTE]
-> The value of `azureml_mlflow_uri` was obtained in the same way as described in [Set MLflow Tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace).
+> The value of `azureml_mlflow_uri` was obtained in the same way as described in [Set MLflow tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace).
 
 For a complete example of this scenario, see [Training models in Azure Databricks and deploying them on Azure Machine Learning](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/track_with_databricks_deploy_aml.ipynb).
 
@@ -326,7 +326,7 @@ pyfunc_udf = mlflow.pyfunc.spark_udf(spark, model_uri)
 
 For more ways to reference models from the registry, see [Loading models from registry](how-to-manage-models-mlflow.md#loading-models-from-registry).
 
-After the model is loaded, you can use to score new data:
+After the model is loaded, you can use this command to score new data.
 
 ```python
 #Load Scoring Data into Spark Dataframe 
@@ -344,7 +344,7 @@ display(preds)
 
 If you want to keep your Azure Databricks workspace, but no longer need the Azure Machine Learning workspace, you can delete the Azure Machine Learning workspace. This action results in unlinking your Azure Databricks workspace and the Azure Machine Learning workspace.
 
-If you don't plan to use the logged metrics and artifacts in your workspace, delete the resource group that contains the storage account and workspace:
+If you don't plan to use the logged metrics and artifacts in your workspace, delete the resource group that contains the storage account and workspace.
 
 1. In the Azure portal, search for *Resource groups*. Under **services**, select **Resource groups**.
 1. In the **Resource groups** list, find and select the resource group that you created to open it.
