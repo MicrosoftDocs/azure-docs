@@ -23,11 +23,11 @@ The next sections describe your two options to control access to your Web PubSub
 - Deny all requests that originate in a public endpoint.
 - Allow only client connections from a public network.
 
-### Deny all public traffic
+## Deny all public traffic
 
 To completely deny all public traffic, first configure the public network rule to allow no request type. Then, configure rules that grant access to traffic from specific virtual networks. This configuration enables you to build a secure network boundary for your applications.
 
-### Allow only client connections from a public network
+## Allow only client connections from a public network
 
 In this scenario, you configure the public network rule to allow only client connections from a public network. You can then configure private network rules to allow other types of requests that originate from a specific virtual network. This configuration hides your app servers on a public network and establishes secure connections between your app servers and Azure Web PubSub.
 

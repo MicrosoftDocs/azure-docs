@@ -25,7 +25,7 @@ You can restrict access to your instance of Azure Web PubSub by turning on diffe
 
 ## Deploy Web PubSub
 
-In this example, you use a function called `func-client-cert` as an event handler to process `connect` events. Clients connect to a hub called `echo`. Here are the Bicep and Azure Resource Manager templates you use to deploy an Azure Web PubSub service with client certificate authentication enabled and event handlers configured.
+In this example, you use a function called `func-client-cert` as an event handler to process `connect` events. Clients connect to a hub called `echo`. The next sections have Bicep and Azure Resource Manager templates that you can use to deploy an Azure Web PubSub service with client certificate authentication enabled and event handlers configured.
 
 The templates enable client certificate authentication via the property `tls.clientCertEnabled`.
 
@@ -140,9 +140,9 @@ resource hub 'Microsoft.SignalRService/WebPubSub/hubs@2023-03-01-preview' = {
 
 ## Validate a client certificate in an event handler
 
-You can validate an incoming client certificate via its SHA-1 thumbprint in the `connect` event. The value is available in `clientCertificates` field. For more information, see [CloudEvents HTTP extension for event handler](reference-cloud-events.md#connect).
+You can validate an incoming client certificate via its SHA-1 thumbprint in the `connect` event. The value is available in `clientCertificates`. For more information, see [CloudEvents HTTP extension for event handler](reference-cloud-events.md#connect).
 
-The following code samples have function codes that you can use to implement validation logic.
+The following code sample has function code that you can use to implement validation logic.
 
 ### JavaScript
 
@@ -174,15 +174,15 @@ module.exports = async function (context, req) {
 }
 ```
 
-## Certificate rotation
+## Rotate the certificate
 
 If you want to rotate the certificate, you can update your event handler code to accept multiple thumbprints.
 
-## Missing client certificate
+## Handle a missing client certificate
 
 Azure Web PubSub doesn't abort a TLS handshake when a client doesn't provide a client certificate. It's up to the event handler to decide whether to accept or reject a connection without a client certificate.
 
 ## Related content
 
-* [How to configure event handler](howto-develop-eventhandler.md)
+* [How to configure an event handler](howto-develop-eventhandler.md)
 * [Golang sample](https://github.com/Azure/azure-webpubsub/blob/main/samples/golang/clientWithCert/Readme.md)

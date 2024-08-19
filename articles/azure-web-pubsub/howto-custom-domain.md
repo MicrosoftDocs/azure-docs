@@ -201,7 +201,7 @@ $ curl -vvv https://contoso.example.com/api/health
 
 The Health API should return a `200` status code without any certificate errors.
 
-## Private network key vault
+## Configure a private network key vault
 
 If you configure a [private endpoint](../private-link/private-endpoint-overview.md) to your key vault, Web PubSub can't access the key vault by using a public network. You must set up a [shared private endpoint](./howto-secure-shared-private-endpoints-key-vault.md) to give Web PubSub access to your key vault via a private network.
 
@@ -209,9 +209,9 @@ After you create a shared private endpoint, you can create a custom certificate 
 
 You don't have to explicitly allow Web PubSub IP addresses in your key vault firewall settings. For more information, see [Key vault private link diagnostics](/azure/key-vault/general/private-link-diagnostics).
 
-## Certificate rotation
+## Rotate the certificate
 
-If you don't specify a secret version when you create a custom certificate, Web PubSub periodically checks for the latest version in the key vault. When a new version is detected, it's automatically applied. The delay is usually within an hour.
+If you don't specify a secret version when you create a custom certificate, Web PubSub periodically checks for the latest version in the key vault. When a new version is detected, it's automatically applied. The delay is typically less than an hour.
 
 Alternatively, you can pin a custom certificate to a specific secret version in your key vault. When you need to apply a new certificate, you can edit the secret version, and then update the custom certificate proactively.
 

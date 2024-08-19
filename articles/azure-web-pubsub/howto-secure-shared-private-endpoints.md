@@ -20,7 +20,7 @@ This article shows you how to configure your Web PubSub resource to send upstrea
 
 This outbound method is subject to the following requirements:
 
-- The network endpoint must be deployed by using Azure App Service or Azure Functions.
+- The upstream endpoint must be deployed by using Azure App Service or Azure Functions.
 - The Web PubSub resource must be on the Standard tier or the Premium tier.
 - An Azure App Service or an Azure Functions resource must be created by choosing a specific tier to create the resource. For more information, see [Use private endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
 

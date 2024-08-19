@@ -1,5 +1,5 @@
 ---
-title: Use a managed identity in Azure Web PubSub
+title: Use a managed identity
 description: Learn how managed identities work in Azure Web PubSub and how to use a managed identity in a serverless scenario.
 author: vicancy
 ms.service: azure-web-pubsub
@@ -8,7 +8,7 @@ ms.date: 08/16/2024
 ms.author: lianwei
 ---
 
-# Use a managed identity in Azure Web PubSub
+# Use a managed identity
 
 This article shows you how to create and use a managed identity for Azure Web PubSub.
 
@@ -51,7 +51,7 @@ Azure Web PubSub is a fully managed service, so you can't use a managed identity
 
 1. Add a system-assigned identity or a user-assigned identity.
 
-1. Go to **Configure hub settings** and add or edit an event handler for the network.
+1. Go to **Configure hub settings** and add or edit an upstream event handler.
 
    :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="Screenshot that shows settings to use on the Configure hub settings pane.":::
 

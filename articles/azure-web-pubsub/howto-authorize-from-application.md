@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 Azure Web PubSub supports Microsoft Entra ID for authorizing requests from [applications](../active-directory/develop/app-objects-and-service-principals.md).
 
-This article shows you how to configure your Web PubSub resource and code to authorize the request to a Web PubSub resource from an Azure application.
+This article shows you how to configure your Web PubSub resource and code to authorize a request to a Web PubSub resource from an Azure application.
 
 ## Register an application
 
@@ -21,11 +21,10 @@ The first step is to register an Azure application.
 1. In the [Azure portal](https://portal.azure.com/), search for and then select **Microsoft Entra ID**
 1. On the left menu under **Manage**, select **App registrations**.
 1. Select **New registration**.
-
-    :::image type="content" source="media/howto-authorize-from-application/register-an-application.png" alt-text="Screenshot that shows registering an application.":::
-
 1. For **Name**, enter a name to use for your application.
-1. Select **Register** to confirm the register.
+1. Select **Register** to confirm the application registration.
+
+:::image type="content" source="media/howto-authorize-from-application/register-an-application.png" alt-text="Screenshot that shows registering an application.":::
 
 When your application is registered, go to the application overview to view the values for **Application (client) ID** and **Directory (tenant) ID**. You use these values in the following sections.
 
@@ -36,6 +35,8 @@ For more information about registering an application, see the quickstart [Regis
 ## Add credentials
 
 You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
+
+For more information about adding credentials, see [Add credentials](../active-directory/develop/quickstart-register-app.md#add-credentials).
 
 ### Add a client secret
 
@@ -48,7 +49,7 @@ To create a client secret:
 
    :::image type="content" source="media/howto-authorize-from-application/new-client-secret.png" alt-text="Screenshot that shows creating a client secret.":::
 
-1. Enter a description for the client secret, and then choose an expire time for the secret.
+1. Enter a description for the client secret, and then choose an **Expires** time for the secret.
 1. Copy the value of the client secret, and then paste it to a secure location to save for later use.
 
    > [!NOTE]
@@ -56,26 +57,24 @@ To create a client secret:
 
 ### Add a certificate
 
-You can also upload a certificate instead of creating a client secret.
+You can upload a certificate instead of creating a client secret.
 
 :::image type="content" source="media/howto-authorize-from-application/upload-certificate.png" alt-text="Screenshot that shows uploading a certificate.":::
-
-For more information about adding credentials, see [Add credentials](../active-directory/develop/quickstart-register-app.md#add-credentials).
 
 ## Add a role assignment in the Azure portal
 
 This section demonstrates how to assign a Web PubSub Service Owner role to a service principal (application) for a Web PubSub resource.
 
 > [!NOTE]
-> You can assign a role to any scope, including management group, subscription, resource group, and single resource. For more information about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
+> You can assign a role to any scope, including management group, subscription, resource group, and single resource. For more information about scope, see [Understand scope for Azure role-based access control](../role-based-access-control/scope-overview.md).
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Web PubSub resource.
 
-1. On the left menu, select **Access control (IAM)** to display access control settings for your Web PubSub resource.
+1. On the left menu, select **Access control (IAM)** to display access control settings for the resource.
 
 1. Select the **Role assignments** tab and view the role assignments at this scope.
 
-   The following screenshot shows an example of the Access control (IAM) pane for a Web PubSub resource:
+   The following figure shows an example of the **Access control (IAM)** pane for a Web PubSub resource:
 
    :::image type="content" source="media/howto-authorize-from-application/access-control.png" alt-text="Screenshot that shows an example of the Access control (IAM) pane.":::
 
@@ -89,9 +88,9 @@ This section demonstrates how to assign a Web PubSub Service Owner role to a ser
 
 1. Select the **Members** tab. Under **Assign access to**, select **User, group, or service principal**.
 
-1. Choose **Select Members**
+1. Choose **Select members**.
 
-1. Search for and select the application that you want to assign the role to.
+1. Search for and select the application to assign the role to.
 
 1. Choose **Select** to confirm the selection.
 
@@ -118,7 +117,7 @@ To learn more about how to assign and manage Azure role assignments, see these a
 
 1. For **Method**, select **GET**.
 
-1. For **URI**, enter `https://login.microsoftonline.com/<TENANT ID>/oauth2/token`. Replace `<TENANT ID>` with the value for **Directory (tenant) ID** on the **Overview** tab of the application you created.
+1. For **URI**, enter `https://login.microsoftonline.com/<TENANT ID>/oauth2/token`. Replace `<TENANT ID>` with the value for **Directory (tenant) ID** on the **Overview** pane of the application you created.
 
 1. Select the **Headers** tab, and then add the following keys and values:
 
@@ -132,8 +131,8 @@ To learn more about how to assign and manage Azure role assignments, see these a
 1. Under **Key**, add the following keys and values:
 
    1. Select **grant_type**, and then select the value **client_credentials**.
-   1. Select **client_id**, and then paste the value of **Application (client) ID** from the **Overview** tab of the application you created.
-   1. Select **client_secret**, and then paste the value of client secret you saved.
+   1. Select **client_id**, and then paste the value of **Application (client) ID** from the **Overview** pane of the application you created.
+   1. Select **client_secret**, and then paste the value of the client secret you saved.
    1. Select **resource**, and then enter `https://webpubsub.azure.com` for the value.
 
    :::image type="content" source="media/howto-authorize-from-application/get-azure-ad-token-using-postman-body.png" alt-text="Screenshot that shows the Body tab parameters when you use Postman to get the token.":::
