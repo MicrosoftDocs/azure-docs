@@ -11,6 +11,7 @@ ms.author: mopeakande
 ms.date: 08/14/2024
 ms.reviewer: cacrest
 ms.custom: devplatv2
+#customer intent: As a data scientist, I want to use Azure Data Factory to handle complex hybrid extract-transform-load, extract-load-transform, and data integration projects.
 ---
 
 # Run batch endpoints from Azure Data Factory
