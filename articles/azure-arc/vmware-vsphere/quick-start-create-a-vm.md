@@ -14,6 +14,8 @@ manager: jsuri
 
 # Create a virtual machine on VMware vCenter using Azure Arc
 
+This article describes how to provision a VM using vCenter resources through Azure.
+
 Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure, and provided you with permissions on those resources, you'll create a virtual machine.
 
 ## Prerequisites
@@ -151,7 +153,7 @@ Follow these steps to create an Arc VMware machine using Terraform. The followin
 ### Scenario 1
 For VMs discovered in vCenter inventory, perform enable in Azure operation and install Arc agents Using InventoryId.
 
-#### Step 1: Define variables in a variables.tf File
+#### Step 1: Define variables in a variables.tf file
 
 Create a file named variables.tf and define all the necessary variables.
 
@@ -370,7 +372,7 @@ By following these steps, you can effectively create and manage HCRP and Arc VMw
 
 Create a new Arc VMware VM using TemplateId, ResourcePoolId, and DatastoreId and install Arc agents.
 
-#### Step 1: Define variables in a variables.tf File
+#### Step 1: Define variables in a variables.tf file
 
 Create a file named variables.tf and define all the necessary variables.
 
