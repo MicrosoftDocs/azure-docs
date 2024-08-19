@@ -7,7 +7,7 @@ author: shaas
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 08/15/2024
+ms.date: 08/19/2024
 ms.author: shaas
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure.  
 ---
@@ -148,8 +148,8 @@ Follow these steps in the [Azure portal](https://portal.azure.com/) to download 
 
 1. On the **Download image** tile, select the virtual device image corresponding to the operating system on the host server used to provision the VM. The image files are approximately 5.6 GB.
 
-   * [VHDX for Hyper-V on Windows Server 2012 R2 and later](https://aka.ms/dbg-rel-vhdx1).
-   * [VMDK for VMware ESXi 6.7, 7.0, or 8.0](https://aka.ms/dbg-rel-vmdk1).
+   * [VHDX for Hyper-V on Windows Server 2012 R2 and later](https://aka.ms/dbe-vhdx-2012).
+   * [VMDK for VMware ESXi 6.7, 7.0, or 8.0](https://aka.ms/dbg-rel-vmdk).
 
     :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-download-image-sml.png" alt-text="Screenshot showing the location of the link used to download a Data Box Gateway virtual device image." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png":::
 
