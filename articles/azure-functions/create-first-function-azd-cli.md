@@ -23,11 +23,19 @@ Because of the Flex Consumption plan, completing this quickstart incurs a small 
 
 + [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
 
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
++ [Azurite storage emulator](../storage/common/storage-use-azurite.md).
 
-+ (Optional) [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) (Only if you want run and debug locally using Visual Studio Code.)
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
+
++ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
+    + Only required to run and debug locally using Visual Studio Code.
+    + Also requires [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). 
 ::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
++ [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). 
+    + Only required When you want run and debug locally using Visual Studio.
+    + Requires the **Azure development** workload be installed.
+
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download).  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
@@ -46,6 +54,7 @@ Because of the Flex Consumption plan, completing this quickstart incurs a small 
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/).
 ::: zone-end  
++ A secure HTTP test tool for sending HTTP GET and HTTP POST requests to your function endpoints. `<<link to source>>`
 
 ## Initialize the project
 
@@ -53,7 +62,7 @@ Because of the Flex Consumption plan, completing this quickstart incurs a small 
 
 The project is maintained in its own GitHub repository. You must first clone the project locally.
 
-::: zone pivot="programming-language-csharp" 
+::: zone pivot="programming-language-csharp"  
 1. In your local terminal or command prompt, run these commands to clone the sample repository:
  
     ```command
@@ -61,7 +70,7 @@ The project is maintained in its own GitHub repository. You must first clone the
     cd functions-quickstart-dotnet-azd/FunctionHttp
     ```
 
-1. Add a file named _local.settings.json_ in the root function app folder (_FunctionHttp_) containing this information, which is required to run locally:
+1. Create a file named _local.settings.json_ in the function app folder (_FunctionHttp_), and add this data to the file, which is required to run locally:
 
     ```json
     {
@@ -180,13 +189,36 @@ sudo apt-get install python3-venv
 
 ::: zone-end
 
-### Run the function locally
+## Run in your local environment  
+::: zone pivot="programming-language-csharp"  
+1. From the terminal or command prompt, use this command to start the Azurite storage emulator: 
 
-* Embed from existing documentation
+    ```command
+    start azurite
+    ``` 
+
+1. In a second terminal or command prompt, run this command in your project's root folder (_FunctionHttp_):
+
+    ```command
+    func start
+    ``` 
+
+    When the Azure Functions host starts in your local project folder, it displays the URL endpoints of the HTTP triggered functions in your project. 
+
+1. From your HTTP test tool in a second terminal or from a browser, call the HTTP GET endpoint, which should look like this URL:
+
+    <http://localhost:7071/api/httpget>
+
+1. From your HTTP test tool in a second terminal, send an HTTP POST request like this example:
+
+    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/text.http" range="5-11":::
+
+You can find examples of both HTTP requests in the test.http project file.  
+::: zone-end
 
 ## Review the code (optional)
 ::: zone pivot="programming-language-csharp"  
-You can review the code that defines the functions:
+You can review the code that defines two HTTP triggered function endpoints:
     
 ### `httpget`
 
@@ -201,42 +233,66 @@ You can review the code that defines the `httpexample` function:
 :::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" :::
 ::: zone-end  
 
-## Deploy the Azure Function to Azure
+## Deploy to Azure
 
-To deploy the function to Azure, use the commands:
+After you've verified your function executions locally, you can publish them to Azure. This project is configured to use the `azd up` command to create the Azure resources required to host the project in a function app running in the Flex Consmption plan. This project uses the best practices for securing an app in the Flex consumption plan, including using only managed identities (instead of stored connection strings) and running in a virtual network.
 
-```
-azd auth login
-```
+1. Before deploying, you must be signed-in to Azure using your account credentials. To sign-in, run this command:
 
-Run the azd up command. This will deploy your Function application and create additional resources for your app in Azure. By using the referenced bicep templates, your project will be secure by default.
+    ```azd
+    azd auth login
+    ```
 
-```
-azd up
-```
+1. Run this command to create the Azure resources and deploy your app to Azure.
 
-Parameter	Description
-* Azure Location: The Azure location where your resources will be deployed.
-* Azure Subscription: The Azure Subscription where your resources will be deployed.
+    ```azd
+    azd up
+    ```
 
-Select your desired values and press enter. The azd up command handles the following tasks for you using the template configuration and infrastructure files:
+1. When prompted, provide these parameters, which are required for deployment:
 
-* Creates and configures all necessary Azure resources (azd provision), including:
-* Access policies and roles for your account
-* Service-to-service communication with Managed Identities
-* Packages and deploys the code (azd deploy)
+    * _Azure location_: Azure region in which to create the resource group that contains the new Azure resources. Only regions that currently support the Flex Consumption plan are shown.
+    * _Azure subscription_: Subscription in which your resources are created. 
+    
+The `azd up` command applies your reponse to these prompts to the Bicep configuration files to perform these two primary tasks:
 
-When the azd up command completes successfully, the CLI displays links to view resources created. You can call azd up as many times as you like to both provision and deploy updates to your application.
++ Create and configure all required Azure resources for secure deployment ([`azd provision`](/azure/developer/azure-developer-cli/reference#azd-provision)), which includes:
+    * Flex Consumption plan and function app.
+    * Azure Storage (required) and Application Insights (recommended).
+    * Access policies and roles for your account.
+    * Service-to-service connections using managed identities (instead of stored connection strings).
+    * Virtual network to securely run both the function app and the other Azure resources.
+* Package and deploy your code to the deployment container ([`azd deploy`](/azure/developer/azure-developer-cli/reference#azd-deploy)).
+
+After the command completes successfully, you see links to the resources created. 
+
+You can run the `azd up` command as many times as you like to both provision and deploy updates to your application. During subsequent executions, existing resources are skipped, but deployed code files are always overwritten by the latest deployment package. 
 
 ## Invoke the function on Azure
 
 Because your function uses an HTTP trigger, you invoke it by making an HTTP request to its URL in the browser or with a tool like curl. 
 
-* Embed from existing documentation
+1. From your HTTP test tool in a second terminal or from a browser, call the HTTP GET endpoint, which should look like this URL:
+
+    <http://localhost:7071/api/httpget>
+
+1. From your HTTP test tool in a second terminal, send an HTTP POST request like this example:
+
+    :::code language="csharp" source="~/functions-quickstart-dotnet-azd/FunctionHttp/text.http" range="5-11":::
+
+## Review Bicep files (optional)
+
+ `<<to-do>>`
 
 ## Clean up resources
 
-`azd down`
+When you are done working with your function app and related resources, you can use this command to delete the function app and its related resources from Azure and avoid incurring any further costs:
+
+```azd
+azd down
+```
+
+This command doesn't affect your source code repository. For more information about Functions costs, see [Estimating Consumption plan costs](../articles/azure-functions/functions-consumption-costs.md).
 
 ## Related content
 
