@@ -3,7 +3,7 @@ title: Parameters in Bicep files
 description: Describes how to define parameters in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/22/2024
+ms.date: 08/16/2024
 ---
 
 # Parameters in Bicep
@@ -22,7 +22,7 @@ For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 If you would rather learn about parameters through step-by-step guidance, see [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters).
 
-## Declaration
+## Declare parameters
 
 Each parameter has a name and [data type](data-types.md). Optionally, you can provide a default value for the parameter.
 
@@ -61,7 +61,7 @@ param storageAccountConfig {
 
 For more information, see [User-defined data types](./user-defined-data-types.md#syntax).
 
-## Default value
+## Set default values
 
 You can specify a default value for a parameter. The default value is used when a value isn't provided during deployment.
 
@@ -87,7 +87,7 @@ output hostingPlanOutput string = hostingPlanName
 
 However, you can't reference a [variable](./variables.md) as the default value.
 
-## Decorators
+## Use decorators
 
 Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration. You can mark a parameter as secure, specify allowed values, set the minimum and maximum length for a string, set the minimum and maximum value for an integer, and provide a description of the parameter.
 
@@ -113,7 +113,7 @@ The following table describes the available decorators and how to use them.
 | [metadata](#metadata) | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
 | [minLength](#length-constraints) | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
 | [minValue](#integer-constraints) | int | int | The minimum value for the integer parameter. This value is inclusive. |
-| [sealed](#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. |
+| [sealed](#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [](./user-defined-data-types.md#elevate-error-level). |
 | [secure](#secure-parameters) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
@@ -169,6 +169,10 @@ When you hover your cursor over **storageAccountName** in VS Code, you see the f
 
 Make sure the text follows proper Markdown formatting; otherwise, it may not display correctly when rendered.
 
+### Discriminator
+
+See [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).
+
 ### Integer constraints
 
 You can set minimum and maximum values for integer parameters. You can set one or both constraints.
@@ -214,6 +218,8 @@ When you provide a `@metadata()` decorator with a property that conflicts with a
 
 ### Sealed
 
+See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
+
 ### Secure parameters
 
 You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
@@ -226,7 +232,7 @@ param demoPassword string
 param demoSecretObject object
 ```
 
-## Use parameter
+## Use parameters
 
 To reference the value for a parameter, use the parameter name. The following example uses a parameter value for a key vault name.
 
@@ -239,7 +245,7 @@ resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
 }
 ```
 
-## Objects as parameters
+## Use objects as parameters
 
 It can be easier to organize related values by passing them in as an object. This approach also reduces the number of parameters in the template.
 

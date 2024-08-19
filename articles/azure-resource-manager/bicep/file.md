@@ -122,10 +122,6 @@ sku: {
 }
 ```
 
-For more information, see [Parameters in Bicep](./parameters.md).
-
-### Parameter decorators
-
 You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but many others are available.
 
 ```bicep
@@ -138,7 +134,7 @@ You can add one or more decorators for each parameter. These decorators describe
 param storageSKU string = 'Standard_LRS'
 ```
 
-For more information, including descriptions of all available decorators, see [Decorators](parameters.md#decorators).
+For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Variables
 

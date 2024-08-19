@@ -114,6 +114,17 @@ The output returns an array with the following values:
 
 For more information about the types of loops you can use with variables, see [Iterative loops in Bicep](loops.md).
 
+## Use decorators
+
+The following table describes the available decorators and how to use them.
+
+| Decorator | Argument | Description |
+| --------- | ----------- | ------- |
+| [description](#description) | string | Text that explains how to use the variable. |
+| [export](./bicep-import.md#export-variables-types-and-functions) | none | Indicates that the variable can be imported by another file. |
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
+
 ## Use variables
 
 The following example shows how to use the variable for a resource property. You reference the value for the variable by providing the variable's name: `storageName`.

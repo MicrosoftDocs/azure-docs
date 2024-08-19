@@ -3,7 +3,7 @@ title: Imports in Bicep
 description: Describes how to import shared functionality and namespaces in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/07/2024
+ms.date: 08/16/2024
 ---
 
 # Imports in Bicep
@@ -12,7 +12,7 @@ This article describes the syntax you use to export and import shared functional
 
 ## Export variables, types, and functions
 
-The `@export()` decorator indicates that a given statement can be imported by another file. This decorator is only valid on type, variable, and function statements. Variable statements marked with `@export()` must be compile-time constants.
+The `@export()` decorator indicates that a given statement can be imported by another file. This decorator is only valid on [`type`](./user-defined-data-types.md), [`var`](./variables.md), and [`func`](./user-defined-functions.md) statements. Variable statements marked with `@export()` must be compile-time constants.
 
 The syntax for exporting functionality for use in other Bicep files is:
 
@@ -21,7 +21,7 @@ The syntax for exporting functionality for use in other Bicep files is:
 <statement_to_export>
 ```
 
-## Import variable, types, and functions
+## Import variables, types, and functions
 
 The syntax for importing functionality from another Bicep file is:
 

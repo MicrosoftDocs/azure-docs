@@ -5,7 +5,7 @@ description: Learn how to create or modify a custom audience App ID or upgrade a
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 08/09/2024
+ms.date: 08/14/2024
 ms.author: cherylmc
 ---
 
@@ -17,9 +17,11 @@ When you configure a custom audience app ID, you can use any of the supported va
 
 This article provides high-level steps. The screenshots to register an application might be slightly different, depending on the way you access the user interface, but the settings are the same. For more information, see [Quickstart: Register an application](/entra/identity-platform/quickstart-register-app). For more information about Microsoft Entra ID authentication for P2S, see [Microsoft Entra ID authentication for P2S](point-to-site-about.md#entra-id).
 
+If you're configuring a custom audience app ID in order to configure or restrict access based on users and groups, see [Scenario: Configure P2S access based on users and groups - Microsoft Entra ID authentication](point-to-site-entra-users-access.md). The scenario article outlines the workflow and steps to assign permissions.
+
 ## Prerequisites
 
-* This article assumes that you already have a Microsoft Entra tenant and the permissions to create an Enterprise Application, typically the Cloud Application administrator role or higher. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant) and [Assign user roles with Microsoft Entra ID](/entra/fundamentals/users-assign-role-azure-portal).
+* This article assumes that you already have a Microsoft Entra tenant and the permissions to create an Enterprise Application, typically the [Cloud Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) or higher. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant) and [Assign user roles with Microsoft Entra ID](/entra/fundamentals/users-assign-role-azure-portal).
 
 * This article assumes that you're using the **Microsoft-registered App ID Azure Public** audience value `c632b3df-fb67-4d84-bdcf-b95ad541b5c8` to configure your custom app. This value has global consent, which means you don't need to manually register it to provide consent for your organization. We recommend that you use this value.
 
@@ -27,14 +29,14 @@ This article provides high-level steps. The screenshots to register an applicati
 
   * If the Microsoft-registered audience value isn't compatible with your configuration, you can still use the older manually registered ID values.
 
-* If you need to use a manually registered app ID value instead, you must give consent to allow the app to sign in and read user profiles before proceeding with this configuration.
+* If you need to use a manually registered app ID value instead, you must give consent to allow the app to sign in and read user profiles before proceeding with this configuration. You must sign in with an account that's assigned the [Cloud Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
 
   1. To grant admin consent for your organization, modify the following command to contain the desired `client_id` value. In the example, the client_id value is for Azure Public. See the [table](point-to-site-about.md#entra-id) for additional supported values.
 
      ```https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent```
 
   1. Copy and paste the URL that pertains to your deployment location in the address bar of your browser.
-  1. Select the account that has the **Global administrator** role if prompted.
+  1. Select the account that has the [Cloud Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) if prompted.
   1. On the **Permissions** requested page, select **Accept**.
 
 [!INCLUDE [Configure custom audience](../../includes/vpn-gateway-custom-audience.md)]
