@@ -11,6 +11,7 @@ ms.subservice: mlops
 ms.date: 08/16/2024
 ms.topic: how-to
 ms.custom: devx-track-python, mlflow
+#customer intent: As a data scientist, I want to convert a model to an MLflow format to use the benefits of MLflow.
 ---
 
 # Convert custom ML models to MLflow formatted models
