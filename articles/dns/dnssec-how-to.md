@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 08/19/2024
 ms.author: greglin
 ---
 
@@ -15,16 +15,110 @@ This article shows you how to sign your DNS zone with DNSSEC using the Azure por
 
 ## Prerequisites
 
-* The DNS zone must be hosted by Azure public DNS.
+* The DNS zone must be hosted by Azure Public DNS. For more information, see [Manage DNS zones](/azure/dns/dns-operations-dnszones-portal).
+* The parent DNS zone must be signed with DNSSEC. Most major top level domains (.com, .net, .org) are signed.
 * You must register to the public preview for DNSSEC. 
 
 ## Register to the preview
 
-To register ...
+# [Azure portal](#tab/register-portal)
+
+Use the following steps to enroll into the public preview for DNSSEC zone signing via the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the search box, enter _subscriptions_ and select **Subscriptions**.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Azure portal search.":::
+
+3. Select the link for your subscription's name.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
+
+4. From the left menu, under **Settings** select **Preview features**.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
+
+5. You see a list of available preview features and your current registration status.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
+
+6. From **Preview features** type into the filter box **AllowDnsSecSigning**, check the feature, and click **Register**.
+
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
+
+# [Azure CLI](#tab/register-cli)
+
+Register for the preview using the Azure CLI:
+
+```azurepowershell-interactive
+Set-AzContext -Subscription <subscription-id>
+Get-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace "Microsoft.Network"
+Register-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace Microsoft.Network
+```
 
 ## Sign a zone with DNSSEC
 
-To sign a DNS zone with DNSSEC, ...
+To protect your DNS zone with DNSSEC, you must first sign the zone. The zone signing process creates a delegation signer (DS) record that must then be added to the parent zone.
+
+### Zone signing
+
+# [Azure portal](#tab/sign-portal)
+
+To sign your zone with DNSSEC using the Azure portal:
+
+1. On the Azure portal Home page, search for and select **DNS zones**.
+2. Select your DNS zone, and then from the zone's **Overview** page, select **DNSSEC**. You can select DNSSEC from the menu at the top, or under **DNS Management**.
+
+    ![Screenshot of how to select DNSSEC.](media/dnssec-how-to/select-dnssec.png)
+
+3. Select the **Enable DNSSEC** checkbox and then select **OK**.
+
+    ![Screenshot of confirmation to sign the zone.](media/dnssec-how-to/confirm-dnssec.png)
+
+4. The zone is signed and DNSSEC delegation information is displayed. 
+
+    `![Screenshot of a signed zone with DS record missing.](media/dnssec-how-to/ds-missing.png)
+
+5. Copy the delegation information and use it to create a DS record in the parent zone. 
+
+    1. If the parent zone is a top level domain or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has it's own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
+
+        Key Tag: 4535
+        Algorithm: 13
+        Digest Type: 2
+        Digest: 7A1C9811A965C46319D94D1D4BC6321762B632133F196F876C65802EC5089001
+
+    2. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows adding a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are hosted using Azure Public DNS:
+
+        ![Screenshot of adding a DS record to the parent zone.](media/dnssec-how-to/ds-add.png)
+        ![Screenshot of a DS record in the parent zone.](media/dnssec-how-to/ds-added.png)
+
+
+# [Azure CLI](#tab/sign-cli)
+
+Register for the preview using the Azure CLI:
+
+```azurepowershell-interactive
+Set-AzContext -Subscription <subscription-id>
+Get-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace "Microsoft.Network"
+Register-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace Microsoft.Network
+```
+
+# [Azure CLI](#tab/sign-powershell)
+
+Register for the preview using PowerShell:
+
+```azurepowershell-interactive
+Set-AzContext -Subscription <subscription-id>
+Get-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace "Microsoft.Network"
+Register-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace Microsoft.Network
+```
+
+### Add the DS record to the parent zone
+
+After the zone is signed with DNSSEC, you can view the DS record using the Azure portal or with a command line.
+
+To view the DS record in the Azure portal, 
 
 ## Next steps
 
