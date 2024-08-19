@@ -9,9 +9,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Create and deploy functions to Azure Functions using the Azure Developer CLI
 
-In this Quickstart, you use Azure Developer command-line tools to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+In this Quickstart, you use Azure Developer command-line tools to create functions that respond to HTTP requests. After testing the code locally, you deploy it to a new serverless function app you create running in a Flex Consumption plan in Azure Functions. 
 
-The project you acquire is configured to use the Azure Developer CLI (azd). This command-line interface simplies the process to create your function app and required resources in Azure and deploy your code using the `azd up` command. The deployment creates a function app running on the Flex Consumption plan in a virtual network. Connections between services are made using managed identities instead of stored connection strings. This deployment follows current best practices for secure and scalable Azure Functions deployments.
+The project source uses the Azure Developer CLI (azd) to simplify deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
 
 [!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
