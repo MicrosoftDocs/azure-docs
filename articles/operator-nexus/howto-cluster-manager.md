@@ -62,7 +62,7 @@ The role assignment can be done via Portal:
 - Open Azure Portal and locate User-assigned identity in question.
   - If you expect multiple managed identities provisioned, the role can be added instead at the resource group or subscription level.
 - Under `Access control (IAM)`, click Add new role assignment
-- Select Role: `Managed Identity Operator`. See the [permissions](../role-based-access-control/built-in-roles/identity#managed-identity-operator) that the role provides.
+- Select Role: `Managed Identity Operator`. See the [permissions](../role-based-access-control/built-in-roles/identity.md#managed-identity-operator) that the role provides.
 - Assign access to: User, group, or service principal
 - Select Member: `AFOI-NC-MGMT-PME-PROD` application
 - Review and assign
