@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 03/02/2024
 ms.author: anfdocs
 ---
 # Linux direct I/O best practices for Azure NetApp Files

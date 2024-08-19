@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 03/24/2024
 ms.author: anfdocs
 ---
 # Azure NetApp Files performance benchmarks for Linux

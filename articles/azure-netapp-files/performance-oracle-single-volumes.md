@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 02/04/2024
 ms.author: anfdocs
 ---
 # Oracle database performance on Azure NetApp Files single volumes
