@@ -152,7 +152,7 @@ For example, this iframe allows both camera and microphone access:
 - Support for Java 7 or higher
 - Support for Android Studio 2.0
 
-We highly recommend identifying and validating your scenario by visiting the supported [Calling Android platforms](../sdk-options.md?android-calling-sdk-support)
+We highly recommend identifying and validating your scenario by visiting the supported [Calling Android platforms](../sdk-options.md?#android-calling-sdk-support)
 
 ## iOS Calling SDK support
 
