@@ -1,7 +1,7 @@
 ---
-title: Enable client certificate authentication for Azure Web PubSub (Preview)
-titleSuffix: Azure Web PubSub Service
-description: Learn how to enable client certificate authentication for Azure Web PubSub (Preview)
+title: Turn on client certificate authentication (preview)
+titleSuffix: Azure Web PubSub
+description: Learn how to turn on client certificate authentication for Azure Web PubSub (preview).
 author: ArchangelSDY
 ms.service: azure-web-pubsub
 ms.topic: how-to
@@ -9,9 +9,9 @@ ms.date: 06/20/2023
 ms.author: dayshen
 ---
 
-# Enable client certificate authentication for Azure Web PubSub (Preview)
+# Turn on client certificate authentication (preview)
 
-You can restrict access to your instance of Azure Web PubSub by enabling different types of authentication for it. One authentication method is to request a client certificate and validate the certificate in event handlers. This mechanism is called *client certificate authentication* or *Transport Layer Security (TLS) mutual authentication*. This article shows you how to set up your Web PubSub instance to use client certificate authentication.
+You can restrict access to your instance of Azure Web PubSub by turning on different types of authentication for the resource. One authentication method is to request a client certificate and validate the certificate in event handlers. This mechanism is called *client certificate authentication* or *Transport Layer Security (TLS) mutual authentication*. This article shows you how to set up your Web PubSub instance to use client certificate authentication.
 
 > [!NOTE]
 > Enabling client certificate authentication in a browser scenario generally is not recommended. Different browsers have different behaviors when they process a client certificate request, and you have little control in a JavaScript application. If you want to enable client certificate authentication, we recommend that you use it in scenarios in which you have strong control over TLS settings. An example is in a native application.
@@ -19,7 +19,7 @@ You can restrict access to your instance of Azure Web PubSub by enabling differe
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/free/).
-* An Azure Web PubSub instance (must be minimum Standard tier).
+* An Azure Web PubSub instance at a minimum Standard tier.
 * A function created in Azure Functions to handle connect events.
 * A client certificate. You need to know its SHA-1 thumbprint.
 

@@ -1,6 +1,6 @@
 ---
-title: Authorize a managed identity request to Web PubSub resources
-description: Learn how to authorize a managed identity request to Web PubSub resources by using Microsoft Entra ID.
+title: Authorize a managed identity request
+description: Learn how to authorize a managed identity request to your Web PubSub resources by using Microsoft Entra ID.
 author: terencefan
 ms.author: tefa
 ms.date: 08/16/2024
@@ -8,24 +8,24 @@ ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
 
-# Authorize a managed identity request to Web PubSub resources by using Microsoft Entra ID
+# Authorize a managed identity request by using Microsoft Entra ID
 
 Azure Web PubSub Service supports Microsoft Entra ID for authorizing requests from [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-This article shows you how to configure your Web PubSub resource and codes to authorize the request to a Web PubSub resource from a managed identity.
+This article shows you how to configure your Web PubSub resource and code to authorize the request to a Web PubSub resource from a managed identity.
 
 ## Configure managed identities
 
 The first step is to configure managed identities.
 
-In this section, you set a system-assigned managed identity on a virtual machine by using the Azure portal.
+In this section, you set up a system-assigned managed identity on a virtual machine by using the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), search for and then select a virtual machine (VM).
 1. Under **Settings**, select **Identity**.
 1. On the **System assigned** tab, set **Status** to **On**.
 
    ![Screenshot that shows creating a system identity for a virtual machine.](./media/howto-authorize-from-managed-identity/identity-virtual-machine.png)
-1. Select the **Save** button to confirm the change.
+1. Select **Save** to confirm the change.
 
 ### Create a user-assigned managed identity
 
@@ -37,7 +37,7 @@ Learn how to [create a user-assigned managed identity](../active-directory/manag
 - [Configure managed identities for Azure resources on an Azure VM by using Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Configure managed identities for Azure resources on an Azure VM by using the Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Configure managed identities for Azure resources on an Azure VM by using a template](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Configure a VM with managed identities for Azure resources by using an Azure SDK](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Configure managed identities for Azure resources on a VM by using the Azure SDK](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ### Configure managed identities for Azure App Service and Azure Functions
 
@@ -52,7 +52,7 @@ This section demonstrates how to assign the Web PubSub Service Owner role to a s
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Web PubSub resource.
 
-1. On the left menu, select **Access control (IAM)** to display access control settings for your Web PubSub service.
+1. On the left menu, select **Access control (IAM)** to display access control settings for your Web PubSub instance.
 
 1. Select the **Role assignments** tab and view the role assignments at this scope.
 

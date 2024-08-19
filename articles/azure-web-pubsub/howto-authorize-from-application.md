@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 Azure Web PubSub supports Microsoft Entra ID for authorizing requests from [applications](../active-directory/develop/app-objects-and-service-principals.md).
 
-This article shows you how to configure your Web PubSub resource and codes to authorize the request to a Web PubSub resource from an Azure application.
+This article shows you how to configure your Web PubSub resource and code to authorize the request to a Web PubSub resource from an Azure application.
 
 ## Register an application
 
@@ -24,10 +24,10 @@ The first step is to register an Azure application.
 
    ![Screenshot that shows registering an application.](./media/howto-authorize-from-application/register-an-application.png)
 
-1. Enter a display **Name** for your application.
+1. For **Name**, enter a name to use for your application.
 1. Select **Register** to confirm the register.
 
-When your application is registered, go to the application **Overview** pane to view the values for **Application (client) ID** and **Directory (tenant) ID**. You use these values in the following sections.
+When your application is registered, go to the application overview to view the values for **Application (client) ID** and **Directory (tenant) ID**. You use these values in the following sections.
 
 ![Screenshot that shows an application.](./media/howto-authorize-from-application/application-overview.png)
 
@@ -59,7 +59,7 @@ You can also upload a certificate instead of creating a client secret.
 
 ![Screenshot that shows uploading a certificate.](./media/howto-authorize-from-application/upload-certificate.png)
 
-For information about adding credentials, see [Add credentials](../active-directory/develop/quickstart-register-app.md#add-credentials).
+For more information about adding credentials, see [Add credentials](../active-directory/develop/quickstart-register-app.md#add-credentials).
 
 ## Add a role assignment in the Azure portal
 
