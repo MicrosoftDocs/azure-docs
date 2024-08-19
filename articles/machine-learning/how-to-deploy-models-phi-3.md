@@ -1461,6 +1461,7 @@ It is a good practice to start with a low number of instances and scale up as ne
 
 ## Related content
 
+- [Azure AI Model Inference API](reference-model-inference-api.md)
 - [Model Catalog and Collections](concept-model-catalog.md)
 - [Deploy models as serverless API endpoints](how-to-deploy-models-serverless.md)
 - [Plan and manage costs for Azure AI Studio](concept-plan-manage-cost.md)

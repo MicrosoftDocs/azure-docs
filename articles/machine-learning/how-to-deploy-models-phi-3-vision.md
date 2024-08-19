@@ -1,8 +1,9 @@
 ---
-title: How to use Phi-3 chat model with vision with Azure AI Studio
-titleSuffix: Azure AI Studio
-description: Learn how to use Phi-3 chat model with vision with Azure AI Studio.
-ms.service: azure-ai-studio
+title: How to use Phi-3 chat model with vision with Azure Machine Learning
+titleSuffix: Azure Machine Learning
+description: Learn how to use Phi-3 chat model with vision with Azure Machine Learning.
+ms.service: azure-machine-learning
+ms.subservice: inferencing
 manager: scottpolly
 ms.topic: how-to
 ms.date: 08/19/2024
@@ -14,14 +15,12 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Phi-3 chat model with vision
-
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+# How to use Phi-3 chat model with vision with Azure Machine Learning
 
 In this article, you learn about Phi-3 chat model with vision and how to use them.
 The Phi-3 family of small language models (SLMs) is a collection of instruction-tuned generative text models.
 
-
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ::: zone pivot="programming-language-python"
 
@@ -32,12 +31,11 @@ Phi-3 Vision is a lightweight, state-of-the-art, open multimodal model. The mode
 
 You can learn more about the models in their respective model card:
 
-* [Phi-3-vision-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-vision-128k-Instruct)
-
+* Phi-3-vision-128k-Instruct
 
 ## Prerequisites
 
-To use Phi-3 chat model with vision with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 chat model with vision with Azure Machine Learning, you need the following prerequisites:
 
 ### A model deployment
 
@@ -48,7 +46,7 @@ Phi-3 chat model with vision can be deployed to our self-hosted managed inferenc
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### The inference package installed
 
@@ -68,10 +66,10 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 
 ## Work with chat completions
 
-In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+In this section, you use the [Azure AI Model Inference API](reference-model-inference-api.md) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat model with vision.
+> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -143,7 +141,7 @@ response = client.complete(
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -357,7 +355,7 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 chat model with vision with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 chat model with vision with Azure Machine Learning studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -368,7 +366,7 @@ Phi-3 chat model with vision can be deployed to our self-hosted managed inferenc
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### The inference package installed
 
@@ -386,10 +384,10 @@ npm install @azure-rest/ai-inference
 
 ## Work with chat completions
 
-In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+In this section, you use the [Azure AI Model Inference API](reference-model-inference-api.md) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat model with vision.
+> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -463,7 +461,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -700,7 +698,7 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 chat model with vision with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 chat model with vision with Azure Machine Learning studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -711,7 +709,7 @@ Phi-3 chat model with vision can be deployed to our self-hosted managed inferenc
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### The inference package installed
 
@@ -752,10 +750,10 @@ using System.Reflection;
 
 ## Work with chat completions
 
-In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+In this section, you use the [Azure AI Model Inference API](reference-model-inference-api.md) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat model with vision.
+> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -820,7 +818,7 @@ Response<ChatCompletions> response = client.Complete(requestOptions);
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -1040,7 +1038,7 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3 chat model with vision with Azure AI Studio, you need the following prerequisites:
+To use Phi-3 chat model with vision with Azure Machine Learning studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -1051,21 +1049,21 @@ Phi-3 chat model with vision can be deployed to our self-hosted managed inferenc
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### A REST client
 
-Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
+Models deployed with the [Azure AI Model Inference API](reference-model-inference-api.md) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
 * To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
 ## Work with chat completions
 
-In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+In this section, you use the [Azure AI Model Inference API](reference-model-inference-api.md) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3 chat model with vision.
+> The [Azure AI Model Inference API](reference-model-inference-api.md) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3 chat model with vision.
 
 ### Create a client to consume the model
 
@@ -1115,7 +1113,7 @@ The following example shows how you can create a basic chat completions request 
 ```
 
 > [!NOTE]
-> Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -1421,9 +1419,8 @@ It is a good practice to start with a low number of instances and scale up as ne
 
 ## Related content
 
-
-* [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
-* [Deploy models as serverless APIs](deploy-models-serverless.md)
-* [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
-* [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
-* [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)
+* [Azure AI Model Inference API](reference-model-inference-api.md)
+* [Model Catalog and Collections](concept-model-catalog.md)
+* [Deploy models as serverless API endpoints](how-to-deploy-models-serverless.md)
+* [Plan and manage costs for Azure AI Studio](concept-plan-manage-cost.md)
+* [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)
