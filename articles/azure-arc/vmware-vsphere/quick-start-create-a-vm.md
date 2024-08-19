@@ -48,7 +48,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 6. Select the **datastore** that you want to use for storage.
 
-7. Select the **Template** based on which the VM you'll create.
+7. Select the **Template** based on which you'll create the VM.
 
    >[!TIP]
    >You can override the template defaults for **CPU Cores** and **Memory**.
