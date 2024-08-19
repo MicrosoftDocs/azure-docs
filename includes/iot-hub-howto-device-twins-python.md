@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: python
-ms.topic: how-to
+ms.topic: include
 ms.date: 07/12/2024
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---

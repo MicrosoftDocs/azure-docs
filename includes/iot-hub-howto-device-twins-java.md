@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: java
-ms.topic: how-to
+ms.topic: include
 ms.date: 07/20/2024
 ms.custom: mqtt, devx-track-java, devx-track-extended-java
 ---

@@ -45,6 +45,8 @@ The following illustration shows device twin organization:
 
 :::image type="content" source="../../includes/media/iot-hub-selector-twin-get-started/twin.png" alt-text="Screenshot of a device twin concept diagram.":::
 
+It is useful to review the various device twin fields that are available using the Azure portal. To learn how, see [How to view and update devices based on device twin properties](https://review.learn.microsoft.com/en-us/azure/iot-hub/manage-device-twins).
+
 Additionally, the solution back end can query device twins based on all the above data.
 For more information about device twins, see [Understand device twins](iot-hub-devguide-device-twins.md). For more information about querying, see [IoT Hub query language](iot-hub-devguide-query-language.md).
 

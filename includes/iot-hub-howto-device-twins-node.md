@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: nodejs
-ms.topic: how-to
+ms.topic: include
 ms.date: 07/20/2024
 ms.custom: mqtt, devx-track-js
 ---
@@ -136,7 +136,7 @@ This section describes how to create a backend application that:
 * Updates device twin tags
 * Queries devices using filters on the tags and properties
 
-### Install SDK packages
+### Install service SDK packages
 
 Run these command to install **azure-iothub** on your development machine:
 
