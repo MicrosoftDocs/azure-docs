@@ -148,7 +148,6 @@ Azure monitor and Azure Log Analytics provide monitoring and logging for the und
 For more information on price and quota, use the following articles:
 
 - [Plan and manage costs](../how-to/costs-plan-manage.md)
-- [Commitment tier pricing](../how-to/commitment-tier.md)
 - [Quota management](../how-to/quota.md)
 
 ## Next steps
