@@ -26,7 +26,7 @@ By default, this feature will use the latest available AI model on your input. Y
 
 ### Language support
 
-See the [PII Language Support page](articles/ai-services/language-service/personally-identifiable-information/language-support.md) for more details. Currently the conversational PII GA model only supports the English language. The preview model and API support the [same list languages](articles/ai-services/language-service/concepts/language-support.md) as the other Language services.
+See the [PII Language Support page](language-support.md) for more details. Currently the conversational PII GA model only supports the English language. The preview model and API support the [same list languages](../concepts/language-support.md) as the other Language services.
 
 ### Region support
 
