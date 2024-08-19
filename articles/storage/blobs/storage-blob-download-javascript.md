@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/21/2023
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript

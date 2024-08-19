@@ -4,7 +4,7 @@ description: This article is an overview of Azure Web Application Firewall (WAF)
 services: web-application-firewall
 ms.topic: overview
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 11/01/2023
 ms.author: victorh
 ---

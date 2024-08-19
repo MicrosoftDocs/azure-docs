@@ -70,8 +70,8 @@ Next, create an SMB Azure file share.
 
 So far, you've created an Azure storage account and a file share with one file in it. Next, create an Azure VM to represent the on-premises server.
 
-1. Expand the menu on the left side of the portal and select **Create a resource** in the upper left-hand corner of the Azure portal.
-1. Under **Popular services** select **Virtual machine**.
+1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Under **Popular services**, select **Virtual machine**.
 1. In the **Basics** tab, under **Project details**, select the resource group you created earlier.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png" alt-text="Screenshot of the Basic tab with VM information filled out.":::
@@ -100,7 +100,6 @@ Now that you've created the VM, connect to it so you can mount your file share.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/local-host2.png" alt-text="Screenshot of the VM log in prompt, more choices is highlighted.":::
 
-
 1. You might receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to create the connection.
 
 ### Map the Azure file share to a Windows drive
@@ -120,7 +119,6 @@ Now that you've mapped the drive, create a snapshot.
 1. In the portal, navigate to your file share, select **Snapshots**, then select **+ Add snapshot** and then **OK**.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/create-snapshot.png" alt-text="Screenshot of the storage account snapshots tab.":::
-
 
 1. In the VM, open the *qstestfile.txt* and type "this file has been modified". Save and close the file.
 1. Create another snapshot.

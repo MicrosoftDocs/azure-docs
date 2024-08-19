@@ -4,7 +4,7 @@ description: Overview of the Azure Synapse Analytics security white paper series
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.date: 01/14/2022
 ---
@@ -18,7 +18,7 @@ ms.date: 01/14/2022
 - [Data Explorer](../data-explorer/data-explorer-overview.md) for log and time series analytics.
 - [Serverless SQL pool](../sql/on-demand-workspace-overview.md) for data exploration over [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/).
 - [Dedicated SQL pool](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?context=/azure/synapse-analytics/context/context) (formerly SQL DW) for enterprise data warehousing.
-- Deep integration with [Power BI](https://powerbi.microsoft.com/), [Azure Cosmos DB](../../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context), and [Azure Machine Learning](../machine-learning/what-is-machine-learning.md).
+- Deep integration with [Power BI](https://powerbi.microsoft.com/), [Azure Cosmos DB](/azure/cosmos-db/synapse-link?context=/azure/synapse-analytics/context/context), and [Azure Machine Learning](../machine-learning/what-is-machine-learning.md).
 
 Azure Synapse data security and privacy are non-negotiable. The purpose of this white paper is to provide a comprehensive overview of Azure Synapse security features, which are enterprise-grade and industry-leading. The white paper comprises a series of articles that cover the following five layers of security:
 

@@ -2,7 +2,7 @@
 title: Real-time apps with Azure SignalR Service and Azure Functions
 description: Learn about how Azure SignalR Service and Azure Functions together allow you to create real-time serverless web applications.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 05/16/2024
 ms.author: lianwei

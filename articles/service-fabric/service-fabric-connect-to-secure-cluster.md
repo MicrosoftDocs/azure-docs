@@ -4,7 +4,7 @@ description: Describes how to authenticate client access to a Service Fabric clu
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---

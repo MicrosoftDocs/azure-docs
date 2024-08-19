@@ -6,7 +6,7 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: duongau
 ms.author: duau
-ms.service: expressroute
+ms.service: azure-expressroute
 ---
 # Azure ExpressRoute monitoring data reference
 

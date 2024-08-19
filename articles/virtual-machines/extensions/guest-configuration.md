@@ -2,7 +2,7 @@
 title: Azure Machine Configuration (guest configuration)
 description: Learn about the Machine Configuration extension, and audit and configure settings for Azure virtual machines.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 author: mgreenegit
 ms.author: migreene

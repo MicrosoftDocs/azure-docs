@@ -86,7 +86,7 @@ This shield aims to safeguard against attacks that use information not directly 
 
 ### Language availability
 
-Currently, the Prompt Shields API supports the English language. While our API doesn't restrict the submission of non-English content, we can't guarantee the same level of quality and accuracy in the analysis of such content. We recommend users to primarily submit content in English to ensure the most reliable and accurate results from the API.
+Prompt Shields have been specifically trained and tested on the following languages: Chinese, English, French, German, Spanish, Italian, Japanese, Portuguese. However, the feature can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
 ### Text length limitations
 

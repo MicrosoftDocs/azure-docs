@@ -860,10 +860,16 @@
         href: connect-log-forwarder.md
       - name: Syslog (raw) sources (legacy)
         href: connect-syslog.md
+    - name: Custom log sources (text files)
+      items:
+      - name: Collect logs from text files via AMA
+        href: connect-custom-logs-ama.md
+      - name: Custom logs - configure security device
+        href: unified-connector-custom-device.md
+      - name: Custom log sources (legacy)
+        href: connect-custom-logs.md
     - name: DNS via AMA
-      href: connect-dns-ama.md   
-    - name: Custom log sources
-      href: connect-custom-logs.md
+      href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
     - name: Logstash plugin (legacy)
@@ -922,6 +928,8 @@
       href: normalization-manage-parsers.md
     - name: Modify content to use ASIM
       href: normalization-modify-content.md
+  - name: Aggregate data with summary rules
+    href: summary-rules.md
 - name: Integrate threat intelligence
   items:
   - name: Overview
@@ -1227,8 +1235,6 @@
     href: troubleshooting-cef-syslog.md
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
-  - name: Troubleshoot Jupyter notebooks
-    href: notebooks-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
     href: sap/sap-deploy-troubleshoot.md    
 - name: Reference

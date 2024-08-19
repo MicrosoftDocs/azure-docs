@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Azure Operator Nexus compute
 
-Azure Operator Nexus is built on basic constructs like compute servers, storage appliances, and network fabric devices. These compute servers, also called bare-metal machines (BMMs), represent the physical machines on the rack. They run the CBL-Mariner operating system and provide closed integration support for high-performance workloads.
+Azure Operator Nexus is built on basic constructs like compute servers, storage appliances, and network fabric devices. These compute servers, also called bare-metal machines (BMMs), represent the physical machines on the rack. They run the Azure Linux (formerly CBL-Mariner) operating system and provide closed integration support for high-performance workloads.
 
 These BMMs are deployed as part of the Azure Operator Nexus automation suite. They exist as nodes in a Kubernetes cluster to serve various virtualized and containerized workloads in the ecosystem.
 
@@ -23,7 +23,7 @@ Each BMM in an Azure Operator Nexus instance is represented as an Azure resource
 
 Nonuniform memory access (NUMA) alignment is a technique to optimize performance and resource utilization in multiple-socket servers. It involves aligning memory and compute resources to reduce latency and improve data access within a server system.
 
-Through the strategic placement of software components and workloads in a NUMA-aware way, Operators can enhance the performance of network functions, such as virtualized routers and firewalls. This placement leads to improved service delivery and responsiveness in their telco cloud environments.
+Through the strategic placement of software components and workloads in a NUMA-aware way, Operators can enhance the performance of network functions, such as virtualized routers and firewalls. This placement leads to improved service delivery and responsiveness in their cloud environments.
 
 By default, all the workloads deployed in an Azure Operator Nexus instance are NUMA aligned.
 

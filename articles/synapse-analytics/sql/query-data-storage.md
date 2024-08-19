@@ -3,7 +3,7 @@ title: Query data storage with serverless SQL pool
 description: This article describes how to query Azure storage using the serverless SQL pool resource within Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020

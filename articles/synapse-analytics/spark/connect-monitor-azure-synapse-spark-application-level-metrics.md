@@ -4,7 +4,7 @@ description: Tutorial - Learn how to integrate your existing on-premises Prometh
 author: jejiang
 ms.author: jejiang
 ms.reviewer: whhender 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021

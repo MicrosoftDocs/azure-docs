@@ -3,7 +3,6 @@ title: Capture changed data with schema evolution by using a change data capture
 description: Get step-by-step instructions on how to capture changed data with schema evolution from Azure SQL Database to a Delta sink by using a change data capture (CDC) resource.
 author: KrishnakumarRukmangathan
 ms.author: krirukm
-ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/15/2024
 ---

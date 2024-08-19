@@ -4,7 +4,7 @@ description: Links to the documentation for T-SQL statements supported for dedic
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 05/01/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:

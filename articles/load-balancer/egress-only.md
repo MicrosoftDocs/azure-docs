@@ -3,7 +3,7 @@ title: Outbound-only load balancer configuration
 titleSuffix: Azure Load Balancer
 description: This article provides a step-by-step guide on how to configure an "egress only" setup using Azure Load Balancer with outbound NAT and Azure Bastion. Deploy public and internal load balancers to create outbound connectivity for VMs behind an internal load balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 10/24/2023
 ms.author: mbender

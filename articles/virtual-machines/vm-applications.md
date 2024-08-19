@@ -1,7 +1,7 @@
 ---
 title: Overview of VM Applications in the Azure Compute Gallery
 description: Learn more about VM application packages in an Azure Compute Gallery.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.date: 02/26/2024
@@ -453,6 +453,14 @@ Example remove command:
 
 ```terminal
 start /wait %windir%\\system32\\msiexec.exe /x $appname /quiet /forcerestart /log ${appname}_uninstall.log
+```
+
+Typically, the `start` command would be called within a batch script. If used with the `/wait` parameter, the calling script will be paused until the called process terminates. Once complete, the batch script would check for the `errorlevel` variable set by the `start` command and exit as follows:
+ 
+```batch
+start /wait %windir%\\system32\\msiexec.exe /i myapp /quiet /forcerestart /log myapp_install.log
+if %errorlevel% neq 0 exit /b %errorlevel%
+...
 ```
 
 ### Zipped files

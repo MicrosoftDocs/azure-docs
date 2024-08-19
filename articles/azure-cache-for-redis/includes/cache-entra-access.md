@@ -1,9 +1,11 @@
 ---
-ms.service: cache
-ms.topic: include
-ms.date: 07/08/2024
-ms.author: franlanglois
 author: flang-msft
+
+ms.service: azure-cache-redis
+ms.topic: include
+ms.date: 08/16/2024
+ms.author: franlanglois
+ms.topic: include
 ---
 
 ### Enable Microsoft Entra ID authentication on your cache

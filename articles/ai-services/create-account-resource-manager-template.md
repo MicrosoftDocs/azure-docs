@@ -2,13 +2,12 @@
 title: "Quickstart: Create an Azure AI services resource by using an ARM template"
 description: Learn how to use an Azure Resource Manager template to create an Azure AI services resource.
 keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
-#services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: quickstart
-ms.date: 01/20/2024
-ms.author: aahi
+ms.date: 8/1/2024
+ms.author: eur
 ms.custom:
   - subject-armqs
   - mode-arm
@@ -20,21 +19,13 @@ ms.custom:
 
 This quickstart shows you how to use an Azure Resource Manager template (ARM template) to create a resource in Azure AI services.
 
-Azure AI services is a cloud-based portfolio of AI services. It helps developers build cognitive intelligence into applications without needing direct skills or knowledge of AI or data science.
-
-Azure AI services is available through REST APIs and client library SDKs in popular development languages. It enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
-
-By creating an Azure AI services resource, you can:
-
-* Access multiple AI services in Azure with a single key and endpoint.
-* Consolidate billing from the services that you use.
+[!INCLUDE [About AI services](./includes/ai-services-intro.md)]
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/cognitive-services).
-* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 ## Review the template
 
@@ -42,9 +33,9 @@ The template that you use in this quickstart is from [Azure Quickstart Templates
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
-One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it's an Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
+One Azure resource is defined in the Bicep file. The `kind` field in the Bicep file defines the type of resource.
 
-[!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
+As needed, change the `sku` parameter value to the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) instance you want. The `sku` depends on the resource `kind` that you use. For example, use `TextAnalytics` for the Azure AI Language service. The `TextAnalytics` kind uses `S` instead of `S0` for the `sku` value.
 
 ## Deploy the template
 
@@ -61,7 +52,7 @@ One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/ac
     | **Subscription** | Select an Azure subscription. |
     | **Resource group** | Select **Create new**, enter a unique name for the resource group, and then select **OK**. |
     | **Region** | Select a region (for example, **East US**). |
-    | **Cognitive Service Name** | Replace the value with a unique name for your Azure AI services resource. You'll need the name in the next section when you validate the deployment. |
+    | **AI service Name** | Replace the value with a unique name for your Azure AI services resource. You'll need the name in the next section when you validate the deployment. |
     | **Location** | Replace with the region that you selected. |
     | **Sku** | Select the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) for your resource. |
 
@@ -93,7 +84,7 @@ read
 
 ## Review deployed resources
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 When your deployment finishes, you can select the **Go to resource** button to see your new resource. You can also find the resource group by:
 
@@ -138,6 +129,6 @@ az group delete --name $resourceGroupName
 
 * For more information on how to securely work with Azure AI services, see [Authenticate requests to Azure AI services](authentication.md).
 * For a list of Azure AI services, see [What are Azure AI services?](./what-are-ai-services.md).
-* For a list of natural languages that Azure AI services supports, see [Natural language support in Azure AI services](language-support.md).
+* For a list of natural languages that Azure AI services support, see [Natural language support in Azure AI services](language-support.md).
 * To understand how to use Azure AI services on-premises, see [What are Azure AI containers?](cognitive-services-container-support.md).
 * To estimate the cost of using Azure AI services, see [Plan and manage costs for Azure AI Studio](../ai-studio/how-to/costs-plan-manage.md).

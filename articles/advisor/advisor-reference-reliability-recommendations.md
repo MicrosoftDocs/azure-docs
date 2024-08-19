@@ -273,7 +273,7 @@ Learn more about [Kubernetes service - UseStandardpricingtier (Upgrade to Standa
 
 Pod Disruption budgets recommended. Improve service high availability.
 
-Learn more about [Kubernetes service - PodDisruptionBudgetsRecommended (Pod Disruption Budgets Recommended)](../aks/operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets).
+Learn more about [Kubernetes service - PodDisruptionBudgetsRecommended (Pod Disruption Budgets Recommended)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets).
 
 ### Upgrade to the latest agent version of Azure Arc-enabled Kubernetes
 
@@ -331,19 +331,19 @@ Learn more about [Azure Cosmos DB account - CosmosDBLazyIndexing (Configure Cons
 
 Your Azure Cosmos DB account is using an old version of the SDK. We recommend you upgrade to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Azure Cosmos DB account - CosmosDBUpgradeOldSDK (Upgrade your old Azure Cosmos DB SDK to the latest version)](../cosmos-db/index.yml).
+Learn more about [Azure Cosmos DB account - CosmosDBUpgradeOldSDK (Upgrade your old Azure Cosmos DB SDK to the latest version)](/azure/cosmos-db/).
 
 ### Upgrade your outdated Azure Cosmos DB SDK to the latest version
 
 Your Azure Cosmos DB account is using an outdated version of the SDK. We recommend you upgrade to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Azure Cosmos DB account - CosmosDBUpgradeOutdatedSDK (Upgrade your outdated Azure Cosmos DB SDK to the latest version)](../cosmos-db/index.yml).
+Learn more about [Azure Cosmos DB account - CosmosDBUpgradeOutdatedSDK (Upgrade your outdated Azure Cosmos DB SDK to the latest version)](/azure/cosmos-db/).
 
 ### Configure your Azure Cosmos DB containers with a partition key
 
 Your Azure Cosmos DB nonpartitioned collections are approaching their provisioned storage quota. Migrate these collections to new collections with a partition key definition so the service can automatically scale them out.
 
-Learn more about [Azure Cosmos DB account - CosmosDBFixedCollections (Configure your Azure Cosmos DB containers with a partition key)](../cosmos-db/partitioning-overview.md#choose-partitionkey).
+Learn more about [Azure Cosmos DB account - CosmosDBFixedCollections (Configure your Azure Cosmos DB containers with a partition key)](/azure/cosmos-db/partitioning-overview#choose-partitionkey).
 
 ### Upgrade your Azure Cosmos DB for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
@@ -358,7 +358,7 @@ Based on their names and configuration, we have detected the Azure Cosmos DB acc
 > [!NOTE]
 > Additional regions incur extra costs.
 
-Learn more about [Azure Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a second region to your production workloads on Azure Cosmos DB)](../cosmos-db/high-availability.md).
+Learn more about [Azure Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a second region to your production workloads on Azure Cosmos DB)](/azure/cosmos-db/high-availability).
 
 ### Enable Server Side Retry (SSR) on your Azure Cosmos DB for MongoDB account
 
@@ -376,7 +376,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBMongoMigrationUpgrade (Migra
 
 It appears that your key vault's configuration is preventing your Azure Cosmos DB account from contacting the key vault to access your managed encryption keys. If you've recently performed a key rotation, make sure that the previous key or key version remains enabled and available until Azure Cosmos DB has completed the rotation. The previous key or key version can be disabled after 24 hours, or after the Azure Key Vault audit logs don't show activity from Azure Cosmos DB on that key or key version anymore.
 
-Learn more about [Azure Cosmos DB account - CosmosDBKeyVaultWrap (Your Azure Cosmos DB account is unable to access its linked Azure Key Vault hosting your encryption key)](../cosmos-db/how-to-setup-cmk.md).
+Learn more about [Azure Cosmos DB account - CosmosDBKeyVaultWrap (Your Azure Cosmos DB account is unable to access its linked Azure Key Vault hosting your encryption key)](/azure/cosmos-db/how-to-setup-cmk).
 
 ### Avoid being rate limited from metadata operations
 
@@ -392,15 +392,15 @@ Learn more about [Azure Cosmos DB account - CosmosDBMongoNudge36AwayFrom32 (Use 
 
 ### Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated
 
-There's a critical bug in version 2.6.13 and lower, of the Azure Cosmos DB Async Java SDK v2 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. These service errors happen after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container. Note: There's a critical hotfix for the Async Java SDK v2, however we still highly recommend you migrate to the [Java SDK v4](../cosmos-db/sql/sql-api-sdk-java-v4.md).
+There's a critical bug in version 2.6.13 and lower, of the Azure Cosmos DB Async Java SDK v2 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. These service errors happen after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container. Note: There's a critical hotfix for the Async Java SDK v2, however we still highly recommend you migrate to the [Java SDK v4](/azure/cosmos-db/sql/sql-api-sdk-java-v4).
 
-Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV2 (Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated)](../cosmos-db/sql/sql-api-sdk-async-java.md).
+Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV2 (Upgrade to 2.6.14 version of the Async Java SDK v2 to avoid a critical issue or upgrade to Java SDK v4 as Async Java SDK v2 is being deprecated)](/azure/cosmos-db/sql/sql-api-sdk-async-java).
 
 ### Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue
 
 There's a critical bug in version 4.15 and lower of the Azure Cosmos DB Java SDK v4 causing errors when a Global logical sequence number (LSN) greater than the Max Integer value is reached. These service errors happen after a large volume of transactions occur in the lifetime of an Azure Cosmos DB container.
 
-Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV4 (Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue)](../cosmos-db/sql/sql-api-sdk-java-v4.md).
+Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV4 (Upgrade to the current recommended version of the Java SDK v4 to avoid a critical issue)](/azure/cosmos-db/sql/sql-api-sdk-java-v4).
 
 
 

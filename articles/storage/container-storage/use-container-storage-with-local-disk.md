@@ -264,7 +264,7 @@ A persistent volume claim is used to automatically provision storage based on a 
    metadata:
      name: ephemeralpvc
      annotations:
-       "acstor.azure.com/accept-ephemeral-storage=true"
+       acstor.azure.com/accept-ephemeral-storage: "true"
    spec:
      accessModes:
        - ReadWriteOnce
@@ -400,7 +400,27 @@ kubectl delete sp -n acstor <storage-pool-name>
 
 ### Optimize performance when using local NVMe
 
-[!INCLUDE [container-storage-nvme-performance](../../../includes/container-storage-nvme-performance.md)]
+Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Advanced**. Your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
+
+These three tiers offer a different range of IOPS. The following table contains guidance on what you could expect with each of these tiers. We used [FIO](https://github.com/axboe/fio), a popular benchmarking tool, to achieve these numbers with the following configuration:
+- AKS: Node SKU - Standard_L16s_v3; 
+- FIO: Block size - 4KB; Queue depth - 32; Numjobs - number of cores assigned to container storage components; Access pattern - random; Worker set size - 32G
+
+| **Tier** | **Number of vCPUs** | **100 % Read IOPS** | **100 % Write IOPS** |
+| --- | --- | --- | --- |
+| `Basic` | 12.5% of total VM cores | Up to 100,000  | Up to 90,000 |
+| `Standard` (default)| 25% of total VM cores | Up to 200,000  | Up to 180,000 |
+| `Advanced` | 50% of total VM cores | Up to 400,000  | Up to 360,000 |
+
+> [!NOTE]
+> RAM and hugepages consumption will stay consistent across all tiers: 1 GiB of RAM and 2 GiB of hugepages.
+
+Once you've identified the performance tier that aligns best to your needs, you can run the following command to update the performance tier of your Azure Container Storage installation. Replace `<performance tier>` with basic, standard, or advanced.
+
+```azurecli-interactive
+az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type> --ephemeral-disk-nvme-perf-tier <performance-tier>
+```
+
 
 ## See also
 

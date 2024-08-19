@@ -109,7 +109,7 @@ See the following articles for instructions on how to install and get started wi
 
 - [Quickstart: Azure Blob Storage client library for Java](../blobs/storage-quickstart-blobs-java.md)
 - [Quickstart: Azure Queue Storage client library for Java](../queues/storage-quickstart-queues-java.md)
-- [Getting Started with Azure Table Service in Java](../../cosmos-db/table-storage-how-to-use-java.md)
+- [Getting Started with Azure Table Service in Java](/azure/cosmos-db/table-storage-how-to-use-java)
 - [Develop for Azure Files with Java](../files/storage-java-how-to-use-file-storage.md)
 
 ## Next steps

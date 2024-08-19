@@ -3,7 +3,7 @@ title: Understand access to a connected registry
 description: Introduction to token-based authentication and authorization for connected registries in Azure Container Registry
 author: toddysm
 ms.author: memladen
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: overview
 ms.date: 10/31/2023
 ---

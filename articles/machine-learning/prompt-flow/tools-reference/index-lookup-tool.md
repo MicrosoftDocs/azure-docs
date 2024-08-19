@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description:  This article introduces the Index Lookup tool for flows in Azure Machine Learning.
 author: lgayhardt
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - build-2024

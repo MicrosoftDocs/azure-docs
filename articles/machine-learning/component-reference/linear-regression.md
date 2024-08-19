@@ -3,7 +3,7 @@ title:  "Linear Regression: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Linear Regression component in Azure Machine Learning to create a linear regression model for use in a pipeline.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

@@ -3,7 +3,7 @@ title: Application gateway components
 description: This article provides information about the various components in an application gateway
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: greglin

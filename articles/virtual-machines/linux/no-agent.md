@@ -2,7 +2,7 @@
 title: Create Linux images without a provisioning agent
 description: Create generalized Linux images without a provisioning agent in Azure.
 author: danielsollondon
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.topic: how-to

@@ -3,7 +3,7 @@ title:  "Enter Data Manually: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Enter Data Manually component in Azure Machine Learning to create a small dataset by typing values. The dataset can have multiple columns.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

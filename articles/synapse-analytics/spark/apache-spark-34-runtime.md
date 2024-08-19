@@ -4,7 +4,7 @@ description: New runtime is in GA stage. Try it and use Spark 3.4.1, Python 3.10
 author: ekote
 ms.author: eskot
 ms.reviewer: whhender, whhender
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.custom: devx-track-python

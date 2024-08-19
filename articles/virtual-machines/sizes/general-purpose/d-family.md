@@ -2,10 +2,10 @@
 title: D-family size series
 description: List of sizes in the D family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 04/16/2024
+ms.date: 07/30/2024
 ms.author: mattmcinnes
 ---
 
@@ -54,21 +54,37 @@ ms.author: mattmcinnes
 
 ---
 ### Dasv6 and Dadsv6-series
+#### [Dasv6-series](#tab/dasv6)
 [!INCLUDE [dasv6-series-summary](./includes/dasv6-series-summary.md)]
 
-[View the full Dasv6 and Dadsv6-series page](../../dasv6-dadsv6-series.md).
+[View the full Dasv6-series page](./dasv6-series.md).
 
-[!INCLUDE [dasv6-dadsv6-series-specs](./includes/dasv6-dadsv6-series-specs.md)]
+[!INCLUDE [dasv6-series-specs](./includes/dasv6-series-specs.md)]
 
+#### [Dadsv6-series](#tab/dadsv6)
+[!INCLUDE [dadsv6-series-summary](./includes/dadsv6-series-summary.md)]
 
+[View the full Dadsv6-series page](./dadsv6-series.md).
+
+[!INCLUDE [dadsv6-series-specs](./includes/dadsv6-series-specs.md)]
+
+---
 ### Dalsv6 and Daldsv6-series
-[!INCLUDE [dalsv6-daldsv6-series-summary](./includes/dalsv6-series-summary.md)]
+#### [Dalsv6-series](#tab/dalsv6)
+[!INCLUDE [dalsv6-series-summary](./includes/dalsv6-series-summary.md)]
 
-[View the full Dalsv6 and Daldsv6-series page](../../dalsv6-daldsv6-series.md).
+[View the full Dalsv6-series page](./dalsv6-series.md).
 
-[!INCLUDE [dalsv6-daldsv6-series-specs](./includes/dalsv6-daldsv6-series-specs.md)]
+[!INCLUDE [dalsv6-series-specs](./includes/dalsv6-series-specs.md)]
 
+#### [Daldsv6-series](#tab/daldsv6)
+[!INCLUDE [daldsv6-series-summary](./includes/daldsv6-series-summary.md)]
 
+[View the full Daldsv6-series page](./daldsv6-series.md).
+
+[!INCLUDE [daldsv6-series-specs](./includes/daldsv6-series-specs.md)]
+
+---
 ### Dv5 and Dsv5-series
 #### [Dv5-series](#tab/dv5)
 [!INCLUDE [dv5-series-summary](./includes/dv5-series-summary.md)]
@@ -106,16 +122,16 @@ ms.author: mattmcinnes
 #### [Dasv5-series](#tab/dasv5)
 [!INCLUDE [dasv5-series-summary](./includes/dasv5-series-summary.md)]
 
-[View the full Dasv5-series page](../../dasv5-dadsv5-series.md).
+[View the full Dasv5-series page](./dasv5-series.md).
 
-[!INCLUDE [dasv5-series-specs](./includes/dasv5-dadsv5-series-specs.md)]
+[!INCLUDE [dasv5-series-specs](./includes/dasv5-series-specs.md)]
 
 #### [Dadsv5-series](#tab/dadsv5)
-[!INCLUDE [dasv5-dadsv5-series-summary](./includes/dadsv5-series-summary.md)]
+[!INCLUDE [dadsv5-series-summary](./includes/dadsv5-series-summary.md)]
 
-[View the full Dasv5 and Dadsv5-series page](../../dasv5-dadsv5-series.md).
+[View the full Dadsv5-series page](./dadsv5-series.md).
 
-[!INCLUDE [dasv5-dadsv5-series-specs](./includes/dasv5-dadsv5-series-specs.md)]
+[!INCLUDE [dadsv5-series-specs](./includes/dadsv5-series-specs.md)]
 
 ---
 ### Dpsv5 and Dpdsv5-series
@@ -183,13 +199,21 @@ ms.author: mattmcinnes
 
 ---
 ### Dav4 and Dasv4-series
-[!INCLUDE [dav4-dasv4-series-summary](./includes/dav4-series-summary.md)]
+#### [Dav4-series](#tab/dav4)
+[!INCLUDE [dav4-series-summary](./includes/dav4-series-summary.md)]
 
-[View the full Dav4 and Dasv4-series page](../../dav4-dasv4-series.md).
+[View the full Dav4-series page](./dav4-series.md).
 
-[!INCLUDE [dav4-dasv4-series-specs](./includes/dav4-dasv4-series-specs.md)]
+[!INCLUDE [dav4-dasv4-series-specs](./includes/dav4-series-specs.md)]
 
+#### [Dasv4-series](#tab/dasv4)
+[!INCLUDE [dasv4-series-summary](./includes/dasv4-series-summary.md)]
 
+[View the full Dasv4-series page](./dasv4-series.md).
+
+[!INCLUDE [dasv4-series-specs](./includes/dasv4-series-specs.md)]
+
+---
 ### Ddv4 and Ddsv4-series
 #### [Ddv4-series](#tab/ddv4)
 [!INCLUDE [ddv4-series-summary](./includes/ddv4-series-summary.md)]
