@@ -325,12 +325,12 @@ Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
 
 ---
 
-    > [!CAUTION]
-    > In this article, RDP (port 3389) is exposed to the internet for the VM that is assigned to the **asg-mgmt** application security group.
-    >
-    > For production environments, instead of exposing port 3389 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN, private network connection, or Azure Bastion.
-    >
-    > For more information on Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
+> [!CAUTION]
+> In this article, RDP (port 3389) is exposed to the internet for the VM that is assigned to the **asg-mgmt** application security group.
+>
+> For production environments, instead of exposing port 3389 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN, private network connection, or Azure Bastion.
+>
+> For more information on Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
 
 ## Create virtual machines
 
@@ -687,4 +687,4 @@ Azure routes traffic between subnets by default. You may instead, choose to rout
 
 To learn how to create a route table, advance to the next tutorial.
 
-> [!div class="nextstepaction"] > [Create a route table](./tutorial-create-route-table-portal.md)
+[!div class="nextstepaction"][Create a route table](./tutorial-create-route-table-portal.md)
