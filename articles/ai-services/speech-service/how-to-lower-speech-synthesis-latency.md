@@ -318,7 +318,7 @@ For Linux and Windows, `GStreamer` is required to enable this feature.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
 For Android, iOS and macOS, no extra configuration is needed starting version 1.20.
 
-## Text streaming
+## Input text streaming
 
 Text streaming allows real-time text processing for rapid audio generation. It's perfect for dynamic text vocalization, such as reading outputs from AI models like GPT in real-time. This feature minimizes latency and improves the fluidity and responsiveness of audio outputs, making it ideal for interactive applications, live events, and responsive AI-driven dialogues.
 
@@ -384,6 +384,40 @@ speech_config = speechsdk.SpeechConfig(endpoint=f"wss://{os.getenv('AZURE_TTS_RE
 For detailed implementation, see the [sample code on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream).
 
 ::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+Currently, only C# and Python are supported in the SDK. Support for C++, Java and Objective-C is planned for future releases.
+
+For the sample code that shows how to use text streaming, see:
+
+- [C# Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
+- [Python Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+Currently, only C# and Python are supported in the SDK. Support for C++, Java and Objective-C is planned for future releases.
+
+For the sample code that shows how to use text streaming, see:
+
+- [C# Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
+- [Python Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+Currently, only C# and Python are supported in the SDK. Support for C++, Java and Objective-C is planned for future releases.
+
+For the sample code that shows how to use text streaming, see:
+
+- [C# Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
+- [Python Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
+
+::: zone-end
+
 
 ## Others tips
 
