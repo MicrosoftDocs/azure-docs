@@ -28,7 +28,7 @@ In the following sections, you learn how to deploy AutoML trained machine learni
 
 ## Prerequisites
 
-- An AutoML-trained machine learning model. For more information, see [Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md) or [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md).
+- An AutoML-trained machine learning model. For more information, see [Tutorial: Train a classification model with no-code AutoML](tutorial-first-experiment-automated-ml.md) or [Tutorial: Forecast demand with no-code automated machine learning](tutorial-automated-ml-forecast.md).
 
 ## Deploy from Azure Machine Learning studio and no code
 
@@ -107,7 +107,7 @@ Create a directory called `src/` and place the scoring file that you downloaded 
 
 ### Create the endpoint and deployment yaml file
 
-To create an online endpoint from the command line, create an *endpoint.yml* and a *deployment.yml* file. The following code, taken from the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples), shows the *endpoints/online/managed/sample/*, which captures all the required inputs:
+To create an online endpoint from the command line, create an *endpoint.yml* and a *deployment.yml* file. The following code, taken from the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples), shows the *endpoints/online/managed/sample/*, which captures all the required inputs.
 
 __automl_endpoint.yml__
 
@@ -123,7 +123,7 @@ You need to modify this file to use the files you downloaded from the AutoML Mod
 
 1. Change the value of the `name` of the endpoint. The endpoint name needs to be unique within the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters.
 
-1. In the `automl_deployment` file, change the value of the keys at the following paths:
+1. In the `automl_deployment` file, change the value of the keys at the following paths.
 
    | Path | Change to |
    |:---- |:--------- |
@@ -166,7 +166,7 @@ Create a directory called `src/` and place the scoring file you downloaded into 
 
 ### Connect to Azure Machine Learning workspace
 
-1. Import the required libraries:
+1. Import the required libraries.
 
    ```python
    # import required libraries
@@ -181,7 +181,7 @@ Create a directory called `src/` and place the scoring file you downloaded into 
    from azure.identity import DefaultAzureCredential
    ```
 
-1. Configure workspace details and get a handle to the workspace:
+1. Configure workspace details and get a handle to the workspace.
 
    ```python
    # enter details of your Azure Machine Learning workspace
@@ -201,7 +201,7 @@ Create a directory called `src/` and place the scoring file you downloaded into 
 
 Next, create the managed online endpoints and deployments.
 
-1. Configure online endpoint:
+1. Configure online endpoint.
 
    > [!TIP]
    > - `name`: The name of the endpoint. It must be unique in the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
@@ -221,7 +221,7 @@ Next, create the managed online endpoints and deployments.
     )
     ```
 
-1. Create the endpoint:
+1. Create the endpoint.
 
     Using the `MLClient` created earlier, create the Endpoint in the workspace. This command starts the endpoint creation. It returns a confirmation response while the endpoint creation continues.
 
@@ -229,7 +229,7 @@ Next, create the managed online endpoints and deployments.
     ml_client.begin_create_or_update(endpoint)
     ```
 
-1. Configure online deployment:
+1. Configure online deployment.
 
     A deployment is a set of resources required for hosting the model that does the actual inferencing. Create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
 
@@ -262,7 +262,7 @@ Next, create the managed online endpoints and deployments.
     | `code_configuration:scoring_script` | The name of the Python scoring file (`scoring_file_<VERSION>.py`). |
     | `environment:conda_file` | A file URL for the downloaded conda environment file (`conda_env_<VERSION>.yml`). |
 
-1. Create the deployment:
+1. Create the deployment.
 
    Using the `MLClient` created earlier,  create the deployment in the workspace. This command starts the deployment creation and return a confirmation response while the deployment creation continues.
 
@@ -272,11 +272,11 @@ Next, create the managed online endpoints and deployments.
 
 After you create a deployment, you can score it as described in [Test the endpoint with sample data](how-to-deploy-managed-online-endpoint-sdk-v2.md#test-the-endpoint-with-sample-data).
 
-You can learn to deploy to managed online endpoints with SDK more in [Deploy machine learning models to managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
+You can learn to deploy to managed online endpoints with SDK more in [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoint-sdk-v2.md).
 
 ---
 
 ## Related content
 
-- [Troubleshooting online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
-- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
+- [Troubleshooting online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)
+- [Perform safe rollout of new deployments for real-time inference](how-to-safely-rollout-online-endpoints.md)
