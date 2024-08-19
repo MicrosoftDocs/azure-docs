@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 08/01/202
+ms.date: 08/01/2024
 ms.author: anfdocs
 ---
 # Azure NetApp Files large volume performance benchmarks for Linux
