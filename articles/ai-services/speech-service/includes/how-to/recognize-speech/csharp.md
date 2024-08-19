@@ -149,7 +149,7 @@ class Program
 }
 ```
 
-Using a push stream as input assumes that the audio data is raw PCM and skips any headers. The API still works in certain cases if the header isn't skipped. For the best results, consider implementing logic to read off the headers so that `byte[]` begins at the *start of the audio data*.
+Using a push stream as input assumes that the audio data is raw PCM and skips any headers. The API still works in certain cases if the header isn't skipped. For the best results, consider implementing logic to read off the headers so that `byte[]` begins at the *start of the audio data*. To address this issue, you can utilize [GStreamer](./how-to-use-codec-compressed-audio-input-streams.md). GStreamer provides a flexible pipeline-based framework that allows you to implement logic to read off the headers, ensuring that the byte array begins at the start of the audio data.
 
 ## Handle errors
 
