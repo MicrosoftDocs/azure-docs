@@ -158,7 +158,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
     const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
    async function main() {
-    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key:key));
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
 
     const initialResponse = await client
@@ -329,7 +329,7 @@ const { AzureKeyCredential } = require("@azure/core-auth");
 
 async function main() {
 
-    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key:key));
+    const client = DocumentIntelligence(endpoint, new AzureKeyCredential(key));
 
     const initialResponse = await client
     .path("/documentModels/{modelId}:analyze", "prebuilt-invoice")
