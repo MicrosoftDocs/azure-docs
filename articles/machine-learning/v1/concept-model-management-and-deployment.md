@@ -11,6 +11,7 @@ ms.author: mopeakande
 ms.reviewer: sehan
 ms.custom: UpdateFrequency5, mktng-kw-nov2021
 ms.date: 08/12/2024
+#customer intent: As an engineer, I want to learn how to apply machine learning operations practices in Azure Machine Learning to manage the lifecycle of my models.
 ---
 
 # MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning v1
