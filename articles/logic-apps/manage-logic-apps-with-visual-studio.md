@@ -108,7 +108,7 @@ You can [download](../azure-resource-manager/templates/export-template-portal.md
    > [!TIP]
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
-   The logic app opens in the Logic App Designer.
+   The logic app opens in the workflow designer.
 
 1. On the designer toolbar, select **Download**.
 
@@ -128,12 +128,12 @@ To build logic apps for business-to-business (B2B) enterprise integration scenar
 
 1. In Solution Explorer, open the **\<logic-app-name\>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl + L)
 
-   ![Open logic app's .json file with Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+   ![Open logic app's .json file with workflow designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates to Visual Studio and the Azure Logic Apps Tools extension.
 
-1. Make sure that the Logic App Designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Integration Account** property for your logic app.
+1. Make sure that the workflow designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Integration Account** property for your logic app.
 
    ![Properties window - "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
@@ -152,9 +152,9 @@ When you set the **Integration Account** property in Visual Studio and save your
 
 ## Change deployment location
 
-In Visual Studio, if your logic app exists as a JSON (.json) file within an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) that you use to automate deployment, that logic app is set to a location type and a specific location. This location is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md).
+In Visual Studio, if your logic app exists as a JSON (.json) file within an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) that you use to automate deployment, that logic app is set to a location type and a specific location, which is an Azure region.
 
-To change your logic app's location type or location, you have to open your logic app's workflow definition (.json) file from Solution Explorer by using the Logic App Designer. You can't change these properties by using Cloud Explorer.
+To change your logic app's location type or location, you have to open your logic app's workflow definition (.json) file from Solution Explorer by using the workflow designer. You can't change these properties by using Cloud Explorer.
 
 > [!IMPORTANT]
 > Changing the location type from **Region** to 
@@ -167,12 +167,12 @@ To change your logic app's location type or location, you have to open your logi
 
 1. In Solution Explorer, open the `<logic-app-name>.json` file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl + L)
 
-   ![Open logic app's .json file with Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+   ![Open logic app's .json file with workflow designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates to Visual Studio and the Azure Logic Apps Tools extension.
 
-1. Make sure that the Logic App Designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Choose Location Type** and **Location** properties for your logic app. The project's location type is set to either **Region** or **Integration Service Environment**.
+1. Make sure that the workflow designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Choose Location Type** and **Location** properties for your logic app. The project's location type is set to either **Region** or **Integration Service Environment**.
 
    ![Properties window - "Choose Location Type" & "Location" properties](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
 
@@ -205,7 +205,7 @@ When you change the location type or location in Visual Studio and save your log
 
 If you edit your logic app in the Azure portal and want to keep those changes, make sure that you refresh that app's version in Visual Studio with those changes.
 
-* In Visual Studio, on the Logic App Designer toolbar, select **Refresh**.
+* In Visual Studio, on the workflow designer toolbar, select **Refresh**.
 
   -or-
 
@@ -215,13 +215,13 @@ If you edit your logic app in the Azure portal and want to keep those changes, m
 
 ## Publish logic app updates
 
-When you're ready to deploy your logic app updates from Visual Studio to Azure, on the Logic App Designer toolbar, select **Publish**.
+When you're ready to deploy your logic app updates from Visual Studio to Azure, on the workflow designer toolbar, select **Publish**.
 
 ![Publish updated logic app to Azure portal](./media/manage-logic-apps-with-visual-studio/publish-logic-app-to-azure-portal.png)
 
 ## Manually run your logic app
 
-You can manually trigger a logic app deployed in Azure from Visual Studio. On the Logic App Designer toolbar, select **Run Trigger**.
+You can manually trigger a logic app deployed in Azure from Visual Studio. On the workflow designer toolbar, select **Run Trigger**.
 
 ![Manually run trigger for your logic app](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
