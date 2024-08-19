@@ -14,12 +14,11 @@ ms.date: 08/19/2024
 
 # Add a filter in a vector query in Azure AI Search
 
-You can define a vector query request that includes a [filter expression](search-filters.md) to add inclusion or exclusion criteria to your queries. 
+You can define a vector query request that includes a [filter expression](search-filters.md) to add inclusion or exclusion criteria to your queries. In this article, learn how to:
 
-In this article, learn how to:
-
-- Define a `filter` expression
-- Set the `vectorFilterMode` to control whether the filter executes before or after the query.
+> [!div class="checklist"]
+> - [Define a `filter` expression](#define-a-filter)
+> - [Set the `vectorFilterMode` for pre-query or post-query filtering](#set-the-vectorfiltermode) 
 
 This article uses REST for illustration. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) GitHub repository for end-to-end solutions that include vector queries. 
 
@@ -27,9 +26,9 @@ You can also use [Search Explorer](search-get-started-portal-import-vectors.md#c
 
 ## How filtering works in a vector query
 
-Filters apply to `filterable` nonvector fields, either a string field or numeric, and are useful for including or excluding search documents. Although a vector field isn't filterable itself, filters can be applied to other fields in the same index, including or excluding the documents that also contain vector fields.
+Filters apply to `filterable` nonvector fields, either a string field or numeric, to include or exclude search documents based on filter criteria. Although a vector field isn't filterable itself, filters can be applied to other fields in the same index, including or excluding the documents that also contain vector fields.
 
-Filters can be applied before the query executes, or after query execution to filter search results. Set the `vectorFilterMode`
+Filters are applied before or after query execution based on the `vectorFilterMode` parameter.
 
 ## Define a filter
 
@@ -121,7 +120,9 @@ The vectorFilterMode query parameter determines whether the filter is applied be
 
 ### Use prefilter mode
 
-Prefiltering applies filters before query execution, reducing the search surface area over which the vector search algorithm looks for similar content. In a vector query, `preFilter` is the default.
+Prefiltering applies filters before query execution, reducing the search surface area over which the vector search algorithm looks for similar content. 
+
+In a vector query, `preFilter` is the default.
 
 :::image type="content" source="media/vector-search-filters/pre-filter.svg" alt-text="Diagram of prefilters." border="true" lightbox="media/vector-search-filters/pre-filter.png":::
 
