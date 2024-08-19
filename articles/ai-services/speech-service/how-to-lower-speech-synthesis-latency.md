@@ -324,9 +324,9 @@ Text streaming allows real-time text processing for rapid audio generation. It's
 
 ### How to use text streaming
 
-To use the text streaming feature, connect to the websocket V2 endpoint: `wss://{region}.tts.speech.microsoft.com/cognitiveservices/websocket/v2`
-
 ::: zone pivot="programming-language-csharp"
+
+To use the text streaming feature, connect to the websocket V2 endpoint: `wss://{region}.tts.speech.microsoft.com/cognitiveservices/websocket/v2`
 
 See the sample code for setting the endpoint:
 
@@ -359,6 +359,8 @@ For detailed implementation, see the [sample code on GitHub](https://github.com/
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+To use the text streaming feature, connect to the websocket V2 endpoint: `wss://{region}.tts.speech.microsoft.com/cognitiveservices/websocket/v2`
 
 See the sample code for setting the endpoint:
 
