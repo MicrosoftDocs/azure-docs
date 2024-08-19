@@ -63,7 +63,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 ## How to create an Arc VMware machine using Bicep template
 
-The following bicep template can be used to create an Arc VMware machine. [Here](/azure/templates/microsoft.connectedvmwarevsphere/2023-12-01/virtualmachineinstances?pivots=deployment-language-arm-template) is the list of available ARM, Bicep, and Terraform templates for Arc-enabled VMware resources. To trigger any other Arc operation, convert the corresponding [ARM template to Bicep template](/articles/azure-resource-manager/bicep/decompile.md#decompile-from-json-to-bicep).
+The following bicep template can be used to create an Arc VMware machine. [Here](/azure/templates/microsoft.connectedvmwarevsphere/2023-12-01/virtualmachineinstances?pivots=deployment-language-arm-template) is the list of available Azure Resource Manager (ARM), Bicep, and Terraform templates for Arc-enabled VMware resources. To trigger any other Arc operation, convert the corresponding [ARM template to Bicep template](/azure/azure-resource-manager/bicep/decompile#decompile-from-json-to-bicep).
 
 ```bicep
 // Parameters
@@ -144,11 +144,12 @@ Follow these steps to create an Arc VMware machine using Terraform. The followin
 
 ### Prerequisites
 
-1.	**Azure Subscription**: Ensure you have an active Azure subscription.
-2.	**Terraform**: Install Terraform on your machine.
-3.	**Azure CLI**: Install Azure CLI to authenticate and manage resources.
+- **Azure Subscription**: Ensure you have an active Azure subscription.
+- **Terraform**: Install Terraform on your machine.
+- **Azure CLI**: Install Azure CLI to authenticate and manage resources.
 
-**Scenario 1**: For VMs discovered in vCenter inventory, perform enable in Azure operation and install Arc agents Using InventoryId.
+### Scenario 1
+For VMs discovered in vCenter inventory, perform enable in Azure operation and install Arc agents Using InventoryId.
 
 #### Step 1: Define variables in a variables.tf File
 
@@ -238,7 +239,7 @@ variable "custom_location_id" {
 ```
 #### Step 2: Create a tfvars file
 
-Create a file named CreateVMwareVM.tfvars and provide sample values for the variables.
+Create a file named *CreateVMwareVM.tfvars* and provide sample values for the variables.
 
 ```terraform
 subscription_id      = "your-subscription-id"
@@ -252,7 +253,7 @@ vm_password          = " The admin password for the VM "
 
 ```
 
-#### Step 3: Modify the Configuration to Use Variables
+#### Step 3: Modify the configuration to use variables
 
 main.tf
 
@@ -342,22 +343,22 @@ resource "azapi_resource" "guestAgent" {
 
 ```
 
-#### Step 4: Run Terraform Commands
+#### Step 4: Run Terraform commands
 
-Use the -var-file flag to pass the .tfvars file during Terraform commands.
+Use the -var-file flag to pass the *.tfvars* file during Terraform commands.
 
 1.	Initialize Terraform (if not already initialized):
 `terraform init`
-2.	Validate the Configuration:
+2.	Validate the configuration:
 `terraform validate -var-file="CreateVMwareVM.tfvars"`
-3.	Plan the Changes:
+3.	Plan the changes:
 `terraform plan -var-file="CreateVMwareVM.tfvars"`
-4.	Apply the Changes:
+4.	Apply the changes:
 `terraform apply -var-file="CreateVMwareVM.tfvars"`
 
 Confirm the prompt by entering yes to apply the changes.
 
-### Best practices
+#### Best practices
 
 1.	**Use version control**: Keep your Terraform configuration files under version control (for example, Git) to track changes over time.
 2.	**Review plans carefully**: Always review the output of terraform plan before applying changes to ensure that you understand what changes will be made.
@@ -365,7 +366,9 @@ Confirm the prompt by entering yes to apply the changes.
 
 By following these steps, you can effectively create and manage HCRP and Arc VMware VMs on Azure using Terraform and install guest agents on the created VMs.
 
-**Scenario 2**: Create a new Arc VMware VM using TemplateId, ResourcePoolId, and DatastoreId and install Arc agents.
+### Scenario 2
+
+Create a new Arc VMware VM using TemplateId, ResourcePoolId, and DatastoreId and install Arc agents.
 
 #### Step 1: Define variables in a variables.tf File
 
@@ -429,9 +432,9 @@ variable "custom_location_id" {
 
 ```
 
-#### Step 2: Create tfvars File
+#### Step 2: Create tfvars file
 
-Create a file named CreateVMwareVM.tfvars and provide sample values for the variables.
+Create a file named *CreateVMwareVM.tfvars* and provide sample values for the variables.
 
 ```terraform
 subscription_id      = "your-subscription-id"
@@ -550,24 +553,24 @@ resource "azapi_resource" "guestAgent" {
 
 #### Step 4: Run Terraform commands
 
-Use the -var-file flag to pass the .tfvars file during Terraform commands.
+Use the -var-file flag to pass the *.tfvars* file during Terraform commands.
 
 1.	Initialize Terraform (if not already initialized):
 `terraform init`
-2.	Validate the Configuration:
+2.	Validate the configuration:
 `terraform validate -var-file="CreateVMwareVM.tfvars"`
-3.	Plan the Changes:
+3.	Plan the changes:
 `terraform plan -var-file="CreateVMwareVM.tfvars"`
-4.	Apply the Changes:
+4.	Apply the changes:
 `terraform apply -var-file="CreateVMwareVM.tfvars"`
 
 Confirm the prompt by entering yes to apply the changes.
 
-### Best practices
+#### Best practices
 
-4.	**Use version control**: Keep your Terraform configuration files under version control (for example, Git) to track changes over time.
-5.	**Review plans carefully**: Always review the output of terraform plan before applying changes to ensure that you understand what changes will be made.
-6.	**State management**: Regularly back up your Terraform state files to avoid data loss.
+1.	**Use version control**: Keep your Terraform configuration files under version control (for example, Git) to track changes over time.
+2.	**Review plans carefully**: Always review the output of terraform plan before applying changes to ensure that you understand what changes will be made.
+3.	**State management**: Regularly back up your Terraform state files to avoid data loss.
 
 ## Next steps
 
