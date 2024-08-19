@@ -15,6 +15,18 @@ items:
     href: whats-new.md
   - name: Azure AI Content Safety FAQ
     href: faq.yml
+- name: Concepts
+  items:
+  - name: Prompt Shields
+    href: concepts/jailbreak-detection.md
+  - name: Groundedness detection
+    href: concepts/groundedness.md
+  - name: Protected material detection
+    href: concepts/protected-material.md
+  - name: Custom categories
+    href: concepts/custom-categories.md
+  - name: Harm categories
+    href: concepts/harm-categories.md
 - name: Quickstarts
   items:
   - name: Prompt Shields (preview)
@@ -59,30 +71,19 @@ items:
     items:
       - name: Set up Virtual Networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/content-safety/context/context
-- name: Concepts
-  items:
-  - name: Prompt Shields
-    href: concepts/jailbreak-detection.md
-  - name: Groundedness detection
-    href: concepts/groundedness.md
-  - name: Protected material detection
-    href: concepts/protected-material.md
-  - name: Custom categories
-    href: concepts/custom-categories.md
-  - name: Harm categories
-    href: concepts/harm-categories.md
+
 - name: Reference
   items:
   - name: Azure AI Content Safety REST API
     href: https://aka.ms/content-safety-api
   - name: Azure AI Content Safety Python SDK
-    href: https://aka.ms/content-safety-python-sdk
+    href: /python/api/overview/azure/ai-contentsafety-readme
   - name: Azure AI Content Safety C# SDK
-    href: https://aka.ms/content-safety-csharp-sdk
+    href: /dotnet/api/overview/azure/ai.contentsafety-readme
   - name: Azure AI Content Safety Java SDK
     href: /java/api/overview/azure/ai-contentsafety-readme
   - name: Azure AI Content Safety JavaScript SDK
-    href: https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0-beta.1
+    href: /javascript/api/overview/azure/ai-content-safety-rest-readme
   - name: Response codes
     href: concepts/response-codes.md
 - name: Resources

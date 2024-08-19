@@ -5,7 +5,6 @@ description: This article describes system variables supported by Azure Data Fac
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

@@ -4,7 +4,7 @@ description: Learn about to set the upgrade policy on Virtual Machine Scale Sets
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.date: 6/6/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy

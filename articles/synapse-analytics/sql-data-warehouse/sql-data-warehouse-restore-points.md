@@ -4,7 +4,7 @@ description: How to create a restore point for dedicated SQL pool (formerly SQL 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 07/03/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:

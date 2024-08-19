@@ -4,7 +4,7 @@ description: Learn how to set up a Linux master target server for failback to an
 services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.author: ankitadutta

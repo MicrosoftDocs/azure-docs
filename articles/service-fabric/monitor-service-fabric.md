@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ---
 
 # Monitor Azure Service Fabric

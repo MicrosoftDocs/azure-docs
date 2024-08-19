@@ -4,7 +4,7 @@ description: Learn how the reservation discount is applied to Azure Data Explore
 author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
-ms.service: data-explorer
+ms.service: azure-data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2022
 ms.custom: kr2b-contr-experiment

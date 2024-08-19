@@ -2,8 +2,8 @@
 title: Azure confidential computing products
 description: Learn about all the confidential computing services that Azure provides
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: overview
 ms.date: 06/09/2023
 ms.author: jushiman
@@ -29,7 +29,7 @@ Azure provides the broadest support for hardened technologies such as [AMD SEV-S
 
 Azure offers various PaaS, SaaS and VM capabilities supporting or built upon confidential computing, this includes:
 
-- [Azure Key Vault Managed HSM](../key-vault/managed-hsm/index.yml), a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated Hardware Security Modules (HSM).
+- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/), a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated Hardware Security Modules (HSM).
 
 - [Always Encrypted with secure enclaves in Azure SQL](/sql/relational-databases/security/encryption/always-encrypted-enclaves). The confidentiality of sensitive data is protected from malware and high-privileged unauthorized users by running SQL queries directly inside a TEE. 
 
@@ -37,11 +37,11 @@ Azure offers various PaaS, SaaS and VM capabilities supporting or built upon con
 
 - [Azure Virtual Desktop](../virtual-desktop/deploy-azure-virtual-desktop.md?tabs=portal) ensures a user’s virtual desktop is encrypted in memory, protected in use, and backed by hardware root of trust.
 
-- [Microsoft Azure Attestation](../attestation/overview.md), a remote attestation service for validating the trustworthiness of multiple Trusted Execution Environments (TEEs) and verifying integrity of the binaries running inside the TEEs.
+- [Microsoft Azure Attestation](/azure/attestation/overview), a remote attestation service for validating the trustworthiness of multiple Trusted Execution Environments (TEEs) and verifying integrity of the binaries running inside the TEEs.
 
 - [Trusted Hardware Identity Management](../security/fundamentals/trusted-hardware-identity-management.md), a service that handles cache management of certificates for all TEEs residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions.
 
-- [Azure Confidential Ledger](../confidential-ledger/overview.md). ACL is a tamper-proof register for storing sensitive data for record keeping and auditing or for data transparency in multi-party scenarios. It offers Write-Once-Read-Many guarantees, which make data non-erasable and non-modifiable. The service is built on Microsoft Research's [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/).
+- [Azure Confidential Ledger](/azure/confidential-ledger/overview). ACL is a tamper-proof register for storing sensitive data for record keeping and auditing or for data transparency in multi-party scenarios. It offers Write-Once-Read-Many guarantees, which make data non-erasable and non-modifiable. The service is built on Microsoft Research's [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/).
 
 ## Supplementary offerings
 

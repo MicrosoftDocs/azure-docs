@@ -1,9 +1,10 @@
 ---
-title: Configure virtual network service endpoints for Azure Service Bus
+title: Configure network service endpoints 
 description: This article provides information on how to add a Microsoft.ServiceBus service endpoint to a virtual network. 
-ms.topic: article
-ms.date: 07/24/2024
+ms.topic: how-to
+ms.date: 07/31/2024
 ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: As a developer or IT Admin, I want to know how to allow access to my Service Bus namespace only from selected networks. 
 ---
 
 # Allow access to Azure Service Bus namespace from specific virtual networks
@@ -61,6 +62,9 @@ This section shows you how to use Azure portal to add a virtual network service 
     > [!NOTE]
     > You see the **Networking** tab only for **premium** namespaces.  
 1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access from only specified IP addresses. 
+    - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, Service Bus accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+    
+        :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Screenshot of the Networking tab of a Service Bus namespace with the default option All networks selected.":::
     - **Disabled**. This option disables any public access to the namespace. The namespace is accessible only through [private endpoints](private-link-service.md). 
     
         :::image type="content" source="./media/service-bus-ip-filtering/public-access-disabled-page.png" alt-text="Screenshot that shows the Networking page of a namespace with public access disabled."::: 
@@ -70,7 +74,6 @@ This section shows you how to use Azure portal to add a virtual network service 
 
         > [!IMPORTANT]
         > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.       
-    - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, Service Bus accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 2. To restrict access to specific virtual networks, select the **Selected networks** option if it isn't already selected.
 1. In the **Virtual Network** section of the page, select **+Add existing virtual network**. Select **+ Create new virtual network** if you want to create a new virtual network.
 
@@ -242,7 +245,7 @@ Azure portal always uses the latest API version to get and set properties. If yo
 
 :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.":::
 
-## Next steps
+## Related content
 
 For more information about virtual networks, see the following links:
 

@@ -6,7 +6,7 @@ ms.author: abell
 ms.topic: reliability-article
 ms.workload: infrastructure-services
 ms.custom: subject-reliability, references_regions
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.date: 03/14/2024 
 ---
 

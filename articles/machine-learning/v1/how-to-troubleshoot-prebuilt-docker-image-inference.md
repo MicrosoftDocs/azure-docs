@@ -3,7 +3,7 @@ title: Troubleshoot prebuilt docker images
 titleSuffix: Azure Machine Learning
 description: 'Troubleshooting steps for using prebuilt Docker images for inference.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.author: larryfr
 author: Blackmist

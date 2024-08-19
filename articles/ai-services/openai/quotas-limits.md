@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 07/24/2024
+ms.date: 08/14/2024
 ms.author: mbullwin
 ---
 
@@ -48,30 +48,40 @@ The following sections provide you with a quick guide to the default quotas and 
 | Assistants token limit | 2,000,000 token limit |
 | GPT-4o max images per request (# of images in the messages array/conversation history) | 10 |
 | GPT-4 `vision-preview` & GPT-4 `turbo-2024-04-09` default max tokens | 16 <br><br> Increase the `max_tokens` parameter value to avoid truncated responses. GPT-4o max tokens defaults to 4096. |
+| Max number of custom headers in API requests<sup>1</sup> | 10 |
+
+<sup>1</sup> Our current APIs allow up to 10 custom headers, which are passed through the pipeline, and returned. We have noticed some customers now exceed this header count resulting in HTTP 431 errors. There is no solution for this error, other than to reduce header volume.  **In future API versions we will no longer pass through custom headers**. We recommend customers not depend on custom headers in future system architectures.
+
 
 ## Regional quota limits
 
 [!INCLUDE [Quota](./includes/model-matrix/quota.md)]
 
+[!INCLUDE [Quota](./includes/global-batch-limits.md)]
+
 ## gpt-4o rate limits
 
-`gpt-4o` introduces rate limit tiers with higher limits for certain customer types.
+`gpt-4o` and `gpt-4o-mini` have rate limit tiers with higher limits for certain customer types.
 
 ### gpt-4o global standard
 
-|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
-|---|:---:|:---:|
-|Enterprise agreement | 30 M | 180 K |
-|Default | 450 K | 2.7 K |
+| Model|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
+|---|---|:---:|:---:|
+|`gpt-4o`|Enterprise agreement | 30 M | 180 K |
+|`gpt-4o-mini` | Enterprise agreement | 50 M | 300 K |
+|`gpt-4o` |Default | 450 K | 2.7 K |
+|`gpt-4o-mini` | Default | 2 M | 12 K  |
 
 M = million | K = thousand
 
 ### gpt-4o standard
 
-|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
-|---|:---:|:---:|
-|Enterprise agreement | 1 M | 6 K |
-|Default | 150 K | 900 |
+| Model|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
+|---|---|:---:|:---:|
+|`gpt-4o`|Enterprise agreement | 1 M | 6 K |
+|`gpt-4o-mini` | Enterprise agreement | 2 M | 12 K |
+|`gpt-4o`|Default | 150 K | 900 |
+|`gpt-4o-mini` | Default | 450 K | 2.7 K |
 
 M = million | K = thousand
 
@@ -81,11 +91,22 @@ Global Standard deployments use Azure's global infrastructure, dynamically routi
 
 The Usage Limit determines the level of usage above which customers might see larger variability in response latency. A customer’s usage is defined per model and is the total tokens consumed across all deployments in all subscriptions in all regions for a given tenant.
 
+> [!NOTE]
+> Usage tiers only apply to standard and global standard deployment types. Usage tiers do not apply to global batch deployments.
+
 #### GPT-4o global standard & standard
 
 |Model| Usage Tiers per month |
 |----|----|
-|`GPT-4o` |1.5 Billion tokens |
+|`gpt-4o` | 8 Billion tokens |
+|`gpt-4o-mini` | 45 Billion tokens |
+
+#### GPT-4 standard
+
+|Model| Usage Tiers per month|
+|---|---|
+| `gpt-4` + `gpt-4-32k`  (all versions) | 4 Billion |
+
 
 ## Other offer types
 

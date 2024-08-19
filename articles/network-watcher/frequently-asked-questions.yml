@@ -4,7 +4,7 @@ metadata:
   description: "This article answers frequently asked questions asked about the Azure Network Watcher service."
   author: halkazwini
   ms.author: halkazwini
-  ms.service: network-watcher
+  ms.service: azure-network-watcher
   ms.topic: faq
   ms.date: 04/24/2024
 title: "Network Watcher frequently asked questions (FAQ)"
@@ -128,7 +128,7 @@ sections:
       - question: |
           What is the latest version of the Network Watcher Agent?
         answer: |
-          [!INCLUDE [Network Watcher Agent version](~/reusable-content/ce-skilling/azure/includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+          [!INCLUDE [Network Watcher Agent version](~/reusable-content/ce-skilling/azure/includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
 
       - question: |
           What ports does the Network Watcher Agent use?

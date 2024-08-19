@@ -1,25 +1,25 @@
 ---
-title: Enable authentication and authorization in Azure Container Apps with Twitter
-description: Learn to use the built-in Twitter authentication provider in Azure Container Apps.
+title: Enable authentication and authorization in Azure Container Apps with X
+description: Learn to use the built-in X authentication provider in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 04/20/2022
 ms.author: cshoe
 ---
 
-# Enable authentication and authorization in Azure Container Apps with Twitter
+# Enable authentication and authorization in Azure Container Apps with X
 
-This article shows how to configure Azure Container Apps to use Twitter as an authentication provider.
+This article shows how to configure Azure Container Apps to use X as an authentication provider.
 
-To complete the procedure in this article, you need a Twitter account that has a verified email address and phone number. To create a new Twitter account, go to [twitter.com].
+To complete the procedure in this article, you need an X account that has a verified email address and phone number. To create a new X account, go to [x.com](https://x.com).
 
-## <a name="twitter-register"> </a>Register your application with Twitter
+## <a name="twitter-register"> </a>Register your application with X
 
-1. Sign in to the [Azure portal] and go to your application. Copy your **URL**. You'll use it to configure your Twitter app.
-1. Go to the [Twitter Developers] website, sign in with your Twitter account credentials, and select **Create an app**.
-1. Enter the **App name** and the **Application description** for your new app. Paste your application's **URL** into the **Website URL** field. In the **Callback URLs** section, enter the HTTPS URL of your container app and append the path `/.auth/login/twitter/callback`. For example, `https://<hostname>.azurecontainerapps.io/.auth/login/twitter/callback`.
+1. Sign in to the [Azure portal] and go to your application. Copy your **URL**. You'll use it to configure your X app.
+1. Go to the [X Developers] website, sign in with your X account credentials, and select **Create an app**.
+1. Enter the **App name** and the **Application description** for your new app. Paste your application's **URL** into the **Website URL** field. In the **Callback URLs** section, enter the HTTPS URL of your container app and append the path `/.auth/login/x/callback`. For example, `https://<hostname>.azurecontainerapps.io/.auth/login/x/callback`.
 1. At the bottom of the page, type at least 100 characters in **Tell us how this app will be used**, then select **Create**. Select **Create** again in the pop-up. The application details are displayed.
 1. Select the **Keys and Access Tokens** tab.
 
@@ -30,7 +30,7 @@ To complete the procedure in this article, you need a Twitter account that has a
    > [!IMPORTANT]
    > The API secret key is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
-## <a name="twitter-secrets"> </a>Add Twitter information to your application
+## <a name="twitter-secrets"> </a>Add X information to your application
 
 1. Sign in to the [Azure portal] and navigate to your app.
 1. Select **Authentication** in the menu on the left. Select **Add identity provider**.
@@ -44,7 +44,7 @@ To complete the procedure in this article, you need a Twitter account that has a
 
 1. Select **Add**.
 
-You're now ready to use Twitter for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
+You're now ready to use X for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
 ## Working with authenticated users
 
@@ -60,3 +60,5 @@ Use the following guides for details on working with authenticated users.
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com/
+[X Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268300
+

@@ -1,5 +1,5 @@
 ---
-ms.service: advisor
+ms.service: azure-advisor
 ms.topic: include
 ms.date: 07/07/2022
 author: ikhapova

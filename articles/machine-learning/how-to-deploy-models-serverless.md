@@ -3,7 +3,7 @@ title: Deploy models as serverless APIs
 titleSuffix: Azure Machine Learning
 description: Learn to deploy models as serverless APIs, using Azure Machine Learning.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 07/19/2024
@@ -19,6 +19,8 @@ ms.custom: build-2024, serverless, devx-track-azurecli
 In this article, you learn how to deploy a model from the model catalog as a serverless API with pay-as-you-go token-based billing.
 
 [Certain models in the model catalog](concept-endpoint-serverless-availability.md) can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
+
+This article uses a Meta Llama model deployment for illustration. However, you can use the same steps to deploy any of the [models in the model catalog that are available for serverless API deployment](concept-endpoint-serverless-availability.md).
 
 ## Prerequisites
 
@@ -106,17 +108,21 @@ The next section covers the steps for subscribing your workspace to a model offe
 
 ## Subscribe your workspace to the model offering
 
-For non-Microsoft models offered through the Azure Marketplace, you can deploy them to serverless API endpoints to consume their predictions. If it's your first time deploying the model in the workspace, you have to subscribe your workspace for the particular model offering from the Azure Marketplace. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
+Serverless API endpoints can deploy both Microsoft and non-Microsoft offered models. For Microsoft models (such as Phi-3 models), you don't need to create an Azure Marketplace subscription and you can [deploy them to serverless API endpoints directly](#deploy-the-model-to-a-serverless-api-endpoint) to consume their predictions. For non-Microsoft models, you need to create the subscription first. If it's your first time deploying the model in the workspace, you have to subscribe your workspace for the particular model offering from the Azure Marketplace. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
 
 > [!NOTE]
 > Models offered through the Azure Marketplace are available for deployment to serverless API endpoints in specific regions. Check [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md) to verify which models and regions are available. If the one you need is not listed, you can deploy to a workspace in a supported region and then [consume serverless API endpoints from a different workspace](how-to-connect-models-serverless.md).
 
-1. Create the model's marketplace subscription. When you create a subscription, you accept the terms and conditions associated with the model offer.
+1. Create the model's marketplace subscription. When you create a subscription, you accept the terms and conditions associated with the model offer. Remember you don't need to perform this step for Microsoft offered models (like Phi-3).
 
     # [Studio](#tab/azure-studio)
 
-    1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety (preview)** to open the deployment wizard.
+    1. On the model's **Details** page, select **Deploy**. A **Deployment options** window opens up, giving you the choice between serverless API deployment and deployment using a managed compute.
+  
+        > [!NOTE]
+        > For models that can be deployed only via serverless API deployment, the serverless API deployment wizard opens up right after you select **Deploy** from the model's details page.
 
+    1. Select **Serverless API with Azure AI Content Safety (preview)** to open the serverless API deployment wizard.
     1. Select the checkbox to acknowledge the Microsoft purchase policy.    
 
         :::image type="content" source="media/how-to-deploy-models-serverless/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the serverless API option." lightbox="media/how-to-deploy-models-serverless/deploy-pay-as-you-go.png":::
@@ -125,7 +131,7 @@ For non-Microsoft models offered through the Azure Marketplace, you can deploy t
     
     1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Pricing and terms** tab to learn about pricing for the selected model.
 
-     4. On the deployment wizard, select the link to Azure Marketplace Terms to learn more about the terms of use. You can also select the Marketplace offer details tab to learn about pricing for the selected model.
+    1. On the deployment wizard, select the link to Azure Marketplace Terms to learn more about the terms of use. You can also select the Marketplace offer details tab to learn about pricing for the selected model.
 
     1. Select **Subscribe and Deploy**.
 
@@ -172,8 +178,8 @@ For non-Microsoft models offered through the Azure Marketplace, you can deploy t
         "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "workspace_name": {
-                "defaultValue": "my-workspace",
+            "project_name": {
+                "defaultValue": "my-project",
                 "type": "String"
             },
             "subscription_name": {
@@ -190,8 +196,7 @@ For non-Microsoft models offered through the Azure Marketplace, you can deploy t
             {
                 "type": "Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions",
                 "apiVersion": "2024-04-01",
-                "name": "[concat(parameters('workspace_name'), '/', parameters('subscription_name'))]",
-                "location": "[parameters('location')]",
+                "name": "[concat(parameters('project_name'), '/', parameters('subscription_name'))]",
                 "properties": {
                     "modelId": "[parameters('model_id')]"
                 }
@@ -305,8 +310,8 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
         "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
-            "workspace_name": {
-                "defaultValue": "my-workspace",
+            "project_name": {
+                "defaultValue": "my-project",
                 "type": "String"
             },
             "endpoint_name": {
@@ -327,7 +332,7 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
             {
                 "type": "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints",
                 "apiVersion": "2024-04-01",
-                "name": "[concat(parameters('workspace_name'), '/', parameters('endpoint_name'))]",
+                "name": "[concat(parameters('project_name'), '/', parameters('endpoint_name'))]",
                 "location": "[parameters('location')]",
                 "sku": {
                     "name": "Consumption"

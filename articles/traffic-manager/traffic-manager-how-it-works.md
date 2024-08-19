@@ -4,9 +4,9 @@ description: This article helps you understand how Traffic Manager routes traffi
 services: traffic-manager
 author: greg-lindsay
 manager: kumud
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: conceptual
-ms.date: 08/14/2023
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-concept
 ---

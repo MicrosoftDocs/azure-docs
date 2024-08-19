@@ -2,10 +2,11 @@
 title: Compile DSC configurations in Azure Automation State Configuration
 description: This article tells how to compile Desired State Configuration (DSC) configurations for Azure Automation.
 services: automation
-ms.subservice: dsc
+ms.subservice: desired-state-config
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Compile DSC configurations in Azure Automation State Configuration

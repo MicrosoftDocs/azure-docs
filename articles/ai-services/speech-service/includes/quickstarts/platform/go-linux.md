@@ -9,15 +9,10 @@ ms.author: eur
 
 ## Platform requirements
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 The Speech SDK for Go supports the following distributions on the x64 architecture:
 
-- Ubuntu 20.04/22.04
+- Ubuntu 20.04/22.04/24.04
 - Debian 11/12
-- Red Hat Enterprise Linux (RHEL) 7
-- CentOS 7
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 
@@ -39,7 +34,7 @@ The following steps enable your Go environment to find the Speech SDK.
    ```
 
    > [!IMPORTANT]
-   > Replace `<architecture>` with the processor architecture of your CPU: `x86`, `x64`, `arm32`, or `arm64`.
+   > Replace `<architecture>` with the processor architecture of your CPU: `x64`, `arm32`, or `arm64`.
 
 1. To run applications and the SDK, you need to tell the operating system where to find the libraries.
 
@@ -48,4 +43,4 @@ The following steps enable your Go environment to find the Speech SDK.
    ```
 
    > [!IMPORTANT]
-   > Replace `<architecture>` with the processor architecture of your CPU: `x86`, `x64`, `arm32`, or `arm64`.
+   > Replace `<architecture>` with the processor architecture of your CPU: `x64`, `arm32`, or `arm64`.

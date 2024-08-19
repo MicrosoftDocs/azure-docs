@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to configure the native VPN client on a Windows computer for point-to-site certificate authentication connections.
 author: cherylmc
 ms.topic: how-to
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.date: 05/14/2024
 ms.author: cherylmc
 ---
