@@ -322,7 +322,7 @@
       href: vector-search-how-to-index-binary-data.md
     - name: Query vectors
       href: vector-search-how-to-query.md
-    - name: Filter vectors
+    - name: Add filters to a vector query
       href: vector-search-filters.md
     - name: Vector quotas and limits
       href: vector-search-index-size.md
