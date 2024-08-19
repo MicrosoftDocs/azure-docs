@@ -54,7 +54,7 @@ Download the latest version of the Windows agent from [aka.ms/dependencyagentwin
 
 #### From the command line
 
-1. Log in to the computer using an account with administrative rights.
+1. Sign in on the computer using an account with administrative rights.
 
 1. Run the following command:
 
@@ -67,9 +67,6 @@ Download the latest version of the Windows agent from [aka.ms/dependencyagentwin
 1. To confirm the upgrade was successful, check the `install.log` for detailed setup information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
 ### Manually install or upgrade Dependency Agent on Linux
-
-> [!IMPORTANT]
-> The Log Analytics agent, also referred to as the Microsoft Monitor Agent (MMA) and OMS, will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). It will be succeeded by the [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md), which doesn't support manual installation of Dependency Agent on Linux systems.
 
 Upgrading from prior versions of Dependency Agent on Linux is supported and performed following the same command as a new installation.
 
@@ -90,7 +87,7 @@ curl -L -o DependencyAgent-Linux64.bin https://aka.ms/dependencyagentlinux
 
 #### From the command line
 
-1. Log in to the computer with a user account that has sudo privileges to execute commands as the root user.
+1. Sign in on the computer with a user account that has sudo privileges to execute commands as root.
 
 1. Run the following command:
 
@@ -116,9 +113,9 @@ If Dependency Agent fails to start, check the logs for detailed error informatio
 
 ### Manually uninstall Dependency Agent on Linux
 
-1. Sign on to the computer with an account that has administrative rights.
+1. Sign in on the computer with a user account that has sudo privileges to execute commands as root.
 
-1. Run the following command as root:
+1. Run the following command:
 
     ```bash
     sudo /opt/microsoft/dependency-agent/uninstall -s
