@@ -178,6 +178,9 @@
     href: deployment-token-management.md
   - name: Publish with an ARM template
     href: publish-azure-resource-manager.md
+  - name: Publish with a Bicep template
+    href: publish-bicep.md
+    displayName: bicep, AZD, Azure Developer CLI
   - name: Deploy with external source control providers
     href: external-providers.md
     displayName: Jenkins, Jekyll
