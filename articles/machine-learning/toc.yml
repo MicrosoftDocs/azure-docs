@@ -598,6 +598,8 @@
       items:
         - name: Phi-3 family chat models
           href: how-to-deploy-models-phi-3.md
+        - name: Phi-3 chat model with vision
+          href: how-to-deploy-models-phi-3-vision.md
     - name: How to deploy TimeGEN-1 model
       href: how-to-deploy-models-timegen-1.md
     - name: How to deploy Mistral family models
