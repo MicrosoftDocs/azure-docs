@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations Azure Disk B
 ms.topic: conceptual
 ms.date: 05/09/2024
 ms.custom: references_regions, engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -31,7 +31,9 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 - Currently, the Original-Location Recovery (OLR) option to restore by replacing existing source disks from where the backups were taken isn't supported. You can restore from recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR).
 
-- Azure Backup for Managed Disks uses incremental snapshots, which are limited to 500 snapshots per disk. To allow you to take on-demand backup aside from scheduled backups, Backup policy limits the total backups to 480. Learn more about [incremental snapshot](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disks.
+- Azure Backup for Managed Disks uses incremental snapshots, which are limited to 500 snapshots per disk. To allow you to take on-demand backup aside from scheduled backups, Backup policy limits the total backups to 420. Learn more about [incremental snapshot](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disks.
+
+- You can either set a maximum retention limit of 1 year or 450 disk snapshots, whichever reaches first. For example, if you have opted for a backup frequency of 12 hours, then you can retain each recovery point for maximum 225 days as the snapshot limit will be breached beyond that. 
 
 - Azure [subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machine-disk-limits) apply to the total number of disk snapshots per region per subscription.
 
@@ -58,6 +60,8 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 - [Private Links](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml) support for managed disks allows you to restrict the export and import of managed disks so that it only occurs within your Azure virtual network. Azure Disk Backup supports backup of disks that have private endpoints enabled. This doesn't include the backup data or snapshots to be accessible through the private endpoint.
 
 - You can stop backup and retain backup data. This allows you to *retain backup data* forever or as per the backup policy. You can also delete a backup instance, which stops the backup and deletes all backup data. 
+
+- Backup Vault does not support Azure Lighthouse. Thus, cross tenant management experiences cannot be enabled by Lighthouse for Azure Disk Backup and you cannot backup/restore Azure Disks across tenant.
 
 - Azure Disk Backup limits are:
     

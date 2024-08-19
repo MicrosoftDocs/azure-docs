@@ -31,7 +31,7 @@ In this tutorial, you'll learn how to:
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint.
     * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll do this later in the quickstart.
 
-[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
 ## Load and format the time series data
 
@@ -113,7 +113,7 @@ Invoke the query on your data sheet by selecting `Sheet1` below **Enter Paramete
 ![An image of the invoke function](../media/tutorials/invoke-function-screenshot.png)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Azure AI services [security](../../security-features.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). See the Azure AI services [security](../../security-features.md) article for more information.
 
 ## Data source privacy and authentication
 

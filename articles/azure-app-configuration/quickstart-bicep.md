@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store using Bicep.
 author: maud-lv
 ms.author: malev
-ms.date: 05/06/2022
+ms.date: 05/30/2024
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
@@ -18,7 +18,7 @@ This quickstart describes how you can use Bicep to:
 - Create key-values in an App Configuration store.
 - Read key-values in an App Configuration store.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

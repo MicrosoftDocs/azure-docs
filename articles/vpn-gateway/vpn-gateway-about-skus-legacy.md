@@ -1,10 +1,10 @@
 ---
 title: VPN Gateway legacy SKUs
-description: How to work with the old virtual network gateway SKUs; Basic, Standard, and High Performance.
+description: How to work with the old virtual network gateway SKUs; Standard, and High Performance.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: article
-ms.date: 12/20/2023
+ms.date: 08/06/2024
 ms.author: cherylmc 
 ---
 # Working with VPN Gateway legacy SKUs
@@ -21,7 +21,24 @@ For SKU deprecation, see the [SKU deprecation](#sku-deprecation) and SKU depreca
 
 ## <a name="agg"></a>Estimated aggregate throughput by SKU
 
-[!INCLUDE [Aggregated throughput by legacy SKU](../../includes/vpn-gateway-table-gwtype-legacy-aggtput-include.md)]
+The following table shows the gateway types and the estimated aggregate throughput by gateway SKU. This table applies to the Resource Manager and classic deployment models.
+
+Pricing differs between gateway SKUs. For more information, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
+
+The UltraPerformance gateway SKU isn't represented in this table. For information about the UltraPerformance SKU, see the [ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md) documentation.
+
+|  | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist** |
+| --- | --- | --- | --- | --- |
+| **Standard SKU (3)(4)** |100 Mbps |10 |1000 Mbps |Yes |
+| **High Performance SKU (3)** |200 Mbps |30 |2000 Mbps |Yes |
+
+(1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It isn't a guaranteed throughput for cross-premises connections across the Internet. It's the maximum possible throughput measurement.
+
+(2) The number of tunnels refer to RouteBased VPNs. A PolicyBased VPN can only support one Site-to-Site VPN tunnel.
+
+(3) PolicyBased VPNs aren't supported for this SKU. They're supported for the Basic SKU.
+
+(4) Active-active S2S VPN Gateway connections aren't supported for this SKU. Active-active is supported on the HighPerformance SKU.
 
 ## <a name="config"></a>Supported configurations by SKU and VPN type
 

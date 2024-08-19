@@ -2,9 +2,9 @@
 title: 'About Azure VPN Gateway'
 description: Learn what VPN Gateway is, and how to use a VPN gateway to connect to IPsec IKE site-to-site, VNet-to-VNet, and point-to-site VPN virtual networks.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: overview
-ms.date: 02/29/2024
+ms.date: 07/23/2024
 ms.author: cherylmc
 ms.custom: e2e-hybrid
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
@@ -85,7 +85,7 @@ You pay for two things: the hourly compute costs for the virtual network gateway
 * If you're sending traffic between virtual networks in different regions, the pricing is based on the region.
 * If you're sending traffic only between virtual networks that are in the same region, there are no data costs. Traffic between VNets in the same region is free.
 
-## <a name="new"></a>What's new?
+## <a name="new"></a>What's new in VPN Gateway?
 
 Azure VPN Gateway is updated regularly. To stay current with the latest announcements, see the [What's new?](whats-new.md) article. The article highlights the following points of interest:
 

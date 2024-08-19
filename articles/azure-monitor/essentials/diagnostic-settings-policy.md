@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/25/2023
+ms.date: 05/30/2024
 ms.reviewer: lualderm
 ---
 

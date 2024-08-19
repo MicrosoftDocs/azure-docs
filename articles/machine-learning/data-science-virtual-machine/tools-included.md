@@ -6,18 +6,19 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: jesscioffi
-ms.author: jcioffi
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: reference
-ms.date: 06/23/2022
+ms.reviewer: jcioffi
+ms.date: 05/21/2024
 ms.custom: devx-track-python
 ---
 
-# What tools are included on the Azure Data Science Virtual Machine?
+# What tools does the Azure Data Science Virtual Machine include?
 
-The Data Science Virtual Machine is an easy way to explore data and do machine learning in the cloud. The Data Science Virtual Machines are pre-configured with the complete operating system, security patches, drivers, and popular data science and development software. You can choose the hardware environment, ranging from lower-cost CPU-centric machines to very powerful machines with multiple GPUs, NVMe storage, and large amounts of memory. For machines with GPUs, all drivers are installed, all machine learning frameworks are version-matched for GPU compatibility, and acceleration is enabled in all application software that supports GPUs.
+You can use the Data Science Virtual Machine (DSVM) to easily explore data and handle machine learning in the cloud. A DSVM is preconfigured with security patches, drivers, popular data science and development software, and a complete operating system. You can choose the hardware environment that works for you, ranging from lower-cost CPU-centric machines to powerful machines with multiple GPUs, NVMe storage, and large amounts of memory. For machines with GPUs, all drivers are installed, and all machine learning frameworks are version-matched for GPU compatibility. Additionally, acceleration is enabled in all application software that supports GPUs.
 
-The Data Science Virtual Machine comes with the most useful data-science tools pre-installed.
+The DSVM comes with the most useful data-science tools preinstalled.
 
 ## Build deep learning and machine learning solutions
 
@@ -31,7 +32,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | Integration with [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (Python) | <span class='green-check'>&#9989;</span></br> (Python SDK, samples) | <span class='green-check'>&#9989;</span></br> (Python SDK, samples) | <span class='green-check'>&#9989;</span></br> (Python SDK,CLI, samples) | [Azure Machine Learning SDK](./dsvm-tools-data-science.md#azure-machine-learning-sdk-for-python) |
 | [XGBoost](https://github.com/dmlc/xgboost) | <span class='green-check'>&#9989;</span></br> (CUDA support)  | <span class='green-check'>&#9989;</span></br> (CUDA support) | <span class='green-check'>&#9989;</span></br> (CUDA support) | [XGBoost on the DSVM](./dsvm-tools-data-science.md#xgboost) |
 | [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> | [Vowpal Wabbit on the DSVM](./dsvm-tools-data-science.md#vowpal-wabbit) |
-| [Weka](https://ml.cms.waikato.ac.nz/weka/index.html) | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | |
+| [Weka](https://ml.cms.waikato.ac.nz/weka/) | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | |
 | LightGBM | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span></br> (GPU, MPI support) | |
 | H2O | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | |
 | CatBoost | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | |
@@ -44,8 +45,6 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | PostgreSQL | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | |
 | ONNX Runtime | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | |
 
-
-
 ## Store, retrieve, and manipulate data
 
 | Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM | Ubuntu 20.04 DSVM | Usage notes |
@@ -56,7 +55,7 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | [Azure CLI](/cli/azure) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | |
 | [AzCopy](../../storage/common/storage-use-azcopy-v10.md) | <span class='green-check'>&#9989;</span></br> | <span class='green-check'>&#9989;</span></br> | <span class='red-x'>&#10060;</span> | [AzCopy on the DSVM](./dsvm-tools-ingestion.md#azcopy) |
 | [Blob FUSE driver](https://github.com/Azure/azure-storage-fuse) | <span class='red-x'>&#10060;</span>  | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span></br> | [blobfuse on the DSVM](./dsvm-tools-ingestion.md#blobfuse) |
-| [Azure Cosmos DB Data Migration Tool](../../cosmos-db/import-data.md) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | [Azure Cosmos DB on the DSVM](./dsvm-tools-ingestion.md#azure-cosmos-db-data-migration-tool) |
+| [Azure Cosmos DB Data Migration Tool](/azure/cosmos-db/import-data) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='red-x'>&#10060;</span> | [Azure Cosmos DB on the DSVM](./dsvm-tools-ingestion.md#azure-cosmos-db-data-migration-tool) |
 | Unix/Linux command-line tools | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | |
 | Apache Spark 3.1 (standalone) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span></br> | |
 
@@ -64,8 +63,8 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 
 | Tool | Windows Server 2019 DSVM | Windows Server 2022 DSVM | Ubuntu 20.04 DSVM | Usage notes |
 |--|:-:|:-:|:-:|:-:|
-| [CRAN-R](https://cran.r-project.org/) with popular packages pre-installed | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | |
-| [Anaconda Python](https://www.continuum.io/) with popular packages pre-installed | <span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span><br/> (Miniconda) | <span class='green-check'>&#9989;</span></br> (Miniconda) | |
+| [CRAN-R](https://cran.r-project.org/) with popular packages preinstalled | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | |
+| [Anaconda Python](https://www.continuum.io/) with popular packages preinstalled | <span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span><br/> (Miniconda) | <span class='green-check'>&#9989;</span></br> (Miniconda) | |
 | [Julia (Julialang)](https://julialang.org/) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | |
 | JupyterHub (multiuser notebook server) | <span class='red-x'>&#10060;</span> | <span class='red-x'>&#10060;</span> | <span class='green-check'>&#9989;</span> | |
 | JupyterLab (multiuser notebook server) | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | <span class='green-check'>&#9989;</span> | |
@@ -76,21 +75,21 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | &nbsp;&nbsp;&nbsp;&nbsp; Julia |  |  |  | [Julia Jupyter Samples](./dsvm-samples-and-walkthroughs.md#julia-language) |
 | &nbsp;&nbsp;&nbsp;&nbsp; PySpark |  |  |  | [pySpark Jupyter Samples](./dsvm-samples-and-walkthroughs.md#sparkml) |
 
-**Ubuntu 20.04 DSVM, Windows Server 2019 DSVM, and Windows Server 2022 DSVM** have the following Jupyter Kernels:-</br> 
-* Python3.8-default</br>
-* Python3.8-Tensorflow-Pytorch</br>
-* Python3.8-AzureML</br>
-* R</br>
-* Python 3.7 - Spark (local)</br>
-* Julia 1.6.0</br>
-* R Spark – HDInsight</br>
-* Scala Spark – HDInsight</br>
-* Python 3 Spark – HDInsight</br>
+**Ubuntu 20.04 DSVM, Windows Server 2019 DSVM, and Windows Server 2022 DSVM** have these Jupyter Kernels:
+* Python3.8-default
+* Python3.8-Tensorflow-Pytorch
+* Python3.8-AzureML
+* R
+* Python 3.7 - Spark (local)
+* Julia 1.6.0
+* R Spark – HDInsight
+* Scala Spark – HDInsight
+* Python 3 Spark – HDInsight
 
-**Ubuntu 20.04 DSVM, Windows Server 2019 DSVM, and Windows Server 2022 DSVM** have the following conda environments:-</br> 
-* Python3.8-default  </br>
-* Python3.8-Tensorflow-Pytorch </br> 
-* Python3.8-AzureML  </br>
+**Ubuntu 20.04 DSVM, Windows Server 2019 DSVM, and Windows Server 2022 DSVM** have the following conda environments:
+* Python3.8-default
+* Python3.8-Tensorflow-Pytorch
+* Python3.8-AzureML
 
 ## Use your preferred editor or IDE
 

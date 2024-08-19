@@ -12,6 +12,8 @@ ai-usage: ai-assisted
 
 # How to use managed identities for App Service and Azure Functions
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This article shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. 
 
 > [!IMPORTANT] 
@@ -33,7 +35,8 @@ The steps in the video are also described in the following sections.
 
 # [Azure portal](#tab/portal)
 
-1. In the left navigation of your app's page, scroll down to the **Settings** group.
+1. Access your app's settings in the [Azure portal](https://portal.azure.com) under the **Settings** group in the left navigation pane.
+
 
 1. Select **Identity**.
 
@@ -285,7 +288,7 @@ Content-Type: application/json
     "expires_on": "1586984735",
     "resource": "https://vault.azure.net",
     "token_type": "Bearer",
-    "client_id": "5E29463D-71DA-4FE0-8E69-999B57DB23B0"
+    "client_id": "00001111-aaaa-2222-bbbb-3333cccc4444"
 }
 ```
 

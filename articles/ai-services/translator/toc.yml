@@ -9,7 +9,7 @@ items:
     href: translator-overview.md
   - name: Create a Translator resource
     displayName: endpoint,key,portal,azure,authentication,delete,resource
-    href: create-translator-resource.yml  
+    href: create-translator-resource.yml
   - name: Language Support
     displayName: iso,language code,translation,transliteration,detection,detect,pdf,document
     href: language-support.md
@@ -25,14 +25,11 @@ items:
   - name: Translator Service FAQ
     displayName: character,count,usage,attribution, cognitive
     href: translator-faq.md
-- name: Text Translator
+- name: Text Translation
   items:
   - name: What is Text Translation?
     displayName: features,develop,development,free
     href: text-translation-overview.md
-  - name: Create a Translator resource
-    displayName: endpoint,key,portal,azure,authentication,delete,resource
-    href: create-translator-resource.yml
   - name: 🆕 Text Translation SDK overview (preview)
     displayName: get started,sdk,keys,endpoint
     href: text-sdk-overview.md
@@ -50,14 +47,8 @@ items:
     items:
     - name: Code Sample page
       href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
-    - name: C#
-      items:
-      - name: C# samples
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
-      - name: Authenticate with Microsoft Entra ID
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AAD
-      - name: Authenticate using Microsoft Entra tokens
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AzureToken
+    - name: C# samples
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
     - name: Java
       href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Java-Code-Samples
     - name: Python
@@ -120,61 +111,55 @@ items:
   - name: What is Document Translation?
     displayName: ocr,batch,features,development,formats,file types
     href: document-translation/overview.md
-  - name: Asynchronous Batch Translation
+  - name: 🆕 Document Translation SDK guide
+    displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
+    href: document-translation/document-sdk-overview.md
+  - name: 🆕 Document Translation REST API guide
+    displayName: get,post,cancel,delete
+    href: document-translation/reference/rest-api-guide.md
+  - name: Quickstarts
     items:
-    - name: "Quickstart: Try Batch Translation client libraries"
+    - name: "Quickstart: Document Translation client libraries"
       displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-      href: document-translation/quickstarts/asynchronous-sdk.md
-    - name:  "Quickstart: Try Batch Translation REST APIs"
-      displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
-      href: document-translation/quickstarts/asynchronous-rest-api.md
-    - name: Use Batch Translation REST APIs with coding languages
+      href: document-translation/quickstarts/client-library-sdks.md
+    - name: "Quickstart: Document Translation REST APIs"
+      displayName: get,post,cancel,delete
+      href: document-translation/quickstarts/rest-api.md
+  - name: How-to guides
+    items:
+    - name: Use Document Translation APIs programmatically
       displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage
       href: document-translation/how-to-guides/use-rest-api-programmatically.md
-    - name: Authentication and authorization
-      items:
-      - name: Create and use managed identities
-        displayName: batch,azure active directory,azure ad,azure role-based access control,azure RBAC,sas,assignment,role,owner,user access administrator,contributor
-        href: document-translation/how-to-guides/create-use-managed-identities.md
-      - name: Create SAS tokens for storage containers
-        displayName: user,delegation,shared access,tokens,storage explorer,azure,portal,blob,url
-        href: document-translation/how-to-guides/create-sas-tokens.md
-    - name: Reference
-      items:
-      - name: Batch Translation SDK overview
-        displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-        href: document-translation/document-sdk-overview.md
-      - name: Batch Translation REST API guide
-        displayName: get,post,cancel,delete
-        href: document-translation/reference/rest-api-guide.md
-      - name: Batch operations
-        items:
-        - name: Get supported document formats
-          href: document-translation/reference/get-supported-document-formats.md
-        - name: Get supported glossary formats
-          href: document-translation/reference/get-supported-glossary-formats.md
-        - name: Get supported storage sources
-          href: document-translation/reference/get-supported-storage-sources.md
-        - name: Start translation
-          href: document-translation/reference/start-translation.md
-        - name: Get documents status
-          href: document-translation/reference/get-documents-status.md
-        - name: Get document status
-          href: document-translation/reference/get-document-status.md
-        - name: Get translations status
-          href: document-translation/reference/get-translations-status.md
-        - name: Get translation status
-          href: document-translation/reference/get-translation-status.md
-        - name: Cancel translation
-          href: document-translation/reference/cancel-translation.md
-  - name: 🆕 Synchronous translation (preview)
+  - name: Authentication and authorization
     items:
-    - name: "Quickstart: Try synchronous translation"
-      displayName: get started,keys,endpoint,headers,setup
-      href: document-translation/quickstarts/synchronous-rest-api.md
-    - name: "Reference: synchronous translation REST API guide"
-      displayName: get,post,cancel,delete
-      href: document-translation/reference/synchronous-rest-api-guide.md
+    - name: Create and use managed identities
+      displayName: batch,azure active directory,azure ad,azure role-based access control,azure RBAC,sas,assignment,role,owner,user access administrator,contributor
+      href: document-translation/how-to-guides/create-use-managed-identities.md
+    - name: Create SAS tokens for storage containers
+      displayName: user,delegation,shared access,tokens,storage explorer,azure,portal,blob,url
+      href: document-translation/how-to-guides/create-sas-tokens.md
+  - name: Reference
+    items:
+      - name: Document Translation operations
+        href: document-translation/reference/rest-api-guide.md
+      - name: Translate a single document
+        href: document-translation/reference/translate-document.md
+      - name: Start a batch translation
+        href: document-translation/reference/start-batch-translation.md
+      - name: Get status of all translation jobs
+        href: document-translation/reference/get-translations-status.md
+      - name: Get status of a specific translation job
+        href: document-translation/reference/get-translation-status.md
+      - name: Get status of all documents
+        href: document-translation/reference/get-documents-status.md
+      - name: Get status of a specific document
+        href: document-translation/reference/get-document-status.md
+      - name: Cancel translation
+        href: document-translation/reference/cancel-translation.md
+      - name: Get supported document formats
+        href: document-translation/reference/get-supported-document-formats.md
+      - name: Get supported glossary formats
+        href: document-translation/reference/get-supported-glossary-formats.md
   - name: Create and use glossaries
     displayName: glossary, dictionary, case-sensitive, match
     href: document-translation/how-to-guides/create-use-glossaries.md
@@ -202,7 +187,7 @@ items:
       - name: "🆕 Container: Transliterate text"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/transliterate-text-parameters.md
-      - name: "🆕 Container: Translate documents (preview)"
+      - name: "🆕 Container: Translate documents"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/translate-document-parameters.md
   - name: Translator container FAQ
@@ -272,7 +257,7 @@ items:
     - name: Model training
       displayName: tuning
       href: custom-translator/concepts/model-training.md
-    - name: Bilingual Evaluation Understudy (BLEU) score
+    - name: Bilingual Evaluation Understudies (BLEU) score
       href: custom-translator/concepts/bleu-score.md
     - name: Encrypt data at rest
       displayName: encryption,key vault,revoke
@@ -300,6 +285,12 @@ items:
     - name: Automate text translation (preview)
       displayName: connect, power, automate, flow
       href: connector/text-translator-flow.md
+- name: Responsible AI
+  items:
+  - name: Transparency note
+    href: /legal/cognitive-services/translator/transparency-note?context=/azure/ai-services/translator/context/context
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/translator/data-privacy-security?context=/azure/ai-services/translator/context/context
 - name: Resources
   items:
   - name: Modifications to Translator Service

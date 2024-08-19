@@ -7,7 +7,7 @@ ms.author: peterbr
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: search
 ---
 
 # Migrate Bing Maps Find a Location by Point API
@@ -30,23 +30,20 @@ This article explains how to migrate the Bing Maps [Find a Location by Point] AP
 
 ## Security and authentication
 
-Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple ways to authenticate your API calls, such as a [subscription key](azure-maps-authentication.md#shared-key-authentication), [Microsoft Entra ID], and [Shared Access Signature (SAS) Token]. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps].
+Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple ways to authenticate your API calls, such as a [subscription key](azure-maps-authentication.md#shared-key-authentication), [Microsoft Entra ID], and [Shared Access Signature (SAS) Token]. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps] and the [Security section] in the Azure Maps Get Geocoding documentation.
 
 ## Request parameters
 
 The following table lists the Bing Maps _Find a Location by Point_ request parameters and the Azure Maps equivalent:
 
-| Bing Maps Request Parameter | Bing Maps Request Parameter Alias | Azure Maps Request Parameter | Required in Azure Maps | Azure Maps Data Type | Description |
+| Bing Maps request parameter | Bing Maps request parameter alias | Azure Maps request parameter | Required in Azure Maps | Azure Maps data type | Description |
 |-----------------------------|-----------------------------------|------------------------------|------------------------|----------------------|-------------|
 | culture | c | Request Header: Accept-Language | False | string | In Azure Maps Get Reverse Geocoding API, this is the language in which search results should be returned. This is specified in the Azure Maps [request header]. Please refer to [Supported Languages] for details. |
-| | | | | | |
 | include | incl | Not needed | Not needed | Not needed | In Bing Maps Find a Location by Point, the ‘include’ input parameter is required to get a two-letter ISO country code for the location result in the response. In Azure Maps Get Reverse Geocoding API, the two-letter ISO country code is returned by default. |
 | includeEntityTypes | | resultTypes | False | query | |
-| | | | | | |
 | includeNeighborhood | inclnb | Not needed | Not needed | Not needed | In Azure Maps Get Reverse Geocoding API, neighborhood info is returned in the response by default, when available. |
 | point | | coordinates | True | number[] | In Bing Maps Find a Location by Point API, the coordinates in the request and the response are in latitude/longitude format, whereas Azure Maps Get Reverse Geocoding API requires the coordinates in the request and the coordinates in the response use longitude/latitude format, as defined by [GeoJSON]. |
-| userRegion | ur | view | False | string | A string that represents an [ISO 3166-1 Alpha-2 region/country code]. This will alter geopolitical disputed borders and labels to align with the specified user region. By default, the View parameter is set to “Auto” even if you haven’t defined it in the request. |
-| | | | | | Please refer to [Supported Views] for details and to see the available Views. |
+| userRegion | ur | view | False | string | A string that represents an [ISO 3166-1 Alpha-2 region/country code]. This will alter geopolitical disputed borders and labels to align with the specified user region. By default, the View parameter is set to “Auto” even if you haven’t defined it in the request.<br><br> Please refer to [Supported Views] for details and to see the available Views. |
 | verboseplacenames | vbpn | Not supported | Not supported | Not supported | Azure Maps Get Reverse Geocoding API only supports returning [adminDistricts] short name (FL instead of Florida). |
 
 For more information about the Azure Maps Get Reverse Geocoding API request parameters, see [URI Parameters].
@@ -69,7 +66,7 @@ http://atlas.microsoft.com/reverseGeocode?api-version=2023-06-01&coordinates=2.3
 
 The following table lists the fields that can appear in the HTTP response when running the Bing Maps _Find a Location by Point_ request and the Azure Maps equivalent:
 
-| Bing Maps Response        | Azure Maps Response    | Description                   |
+| Bing Maps response        | Azure Maps response    | Description                   |
 |---------------------------|------------------------|-------------------------------|
 | address: addressLine (JSON)<br>Address: AddressLine (XML) | address: addressLine | |
 | address: adminDistrict (JSON)<br>Address: AdminDistrict (XML) | address: adminDistricts | |
@@ -255,6 +252,7 @@ Support
 
 - [Microsoft Q&A Forum]
 
+[adminDistricts]: /rest/api/maps/search/get-reverse-geocoding#admindistricts
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
@@ -268,6 +266,7 @@ Support
 [Microsoft Entra ID]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft Q&A Forum]: /answers/tags/209/azure-maps
 [request header]: /rest/api/maps/search/get-reverse-geocoding?#request-headers
+[Security section]: /rest/api/maps/search/get-reverse-geocoding#security
 [Shared Access Signature (SAS) Token]: azure-maps-authentication.md#shared-access-signature-token-authentication
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Supported Languages]: supported-languages.md

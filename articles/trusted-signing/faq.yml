@@ -38,17 +38,15 @@ sections:
 
       - question: What if I fail identity validation?
         answer: | 
-          To verify the result of your identity verification request:  
-          - A link to verify whether identity validation was successful is sent to the primary email address that you provide when you request identity validation. We recommend that you use the link to check to see if you failed identity validation and why. You must use the link within seven days of receiving the link.  
-
-          Steps to take if your identity validation request fails:  
-          - If the Microsoft validation team can't make a determination about your request based on the information that you provide (even after you provide more documentation if we request it), we can't set up Trusted Signing for you. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+          - Organizations with a year founded date, less than 3 years cannot be onboarded at the moment and will fail Identity Validation. 
+          - For Organizations, with year founded date more than 3 years: Ensure you did not miss an email verification link sent to the primary email address shared during Identity Validation request creation. The link expires in 7 days, so you need to create a new Identity Validation request.   
+          - If the failure is not to due to missed email verification; then the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided (even after you provided more documentation when we request it), we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
       - question: What if I need assistance with Identity Validation?
         answer: | 
           For questions with Identity Validation reach out via Microsoft Q&A or Stack Overflow, tag: trusted-signing. Identity Validation issues aren't supported by Azure Support.
       - question: What is the cost of using Trusted Signing?
         answer: | 
-          Trusted Signing is free for now in public preview. You're prompted to select a Basic SKU or Premium SKU when you create your account.
+          Refer to the [Trusted Signing pricing page](https://azure.microsoft.com/pricing/details/trusted-signing/) for details.
       - question: What are my support options when I set up Trusted Signing?
         answer: | 
           You can create a support ticket with the service in the Azure portal. You're assisted by Azure customer support. Otherwise, we recommend that you go to Microsoft Q&A or Stack Overflow and use the tag `Trusted-Signing` to ask questions.  
@@ -67,12 +65,13 @@ sections:
 
           For O:
           - At this time the service doesn't support customization.
-      - question: What do I do if the New identity validation button in the Azure portal is greyed out?
+      - question: What if the New identity validation button in the Azure portal is greyed out?
         answer: |
           It means that you don't have the Trusted Signing Identity Verifier role assigned to your account. Follow the steps in [Assign roles in Trusted Signing](https://learn.microsoft.com/azure/trusted-signing/tutorial-assign-roles) to assign yourself the appropriate role. 
-      - question: What do I do if my identity validation expired?
+      - question: What if my identity validation expires?
         answer: |
-          Failure to renew identity validation before the expiration date stops certificate renewal, effectively halting the signing process associated with those specific certificate profiles. To continue signing by using the Trusted Signing service, you need to create another identity validation and associate it with the certificate profiles. 
+          Failure to renew identity validation before the expiration date stops certificate renewal, effectively halting the signing process associated with those specific certificate profiles. To continue signing by using the Trusted Signing service, you need to create another identity validation and associate it with the certificate profiles. We do send multiple reminders starting at 60-days to help you begin your Identity Validation renewal. 
+       
   - name: Signing
     questions:
       - question: What types of files can be signed with Trusted Signing?
@@ -137,9 +136,6 @@ sections:
       - question: What if I change my subscription ID or tenant ID?
         answer: |
          Currently, Trusted Signing resources can't be migrated across subscriptions or tenants. If you want to make any change to your tenant ID or subscription ID, you must create all your Trusted Signing resources again.
-      - question: What if I change the subscription ID or tenant ID?
-        answer: |
-         Currently, Trusted Signing resources can't be migrated across subscriptions or tenants. If you need to make any change to your tenant ID or subscription ID, you must create all the Trusted Signing resources again.
       - question: Does Trusted Signing issue EV certificates?
         answer: |
           No, Trusted Signing doesn't issue EV certificates, and there are no plans to issue them in the future.
@@ -159,7 +155,16 @@ sections:
           | Error code (-2147024885/0x8007000b)            |  For MSIX signing, indicates that the publisher in the manifest file doesn't match the certificate subject. Check the publisher that's listed in the manifest file. |
           | No error codes, SignTool silently fails          |  Ensure that the relevant .NET runtime version is installed. |
           | Azure.Identity.CredentialUnavailableException         |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you are working outside of Azure, we recommend that you add "exclude ManagedIdentity". |
-  
+          | 403          |  - Check Trusted Signing role.  <br>  - Check Trusted Signing account name and Trusted Signing Certificate profile name in your metadata.json. <br> - Check dlib and dlib path. <br>  - Install C++ Redistributables: Download link: https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>  - Check .NET version, dlib version, and Windows SDK version. <br>  - Check if Trusted Signing role is assigned to the identity trying to sign the file. <br>  - Check if the corresponding Identity Validation is in "Completed" state.<br>  - Verify if you access the Trusted Signing endpoint from this VM or machine?Try executing the action on a different VM or machine. It can be a potential network issue. <br> - For Private Trust scenarios 403: The user object ID to do the signing is different than the user object ID to call the  Get-azCodeSigningRootCert. The appropriate object ID needs to have the role “Trusted Signing Certificate Profile Signer."|
+  - name: Cost Management and Billing
+    questions:  
+       - question: How do I view usage costs and billing information for Trusted Signing resources?
+         answer: | 
+          Review resource usage costs under your selected Subscription > Cost Management and for further details follow [Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/).
+          Review billing information under your selected Subscription > Billing and for further details follow [Billing](https://learn.microsoft.com/azure/cost-management-billing/manage/).
+       - question: Is the pricing pro-rated or it is full amount regardless of when you join the service?
+         answer: | 
+          The pricing is not calculated on a pro-rata basis. The invoice is generated with the full amount for the SKU you selected during account creation, regardless of when you start using the service within the month. 
   - name: Unenroll from the Trusted Signing service
     questions:  
        - question: How do I unenroll from Trusted Signing?

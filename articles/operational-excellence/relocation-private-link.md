@@ -5,15 +5,19 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/31/2024
-ms.service: private-link
-ms.topic: concept
+ms.service: azure-private-link
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 ---
 
 # Relocate Azure Private Link Service to another region
 
+
+
 This article shows you how to relocate [Azure Private Link Service](/azure/private-link/private-link-overview) when moving your workload to another region. 
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
 To learn how to to reconfigure [private endpoints](/azure/private-link/private-link-overview) for a particular service, see the [appropriate service relocation guide](overview-relocation.md).
 

@@ -11,9 +11,7 @@ ms.author: v-baolianzou
 keywords: how to record video samples for custom text to speech avatar
 ---
 
-# How to record video samples for custom text to speech avatar (preview)
-
-[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
+# How to record video samples for custom text to speech avatar
 
 This article provides instructions on preparing high-quality video samples for creating a custom text to speech avatar.
 
@@ -93,6 +91,7 @@ This video clip is important if you build a real-time conversation with the cust
   - Maintain status 0, don't speak, but still feel relaxed.
   - Even remaining in status 0, don't keep completely still; you can move a little bit but not too much. Perform like you're waiting.
   - Maintain a smile as if listening or waiting patiently.
+  - Avoid nodding frequently.
   - Length: 1 minute.
     
 **Samples of silent status:** 

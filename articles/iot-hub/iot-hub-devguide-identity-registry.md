@@ -63,7 +63,7 @@ You can disable devices by updating the **status** property of an identity in th
 
 This feature isn't available for modules.
 
-For more information, see [Disable or delete a device in an IoT hub](./iot-hub-create-through-portal.md#disable-or-delete-a-device-in-an-iot-hub).
+For more information, see [Disable or delete a device in an IoT hub](./create-connect-device.md#disable-or-delete-a-device).
 
 ## Import and export device identities
 
@@ -83,7 +83,9 @@ The device data that a given IoT solution stores depends on the specific require
 
 ## Device and module lifecycle notifications
 
-IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and set the data source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events are sent for both device identities and module identities; however, the message contents differ depending on whether the events are generated for module identities or device identities.  It should be noted that for IoT Edge modules, the module identity creation flow is different than for other modules, as a result for IoT Edge modules the create notification is only sent if the corresponding IoT Edge Device for the updated IoT Edge module identity is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.  To learn more about the properties and body returned in the notification message, see  [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
+IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and set the data source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events are sent for both device identities and module identities. The message contents differ depending on whether the events are generated for module identities or device identities. To learn more about the properties and body returned in the notification message, see  [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
+
+Notifications for module identity creation are different for IoT Edge modules than for other modules. For IoT Edge modules, the create notification is only sent if the corresponding IoT Edge device is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.
 
 ## Device identity properties
 

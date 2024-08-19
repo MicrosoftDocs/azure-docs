@@ -2,12 +2,12 @@
 title: Migrate Bing Maps Data Source Management and Query API to Azure Maps API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Data Source Management and Query API to the appropriate Azure Maps API.
-author: eriklindeman
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 05/15/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: spatial
 ---
 
 # Migrate Bing Maps Data Source Management and Query API
@@ -115,4 +115,5 @@ The Azure Maps store locator starter project gives you the following general arc
 [STDistance]: /sql/t-sql/spatial-geography/stdistance-geography-data-type
 [STIntersects]: /sql/t-sql/spatial-geography/stintersects-geography-data-type
 [STWithin]: /sql/t-sql/spatial-geography/stwithin-geography-data-type
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Tutorial: Use Azure Maps to create store locator]: tutorial-create-store-locator.md

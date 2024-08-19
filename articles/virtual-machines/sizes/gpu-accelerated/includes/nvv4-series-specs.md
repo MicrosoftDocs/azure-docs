@@ -1,19 +1,20 @@
 ---
-title: NVv4-series specs include
+title: NVv4 series specs include
 description: Include file containing specifications of NVv4-series VM sizes.
-services: virtual-machines
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
-ms.date: 04/18/2024
+ms.date: 07/31/2024
 ms.author: mattmcinnes
+ms.reviewer: mattmcinnes
 ms.custom: include file
 ---
-| Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
+| Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor        | 4 - 32<sup>vCores   | AMD EPYC™ 7V12 (Rome)            |
-| Memory           | 14 - 112<sup>GiB    |                                                |
-| Data Disks       | 4 - 32<sup>Disks     | 6400 - 51200<sup>IOPS</sup> / 96 - 768<sup>MBps |
-| Network          | 2 - 4<sup>NICs       |  1000 - 8000<sup>Mbps                         |
-| Accelerators     | 1/8 - 1<sup>GPUs</sup> | [AMD Radeon™ Instinct MI25](https://www.amd.com/en/newsroom/press-releases/2020-3-25-2nd-gen-amd-epyc-processors-and-amd-radeon-instin.html) 16<sup>GiB </sup> <br>  2 - 16<sup>GiB </sup>per VM|
+| Processor      | 4 - 32 vCPUs     | AMD EPYC 7V12 (Rome) [x86-64] |
+| Memory         | 14 - 112 GiB        |    |
+| Local Storage  | 1 Disk         | 88 - 704 GiB  |
+| Remote Storage | 4 - 32 Disks        | 6400 - 51200 IOPS <br>96 - 768 MBps |
+| Network        | 2 - 8 NICs        | 1000 - 8000 Mbps |
+| Accelerators   | 1/8 - 1 GPUs            | AMD Instinct MI25 GPU (16GB)    |

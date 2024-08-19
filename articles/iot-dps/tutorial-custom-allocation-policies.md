@@ -31,7 +31,7 @@ In this tutorial, you'll do the following:
 > * Set up the development environment for the Azure IoT C SDK.
 > * Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

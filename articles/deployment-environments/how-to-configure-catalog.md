@@ -1,35 +1,84 @@
 ---
-title: Add and configure a catalog hosted in a GitHub or Azure DevOps repository
+title: Add a catalog from a GitHub or Azure DevOps repository
 titleSuffix: Azure Deployment Environments
-description: Learn how to add a catalog in your Azure Deployment Environments dev center to provide environment definitions for your developers.
-ms.service: deployment-environments
-ms.custom: build-2023
+description: Learn how to add a catalog in your Azure Deployment Environments dev center or project to provide environment definitions for your developers.
+ms.service: azure-deployment-environments
+ms.custom: build-2023, build-2024
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 04/19/2024
+ms.date: 05/10/2024
 ms.topic: how-to
-
-#customer intent: As a platform engineer, I want to learn how to add a catalog in my Azure Deployment Environments dev center so that I can provide environment definitions for my developers.
+#customer intent: As a platform engineer, I want to learn how to add a catalog in my Azure Deployment Environments dev center or project so that I can provide environment definitions for my developers.
 ---
 
 # Add and configure a catalog from GitHub or Azure Repos
 
-This guide explains how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your Azure Deployment Environments dev center. A catalog is a repository hosted in [GitHub](https://github.com) or [Azure DevOps](https://dev.azure.com).
+This article explains how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) for your Azure Deployment Environments dev center or project. 
 
-You can use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [environment definitions](./concept-environments-key-concepts.md#environment-definitions). 
+Catalogs help you provide a set of curated infrastructure-as-code(IaC) templates, known as environment definitions for your development teams to create environments. You can attach your own source control repository from GitHub or Azure DevOps as a catalog and specify the folder with your environment definitions. Deployment Environments scans the folder for environment definitions and makes them available for dev teams to create environments. 
 
-Deployment Environments supports catalogs hosted in Azure Repos (the repository service in Azure, commonly referred to as Azure DevOps) and catalogs hosted in GitHub. Azure Repos supports authentication by assigning permissions to a managed identity. Azure Repos and GitHub both support the use of a personal access token (PAT) for authentication. To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
+To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
 
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
 - To learn how to host a Git repository in an Azure Repos project, see [Azure Repos](https://azure.microsoft.com/products/devops/repos/).
 
-Microsoft offers a [*quick start* catalog](https://github.com/microsoft/devcenter-catalog) that you can add to the dev center, and a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
+Microsoft offers a [*quick start* catalog](https://github.com/microsoft/devcenter-catalog) that you can add to the dev center or project, and a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
-## Configure a managed identity for the dev center
+In this article, you learn how to:
+1. [Configure project-level catalogs](#configure-project-level-catalogs)
+1. [Configure a managed identity](#configure-a-managed-identity)
+1. [Add a catalog from Azure Repos or GitHub](#add-a-catalog)
+1. [Update a catalog](#update-a-catalog)
+1. [Delete a catalog](#delete-a-catalog)
+1. [Troubleshoot catalog sync errors](#troubleshoot-catalog-sync-errors)
 
-After you create a dev center, before you can attach a catalog, you must configure a [managed identity](concept-environments-key-concepts.md#identities), also called a Managed Service Identity (MSI), for the dev center. You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center to create environment types in your subscription and read the Azure Repos project that contains the catalog repo.
+## Configure project-level catalogs
 
-If your dev center doesn't have an MSI attached, follow the steps in [Configure a managed identity](how-to-configure-managed-identity.md) to create one and to assign roles for the dev center managed identity.
+Attaching catalogs at the project level enables platform engineers to provide curated environment definitions that are specific to the development teams. Additionally, it empowers dev team leads assigned as Project Admins to manage the environment definitions made available to their teams.
+ 
+Platform engineers have full control over the use of catalogs at the project level. The use of project level catalogs must be enabled at the dev center level before a catalog can be added to a project. Platform engineers can also configure which types of catalogs items, such as environment definitions, can be consumed at the project level.
+ 
+By default, use of catalogs at the project level is disabled and none of the catalog item types are enabled. Environment definitions from a project-level catalog are synced and usable under two conditions. First, you must enable project-based catalogs at the corresponding dev center level. Second, you must enable the use of environment definitions for the project.
+
+### Add a catalog to a project
+
+You must enable project-level catalogs at the dev center level before you can add a catalog to a project. You should also enable the use of environment definitions at the project level.
+
+To enable the use of project-level catalogs at the dev center level:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your dev center.
+1. In the left menu, under **Settings**, select **Configuration**.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/dev-center-overview.png" alt-text="Screenshot showing the Overview page for a dev center with Configuration highlighted." lightbox="media/how-to-configure-catalog/dev-center-overview.png"::: 
+ 
+1. In the **Project level catalogs** pane, select **Enable catalogs per project**, and then select **Apply**.
+
+    :::image type="content" source="media/how-to-configure-catalog/dev-center-project-catalog-selected.png" alt-text="Screenshot showing the Project level catalogs pane, with Enable catalogs per project highlighted." lightbox="media/how-to-configure-catalog/dev-center-project-catalog-selected.png":::
+
+To enable the use of environment definitions in the project:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your project.
+1. In the left menu, under **Settings**, select **Catalogs**.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/project-overview.png" alt-text="Screenshot showing the Overview page for a project with Catalogs highlighted." lightbox="media/how-to-configure-catalog/project-overview.png":::
+  
+1. On the **Catalogs** page, select **Catalog item permissions**.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/project-catalog-item-permissions.png" alt-text="Screenshot showing the Catalogs pane with Catalog item permissions highlighted." lightbox="media/how-to-configure-catalog/project-catalog-item-permissions.png":::
+ 
+1. In the **Catalog item settings** pane, select **Azure deployment environment definitions** to enable the use of environment definitions at the project level.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/project-enable-environment-definitions.png" alt-text="Screenshot showing the Catalog item settings pane with Azure deployment environment definitions selected." lightbox="media/how-to-configure-catalog/project-enable-environment-definitions.png":::
+ 
+Now, you can add a catalog to the project. 
+
+For catalogs that use a managed identity or Personal Access Token (PAT) for authentication, you must assign a managed identity for the project. For catalogs that use a PAT, you must store the PAT in a key vault and grant the managed identity access to the key vault secret.
+
+## Configure a managed identity
+
+Before you can attach a catalog to a dev center or project, you must configure a [managed identity](concept-environments-key-concepts.md#identities), also called a Managed Service Identity (MSI). You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center or project to create environment types in your subscription and read the Azure Repos project that contains the catalog repo.
+
+If your dev center or project doesn't have an MSI attached, follow the steps in [Configure a managed identity](how-to-configure-managed-identity.md) to create one and to assign roles for the managed identity.
 
 To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 
@@ -43,17 +92,17 @@ Select the tab for the type of repository and authentication you want to use.
 
 To add a catalog, complete the following tasks:
 
-- Assign permissions in Azure Repos for the dev center managed identity.
+- Assign permissions in Azure Repos for the managed identity.
 - Add your repository as a catalog.
 
-### Assign permissions in Azure Repos for the dev center managed identity
+### Assign permissions in Azure Repos for the managed identity
 
-You must give the dev center managed identity permissions to the repository in Azure Repos.  
+You must give the managed identity permissions to the repository in Azure Repos.  
 
 1. Sign in to your [Azure DevOps organization](https://dev.azure.com).
 
     > [!NOTE]
-    > Your Azure DevOps organization must be in the same directory as the Azure subscription that contains your dev center.
+    > Your Azure DevOps organization must be in the same directory as the Azure subscription that contains your dev center or project.
 
 1. Select **Organization settings**.
 
@@ -71,7 +120,7 @@ You must give the dev center managed identity permissions to the repository in A
 
     |Name     |Value     |
     |---------|----------|
-    |**Users or Service Principals**|Enter the name of your dev center. <br> When you use a system-assigned MSI, specify the name of the dev center, not the object ID of the managed account. When you use a user-assigned MSI, use the name of the managed account. |
+    |**Users or Service Principals**|Enter the name of your dev center or project. <br> When you use a system-assigned MSI, specify the name of the dev center or project, not the object ID of the managed account. When you use a user-assigned MSI, use the name of the managed account. |
     |**Access level**|Select **Basic**.|
     |**Add to projects**|Select the project that contains your repository.|
     |**Azure DevOps Groups**|Select **Project Readers**.|
@@ -81,11 +130,11 @@ You must give the dev center managed identity permissions to the repository in A
 
 ### Add your repository as a catalog
 
-Azure Deployment Environments supports attaching Azure Repos repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
+Azure Deployment Environments supports attaching Azure Repos repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center or project as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
 
 The following steps let you attach an Azure Repos repository.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your dev center.
+1. In the [Azure portal](https://portal.azure.com), navigate to your dev center or project.
 
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 
@@ -106,7 +155,7 @@ The following steps let you attach an Azure Repos repository.
 
     :::image type="content" source="media/how-to-configure-catalog/add-catalog-to-dev-center.png" alt-text="Screenshot showing the Add catalog pane with examples entries and Add highlighted." lightbox="media/how-to-configure-catalog/add-catalog-to-dev-center.png":::
 
-1. In **Catalogs** for the dev center, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**. Connecting to a catalog can take a few minutes the first time.
+1. In **Catalogs** for the dev center or project, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**. Connecting to a catalog can take a few minutes the first time.
 
 
 ## [Azure Repos repo with PAT](#tab/DevOpsRepoPAT/)
@@ -163,6 +212,12 @@ Use the following steps to create an RBAC key vault:
 
 1. On the **Review + create** tab, select **Create**.
 
+If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
+
+:::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
+
+To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+
 ### Store the personal access token in the key vault
 
 1. In the Key Vault, on the left menu, select **Secrets**.
@@ -190,9 +245,9 @@ Get the path to the secret you created in the key vault.
 
 ### Add your repository as a catalog
 
-1. In the [Azure portal](https://portal.azure.com), go to your dev center.
+1. In the [Azure portal](https://portal.azure.com), go to your dev center or project.
 
-1. Ensure that the [identity](./how-to-configure-managed-identity.md) attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
+1. Ensure that the [identity](./how-to-configure-managed-identity.md) attached to the dev center or project has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
 
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 
@@ -211,7 +266,7 @@ Get the path to the secret you created in the key vault.
 
     :::image type="content" source="media/how-to-configure-catalog/add-devops-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-devops-catalog-pane.png":::
 
-1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, the **Status** is **Connected**.
+1. In **Catalogs**, verify that your catalog appears. If the connection is successful, the **Status** is **Connected**.
 
 ## [GitHub repo DevCenter App](#tab/GitHubRepoApp/)
 
@@ -225,7 +280,7 @@ To add a catalog, complete the following tasks:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your dev center.
+1. Navigate to your dev center or project.
  
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
  
@@ -276,7 +331,7 @@ To add a catalog, complete the following tasks:
 
    :::image type="content" source="media/how-to-configure-catalog/add-catalog-repo-branch-folder.png" alt-text="Screenshot of Azure portal add catalog, with repo, branch, folder, and add selected." lightbox="media/how-to-configure-catalog/add-catalog-repo-branch-folder.png":::
 
-1. In **Catalogs** for the dev center, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**.
+1. In **Catalogs**, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**.
 
    :::image type="content" source="media/how-to-configure-catalog/catalog-connection-successful.png" alt-text="Screenshot of Azure portal Catalogs page with a connected status." lightbox="media/how-to-configure-catalog/catalog-connection-successful.png":::
 
@@ -362,6 +417,12 @@ Use the following steps to create an RBAC key vault:
 1. On the **Access policy** tab, select **Azure role-based access control**, and then select **Review + create**.
 
 1. On the **Review + create** tab, select **Create**.
+ 
+If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
+
+:::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
+
+To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 ### Store the personal access token in the key vault
 
@@ -390,9 +451,9 @@ Get the path to the secret you created in the key vault.
 
 ### Add your repository as a catalog
 
-1. In the Azure portal, go to your dev center.
+1. In the Azure portal, go to your dev center or project.
 
-1. Ensure that the [managed identity](./how-to-configure-managed-identity.md) attached to the dev center has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
+1. Ensure that the [managed identity](./how-to-configure-managed-identity.md) attached to the dev center or project has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
 
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 
@@ -409,35 +470,107 @@ Get the path to the secret you created in the key vault.
 
     :::image type="content" source="media/how-to-configure-catalog/add-github-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-github-catalog-pane.png":::
 
-1. In **Catalogs** for the dev center, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**.
-
+1. In **Catalogs**, verify that your catalog appears. When the connection is successful, the **Status** reads **Sync successful**.
 ---
+
+### View synced catalog items
+
+Regardless of the type of repository you use, you can view the catalog items that are synced from the catalog.
+
+1. On the left menu for your dev center or project, under **Environment configuration**, select **Catalogs**.
+
+1. In the **Catalogs** pane, select the catalog name.
+
+    :::image type="content" source="media/how-to-configure-catalog/check-catalog-items-sync.png" alt-text="Screenshot showing the Catalog pane, with the attached catalog name highlighted." lightbox="media/how-to-configure-catalog/check-catalog-items-sync.png":::
+
+1. You see a list of successfully synced catalog items.
+
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-first-sync.png" alt-text="Screenshot showing successfully synced catalog items from attached catalog." lightbox="media/how-to-configure-catalog/catalog-items-first-sync.png":::
+
 
 ## Update a catalog
 
-If you update the template contents or definition in the attached repository, you can provide the latest set of environment definitions to your development teams by syncing the catalog.
+If you update the definition or template contents in the attached repository, you can provide the latest set of environment definitions to your development teams by syncing the catalog. You can sync a catalog manually or automatically.
 
-To sync an updated catalog in Azure Deployment Environments:
+### Manually sync a catalog
+
+When you manually sync a catalog, Deployment Environments scans through the repository and makes the latest list of environment definitions available to all of the associated projects in the dev center.
 
 1. On the left menu for your dev center, under **Environment configuration**, select **Catalogs**.
 
-1. Select the specific catalog, and then select **Sync**. The service scans through the repository and makes the latest list of environment definitions available to all of the associated projects in the dev center.
+1. Select the specific catalog, and then from the command bar, select **Sync**.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/catalog-manual-sync.png" alt-text="Screenshot showing the Sync button in the command bar." lightbox="media/how-to-configure-catalog/catalog-manual-sync.png":::
+ 
+### Automatically sync a catalog
+
+When you configure a catalog to sync automatically, Deployment Environments scans through the repository every 30 minutes and makes the latest list of environment definitions available to all of the associated projects in the dev center.
+
+1. On the left menu for your dev center or project, under **Environment configuration**, select **Catalogs**.
+
+1. Select the specific catalog, and then select edit.
+
+    :::image type="content" source="media/how-to-configure-catalog/catalog-automatic-sync.png" alt-text="Screenshot showing the edit button for a catalog." lightbox="media/how-to-configure-catalog/catalog-automatic-sync.png":::  
+ 
+1. In the **Edit catalog** pane, select **Automatically sync this catalog**, and then select **Save**.
+
+    :::image type="content" source="media/how-to-configure-catalog/catalog-automatic-sync-pane.png" alt-text="Screenshot showing the edit details pane for a catalog, with Automatically sync this catalog highlighted." lightbox="media/how-to-configure-catalog/catalog-automatic-sync-pane.png":::  
 
 ## Delete a catalog
 
-You can delete a catalog to remove it from the Azure Deployment Environments dev center. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the environment definition reference for any existing environments that were created by using the environment definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
+You can delete a catalog to remove it from the Azure Deployment Environments dev center or project. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the environment definition reference for any existing environments that were created by using the environment definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
 To delete a catalog:
 
-1. On the left menu for your dev center, under **Environment configuration**, select **Catalogs**.
+1. On the left menu for your dev center or project, under **Environment configuration**, select **Catalogs**.
 
 1. Select the specific catalog, and then select **Delete**.
 
 1. In the **Delete catalog** dialog, select **Continue** to delete the catalog.
 
-## Catalog sync errors
+## Troubleshoot catalog sync errors
 
-When you add or sync a catalog, you might encounter a sync error. A sync error indicates that some or all of the environment definitions have errors. Use the Azure CLI or the REST API to *GET* the catalog. The GET response shows you the type of error:
+When you add or sync a catalog, you might encounter a sync error or warning. A sync error indicates that a catalog failed to sync successfully, A sync warning indicates that some or all of the catalog items have errors. You can view the sync status and errors in the Azure portal, or use the Azure CLI and REST API to troubleshoot and resolve the errors.
+
+### View catalog sync status
+
+In the Azure portal, you can get more information about the catalog sync status and any warnings or errors by selecting the status link. The status link opens a pane that shows the sync status, the number of environment definitions that were added, and the number of environment definitions that were ignored or failed.
+
+#### View catalog sync failures
+
+1. On the left menu for your dev center or project, under **Environment configuration**, select **Catalogs**.
+ 
+1. In the **Status** column, select the status link for the catalog that failed to sync.
+
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-fail.png" alt-text="Screenshot showing the Catalogs pane, with sync failed highlighted." lightbox="media/how-to-configure-catalog/catalog-items-fail.png":::
+ 
+1. You see a details pane that shows the changes in the last sync, the number of sync errors, and the type of errors. 
+
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-fail-details.png" alt-text="Screenshot showing the Catalog sync failures pane." lightbox="media/how-to-configure-catalog/catalog-items-fail-details.png":::
+
+#### View catalog sync warnings
+
+1. On the left menu for your dev center or project, under **Environment configuration**, select **Catalogs**.
+ 
+1. In the **Status** column, select the status link for the catalog that synced but reports a warning.
+ 
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-errors.png" alt-text="Screenshot showing the Catalogs pane, with Errors in 3 items highlighted." lightbox="media/how-to-configure-catalog/catalog-items-errors.png":::  
+ 
+1. You see a details pane that shows the changes in the last sync, the number of item errors, and the type and source of each error.
+ 
+    :::image type="content" source="media/how-to-configure-catalog/catalog-items-error-details.png" alt-text="Screenshot showing the Catalog sync errors pane." lightbox="media/how-to-configure-catalog/catalog-items-error-details.png"::: 
+ 
+1. You can view items that have synced successfully from a catalog that also reports sync errors. From the **Catalogs** pane, select the catalog name.
+
+    :::image type="content" source="media/how-to-configure-catalog/catalog-with-error-view-successful-items.png" alt-text="Screenshot showing the Catalog pane, with a catalog name highlighted." lightbox="media/how-to-configure-catalog/catalog-with-error-view-successful-items.png":::
+
+1. You see a list of successfully synced catalog items.
+
+   :::image type="content" source="media/how-to-configure-catalog/catalog-items-successful.png" alt-text="Screenshot showing successfully synced catalog items." lightbox="media/how-to-configure-catalog/catalog-items-successful.png":::
+
+### Troubleshoot catalog sync errors by using the Azure CLI
+
+Use the Azure CLI or the REST API to *GET* the catalog. The GET response shows you the type of error:
 
 - Ignored environment definitions that were detected to be duplicates.
 - Invalid environment definitions that failed due to schema, reference, or validation errors.

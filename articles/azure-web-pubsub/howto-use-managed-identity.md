@@ -1,11 +1,11 @@
 ---
 title: Managed identities in Azure Web PubSub Service
 description: Learn how managed identities work in Azure Web PubSub Service, and how to use a managed identity in serverless scenarios.
-author: chenyl
+author: vicancy
 ms.service: azure-web-pubsub
 ms.topic: article
-ms.date: 11/08/2021
-ms.author: chenyl
+ms.date: 05/14/2024
+ms.author: lianwei
 ---
 
 # Managed identities for Azure Web PubSub Service
@@ -61,7 +61,7 @@ Azure Web PubSub Service is a fully managed service, so you can't use a managed 
    - The Application ID URI of the service principal.
 
    > [!IMPORTANT]
-   > Using empty resource actully acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
+   > Using empty resource actually acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
 
 #### Authentication in a function app
 
@@ -75,8 +75,8 @@ You can easily set access validation for a function app without code changes by 
 1. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling a Microsoft Entra provider, see [Configure your App Service or Azure Functions app to use a Microsoft Entra ID sign-in](../app-service/configure-authentication-provider-aad.md).
 
    :::image type="content" source="media/howto-use-managed-identity/function-entra.png" alt-text="Screenshot that shows basic information for adding an identity provider.":::
-1. Go to Azure SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
-1. In Azure SignalR Service, go to **Upstream settings**, and then select **Use Managed Identity** and **Select from existing Applications**. Select the application that you created previously.
+1. Go to your Web PubSub Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
+1. In Web PubSub service **Settings** tab, **Edit** your hub settings, **Edit** your event handler settings, in the **Authentication** section, select **Use Managed Identity** and **Select from existing Applications**. Select the application that you created previously.
 
 After you configure these settings, the function app will reject requests without an access token in the header.
 
@@ -100,7 +100,7 @@ Web PubSub Service can access Key Vault to get secret using the managed identity
 
 1. Add a system-assigned identity or user-assigned identity for Azure Web PubSub Service.
 
-2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md)
+2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](/azure/key-vault/general/assign-access-policy-portal)
 
 Currently, this feature can be used in the following scenarios:
 

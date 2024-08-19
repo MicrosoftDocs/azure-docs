@@ -4,10 +4,10 @@ description: Learn how to automatically upgrade the OS image on VM instances in 
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.custom: linux-related-content, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/26/2023
+ms.date: 07/08/2024
 ms.reviewer: mimckitt
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
@@ -35,7 +35,7 @@ Automatic OS upgrade has the following characteristics:
 
 An upgrade works by replacing the OS disk of a VM with a new disk created using the  image version. Any configured extensions and custom data scripts are run on the OS disk, while data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time.
 
-You can integrate an Azure Load Balancer application health probe or [Application Health extension](virtual-machine-scale-sets-health-extension.md) to track the health of the application after an upgrade. We recommended incorporating an application heartbeat to validate upgrade success.
+You must integrate an Azure Load Balancer application health probe or [Application Health extension](virtual-machine-scale-sets-health-extension.md) to track the health of the application after an upgrade. This allows the platform to validate the VM health to ensure updates are applied in a safe manner. We recommend incorporating an application heartbeat to validate upgrade success.
 
 ### Availability-first Updates
 The availability-first model for platform orchestrated updates described below ensures that availability configurations in Azure are respected across multiple availability levels.
@@ -133,6 +133,8 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | Datacenter-core-20h2-with-containers-smalldisk-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition-smalldisk |
+| Mirantis  | Windows_with_Mirantis_Container_Runtime_2019 | win_2019_mcr_23_0 |
+| Mirantis  | Windows_with_Mirantis_Container_Runtime_2019 | win_2019_mcr_23_0_gen2 |
 
 
 ## Requirements for configuring automatic OS image upgrade
@@ -283,7 +285,7 @@ properties: {
 }
 ```
 
-## Using Application Health Probes
+## Using Application Health Extension
 
 During an OS Upgrade, VM instances in a scale set are upgraded one batch at a time. The upgrade should continue only if the customer application is healthy on the upgraded VM instances. We recommend that the application provides health signals to the scale set OS Upgrade engine. By default, during OS Upgrades the platform considers VM power state and extension provisioning state to determine if a VM instance is healthy after an upgrade. During the OS Upgrade of a VM instance, the OS disk on a VM instance is replaced with a new disk based on latest image version. After the OS Upgrade has completed, the configured extensions are run on these VMs. The application is considered healthy only when all the extensions on the instance are successfully provisioned.
 
@@ -313,17 +315,6 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
 > [!NOTE]
 > When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster node type must be configured to use the Silver Durability Tier or higher. For Bronze Durability tier, automatic OS image upgrade is only supported for Stateless node types. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 
-### Keep credentials up to date
-
-If your scale set uses any credentials to access external resources, such as a VM extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade will fail and the first batch of VMs will be left in a failed state.
-
-The recommended steps to recover VMs and re-enable automatic OS upgrade if there's a resource authentication failure are:
-
-* Regenerate the token (or any other credentials) passed into your extension(s).
-* Ensure that any credential used from inside the VM to talk to external entities is up to date.
-* Update extension(s) in the scale set model with any new tokens.
-* Deploy the updated scale set, which will update all VM instances including the failed ones.
-
 ## Using Application Health extension
 
 The Application Health extension is deployed inside a Virtual Machine Scale Set instance and reports on VM health from inside the scale set instance. You can configure the extension to probe on an application endpoint and update the status of the application on that instance. This instance status is checked by Azure to determine whether an instance is eligible for upgrade operations.
@@ -337,6 +328,17 @@ There are multiple ways of deploying the Application Health extension to your sc
 
 ## Get the history of automatic OS image upgrades
 You can check the history of the most recent OS upgrade performed on your scale set with Azure PowerShell, Azure CLI 2.0, or the REST APIs. You can get history for the last five OS upgrade attempts within the past two months.
+
+### Keep credentials up to date
+
+If your scale set uses any credentials to access external resources, such as a VM extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade will fail and the first batch of VMs will be left in a failed state.
+
+The recommended steps to recover VMs and re-enable automatic OS upgrade if there's a resource authentication failure are:
+
+* Regenerate the token (or any other credentials) passed into your extension(s).
+* Ensure that any credential used from inside the VM to talk to external entities is up to date.
+* Update extension(s) in the scale set model with any new tokens.
+* Deploy the updated scale set, which will update all VM instances including the failed ones.
 
 ### REST API
 The following example uses [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) to check the status for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
@@ -444,9 +446,39 @@ Use [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az-vmss-roll
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"
 ```
 
+## Leverage Activity Logs for Upgrade Notifications and Insights
+
+[Activity Log](/azure/azure-monitor/essentials/activity-log?tabs=powershell) is a subscription log that provides insight into subscription-level events that have occurred in Azure. Customers are able to:
+* See events related to operations performed on their resources in Azure portal
+* Create action groups to tune notification methods like email, sms, webhooks, or ITSM
+*  Set up suitable alerts using different criteria using Portal, ARM resource template, PowerShell or CLI to be sent to action groups
+
+Customers will receive three types of notifications related to Automatic OS Upgrade operation:
+* Submission of upgrade request for a particular resource
+* Outcome of submission request along with any error details
+* Outcome of upgrade completion along with any error details
+
+### Setting up Action Groups for Activity log alerts
+
+An [action group](/azure/azure-monitor/alerts/action-groups) is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. 
+
+Action groups can be created and managed using: 
+* [ARM Resource Manager](/azure/azure-monitor/alerts/action-groups#create-an-action-group-with-a-resource-manager-template)
+* [Portal](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal) 
+* PowerShell:
+  *  [New-AzActionGroup](/powershell/module/az.monitor/new-azactiongroup)  
+  *  [Get-AzActionGroup](/powershell/module/az.monitor/get-azactiongroup)
+  *  [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup)
+* [CLI](/cli/azure/monitor/action-group#az-monitor-action-group-create)
+
+Customers can set up the following using action groups:
+* [SMS and/or Email notifications](/azure/azure-monitor/alerts/action-groups#email-azure-resource-manager)
+* [Webhooks](/azure/azure-monitor/alerts/action-groups#webhook) - Customers can attach webhooks to their automation runbooks and configure their action groups to trigger the runbooks. You can start a runbook from a [webhook](/azure/automation/automation-webhooks)
+* [ITSM Connections](/azure/azure-monitor/alerts/itsmc-overview)
+
 ## Investigate and Resolve Auto Upgrade Errors
 
-The platform can return errors on VMs while performing Automatic Image Upgrade with Rolling Upgrade policy. The [Get Instance View](/rest/api/compute/virtual-machine-scale-sets/get-instance-view) of a VM contains the detailed error message to investigate and resolve an error. The [Rolling Upgrades - Get Latest](/rest/api/compute/virtual-machine-scale-sets/get) can provide more details on rolling upgrade configuration and status. The [Get OS Upgrade History](/rest/api/compute/virtual-machine-scale-sets/get) provides details on the last image upgrade operation on the scale set. Below are the topmost errors that can result in Rolling Upgrades.
+The platform can return errors on VMs while performing Automatic Image Upgrade with Rolling Upgrade policy. The [Get Instance View](/rest/api/compute/virtual-machine-scale-sets/get-instance-view) of a VM contains the detailed error message to investigate and resolve an error. The [Rolling Upgrades - Get Latest](/rest/api/compute/virtual-machine-scale-sets/get) can provide more details on rolling upgrade configuration and status. The [Get OS Upgrade History](/rest/api/compute/virtual-machine-scale-sets/get-os-upgrade-history) provides details on the last image upgrade operation on the scale set. Below are the topmost errors that can result in Rolling Upgrades.
 
 **RollingUpgradeInProgressWithFailedUpgradedVMs**
 - Error is triggered for a VM failure.

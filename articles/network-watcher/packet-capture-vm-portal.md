@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to start, stop, download, and delete Azure virtual machines packet captures with the packet capture feature of Network Watcher using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 02/07/2024
 #CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
@@ -26,7 +26,7 @@ In this article, you learn how to remotely configure, start, stop, download, and
 
 > [!NOTE]
 > - Azure creates a Network Watcher instance in the the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
-> - Network Watcher packet capture requires Network Watcher agent VM extension to be installed on the target virtual machine. Whenever you use Network Watcher packet capture in the Azure portal, the agent is automatically installed on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json). To manually install the agent, see [Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md) or [Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md).
+> - Network Watcher packet capture requires Network Watcher agent VM extension to be installed on the target virtual machine. Whenever you use Network Watcher packet capture in the Azure portal, the agent is automatically installed on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md). To manually install the agent, see [Network Watcher Agent virtual machine extension for Linux](network-watcher-agent-linux.md) or [Network Watcher Agent virtual machine extension for Windows](network-watcher-agent-windows.md).
 > - The last two IP addresses and ports listed in the **Prerequisites** are common across all Network Watcher tools that use the Network Watcher agent and might occasionally change.
 
 If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.

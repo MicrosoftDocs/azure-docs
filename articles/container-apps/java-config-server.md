@@ -1,26 +1,26 @@
 ---
-title: "Tutorial: Connect to a managed Spring Cloud Config Server in Azure Container Apps (preview)"
-description: Learn how to connect a Spring Cloud Config Server to your container app.
+title: "Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps (preview)"
+description: Learn how to connect a Config Server for Spring to your container app.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.topic: tutorial
 ms.date: 03/13/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Connect to a managed Spring Cloud Config Server in Azure Container Apps (preview)
+# Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps (preview)
 
-Spring Cloud Config Server provides a centralized location to make configuration data available to multiple applications. In this article, you learn to connect an app hosted in Azure Container Apps to a Java Spring Cloud Config Server instance.
+Config Server for Spring provides a centralized location to make configuration data available to multiple applications. In this article, you learn to connect an app hosted in Azure Container Apps to a Java Config Server for Spring instance.
 
-The Spring Cloud Config Server component uses a GitHub repository as the source for configuration settings. Configuration values are made available to your container app via a binding between the component and your container app. As values change in the configuration server, they automatically flow to your application, all without requiring you to recompile or redeploy your application.
+The Config Server for Spring component uses a GitHub repository as the source for configuration settings. Configuration values are made available to your container app via a binding between the component and your container app. As values change in the configuration server, they automatically flow to your application, all without requiring you to recompile or redeploy your application.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Create a Spring Cloud Config Server Java component
-> * Bind the Spring Cloud Config Server to your container app
+> * Create a Config Server for Spring Java component
+> * Bind the Config Server for Spring to your container app
 > * Observe configuration values before and after connecting the config server to your application
 > * Encrypt and decrypt configuration values with a symmetric key
 
@@ -38,19 +38,19 @@ To complete this project, you need the following items:
 
 ## Considerations
 
-When running in Spring Cloud Config Server in Azure Container Apps, be aware of the following details:
+When running in Config Server for Spring in Azure Container Apps, be aware of the following details:
 
 | Item | Explanation |
 |---|---|
-| **Scope** | The Spring Cloud Config Server runs in the same environment as the connected container app. |
-| **Scaling** | To maintain a single source of truth, the Spring Cloud Config Server doesn't scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. |
-| **Resources** | The container resource allocation for Spring Cloud Config Server is fixed, the number of the CPU cores is 0.5, and the memory size is 1Gi. |
-| **Pricing** | The Spring Cloud Config Server billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You may delete components that are no longer in use to stop billing. |
-| **Binding** | The container app connects to a Spring Cloud Config Server via a binding. The binding injects configurations into container app environment variables. Once a binding is established, the container app can read configuration values from environment variables. |
+| **Scope** | The Config Server for Spring runs in the same environment as the connected container app. |
+| **Scaling** | To maintain a single source of truth, the Config Server for Spring doesn't scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. |
+| **Resources** | The container resource allocation for Config Server for Spring is fixed, the number of the CPU cores is 0.5, and the memory size is 1Gi. |
+| **Pricing** | The Config Server for Spring billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You may delete components that are no longer in use to stop billing. |
+| **Binding** | The container app connects to a Config Server for Spring via a binding. The binding injects configurations into container app environment variables. Once a binding is established, the container app can read configuration values from environment variables. |
 
 ## Setup
 
-Before you begin to work with the Spring Cloud Config Server, you first need to create the required resources.
+Before you begin to work with the Config Server for Spring, you first need to create the required resources.
 
 Execute the following commands to create your resource group and Container Apps environment.
 
@@ -71,7 +71,7 @@ Execute the following commands to create your resource group and Container Apps 
     | `LOCATION` | The Azure region location where you create your container app and Java component. |
     | `ENVIRONMENT` | The Azure Container Apps environment name for your demo application. |
     | `RESOURCE_GROUP` | The Azure resource group name for your demo application. |
-    | `JAVA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create a Spring Cloud Config Server Java component.  |
+    | `JAVA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create a Config Server for Spring Java component.  |
     | `IMAGE` | The container image used in your container app. |
     | `URI` | You can replace the URI with your git repo url, if it's private, add the related authentication configurations such as `spring.cloud.config.server.git.username` and `spring.cloud.config.server.git.password`. |
 
@@ -96,26 +96,26 @@ Execute the following commands to create your resource group and Container Apps 
       --location $LOCATION
     ```
 
-    This environment is used to host both the Spring Cloud Config Server component and your container app.
+    This environment is used to host both the Config Server for Spring component and your container app.
 
-## Use the Spring Cloud Config Server Java component
+## Use the Config Server for Spring Java component
 
-Now that you have a Container Apps environment, you can create your container app and bind it to a Spring Cloud Config Server component. When you bind your container app, configuration values automatically synchronize from the Config Server component to your application.
+Now that you have a Container Apps environment, you can create your container app and bind it to a Config Server for Spring component. When you bind your container app, configuration values automatically synchronize from the Config Server component to your application.
 
-1. Create the Spring Cloud Config Server Java component.
+1. Create the Config Server for Spring Java component.
 
     ```azurecli
-    az containerapp env java-component spring-cloud-config create \
+    az containerapp env java-component config-server-for-spring create \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --name $JAVA_COMPONENT_NAME \
       --configuration spring.cloud.config.server.git.uri=$URI
     ```
 
-1. Update the Spring Cloud Config Server Java component.
+1. Update the Config Server for Spring Java component.
 
     ```azurecli
-    az containerapp env java-component spring-cloud-config update \
+    az containerapp env java-component config-server-for-spring update \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --name $JAVA_COMPONENT_NAME \
@@ -143,7 +143,7 @@ Now that you have a Container Apps environment, you can create your container ap
 
     If you visit your app in a browser, the `connectTimeout` value returned is the default value of `0`.
 
-1. Bind to the Spring Cloud Config Server.
+1. Bind to the Config Server for Spring.
 
     Now that the container app and Config Server are created, you bind them together with the `update` command to your container app.
 
@@ -174,7 +174,7 @@ Now that you have a Container Apps environment, you can create your container ap
 
     You can also remove a binding from your application.
 
-1. Unbind the Spring Cloud Config Server Java component.
+1. Unbind the Config Server for Spring Java component.
 
     To remove a binding from a container app, use the `--unbind` option.
 
@@ -199,4 +199,5 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Customize Spring Cloud Config Server settings](java-config-server-usage.md)
+> [Customize Config Server for Spring settings](java-config-server-usage.md)
+

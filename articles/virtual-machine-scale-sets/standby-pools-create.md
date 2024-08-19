@@ -3,9 +3,9 @@ title: Create a standby pool for Virtual Machine Scale Sets (Preview)
 description: Learn how to create a standby pool to reduce scale-out latency with Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 06/14/2024
 ms.reviewer: ju-shim
 ---
 
@@ -50,7 +50,7 @@ To allow standby pools to create virtual machines, you need to assign the approp
 8) Select the standby pool Resource Provider and select **Review + Assign**.
 9) Repeat the above steps and for the **Network Contributor** role and the **Managed Identity Operator** role.  
 
-If you're using images stored in Compute Gallery when deploying your scale set, also repeat the above steps for the **Compute Gallery Sharing Admin** role.
+If you're using images stored in Compute Gallery when deploying your scale set, also repeat the above steps for the **Compute Gallery Sharing Admin** and **Compute Gallery Artifacts Publisher** role.
 
 For more information on assigning roles, see [assign Azure roles using the Azure portal](../role-based-access-control/quickstart-assign-role-user-portal.md).
 

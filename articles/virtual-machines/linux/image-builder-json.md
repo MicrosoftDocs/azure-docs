@@ -6,7 +6,7 @@ ms.author: kofiforson
 ms.reviewer: jushiman
 ms.date: 10/03/2023
 ms.topic: reference
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions, devx-track-bicep, devx-track-arm-template, linux-related-content, devx-track-azurecli
 ---
@@ -156,6 +156,8 @@ The location is the region where the custom image is created. The following regi
 - China North 3 (Public Preview)
 - Sweden Central
 - Poland Central
+- Italy North
+- Israel Central
 
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
@@ -1721,6 +1723,8 @@ vnetConfig: {
 }
 ```
 
+---
+
 #### subnetId
 Resource ID of a pre-existing subnet on which the build VM and validation VM is deployed.
 
@@ -1745,7 +1749,38 @@ This field can be specified only if `subnetId` is also specified and must meet t
 #### proxyVmSize (optional)
 Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This field must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
 
----
+## Properties: autoRun
+
+You can use the `autoRun` property to control whether the image template build process should automatically start when the template is created. It's an enum with two possible values:
+- **Enabled** - Auto run is enabled, so your image template build process will automatically start when the template is created. 
+- **Disabled** - Auto run is disabled, so you will have to manually start the image build process after the template is created.
+
+```json
+"properties": {
+    "autoRun": {
+        "state": "Enabled"
+ }
+```
+
+> [!NOTE]
+> When you set `autoRun` to "Enabled," the image build process runs **once** upon template creation. It ensures that the initial image build occurs seamlessly. However, it does not provide consistent and ongoing image builds. For consistent and ongoing image builds that run once an image template is updated, see [How to use Azure Image Builder triggers to set up an automatic image build](../image-builder-triggers-how-to.md).
+>
+> Unlike `autoRun`, automatic image creation via the Azure Image Builder trigger resource ensures that image builds occur consistently. Whenever there are changes to the template, the Azure Image Builder service will automatically trigger the image build process.
+>
+> Choose `autoRun` for immediate image builds upon template creation. Opt for automatic image creation when you need ongoing consistency in image builds. Consider your specific requirements and use the appropriate option based on your workflow.
+
+## Properties: managedResourceTags
+
+You can use the `managedResourceTags` property to apply tags to the resources that the Azure Image Builder service creates in the staging resource group during the image build. For more information on the staging resource group, see [Azure Image Builder Overview](../image-builder-overview.md#how-it-works)
+
+```json
+"properties": {
+		"managedResourceTags": {
+			"tag1": "value1",
+      			"tag2": "value2"
+              }
+}
+```
 
 ## Image Template Operations
 

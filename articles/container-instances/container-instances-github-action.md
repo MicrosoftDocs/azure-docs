@@ -4,7 +4,7 @@ description: Configure a GitHub Action that automates steps to build, push, and 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 05/07/2024
 ms.custom: github-actions-azure, devx-track-azurecli
@@ -42,7 +42,7 @@ This article shows two ways to set up the workflow:
 
   This repo contains a Dockerfile and source files to create a container image of a small web app.
 
-  ![Screenshot of the Fork button (highlighted) in GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
+  ![Screenshot of the Fork button (highlighted) in GitHub](~/reusable-content/ce-skilling/azure/media/container-registry/quick-build-01-fork.png)
 
 * Ensure Actions is enabled for your repository. Navigate to your forked repository and select **Settings** > **Actions**. In **Actions permissions**, ensure that **Allow all actions** is selected.
 

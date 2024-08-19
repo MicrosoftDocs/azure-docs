@@ -440,7 +440,7 @@ You can choose from any of the languages mentioned in the [speech to text](langu
 
 ### Change the default bot voice
 
-You can select the text to speech voice and control pronunciation if the bot specifies the reply in the form of a [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) instead of simple text. The echo bot doesn't use SSML, but you can easily modify the code to do that. 
+You can select the text to speech voice and control pronunciation if the bot specifies the reply in the form of a [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) instead of simple text. The echo bot doesn't use SSML, but you can easily modify the code to do that. 
 
 The following example adds SSML to the echo bot reply so that the German voice `de-DE-RalfNeural` (a male voice) is used instead of the default female voice. See the [list of standard voices](how-to-migrate-to-prebuilt-neural-voice.md) and [list of neural voices](language-support.md?tabs=tts) that are supported for your language.
 

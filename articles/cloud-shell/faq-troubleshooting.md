@@ -1,8 +1,8 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
 ms.contributor: jahelmic
-ms.date: 11/08/2023
-ms.topic: article
+ms.date: 08/14/2024
+ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
 title: Azure Cloud Shell Frequently Asked Questions (FAQ)
@@ -60,23 +60,30 @@ your anticipated usage date.
 ### I created some files in Cloud Shell, but they're gone. What happened?
 
 The machine that provides your Cloud Shell session is temporary and is recycled after your session
-is inactive for 20 minutes. Cloud Shell uses an Azure fileshare mounted to the `clouddrive` folder
-in your session. The fileshare contains the image file that contains your `$HOME` directory. Only
-files that you upload or create in the `clouddrive` folder are persisted across sessions. Any files
-created outside your `clouddrive` directory aren't persisted.
+is inactive for 20 minutes.
 
-Files stored in the `clouddrive` directory are visible in the Azure portal using Storage browser.
-However, any files created in the `$HOME` directory are stored in the image file and aren't visible
-in the portal.
+When you started Cloud Shell the first time, you were prompted to choose a storage option.
+
+- If you chose the **Mount storage account** option, Cloud Shell mounts an Azure fileshare to the
+  `clouddrive` folder in your session. Files stored in the `clouddrive` folder are visible in the
+  Azure portal using Storage browser. Files stored in the `clouddrive` folder persist across
+  sessions.
+
+- If you chose the **No storage account required** option, you can only write files to your `$HOME`
+  folder.
+
+In both scenarios, you can write files to the `$HOME` folder. However, the `$HOME` folder only
+exists in the Cloud Shell container image that you're currently using. Files in the `$HOME` folder
+aren't visible in the Storage browser and are deleted when your session ends.
 
 ### I create a file in the Azure: drive, but I don't see it. What happened?
 
-PowerShell users can use the `Azure:` drive to access Azure resources. The `Azure:` drive is created
-by a PowerShell provider that structures data as a file system drive. The `Azure:` drive is a
-virtual drive that doesn't allow you to create files.
+Cloud Shell loads a PowerShell provider for Azure that presents Azure resource data as a file system
+drive. PowerShell users can use the `Azure:` drive to access Azure resources. The `Azure:` drive is
+a virtual drive that doesn't allow you to create files.
 
 Files that you create a new file using other tools, such as `vim` or `nano` while your current
-location is the `Azure:` drive, are saved to your `$HOME` directory.
+location is the `Azure:` drive, are saved to your `$HOME` folder.
 
 ### I want to install a tool in Cloud Shell that requires `sudo`. Is that possible?
 

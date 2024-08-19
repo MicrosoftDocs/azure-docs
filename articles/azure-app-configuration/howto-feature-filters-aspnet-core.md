@@ -5,7 +5,7 @@ description: Learn how to implement a custom feature filter to enable conditiona
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-author: zhiyuanliang
+author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
 ms.date: 03/28/2024
@@ -94,3 +94,8 @@ To learn more about the built-in feature filters, continue to the following tuto
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeted audience](./howto-targetingfilter.md)
+
+For the full feature rundown of the .NET feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)

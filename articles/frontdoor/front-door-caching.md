@@ -3,7 +3,7 @@ title: Caching with Azure Front Door
 description: This article helps you understand Front Door behavior when enabling caching in routing rules.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 11/08/2023
 ms.author: duau
@@ -206,6 +206,9 @@ The following request headers don't get forwarded to the origin when caching is 
 - `Accept`
 - `Accept-Charset`
 - `Accept-Language`
+
+> [!NOTE]
+> Requests that include authorization header will not be cached.
 
 ## Response headers
 

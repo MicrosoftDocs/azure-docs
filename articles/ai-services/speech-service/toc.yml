@@ -65,7 +65,9 @@ items:
         href: get-speech-recognition-results.md
       - name: Real-time diarization quickstart
         href: get-started-stt-diarization.md
-    - name: Batch transcription
+    - name: Fast transcription API (Preview)
+      href: fast-transcription-create.md
+    - name: Batch transcription API
       items:
       - name: What is batch transcription?
         href: batch-transcription.md
@@ -182,7 +184,7 @@ items:
             href: professional-voice-deploy-endpoint.md
         - name: Custom neural voice lite (preview)
           href: custom-neural-voice-lite.md
-        - name: Personal voice (preview)
+        - name: Personal voice
           items:
           - name: Personal voice overview
             href: personal-voice-overview.md
@@ -200,6 +202,8 @@ items:
       - name: What is text to speech avatar?
         href: text-to-speech-avatar/what-is-text-to-speech-avatar.md
         displayName: avatar
+      - name: Content credentials
+        href: text-to-speech-avatar/content-credentials.md
       - name: How to synthesize text to speech avatar
         items:
         - name: Real-time synthesis
@@ -227,7 +231,7 @@ items:
         - name: Deploy your custom text to speech avatar model as an endpoint
           href: text-to-speech-avatar/custom-avatar-endpoint.md
           displayName: avatar
-    - name: Audio Content Creation
+    - name: Audio content creation
       href: how-to-audio-content-creation.md
       displayName: acc
     - name: OpenAI text to speech voices
@@ -238,12 +242,20 @@ items:
       href: faq-tts.yml
 - name: Speech translation
   items:
-    - name: Speech translation overview
-      href: speech-translation.md
-    - name: Speech translation quickstart
-      href: get-started-speech-translation.md
-    - name: How to recognize and translate speech
-      href: how-to-translate-speech.md
+    - name: Real-time speech translation
+      items:
+       - name: Speech translation overview
+         href: speech-translation.md
+       - name: Speech translation quickstart
+         href: get-started-speech-translation.md
+       - name: How to recognize and translate speech
+         href: how-to-translate-speech.md
+    - name: Video translation (preview)
+      items:
+       - name: Video translation overview
+         href: video-translation-overview.md
+       - name: Video translation in the studio
+         href: video-translation-studio.md
 - name: Intent recognition
   items:
     - name: Intent recognition overview
@@ -301,9 +313,12 @@ items:
         href: language-learning-overview.md
       - name: Pronunciation Assessment with speech to text
         items:
-        - name: Reading and speaking assessment in Speech Studio
+        - name: Reading and speaking assessment in AI Studio
           href: pronunciation-assessment-tool.md
           displayName: pronounce, learn language, assess pron
+        - name: Interactive language learning with pronunciation assessment
+          href: language-learning-with-pronunciation-assessment.md
+          displayName: pronounce, learn language, assess pron, chatting 
     - name: Azure OpenAI speech to speech chat
       href: openai-speech.md
     - name: Meeting transcription
@@ -324,44 +339,10 @@ items:
       items:
         - name: Voice assistants overview
           href: voice-assistants.md
-        - name: Voice assistants FAQ
-          href: faq-voice-assistants.yml
         - name: Voice Assistants Samples (GitHub)
           href: https://aka.ms/speech/va-samples
-        - name: Custom Commands
-          items:
-            - name: Custom Commands overview
-              href: custom-commands.md
-            - name: Custom commands quickstart
-              href: quickstart-custom-commands-application.md
-            - name: Develop and customize Custom Commands apps
-              href: how-to-develop-custom-commands-application.md
-            - name: Integrate with client applications
-              items:
-                - name: Integrate with a client app using Speech SDK
-                  href: how-to-custom-commands-setup-speech-sdk.md
-                - name: Send activity to client application
-                  href: how-to-custom-commands-send-activity-to-client.md
-                - name: Set up web endpoints
-                  href: how-to-custom-commands-setup-web-endpoints.md
-                - name: Update a command from the client app
-                  href: how-to-custom-commands-update-command-from-client.md
-                - name: Update a command from a web endpoint
-                  href: how-to-custom-commands-update-command-from-web-endpoint.md
-            - name: Continuous Deployment with Azure DevOps
-              href: how-to-custom-commands-deploy-cicd.md
-            - name: Test Custom Commands applications
-              href: how-to-custom-commands-developer-flow-test.md
-            - name: Debug app build-time errors
-              href: how-to-custom-commands-debug-build-time.md
-            - name: Debug app run-time errors
-              href: how-to-custom-commands-debug-runtime.md
-            - name: Custom Commands concepts
-              href: custom-commands-references.md
-            - name: Custom Commands Samples (GitHub)
-              href: https://aka.ms/speech/cc-samples
-            - name: Custom Commands encryption of data at rest
-              href: custom-commands-encryption-of-data-at-rest.md
+        - name: Custom commands
+          href: custom-commands.md
         - name: Direct Line Speech
           items:
             - name: Direct Line Speech overview
@@ -435,7 +416,7 @@ items:
       - name: Use customer-managed keys
         href: speech-encryption-of-data-at-rest.md
         displayName: encrypt, byos
-      - name: How to backup and recover speech customization resources
+      - name: How to back up and recover speech customization resources
         href: resiliency-and-recovery-plan.md
     - name: Logs and diagnostics
       items:
@@ -450,9 +431,6 @@ items:
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
           href: how-to-track-speech-sdk-memory-usage.md
-    - name: Configure RHEL/CentOS 7
-      href: how-to-configure-rhel-centos-7.md
-      displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Generate a REST API client library
       href: swagger-documentation.md
       displayName: rest, swagger
@@ -564,12 +542,20 @@ items:
         - name: Text to speech REST API
           href: rest-text-to-speech.md
           displayName: reference, tts output, output format
+        - name: Custom voice REST API
+          href: /rest/api/aiservices/speechapi/operation-groups
+        - name: Batch synthesis REST API
+          href: /rest/api/batchtexttospeech/operation-groups
+        - name: Batch avatar REST API
+          href: /rest/api/batchavatar/operation-groups
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 
         - name: Conversation transcription REST APIs
           href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
           displayName: reference
+        - name: Ingestion service REST API
+          href: https://eastus.ingestion.speech.microsoft.com/swagger/index.html?urls.primaryName=v0.2-preview
 - name: Responsible AI
   items:
     - name: Speech to text

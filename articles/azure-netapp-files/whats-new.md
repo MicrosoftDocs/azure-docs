@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 11/27/2023
+ms.date: 08/07/2024
 ms.author: anfdocs
 ---
 
@@ -14,7 +14,70 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## August 2024
+
+* [Volume encryption with customer-managed keys with managed Hardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) (Preview)
+
+    Volume encryption with customer-managed keys with managed HSM extends the [customer-managed keys](configure-customer-managed-keys.md), enabling you to store your keys in a more secure FIPS 140-2 Level 3 HSM service instead of the FIPS 140-2 Level 1 or 2 encryption offered with Azure Key Vault. 
+
+* [Volume enhancement: Azure NetApp Files now supports 50 GiB minimum volume sizes](azure-netapp-files-resource-limits.md) (preview)
+
+    You can now create an Azure NetApp Files volume as small as 50 GiB--a reduction from the initial minimum size of 100 GiB. 50 GiB volumes save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes. 50 GiB volumes are supported for all protocols with Azure NetApp Files: [NFS](azure-netapp-files-create-volumes.md#50-gib), [SMB](azure-netapp-files-create-volumes-smb.md#50-gib), and [dual-protocol](create-volumes-dual-protocol.md#50-gib). You must register for the feature before creating a volume smaller than 100 GiB. 
+
+* [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) is now generally available (GA). 
+
+## July 2024
+
+* Availability zone volume placement enhancement - [**Populate existing volumes**](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) is now generally available (GA).
+
+
+* [Cross-zone replication](cross-zone-replication-introduction.md) is now generally available (GA).
+
+    Cross-zone replication allows you to replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone (AZ) to another within the same region. Using technology similar to the cross-region replication feature and Azure NetApp Files availability zone volume placement feature, cross-zone replication replicates data in-region across different zones; only changed blocks are sent over the network in a compressed, efficient format. It helps you protect your data from unforeseeable zone failures without the need for host-based data replication. This feature minimizes the amount of data required to replicate across the zones, limiting data transfers required and shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs and is highly cost-effective. 
+    
+    Cross-zone replication is available in all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+    
+* [Transition a volume to customer-managed keys](configure-customer-managed-keys.md#transition) (Preview)
+
+    Azure NetApp Files now supports the ability to transition an existing volume to use customer-managed keys for volume encryption. 
+
+* [Customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md#supported-regions) is now available in all US Gov regions
+
+* [Azure NetApp Files large volume enhancement:](large-volumes-requirements-considerations.md) increased throughput and maximum size limit of 2-PiB volume (preview)
+
+    Azure NetApp Files large volumes now support increased maximum throughput and size limits. This update brings an increased size limit to **one PiB,** available via Azure Feature Exposure Control (AFEC), allowing for more extensive and robust data management solutions for various workloads, including HPC, EDA, VDI, and more.
+    
+    This update also introduces a preview of a large volume type, starting from **one PiB** up to **two PiB**, available upon request. This **2-PiB** enhancement is subject to regional availability and capacity, ensuring that Azure NetApp Files can meet your specific needs and requirements. This feature is currently in preview. To take advantage of the 2-PiB large volume feature, contact your account team.
+    
+* [Azure NetApp Files backup](backup-introduction.md) is now available in Azure [US Gov regions](backup-introduction.md#supported-regions).
+
+
+* [Metrics enhancement:](azure-netapp-files-metrics.md) New performance metrics for volumes
+
+    New counters have been added to Azure NetApp Files performance metrics to increase visibility into your volumes' workloads:
+
+    - Other IOPS: any operations other than read or write.
+    - Total IOPS: a summation of all IOPS (read, write, and other)
+    - Other throughput: any operations other than read or write.
+    - Total throughput: Total throughput is a summation of all throughput (read, write, and other)
+
+## June 2024
+
+* [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features) (Preview)
+
+    Extension 1 of application volume group for SAP HANA improves your volume group deployment experience for SAP HANA with:
+    - The use of [availability zone volume placement](use-availability-zones.md), eliminating the need for manual AVSet pinning with proximity placement groups.
+    - Support for [Standard network features](azure-netapp-files-network-topologies.md) for SAP HANA volumes. 
+
 ## May 2024
+
+* [Large volumes](large-volumes-requirements-considerations.md) are now generally available (GA) with support for [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md).
+
+    Azure NetApp Files large volumes feature support the creation of new volumes between 50 TiB to 500 TiB in size. Regular Azure NetApp Files volumes are limited to 100 TiB in size. Large volumes enable a variety of use cases and workloads that require larger volumes with a single namespace such as High-Performance Computing (HPC) in the EDA and O&G space.
+    
+    Azure NetApp Files large volumes is now also supported with cross-zone and cross-region replication. This capability is particularly beneficial for HPC, AI/ML, and large file content repositories, ensuring data resilience and business continuity across various scenarios.
+    
+    For HPC workloads, which are essential for simulating processes and electronic design automation, this feature enhances data protection and availability, crucial for maintaining uninterrupted operations. AI/ML workloads, especially those involving large datasets for training complex models, will benefit from the added security and recovery options, ensuring data integrity for critical applications. Content repositories with large files, which often remain unchanged for extended periods but require immediate access, can now leverage the benefits of cross-zone and cross-region replication to safeguard against data loss while optimizing for cost and scale. By integrating these replication features, you can achieve a new level of data security and operational stability.
 
 * [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) (Preview)
 
@@ -268,7 +331,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Large volumes](large-volumes-requirements-considerations.md) (Preview)
 
-    Regular Azure NetApp Files volumes are limited to 100 TiB in size. Azure NetApp Files [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) break this barrier by enabling volumes of 100 TiB to 500 TiB in size. The large volumes capability enables various use cases and workloads that require large volumes with a single directory namespace.
+    Regular Azure NetApp Files volumes are limited to 100 TiB in size. Azure NetApp Files [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) break this barrier by enabling volumes of 100 TiB to 1 PiB in size. The large volumes capability enables various use cases and workloads that require large volumes with a single directory namespace.
 
 * [Customer-managed keys](configure-customer-managed-keys.md) (Preview)
 

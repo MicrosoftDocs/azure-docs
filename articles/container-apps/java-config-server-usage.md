@@ -1,18 +1,18 @@
 ---
-title: Configure settings for the Spring Cloud Configure Server component in Azure Container Apps (preview)
-description: Learn how to configure a Spring Cloud Config Server component for your container app.
+title: Configure settings for the Config Server for Spring component in Azure Container Apps (preview)
+description: Learn how to configure a Config Server for Spring component for your container app.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/13/2024
+ms.date: 05/23/2024
 ms.author: cshoe
 ---
 
-# Configure settings for the Spring Cloud Config Server component in Azure Container Apps (preview)
+# Configure settings for the Config Server for Spring component in Azure Container Apps (preview)
 
-Spring Cloud Config Server provides a centralized location to make configuration data available to multiple applications. Use the following guidance to learn how to configure and manage your Spring Cloud Config Server component.
+Config Server for Spring provides a centralized location to make configuration data available to multiple applications. Use the following guidance to learn how to configure and manage your Config Server for Spring component.
 
 ## Show
 
@@ -21,7 +21,7 @@ You can view the details of an individual component by name using the `show` com
 Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
 ```azurecli
-az containerapp env java-component spring-cloud-config show \
+az containerapp env java-component config-server-for-spring show \
   --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --name <JAVA_COMPONENT_NAME>
@@ -41,7 +41,7 @@ az containerapp env java-component list \
 
 ## Bind
 
-Use the `--bind` parameter of the `update` command to create a connection between the Spring Cloud Config Server component and your container app.
+Use the `--bind` parameter of the `update` command to create a connection between the Config Server for Spring component and your container app.
 
 Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
@@ -54,7 +54,7 @@ az containerapp update \
 
 ## Unbind
 
-To break the connection between your container app and the Spring Cloud Config Server component, use the `--unbind` parameter of the `update` command.
+To break the connection between your container app and the Config Server for Spring component, use the `--unbind` parameter of the `update` command.
 
 Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
@@ -67,7 +67,7 @@ az containerapp update \
 
 ## Configuration options
 
-The `az containerapp update` command uses the `--configuration` parameter to control how the Spring Cloud Config Server is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Spring Cloud Config Server](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_spring_cloud_config_server) docs.
+The `az containerapp update` command uses the `--configuration` parameter to control how the Config Server for Spring is configured. You can use multiple parameters at once as long as they're separated by a space. You can find more details in [Spring Cloud Config Server](https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_spring_cloud_config_server) docs.
 
 The following table lists the different configuration values available.
 
@@ -123,7 +123,7 @@ The following table lists the different configuration values available.
 
 ## Refresh
 
-Services that consume properties need to know about the change before it happens. The default notification method for Spring Cloud Config Server involves manually triggering the refresh event, such as refresh by call `https://<YOUR_CONFIG_CLIENT_HOST_NAME>/actuator/refresh`, which may not be feasible if there are many app instances.
+Services that consume properties need to know about the change before it happens. The default notification method for Config Server for Spring involves manually triggering the refresh event, such as refresh by call `https://<YOUR_CONFIG_CLIENT_HOST_NAME>/actuator/refresh`, which may not be feasible if there are many app instances.
 
 Instead, you can automatically refresh values from Config Server by letting the config client poll for changes based on a refresh internal. Use the following steps to automatically refresh values from Config Server.
 
@@ -196,12 +196,12 @@ By default, server-side encryption is enabled. Use the following steps to enable
     message={cipher}f43e3df3862ab196a4b367624a7d9b581e1c543610da353fbdd2477d60fb282f
     ```
 
-1. Update the Spring Cloud Config Server Java component to use the git repository that has the encrypted property and set the encryption key.
+1. Update the Config Server for Spring Java component to use the git repository that has the encrypted property and set the encryption key.
 
     Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
     ```azurecli
-    az containerapp env java-component spring-cloud-config update \
+    az containerapp env java-component config-server-for-spring update \
       --environment <ENVIRONMENT_NAME> \
       --resource-group <RESOURCE_GROUP> \
       --name <JAVA_COMPONENT_NAME> \
@@ -214,12 +214,12 @@ You can use client side decryption of properties by following the steps:
 
 1. Add the encrypted property in your `*.properties*` file in your git repository.
 
-1. Update the Spring Cloud Config Server Java component to use the git repository that has the encrypted property and disable server-side decryption.
+1. Update the Config Server for Spring Java component to use the git repository that has the encrypted property and disable server-side decryption.
 
     Before you run the following command, replace placeholders surrounded by `<>` with your values.
 
     ```azurecli
-    az containerapp env java-component spring-cloud-config update \
+    az containerapp env java-component config-server-for-spring update \
       --environment <ENVIRONMENT_NAME> \
       --resource-group <RESOURCE_GROUP> \
       --name <JAVA_COMPONENT_NAME> \
@@ -247,4 +247,4 @@ You can use client side decryption of properties by following the steps:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect to a managed Spring Cloud Config Server](java-config-server.md)
+> [Tutorial: Connect to a managed Config Server for Spring](java-config-server.md)

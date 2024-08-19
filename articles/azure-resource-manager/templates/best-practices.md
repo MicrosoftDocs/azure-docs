@@ -1,7 +1,7 @@
 ---
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates (ARM templates). Offers suggestions to avoid common problems when using templates.
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: devx-track-arm-template
 ms.date: 09/22/2023
 ---
@@ -289,7 +289,7 @@ The following information can be helpful when you work with [resources](./syntax
    > [!NOTE]
    > To ensure that secrets are encrypted when they are passed as parameters to VMs and extensions, use the `protectedSettings` property of the relevant extensions.
 
-* Specify explicit values for properties that have default values that could change over time. For example, if you're deploying an AKS cluster, you can either specify or omit the `kubernetesVersion` property. If you don't specify it, then [the cluster is defaulted to the N-1 minor version and latest patch](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). When you deploy the cluster using an ARM template, this default behavior might not be what you expect. Redeploying your template may result in the cluster being upgraded to a new Kubernetes version unexpectedly. Instead, consider specifying an explicit version number and then manually changing it when you're ready to upgrade your cluster.
+* Specify explicit values for properties that have default values that could change over time. For example, if you're deploying an AKS cluster, you can either specify or omit the `kubernetesVersion` property. If you don't specify it, then [the cluster is defaulted to the N-1 minor version and latest patch](/azure/aks/supported-kubernetes-versions#azure-portal-and-cli-versions). When you deploy the cluster using an ARM template, this default behavior might not be what you expect. Redeploying your template may result in the cluster being upgraded to a new Kubernetes version unexpectedly. Instead, consider specifying an explicit version number and then manually changing it when you're ready to upgrade your cluster.
 
 ## Comments
 

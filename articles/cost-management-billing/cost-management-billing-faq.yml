@@ -23,7 +23,7 @@ sections:
           See [Resolve past due balance for your Azure subscription](manage/resolve-past-due-balance.md).
       - question: How long does it take for my payment to be posted?
         answer: |
-          See [Wire transfer payment processing time](manage/pay-by-invoice.md#wire-transfer-payment-processing-time).
+          See [Wire transfer payment processing time](manage/pay-by-invoice.md#whats-the-processing-time-for-wire-transfer-payments).
       - question: How do I find my invoice?
         answer: |
           See [View and download your Microsoft Azure invoice](understand/download-azure-invoice.md).
@@ -280,7 +280,7 @@ sections:
           
           After you create departments and subscriptions, you can see data in the usage report. This information can help you track usage and manage cost and spend at the department level.
           
-          You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](manage/enterprise-rest-apis.md).
+          You can also access usage data via the reporting API.
           
           Direct enterprise customers can view usage and spending at different department levels in the Azure portal. Navigate to the **Department** menu to view charges.
       - question: Can I set a spending quota and get alerts as I approach my limit?
@@ -292,7 +292,7 @@ sections:
         answer: |
           If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file.
           
-          You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](manage/enterprise-rest-apis.md).
+          You can also access usage via API.
           
           > [!NOTE]
           > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you can't apply a tag to that resource. You must redeploy these resources through the Resource Manager to support tagging. All other resources support tagging.
@@ -346,9 +346,6 @@ sections:
       - question: Why doesn't the total amount on Azure Marketplace match the reports for usage summary and detail?
         answer: |
           The Azure Marketplace charges report shows only the usage-based charges. One-time fees aren't shown. See the usage summary page for the most up-to-date usage-based charges and one-time fees.
-      - question: Why is there no information on my API report?
-        answer: |
-          API keys expire every six months. If you're having an issue, an enterprise administrator should generate a new API key. For more information about API key generation, see [API key generation](manage/enterprise-rest-apis.md#api-key-generation).
       - question: Why isn't my Power BI report working?
         answer: |
           For issues with Power BI, log a ticket with the [Power BI support team](https://support.powerbi.com).

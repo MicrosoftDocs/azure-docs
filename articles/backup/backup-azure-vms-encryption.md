@@ -1,9 +1,9 @@
 ---
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
-ms.topic: conceptual
-ms.date: 08/28/2023
-ms.service: backup
+ms.topic: how-to
+ms.date: 08/13/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -11,13 +11,17 @@ ms.author: v-abhmallick
 
 This article describes how to back up and restore Windows or Linux Azure virtual machines (VMs) with encrypted disks using the [Azure Backup](backup-overview.md) service. For more information, see [Encryption of Azure VM backups](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
-## Encryption using platform-managed keys
+## Supported scenarios for backup and restore of encrypted Azure VMs
+
+This section describes the supported scenarios for backup and restore of encrypted Azure VMs.
+
+### Encryption using platform-managed keys
 
 By default, all the disks in your VMs are automatically encrypted-at-rest using platform-managed keys (PMK) that use [storage service encryption](../storage/common/storage-service-encryption.md). You can back up these VMs using Azure Backup without any specific actions required to support encryption on your end. For more information about encryption with platform-managed keys, [see this article](../virtual-machines/disk-encryption.md#platform-managed-keys).
 
 ![Encrypted disks](./media/backup-encryption/encrypted-disks.png)
 
-## Encryption using customer-managed keys
+### Encryption using customer-managed keys
 
 When you encrypt disks with customer-managed keys (CMK), the key used for encrypting the disks is stored in the Azure Key Vault and is managed by you. Storage Service Encryption (SSE) using CMK differs from Azure Disk Encryption (ADE) encryption. ADE uses the encryption tools of the operating system. SSE encrypts data in the storage service, enabling you to use any OS or images for your VMs.
 
@@ -25,7 +29,7 @@ You don't need to perform any explicit actions for backup or restore of VMs that
 
 For more information about encryption of managed disks with customer-managed keys, see [this article](../virtual-machines/disk-encryption.md#customer-managed-keys).
 
-## Encryption support using ADE
+### Encryption support using ADE
 
 Azure Backup supports backup of Azure VMs that have their OS/data disks encrypted with Azure Disk Encryption (ADE). ADE uses BitLocker for encryption of Windows VMs, and the dm-crypt feature for Linux VMs. ADE integrates with Azure Key Vault to manage disk-encryption keys and secrets. Key Vault Key Encryption Keys (KEKs) can be used to add an additional layer of security, encrypting encryption secrets before writing them to Key Vault.
 
@@ -36,10 +40,12 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Mi
 **Unmanaged** | Yes | Yes
 **Managed**  | Yes | Yes
 
-- Learn more about [ADE](../virtual-machines/disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md), and [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Learn more about [ADE](../virtual-machines/disk-encryption-overview.md), [Key Vault](/azure/key-vault/general/overview), and [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 - Read the [FAQ](../virtual-machines/disk-encryption-overview.md) for Azure VM disk encryption.
 
 ### Limitations
+
+Before you back up or restore encrypted Azure VNs, review the following limitations:
 
 - You can back up and restore ADE encrypted VMs within the same subscription.
 - Azure Backup supports VMs encrypted using standalone keys. Any key that's a part of a certificate used to encrypt a VM isn't currently supported.
@@ -61,6 +67,8 @@ In addition, there are a couple of things that you might need to do in some circ
 - **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure Marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 ## Configure a backup policy
+
+To configure a backup policy, follow these steps: 
 
 1. If you haven't yet created a Recovery Services backup vault, follow [these instructions](backup-create-rs-vault.md).
 1. Navigate to Backup center and click **+Backup**  from the **Overview** tab
@@ -105,7 +113,7 @@ To enable backups for ADE encrypted VMs using Azure RBAC enabled key vaults, you
 
 :::image type="content" source="./media/backup-azure-vms-encryption/enable-key-vault-encryption-inline.png" alt-text="Screenshot shows the checkbox to enable ADE encrypted key vault." lightbox="./media/backup-azure-vms-encryption/enable-key-vault-encryption-expanded.png":::
 
-Learn about the [different available roles](../key-vault/general/rbac-guide.md?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations). The **Key Vault Administrator** role can allow permissions to *get*, *list*, and *back up* both secret and key.
+Learn about the [different available roles](/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations). The **Key Vault Administrator** role can allow permissions to *get*, *list*, and *back up* both secret and key.
 
 For Azure RBAC enabled key vaults, you can create custom role with the following set of permissions. Learn [how to create custom role](../active-directory/roles/custom-create.md).
 
@@ -155,7 +163,7 @@ Azure Backup needs read-only access to back up the keys and secrets, along with 
 - Your Key Vault is associated with the Microsoft Entra tenant of the Azure subscription. If you're a **Member user**, Azure Backup acquires access to the Key Vault without further action.
 - If you're a **Guest user**, you must provide permissions for Azure Backup to access the key vault. You need to have access to key vaults to configure Backup for encrypted VMs.
 
-To provide Azure RBAC permissions on Key Vault, see [this article](../key-vault/general/rbac-guide.md?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
+To provide Azure RBAC permissions on Key Vault, see [this article](/azure/key-vault/general/rbac-guide?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
 
 To set permissions:
 
@@ -190,7 +198,7 @@ To set permissions:
 
 You can also set the access policy using [PowerShell](./backup-azure-vms-automation.md#enable-protection) or [CLI](./quick-backup-vm-cli.md#prerequisites-to-backup-encrypted-vms).
 
-## Next steps
+## Next step
 
 [Restore encrypted Azure virtual machines](restore-azure-encrypted-virtual-machines.md)
 

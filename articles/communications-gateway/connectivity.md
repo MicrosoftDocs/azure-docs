@@ -3,7 +3,7 @@ title: Connecting to Azure Communications Gateway
 description: Learn about connecting Azure Communications Gateway to your networks and the IP addresses and domain names you need to know.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: concept-article
 ms.date: 04/26/2024
 
@@ -26,7 +26,7 @@ Azure Communications Gateway supports multiple types of connection to your netwo
 - We strongly recommend using Microsoft Azure Peering Service Voice (also called MAPS Voice or MAPSV).
 - If you can't use MAPS Voice, we recommend ExpressRoute Microsoft Peering.
 
-Azure Communications Gateway is normally deployed with public IP addresses on all interfaces. This means that you can use connectivity methods supporting public IP addresses to connect your network to Azure Communications Gateway such as MAPS Voice, ExpressRoute Microsoft Peering and the public internet. If you want to control and manage the traffic between your network and Azure Communications Gateway you can use VNet injection for Azure Communications Gateway (preview) to deploy the interfaces which connect to your network into your own subnet.
+Azure Communications Gateway is normally deployed with public IP addresses on all interfaces. This means that you can use connectivity methods supporting public IP addresses to connect your network to Azure Communications Gateway such as MAPS Voice, ExpressRoute Microsoft Peering, and the public internet. If you want to control and manage the traffic between your network and Azure Communications Gateway, you can use VNet injection for Azure Communications Gateway (preview) to deploy the interfaces that connect to your network into your own subnet.
 
 The following table lists all the available connection types and whether they're supported for each communications service. The connection types are in the order that we recommend (with recommended types first).
 
@@ -48,31 +48,31 @@ Lab deployments have one Azure service region and must connect to one site in yo
 
 ## IP addresses and domain names
 
-Azure Communications Gateway (ACG) deployments require multiple IP addresses and fully qualified domain names (FQDNs). The following diagram and table describe the IP addresses and FQDNs that you might need to know about.
+Azure Communications Gateway deployments require multiple IP addresses and fully qualified domain names (FQDNs). The following diagram and table describe the IP addresses and FQDNs that you might need to know about.
 
 :::image type="content" source="media/azure-communications-gateway-ip-addresses.svg" alt-text="Diagram of the IP addresses in an Azure Communications Gateway deployment, including IP addresses for operator networks and communications services. The details of each IP address follow the diagram." lightbox="media/azure-communications-gateway-ip-addresses.svg":::
 
 |IP address or range on diagram | Description  | Notes |
 |---------|---------|---------|
-| 1 | IP address range in operator site A for sending signaling traffic to ACG | Specify this information when you deploy ACG. |
-| 2 | IP address range or FQDN in site A for receiving signaling traffic from ACG | Specify this information when you deploy ACG. |
-| 3 | IP addresses or address ranges in operator site A for sending and receiving media traffic | Specify this information when you deploy ACG. |
-| 4 | IP address range in operator site B for sending signaling traffic to Azure Communications Gateway | Specify this information when you deploy ACG. |
-| 5 | IP address range or FQDN in operator site A for receiving signaling traffic from ACG | Specify this information when you deploy ACG. |
-| 6 | IP addresses or address ranges in operator site B for sending and receiving media traffic | Specify this information when you deploy ACG. |
-| 7 | ACG region 1 FQDN for receiving signaling traffic from operator network | Get the FQDN from the **Hostname** field for region 1 in the Azure portal. Configure your network to route calls to this FQDN. |
-| 8 | ACG region 1 IP addresses or address ranges for sending signaling traffic to your network | Ask your onboarding team for the values. Configure them in your network's access control lists (ACLs). |
-| 9 | ACG region 1 IP addresses or address ranges for media traffic between operator network and ACG | Ask your onboarding team for the values. Configure them in your network's access control lists (ACLs). |
-| 10 | ACG region 2 FQDN for receiving signaling traffic from operator network | Get the FQDN from the **Hostname** field for region 2 in the Azure portal. Configure your network to route calls to this FQDN. |
-| 11 | ACG region 2 IP addresses or address ranges for sending signaling traffic to your network | Ask your onboarding team for the values. Configure them in your network's access control lists (ACLs). |
-| 12 | ACG region 2 IP addresses or address ranges for media traffic between operator network and ACG | Ask your onboarding team for the values. Configure them in your network's access control lists (ACLs). |
-| 13 | ACG base domain providing the Provisioning API | Get the FQDN from the **Overview** field in the Azure portal. |
-| 14 | ACG region 1 IP addresses or address ranges for sending signaling traffic to communications services | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
-| 15 | ACG region 1 FQDN or IP addresses for receiving signaling traffic from communications services | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
-| 16 | ACG region 1 IP addresses or address ranges for media traffic between communications service and ACG | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
-| 17 | ACG region 2 IP addresses or address ranges for sending signaling traffic to communications services | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
-| 18 | ACG region 2 FQDN or IP addresses for receiving signaling traffic from communications services | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
-| 19 | ACG region 2 IP addresses or address ranges for media traffic between communications service and ACG | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
+| 1 | IP address range in operator site A for sending signaling traffic to Azure Communications Gateway | Specify this information when you deploy your resource. |
+| 2 | IP address range or FQDN in site A for receiving signaling traffic from Azure Communications Gateway | Specify this information when you deploy your resource. |
+| 3 | IP addresses or address ranges in operator site A for sending and receiving media traffic | Specify this information when you deploy your resource. |
+| 4 | IP address range in operator site B for sending signaling traffic to Azure Communications Gateway | Specify this information when you deploy your resource. |
+| 5 | IP address range or FQDN in operator site A for receiving signaling traffic from Azure Communications Gateway | Specify this information when you deploy your resource. |
+| 6 | IP addresses or address ranges in operator site B for sending and receiving media traffic | Specify this information when you deploy your resource. |
+| 7 | Azure Communications Gateway region 1 FQDN for receiving signaling traffic from operator network | Get the FQDN from the **Hostname** field for region 1 in the Azure portal. Configure your network to route calls to this FQDN. |
+| 8 | Azure Communications Gateway region 1 IP addresses or address ranges for sending signaling traffic to your network | Ask your onboarding team for the values. Configure them in your network's access control lists (ACLs). |
+| 9 | Azure Communications Gateway region 1 IP addresses or address ranges for media traffic between operator network and Azure Communications Gateway | Ask your onboarding team for the values. Configure them in your network's access control lists (ACLs). |
+| 10 | Azure Communications Gateway region 2 FQDN for receiving signaling traffic from operator network | Get the FQDN from the **Hostname** field for region 2 in the Azure portal. Configure your network to route calls to this FQDN. |
+| 11 | Azure Communications Gateway region 2 IP addresses or address ranges for sending signaling traffic to your network | Ask your onboarding team for the values. Configure them in your network's access control lists (ACLs). |
+| 12 | Azure Communications Gateway region 2 IP addresses or address ranges for media traffic between operator network and Azure Communications Gateway | Ask your onboarding team for the values. Configure them in your network's access control lists (ACLs). |
+| 13 | Azure Communications Gateway base domain providing the Provisioning API | Get the FQDN from the **Overview** field in the Azure portal. |
+| 14 | Azure Communications Gateway region 1 IP addresses or address ranges for sending signaling traffic to communications services | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
+| 15 | Azure Communications Gateway region 1 FQDN or IP addresses for receiving signaling traffic from communications services | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
+| 16 | Azure Communications Gateway region 1 IP addresses or address ranges for media traffic between communications service and Azure Communications Gateway | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
+| 17 | Azure Communications Gateway region 2 IP addresses or address ranges for sending signaling traffic to communications services | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
+| 18 | Azure Communications Gateway region 2 FQDN or IP addresses for receiving signaling traffic from communications services | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
+| 19 | Azure Communications Gateway region 2 IP addresses or address ranges for media traffic between communications service and Azure Communications Gateway | - For Zoom Phone Cloud Peering, ask your onboarding team for this information and provide it to Zoom.<br>- Microsoft manages this information for other communications services. |
 | 20 | IP addresses or FQDNs used by communications services to receive signaling traffic | You don't need to manage this information. |
 | 21 | IP addresses or FQDNs used by communications services to send signaling traffic | You don't need to manage this information. |
 | 22 | IP addresses used by communications services to send and receive media traffic | You don't need to manage this information. |
@@ -91,7 +91,7 @@ Azure Communications Gateway provides multiple FQDNs:
 
 ## Port ranges used by Azure Communications Gateway
 
-Azure Communications Gateway uses the following local port ranges which must be accessible from your network, depending on the connectivity type chosen: 
+Azure Communications Gateway uses the following local port ranges. These ranges must be accessible from your network, depending on the connectivity type chosen.
 
 | Port Range | Protocol | Transport |
 |---------|---------|---------|
@@ -105,7 +105,7 @@ All Azure Communications Gateway IP addresses can be used for both signaling (SI
 
 VNet injection for Azure Communications Gateway (preview) allows the network interfaces on your Azure Communications Gateway that connect to your network to be deployed into virtual networks in your subscription. This allows you to control the traffic flowing between your network and your Azure Communications Gateway instance using private subnets, and lets you use private connectivity to your premises such as ExpressRoute Private Peering and VPNs.
 
-If you use VNet injection (preview) with Operator Connect or Teams Phone Mobile, your network must still meet the redundancy and resiliency requirements described in the _Network Connectivity Specification_ provided to you by your onboarding team. This mandates that your network is connected to Azure by at least 2 ExpressRoute circuits, each deployed with local redundancy and configured so that each region can use both circuits in the case of failure as described in the diagram below:
+If you use VNet injection (preview) with Operator Connect or Teams Phone Mobile, your network must still meet the redundancy and resiliency requirements described in the _Network Connectivity Specification_ provided to you by your onboarding team. This mandates that your network is connected to Azure by at least 2 ExpressRoute circuits, each deployed with local redundancy and configured so that each region can use both circuits in the case of failure as described in the following diagram.
 
 :::image type="content" source="../expressroute/media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png" alt-text="Diagram of two regions with connectivity compliant with Operator Connect and Teams Phone Mobile.":::
 

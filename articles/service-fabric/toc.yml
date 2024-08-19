@@ -49,15 +49,15 @@
       href: how-to-managed-cluster-app-deployment-template.md
   - name: Deploy a .NET app
     items:
-    - name: 1- Build a .NET application
+    - name: Build a .NET application
       href: service-fabric-tutorial-create-dotnet-app.md
-    - name: 2- Deploy the application
+    - name: Deploy the application to a cluster
       href: service-fabric-tutorial-deploy-app.md
-    - name: 3- Enable HTTPS
+    - name: Add an HTTPS endpoint for the application
       href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
-    - name: 4- Configure CI/CD
+    - name: Configure CI/CD by using Azure Pipelines
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-    - name: 5- Monitor and Diagnose
+    - name: Monitor and diagnose the application
       href: service-fabric-tutorial-monitoring-aspnet.md
   - name: Deploy a Java app
     items:
@@ -383,12 +383,8 @@
         href: service-fabric-cluster-resource-manager-inbuild-throttling.md
   - name: Monitoring and diagnostics
     items:
-    - name: Monitor
+    - name: Monitor Service Fabric
       href: monitor-service-fabric.md
-    - name: Monitoring overview
-      href: service-fabric-diagnostics-overview.md
-    - name: Application monitoring
-      href: service-fabric-diagnostics-event-generation-app.md
     - name: Cluster monitoring
       items:
       - name: Cluster monitoring overview
@@ -403,8 +399,6 @@
         href: service-fabric-reliable-serviceremoting-diagnostics.md
       - name: Reliable Actors events
         href: service-fabric-reliable-actors-diagnostics.md
-    - name: Infrastructure monitoring
-      href: service-fabric-diagnostics-event-generation-perf.md
     - name: Health model overview
       href: service-fabric-health-introduction.md
     - name: Report health events
@@ -487,6 +481,10 @@
       href: how-to-managed-cluster-application-gateway.md
     - name: Enable Safe Deployment Process
       href: how-to-managed-cluster-enable-safe-deployment-process.md
+    - name: Deploy cluster with shared subnets across NodeTypes
+      href: how-to-managed-cluster-deploy-with-subnet-per-nodetype.md
+    - name: Scale to zero nodes
+      href: how-to-managed-cluster-scale-to-zero.md
   - name: Set up your development environment
     items:
     - name: Windows

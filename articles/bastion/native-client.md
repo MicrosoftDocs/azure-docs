@@ -3,9 +3,9 @@ title: 'Configure Bastion for native client connections'
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion for native client connections.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 12/04/2023
+ms.date: 08/12/2024
 ms.author: cherylmc
 ---
 
@@ -18,7 +18,7 @@ This article helps you configure your Bastion deployment to accept connections f
 You can configure this feature by modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified. Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client.
 
 >[!NOTE]
->[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ## Deploy Bastion with the native client feature
 

@@ -1,8 +1,8 @@
 ---
 title: Support matrix for web apps migration
 description: Support matrix for web apps migration
-author: vineetvikram
-ms.author: vivikram
+author: v-sreedevank
+ms.author: v-sreedevank
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/31/2023

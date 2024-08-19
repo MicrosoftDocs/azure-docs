@@ -1,73 +1,67 @@
 ---
-title: Using Azure AI Studio with a screen reader
+title: Get started using Azure AI Studio with a screen reader
 titleSuffix: Azure AI Studio
-description: This tutorial guides you through using Azure AI Studio with a screen reader.
+description: This quickstart guides you in how to get oriented and navigate Azure AI Studio with a screen reader.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
-ms.topic: tutorial
-ms.date: 2/22/2024
-ms.reviewer: eur
+  - build-2024
+ms.topic: quickstart
+ms.date: 8/9/2024
+ms.reviewer: ailsaleen
 ms.author: eur
 author: eric-urban
 ---
 
-# Tutorial: Using Azure AI Studio with a screen reader
+# QuickStart: Get started using AI Studio with a screen reader
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+This article is for people who use screen readers such as [Microsoft's Narrator](https://support.microsoft.com/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1#WindowsVersion=Windows_11), JAWS, NVDA or Apple's Voiceover. In this quickstart, you'll be introduced to the basic structure of Azure AI Studio and discover how to navigate around efficiently. 
 
-This article is for people who use screen readers such as Microsoft's Narrator, JAWS, NVDA or Apple's Voiceover. You learn how to use the Azure AI Studio with a screen reader.   
+## Getting oriented in Azure AI Studio 
 
-## Getting started in the Azure AI Studio 
+Most Azure AI Studio pages are composed of the following landmark structure: 
 
-Most Azure AI Studio pages are composed of the following structure: 
-
-- Banner (contains Azure AI Studio app title, settings, and profile information) 
-- Primary navigation (contains Home, Explore, Build, and Manage) 
-- Secondary navigation 
+- Banner (contains Azure AI Studio app title, settings, and profile information)
+    - Might sometimes contain a breadcrumb navigation element 
+- Navigation
+    - The contents of the navigation are different depending on whether you have selected a hub or project in the studio
 - Main page content 
-    - Contains a breadcrumb navigation element 
     - Usually contains a command toolbar 
 
 For efficient navigation, it might be helpful to navigate by landmarks to move between these sections on the page.
 
-## Explore 
 
-In **Explore** you can explore the different capabilities of Azure AI before creating a project. You can find this page in the primary navigation landmark.
+## Navigation
 
-Within **Explore**, you can [explore many capabilities](../how-to/models-foundation-azure-ai.md) found within the secondary navigation. These include [model catalog](../how-to/model-catalog-overview.md), model benchmarks, and pages for Azure AI services such as Speech, Vision, and Content Safety. 
-- [Model catalog](../how-to/model-catalog-overview.md) contains three main areas: Announcements, Models, and Filters. You can use Search and Filters to narrow down model selection 
-- Azure AI service pages such as Speech consist of many cards containing links. These cards lead you to demo experiences where you can sample our AI capabilities and might link out to another webpage. 
+The navigation is list of links divided into different sections. 
+
+If you haven't yet created or selected a project, you can still explore content under the **Get started** (model catalog, model benchmarks, and AI Services) and **Management** (hubs and quota) sections.
+
+Once you have created or selected a project, you can access more capabilities such as project playgrounds, tools (such as prompt flow and evaluation), and components (such as data and deployments). 
+
+Once you have created or selected a project, you can also use the **Recent projects picker** button within the navigation to change project at any time.
+
+For more information about the navigation, see [What is Azure AI Studio](../what-is-ai-studio.md).
 
 ## Projects 
 
 To work within the Azure AI Studio, you must first [create a project](../how-to/create-projects.md): 
-1. In [Azure AI Studio](https://ai.azure.com), navigate to the **Build** tab in the primary navigation.
-1. Press the **Tab** key until you hear *new project* and select this button.  
-1. Enter the information requested in the **Create a new project** dialog.  
+1. In [Azure AI Studio](https://ai.azure.com), select **Home** from the navigation.
+1. Press the **Tab** key until you hear *New project* and select this button.  
+1. Enter the information requested in the **Create a project** dialog.  
 
 You then get taken to the project details page. 
 
-Within a project, you can explore many capabilities found within the secondary navigation. These include playground, prompt flow, evaluation, and deployments. The secondary navigation contains an H2 heading with the project title, which can be used for efficient navigation.
-
 ## Using the playground 
 
-The playground is where you can chat with models and experiment with different prompts and parameters.  
+The playground is where you can interact with models and experiment with different prompts and parameters. Different playgrounds are available depending on which model you would like to interact with.  
 
-From the **Build** tab, navigate to the secondary navigation landmark and press the down arrow until you hear *playground*.  
+Once you have created or selected a project, go to the navigation landmark. Press the down arrow until you hear *Project playground*. Press the down arrow again until you hear a playground you would like to use.
 
-### Playground structure 
+### Chat playground structure 
 
-When you first arrive, the playground mode dropdown is set to **Chat** by default. In this mode, the playground is composed of the command toolbar and three main panes: **Assistant setup**, **Chat session**, and **Configuration**. If you added your own data in the playground, the **Citations** pane also appears when selecting a citation as part of the model response. 
-
-You can navigate by heading to move between these panes, as each pane has its own H2 heading. 
-
-### Assistant setup pane 
-
-The assistant setup pane is where you can set up the chat assistant according to your organization's needs. 
-
-Once you edit the system message or examples, your changes don't save automatically. Press the **Save changes** button to ensure your changes are saved. 
+In this mode, the playground is composed of the command toolbar and two main sections: one for configuring your system message and other parameters, and the other for chatting to the model. If you added your own data in the playground, the **Citations** pane also appears when selecting a citation as part of the model response. 
 
 ### Chat session pane  
 
@@ -78,15 +72,14 @@ The chat session pane is where you can chat to the model and test out your assis
 
 Prompt flow is a tool to create executable flows, linking LLMs, prompts, and Python tools through a visualized graph. You can use this to prototype, experiment, and iterate on your AI applications before deploying.  
 
-With the Build tab selected, navigate to the secondary navigation landmark and press the down arrow until you hear *prompt flow*.  
+Once you have created or selected a project, go to the navigation landmark. Press the down arrow until you hear *Prompt flow* and select this link.
 
-The prompt flow UI in Azure AI Studio is composed of the following main sections: Command toolbar, Flow (includes list of the flow nodes), Files and the Graph view. The Flow, Files, and Graph sections each have their own H2 headings that can be used for navigation.
+The prompt flow UI in Azure AI Studio is composed of the following main sections: the command toolbar, flow (includes list of the flow nodes), files, and graph view. The flow, files, and graph sections each have their own H2 headings that can be used for navigation.
 
 ### Flow 
 
 - This is the main working area where you can edit your flow, for example adding a new node, editing the prompt, selecting input data 
 - You can also choose to work in code instead of the editor by navigating to the **Raw file mode** toggle button to view the flow in code. 
-- You can also open your flow in VS Code Web by selecting the **Open project in VS Code (Web)** button.
 - Each node has its own H3 heading, which can be used for navigation.  
 
 ### Files 
@@ -108,8 +101,7 @@ Evaluation is a tool to help you evaluate the performance of your generative AI 
 
 To review evaluation metrics, you must first create an evaluation.  
 
-1. Navigate to the Build tab in the primary navigation.
-1. Navigate to the secondary navigation landmark and press the down arrow until you hear *evaluation*.
+1. Once you have created or selected a project, go to the navigation landmark. Press the down arrow until you hear *Evaluation* and select this link.
 1. Press the Tab key until you hear *new evaluation* and select this button.  
 1. Enter the information requested in the **Create a new evaluation** dialog. Once complete, your focus is returned to the evaluations list. 
 
@@ -130,7 +122,7 @@ Microsoft wants to provide the best possible experience for all our customers. I
 
 If you're a government, commercial, or enterprise customer, contact the enterprise Disability Answer Desk. 
 
-## Next steps
+## Related content
+
 * Learn how you can build generative AI applications in the [Azure AI Studio](../what-is-ai-studio.md).
 * Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml).
-

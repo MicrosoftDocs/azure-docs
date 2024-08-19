@@ -3,7 +3,6 @@ title: Using credentials
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about using Azure credentials for Azure Data Factory. 
 author: nabhishek
-ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 10/20/2023

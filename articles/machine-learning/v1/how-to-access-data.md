@@ -3,7 +3,7 @@ title: Connect to storage services with CLI v1
 titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning CLI v1
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
@@ -65,16 +65,16 @@ Datastores currently support storage of connection information to the storage se
 > [!TIP]
 > **For unsupported storage solutions** (those not listed in the following table), you might encounter issues as you connect and work with your data. We suggest that you [move your data](#move-data-to-supported-azure-storage-solutions) to a supported Azure storage solution. This can also help with additional scenarios- - for example, reduction of data egress cost during ML experiments.
 
-| Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; REST API](/rest/api/azureml/) | VS Code
----|---|---|---|---|---|---
-[Azure&nbsp;Blob&nbsp;Storage](../../storage/blobs/storage-blobs-overview.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓ |✓
-[Azure&nbsp;File&nbsp;Share](../../storage/files/storage-files-introduction.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓|✓
-[Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;1](../../data-lake-store/index.yml)| Service principal| ✓ | ✓ | ✓ |✓|
-[Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](../../storage/blobs/data-lake-storage-introduction.md)| Service principal| ✓ | ✓ | ✓ |✓|
-[Azure&nbsp;SQL&nbsp;Database](/azure/azure-sql/database/sql-database-paas-overview)| SQL authentication <br>Service principal| ✓ | ✓ | ✓ |✓|
-[Azure&nbsp;PostgreSQL](/azure/postgresql/overview) | SQL authentication| ✓ | ✓ | ✓ |✓|
-[Azure&nbsp;Database&nbsp;for&nbsp;MySQL](/azure/mysql/overview) | SQL authentication|  | ✓* | ✓* |✓*|
-[Databricks&nbsp;File&nbsp;System](/azure/databricks/data/databricks-file-system)| No authentication | | ✓** | ✓ ** |✓** |
+| Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; REST API](/rest/api/azureml/) | VS Code |
+|---|---|---|---|---|---|---|
+| [Azure&nbsp;Blob&nbsp;Storage](../../storage/blobs/storage-blobs-overview.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓ |✓|
+| [Azure&nbsp;File&nbsp;Share](../../storage/files/storage-files-introduction.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓|✓|
+| [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;1](../../data-lake-store/index.yml)| Service principal| ✓ | ✓ | ✓ |✓||
+| [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](../../storage/blobs/data-lake-storage-introduction.md)| Service principal| ✓ | ✓ | ✓ |✓||
+| [Azure&nbsp;SQL&nbsp;Database](/azure/azure-sql/database/sql-database-paas-overview)| SQL authentication <br>Service principal| ✓ | ✓ | ✓ |✓||
+| [Azure&nbsp;PostgreSQL](/azure/postgresql/overview) | SQL authentication| ✓ | ✓ | ✓ |✓||
+| [Azure&nbsp;Database&nbsp;for&nbsp;MySQL](/azure/mysql/overview) | SQL authentication|  | ✓* | ✓* |✓*||
+| [Databricks&nbsp;File&nbsp;System](/azure/databricks/data/databricks-file-system)| No authentication | | ✓** | ✓ ** |✓** ||
 
 * MySQL is only supported for pipeline [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep).
 * Databricks is only supported for pipeline [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep).
@@ -152,7 +152,7 @@ That section offers examples that describe how to create and register a datastor
 To learn how to connect to a data storage resource with a UI, visit [Connect to data with Azure Machine Learning studio](how-to-connect-data-ui.md).
 
 >[!IMPORTANT]
-> If you unregister and re-register a datastore with the same name, and the re-registration fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created before October 2020. For information that describes how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](../../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
+> If you unregister and re-register a datastore with the same name, and the re-registration fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created before October 2020. For information that describes how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
 
 > [!NOTE]
 > A datastore name should only contain lowercase letters, digits and underscores.

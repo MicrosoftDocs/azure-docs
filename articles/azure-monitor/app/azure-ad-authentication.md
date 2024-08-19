@@ -13,9 +13,6 @@ Application Insights now supports [Microsoft Entra authentication](../../active-
 
 Using various authentication systems can be cumbersome and risky because it's difficult to manage credentials at scale. You can now choose to [opt out of local authentication](#disable-local-authentication) to ensure only telemetry exclusively authenticated by using [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical operational ([alerting](../alerts/alerts-overview.md#what-are-azure-monitor-alerts) and [autoscaling](../autoscale/autoscale-overview.md#overview-of-autoscale-in-azure)) and business decisions.
 
-> [!NOTE]
-> This document covers data ingestion into Application Insights using Microsoft Entra ID-based authentication. For information on querying data within Application Insights, see [Query Application Insights using Microsoft Entra authentication](./app-insights-azure-ad-api.md).
-
 ## Prerequisites
 
 The following preliminary steps are required to enable Microsoft Entra authenticated ingestion. You need to:
@@ -25,7 +22,7 @@ The following preliminary steps are required to enable Microsoft Entra authentic
   - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
   - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
   - [Assigning Azure roles](../../role-based-access-control/role-assignments-portal.yml).
-- Have an Owner role to the resource group to grant access by using [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+- Granting access using [Azure built-in roles](../../role-based-access-control/built-in-roles.md) requires having an Owner role to the resource group.
 - Understand the [unsupported scenarios](#unsupported-scenarios).
 
 ## Unsupported scenarios
@@ -53,9 +50,9 @@ The following Software Development Kits (SDKs) and features are unsupported for 
 
         For more information on how to create a Microsoft Entra application and service principal that can access resources, see [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-1. Assign a role to the Azure service.
+1. Assign the required Role-based access control (RBAC) role to the Azure identity, service principal, or Azure user account.
 
-    Follow the steps in [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml) to add the Monitoring Metrics Publisher role from the target Application Insights resource to the Azure resource from which the telemetry is sent.
+    Follow the steps in [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml) to add the Monitoring Metrics Publisher role to the expected identity, service principal, or Azure user account by setting the target Application Insights resource as the role scope.
 
     > [!NOTE]
     > Although the Monitoring Metrics Publisher role says "metrics," it will publish all telemetry to the Application Insights resource.
@@ -70,6 +67,7 @@ The following Software Development Kits (SDKs) and features are unsupported for 
 Application Insights .NET SDK supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity#credential-classes).
 
 - We recommend `DefaultAzureCredential` for local development.
+- Authenticate on Visual Studio with the expected Azure user account. For more information, see [Authenticate via Visual Studio](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#authenticate-via-visual-studio).
 - We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
   - For system-assigned, use the default constructor without parameters.
   - For user-assigned, provide the client ID to the constructor.
@@ -98,22 +96,62 @@ services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 
 ### [Node.js](#tab/nodejs)
 
+
+
+Azure Monitor OpenTelemetry and Application Insights Node.JS supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
+
+- We recommend `DefaultAzureCredential` for local development.
+- We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
+  - For system-assigned, use the default constructor without parameters.
+  - For user-assigned, provide the client ID to the constructor.
+- We recommend `ClientSecretCredential` for service principals.
+  - Provide the tenant ID, client ID, and client secret to the constructor.
+
+If using @azure/monitor-opentelemetry
+```typescript
+const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
+const { ManagedIdentityCredential } = require("@azure/identity");
+
+const credential = new ManagedIdentityCredential();
+const options: AzureMonitorOpenTelemetryOptions = {
+    azureMonitorExporterOptions: {
+        connectionString:
+            process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+        credential: credential
+    }
+};
+useAzureMonitor(options);
+```
+
 > [!NOTE]
 > Support for Microsoft Entra ID in the Application Insights Node.JS is included starting with [version 2.1.0-beta.1](https://www.npmjs.com/package/applicationinsights/v/2.1.0-beta.1).
 
-Application Insights Node.JS supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
-
-#### DefaultAzureCredential
-
-```javascript
-import appInsights from "applicationinsights";
-import { DefaultAzureCredential } from "@azure/identity"; 
+If using `applicationinsights` npm package.
+```typescript
+const appInsights = require("applicationinsights");
+const { DefaultAzureCredential } = require("@azure/identity");
  
 const credential = new DefaultAzureCredential();
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
 appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
+
+#### Environment variable configuration
+
+Use the `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable to let Application Insights authenticate to Microsoft Entra ID and send telemetry when using [Azure App Services autoinstrumentation](./azure-web-apps-nodejs.md).
+
+- For system-assigned identity:
+
+| App setting    | Value    |
+| -------------- |--------- |
+| APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD`    |
+
+- For user-assigned identity:
+
+| App setting   | Value    |
+| ------------- | -------- |
+| APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD;ClientId={Client id of the User-Assigned Identity}`    |
 
 ### [Java](#tab/java)
 
@@ -195,54 +233,448 @@ After setting it, restart your application. It now sends telemetry to Applicatio
 
 ### [Python](#tab/python)
 
-> [!NOTE]
-> Microsoft Entra authentication is only available for Python v2.7, v3.6, and v3.7. Support for Microsoft Entra ID in the Application Insights OpenCensus Python SDK
-is included starting with beta version [opencensus-ext-azure 1.1b0](https://pypi.org/project/opencensus-ext-azure/1.1b0/).
+To configure a secure connection to Azure using OpenTelemetry, see [Enable Microsoft Entra ID (formerly Azure AD) authentication](./opentelemetry-configuration.md?tabs=python#enable-microsoft-entra-id-formerly-azure-ad-authentication).
 
-> [!NOTE]
-> [OpenCensus Python SDK is deprecated](https://opentelemetry.io/blog/2023/sunsetting-opencensus/), but Microsoft supports it until retirement on September 30, 2024. We now recommend the [OpenTelemetry-based Python offering](./opentelemetry-enable.md?tabs=python) and provide [migration guidance](./opentelemetry-python-opencensus-migrate.md?tabs=aspnetcore).
-
-Construct the appropriate [credentials](/python/api/overview/azure/identity-readme#credentials) and pass them into the constructor of the Azure Monitor exporter. Make sure your connection string is set up with the instrumentation key and ingestion endpoint of your resource.
-
-The `OpenCensus` Azure Monitor exporters support these authentication types. We recommend using managed identities in production environments.
-
-#### System-assigned managed identity
-
-```python
-from azure.identity import ManagedIdentityCredential
-
-from opencensus.ext.azure.trace_exporter import AzureExporter
-from opencensus.trace.samplers import ProbabilitySampler
-from opencensus.trace.tracer import Tracer
-
-credential = ManagedIdentityCredential()
-tracer = Tracer(
-    exporter=AzureExporter(credential=credential, connection_string="InstrumentationKey=<your-instrumentation-key>;IngestionEndpoint=<your-ingestion-endpoint>"),
-    sampler=ProbabilitySampler(1.0)
-)
-...
-
-```
-
-#### User-assigned managed identity
-
-```python
-from azure.identity import ManagedIdentityCredential
-
-from opencensus.ext.azure.trace_exporter import AzureExporter
-from opencensus.trace.samplers import ProbabilitySampler
-from opencensus.trace.tracer import Tracer
-
-credential = ManagedIdentityCredential(client_id="<client-id>")
-tracer = Tracer(
-    exporter=AzureExporter(credential=credential, connection_string="InstrumentationKey=<your-instrumentation-key>;IngestionEndpoint=<your-ingestion-endpoint>"),
-    sampler=ProbabilitySampler(1.0)
-)
-...
-
-```
+To configure using OpenCensus (deprecated), see [Configure and enable Microsoft Entra ID-based authentication](/previous-versions/azure/azure-monitor/app/opencensus-python#configure-and-enable-microsoft-entra-id-based-authentication).
 
 ---
+
+## Query Application Insights using Microsoft Entra authentication
+
+You can submit a query request by using the Azure Monitor Application Insights endpoint `https://api.applicationinsights.io`. To access the endpoint, you must authenticate through Microsoft Entra ID.
+
+### Set up authentication
+
+To access the API, you register a client app with Microsoft Entra ID and request a token.
+
+1. [Register an app in Microsoft Entra ID](../logs/api/register-app-for-token.md).
+
+1. On the app's overview page, select **API permissions**.
+1. Select **Add a permission**.
+1. On the **APIs my organization uses** tab, search for **Application Insights** and select **Application Insights API** from the list.
+
+1. Select **Delegated permissions**.
+1. Select the **Data.Read** checkbox.
+1. Select **Add permissions**.
+
+Now that your app is registered and has permissions to use the API, grant your app access to your Application Insights resource.
+
+1. From your **Application Insights resource** overview page, select **Access control (IAM)**.
+1. Select **Add role assignment**.
+
+1. Select the **Reader** role and then select **Members**.
+
+1. On the **Members** tab, choose **Select members**.
+1. Enter the name of your app in the **Select** box.
+1. Select your app and choose **Select**.
+1. Select **Review + assign**.
+
+1. After you finish the Active Directory setup and permissions, request an authorization token.
+
+>[!Note]
+> For this example, we applied the Reader role. This role is one of many built-in roles and might include more permissions than you require. More granular roles and permissions can be created. 
+
+### Request an authorization token
+
+Before you begin, make sure you have all the values required to make the request successfully. All requests require:
+- Your Microsoft Entra tenant ID.
+- Your App Insights App ID - If you're currently using API Keys, it's the same app ID.
+- Your Microsoft Entra client ID for the app.
+- A Microsoft Entra client secret for the app.
+
+The Application Insights API supports Microsoft Entra authentication with three different [Microsoft Entra ID OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
+- Client credentials
+- Authorization code
+- Implicit
+
+#### Client credentials flow
+
+In the client credentials flow, the token is used with the Application Insights endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Microsoft Entra ID](../logs/api/register-app-for-token.md).
+
+Use the `https://api.applicationinsights.io` endpoint.
+
+##### Client credentials token URL (POST request)
+
+```http
+    POST /<your-tenant-id>/oauth2/token
+    Host: https://login.microsoftonline.com
+    Content-Type: application/x-www-form-urlencoded
+    
+    grant_type=client_credentials
+    &client_id=<app-client-id>
+    &resource=https://api.applicationinsights.io
+    &client_secret=<app-client-secret>
+```
+
+A successful request receives an access token in the response:
+
+```http
+    {
+        token_type": "Bearer",
+        "expires_in": "86399",
+        "ext_expires_in": "86399",
+        "access_token": ""eyJ0eXAiOiJKV1QiLCJ.....Ax"
+    }
+```
+
+Use the token in requests to the Application Insights endpoint:
+
+```http
+    POST /v1/apps/yous_app_id/query?timespan=P1D
+    Host: https://api.applicationinsights.io
+    Content-Type: application/json
+    Authorization: Bearer <your access token>
+
+    Body:
+    {
+    "query": "requests | take 10"
+    }
+```
+
+Example response:
+
+```{
+  "tables": [
+    {
+      "name": "PrimaryResult",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "success",
+          "type": "string"
+        },
+        {
+          "name": "resultCode",
+          "type": "string"
+        },
+        {
+          "name": "duration",
+          "type": "real"
+        },
+        {
+          "name": "performanceBucket",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        }
+      ],
+      "rows": [
+        [
+          "2018-02-01T17:33:09.788Z",
+          "|0qRud6jz3k0=.c32c2659_",
+          null,
+          "GET Reports/Index",
+          "http://fabrikamfiberapp.azurewebsites.net/Reports",
+          "True",
+          "200",
+          "3.3833",
+          "<250ms",
+          "{\"_MS.ProcessedByMetricExtractors\":\"(Name:'Requests', Ver:'1.0')\"}",
+          null,
+          "GET Reports/Index",
+          "0qRud6jz3k0=",
+          "0qRud6jz3k0=",
+          "Application Insights Availability Monitoring",
+          "9fc6738d-7e26-44f0-b88e-6fae8ccb6b26",
+          "us-va-ash-azr_9fc6738d-7e26-44f0-b88e-6fae8ccb6b26",
+          null,
+          null,
+          "AutoGen_49c3aea0-4641-4675-93b5-55f7a62d22d3",
+          "PC",
+          null,
+          null,
+          "52.168.8.0",
+          "Boydton",
+          "Virginia",
+          "United States",
+          null,
+          "fabrikamfiberapp",
+          "RD00155D5053D1",
+          "cf58dcfd-0683-487c-bc84-048789bca8e5",
+          "fabrikamprod",
+          "5a2e4e0c-e136-4a15-9824-90ba859b0a89",
+          "web:2.5.0-33031",
+          "051ad4ef-0776-11e8-ac6e-e30599af6943",
+          "request",
+          "1"
+        ],
+        [
+          "2018-02-01T17:33:15.786Z",
+          "|x/Ysh+M1TfU=.c32c265a_",
+          null,
+          "GET Home/Index",
+          "http://fabrikamfiberapp.azurewebsites.net/",
+          "True",
+          "200",
+          "716.2912",
+          "500ms-1sec",
+          "{\"_MS.ProcessedByMetricExtractors\":\"(Name:'Requests', Ver:'1.0')\"}",
+          null,
+          "GET Home/Index",
+          "x/Ysh+M1TfU=",
+          "x/Ysh+M1TfU=",
+          "Application Insights Availability Monitoring",
+          "58b15be6-d1e6-4d89-9919-52f63b840913",
+          "emea-se-sto-edge_58b15be6-d1e6-4d89-9919-52f63b840913",
+          null,
+          null,
+          "AutoGen_49c3aea0-4641-4675-93b5-55f7a62d22d3",
+          "PC",
+          null,
+          null,
+          "51.141.32.0",
+          "Cardiff",
+          "Cardiff",
+          "United Kingdom",
+          null,
+          "fabrikamfiberapp",
+          "RD00155D5053D1",
+          "cf58dcfd-0683-487c-bc84-048789bca8e5",
+          "fabrikamprod",
+          "5a2e4e0c-e136-4a15-9824-90ba859b0a89",
+          "web:2.5.0-33031",
+          "051ad4f0-0776-11e8-ac6e-e30599af6943",
+          "request",
+          "1"
+        ]
+      ]
+    }
+  ]
+}
+```
+
+#### Authorization code flow
+
+The main OAuth2 flow supported is through [authorization codes](/azure/active-directory/develop/active-directory-protocols-oauth-code). This method requires two HTTP requests to acquire a token with which to call the Azure Monitor Application Insights API. There are two URLs, with one endpoint per request. Their formats are described in the following sections.
+
+##### Authorization code URL (GET request)
+
+```http
+    GET https://login.microsoftonline.com/YOUR_Azure AD_TENANT/oauth2/authorize?
+    client_id=<app-client-id>
+    &response_type=code
+    &redirect_uri=<app-redirect-uri>
+    &resource=https://api.applicationinsights.io
+```
+
+When a request is made to the authorized URL, the `client\_id` is the application ID from your Microsoft Entra app, copied from the app's properties menu. The `redirect\_uri` is the `homepage/login` URL from the same Microsoft Entra app. When a request is successful, this endpoint redirects you to the sign-in page you provided at sign-up with the authorization code appended to the URL. See the following example:
+
+```http
+    http://<app-client-id>/?code=AUTHORIZATION_CODE&session_state=STATE_GUID
+```
+
+At this point, you obtain an authorization code, which you now use to request an access token.
+
+##### Authorization code token URL (POST request)
+
+```http
+    POST /YOUR_Azure AD_TENANT/oauth2/token HTTP/1.1
+    Host: https://login.microsoftonline.com
+    Content-Type: application/x-www-form-urlencoded
+    
+    grant_type=authorization_code
+    &client_id=<app client id>
+    &code=<auth code fom GET request>
+    &redirect_uri=<app-client-id>
+    &resource=https://api.applicationinsights.io
+    &client_secret=<app-client-secret>
+```
+
+All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. The code is combined with the key obtained from the Microsoft Entra app. If you didn't save the key, you can delete it and create a new one from the keys tab of the Microsoft Entra app menu. The response is a JSON string that contains the token with the following schema. Types are indicated for the token values.
+
+Response example:
+
+```http
+    {
+        "access_token": "eyJ0eXAiOiJKV1QiLCJ.....Ax",
+        "expires_in": "3600",
+        "ext_expires_in": "1503641912",
+        "id_token": "not_needed_for_app_insights",
+        "not_before": "1503638012",
+        "refresh_token": "eyJ0esdfiJKV1ljhgYF.....Az",
+        "resource": "https://api.applicationinsights.io",
+        "scope": "Data.Read",
+        "token_type": "bearer"
+    }
+```
+
+The access token portion of this response is what you present to the Application Insights API in the `Authorization: Bearer` header. You can also use the refresh token in the future to acquire a new access\_token and refresh\_token when yours go stale. For this request, the format and endpoint are:
+
+```http
+    POST /YOUR_AAD_TENANT/oauth2/token HTTP/1.1
+    Host: https://login.microsoftonline.com
+    Content-Type: application/x-www-form-urlencoded
+    
+    client_id=<app-client-id>
+    &refresh_token=<refresh-token>
+    &grant_type=refresh_token
+    &resource=https://api.applicationinsights.io
+    &client_secret=<app-client-secret>
+```
+
+Response example:
+
+```http
+    {
+      "token_type": "Bearer",
+      "expires_in": "3600",
+      "expires_on": "1460404526",
+      "resource": "https://api.applicationinsights.io",
+      "access_token": "eyJ0eXAiOiJKV1QiLCJ.....Ax",
+      "refresh_token": "eyJ0esdfiJKV1ljhgYF.....Az"
+    }
+```
+
+#### Implicit code flow
+
+The Application Insights API supports the OAuth2 [implicit flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant). For this flow, only a single request is required, but no refresh token can be acquired.
+
+##### Implicit code authorization URL
+
+```http
+    GET https://login.microsoftonline.com/YOUR_AAD_TENANT/oauth2/authorize?
+    client_id=<app-client-id>
+    &response_type=token
+    &redirect_uri=<app-redirect-uri>
+    &resource=https://api.applicationinsights.io
+```
+
+A successful request produces a redirect to your redirect URI with the token in the URL:
+
+```http
+    http://YOUR_REDIRECT_URI/#access_token=YOUR_ACCESS_TOKEN&token_type=Bearer&expires_in=3600&session_state=STATE_GUID
+```
+
+This access\_token serves as the `Authorization: Bearer` header value when it passes to the Application Insights API to authorize requests.
 
 ## Disable local authentication
 
@@ -252,7 +684,7 @@ You can disable local authentication by using the Azure portal or Azure Policy o
 
 ### Azure portal
 
-1. From your Application Insights resource, select **Properties** under the **Configure** heading in the menu on the left. Select **Enabled (click to change)** if the local authentication is enabled.
+1. From your Application Insights resource, select **Properties** under **Configure** in the menu on the left. Select **Enabled (click to change)** if the local authentication is enabled.
 
    :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Screenshot that shows Properties under the Configure section and the Enabled (select to change) local authentication button.":::
 
@@ -432,7 +864,7 @@ If the SDK fails to get a token, the exception message is logged as
 
 ### [Node.js](#tab/nodejs)
 
-Internal logs could be turned on by using the following setup. After they're enabled, error logs will be shown in the console, including any error related to Microsoft Entra integration. Examples include failure to generate the token when the wrong credentials are supplied or errors when the ingestion endpoint fails to authenticate by using the provided credentials.
+Turn on internal logs by using the following setup. After you enable them, the console shows error logs, including any error related to Microsoft Entra integration. Examples include failing to generate the token with the wrong credentials or errors when the ingestion endpoint fails to authenticate using the provided credentials.
 
 ```javascript
 let appInsights = require("applicationinsights");

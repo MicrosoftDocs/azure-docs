@@ -4,7 +4,7 @@ description: Include file
 services: container-instances
 author: tomvcassidy
 
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.topic: include
 ms.date: 03/01/2023
 ms.author: tomcassidy

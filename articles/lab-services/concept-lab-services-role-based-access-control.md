@@ -3,7 +3,7 @@ title: Azure role-based access control
 titleSuffix: Azure Lab Services
 description: Learn how Azure Lab Services provides protection with Azure role-based access control (Azure RBAC) integration.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: conceptual
@@ -11,6 +11,8 @@ ms.date: 04/20/2023
 ---
 
 # Azure role-based access control in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Azure Lab Services provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Lab Services. An individual who has a profile in Microsoft Entra ID can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Lab Services resources. This article describes the different built-in roles that Azure Lab Services supports.
 

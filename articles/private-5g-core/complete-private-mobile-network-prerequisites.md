@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: Learn how to complete the prerequisite tasks for deploying a private mobile network with Azure Private 5G Core.
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 03/30/2023
 ms.custom: template-how-to, devx-track-azurecli
@@ -264,6 +264,7 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
 | 5671 In/Outbound    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
 | 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
+| UDP 1812 In/Outbound | Management (LAN) | Authentication with a RADIUS AAA server. </br>Only required when RADIUS is in use. |
 | SCTP 38412 Inbound   | Port 3 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 3 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 3 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G, or N3/S1-U for combined 4G and 5G). |
@@ -282,6 +283,7 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 | TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
 | 5671 In/Outbound    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
 | 5672 In/Outbound    | Management (LAN) | Communication to Azure Event Hubs, AMQP Protocol |
+| UDP 1812 In/Outbound | Management (LAN) | Authentication with a RADIUS AAA server. </br>Only required when RADIUS is in use. |
 | SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
 | SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G, or N3/S1-U for combined 4G and 5G). |

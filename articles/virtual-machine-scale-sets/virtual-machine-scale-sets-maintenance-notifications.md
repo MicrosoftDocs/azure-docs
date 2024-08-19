@@ -4,9 +4,9 @@ description: View maintenance notifications and start self-service maintenance f
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: maintenance-control
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ---

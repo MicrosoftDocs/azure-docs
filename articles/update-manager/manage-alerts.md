@@ -4,7 +4,7 @@ description: This article describes on how to enable alerts (preview) with Azure
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/12/2024
+ms.date: 06/21/2024
 ms.topic: how-to
 ---
 
@@ -53,7 +53,7 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
    
     :::image type="content" source="./media/manage-alerts/advance-alert-rule-configuration-inline.png" alt-text="Screenshot that shows how to configure advanced alert rule." lightbox="./media/manage-alerts/advance-alert-rule-configuration-expanded.png":::
 
-1. Select **Review + create** to create alert. For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-log-alert-rule.md#configure-the-alert-rule-conditions).
+1. Select **Review + create** to create alert. For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-log-alert-rule.md#configure-alert-rule-conditions).
     - To identify alerts & alert rules created for Azure Update Manager, provide unique **Alert rule name** in the **Details** tab.
         :::image type="content" source="./media/manage-alerts/unique-alert-name-inline.png" alt-text="Screenshot that shows how to create unique alert name." lightbox="./media/manage-alerts/unique-alert-name-expanded.png":::
 

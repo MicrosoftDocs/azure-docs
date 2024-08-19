@@ -4,7 +4,7 @@ description: Learn how to mount an emptyDir volume to share data between the con
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ---

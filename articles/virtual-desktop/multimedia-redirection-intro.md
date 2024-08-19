@@ -1,10 +1,11 @@
 ---
 title: Understanding multimedia redirection on Azure Virtual Desktop - Azure
 description: An overview of multimedia redirection on Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
-ms.date: 04/09/2024
-ms.author: helohr
+ms.date: 06/27/2024
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Understanding multimedia redirection for Azure Virtual Desktop
 
@@ -12,7 +13,7 @@ ms.author: helohr
 > Call redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
+Multimedia redirection redirects media content from Azure Virtual Desktop and Windows 365 to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
 
 Multimedia redirection has two key components:
 
@@ -66,13 +67,13 @@ The following sites work with video playback redirection:
       - Skillshare
       - The Guardian
       - Twitch
-      - Twitter
       - Udemy\*
       - UMU
       - U.S. News
       - Vidazoo
       - Vimeo
       - The Wall Street Journal
+      - X
       - Yahoo
       - Yammer
       - YouTube (including sites with embedded YouTube videos).
@@ -89,7 +90,7 @@ The following websites work with call redirection:
 - [Content Guru Storm App](https://www.contentguru.com/en-us/news/content-guru-announces-its-storm-ccaas-solution-is-now-compatible-with-microsoft-azure-virtual-desktop/)
 - [Twilio Flex](https://www.twilio.com/en-us/blog/public-beta-flex-microsoft-azure-virtual-desktop#join-the-flex-for-azure-virtual-desktop-public-beta)
 
-Microsoft Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365 when using the native Teams app. However, if you use Teams live events with a browser that supports Teams live events and multimedia redirection, multimedia redirection is a workaround that provides smoother Teams live events playback on Azure Virtual Desktop. Multimedia redirection supports Enterprise Content Delivery Network (ECDN) for Teams live events.
+Microsoft Teams live events aren't media-optimized for Azure Virtual Desktop and Windows 365 when using the native Teams app. However, if you use Teams live events with a browser that supports Teams live events and multimedia redirection, multimedia redirection is a workaround that provides smoother Teams live events playback on Azure Virtual Desktop and Windows 365. Multimedia redirection supports Enterprise Content Delivery Network (ECDN) for Teams live events.
 
 ### Check if multimedia redirection is active
 

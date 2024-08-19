@@ -3,20 +3,21 @@ title: Manage imported data assets (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to manage imported data assets also known as edit autodeletion.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: ambadal
-author: AmarBadal
-ms.reviewer: franksolomon
-ms.date: 06/19/2023
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: ambadal
+ms.date: 07/30/2024
 ms.custom: data4ml, devx-track-azurecli
 ---
 
 # Manage imported data assets (preview)
+
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll learn how to manage imported data assets from a life-cycle perspective. We learn how to modify or update auto delete settings on the data assets imported into a managed datastore (`workspacemanagedstore`) that Microsoft manages for the customer.
+In this article, you learn how to manage imported data assets from a life-cycle perspective. You'll learn how to modify or update auto delete settings on the data assets imported into a managed datastore (`workspacemanagedstore`) that Microsoft manages for the customer.
 
 > [!NOTE]
 > Auto delete settings capability, or lifecycle management, is currently offered only through the imported data assets in managed datastore, also known as `workspacemanagedstore`.
@@ -59,7 +60,7 @@ These steps describe how to modify the auto delete settings of an imported data 
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
-1. As shown in the next screenshot, under **Assets** in the left navigation, select **Data**. At the **Data assets** tab, select an imported data asset located in the **workspacemanageddatastore**
+1. As shown in the next screenshot, under **Assets** in the left navigation, select **Data**. At the **Data assets** tab, select an imported data asset located in the **workspacemanageddatastore**.
 
    :::image type="content" source="./media/how-to-manage-imported-data-assets/data-assets-list.png" lightbox="./media/how-to-manage-imported-data-assets/data-assets-list.png" alt-text="Screenshot highlighting the imported data asset name in workspace managed datastore in the Data assets tab.":::
 
@@ -67,19 +68,19 @@ These steps describe how to modify the auto delete settings of an imported data 
 
    :::image type="content" source="./media/how-to-manage-imported-data-assets/data-assets-details.png" lightbox="./media/how-to-manage-imported-data-assets/data-assets-details.png" alt-text="Screenshot showing the edit of the auto delete setting.":::
 
-1. To change the auto delete **Condition** setting, select **Created greater than**, and change **Value** to any numerical value. Then, select **Save** as shown in the next screenshot:
+1. To change the auto delete **Condition** setting, select **Created greater than**, and change **Value** to any numeric value. Then, select **Save** as shown in this screenshot:
 
    :::image type="content" source="./media/how-to-manage-imported-data-assets/edit-managed-data-asset-details.png" lightbox="./media/how-to-manage-imported-data-assets/edit-managed-data-asset-details.png" alt-text="Screenshot that shows the managed data asset auto delete settings choices.":::
 
    > [!NOTE]
    > At this time, the supported values range from 1 day to 3 years.
 
-1. After a successful edit, you'll return to the data asset detail page. This page shows the updated values in **Auto delete settings** property box, as shown in the next screenshot:
+1. After a successful edit, you'll return to the data asset detail page. That page shows the updated values in **Auto delete settings** property box, as shown in the next screenshot:
 
    :::image type="content" source="./media/how-to-manage-imported-data-assets/new-managed-data-asset-details.png" lightbox="./media/how-to-manage-imported-data-assets/new-managed-data-asset-details.png" alt-text="Screenshot showing the managed data asset auto delete settings.":::
 
    > [!NOTE]
-   > The auto delete setting is available only on imported data assets in a workspacemanaged datastore, as shown in the above screenshot.
+   > The auto delete setting is available only on imported data assets in a **workspacemanaged** datastore, as shown in the above screenshot.
 
 ---
 
@@ -118,7 +119,7 @@ These steps describe how to delete or clear the auto delete settings of an impor
 
    :::image type="content" source="./media/how-to-manage-imported-data-assets/data-assets-list.png" lightbox="./media/how-to-manage-imported-data-assets/data-assets-list.png" alt-text="Screenshot highlighting the imported data asset name in workspace managed datastore in the Data assets tab.":::
 
-1. As shown in the next screenshot, the details page of the data asset has an **Auto delete setting** property. This property is currently active on the data asset. Verify that you have the correct **Version:** of the data asset selected in the drop-down, and select the pencil icon to edit the property.
+1. As shown in the next screenshot, the data asset details page has an **Auto delete setting** property. This property is currently active on the data asset. Verify that you have the correct **Version:** of the data asset selected in the drop-down, and select the pencil icon to edit the property.
 
    :::image type="content" source="./media/how-to-manage-imported-data-assets/data-assets-details.png" lightbox="./media/how-to-manage-imported-data-assets/data-assets-details.png" alt-text="Screenshot showing the edit of the auto delete setting.":::
 
@@ -144,5 +145,5 @@ This Azure CLI code sample shows the data assets with certain conditions, or wit
 ## Next steps
 
 - [Access data in a job](how-to-read-write-data-v2.md#access-data-in-a-job)
-- [Working with tables in Azure Machine Learning](how-to-mltable.md)
-- [Access data from Azure cloud storage during interactive development](how-to-access-data-interactive.md)
+- [Access data from Azure cloud storage during interactive development](./how-to-access-data-interactive.md)
+- [Working with tables in Azure Machine Learning](./how-to-mltable.md)

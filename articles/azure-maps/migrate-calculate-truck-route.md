@@ -2,12 +2,12 @@
 title: Migrate Bing Maps Calculate a Truck Route API to Azure Maps Route Directions API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Calculate a Truck Route API to the Azure Maps Route Directions API.
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui 
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: routing
 ---
 
 # Migrate Bing Maps Calculate a Truck Route API
@@ -36,7 +36,7 @@ Bing Maps for Enterprise only supports API key authentication. Azure Maps suppor
 
 The following table lists the Bing Maps _Calculate a Truck Route_ request parameters and the Azure Maps equivalent:
 
-| Bing Maps Request Parameter | Bing Maps Request Parameter Alias  | Azure Maps Request Parameter | Required in Azure Maps  | Azure Maps Data Type  | Description|
+| Bing Maps request parameter | Bing Maps request parameter alias  | Azure Maps request parameter | Required in Azure Maps  | Azure Maps data type  | Description|
 |-----------------------------------|------------------------------------|------------------------------------|-------------------------|-----------------------|------------|
 | avoid  | | avoid  | False  | string  | Here are the Bing Maps to Azure Maps Route Directions API _avoid_ equivalents, where supported:<br><br>- tolls: tollRoads<br>- ferry: ferries<br>- borderCrossings: borderCrossings<br>- highways: limitedAccessHighways<br>- minimizeDrivingSideTurn: Not supported<br>- minimizeAgainstDrivingSideTurn: Not supported<br>- minimizeUTurn: Not supported <br>- minimizeTolls: Not supported<br>- minimizeHighways: Not supported  |
 | borderRestriction  | | Not supported  | Not supported  | Not supported  | In Azure Maps Route Directions API, _avoid=borderCrossings_ can be used to restrict routes from crossing country borders however specifying a region list for border restriction isn't supported.  |
@@ -579,6 +579,7 @@ Support
 [Microsoft Q&A Forum]: /answers/tags/209/azure-maps
 [Post Directions Batch]: /rest/api/maps/route/post-directions-batch
 [Route Directions]: /rest/api/maps/route/post-directions
+[RouteOutputOption]: /rest/api/maps/route/post-directions#routeoutputoption
 [Security section]: /rest/api/maps/route/get-route-range?#security
 [Shared Access Signature (SAS) Token]: azure-maps-authentication.md#shared-access-signature-token-authentication
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

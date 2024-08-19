@@ -19,7 +19,7 @@ An NSX-T Data Center segment and a managed DHCP service are required to complete
 
 ## Create a content library
 
-1. From the on-premises vSphere Client, select **Menu** > **Content Libraries**.
+1. From the vSphere Client, select **Menu** > **Content Libraries**.
 
    :::image type="content" source="media/content-library/vsphere-menu-content-libraries.png" alt-text="Screenshot showing the Content Libraries menu option in the vSphere Client.":::
 

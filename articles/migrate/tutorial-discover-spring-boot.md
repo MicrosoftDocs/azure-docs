@@ -11,6 +11,10 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy24, references_regions
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
+
 This article describes how to discover Spring Boot applications running on servers in your datacenter, using Azure Migrate: Discovery and assessment tool. The discovery process is completely agentless; no agents are installed on the target servers.
 
 In this tutorial, you learn how to:
@@ -46,7 +50,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    - [Discover AWS instances](tutorial-discover-aws.md)
    - [Discover GCP instances](tutorial-discover-gcp.md)
 - Ensure that you have performed software inventory by providing the server credentials on the appliance configuration manager. [Learn more](how-to-discover-applications.md).
-- Only Migrate projects created with Public endpoint connectivity are supported. Private endpoint projects are not supported. 
+- Only Migrate projects created with Public endpoint connectivity are supported. Private endpoint projects aren't supported. 
 
 ## Set up Kubernetes-based appliance
 
@@ -56,7 +60,7 @@ After you have performed server discovery and software inventory using the Azure
 
 1. Go to the [Azure portal](https://aka.ms/migrate/springboot). Sign in with your Azure account and search for Azure Migrate.
 2. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
-1. Select the project where you have set up the Azure Migrate appliance as part of the prerequisites.
+1. Select the project where you set up the Azure Migrate appliance as part of the prerequisites.
 1. You see a message above Azure Migrate: Discovery and assessment tile to onboard a Kubernetes-based appliance to enable discovery of Spring Boot applications.
 
    :::image type="content" source="./media/tutorial-discover-spring-boot/discover-banner-inline.png" alt-text="Screenshot shows the banner for discovery and assessment of web apps." lightbox="./media/tutorial-discover-spring-boot/discover-banner-expanded.png":::   
@@ -145,7 +149,7 @@ After you save the script on the Linux server, follow these steps:
 
 > [!Note]
 > This script needs to be run after you connect to a Linux machine on its terminal that has met the networking pre-requisite and OS compatibility.  
-> Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/Centos), you can use the command `yum install curl`.  
+> Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/CentOS), you can use the command `yum install curl`.  
 
 > [!Important]
 > Don't edit the script unless you want to clean up the setup.
@@ -174,7 +178,7 @@ After you save the script on the Linux server, follow these steps:
 
 > [!Note]
 > - This script needs to be run after you connect to a Linux machine on its terminal that meets the networking prerequisites and OS compatibility. 
-> - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/Centos), you can use the `yum install curl` command.
+> - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/CentOS), you can use the `yum install curl` command.
 
 > [!Important]
 > Don't edit the script unless you want to clean up the setup.
@@ -205,7 +209,7 @@ After you save the script on the Linux server, follow these steps:
 
 #### [Packaged Kubernetes cluster](#tab/cluster)
 
-As you are setting a packaged appliance, we would have shared responsibility to ensure that the secrets are secured.  
+As you're setting a packaged appliance, we have shared responsibility to ensure that the secrets are secured.  
 - We recommend you choose a Linux VM with disk encryption for its services.
 
 #### [Bring your own Kubernetes cluster](#tab/encrypt-rest)
@@ -236,10 +240,10 @@ After successfully setting up the appliance using the installer script, you need
 
     > [!Note]
     > - The credentials added on the portal are processed via the Azure Key Vault chosen in the initial steps of onboarding the Kubernetes-based appliance. The credentials are then synced (saved in an encrypted format) to the Kubernetes cluster on the appliance and removed from the Azure Key Vault.
-    > - After the credentials have been successfully synced, they would be used for discovery of the specific workload in the next discovery cycle. 
+    > - After the credentials are successfully synced, they would be used for discovery of the specific workload in the next discovery cycle. 
 
 7.	After adding a credential, you need to refresh the page to see the **Sync status** of the credential. If status is **Incomplete**, you can select the status to review the error encountered and take the recommended action.
-After the credentials have been successfully synced, wait for 24 hours before you can review the discovered inventory by filtering for the specific workload in the **Discovered servers** page.
+After the credentials are successfully synced, wait for 24 hours before you can review the discovered inventory by filtering for the specific workload in the **Discovered servers** page.
 
     > [!Note]
     > You can add/update credentials any time by navigating to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage** > **Appliances** page, selecting **Manage credentials** from the options available in the Kubernetes-based appliance.
@@ -248,7 +252,7 @@ After the credentials have been successfully synced, wait for 24 hours before yo
 
 To cleanup, run the following script in delete mode:
 
-In the script generated by the portal, after all the user arguments (after line 19 in the following image), add `export DELETE= “true”` and run the same script again. This will clean up all existing components created during appliance creation.
+In the script generated by the portal, after all the user arguments (after line 19 in the following image), add `export DELETE= “true”` and run the same script again. This cleans up all existing components created during appliance creation.
 
 :::image type="content" source="./media/tutorial-discover-spring-boot/delete-image-inline.png" alt-text="Screenshot shows delete mode." lightbox="./media/tutorial-discover-spring-boot/delete-image-expanded.png":::
 

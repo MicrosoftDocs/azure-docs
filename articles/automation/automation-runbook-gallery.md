@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/27/2022
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 # Use existing runbooks and modules
 

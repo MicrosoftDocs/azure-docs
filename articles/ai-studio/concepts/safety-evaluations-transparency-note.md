@@ -4,8 +4,10 @@ titleSuffix: Azure AI Studio
 description: Azure AI Studio safety evaluations intended purpose, capabilities, limitations and how to achieve the best performance.
 manager: nitinme
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: article
-ms.date: 03/28/2024
+ms.date: 5/21/2024
 ms.reviewer: mithigpe
 ms.author: lagayhar
 author: lgayhardt
@@ -13,7 +15,7 @@ author: lgayhardt
 
 # Transparency Note for Azure AI Studio safety evaluations
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 ## What is a Transparency Note
 
@@ -41,7 +43,7 @@ The Azure AI Studio safety evaluations let users evaluate the output of their ge
 
 ### System behavior
 
-Azure AI Studio provisions an Azure Open AI GPT-4 model and orchestrates adversarial attacks against your application to generate a high quality test dataset. It then provisions another GPT-4 model to annotate your test dataset for content and security. Users provide their generative AI application endpoint that they wish to test, and the safety evaluations will output a static test dataset against that endpoint along with its content risk label (Very low, Low, Medium, High) and reasoning for the AI-generated label.
+Azure AI Studio provisions an Azure OpenAI GPT-4 model and orchestrates adversarial attacks against your application to generate a high quality test dataset. It then provisions another GPT-4 model to annotate your test dataset for content and security. Users provide their generative AI application endpoint that they wish to test, and the safety evaluations will output a static test dataset against that endpoint along with its content risk label (Very low, Low, Medium, High) and reasoning for the AI-generated label.
 
 ### Use cases
 
@@ -49,9 +51,9 @@ Azure AI Studio provisions an Azure Open AI GPT-4 model and orchestrates adversa
 
 The safety evaluations aren't intended to use for any purpose other than to evaluate content risks and jailbreak vulnerabilities of your generative AI application:
 
-- **Evaluating your generative AI application pre-deployment**: Using the evaluation wizard in the Azure AI studio or the Azure AI Python SDK, safety evaluations can assess in an automated way to evaluate potential content or security risks.
+- **Evaluating your generative AI application pre-deployment**: Using the evaluation wizard in the Azure AI Studio or the Azure AI Python SDK, safety evaluations can assess in an automated way to evaluate potential content or security risks.
 - **Augmenting your red-teaming operations**: Using the adversarial simulator, safety evaluations can simulate adversarial interactions with your generative AI application to attempt to uncover content and security risks.
-- **Communicating content and security risks to stakeholders**: Using the Azure AI studio, you can share access to your AI project with safety evaluations results with auditors or compliance stakeholders.
+- **Communicating content and security risks to stakeholders**: Using the Azure AI Studio, you can share access to your Azure AI Studio project with safety evaluations results with auditors or compliance stakeholders.
 
 #### Considerations when choosing a use case
 

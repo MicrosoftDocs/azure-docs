@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 08/14/2024
 ms.reviewer: sapnakeshari
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
@@ -19,7 +19,7 @@ In this article, you learn how to create subscriptions programmatically using Az
 
 When you create an Azure subscription programmatically, it falls under the terms of the agreement where you receive Azure services from Microsoft or a certified seller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
 
@@ -210,7 +210,7 @@ Allowed values for `Workload` are `Production` and `DevTest`.
   "name": "sampleAlias",
   "type": "Microsoft.Subscription/aliases",
   "properties": {
-    "subscriptionId": "b5bab918-e8a9-4c34-a2e2-ebc1b75b9d74",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "provisioningState": "Accepted"
   }
 }
@@ -232,7 +232,7 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
   "name": "sampleAlias",
   "type": "Microsoft.Subscription/aliases",
   "properties": {
-    "subscriptionId": "b5bab918-e8a9-4c34-a2e2-ebc1b75b9d74",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "provisioningState": "Succeeded"
   }
 }
@@ -259,7 +259,7 @@ You get the subscriptionId as part of the response from the command.
   "type": "Microsoft.Subscription/aliases",
   "properties": {
     "provisioningState": "Succeeded",
-    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
   }
 }
 ```
@@ -282,7 +282,7 @@ You get the subscriptionId as part of the response from the command.
   "name": "sampleAlias",
   "properties": {
     "provisioningState": "Succeeded",
-    "subscriptionId": "4921139b-ef1e-4370-a331-dd2229f4f510"
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
   },
   "type": "Microsoft.Subscription/aliases"
 }
@@ -499,5 +499,5 @@ resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01
 
 * Now that you created a subscription, you can grant that ability to other users and service principals. For more information, see [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md).
 * For more information about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md).
-* To change the management group for a subscription, see [Move subscriptions](../../governance/management-groups/manage.md#move-subscriptions).
+* To change the management group for a subscription, see [Move subscriptions](../../governance/management-groups/manage.md#move-management-groups-and-subscriptions).
 * For advanced subscription creation scenarios using REST API, see [Alias - Create](/rest/api/subscription/2021-10-01/alias/create).

@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: article
-ms.date: 03/21/2024
+ms.date: 08/14/2024
 ms.author: banders
 
 #Customer intent: As an administrator or developer, I want to use REST APIs to review billing data for all subscriptions and departments in the enterprise enrollment.
@@ -36,9 +36,9 @@ The following headers are required:
 |Request header|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Required. Set to `application/json`.|  
-|*Authorization:*|Required. Set to a valid `Bearer` [API key](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Authorization:*|Required. Set to a valid `Bearer` API key. |  
 
-This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
+This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the API asynchronously to return data for 36 months.
 
 
 ## Response  
@@ -57,7 +57,7 @@ Status code 200 (OK) is returned for a successful response, which contains a lis
         "usageStart": "2017-02-13T00:00:00Z",
         "usageEnd": "2017-02-13T23:59:59Z",
         "instanceName": "shared1",
-        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
+        "instanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
         "currency": "USD",
         "usageQuantity": 0.00328,
         "billableQuantity": 0.00328,
@@ -89,9 +89,9 @@ The following headers are required:
 |Request header|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Required. Set to `application/json`.|  
-|*Authorization:*|Required. Set to a valid `Bearer` [API key](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Authorization:*|Required. Set to a valid `Bearer` API key. |  
 
-This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
+This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the API asynchronously to return data for 36 months.
 
 ### Response  
 
@@ -113,7 +113,7 @@ The following example shows the output of the REST API for department `1234`.
         "usageStart": "2017-02-13T00:00:00Z",
         "usageEnd": "2017-02-13T23:59:59Z",
         "instanceName": "shared1",
-        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
+        "instanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
         "instanceLocation": "eastasia",
         "currency": "USD",
         "usageQuantity": 0.00328,
@@ -145,9 +145,9 @@ The following headers are required:
 |Request header|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Required. Set to `application/json`.|  
-|*Authorization:*|Required. Set to a valid `Bearer` [API key](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Authorization:*|Required. Set to a valid `Bearer` API key. |  
 
-This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
+This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the API asynchronously to return data for 36 months.
 
 ### Response  
 
@@ -182,6 +182,4 @@ The following example shows the output of the REST API for enterprise enrollment
 This example is abbreviated; see [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy) for a complete description of each response field and error handling.
 
 ## Next steps
-- Review [Enterprise reporting overview](./enterprise-api.md)
-- Investigate [Enterprise Billing REST API](/rest/api/billing/)   
 - [Get started with Azure REST API](/rest/api/azure/)

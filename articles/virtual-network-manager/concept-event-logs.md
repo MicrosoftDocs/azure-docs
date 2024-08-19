@@ -4,15 +4,13 @@ description: This article covers the event log  options for Azure Virtual Networ
 author: mbender-ms
 ms.author: mbender
 ms.topic: conceptual
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.date: 04/13/2024
 ---
 
 # Event log options for Azure Virtual Network Manager
 
 Azure Virtual Network Manager uses Azure Monitor for data collection and analysis like many other Azure services. Azure Virtual Network Manager provides event logs for each network manager. You can store and view event logs with Azure Monitor’s Log Analytics tool in the Azure portal, and through a storage account. You may also send these logs to an event hub or partner solution. 
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Supported log categories
 

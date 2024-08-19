@@ -3,12 +3,12 @@ title: Configure inbound and outbound network traffic
 titleSuffix: Azure Machine Learning
 description: 'How to configure the required inbound and outbound network traffic when using a secure Azure Machine Learning workspace.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 04/08/2024
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -78,9 +78,10 @@ __Outbound traffic__
 | `AzureResourceManager` | 443 | Creation of Azure resources with Azure Machine Learning. |
 | `Storage.<region>` | 443 | Access data stored in the Azure Storage Account for compute cluster and compute instance. This outbound can be used to exfiltrate data. For more information, see [Data exfiltration protection](how-to-prevent-data-loss-exfiltration.md). |
 | `AzureFrontDoor.FrontEnd`</br>* Not needed in Microsoft Azure operated by 21Vianet. | 443 | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. |
-| `MicrosoftContainerRegistry.<region>` | 443 | Access docker images provided by Microsoft. |
+| `MicrosoftContainerRegistry` | 443 | Access docker images provided by Microsoft. |
 | `Frontdoor.FirstParty` | 443 | Access docker images provided by Microsoft. |
 | `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. Only needed if you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace. </br>* This outbound is also used to log information for support incidents. |
+| `VirtualNetwork` | 443 | Required when private endpoints are present in the virtual network or peered virtual networks. |
 
 > [!IMPORTANT]
 > If a compute instance or compute cluster is configured for no public IP, by default it can't access the internet. If it *can* still send outbound traffic to the internet, it is because of Azure [default outbound access](../virtual-network/ip-services/default-outbound-access.md#when-is-default-outbound-access-provided) and you have an NSG that allows outbound to the internet. We **don't recommend** using the default outbound access. If you need outbound access to the internet, we recommend using one of the following options instead of the default outbound access:
@@ -96,7 +97,7 @@ __Outbound traffic__
 
 | Service tag(s) | Ports | Purpose |
 | ----- |:-----:| ----- |
-| `MicrosoftContainerRegistry.<region>` and `AzureFrontDoor.FirstParty` | 443 | Allows use of Docker images that Microsoft provides for training and inference. Also sets up the Azure Machine Learning router for Azure Kubernetes Service. |
+| `MicrosoftContainerRegistry` and `AzureFrontDoor.FirstParty` | 443 | Allows use of Docker images that Microsoft provides for training and inference. Also sets up the Azure Machine Learning router for Azure Kubernetes Service. |
 
 __To allow installation of Python packages for training and deployment__, allow __outbound__ traffic to the following host names:
 
@@ -167,7 +168,7 @@ For more information on the `hbi_workspace` flag, see the [data encryption](conc
 [Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall needs extra egress network configuration. 
 
 * For Kubernetes with Azure Arc connection, configure the [Azure Arc network requirements](../azure-arc/kubernetes/network-requirements.md) needed by Azure Arc agents. 
-* For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](../aks/outbound-rules-control-egress.md#cluster-extensions). 
+* For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](/azure/aks/outbound-rules-control-egress#cluster-extensions). 
 
 Besides above requirements, the following outbound URLs are also required for Azure Machine Learning,
 
@@ -452,13 +453,12 @@ __Docker images maintained by Azure Machine Learning__
 | Microsoft Container Registry | mcr.microsoft.com</br>\*.data.mcr.microsoft.com | TCP | 443 |
 
 > [!TIP]
-> * __Azure Container Registry__ is required for any custom Docker image. This includes small modifications (such as additional packages) to base images provided by Microsoft. It is also required by the internal training job submission process of Azure Machine Learning.
-> * __Microsoft Container Registry__ is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+> * __Azure Container Registry__ is required for any custom Docker image. This includes small modifications (such as additional packages) to base images provided by Microsoft. It is also required by the internal training job submission process of Azure Machine Learning. Furthermore, __Microsoft Container Registry__ is always needed regardless of the scenario.
 > * If you plan on using federated identity, follow the [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) article.
 
 Also, use the information in the [compute with public IP](#scenario-using-compute-cluster-or-compute-instance-with-a-public-ip) section to add IP addresses for `BatchNodeManagement` and `AzureMachineLearning`.
 
-For information on restricting access to models deployed to AKS, see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+For information on restricting access to models deployed to AKS, see [Restrict egress traffic in Azure Kubernetes Service](/azure/aks/limit-egress-traffic).
 
 __Monitoring, metrics, and diagnostics__
 
