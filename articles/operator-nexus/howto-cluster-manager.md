@@ -55,11 +55,11 @@ Some arguments that are available for every Azure CLI command
 Starting with the 2024-06-01-preview API version, a customer can assign managed identity to a Cluster Manager. Both System-assigned and User-Assigned managed identities are supported.
 
 If a Cluster Manager is created with the User-assigned managed identity, a customer is required to provision access to that identity for the Nexus platform.
-Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for `AFOI-NC-MGMT-PME-PROD` Entra ID. It is a known limitation of the platform that will be addressed in the future.
+Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for `AFOI-NC-MGMT-PME-PROD` Microsoft Entra ID. It is a known limitation of the platform that will be addressed in the future.
 
-The role assignment can be done via Portal:
+The role assignment can be done via the Azure portal:
 
-- Open Azure Portal and locate User-assigned identity in question.
+- Open Azure portal and locate User-assigned identity in question.
   - If you expect multiple managed identities provisioned, the role can be added instead at the resource group or subscription level.
 - Under `Access control (IAM)`, click Add new role assignment
 - Select Role: `Managed Identity Operator`. See the [permissions](../role-based-access-control/built-in-roles/identity.md#managed-identity-operator) that the role provides.
