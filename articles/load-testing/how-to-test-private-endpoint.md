@@ -197,9 +197,9 @@ To configure the load test with your virtual network settings, update the [YAML 
 
 ## Troubleshooting
 
-To troubleshoot issues in creating and running load tests against private endpoints, see [how to troubleshoot private endpoint tests](.troubleshoot-private-endpoint-tests.md).
+To troubleshoot issues in creating and running load tests against private endpoints, see [how to troubleshoot private endpoint tests](./troubleshoot-private-endpoint-tests.md).
 
 ## Next steps
 
 - Learn more about the [scenarios for deploying Azure Load Testing in a virtual network](./concept-azure-load-testing-vnet-injection.md).
-- Learn how to [troubleshoot private endpoint tests](.troubleshoot-private-endpoint-tests.md).
+- Learn how to [troubleshoot private endpoint tests](./troubleshoot-private-endpoint-tests.md).
