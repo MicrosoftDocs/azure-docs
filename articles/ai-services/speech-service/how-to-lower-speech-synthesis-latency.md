@@ -387,37 +387,36 @@ For detailed implementation, see the [sample code on GitHub](https://github.com/
 
 ::: zone pivot="programming-language-cpp"
 
-Currently, only C# and Python are supported in the SDK. Support for C++, Java and Objective-C is planned for future releases.
+Currently, only C#, C++ and Python are supported in the SDK. Support for Java and Objective-C is planned for future releases.
 
-For the sample code that shows how to use text streaming, see:
+The C++ sample code isn't available now. For the sample code that shows how to use text streaming, see:
 
-- [C# Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
-- [Python Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
+- [C# sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
+- [Python sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-Currently, only C# and Python are supported in the SDK. Support for C++, Java and Objective-C is planned for future releases.
+Currently, only C#, C++ and Python are supported in the SDK. Support for Java and Objective-C is planned for future releases.
 
 For the sample code that shows how to use text streaming, see:
 
-- [C# Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
-- [Python Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
+- [C# sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
+- [Python sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
 
-Currently, only C# and Python are supported in the SDK. Support for C++, Java and Objective-C is planned for future releases.
+Currently, only C#, C++ and Python are supported in the SDK. Support for Java and Objective-C is planned for future releases.
 
 For the sample code that shows how to use text streaming, see:
 
-- [C# Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
-- [Python Sample Code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
+- [C# sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/tts-text-stream)
+- [Python sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream)
 
 ::: zone-end
-
 
 ## Others tips
 
