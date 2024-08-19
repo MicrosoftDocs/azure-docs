@@ -47,7 +47,7 @@ A De-identification service (preview) provides you with an endpoint URL. This en
     az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --location $REGION
     ```
 
-### Authorize De-identification service (preview) on Azure Storage Account
+### Authorize Deidentification service (preview) on Azure Storage Account
 
 -  Give the De-identification service (preview) access to your storage account
    
@@ -82,13 +82,13 @@ The client library is available through NuGet, as the `Azure.Health.Deidentifica
 
 
 ## Code examples
-- [Create a Deidentification Client](#create-a-de-identification-client)
+- [Create a Deidentification Client](#create-a-deidentification-client)
 - [De-identify a string](#de-identify-a-string)
 - [Tag a string](#tag-a-string)
-- [Create a Deidentification Job](#create-a-de-identification-job)
-- [Get the status of a Deidentification Job](#get-the-status-of-a-de-identification-job)
+- [Create a Deidentification Job](#create-a-deidentification-job)
+- [Get the status of a Deidentification Job](#get-the-status-of-a-deidentification-job)
 
-### Create a de-identification client
+### Create a deidentification client
 
 Before you can create the client, you need to find your **Deidentification service (preview) endpoint URL**.
 
@@ -131,7 +131,7 @@ content.Operation = OperationType.Tag;
 DeidentificationResult result = await client.DeidentifyAsync(content);
 ```
 
-### Create a de-identification job
+### Create a deidentification job
 
 This function allows you to de-identify all files, filtered via prefix, within an Azure Blob Storage Account.
 
@@ -156,7 +156,7 @@ DeidentificationJob job = new(
 job = client.CreateJob(WaitUntil.Started, "my-job-1", job).Value;
 ```
 
-### Get the status of a de-identification job
+### Get the status of a deidentification job
 
 Once a job is created, you can view the status and other details of the job.
 
@@ -200,7 +200,7 @@ az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage 
 
 Ensure the permissions are given, and the Managed Identity for the De-identification service (preview) is set up properly.
 
-See [Authorize Deidentification Service on Storage Account](#authorize-de-identification-service-preview-on-azure-storage-account)
+See [Authorize Deidentification Service on Storage Account](#authorize-deidentification-service-preview-on-azure-storage-account)
 
 ### Job failed with status PartialFailed
 
