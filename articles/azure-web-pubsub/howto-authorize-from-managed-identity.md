@@ -24,7 +24,8 @@ In this section, you set up a system-assigned managed identity on a virtual mach
 1. Under **Settings**, select **Identity**.
 1. On the **System assigned** tab, set **Status** to **On**.
 
-   ![Screenshot that shows creating a system identity for a virtual machine.](./media/howto-authorize-from-managed-identity/identity-virtual-machine.png)
+   :::image type="content" source="media/howto-authorize-from-managed-identity/identity-virtual-machine.png" alt-text="Screenshot that shows creating a system identity for a virtual machine.":::
+
 1. Select **Save** to confirm the change.
 
 ### Create a user-assigned managed identity
@@ -58,7 +59,7 @@ This section demonstrates how to assign the Web PubSub Service Owner role to a s
 
    The following screenshot shows an example of the Access control (IAM) pane for a Web PubSub resource:
 
-   ![Screenshot that shows an example of the Access control (IAM) pane.](./media/howto-authorize-from-managed-identity/access-control.png)
+   :::image type="content" source="media/howto-authorize-from-managed-identity/access-control.png" alt-text="Screenshot that shows an example of the Access control (IAM) pane.":::
 
 1. Select **Add** > **Add role assignment**.
 
@@ -66,7 +67,7 @@ This section demonstrates how to assign the Web PubSub Service Owner role to a s
 
 1. Select **Next**.
 
-   ![Screenshot that shows adding a role assignment.](./media/howto-authorize-from-managed-identity/add-role-assignment.png)
+   :::image type="content" source="media/howto-authorize-from-managed-identity/add-role-assignment.png" alt-text="Screenshot that shows adding a role assignment.":::
 
 1. Select the **Members** tab. Under **Assign access to**, select **Managed identity**.
 
@@ -80,7 +81,7 @@ This section demonstrates how to assign the Web PubSub Service Owner role to a s
 
 1. Select **Next**.
 
-   ![Screenshot that shows assigning a role to managed identities.](./media/howto-authorize-from-managed-identity/assign-role-to-managed-identities.png)
+   :::image type="content" source="media/howto-authorize-from-managed-identity/assign-role-to-managed-identities.png" alt-text="Screenshot that shows assigning a role to managed identities.":::
 
 1. Select **Review + assign** to confirm the change.
 

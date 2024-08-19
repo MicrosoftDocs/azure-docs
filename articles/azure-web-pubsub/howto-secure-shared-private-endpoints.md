@@ -22,7 +22,7 @@ This outbound method is subject to the following requirements:
 
 - The network endpoint must be deployed by using Azure App Service or Azure Functions.
 - The Web PubSub resource must be on the Standard tier or the Premium tier.
-- An Azure App Service or an Azure Functions resource must be created by choosing a specific SKU for the resource. For more information, see [Use Private Endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
+- An Azure App Service or an Azure Functions resource must be created by choosing a specific tier to create the resource. For more information, see [Use private endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
 
 Private endpoints of secured resources that are created by using Azure Web PubSub APIs are called *shared private link resources*. You're "sharing" access to a resource, such as an Azure Functions resource, that is integrated with [Azure Private Link](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside the Web PubSub service execution environment and aren't directly visible to you.
 

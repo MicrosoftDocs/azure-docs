@@ -22,14 +22,14 @@ The first step is to register an Azure application.
 1. On the left menu under **Manage**, select **App registrations**.
 1. Select **New registration**.
 
-   ![Screenshot that shows registering an application.](./media/howto-authorize-from-application/register-an-application.png)
+    :::image type="content" source="media/howto-authorize-from-application/register-an-application.png" alt-text="Screenshot that shows registering an application.":::
 
 1. For **Name**, enter a name to use for your application.
 1. Select **Register** to confirm the register.
 
 When your application is registered, go to the application overview to view the values for **Application (client) ID** and **Directory (tenant) ID**. You use these values in the following sections.
 
-![Screenshot that shows an application.](./media/howto-authorize-from-application/application-overview.png)
+:::image type="content" source="media/howto-authorize-from-application/application-overview.png" alt-text="Screenshot that shows an application.":::
 
 For more information about registering an application, see the quickstart [Register an application by using the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
@@ -37,7 +37,7 @@ For more information about registering an application, see the quickstart [Regis
 
 You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
 
-### Client secret
+### Add a client secret
 
 The application requires a client secret for a client to prove its identity when it requests a token.
 
@@ -46,18 +46,19 @@ To create a client secret:
 1. On the left menu under **Manage**, select **Certificates & secrets**.
 1. On the **Client secrets** tab, select **New client secret**.
 
-   ![Screenshot that shows creating a client secret.](./media/howto-authorize-from-application/new-client-secret.png)
+   :::image type="content" source="media/howto-authorize-from-application/new-client-secret.png" alt-text="Screenshot that shows creating a client secret.":::
+
 1. Enter a description for the client secret, and then choose an expire time for the secret.
 1. Copy the value of the client secret, and then paste it to a secure location to save for later use.
 
    > [!NOTE]
    > The secret is visible only when you create the secret. You can't view the client secret in the portal later.
 
-### Certificate
+### Add a certificate
 
 You can also upload a certificate instead of creating a client secret.
 
-![Screenshot that shows uploading a certificate.](./media/howto-authorize-from-application/upload-certificate.png)
+:::image type="content" source="media/howto-authorize-from-application/upload-certificate.png" alt-text="Screenshot that shows uploading a certificate.":::
 
 For more information about adding credentials, see [Add credentials](../active-directory/develop/quickstart-register-app.md#add-credentials).
 
@@ -76,7 +77,7 @@ This section demonstrates how to assign a Web PubSub Service Owner role to a ser
 
    The following screenshot shows an example of the Access control (IAM) pane for a Web PubSub resource:
 
-   ![Screenshot that shows an example of the Access control (IAM) pane.](./media/howto-authorize-from-application/access-control.png)
+   :::image type="content" source="media/howto-authorize-from-application/access-control.png" alt-text="Screenshot that shows an example of the Access control (IAM) pane.":::
 
 1. Select **Add** > **Add role assignment**.
 
@@ -84,7 +85,7 @@ This section demonstrates how to assign a Web PubSub Service Owner role to a ser
 
 1. Select **Next**.
 
-   ![Screenshot that shows adding a role assignment.](./media/howto-authorize-from-application/add-role-assignment.png)
+   :::image type="content" source="media/howto-authorize-from-application/add-role-assignment.png" alt-text="Screenshot that shows adding a role assignment.":::
 
 1. Select the **Members** tab. Under **Assign access to**, select **User, group, or service principal**.
 
@@ -96,7 +97,7 @@ This section demonstrates how to assign a Web PubSub Service Owner role to a ser
 
 1. Select **Next**.
 
-   ![Screenshot that shows assigning a role to service principals.](./media/howto-authorize-from-application/assign-role-to-service-principals.png)
+   :::image type="content" source="media/howto-authorize-from-application/assign-role-to-service-principals.png" alt-text="Screenshot that shows assigning a role to service principals.":::
 
 1. Select **Review + assign** to confirm the change.
 
@@ -124,7 +125,7 @@ To learn more about how to assign and manage Azure role assignments, see these a
    1. For **Key**, select **Content-Type**.
    1. For **Value**, enter `application/x-www-form-urlencoded`.
 
-   ![Screenshot that shows information on the Basic tab when you use Postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman.png)
+   :::image type="content" source="media/howto-authorize-from-application/get-azure-ad-token-using-postman.png" alt-text="Screenshot that shows information on the Basic tab when you use Postman to get the token.":::
 
 1. Select the **Body** tab.
 1. Select the body type **x-www-form-urlencoded**.
@@ -135,11 +136,11 @@ To learn more about how to assign and manage Azure role assignments, see these a
    1. Select **client_secret**, and then paste the value of client secret you saved.
    1. Select **resource**, and then enter `https://webpubsub.azure.com` for the value.
 
-   ![Screenshot that shows the Body tab parameters when you use Postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-body.png)
+   :::image type="content" source="media/howto-authorize-from-application/get-azure-ad-token-using-postman-body.png" alt-text="Screenshot that shows the Body tab parameters when you use Postman to get the token.":::
 
 1. Select **Send** to send the request to get the token. The value for `access_token` is the access token.
 
-   ![Screenshot that shows the response token when you use Postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-response.png)
+   :::image type="content" source="media/howto-authorize-from-application/get-azure-ad-token-using-postman-response.png" alt-text="Screenshot that shows the response token when you use Postman to get the token.":::
 
 ## Code samples that use Microsoft Entra authorization
 
