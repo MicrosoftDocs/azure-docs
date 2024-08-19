@@ -143,13 +143,13 @@ registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 
 You can retrieve device twin fields into a into a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) object by calling [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync?#microsoft-azure-devices-registrymanager-gettwinasync(system-string-system-string)).
 
-The `Twin` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?view=azure-dotnet&branch=main#properties) that correspond to each section of a device twin. Use the `Twin` class properties to view and update device twin fields.
+The `Twin` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to each section of a device twin. Use the `Twin` class properties to view and update device twin fields.
 
 After making twin field updates, call [UpdateTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatetwinasync?#microsoft-azure-devices-registrymanager-updatetwinasync(system-string-microsoft-azure-devices-shared-twin-system-string)) to write `Twin` object field updates back to a device. You can use the `Twin` object properties to update multiple twin fields before writing the updates to the device using `UpdateTwinAsync`. Use a `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateTwinAsync`.
 
 #### View and update Tags
 
-Use the device twin [Tags](https://review.learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.shared.twin.tags?#microsoft-azure-devices-shared-twin-tags) property is to read and write device tag information. Update twin `tags` using a JSON-formatted patch.
+Use the device twin [Tags](/dotnet/api/microsoft.azure.devices.shared.twin.tags?#microsoft-azure-devices-shared-twin-tags) property is to read and write device tag information. Update twin `tags` using a JSON-formatted patch.
 
 You can also create and apply a single device twin information update patch that contains a block of field updates, including different field types such as tags mixed with desired properties. IoT Hub will parse and apply the patch if it is correctly formatted and the fields are updatable. For example, device twin reported properties cannot be updated by a backend application and the patch for these fields will not be applied.
 
@@ -181,7 +181,7 @@ catch (Exception e)
 
 #### View and update twin properties
 
-Use the device twin [Properties](/dotnet/api/microsoft.azure.devices.shared.twinproperties.desired?view=azure-dotnet&branch=main#microsoft-azure-devices-shared-twinproperties-desired) to read and write device property information. Update twin `Desired` properties using a JSON-formatted patch.
+Use the device twin [Properties](/dotnet/api/microsoft.azure.devices.shared.twinproperties.desired?#microsoft-azure-devices-shared-twinproperties-desired) to read and write device property information. Update twin `Desired` properties using a JSON-formatted patch.
 
 This example calls `GetTwinAsync` to retrieve the current device twin fields into a `Twin` object, updates the twin desired property, then calls `UpdateTwinAsync` to apply the patch to update the device twin.
 
