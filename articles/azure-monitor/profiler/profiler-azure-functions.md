@@ -1,13 +1,13 @@
 ---
-title: Profile Azure Functions app with Application Insights Profiler
+title: Enable Profiler for Azure Functions apps
 description: Enable Application Insights Profiler for Azure Functions app.
 ms.contributor: charles.weininger
-ms.topic: conceptual
-ms.date: 09/22/2023
+ms.topic: how-to
+ms.date: 08/16/2024
 ms.reviewer: ryankahng
 ---
 
-# Profile live Azure Functions app with Application Insights
+# Enable Profiler for Azure Functions apps
 
 In this article, you'll use the Azure portal to:
 - View the current app settings for your Functions app. 
@@ -67,7 +67,7 @@ From your Functions app overview page in the Azure portal:
 
 The app settings now show up in the table:
 
-   :::image type="content" source="./media/profiler-azure-functions/app-settings-table.png" alt-text="Screenshot showing the two new app settings in the table on the configuration pane.":::
+:::image type="content" source="./media/profiler-azure-functions/app-settings-table.png" alt-text="Screenshot showing the two new app settings in the table on the configuration pane.":::
 
 
 > [!NOTE]
