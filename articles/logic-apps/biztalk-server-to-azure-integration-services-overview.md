@@ -395,7 +395,7 @@ The following section describes data transformation capabilities in BizTalk Serv
 
 #### BizTalk Server
 
-Provides rich tooling for you to transform XML messages from one format to another. Data transformation uses XSLT maps, which support extension objects that allow injecting custom .NET Fx code into the middle of these maps. You can also use out-of-box functoids that provide reusable functionality that helps you build rich maps.
+Provides rich tooling for you to transform XML messages from one format to another. Data transformation uses XSLT maps, which support extension objects that allow injecting custom .NET Fx code into the middle of these maps. You can also use out-of-the-box functoids that provide reusable functionality that helps you build rich maps.
 
 Beyond the core XML transformations, BizTalk Server also provides encoding and decoding for CSV and JSON formats so you can convert between these formats and XML, giving you support for different formats.
 
@@ -497,7 +497,7 @@ You can extend BizTalk in many ways by using custom .NET Fx code, for example:
 | Inline code | You can write inline C# code within an Orchestration shape. You can also write inline code within a BizTalk Map. In both scenarios, the code snippets are generally simple in nature and can't be debugged. |
 | Compiled assemblies | You can call these assemblies from the following places: <br><br>- Expression shapes in an orchestration <br>- BizTalk maps using the Scripting Functoid <br>- Business Rules Engine policies <br>- Pipelines as custom pipeline components <br><br>You can debug compiled assemblies by attaching the Visual Studio debugger to the appropriate host instance Windows process. |
 | Custom adapters | BizTalk Server includes many out-of-the-box adapters, but you can always create your own adapter if needed. |
-| Custom WCF behaviors | BizTalk Server includes many out-of-the box adapters with the majority based on Windows Communication Foundation (WCF). In some cases, you might need to extend their capabilities by developing custom behaviors, such as applying an OAuth header to your system communication. |
+| Custom WCF behaviors | BizTalk Server includes many out-of-the-box adapters with the majority based on Windows Communication Foundation (WCF). In some cases, you might need to extend their capabilities by developing custom behaviors, such as applying an OAuth header to your system communication. |
 | Extensibility in BizTalk Server maps | - You can create inline code using C#, JScript, Visual Basic, XSLT or XSLT Call Templates to suppress some limitations or difficulties using the out-of-the-box functoids. <br><br>- You can call an external assembly using the Scripting Functoid. <br><br>- You can create custom functoids to use across all your maps. |
 
 #### Azure Integration Services
