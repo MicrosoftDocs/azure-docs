@@ -2,7 +2,7 @@
 title: Troubleshooting Cloud Service (classic) allocation failures | Microsoft Docs
 description: Troubleshoot an allocation failure when you deploy Azure Cloud Services. Learn how allocation works and why allocation can fail.
 ms.topic: troubleshooting
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
