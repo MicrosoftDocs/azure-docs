@@ -90,7 +90,7 @@ Create a subnet configuration with [New-AzVirtualNetworkSubnetConfig](/powershel
 $subnet = @{
     Name = "subnet-1"
     VirtualNetwork = $virtualNetwork
-    AddressPrefix = "10.0.2.0/24"
+    AddressPrefix = "10.0.0.0/24"
 }
 Add-AzVirtualNetworkSubnetConfig @subnet
 
@@ -315,7 +315,7 @@ $webRuleParams = @{
     SourceAddressPrefix = "Internet"
     SourcePortRange = "*"
     DestinationApplicationSecurityGroupId = $webAsg.id
-    DestinationPortRange = "80,443"
+    DestinationPortRange = 80,443
 }
 $webRule = New-AzNetworkSecurityRuleConfig @webRuleParams
 ```
@@ -324,7 +324,7 @@ The following example creates a rule that allows traffic inbound from the intern
 
 ```azurepowershell-interactive
 $mgmtAsgParams = @{
-    Name = "nsg-mgmt"
+    Name = "asg-mgmt"
     ResourceGroupName = "test-rg"
 }
 $mgmtAsg = Get-AzApplicationSecurityGroup @mgmtAsgParams
@@ -434,7 +434,7 @@ Create a public IP address for each VM with [New-AzPublicIpAddress](/powershell/
 
 ```powershell-interactive
 $publicIpWebParams = @{
-    AllocationMethod = "Dynamic"
+    AllocationMethod = "Static"
     ResourceGroupName = "test-rg"
     Location = "westus2"
     Name = "public-ip-vm-web"
@@ -442,7 +442,7 @@ $publicIpWebParams = @{
 $publicIpWeb = New-AzPublicIpAddress @publicIpWebParams
 
 $publicIpMgmtParams = @{
-    AllocationMethod = "Dynamic"
+    AllocationMethod = "Static"
     ResourceGroupName = "test-rg"
     Location = "westus2"
     Name = "public-ip-vm-mgmt"
@@ -712,7 +712,7 @@ Use the following command to install Microsoft IIS on the _vm-web_ VM from Power
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-After the IIS installation is complete, disconnect from the _vm-web_ VM, which leaves you in the _vm-mgmt_ VM remote desktop connection. To view the IIS welcome screen, open an internet browser and browse to http:\//vm-web.
+After the IIS installation is complete, disconnect from the _vm-web_ VM, which leaves you in the _vm-mgmt_ VM remote desktop connection. To view the IIS welcome screen, open an internet browser and browse to http://vm-web.
 
 Disconnect from the _vm-mgmt_ VM.
 
