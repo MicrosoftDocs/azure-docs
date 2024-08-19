@@ -5,8 +5,8 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.reviewer: charles.weininger
 reviewer: cweining
-ms.topic: conceptual
-ms.date: 09/22/2023
+ms.topic: how-to
+ms.date: 08/19/2024
 ms.custom: devdivchpfy22, devx-track-azurepowershell, engagement
 ---
 
@@ -17,7 +17,7 @@ When you use [Application Insights Profiler](./profiler-overview.md) or [Snapsho
 - Processing and analysis.
 - Encryption-at-rest and lifetime management policies.
 
-Meanwhile, when you configure your own storage account (BYOS), artifacts are uploaded into a storage account that only you control and cover the cost for:
+Meanwhile, when you configure your own storage account (Bring Your Own Storage, or BYOS), artifacts are uploaded into a storage account that only you control and cover the cost for:
 
 - The encryption-at-rest policy and the Lifetime management policy.
 - Network access.
