@@ -30,8 +30,6 @@ landingContent:
         links:
           - text: Connect a public cloud to Azure
             url: connect-to-aws.md
-      - linkListType: deploy
-        links:
           - text: Resource representation in Azure
             url: resource-representation.md
 
@@ -41,7 +39,5 @@ landingContent:
         links:
           - text: View and manage multicloud inventory
             url: view-multicloud-inventory.md
-      - linkListType: how-to-guide
-        links:
           - text: Onboard VMs to Azure Arc
             url: onboard-multicloud-vms-arc.md
