@@ -2,7 +2,6 @@
 title: "Tutorial: Filter network traffic with a network security group (NSG) - Azure portal"
 titlesuffix: Azure Virtual Network
 description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group (NSG), using the Azure portal.
-services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: tutorial
@@ -576,47 +575,47 @@ Add the network interface of each VM to one of the application security groups y
 Use [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to retrieve the network interface of the virtual machine, and then use [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) to retrieve the application security group. Finally, use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to associate the application security group with the network interface. The following example associates the _asg-web_ application security group with the _vm-web-nic_ network interface:
 
 ```azurepowershell-interactive
-$params = @{
+$params1 = @{
     Name = "vm-web-nic"
     ResourceGroupName = "test-rg"
 }
-$nic = Get-AzNetworkInterface @params
+$nic = Get-AzNetworkInterface @params1
 
-$params = @{
+$params2 = @{
     Name = "asg-web"
     ResourceGroupName = "test-rg"
 }
-$asg = Get-AzApplicationSecurityGroup @params
+$asg = Get-AzApplicationSecurityGroup @params2
 
 $nic.IpConfigurations[0].ApplicationSecurityGroups = @($asg)
 
-$params = @{
+$params3 = @{
     NetworkInterface = $nic
 }
-Set-AzNetworkInterface @params
+Set-AzNetworkInterface @params3
 ```
 
 Repeat the command to associate the _asg-mgmt_ application security group with the _vm-mgmt-nic_ network interface.
 
 ```azurepowershell-interactive
-$params = @{
+$params1 = @{
     Name = "vm-mgmt-nic"
     ResourceGroupName = "test-rg"
 }
-$nic = Get-AzNetworkInterface @params
+$nic = Get-AzNetworkInterface @params1
 
-$params = @{
+$params2 = @{
     Name = "asg-mgmt"
     ResourceGroupName = "test-rg"
 }
-$asg = Get-AzApplicationSecurityGroup @params
+$asg = Get-AzApplicationSecurityGroup @params2
 
 $nic.IpConfigurations[0].ApplicationSecurityGroups = @($asg)
 
-$params = @{
+$params3 = @{
     NetworkInterface = $nic
 }
-Set-AzNetworkInterface @params
+Set-AzNetworkInterface @params3
 ```
 
 ### [CLI](#tab/cli)
@@ -686,16 +685,14 @@ $params = @{
     Name = "public-ip-vm-mgmt"
     ResourceGroupName = "test-rg"
 }
-Get-AzPublicIpAddress @params | Select IpAddress
+$publicIP = Get-AzPublicIpAddress @params | Select IpAddress
 ```
 
-Use the following command to create a remote desktop session with the _vm-mgmt_ VM from your local computer. Replace `<publicIpAddress>` with the IP address returned from the previous command.
+Use the following command to create a remote desktop session with the _vm-mgmt_ VM from your local computer.
 
 ```
-mstsc /v:<publicIpAddress>
+mstsc /v:$publicIP
 ```
-
-Open the downloaded RDP file. If prompted, select **Connect**.
 
 Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
 
