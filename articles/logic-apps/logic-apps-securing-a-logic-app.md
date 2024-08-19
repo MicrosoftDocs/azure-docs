@@ -1471,7 +1471,7 @@ HTTP and HTTPS endpoints support various kinds of authentication. On some trigge
 
 For HTTP calls, basic authentication uses a base64-encoded string that contains a username and password to make a request. This method transmits credentials without encryption and poses increased security risks unless you use this option with the HTTPS/SSL protocol.
 
-[!IMPORTANT]
+> [!IMPORTANT]
 >
 > For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
 > with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
@@ -1511,7 +1511,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 [Client certificate authentication](/entra/identity/authentication/concept-certificate-based-authentication) allows or requires users to authenticate directly with X.509 certificates against their Microsoft Entra ID for applications and browser sign-in. This capability helps you adopt a phishing resistant authentication and authenticate with an X.509 certificate against your Public Key Infrastructure (PKI).
 
-[!IMPORTANT]
+> [!IMPORTANT]
 >
 > For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
 > with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
@@ -1580,7 +1580,7 @@ For more information about securing services by using client certificate authent
 
 On the **Request** trigger, you can use the [Microsoft Entra platform](/entra/fundamentals/what-is-entra) to authenticate incoming calls after you [set up Microsoft Entra authorization policies](#enable-oauth) for your logic app.
 
-[!IMPORTANT]
+> [!IMPORTANT]
 >
 > For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
 > with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
@@ -1636,7 +1636,7 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 
 If the **Raw** option is available, you can use this authentication type when you have to use [authentication schemes](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) that don't follow the [OAuth 2.0 protocol](https://oauth.net/2/). With this type, you manually create the authorization header value that you send with the outgoing request, and specify that header value in your trigger or action.
 
-[!IMPORTANT]
+> [!IMPORTANT]
 >
 > For optimal security, Microsoft recommends using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) 
 > with [managed identities](/entra/identity/managed-identities-azure-resources/overview) for authentication when possible. 
