@@ -16,6 +16,8 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 
 # How to use Phi-3.5 chat model with vision
 
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+
 In this article, you learn about Phi-3.5 chat model with vision and how to use them.
 The Phi-3.5 small language models (SLMs) are a collection of instruction-tuned generative text models.
 
