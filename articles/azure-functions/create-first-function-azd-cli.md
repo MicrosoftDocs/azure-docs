@@ -27,14 +27,7 @@ Because of the Flex Consumption plan, completing this quickstart incurs a small 
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
-+ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
-    + Only required to run and debug locally using Visual Studio Code.
-    + Also requires [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). 
 ::: zone pivot="programming-language-csharp"  
-+ [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). 
-    + Only required When you want run and debug locally using Visual Studio.
-    + Requires the **Azure development** workload be installed.
-
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download).  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
