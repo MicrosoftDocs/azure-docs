@@ -1235,8 +1235,6 @@
     href: troubleshooting-cef-syslog.md
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
-  - name: Troubleshoot Jupyter notebooks
-    href: notebooks-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
     href: sap/sap-deploy-troubleshoot.md    
 - name: Reference

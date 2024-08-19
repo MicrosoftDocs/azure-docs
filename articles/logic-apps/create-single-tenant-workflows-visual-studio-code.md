@@ -27,7 +27,7 @@ This how-to guide shows how to create an example integration workflow that runs 
    > [!NOTE]
    > Deploying your logic app to a Kubernetes cluster is currently in public preview. 
    
-    For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md#resource-environment-differences).
+    For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md#resource-environment-differences).
 
 While the example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in **Request** trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
