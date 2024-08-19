@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/ai-studio/how-to/commitment-tier.md",
+      "redirect_url": "/azure/ai-services/commitment-tier.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/files/files-samples-dotnet-v11.md",
       "redirect_url": "/previous-versions/azure/storage/files/files-samples-dotnet-v11",
       "redirect_document_id": false
