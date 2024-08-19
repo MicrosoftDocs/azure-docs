@@ -41,7 +41,7 @@ Keep in mind the following points about Azure role assignments with the de-ident
 - When the de-identification service is locked with an [Azure Resource Manager read-only lock](/azure/azure-resource-manager/management/lock-resources), the lock prevents the assignment of Azure roles that are scoped to the de-identification service.
 - When Azure deny assignments have been applied, your access might be blocked even if you have a role assignment. For more information, see [Understand Azure deny assignments](/azure/role-based-access-control/deny-assignments).
 
-You can use different tools to assign built-in roles.
+You can use different tools to assign built-in roles. Select the tab that applies for details.
 
 # [Azure portal](#tab/azure-portal)
 
