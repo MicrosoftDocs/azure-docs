@@ -1420,9 +1420,7 @@ It is a good practice to start with a low number of instances and scale up as ne
 
 ## Related content
 
-
 * [Azure AI Model Inference API](reference-model-inference-api.md)
-* [Deploy models as serverless APIs](deploy-models-serverless.md)
-* [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
-* [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
-* [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)
+* [Deploy models as serverless APIs](how-to-deploy-models-serverless.md)
+* [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)
+* [Plan and manage costs for Azure AI Studio](concept-plan-manage-cost.md)
