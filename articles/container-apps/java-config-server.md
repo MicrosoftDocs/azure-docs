@@ -106,44 +106,44 @@ Use the following steps to create each of the resources necessary to create a co
 
 1. Enter the following values to *Basics* tab.
 
-  | Property | Value |
-  |---|---|
-  | **Subscription** | Select your Azure subscription. |
-  | **Resource group** | Select **Create new** link to create a new resource group named **my-resource-group**. |
-  | **Container app name** | Enter **my-config-client**.  |
-  | **Deployment source** | Select **Container image**. |
-  | **Region** | Select the region nearest you. |
-  | **Container Apps environment** | Select the **Create new** link to create a new environment. |
+    | Property | Value |
+    |---|---|
+    | **Subscription** | Select your Azure subscription. |
+    | **Resource group** | Select **Create new** link to create a new resource group named **my-resource-group**. |
+    | **Container app name** | Enter **my-config-client**.  |
+    | **Deployment source** | Select **Container image**. |
+    | **Region** | Select the region nearest you. |
+    | **Container Apps environment** | Select the **Create new** link to create a new environment. |
 
 1. In the *Create Container Apps environment* window, enter the following values.
 
-  | Property | Value |
-  |---|---|
-  | **Environment name** | Enter **my-environment**. |
-  | **Zone redundancy** | Select **Disabled**.  |
+    | Property | Value |
+    |---|---|
+    | **Environment name** | Enter **my-environment**. |
+    | **Zone redundancy** | Select **Disabled**.  |
 
   Select the **Create** button, and then select the **Container** tab.
 
 1. In *Container* tab, enter the following values.
 
-  | Property | Value |
-  |---|---|
-  | **Name** | Enter **my-config-client**. |
-  | **Image source** | Select **Docker Hub or other registries**. |
-  | **Image type** | Select **Public**. |
-  | **Registry login server** | Enter **mcr.microsoft.com**. |
-  | **Image and tag** | Enter **javacomponents/samples/sample-service-config-client:latest**. |
+    | Property | Value |
+    |---|---|
+    | **Name** | Enter **my-config-client**. |
+    | **Image source** | Select **Docker Hub or other registries**. |
+    | **Image type** | Select **Public**. |
+    | **Registry login server** | Enter **mcr.microsoft.com**. |
+    | **Image and tag** | Enter **javacomponents/samples/sample-service-config-client:latest**. |
 
   Select the **Ingress** tab.
 
 1. In *Ingress* tab, enter the following and leave the rest of the form with their default values.
 
-  | Property | Value |
-  |---|---|
-  | **Ingress** | Select **Enabled**. |
-  | **Ingress traffic** | Select **Accept traffic from anywhere**. |
-  | **Ingress type** | Select **HTTP**. |
-  | **Target port** | Enter **8080**. |
+    | Property | Value |
+    |---|---|
+    | **Ingress** | Select **Enabled**. |
+    | **Ingress traffic** | Select **Accept traffic from anywhere**. |
+    | **Ingress type** | Select **HTTP**. |
+    | **Target port** | Enter **8080**. |
 
   Select **Review + create**.
 
@@ -193,17 +193,17 @@ Now that you have an existing environment and config server client container app
 
 1. In the *Configure Java component* panel, enter the following values.
 
-  | Property | Value |
-  |---|---|
-  | **Java component type** | Select **Config Server for Spring**. |
-  | **Java component name** | Enter **configserver**. |
+    | Property | Value |
+    |---|---|
+    | **Java component type** | Select **Config Server for Spring**. |
+    | **Java component name** | Enter **configserver**. |
 
 1. In the *Git repositories* section, select the **+ Add** button and enter the following values.
 
-  | Property | Value |
-  |---|---|
-  | **Type** | Select **HTTP**. |
-  | **URI** | Enter **https://github.com/Azure-Samples/azure-spring-cloud-config-java-aca.git**. |
+    | Property | Value |
+    |---|---|
+    | **Type** | Select **HTTP**. |
+    | **URI** | Enter **https://github.com/Azure-Samples/azure-spring-cloud-config-java-aca.git**. |
 
   Leave the rest of the fields with the default values and select **Add**.
 
