@@ -3,15 +3,15 @@ title: Update Network Watcher extension to the latest version
 description: Learn how to update the Azure Network Watcher Agent virtual machine (VM) extension to the latest version.
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-virtual-machines
-ms.topic: concept-article
+ms.service: azure-network-watcher
+ms.topic: how-to
 ms.date: 07/05/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Update Azure Network Watcher extension to the latest version
 
-[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. It's used by connection monitor, connection troubleshoot, and packet capture.
+[Azure Network Watcher](network-watcher-monitoring-overview.md) is a network performance monitoring, diagnostic, and analytics service that monitors Azure networks. The Network Watcher Agent virtual machine (VM) extension is a requirement for capturing network traffic on demand and using other advanced functionality on Azure VMs. It's used by connection monitor, connection troubleshoot, and packet capture.
 
 ## Prerequisites
 
@@ -149,7 +149,7 @@ Locate **"AzureNetworkWatcherExtension"** in the output and identify the ver
 Information about the extension appears multiple times in the JSON output. The full version number of the extension is available under the Extensions block. 
 
 You should see something like the below:
-![Azure CLI Screenshot](./media/network-watcher/azure-cli-screenshot.png)
+![Azure CLI Screenshot](./media/network-watcher-agent-update/azure-cli-screenshot.png)
 
 #### Use PowerShell
 
@@ -161,7 +161,7 @@ Get-AzVM -ResourceGroupName "SampleRG" -Name "Sample-VM" -Status
 Locate the Azure Network Watcher extension in the output and identify the version number from the *“TypeHandlerVersion”* field in the output.   
 
 You should see something like the below:
-![PowerShell Screenshot](./media/network-watcher/powershell-screenshot.png)
+![PowerShell Screenshot](./media/network-watcher-agent-update/powershell-screenshot.png)
 
 ### Update your extension
 
@@ -238,4 +238,4 @@ If you have auto-upgrade set to true for the Network Watcher extension, reboot y
 
 ## Support
 
-If you need more help at any point in this article, see the Network Watcher extension documentation for [Linux](./network-watcher-linux.md) or [Windows](./network-watcher-windows.md). You can also contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get support**. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, see the Network Watcher extension documentation for [Linux](network-watcher-agent-linux.md) or [Windows](network-watcher-agent-windows.md). You can also contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get support**. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).

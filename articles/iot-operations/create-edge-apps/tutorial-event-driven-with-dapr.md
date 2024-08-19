@@ -252,7 +252,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 
 ## Optional - Create the Dapr application
 
-ThIs tutorial uses a prebuilt container of the Dapr application. If you would like to modify and build the code yourself, follow these steps:
+This tutorial uses a prebuilt container of the Dapr application. If you would like to modify and build the code yourself, follow these steps:
 
 ### Prerequisites
 

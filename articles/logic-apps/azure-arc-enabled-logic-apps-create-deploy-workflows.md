@@ -23,7 +23,7 @@ For example, this cluster can be Azure Kubernetes Service, bare-metal Kubernetes
 For more information, review the following documentation:
 
 - [What is Azure Arc-enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
-- [Single-tenant versus multitenant and integration service environment](../logic-apps/single-tenant-overview-compare.md)
+- [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)
 - [Azure Arc overview](../azure-arc/overview.md)
 - [Azure Kubernetes Service overview](/azure/aks/intro-kubernetes)
 - [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
@@ -575,13 +575,7 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
 }
 ```
 
-> [!NOTE]
-> 
-> Previously, the **FUNCTIONS_WORKER_RUNTIME** setting's default value was **`node`**. 
-> Now, **`dotnet`** is the default value for all new and existing deployed Standard 
-> logic apps, even for apps that had a different value. This change shouldn't affect 
-> your workflow's runtime, and everything should work the same way as before. For more 
-> information, see the [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+[!INCLUDE [functions-language-runtime](includes/functions-language-runtime.md)]
 
 <a name="include-app-service-plan"></a>
 
