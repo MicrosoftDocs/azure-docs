@@ -36,23 +36,16 @@ Deploying an AutoML-trained model from the Automated ML page is a no-code experi
 
 1. Go to the Automated ML page in the studio
 1. Select your experiment and run
-1. Choose the Models tab
+1. Choose the Models + child jobs tab
 1. Select the model you want to deploy 
 1. Once you select a model, the Deploy button will light up with a drop-down menu
-1. Select *Deploy to real-time endpoint* option
+1. Select *Real-time endpoint* option
 
    :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" lightbox="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu":::
 
    The system will generate the Model and Environment needed for the deployment. 
 
-   :::image type="content" source="media/how-to-deploy-automl-endpoint/model.png" lightbox="media/how-to-deploy-automl-endpoint/model.png" alt-text="Screenshot showing the generated Model":::
-
-   :::image type="content" source="media/how-to-deploy-automl-endpoint/environment.png" lightbox="media/how-to-deploy-automl-endpoint/environment.png" alt-text="Screenshot showing the generated Environment":::
-
-5. Complete the wizard to deploy the model to an online endpoint
-
- :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.png" lightbox="media/how-to-deploy-automl-endpoint/complete-wizard.png"  alt-text="Screenshot showing the review-and-create page":::
-
+   :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-model.png" alt-text="Screenshot shows the deployment page where you can change values and then select Deploy.":::
 
 ## Deploy manually from the studio or command line
 
@@ -61,28 +54,35 @@ If you wish to have more control over the deployment, you can download the train
 To download the components you'll need for deployment:
 
 1. Go to your Automated ML experiment and run in your machine learning workspace
-1. Choose the Models tab
+1. Choose the **Models + child jobs** tab
 1. Select the model you wish to use. Once you select a model, the *Download* button will become enabled
 1. Choose *Download*
 
 :::image type="content" source="media/how-to-deploy-automl-endpoint/download-model.png" lightbox="media/how-to-deploy-automl-endpoint/download-model.png" alt-text="Screenshot showing the selection of the model and download button":::
 
 You'll receive a zip file containing:
-* A conda environment specification file named `conda_env_<VERSION>.yml`
-* A Python scoring file named `scoring_file_<VERSION>.py`
-* The model itself, in a Python `.pkl` file named `model.pkl`
+
+- A conda environment specification file named `conda_env_<VERSION>.yml`
+- A Python scoring file named `scoring_file_<VERSION>.py`
+- The model itself, in a Python `.pkl` file named `model.pkl`
 
 To deploy using these files, you can use either the studio or the Azure CLI.
 
 # [Studio](#tab/Studio)
+<!-- Note to self - tim - this section in flux. verify before committing. -->
+1. Go to the **Models** page in Azure Machine Learning studio
 
-1. Go to the Models page in Azure Machine Learning studio
-
-1. Select + Register Model option
+1. Select **+ Register** > **From local files** option
+1. Browse to the model saved locally and select Next.
+1. Enter a name and select Next.
+1. Select Register.
 
 1. Register the model you downloaded from Automated ML run
 
-1. Go to Environments page, select Custom environment, and select + Create option to create an environment for your deployment. Use the downloaded conda yaml to create a custom environment
+1. Go to Environments page, select **Custom environments**, and select + Create option to create an environment for your deployment. Use the downloaded conda yaml to create a custom environment
+1. Select an environment source and Next.
+1. Select Next to step through the next pages, then select Create.
+1. Select environment source > Create a new docker context
 
 1. Select the model, and from the Deploy drop-down option, select Deploy to real-time endpoint
 
@@ -147,7 +147,7 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
     > [!NOTE]
     > For a full description of the YAML, see [Online endpoint YAML reference](reference-yaml-endpoint-online.md).
 
-1. From the command line, run: 
+1. From the command line, run:
 
     [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
