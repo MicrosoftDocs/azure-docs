@@ -93,6 +93,9 @@ To sign your zone with DNSSEC using the Azure portal:
         ![Screenshot of adding a DS record to the parent zone.](media/dnssec-how-to/ds-add.png)
         ![Screenshot of a DS record in the parent zone.](media/dnssec-how-to/ds-added.png)
 
+6. When the DS record has been uploaded to the parent zone, select the DNSSEC information page for your zone and verify that **Signed and delegation established** is displayed.
+
+    ![Screenshot of a fully signed and delegated zone.](media/dnssec-how-to/delegated.png)
 
 # [Azure CLI](#tab/sign-cli)
 
