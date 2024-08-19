@@ -45,7 +45,7 @@ By specifying interactive applications at job creation, you can connect directly
 3. Follow the wizard to choose the environment you want to start the job.
   
 
-4. In **Job settings** step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job.
+4. In the **Training script** step, add your training code (and input/output data) and reference it in your command to make sure it's mounted to your job.
   
   :::image type="content" source="./media/interactive-jobs/sleep-command.png" alt-text="Screenshot of reviewing a drafted job and completing the creation.":::
 
@@ -60,7 +60,7 @@ By specifying interactive applications at job creation, you can connect directly
   > [!NOTE]
   > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
-5. In compute settings, expand the option for **Training applications**. Select at least one training application you want to use to interact with the job. If you don't select an application, the debug feature won't be available. 
+5. In **Compute** settings, expand the option for **Training applications**. Select at least one training application you want to use to interact with the job. If you don't select an application, the debug feature won't be available. 
 
   :::image type="content" source="./media/interactive-jobs/select-training-apps.png" alt-text="Screenshot of selecting a training application for the user to use for a job.":::
 
