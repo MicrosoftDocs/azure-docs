@@ -6,7 +6,7 @@ ms.date: 08/09/2024
 ms.author: danlep
 ---
 
-Run the following Azure CLI commands to call the Migrate to stv2 API, setting variables where indicated with the name of your API Management instance and the name of the resource group in which it was created.
+Run the following Azure CLI commands to call the Migrate to Stv2 API, setting variables where indicated with the name of your API Management instance and the name of the resource group in which it was created.
 
 > [!NOTE]
 > The following script is written for the bash shell. To run the script in PowerShell, prefix the variable name with the `$` character when setting the variables. Example: `$APIM_NAME=...`.
