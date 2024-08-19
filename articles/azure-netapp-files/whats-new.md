@@ -14,8 +14,16 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Azure NetApp Files storage with cool access](cool-access-introduction.md) is now generally available (GA) and supported with the Standard, Premium, and Ultra service levels. Cool access is also now supported for destination volumes in cross-region/cross-zone relationships. 
 
-* [Standard storage with cool access](cool-access-introduction.md) is now generally available (GA)
+    With the announcement of cool access's general availability, you can now enable cool access for volumes in Premium and Ultra service level capacity pools, in addition to volumes in Standard service levels capacity pools. With cool access, you can transparently store data in a more cost effective manner on Azure storage accounts based on the data's access pattern. 
+
+    The cool access feature provides the ability to configure a capacity pool with cool access, that moves cold (infrequently accessed) data transparently to Azure storage account to help you reduce the total cost of storage. There's a difference in data access latency as data blocks might be tiered to Azure storage account. The cool access feature provides options for the "coolness period" to optimize the days in which infrequently accessed data moves to cool tier and network transfer cost, based on your workload and read/write patterns. The "coolness period" feature is provided at the volume level. 
+
+    In a cross-region or cross-zone replication setting, cool access can now be configured for destination only volumes to ensure data protection. This capability provides cost savings without any latency impact on source volumes.
+
+    You still must [register the feature](manage-cool-access.med#register-the-feature) before enabling cool access. 
+
 
 ## August 2024
 

@@ -33,7 +33,7 @@ This article describes requirements and considerations about [using the volume c
 * You can revert a source or destination volume of a cross-region replication to a snapshot, provided the snapshot is newer than the most recent SnapMirror snapshot. Snapshots older than the SnapMirror snapshot can't be used for a volume revert operation. For more information, see [Revert a volume using snapshot revert](snapshots-revert-volume.md). 
 * Data replication volumes support [customer-managed keys](configure-customer-managed-keys.md).
 * If you are copying large data sets into a volume that has cross-region replication enabled and you have spare capacity in the capacity pool, you should set the replication interval to 10 minutes, increase the volume size to allow for the changes to be stored, and temporarily disable replication.
-* If you use the cool access feature, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations.
+* If you use the cool access feature, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md#considerations) for more considerations.
 * [Large volumes](large-volumes-requirements-considerations.md) are supported with cross-region replication only with an hourly or daily replication schedule.
 
 ## Large volumes configuration

@@ -85,7 +85,7 @@
     items:
     - name: Cost model for Azure NetApp Files
       href: azure-netapp-files-cost-model.md
-    - name: Standard storage with cool access
+    - name: Azure NetApp Files storage with cool access
       href: cool-access-introduction.md
   - name: Quotas 
     items:
@@ -341,7 +341,7 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
-      - name: Manage standard storage with cool access 
+      - name: Manage storage with cool access 
         href: manage-cool-access.md
     - name: Update Terraform-managed volume
       href: terraform-manage-volume.md

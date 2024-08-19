@@ -59,8 +59,8 @@ Creating a capacity pool enables you to create volumes within it.
     >[!NOTE]
     >[!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
-    * **Enable cool access**  *(for Standard service level only)*   
-        This option specifies whether volumes in the capacity pool support cool access. This option is currently supported for the Standard service level only. For details about using this option, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+    * **Enable cool access**
+        This option specifies whether volumes in the capacity pool support cool access. For details about using this option, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md). 
 
     * **QoS**   
         Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  See [Storage Hierarchy](azure-netapp-files-understand-storage-hierarchy.md) and [Performance Considerations](azure-netapp-files-performance-considerations.md) to understand the QoS types.  
