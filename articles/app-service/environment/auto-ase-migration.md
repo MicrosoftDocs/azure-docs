@@ -166,10 +166,12 @@ We encourage you to complete migration to Azure App Service Environment v3 as so
 
 ## Frequently asked questions
 
-- **Why am I experiencing temporary application outages?**  
+- **Why am I experiencing temporary application outages on my App Service Environment v1/v2?**  
   The Azure platform is preparing for the retirement of Cloud Services (Classic), which is the infrastructure that App Service Environment v1 and v2 run on. As part of this preparation, you should expect temporary outages and service disruptions. To minimize the impact of these disruptions, we recommend that you migrate to App Service Environment v3 as soon as possible.
 - **Why was my App Service Environment auto-migrated?**  
   App Service Environment v1 and v2 are retired and no longer supported. The supporting infrastructure for App Service Environment v1 and v2 is being decommissioned. To ensure that your App Service Environment is running on a supported platform, Microsoft initiates auto-migrations to App Service Environment v3.
+- **Why are my apps not working after auto-migration?**  
+  After an auto-migration, you might encounter issues with your apps or services due to feature updates or incompatibilities. To address these issues, see [Address issues caused by an auto-migration](#address-issues-caused-by-an-auto-migration).
 - **What is the downtime during the migration process?**  
   There's about one hour of downtime during the migration process. The inbound and outbound IP addresses of your App Service Environment might change during the migration process. Downtime might be longer if you have dependencies on these IP addresses. Downtime might also be longer if you use features that aren't supported in App Service Environment v3.
 - **Will I be charged for auto-migrations?**  
