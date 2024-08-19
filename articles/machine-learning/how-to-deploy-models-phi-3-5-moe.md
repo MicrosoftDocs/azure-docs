@@ -41,7 +41,7 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3.5 MoE chat model with Azure AI Studio, you need the following prerequisites:
+To use Phi-3.5 MoE chat model with Azure Machine Learning, you need the following prerequisites:
 
 ### A model deployment
 
@@ -52,7 +52,7 @@ Phi-3.5 MoE chat model can be deployed to our self-hosted managed inference solu
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### The inference package installed
 
@@ -75,7 +75,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3.5 MoE chat model.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3.5 MoE chat model.
 
 ### Create a client to consume the model
 
@@ -216,7 +216,7 @@ print_stream(result)
 
 #### Explore more parameters supported by the inference client
 
-Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](reference-model-inference-api.md).
 
 ```python
 from azure.ai.inference.models import ChatCompletionsResponseFormat
@@ -291,7 +291,7 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3.5 MoE chat model with Azure AI Studio, you need the following prerequisites:
+To use Phi-3.5 MoE chat model with Azure Machine Learning studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -302,7 +302,7 @@ Phi-3.5 MoE chat model can be deployed to our self-hosted managed inference solu
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### The inference package installed
 
@@ -323,7 +323,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3.5 MoE chat model.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3.5 MoE chat model.
 
 ### Create a client to consume the model
 
@@ -476,7 +476,7 @@ for await (const event of sses) {
 
 #### Explore more parameters supported by the inference client
 
-Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API](reference-model-inference-api.md).
 
 ```javascript
 var messages = [
@@ -558,7 +558,7 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3.5 MoE chat model with Azure AI Studio, you need the following prerequisites:
+To use Phi-3.5 MoE chat model with Azure Machine Learning studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -569,7 +569,7 @@ Phi-3.5 MoE chat model can be deployed to our self-hosted managed inference solu
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### The inference package installed
 
@@ -613,7 +613,7 @@ using System.Reflection;
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3.5 MoE chat model.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3.5 MoE chat model.
 
 ### Create a client to consume the model
 
@@ -758,7 +758,7 @@ StreamMessageAsync(client).GetAwaiter().GetResult();
 
 #### Explore more parameters supported by the inference client
 
-Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API](reference-model-inference-api.md).
 
 ```csharp
 requestOptions = new ChatCompletionsOptions()
@@ -837,7 +837,7 @@ You can learn more about the models in their respective model card:
 
 ## Prerequisites
 
-To use Phi-3.5 MoE chat model with Azure AI Studio, you need the following prerequisites:
+To use Phi-3.5 MoE chat model with Azure Machine Learning studio, you need the following prerequisites:
 
 ### A model deployment
 
@@ -848,7 +848,7 @@ Phi-3.5 MoE chat model can be deployed to our self-hosted managed inference solu
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
-> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+> [Deploy the model to managed compute](concept-model-catalog.md#deploy-models-for-inference-with-managed-compute)
 
 ### A REST client
 
@@ -862,7 +862,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI Studio with the same code and structure, including Phi-3.5 MoE chat model.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure Machine Learning studio with the same code and structure, including Phi-3.5 MoE chat model.
 
 ### Create a client to consume the model
 
@@ -1023,7 +1023,7 @@ The last message in the stream has `finish_reason` set, indicating the reason fo
 
 #### Explore more parameters supported by the inference client
 
-Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API](reference-model-inference-api.md).
 
 ```json
 {
@@ -1145,8 +1145,7 @@ It is a good practice to start with a low number of instances and scale up as ne
 
 ## Related content
 
-
-* [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
+* [Azure AI Model Inference API](reference-model-inference-api.md)
 * [Deploy models as serverless APIs](deploy-models-serverless.md)
 * [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
 * [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
