@@ -57,17 +57,18 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure API Management](../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
 [Azure Application Gateway and Web Application Firewall](relocation-app-gateway.md)| ✅ | ❌| ❌ |
 [Azure App Service](../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |  ❌| ❌ |
-[Azure Backup (Recovery Services vault)](../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅| ❌ |
+[Azure Backup](relocation-backup.md)| ✅ | ❌| ❌ |
 [Azure Batch](../batch/account-move.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Cache for Redis](../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json)| ✅ |  ❌| ❌ |
-[Azure Container Registry](../container-registry/manual-regional-move.md)|✅ | ✅|  ❌  |
+[Azure Container Registry](relocation-container-registry.md)|✅ | ✅| ❌ |
 [Azure Cosmos DB](relocation-cosmos-db.md)|✅ | ✅|  ❌  |
-[Azure Database for MariaDB Server](../mariadb/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
-[Azure Database for MySQL Server](../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)✅ | ✅|  ❌  |
+[Azure Database for MariaDB Server](/azure/mariadb/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
+[Azure Database for MySQL Server](/azure/mysql/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json)✅ | ✅|  ❌  |
 [Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)| ✅ | ✅| ❌ |
 [Azure Event Grid domains](relocation-event-grid-domains.md)| ✅ | ❌| ❌ |
 [Azure Event Grid custom topics](relocation-event-grid-custom-topics.md)| ✅ | ❌| ❌ |
 [Azure Event Grid system topics](relocation-event-grid-system-topics.md)| ✅ | ❌| ❌ |
+[Azure Firewall](./relocation-firewall.md)|❌ | ✅| ❌ |
 [Azure Functions](../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |❌  | ❌ |
 [Azure Logic apps](../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json)|  ✅| ❌ | ❌ |
 [Azure Monitor - Log Analytics](./relocation-log-analytics.md)| ✅| ❌ | ❌ |

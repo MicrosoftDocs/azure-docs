@@ -16,11 +16,11 @@ Message routing enables users to route different data types, including device te
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body isn't in JSON format, message routing can still route the message, but queries can't be applied to the message body.  Queries are described as Boolean expressions where, if true, the query succeeds and routes all the incoming data; otherwise, the query fails and the incoming data isn't routed. If the expression evaluates to a null or undefined value, it's treated as a Boolean false value, and generates an error in the IoT Hub [routes resource logs](monitor-iot-hub-reference.md#routes). The query syntax must be correct for the route to be saved and evaluated.  
+Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body isn't in JSON format, message routing can still route the message, but queries can't be applied to the message body. Queries are described as Boolean expressions where, if true, the query succeeds and routes all the incoming data; otherwise, the query fails and the incoming data isn't routed. If the expression evaluates to a null or undefined value, it's treated as a Boolean false value, and generates an error in the IoT Hub [routes resource logs](monitor-iot-hub-reference.md#routes-category). The query syntax must be correct for the route to be saved and evaluated.  
 
 ## Query based on message properties
 
-IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols. IoT Hub assumes the following JSON representation of the message. System properties are added for all users and identify content of the message. Users can selectively add application properties to the message. We recommend using unique property names because IoT Hub device-to-cloud messaging isn't case-sensitive. For example, if you have multiple properties with the same name, IoT Hub will only send one of the properties.  
+IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols. IoT Hub assumes the following JSON representation of the message. System properties are added for all users and identify content of the message. Users can selectively add application properties to the message. We recommend using unique property names because IoT Hub device-to-cloud messaging isn't case-sensitive. For example, if you have multiple properties with the same name, IoT Hub only sends one of the properties.  
 
 ```json
 { 
@@ -64,7 +64,7 @@ Application properties are user-defined strings that can be added to the message
 
 ### Message properties query expressions
 
-A query on message system properties must be prefixed with the `$` symbol. Queries on application properties are accessed with their name and shouldn't be prefixed with the `$`symbol. If an application property name begins with `$`, then IoT Hub first searches for it in the system properties, and if it's not found will then search for it in the application properties. The following examples show how to query on system properties and application properties.
+A query on message system properties must be prefixed with the `$` symbol. Queries on application properties are accessed with their name and shouldn't be prefixed with the `$`symbol. If an application property name begins with `$`, then IoT Hub first searches for it in the system properties, and if it's not found then searches for it in the application properties. The following examples show how to query on system properties and application properties.
 
 To query on the system property contentEncoding:
 
@@ -88,7 +88,7 @@ A full list of supported operators and functions is provided in the [expression 
 
 ## Query based on message body
 
-To enable querying on a message body, the message should be in a JSON format and encoded in either UTF-8, UTF-16 or UTF-32. The `contentType` system property must be `application/JSON`. The `contentEncoding` system property must be one of the UTF encoding values supported by that system property. If these system properties aren't specified, IoT Hub won't evaluate the query expression on the message body.
+To enable querying on a message body, the message should be in a JSON format and encoded in either UTF-8, UTF-16 or UTF-32. The `contentType` system property must be `application/JSON`. The `contentEncoding` system property must be one of the UTF encoding values supported by that system property. If these system properties aren't specified, IoT Hub doesn't evaluate the query expression on the message body.
 
 The following JavaScript example shows how to create a message with a properly formed and encoded JSON body:
 

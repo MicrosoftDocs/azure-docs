@@ -498,18 +498,18 @@ Azure service: [Storage](/azure/storage/)
 
 ## Microsoft.StorageCache
 
-File caching for high-performance computing (HPC).
+File caching and Lustre file system capabilities for high-performance computing (HPC).
 
-Azure service: [Azure HPC Cache](/azure/hpc-cache/)
+Azure services: [Azure HPC Cache](/azure/hpc-cache/), [Azure Managed Lustre](/azure/azure-managed-lustre/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.StorageCache/register/action | Registers the subscription for the storage cache resource provider and enables creation of Azure HPC Cache resources |
+> | Microsoft.StorageCache/register/action | Registers the subscription for the storage cache resource provider and enables creation of Azure HPC Cache and Azure Managed Lustre resources |
 > | Microsoft.StorageCache/preflight/action |  |
 > | Microsoft.StorageCache/checkAmlFSSubnets/action | Validates the subnets for Amlfilesystem |
 > | Microsoft.StorageCache/getRequiredAmlFSSubnetsSize/action | Calculate the number of ips needed |
-> | Microsoft.StorageCache/unregister/action | Azure HPC Cache resource provider |
+> | Microsoft.StorageCache/unregister/action | Azure HPC Cache and Azure Managed Lustre resource provider |
 > | Microsoft.StorageCache/amlFilesystems/read | Gets the properties of an amlfilesystem |
 > | Microsoft.StorageCache/amlFilesystems/write | Creates a new amlfilesystem, or updates an existing one |
 > | Microsoft.StorageCache/amlFilesystems/delete | Deletes the amlfilesystem instance |

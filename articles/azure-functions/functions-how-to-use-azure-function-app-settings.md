@@ -357,6 +357,7 @@ Consider these limitations when you develop your functions in the [Azure portal]
 + In-portal editing is supported only for JavaScript, PowerShell, Python, and C# Script functions.
 + In-portal editing isn't supported in the preview release of the [Flex Consumption plan](flex-consumption-plan.md#considerations).
 + When you deploy code to a function app from outside the Azure portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md).
++ For Python, development with custom modules isn't currently supported in the portal. To add custom modules to your function app, you must [develop your app locally](functions-develop-local.md).
 + For compiled C# functions and Java functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
 
 When possible, develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
@@ -474,7 +475,7 @@ You can't currently update CORS settings using Azure PowerShell.
 
 ### <a name="auth"></a>Authentication
 
-When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Microsoft Entra authentication and sign-in with social providers, such as Facebook, Microsoft, and Twitter. For information about configuring specific authentication providers, see [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md).
+When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Microsoft Entra authentication and sign-in with social providers, such as Facebook, Microsoft, and X. For information about configuring specific authentication providers, see [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md).
 
 ![Screenshot that shows how to configure authentication for a function app.](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

@@ -3,7 +3,7 @@ title: How to enable Java metrics for Java apps in Azure Container Apps
 description: Java metrics and configuration Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.date: 05/10/2024
 ms.author: cshoe
@@ -113,7 +113,7 @@ Use the following steps to view metrics visualizations for your container app.
 
     :::image type="content" source="media/java-metrics/azure-container-apps-java-metrics-visualization.png" alt-text="Screenshot of Java metrics visualization." lightbox="media/java-metrics/azure-container-apps-java-metrics-visualization.png":::
 
-You can see Java metric names on Azure Monitor, but the data sets report as empty unless you use the `--enable-java-metrics` parameter to enable Java metrics.
+You can see Java metric names on Azure Monitor, but the data sets show as empty unless the feature is enabled. Refer to the [Configuration](#configuration) section for how to enable it.
 
 ## Next steps
 

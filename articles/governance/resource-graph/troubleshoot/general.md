@@ -104,5 +104,5 @@ Include at least one subscription in the subscription list that the customer run
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
 - Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-- Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 - If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

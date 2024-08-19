@@ -4,7 +4,7 @@ description: Learn more about Guidance for mitigating silicon based micro-archit
 services: virtual-machines
 author: ju-shim
 keywords: spectre,meltdown,specter
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 02/26/2024

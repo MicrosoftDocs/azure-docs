@@ -3,7 +3,7 @@ title: Back up SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to back up SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
 ms.date: 08/11/2022
-ms.service: backup
+ms.service: azure-backup
 ms.custom: devx-track-azurecli
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

@@ -1,0 +1,32 @@
+items:
+  - name: De-identification service documentation
+    href: index.yml
+  - name: Overview
+    expanded: true
+    items:
+      - name: What is the de-identification service?
+        href: overview.md
+  - name: Quickstarts
+    expanded: true
+    items:
+      - name: Deploy the de-identification service
+        href: quickstart.md
+      - name: Azure Health De-identification client library for .NET
+        href: quickstart-sdk-net.md
+  - name: How-to
+    expanded: true
+    items:
+      - name: Use managed identities
+        href: managed-identities.md
+      - name: Use Azure role-based access control
+        href: manage-access-rbac.md
+  - name: Reference
+    items:
+      - name: .NET SDK
+        href: /dotnet/api/overview/azure/healthdeidentification
+      - name: Python SDK
+        href: /python/api/overview/azure/health-deidentification
+      - name: Java SDK
+        href: /java/api/overview/azure/health-deidentification
+      - name: JavaScript SDK
+        href: /javascript/api/overview/azure/health-deidentification

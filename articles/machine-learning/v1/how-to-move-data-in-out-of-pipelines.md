@@ -3,7 +3,7 @@ title: 'Moving data in ML pipelines'
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning pipelines ingest data, and how to manage and move data between pipeline steps.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.author: lagayhar
 author: lgayhardt

@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 ms.custom: references_regions
-ms.date: 07/12/2024
+ms.date: 08/16/2024
 ---
 
 | **Region**     | **gpt-4**, **0613**   | **gpt-4**, **1106-Preview**   | **gpt-4**, **0125-Preview**   | **gpt-4**, **turbo-2024-04-09**   | **gpt-4o**, **2024-05-13**   | **gpt-4-32k**, **0613**   | **gpt-35-turbo**, **1106**   | **gpt-35-turbo**, **0125**   |
@@ -24,12 +24,12 @@ ms.date: 07/12/2024
 | northcentralus     | ✅                | ✅                        | ✅                        | ✅                            | ✅                       | ✅                    | ✅                       | ✅                       |
 | norwayeast         | ✅                | -                       | ✅                        | -                           | -                      | ✅                    | -                      | -                      |
 | polandcentral      | ✅                | ✅                        | ✅                        | -                           | -                      | ✅                    | ✅                       | ✅                       |
-| southafricanorth   | ✅                | ✅                        | -                       | -                           | -                      | ✅                    | ✅                       | -                      |
+| southafricanorth   | ✅                | ✅                        | -                       | ✅                            | -                      | ✅                    | ✅                       | -                      |
 | southcentralus     | ✅                | ✅                        | ✅                        | ✅                            | ✅                       | ✅                    | ✅                       | ✅                       |
 | southindia         | ✅                | ✅                        | ✅                        | -                           | ✅                       | ✅                    | ✅                       | ✅                       |
 | swedencentral      | ✅                | ✅                        | ✅                        | ✅                            | ✅                       | ✅                    | ✅                       | ✅                       |
 | switzerlandnorth   | ✅                | ✅                        | ✅                        | ✅                            | ✅                       | ✅                    | ✅                       | ✅                       |
 | switzerlandwest    | -               | -                       | -                       | -                           | -                      | -                   | -                      | ✅                       |
-| uksouth            | ✅                | ✅                        | ✅                        | ✅                            | -                      | ✅                    | ✅                       | ✅                       |
+| uksouth            | ✅                | ✅                        | ✅                        | ✅                            | ✅                       | ✅                    | ✅                       | ✅                       |
 | westus             | ✅                | ✅                        | ✅                        | ✅                            | ✅                       | ✅                    | ✅                       | ✅                       |
 | westus3            | ✅                | ✅                        | ✅                        | ✅                            | ✅                       | ✅                    | ✅                       | ✅                       |

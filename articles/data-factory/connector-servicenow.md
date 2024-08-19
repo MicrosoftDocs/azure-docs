@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from ServiceNow to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/17/2024
+ms.date: 08/06/2024
 ---
 
 # Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
@@ -35,6 +34,10 @@ This ServiceNow connector is supported for the following capabilities:
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 The service provides a built-in driver to enable connectivity. Therefore you don't need to manually install any driver using this connector.
+
+## Prerequisite
+
+To use this connector, you need to have a role with at least read access to *sys_db_object* and *sys_dictionary* tables in ServiceNow.
 
 ## Getting started
 

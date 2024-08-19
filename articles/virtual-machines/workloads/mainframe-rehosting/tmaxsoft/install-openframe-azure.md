@@ -6,7 +6,7 @@ author: johnjrayborn
 ms.author: johnray
 ms.date: 04/19/2023
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: mainframe-rehosting
 ms.custom: linux-related-content
 ---

@@ -34,7 +34,7 @@ The [data collection rule](../essentials/data-collection-rule-overview.md) defin
 - How Azure Monitor transforms events during ingestion.
 - The destination Log Analytics workspace and table to which Azure Monitor sends the data.
 
-You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Analytics workspace.
+You can define a data collection rule to send data from multiple machines to a Log Analytics workspaces, including  workspace in a different region or tenant. Create the data collection rule in the *same region* as your Analytics workspace.
 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
@@ -64,7 +64,7 @@ To create the data collection rule in the Azure portal:
 
     [ ![Screenshot that shows the Azure portal form to select firewall logs in a data collection rule.](media/data-collection-firewall-log/firewall-data-collection-rule.png)](media/data-collection-firewall-log/firewall-data-collection-rule.png#lightbox)
 
-1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
+1. On the **Destination** tab, add a destination for the data source.
 
     [ ![Screenshot that shows the Azure portal form to add a data source in a data collection rule.](media/data-collection-firewall-log/data-collection-rule-destination.png) ](media/data-collection-firewall-log/data-collection-rule-destination.png#lightbox)
 

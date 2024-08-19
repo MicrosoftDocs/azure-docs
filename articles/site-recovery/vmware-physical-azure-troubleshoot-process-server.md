@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the Azure Site Recovery process server
 description: This article describes how to troubleshoot issues with the Azure Site Recovery process server
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: ankitadutta

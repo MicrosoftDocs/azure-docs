@@ -4,7 +4,7 @@ description: Learn how to migrate the Azure API Management self-hosted gateway t
 services: api-management
 author: tomkerkhove
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/08/2022
 ms.author: tomkerkhove

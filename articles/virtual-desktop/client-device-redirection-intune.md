@@ -16,7 +16,7 @@ ms.date: 05/29/2024
 > [!TIP]
 > This article contains information for multiple products that use the Remote Desktop Protocol (RDP) to provide remote access to Windows desktops and applications.
 
-Redirection of resources and peripherals from a user's local device to a remote session from Azure Virtual Desktop or Windows 365 using the Remote Desktop Protocol (RDP), such as the clipboard, camera, and audio, is normally governed by central configuration of a host pool and its session hosts. Client device redirection is configured for Windows App and the Remote Desktop app using a combination of Microsoft Intune app configuration policies, app protection policies, and Microsoft Entra Conditional Access on a user's local device.
+Redirection of resources and peripherals from a user's local device to a remote session from Azure Virtual Desktop or Windows 365 over the Remote Desktop Protocol (RDP), such as the clipboard, camera, and audio, is normally governed by central configuration of a host pool and its session hosts. Client device redirection is configured for Windows App and the Remote Desktop app using a combination of Microsoft Intune app configuration policies, app protection policies, and Microsoft Entra Conditional Access on a user's local device.
 
 These features enable you to achieve the following scenarios:
 
@@ -294,4 +294,4 @@ Now that you configure Intune to manage device redirection on personal devices, 
 
 Configuring redirection settings for Windows App and the Remote Desktop app on a client device using Microsoft Intune has the following limitation:
 
-- When you configure client device redirection for the Remote Desktop or Windows App on iOS and iPadOS, multifactor authentication (MFA) requests might get stuck in a loop. A common scenario of this issue happens when the Remote Desktop or Windows App is being run on an Intune enrolled iPhone and the same iPhone is being used to receive MFA requests from the Microsoft Authenticator app when signing into the Remote Desktop or Windows App. To work around this issue, use the Remote Desktop or Windows App on a different device (such as an iPad) from the device being used to receive MFA requests (an iPhone).
+- When you configure client device redirection for the Remote Desktop app or Windows App on iOS and iPadOS, multifactor authentication (MFA) requests might get stuck in a loop. A common scenario of this issue happens when the Remote Desktop app or Windows App is being run on an Intune enrolled iPhone and the same iPhone is being used to receive MFA requests from the Microsoft Authenticator app when signing into the Remote Desktop app or Windows App. To work around this issue, use the Remote Desktop app or Windows App on a different device (such as an iPad) from the device being used to receive MFA requests (such as an iPhone).

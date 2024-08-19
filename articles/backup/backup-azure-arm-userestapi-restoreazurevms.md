@@ -2,7 +2,7 @@
 title: Restore Azure VMs using REST API
 description: In this article, learn how to manage to restore operations of Azure Virtual Machine Backup using REST API.
 ms.topic: how-to
-ms.service: backup
+ms.service: azure-backup
 ms.date: 04/24/2024
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 author: AbhishekMallick-MS

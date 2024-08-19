@@ -5,7 +5,7 @@ description: Important reference material needed when you monitor Load Balancer.
 author: mbender-ms
 ms.topic: reference
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.date: 05/24/2024
 ms.custom: subject-monitoring
 ---

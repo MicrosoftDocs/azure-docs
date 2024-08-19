@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 06/20/2024
+ms.date: 08/07/2024
 #customer intent: As an azure administrator, I want to send Prometheus metrics from my self-managed Prometheus instance to an Azure Monitor workspace.
 ---
 
@@ -26,7 +26,6 @@ Use user-assigned managed identity authentication for services running self mana
 
 - Azure Virtual Machines
 - Azure Virtual Machine Scale Sets
-- Azure Arc-enabled Virtual Machines
 - Azure Kubernetes Service (AKS)
 
 To set up remote write for Azure-managed resources, see [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication).
@@ -34,9 +33,12 @@ To set up remote write for Azure-managed resources, see [Remote-write using user
 
 ## Virtual machines and Kubernetes clusters running on non-Azure environments.
 
-If you have virtual machines, or a Kubernetes cluster in non-Azure environments, and you don't want to onboard to Azure Arc, install self-managed Prometheus, and configure remote-write using Microsoft Entra ID application authentication. For more information, see [Remote-write using Microsoft Entra ID application authentication](#remote-write-using-microsoft-entra-id-application-authentication).
+If you have virtual machines or a Kubernetes cluster in non-Azure environments, or you have onboarded to Azure Arc, install self-managed Prometheus, and configure remote-write using Microsoft Entra ID application authentication. For more information, see [Remote-write using Microsoft Entra ID application authentication](#remote-write-using-microsoft-entra-id-application-authentication).
 
-Onboarding to Azure Arc-enabled services allows you to manage and configure non-Azure virtual machines in Azure. Once onboarded, configure [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication) authentication. For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
+Onboarding to Azure Arc-enabled services allows you to manage and configure non-Azure virtual machines in Azure. For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview). Arc-enabled services only support Microsoft Entra ID authentication.
+ 
+> [!NOTE]
+> System-assigned managed identity is not supported for remote-write to Azure Monitor workspaces. Use user-assigned managed identity or Microsoft Entra ID application authentication.
 
 
 ## Prerequisites
@@ -64,7 +66,7 @@ Use the Azure portal or CLI to create a user-assigned managed identity or Micros
 
 ### Remote-write using user-assigned managed identity authentication
 
-User-assigned managed identity authentication can be used in any Azure-managed environment. If your Prometheus service is running in a non-Azure environment, you can use Entra ID application authentication.
+User-assigned managed identity authentication can be used in any Azure-managed environment. If your Prometheus service is running in a non-Azure environment, you can use Microsoft Entra ID application authentication.
 
 To configure a user-assigned managed identity for remote-write to Azure Monitor workspace, complete the following steps.
 
@@ -123,7 +125,7 @@ For each Virtual Machine Scale Set in the resource group, assign the managed ide
 ### [Microsoft Entra ID application](#tab/entra-application)
 ### Remote-write using Microsoft Entra ID application authentication
 
-Microsoft Entra ID application authentication can be used in any environment. If your Prometheus service is running in an Azure-managed environment consider using user-assigned managed identity authentication.
+Microsoft Entra ID application authentication can be used in any environment. If your Prometheus service is running in an Azure-managed environment, consider using user-assigned managed identity authentication.
 
 To configure remote-write to Azure Monitor workspace using a Microsoft Entra ID application, create an Entra application. On Azure Monitor workspace's data collection rule, assign the `Monitoring Metrics Publisher` role to the Entra application.
 
@@ -201,15 +203,15 @@ Note the value of the `clientId` of the managed identity that you create. This I
 
     ```azurecli
     {
-      "clientId": "abcdef01-a123-b456-d789-0123abc345de",
-      "id": "/subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity",
+      "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity",
       "location": "eastus",
       "name": "PromRemoteWriteIdentity",
-      "principalId": "98765432-0123-abcd-9876-1a2b3c4d5e6f",
+      "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
       "resourceGroup": "rg-001",
       "systemData": null,
       "tags": {},
-      "tenantId": "ffff1234-aa01-02bb-03cc-0f9e8d7c6b5a",
+      "tenantId": "ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d",
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
     }
     ```
@@ -227,8 +229,8 @@ Note the value of the `clientId` of the managed identity that you create. This I
     ```azurecli
     az role assignment create \
     --role "Monitoring Metrics Publisher" \
-    --assignee abcdef01-a123-b456-d789-0123abc345de \
-    --scope /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.Insights/dataCollectionRules/amw-001
+    --assignee 00001111-aaaa-2222-bbbb-3333cccc4444 \
+    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.Insights/dataCollectionRules/amw-001
     ```
 
 1. Assign the managed identity to a Virtual Machine or Virtual Machine Scale Set.
@@ -256,7 +258,7 @@ Note the value of the `clientId` of the managed identity that you create. This I
     az vm identity assign \
     -g rg-prom-on-vm \
     -n win-vm-prom \
-    --identities /subscriptions/12345678-abcd-1234-abcd-1234567890ab/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity
+    --identities /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/rg-001/providers/Microsoft.ManagedIdentity/userAssignedIdentities/PromRemoteWriteIdentity
     ```
 For more information, see [az identity create](/cli/azure/identity#az-identity-create) and [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
@@ -273,15 +275,15 @@ For example,
 az ad sp create-for-rbac \
 --name PromRemoteWriteApp \
 --role "Monitoring Metrics Publisher" \
---scopes /subscriptions/abcdef00-1234-5678-abcd-1234567890ab/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.nsights/dataCollectionRules/amw-001
+--scopes /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MA_amw-001_eastus_managed/providers/Microsoft.nsights/dataCollectionRules/amw-001
 ```    
 The following is an example of the output displayed:    
 ```azurecli
 {
-  "appId": "01234567-abcd-ef01-2345-67890abcdef0",
+  "appId": "66667777-aaaa-8888-bbbb-9999cccc0000",
   "displayName": "PromRemoteWriteApp",
-  "password": "AbCDefgh1234578~zxcv.09875dslkhjKLHJHLKJ",
-  "tenant": "abcdef00-1234-5687-abcd-1234567890ab"
+  "password": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+  "tenant": "ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d"
 }
 ```
 
