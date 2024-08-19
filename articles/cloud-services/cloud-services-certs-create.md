@@ -2,7 +2,7 @@
 title: Cloud Services (classic) and management certificates | Microsoft Docs
 description: Learn about how to create and deploy certificates for cloud services and for authenticating with the management API in Azure.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
