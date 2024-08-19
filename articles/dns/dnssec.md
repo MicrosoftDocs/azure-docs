@@ -3,9 +3,8 @@ title: What is DNSSEC?
 description: Learn about DNSSEC zone signing for Azure public DNS.
 author: greg-lindsay
 manager: KumuD
-ms.service: dns
+ms.service: azure-dns
 ms.topic: article
-ms.custom:
 ms.date: 07/30/2024
 ms.author: greglin
 ---

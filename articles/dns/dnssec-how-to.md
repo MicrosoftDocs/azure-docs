@@ -1,9 +1,8 @@
 ---
 title: How to sign your Azure pubic DNS zone with DNSSEC (Preview)
 description: Learn how to sign your Azure public DNS zone with DNSSEC. 
-services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: how-to
 ms.date: 08/19/2024
 ms.author: greglin
@@ -62,7 +61,7 @@ To protect your DNS zone with DNSSEC, you must first sign the zone. The zone sig
 
 ### Zone signing
 
-# [Azure portal](#tab2/sign-portal)
+#### [Azure portal](#tab2/sign-portal)
 
 To sign your zone with DNSSEC using the Azure portal:
 
@@ -97,7 +96,7 @@ To sign your zone with DNSSEC using the Azure portal:
 
     ![Screenshot of a fully signed and delegated zone.](media/dnssec-how-to/delegated.png)
 
-# [Azure CLI](#tab2/sign-cli)
+#### [Azure CLI](#tab2/sign-cli)
 
 Register for the preview using the Azure CLI:
 
@@ -107,7 +106,7 @@ Get-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace "Micros
 Register-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace Microsoft.Network
 ```
 
-# [Azure CLI](#tab2/sign-powershell)
+#### [Azure CLI](#tab2/sign-powershell)
 
 Register for the preview using PowerShell:
 
