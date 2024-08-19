@@ -62,7 +62,7 @@ To protect your DNS zone with DNSSEC, you must first sign the zone. The zone sig
 
 ### Zone signing
 
-# [Azure portal](#tab/sign-portal)
+# [Azure portal](#tab2/sign-portal)
 
 To sign your zone with DNSSEC using the Azure portal:
 
@@ -81,7 +81,7 @@ To sign your zone with DNSSEC using the Azure portal:
 
 5. Copy the delegation information and use it to create a DS record in the parent zone. 
 
-    1. If the parent zone is a top level domain or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has it's own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
+    1. If the parent zone is a top level domain or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
 
         Key Tag: 4535
         Algorithm: 13
@@ -97,7 +97,7 @@ To sign your zone with DNSSEC using the Azure portal:
 
     ![Screenshot of a fully signed and delegated zone.](media/dnssec-how-to/delegated.png)
 
-# [Azure CLI](#tab/sign-cli)
+# [Azure CLI](#tab2/sign-cli)
 
 Register for the preview using the Azure CLI:
 
@@ -107,7 +107,7 @@ Get-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace "Micros
 Register-AzProviderFeature -FeatureName AllowDnsSecSigning -ProviderNamespace Microsoft.Network
 ```
 
-# [Azure CLI](#tab/sign-powershell)
+# [Azure CLI](#tab2/sign-powershell)
 
 Register for the preview using PowerShell:
 
